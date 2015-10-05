@@ -1,0 +1,355 @@
+# Microsoft Developer Studio Generated Dependency File, included by GeoLib.mak
+
+.\alberfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\alberinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\alconfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\alconinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\azimfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\aziminv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\cproj.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\eqconfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\eqconinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\equifor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\equiinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\for_init.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\GeoLib.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\gnomfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\gnominv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\goodfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\goodinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\gvnspfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\gvnspinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\hamfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\haminv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\imolwfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\imolwinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\inv_init.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\lamazfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\lamazinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\lamccfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\lamccinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\merfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\merinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\millfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\millinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\molwfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\molwinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\nzmgfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	".\nzmg.h"\
+	
+
+.\nzmginv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	".\nzmg.h"\
+	
+
+.\obleqfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\obleqinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\omerfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\omerinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\orthfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\orthinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\paksz.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\polyfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\polyinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\psfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\psinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\report.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\robfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\robinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\sinfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\sininv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\somfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\sominv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\sphdz.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\sterfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\sterinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\stplnfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	".\nads.h"\
+	
+
+.\stplninv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	".\nads.h"\
+	
+
+.\tmfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\tminv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\untfz.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\utmfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\utminv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\vandgfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\vandginv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\wivfor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\wivinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\wviifor.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	
+
+.\wviiinv.cpp : \
+	".\cproj.h"\
+	".\geolib.h"\
+	

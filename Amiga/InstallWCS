@@ -1,0 +1,358 @@
+; $VER: World Construction Set Install Version 1.0 (12-Aug-94)
+; Script to Install the World Construction Set System Software.
+; By Gary R. Huber.
+; Questar Productions
+;
+;=============================================================================
+;Constants
+
+
+;(set DATA_SIZE   4000000)
+
+(set INST_WCS  1)
+(set INST_MUI  2)
+(set INST_DATA  4)
+
+
+;=============================================================================
+; Procedures
+
+
+(Procedure Config_Options
+  (set osversion (/ (getversion) 65536))
+  (if (=(database "cpu") "68000")
+    ( (SET @InstallOpts %1011101)
+      (SET Accelerator 0)
+    )
+    ( (SET @InstallOpts %1011110)
+      (SET Accelerator 1)
+    )
+  )
+)
+
+
+(Procedure Get_Selections
+  (set Selection
+    (askoptions
+      (prompt "Please select which parts of the World Construction Set system you would like to install.\n"
+		"WCS employs MagicUserInterface to create its GUI.\n"
+		"If MUI is already installed on your system you should not re-install it at this time.\n")
+      (help   "     The WCS system software includes:\n\n"
+              "World Construction Set\n"
+        "  A 3D Geographic Information System.\n"
+              "  Requires version 2.04 of the Amiga Operating System\n"
+              "      or higher\n"
+              "  The 680x0 version is optimized for the 68020/30/40\n"
+              "  processors and also requires a 68881/2 coprocessor.\n\n"
+              "MagicUserInterface Version 2.0\n"
+        "  The Graphical User Interface for WCS and many other programs.\n\n"
+              "Sample Data\n"
+        "  Enough data to get you started.\n\n"
+      )
+      (choices
+        "World Construction Set"
+        "MagicUserInterface"
+        "Sample Data"
+      )
+      (default %00000111)
+    )
+  )
+
+  ( while (= Selection 0)
+    ((message "You did not select anything, so there is nothing to do.")
+     (Get_Selections)
+    )
+  )
+)
+
+
+(Procedure Install_Libs
+  (run "RAM:lha -E -N e RAM:WCS.lha libs/#? ram:")
+  (copylib
+    (prompt "Installing muimaster.library")
+    (source "Ram:Libs/muimaster.library")
+    (dest "Libs:")
+    (confirm)
+    (help "")
+  )
+  (delete "Ram:libs/muimaster.library" "Ram:libs")
+)
+
+(Procedure Install_Classes
+  (Make_MUIClassDir)
+  (run "RAM:lha -E -N e RAM:WCS.lha MUI/#? WCSClasses:")
+)
+
+
+(Procedure Make_MUIClassDir
+  ( set class-dest
+    (askdir
+      (prompt "Please select directory to install MUI Classes into.\n")
+      (Help @askdir-help)
+      (newpath)
+      (default ("SYS:Classes"))
+    )
+  )
+  ( if (= (exists class-dest) 0)
+    (makedir class-dest (infos))
+  )
+  (makeassign "WCSClasses" class-dest)
+)
+
+(Procedure Make_WCSProgDir
+  ( set prog-dest
+    (askdir
+      (prompt "Please select directory to install WCS into.")
+      (Help @askdir-help)
+      (newpath)
+      (default (tackon @default-dest "WCS"))
+    )
+  )
+  ( if (= (exists prog-dest) 0)
+    (makedir prog-dest (infos))
+  )
+  (makeassign "WCSProg" prog-dest)
+)
+
+(Procedure Make_WCSProjDir
+  ( set proj-dest
+    (askdir
+      (prompt "Please select directory to install WCS Projects into.")
+      (Help @askdir-help)
+      (newpath)
+;      (default (tackon @default-dest "WCSProjects"))
+      (default (tackon prog-dest "WCSProjects"))
+    )
+  )
+  ( if (= (exists proj-dest) 0)
+    (makedir proj-dest (infos))
+  )
+  (makeassign "WCSProjects" proj-dest)
+)
+
+(Procedure Make_WCSFrameDir
+  ( set frame-dest
+    (askdir
+      (prompt "Please select directory for WCS Image output.")
+      (Help @askdir-help)
+      (newpath)
+;      (default (tackon @default-dest "WCSFrames"))
+      (default (tackon prog-dest "WCSFrames"))
+    )
+  )
+  ( if (= (exists frame-dest) 0)
+    (makedir frame-dest (infos))
+  )
+  (makeassign "WCSFrames" frame-dest)
+)
+
+(Procedure Install_WCS
+  (if (= Accelerator 1)
+    (set WCSVersion
+      (askchoice
+        (prompt "Please select which version of WCS you wish to Install:")
+        (help   "WCS:\n"
+          "  The 68020/30/40 version is optimized\n"
+          "   for the 68020/30/40 processors and also\n"
+          "   requires a 68881/2 coprocessor. If you\n"
+          "   have an Amiga 3000 or 4000 use this version.\n\n"
+          "  This is the only version of WCS currently\n"
+          "   available. If you do not own an accelerated\n"
+          "   machine contact Questar Productions at the\n"
+          "   phone number in the WCS Operator's Manual. Do\n"
+          "   not proceed with installation.\n"
+;          "  The 68000/10 version will run on any Amiga.\n"
+        )
+        (choices
+          "68020/68030/68040 with 68881/68882"
+;          "68000/68010 only"
+        )
+        (default 0)
+      )
+    )
+
+  )
+
+  (Make_WCSProgDir)
+
+  (if (= WCSVersion 0)
+    ( (working "Installing WCS")
+      (run "RAM:lha -E -N e RAM:WCS.lha WCS.020 WCSProg:")
+
+      (delete "WCSProg:WCS")
+      (rename "WCSProg:WCS.020" "WCSProg:WCS")
+    )
+  )
+  (run ("RAM:lha -E -N e RAM:WCS.lha WCS.info WCSProg:"))
+  (run ("RAM:lha -E -N e RAM:WCS.lha WCS.Prefs WCSProg:"))
+  (run ("copy WCS1:ReadMe WCSProg:"))
+
+;  (if (= WCSVersion 1)
+;    ( (working "Installing WCS")
+;      (run "RAM:lha -E -N e RAM:WCS.lha WCS WCSProg:")
+;    )
+;  )
+
+  (Make_WCSFrameDir)
+
+)
+
+
+(Procedure Install_Data
+
+;  (if (< (getdiskspace "WCSProjects") DATA_SIZE)
+;    (askbool
+;      (prompt "Not Enough disk space to install Data.")
+;      (help "")
+;    )
+    ( (Copy_Data)
+    )
+;  )
+)
+
+
+(Procedure Copy_Data
+  (askdisk
+    (dest "WCS2")
+    (prompt "Please Insert WCS Disk 2")
+    (help @askdisk-help)
+  )
+  (copyfiles
+    (prompt "")
+    (help "")
+    (source "WCS2:Data.Lha")
+    (dest "RAM:")
+  )
+  ( (working "Installing Data")
+    (run "RAM:lha -E -N e RAM:Data.Lha WCSProjects:")
+  )
+  (delete "RAM:Data.Lha")
+
+  (askdisk
+    (dest "WCS3")
+    (prompt "Please Insert WCS Disk 3")
+    (help @askdisk-help)
+  )
+  (copyfiles
+    (prompt "")
+    (help "")
+    (source "WCS3:Data.Lha")
+    (dest "RAM:")
+  )
+  ( (working "Installing Data")
+    (run "RAM:lha -E -N e RAM:Data.Lha WCSProjects:")
+  )
+  (delete "RAM:Data.Lha")
+
+  (askdisk
+    (dest "WCS4")
+    (prompt "Please Insert WCS Disk 4")
+    (help @askdisk-help)
+  )
+  (copyfiles
+    (prompt "")
+    (help "")
+    (source "WCS4:Data.Lha")
+    (dest "RAM:")
+  )
+  ( (working "Installing Data")
+    (run "RAM:lha -E -N e RAM:Data.Lha WCSProjects:")
+  )
+  (delete "RAM:Data.Lha")
+)
+
+
+(Procedure Modify_StartUp
+  (set NeedMod 0)
+  (set ProjAssign ("Assign WCSProjects: %s\n" proj-dest))
+  (set FramesAssign ("Assign WCSFrames: %s\n" frame-dest))
+  (set ClassPath  ("Assign add LIBS: %s\n" class-dest))
+  (set NeedMod 1)
+
+  (if (= NeedMod 1)
+    (startup "WCS"
+      (prompt
+        "Some instructions need to be added to the \"S:user-startup\" "
+        "so that your system will be properly configured to use " 
+        "the World Construction Set."
+      )
+      (help "Do this or WCS won't be able to find its data!!")
+      (command
+        ProjAssign
+        FramesAssign
+        ClassPath
+      )
+    )
+  )
+)
+
+(Procedure Read_Me
+  (set ReadIt
+    (askbool
+      (prompt "Do you wish to read the 'ReadMe' file which\n"
+        "contains last minute notes and updates since\n"
+        "the last printing of the manuals?\n"
+      )
+      (help "Yeah, Go on..")
+      (default 1)
+    )
+  )
+
+  (if (= ReadIt 1)
+    ( (askdisk
+        (dest "WCS1")
+        (prompt "Please Insert WCS Disk 1")
+        (help @askdisk-help)
+      )
+      (run ("run WCS1:c/More WCS1:ReadMe"))
+    )
+  )
+)
+
+;=============================================================================
+; Here we go...
+
+(set WCS_Installed 0)
+(set MUI_Installed 0)
+(set Data_Installed 0)
+(Config_Options)
+(Get_Selections)
+
+(askdisk
+  (dest "WCS1")
+  (prompt "Please Insert WCS Disk 1")
+        (help @askdisk-help)
+)
+
+(copyfiles
+  (prompt "")
+  (help "")
+  (source "WCS1:c/Lha")
+  (dest "RAM:")
+)
+
+(copyfiles
+  (prompt "")
+  (help "")
+  (source "WCS1:WCS.lha")
+  (dest "RAM:")
+)
+
+(set prog-dest ("SYS:WCS"))
+(set proj-dest ("SYS:WCSProjects"))
+(set frame-dest ("SYS:WCSFrames"))
+(set class-dest ("SYS:Classes"))
+
+(if (BITAND Selection INST_WCS) (Install_WCS))
+(if (BITAND Selection INST_MUI) (Install_Libs))
+(if (BITAND Selection INST_MUI) (Install_Classes))
+(Make_WCSProjDir)
+(if (BITAND Selection INST_DATA) (Install_Data))
+
+(delete "RAM:Lha" "RAM:WCS.lha")
+(if (BITAND Selection INST_WCS) (Modify_Startup))
+(Read_Me)
+
+(set @default-dest prog-dest)
+
+(exit)

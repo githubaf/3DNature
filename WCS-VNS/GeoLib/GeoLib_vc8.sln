@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GeoLib", "GeoLib.vcproj", "{424E772D-5053-4080-AC95-24ECB51945BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Multithread Debug|Win32 = Multithread Debug|Win32
+		Multithread Release|Win32 = Multithread Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{424E772D-5053-4080-AC95-24ECB51945BD}.Multithread Debug|Win32.ActiveCfg = Multithread Debug|Win32
+		{424E772D-5053-4080-AC95-24ECB51945BD}.Multithread Debug|Win32.Build.0 = Multithread Debug|Win32
+		{424E772D-5053-4080-AC95-24ECB51945BD}.Multithread Release|Win32.ActiveCfg = Multithread Release|Win32
+		{424E772D-5053-4080-AC95-24ECB51945BD}.Multithread Release|Win32.Build.0 = Multithread Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,80 @@
+WCSDatabase					// Identifying header
+13								// Number of (fields - 1), currently 13
+53								// Total length of each object, currently 53
+48								// Number of objects in file (counting from 1)
+Name							// fieldname of first field
+10								// fieldlength of first field
+Layer1						// fieldname of 2nd field
+2								// fieldlength of 2nd field
+Layer2						// ...
+3								// ...
+LineWidth
+1
+Color
+2
+Pattern
+1
+Label
+15
+Points
+5
+Mark
+1
+Red
+3
+Grn
+3
+Blu
+3
+Class							// ...
+3								// ...
+MaxFract						// fieldname of last field
+1								// fieldlength of last field
+denver-w.A  TOP102L               00005N255255255TOP9 // first object
+denver-w.B  TOP102L               00005N255255255TOP9
+denver-w.C  TOP102L               00005N255255255TOP9
+denver-w.D  TOP102L               00005N255255255TOP9
+denver-w.E  TOP102L               00005N255255255TOP9
+denver-w.F  TOP102L               00005N255255255TOP9
+denver-w.G  TOP102L               00005N255255255TOP9
+denver-w.H  TOP102L               00005N255255255TOP9
+denver-w.I  TOP102L               00005N255255255TOP9
+denver-w.J  TOP102L               00005N255255255TOP9
+denver-w.K  TOP102L               00005N255255255TOP9
+denver-w.L  TOP102L               00005N255255255TOP9
+denver-w.M  TOP102L               00005N255255255TOP9
+denver-w.N  TOP102L               00005N255255255TOP9
+denver-w.O  TOP102L               00005N255255255TOP9
+denver-w.P  TOP102L               00005N255255255TOP9
+39106.A     TOP102L               00005N255255255TOP9
+39106.B     TOP102L               00005N255255255TOP9
+39106.C     TOP102L               00005N255255255TOP9
+39106.D     TOP102L               00005N255255255TOP9
+39106.E     TOP102L               00005N255255255TOP9
+39106.F     TOP102L               00005N255255255TOP9
+39106.G     TOP102L               00005N255255255TOP9
+39106.H     TOP102L               00005N255255255TOP9
+39106.I     TOP102L               00005Y255255255TOP9
+39106.J     TOP102L               00005Y255255255TOP9
+39106.K     TOP102L               00005N255255255TOP9
+39106.L     TOP102L               00005N255255255TOP9
+39106.M     TOP102L               00005Y255255255TOP9
+39106.N     TOP102L               00005Y255255255TOP9
+39106.O     TOP102L               00005N255255255TOP9
+39106.P     TOP102L               00005N255255255TOP9
+39107.A     TOP102L               00005N255255255TOP9
+39107.B     TOP102L               00005N255255255TOP9
+39107.C     TOP102L               00005N255255255TOP9
+39107.D     TOP102L               00005N255255255TOP9
+39107.E     TOP102L               00005N255255255TOP9
+39107.F     TOP102L               00005N255255255TOP9
+39107.G     TOP102L               00005N255255255TOP9
+39107.H     TOP102L               00005N255255255TOP9
+39107.I     TOP102L               00005N255255255TOP9
+39107.J     TOP102L               00005N255255255TOP9
+39107.K     TOP102L               00005N255255255TOP9
+39107.L     TOP102L               00005N255255255TOP9
+39107.M     TOP102L               00005N255255255TOP9
+39107.N     TOP102L               00005N255255255TOP9
+39107.O     TOP102L               00005N255255255TOP9
+39107.P     TOP102L               00005N255255255TOP9

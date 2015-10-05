@@ -1,0 +1,193 @@
+                            World Construction Set
+               © 1992, 1993, 1994, 1995 by Questar Productions
+          Principal Authors: Gary R. Huber and Chris "Xenon" Hanson
+                             Questar Productions
+
+                               Version 1.105
+                               March 20, 1995
+
+                   *************************************
+          *******************************************************
+**************************************************************************
+*                                                                        *
+*                                IMPORTANT!                              *
+*                                                                        *
+*         This is a complex program and not one which lets you           *
+*     throw the Operator's Manual in a drawer and forget about it. We    *
+**    expect that you will be referring to it a lot (or missing a lot   **
+**    of program features).                                             **
+**                                                                      **
+**        We have included some tutorials that will help familiarize    **
+**    you with WCS. One is found in the "Getting Started" chapter.      **
+**    The rest are in a chapter of their own near the front of the      **
+***   book. There are also about 100 pages of tips and tricks to help  ***
+***   you get the most out of your investment.                         ***
+***                                                                    ***
+***       The tutorial in the "Getting Started" chapter is simply to   ***
+***   render an image. Do not be discouraged by either the quality of  ***
+***   the final image nor the time it takes to render. We thought it   ***
+**    would be good for you to see an aerial view of the terrain        **
+**    supplied with the program and aerials take a while to render.     **
+**        If you then read the "Data Types" chapter and do the other    **
+**    tutorials you will find out how to improve the looks of the       **
+**    initial image.                                                    **
+**                                                                      **
+*         There is only so much room on five diskettes and we chose      *
+*     to give you as much primary data as we could. Additional data      *
+*     needs to be generated to optimize image quality. This data will    *
+*     be generated automatically the first time it is needed so do not   *
+*     be dismayed at the rendering time required for the tutorials.      *
+*                                                                        *
+**************************************************************************
+          *******************************************************
+                   *************************************
+
+
+Greetings, fellow scenery lovers!
+
+   WCS has been shipping for quite a while now and we've been getting a
+lot of feedback from our users. Most of it has been positive we are pleased
+to say.
+   We've also gotten a lot of comments and suggestions which indicated there
+was still some work to do. We've been very busy putting those suggestions
+into the program and generally making it a lot more user-friendly. We feel
+we've gained a lot of ground since the first versions of this program were
+shipped.
+   There are some features such as clouds and fractal terrain generation
+that we would have loved to include but simply couldn't get done for this
+version. If we do clouds they are going to be GREAT clouds and that will
+take some time. We'll let you know about later releases and provide a
+comfortable upgrade path.
+   Be sure to register the program and while you are at it, tell us a little
+about your computer system, other platforms that we should support with
+stand-alone renderers, improvements you would appreciate, and anything else
+you think is important for us to know in order to serve you well.
+   As a little added incentive for you to send in that registration card,
+when you do so we will send you a complimentary copy of the 30 arc-minute
+(Low-res) global DEM set (a $25 value) so please just go ahead and send it
+in before you lose the card.
+
+/***************************************************************************/
+
+   To those who question the sanity of developing for the Amiga nowadays,
+perhaps you have good reason. We prefer to think that a machine with the
+Amiga's capabilities and potential can't just die. We are committed to
+helping keep it alive by providing quality professional software for its
+owners. We hope that perhaps by doing so at least a few more folks, such
+as yourself, will stay loyal to the beleaguered machine we love.
+
+   This said, we have to keep our heads above the sand and smell the winds
+of change. Irregardless of the outcome with Commodore and the Amiga
+technology, the fact is that many of our users already own or have access
+to other equipment, Alphas, SGIs, Pentium PCs, Power Macs, Raptors, etc.
+Undoubtedly this multi-platform phenomenon will increase in the future.
+
+   Our first move in attempting to support the owners of such "alien" devices
+will be to develop some stand-alone, command line renderering engines for
+them. As you will notice when you try rendering very large scenes in WCS,
+the rendering times slow down. We think that there are many users, especially
+among those who make a living doing animations, who will really have a
+need for the faster processors coming out on other platforms. In the near
+future you will see us beginning to support those other systems in a
+limited way.
+
+   What the future holds, we cannot foretell but our vision is to reach out
+to as many computer owners as we can. Eventually there may be full GUI
+versions of World Construction Set for all the major operating systems.
+
+/**************************************************************************/
+
+Bugs...
+
+   But first things first. 
+   You can help us by reporting promptly any bugs that you find (heaven
+forbid there should still be any!). At this point I can honestly say I know
+of no serious bugs in the program. Be sure before reporting a bug that it
+isn't really a feature in disguise. Please read the section of the manual
+dealing with whatever function you are concerned about to make sure there
+isn't something the program is waiting for you to do or some reason we
+thought the program should do things the way it does. In those cases, where
+you disagree with us, let us know. Perhaps others feel the same way and we
+need to change its behavior.
+
+/**************************************************************************/
+
+Visual feedback...
+
+   Also show us some pictures: Perhaps we can give you some extra tips on
+using the program and at the same time learn how accessible various features
+are to our users. This is already a feature-packed program and it promises
+to become even more so with your support. Some of these features are
+difficult to describe and the current preliminary manual is devoid of
+pictures. We realize that deficiency and intend to remedy it. Your input
+can help us put our effort in the most useful places.
+
+/**************************************************************************/
+
+Addenda...
+
+   The manual is hot off the press so additions are rather few at this point. 
+
+======================= Contour Map Style ===========================
+
+   One in fact concerns a new map drawing style in the Map View
+Module. It is called "Contour" and when selected it will give you a real
+contour map presentation. It works best at map scales larger than 2. The
+contour inteval is set by the Exag field in the Map View Control window.
+It is the same interval as is used for the "Multi" gradient drawing style.
+The units are in meters.
+   It is sometimes difficult to see the Interactive elements (Camera, Focus,
+Haze, Sun) in Map View against one of the gray-scale topographic backgrounds.
+Contour style lets you see some of the elevation information while clearly
+letting you see the Interactive elements. This can be a big help when laying
+out key frames for an animation.
+
+======================= DTED Format Import ==========================
+
+   There is a new DEM import format available in the DEM Converter (in the
+Data Ops Module): DTED which stands for Digital Terrain Elevation Data.
+DTED is an internationally accepted standard for terrain model data. We have
+found a source for Canadian DEM data and it is in DTED format.
+   To import a DTED file, follow all the same steps as you would to load a
+VistaPro* or IFF file using the DEM Converter except set the input format
+cycle gadget to DTED before selecting the input file. When the file is
+selected all of the other input format options will be automatically set.
+   You need to set an output file name and should set the number of desired
+output DEMs. Typically you will use four DEMs column-wise in all cases and
+four DEMs row-wise if the input columns is 1201, two DEMs row-wise if the
+input columns is 601 and one DEM if the input columns is 301. Other numbers
+of input columns will be less common: Try and get about 300± columns in each
+output DEM by adjusting the number of "Output DEMs Row-wise" accordingly.
+This will maintain consistency with the data we supply. Consistency really
+isn't the important issue here but we do think those numbers make sense in
+most cases.
+   WCS will supply DEM Registration latitudes and longitudes based on the
+values found in the DTED file header. You can change these if you like or
+accept them as supplied to position the data on the globe.
+
+* VistaPro is a trademark of Virtual Reality Laoratories, Inc.
+
+====================== Render Start Segment ============================
+
+   In the Render Settings window you will find one change: There is a string
+gadget labelled "1st Seg" on the Render & Size page. Use this if you are
+rendering an image in segments (e.g. a large print resolution image) and
+for some reason have to interrupt the rendering. You can restart the
+rendering on the segment following the last complete segment rendered.
+   Be aware that segment numbers start with zero. Segment numbers are posted
+to the Status Log so you can see what the segment number is at the time the
+rendering is cancelled and start with this segment number when you resume.
+
+
+/*************************************************************************/
+
+That's it for now. Have fun and good luck.
+
+Gary Huber & Chris Hanson
+Questar Productions
+1058 Weld Co. Rd. 23.5
+Brighton, Colorado 80601
+USA
+(303) 659-4028
+garhuber@burner.com
+

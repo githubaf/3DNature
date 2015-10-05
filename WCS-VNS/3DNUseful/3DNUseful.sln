@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3DNUseful", "3DNUseful.vcproj", "{146FB444-BFDA-4F27-8689-055E24A07994}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		MT_D|Win32 = MT_D|Win32
+		MT_R|Win32 = MT_R|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{146FB444-BFDA-4F27-8689-055E24A07994}.MT_D|Win32.ActiveCfg = MT_D|Win32
+		{146FB444-BFDA-4F27-8689-055E24A07994}.MT_D|Win32.Build.0 = MT_D|Win32
+		{146FB444-BFDA-4F27-8689-055E24A07994}.MT_R|Win32.ActiveCfg = MT_R|Win32
+		{146FB444-BFDA-4F27-8689-055E24A07994}.MT_R|Win32.Build.0 = MT_R|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

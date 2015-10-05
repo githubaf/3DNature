@@ -1,0 +1,674 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>SCMain</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>SCMain</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>811</width>
+            <height>725</height>
+        </rect>
+    </property>
+    <property name="sizePolicy">
+        <sizepolicy>
+            <hsizetype>5</hsizetype>
+            <vsizetype>5</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+    </property>
+    <property name="minimumSize">
+        <size>
+            <width>811</width>
+            <height>533</height>
+        </size>
+    </property>
+    <property name="sizeIncrement">
+        <size>
+            <width>0</width>
+            <height>0</height>
+        </size>
+    </property>
+    <property name="baseSize">
+        <size>
+            <width>640</width>
+            <height>480</height>
+        </size>
+    </property>
+    <property name="caption">
+        <string>SuperConductor</string>
+    </property>
+    <property name="icon">
+        <pixmap>image0</pixmap>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QGroupBox" row="1" column="1">
+            <property name="name">
+                <cstring>GroupBox2</cstring>
+            </property>
+            <property name="title">
+                <string>Project Control</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel" row="3" column="0" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>PriorityLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Priority</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>Run</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image1</pixmap>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Run Selected Project</string>
+                    </property>
+                </widget>
+                <widget class="QSpinBox" row="3" column="2">
+                    <property name="name">
+                        <cstring>PrioritySpin</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>11</number>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="0" column="1">
+                    <property name="name">
+                        <cstring>Pause</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image2</pixmap>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Pause Selected Project</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="0" column="2">
+                    <property name="name">
+                        <cstring>Stop</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image3</pixmap>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Halt Selected Project</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="2" column="0" rowspan="1" colspan="3">
+                    <property name="name">
+                        <cstring>RemoveProject</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Remove</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Halt and Remove selected project</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="1" column="0" rowspan="1" colspan="3">
+                    <property name="name">
+                        <cstring>AddProject</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Add New</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Add a new project</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QGroupBox" row="2" column="1">
+            <property name="name">
+                <cstring>GroupBox3</cstring>
+            </property>
+            <property name="title">
+                <string>Diagnostics</string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>MessageButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>View Messages</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QGroupBox" row="1" column="0" rowspan="2" colspan="1">
+            <property name="name">
+                <cstring>GroupBox4</cstring>
+            </property>
+            <property name="title">
+                <string>Project Clients</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel" row="0" column="1">
+                    <property name="name">
+                        <cstring>TextLabel2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Client Settings</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="1" column="2">
+                    <property name="name">
+                        <cstring>AddClient</cstring>
+                    </property>
+                    <property name="font">
+                        <font>
+                            <pointsize>10</pointsize>
+                        </font>
+                    </property>
+                    <property name="text">
+                        <string>Add Client</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Add a new client to the selected project</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="2" column="2">
+                    <property name="name">
+                        <cstring>RemoveClient</cstring>
+                    </property>
+                    <property name="font">
+                        <font>
+                            <pointsize>10</pointsize>
+                        </font>
+                    </property>
+                    <property name="text">
+                        <string>Remove Client</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Remove selected client from the current project</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="5" column="2">
+                    <property name="name">
+                        <cstring>ApplySettings</cstring>
+                    </property>
+                    <property name="font">
+                        <font>
+                            <pointsize>10</pointsize>
+                        </font>
+                    </property>
+                    <property name="text">
+                        <string>Apply New
+Settings</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Apply the new settings to the current client</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="3" column="2">
+                    <property name="name">
+                        <cstring>LoadList</cstring>
+                    </property>
+                    <property name="font">
+                        <font>
+                            <pointsize>10</pointsize>
+                        </font>
+                    </property>
+                    <property name="text">
+                        <string>Load Client List</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="4" column="2">
+                    <property name="name">
+                        <cstring>SaveList</cstring>
+                    </property>
+                    <property name="font">
+                        <font>
+                            <pointsize>10</pointsize>
+                        </font>
+                    </property>
+                    <property name="text">
+                        <string>Save Client List</string>
+                    </property>
+                </widget>
+                <spacer row="0" column="2">
+                    <property name="name">
+                        <cstring>spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>81</width>
+                            <height>41</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>TextLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Client List</string>
+                    </property>
+                </widget>
+                <widget class="QTable" row="1" column="1" rowspan="5" colspan="1">
+                    <column>
+                        <property name="text">
+                            <string>Setting</string>
+                        </property>
+                        <property name="pixmap">
+                            <pixmap></pixmap>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Value</string>
+                        </property>
+                        <property name="pixmap">
+                            <pixmap></pixmap>
+                        </property>
+                    </column>
+                    <property name="name">
+                        <cstring>ClientSettingList</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="numRows">
+                        <number>0</number>
+                    </property>
+                    <property name="numCols">
+                        <number>2</number>
+                    </property>
+                    <property name="showGrid">
+                        <bool>false</bool>
+                    </property>
+                    <property name="selectionMode">
+                        <enum>SingleRow</enum>
+                    </property>
+                </widget>
+                <widget class="QListBox" row="1" column="0" rowspan="5" colspan="1">
+                    <property name="name">
+                        <cstring>ClientList</cstring>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QGroupBox" row="0" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>GroupBox1</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>Box</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Sunken</enum>
+            </property>
+            <property name="title">
+                <string>Project Information</string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QListView">
+                    <column>
+                        <property name="text">
+                            <string>Project Name</string>
+                        </property>
+                        <property name="clickable">
+                            <bool>true</bool>
+                        </property>
+                        <property name="resizable">
+                            <bool>true</bool>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Frames</string>
+                        </property>
+                        <property name="clickable">
+                            <bool>true</bool>
+                        </property>
+                        <property name="resizable">
+                            <bool>true</bool>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Avg. time/frame</string>
+                        </property>
+                        <property name="clickable">
+                            <bool>true</bool>
+                        </property>
+                        <property name="resizable">
+                            <bool>true</bool>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Elapsed Time</string>
+                        </property>
+                        <property name="clickable">
+                            <bool>true</bool>
+                        </property>
+                        <property name="resizable">
+                            <bool>true</bool>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Time Remaining(est.)</string>
+                        </property>
+                        <property name="clickable">
+                            <bool>true</bool>
+                        </property>
+                        <property name="resizable">
+                            <bool>true</bool>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Project ID</string>
+                        </property>
+                        <property name="clickable">
+                            <bool>true</bool>
+                        </property>
+                        <property name="resizable">
+                            <bool>true</bool>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Status</string>
+                        </property>
+                        <property name="clickable">
+                            <bool>true</bool>
+                        </property>
+                        <property name="resizable">
+                            <bool>true</bool>
+                        </property>
+                    </column>
+                    <property name="name">
+                        <cstring>ProjectList</cstring>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </grid>
+</widget>
+<menubar>
+    <property name="name">
+        <cstring>menubar</cstring>
+    </property>
+    <item text="Project" name="Project">
+        <action name="fileNewAction"/>
+        <separator/>
+        <separator/>
+        <action name="fileExitAction"/>
+    </item>
+    <item text="Client" name="Client">
+        <action name="clientOpenAction"/>
+        <action name="clientSaveAction"/>
+    </item>
+    <item text="&amp;Help" name="helpMenu">
+        <separator/>
+        <action name="helpAboutAction"/>
+    </item>
+</menubar>
+<toolbars>
+</toolbars>
+<actions>
+    <action>
+        <property name="name">
+            <cstring>fileNewAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image4</iconset>
+        </property>
+        <property name="text">
+            <string>New</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;New Project</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+N</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileExitAction</cstring>
+        </property>
+        <property name="text">
+            <string>Exit</string>
+        </property>
+        <property name="menuText">
+            <string>E&amp;xit</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>helpAboutAction</cstring>
+        </property>
+        <property name="text">
+            <string>About</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;About...</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>clientOpenAction</cstring>
+        </property>
+        <property name="text">
+            <string>Open List</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Open List...</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>clientSaveAction</cstring>
+        </property>
+        <property name="text">
+            <string>Save List</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Save List</string>
+        </property>
+    </action>
+</actions>
+<images>
+    <image name="image0">
+        <data format="PNG" length="395">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af400000152494441545885ed573b6ec3300ca58a4c197d1b730bd029f08d0a4f466e6474ea4c9f2197c815d449aa42d31249237587bed1b0f91e7f4f72202238126f87b2ff050127cf47384c1100001e9f4fcf8996608d15ac3380c3143931874588a9051a720000c43e6a63aa2b2091f34c39b1a612ae21245a8214bc25c82da0ccde3368bb0598d05d4daf9bd790afe0de8a340564c2043688a9cf5e215501b9f745597f6d069e066f1e83a6b77c55cf97bb5fc0568f2d26a3812860d577056a2e89c314b78457d7b0cc3eb7a1bbaaaa70bedce1ebf6703ae14626348f6240a9f72579122f09371b512d9807beb3601ef359d0ca9e830bdf65c5dae3b906b700895c3b7825ea4e887ddc34200379ad52a200a225e45e294a9c1c0fb18f2be36ab4c97529e5e4297344f8319c54b94602cd2b99b46ea5c7f3b2b7d693574875277cffe856412dab26119b04bc1287ff19fd0b385cc037ee5fcd4c1cd537270000000049454e44ae426082</data>
+    </image>
+    <image name="image1">
+        <data format="PNG" length="251">89504e470d0a1a0a0000000d49484452000000300000003008060000005702f987000000c2494441546881edd7bb0a84301484e175f175acacf2fe90adacce03c5220cd8bae73204e66fc442980f85e0d67bffacdc973dc09b00ec046027003b01d809c04e00760298b561d646c4987fda3d0f9bb5715db89b88e3f86dde516f72019eb1206100540d0907a02a481a006543d201280b520640d19072007a423c88e54f62da1b38cf795dee138a1a8eca00d1c3513a206b384a03640f47e180aae1280c503d1cb900732ce73f00b9df006b385afe2416809d00ec046027003b01d809c06e79c00df2423a64bf54b81c0000000049454e44ae426082</data>
+    </image>
+    <image name="image2">
+        <data format="PNG" length="197">89504e470d0a1a0a0000000d49484452000000300000003008060000005702f9870000008c494441546881edd9410a80201400d18caed301bc3fd8cad53f902d22681144160cc2bc9d7c10075a28a552ca34b2993ec05706d00ca0194033806600cd009a015711b945e4d63befb1fcb551446eb59eabdcd6754b6fe6bdfc846806d00ca0194033806600cd00daf001bfbd078efbfdf158b9bbeb3fcd7b257f70c00ca0194033806600cd009a01b4e10376ead2251b6c96cbfc0000000049454e44ae426082</data>
+    </image>
+    <image name="image3">
+        <data format="PNG" length="192">89504e470d0a1a0a0000000d49484452000000300000003008060000005702f98700000087494441546881edd7b10903311005d1d5e176ae00f50f7274910a920397f00f8685995c8b1e6c208db55675eea22f9026804e009d003a017402e804d0b5077cd2017bcf939cbfefef48ce4780bde7799e644255d53c09a2fd0a09a0134027804e009d003a017402e8a2ffc0ff1ddff843f3c605d2daaf90003a017402e804d009a01340d71ef0034d88122a56d142bf0000000049454e44ae426082</data>
+    </image>
+    <image name="image4">
+        <data format="PNG" length="184">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000007f49444154388ded95510a0021084475d9db041ec0e8fa5ecbfdda852d4b11fa6b2028a3570c53a188c00edd7d819935b2504470357f5945559d36000022720f60823d11910b1fac88a894f2f599592d5b52e05aeb6f6cc153e0d6da50ebe12930e2321039f09b0c6fb3542a223ae0033ee085cc2b1d790b3ce1ae3f6f9b150f6d5433af47a4f4c20000000049454e44ae426082</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>fileExitAction</sender>
+        <signal>activated()</signal>
+        <receiver>SCMain</receiver>
+        <slot>fileExit()</slot>
+    </connection>
+    <connection>
+        <sender>helpAboutAction</sender>
+        <signal>activated()</signal>
+        <receiver>SCMain</receiver>
+        <slot>helpAbout()</slot>
+    </connection>
+    <connection>
+        <sender>LoadList</sender>
+        <signal>clicked()</signal>
+        <receiver>SCMain</receiver>
+        <slot>clientOpen()</slot>
+    </connection>
+    <connection>
+        <sender>SaveList</sender>
+        <signal>clicked()</signal>
+        <receiver>SCMain</receiver>
+        <slot>clientSave()</slot>
+    </connection>
+    <connection>
+        <sender>ApplySettings</sender>
+        <signal>clicked()</signal>
+        <receiver>SCMain</receiver>
+        <slot>applySettings()</slot>
+    </connection>
+    <connection>
+        <sender>Run</sender>
+        <signal>clicked()</signal>
+        <receiver>SCMain</receiver>
+        <slot>runClicked()</slot>
+    </connection>
+    <connection>
+        <sender>Pause</sender>
+        <signal>clicked()</signal>
+        <receiver>SCMain</receiver>
+        <slot>pauseClicked()</slot>
+    </connection>
+    <connection>
+        <sender>Stop</sender>
+        <signal>clicked()</signal>
+        <receiver>SCMain</receiver>
+        <slot>stopClicked()</slot>
+    </connection>
+    <connection>
+        <sender>AddClient</sender>
+        <signal>clicked()</signal>
+        <receiver>SCMain</receiver>
+        <slot>clientAdd()</slot>
+    </connection>
+    <connection>
+        <sender>RemoveClient</sender>
+        <signal>clicked()</signal>
+        <receiver>SCMain</receiver>
+        <slot>clientRemove()</slot>
+    </connection>
+    <connection>
+        <sender>RemoveProject</sender>
+        <signal>clicked()</signal>
+        <receiver>SCMain</receiver>
+        <slot>projectRemove()</slot>
+    </connection>
+    <connection>
+        <sender>AddProject</sender>
+        <signal>clicked()</signal>
+        <receiver>SCMain</receiver>
+        <slot>projectAdd()</slot>
+    </connection>
+    <connection>
+        <sender>PrioritySpin</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>SCMain</receiver>
+        <slot>priorityChanged(int)</slot>
+    </connection>
+    <connection>
+        <sender>MessageButton</sender>
+        <signal>clicked()</signal>
+        <receiver>SCMain</receiver>
+        <slot>showMessages()</slot>
+    </connection>
+    <connection>
+        <sender>ClientList</sender>
+        <signal>highlighted(QListBoxItem*)</signal>
+        <receiver>SCMain</receiver>
+        <slot>clientHighlightChanged(QListBoxItem*)</slot>
+    </connection>
+    <connection>
+        <sender>ProjectList</sender>
+        <signal>selectionChanged()</signal>
+        <receiver>SCMain</receiver>
+        <slot>projectSelectionChanged()</slot>
+    </connection>
+    <connection>
+        <sender>fileNewAction</sender>
+        <signal>activated()</signal>
+        <receiver>SCMain</receiver>
+        <slot>projectAdd()</slot>
+    </connection>
+    <connection>
+        <sender>ClientSettingList</sender>
+        <signal>currentChanged(int,int)</signal>
+        <receiver>SCMain</receiver>
+        <slot>clientSettingChanged(int,int)</slot>
+    </connection>
+</connections>
+<slots>
+    <slot>fileExit()</slot>
+    <slot>helpAbout()</slot>
+    <slot>projectAdd()</slot>
+    <slot>projectRemove()</slot>
+    <slot>clientOpen()</slot>
+    <slot>clientSave()</slot>
+    <slot>clientAdd()</slot>
+    <slot>clientRemove()</slot>
+    <slot>runClicked()</slot>
+    <slot>pauseClicked()</slot>
+    <slot>stopClicked()</slot>
+    <slot>applySettings()</slot>
+    <slot>priorityChanged(int newVal)</slot>
+    <slot>projectSelectionChanged()</slot>
+    <slot>clientHighlightChanged(QListBoxItem* theItem)</slot>
+    <slot>clientSettingChanged(QListViewItem* theItem)</slot>
+    <slot>showMessages()</slot>
+    <slot>ClientSettingList_currentChanged(int,int)</slot>
+    <slot>clientSettingChanged(int row, int col)</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

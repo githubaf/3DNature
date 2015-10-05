@@ -1,0 +1,131 @@
+# Makefile for World Construction Set
+# Setup for SAS/6.x
+
+C = sc
+REXXC = rx SMakeIt
+LINK = slink
+LIBS = libvgl.a LIB:sc.lib LIB:amiga.lib
+NOCOPROCLIBS = NoCoProclibvgl.a LIB:sc.lib LIB:amiga.lib
+NOACCELLIBS = NoAccellibvgl.a LIB:sc.lib LIB:amiga.lib
+MATHLIB = LIB:scm881.lib
+NOCOPROCMATHLIB = LIB:scmieee.lib
+NOACCELMATHLIB = LIB:scmieee.lib
+STARTUP = LIB:c.o
+WITHS = WCSObjs.lnk lib:utillib.with
+NOACCELWITHS = WCSObjs.lnk
+DEBUG = "DEBUG=FULLFLUSH"
+
+MAINHEADERS = WCS.h Defines.h Headers.h Proto.h Version.h
+MAINOBJS = AGUI.o BitMaps.o ColorBlends.o Cloud.o DataBase.o DataOps.o DefaultParams.o  \
+ DEM.o DEMObject.o DLG.o EdPar.o Foliage.o Fractal.o GenericParams.o\
+ GlobeMap.o GlobeMapSupport.o Images.o InteractiveDraw.o\
+ InteractiveUtils.o InteractiveView.o LineSupport.o LWSupport.o MakeFaces.o Map.o\
+ MapExtra.o MapLineObject.o MapSupport.o MapTopo.o MapTopoObject.o\
+ MapUtil.o Memory.o nngridr.o nncrunch.o Params.o RexxSupport.o Support.o Tree.o Wave.o\
+ Commands.o GrammarTable.o VocabTable.o
+
+GUIHEADERS = GUIDefines.h GUIExtras.h
+GUIOBJS = CloudGUI.o DataOpsGUI.o DEMGUI.o DiagnosticGUI.o DispatchGUI.o EditGUI.o EdMoGUI.o EdDBaseGUI.o EdEcoGUI.o\
+ EdSetGUI.o EdSetExtrasGUI.o EvenMoreGUI.o FoliageGUI.o GenericTLGUI.o MapGUI.o MoreGUI.o ParamsGUI.o PlotGUI.o TimeLinesGUI.o TLSupportGUI.o \
+ ScratchPad.o RequesterGUI.o ScreenModeGUI.o WaveGUI.o HyperKhorner4M-1.o\
+ libvgl.a
+#GUIOBJS = CloudGUI.o DataOpsGUI.o DEMGUI.o DiagnosticGUI.o DispatchGUI.o EditGUI.o EdMoGUI.o EdDBaseGUI.o EdEcoGUI.o\
+# EdSetGUI.o EdSetExtrasGUI.o EvenMoreGUI.o FoliageGUI.o GenericTLGUI.o MapGUI.o MoreGUI.o ParamsGUI.o PlotGUI.o TimeLinesGUI.o TLSupportGUI.o GUI.o\
+# ScratchPad.o RequesterGUI.o ScreenModeGUI.o WaveGUI.o HyperKhorner4M-1.o\
+# libvgl.a
+NOCOPROCGUIOBJS = CloudGUI.o DataOpsGUI.o DEMGUI.o DiagnosticGUI.o DispatchGUI.o EditGUI.o EdMoGUI.o EdDBaseGUI.o EdEcoGUI.o\
+ EdSetGUI.o EdSetExtrasGUI.o EvenMoreGUI.o FoliageGUI.o GenericTLGUI.o MapGUI.o MoreGUI.o ParamsGUI.o PlotGUI.o TimeLinesGUI.o TLSupportGUI.o GUI.o\
+ ScratchPad.o RequesterGUI.o ScreenModeGUI.o WaveGUI.o HyperKhorner4M-1.o\
+ NoCoProclibvgl.a
+NOACCELGUIOBJS = CloudGUI.o DataOpsGUI.o DEMGUI.o DiagnosticGUI.o DispatchGUI.o EditGUI.o EdMoGUI.o EdDBaseGUI.o EdEcoGUI.o\
+ EdSetGUI.o EdSetExtrasGUI.o EvenMoreGUI.o FoliageGUI.o GenericTLGUI.o MapGUI.o MoreGUI.o ParamsGUI.o PlotGUI.o TimeLinesGUI.o TLSupportGUI.o GUI.o\
+ ScratchPad.o RequesterGUI.o ScreenModeGUI.o WaveGUI.o HyperKhorner4M-1.o\
+ NoAccellibvgl.a
+
+ALLOBJS = $(GUIOBJS) $(MAINOBJS) 
+NOCOPROCOBJS = $(MAINOBJS) $(NOCOPROCGUIOBJS)
+NOACCELOBJS = $(MAINOBJS) $(NOACCELGUIOBJS)
+ALLHEADERS = $(MAINHEADERS) $(GUIHEADERS)
+
+all: WCS
+
+debug: setdebug setnooptimize WCS.o $(ALLOBJS)
+	@copy envarc:BuildID env:
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS
+
+optimize: setnodebug setoptimize WCS.o $(ALLOBJS)
+	@copy envarc:BuildID env:
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS ND
+
+beta: setnodebug setnooptimize WCS.o $(ALLOBJS)
+	@echo "Enter BuildID Key:"
+	@echo >nil: to env:BuildKey ?
+	@rx selectbuild.rexx $$BuildKey
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS ND
+
+nocoproc: setnodebug setnooptimize WCS.o $(NOCOPROCOBJS)
+	@copy envarc:BuildID env:
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(NOCOPROCMATHLIB) $(NOCOPROCLIBS) TO WCS ND
+
+betanocoproc: setnodebug setnooptimize WCS.o $(NOCOPROCOBJS)
+	@echo "Enter BuildID Key:"
+	@echo >nil: to env:BuildKey ?
+	@rx selectbuild.rexx $$BuildKey
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(NOCOPROCMATHLIB) $(NOCOPROCLIBS) TO WCS ND
+
+noaccel: setnodebug setnooptimize WCS.o $(NOACCELOBJS)
+	@copy envarc:BuildID env:
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(LINK) $(STARTUP) WCS.o WITH $(NOACCELWITHS) LIB $(NOACCELMATHLIB) $(NOACCELLIBS) TO WCS ND
+
+betanoaccel: setnodebug setnooptimize WCS.o $(NOACCELOBJS)
+	@echo "Enter BuildID Key:"
+	@echo >nil: to env:BuildKey ?
+	@rx selectbuild.rexx $$BuildKey
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(NOCOPROCMATHLIB) $(NOCOPROCLIBS) TO WCS ND
+
+WCS: setnodebug setnooptimize WCS.o $(ALLOBJS)
+	@copy envarc:BuildID env:
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS ND
+
+setdebug:
+	@setenv SCDEBUGOPTS $(DEBUG)
+
+setnodebug:
+	@setenv SCDEBUGOPTS NODEBUG
+
+setoptimize:
+	@setenv SCOPTOPTS OPTIMIZE
+
+setnooptimize:
+	@setenv SCOPTOPTS NOOPTIMIZE
+
+WCS.o: WCS.c $(ALLHEADERS)
+	$(C) MAKEGST=WCSGST WCS.c
+	$(C) NOGST WCS.c
+
+AGUI.o: AGUI.c Version.h $(ALLHEADERS)
+	$(C) AGUI.c
+
+# $(MAINOBJS): $(MAINHEADERS)
+# $(GUIOBJS): $(GUIHEADERS) 
+
+HyperKhorner4M-1.o: HyperKhorner4M-1.asm
+	sc HyperKhorner4M-1.asm
+
+.c.o:
+#	@echo "        $(C) $$SCOPTOPTS $$SCDEBUGOPTS $*.c"
+	@$(REXXC) $(C) $$SCOPTOPTS $$SCDEBUGOPTS $*.c
+
+clean:
+	-delete >nil: \#?.o quiet
+	-delete >nil: WCSGST quiet
+	-avail >nil: flush
+

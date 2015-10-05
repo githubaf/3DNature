@@ -1,0 +1,4 @@
+FROM LIB:c.o "ParseTest.o"+"VocabTable.o"+"GrammarTable.o"
+TO "ParseTest"
+LIB LIB:sc.lib LIB:amiga.lib
+

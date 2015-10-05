@@ -1,0 +1,24 @@
+sc-current: qmake -t vcapp
+wcsplugin:  qmake -t vclib
+
+/*
+
+Notes:
+************************
+This is not a source file.  This file is here to serve as a "placeholder" for
+all of my notes.
+************************
+
+Known issues:
+
+-Client sharing between clients is broken.  Don't use a client on more than one project at the same time.  Can use them in projects started concurrently.
+
+-Unpausing doesn't work yet.  Stop/run will work.
+
+-Some path remembering is funky.  Doesn't always work, doesn't work between runs of Superconductor.
+
+-Time until finished estimation not working, nor is time per frame
+
+-Projects with no working clients show Error status.  Not entirely robust code, can cause problems if: You get an error, fix the issue with VNS, and then try starting the project from Superconductor again.
+
+*/

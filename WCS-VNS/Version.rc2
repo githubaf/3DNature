@@ -1,0 +1,57 @@
+//
+// MFC_MultiResources.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+#include "WCSVersion.h"
+#include "WCSVersionMinor.h"
+
+VS_VERSION_INFO VERSIONINFO
+//#ifdef FUBAR
+ FILEVERSION FILEVER
+ PRODUCTVERSION PRODUCTVER
+//#else
+// FILEVERSION 3,0,2007,1109
+// PRODUCTVERSION 3,0,2007,1109
+//#endif // FUBAR
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", APP_PUBLISHER "\0"
+            VALUE "FileDescription", APP_TLA "\0"
+            VALUE "FileVersion", APP_VERS ", " APP_REV ", " APPYEAR ", " APPMONTHDAY "\0"
+            VALUE "InternalName", APP_TLA "\0"
+            VALUE "LegalCopyright", "Copyright © " APP_COPYRIGHT_BASEDATE "\0"
+            VALUE "OriginalFilename", APP_TLA ".exe\0"
+            VALUE "ProductName", APP_TITLE "\0"
+            VALUE "ProductVersion", APP_VERS ", " APP_REV ", " APPYEAR ", " APPMONTHDAY "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END

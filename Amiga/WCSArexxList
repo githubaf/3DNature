@@ -1,0 +1,233 @@
+Chris, here is my list of Parameters and other ARexx necessities.
+
+Parameters
+	Motion
+		Camera Altitude		Value %le	PAR_FIRST_MOTION(0)
+		Camera Latitude		Value %le	PAR_FIRST_MOTION(1)
+		Camera Longitude	Value %le	PAR_FIRST_MOTION(2)
+		Focus Altitude		Value %le	PAR_FIRST_MOTION(3)
+		Focus Latitude		Value %le	PAR_FIRST_MOTION(4)
+		Focus Longitude		Value %le	PAR_FIRST_MOTION(5)
+		Center X		Value %le	PAR_FIRST_MOTION(6)
+		Center Y		Value %le	PAR_FIRST_MOTION(7)
+		Bank			Value %le	PAR_FIRST_MOTION(8)
+		Earth Rotation Rate	Value %le	PAR_FIRST_MOTION(9)
+		Scale			Value %le	PAR_FIRST_MOTION(10)
+		View Arc		Value %le	PAR_FIRST_MOTION(11)
+		Flattening		Value %le	PAR_FIRST_MOTION(12)
+		Datum			Value %le	PAR_FIRST_MOTION(13)
+		Vertical Exaggeration	Value %le	PAR_FIRST_MOTION(14)
+		Sun Latitude		Value %le	PAR_FIRST_MOTION(15)
+		Sun Longitude		Value %le	PAR_FIRST_MOTION(16)
+		Horizon Line		Value %le	PAR_FIRST_MOTION(17)
+		Horizon Point		Value %le	PAR_FIRST_MOTION(18)
+		Horizon Stretch		Value %le	PAR_FIRST_MOTION(19)
+		Haze Start		Value %le	PAR_FIRST_MOTION(20)
+		Haze Range		Value %le	PAR_FIRST_MOTION(21)
+		Shade Factor		Value %le	PAR_FIRST_MOTION(22)
+		Fog None		Value %le	PAR_FIRST_MOTION(23)
+		Fog Full		Value %le	PAR_FIRST_MOTION(24)
+		Z Minimum		Value %le	PAR_FIRST_MOTION(25)
+
+	Motion Key Frame
+		Any of above	KF[i].MoKey.**** where i is the position in the
+						key frame table, not the
+						parameter.
+					KeyFrame %hd	frame number
+					Group    %hd	'0' for motion
+					Item     %hd	par number (see above)
+					TCB[3]   %f[3]	tension, cont, bias
+					Value    %le    value of par
+
+	Color
+		Up to 30 total Colors, the first 12 are fixed in name
+					Name     %c[24] PAR_NAME_COLOR(x)
+					Value[3] %hd[3] PAR_FIRST_COLOR(x, y)
+
+	Color Key Frame
+		Any of above	KF[i].CoKey.**** where i is the position in the
+						key frame table, not the
+						parameter.
+					KeyFrame %hd	frame number
+					Group    %hd	'1' for color
+					Item     %hd	par number (see above)
+					TCB[3]   %f[3]	tension, cont, bias
+					Value[3] %hd[3] RGB values of par
+
+	Ecosystem
+		Up to 20 total ecosystems, the first two are fixed in name
+					Name[24]      %c[24]	PAR_NAME_ECO(x)
+					Line          %hd	PAR_FIRSTLN_ECO(x)
+					Skew          %hd	PAR_FIRSTSK_ECO(x)
+					SkewAz        %hd	PAR_FIRSTSA_ECO(x)
+					RelEl         %hd	PAR_FIRSTRE_ECO(x)
+					MaxRelEl      %hd	PAR_FIRSTXR_ECO(x)
+					MinRelEl      %hd	PAR_FIRSTNR_ECO(x)
+					MaxSlope      %hd	PAR_FIRSTXS_ECO(x)
+					MinSlope      %hd	PAR_FIRSTNS_ECO(x)
+					Type          %hd	PAR_TYPE_ECO(x)
+					Tree[2]       %hd[2]	PAR_TREE_ECO(x, y)
+					Color         %hd	PAR_COLR_ECO(x)
+					UnderEco      %hd	PAR_UNDER_ECO(x)
+					MatchColor[3] %hd[3]	PAR_MTCH_ECO(x, y)
+					Model[32]     %c[32]	PAR_MODEL_ECO(x)
+
+	Ecosystem Key Frame
+		Any of above	KF[i].EcoKey.**** where i is the position in the
+						key frame table, not the
+						parameter.
+					KeyFrame %hd	frame number
+					Group    %hd	'2' for ecosystem
+					Item     %hd	par number (see above)
+					TCB[3]   %f[3]	tension, cont, bias
+					Line     %hd    value
+					Skew     %hd    value
+					SkewAz   %hd    value
+					RelEl    %hd    value
+					MaxRelEl %hd    value
+					MinRelEl %hd    value
+					MaxSlope %hd    value
+					MinSlope %hd    value
+
+	Render Settings		settings.****
+		startframe	%hd	Frame to start rendering
+		maxframes	%hd	Maximum number of frames to render
+		bankturn	%hd	Compute turn banking while rendering
+		colrmap		%hd	Use Color Maps if available
+		borderandom	%hd	Randomize Color Map borders
+		cmaptrees	%hd	Tint trees with Color Map colors
+		stepframes	%hd	Frame render interval
+		zbufalias	%hd	Restrict blur effect to Z-buffer limited offsets
+		horfix		%hd	Fix the horizon according to the Motion params
+		clouds		%hd	Use cloud shadow maps if available
+		linefade	%hd	Haze and shade vectors
+		drawgrid	%hd	Draw grid on Surface DEMs
+		gridsize	%hd	Grid interval in DEM cells
+		linetoscreen	%hd	Render vectors to bitmap, file or none
+		mapassfc	%hd	Render all Landscape DEMs as surfaces
+        	surfel[4]	%hd	Surface elevations for Surface color scheme
+		worldmap	%hd	Apply global ecosystem elevation gradients
+		flatteneco	%hd	Apply motion param Flattening and Datum to Ecosystems
+		fixfract	%hd	Fix the fractal depth
+		vecsegs		%hd	Number of vector segments to render in each frame if object is segmented vector
+        	reliefshade	%hd		
+		renderopts	%hd	Render to RGB buf, screen, diagnostic buffers
+		scrnwidth	%hd	Image width
+		scrnheight	%hd	Image height
+ 		rendersegs	%hd	Number of segments to render image in
+		overscan	%hd	Pixels to overscan at bottom of image
+		lookahead	%hd	Align camera to path
+		composite	%hd	Concatenate rendered segments
+		defaulteco	%hd	Ecosystem to use if no match found, also screen eco drawn when there is a Color Map
+		ecomatch	%hd	Match Color Map colors to Ecosystems if possible
+		saveIFF		%hd	Image file save format
+		background	%hd	Use background image or sequence
+		zbuffer		%hd	Use Z Buffer to discriminate background
+		antialias	%hd	Blur rendered image
+		fractal		%hd	Maximum global fractal depth
+		aliasfactor	%hd	Blur factor
+		exportzbuf	%hd	Save Z Buffer when rendering is complete
+		zformat		%hd	Format to save Z Buffer
+		fieldrender	%hd	Field Render images
+	 	lookaheadframes	%hd	Number of frames to "look ahead" at if Look Ahead is enabled
+		velocitydistr	%hd	Distribute velocities in animation to smooth motion roughness
+		easein		%hd	Frames to ramp velocity up if Velocity Distribution is enabled
+		easeout		%hd	Frames to ramp velocity down if Velocity Distribution is enabled
+ 	
+		zalias		%le	Distance offset to limit Z Buffer Blur operator
+		bankfactor	%le	Amount of turn banking to apply
+		skyalias	%le	Number of color points to vary sky dithering
+		lineoffset	%le	Z value to offset vectors so they show up
+		treefactor	%le	A tree height multiplier in pixels
+		picaspect	%le	Image pixel aspect
+		zenith		%le	Zenith altitude if horizon is not fixed according to the motion params
+		globecograd	%le	Gradient to apply to ecosystems
+		globsnowgrad	%le	Gradient to apply to snow ecosystem
+		globreflat	%le	Reference latitude for ecosystem and snow gradients
+
+Project
+	projectpath	%s	Project path
+	projectname	%s	Project file name
+	dbasepath	%s	Database path
+	dbasename	%s	Database file name
+	parampath	%s	Parameter path
+	paramfile	%s	Parameter file name
+	framepath	%s	Rendered frame path
+	framefile	%s	Rendered frame name
+	linepath	%s	Rendered Vector save path
+	linefile	%s	Rendered Vector save file name
+	zbufferpath	%s	Z Buffer sequence path
+	zbufferfile	%s	Z Buffer sequence file name
+	backgroundpath	%s	Background sequence path
+	backgroundfile	%s	Background sequence file name
+	graphpath	%s	Graphic save path (for IFF screen shots...)
+	graphname	%s	Graphic save name
+	colormappath	%s	Color Map path
+	dirname		%s	Default Directory
+	temppath	%s	Field storage
+	tempfile	%s	Field name
+	modelpath	%s	Ecosystem Model path
+
+Other ARexx must-haves
+	Create new Directory List
+		project dirlist clear
+	Add path to Directory List
+		project dirlist path add %s
+	Default Directory
+		project dirlist default %s
+	Load Database
+		database load %s
+	Save Database
+		database save [%s]
+	Select Database in Database
+		database select ...
+	Enable Items in Database
+		database enabled=[on|off]
+	Change Database fields
+		database <field>=<value>
+	Set Project paths and file names
+		project <whatever>=<value>
+	Load Project
+		project load %s
+	Save Project
+		project save [%s]
+	Load Parameters
+		parameters load %s
+	Save Parameters
+		parameters save [%s]
+	Set Parameter
+		parameter <name>=<value>
+	Make Key Frame
+		parameter keyframe make <key>
+	Delete Key Frame
+		parameter keyframe delete <key>
+	Set Render Size		a new feature that lets you render at 1/2 or 1/4 size
+		render size = [full|half|quarter]
+	Set Render Priority	(low, normal, high)
+		render priority = [low|normal|high]
+	Save screen as IFF
+		project savescreen %s
+	Open Map View
+		[project] mapview [open]
+	Resize Map View window
+		[project] mapview setsize <w>,<h>
+	Set Map View parameters: Lat, Lon, Scale, Exag, Draw mode, Palette...
+		[project] mapview {latitude,longitude,exag,drawmode,palette}=<value>
+	Draw Map View
+		[project] mapview draw
+	Render Image/Animation
+		[project] [module] render [NoGUIWarnings]
+	Open Camera View
+		[project] [module] CamView
+	Set frame number displayed
+		[project] [module] CamView currentframe=<value>
+	Draw terrain grid
+		[project] [module] camview draw
+	Set CamView drawing modes
+		[project] [module] Camview drawmode
+	
+
+I'm sure there are many other commands that would be useful. This is just
+the list that came to mind and would certainly be a good start.
+
+note: parameter == parameters

@@ -1,0 +1,40 @@
+00xx             : 4    x 4 -bit symbols
+01xxxx           : 16   x 6 -bit symbols
+10xxxxxx         : 64   x 8 -bit symbols
+11xxxxxx xxxxx   : 4096 x 14-bit symbols
+                   4180 total symbols
+
+0xxx             : 8    x 4 -bit symbols
+10xxxx           : 16   x 6 -bit symbols
+110xxxxx         : 32   x 8 -bit symbols
+111xxxxx xxxxxx  : 2048 x 14-bit symbols
+                   2104 total symbols
+
+
+0xxx      : 8   x 4-bit symbols
+1xxxxxxx  : 128 x 8-bit symbols
+            136 total symbols
+
+0xxx      : 8  x 4-bit symbols
+10xxxx    : 16 x 6-bit symbols
+11xxxxxx  : 64 x 8-bit symbols
+            88 total symbols
+
+0xxxx     : 16  x 5-bit symbols   BAD
+1xxxxxx   : 64  x 7-bit symbols   BAD
+            80 total symbols      BAD
+
+---
+LABHC
+
+0xx       : 4   x 3-bit symbols
+1xxx      : 8   x 4-bit symbols
+
+0xxx      : 8   x 4-bit symbols
+1xxxx     : 16  x 5-bit symbols
+
+0xxxx     : 16  x 5-bit symbols
+1xxxxx    : 32  x 6-bit symbols
+
+
+

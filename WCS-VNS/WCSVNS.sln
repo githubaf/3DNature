@@ -1,0 +1,44 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VNS", "VNS.vcproj", "{78E7D670-EA79-483A-B77B-F983722EF506}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Demo Debug|Win32 = Demo Debug|Win32
+		Demo Debug|x64 = Demo Debug|x64
+		Demo Release|Win32 = Demo Release|Win32
+		Demo Release|x64 = Demo Release|x64
+		VNS2 RTX Debug|Win32 = VNS2 RTX Debug|Win32
+		VNS2 RTX Debug|x64 = VNS2 RTX Debug|x64
+		VNS2 RTX Release|Win32 = VNS2 RTX Release|Win32
+		VNS2 RTX Release|x64 = VNS2 RTX Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78E7D670-EA79-483A-B77B-F983722EF506}.Demo Debug|Win32.ActiveCfg = Demo Debug|Win32
+		{78E7D670-EA79-483A-B77B-F983722EF506}.Demo Debug|Win32.Build.0 = Demo Debug|Win32
+		{78E7D670-EA79-483A-B77B-F983722EF506}.Demo Debug|x64.ActiveCfg = Demo Debug|x64
+		{78E7D670-EA79-483A-B77B-F983722EF506}.Demo Debug|x64.Build.0 = Demo Debug|x64
+		{78E7D670-EA79-483A-B77B-F983722EF506}.Demo Release|Win32.ActiveCfg = Demo Release|Win32
+		{78E7D670-EA79-483A-B77B-F983722EF506}.Demo Release|Win32.Build.0 = Demo Release|Win32
+		{78E7D670-EA79-483A-B77B-F983722EF506}.Demo Release|x64.ActiveCfg = Demo Release|x64
+		{78E7D670-EA79-483A-B77B-F983722EF506}.Demo Release|x64.Build.0 = Demo Release|x64
+		{78E7D670-EA79-483A-B77B-F983722EF506}.VNS2 RTX Debug|Win32.ActiveCfg = VNS2 RTX Debug|Win32
+		{78E7D670-EA79-483A-B77B-F983722EF506}.VNS2 RTX Debug|Win32.Build.0 = VNS2 RTX Debug|Win32
+		{78E7D670-EA79-483A-B77B-F983722EF506}.VNS2 RTX Debug|x64.ActiveCfg = VNS2 RTX Debug|x64
+		{78E7D670-EA79-483A-B77B-F983722EF506}.VNS2 RTX Debug|x64.Build.0 = VNS2 RTX Debug|x64
+		{78E7D670-EA79-483A-B77B-F983722EF506}.VNS2 RTX Release|Win32.ActiveCfg = VNS2 RTX Release|Win32
+		{78E7D670-EA79-483A-B77B-F983722EF506}.VNS2 RTX Release|Win32.Build.0 = VNS2 RTX Release|Win32
+		{78E7D670-EA79-483A-B77B-F983722EF506}.VNS2 RTX Release|x64.ActiveCfg = VNS2 RTX Release|x64
+		{78E7D670-EA79-483A-B77B-F983722EF506}.VNS2 RTX Release|x64.Build.0 = VNS2 RTX Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		AMDCaProjectFile = C:\Data\WCSDev\W7V3\wcs\CodeAnalyst\WCSVNS.caw
+	EndGlobalSection
+EndGlobal

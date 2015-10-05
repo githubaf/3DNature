@@ -1,0 +1,4 @@
+FROM LIB:c.o "findoffset_nomath.o"
+TO "findoffset_nomath"
+LIB LIB:sc.lib LIB:amiga.lib
+

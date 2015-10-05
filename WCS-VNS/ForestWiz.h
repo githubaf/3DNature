@@ -1,0 +1,293 @@
+// ForestWiz.h
+// Header file for ForestWiz
+// Created from scratch on 2/4/04 by Gary R. Huber
+// Copyright 2004 Questar Productions. All rights reserved.
+
+#ifndef WCS_FORESTWIZ_H
+#define WCS_FORESTWIZ_H
+
+enum
+	{
+	WCS_FORESTWIZ_WIZPAGE_WELCOME,
+	WCS_FORESTWIZ_WIZPAGE_CANCEL,
+	WCS_FORESTWIZ_WIZPAGE_CONFIRM,
+	WCS_FORESTWIZ_WIZPAGE_COMPLETE,
+	WCS_FORESTWIZ_WIZPAGE_COMPLETEERROR,
+	WCS_FORESTWIZ_WIZPAGE_PAGEERROR,
+	WCS_FORESTWIZ_WIZPAGE_CMAPORVEC,
+	WCS_FORESTWIZ_WIZPAGE_IMGLOADED,
+	WCS_FORESTWIZ_WIZPAGE_SELIMG,
+	WCS_FORESTWIZ_WIZPAGE_FINDIMG,
+	WCS_FORESTWIZ_WIZPAGE_CLICKORNUM,
+	WCS_FORESTWIZ_WIZPAGE_CMAPCLICKIMG,
+	WCS_FORESTWIZ_WIZPAGE_CMAPNUMERIC,
+	WCS_FORESTWIZ_WIZPAGE_ANALYZEIMG,
+	WCS_FORESTWIZ_WIZPAGE_UNIDENTCOLOR,
+	WCS_FORESTWIZ_WIZPAGE_NORANGES,
+	WCS_FORESTWIZ_WIZPAGE_UNMATCHEDCOLOR,
+	WCS_FORESTWIZ_WIZPAGE_NOCMAPMATCHES,
+	WCS_FORESTWIZ_WIZPAGE_UNITBASICINFO,
+	WCS_FORESTWIZ_WIZPAGE_VECLOADED,
+	WCS_FORESTWIZ_WIZPAGE_LOADVEC,
+	WCS_FORESTWIZ_WIZPAGE_SPSCENARIO,
+	WCS_FORESTWIZ_WIZPAGE_ISTHEREVEG,
+	WCS_FORESTWIZ_WIZPAGE_HTDENSATTRIBS,
+	WCS_FORESTWIZ_WIZPAGE_SELONESPFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELONESIZEFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELONEDENSFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELFIRSTSPFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELSECONDSPFIELD,
+	WCS_FORESTWIZ_WIZPAGE_DENSITYMETHOD,
+	WCS_FORESTWIZ_WIZPAGE_AREAUNITS,
+	WCS_FORESTWIZ_WIZPAGE_BASALAREAUNITS,
+	WCS_FORESTWIZ_WIZPAGE_MULTIDBHFIELD,
+	WCS_FORESTWIZ_WIZPAGE_ONEORTWODBHFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELONEDBHFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELFIRSTDBHFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELSECONDDBHFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELMULTIDBHFIELD,
+	WCS_FORESTWIZ_WIZPAGE_DBHUNITS,
+	WCS_FORESTWIZ_WIZPAGE_CLOSUREPRECISION,
+	WCS_FORESTWIZ_WIZPAGE_SIZEMETHOD,
+	WCS_FORESTWIZ_WIZPAGE_SIZEUNITS,
+	WCS_FORESTWIZ_WIZPAGE_SIZEAGEEQUIV,
+	WCS_FORESTWIZ_WIZPAGE_SIZEDBHEQUIV,
+	WCS_FORESTWIZ_WIZPAGE_SIZEMULT,
+	WCS_FORESTWIZ_WIZPAGE_DBHMULT,
+	WCS_FORESTWIZ_WIZPAGE_HEIGHTTYPE,
+	WCS_FORESTWIZ_WIZPAGE_AVGHEIGHTTYPE,
+	WCS_FORESTWIZ_WIZPAGE_AVGDBHTYPE,
+	WCS_FORESTWIZ_WIZPAGE_AVGAGETYPE,
+	WCS_FORESTWIZ_WIZPAGE_MAXHEIGHTTYPE,
+	WCS_FORESTWIZ_WIZPAGE_MAXDBHTYPE,
+	WCS_FORESTWIZ_WIZPAGE_MAXAGETYPE,
+	WCS_FORESTWIZ_WIZPAGE_MAXMINHEIGHTTYPE,
+	WCS_FORESTWIZ_WIZPAGE_MAXMINDBHTYPE,
+	WCS_FORESTWIZ_WIZPAGE_MAXMINAGETYPE,
+	WCS_FORESTWIZ_WIZPAGE_NUMSIZEFIELD,
+	WCS_FORESTWIZ_WIZPAGE_NUMDENSFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELFIRSTSIZEFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELSECONDSIZEFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELFIRSTDENSFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELSECONDDENSFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELMULTIDENSFIELD,
+	WCS_FORESTWIZ_WIZPAGE_MULTISIZEFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELMULTISIZEFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELMULTISPFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SELMULTISPDENSFIELD,
+	WCS_FORESTWIZ_WIZPAGE_SPDENSPRECISION,
+	WCS_FORESTWIZ_WIZPAGE_POLYBASICINFO,
+	// WCS_FORESTRYWIZARD_ADDPAGE - add the basic page define in any order you want.
+	WCS_FORESTWIZ_NUMPAGES
+	};
+
+#include "WizardlyPage.h"
+#include "PathAndFile.h"
+
+class Raster;
+class LayerEntry;
+class GeneralEffect;
+class MaterialEffect;
+class AnimDoubleCurve;
+
+#define WCS_FORESTWIZ_MAXNUMUNITS	1000
+#define WCS_FORESTWIZ_MAXSPECIES	500
+#define WCS_FORESTWIZ_MAXUNITNAMELEN	128
+
+#define WCS_FORESTWIZECODATA_MAXNUMFOLIAGE	100
+
+class ForestWizEcoData
+	{
+	public:
+		double FolHt[WCS_FORESTWIZECODATA_MAXNUMFOLIAGE];
+		long FolCount[WCS_FORESTWIZECODATA_MAXNUMFOLIAGE];
+		char HasFoliage, GroundTexture;
+		PathAndFile FolNames[WCS_FORESTWIZECODATA_MAXNUMFOLIAGE];
+
+		ForestWizEcoData();
+		~ForestWizEcoData()	{};
+		void Copy(ForestWizEcoData *CopyFrom);
+		long CountFoliageNames(void);
+
+	}; // class ForestWizEcoData
+
+#define WCS_FORESTWIZCLASSDATA_MAXNUMGROUPS	100
+#define WCS_FORESTWIZCLASSDATA_MAXNUMFOLIAGE	20
+
+class ForestWizClassGroupData
+	{
+	public:
+		double FolHt[WCS_FORESTWIZCLASSDATA_MAXNUMFOLIAGE];
+		long FolCount[WCS_FORESTWIZCLASSDATA_MAXNUMFOLIAGE];
+		char GroupName[WCS_FORESTWIZ_MAXUNITNAMELEN];
+		PathAndFile FolNames[WCS_FORESTWIZCLASSDATA_MAXNUMFOLIAGE];
+
+		ForestWizClassGroupData();
+		~ForestWizClassGroupData()	{};
+		void Copy(ForestWizClassGroupData *CopyFrom);
+		long CountFoliageNames(void);
+	}; // class ForestWizClassGroupData
+
+// each of these will map to a unique ecosystem
+// some will have foliage, others may not
+class ForestWizClassData
+	{
+	public:
+		long NumGroups;
+		char HasFoliage, GroundTexture, OverUnder;
+		char PolyName[WCS_FORESTWIZ_MAXUNITNAMELEN];
+		ForestWizClassGroupData Groups[WCS_FORESTWIZCLASSDATA_MAXNUMGROUPS];
+
+		ForestWizClassData();
+		~ForestWizClassData()	{};
+		void Copy(ForestWizClassData *CopyFrom, int VegetationExists);
+
+	}; // class ForestWizClassData
+
+
+enum
+	{
+	WCS_FORESTWIZECODATA_GROUNDTEX_RANDOM,
+	WCS_FORESTWIZECODATA_GROUNDTEX_GRAY,
+	WCS_FORESTWIZECODATA_GROUNDTEX_TAN,
+	WCS_FORESTWIZECODATA_GROUNDTEX_GREEN,
+	WCS_FORESTWIZECODATA_GROUNDTEX_RED,
+	WCS_FORESTWIZECODATA_GROUNDTEX_YELLOW,
+	WCS_FORESTWIZECODATA_GROUNDTEX_BLUE,
+	WCS_FORESTWIZECODATA_GROUNDTEX_WATER,
+	WCS_FORESTWIZECODATA_GROUNDTEX_EARTH,
+	WCS_FORESTWIZECODATA_GROUNDTEX_ROCK,
+	WCS_FORESTWIZECODATA_GROUNDTEX_BOULDER,
+	WCS_FORESTWIZECODATA_GROUNDTEX_GRAVEL,
+	WCS_FORESTWIZECODATA_GROUNDTEX_DRYGRASS,
+	WCS_FORESTWIZECODATA_GROUNDTEX_LAWNGRASS,
+	WCS_FORESTWIZECODATA_GROUNDTEX_DECIDUOUSFOREST,
+	WCS_FORESTWIZECODATA_GROUNDTEX_CONIFERFOREST,
+	WCS_FORESTWIZECODATA_NUMGROUNDTEX
+	}; // ForestWizEcoData GroundTexture
+
+class ForestWiz
+	{
+	public:
+		double SizeThemeMult, AgeEquiv[4], DBHEquiv[4], DBHEquivUnits[4], AvgHeightRange, MinHeightRange, MinHeightAbs, HeightMult,
+			DBHThemeMult, DensityThemeMult, RelativeDensityMult;
+		long UnmatchedColors, FoliageBearingUnits, MatchedCMapColors, NumEcoUnits, NumSpeciesFields, NumSizeFields, 
+			NumDensFields, NumDBHFields, NumClassUnits, NumSpDensFields;
+		char CancelOrder, FinalOrderCancelled, ReviewOrder, CMapOrVec, ImageLoaded, ClickOrNumeric, CMapColorRange,
+			MaxUnitsExceeded, AnalyzeImage, CMapColorResponseEnabled, SpeciesScenario, VegetationExists, LinkViaAttribute,
+			VectorsLoaded, SizeMeasurement, SizeUnits, DBHUnits, HeightType, HDAttribsExist, DensityMethod, ClosurePrecision,
+			DBHThemeUnits, BasalAreaUnits, EcoAreaUnits, SPDensPrecision, ThematicMapsAllowed, MinSizeThemePresent;
+		char CMapMatchNames[WCS_FORESTWIZ_MAXNUMUNITS][WCS_FORESTWIZ_MAXUNITNAMELEN];
+		unsigned char CMapMatchColors[WCS_FORESTWIZ_MAXNUMUNITS][3];
+		PathAndFile CMapImage;
+		Raster *CMapRast;
+		ForestWizEcoData *EcoUnits;
+		ForestWizClassData *ClassUnits;
+		LayerEntry *SpeciesAttr[WCS_FORESTWIZ_MAXSPECIES], *DensAttr[WCS_FORESTWIZ_MAXSPECIES], 
+			*SizeAttr[WCS_FORESTWIZ_MAXSPECIES], *DBHAttr[WCS_FORESTWIZ_MAXSPECIES], *SpDensAttr[WCS_FORESTWIZ_MAXSPECIES];
+		WizardlyPage Wizzes[WCS_FORESTWIZ_NUMPAGES];
+
+		ForestWiz();
+		~ForestWiz();
+		WizardlyPage *ProcessPage(WizardlyPage *ProcessMe, Project *CurProj);
+		int ConfigurePage(WizardlyPage *ConfigMe, unsigned short ConfigPage);
+		void EndOrderCancel(void);
+		int EndOrderComplete(Project *CurProj);
+		void ResolveSizeMultiplier(void);
+		void ResolveDensityMultiplier(void);
+		void ResolveDBHMultiplier(void);
+		int AnalyzeImageColors(void);
+		long CountMatchedColors(void);
+		long CountFoliageBearingUnits(void);
+		Raster *AddCMapImageToLibrary(void);
+		long CMapAddColor(long UnitNumber, char *CMapMatchName, unsigned char *CMapMatchRGB);
+		long CMapFetchColor(long UnitNumber, char *CMapMatchName, unsigned char *CMapMatchRGB);
+		long CountUnmatchedColors(void);
+		int ValidateCMapUnit(long UnitNumber)	{return(CMapMatchNames[UnitNumber][0] && (CMapMatchColors[UnitNumber][0] || CMapMatchColors[UnitNumber][1] || CMapMatchColors[UnitNumber][2]));};
+		ForestWizEcoData *SetupForestWizEcoData(void);
+		int SetEcoData(long EcoNumber, ForestWizEcoData *CopyFrom);
+		int FetchEcoData(long EcoNumber, ForestWizEcoData *CopyTo);
+		int FetchEcoName(long EcoNumber, char *EcoName);
+		int ProcessColorMap(void);
+		int SetEcoProperties(MaterialEffect *EcoMat, long GroundTex);
+		long CountSpecies(int ApplyNames);
+		ForestWizClassData *SetupForestWizClassData(void);
+		int FillSpeciesNames(void);
+		int FetchClassData(long ClassNumber, ForestWizClassData *CopyTo);
+		int FetchSpDensData(long AttrCt, ForestWizClassData *CopyTo);
+		int SetClassData(long ClassNumber, ForestWizClassData *CopyFrom);
+		int ProcessPolygons(Project *CurProj);
+		int ProcessOneSpeciesField(void);
+		int ProcessTwoSpeciesFields(void);
+		int ProcessMultiSpeciesFields(void);
+		int ProcessFARSITESpeciesFields(void);
+		int ProcessPointData(void);
+		int ProcessOneSpeciesFieldPointData(void);
+		GeneralEffect *FindComponent(long CompClass, char *CompName, int &Queried, int &QueryResult, int &Abort, int ForceRemoval);
+		void SetupDBHCurve(AnimDoubleCurve *ADC);
+		void SetupAgeCurve(AnimDoubleCurve *ADC);
+
+	}; // class ForestWiz
+
+enum
+	{
+	WCS_FORESTWIZ_CMAPORVEC_CMAP,
+	WCS_FORESTWIZ_CMAPORVEC_POLYGONS,
+	WCS_FORESTWIZ_CMAPORVEC_POINTDATA
+	}; // CMapOrVec
+
+enum
+	{
+	WCS_FORESTWIZ_CLICKORNUMERIC_CLICK,
+	WCS_FORESTWIZ_CLICKORNUMERIC_NUMERIC
+	}; // ClickOrNumeric
+
+enum
+	{
+	WCS_FORESTWIZ_SPSCENARIO_ONESPECIESFIELD,
+	WCS_FORESTWIZ_SPSCENARIO_TWOSPECIESFIELD,
+	WCS_FORESTWIZ_SPSCENARIO_MULTISPECIESFIELD,
+	WCS_FORESTWIZ_SPSCENARIO_FARSITE
+	}; // SpeciesScenario
+
+enum
+	{
+	WCS_FORESTWIZ_SIZEUNITS_METERS,
+	WCS_FORESTWIZ_SIZEUNITS_CENTIMETERS,
+	WCS_FORESTWIZ_SIZEUNITS_FEET,
+	WCS_FORESTWIZ_SIZEUNITS_INCHES,
+	WCS_FORESTWIZ_SIZEUNITS_OTHER
+	}; // SizeUnits
+
+enum
+	{
+	WCS_FORESTWIZ_SIZEMEASUREMENT_HEIGHT,
+	WCS_FORESTWIZ_SIZEMEASUREMENT_DIAMETER,
+	WCS_FORESTWIZ_SIZEMEASUREMENT_AGE
+	}; // SizeMeasurement
+
+enum
+	{
+	WCS_FORESTWIZ_HEIGHTTYPE_AVERAGE,
+	WCS_FORESTWIZ_HEIGHTTYPE_MAXIMUM,
+	WCS_FORESTWIZ_HEIGHTTYPE_MAXMIN
+	}; // HeightType
+
+enum
+	{
+	WCS_FORESTWIZ_DENSITYMETHOD_STEMS,
+	WCS_FORESTWIZ_DENSITYMETHOD_BASALAREA,
+	WCS_FORESTWIZ_DENSITYMETHOD_CLOSURE
+	}; // DensityMethod
+
+enum
+	{
+	WCS_FORESTWIZ_PRECISION_PERCENTAGE,
+	WCS_FORESTWIZ_PRECISION_DECIMAL
+	}; // ClosurePrecision
+
+
+#define WCS_FORESTWIZ_OVERUNDER_OVERSTORY	(1 << 0)
+#define WCS_FORESTWIZ_OVERUNDER_UNDERSTORY	(1 << 1)
+
+#endif // WCS_FORESTWIZ_H

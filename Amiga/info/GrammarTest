@@ -1,0 +1,201 @@
+PARAMETERS ...
+ LOAD = ParamIO
+ SAVE = ParamIO
+ KEYFRAME ...
+  MAKE = KeyOps
+  DELETE = KeyOps
+ MOTION ...
+  ALL = MotionKey
+  CAMERA ALTITUDE = MotionKey
+  CAMERA LATITUDE = MotionKey
+  CAMERA LONGITUDE = MotionKey
+  FOCUS ALTITUDE = MotionKey
+  FOCUS LATITUDE = MotionKey
+  FOCUS LONGITUDE = MotionKey
+  CENTER X = MotionKey
+  CENTER Y = MotionKey
+  BANK = MotionKey
+  EARTH ROTATION = MotionKey
+  SCALE = MotionKey
+  VIEW ARC = MotionKey
+  FLATTENING = MotionKey
+  DATUM = MotionKey
+  VERTICAL EXAGGERATION = MotionKey
+  SUN LATITUDE = MotionKey
+  SUN LONGITUDE = MotionKey
+  HORIZON LINE = MotionKey
+  HORIZON POINT = MotionKey
+  HORIZON STRETCH = MotionKey
+  HAZE START = MotionKey
+  HAZE RANGE = MotionKey
+  SHADE FACTOR = MotionKey
+  FOG NONE = MotionKey
+  FOG FULL = MotionKey
+  Z MINIMUM = MotionKey
+  TENSION = MotionKey
+  CONTINUITY = MotionKey
+  BIAS = MotionKey
+ COLOR * ...
+  NAME = ColorKey
+  RED = ColorKey
+  GREEN = ColorKey
+  BLUE = ColorKey
+  RGB = ColorKey
+  HUE = ColorKey
+  SATURATION = ColorKey
+  VALUE = ColorKey
+  HSV = ColorKey
+  TENSION = ColorKey
+  CONTINUITY = ColorKey
+  BIAS = ColorKey
+ ECOSYSTEM * ...
+  NAME = EcoKey
+  LINE = EcoKey
+  SKEW = EcoKey
+  SKEW AZ = EcoKey
+  RELEL = EcoKey
+  MAXIMUM RELEL = EcoKey
+  MINIMUM RELEL = EcoKey
+  MAXIMUM SLOPE = EcoKey
+  MINIMUM SLOPE = EcoKey
+  TYPE = EcoKey
+  TREES HEIGHT = EcoKey
+  TREES DENSITY = EcoKey
+  COLOR = EcoKey
+  UNDERSTORY ECOSYSTEM = EcoKey
+  MATCH COLOR RED = EcoKey
+  MATCH COLOR GREEN = EcoKey
+  MATCH COLOR BLUE = EcoKey
+  MODEL FILENAME = EcoKey
+ RENDER SETTINGS ...
+  START FRAMES = RenderSet
+  MAXIMUM FRAMES = RenderSet
+  STEP FRAMES = RenderSet
+  RENDER SEGMENTS = RenderSet
+  BANK TURN = RenderSet
+  SCREEN WIDTH = RenderSet
+  SCREEN HEIGHT = RenderSet
+  OVERSCAN = RenderSet
+  PICTURE ASPECT = RenderSet
+  COLOR MAP = RenderSet
+  BORDER RANDOM = RenderSet
+  COLOR MAP TREES = RenderSet
+  ZBUFFER ALIAS = RenderSet
+  HORIZON FIX = RenderSet
+  CLOUDS = RenderSet
+  LINE FADE = RenderSet
+  DRAW GRID = RenderSet
+  GRID SIZE = RenderSet
+  LINE TO SCREEN = RenderSet
+  MAP AS SURFACE = RenderSet
+  SURFACE = RenderSet
+  WORLD MAP = RenderSet
+  FLATTEN ECOSYSTEM = RenderSet
+  FIXED FRACTAL = RenderSet
+  VECTOR SEGMENTS = RenderSet
+  RELIEF SHADE = RenderSet
+  RENDER OPTIONS = RenderSet
+  LOOKAHEAD = RenderSet
+  COMPOSITE = RenderSet
+  DEFAULT ECOSYSTEM = RenderSet
+  ECOSYSTEM MATCH = RenderSet
+  SAVE IFF = RenderSet
+  BACKGROUND = RenderSet
+  ZBUFFER = RenderSet
+  ANTIALIAS = RenderSet
+  FRACTAL = RenderSet
+  ALIAS FACTOR = RenderSet
+  EXPORT ZBUFFER = RenderSet
+  ZBUFFER FORMAT = RenderSet
+  FIELD RENDER = RenderSet
+  LOOKAHEAD FRAMES = RenderSet
+  VELOCITY DISTRIBUTION = RenderSet
+  EASE IN = RenderSet
+  EASE OUT = RenderSet
+  Z ALIAS = RenderSet
+  BANK FACTOR = RenderSet
+  SKY ALIAS = RenderSet
+  LINE OFFSET = RenderSet
+  TREES FACTOR = RenderSet
+  ZENITH = RenderSet
+  GLOBAL ECOSYSTEM GRADIENT = RenderSet
+  GLOBAL SNOW GRADIENT = RenderSet
+  GLOBAL REFERENCE LATITUDE = RenderSet
+  SIZE ...
+   FULL = RenderSet
+   HALF = RenderSet
+   QUARTER = RenderSet
+  PRIORITY ...
+   LOW = RenderSet
+   NORMAL = RenderSet
+   HIGH = RenderSet
+
+PROJECT ...
+ LOAD = ProjectOps
+ SAVE = ProjectOps
+ SAVE SCREEN = ProjectOps
+ DIRLIST ...
+  CLEAR = ProjectOps
+  PATH ADD = ProjectOps
+  DEFAULT = ProjectOps
+ PROJECT ...
+  PATH = ProjectOps
+  FILENAME = ProjectOps
+ DATABASE ...
+  PATH = ProjectOps
+  FILENAME = ProjectOps
+ PARAMETERS ...
+  PATH = ProjectOps
+  FILENAME = ProjectOps
+ FRAMES ...
+  PATH = ProjectOps
+  FILENAME = ProjectOps
+ LINE ...
+  PATH = ProjectOps
+  FILENAME = ProjectOps
+ ZBUFFER ...
+  PATH = ProjectOps
+  FILENAME = ProjectOps
+ BACKGROUND ...
+  PATH = ProjectOps
+  FILENAME = ProjectOps
+ GRAPH ...
+  PATH = ProjectOps
+  NAME = ProjectOps
+ COLOR MAP PATH = ProjectOps
+ DIR NAME = ProjectOps
+ TEMPORARY ...
+  PATH = ProjectOps
+  FILENAME = ProjectOps
+ MODEL PATH = ProjectOps
+
+DATABASE ...
+ LOAD = DataBase
+ SAVE = DataBase
+ ENABLED ...
+  ON = DataBase
+  OFF = DataBase
+
+[PROJECT] ...
+ QUIT = Quit
+ [MODULE] ...
+  MAPVIEW = MapOps
+  MAPVIEW ...
+   OPEN = MapOps
+   SET SIZE = MapOps
+   LATITUDE = MapOps
+   LONGITUDE = MapOps
+   EXAGGERATION = MapOps
+   DRAW MODE = MapOps
+   PALETTE = MapOps
+   DRAW [SYNC] [ASYNC] = MapOps
+  RENDER [NOGUIWARNINGS] [SYNC] [ASYNC] = RenderOps
+  CAMVIEW = ViewOps
+  CAMVIEW ...
+   CURRENT FRAMES = ViewOps
+   DRAW = ViewOps
+   DRAW MODE = ViewOps
+
+STATUS ...
+ INQUIRE = Status
+ NOTIFYME = Status
