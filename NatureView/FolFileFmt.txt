@@ -1,0 +1,100 @@
+Original flavor [non-portable]
+
+Index File
+
+%s Foliage List Index File[NULL]\n
+char // file version number
+long // number of files
+double, double, double // reference XYZ
+	[number of file entries]
+	%sFoliageList%d.dat[NULL]\n
+	double,double,double // center XYZ
+	double // half cube cell dimension
+	long // number of trees in file
+
+Data File
+%sFoliageList%d.dat[NULL]\n
+char // file version number
+WriteFoliageRecord()
+	short // ElementID
+	float,float,float // XYZ
+	unsigned short // height
+	// Tree
+		unsigned char // BitInfo
+		unsigned char // ImageColorOpacity
+			unsigned char, unsigned char, unsigned char // RGB Color
+	// 3DO
+		unsigned char, unsigned char, unsigned char // XYZ Rotation in fractions of 0...255
+
+
+
+
+NatureView Flavor
+
+
+NatureView Flavor (.nvi) Index File
+unsigned long "NVID" // Magic ID
+unsigned long 0xaabbccdd // Architecture byte order constant in native order
+unsigned long int Version;
+double, double, double Max // Extents of all instances found in files referenced by this index
+double, double, double Min
+double MinHt, MaxHt	// Maximum and Minimum height of objects represented in instances in this file
+char TypeMask // Bit indicating type of entities in instances in this index file (0=2d img, 1=3d obj)
+unsigned long int NumEntries // number of Instance File Records in Index File
+CSYS [size] // beginning of (optional) CoordSys chunk (missing implies Geographic spherical or maybe WGS84)
+	[VNS-style CoordSys]
+WKTP [size] // beginning of (optional) Well-Known-Text PRJ chunk
+	[WKT PRJ]
+INST [size] // beginning of Instance chunk
+	[Instance Records]
+	double, double, double Max // Extents of this instance
+	double, double, double Min
+	double MinHt, MaxHt	// Maximum and Minimum height of objects represented in this instance
+	char TypeMask // Bit indicating type of entities in this instance (0=2d img, 1=3d obj)
+	char[255] // Filename of this instance file
+
+
+
+NatureView Flavor (.nvi) Instance File
+unsigned long "NVIN" // Magic ID
+unsigned long 0xaabbccdd // Architecture byte order constant in native order
+unsigned long int Version;
+double, double, double Max // Extents of all instances found in this file
+double, double, double Min
+double MinHt, MaxHt	// Maximum and Minimum height of objects represented in this file
+char TypeMask // Bit indicating type of entities in instances in this file (0=2d img, 1=3d obj)
+unsigned long int NumEntries // number of instance entries in this file (1)
+IMGL [size] // image list (singleton)
+	unsigned long int NumImages
+	[Images]
+		float Aspect; H to V aspect of image
+		char Flag; // Flip indicated here
+		NULL Terminated Image file name
+3DOL [size] // 3D object definition (singleton)
+	unsigned long int Num3DO
+	[3D Objects]
+		NULL Terminated 3DO file name
+
+CSYS [size] // beginning of (optional) CoordSys chunk (missing implies Geographic spherical or maybe WGS84) (singleton, exclusive of WKTP)
+	[VNS-style CoordSys]
+WKTP [size] // beginning of (optional) Well-Known-Text PRJ chunk (singleton, exclusive of CSYS)
+	[WKT PRJ]
+INLS [size] // beginning of Instance list chunk (singleton)
+	[Instance List Records]
+	double, double, double Max // Extents of this instance
+	double, double, double Min
+	double, OriginX, OriginY; // Local origin of this instance (Lon, Lat)
+	double MinHt, MaxHt	// Maximum and Minimum height of objects represented in this instance
+	char TypeMask // Bit indicating type of entities in this instance (0=2d img, 1=3d obj)
+	unsigned long int, unsigned long int // 64-bit offset to instance data table in file
+	// INLS entries point to the 4-byte chunkID of an INFL/IN3D, for safety/validation after a seek
+
+IN3D [size] // 3d object instance data chunk (multiple)
+	...
+INFL [size] // foliage instance data chunk (multiple)
+	unsigned long int / unsigned short int / unsigned char IMGLID
+	unsigned short Height; // in WCS encoded form?
+	float X, Y, Z; // position relative to local origin
+	// Stem color, opacity?
+
+

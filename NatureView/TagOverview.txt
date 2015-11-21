@@ -1,0 +1,266 @@
+Tag Overview Documentation
+
+  The convention for tags is as follows:
+
+TAG: ATTRIBUTEA ATTRIBUTEB ATTRIBUTEC
+
+  means that TAG is a top-level (scene top-level, anyway) tag, and it potentially
+has attributes ATTRIBUTEA, ATTRIBUTEB and ATTRIBUTEC. It might be written as:
+
+<TAG ATTRIBUTEA=VALUEA ATTRIBUTEB=VALUEB ATTRIBUTEC=VALUEC></TAG>
+
+  You _don't_ need anything between the open tag and the close tag:
+<TAG>Nothing important goes here.</TAG>
+
+  The close tag doesn't accept any attributes:
+<TAG></TAG VALUE="Nothing here either.">
+
+  XML requires that there be a closing tag for every opening tag. NV is currently
+not that strict, but I recommend following the XML convention as our parser may be
+more restrictive in the future.
+
+  XML requires that tags are case sensitive. I've adopted the convention (suggested by
+Zack) that all TAGS are uppercase, but the attribute keywords are lowercase:
+
+<TAG attributea=VALUEA attributeb=VALUEB attributec=VALUEC></TAG>
+
+  XML requires that all attribute values be quoted:
+<TAG attributea="VALUEA" attributeb="VALUEB" attributec="VALUEC"></TAG>
+
+  NatureView currently allows unquoted attribute values if they have no whitespace
+in them:
+
+<TAG attributea=ThisIsOk></TAG>
+but requires quotes for any values that have whitespace:
+
+<TAG attributea=This Is Not Ok></TAG>
+<TAG attributea="But This Is Ok"></TAG>
+
+  We recommend following the XML convention, and Scene Express will write files this way.
+
+  Where an indented tag follows the first line defining a TAG, this is a subtag:
+
+TAG: ATTRIBUTE
+	SUBTAG SUBATTRIBUTE
+
+  An example would look like:
+<TAG ATTRIBUTE="Value">
+  <SUBTAG SUBATTRIBUTE="SubValue"></SUBTAG>
+</TAG>
+
+  Indenting the subtag is not required, but is recommended. Subtags may or may not have
+subattributes. Some Tags may support multiple types of subtags and/or multiple instances
+of a single subtag. Some may not.
+
+
+End of Lines and Whitespace:
+
+  The NatureView scene file format (NVW) is agnostic to CR/LF end of lines,
+and in fact, is designed so that changing the EOLs or adding/removing blank lines should
+not disrupt the NVW file signature. This should allow Mac/PC portability more easily.
+
+  Technically, XML states tags can begin and end anywhere they want, and you
+can have line breaks anywhere you want. NatureView isn't that permissive.
+Tags should begin at the start of a line (generally, any amount of leading
+spaces or tabs are permitted). Tags should complete on the same line. The
+closing tag </TAGNAME> can either be on the same line, or a subsequent line.
+
+
+Comments:
+
+  XML-style Comments <!-- Blah --> are permitted. They can span multiple lines.
+They can generally only be introduced on the beginning or end of a line.
+
+<!-- This is ok -->
+
+<!--
+This is
+also ok
+-->
+
+<BLAHTAG> <!-- this is not --> </BLAHTAG> 
+
+
+Signature:
+
+  The file signature (technically coded as an XML comment) should be the last
+line of the file. NatureView will stop reading scene data upon finding the Signature.
+The signature looks like:
+
+<!-- SIGNATURE TYPE="NATUREVIEW" VALUE="ATMAidrjrQD6VrvEJyLzZHxof80U7m0M7Msr7W3N96Xmw4h78iBn1HCP0jvj+0VUUlZH" -->
+
+  TYPE must be present, and must currently be NATUREVIEW. No other values are currently
+defined.
+
+  VALUE is the ASCII-coded encrpyted signature of the file. It can only be caclulated by
+Scene Express. Scene express can append a signature to an NVW file that has none, or will
+strip and rewrite an existing signature. It does not rewrite any other signatures in the
+NVW file.
+
+
+Framing Syntax:
+
+  Typically a NatureView file begins with:
+
+<?xml version="1.0" encoding="utf-8"?>
+<NATUREVIEW>
+
+  and end with
+
+</NATUREVIEW>
+
+  The first line identifies it as an XML file. The NATUREVIEW tags pair is known as the
+Document element in XML.
+
+  The VERSION tag is usually found inside/between the NATUREVIEW scene tag but not within
+the SCENE tag pair (below). Other future tags may be found outside the SCENE element pair.
+
+
+VERSION: FILEVERSION PREFERREDVIEWER
+
+  If FILEVERSION is greater than the version number compiled into NatureView, NV will display an
+error and not display the scene.
+
+  If PREFERREDVIEWER is not the same as the string compiled into the NatureView viewer, NV will
+present a warning, but will still allow the scene to display.
+
+
+SCENE: NAME THUMB
+
+  Both the NAME and THUMB tags are ignored at this time. It is anticipated that these will be used
+to identify (textually and graphically) multiple SCENEs stored in one file, for viewers that support
+multiple encapsulated Scenarios.
+
+  Within the SCENE element are found the majority of the interesting tags.
+
+
+
+SPLASH: TIME
+
+  The time attribute defines how long the splash/version display will show, in decimal seconds.
+Time = 0.0 will suppress the display of the splash entirely.
+
+
+DEM: FILENAME DRAPEIMAGEFILENAME DEMSIG DRAPESIG
+
+  This tag adds a DEM to the scene. Currently only one DEM tag is supported. DRAPEIMAGEFILENAME
+specifies the image to be draped over the image. The image's georeferencing will be ignored and
+the image will be stretched to fit the DEM. The image may need to be power-of-two in dimension.
+The DEM does not have any size requirements, but it may perform better if it has dimensions of
+power-of-two-plus-one. A signature (SIG) for the DEM file itself and the Drape Image (DRAPESIG)
+is required in order to display the terrain.
+
+
+INSTANCEFILE: FILENAME FOLIAGETYPE SIG
+
+  This tag adds a file of foliage instances. Currently only one foliage instance file is supported.
+A signature (SIG) is required. FOLIAGETYPE can be BILLBOARDS, CROSSBOARDS or SPRITES. Billboards
+is the recommended and default value.
+
+
+NAVIGATION: SPEED FOLLOWTERRAINHEIGHT STYLE
+
+  This tag controls navigation parameters. SPEED is the maximum rate of travel, and also controls
+the rate of acceleration. STYLE currently is ignored, but may select other navigation styles in
+the future. FOLLOWTERRAINHEIGHT is intended to enforce terrain-following, but does not function
+properly at this time.
+
+
+OVERLAY: LOGOFILENAME TEXT LOGOSIG NUMLINES
+
+  This tag controls the bottom Overlay line. This overlay can have a graphic logo, some text, or
+both. If either text or a logo filename is specified, the overlay will be enabled. The overlay
+can be toggled by keyboard control. At this time the text cannot have multiple lines or special
+control characters. It is anticipated that the text will accept formatting characters similarly
+to the PostProcess text component, allowing for insertion of dynamically updated text strings
+such as camera position, etc. NUMLINES allows for specification of the height (in lines of text)
+of the Overlay bar. It defaults to four lines. In the future, it will autosize to the number of
+lines of actual text. The logo (if present) automatically scales to the height of the Overlay bar.
+The size of the image is unimportant, it will be proportionally scaled (and antialiased) down to
+fit. An alpha channel, if present, will be used to render portions of the logo translucent or
+transparent. The only format this has been tested and known working with at this time is PNG. The
+logo image file requires a LOGOSIG argument. Anticipated future features include specification
+of the color and opacity of the overlay bar. 
+
+
+WATERMARK: TEXT
+
+  This tag creates an indelible text watermark, centered in the mid-to-high region of the screen.
+The watermark can NOT be disabled at runtime -- it can only be removed by editing and re-signing
+the NVW file. The re-signing can only be done by Scene Express. This means that a watermark such
+as "PRERELEASE -- NOT FOR PRODUCTION USE" can be embedded on the scene when delivered to a client,
+preventing the client from effectively using the scene until permitted by the creator.
+
+
+META: NAME COPYRIGHT AUTHOR USER1 USER2 USER3 USER4 USER5
+
+  The attributes of this tag are used for conveying metadata to the viewer. The viewer may use this
+in a variety of ways. In the future, the metadata might be accessible as special formatting symbols
+in the Overlay.
+
+
+LOD: CLIPNEAR CLIPFAR MINFEATURESIZEPIXELS TERRAINCLIP FOLIAGECLIP OBJECTCLIP OBJECTBOX
+
+  This tag specified some Level Of Detail parameters. CLIPNEAR and CLIPFAR manually specify near and
+far clipping planes if you want to artificially chop off far or near items. By default, the near and
+far are automatically computed to encompass all scene geometry. MINFEATURESIZEPIXELS controls the
+automatic culling of features that fall below a minimum onscreen pixel size threshold. It defaults
+to 0, effectively disabled. TERRAINCLIP, FOLIAGECLIP, OBJECTCLIP and OBJECTBOX are not yet implemented.
+
+
+  The following tags all support (and essentially require) a KEY subtag. It is intended that this will
+support animated values, though at this time, only the first KEY subtag is used. The TIME attribute is
+currently ignored.
+
+
+OBJINSTANCE: FILENAME SIG
+	KEY: TIME LONGITUDE/X LATITUDE/Y ELEVATION/Z HEADING PITCH BANK SCALEX SCALEY SCALEZ 
+
+  FILENAME and SIG specify the file and signature for the 3D object.
+
+  The subtag attributes should be essentially obvious. It is believed that the Z argument is not
+currently working, though the ELEVATION synonym appears to be. H, P and B may not yet be applied in
+the correct order.
+
+
+SKY: TYPE
+	KEY TIME FILENAME INTENSITY
+
+  FILENAME specifies the file for the spherical panoramic image to be used for the Sky. Intensity is not
+currently used.
+
+
+OCEAN
+	KEY TIME FILENAME SIG ELEVATION SPECULARITY REFLECTIVITY REFLECTIONMAPFILE REFMAPSIG
+
+  Ocean is not completely supported right now, but is somewhat useful nonetheless. It creates a flat
+plane at a given ELEVATION, textured with a given texture image FILENAME (SIG is required). Specularity
+and reflectivity (as well as REFLECTIONMAPFILE REFMAPSIG) are essentially not functional.
+
+
+CAMERA: NAME
+	KEY TIME LONGITUDE/X LATITUDE/Y ELEVATION/Z HEADING PITCH BANK TARGETLATITUDE TARGETLONGITUDE TARGETELEVATION HFOV
+
+  This is an important one. Without a CAMERA, NatureView will choose a camera position automatically.
+HEADING and PITCH are not supported right now -- Scene Express synthesizes an artifical target
+position that encompasses all camera aiming info. BANK and HFOV are not (yet) supported.
+
+
+HAZE: TYPE
+	KEY TIME START RANGE STARTINTENSITY ENDINTENSITY
+
+  TYPE currently only supports LINEAR. START and RANGE are in meters, and act just like they do in
+WCS and VNS. STARTINTENSITY and ENDINTENSITY are likewise, percentages in the range of 0 to 1.0.
+Only one intensity (START) is actully supported by basic OpenGL. COLOR is specified in HTML-style,
+as in:
+color="#81739E"
+
+
+
+Startup Arguments:
+
+SCENE=MyFile.nvw
+(or just specify MyFile.nvw without SCENE=)
+
+
+SPLASH=Time

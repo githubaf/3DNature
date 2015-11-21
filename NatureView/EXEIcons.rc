@@ -1,0 +1,233 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "windows.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "3dnmove.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""windows.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INFOPANEL DIALOGEX 0, 0, 229, 41
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Info"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "",IDC_INFOTEXT,0,0,229,41
+END
+
+IDD_HELPPANEL DIALOGEX 0, 0, 186, 260
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Help"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CTEXT           "",IDC_HELPTEXT,0,0,186,260
+END
+
+IDD_BUSYDIALOG DIALOG  0, 0, 187, 28
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Busy"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress1",IDC_BUSYPROGRESS,"msctls_progress32",
+                    WS_BORDER | 0x1,1,13,185,14
+    CTEXT           "",IDC_BUSYTEXT,0,2,187,8
+END
+
+IDD_BUSYDIALOGCANCEL DIALOG  0, 0, 187, 44
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Busy"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress1",IDC_BUSYPROGRESS,"msctls_progress32",
+                    WS_BORDER | 0x1,1,13,185,14
+    CTEXT           "",IDC_BUSYTEXT,0,2,187,8
+    DEFPUSHBUTTON   "Cancel",IDC_CANCELBUTTON,69,29,50,14
+END
+
+IDD_DATAPANEL DIALOGEX 0, 0, 144, 139
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Data"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_DATATEXT,"RichEdit20A",ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | WS_TABSTOP,0,0,144,139
+END
+
+IDD_HTMLPANEL DIALOGEX 0, 0, 144, 139
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Web Browser"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Unmodified Terrain",IDC_EDIT,"NVW.ModEdit",WS_BORDER | 
+                    0x80,60,0,83,14
+    PUSHBUTTON      "B",IDC_BACK,0,0,15,14,BS_BITMAP
+    PUSHBUTTON      "F",IDC_FWD,15,0,15,14,BS_BITMAP
+    PUSHBUTTON      "S",IDC_STOP,31,0,14,14,BS_BITMAP
+    PUSHBUTTON      "R",IDC_REFRESH,45,0,14,14,BS_BITMAP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// JPEGIMAGE
+//
+
+IDR_INFOPANEL_NORMAL_JPEG JPEGIMAGE               "DefaultSkinResource/InfoPanelNormal.jpg"
+IDR_INFOPANEL_NORMAL_HOVER_JPEG JPEGIMAGE               "DefaultSkinResource/InfoPanelNormalHover.jpg"
+IDR_DRIVEPANEL_NORMAL_JPEG JPEGIMAGE               "DefaultSkinResource/DrivePanelNormal.jpg"
+IDR_DRIVEPANEL_NORMAL_HOVER_JPEG JPEGIMAGE               "DefaultSkinResource/DrivePanelNormalHover.jpg"
+IDR_DRIVEPANEL_SEL_JPEG JPEGIMAGE               "DefaultSkinResource/DrivePanelSel.jpg"
+IDR_DRIVEPANEL_SEL_HOVER_JPEG JPEGIMAGE               "DefaultSkinResource/DrivePanelSelHover.jpg"
+IDR_NAVPANEL_NORMAL_JPEG JPEGIMAGE               "DefaultSkinResource/NavPanelNormal.jpg"
+IDR_NAVPANEL_NORMAL_HOVER_JPEG JPEGIMAGE               "DefaultSkinResource/NavPanelNormalHover.jpg"
+IDR_NAVPANEL_SEL_JPEG   JPEGIMAGE               "DefaultSkinResource/NavPanelSel.jpg"
+IDR_NAVPANEL_SEL_HOVER_JPEG JPEGIMAGE               "DefaultSkinResource/NavPanelSelHover.jpg"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNGIMAGE
+//
+
+IDR_INFOPANEL_INDEX_PNG PNGIMAGE                "DefaultSkinResource/InfoPanelIdx_.PNG"
+IDR_DRIVEPANEL_INDEX_PNG PNGIMAGE                "DefaultSkinResource/DrivePanelIdx_.PNG"
+IDR_NAVPANEL_INDEX_PNG  PNGIMAGE                "DefaultSkinResource/NavPanelIdx_.PNG"
+IDR_SLIDE_KNOB_PNG      PNGIMAGE                "DefaultSkinResource/Widget14Knob_.PNG"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BACK                BITMAP                  "DefaultSkinResource\\Back.bmp"
+IDB_FWD                 BITMAP                  "DefaultSkinResource\\Fwd.bmp"
+IDB_STOP                BITMAP                  "DefaultSkinResource\\Stop.bmp"
+IDB_REFRESH             BITMAP                  "DefaultSkinResource\\Refresh.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_DRIVETIP            "Drive Mode"
+    IDS_ENABLECATTIP        "Enable/Disable Categories"
+    IDS_EYEPOINTSTIP        "Eyepoints"
+    IDS_FOLLOWTIP           "Follow Terrain"
+    IDS_GOTOTIP             "Go to selected point"
+    IDS_NEXTVPTIP           "Next Viewpoint"
+    IDS_PREVVPTIP           "Previous Viewpoint"
+    IDS_OPTIONSTIP          "Options"
+    IDS_PAUSETIP            "Pause"
+    IDS_ROTATETIP           "Rotate Mode"
+    IDS_SLIDETIP            "Slide Mode"
+    IDS_STOPTIP             "Stop"
+    IDS_UNDOTIP             "Undo"
+    IDS_EXITTIP             "Exit Program"
+    IDS_HELPTIP             "Help"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HOMETIP             "Home"
+    IDS_ROTRTTIP            "Rotate Right"
+    IDS_ROTLTTIP            "Rotate left"
+    IDS_ROTUPTIP            "Tilt Up"
+    IDS_ROTDNTIP            "Tilt Down"
+    IDS_ROTCLKTIP           "Bank Clockwise"
+    IDS_ROTCCLKTIP          "Bank Counter-Clockwise"
+    IDS_MVFWDTIP            "Move Forward"
+    IDS_MVBKTIP             "Move Backward"
+    IDS_MVLTTIP             "Move Left"
+    IDS_MVRTTIP             "Move Right"
+    IDS_CLIMBTIP            "Climb Mode"
+    IDS_CLOSETIP            "Close Window"
+    IDS_DRAGWINTIP          "Move Window"
+    IDS_HOTNAVTIP           "Navigation Disk"
+    IDS_THROTTLETIP         "Throttle"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_INFOTIP             "Information Display"
+    IDS_HOTTURNTIP          "Rotation Disk"
+    IDS_NAVPANELTIP         "Display Navigation Panel"
+    IDS_INFOPANELTIP        "Display Info Panel"
+    IDS_DRIVEPANELTIP       "Display Drive Panel"
+    IDS_ACTIONTIP           "Action Mode"
+    IDS_ABOUTTIP            "About"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
