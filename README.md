@@ -19,6 +19,9 @@ WCS-VNS
 
 WCSDEM-Loader
 
+Documentation
+
+
 Not all of these folders have been populated yet, as we are still obtaining and curating the data necessary for releasing some of these.
 
 Notably, NVWParser, SRTMFill and WCSDEM-Loader are empty as of October 2016.
@@ -34,7 +37,7 @@ Also included in the Amiga folder is the Amiga V2.x World Construction Set code,
 
 SuperConductor is included as well, in both the original V1 release as well as the incompletely tested and unreleased V2.
 
-All of the intellectual property contributed here by 3D Nature is licensed under the OpenSceneGraph Public License (aka OSGPL http://trac.openscenegraph.org/projects/osg//wiki/Legal ), a variant of the GNU LGPL with the wxWidgets extensions to clarify certain aspects that the LGPL left murky as far as commercial use. Any files accidentally included here that belong to other parties are not implied to be owned by 3D Nature nor released under the OSGPL.
+All of the intellectual property contributed here by 3D Nature (assets now owned by AlphaPixel, LLC) is licensed under the OpenSceneGraph Public License (aka OSGPL http://trac.openscenegraph.org/projects/osg//wiki/Legal ), a variant of the GNU LGPL with the wxWidgets extensions to clarify certain aspects that the LGPL left murky as far as commercial use. Any files accidentally included here that belong to other parties are not implied to be owned by 3D Nature/AlphaPixel nor released under the OSGPL.
 
 The text of the OSGPL follows and will be found in a LICENSE.txt file in each top-level folder containing source we are releasing under this license:
 
