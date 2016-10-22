@@ -21,7 +21,7 @@ WCSDEM-Loader
 
 Not all of these folders have been populated yet, as we are still obtaining and curating the data necessary for releasing some of these.
 
-Notably, NatureView, NVWParser, SRTMFill and WCSDEM-Loader are empty as of October 2015.
+Notably, NVWParser, SRTMFill and WCSDEM-Loader are empty as of October 2016.
 
 The most significant folder is the WCS-VNS folder, containing the C++ source to Visual Nature Studio V3.10 as well as its build makefiles and dependent graphic and other data assets. It is intended to be built with Microsoft Visual Studio 2005. At the time of the development of VNS 3, Visual Studio 2008 was still not regarded as especially stable and reliable and by 2010 when it became stable and VS2010 became available, VNS 3 had already been released.
 
