@@ -1,0 +1,94 @@
+%!PS-Adobe-2.0 EPSF-1.2
+%%Creator: Adobe Illustrator 88(TM) 1.0b2-
+%%CreationDate: Wed Feb 12 18:22:11 1997
+%%BoundingBox:21 280 592 512
+%%DocumentProcSets: StylusProcs 0 0
+%%RealCreator: ProVector
+%%EndComments
+%%BeginProcSet: StylusProcs
+userdict /StylusProcs 50 dict dup begin put
+/bd {bind def} bind def
+/xd {exch def} bd
+/ld {load def} bd
+/initialize {StylusProcs begin} bd
+/terminate /end ld
+/setcmykcolor where
+{pop}
+{
+ /as {
+  add dup 1.0 gt { pop 1.0 } if
+  neg 1.0 add
+ } bd
+ /setcmykcolor {
+  /kk xd /yy xd /mm xd /cc xd
+  cc kk as mm kk as yy kk as setrgbcolor
+ }bd
+}ifelse
+/f {_c _m _y _k setcmykcolor closepath fill} bd
+/s {_C _M _Y _K setcmykcolor closepath stroke} bd
+/S {_C _M _Y _K setcmykcolor stroke} bd
+/B {gsave f grestore s} bd
+/b {closepath gsave f grestore s} bd
+/n /newpath ld
+/q /gsave ld
+/Q /grestore ld
+/W /clip ld
+/m /moveto ld
+/L /lineto ld
+/C /curveto ld
+/w /setlinewidth ld
+/d /setdash ld
+/j /setlinejoin ld
+/J /setlinecap ld
+/k {/_k xd /_y xd /_m xd /_c xd} bd
+/K {/_K xd /_Y xd /_M xd /_C xd} bd
+/g {1.0 exch sub /_k xd 0 /_c xd 0 /_m xd 0 /_y xd} bd
+/G {1.0 exch sub /_K xd 0 /_C xd 0 /_M xd 0 /_Y xd} bd
+end
+%%EndProcSet
+%%EndProlog
+%%BeginSetup
+StylusProcs /initialize get exec
+%%EndSetup
+0 J
+%%Note:
+[] 0 d
+0 G
+1.008 w
+0 J 0 j
+21.3782 316.67 m
+103.465 280.981 121.383 413.234 198.77 386.957 C
+198.77 386.957 L
+208.282 386.854 220.854 385.601 224.681 396.328 C
+330.32 490.045 L
+350.252 490.045 L
+350.252 490.045 L
+380.372 465.182 404.442 429.86 443.931 422.1 C
+443.931 422.1 L
+499.672 382.82 514.573 298.981 591.426 297.926 C
+S
+[] 0 d
+0 G
+3.984 w
+0 J 0 j
+53.269 438.5 m
+557.541 438.5 L
+S
+[] 0 d
+0 G
+3.984 w
+0 J 0 j
+53.269 511.131 m
+557.541 382.271 L
+S
+[] 0 d
+0 G
+3.984 w
+0 J 0 j
+53.269 365.871 m
+557.541 494.731 L
+S
+%%PageTrailer
+%%Trailer
+StylusProcs /terminate get exec
+%%EOF

@@ -1,0 +1,135 @@
+%!PS-Adobe-2.0 EPSF-1.2
+%%Creator: Adobe Illustrator 88(TM) 1.0b2-
+%%CreationDate: Wed Feb 12 18:21:10 1997
+%%BoundingBox:88 174 524 618
+%%DocumentProcSets: StylusProcs 0 0
+%%RealCreator: ProVector
+%%EndComments
+%%BeginProcSet: StylusProcs
+userdict /StylusProcs 50 dict dup begin put
+/bd {bind def} bind def
+/xd {exch def} bd
+/ld {load def} bd
+/initialize {StylusProcs begin} bd
+/terminate /end ld
+/setcmykcolor where
+{pop}
+{
+ /as {
+  add dup 1.0 gt { pop 1.0 } if
+  neg 1.0 add
+ } bd
+ /setcmykcolor {
+  /kk xd /yy xd /mm xd /cc xd
+  cc kk as mm kk as yy kk as setrgbcolor
+ }bd
+}ifelse
+/f {_c _m _y _k setcmykcolor closepath fill} bd
+/s {_C _M _Y _K setcmykcolor closepath stroke} bd
+/S {_C _M _Y _K setcmykcolor stroke} bd
+/B {gsave f grestore s} bd
+/b {closepath gsave f grestore s} bd
+/n /newpath ld
+/q /gsave ld
+/Q /grestore ld
+/W /clip ld
+/m /moveto ld
+/L /lineto ld
+/C /curveto ld
+/w /setlinewidth ld
+/d /setdash ld
+/j /setlinejoin ld
+/J /setlinecap ld
+/k {/_k xd /_y xd /_m xd /_c xd} bd
+/K {/_K xd /_Y xd /_M xd /_C xd} bd
+/g {1.0 exch sub /_k xd 0 /_c xd 0 /_m xd 0 /_y xd} bd
+/G {1.0 exch sub /_K xd 0 /_C xd 0 /_M xd 0 /_Y xd} bd
+end
+%%EndProcSet
+%%EndProlog
+%%BeginSetup
+StylusProcs /initialize get exec
+%%EndSetup
+0 J
+%%Note:
+[] 0 d
+0 G
+3.984 w
+0 J 0 j
+88.7595 287.03 m
+136.369 406.766 183.994 526.539 232.268 502.578 C
+232.268 502.578 L
+280.542 478.645 329.495 310.963 377.769 287.03 C
+377.769 287.03 L
+426.044 263.068 473.668 382.841 521.278 502.578 C
+S
+[] 0 d
+0.498039 G
+1.008 w
+0 J 0 j
+90.7527 378.403 m
+138.362 498.14 185.986 617.913 234.262 593.951 C
+234.262 593.951 L
+282.536 570.018 331.489 402.337 379.763 378.403 C
+379.763 378.403 L
+428.037 354.442 475.662 474.214 523.271 593.951 C
+S
+[] 0 d
+0.498039 G
+1.008 w
+0 J 0 j
+88.7595 340.916 m
+136.369 460.653 183.994 580.426 232.268 556.464 C
+232.268 556.464 L
+280.542 532.532 329.495 364.85 377.769 340.916 C
+377.769 340.916 L
+426.044 316.955 473.668 436.728 521.278 556.464 C
+S
+[] 0 d
+0.498039 G
+1.008 w
+0 J 0 j
+88.7595 305.773 m
+136.369 425.51 183.994 545.283 232.268 521.32 C
+232.268 521.32 L
+280.542 497.388 329.495 329.706 377.769 305.773 C
+377.769 305.773 L
+426.044 281.811 473.668 401.584 521.278 521.32 C
+S
+[] 0 d
+0.498039 G
+1.008 w
+0 J 0 j
+88.7595 270.63 m
+136.369 390.366 183.994 510.139 232.268 486.178 C
+232.268 486.178 L
+280.542 462.244 329.495 294.562 377.769 270.63 C
+377.769 270.63 L
+426.044 246.668 473.668 366.441 521.278 486.178 C
+S
+[] 0 d
+0.498039 G
+1.008 w
+0 J 0 j
+88.7595 233.143 m
+136.369 352.88 183.994 472.652 232.268 448.691 C
+232.268 448.691 L
+280.542 424.757 329.495 257.075 377.769 233.143 C
+377.769 233.143 L
+426.044 209.181 473.668 328.954 521.278 448.691 C
+S
+[] 0 d
+0.498039 G
+1.008 w
+0 J 0 j
+88.7595 197.999 m
+136.369 317.736 183.994 437.509 232.268 413.547 C
+232.268 413.547 L
+280.542 389.614 329.495 221.933 377.769 197.999 C
+377.769 197.999 L
+426.044 174.037 473.668 293.81 521.278 413.547 C
+S
+%%PageTrailer
+%%Trailer
+StylusProcs /terminate get exec
+%%EOF

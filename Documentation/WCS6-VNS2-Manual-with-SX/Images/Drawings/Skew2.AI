@@ -1,0 +1,95 @@
+%!PS-Adobe-3.0
+%%Creator: FreeHand 7.0
+%%Title: (Skew.FH7)
+%%CreationDate: (Thu Feb 13 08:55:15 1997 )
+%%DocumentProcessColors: Black
+%%DocumentNeededResources: procset Adobe_level2_AI5 1.0 0
+%%+ procset Adobe_screens_AI5 1.0 0
+%%+ procset Adobe_blend_AI5 1.0 0
+%%+ procset Adobe_IllustratorA_AI5 1.0 0
+%%BoundingBox: 20 297 592 514 
+%AI3_TemplateBox: 306 396 306 396 
+%AI3_TileBox: 30 31 582 761 
+%AI3_DocumentPreview: None
+%AI3_ColorUsage: Color
+%AI5_ArtSize: 612 792 
+%AI5_ArtFlags: 0 0 0 1 0 0
+%AI5_TargetResolution: 300
+%AI5_RulerUnits: 2
+%AI5_FileFormat 1.1
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%EndComments
+%%BeginProlog
+%%IncludeResource: procset Adobe_level2_AI5 1.0 0
+%%IncludeResource: procset Adobe_screens_AI5 1.0 0
+%%IncludeResource: procset procset Adobe_blend_AI5 1.0 0
+%%IncludeResource: procset Adobe_IllustratorA_AI5 1.0 0
+%%EndProlog
+%%BeginSetup
+Adobe_level2_AI5 /initialize get exec
+Adobe_screens_AI5 /initialize get exec
+Adobe_IllustratorA_AI5_vars Adobe_IllustratorA_AI5 Adobe_blend_AI5 /initialize get exec
+Adobe_IllustratorA_AI5 /initialize get exec
+%%EndSetup
+[] 0 d
+3.863708 M
+1 w
+0 j
+0 J
+0 i
+0 0 0 1 k
+0 0 0 1 K
+0 A 0 O 0 R
+%AI5_BeginLayer
+1 1 1 0 0 0 0 79 128 255 Lb
+(Background) Ln
+300 Ar
+LB
+%AI5_EndLayer--
+%AI5_BeginLayer
+1 1 1 1 0 0 0 79 128 255 Lb
+(Guides) Ln
+300 Ar
+LB
+%AI5_EndLayer--
+%AI5_BeginLayer
+1 1 1 1 0 0 0 79 128 255 Lb
+(Foreground) Ln
+300 Ar
+1.008 w
+[] 0 d
+21.3782 316.67 m
+103.465 280.981 121.383 413.234 198.77 386.957 C
+198.77 386.957 L
+208.282 386.854 220.854 385.601 224.681 396.328 C
+330.32 490.045 L
+350.252 490.045 L
+350.252 490.045 L
+380.372 465.182 404.442 429.86 443.931 422.1 C
+443.931 422.1 L
+499.672 382.82 514.573 298.981 591.426 297.926 C
+S
+3.984 w
+[] 0 d
+53.269 438.5 m
+557.541 438.5 L
+S
+3.863693 M
+[8 4 ] 0 d
+53.269 511.131 m
+557.541 382.271 L
+S
+[8 4 ] 0 d
+53.269 365.871 m
+557.541 494.731 L
+S
+LB
+%AI5_EndLayer--
+%%PageTrailer
+gsave annotatepage grestore showpage
+%%Trailer
+Adobe_IllustratorA_AI5 /terminate get exec
+Adobe_blend_AI5 /terminate get exec
+Adobe_screens_AI5 /terminate get exec
+Adobe_level2_AI5 /terminate get exec
+%%EOF

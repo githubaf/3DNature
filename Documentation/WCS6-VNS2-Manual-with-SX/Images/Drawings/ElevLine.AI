@@ -1,0 +1,97 @@
+%!PS-Adobe-3.0
+%%Creator: FreeHand 7.0
+%%Title: (ElevLine.FH7)
+%%CreationDate: (Thu Feb 13 08:58:43 1997 )
+%%DocumentProcessColors: Black
+%%DocumentNeededResources: procset Adobe_packedarray 2.0 0
+%%+ procset Adobe_cmykcolor 1.1 0
+%%+ procset Adobe_cshow 1.1 0
+%%+ procset Adobe_customcolor 1.0 0
+%%+ procset Adobe_typography_AI3 1.0 0
+%%+ procset Adobe_IllustratorA_AI3 1.0 0
+%%BoundingBox: 22 247 590 622 
+%AI3_TemplateBox: 306 396 306 396 
+%AI3_TileBox: 30 31 582 761 
+%AI3_DocumentPreview: None
+%%PageOrigin:0 0
+%%AI3_PaperRect:0 792 612 0
+%%AI3_Margin:0 0 0 0 
+%%ColorUsage: Color
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%EndComments
+%%BeginProlog
+%%IncludeResource: procset Adobe_packedarray 2.0 0
+Adobe_packedarray /initialize get exec
+%%IncludeResource: procset Adobe_cmykcolor 1.1 0
+%%IncludeResource: procset Adobe_cshow 1.1 0
+%%IncludeResource: procset Adobe_customcolor 1.0 0
+%%IncludeResource: procset Adobe_typography_AI3 1.0 0
+%%IncludeResource: procset Adobe_IllustratorA_AI3 1.0 0
+%%EndProlog
+%%BeginSetup
+Adobe_cmykcolor /initialize get exec
+Adobe_cshow /initialize get exec
+Adobe_customcolor /initialize get exec
+Adobe_typography_AI3 /initialize get exec
+Adobe_IllustratorA_AI3 /initialize get exec
+%%EndSetup
+[] 0 d
+3.863708 M
+1 w
+0 j
+0 J
+0 i
+0 0 0 1 k
+0 0 0 1 K
+0 A 0 O 0 R
+%%FH3_Note: (Guides) FL
+%%FH3_Note: (Foreground) FL
+1.008 w
+[] 0 d
+23.3648 271.782 m
+93.1257 171.037 119.384 422.233 182.819 395.956 C
+182.819 395.956 L
+206.282 395.853 228.661 393.613 260.553 445.157 C
+314.368 492.015 L
+348.252 499.045 L
+348.252 499.045 L
+378.149 466.244 402.442 438.859 441.931 431.1 C
+441.931 431.1 L
+497.672 391.819 512.573 307.98 589.426 306.925 C
+S
+2.016 w
+3.863693 M
+[2 2 ] 0 d
+55.2555 477.958 m
+559.528 477.958 L
+S
+[2 2 ] 0 d
+55.2555 620.875 m
+559.528 620.875 L
+S
+[2 2 ] 0 d
+55.2555 440.471 m
+559.528 440.471 L
+S
+[2 2 ] 0 d
+55.2555 384.242 m
+559.528 384.242 L
+S
+[2 2 ] 0 d
+55.2555 330.355 m
+559.528 330.355 L
+S
+[2 2 ] 0 d
+55.2555 285.84 m
+559.528 285.84 L
+S
+%%PageTrailer
+gsave annotatepage grestore showpage
+%%Trailer
+Adobe_IllustratorA_AI3 /terminate get exec
+Adobe_typography_AI3 /terminate get exec
+Adobe_customcolor /terminate get exec
+Adobe_cshow /terminate get exec
+Adobe_cmykcolor /terminate get exec
+Adobe_packedarray /terminate get exec
+%%EOF
