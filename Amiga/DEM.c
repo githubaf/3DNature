@@ -468,7 +468,7 @@ RelelRepeat:
 
   strcpy (elevfile, DEMInterp->elevfile);
   strsfn(DEMInterp->elevfile, NULL, NULL, rootfile, extension);
-  if (strcmp(extension, "elev") && strcmp(extension, "relel"))
+  if (stricmp(extension, "elev") && stricmp(extension, "relel"))   // AF: make it case independent
    {
    Log(ERR_WRONG_TYPE, DEMInterp->elevfile);
    if (! User_Message(DEMInterp->elevfile,
