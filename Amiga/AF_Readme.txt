@@ -20,4 +20,9 @@ emufan wrote: SelectBuild.rexx, it deals with the BuildID/env thing.
 Issues:
 DEM.c checks for extension "elev" or "relel", my Files are uppercase ??? uppercase. Change code to accept case independent
 
+3.Mar.2021
+----------
+* fixed WCSObjs.lnk (removed superflous zeros at the end)
+* replaced the fractal files in Tools directory with that from WCS 2.04 disks as the files from Github lead to wired looking pictures,
+  the newer fractal files lead to proper pictures now
 
