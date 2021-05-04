@@ -26,3 +26,10 @@ DEM.c checks for extension "elev" or "relel", my Files are uppercase ??? upperca
 * replaced the fractal files in Tools directory with that from WCS 2.04 disks as the files from Github lead to wired looking pictures,
   the newer fractal files lead to proper pictures now
 
+4.Mar2021
+---------
+Gross/Kleinschreibung bei einem Include korrigiert.
+Assigns fuer Amiga SAS/C 
+
+assign include: Work:MUI/Developer/C/Include/ add
+

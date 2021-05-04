@@ -17,7 +17,7 @@
 #define USE_GIS_GUI
 
 #include "Headers.h"
-#include "GuiExtras.h"
+#include "GUIExtras.h"
 #include "Defines.h"
 #include "GUIDefines.h"
 #include "Proto.h"
