@@ -3,6 +3,7 @@
 #define _VGL_H_
 
 #ifdef AMIGA
+#include <stdlib.h>   /* ALEXANDER */
 /* Rounds number a up to the next multiple of b */
 #ifndef ROUNDUP
 #define ROUNDUP(a,b)		(((a + (b - 1)) / b) * b)

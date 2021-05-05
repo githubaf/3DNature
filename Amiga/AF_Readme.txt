@@ -33,3 +33,4 @@ Assigns fuer Amiga SAS/C
 
 assign include: Work:MUI/Developer/C/Include/ add
 
+vgl had several missing prototypes -> added stdlib.h to Amiga-ifdef-section in vgl/vgl.h
