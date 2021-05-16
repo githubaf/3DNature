@@ -26,7 +26,7 @@ extern struct MWS_Entry SentLookUp[];
 
 extern unsigned long int MarkovTable[];
 
-void main(int Count, char *Vector[]);
+int main(int Count, char *Vector[]);
 long int ParseDispatch(char *InLine);
 char *PullWord(char *Source, char *WordBuf, int WBufSize);
 long int LookupWord(char *Word);
@@ -38,7 +38,7 @@ char *FetchInlineArg(char *Inline, char *ArgDest, int ArgSize);
 
 
 
-void main(int Count, char *Vector[])
+int main(int Count, char *Vector[])
 {
 int Status, CrunchOn = 1;
 char CommandIn[255];
@@ -74,12 +74,12 @@ while(CrunchOn)
 		if(Status == VE_QUIT)
 			{ /* we're gone... */
 			printf("\nExiting.\n");
-			return;
+			return 0;
 			} /* if */
 		if(Status == -1)
 			{
 /*			printf("ERROR: Problem in ParseDispatch.\n"); */
-			return;
+			return 0;
 			} /* if */
 		} /* if */
 	else
@@ -89,7 +89,7 @@ while(CrunchOn)
 		CrunchOn = 0;
 		} /* if */
 	} /* while */
-
+    return 0;
 } /* main() */
 
 long int ParseDispatch(char *InLine)
@@ -376,9 +376,9 @@ int Skim, Out, Trimming;
 Trimming = 1;
 for(Out = Skim = 0;;Skim++)
 	{
-	if((Out == DestLen) || (Source[Skim] == NULL))
+	if((Out == DestLen) || (Source[Skim] == 0))
 		{
-		Dest[Out] = NULL;
+		Dest[Out] = 0;
 		return;
 		} /* if */
 	if(Trimming)
@@ -581,7 +581,7 @@ return(0);
 void DemoFunc(struct CmdContext *Call)
 {
 
-printf("LastToken=%d", Call->LastToken);
+printf("LastToken=%lu", Call->LastToken);
 if(strlen(Call->InlineArg))
 	{
 	printf(" InlineArg=%s", Call->InlineArg);

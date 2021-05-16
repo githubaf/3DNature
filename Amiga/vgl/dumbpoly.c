@@ -503,7 +503,7 @@ vgl_dumb_fillpoly_convex (PIXMAP * p, int n_vert, struct vgl_coord *vert)
     {
       if(p->DTableSize == 0)
         {
-        if(p->DitherTable = vgl_malloc(VGL_DITHERTABLE_SIZE))
+        if((p->DitherTable = vgl_malloc(VGL_DITHERTABLE_SIZE)))
           {
           srand48(time(NULL)); /* set top 32 bits of seed to current time */
           for(init_dtable = 0; init_dtable < VGL_DITHERTABLE_SIZE; init_dtable++)
@@ -636,7 +636,7 @@ vgl_dumb_fillpoly_convex_root (PIXMAP * p, int n_vert, struct vgl_coord *vert)
                   if(xa < list[y - min_y].x1)
                     list[y - min_y].x1 = xa; /* x1 is left endpoint of span */
                   if(xa > list[y - min_y].x2)
-                    list[y - min_y].x2 = xa; /* x2 is right end point */
+                    list[y - min_y].x2 = xa; /* x2 is right endpoint */
                 } /* if */
             } /* for */
         } /* if */
@@ -766,20 +766,26 @@ vgl_dumb_fillpoly_convex_root (PIXMAP * p, int n_vert, struct vgl_coord *vert)
                     if((c >= 0) && (c < p->pixdata->y_res))
                       {
                	      if(r < list[c - min_y].x1)
+               	      {
 	               	     list[c - min_y].x1 = r;
-	                     if(r > list[c - min_y].x2)
+               	      }
+	                  if(r > list[c - min_y].x2)
+	                  {
 	               	     list[c - min_y].x2 = r;
+	                  }
                	    } /* if */
       
                     c++;
       
                     if (g >= 0)
-                      {
+                    {
                         r++;
                         g += inc2;
-                      } /* if */
+                    } /* if */
                     else
-                      g += inc1;
+                    {
+                        g += inc1;
+                    }
                   } /* while */
               } /* if pos_slope */
             else
@@ -789,20 +795,26 @@ vgl_dumb_fillpoly_convex_root (PIXMAP * p, int n_vert, struct vgl_coord *vert)
                     if((c >= 0) && (c < p->pixdata->y_res))
                	    {
                	      if(r < list[c - min_y].x1)
+               	      {
 	               	     list[c - min_y].x1 = r;
-	                     if(r > list[c - min_y].x2)
+               	      }
+	                  if(r > list[c - min_y].x2)
+	                  {
 	               	     list[c - min_y].x2 = r;
+	                  }
                	    } /* if */
 
                     c++;
 
                     if (g > 0)
-                      {
+                    {
                         r--;
                         g += inc2;
-                      } /* if */
+                    } /* if */
                     else
-                      g += inc1;
+                    {
+                        g += inc1;
+                    }
                   } /* while */
               } /* else neg slope */
           } /* else slope is vert */

@@ -5,12 +5,47 @@
 ** Because last byte is used as check, only serial #'s up to 16,777,215
 ** can be used.
 ** Created from scratch on 03 Aug 1994 by Christopher Eric "Xenon" Hanson
-** Copyright ©1994 by CXH, Arcticus, and Questar.
+** Copyright Â©1994 by CXH, Arcticus, and Questar.
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#ifdef __GNUC__
+/* replacement function for "SAS/C stcd_l()" taken from http://aminet.net/package/util/moni/Scout_src.lha */
+int stcd_l(const char *in, long *value)
+{
+    if (in)
+    {
+        char *ptr;
+
+        switch (*in)
+        {
+            case '+':
+            case '-':
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                *value = strtol(in, &ptr, 10);
+                return ptr - in;
+                break;
+        }
+    }
+
+    *value = 0;
+
+    return 0;
+}
+
+#endif
 
 /* #define TEST_PHASE */
 #define MAGIC_FOOBAR 0x00F00BA2
@@ -23,7 +58,7 @@ unsigned char B0, B1, B2, CheckByte;
 
 if (Count == 2)
 	{
-	if(stcd_l(Vector[1], &PlainSer))
+	if(stcd_l(Vector[1], (long *)&PlainSer))
 		{
 		if((PlainSer > 0) && (PlainSer < 0xFFFFFF))
 			{

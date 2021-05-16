@@ -469,7 +469,7 @@ copy_plane_1_to_8 (PIXMAP * p, struct image *src_image,
 		    tmp |= bits >> secondoff;
 		}
 	    }
-	  *dest = *dest & ~startmask | Get_Four_Pixels (tmp) & startmask;
+	  *dest = (*dest & ~startmask) | (Get_Four_Pixels (tmp) & startmask);
 	  dest++;
 	}
 
@@ -535,7 +535,7 @@ copy_plane_1_to_8 (PIXMAP * p, struct image *src_image,
 	    }
 	  if (endmask)
 	    {
-	      *dest = *dest & ~endmask | Get_Four_Pixels (tmp) & endmask;
+	      *dest = (*dest & ~endmask) | (Get_Four_Pixels (tmp) & endmask);
 	    }
 	}
     }

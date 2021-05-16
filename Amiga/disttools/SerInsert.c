@@ -12,6 +12,53 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#ifdef __GNUC__
+/* replacement function for "SAS/C stch_l()" (SAS/C Library Reference page 455)
+   built analogous to stcd_l() in ScrambleSer.c
+*/
+int stch_l(const char *in, long *value)
+{
+    if (in)
+    {
+        char *ptr;
+
+        switch (*in)
+        {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case 'A':
+            case 'B':
+            case 'C':
+            case 'D':
+            case 'E':
+            case 'F':
+            case 'a':
+            case 'b':
+            case 'c':
+            case 'd':
+            case 'e':
+            case 'f':
+                *value = strtol(in, &ptr, 16);
+                return ptr - in;
+                break;
+        }
+    }
+
+    *value = 0;
+
+    return 0;
+}
+#endif
+
+
 int main(int Count, char *Vector[])
 {
 unsigned long int BinOffset, AscOffset, Serial;
@@ -23,7 +70,7 @@ strcpy(Buffer, Vector[3]);
 
 if(Count == 5)
 	{
-	if(ToBe = fopen(Vector[4], "r+"))
+	if((ToBe = fopen(Vector[4], "r+")))
 		{
 		BinOffset = atol(Vector[1]);
 		AscOffset = atol(Vector[2]);
@@ -31,7 +78,7 @@ if(Count == 5)
 			{
 			if(!fseek(ToBe, BinOffset, SEEK_SET))
 				{
-				if(stch_l(Vector[3], &Serial))
+				if(stch_l(Vector[3], (long*)&Serial))
 					{
 					if(fwrite(&Serial, 1, 4, ToBe) == 4)
 						{
@@ -68,7 +115,7 @@ if(Count == 5)
 			} /* if */
 		else
 			{
-			printf("Invalid offset. %d %d %s %s\n",
+			printf("Invalid offset. %lu %lu %s %s\n",
 			 BinOffset, AscOffset, Vector[1], Vector[2]);
 			} /* else */
 		} /* if */

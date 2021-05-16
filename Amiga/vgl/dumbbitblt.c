@@ -171,7 +171,7 @@ vgl_dumb_bitblt_core (PIXMAP * src_image, int srcx, int srcy, int width, int hei
 	      dest_line += dest_linelen;
 	      if (startmask)
 		{
-		  *dest = *dest & ~startmask | *src & startmask;
+		  *dest = (*dest & ~startmask) |(*src & startmask);
 		  dest++;
 		  src++;
 		}
@@ -202,7 +202,7 @@ vgl_dumb_bitblt_core (PIXMAP * src_image, int srcx, int srcy, int width, int hei
 
 	      if (endmask)
 		{
-		  *dest = *dest & ~endmask | *src & endmask;
+		  *dest = (*dest & ~endmask) | (*src & endmask);
 		}
 	    }
 	}
@@ -234,7 +234,7 @@ vgl_dumb_bitblt_core (PIXMAP * src_image, int srcx, int srcy, int width, int hei
 		  bits1 = bits << left_shift;
 		  bits = *src++;
 		  bits1 |= bits >> right_shift;
-		  *dest = *dest & ~startmask | bits1 & startmask;
+		  *dest = (*dest & ~startmask) | (bits1 & startmask);
 		  dest++;
 		}
 	      nl = nlMiddle;
@@ -284,7 +284,7 @@ vgl_dumb_bitblt_core (PIXMAP * src_image, int srcx, int srcy, int width, int hei
 		      bits = *src;
 		      bits1 |= bits >> right_shift;
 		    }
-		  *dest = *dest & ~endmask | bits1 & endmask;
+		  *dest = (*dest & ~endmask) | (bits1 & endmask);
 		}
 	    }
 	}
@@ -309,7 +309,7 @@ vgl_dumb_bitblt_core (PIXMAP * src_image, int srcx, int srcy, int width, int hei
 		{
 		  dest--;
 		  src--;
-		  *dest = *dest & ~endmask | *src & endmask;
+		  *dest = (*dest & ~endmask) | (*src & endmask);
 		}
 
 	      nl = nlMiddle;
@@ -340,7 +340,7 @@ vgl_dumb_bitblt_core (PIXMAP * src_image, int srcx, int srcy, int width, int hei
 		{
 		  dest--;
 		  src--;
-		  *dest = *dest & ~startmask | *src & startmask;
+		  *dest = (*dest & ~startmask) | (*src & startmask);
 		}
 	    }
 	}
@@ -373,7 +373,7 @@ vgl_dumb_bitblt_core (PIXMAP * src_image, int srcx, int srcy, int width, int hei
 		  bits = *--src;
 		  bits1 |= bits << left_shift;
 		  dest--;
-		  *dest = *dest & ~endmask | bits1 & endmask;
+		  *dest = (*dest & ~endmask) | (bits1 & endmask);
 		}
 	      nl = nlMiddle;
 
@@ -423,7 +423,7 @@ vgl_dumb_bitblt_core (PIXMAP * src_image, int srcx, int srcy, int width, int hei
 		      bits1 |= bits << left_shift;
 		    }
 		  --dest;
-		  *dest = *dest & ~startmask | bits1 & startmask;
+		  *dest = (*dest & ~startmask) | (bits1 & startmask);
 		}
 	    }
 	}

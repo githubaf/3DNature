@@ -256,7 +256,7 @@ vgl_random (long *idum)
  *  is implimented as a macro in vgl.h but requires one static external
  *  variable.
  */
-extern unsigned long _vgl_rand_last=394857;
+unsigned long _vgl_rand_last=394857;
 
 
 /****************************************************************************/

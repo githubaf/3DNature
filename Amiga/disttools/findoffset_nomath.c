@@ -21,18 +21,18 @@ FILE *ExecutableFile, *fOffset;
 char *ExecutableMem, *CookiePtr;
 unsigned long int CookieOffset, ExecLen;
 
-if(ExecutableFile = fopen("WCS.NOMATH", "r+"))
+if((ExecutableFile = fopen("WCS.NOMATH", "r+")))
 	{
 	fseek(ExecutableFile, 0, SEEK_END);
 	ExecLen = ftell(ExecutableFile);
 	if(ExecLen > 500000) /* sanity check */
 		{
-		if(ExecutableMem = malloc(ExecLen))
+		if((ExecutableMem = malloc(ExecLen)))
 			{
 			rewind(ExecutableFile);
 			if(fread(ExecutableMem, 1, ExecLen, ExecutableFile) == ExecLen)
 				{
-				if(CookiePtr = memstr(ExecutableMem, ExecLen, Vector[1]))
+				if((CookiePtr = memstr(ExecutableMem, ExecLen, Vector[1])))
 					{
 					CookieOffset = (CookiePtr - ExecutableMem);
 					if(CookieOffset)
