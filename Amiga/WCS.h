@@ -20,7 +20,6 @@
 #include "GUIExtras.h"
 #include "Defines.h"
 #include "GUIDefines.h"
-#include "Proto.h"
 
 #ifdef AMIGA_GUI
 EXTERN struct IntuitionBase *IntuitionBase
@@ -59,7 +58,7 @@ EXTERN struct FileRequester *frbase,*frparam,*frfile;
 EXTERN struct IntuiMessage Event;
 #endif /* AMIGA_GUI */
 
-EXTERN struct WCSApp
+/*EXTERN*/ struct WCSApp
 	{
 	void *MUIApp;
 	APTR OldSysReqWin;
@@ -68,7 +67,7 @@ EXTERN struct WCSApp
 
 EXTERN struct ARexxContext *RexxAp;
 
-EXTERN struct WCSScreenMode
+/*EXTERN*/ struct WCSScreenMode
 	{
 	struct WCSScreenMode *Next;
 	ULONG ModeID;
@@ -123,7 +122,7 @@ EXTERN struct DirList {
  char Name[255];
 } *DL;
 
-EXTERN struct ParHeaderV1 {
+/*EXTERN*/ struct ParHeaderV1 {
  char 	FType[8];
  float 	Version;
  short  FirstFrame,
@@ -132,7 +131,7 @@ EXTERN struct ParHeaderV1 {
 	CurrentKey;
 };
 
-EXTERN struct ParHeader {
+/*EXTERN*/ struct ParHeader {
  char	FType[8];
  float	Version;
  long	ByteOrder;
@@ -146,27 +145,27 @@ EXTERN struct ParHeader {
 
 EXTERN struct ParHeader ParHdr;
 
-EXTERN struct MotionV1 {
+/*EXTERN*/ struct MotionV1 {
  double Value[2];		/* 0=First, 1=Last */
  short	Frame[2],		/* 0=Start, 1=End */
 	Ease[2];		/* 0=In, 1=Out */
 };
 
-EXTERN struct Motion {
+/*EXTERN*/ struct Motion {
  double Value;
 };
 
-EXTERN struct MotionShift {
+/*EXTERN*/ struct MotionShift {
  double Value;
 };
 
 EXTERN struct MotionShift MoShift[MOTIONPARAMS];
 
-EXTERN struct AnimationV1 {
+/*EXTERN*/ struct AnimationV1 {
  struct MotionV1 mn[MOTIONPARAMSV1];
 };
 
-EXTERN struct Animation {
+/*EXTERN*/ struct Animation {
  struct Motion mn[MOTIONPARAMS];
 };
 
@@ -174,29 +173,29 @@ EXTERN __far struct Animation MoPar;
 
 EXTERN __far struct Animation UndoMoPar[2];
  
-EXTERN struct ColorV1 {
+/*EXTERN*/ struct ColorV1 {
  char   Name[24];
  short	Value[6],
 	Frame[2],
 	Ease[2];
 };
 
-EXTERN struct Color {
+/*EXTERN*/ struct Color {
  char	Name[24];
  short	Value[3];
 };
 
-EXTERN struct ColorShift {
+/*EXTERN*/ struct ColorShift {
  double Value[3];
 };
 
 EXTERN struct ColorShift CoShift[COLORPARAMS];
 
-EXTERN struct PaletteV1 {
+/*EXTERN*/ struct PaletteV1 {
  struct ColorV1 cn[COLORPARAMSV1];
 };
 
-EXTERN struct Palette {
+/*EXTERN*/ struct Palette {
  struct Color cn[COLORPARAMS];
 };
 
@@ -204,7 +203,7 @@ EXTERN __far struct Palette CoPar;
 
 EXTERN __far struct Palette UndoCoPar[2];
 
-EXTERN struct EcosystemV1 {
+/*EXTERN*/ struct EcosystemV1 {
  char   Name[24];
  short	Line[2],		/* Snow or Tree line... */
 	Skew[2],		/* Line skew or water depth */
@@ -223,7 +222,7 @@ EXTERN struct EcosystemV1 {
  char	Model[32];
 }; 
 
-EXTERN struct OldEcosystemV1 {
+/*EXTERN*/ struct OldEcosystemV1 {
  char   Name[24];
  short	Line[2],		/* Snow or Tree line... */
 	Skew[2],		/* Snow line skew... */
@@ -243,13 +242,13 @@ EXTERN struct OldEcosystemV1 {
         Ease[2];
 }; 
 
-EXTERN struct Ecosystem2V1 {
+/*EXTERN*/ struct Ecosystem2V1 {
  char   Name[24];
  short	Value[24];
  char 	Model[32];
 }; 
 
-EXTERN struct Ecosystem {
+/*EXTERN*/ struct Ecosystem {
  char	Name[24];
  float	Line,
 	Skew,
@@ -268,14 +267,14 @@ EXTERN struct Ecosystem {
  char	Model[32];
 };
 
-EXTERN struct Ecosystem2 {
+/*EXTERN*/ struct Ecosystem2 {
  char	Name[24];
  float	FltValue[10];
  short	ShtValue[6];
  char	Model[32];
 };
 
-EXTERN struct EcosystemShiftV1 {
+/*EXTERN*/ struct EcosystemShiftV1 {
  double Line[3],		/* Snow or Tree line... */
 	Skew[3],		/* Snow line skew... */
 	SkewAz[3],		/* Azimuth for skew effect */
@@ -292,7 +291,7 @@ EXTERN struct EcosystemShiftV1 {
 	SubCol[3];		/* Understory or subdominant color */
 };
 
-EXTERN struct BitmapImage {
+/*EXTERN*/ struct BitmapImage {
  UBYTE	*Bitmap[3];
  float  *Covg, *MidPt, *Span;
  short	Width, Height, Colors, PalCol;
@@ -300,7 +299,7 @@ EXTERN struct BitmapImage {
  struct BitmapImage *Smaller, *Next;
 };
 
-EXTERN struct EcosystemShift {
+/*EXTERN*/ struct EcosystemShift {
  double Line,		/* Snow or Tree line... */
 	Skew,		/* Snow line skew... */
 	SkewAz,		/* Azimuth for skew effect */
@@ -325,12 +324,12 @@ EXTERN struct EcosystemShift {
 
 EXTERN struct EcosystemShift EcoShift[ECOPARAMS];
 
-EXTERN union EnvironmentV1 {
+/*EXTERN*/ union EnvironmentV1 {
  struct EcosystemV1 en[ECOPARAMSV1];
  struct Ecosystem2V1 en2[ECOPARAMSV1];
 };
 
-EXTERN union Environment {
+/*EXTERN*/ union Environment {
  struct Ecosystem en[ECOPARAMS];
  struct Ecosystem2 en2[ECOPARAMS];
 };
@@ -339,7 +338,7 @@ EXTERN __far union Environment EcoPar;
 
 EXTERN __far union Environment UndoEcoPar[2];
 
-EXTERN struct SettingsV1 {
+/*EXTERN*/ struct SettingsV1 {
  short	startframe,
 	maxframes,
 	startseg,		/* formerly campath */
@@ -420,7 +419,7 @@ EXTERN struct SettingsV1 {
 	globreflat;
 };
 
-EXTERN struct Settings {
+/*EXTERN*/ struct Settings {
  short	startframe,
 	maxframes,
 	startseg,		/* formerly campath */
@@ -518,7 +517,7 @@ EXTERN struct Settings settings;
 
 EXTERN __far struct Settings UndoSetPar[2];
 
-EXTERN struct NoLinearMotionKey {
+/*EXTERN*/ struct NoLinearMotionKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -526,7 +525,7 @@ EXTERN struct NoLinearMotionKey {
  double	Value;
 };
 
-EXTERN struct NoLinearColorKey {
+/*EXTERN*/ struct NoLinearColorKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -534,7 +533,7 @@ EXTERN struct NoLinearColorKey {
  short	Value[3];
 };
 
-EXTERN struct NoLinearEcosystemKey {
+/*EXTERN*/ struct NoLinearEcosystemKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -549,7 +548,7 @@ EXTERN struct NoLinearEcosystemKey {
 	MinSlope;		/* Min slope */
 };
 
-EXTERN struct NoLinearEcosystemKey2 {
+/*EXTERN*/ struct NoLinearEcosystemKey2 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -557,14 +556,14 @@ EXTERN struct NoLinearEcosystemKey2 {
  short	Value[8];
 };
 
-EXTERN union NoLinearKeyFrame {
+/*EXTERN*/ union NoLinearKeyFrame {
  struct NoLinearMotionKey MoKey;
  struct NoLinearColorKey CoKey;
  struct NoLinearEcosystemKey EcoKey;
  struct NoLinearEcosystemKey2 EcoKey2;
 };
 
-EXTERN struct MotionKey {
+/*EXTERN*/ struct MotionKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -573,7 +572,7 @@ EXTERN struct MotionKey {
  double	Value;
 };
 
-EXTERN struct MotionKey2 {
+/*EXTERN*/ struct MotionKey2 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -582,7 +581,7 @@ EXTERN struct MotionKey2 {
  double	Value[1];
 };
 
-EXTERN struct ColorKey {
+/*EXTERN*/ struct ColorKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -591,7 +590,7 @@ EXTERN struct ColorKey {
  short	Value[3];
 };
 
-EXTERN struct EcosystemKeyV1 {
+/*EXTERN*/ struct EcosystemKeyV1 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -607,7 +606,7 @@ EXTERN struct EcosystemKeyV1 {
 	MinSlope;		/* Min slope */
 };
 
-EXTERN struct EcosystemKey2V1 {
+/*EXTERN*/ struct EcosystemKey2V1 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -616,7 +615,7 @@ EXTERN struct EcosystemKey2V1 {
  short	Value[8];
 };
 
-EXTERN struct EcosystemKey {
+/*EXTERN*/ struct EcosystemKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -634,7 +633,7 @@ EXTERN struct EcosystemKey {
 	Height;			/* Tree height */
 };
 
-EXTERN struct EcosystemKey2 {
+/*EXTERN*/ struct EcosystemKey2 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -643,7 +642,7 @@ EXTERN struct EcosystemKey2 {
  float	Value[10];
 };
 
-EXTERN struct CloudKey {
+/*EXTERN*/ struct CloudKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -652,7 +651,7 @@ EXTERN struct CloudKey {
  float	Value[7];	/* Coverage, Density, StdDev, H, Alt, LatOff, LonOff*/
 };
 
-EXTERN struct WaveKey {
+/*EXTERN*/ struct WaveKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -661,14 +660,14 @@ EXTERN struct WaveKey {
  float	Value[4];	/* Amp, WhiteCapHt, LatOff, LonOff */ 
 };
 
-EXTERN union KeyFrameV1 {
+/*EXTERN*/ union KeyFrameV1 {
  struct MotionKey MoKey;
  struct ColorKey CoKey;
  struct EcosystemKeyV1 EcoKey;
  struct EcosystemKey2V1 EcoKey2;
 };
 
-EXTERN union KeyFrame {
+/*EXTERN*/ union KeyFrame {
  struct MotionKey MoKey;
  struct MotionKey2 MoKey2;
  struct ColorKey CoKey;
@@ -680,7 +679,7 @@ EXTERN union KeyFrame {
 
 EXTERN union KeyFrame *KF, *UndoKF;
 
-EXTERN struct KeyTable {
+/*EXTERN */struct KeyTable {
  short NumKeys;
  union KeyFrame **Key;
  double *Val[10];
@@ -688,36 +687,34 @@ EXTERN struct KeyTable {
 
 EXTERN struct KeyTable *KT, *SKT[3];
 
-EXTERN struct coords {
+/*EXTERN*/ struct coords {
  double lat,lon,alt,
 	x,y,z,q;
 };
 
 EXTERN struct coords VP, FP, DP, SP, SNB, PP[5];
 
-EXTERN Matx3x3 ScrRotMatx, NoBankMatx;
-
-EXTERN struct clipbounds {
+/*EXTERN*/ struct clipbounds {
  short lowx, highx, lowy, highy;
 };
 
-EXTERN struct Vertex {
+/*EXTERN*/ struct Vertex {
  short	X, Y;
 };
 
-EXTERN struct Box {
+/*EXTERN*/ struct Box {
  struct Vertex Low, High;
 };
 
-EXTERN struct poly4 {
+/*EXTERN*/ struct poly4 {
  float X[5], Y[5];
 };
 
-EXTERN struct poly3 {
+/*EXTERN*/ struct poly3 {
  float X[3], Y[3];
 };
 
-EXTERN struct ColorComponents {
+/*EXTERN*/ struct ColorComponents {
  short Red, Grn, Blu;
 };
 
@@ -738,7 +735,7 @@ long	PSize;
 short	Max[7];
 } Vtx[7];
 
-EXTERN struct elmapheaderV101 {
+/*EXTERN*/ struct elmapheaderV101 {
 			/* same as V1.02 in size and members */
 			/* 1.02 allowed the elscale variable to reflect whether */
 			/* the data was in meters, feet, etc... */
@@ -762,11 +759,11 @@ EXTERN struct elmapheaderV101 {
 
 EXTERN struct elmapheaderV101 *elmap, relelev, DeformMap;
 
-EXTERN struct GeoPoint {
+/*EXTERN*/ struct GeoPoint {
  double 		Lat, Lon;
 };
 
-EXTERN struct WaveData {
+/*EXTERN*/ struct WaveData {
  short 			NumKeys, NumWaves, KT_MaxFrames;
  long 			KFSize;
  double			Amp, WhiteCapHt, LatOff, LonOff;
@@ -775,7 +772,7 @@ EXTERN struct WaveData {
  struct KeyTable *	KT;
 };
 
-EXTERN struct WaveData2 {
+/*EXTERN*/ struct WaveData2 {
  short 			NumKeys, NumWaves, KT_MaxFrames;
  long 			KFSize;
  double			Value[4];
@@ -786,19 +783,19 @@ EXTERN struct WaveData2 {
 
 EXTERN struct WaveData *Tsunami;
  
-EXTERN struct Wave {
+/*EXTERN*/ struct Wave {
  struct Wave *		Next;
  short			NumKeys;
  double 		Amp, Length, Velocity;
  struct GeoPoint 	Pt;
 };
 
-EXTERN struct CloudLayer {
+/*EXTERN*/ struct CloudLayer {
  struct CloudLayer *	Next, *Prev;
  double  		Covg, Dens, Illum, Alt;
 };
 
-EXTERN struct CloudData {
+/*EXTERN*/ struct CloudData {
  long   		RandSeed, Rows, Cols, PlaneSize, KFSize;
  short			NumKeys, CloudType, NumLayers, Dynamic,
 			KT_MaxFrames;
@@ -812,7 +809,7 @@ EXTERN struct CloudData {
  float *		CloudPlane;
 };
 
-EXTERN struct CloudData2 {
+/*EXTERN*/ struct CloudData2 {
  long   		RandSeed, Rows, Cols, PlaneSize, KFSize;
  short			NumKeys, CloudType, NumWaves, NumLayers, Dynamic,
 			KT_MaxFrames;
@@ -825,7 +822,7 @@ EXTERN struct CloudData2 {
  float *		CloudPlane;
 };
 
-EXTERN struct DEMData {
+/*EXTERN*/ struct DEMData {
  long			Rows, Columns;
  struct GeoPoint	Pt[4];
  double 		LatStep, LonStep, ElScale;
@@ -845,11 +842,11 @@ EXTERN struct DEMData {
  short			MapAsSFC;
 };
 
-EXTERN struct MaxMin3 {
+/*EXTERN*/ struct MaxMin3 {
  double MxLon, MnLon, MxLat, MnLat, MxEl, MnEl;
 };
 
-EXTERN struct vectorheaderV100 {
+/*EXTERN*/ struct vectorheaderV100 {
  char	Name[10];
  long	points;
  short	elevs;
@@ -857,7 +854,7 @@ EXTERN struct vectorheaderV100 {
  short  MaxEl, MinEl;
 };
 
-EXTERN struct DEMInfo {
+/*EXTERN*/ struct DEMInfo {
  short	Code,
 	Zone,
 	HUnits,
@@ -867,25 +864,25 @@ EXTERN struct DEMInfo {
 	LL[4][2];
 };
 
-EXTERN struct UTMLatLonCoords {
+/*EXTERN*/ struct UTMLatLonCoords {
  double	North, East, Lat, Lon;
  double	RefNorth[4], RefEast[4], RefLat[4], RefLon[4];
  double a, e_sq, k_0, M_0, lam_0, e_pr_sq, e_sq_sq, e_1, e_1_sq;
 };
 
-EXTERN struct AlbLatLonCoords {
+/*EXTERN*/ struct AlbLatLonCoords {
  double	North, East, Lat, Lon;
  double	RefNorth[4], RefEast[4], RefLat[4], RefLon[4];
  double ProjPar[8];
  double a, e_sq, e, two_e, C, n, rho_0, lam_0;
 };
 
-EXTERN union MapProjection {
+/*EXTERN*/ union MapProjection {
  struct UTMLatLonCoords UTM;
  struct AlbLatLonCoords Alb;
 };
 
-EXTERN struct USGS_DEMHeader {
+/*EXTERN*/ struct USGS_DEMHeader {
  char 	FileName[145],
 	LevelCode[7],
 	ElPattern[7],
@@ -905,7 +902,7 @@ EXTERN struct USGS_DEMHeader {
 	Columns[7];
 };
 
-EXTERN struct USGS_DEMProfileHeader {
+/*EXTERN*/ struct USGS_DEMProfileHeader {
  char	Row[7],
 	Column[7],
 	ProfRows[7],
@@ -916,7 +913,7 @@ EXTERN struct USGS_DEMProfileHeader {
 	ElMax[25];
 };
 
-EXTERN struct boundingbox {
+/*EXTERN*/ struct boundingbox {
  double	lat[13],lon[13];
  short	elev[13];
  float	scrnx[13],
@@ -980,7 +977,7 @@ EXTERN struct InterAction {
  struct clipbounds cb;  
 } *IA;
 
-EXTERN struct InterpPoints {
+/*EXTERN*/ struct InterpPoints {
  double lowx, midx, hix, lowel, midel, hiel, pty1, pty2;
 };
 
@@ -1023,15 +1020,15 @@ struct lineseg {
  double firstx, firsty, lastx, lasty, oldx, oldy;
 };
 
-EXTERN struct QCvalues {
+/*EXTERN*/ struct QCvalues {
  long	compval1, compval2, compval3;
 };
 
-EXTERN struct FaceData {
+/*EXTERN*/ struct FaceData {
  double El[3], Lat[3], Lon[3];
 };
 
-EXTERN struct TreeModel {
+/*EXTERN*/ struct TreeModel {
  long	Ht, Stems;
  short	Class, Red, Grn, Blu;
  double	Pct;
@@ -1042,7 +1039,7 @@ EXTERN struct ForestModel {
  struct TreeModel *TM;
 } FM[ECOPARAMS];
 
-EXTERN struct DEMConvertData {
+/*EXTERN*/ struct DEMConvertData {
  short	FormatCy[10],
 	FormatInt[5],
 	OutputMaps[2],
@@ -1069,7 +1066,7 @@ struct DEMInterpolateData {
  char 	*pattern;
 };
 
-EXTERN struct DEMExtractData {
+/*EXTERN*/ struct DEMExtractData {
  struct USGS_DEMHeader USGSHdr;
  struct USGS_DEMProfileHeader ProfHdr;
  double SELat,
@@ -1104,34 +1101,34 @@ EXTERN struct DEMExtractData {
 	*LLData;
 };
 
-EXTERN struct DLGInfo {
+/*EXTERN*/ struct DLGInfo {
  long 	IDNum, StartNode, EndNode;
  short 	LeftArea, RightArea, Pairs, Attrs, Text, MajorAttr, MinorAttr,
 	Color, LineWidth;
  char 	Name[16], Layer1[3], Layer2[4];
 };
 
-EXTERN struct VelocityDistr {
+/*EXTERN*/ struct VelocityDistr {
  short PtsIn, PtsOut, EaseIn, EaseOut, Base;
  double *Lat, *Lon, *Alt;
 };
 
-EXTERN struct RenderAnim {
+/*EXTERN*/ struct RenderAnim {
  char AnimPath[256], AnimName[32];
  long OutToFile, StartFrame, EndFrame, Width, Height, FrameStep;
 };
 
-EXTERN struct TerrainControl {
+/*EXTERN*/ struct TerrainControl {
  float Lat, Lon, El;
 };
 
-EXTERN struct datum                           
+/*EXTERN*/ struct datum
 {
  double       values[3];
  struct datum *nextdat;
 };
 
-EXTERN struct MinimumDistance {
+/*EXTERN*/ struct MinimumDistance {
  float Dist, El;
 };
 
@@ -1576,39 +1573,39 @@ EXTERN double fractperturb[10];
 EXTERN __far float parambounds[USEDMOTIONPARAMS][2]
 #ifdef MAIN
 = {
- FLLARGENUM,-EARTHRAD,	/* Camera Altitude */
- 90.0,      -90.0,	/* Camera Latitude */
- FLLARGENUM,-FLLARGENUM,/* Camera Longitude */
- FLLARGENUM,-EARTHRAD,	/* Focus Altitude */
- FLLARGENUM,-FLLARGENUM,/* Focus Latitude */
- FLLARGENUM,-FLLARGENUM,/* Focus Longitude */
- 32000,	    -32000,	/* Center X */
- 32000,	    -32000,	/* Center Y */
- FLLARGENUM,-FLLARGENUM,/* Bank */
- FLLARGENUM,-FLLARGENUM,/* Earth Rotation */
- FLLARGENUM, .0001,	/* Scale Factor */
- 179.0,	     1.0,	/* View Arc */
- 100.0,	    -100.0,	/* Flattening */
- FLLARGENUM,-FLLARGENUM,/* Datum */
- 100.0,	    -100.0,	/* Vertical Exageration */
- 90.0,      -90.0,	/* Sun Light Latitude */
- FLLARGENUM,-FLLARGENUM,/* Sun Light Longitude */
- 100.0,	     0.0,	/* Horizon Line */
- FLLARGENUM,-FLLARGENUM,/* Horizon Point */
- 100.0,	    -100.0,	/* Horizon Stretch */
- FLLARGENUM,-FLLARGENUM,/* Haze Start */
- FLLARGENUM,-FLLARGENUM,/* Haze Range */
- 2.0,	     0.0,	/* Shade Factor */
- FLLARGENUM,-FLLARGENUM,/* Fog None */
- FLLARGENUM,-FLLARGENUM,/* Fog Full */
- FLLARGENUM, 0.0,	/* Q Minimum */
- 90.0,	    -90.0,	/* Sun Lat */
- FLLARGENUM,-FLLARGENUM,/* Sun Lon */
- 5000.0,     0.0,	/* Sun Size */
- 90.0,	    -90.0,	/* Moon Lat */
- FLLARGENUM,-FLLARGENUM,/* Moon Lon */
- 5000.0,     0.0,	/* Moon Size */
- 100.0,	     0.0,	/* Reflection % */
+ {FLLARGENUM,-EARTHRAD},	/* Camera Altitude */
+ {90.0,      -90.0},	/* Camera Latitude */
+ {FLLARGENUM,-FLLARGENUM},/* Camera Longitude */
+ {FLLARGENUM,-EARTHRAD},	/* Focus Altitude */
+ {FLLARGENUM,-FLLARGENUM},/* Focus Latitude */
+ {FLLARGENUM,-FLLARGENUM},/* Focus Longitude */
+ {32000,	    -32000},	/* Center X */
+ {32000,	    -32000},	/* Center Y */
+ {FLLARGENUM,-FLLARGENUM},/* Bank */
+ {FLLARGENUM,-FLLARGENUM},/* Earth Rotation */
+ {FLLARGENUM, .0001},	/* Scale Factor */
+ {179.0,	     1.0},	/* View Arc */
+ {100.0,	    -100.0},	/* Flattening */
+ {FLLARGENUM,-FLLARGENUM},/* Datum */
+ {100.0,	    -100.0},	/* Vertical Exageration */
+ {90.0,      -90.0},	/* Sun Light Latitude */
+ {FLLARGENUM,-FLLARGENUM},/* Sun Light Longitude */
+ {100.0,	     0.0},	/* Horizon Line */
+ {FLLARGENUM,-FLLARGENUM},/* Horizon Point */
+ {100.0,	    -100.0},	/* Horizon Stretch */
+ {FLLARGENUM,-FLLARGENUM},/* Haze Start */
+ {FLLARGENUM,-FLLARGENUM},/* Haze Range */
+ {2.0,	     0.0},	/* Shade Factor */
+ {FLLARGENUM,-FLLARGENUM},/* Fog None */
+ {FLLARGENUM,-FLLARGENUM},/* Fog Full */
+ {FLLARGENUM, 0.0},	/* Q Minimum */
+ {90.0,	    -90.0},	/* Sun Lat */
+ {FLLARGENUM,-FLLARGENUM},/* Sun Lon */
+ {5000.0,     0.0},	/* Sun Size */
+ {90.0,	    -90.0},	/* Moon Lat */
+ {FLLARGENUM,-FLLARGENUM},/* Moon Lon */
+ {5000.0,     0.0},	/* Moon Size */
+ {100.0,	     0.0},	/* Reflection % */
 }
 #endif /* MAIN */
 ;
@@ -1619,7 +1616,7 @@ EXTERN double qmax,cosviewlat,sunlat,sunlong,diplat,diplong,
        facelat,facelong,el,faceel,slope,aspect,CenterX,CenterY,
        ralt,vertscale,horscale,sunangle,sunfactor,fade,colavg,sunshade,
        seadepthfact,
-       redsun,greensun,bluesun,random,dlat,dlong,dslope,flred,flgreen,flblue,
+       redsun,greensun,bluesun,Random,dlat,dlong,dslope,flred,flgreen,flblue,
        maxdlat,mindlat,maxdlong,mindlong,transpar,PtrnOffset,HalfPtrnOffset,
        relel,relfactor,treehtfact,treerand,treerand2,treerand3,treerand4,
        cloudcover,xrot,yrot,zrot,cosxrot,cosyrot,coszrot,
@@ -1635,25 +1632,25 @@ EXTERN double *DTable;
 
 /* NOTE: some of these structure pointers need to be initialized to 0 */
 
-EXTERN struct simp
+/*EXTERN*/ struct simp
 {  int          vert[3];
    double       cent[3];
    struct simp  *nextsimp;
 };
 
-EXTERN struct temp
+/*EXTERN*/ struct temp
 {  int          end[2];
    struct temp  *nexttemp;
 };
 
-EXTERN struct neig
+/*EXTERN*/ struct neig
 {  int          neinum;
    double       narea;
    double       coord;
    struct neig  *nextneig;
 };
 
-EXTERN struct NNGrid {
+/*EXTERN*/ struct NNGrid {
  double  xstart, ystart, xterm, yterm, horilap, 
         vertlap, arriba, bI, bJ, nuldat,
         **points, **joints, wbit, maxxy[2][3], 
@@ -1821,13 +1818,13 @@ EXTERN APTR AboutWin, CreditWin, CreditList;
 EXTERN APTR CreditWinOK, InfoWinOK;
 #endif /* XENON_DOESNT_LIKE_THIS */
 
-EXTERN struct WindowKeyStuff {
+/*EXTERN*/ struct WindowKeyStuff {
   short IsKey, PrevKey, NextKey, KeysExist, ItemKeys, Frame,
 	Linear, Group, Item, NumValues, Precision, StrBlock, PropBlock;
   float TCB[3];
 };
 
-EXTERN struct GUIKeyStuff {
+/*EXTERN*/ struct GUIKeyStuff {
   APTR FramePages,
 	BT_MakeKey, BT_UpdateKeys, BT_AllKeys, BT_NextKey, BT_PrevKey, BT_DeleteKey,
 	BT_KeyScale, BT_TimeLines, BT_DeleteAll, Str[1], StrArrow[2];
@@ -1839,7 +1836,7 @@ EXTERN APTR InfoWin, InfoWinFlush, InfoTime, InfoDate, InfoARexx,
  InfoDataBase, InfoPar, InfoScreenMode, InfoFastAvail, InfoChipAvail,
  InfoFastLarge, InfoChipLarge, InfoMapTopos, InfoInterTopos;
 
-EXTERN struct PaletteItem {
+/*EXTERN*/ struct PaletteItem {
   long red, grn, blu, hue, sat, val;
 };
 
@@ -2068,7 +2065,7 @@ EXTERN struct LightWaveIOWindow {
   struct Window *Win;
 } *LW_Win;
 
-EXTERN struct BusyWindow {
+/*EXTERN*/ struct BusyWindow {
   ULONG StartSeconds, MaxSteps, CurSteps;
   APTR BusyWin, BW_Percent, BW_Elapse, BW_Remain, BW_Cancel;
 };
@@ -2224,7 +2221,7 @@ EXTERN long MapElmapSize, MapCoordSize, TopoOBNSize;
 EXTERN __far long mapxx[MAXOBJPTS];
 EXTERN __far long mapyy[MAXOBJPTS];
 
-EXTERN struct MapCoords {
+/*EXTERN*/ struct MapCoords {
  float C[4];
 };
 
@@ -2261,86 +2258,86 @@ EXTERN double mapscale,maplat,maplon,latzero,lonzero,
 EXTERN __far const UBYTE grass[40][40]
 #ifdef MAIN
  = {
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,15, 
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,15, 0, 0, 0, 0, 0,15, 
- 0, 0, 0,15, 0, 0, 0, 0, 0, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0, 0, 0,15, 0, 0, 0, 0, 0,15, 
- 0, 0, 0, 0,14, 0, 0, 0,15, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0, 
- 0, 0, 0,15, 0, 0, 0, 0, 0, 0,14, 0, 0, 0,13, 0, 0, 0, 0, 0, 
-15, 0, 0,15,14, 0, 0,15,14,14, 0,15, 0,15, 0, 0, 0, 0, 0, 0, 
- 0, 0, 0, 0,14, 0, 0, 0, 0, 0,14, 0, 0, 0,14, 0, 0, 0, 0, 0, 
-14,14, 0,14,14, 0, 0, 0,14, 0, 0,13, 0,15, 0, 0, 0,15, 0, 0, 
- 0, 0, 0, 0,14, 0, 0, 0,15, 0,14, 0, 0, 0,14, 0,13, 0, 0, 0, 
-14,14, 0,14, 0,13, 0,15,15, 0,14, 0,14,13, 0, 0, 0,15, 0, 0, 
- 0, 0, 0, 0,14,13, 0, 0,15, 0,15,14, 0, 0,14, 0, 0,15, 0, 0, 
-14, 0, 0,14, 0,15, 0,15, 0, 0, 0,14,14, 0, 0, 0,13, 0, 0, 0, 
- 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 0,14, 0, 0,14, 0, 0,15, 0, 0, 
-14, 0,15, 0,12,15, 0,15, 0, 0,15,14, 0, 0, 0,13, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0,12, 0, 0, 0, 0, 0,15, 0,14,13,13, 0,15,15, 0, 
-14, 0,13, 0,14,14, 0,14,12, 0, 0,14,13, 0, 0,14, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0,12, 0, 0,14, 0,15, 0, 0,14,14, 0, 0,15,13, 0, 
-15,12,13, 0, 0,14, 0,14,14, 0,13, 0,13, 0, 0,14, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0,15,15, 0,14, 0,15,15, 0, 0,15, 0, 0,14, 0, 0, 
-14,14, 0, 0, 0,14, 0,15,12, 0, 0,13,13, 0, 0,14,14, 0, 0, 0, 
- 0, 0, 0, 0, 0,12,15,12,12, 0,15,12,15, 0,15,14, 0,12,13, 0, 
-15,14,15, 0,12,15,15, 0,12, 0,13,15,13,12, 0,15,14, 0, 0, 0, 
- 0, 0, 0, 0, 0, 0,14, 0,12, 0, 0,14,12, 0,15,14, 0, 0,13, 0, 
-15,14,15, 0,12, 0,15, 0, 0,13,13,15, 0,12, 0, 0,14, 0, 0, 0, 
-12,12, 0, 0, 0, 0,15, 0,12, 0, 0, 0,12, 0,15,14, 0, 0,13, 0, 
- 0,12,15, 0, 0, 0,15, 0,12,14,13,15,15,12,14,14,15,12,15, 0, 
- 0,15, 0, 0, 0, 0,15,12, 0, 0,15, 0,14,15, 0, 0, 0,14,13, 0, 
-14,14,15, 0, 0,14,14, 0,12,14,13, 0,15, 0,12, 0,15,12, 0,15, 
-12, 0,12, 0, 0, 0,15,14, 0, 0,15, 0,14, 0,13, 0, 0,14, 0, 0, 
-14,14,14, 0, 0,14,14,13,12, 0,13, 0,15, 0,12, 0,15, 0, 0, 0, 
- 0, 0,12, 0, 0, 0,15,14,12, 0,13,13,14,14, 0, 0, 0,14, 0, 0, 
-14,12,14,15, 0, 0,13,14, 0, 0,13,14,15, 0, 0, 0,15, 0, 0, 0, 
- 0, 0, 0,12, 0, 0,15, 0,12,12,15, 0,13,14, 0, 0, 0,12, 0, 0, 
-14,14,12,15, 0, 0, 0,13, 0, 0,13,14,14,15, 0, 0,15, 0, 0, 0, 
- 0,15, 0,14, 0, 0,14,15, 0, 0,15,15,12,14,13, 0,14,14, 0, 0, 
-15, 0,14,15,12, 0,13,15,13, 0, 0,13,14,15, 0,14,15, 0, 0, 0, 
- 0, 0,15,14, 0,15,14,15,14, 0, 0,15,14,14,13, 0,13,14, 0, 0, 
-15, 0,14,15, 0, 0,13, 0,13, 0,15,13, 0,15, 0,14,15, 0, 0, 0, 
- 0, 0,15, 0, 0, 0,14,13,14, 0, 0, 0,14,13,13, 0, 0,14,13, 0, 
-15, 0,14,15, 0,15,13,13,15, 0,15,13,14,15, 0,14, 0, 0,12, 0, 
- 0, 0,15, 0, 0, 0,14,14,15, 0, 0, 0,14,15,12,15, 0,14,13, 0, 
- 0, 0,12,15, 0,15,13,13,15, 0,15,13,14,15, 0,14, 0,12, 0, 0, 
- 0, 0, 0,12,12, 0, 0,14,15, 0, 0, 0,14,15,15,15, 0,14, 0,12, 
- 0,15, 0,15, 0,15, 0,13,15, 0, 0,13,14,15,12,14,12,12, 0, 0, 
- 0, 0, 0,12, 0,15,13,13, 0, 0,12, 0, 0,15, 0,15,12,14,12, 0, 
- 0,15, 0, 0,12, 0, 0,12,15,12, 0,13,14,12,14,12,14,12, 0, 0, 
- 0,12, 0, 0, 0,15, 0,13, 0, 0, 0, 0,14,15, 0,14, 0,12,15,15, 
- 0,15,15, 0,14, 0,15, 0,15,12, 0,15,13,12,14, 0,14,12, 0, 0, 
- 0, 0,12, 0,15, 0, 0,13, 0,15, 0, 0,14,15, 0,14,13,14,13,15, 
- 0, 0,15, 0,14, 0, 0,14,15,12,13,15,15,12,14,13,14, 0, 0, 0, 
- 0, 0, 0, 0,12, 0, 0,15,15,15,15,13,14,12, 0,14,13,14,15,12, 
- 0, 0,15, 0,14, 0,12,14,15,13,13,12,11, 0,12,13,14,12, 0, 0, 
- 0, 0, 0, 0,15,12, 0,15,15, 0, 0,12,14, 0,12,14,13,14,15,12, 
- 0,12,15, 0,14, 0,12,14,14,14,13,14,12, 0, 0,13,12, 0, 0, 0, 
- 0, 0, 0, 0,15,14,12,15,15,12, 0,12,14, 0,15,14,15,13, 0, 0, 
-12, 0,15, 0,12,12, 0,13,15,14,13,14,14, 0, 0,12,12, 0, 0, 0, 
- 0, 0, 0, 0,15,14, 0,15, 0, 0, 0,13,14, 0,12,14,15,13, 0, 0, 
- 0,11,15, 0, 0,13, 0, 0,13,13, 0, 0,14, 0,13,12, 0, 0, 0, 0, 
- 0, 0, 0, 0,15,14,12,15, 0, 0, 0, 0,14, 0,15,14,13,12, 0, 0, 
-12,13,15,12,12,13, 0, 0,12,15,13, 0,14,13, 0,12, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0,15,12,15, 0,12,15, 0, 0, 0,15, 0,13, 0,15,13, 
-14,12,15, 0,12,13, 0,15, 0,15,12, 0,14,10,13, 0, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0,15, 0,15,15, 0,15,12,12, 0,15, 0,13, 0,15,13, 
- 0, 0,14, 0, 0, 0,14,15, 0,15, 0,12,12,12,13, 0, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0,15, 0, 0,15, 0,15, 0, 0,13,15, 0,13,10,15,13, 
- 0,13,14,15, 0,12,14,15, 0,15,14,10,14, 0,12, 0, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0,15, 0, 0,15, 0,15, 0,13,13,15,15,13,13,15, 0, 
- 0,13, 0, 0,15, 0,15,15, 0,15,14, 0,14, 0,12, 0, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0, 0, 0, 0,13, 0,15,15,13,13, 0,10,13,13,15, 0, 
- 0,13,13, 0,15,15,14,14, 0,13, 0,12,14, 0, 0, 0, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0, 0, 0,15,13, 0,15, 0, 0,13,14, 0,15,15,13, 0, 
- 0, 0,13,15, 0, 0, 0,14,10,13, 0,14,14, 0, 0, 0, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0, 0, 0, 0,13,13, 0,12, 0,13, 0, 0,14, 0,13, 0, 
-13,15, 0,15,15,15, 0,14,14, 0, 0, 0,14, 0, 0, 0, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0,12, 0, 0, 0, 0, 0, 0,13, 0, 
-14,13,15, 0,12,15,14,14, 0, 0, 0, 0,14, 0, 0, 0, 0, 0, 0, 0, 
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 0, 
- 0, 0,15, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 
+ {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,15,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,15, 0, 0, 0, 0, 0,15,
+ 0, 0, 0,15, 0, 0, 0, 0, 0, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0, 0, 0,15, 0, 0, 0, 0, 0,15,
+ 0, 0, 0, 0,14, 0, 0, 0,15, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0,15, 0, 0, 0, 0, 0, 0,14, 0, 0, 0,13, 0, 0, 0, 0, 0,
+15, 0, 0,15,14, 0, 0,15,14,14, 0,15, 0,15, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0,14, 0, 0, 0, 0, 0,14, 0, 0, 0,14, 0, 0, 0, 0, 0,
+14,14, 0,14,14, 0, 0, 0,14, 0, 0,13, 0,15, 0, 0, 0,15, 0, 0},
+ {0, 0, 0, 0,14, 0, 0, 0,15, 0,14, 0, 0, 0,14, 0,13, 0, 0, 0,
+14,14, 0,14, 0,13, 0,15,15, 0,14, 0,14,13, 0, 0, 0,15, 0, 0},
+ {0, 0, 0, 0,14,13, 0, 0,15, 0,15,14, 0, 0,14, 0, 0,15, 0, 0,
+14, 0, 0,14, 0,15, 0,15, 0, 0, 0,14,14, 0, 0, 0,13, 0, 0, 0},
+ {0, 0, 0, 0,13, 0, 0, 0, 0, 0, 0,14, 0, 0,14, 0, 0,15, 0, 0,
+14, 0,15, 0,12,15, 0,15, 0, 0,15,14, 0, 0, 0,13, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0,12, 0, 0, 0, 0, 0,15, 0,14,13,13, 0,15,15, 0,
+14, 0,13, 0,14,14, 0,14,12, 0, 0,14,13, 0, 0,14, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0,12, 0, 0,14, 0,15, 0, 0,14,14, 0, 0,15,13, 0,
+15,12,13, 0, 0,14, 0,14,14, 0,13, 0,13, 0, 0,14, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0,15,15, 0,14, 0,15,15, 0, 0,15, 0, 0,14, 0, 0,
+14,14, 0, 0, 0,14, 0,15,12, 0, 0,13,13, 0, 0,14,14, 0, 0, 0},
+ {0, 0, 0, 0, 0,12,15,12,12, 0,15,12,15, 0,15,14, 0,12,13, 0,
+15,14,15, 0,12,15,15, 0,12, 0,13,15,13,12, 0,15,14, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0,14, 0,12, 0, 0,14,12, 0,15,14, 0, 0,13, 0,
+15,14,15, 0,12, 0,15, 0, 0,13,13,15, 0,12, 0, 0,14, 0, 0, 0},
+{12,12, 0, 0, 0, 0,15, 0,12, 0, 0, 0,12, 0,15,14, 0, 0,13, 0,
+ 0,12,15, 0, 0, 0,15, 0,12,14,13,15,15,12,14,14,15,12,15, 0},
+ {0,15, 0, 0, 0, 0,15,12, 0, 0,15, 0,14,15, 0, 0, 0,14,13, 0,
+14,14,15, 0, 0,14,14, 0,12,14,13, 0,15, 0,12, 0,15,12, 0,15},
+{12, 0,12, 0, 0, 0,15,14, 0, 0,15, 0,14, 0,13, 0, 0,14, 0, 0,
+14,14,14, 0, 0,14,14,13,12, 0,13, 0,15, 0,12, 0,15, 0, 0, 0},
+{ 0, 0,12, 0, 0, 0,15,14,12, 0,13,13,14,14, 0, 0, 0,14, 0, 0,
+14,12,14,15, 0, 0,13,14, 0, 0,13,14,15, 0, 0, 0,15, 0, 0, 0},
+{ 0, 0, 0,12, 0, 0,15, 0,12,12,15, 0,13,14, 0, 0, 0,12, 0, 0,
+14,14,12,15, 0, 0, 0,13, 0, 0,13,14,14,15, 0, 0,15, 0, 0, 0},
+{ 0,15, 0,14, 0, 0,14,15, 0, 0,15,15,12,14,13, 0,14,14, 0, 0,
+15, 0,14,15,12, 0,13,15,13, 0, 0,13,14,15, 0,14,15, 0, 0, 0},
+{ 0, 0,15,14, 0,15,14,15,14, 0, 0,15,14,14,13, 0,13,14, 0, 0,
+15, 0,14,15, 0, 0,13, 0,13, 0,15,13, 0,15, 0,14,15, 0, 0, 0},
+{ 0, 0,15, 0, 0, 0,14,13,14, 0, 0, 0,14,13,13, 0, 0,14,13, 0,
+15, 0,14,15, 0,15,13,13,15, 0,15,13,14,15, 0,14, 0, 0,12, 0},
+{ 0, 0,15, 0, 0, 0,14,14,15, 0, 0, 0,14,15,12,15, 0,14,13, 0,
+ 0, 0,12,15, 0,15,13,13,15, 0,15,13,14,15, 0,14, 0,12, 0, 0},
+ { 0, 0, 0,12,12, 0, 0,14,15, 0, 0, 0,14,15,15,15, 0,14, 0,12,
+ 0,15, 0,15, 0,15, 0,13,15, 0, 0,13,14,15,12,14,12,12, 0, 0},
+ {0, 0, 0,12, 0,15,13,13, 0, 0,12, 0, 0,15, 0,15,12,14,12, 0,
+ 0,15, 0, 0,12, 0, 0,12,15,12, 0,13,14,12,14,12,14,12, 0, 0},
+ {0,12, 0, 0, 0,15, 0,13, 0, 0, 0, 0,14,15, 0,14, 0,12,15,15,
+ 0,15,15, 0,14, 0,15, 0,15,12, 0,15,13,12,14, 0,14,12, 0, 0},
+ {0, 0,12, 0,15, 0, 0,13, 0,15, 0, 0,14,15, 0,14,13,14,13,15,
+ 0, 0,15, 0,14, 0, 0,14,15,12,13,15,15,12,14,13,14, 0, 0, 0},
+ {0, 0, 0, 0,12, 0, 0,15,15,15,15,13,14,12, 0,14,13,14,15,12,
+ 0, 0,15, 0,14, 0,12,14,15,13,13,12,11, 0,12,13,14,12, 0, 0},
+ {0, 0, 0, 0,15,12, 0,15,15, 0, 0,12,14, 0,12,14,13,14,15,12,
+ 0,12,15, 0,14, 0,12,14,14,14,13,14,12, 0, 0,13,12, 0, 0, 0},
+ {0, 0, 0, 0,15,14,12,15,15,12, 0,12,14, 0,15,14,15,13, 0, 0,
+12, 0,15, 0,12,12, 0,13,15,14,13,14,14, 0, 0,12,12, 0, 0, 0},
+ {0, 0, 0, 0,15,14, 0,15, 0, 0, 0,13,14, 0,12,14,15,13, 0, 0,
+ 0,11,15, 0, 0,13, 0, 0,13,13, 0, 0,14, 0,13,12, 0, 0, 0, 0},
+ {0, 0, 0, 0,15,14,12,15, 0, 0, 0, 0,14, 0,15,14,13,12, 0, 0,
+12,13,15,12,12,13, 0, 0,12,15,13, 0,14,13, 0,12, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0,15,12,15, 0,12,15, 0, 0, 0,15, 0,13, 0,15,13,
+14,12,15, 0,12,13, 0,15, 0,15,12, 0,14,10,13, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0,15, 0,15,15, 0,15,12,12, 0,15, 0,13, 0,15,13,
+ 0, 0,14, 0, 0, 0,14,15, 0,15, 0,12,12,12,13, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0,15, 0, 0,15, 0,15, 0, 0,13,15, 0,13,10,15,13,
+ 0,13,14,15, 0,12,14,15, 0,15,14,10,14, 0,12, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0,15, 0, 0,15, 0,15, 0,13,13,15,15,13,13,15, 0,
+ 0,13, 0, 0,15, 0,15,15, 0,15,14, 0,14, 0,12, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0,13, 0,15,15,13,13, 0,10,13,13,15, 0,
+ 0,13,13, 0,15,15,14,14, 0,13, 0,12,14, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0,15,13, 0,15, 0, 0,13,14, 0,15,15,13, 0,
+ 0, 0,13,15, 0, 0, 0,14,10,13, 0,14,14, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0,13,13, 0,12, 0,13, 0, 0,14, 0,13, 0,
+13,15, 0,15,15,15, 0,14,14, 0, 0, 0,14, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0,12, 0, 0, 0, 0, 0, 0,13, 0,
+14,13,15, 0,12,15,14,14, 0, 0, 0, 0,14, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 0,
+ 0, 0,15, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 }
 #endif /* MAIN */
 ;
@@ -2349,66 +2346,66 @@ EXTERN __far const UBYTE grass[40][40]
 EXTERN __far const UBYTE evergreen[60][20]
 #ifdef MAIN
  = {
- 0, 0, 0, 0, 0, 0, 0, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0,15,13, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0,15,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0,13,15, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0,13,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0,15,13, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0,15,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0,13,15, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0,15,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0,13,13,13,15, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0,13,13, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0,15,13,13,13, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0,13,13,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0,13,11,15, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0,15,11,11,11,13,15, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0,13,13,11,11,15, 0, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0,15,11,13,15, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0,15,13,11,11, 9,11,13,15, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0,15,11, 9,11, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0,15, 0,11,11, 9,15,11,15, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0,15,11,15, 6, 9,13, 0,15, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0,15, 0,11, 9,11, 6,13, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0,15,11, 9, 9,11,13,13,15, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 9, 9,11,13,13,13,11, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0,13, 0,13,11, 9, 6, 9, 9,15,15, 0, 0, 0, 0, 0,
- 0, 0, 0, 0,15, 9,13,13,13,13,11,15, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0,13,11, 9,11,11, 9,15,15, 0, 0, 0, 0, 0,
- 0, 0, 0, 0,15,13,13,11, 9, 9, 9,11,13,13, 0, 0, 0, 0, 0, 0,
- 0, 0, 0,15, 0, 0,13,11, 9,11,13,13, 9,13,13,13, 0, 0, 0, 0,
- 0, 0, 0, 0,13,13,13, 9,15,11, 6, 9, 9, 9, 0,13,13, 0, 0, 0,
- 0, 0,15, 9, 9, 0,11,11, 9,15,11,11,11,15, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 9, 9, 9, 9,11, 9, 9, 9, 0,13,15, 0, 0, 0,
- 0, 0, 0,15,15, 0, 0,11,11,11, 6, 9, 9,13,15, 0, 0, 0, 0, 0,
- 0, 0, 0, 0,15,15,11,15,11,11, 6,13, 9,11,13,13,15, 0, 0, 0,
- 0, 0,15,15, 0,15,13, 9,13, 9, 6,11, 9,11,13, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 9, 9, 9, 9,13,11, 9, 9,13, 9, 9,13,13,15, 0, 0,
- 0, 0, 0, 0,13, 9, 9,13, 9,11,11, 9,11,11,15,15,15, 0,15, 0,
- 0, 0, 0,15,15,13,11,11,11, 9, 6, 9,13,11, 6, 6,11,15, 0, 0,
- 0,15,15,13,13, 9, 9, 6, 6, 9, 9,11, 9, 9,13,15,15, 0, 0, 0,
- 0, 0,15, 9, 9, 9,11, 9, 9, 9,11,11,11, 9,11,11,13,13,13, 0,
- 0, 0, 0, 0, 0,15, 9, 9,11, 6, 9, 9, 9,13,15,11,11,11,15,15,
-15,13,13,11,11,13,11,11,11, 6, 9, 6, 9,11,11,11,15, 0, 0, 0,
- 0, 0,15,11, 9, 9, 9,13, 9, 9, 9, 6, 9, 9,15,13,13,13,13, 0,
- 0,13,13,11,13,13,13,11,11,15, 9,13,11,11, 9, 9, 9,13,15, 0,
- 9, 0,15,15, 9, 9, 9,13,13, 9, 6, 9,13,13, 6, 6,11,13,13,13,
- 0, 9,11,11,11, 9, 9, 9, 9, 9, 9,11,11, 9, 9, 9,11,11, 9,11,
- 0, 0, 0, 9, 9, 9, 6, 6, 6, 9, 9, 6, 9, 9,13, 9, 9, 9,11, 0,
- 0, 0, 0, 9,11,11,11,11,13,11, 4,11, 9, 6, 6, 6, 9, 9, 0, 0,
- 0, 0, 0, 0, 0, 0, 9, 6, 6,11, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 6, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 4, 6, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 4, 6, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 4, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 6, 0, 0, 0, 0, 0, 0, 0, 0
+ {0, 0, 0, 0, 0, 0, 0, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0,15,13, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0,15,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0,13,15, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0,13,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0,15,13, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0,15,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0,13,15, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0,15,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0,13,13,13,15, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0,13,13, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0,15,13,13,13, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0,13,13,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0,13,11,15, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0,15,11,11,11,13,15, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0,13,13,11,11,15, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0,15,11,13,15, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0,15,13,11,11, 9,11,13,15, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0,15,11, 9,11, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0,15, 0,11,11, 9,15,11,15, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0,15,11,15, 6, 9,13, 0,15, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0,15, 0,11, 9,11, 6,13, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0,15,11, 9, 9,11,13,13,15, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 9, 9,11,13,13,13,11, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0,13, 0,13,11, 9, 6, 9, 9,15,15, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0,15, 9,13,13,13,13,11,15, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0,13,11, 9,11,11, 9,15,15, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0,15,13,13,11, 9, 9, 9,11,13,13, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0,15, 0, 0,13,11, 9,11,13,13, 9,13,13,13, 0, 0, 0, 0},
+ {0, 0, 0, 0,13,13,13, 9,15,11, 6, 9, 9, 9, 0,13,13, 0, 0, 0},
+ {0, 0,15, 9, 9, 0,11,11, 9,15,11,11,11,15, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 9, 9, 9, 9,11, 9, 9, 9, 0,13,15, 0, 0, 0},
+ {0, 0, 0,15,15, 0, 0,11,11,11, 6, 9, 9,13,15, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0,15,15,11,15,11,11, 6,13, 9,11,13,13,15, 0, 0, 0},
+ {0, 0,15,15, 0,15,13, 9,13, 9, 6,11, 9,11,13, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 9, 9, 9, 9,13,11, 9, 9,13, 9, 9,13,13,15, 0, 0},
+ {0, 0, 0, 0,13, 9, 9,13, 9,11,11, 9,11,11,15,15,15, 0,15, 0},
+ {0, 0, 0,15,15,13,11,11,11, 9, 6, 9,13,11, 6, 6,11,15, 0, 0},
+ {0,15,15,13,13, 9, 9, 6, 6, 9, 9,11, 9, 9,13,15,15, 0, 0, 0},
+ {0, 0,15, 9, 9, 9,11, 9, 9, 9,11,11,11, 9,11,11,13,13,13, 0},
+ {0, 0, 0, 0, 0,15, 9, 9,11, 6, 9, 9, 9,13,15,11,11,11,15,15},
+{15,13,13,11,11,13,11,11,11, 6, 9, 6, 9,11,11,11,15, 0, 0, 0},
+ {0, 0,15,11, 9, 9, 9,13, 9, 9, 9, 6, 9, 9,15,13,13,13,13, 0},
+ {0,13,13,11,13,13,13,11,11,15, 9,13,11,11, 9, 9, 9,13,15, 0},
+ {9, 0,15,15, 9, 9, 9,13,13, 9, 6, 9,13,13, 6, 6,11,13,13,13},
+ {0, 9,11,11,11, 9, 9, 9, 9, 9, 9,11,11, 9, 9, 9,11,11, 9,11},
+ {0, 0, 0, 9, 9, 9, 6, 6, 6, 9, 9, 6, 9, 9,13, 9, 9, 9,11, 0},
+ {0, 0, 0, 9,11,11,11,11,13,11, 4,11, 9, 6, 6, 6, 9, 9, 0, 0},
+ {0, 0, 0, 0, 0, 0, 9, 6, 6,11, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 6, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 4, 6, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 4, 6, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 4, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0},
+ {0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 6, 0, 0, 0, 0, 0, 0, 0, 0}
 }
 #endif /* MAIN */
 ;
@@ -3197,3 +3194,39 @@ EXTERN struct NewMenu WCSNewMenus[]
 EXTERN long StudyVertex;
 */
 EXTERN short OldLightingModel;
+
+struct ILBMHeader {
+ UBYTE ChunkID[4];
+ LONG ChunkSize;
+};
+
+struct WcsBitMapHeader {
+ USHORT Width, Height;
+ SHORT XPos, YPos;
+ UBYTE Planes, Masking, Compression, Pad;
+ USHORT Transparent;
+ UBYTE XAspect, YAspect;
+ SHORT PageWidth, PageHeight;
+};
+
+struct ZBufferHeader {
+ ULONG  Width, Height;
+ USHORT VarType, Compression, Sorting, Units;
+ float  Min, Max, Bkgrnd, ScaleFactor, ScaleBase;
+};
+
+struct LightWaveMotion {
+ double XYZ[3], HPB[3], SCL[3];
+ long Frame, Linear;
+ double TCB[3];
+};
+
+struct Gauss {
+        double Arand, Nrand, Add, Fac;
+        long Seed;
+};
+
+#include "GrammarTable.h"
+#include "Proto.h"  // Proto.h needs the structures defined above
+
+EXTERN Matx3x3 ScrRotMatx, NoBankMatx;

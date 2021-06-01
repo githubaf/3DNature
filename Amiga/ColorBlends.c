@@ -23,7 +23,7 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
 /* for ocean, the skew variable becomes water depth */
    if (el < SeaLevel)
     {
-    seadepthfact = random + (SeaLevel - el) / PARC_RNDRSK_ECO(0);
+    seadepthfact = Random + (SeaLevel - el) / PARC_RNDRSK_ECO(0);
     if (seadepthfact > 1.0) seadepthfact = 1.0;
     else if (seadepthfact < 0.0) seadepthfact = 0.0;
     }
@@ -219,9 +219,9 @@ short WaterEco_Set(short MakeWater, struct ColorComponents *CC)
  double waveamp, WaterDepth, waterfactor, WhiteCap, ElDepth;
 
  WaterDepth = SeaLevel - (polyel[b][0] + polyel[b][1] + polyel[b][2]) / 3.0;
- WaterDepth += (random * 5.0 * WaterDepth);
+ WaterDepth += (Random * 5.0 * WaterDepth);
  ElDepth = MaxSeaLevel - el;
- ElDepth += (random * 5.0 * ElDepth);
+ ElDepth += (Random * 5.0 * ElDepth);
  seadepthfact = WaterDepth / PARC_RNDRSK_ECO(0);
  if (seadepthfact > 1.0) seadepthfact = 1.0;
  else if (seadepthfact < 0.0) seadepthfact = 0.0;
@@ -645,8 +645,8 @@ double FirstFraction, LastFraction, LastEl, OrigEl, SumSamp;
   ElPt -= (settings.deformscale * DEM_InterpPt(&DeformMap, LatPt, LonPt));
 /*
  ElPt += MakeNoise(NoiseMap, 50, LonPt, LatPt);
-	/* reverse noise map orientation so features don't
-	 correspond with darkness noise below */
+	// reverse noise map orientation so features don't
+	// correspond with darkness noise below
 */
  ElPt += 100000.0;	/* negative numbers make poor array indices */
 

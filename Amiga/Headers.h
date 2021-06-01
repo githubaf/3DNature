@@ -7,7 +7,7 @@
 */
 
 /* ANSI headers */
-#include <dos.h>
+//#include <dos.h>
 #include <dos/dos.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,7 +21,7 @@
 /* comment out the ieee math library for 040 version and the 68881 library
 ** for nocoproc version */
 /*#include <mieeedoub.h>*/
-#include <m68881.h>
+//#include <m68881.h>
 
 /* Amiga-specific headers */
 #include <devices/serial.h>
@@ -44,21 +44,27 @@
 
 /* Prototype headers */
 #include <clib/alib_protos.h>
-#include <proto/muimaster.h>
-#include <proto/all.h>
+#ifdef __GNUC__
+    //#include <proto/muimaster_lib.h>   // ALEXANDER: Fehler in GCC-MUI-SDK???
+    #include <libraries/mui.h>
+    //#warning "GCC MUI-Include problem in Header.h??? "
+#else
+    #include <proto/muimaster.h>
+#endif
+//#include <proto/all.h>
 
 
 /* All of these are covered by proto/all.h */
-/*
+
 #include <proto/exec.h>
-#include <clib/exec_protos.h> // proto/exec.h
-#include <clib/asl_protos.h>
-#include <clib/intuition_protos.h>
-#include <clib/graphics_protos.h>
-#include <clib/dos_protos.h>
-#include <clib/icon_protos.h>
-#include <clib/gadtools_protos.h>
-*/
+//#include <clib/exec_protos.h> // proto/exec.h
+#include <proto/asl.h> //#include <clib/asl_protos.h>
+#include <proto/intuition.h> //#include <clib/intuition_protos.h>
+#include <proto/graphics.h>   //#include <clib/graphics_protos.h>
+#include <proto/dos.h>     //#include <clib/dos_protos.h>
+#include <proto/icon.h>    //#include <clib/icon_protos.h>
+#include <proto/gadtools.h>  //#include <clib/gadtools_protos.h>
+
 
 
 /* Currently unused or redundant headers */

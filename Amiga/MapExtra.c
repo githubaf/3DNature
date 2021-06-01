@@ -6,10 +6,10 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
-struct Gauss {
+/* ALEXANDER now in WCS.h struct Gauss {
 	double Arand, Nrand, Add, Fac;
 	long Seed;
-};
+};*/
 
 #define f3(delta,x0,x1,x2) 	(((x0 + x1 + x2) / 3.0) + delta * DoGauss(&Gauss))
 #define f4(delta,x0,x1,x2,x3)	(((x0 + x1 + x2 + x3) / 4.0) + delta * DoGauss(&Gauss))

@@ -32,5 +32,21 @@ Gross/Kleinschreibung bei einem Include korrigiert.
 Assigns fuer Amiga SAS/C 
 
 assign include: Work:MUI/Developer/C/Include/ add
+assign lib: sc:LIB/ add
+assign lib: work: add
 
 vgl had several missing prototypes -> added stdlib.h to Amiga-ifdef-section in vgl/vgl.h
+
+18.May.2021
+-----------
+Schrittweise die Includes aufraeumen. Durch die GST Geschichte vom SAS/C war das wohl bisher relativ egal. Wie compilieren erst mal nur WCS.h...
+~/opt/m68k-amigaos_14May21/bin/m68k-amigaos-gcc -noixemul -O0 -g3 -Wall -c WCS.h -DMAIN -DEXT= -Wno-pointer-sign -Wno-missing-braces
+
+01.06.2021
+----------
+MUI-Include-File geaendert. Jetzt kann AGUI.c compiliert werden.
+
+cd Debug
+PATH=$PATH:~/opt/m68k-amigaos_27Apr21/bin make all
+
+compiliert schon eine ganze Menge.

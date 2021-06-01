@@ -561,10 +561,10 @@ short makesky(short renderseg, struct Window *win)
     flred = PARC_RNDR_COLOR(3, 0) - redsky * skyfact;
     flgreen = PARC_RNDR_COLOR(3, 1) - greensky *  skyfact;
     flblue = PARC_RNDR_COLOR(3, 2) - bluesky * skyfact;
-    random = settings.skyalias * drand48() - halfsky;
-    aliasred = flred + random * flred / 255.0;
-    aliasgreen = flgreen + random * flgreen / 255.0;
-    aliasblue = flblue + random * flblue / 255.0;
+    Random = settings.skyalias * drand48() - halfsky;
+    aliasred = flred + Random * flred / 255.0;
+    aliasgreen = flgreen + Random * flgreen / 255.0;
+    aliasblue = flblue + Random * flblue / 255.0;
     if (aliasred > 255) aliasred = 255;
     if (aliasgreen > 255) aliasgreen = 255;
     if (aliasblue > 255) aliasblue = 255;

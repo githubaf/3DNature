@@ -25,7 +25,7 @@ short maptopoobject(struct elmapheaderV101 *map, struct Window *win,
 StudyVertex = 0;
 */
  dir=10;
- random=0.0;
+ Random=0.0;
  cloudcover = 0.0;
  DMod = 0;
  map->LatRange = (map->columns - 1) * map->steplat;
@@ -892,7 +892,7 @@ void Face_Render(struct elmapheaderV101 *map, struct faces *Vertex,
   treerand3 = drand48();
   treerand2 = drand48();
   treerand = drand48();
-  random = -.2 * treerand + .1;
+  Random = -.2 * treerand + .1;
   Data.El[0] = polyel[0][0];
   Data.El[1] = polyel[0][1];
   Data.El[2] = polyel[0][2];
@@ -1098,7 +1098,7 @@ void FractFace_Render(struct elmapheaderV101 *map,
   treerand3 = drand48();
   treerand2 = drand48();
   treerand = drand48();
-  random = -.2 * treerand + .1;
+  Random = -.2 * treerand + .1;
 
   sunangle = VectorAngle(&PP[0], &SP);
   if (sunangle < 0.0)
@@ -1281,7 +1281,7 @@ void renderface(struct elmapheaderV101 *map, struct Window *win, struct CloudDat
   treerand3 = drand48();
   treerand2 = drand48();
   treerand = drand48();
-  random = -.2 * treerand + .1;
+  Random = -.2 * treerand + .1;
   Data.El[0] = polyel[0][0];
   Data.El[1] = polyel[0][1];
   Data.El[2] = polyel[0][2];

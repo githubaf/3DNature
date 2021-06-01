@@ -9,11 +9,11 @@
 
 /* Now in LWSupport.c
 
-struct LightWaveMotion {
+/* ALEXANDER now in WCS.h struct LightWaveMotion {
  double XYZ[3], HPB[3], SCL[3];
  long Frame, Linear;
  double TCB[3];
-};
+};*/
 
 #define SYSTEM_FLAT 	0
 #define SYSTEM_SPHERE 	1

@@ -29,12 +29,13 @@
 #define DEM_DATA_UNITS_INCHES		5
 #define DEM_DATA_UNITS_OTHER		6
 
+/* moved to WCS.h 
 struct ILBMHeader {
  UBYTE ChunkID[4];
  LONG ChunkSize;
 };
 
-struct BitMapHeader {
+struct WcsBitMapHeader {
  USHORT Width, Height;
  SHORT XPos, YPos;
  UBYTE Planes, Masking, Compression, Pad;
@@ -47,7 +48,7 @@ struct ZBufferHeader {
  ULONG  Width, Height;
  USHORT VarType, Compression, Sorting, Units;
  float  Min, Max, Bkgrnd, ScaleFactor, ScaleBase;
-};
+};*/
 
 void Make_DC_Window(void)
 {
@@ -1002,7 +1003,7 @@ void Get_DC_InputFile(void)
   case DEM_DATA_INPUT_IFF:
    {
    struct ILBMHeader Hdr;
-   struct BitMapHeader BMHdr;
+   struct WcsBitMapHeader BMHdr;
 
    if (! CheckIFF(fh, &Hdr))
     {
@@ -1016,8 +1017,8 @@ void Get_DC_InputFile(void)
 	"Warning\nFile is not an IFF image file.", "OK", "o");
     break;
     } /* not IFF image file */
-   if ((read(fh, (char *)&BMHdr, sizeof (struct BitMapHeader))) !=
-	 sizeof (struct BitMapHeader))
+   if ((read(fh, (char *)&BMHdr, sizeof (struct WcsBitMapHeader))) !=
+	 sizeof (struct WcsBitMapHeader))
     {
     User_Message("Data Ops: Convert DEM",
 	"Error reading bitmap header.", "OK", "o");

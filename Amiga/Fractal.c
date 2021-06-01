@@ -41,7 +41,7 @@ void Recurse(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
    treerand3 = drand48();
    treerand2 = drand48();
    treerand = drand48();
-   random = -.2 * treerand + .1;
+   Random = -.2 * treerand + .1;
    Data->El[0] = polyel[0][0];
    Data->El[1] = polyel[0][1];
    Data->El[2] = polyel[0][2];
@@ -56,18 +56,18 @@ void Recurse(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
      slope = dslope;
      } /* if */
 end questionable */
-    if (dir <= 1) diplat += (random + random * slope * 4.0);
+    if (dir <= 1) diplat += (Random + Random * slope * 4.0);
     if (diplat > maxdlat) diplat = maxdlat;
     else if (diplat < mindlat) diplat = mindlat;
-    if (dir)   diplong += (random + random * slope * 4.0);
+    if (dir)   diplong += (Random + Random * slope * 4.0);
     if (diplong > maxdlong) dlong = maxdlong;
     else if (diplong < mindlong) diplong = mindlong;
 /* this is for creating lakes and you don't want no slope areas changed
 ** 0.0174 corresponds to 1° in radians */
     if (slope > 0.0174)
      {
-     if (dir==1) slope += ((random + random * slope * 4.0) * .7);
-     else  slope += ((random + random * slope * 4.0) * .35);
+     if (dir==1) slope += ((Random + Random * slope * 4.0) * .7);
+     else  slope += ((Random + Random * slope * 4.0) * .35);
      slope = abs(slope) < HalfPi ? abs(slope): HalfPi - .001;
      } /* if */
     } /* if */
@@ -205,7 +205,7 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
    treerand3 = drand48();
    treerand2 = drand48();
    treerand = drand48();
-   random = -.2 * treerand + .1;
+   Random = -.2 * treerand + .1;
 
 /* shading calculation */
 
@@ -704,31 +704,31 @@ void recurse(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
    treerand3 = drand48();
    treerand2 = drand48();
    treerand = drand48();
-   random = -.2 * treerand + .1;
+   Random = -.2 * treerand + .1;
    Data->El[0] = polyel[0][0];
    Data->El[1] = polyel[0][1];
    Data->El[2] = polyel[0][2];
 
    if (settings.perturb)
     {
-    if (random > .066)
+    if (Random > .066)
      {			
      diplat = dlat;
      diplong = dlong;
      slope = dslope;
      } /* if */
-    if (dir <= 1) diplat += (random + random * slope * 2.0);
+    if (dir <= 1) diplat += (Random + Random * slope * 2.0);
     if (diplat > maxdlat) diplat = maxdlat;
     else if (diplat < mindlat) diplat = mindlat;
-    if (dir)   diplong += (random + random * slope * 2.0);
+    if (dir)   diplong += (Random + Random * slope * 2.0);
     if (diplong > maxdlong) dlong = maxdlong;
     else if (diplong < mindlong) diplong = mindlong;
 /* this is for creating lakes and you don't want no slope areas changed
 ** 0.0174 corresponds to 1° in radians */
     if (slope > 0.0174)
      {
-     if (dir==1) slope += ((random + random * slope * 2.0) * .7);
-     else  slope += ((random + random * slope * 2.0) * .35);
+     if (dir==1) slope += ((Random + Random * slope * 2.0) * .7);
+     else  slope += ((Random + Random * slope * 2.0) * .35);
      slope = abs(slope) < HalfPi ? abs(slope): HalfPi - .001;
      } /* if */
     } /* if */

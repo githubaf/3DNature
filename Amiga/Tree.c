@@ -15,13 +15,14 @@ struct TreeDimension {
  short 	StartX, EndX,
 	WT[4];
 };
-
+/*
 struct ILBMHeader {
  UBYTE ChunkID[4];
  LONG ChunkSize;
 };
-
-struct BitMapHeader {
+*/
+/*
+struct WcsBitMapHeader {
  USHORT Width, Height;
  SHORT XPos, YPos;
  UBYTE Planes, Masking, Compression, Pad;
@@ -29,7 +30,7 @@ struct BitMapHeader {
  UBYTE XAspect, YAspect;
  SHORT PageWidth, PageHeight;
 };
-
+*/
 
 /* use of random variables
 
@@ -911,7 +912,7 @@ struct BitmapImage **BMI, *BMICur, *BMIPrev, *BMISmall;
 struct FoliageGroup *FolGp;
 struct Foliage *Fol;
 struct ILBMHeader Hdr;
-struct BitMapHeader BMHdr;
+struct WcsBitMapHeader BMHdr;
 
  if (! settings.rendertrees)
   return (1);
@@ -964,8 +965,8 @@ struct BitMapHeader BMHdr;
         {
         if (FindIFFChunk(fh, &Hdr, "BMHD"))
          {
-         if ((read(fh, (char *)&BMHdr, sizeof (struct BitMapHeader))) ==
-		 sizeof (struct BitMapHeader))
+         if ((read(fh, (char *)&BMHdr, sizeof (struct WcsBitMapHeader))) ==
+		 sizeof (struct WcsBitMapHeader))
           {
           close (fh);
           fh = -1;
@@ -1173,7 +1174,7 @@ short error, success = 1, Planes;
 long i, j, k, fh;
 struct BitmapImage **BMI, *BMICur, *BMIBase, *BMIPrev;
 struct ILBMHeader Hdr;
-struct BitMapHeader BMHdr;
+struct WcsBitMapHeader BMHdr;
 FILE *fImageList;
 
  for (i=0, error=0; i<ECOPARAMS && success; i++, error=0)
@@ -1197,8 +1198,8 @@ FILE *fImageList;
         {
         if (FindIFFChunk(fh, &Hdr, "BMHD"))
          {
-         if ((read(fh, (char *)&BMHdr, sizeof (struct BitMapHeader))) ==
-		 sizeof (struct BitMapHeader))
+         if ((read(fh, (char *)&BMHdr, sizeof (struct WcsBitMapHeader))) ==
+		 sizeof (struct WcsBitMapHeader))
           {
           close (fh);
           fh = -1;

@@ -24,7 +24,7 @@
  * This is *VERY* *PRIVATE* and should not be touched...
  */
 
-EXTERN struct	ARexxContext
+/*EXTERN*/ struct	ARexxContext
 {
 struct	MsgPort	*ARexxPort;	/* The port messages come in at... */
 struct	Library	*RexxSysBase;	/* We will hide the library pointer here... */

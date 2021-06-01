@@ -40,16 +40,16 @@ void Make_EP_Window(short hor_win)
 
  Set_Param_Menu(10);
 
-     EP_Win->EditWindow = WindowObject,
-      MUIA_Window_Title		, "Parameter Module",
-      MUIA_Window_ID		, (hor_win ? 'EPAH': 'EPAV'),
+      EP_Win->EditWindow = WindowObject,
+      MUIA_Window_Title		, "Parameter Module",  /* "End" == "TAG_DONE)" */
+      MUIA_Window_ID		, (hor_win ? "EPAH": "EPAV"),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_LeftEdge	, MUIV_Window_LeftEdge_Moused,
       MUIA_Window_TopEdge	, MUIV_Window_TopEdge_Moused,
 
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, EP_Win->CY_Layout = CycleObject,
-		 MUIA_Cycle_Entries, LayoutCycle, End,
+        MUIA_Cycle_Entries, LayoutCycle, End,
         Child, EP_Win->BT_EdMoPar = KeyButtonFunc('m',    "\33l Motion     »"),
         Child, EP_Win->BT_EdCoPar = KeyButtonFunc('c',    "\33l Color      »"),
         Child, EP_Win->BT_EdEcoPar = KeyButtonFunc('e',   "\33l Ecosystem  »"),

@@ -148,7 +148,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 
 /* compute the shading factors for normal (not water) ecosystems */
 
- relfactor = relel + 100.0 * random;
+ relfactor = relel + 100.0 * Random;
 
 /* see if there is snow on the ground */
 
@@ -189,23 +189,23 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
  switch (dir)
   {
   case 0:
-   redrand = random * 200.0;
-   greenrand = random * 200.0;
+   redrand = Random * 200.0;
+   greenrand = Random * 200.0;
    bluerand = 0;
    break;
   case 1:
    redrand = 0;
-   greenrand = random * 200.0;
-   bluerand = random * 200.0;
+   greenrand = Random * 200.0;
+   bluerand = Random * 200.0;
    break;
   case 2:
-   redrand = random * 200.0;
+   redrand = Random * 200.0;
    greenrand = 0;
-   bluerand = random * 200.0;
+   bluerand = Random * 200.0;
    break;
   case 3:
    redrand = 0;
-   greenrand = random * 200.0;
+   greenrand = Random * 200.0;
    bluerand = 0;
    break;
   } /* switch */

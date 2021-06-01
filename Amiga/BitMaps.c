@@ -22,13 +22,13 @@ struct CompressData {
 	TotalOutBytes,
 	fh;
 };
-
+/*
 struct ILBMHeader {
  UBYTE ChunkID[4];
  LONG ChunkSize;
 };
 
-struct BitMapHeader {
+struct WcsBitMapHeader {
  USHORT Width, Height;
  SHORT XPos, YPos;
  UBYTE Planes, Masking, Compression, Pad;
@@ -42,7 +42,7 @@ struct ZBufferHeader {
  USHORT VarType, Compression, Sorting, Units;
  float  Min, Max, Bkgrnd, ScaleFactor, ScaleBase;
 };
-
+*/
 short CompressRows(struct CompressData *CD);
 short FlushOutputBuff(struct CompressData *CD);
 
@@ -494,7 +494,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
  PLANEPTR *Planes;
  struct CompressData CD;
  struct ILBMHeader Hdr;
- struct BitMapHeader BMHdr;
+ struct WcsBitMapHeader BMHdr;
  struct BusyWindow *BWIM = NULL;
 
  if (! saveRGB)
@@ -544,8 +544,8 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
    goto Scleanup;
    } /* not IFF file */
   BMHDPtr = tell(fHandle) - 8;
-  if ((read(fHandle, (char *)&BMHdr, sizeof (struct BitMapHeader))) !=
-	 sizeof (struct BitMapHeader))
+  if ((read(fHandle, (char *)&BMHdr, sizeof (struct WcsBitMapHeader))) !=
+	 sizeof (struct WcsBitMapHeader))
    {
    error = 1;
    goto Scleanup;
@@ -1186,7 +1186,7 @@ short LoadImage(char *Name, short ColorImage, UBYTE **bitmap,
  union MultiByte *InputData = NULL, *InputDataPtr;
  UBYTE *RowData = NULL, *RowDataPtr, *BuffPtr, *BitmapPtr;
  struct ILBMHeader Hdr;
- struct BitMapHeader BMHdr;
+ struct WcsBitMapHeader BMHdr;
  struct BusyWindow *BWIM = NULL;
 
 RepeatOpen:
@@ -1207,8 +1207,8 @@ RepeatOpen:
   { 
   if (FindIFFChunk(fh, &Hdr, "BMHD"))
    {
-   if ((read(fh, (char *)&BMHdr, sizeof (struct BitMapHeader))) !=
-	 sizeof (struct BitMapHeader))
+   if ((read(fh, (char *)&BMHdr, sizeof (struct WcsBitMapHeader))) !=
+	 sizeof (struct WcsBitMapHeader))
     {
     close(fh);
     error = 2;
@@ -1607,7 +1607,7 @@ short MergeZBufBack(short renderseg, short Width, short Height, struct Window *w
  long x, y, ZBufSize, BkGrndSize, zip, colval, BGzip, ZBzip, fhZ = 0,
 	 fhBR = 0, fhBG = 0, fhBB = 0, RowSize, BytesRead, RowDataSize, byte;
  struct ILBMHeader Hdr;
- struct BitMapHeader BMHdr;
+ struct WcsBitMapHeader BMHdr;
  struct ZBufferHeader ZBHdr;
  struct BusyWindow *BWDE;
 
@@ -1714,7 +1714,7 @@ short MergeZBufBack(short renderseg, short Width, short Height, struct Window *w
     {
     if (FindIFFChunk(fhBR, &Hdr, "BMHD"))
      {
-     read(fhBR, (char *)&BMHdr, sizeof (struct BitMapHeader));
+     read(fhBR, (char *)&BMHdr, sizeof (struct WcsBitMapHeader));
      if (BMHdr.Width != Width || BMHdr.Height != Height || BMHdr.Planes != 24)
       {
       error = 11;

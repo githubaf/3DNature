@@ -214,9 +214,9 @@ void Make_CL_Window(void)
 
 	  Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->GKS.FramePages = VGroup,
-              Child, CL_Win->GKS.BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines »"), 
+              Child, CL_Win->GKS.BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines ï¿½"), 
 	      End, /* VGroup */
-            Child, CL_Win->GKS.BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys »"), 
+            Child, CL_Win->GKS.BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys ï¿½"), 
 	    End, /* HGroup */
 	  End, /* VGroup */
 
@@ -1458,6 +1458,7 @@ void GUICloudKey_SetGads(struct CloudWindow *CL_Win,
 } /* GUICloudKey_SetGads() */
 
 /***********************************************************************/
+#ifdef __SEEMS_TO_BE_COMMENTED__
 /*
 short CloudKeyFrame_Make(struct CloudData *CD)
 {
@@ -1528,3 +1529,4 @@ union KeyFrame *KF;
 
 } /* CloudKeyFrame_Make() */
 */
+#endif // __SEEMS_TO_BE_COMMENTED__
