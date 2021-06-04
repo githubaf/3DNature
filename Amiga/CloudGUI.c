@@ -1459,7 +1459,6 @@ void GUICloudKey_SetGads(struct CloudWindow *CL_Win,
 
 /***********************************************************************/
 #ifdef __SEEMS_TO_BE_COMMENTED__
-/*
 short CloudKeyFrame_Make(struct CloudData *CD)
 {
 short i, KeyFrame, Found = 0;
@@ -1528,5 +1527,4 @@ union KeyFrame *KF;
  return (1);
 
 } /* CloudKeyFrame_Make() */
-*/
 #endif // __SEEMS_TO_BE_COMMENTED__

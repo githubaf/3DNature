@@ -58,7 +58,7 @@ void Make_DE_Window(void)
 
      DE_Win->DatabaseEditWin = WindowObject,
       MUIA_Window_Title		, "Database Editor",
-      MUIA_Window_ID		, 'DBED',
+      MUIA_Window_ID		, "DBED",
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -72,7 +72,7 @@ void Make_DE_Window(void)
 /* group on the left */
           Child, VGroup,
 	/* object ID number (OBN) */
-/*
+#ifdef dfgdhfgdhfh
             Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, Label2("Object ID "),
 	      Child, DE_Win->IntStr[0] = StringObject, StringFrame,
@@ -84,7 +84,7 @@ void Make_DE_Window(void)
               Child, DE_Win->Arrow[0][1] = ImageButton(MUII_ArrowRight),
               Child, DE_Win->LgArrow[1] = ImageButton(MUII_ArrowRight),
 	      End, /* HGroup */
-*/
+#endif
 	/* object name */
 	    Child, HGroup,
 	      Child, DE_Win->BT_Name = KeyButtonFunc('n', "\33cName"),
@@ -227,16 +227,16 @@ void Make_DE_Window(void)
         Child, HGroup, MUIA_Group_SameWidth, TRUE,
           Child, DE_Win->BT_New = KeyButtonFunc('o',    "\33cNew Obj"), 
           Child, DE_Win->BT_Add = KeyButtonFunc('d',    "\33cAdd Obj"), 
-          Child, DE_Win->BT_Remove = KeyButtonFunc('m', "\33cRemove »"), 
-          Child, DE_Win->BT_Search = KeyButtonFunc('h', "\33cSearch »"), 
+          Child, DE_Win->BT_Remove = KeyButtonFunc('m', "\33cRemove ï¿½"), 
+          Child, DE_Win->BT_Search = KeyButtonFunc('h', "\33cSearch ï¿½"), 
           Child, DE_Win->BT_Sort = KeyButtonFunc('r',   "\33cSort"), 
           End, /* HGroup */
 
         Child, HGroup, MUIA_Group_SameWidth, TRUE,
-          Child, DE_Win->BT_Save = KeyButtonFunc('s',   "\33cSave »"), 
-          Child, DE_Win->BT_Load = KeyButtonFunc('l',   "\33cLoad »"), 
-          Child, DE_Win->BT_Append = KeyButtonFunc('a', "\33cAppend »"), 
-          Child, DE_Win->BT_Create = KeyButtonFunc('t', "\33cCreate »"), 
+          Child, DE_Win->BT_Save = KeyButtonFunc('s',   "\33cSave ï¿½"), 
+          Child, DE_Win->BT_Load = KeyButtonFunc('l',   "\33cLoad ï¿½"), 
+          Child, DE_Win->BT_Append = KeyButtonFunc('a', "\33cAppend ï¿½"), 
+          Child, DE_Win->BT_Create = KeyButtonFunc('t', "\33cCreate ï¿½"), 
           End, /* HGroup */
 
         End, /* VGroup */
@@ -573,7 +573,7 @@ NewName:
       short Change = 1;
       struct BusyWindow *BWDB;
 
-      BWDB = BusyWin_New("Sorting", NoOfObjects, 0, 'BWDB');
+      BWDB = BusyWin_New("Sorting", NoOfObjects, 0, "BWDB");
       while (Change)
        {
        Change = 0;
@@ -959,7 +959,7 @@ NewName:
     get(DE_Win->IntStr[i], MUIA_String_Integer, &data);
     switch (i)
      {
-/*
+#ifdef HGHGJHGJ
      case 0:
       {
       if (data > NoOfObjects - 1) data = NoOfObjects - 1;
@@ -967,7 +967,7 @@ NewName:
       OBN = data;
       break;
       } /* Object ID OBN */
-*/
+#endif
      case 1:
       {
       DBase[OBN].LineWidth = data;
@@ -1338,7 +1338,7 @@ NewName:
     set(DE_Win->IntStr[i], MUIA_String_Integer, data);
     break;
     } /* ARROW2 */
-/*
+#ifdef KHKJHKHSDS
    case GP_ARROW3:
     {
     LONG data;
@@ -1357,7 +1357,7 @@ NewName:
 	 (data > NoOfObjects - 11 ? NoOfObjects - 1: data + 10));
     break;
     } /* ARROW4 */
-*/
+#endif
    } /* switch gadget group */
 
 } /* Handle_DE_Window() */
@@ -1644,7 +1644,7 @@ void Make_DL_Window(void)
 
      DL_Win->DirListWin = WindowObject,
       MUIA_Window_Title		, "Directory List Editor",
-      MUIA_Window_ID		, 'DLED',
+      MUIA_Window_ID		, "DLED",
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,

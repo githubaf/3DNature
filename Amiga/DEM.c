@@ -1181,7 +1181,7 @@ if (1)
   }
  else
   printf("Error opening file\n");
- } /* if 1 */
+ } // if 1
 */
 
 /* fill any missing cells with adjacent elevations */
@@ -1515,7 +1515,7 @@ EndPhase1:
      Log(ERR_OPEN_FAIL, elevbase);
      error = 1;
      break;
-     } /* error opening file */
+     } // error opening file
     FindElMaxMin(&MapHdr, DEMExtract->LLData);
     write(fhelev, (char *)&Version, 4);
     if (write(fhelev, (char *)&MapHdr, ELEVHDRLENV101) != ELEVHDRLENV101)
@@ -1526,7 +1526,7 @@ EndPhase1:
      error = 1;
      close(fhelev);
      break;
-     } /* if error writing to file */
+     } // if error writing to file
     if (write(fhelev,(char *)DEMExtract->LLData, DEMExtract->LLSize) != DEMExtract->LLSize)
      {
      User_Message(elevbase,
@@ -1535,7 +1535,7 @@ EndPhase1:
      error=1;
      close(fhelev);
      break;
-     } /* if error writing to file */
+     } // if error writing to file
     close(fhelev);
     Log(MSG_DEM_SAVE, elevbase);
 
@@ -1547,7 +1547,7 @@ EndPhase1:
       OBNexists = 1;
       break;
       }
-     } /* for OBN=0... */
+     } // for OBN=0...
     if (! OBNexists)
      {
      if (NoOfObjects + 1 > DBaseRecords)
@@ -1561,13 +1561,13 @@ EndPhase1:
 		"Out of memory expanding database!\nOperation terminated.", "OK", "o");
        error = 1;
        break;
-       } /* if new database allocation fails */
+       } // if new database allocation fails
       else
        {
        DBase = NewBase;
        DBaseRecords += 20;
-       } /* else new database allocated and copied */
-      } /* if need more database space */
+       } // else new database allocated and copied
+      } // if need more database space
      strncpy(DBase[OBN].Name, elevbase, length[0]);
      strcpy(DBase[OBN].Layer1, "  ");
      strcpy(DBase[OBN].Layer2, "TOP");
@@ -1587,9 +1587,9 @@ EndPhase1:
        User_Message("Database Module",
 		"Out of memory expanding Database Editor List!\nOperation terminated.", "OK", "o");
        error = 1;
-       } /* if new list fails */
-      } /* if database editor open */
-     } /* if object not already exists */
+       } // if new list fails
+      } // if database editor open
+     } // if object not already exists
     DBase[OBN].Points = 5;
     DBase[OBN].Mark[0] = 'Y';
     DBase[OBN].Enabled = '*';
@@ -1618,7 +1618,7 @@ EndPhase1:
 	"Error writing to output file!\nOperation terminated.", "OK", "o");
      error = 1;
      break;
-     } /* if write error */
+     } // if write error
     elevbase[length[0]] = 0;
 
 */
@@ -2791,7 +2791,7 @@ EndLoad:
 
 /**********************************************************************/
 
-/*
+#ifdef HDHDHDHDHDHDHDHDHSJDHKS
 #define DATA_SET_VAL -32768
 
 long Poly[20][4][3];	/* 0=position counter, 1=row, 2=col */
@@ -3071,7 +3071,7 @@ void SubDivide(short *Data, long b, long Cols)
 
 } /* SubDivide() */
 
-*/
+#endif
 /* This copies some header information from one USGS DEM file to another
 void FixDEM(void)
 {
@@ -3099,13 +3099,13 @@ FILE *fSrc, *fDest;
    fread((char *)Value, 192, 1, fSrc);
    fwrite((char *)Value, 192, 1, fDest);
    fclose(fDest);
-   } /*if */
+   } //if
   else
    printf("error opening destination file\n");
   fclose(fSrc);
-  } /* if */
+  } // if
  else
   printf("error opening source file\n");
 
-} /* FixDEM() */
+} // FixDEM()
 */

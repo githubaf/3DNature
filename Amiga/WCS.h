@@ -8,6 +8,15 @@
 #ifndef GIS_GIS_H
 #define GIS_GIS_H
 
+extern int mkdir(const char *);  /* defined in dos.h in SAS/C, defined in gcc with 2 parameters ALEXANDER */
+#define O_RDONLY 0               /* ALEXANDER */
+#define O_WRONLY    1
+#define O_RDWR   2               /* ALEXANDER */
+#define O_APPEND    (1<<2)
+#define O_CREAT     (1<<3)
+#define O_TRUNC     (1<<5)
+
+
 #ifdef MAIN
 #define EXTERN
 #else

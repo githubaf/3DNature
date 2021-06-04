@@ -62,7 +62,7 @@ static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
 
      MD_Win->MakeDEMWin = WindowObject,
       MUIA_Window_Title		, "DEM Designer",
-      MUIA_Window_ID		, 'DEMB',
+      MUIA_Window_ID		, "DEMB",
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -686,7 +686,7 @@ long open;
 
      GR_Win->NNGridWin = WindowObject,
       MUIA_Window_Title		, "DEM Builder",
-      MUIA_Window_ID		, 'NNGR',
+      MUIA_Window_ID		, "NNGR",
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -1275,7 +1275,7 @@ long X, Y;
   {
   for (pt=1; pt<=Points; pt++)
    {
-   if (DT->nextdat = Datum_New())
+   if ((DT->nextdat = Datum_New()))
     {
     DT = DT->nextdat;
     if (ElevPtr)
@@ -1372,7 +1372,7 @@ struct UTMLatLonCoords UTM;
   {
   while (fscanf(fXYZ, "%le%le%le", &dX, &dY, &dZ) != EOF)
    {
-   if (DT->nextdat = Datum_New())
+   if ((DT->nextdat = Datum_New()))
     {
     DT = DT->nextdat;
     if (CoordSys == 1)
@@ -1466,7 +1466,7 @@ FILE *fXYZ;
   strcpy(MD_Win->FileOut, XYZFile);
   } /* if */
 
- if (fXYZ = fopen(filename, "w"))
+ if ((fXYZ = fopen(filename, "w")))
   {
   while(DT)
    {
@@ -1535,7 +1535,7 @@ long data, zip, i, j;
 
 /* allocate noise map */
  GR_Win->NoiseSize = GR_Win->NCols * GR_Win->NRows * sizeof (float); 
- if (GR_Win->NoiseMap = (float *)get_Memory(GR_Win->NoiseSize, MEMF_ANY))
+ if ((GR_Win->NoiseMap = (float *)get_Memory(GR_Win->NoiseSize, MEMF_ANY)))
   {
 /* initialize noise map and define scope of randomization */
   zip = 0;
@@ -1639,7 +1639,7 @@ struct clipbounds cb;
 
 /* plot color in Map View, brighter indicates higher amplitude */
 
-  BWGR = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, 'BWGR');
+  BWGR = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, "BWGR");
 
   DataRow = 0.0;
   for (y=Low_Y, k=0; y<=High_Y; y++, DataRow+=LatStep, k++)

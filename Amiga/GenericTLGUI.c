@@ -428,7 +428,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
 
      TL_Win->TimeLineWin = WindowObject,
       MUIA_Window_Title		, NameStr,
-      MUIA_Window_ID		, 'GNTL',
+      MUIA_Window_ID		, "GNTL",
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -889,11 +889,11 @@ void Handle_TL_Window(ULONG WCS_ID)
     data->inputflags |= NO_CLEAR;
 
     while ((WCS_ID = DoMethod(app, MUIM_Application_Input, &signals))
-  	 == ID_GNTL_PANPROP(WinNum));
-     {
-     Set_TL_Data(TL_Win, TL_Win->ActiveItem);
-     MUI_Redraw(TL_Win->TimeLineObj[TL_Win->ActiveItem], MADF_DRAWOBJECT);
-     };
+            == ID_GNTL_PANPROP(WinNum));
+    {
+        Set_TL_Data(TL_Win, TL_Win->ActiveItem);
+        MUI_Redraw(TL_Win->TimeLineObj[TL_Win->ActiveItem], MADF_DRAWOBJECT);
+    };
 
     data->inputflags ^= (QUICK_DRAW | NO_CLEAR);
     MUI_Redraw(TL_Win->TimeLineObj[TL_Win->ActiveItem], MADF_DRAWOBJECT);

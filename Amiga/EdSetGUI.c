@@ -95,7 +95,7 @@ void Make_ES_Window(void)
 
      ES_Win->SettingsWin = WindowObject,
       MUIA_Window_Title		, "Render Settings Editor",
-      MUIA_Window_ID		, 'EDST',
+      MUIA_Window_ID		, "EDST",
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -481,7 +481,7 @@ void Make_ES_Window(void)
 		MUIA_Cycle_Entries, ES_Cycle_GlobalGradients, End,
 	    Child, HGroup, 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Eco m/°"),
+                Child, Label2("Eco m/ï¿½"),
 	        Child, ES_Win->FloatStr[8] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -489,7 +489,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->FloatStrArrow[8][1] = ImageButton(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Snow m/°"),
+                Child, Label2("Snow m/ï¿½"),
 	        Child, ES_Win->FloatStr[9] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,

@@ -62,7 +62,7 @@ void Make_EE_Window(void)
 
      EE_Win->EcosystemWin = WindowObject,
       MUIA_Window_Title		, "Ecosystem Editor",
-      MUIA_Window_ID		, 'EDEC',
+      MUIA_Window_ID		, "EDEC",
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -210,9 +210,9 @@ void Make_EE_Window(void)
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, EE_Win->FramePages = VGroup,
-                  Child, EE_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines »"), 
+                  Child, EE_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines ï¿½"), 
 	          End, /* VGroup */
-                Child, EE_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys »"), 
+                Child, EE_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys ï¿½"), 
 		End, /* HGroup */
 	      End, /* VGroup */
 

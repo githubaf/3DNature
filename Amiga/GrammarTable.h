@@ -2,7 +2,8 @@
 ** Extra glue to hold GrammarTable.c together to whatever you use it with.
 ** Copyright 1995 by Questar Productions
 */
-
+#ifndef __GRAMMARTABLE_H__
+#define __GRAMMARTABLE_H__
 
 struct CmdContext
 	{
@@ -19,3 +20,4 @@ struct MWS_Entry
 
 #include "CmdCallProtos.h"
 
+#endif /* __GRAMMARTABLE_H__ */

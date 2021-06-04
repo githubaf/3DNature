@@ -44,7 +44,7 @@ void Make_EC_Window(void)
 
      EC_Win->EcoPalWin = WindowObject,
       MUIA_Window_Title		, "Color Editor",
-      MUIA_Window_ID		, 'EDCO',
+      MUIA_Window_ID		, "EDCO",
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -211,9 +211,9 @@ void Make_EC_Window(void)
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, EC_Win->FramePages = VGroup,
-                  Child, EC_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines »"), 
+                  Child, EC_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines ï¿½"), 
 	          End, /* VGroup */
-                Child, EC_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys »"), 
+                Child, EC_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys ï¿½"), 
 		End, /* HGroup */
 	      End, /* VGroup */
 

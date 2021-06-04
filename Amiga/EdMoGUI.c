@@ -43,7 +43,7 @@ void Make_EM_Window(void)
 
      EM_Win->MotionWin = WindowObject,
       MUIA_Window_Title		, "Motion Editor",
-      MUIA_Window_ID		, 'EDMO',
+      MUIA_Window_ID		, "EDMO",
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -186,11 +186,11 @@ void Make_EM_Window(void)
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, EM_Win->FramePages = VGroup,
-                  Child, EM_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines »"), 
+                  Child, EM_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines ï¿½"), 
 	          End, /* VGroup */
-                Child, EM_Win->BT_BankKeys = KeyButtonFunc('b', "\33cBank »"), 
-                Child, EM_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale »"), 
-                Child, EM_Win->BT_SunSet = KeyButtonFunc('n', "\33cSun »"), 
+                Child, EM_Win->BT_BankKeys = KeyButtonFunc('b', "\33cBank ï¿½"), 
+                Child, EM_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale ï¿½"), 
+                Child, EM_Win->BT_SunSet = KeyButtonFunc('n', "\33cSun ï¿½"), 
 		End, /* HGroup */
 	      End, /* VGroup */
 
@@ -202,8 +202,8 @@ void Make_EM_Window(void)
 /* Buttons at bottom */
         Child, HGroup, MUIA_Group_SameWidth, TRUE,
           Child, EM_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
-          Child, EM_Win->BT_WinSize = KeyButtonFunc('w', "\33cList Win »"),
-          Child, EM_Win->BT_Interactive = KeyButtonFunc('i', "\33cCam View »"),
+          Child, EM_Win->BT_WinSize = KeyButtonFunc('w', "\33cList Win ï¿½"),
+          Child, EM_Win->BT_Interactive = KeyButtonFunc('i', "\33cCam View ï¿½"),
           Child, EM_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
           End, /* HGroup */
 
@@ -1365,7 +1365,7 @@ void Make_EMIA_Window(void)
 
      EMIA_Win->IAMotionWin = WindowObject,
       MUIA_Window_Title		, "Cam VC",
-      MUIA_Window_ID		, 'EDIA',
+      MUIA_Window_ID		, "EDIA",
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -1376,10 +1376,10 @@ void Make_EMIA_Window(void)
             Child, EMIA_Win->BT_Grid = KeyButtonFunc('t', "\33cTerrain"), 
             Child, EMIA_Win->BT_ElShade = KeyButtonFunc('h', "\33cElShade"), 
             Child, EMIA_Win->BT_SunShade = KeyButtonFunc('s', "\33cSunShade"), 
-            Child, EMIA_Win->BT_EcoRender = KeyButtonFunc('e', "\33cEcoSys »"), 
-            Child, EMIA_Win->BT_DiagRender = KeyButtonFunc('d', "\33cDiag »"), 
+            Child, EMIA_Win->BT_EcoRender = KeyButtonFunc('e', "\33cEcoSys ï¿½"), 
+            Child, EMIA_Win->BT_DiagRender = KeyButtonFunc('d', "\33cDiag ï¿½"), 
             Child, EMIA_Win->BT_Vector = KeyButtonFunc('v', "\33cVectors"), 
-            Child, EMIA_Win->BT_Anim = KeyButtonFunc('a', "\33cAnim »"), 
+            Child, EMIA_Win->BT_Anim = KeyButtonFunc('a', "\33cAnim ï¿½"), 
 	    End, /* VGroup */
 
 	  Child, VGroup,
@@ -2040,7 +2040,7 @@ void Make_EMPL_Window(void)
 
      EMPL_Win->ParListWin = WindowObject,
       MUIA_Window_Title		, "Motion Param List",
-      MUIA_Window_ID		, 'EDPL',
+      MUIA_Window_ID		, "EDPL",
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,

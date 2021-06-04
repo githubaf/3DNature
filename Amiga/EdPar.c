@@ -7,7 +7,7 @@
 #include "WCS.h"
 #include "Foliage.h"
 
-/* Now in LWSupport.c
+#ifdef KJHKJDFHKDHFKJDFH // Now in LWSupport.c
 
 /* ALEXANDER now in WCS.h struct LightWaveMotion {
  double XYZ[3], HPB[3], SCL[3];
@@ -42,13 +42,13 @@ void ExportWave(struct LightWaveInfo *LWInfo)
   } /* if no params */
 
 /* determine which coordinate system to use */
-/*
- if (LWInfo->System == 1)
-  {
-  error = 6;
-  goto EndWave;
-  } /* if spherical system (not yet supported) */
-*/
+//
+// if (LWInfo->System == 1)
+//  {
+//  error = 6;
+//  goto EndWave;
+//  } /* if spherical system (not yet supported) */
+//
 /* set scale factor for appropriate units of measure */
 
  switch (LWInfo->Units)
@@ -785,7 +785,7 @@ EndWave:
   } /* switch */
 
 } /* ImportWave() */
-*/
+#endif
 /**************************************************************************/
 
 short  CreateBankKeys(void)
@@ -1167,7 +1167,7 @@ void initmopar(void)
   {
   if (PAR_FIRST_MOTION(4) == 0.0) PAR_FIRST_MOTION(4) = PAR_FIRST_MOTION(1);
   if (PAR_FIRST_MOTION(5) == 0.0) PAR_FIRST_MOTION(5) = PAR_FIRST_MOTION(2);
-  } /* if */
+  } // if
 */
  for (i=0; i<USEDMOTIONPARAMS; i++)
   {
@@ -1219,7 +1219,7 @@ void initpar(void)
 
 /************************************************************************/
 
-/* Obsolete - for reference only, please do not delete !!!
+#ifdef FHDJALDJFHADLKDFh    // Obsolete - for reference only, please do not delete !!!
 void moparamcheck(short oframe)
 {
  short i;
@@ -1275,7 +1275,7 @@ void paramcheck(short frame, short oframe)
 } /* paramcheck() */
 
 End of obsolete code for "simple" animation
-*/
+#endif
 
 /************************************************************************/
 
@@ -1450,7 +1450,7 @@ void setvalues(void)
   ReflectionStrength = 0.0;
 
 /* set this in wave editor
- WhiteCapHt = 8.65;	/* 8.65 for Maui, .65 for RMNP & GrandCanyon */
+ WhiteCapHt = 8.65;	// 8.65 for Maui, .65 for RMNP & GrandCanyon
 */
  for (i=0; i<ECOPARAMS; i++)
   {
@@ -2113,13 +2113,13 @@ short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
 
 /* temporary fix for those image ecosystems I already created */
  if (loadcode & 0x0100 && loaditem < 0)
-  {
-  for (k=0; k<ECOPARAMS; k++)
-   if (PAR_TYPE_ECO(k) == 10)
-    PAR_TYPE_ECO(k) = 5;
-   if (PAR_TYPE_ECO(k) == 60)
-    PAR_TYPE_ECO(k) = 55;
-  } /* if */
+ {
+     for (k=0; k<ECOPARAMS; k++)
+         if (PAR_TYPE_ECO(k) == 10)
+             PAR_TYPE_ECO(k) = 5;
+     if (PAR_TYPE_ECO(k) == 60)
+         PAR_TYPE_ECO(k) = 55;
+ } /* if */
 
  return (1);
 

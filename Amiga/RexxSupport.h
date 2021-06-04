@@ -17,6 +17,8 @@
 #include <stdio.h>
 #include <libraries/mui.h>
 
+#include <GrammarTable.h>
+
 #define	REXX_RETURN_ERROR	((struct RexxMsg *)-1L)
 
 /*

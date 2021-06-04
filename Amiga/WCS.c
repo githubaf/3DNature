@@ -231,3 +231,26 @@ Cleanup:
   } /* if user wishes to reset screen mode */
 
 } /* main() */
+
+
+#ifdef __GNUC__
+// ALEXANDER
+// SAS/C has a mkdir() function with path parameter only. (gcc has additional mode parameter)
+// This is a modified version from projects/libnix/sources/nix/extra/mkdir.c
+//extern void __seterrno(void);
+int mkdir(const char *name, mode_t mode)
+{
+  BPTR fl;
+  int ret;
+
+  if ((fl=CreateDir((STRPTR)name)))
+  {
+    UnLock(fl); ret=chmod(name,mode);
+  }
+  else
+  {
+    __seterrno(); ret=-1;
+  }
+  return ret;
+}
+#endif

@@ -24,7 +24,7 @@ short loaddbase(short lowi, short AskName)
   {
   if (! getdbasename(0))
    return (0);
-  } /* if new name */
+  } // if new name
 
  strmfp(filename, dbasepath, dbasename);
 
@@ -41,7 +41,7 @@ short loaddbase(short lowi, short AskName)
   User_Message("Database: Load",
 	"Not a WCS Database file!\nOperation terminated.", "OK", "o");
   goto RestoreName;
-  } /* if old database format */
+  } // if old database format
 
  fscanf(fname, "%hd", &NoOfFields);
  if (NoOfFields != 13)
@@ -49,15 +49,15 @@ short loaddbase(short lowi, short AskName)
   Log(ERR_WRONG_TYPE, "Unsupported Database file format.");
   fclose(fname);
   goto RestoreName;
-  } /* if */
+  } // if
 
  fscanf(fname, "%hd%hd", &RecordLength, &NoOfRecords);
 
- for (i=0; i<=NoOfFields; i++)       /* read file fields */
+ for (i=0; i<=NoOfFields; i++)       // read file fields
   {
   fscanf(fname, "%s", fieldname[i]);
   fscanf(fname, "%hd", &length[i]);
-  } /* if */
+  } // if
  fgets(str, 2, fname);
 
  if (lowi > 0)
@@ -71,13 +71,13 @@ short loaddbase(short lowi, short AskName)
 	"Out of memory allocating database!\nOperation terminated.", "OK", "o");
    fclose(fname);
    return (0);
-   } /* if out of memory */
+   } // if out of memory
   else
    {
    DBase = NewBase;
    DBaseRecords = NoOfObjects + NoOfRecords + 20;
-   } /* else new database allocated */
-  } /* if append database */
+   } // else new database allocated
+  } // if append database
  else
   {
   dbaseloaded = 0;
@@ -91,7 +91,7 @@ short loaddbase(short lowi, short AskName)
    return (0);
    }
   DBaseRecords = NoOfRecords + 20;
-  } /* else allocate new database */
+  } // else allocate new database
 
  for (i=lowi, j=0; i<NoOfRecords+lowi; i++, j++)
   {
@@ -117,13 +117,13 @@ short loaddbase(short lowi, short AskName)
    {
    DBase[i].Flags = 6;
    DBase[i].Enabled = '*';
-   } /* if enabled */
+   } // if enabled
   else
    {
    DBase[i].Flags = 0;
    DBase[i].Enabled = ' ';
    j--;
-   } /* else */
+   } // else
   fgets(str, length[9] + FGETS_KLUDGE, fname);
   DBase[i].Red = atoi(str);
   fgets(str, length[10] + FGETS_KLUDGE, fname);
@@ -135,7 +135,7 @@ short loaddbase(short lowi, short AskName)
   fgets(str, length[13] + FGETS_KLUDGE, fname);
   DBase[i].MaxFract = atoi(str);
   fgets(str, 2, fname);
-  } /* for */
+  } // for
 
  fclose(fname);
  NoOfObjects = i;
@@ -156,8 +156,8 @@ short loaddbase(short lowi, short AskName)
     {
     strmfp(dirname, dbasepath, str);
     Proj_Mod = 1;
-    } /* if */
-   } /* if not already default directory */
+    } // if
+   } // if not already default directory
   strmfp(filename, dbasepath, dbasename);
   strcat(filename, ".object");
   if (! DirList_ItemExists(DL, filename))
@@ -167,8 +167,8 @@ short loaddbase(short lowi, short AskName)
    else
     DirList_New(filename, 0);
    Proj_Mod = 1;
-   } /* if */
-  } /* if ask name */
+   } // if
+  } // if ask name
 
  if (lowi > 0)
   DB_Mod = 1;
@@ -182,7 +182,7 @@ RestoreName:
  strcpy(dbasename, oldname);
  return (0);
 
-} /* loaddbase() */
+} // loaddbase()
 */
 
 /*********************************************************************/
@@ -619,7 +619,7 @@ short loadmapbase(short lowi, short onlyselected)
 #endif /* DBASE_SAVE_COMPOSITE */
   } /* if load new database */
 
- BusyLoad = BusyWin_New("Vector Load", NoOfObjects - lowi, 0, 'MVLD');
+ BusyLoad = BusyWin_New("Vector Load", NoOfObjects - lowi, 0, "MVLD");
  for (i=lowi; i<NoOfObjects; i++)
   {
   if (DBase[i].Lat)
@@ -1721,13 +1721,13 @@ struct database *NewBase;
      User_Message("Database Module",
 	"Out of memory expanding database!\nOperation terminated.", "OK", "o");
      break;
-     } /* if new database allocation fails */
+     } // if new database allocation fails
     else
      {
      DBase = NewBase;
      DBaseRecords += 20;
-     } /* else new database allocated and copied */
-    } /* if need larger database memory */
+     } // else new database allocated and copied
+    } // if need larger database memory
    OBN = NoOfObjects;
    NoOfObjects ++;
    DBase[OBN].Lat = DBase[OBN].Lon = NULL;
@@ -1776,8 +1776,8 @@ struct database *NewBase;
 
      setclipbounds(MapWind0, &cb);
      outline(MapWind0, OBN, 2, &cb);
-     } /* if map module open */
-    } /* if memory allocated for lat/lon arrays */
+     } // if map module open
+    } // if memory allocated for lat/lon arrays
    else
     {
     User_Message("Database Module: Editor",
@@ -1785,19 +1785,19 @@ struct database *NewBase;
  but can not be edited until memory is available.",
 	"OK", "o");
     break;
-    } /* else no memory, not even a little bit! */
+    } // else no memory, not even a little bit!
 
    strmfp(filename, dirname, DBase[OBN].Name);
    strcat(filename, ".Obj");
    if (saveobject(OBN, filename, DBase[OBN].Lon, DBase[OBN].Lat,
 	DBase[OBN].Elev))
     break;
-   } /* for i=0... */
+   } // for i=0...
   fclose(fTxt);
   DB_Mod = 1;
-  } /* if */
+  } // if
 
-} /* ConstructDEMObj() */
+} // ConstructDEMObj()
 */
 
 /**********************************************************************/
@@ -1879,7 +1879,7 @@ struct BusyWindow *BusyLoad;
  strmfp(filename, dbasepath, dbasename);
  strcat(filename, ".MDB");
  
- BusyLoad = BusyWin_New("Vector Load", NoOfObjects, 0, 'MVLD');
+ BusyLoad = BusyWin_New("Vector Load", NoOfObjects, 0, "MVLD");
  if ((fDbs = fopen(filename, "rb")) != NULL)
   {
   fread(Title, 16, 1, fDbs);

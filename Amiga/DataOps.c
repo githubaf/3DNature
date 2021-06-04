@@ -871,7 +871,7 @@ EndLoad:
  if (INBYTE_ORDER == DEM_DATA_BYTEORDER_LOHI
 	 && INVALUE_SIZE != DEM_DATA_VALSIZE_BYTE)
   {
-  BWDC = BusyWin_New("Inverting", INPUT_ROWS, 0, 'BWDC');
+  BWDC = BusyWin_New("Inverting", INPUT_ROWS, 0, "BWDC");
   datazip = 0;
   for (i=0; i<INPUT_ROWS; i++)
    {
@@ -920,7 +920,7 @@ EndLoad:
 */
  if (ACTIVE_FLOOR)
   {
-  BWDC = BusyWin_New("Floor", INPUT_ROWS, 0, 'BWDC');
+  BWDC = BusyWin_New("Floor", INPUT_ROWS, 0, "BWDC");
   datazip = 0;
   for (i=0; i<INPUT_ROWS; i++)
    {
@@ -1015,7 +1015,7 @@ EndLoad:
 
  if (ACTIVE_CEILING)
   {
-  BWDC = BusyWin_New("Ceiling", INPUT_ROWS, 0, 'BWDC');
+  BWDC = BusyWin_New("Ceiling", INPUT_ROWS, 0, "BWDC");
   datazip = 0;
   for (i=0; i<INPUT_ROWS; i++)
    {
@@ -1189,7 +1189,8 @@ EndLoad:
        break;
        } /* floating point short or unknown format */
       } /* switch value format */
-/*     } /* if not WCS DEM input (DEMs will be read later) */*/
+/*     } // if not WCS DEM input (DEMs will be read later)
+*/
     break;
     } /* short */
    case DEM_DATA_VALSIZE_LONG:
@@ -1269,7 +1270,7 @@ EndLoad:
   LastOutRow = ORows - 1;
   LastOutCol = OCols - 1;
 
-  BWDC = BusyWin_New("Resample", ORows, 0, 'BWDC');
+  BWDC = BusyWin_New("Resample", ORows, 0, "BWDC");
   for (i=0; i<OCols; i++)
    {
    if (i == LastOutRow)
@@ -2072,7 +2073,7 @@ EndLoad:
   long BottomEdge = INPUT_ROWS - CROP_BOTTOM;
 
   datazip = 0;
-  BWDC = BusyWin_New("Extrema", BottomEdge, 0, 'BWDC');
+  BWDC = BusyWin_New("Extrema", BottomEdge, 0, "BWDC");
   for (i=0; i<BottomEdge; i++)
    {
    if (i < CROP_TOP)
@@ -2524,7 +2525,7 @@ EndLoad:
 
    outzip = 0;
 
-   BWDC = BusyWin_New("Convert", cols, 0, 'BWDC');
+   BWDC = BusyWin_New("Convert", cols, 0, "BWDC");
    for (colctr=0; colctr<cols; colctr++)
     {
     if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM

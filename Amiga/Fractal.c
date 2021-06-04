@@ -54,7 +54,7 @@ void Recurse(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
      diplat = dlat;
      diplong = dlong;
      slope = dslope;
-     } /* if */
+     } // if
 end questionable */
     if (dir <= 1) diplat += (Random + Random * slope * 4.0);
     if (diplat > maxdlat) diplat = maxdlat;
@@ -63,7 +63,7 @@ end questionable */
     if (diplong > maxdlong) dlong = maxdlong;
     else if (diplong < mindlong) diplong = mindlong;
 /* this is for creating lakes and you don't want no slope areas changed
-** 0.0174 corresponds to 1° in radians */
+** 0.0174 corresponds to 1ï¿½ in radians */
     if (slope > 0.0174)
      {
      if (dir==1) slope += ((Random + Random * slope * 4.0) * .7);
@@ -164,7 +164,7 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
     } /* if */
    else
     MakeWater = 0;
-/*   
+#ifdef GHJAGDJSAHD
    for (i=0; i<3; i++)
     {
     if (polyx[b][i] < 0.0)
@@ -176,7 +176,7 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
     else if (polyy[b][i] > oshigh)
      polyy[b][i] = oshigh;
     } /* for i=0... */
-*/
+#endif
    FractPoint_Sort(&Data->El[0]);
 
    xx[0] = polyx[b][0]; yy[0] = polyy[b][0];
@@ -229,7 +229,7 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
      if (LonDiff > 105.0)
       LonDiff = 105.0;
      sunangle -= (sunangle * ((LonDiff - 85.0) / 30.0));
-     } /* if surface is positioned near 90° from the sun in longitude */
+     } /* if surface is positioned near 90ï¿½ from the sun in longitude */
     } /* if surface is lit at all */
    sunfactor = 1.0 - sunangle;
    sunshade = sunfactor * PARC_RNDR_MOTION(22);
@@ -443,7 +443,8 @@ void FractPoly_Divide(struct elmapheaderV101 *map, struct VertexIndex *Vtx)
   Vtx->Lon[VtxNum] = polylon[b][i];
   Vtx->Cld[VtxNum] = polycld[b][i];
 
-/* temporary code to compute new Use, Pert and Edge values
+#ifdef HJDFHAKJHLKAJSD
+// temporary code to compute new Use, Pert and Edge values
 
   if (StudyVertex == 0)
    {  
@@ -495,7 +496,7 @@ void FractPoly_Divide(struct elmapheaderV101 *map, struct VertexIndex *Vtx)
     } /* if */
 
    } /* if StudyVertex */
-*/
+#endif
   } /* for i=0... */
 
 } /* FractPoly_Divide() */
@@ -724,7 +725,7 @@ void recurse(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
     if (diplong > maxdlong) dlong = maxdlong;
     else if (diplong < mindlong) diplong = mindlong;
 /* this is for creating lakes and you don't want no slope areas changed
-** 0.0174 corresponds to 1° in radians */
+** 0.0174 corresponds to 1ï¿½ in radians */
     if (slope > 0.0174)
      {
      if (dir==1) slope += ((Random + Random * slope * 2.0) * .7);

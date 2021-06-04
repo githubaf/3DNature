@@ -19,7 +19,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 
      DIAG_Win->DiagnosticWin = WindowObject,
       MUIA_Window_Title		, "Diagnostic Data",
-      MUIA_Window_ID		, 'DIAG',
+      MUIA_Window_ID		, "DIAG",
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -159,7 +159,9 @@ void Handle_Diagnostic_Window(ULONG WCS_ID)
 {
 
  if (! DIAG_Win)
-  return;
+ {
+     return;
+ }
 
   switch (WCS_ID & 0x0000ff00)
    {
