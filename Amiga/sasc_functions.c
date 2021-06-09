@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 /***
 *
@@ -43,12 +44,13 @@ void swmem(void *a, void *b, unsigned n)  // SAS/C-only function, own re-impleme
 {
     unsigned char temp;
     unsigned int i;
+    unsigned char *p1=(unsigned char *)a, *p2=(unsigned char *)b;
 
     for(i=0;i<n;i++)
     {
-        temp=*(unsigned char*)b;
-        *(unsigned char*)b++=*(unsigned char*)a;
-        *(unsigned char*)a++=temp;
+        temp=*p2;
+        *p2++=*(unsigned char*)p1;
+        *p1++=temp;
     }
 }
 #endif
@@ -452,7 +454,31 @@ int stcul_d(char *out, unsigned long uvalue)
 }
 #endif
 
+#ifdef __GNUC__
+/*   SAS/C-only function
 
+376 Chapter 7
+
+pow2 Raise 2 to a power
+
+Synopsis     #include <math.h>
+             r = pow2( x) ;
+             double r, x;
+
+Description The pow2 function computes 2**x by calling the pow function.
+            This function is not available if the _STRICT_ANSI flag has been
+            defined.
+
+Portability SAS/C
+Returns     The return value r is the value 2**x.
+See Also    __matherr
+*/
+
+double pow2(double x)
+{
+    return pow(2,x);
+}
+#endif
 // ------------- Test -------------------
 // compile this file alone and define TESTING_SASC_FUNCTIONS on compiler call to run the tests
 #define TESTING_SASC_FUNCTIONS
@@ -656,7 +682,44 @@ int main(void)
 
     }
 
+    // -----------------------------------------------------------------------------------------
+    {
+        typedef struct
+        {
+                double Input;
+                char *ExpectedOutput;
+        }InputOutputString;
 
+        InputOutputString InputOutputStrings[]=
+        {
+
+                {0, "R=1.000000"},
+                {1, "R=2.000000"},
+                {2, "R=4.000000"},
+                {16,"R=65536.000000"},
+                {0.5,"R=1.414214"},
+                {0,NULL}    // ExpectedOutput==NULL marks end
+        };
+
+        char result[512];   // enough space3 for our test result-string
+        int i=0;
+        double resultval;
+
+        while(InputOutputStrings[i].ExpectedOutput!=NULL)
+        {
+            printf("Testing \"%f\"...",InputOutputStrings[i].Input);
+            resultval=pow2 (InputOutputStrings[i].Input);
+            sprintf(result,"R=%f",resultval);
+            //printf("\n");
+            printf(" Result: %s\n",result);
+            //printf(" Expect: %s\n",InputOutputStrings[i].ExpectedOutput);
+            assert(!strcmp(result,InputOutputStrings[i].ExpectedOutput));
+            i++;
+        }
+        printf ("pow2(): All tests passed.\n");
+        printf("----------------------------\n\n");
+
+    }
 
     return 0;
 }

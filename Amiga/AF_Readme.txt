@@ -70,5 +70,5 @@ PATH=$PATH:~/opt/m68k-amigaos_27Apr21/bin make all 2>&1 | grep -v "/m68k-amigaos
 SAS/C specific functions in sasc_functions.c including test. Test should pass on Amiga(!) and linux command line.
 
 sc sasc_functions.c LINK IGNORE=51 DEFINE=TESTING_SASC_FUNCTIONS
-gcc sasc_functions.c -DTESTING_SASC_FUNCTIONS -Wall -pedantic  && a./out
+gcc sasc_functions.c -DTESTING_SASC_FUNCTIONS -lm -Wall -pedantic && ./a.out
 
