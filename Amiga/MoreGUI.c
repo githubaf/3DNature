@@ -857,7 +857,7 @@ void Make_PJ_Window(void)
             Child, PJ_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
             Child, PJ_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
 	    Child, RectangleObject, End,
-            End, /* HGroup */
+            End, // HGroup
 */
 	  End, /* VGroup */
 	End; /* Window object */

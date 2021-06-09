@@ -44,7 +44,7 @@ void Make_EC_Window(void)
 
      EC_Win->EcoPalWin = WindowObject,
       MUIA_Window_Title		, "Color Editor",
-      MUIA_Window_ID		, "EDCO",
+      MUIA_Window_ID		, 'EDCO',
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 

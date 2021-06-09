@@ -95,7 +95,7 @@ void Make_DC_Window(void)
 
      DC_Win->ConvertWin = WindowObject,
       MUIA_Window_Title		, "DEM Converter",
-      MUIA_Window_ID		, "DOCV",
+      MUIA_Window_ID		, 'DOCV',
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -1259,7 +1259,7 @@ void Make_DI_Window(void)
 
      DI_Win->InterpWin = WindowObject,
       MUIA_Window_Title		, "DEM Interpolate",
-      MUIA_Window_ID		, "DOIN",
+      MUIA_Window_ID		, 'DOIN',
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,

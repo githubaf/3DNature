@@ -166,7 +166,7 @@ void stripintuimessages(struct MsgPort *mp, struct Window *win)
 
  msg = (struct IntuiMessage *)mp->mp_MsgList.lh_Head;
 
- while (succ = msg->ExecMessage.mn_Node.ln_Succ) {
+ while ((succ = msg->ExecMessage.mn_Node.ln_Succ)) {
   if (msg->IDCMPWindow == win) {
    Remove((struct Node *)msg);
    ReplyMsg((struct Message *)msg);
@@ -193,7 +193,7 @@ void SaveConfig(void)
 {
  FILE *fconfig;
 
- if (chdir("ENVARC:WCS")) mkdir("ENVARC:WCS");
+ if (chdir("ENVARC:WCS")) Mkdir("ENVARC:WCS");
  chdir(path);
 
  if (! (fconfig = fopen("ENVARC:WCS/WCS.config", "w")))
@@ -206,17 +206,23 @@ void SaveConfig(void)
  if (DB_Win)
   {
   if (DB_Win->Layout) 	fprintf(fconfig, "%d\n", CONFIG_DB_HORWIN);
-	 		fprintf(fconfig, "%d\n", CONFIG_DB);
+     fprintf(fconfig, "%d\n", CONFIG_DB);
   }
  if (DO_Win)
   {
-  if (DO_Win->Layout) 	fprintf(fconfig, "%d\n", CONFIG_DO_HORWIN);
-	 		fprintf(fconfig, "%d\n", CONFIG_DO);
+     if (DO_Win->Layout)
+     {
+         fprintf(fconfig, "%d\n", CONFIG_DO_HORWIN);
+     }
+     fprintf(fconfig, "%d\n", CONFIG_DO);
   }
  if (EP_Win)
   {
-  if (EP_Win->Layout) 	fprintf(fconfig, "%d\n", CONFIG_EP_HORWIN);
- 			fprintf(fconfig, "%d\n", CONFIG_EP);
+     if (EP_Win->Layout)
+     {
+         fprintf(fconfig, "%d\n", CONFIG_EP_HORWIN);
+     }
+     fprintf(fconfig, "%d\n", CONFIG_EP);
   }
  if (DE_Win) 		fprintf(fconfig, "%d\n", CONFIG_DE);
  if (DC_Win) 		fprintf(fconfig, "%d\n", CONFIG_DC);
@@ -229,15 +235,18 @@ void SaveConfig(void)
  if (SC_Win) 		fprintf(fconfig, "%d\n", CONFIG_SC);
  if (EMIA_Win)
   {
-		 	fprintf(fconfig, "%d  %hd  %hd  %hd  %hd\n",
-		 		CONFIG_EMIA_SIZE,
-			 	InterWind0->TopEdge, InterWind0->LeftEdge, 
-				InterWind0->Width,   InterWind0->Height);
-  if (InterWind2)	fprintf(fconfig, "%d  %hd  %hd  %hd  %hd\n",
-		 		CONFIG_EMIA_COMPSIZE,
-			 	InterWind2->TopEdge, InterWind2->LeftEdge, 
-				InterWind2->Width,   InterWind2->Height);
-		 	fprintf(fconfig, "%d\n", CONFIG_EMIA);
+     fprintf(fconfig, "%d  %hd  %hd  %hd  %hd\n",
+             CONFIG_EMIA_SIZE,
+             InterWind0->TopEdge, InterWind0->LeftEdge,
+             InterWind0->Width,   InterWind0->Height);
+     if (InterWind2)
+     {
+        fprintf(fconfig, "%d  %hd  %hd  %hd  %hd\n",
+                CONFIG_EMIA_COMPSIZE,
+                InterWind2->TopEdge, InterWind2->LeftEdge,
+                InterWind2->Width,   InterWind2->Height);
+     }
+     fprintf(fconfig, "%d\n", CONFIG_EMIA);
   }
  if (EETL_Win) 		fprintf(fconfig, "%d\n", CONFIG_EETL);
  if (ECTL_Win) 		fprintf(fconfig, "%d\n", CONFIG_ECTL);
@@ -427,7 +436,7 @@ void LoadConfig(void)
      {
      setclipbounds(MapWind0, &cb);
      makemap(MapWind0, cb.lowx, cb.lowy, cb.highx, cb.highy,
-      (topo ? MMF_TOPO : NULL) | (ecoenabled ? MMF_ECO : NULL));
+      (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0));
      if(InterStuff)
       {
       ShowView_Map(&cb);
@@ -1424,7 +1433,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     } /* if */
    setclipbounds(MapWind0, &Clip);
    makemap(MapWind0, Clip.lowx, Clip.lowy, Clip.highx, Clip.highy,
-    (topo ? MMF_TOPO : NULL) | (ecoenabled ? MMF_ECO : NULL));
+    (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0));
    if(InterStuff)
     {
     ShowView_Map(&Clip);
@@ -1633,10 +1642,10 @@ long PrintScreen(struct Screen *scr, UWORD srcx, UWORD srcy,
    } /* else */
   } /* if */
 
- if (printerPort = CreatePort(0, 0))
+ if ((printerPort = CreatePort(0, 0)))
   {
-  if (iodrp =
-	 (struct IODRPReq *)CreateExtIO(printerPort, sizeof (struct IODRPReq)))
+  if ((iodrp =
+	 (struct IODRPReq *)CreateExtIO(printerPort, sizeof (struct IODRPReq))))
    {
    if (! (error = OpenDevice("printer.device", 0, iodrp, 0)))
     {

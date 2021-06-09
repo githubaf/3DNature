@@ -42,7 +42,7 @@ void Make_EP_Window(short hor_win)
 
       EP_Win->EditWindow = WindowObject,
       MUIA_Window_Title		, "Parameter Module",  /* "End" == "TAG_DONE)" */
-      MUIA_Window_ID		, (hor_win ? "EPAH": "EPAV"),
+      MUIA_Window_ID		, (hor_win ? 'EPAH': 'EPAV'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_LeftEdge	, MUIV_Window_LeftEdge_Moused,
       MUIA_Window_TopEdge	, MUIV_Window_TopEdge_Moused,
@@ -1037,7 +1037,7 @@ struct WCSApp *WCS_App_New(void)
  Log_Win = NULL;
  CreditWin = NULL;
 
- if(This = (struct WCSApp *)get_Memory(sizeof(struct WCSApp), MEMF_CLEAR))
+ if((This = (struct WCSApp *)get_Memory(sizeof(struct WCSApp), MEMF_CLEAR)))
   {
   This->MUIApp = ApplicationObject,
     MUIA_Application_Title			, APP_TITLE,
@@ -1275,7 +1275,7 @@ short WCS_App_EventLoop(struct WCSApp *This)
      } /* if */
     } /* for */
 
-   if (WCS_ID = DoMethod(app, MUIM_Application_Input, &signals))
+   if ((WCS_ID = DoMethod(app, MUIM_Application_Input, &signals)))
     {
     CheckBack = 1;
     switch (WCS_ID & 0x0f000000)
@@ -1394,7 +1394,7 @@ short WCS_App_EventLoop(struct WCSApp *This)
     
    if(RexxAp)
     {
-    if(RexxCom = Rexx_GetMsg(RexxAp))
+    if((RexxCom = Rexx_GetMsg(RexxAp)))
     	{
     	Cmd_ParseDispatch(RexxAp, RexxCom);
     	/* Status_Log(ARG0(RexxCom), 0); */

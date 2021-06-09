@@ -184,7 +184,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 
 /* We'll add some randomness to our colors for other than snow.
 ** Since "random" varies from -.1 to +.1, this will give us a variation of
-** ±20 */
+** Â±20 */
 
  switch (dir)
   {
@@ -301,7 +301,7 @@ EndDrawFace:
    CC[3].Grn = sunshade * PARC_RNDR_COLOR(1, 1);
    CC[3].Blu = sunshade * PARC_RNDR_COLOR(1, 2);
 /* This is now done on a pixel basis to facilitate texture mapping
-   CC[0].Red += sunshade * PARC_RNDR_COLOR(1, 0);	/* ambient */
+   CC[0].Red += sunshade * PARC_RNDR_COLOR(1, 0);	// ambient
    CC[0].Grn += sunshade * PARC_RNDR_COLOR(1, 1);
    CC[0].Blu += sunshade * PARC_RNDR_COLOR(1, 2);
    CC[0].Red += (PARC_RNDR_COLOR(2, 0) - CC[0].Red) * fade;
@@ -976,8 +976,8 @@ StartDraw:
         else if (NoiseTexture)
          {
          Tex = ((255 - MakeNoise(NoiseMap, 75, LatPt * 480.0, LonPt * 480.0)) / 255.0);
- /*        Tex = ComputeBumpMapTexture(LatPt, LonPt);*/
-	 } /* else no strata */
+ //        Tex = ComputeBumpMapTexture(LatPt, LonPt);
+	 } // else no strata
 */
         else
          Tex = 255;
@@ -1637,9 +1637,9 @@ double CloudCover = 0.0, LonOff, LatOff, LonInvOff, LatInvOff, wt[4], val[4], Ar
    CloudCover = (wt[0] * val[0] + wt[1] * val[1] + wt[2] * val[2] + wt[3] * val[3]) / 510.0;
    }
 
-/* max value of cloud map is 255 so dividing by 510 allows cloudcover
-to reach 50% */
-  } /* if in bounds */
+// max value of cloud map is 255 so dividing by 510 allows cloudcover
+// to reach 50%
+  } // if in bounds
 
  return (CloudCover);
 */

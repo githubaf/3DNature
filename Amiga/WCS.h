@@ -8,13 +8,24 @@
 #ifndef GIS_GIS_H
 #define GIS_GIS_H
 
-extern int mkdir(const char *);  /* defined in dos.h in SAS/C, defined in gcc with 2 parameters ALEXANDER */
-#define O_RDONLY 0               /* ALEXANDER */
-#define O_WRONLY    1
-#define O_RDWR   2               /* ALEXANDER */
-#define O_APPEND    (1<<2)
-#define O_CREAT     (1<<3)
-#define O_TRUNC     (1<<5)
+#include <fcntl.h>
+#include <unistd.h>
+
+int Mkdir(const char *name);  // calls mkdir(name) because mkdir on gcc has two parameters
+void swmem(void*, void*, unsigned);  // SAS/C function, needs to be re-implemented for gcc, Swap two memory blocks
+void strmfp(char *name, const char *path, const char *node); // SAS/C function, needs to be re-implemented for gcc, Make a filename from the path or node
+void strmfn(char *file, const char *drive, const char *path, const char *node, const char *ext); // SAS/C function, needs to be re-implemented for gcc, Make a filename from components
+void strsfn(const char *file, char *drive, char *path, char *node, char *ext); // SAS/C function, needs to be re-implemented for gcc, Split the filename
+int stcgfe(char *ext, const char *name); // SAS/C function, needs to be re-implemented for gcc, Get the filename extension
+int stcul_d(char *out, unsigned long uvalue); // SAS/C function, needs to be re-implemented for gcc, Convert an unsigned long integer to a decimal string
+
+
+//#define O_RDONLY 0               /* ALEXANDER */
+//#define O_WRONLY 1
+//#define O_RDWR   2               /* ALEXANDER */
+//#define O_APPEND    (1<<2)
+//#define O_CREAT     (1<<3)
+//#define O_TRUNC     (1<<5)
 
 
 #ifdef MAIN
@@ -56,6 +67,8 @@ EXTERN struct Library *MUIMasterBase
  = NULL
 #endif /* MAIN */
 ;
+
+#include <clib/muimaster_protos.h>   //ALEXANDER
 
 EXTERN LONG MemTrack;
 
@@ -178,9 +191,9 @@ EXTERN struct MotionShift MoShift[MOTIONPARAMS];
  struct Motion mn[MOTIONPARAMS];
 };
 
-EXTERN __far struct Animation MoPar;
+EXTERN /*__far*/ struct Animation MoPar;   // ALEXANDER __far raus
 
-EXTERN __far struct Animation UndoMoPar[2];
+EXTERN /*__far*/ struct Animation UndoMoPar[2];    // ALEXANDER __far raus
  
 /*EXTERN*/ struct ColorV1 {
  char   Name[24];
@@ -2264,7 +2277,7 @@ EXTERN double mapscale,maplat,maplon,latzero,lonzero,
  #endif
 #endif
 
-EXTERN __far const UBYTE grass[40][40]
+EXTERN /*__far*/ const UBYTE grass[40][40]   // ALEXANDER __far raus
 #ifdef MAIN
  = {
  {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,15,
@@ -2352,7 +2365,7 @@ EXTERN __far const UBYTE grass[40][40]
 ;
 
 
-EXTERN __far const UBYTE evergreen[60][20]
+EXTERN /*__far*/ const UBYTE evergreen[60][20]     // ALEXANDER __far raus
 #ifdef MAIN
  = {
  {0, 0, 0, 0, 0, 0, 0, 0, 0,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -2420,7 +2433,7 @@ EXTERN __far const UBYTE evergreen[60][20]
 ;
 
 
-EXTERN __far const UBYTE deciduous[60][40]
+EXTERN /*__far*/ const UBYTE deciduous[60][40]      // ALEXANDER __far raus
 #ifdef MAIN
  = {
  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,15,15, 
@@ -2548,7 +2561,7 @@ EXTERN __far const UBYTE deciduous[60][40]
 ;
 
 
-EXTERN __far const UBYTE rockbrush[60][40]
+EXTERN /*__far*/ const UBYTE rockbrush[60][40]       // ALEXANDER __far raus
 #ifdef MAIN
  = {
  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,15,15,15, 0, 0, 
@@ -2676,7 +2689,7 @@ EXTERN __far const UBYTE rockbrush[60][40]
 ;
 
 
-EXTERN __far const UBYTE snag[60][12]
+EXTERN /*__far*/ const UBYTE snag[60][12]      // ALEXANDER __far raus
 #ifdef MAIN
 = {
  0, 0, 0, 0, 0, 0,14, 0, 0, 0, 0, 0, 
@@ -2743,7 +2756,7 @@ EXTERN __far const UBYTE snag[60][12]
 #endif /* MAIN */
 ;
 
-EXTERN __far const UBYTE stump[10][4]
+EXTERN /*__far*/ const UBYTE stump[10][4]     // ALEXANDER __far raus
 #ifdef MAIN
 = {
   0,13, 0, 0,
@@ -2760,7 +2773,7 @@ EXTERN __far const UBYTE stump[10][4]
 #endif /* MAIN */
 ;
 
-EXTERN __far const short StrataTex[1200]
+EXTERN /*__far*/ const short StrataTex[1200]
 #ifdef MAIN
 = {
 255, 255, 230, 250, 247, 240, 233, 209, 206, 205, 
@@ -2887,7 +2900,7 @@ EXTERN __far const short StrataTex[1200]
 #endif /* MAIN */
 ;
 
-EXTERN __far const short StrataCol[1200]
+EXTERN /*__far*/ const short StrataCol[1200]      // ALEXANDER __far raus
 #ifdef MAIN
 = {
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
@@ -3136,7 +3149,7 @@ EXTERN __far const short StrataCol[1200]
 #endif /* MAIN */
 ;
 
-EXTERN __far const short StrataColIndex[4]
+EXTERN /*__far*/ const short StrataColIndex[4]      // ALEXANDER __far raus
 #ifdef MAIN
 = {
   15, 16, 17, 18

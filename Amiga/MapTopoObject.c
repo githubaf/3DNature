@@ -1118,7 +1118,7 @@ void FractFace_Render(struct elmapheaderV101 *map,
     if (LonDiff > 105.0)
      LonDiff = 105.0;
     sunangle -= (sunangle * ((LonDiff - 85.0) / 30.0));
-    } /* if surface is positioned near 90° from the sun in longitude */
+    } /* if surface is positioned near 90ï¿½ from the sun in longitude */
    } /* if surface is lit at all */
   sunfactor = 1.0 - sunangle;
   sunshade = sunfactor * PARC_RNDR_MOTION(22);
@@ -1156,7 +1156,8 @@ void FractFace_Render(struct elmapheaderV101 *map,
 
   FractRecurse(win, map, map->MapAsSFC, &Data, &Face, &Vtx[maxfract], CD);
 
-/* stuff for testing consistency
+#ifdef JSHKJHDKASHDK
+// stuff for testing consistency
   if (StudyVertex == 0 || StudyVertex == 15 || StudyVertex == 207)
    {
    long fract, sum = 0;
@@ -1179,8 +1180,10 @@ void FractFace_Render(struct elmapheaderV101 *map,
    } /* if */
 
   StudyVertex ++;
-*/
-/* Stuff for recording vertex info in a special tool file
+#endif
+
+#ifdef GJHSGJAHSDGJ
+// Stuff for recording vertex info in a special tool file
 
   if (StudyVertex == 0)
    {
@@ -1205,7 +1208,7 @@ void FractFace_Render(struct elmapheaderV101 *map,
     }
    } /* if */
   StudyVertex ++;
-*/
+#endif
   } /* else use recursion, fractal level > 0 */
 
 } /* FractFace_Render() */
@@ -1561,7 +1564,7 @@ short MapCloudObject(struct elmapheaderV101 *map, struct CloudData *CD,
 	"Continue|Cancel", "oc"))
    error = 1;
   goto EndCloud;
-  } /* if no memory */
+  } / if no memory
 */
  CL = CD->Layer;
 
@@ -1612,8 +1615,8 @@ short MapCloudObject(struct elmapheaderV101 *map, struct CloudData *CD,
   if (CL->Alt * PARC_RNDR_MOTION(14) >= PARC_RNDR_MOTION(0))
    break;
 /* render this layer */
-  if (error = MapCloudLayer(map, CD, CL, CL->Next, MinAmp, MaxAmp, j, win/*,
-	CldMap*/))
+  if ((error = MapCloudLayer(map, CD, CL, CL->Next, MinAmp, MaxAmp, j, win/*,
+	CldMap*/)))
    break;
   CL = CL->Next;
   j ++;
@@ -1630,8 +1633,8 @@ short MapCloudObject(struct elmapheaderV101 *map, struct CloudData *CD,
    if (CL->Alt * PARC_RNDR_MOTION(14) < PARC_RNDR_MOTION(0))
     break;
 /* render this layer */
-   if (error = MapCloudLayer(map, CD, CL, CL->Prev, MinAmp, MaxAmp, j, win/*,
-	CldMap*/))
+   if ((error = MapCloudLayer(map, CD, CL, CL->Prev, MinAmp, MaxAmp, j, win/*,
+	CldMap*/)))
     break;
    CL = CL->Prev;
    j ++;
@@ -1709,7 +1712,7 @@ double h, d, sunshade, Azim, Dip;
    } /* for y=... */
   } /* for x=... */
 
-/*
+#ifdef GHGJHGJHGJG
  if (CH)
   {
   CloudMinAmp = MinAmp + (MaxAmp - MinAmp) *
@@ -1878,7 +1881,7 @@ double h, d, sunshade, Azim, Dip;
    *CloudPtr += (Diff << 8);
    } /* for y=... */
   } /* for x=... */
-*/
+#endif
 /* clear byte maps */
 
  memset(bytemap, 0, bmapsize * 2);
@@ -2262,10 +2265,12 @@ long Depth, Vertices;
 FILE *fVtx;
 
 if (MaxFract == 0)		/* don't need an index */
- return (1);
+{
+    return (1);
+}
 
  sprintf(str, "Tools/Fract%d", MaxFract);
- if (fVtx = fopen(str, "rb"))
+ if ((fVtx = fopen(str, "rb")))
   {
   fread((char *)Title, 16, 1, fVtx);
   if (! strcmp(Title, "WCSFractalIndex"))
@@ -2467,7 +2472,7 @@ FILE *fFrd;
 	} /* if */
        } /* for OBN=0... */
 
-      if (BWAN = BusyWin_New("Animation", LastFrame-FirstFrame+FrameInt, 1, 'BWAN'))
+      if ((BWAN = BusyWin_New("Animation", LastFrame-FirstFrame+FrameInt, 1, 'BWAN')))
        {
        for (frame=FirstFrame; frame<=LastFrame; frame+=FrameInt)
         {
@@ -2485,7 +2490,7 @@ FILE *fFrd;
         objectlimit = RenderObjects;
 
         sprintf(FrameStr, "Frame %d/%d", frame, LastFrame);
-        if (BWIM = BusyWin_New(FrameStr, objectlimit, 1, 'BWIM'))
+        if ((BWIM = BusyWin_New(FrameStr, objectlimit, 1, 'BWIM')))
          {
          for (objectcount=0; objectcount<objectlimit; objectcount++)
           {
@@ -2542,7 +2547,7 @@ RepeatLoad:
             } /* if */
            strcat(FractalFile, ".frd");
            strmfp(filename, dirname, FractalFile);
-           if (fFrd = fopen(filename, "rb"))
+           if ((fFrd = fopen(filename, "rb")))
             {
             if (fread(FractalMap, FractalMapSize, 1, fFrd) != 1)
              {
@@ -2685,7 +2690,7 @@ RepeatLoad:
            if (error)
             goto MapCleanup;
 
-           if (fFrd = fopen(filename, "wb"))
+           if ((fFrd = fopen(filename, "wb")))
             {
             if (fwrite(FractalMap, FractalMapSize, 1, fFrd) != 1)
              {

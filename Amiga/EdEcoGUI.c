@@ -62,7 +62,7 @@ void Make_EE_Window(void)
 
      EE_Win->EcosystemWin = WindowObject,
       MUIA_Window_Title		, "Ecosystem Editor",
-      MUIA_Window_ID		, "EDEC",
+      MUIA_Window_ID		, 'EDEC',
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -1327,21 +1327,21 @@ void Set_EE_List(short update)
 void Set_EcoLimits(void)
 {
  short Limits[15][2] = {
-	32000,	 -32000,
-	32000,	 -32000,
-	360,	 -360,
-	25,	 -25,
-	20000,	 -20000,
-	20000,	 -20000,
-	91,	 0,
-	91,	 0,
-	100,	 0,
-	500,	 0,
-	COLORPARAMS - 1, 0,
-	ECOPARAMS - 1,	 0,
-	255,	 0,
-	255,	 0,
-	255,	 0
+	{32000,	 -32000},
+	{32000,	 -32000},
+	{360,	 -360},
+	{25,	 -25},
+	{20000,	 -20000},
+	{20000,	 -20000},
+	{91,	 0},
+	{91,	 0},
+	{100,	 0},
+	{500,	 0},
+	{COLORPARAMS - 1, 0},
+	{ECOPARAMS - 1,	 0},
+	{255,	 0},
+	{255,	 0},
+	{255,	 0}
  };
  
  memcpy(&EE_Win->EcoLimits[0][0], &Limits, 60);

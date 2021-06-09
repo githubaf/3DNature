@@ -91,8 +91,8 @@ struct CloudData *CloudData_New(void)
 {
 struct CloudData *CD;
 
- if (CD = (struct CloudData *)
-	get_Memory(sizeof (struct CloudData), MEMF_CLEAR))
+ if ((CD = (struct CloudData *)
+	get_Memory(sizeof (struct CloudData), MEMF_CLEAR)))
   {
   if ((CD->WD = WaveData_New()) == NULL)
    {
@@ -528,7 +528,7 @@ struct Wave *WV;
  if ((CD->CloudPlane = get_Memory(CD->PlaneSize, MEMF_ANY)) == NULL)
   return (0);
 
-Repeat:
+//Repeat:
 
  if (Frame < 0.0)
   {

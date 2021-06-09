@@ -23,22 +23,7 @@
 #define MUI_FLOATINT_C
 
 
-/* Compiler specific stuff */
-#if defined(_DCC)
-#define REG(x) __ ## x
-#define SAVEDS __geta4
-#define ASM
-#define REGARGS __regargs
-#else
-#if defined(__SASC)
-#define REG(x) register __ ## x
-#define SAVEDS __saveds
-#define ASM __asm
-#define REGARGS __regargs
-#else
-#error "Don't know how to handle register arguments for your compiler."
-#endif
-#endif
+#include <SDI_compiler.h>  // AF
 
 
 
@@ -63,18 +48,6 @@
 
 #include "WCS.h"
 #include "MUIFloatInt.h"
-
-struct FloatIntData
-{
-	Object *group;
-	Object *string;
-	Object *incbutton, *decbutton;
-
-	unsigned long int FIFlags;
-	void *MasterVariable;
-	double IncDecAmount, MaxAmount, MinAmount;
-	char *LabelText;
-};
 
 char *FWT[] =
 	{
@@ -191,46 +164,46 @@ SAVEDS ULONG mNew(struct IClass *cl,Object *obj,struct opSet *msg)
 	data->MinAmount = 0;
 	data->MaxAmount = FLT_MAX;
 	
-	if(Store = GetTagData(MUIA_FloatInt_IncDecInt, NULL, msg->ops_AttrList))
+	if((Store = GetTagData(MUIA_FloatInt_IncDecInt, NULL, msg->ops_AttrList)))
 		{
 		Limit = *(signed long int *)(&Store);
 		data->IncDecAmount = Limit;
 		data->FIFlags &= ~FIOFlag_Frac;
 		} /* if */
 
-	if(Store = GetTagData(MUIA_FloatInt_IncDecDouble, NULL, msg->ops_AttrList))
+	if((Store = GetTagData(MUIA_FloatInt_IncDecDouble, NULL, msg->ops_AttrList)))
 		{
 		D = (double *)Store;
 		data->IncDecAmount = *D;
 		data->FIFlags &= ~FIOFlag_Frac;
 		} /* if */
 
-	if(Store = GetTagData(MUIA_FloatInt_IDFracDouble, NULL, msg->ops_AttrList))
+	if((Store = GetTagData(MUIA_FloatInt_IDFracDouble, NULL, msg->ops_AttrList)))
 		{
 		D = (double *)Store;
 		data->IncDecAmount = *D;
 		data->FIFlags |= FIOFlag_Frac;
 		} /* if */
 
-	if(Store = GetTagData(MUIA_FloatInt_MaxValDouble, NULL, msg->ops_AttrList))
+	if((Store = GetTagData(MUIA_FloatInt_MaxValDouble, NULL, msg->ops_AttrList)))
 		{
 		D = (double *)Store;
 		data->MaxAmount = *D;
 		} /* if */
 
-	if(Store = GetTagData(MUIA_FloatInt_MinValDouble, NULL, msg->ops_AttrList))
+	if((Store = GetTagData(MUIA_FloatInt_MinValDouble, NULL, msg->ops_AttrList)))
 		{
 		D = (double *)Store;
 		data->MinAmount = *D;
 		} /* if */
 
-	if(Store = GetTagData(MUIA_FloatInt_MaxValInt, NULL, msg->ops_AttrList))
+	if((Store = GetTagData(MUIA_FloatInt_MaxValInt, NULL, msg->ops_AttrList)))
 		{
 		Limit = *(signed long int *)(&Store);
 		data->MaxAmount = Limit;
 		} /* if */
 
-	if(Store = GetTagData(MUIA_FloatInt_MinValInt, NULL, msg->ops_AttrList))
+	if((Store = GetTagData(MUIA_FloatInt_MinValInt, NULL, msg->ops_AttrList)))
 		{
 		Limit = *(signed long int *)(&Store);
 		data->MinAmount = Limit;
@@ -420,7 +393,7 @@ ULONG Temp;
 signed long int Limit;
 double *D;
 
-for (tags=msg->ops_AttrList;tag=NextTagItem(&tags);)
+for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 	{
 	switch (tag->ti_Tag)
 		{
@@ -552,7 +525,7 @@ SAVEDS ULONG mGet(struct IClass *cl,Object *obj,struct opSet *msg)
 struct FloatIntData *data = INST_DATA(cl,obj);
 struct TagItem *tags,*tag;
 
-for (tags=msg->ops_AttrList;tag=NextTagItem(&tags);)
+for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 	{
 	switch (tag->ti_Tag)
 		{
@@ -572,7 +545,7 @@ SAVEDS ULONG mChangeFocus(struct IClass *cl,Object *obj,struct opSet *msg)
 /* struct FloatIntData *data = INST_DATA(cl,obj); */
 struct TagItem *tags,*tag;
 
-for (tags=msg->ops_AttrList;tag=NextTagItem(&tags);)
+for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 	{
 	switch (tag->ti_Tag)
 		{
@@ -597,9 +570,9 @@ return(DoSuperMethodA(cl,obj,(Msg)msg));
 }
 
 
-SAVEDS ASM ULONG Dispatcher(REG(a0) struct IClass *cl,
-				   REG(a2) Object *obj,
-				   REG(a1) Msg msg)
+SAVEDS ASM ULONG Dispatcher(REG(a0, struct IClass *cl),
+				   REG(a2, Object *obj),
+				   REG(a1, Msg msg))
 {
 	switch (msg->MethodID)
 	{

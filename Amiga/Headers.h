@@ -40,7 +40,6 @@
 #include	<rexx/storage.h>
 #include	<rexx/rxslib.h>
 
-
 /* Prototype headers */
 #include <clib/alib_protos.h>
 #ifdef __GNUC__

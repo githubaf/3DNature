@@ -174,5 +174,5 @@ return;
 
 int ImportDEM(struct CmdContext *Call)
 {
-
+    return 0;
 } /* ImportDEM() */

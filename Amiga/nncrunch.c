@@ -269,7 +269,8 @@ EndRead:
 } /* NNGrid_DataInit() */
 
 /***********************************************************************/
-/* Obsolete - data is not read from a file but transferred via pointer
+#ifdef GJHJHGJHGJDS
+// Obsolete - data is not read from a file but transferred via pointer
 from Build DEM window and modified in NNGrid_DataInit()
 
 short ReadData(struct NNGrid *NNG)
@@ -506,7 +507,7 @@ EndRead:
    return (success);
 
 } /* ReadData() */
-*/
+#endif
 /***********************************************************************/
 
 short ChoroPleth(struct NNGrid *NNG)

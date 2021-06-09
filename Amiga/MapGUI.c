@@ -222,7 +222,7 @@ int MapGUI_New(struct MapData *MP)
                Child, MP->ExagLess = ImageButton(MUII_ArrowLeft),
                Child, MP->ExagMore = ImageButton(MUII_ArrowRight),
                Child, MP->MapObject = KeyButtonObject('b'),
-			MUIA_Text_Contents, "\33c Database »",
+			MUIA_Text_Contents, "\33c Database ï¿½",
         		MUIA_HorizWeight, 0, End,
                End, /* ColGroup */
 	     End, /* VGroup */
@@ -242,7 +242,7 @@ int MapGUI_New(struct MapData *MP)
                Child, RectangleObject, End,
                Child, HGroup, MUIA_Group_HorizSpacing, 0,
                  Child, MP->MapEco = CheckMark(0),
-                 Child, MP->BT_EcoLegend = KeyButtonFunc(',', "\33cEco »"),
+                 Child, MP->BT_EcoLegend = KeyButtonFunc(',', "\33cEco ï¿½"),
                  End, /* HGroup */
                Child, RectangleObject, End,
                Child, HGroup,
@@ -266,7 +266,7 @@ int MapGUI_New(struct MapData *MP)
              Child, HGroup, MUIA_VertWeight, 0,
 	       Child, HGroup, MUIA_Group_HorizSpacing, 0,
                  Child, MP->AlignCheck = CheckMark(align),
-                 Child, MP->MapAlign  = KeyButtonFunc('g', "\33cAlign »"),
+                 Child, MP->MapAlign  = KeyButtonFunc('g', "\33cAlign ï¿½"),
 	         End, /* HGroup */
                Child, MP->MapColor = CycleObject, MUIA_Cycle_Entries, ColorCycle, End,
                End, /* HGroup */
@@ -919,7 +919,7 @@ if(WCS_ID)
    if (GetBounds(&Bx))
 	{
 	makemap(MapWind0, (long)Bx.Low.X, (long)Bx.Low.Y, (long)Bx.High.X, (long)Bx.High.Y,
-	 (topo ? MMF_TOPO : NULL) | (ecoenabled ? MMF_ECO : NULL) | MMF_REFINE);
+	 (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0) | MMF_REFINE);
 	} /* if */
    break;
    } /* ID_MC_REFINE */
@@ -1287,7 +1287,7 @@ if(WCS_ID)
 		} /* if */
 	setclipbounds(MapWind0, &Clip);
 	makemap(MapWind0, Clip.lowx, Clip.lowy, Clip.highx, Clip.highy,
-	 (topo ? MMF_TOPO : NULL) | (ecoenabled ? MMF_ECO : NULL));
+	 (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0));
 	if(InterStuff)
    		{
 	   	ShowView_Map(&Clip);
@@ -1432,7 +1432,7 @@ HandleEvent:
       if (GetBounds(&Bx))
 	{
 	makemap(MapWind0, (long)Bx.Low.X, (long)Bx.Low.Y, (long)Bx.High.X, (long)Bx.High.Y,
-	 (topo ? MMF_TOPO : NULL) | (ecoenabled ? MMF_ECO : NULL) | MMF_REFINE);
+	 (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0) | MMF_REFINE);
 	} /* if */
       break;
       } /* ID_MC_REFINE */
@@ -1964,7 +1964,7 @@ HandleEvent:
        } /* if */
       setclipbounds(MapWind0, &Clip);
       makemap(MapWind0, Clip.lowx, Clip.lowy, Clip.highx, Clip.highy,
-       (topo ? MMF_TOPO : NULL) | (ecoenabled ? MMF_ECO : NULL));
+       (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0));
       if(InterStuff)
        {
        ShowView_Map(&Clip);
@@ -2015,7 +2015,7 @@ HandleEvent:
           if (abs(LastX - Event.MouseX) >= MD_Win->MinDist
 		|| abs(LastY - Event.MouseY) >= MD_Win->MinDist)
            {
-           if (MD_Win->CurDat->nextdat = Datum_New())
+           if ((MD_Win->CurDat->nextdat = Datum_New()))
             {
             WritePixel(MapWind0->RPort, Event.MouseX, Event.MouseY);
             MD_Win->CurDat = MD_Win->CurDat->nextdat;
@@ -2048,7 +2048,7 @@ HandleEvent:
            PtCoord[1] = Event.MouseX + 5;
            PtCoord[2] = Event.MouseY - 5;
            PtCoord[3] = Event.MouseY + 5;
-           if (NT = Datum_MVFind(MD_Win->TC, DT->nextdat, PtCoord, 0))
+           if ((NT = Datum_MVFind(MD_Win->TC, DT->nextdat, PtCoord, 0)))
             Y2 = NT->values[2];
            else 
             NotFound = 1;
@@ -2059,7 +2059,7 @@ HandleEvent:
            PtCoord[1] = Event.MouseX + 5;
            PtCoord[2] = Event.MouseY - 5;
            PtCoord[3] = Event.MouseY + 5;
-           if (NT = Datum_MVFind(MD_Win->TC, DT->nextdat, PtCoord, 0))
+           if ((NT = Datum_MVFind(MD_Win->TC, DT->nextdat, PtCoord, 0)))
             Y1 = NT->values[2];
            else
             NotFound += 2;
@@ -2211,7 +2211,7 @@ HandleEvent:
 	 } /* add DEM control point */
         case 2:
          {
-         if (DT = Datum_MVFind(MD_Win->TC, NULL, PtCoord, 0))
+         if ((DT = Datum_MVFind(MD_Win->TC, NULL, PtCoord, 0)))
           {
           LastX = Lon_X_Convert(DT->values[0]);
           LastY = Lat_Y_Convert(DT->values[1]);
@@ -2234,7 +2234,7 @@ HandleEvent:
 	 } /* move DEM control point */
         case 3:
          {
-         if (DT = Datum_MVFind(MD_Win->TC, NULL, PtCoord, -1))
+         if ((DT = Datum_MVFind(MD_Win->TC, NULL, PtCoord, -1)))
           {
           LastX = Lon_X_Convert(DT->nextdat->values[0]);
           LastY = Lat_Y_Convert(DT->nextdat->values[1]);
@@ -2253,7 +2253,7 @@ HandleEvent:
 	 } /* delete control point */
         case 4:
          {
-         if (DT = Datum_MVFind(MD_Win->TC, NULL, PtCoord, 0))
+         if ((DT = Datum_MVFind(MD_Win->TC, NULL, PtCoord, 0)))
           {
           sprintf(str, "DEM Ctrl Pt: Lat %f Lon %f Elev %.2f", DT->values[1],
 		DT->values[0], DT->values[2]);
@@ -2263,7 +2263,7 @@ HandleEvent:
 	 } /* DEM control point information */
         case 5:
          {
-         if (DT = Datum_MVFind(MD_Win->TC, NULL, PtCoord, 0))
+         if ((DT = Datum_MVFind(MD_Win->TC, NULL, PtCoord, 0)))
           {
           MD_Win->CurEl = DT->values[2];
           set(MD_Win->IntStr[1], MUIA_String_Integer, MD_Win->CurEl);
@@ -2407,7 +2407,7 @@ HandleEvent:
 		} /* if */
 	setclipbounds(MapWind0, &Clip);
 	makemap(MapWind0, Clip.lowx, Clip.lowy, Clip.highx, Clip.highy,
-	 (topo ? MMF_TOPO : NULL) | (ecoenabled ? MMF_ECO : NULL));
+	 (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0));
 	if(InterStuff)
    		{
 	   	ShowView_Map(&Clip);
@@ -2844,7 +2844,7 @@ switch (Operation)
 } /* Update_EcoLegend() */
 
 /**********************************************************************/
-/*
+#ifdef JHKALSJDAHKLSJDALKSDH
 void Contour_Export(void)
 {
 char filename[256], XYZDir[32], XYZFile[256];
@@ -3011,4 +3011,4 @@ void MaxMin3_Del(struct MaxMin3 *MM3)
   free_Memory(MM3, sizeof (struct MaxMin3));
 
 } /* MaxMin3_Del() */
-*/
+#endif

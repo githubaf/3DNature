@@ -280,7 +280,7 @@ Continue without Waves?", "Continue|Cancel", "oc"))
 
  if (settings.clouds)
   {
-  if (CD = CloudData_New())
+  if ((CD = CloudData_New()))
    {
    strmfp(filename, cloudpath, cloudfile);
    if (! Cloud_Load(filename, &CD))
@@ -337,11 +337,11 @@ Continue without Waves?", "Continue|Cancel", "oc"))
 
 /* read CMap header to determine size */
 
-  if (CMap = (struct Color_Map *)get_Memory(sizeof (struct Color_Map), MEMF_CLEAR))
+  if ((CMap = (struct Color_Map *)get_Memory(sizeof (struct Color_Map), MEMF_CLEAR)))
    {
    strmfp(filename, colormappath, colormapfile);
    strcat(filename, ".hdr");
-   if (fHdr = fopen(filename, "r"))
+   if ((fHdr = fopen(filename, "r")))
     {
     for (i=0; i<6; i++)
      {
@@ -480,7 +480,7 @@ Continue without Waves?", "Continue|Cancel", "oc"))
    settings.deformationmap = 0;
    } /* if */
   } /* if deformation map */
- if (NoiseMap = (UBYTE *)get_Memory(65536, MEMF_ANY))
+ if ((NoiseMap = (UBYTE *)get_Memory(65536, MEMF_ANY)))
   {
   srand48(11111);
   for (ct=0; ct<65536; ct++)
@@ -696,8 +696,8 @@ RepeatAlloc2:
 
 /* add celestial objects */
 
-   if (error = Celestial_Bodies(bitmap, (long)settings.scrnwidth,
-	 (long)settings.scrnheight, RenderWind0))
+   if ((error = Celestial_Bodies(bitmap, (long)settings.scrnwidth,
+	 (long)settings.scrnheight, RenderWind0)))
     break;
 
 /* add clouds */
@@ -1541,7 +1541,7 @@ short InitCloudMap(struct Window *win, struct CloudData *CD)
   {
   sprintf(FStr, "WCSSlMap%1d.Temp", frame);
   strmfp(filename, temppath, FStr);
-  if (fPageOut = fopen(filename, "wb"))
+  if ((fPageOut = fopen(filename, "wb")))
    {
    if (fwrite((char *)SlopeMap, bmapsize * sizeof (float), 1, fPageOut) == 1)
     {
@@ -1556,7 +1556,7 @@ short InitCloudMap(struct Window *win, struct CloudData *CD)
   {
   sprintf(FStr, "WCSRfMap%1d.Temp", frame);
   strmfp(filename, temppath, FStr);
-  if (fPageOut = fopen(filename, "wb"))
+  if ((fPageOut = fopen(filename, "wb")))
    {
    if (fwrite((char *)ReflectionMap, bmapsize, 1, fPageOut) == 1)
     {
@@ -1620,7 +1620,7 @@ MapCleanup2:
   } /* if cloud shadows */
  else
   {
-  if (CD = CloudData_New())
+  if ((CD = CloudData_New()))
    {
    strmfp(filename, cloudpath, cloudfile);
    if (Cloud_Load(filename, &CD))
@@ -1715,10 +1715,10 @@ MapCleanup3:
   strmfp(filename, temppath, FStr);
   if (! error)
    {
-   if (fPageOut = fopen(filename, "rb"))
+   if ((fPageOut = fopen(filename, "rb")))
     {
 TryAgain:
-    if (SlopeMap = (float *)get_Memory(bmapsize * sizeof (float), MEMF_ANY))
+    if ((SlopeMap = (float *)get_Memory(bmapsize * sizeof (float), MEMF_ANY)))
      {
      if (fread((char *)SlopeMap, bmapsize * sizeof (float), 1, fPageOut) != 1)
       {
@@ -1751,10 +1751,10 @@ TryAgain:
   strmfp(filename, temppath, FStr);
   if (! PageOutFail && ! error)
    {
-   if (fPageOut = fopen(filename, "rb"))
+   if ((fPageOut = fopen(filename, "rb")))
     {
 TryAgain2:
-    if (ReflectionMap = (UBYTE *)get_Memory(bmapsize, MEMF_ANY))
+    if ((ReflectionMap = (UBYTE *)get_Memory(bmapsize, MEMF_ANY)))
      {
      if (fread((char *)ReflectionMap, bmapsize, 1, fPageOut) != 1)
       {
@@ -1911,32 +1911,32 @@ short BuildTrigTables(void)
 short success = 1, i;
 double Val, Interval;
 
- if (CosTable = (float *)
-	get_Memory(TrigTableEntries * sizeof (float), MEMF_ANY))
+ if ((CosTable = (float *)
+	get_Memory(TrigTableEntries * sizeof (float), MEMF_ANY)))
   {
   Interval = TwoPi / (TrigTableEntries - 1);
   for (i=0, Val=0.0; i<TrigTableEntries; i++, Val+=Interval)
    {
    CosTable[i] = cos(Val);
    } /* for i=0... */
-  if (SinTable = (float *)
-	get_Memory(TrigTableEntries * sizeof (float), MEMF_ANY))
+  if ((SinTable = (float *)
+	get_Memory(TrigTableEntries * sizeof (float), MEMF_ANY)))
    {
    Interval = (2.0 * TwoPi) / (TrigTableEntries - 1);
    for (i=0, Val=-TwoPi; i<TrigTableEntries; i++, Val+=Interval)
     {
     SinTable[i] = sin(Val);
     } /* for i=0... */
-   if (ASinTable = (float *)
-	get_Memory(TrigTableEntries * sizeof (float), MEMF_ANY))
+   if ((ASinTable = (float *)
+	get_Memory(TrigTableEntries * sizeof (float), MEMF_ANY)))
     {
     Interval = 2.0 / (TrigTableEntries - 1);
     for (i=0, Val=-1.0; i<TrigTableEntries; i++, Val+=Interval)
      {
      ASinTable[i] = asin(Val);
      } /* for i=0... */
-    if (ACosTable = (float *)
-	get_Memory(TrigTableEntries * sizeof (float), MEMF_ANY))
+    if ((ACosTable = (float *)
+	get_Memory(TrigTableEntries * sizeof (float), MEMF_ANY)))
      {
      Interval = 2.0 / (TrigTableEntries - 1);
      for (i=0, Val=-1.0; i<TrigTableEntries; i++, Val+=Interval)

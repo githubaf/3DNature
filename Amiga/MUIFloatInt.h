@@ -68,5 +68,18 @@
 struct MUI_CustomClass *FloatIntInit(void);
 void FloatIntCleanup(void);
 ULONG DoIncDec(struct IClass *cl,Object *obj,Msg msg, char Action);
+
+struct FloatIntData
+{
+    Object *group;
+    Object *string;
+    Object *incbutton, *decbutton;
+
+    unsigned long int FIFlags;
+    void *MasterVariable;
+    double IncDecAmount, MaxAmount, MinAmount;
+    char *LabelText;
+};
+
 double CalcIncDec(double Quantity, struct FloatIntData *data, char Action);
 #endif /* MUI_FLOATINT_H */

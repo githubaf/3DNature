@@ -1351,11 +1351,14 @@ void Handle_ECTL_Window(ULONG WCS_ID)
     data->inputflags |= NO_CLEAR;
 
     while ((WCS_ID = DoMethod(app, MUIM_Application_Input, &signals))
-	 == ID_ECTL_PANPROP);
-     {
-     Set_ECTL_Data(-1);
-     MUI_Redraw(ECTL_Win->TimeLineObj[0], MADF_DRAWOBJECT);
-     };
+            == ID_ECTL_PANPROP)
+    {
+
+    };
+    {
+        Set_ECTL_Data(-1);
+        MUI_Redraw(ECTL_Win->TimeLineObj[0], MADF_DRAWOBJECT);
+    };
 
     data->inputflags ^= (QUICK_DRAW | NO_CLEAR);
     MUI_Redraw(ECTL_Win->TimeLineObj[0], MADF_DRAWOBJECT);
@@ -1465,7 +1468,8 @@ void Handle_ECTL_Window(ULONG WCS_ID)
     break;
     } /* ARROW4 */
 
-/* Parameter Arrows - obsolete.
+#ifdef KJLKJLKJDS
+// Parameter Arrows - obsolete.
  Also the function GetNextKeyitem is obsolete I think
    case GP_ARROW5:
     {
@@ -1486,7 +1490,7 @@ void Handle_ECTL_Window(ULONG WCS_ID)
      } /* if */
     break;
     } /* parameter name arrow */
-*/
+#endif
    } /* switch gadget group */
 
 } /* Handle_ECTL_Window() */
@@ -2130,11 +2134,15 @@ void Handle_EETL_Window(ULONG WCS_ID)
     data->inputflags |= NO_CLEAR;
 
     while ((WCS_ID = DoMethod(app, MUIM_Application_Input, &signals))
-  	 == ID_EETL_PANPROP);
-     {
-     Set_EETL_Data(EETL_Win->ActiveItem);
-     MUI_Redraw(EETL_Win->TimeLineObj[EETL_Win->ActiveItem], MADF_DRAWOBJECT);
-     };
+            == ID_EETL_PANPROP)
+    {
+
+    };
+
+    {
+        Set_EETL_Data(EETL_Win->ActiveItem);
+        MUI_Redraw(EETL_Win->TimeLineObj[EETL_Win->ActiveItem], MADF_DRAWOBJECT);
+    };
 
     data->inputflags ^= (QUICK_DRAW | NO_CLEAR);
     MUI_Redraw(EETL_Win->TimeLineObj[EETL_Win->ActiveItem], MADF_DRAWOBJECT);
@@ -2255,7 +2263,8 @@ void Handle_EETL_Window(ULONG WCS_ID)
     break;
     } /* ARROW4 */
 
-/* Parameter Arrows - obsolete.
+#ifdef HGJHSAJGSDJAHSDG
+// Parameter Arrows - obsolete.
  Also the function GetNextKeyitem is obsolete I think
    case GP_ARROW5:
     {
@@ -2276,7 +2285,7 @@ void Handle_EETL_Window(ULONG WCS_ID)
      } /* if */
     break;
     } /* parameter name arrow */
-*/
+#endif
    } /* switch gadget group */
 
 } /* Handle_EETL_Window() */

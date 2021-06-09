@@ -170,14 +170,17 @@ struct NNGrid *NNG;
   } /* if */
  else
   {
-  if (NNG = NNGrid_New())
+  if ((NNG = NNGrid_New()))
    NewNNG = 1;
   } /* else */
 
  if (NNG)
   {
   NNGrid_Init(NNG);
-  if (NNGridr_OptInit(NNG));
+  if (NNGridr_OptInit(NNG))
+      {
+          ;
+      }
    {
    if (NNGrid_DataInit(NNG))
     {
@@ -346,7 +349,8 @@ long data;
 } /* NNGrid_OptInit() */
 
 /*************************************************************************/
-/* Obsolete - options now come from NNGrid window and are set with NNGrid_Init()
+#ifdef HJGJHDGJSGHJDGS
+// Obsolete - options now come from NNGrid window and are set with NNGrid_Init()
 
 void GetOptions(struct NNGrid *NNG)
 {
@@ -453,4 +457,4 @@ void GetOptions(struct NNGrid *NNG)
    NNG->yspace = (NNG->yterm - NNG->ystart) / (NNG->y_nodes - 1);
 
 } /* GetOptions() */
-*/
+#endif

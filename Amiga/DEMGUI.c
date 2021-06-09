@@ -62,7 +62,7 @@ static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
 
      MD_Win->MakeDEMWin = WindowObject,
       MUIA_Window_Title		, "DEM Designer",
-      MUIA_Window_ID		, "DEMB",
+      MUIA_Window_ID		, 'DEMB',
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -686,7 +686,7 @@ long open;
 
      GR_Win->NNGridWin = WindowObject,
       MUIA_Window_Title		, "DEM Builder",
-      MUIA_Window_ID		, "NNGR",
+      MUIA_Window_ID		, 'NNGR',
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -1639,7 +1639,7 @@ struct clipbounds cb;
 
 /* plot color in Map View, brighter indicates higher amplitude */
 
-  BWGR = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, "BWGR");
+  BWGR = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, 'BWGR');
 
   DataRow = 0.0;
   for (y=Low_Y, k=0; y<=High_Y; y++, DataRow+=LatStep, k++)

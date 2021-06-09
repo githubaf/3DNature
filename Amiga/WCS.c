@@ -16,7 +16,7 @@
 #define MIN_LIBRARY_REV 37
 #define DITHER_TABLE_SIZE 4096
 
-void main(void)
+int main(void)
 {
 short ResetScrn = 0;
 struct WCSApp *WCSRootApp;
@@ -68,7 +68,7 @@ if (IntuitionBase = (struct IntuitionBase *)
       ScrnData.ModeID = 0;
       } /* if user wishes to reset screen mode */
      
-     if(WCSRootApp = WCS_App_New())
+     if((WCSRootApp = WCS_App_New()))
       {
       app = WCSRootApp->MUIApp;
       
@@ -79,9 +79,9 @@ if (IntuitionBase = (struct IntuitionBase *)
        ModeSelect = NULL;
        ScrnData.AutoTag = TAG_IGNORE;
        ScrnData.AutoVal = NULL;
-       if(ScreenModes = ModeList_New())
+       if((ScreenModes = ModeList_New()))
         {
-        if(ModeSelect = ModeList_Choose(ScreenModes, &ScrnData))
+        if((ModeSelect = ModeList_Choose(ScreenModes, &ScrnData)))
          {
          if(ModeSelect->OX > ModeSelect->X)
           { /* Enable Oscan */
@@ -192,7 +192,7 @@ if (IntuitionBase = (struct IntuitionBase *)
    {
    printf("FATAL ERROR: ASL.Library revision %d required. Aborting.\n", MIN_LIBRARY_REV);
    } /* else */
-  CloseLibrary(GfxBase);
+  CloseLibrary((struct Library*)GfxBase);
   GfxBase = NULL;
   } /* if */
  else
@@ -208,7 +208,7 @@ else
  } /* else */
 
 
-Cleanup:
+//Cleanup:
  if (DL) DirList_Del(DL);
  DL = NULL;
  if (KF) free_Memory(KF, KFsize);
@@ -229,7 +229,7 @@ Cleanup:
   paramsloaded = 0;
   goto ResetScreenMode;
   } /* if user wishes to reset screen mode */
-
+ return 0;
 } /* main() */
 
 
@@ -237,15 +237,15 @@ Cleanup:
 // ALEXANDER
 // SAS/C has a mkdir() function with path parameter only. (gcc has additional mode parameter)
 // This is a modified version from projects/libnix/sources/nix/extra/mkdir.c
-//extern void __seterrno(void);
-int mkdir(const char *name, mode_t mode)
+extern void __seterrno(void);
+int Mkdir(const char *name)
 {
   BPTR fl;
   int ret;
 
   if ((fl=CreateDir((STRPTR)name)))
   {
-    UnLock(fl); ret=chmod(name,mode);
+    ret=0;
   }
   else
   {
@@ -253,4 +253,10 @@ int mkdir(const char *name, mode_t mode)
   }
   return ret;
 }
+#else
+int Mkdir(const char *name)
+{
+    return mkdir(name);
+}
 #endif
+

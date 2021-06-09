@@ -46,7 +46,7 @@ void Make_TS_Window(void)
 
      TS_Win->TimeSetWin = WindowObject,
       MUIA_Window_Title		, "Sun Time",
-      MUIA_Window_ID		, "EPTS",
+      MUIA_Window_ID		, 'EPTS',
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -570,7 +570,7 @@ void Make_PN_Window(void)
 
      PN_Win->NewProjWin = WindowObject,
       MUIA_Window_Title		, "New Project",
-      MUIA_Window_ID		, "PRON",
+      MUIA_Window_ID		, 'PRON',
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -844,7 +844,7 @@ short error = 0;
  strcat(filename, NewPath);
  if (chdir(filename))
   {
-  if (mkdir(filename))
+  if (Mkdir(filename))
    {
    error = 5;
    goto EndNewProj;
@@ -858,7 +858,7 @@ short error = 0;
   } /* if some other extension given */
 
  strmfp(filename, filename, NewName);
- if (mkdir(filename))
+ if (Mkdir(filename))
   {
   error = 6;
   goto EndNewProj;
@@ -869,7 +869,7 @@ short error = 0;
  strmfp(filename, filename, NewName);
  strcat(filename, ".object");
 
- if (mkdir(filename))
+ if (Mkdir(filename))
   {
   error = 7;
   goto EndNewProj;

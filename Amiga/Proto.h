@@ -10,6 +10,8 @@
 
 #include "RexxSupport.h"
 
+#include <SDI_compiler.h>
+
 typedef double Matx3x3[3][3];
 
 /* Bitmaps.c */
@@ -637,18 +639,10 @@ extern struct RastPort *ScratchRast_New(int Width, int Height, char Planes);
 extern void ScratchRast_Del(struct RastPort *This);
 struct vgl_pixmap;  // ALEXANDER forward declaration
 extern void ScratchRast_CornerTurn(struct vgl_pixmap *This, struct RastPort *ScratchRast);
-#ifdef __SASC  // ALEXANDER
-extern void __asm HK4M(register __a0 void *Plane0, register __a1 void *Plane1,
-	register __a2 void *Plane2, register __a3 void *Plane3,
-	register __a4 void *PlaneM, register __a5 unsigned long int PixCnt,
-	register __a6 void *InPtr);
-#else
-extern void HK4M(void *Plane0, void *Plane1,
-    void *Plane2, void *Plane3,
-    void *PlaneM, unsigned long int PixCnt,
-    void *InPtr);
-#warning ASM-Function needed!
-#endif
+extern void ASM HK4M(REG(a0, void *Plane0), REG(a1, void *Plane1),
+                     REG(a2, void *Plane2), REG(a3, void *Plane3),
+                     REG(a4, void *PlaneM), REG(a5, unsigned long int PixCnt),
+                     REG(a6, void *InPtr));
 /* ScreenModeGUI.c */
 extern struct WCSScreenMode *ModeList_New(void);
 extern struct WCSScreenMode *ModeList_Choose(struct WCSScreenMode *This,

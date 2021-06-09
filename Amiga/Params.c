@@ -1820,7 +1820,8 @@ void Play_Colors(void)
 } /* PlayColors() */
 
 
-/* Spline junk - just a simplified accounting of the path spline function.
+#ifdef GJGJHJGJHGJH
+// Spline junk - just a simplified accounting of the path spline function.
 
     IbtFr = NxtFr - CurFr;
     if (j > 0)
@@ -1866,4 +1867,4 @@ void Play_Colors(void)
 	 + (.5 * (P2 - P1) * (1.0 - NT) * (1.0 + NC) * (1.0 - NB)));
 
 
-*/
+#endif

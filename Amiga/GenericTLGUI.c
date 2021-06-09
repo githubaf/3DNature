@@ -9,6 +9,7 @@
 #include "TimeLinesGUI.h"
 #include "GenericParams.h"
 
+#include <SDI_compiler.h>
 
 /**************************************************************************/
 
@@ -136,8 +137,7 @@ __saveds ULONG GNTL_HandleInput(struct IClass *cl, Object *obj,
 ** Unknown/unused methods are passed to the superclass immediately.
 */
 
-__saveds __asm ULONG GNTL_Dispatcher(register __a0 struct IClass *cl, register __a2
-	 Object *obj, register __a1 Msg msg)
+SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG( a2, Object *obj), REG(a1, Msg msg))
 {
 
  switch (msg->MethodID)
@@ -428,7 +428,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
 
      TL_Win->TimeLineWin = WindowObject,
       MUIA_Window_Title		, NameStr,
-      MUIA_Window_ID		, "GNTL",
+      MUIA_Window_ID		, 'GNTL',
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 

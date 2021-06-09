@@ -170,7 +170,7 @@ __saveds ULONG TL_Draw(struct IClass *cl, Object *obj, struct MUIP_Draw *msg)
    sprintf(str, "%2d", data->highframe);
    Move(_rp(obj), data->right - TextLength(_rp(obj), str, strlen(str)), data->textbottom);
    Text(_rp(obj), str, strlen(str));
-/*   } /* if clear display */*/
+/*   } */ /* if clear display */
 
 /* draw grids */
   if (data->drawgrid)
@@ -519,7 +519,7 @@ __saveds ULONG TL_HandleInput(struct IClass *cl, Object *obj,
        } /* switch group */
       MUI_Redraw(obj, MADF_DRAWOBJECT);
       }
-/*     } /* if mouse within graph */*/
+/*     } */ /* if mouse within graph */
     break;
     } /* MOUSEMOVE */
    } /* switch msg->imsg->Class */
@@ -536,8 +536,8 @@ __saveds ULONG TL_HandleInput(struct IClass *cl, Object *obj,
 ** Unknown/unused methods are passed to the superclass immediately.
 */
 
-__saveds __asm ULONG TL_Dispatcher(register __a0 struct IClass *cl, register __a2
-	 Object *obj, register __a1 Msg msg)
+SAVEDS ASM ULONG TL_Dispatcher(REG(a0, struct IClass *cl), REG(a2,
+	 Object *obj), REG(a1, Msg msg))
 {
 
  switch (msg->MethodID)

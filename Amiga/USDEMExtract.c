@@ -8,7 +8,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include <m68881.h>
+#ifdef __SASC__
+    #include <m68881.h>
+#endif
 #include <clib/exec_protos.h>
 #include <exec/memory.h>
 #include <proto/exec.h>
@@ -22,7 +24,7 @@
 #define LASTROW 3119
 #define LASTCOL 8399
 
-void main(void)
+int main(void)
 {
 char InFile[256], OutFile[256], ans[80];
 FILE *fInput, *fOutput;
@@ -132,6 +134,6 @@ ReSet:
   } /* else no input file */
 EndAll:
 
-return;
+return 0;
 
 } /* main() */

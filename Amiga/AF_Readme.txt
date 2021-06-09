@@ -50,3 +50,25 @@ cd Debug
 PATH=$PATH:~/opt/m68k-amigaos_27Apr21/bin make all
 
 compiliert schon eine ganze Menge.
+
+4.6.21
+------
+Komische Zeichen in GlobeMapSupport.c zu "Alpha" und "Beta" geaendert.
+HyperKhorner4M-1.asm voruebergehend vom Compilieren ausgeschlossen, da andere ASM-Syntax?
+MapSfc.c excluded. Array dort ist nirgend definiert?
+MapWorld.c excluded for now
+OldMapTopo.c excluded for now
+
+6.6.21
+------
+Anzeige der Funktionen, die dem Linker noch fehlen:
+cd Debug
+PATH=$PATH:~/opt/m68k-amigaos_27Apr21/bin make all 2>&1 | grep -v "/m68k-amigaos/bin/ld" | awk '/undefined reference to/{print $5}' | sort --unique
+
+8.6.2021
+--------
+SAS/C specific functions in sasc_functions.c including test. Test should pass on Amiga(!) and linux command line.
+
+sc sasc_functions.c LINK IGNORE=51 DEFINE=TESTING_SASC_FUNCTIONS
+gcc sasc_functions.c -DTESTING_SASC_FUNCTIONS -Wall -pedantic  && a./out
+

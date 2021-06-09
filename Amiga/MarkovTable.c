@@ -32,6 +32,7 @@
 
 int main(int Count, char *Vector[]);
 int MarkOff(char *NewWord);
+struct AlphaNode;
 void NumberEntries(struct AlphaNode *Torch);
 void OutputTreeSeg(struct AlphaNode *Torch, char *Base, FILE *Out);
 int OutputTableSeg(struct AlphaNode *Torch, FILE *Out);
@@ -45,6 +46,7 @@ char *DeRefWord(int WordNum);
 int DeRefTwo(struct AlphaNode *Walk, int SearchWord, char *Temp, char *BringForth);
 void MAnGleCaSe(char *String);
 char *stralloc(char *CopyStr);
+struct WordEntry;
 int WordTableAdd(char *FuncName, struct WordEntry *Base, int Index);
 int StageTwo(char *FuncName, struct WordEntry *This, int Index);
 struct WordEntry *WordEntry_New(void);
@@ -144,7 +146,7 @@ printf("MarkovTable v1.0. Copyright 1994 by Questar productions.\n");
 
 if((Count == 2) && (Vector[1][0] != '?'))
 	{
-	if(InStream = fopen(Vector[1], "r"))
+	if((InStream = fopen(Vector[1], "r")))
 		{
 		for(KeepCrankin = 1; KeepCrankin;)
 			{
@@ -183,7 +185,7 @@ if((Count == 2) && (Vector[1][0] != '?'))
 		strsfn(Vector[1], Drive, Path, Name, Ext);
 		strmfn(OutName, Drive, Path, "VocabTable", "h");
 /*		printf("DEBUG: OutName = '%s'.\n", OutName); */
-		if (OutStream = fopen(OutName, "w"))
+		if ((OutStream = fopen(OutName, "w")))
 			{
 			fprintf(OutStream, "/* VocabTable.h\n**\n** #defines for Markov search table.\n");
 			fprintf(OutStream, "** Machine generated code, do NOT hand-alter.\n");
@@ -196,7 +198,7 @@ if((Count == 2) && (Vector[1][0] != '?'))
 			if(MainTable.TotalNodes < 65536)
 				{
 				strmfn(OutName, Drive, Path, "VocabTable", "c");
-				if(OutStream = fopen(OutName, "w"))
+				if((OutStream = fopen(OutName, "w")))
 					{
 					fprintf(OutStream, "/* VocabTable.c\n**\n** C-Source for binary Markov search table.\n");
 					fprintf(OutStream, "** Machine generated code, do NOT hand-alter.\n");
@@ -208,7 +210,7 @@ if((Count == 2) && (Vector[1][0] != '?'))
 					} /* if */
 				rewind(InStream); /* Play it again, Sam */
 				WordPlace = HoldPlace = 0;
-				while(Status = FetchWord(WordBuf, 75, InStream))
+				while((Status = FetchWord(WordBuf, 75, InStream)))
 					{
 					switch(Status)
 						{
@@ -295,7 +297,7 @@ if((Count == 2) && (Vector[1][0] != '?'))
 #endif /* PROGRESS_DEBUG */
 							memset(WordBuf, 0, 79);
 							CopyIdx = 0;
-							while(CopyChar = Zgetc(InStream))
+							while((CopyChar = Zgetc(InStream)))
 								{
 								if(CopyChar == '\n')
 									{
@@ -380,7 +382,7 @@ if((Count == 2) && (Vector[1][0] != '?'))
 					WordEntry_NumberTable(&CommandRoot);
 					printf("DEBUG: %d entries in Sentance Table.\n", WordEntries);
 					strmfn(OutName, Drive, Path, "GrammarTable", "c");
-					if(OutStream = fopen(OutName, "w"))
+					if((OutStream = fopen(OutName, "w")))
 						{
 						fprintf(OutStream, "/* GrammarTable.c\n**\n** C-Source for binary Markov word-sentance table.\n");
 						fprintf(OutStream, "** Machine generated code, do NOT hand-alter.\n");
@@ -1084,7 +1086,7 @@ char *stralloc(char *CopyStr)
 {
 char *temp;
 
-if(temp = malloc(strlen(CopyStr) + 1))
+if((temp = malloc((strlen(CopyStr) + 1))))
 	{
 	strcpy(temp, CopyStr);
 	} /* if */
@@ -1100,7 +1102,7 @@ struct WordEntry *New, **Scan;
 /* Catch stupid errors, maybe */
 if(Sentance[Index])
 	{
-	if(New = WordEntry_New())
+	if((New = WordEntry_New()))
 		{
 		New->WordToken = (Sentance[Index] & 0x3fffffff); /* all but top two bits */
 		if(This->Child)
@@ -1172,7 +1174,7 @@ if(Sentance[Index + 1])
 	} /* if */
 else
 	{ /* end of the sentance */
-	if(This->FuncName = stralloc(FuncName))
+	if((This->FuncName = stralloc(FuncName)))
 		return(0);
 	else
 		return(1);

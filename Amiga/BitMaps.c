@@ -1229,13 +1229,13 @@ RepeatOpen:
     Height = BMHdr.Height;
     *NewWidth = Width;
     *NewHeight = Height;
-    if (bitmap[0] = (UBYTE *)get_Memory(Width * Height, MEMF_ANY))
+    if ((bitmap[0] = (UBYTE *)get_Memory(Width * Height, MEMF_ANY)))
      {
      *NewPlanes = 8;
      if (BMHdr.Planes == 24)
       {
       *NewPlanes = 24;
-      if (bitmap[1] = (UBYTE *)get_Memory(Width * Height, MEMF_ANY))
+      if ((bitmap[1] = (UBYTE *)get_Memory(Width * Height, MEMF_ANY)))
        {
        if ((bitmap[2] = (UBYTE *)get_Memory(Width * Height, MEMF_ANY)) == NULL)
         error = 5;

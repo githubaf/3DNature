@@ -68,7 +68,7 @@ void Make_FE_Window(void)
 
      FE_Win->FoliageWin = WindowObject,
       MUIA_Window_Title		, "Foliage Editor",
-      MUIA_Window_ID		, "EDFO",
+      MUIA_Window_ID		, 'EDFO',
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 

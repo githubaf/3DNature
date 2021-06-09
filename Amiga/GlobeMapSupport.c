@@ -5,6 +5,7 @@
 */
 
 #include "WCS.h"
+#include <math.h>
 
 /*********************************************************************/
 
@@ -369,7 +370,8 @@ View may be different than expected.", "OK|Cancel", "oc"))
 } /*  setquickview() */
 
 /*********************************************************************/
-/* Obsolete - see Tree.c
+#ifdef GHGJAHKAJSHGDSH
+// Obsolete - see Tree.c
 void loadtreemodel(void)
 {
 /* reads standard GENGYM ascii output */
@@ -483,7 +485,7 @@ EnterStock:
  scanf("%hd", &settings.defaulteco); 
 
 } /* loadtreemodel() */
-*/
+#endif
 /*********************************************************************/
 
 short makesky(short renderseg, struct Window *win)
@@ -720,7 +722,7 @@ short Reflection_Render(struct Window *win)
 {
 short error = 0, Red, Grn, Blu, Banking = 0;
 long x, y, sX, sY, zip, sZip, csZip;
-double A, D, æ, ß, dAodX, Aprpr, Apr, Dpr, AoD, dsX, dsY, oX, oY,
+double A, D, Alpha, Beta, dAodX, Aprpr, Apr, Dpr, AoD, dsX, dsY, oX, oY,  /* strange chars changed to Alpha and Beta*/
 	Wx[3], Wy[3], dOffset, HalfWidth, BankAngle;
 struct BusyWindow *BWDE;
 
@@ -767,9 +769,9 @@ struct BusyWindow *BWDE;
     if (SlopeMap)
      {
      dAodX = SlopeMap[zip] * zbuf[zip] / D;
-     ß = atan(dAodX);
-     æ = atan(AoD);
-     AoD = tan(ß * 2.0 + æ);
+     Beta  = atan(dAodX);
+     Alpha = atan(AoD);
+     AoD = tan(Beta * 2.0 + Alpha);
      } /* if waves */
 
     if (AoD > 1.0)

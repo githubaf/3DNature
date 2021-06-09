@@ -181,10 +181,10 @@ if(TopoEnabled || EcoEnabled)
   {
   PixWidth = ((Clip.highx - Clip.lowx) + 1);
 
-  if(TempRast = TempRas_New(MapWind0->RPort, ROUNDUP(PixWidth, 16) * 2, 1))
+  if((TempRast = TempRas_New(MapWind0->RPort, ROUNDUP(PixWidth, 16) * 2, 1)))
    {
    PixArraySize = ROUNDUP(PixWidth, 16);
-   if(PixArray = (UBYTE *)get_Memory(PixArraySize, MEMF_CLEAR))
+   if((PixArray = (UBYTE *)get_Memory(PixArraySize, MEMF_CLEAR)))
     {
     memset(PixArray, backpen, PixArraySize);
 
@@ -285,7 +285,7 @@ if(TopoEnabled || EcoEnabled)
 
       if(TopoEnabled || FlatSpots)
        {
-       if(TopoArray = (unsigned short *)get_Memory((mapelmap[MapInc].columns + 1) * sizeof(short), MEMF_CLEAR))
+       if((TopoArray = (unsigned short *)get_Memory((mapelmap[MapInc].columns + 1) * sizeof(short), MEMF_CLEAR)))
         {
         memset(TopoArray, 0xFF, mapelmap[MapInc].columns * sizeof(short));
         } /* if */
@@ -301,7 +301,7 @@ if(TopoEnabled || EcoEnabled)
   
       if(EcoEnabled)
        {
-       if(EcoArray = (unsigned short *)get_Memory((mapelmap[MapInc].columns + 1) * sizeof(short), MEMF_CLEAR))
+       if((EcoArray = (unsigned short *)get_Memory((mapelmap[MapInc].columns + 1) * sizeof(short), MEMF_CLEAR)))
         {
         memset(EcoArray, 0xFF, mapelmap[MapInc].columns * sizeof(short));
         } /* if */
@@ -315,9 +315,9 @@ if(TopoEnabled || EcoEnabled)
        EcoArray = NULL;
        } /* else */
 
-      if(ATVCT = get_Memory(sizeof(long) * ATVCTSize, MEMF_CLEAR))
+      if((ATVCT = get_Memory(sizeof(long) * ATVCTSize, MEMF_CLEAR)))
        {
-       if(Column = get_Memory(sizeof(unsigned short) * ATVCTSize, MEMF_CLEAR))
+       if((Column = get_Memory(sizeof(unsigned short) * ATVCTSize, MEMF_CLEAR)))
         {
         /* Initialize the ATVCT */
         for(HorizPix = LeftHoriz; HorizPix <= RightHoriz; HorizPix++)
@@ -783,7 +783,7 @@ FILE *felev;
 
  if(mapelmap[MapNum].lmap == NULL)
   {
-  if(mapelmap[MapNum].lmap = (long *)get_Memory(mapelmap[MapNum].size * 2, MEMF_ANY))
+  if((mapelmap[MapNum].lmap = (long *)get_Memory(mapelmap[MapNum].size * 2, MEMF_ANY)))
    {
    ct = 0;
    for(Row = 0; Row <= mapelmap[MapNum].rows; Row++)
@@ -1888,7 +1888,7 @@ void Viewshed_Map(long OBN)
   short l;
   long sum;
 
-  BWVS = BusyWin_New("Smoothing...", VS->Width, 0, 'BWVS');
+  BWVS = BusyWin_New("Smoothing...", VS->Width, 0, "BWVS");
 
   memcpy(VS->View, VS->Map, VS->Mapsize);
 
@@ -1939,7 +1939,7 @@ void Viewshed_Map(long OBN)
 **	of distance from path to focus * elevation difference.
 */
 
- BWVS = BusyWin_New("Path Point", DBase[OBN].Points, 0, 'BWVS');
+ BWVS = BusyWin_New("Path Point", DBase[OBN].Points, 0, "BWVS");
 
  for (i=1; i<=DBase[OBN].Points; i++)
   {
@@ -2115,7 +2115,7 @@ if(This)
 	{
 	memcpy(This, Ancestor, sizeof(struct RastPort));
 	This->Layer = NULL;
-	if(This->BitMap = (struct BitMap *)get_Memory(sizeof(struct BitMap), MEMF_CLEAR))
+	if((This->BitMap = (struct BitMap *)get_Memory(sizeof(struct BitMap), MEMF_CLEAR)))
 		{
 		memcpy(This->BitMap, Ancestor->BitMap, sizeof(struct BitMap));
 		This->BitMap->Rows = Y;
@@ -2182,7 +2182,7 @@ double *DitherTable_New(int size)
 double *This;
 int randloop;
 
-if(This = (double *)get_Memory(sizeof(double) * size, MEMF_ANY))
+if((This = (double *)get_Memory(sizeof(double) * size, MEMF_ANY)))
 	{
 	for(randloop = 0; randloop < size; randloop++)
 		{
@@ -2237,8 +2237,8 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
 
  if (SerialMP = CreateMsgPort())
   {
-  if (SerialIO = (struct IOExtSer *)
-	CreateExtIO(SerialMP, sizeof (struct IOExtSer)))
+  if ((SerialIO = (struct IOExtSer *)
+	CreateExtIO(SerialMP, sizeof (struct IOExtSer))))
    {
    if (OpenDevice(SERIALNAME, 0, (struct IORequest *)SerialIO, NULL))
     {
@@ -2354,13 +2354,13 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
      Log(DTA_NULL, str);
 
      MP_DigLonScale = (Elon - MP_Wlon) / length;
-     sprintf(str, "Longitude scale = %f °/point", MP_DigLonScale);
+     sprintf(str, "Longitude scale = %f ï¿½/point", MP_DigLonScale);
      Log(DTA_NULL, str);
 
      RotatePt(-MP_Rotate, &Rx[0], &Ry[0], &Rx[2], &Ry[2]);
 
      MP_DigLatScale = (Slat - MP_Nlat) / (Ry[2] - Ry[0]);
-     sprintf(str, "Latitude scale = %f °/point", MP_DigLatScale);
+     sprintf(str, "Latitude scale = %f ï¿½/point", MP_DigLatScale);
      Log(DTA_NULL, str);
      MP_ORy = Ry[0];
      MP_ORx = Rx[0];

@@ -2010,7 +2010,7 @@ EndLoop:
        SetDrMd(MapWind0->RPort, JAM1);
        SetWrMsk(MapWind0->RPort, 0x0f);
        ClearPointer(InterWind0);
-       } /* if map interactive */
+       } // if map interactive
 */
 
 /* draw terrain grid */

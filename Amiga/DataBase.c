@@ -480,7 +480,7 @@ RepeatSave:
   } /* else no save error */
  strmfp(filename, dbasepath, dbasename);
  strcat(filename, ".object");
- if (! mkdir(filename))
+ if (! Mkdir(filename))
   {
   sprintf(str, "Directory Created: %s", filename);
   Log(MSG_NULL,	str);
@@ -619,7 +619,7 @@ short loadmapbase(short lowi, short onlyselected)
 #endif /* DBASE_SAVE_COMPOSITE */
   } /* if load new database */
 
- BusyLoad = BusyWin_New("Vector Load", NoOfObjects - lowi, 0, "MVLD");
+ BusyLoad = BusyWin_New("Vector Load", NoOfObjects - lowi, 0, 'MVLD');
  for (i=lowi; i<NoOfObjects; i++)
   {
   if (DBase[i].Lat)
@@ -1879,7 +1879,7 @@ struct BusyWindow *BusyLoad;
  strmfp(filename, dbasepath, dbasename);
  strcat(filename, ".MDB");
  
- BusyLoad = BusyWin_New("Vector Load", NoOfObjects, 0, "MVLD");
+ BusyLoad = BusyWin_New("Vector Load", NoOfObjects, 0, 'MVLD');
  if ((fDbs = fopen(filename, "rb")) != NULL)
   {
   fread(Title, 16, 1, fDbs);

@@ -42,7 +42,7 @@ void Make_EP_Window(short hor_win)
 
      EP_Win->EditWindow = WindowObject,
       MUIA_Window_Title		, "Parameter Module",
-      MUIA_Window_ID		, (hor_win ? "EPAH": "EPAV"),
+      MUIA_Window_ID		, (hor_win ? 'EPAH': 'EPAV'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_LeftEdge	, MUIV_Window_LeftEdge_Moused,
       MUIA_Window_TopEdge	, MUIV_Window_TopEdge_Moused,
@@ -501,7 +501,7 @@ void Make_DB_Window(short hor_win)
 
      DB_Win->DatabaseWindow = WindowObject,
       MUIA_Window_Title		, "Database Module",
-      MUIA_Window_ID		, (hor_win ? "DBAH": "DBAV"),
+      MUIA_Window_ID		, (hor_win ? 'DBAH': 'DBAV'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_LeftEdge	, MUIV_Window_LeftEdge_Moused,
       MUIA_Window_TopEdge	, MUIV_Window_TopEdge_Moused,
@@ -509,12 +509,12 @@ void Make_DB_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, DB_Win->CY_Layout = CycleObject,
 		 MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, DB_Win->BT_Load = KeyButtonFunc('l',    "\33l Load     �"),
-        Child, DB_Win->BT_Append = KeyButtonFunc('a',  "\33l Append   �"),
-        Child, DB_Win->BT_Create = KeyButtonFunc('c',  "\33l Create   �"),
-        Child, DB_Win->BT_Edit = KeyButtonFunc('e',    "\33l Edit     �"),
-        Child, DB_Win->BT_SaveAs = KeyButtonFunc('s',  "\33l Save     �"),
-        Child, DB_Win->BT_DirList = KeyButtonFunc('d', "\33l Dir List �"),
+        Child, DB_Win->BT_Load = KeyButtonFunc('l',    "\33l Load     »"),
+        Child, DB_Win->BT_Append = KeyButtonFunc('a',  "\33l Append   »"),
+        Child, DB_Win->BT_Create = KeyButtonFunc('c',  "\33l Create   »"),
+        Child, DB_Win->BT_Edit = KeyButtonFunc('e',    "\33l Edit     »"),
+        Child, DB_Win->BT_SaveAs = KeyButtonFunc('s',  "\33l Save     »"),
+        Child, DB_Win->BT_DirList = KeyButtonFunc('d', "\33l Dir List »"),
         Child, RectangleObject, MUIA_FixHeight, 0, End,
         End, /* VGroup */
       End; /* DB_win->EditWindow */
@@ -764,7 +764,7 @@ void Make_DO_Window(short hor_win)
 
      DO_Win->DataOpsWindow = WindowObject,
       MUIA_Window_Title		, "DataOps Module",
-      MUIA_Window_ID		, (hor_win ? "DOAH": "DOAV"),
+      MUIA_Window_ID		, (hor_win ? 'DOAH': 'DOAV'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_LeftEdge	, MUIV_Window_LeftEdge_Moused,
       MUIA_Window_TopEdge	, MUIV_Window_TopEdge_Moused,
@@ -772,13 +772,13 @@ void Make_DO_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, DO_Win->CY_Layout = CycleObject,
 		 MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, DO_Win->BT_Extract = KeyButtonFunc('e',   "\33l Extract DEM �"),
-        Child, DO_Win->BT_Convert = KeyButtonFunc('c',   "\33l Convert DEM �"),
-        Child, DO_Win->BT_InterpMap = KeyButtonFunc('p', "\33l Interp DEM  �"),
-        Child, DO_Win->BT_ImportDLG = KeyButtonFunc('i', "\33l Import DLG  �"),
-        Child, DO_Win->BT_ImportDXF = KeyButtonFunc('x', "\33l Import DXF  �"),
-        Child, DO_Win->BT_ImportWDB = KeyButtonFunc('w', "\33l Import WDB  �"),
-        Child, DO_Win->BT_ExportLWOB = KeyButtonFunc('l', "\33l Export LW   �"),
+        Child, DO_Win->BT_Extract = KeyButtonFunc('e',   "\33l Extract DEM »"),
+        Child, DO_Win->BT_Convert = KeyButtonFunc('c',   "\33l Convert DEM »"),
+        Child, DO_Win->BT_InterpMap = KeyButtonFunc('p', "\33l Interp DEM  »"),
+        Child, DO_Win->BT_ImportDLG = KeyButtonFunc('i', "\33l Import DLG  »"),
+        Child, DO_Win->BT_ImportDXF = KeyButtonFunc('x', "\33l Import DXF  »"),
+        Child, DO_Win->BT_ImportWDB = KeyButtonFunc('w', "\33l Import WDB  »"),
+        Child, DO_Win->BT_ExportLWOB = KeyButtonFunc('l', "\33l Export LW   »"),
 	Child, RectangleObject, End,
         End, /* VGroup */
       End; /* DO_win->EditWindow */
@@ -1037,7 +1037,7 @@ struct WCSApp *WCS_App_New(void)
  Log_Win = NULL;
  CreditWin = NULL;
 
- if(This = (struct WCSApp *)get_Memory(sizeof(struct WCSApp), MEMF_CLEAR))
+ if((This = (struct WCSApp *)get_Memory(sizeof(struct WCSApp), MEMF_CLEAR)))
   {
   This->MUIApp = ApplicationObject,
     MUIA_Application_Title			, APP_TITLE,
@@ -1078,7 +1078,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
 
  ModControlWin = WindowObject,
       MUIA_Window_Title      , "Module Control Panel",
-      MUIA_Window_ID         , "WCSM",
+      MUIA_Window_ID         , 'WCSM',
       MUIA_Window_SizeGadget , FALSE,
       MUIA_Window_Screen     , WCSScrn,
 
@@ -1105,7 +1105,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
  
   AboutWin =  WindowObject,
       MUIA_Window_Title      , "Version",
-      MUIA_Window_ID         , "ABUT",
+      MUIA_Window_ID         , 'ABUT',
       MUIA_Window_SizeGadget  , FALSE,
       MUIA_Window_Screen    , WCSScrn,
 
@@ -1120,7 +1120,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
           End, /* HGroup */
         Child, VSpace(5),
         Child, TextObject, MUIA_Text_Contents,
-		 "\33c" APP_TITLE "�", End,
+		 "\33c" APP_TITLE "®", End,
         Child, TextObject, MUIA_Text_Contents,
 		 ExtAboutVers, End,
         Child, TextObject, MUIA_Text_Contents,
@@ -1275,7 +1275,7 @@ short WCS_App_EventLoop(struct WCSApp *This)
      } /* if */
     } /* for */
 
-   if (WCS_ID = DoMethod(app, MUIM_Application_Input, &signals))
+   if ((WCS_ID = DoMethod(app, MUIM_Application_Input, &signals)))
     {
     CheckBack = 1;
     switch (WCS_ID & 0x0f000000)
@@ -1394,7 +1394,7 @@ short WCS_App_EventLoop(struct WCSApp *This)
     
    if(RexxAp)
     {
-    if(RexxCom = Rexx_GetMsg(RexxAp))
+    if((RexxCom = Rexx_GetMsg(RexxAp)))
     	{
     	Cmd_ParseDispatch(RexxAp, RexxCom);
     	/* Status_Log(ARG0(RexxCom), 0); */
@@ -1702,7 +1702,7 @@ USHORT User_Message_Def(STRPTR outlinetxt, STRPTR message, STRPTR buttons,
 
      UM_Win = WindowObject,
       MUIA_Window_Title		, "Message",
-      MUIA_Window_ID		, "UMES",
+      MUIA_Window_ID		, 'UMES',
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -1875,7 +1875,7 @@ short GetInputString(char *message, char *reject, char *string)
 
      IS_Win = WindowObject,
       MUIA_Window_Title		, "Input Request",
-      MUIA_Window_ID		, "ISRQ",
+      MUIA_Window_ID		, 'ISRQ',
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -2039,7 +2039,7 @@ void Make_Log_Window(int Severity)
 
      Log_Win->LogWindow = WindowObject,
       MUIA_Window_Title		, "Status Log",
-      MUIA_Window_ID		, "STLG",
+      MUIA_Window_ID		, 'STLG',
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup, MUIA_Group_SameWidth, TRUE,
@@ -2228,7 +2228,7 @@ short Handle_APP_Windows(ULONG WCS_ID)
 
           InfoWin = WindowObject,
             MUIA_Window_Title		, "Info",
-            MUIA_Window_ID		, "INFO",
+            MUIA_Window_ID		, 'INFO',
             MUIA_Window_Screen	, WCSScrn,
             MUIA_Window_SizeGadget  , FALSE,
 
@@ -2412,7 +2412,7 @@ short Handle_APP_Windows(ULONG WCS_ID)
 
           CreditWin = WindowObject,
             MUIA_Window_Title		, "Credits",
-            MUIA_Window_ID		, "CRED",
+            MUIA_Window_ID		, 'CRED',
             MUIA_Window_Screen	, WCSScrn,
             WindowContents, VGroup,
               Child, HGroup,

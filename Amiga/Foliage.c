@@ -183,7 +183,7 @@ char *Rootstock_SetName(struct Rootstock *This, char *NameStr)
 	if (This->Name)
 		free_Memory(This->Name, This->NameSize);
 	Len = strlen(NameStr) + 1;
-	if (This->Name = (char *)get_Memory(Len, MEMF_ANY))
+	if ((This->Name = (char *)get_Memory(Len, MEMF_ANY)))
 		{
 		This->NameSize = Len;
 		strcpy(This->Name, NameStr);
@@ -204,7 +204,7 @@ char *Rootstock_SetColorName(struct Rootstock *This, char *NameStr)
 	if (This->ColorName)
 		free_Memory(This->ColorName, This->ColorNameSize);
 	Len = strlen(NameStr) + 1;
-	if (This->ColorName = (char *)get_Memory(Len, 0))
+	if ((This->ColorName = (char *)get_Memory(Len, 0)))
 		{
 		This->ColorNameSize = Len;
 		strcpy(This->ColorName, NameStr);
@@ -530,8 +530,8 @@ ULONG LongSize, BytesWritten, TotalWritten = 0;
 
  ItemTag += SizeSize + SizeType;
 
- if ((BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
-	WCS_BLOCKTYPE_LONGINT + WCS_BLOCKSIZE_LONG)) == NULL)
+ if ((BytesWritten = (WriteBlock(ffile, (char *)&ItemTag,
+	WCS_BLOCKTYPE_LONGINT + WCS_BLOCKSIZE_LONG))) == 0)
   {
   goto EndSave;
   } /* if */
@@ -543,7 +543,7 @@ ULONG LongSize, BytesWritten, TotalWritten = 0;
    {
    CharSize = FieldSize;
    if ((BytesWritten = WriteBlock(ffile, (char *)&CharSize,
-	SizeSize + SizeType)) == NULL)
+	SizeSize + SizeType)) == 0)
     {
     goto EndSave;
     } /* if */
@@ -553,7 +553,7 @@ ULONG LongSize, BytesWritten, TotalWritten = 0;
    {
    ShortSize = FieldSize;
    if ((BytesWritten = WriteBlock(ffile, (char *)&ShortSize,
-	SizeSize + SizeType)) == NULL)
+	SizeSize + SizeType)) == 0)
     {
     goto EndSave;
     } /* if */
@@ -563,7 +563,7 @@ ULONG LongSize, BytesWritten, TotalWritten = 0;
    {
    LongSize = FieldSize;
    if ((BytesWritten = WriteBlock(ffile, (char *)&LongSize,
-	SizeSize + SizeType)) == NULL)
+	SizeSize + SizeType)) == 0)
     {
     goto EndSave;
     } /* if */
@@ -573,7 +573,7 @@ ULONG LongSize, BytesWritten, TotalWritten = 0;
  TotalWritten += BytesWritten;
 
  if ((BytesWritten = WriteBlock(ffile, (char *)FieldAddr,
-	FieldSize + FieldType)) == NULL)
+	FieldSize + FieldType)) == 0)
   {
   goto EndSave;
   } /* if */
@@ -605,21 +605,21 @@ float FloatVal;
 ULONG ItemTag = 0, Size, BytesRead, TotalRead = 0;
 union MultiVal MV;
 
- if (This = Ecotype_New())
+ if ((This = Ecotype_New()))
   {
   FolGpPtr = &This->FolGp;
 
   while (ItemTag != WCS_ECOTYPE_DONE)
    {
 	/* read block descriptor tag from file */
-   if (BytesRead = ReadBlock(ffile, (char *)&ItemTag,
-	WCS_BLOCKTYPE_LONGINT + WCS_BLOCKSIZE_LONG))
+   if ((BytesRead = ReadBlock(ffile, (char *)&ItemTag,
+	WCS_BLOCKTYPE_LONGINT + WCS_BLOCKSIZE_LONG)))
     {
     TotalRead += BytesRead;
     if (ItemTag != WCS_ECOTYPE_DONE)
      {
 	/* read block size from file */
-     if (BytesRead = ReadBlock(ffile, (char *)&MV, ItemTag & 0x0000ffff))
+     if ((BytesRead = ReadBlock(ffile, (char *)&MV, ItemTag & 0x0000ffff)))
       {
       TotalRead += BytesRead;
       BytesRead = 0;
@@ -692,7 +692,7 @@ union MultiVal MV;
 	 }
         case WCS_ECOTYPE_FOLIAGEGRP:
          {
-         if (*FolGpPtr = FoliageGroup_Load(ffile, Size))
+         if ((*FolGpPtr = FoliageGroup_Load(ffile, Size)))
           {
           FolGp = *FolGpPtr;
           FolGpPtr = &FolGp->Next;
@@ -743,20 +743,20 @@ float FloatVal;
 ULONG ItemTag = 0, Size, BytesRead, TotalRead = 0;
 union MultiVal MV;
 
- if (This = FoliageGroup_New())
+ if ((This = FoliageGroup_New()))
   {
   FolPtr = &This->Fol;
 
 	/* read block descriptor tag from file */
   while (ItemTag != WCS_ECOTYPE_DONE)
    {
-   if (BytesRead = ReadBlock(ffile, (char *)&ItemTag,
-	WCS_BLOCKTYPE_LONGINT + WCS_BLOCKSIZE_LONG))
+   if ((BytesRead = ReadBlock(ffile, (char *)&ItemTag,
+	WCS_BLOCKTYPE_LONGINT + WCS_BLOCKSIZE_LONG)))
     {
     TotalRead += BytesRead;
     if (ItemTag != WCS_ECOTYPE_DONE)
      {
-     if (BytesRead = ReadBlock(ffile, (char *)&MV, ItemTag & 0x0000ffff))
+     if ((BytesRead = ReadBlock(ffile, (char *)&MV, ItemTag & 0x0000ffff)))
       {
       TotalRead += BytesRead;
       BytesRead = 0;
@@ -829,7 +829,7 @@ union MultiVal MV;
 	 }
         case WCS_ECOTYPE_FOLIAGE:
          {
-         if (*FolPtr = Foliage_Load(ffile, Size))
+         if ((*FolPtr = Foliage_Load(ffile, Size)))
           {
           Fol = *FolPtr;
           FolPtr = &Fol->Next;
@@ -878,18 +878,18 @@ float FloatVal;
 ULONG ItemTag = 0, Size, BytesRead, TotalRead = 0;
 union MultiVal MV;
 
- if (This = Foliage_New())
+ if ((This = Foliage_New()))
   {
 	/* read block descriptor tag from file */
   while (ItemTag != WCS_ECOTYPE_DONE)
    {
-   if (BytesRead = ReadBlock(ffile, (char *)&ItemTag,
-	WCS_BLOCKTYPE_LONGINT + WCS_BLOCKSIZE_LONG))
+   if ((BytesRead = ReadBlock(ffile, (char *)&ItemTag,
+	WCS_BLOCKTYPE_LONGINT + WCS_BLOCKSIZE_LONG)))
     {
     TotalRead += BytesRead;
     if (ItemTag != WCS_ECOTYPE_DONE)
      {
-     if (BytesRead = ReadBlock(ffile, (char *)&MV, ItemTag & 0x0000ffff))
+     if ((BytesRead = ReadBlock(ffile, (char *)&MV, ItemTag & 0x0000ffff)))
       {
       TotalRead += BytesRead;
       BytesRead = 0;
@@ -1019,7 +1019,7 @@ struct Foliage *Fol, *NewFol, **NewFolAddr;
 
  if (This)
   {
-  if (NewEco = Ecotype_New())
+  if ((NewEco = Ecotype_New()))
    {
    memcpy(NewEco, This, sizeof (struct Ecotype));
    NewEco->Root.Name = NewEco->Root.ColorName = NULL;
@@ -1029,7 +1029,7 @@ struct Foliage *Fol, *NewFol, **NewFolAddr;
    NewGpAddr = &NewEco->FolGp;
    while (FolGp)
     {
-    if (*NewGpAddr = FoliageGroup_New())
+    if ((*NewGpAddr = FoliageGroup_New()))
      {
      NewGp = *NewGpAddr;
      memcpy(NewGp, FolGp, sizeof (struct FoliageGroup));
@@ -1040,7 +1040,7 @@ struct Foliage *Fol, *NewFol, **NewFolAddr;
      NewFolAddr = &NewGp->Fol;
      while (Fol)
       {
-      if (*NewFolAddr = Foliage_New())
+      if ((*NewFolAddr = Foliage_New()))
        {
        NewFol = *NewFolAddr;
        memcpy(NewFol, Fol, sizeof (struct Foliage));
@@ -1102,48 +1102,48 @@ float FloatVal;
   {
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_NAME, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, strlen(This->Root.Name) + 1,
-	WCS_BLOCKTYPE_CHAR, (char *)This->Root.Name)) == NULL)
+	WCS_BLOCKTYPE_CHAR, (char *)This->Root.Name)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_COLORNAME, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, strlen(This->Root.ColorName) + 1,
-	WCS_BLOCKTYPE_CHAR, (char *)This->Root.ColorName)) == NULL)
+	WCS_BLOCKTYPE_CHAR, (char *)This->Root.ColorName)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   FloatVal = This->Root.Height;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_HEIGHT, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_LONG,
-	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == NULL)
+	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   FloatVal = This->Root.Density;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_DENSITY, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_LONG,
-	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == NULL)
+	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->Root.UseImgCol;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_USEIMGCOL, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->Root.PalCol;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_PALCOL, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->Root.MaxImgHeight;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_MAXIMGHT, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
@@ -1151,18 +1151,18 @@ float FloatVal;
   while (FolGp)
    {
    ItemTag = WCS_ECOTYPE_FOLIAGEGRP + WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT;
-   if (BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
-	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT))
+   if ((BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
+	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT)))
     {
     TotalWritten += BytesWritten;
 
     ItemTag = 0;
-    if (BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
-	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT))
+    if ((BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
+	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT)))
      {
      TotalWritten += BytesWritten;
 
-     if (BytesWritten = FoliageGroup_Save(FolGp, ffile))
+     if ((BytesWritten = FoliageGroup_Save(FolGp, ffile)))
       {
       TotalWritten += BytesWritten;
       fseek(ffile, -(BytesWritten + WCS_BLOCKSIZE_LONG), SEEK_CUR);
@@ -1187,7 +1187,7 @@ float FloatVal;
 
   ItemTag = WCS_ECOTYPE_DONE;
   if ((BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
-	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT)) == NULL)
+	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
   } /* if This */
@@ -1213,48 +1213,48 @@ float FloatVal;
   {
   if ((BytesWritten = PrepWriteBlock(ffile, (ULONG)WCS_ECOTYPE_NAME, (ULONG)WCS_BLOCKSIZE_CHAR,
 	(ULONG)WCS_BLOCKTYPE_CHAR, strlen(This->Root.Name) + 1,
-	(ULONG)WCS_BLOCKTYPE_CHAR, (char *)This->Root.Name)) == NULL)
+	(ULONG)WCS_BLOCKTYPE_CHAR, (char *)This->Root.Name)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_COLORNAME, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, strlen(This->Root.ColorName) + 1,
-	WCS_BLOCKTYPE_CHAR, (char *)This->Root.ColorName)) == NULL)
+	WCS_BLOCKTYPE_CHAR, (char *)This->Root.ColorName)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   FloatVal = This->Root.Height;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_HEIGHT, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_LONG,
-	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == NULL)
+	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   FloatVal = This->Root.Density;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_DENSITY, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_LONG,
-	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == NULL)
+	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->Root.UseImgCol;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_USEIMGCOL, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->Root.PalCol;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_PALCOL, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->Root.MaxImgHeight;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_MAXIMGHT, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
@@ -1262,18 +1262,18 @@ float FloatVal;
   while (Fol)
    {
    ItemTag = WCS_ECOTYPE_FOLIAGE + WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT;
-   if (BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
-	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT))
+   if ((BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
+	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT)))
     {
     TotalWritten += BytesWritten;
 
     ItemTag = 0;
-    if (BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
-	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT))
+    if ((BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
+	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT)))
      {
      TotalWritten += BytesWritten;
 
-     if (BytesWritten = Foliage_Save(Fol, ffile))
+     if ((BytesWritten = Foliage_Save(Fol, ffile)))
       {
       TotalWritten += BytesWritten;
       fseek(ffile, -(BytesWritten + WCS_BLOCKSIZE_LONG), SEEK_CUR);
@@ -1298,7 +1298,7 @@ float FloatVal;
 
   ItemTag = WCS_ECOTYPE_DONE;
   if ((BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
-	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT)) == NULL)
+	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
   } /* if This */
@@ -1323,75 +1323,75 @@ float FloatVal;
   {
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_NAME, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, strlen(This->Root.Name) + 1,
-	WCS_BLOCKTYPE_CHAR, (char *)This->Root.Name)) == NULL)
+	WCS_BLOCKTYPE_CHAR, (char *)This->Root.Name)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_COLORNAME, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, strlen(This->Root.ColorName) + 1,
-	WCS_BLOCKTYPE_CHAR, (char *)This->Root.ColorName)) == NULL)
+	WCS_BLOCKTYPE_CHAR, (char *)This->Root.ColorName)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   FloatVal = This->Root.Height;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_HEIGHT, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_LONG,
-	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == NULL)
+	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   FloatVal = This->Root.Density;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_DENSITY, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_LONG,
-	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == NULL)
+	WCS_BLOCKTYPE_FLOAT, (char *)&FloatVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->Root.UseImgCol;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_USEIMGCOL, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->Root.PalCol;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_PALCOL, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->Root.MaxImgHeight;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_MAXIMGHT, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->ImgWidth;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_IMGWIDTH, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->ImgHeight;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_IMGHEIGHT, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ShortVal = This->ColorImage;
   if ((BytesWritten = PrepWriteBlock(ffile, WCS_ECOTYPE_COLORIMAGE, WCS_BLOCKSIZE_CHAR,
 	WCS_BLOCKTYPE_CHAR, WCS_BLOCKSIZE_SHORT,
-	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == NULL)
+	WCS_BLOCKTYPE_SHORTINT, (char *)&ShortVal)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
 
   ItemTag = WCS_ECOTYPE_DONE;
   if ((BytesWritten = WriteBlock(ffile, (char *)&ItemTag,
-	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT)) == NULL)
+	WCS_BLOCKSIZE_LONG + WCS_BLOCKTYPE_LONGINT)) == 0)
    goto WriteError;
   TotalWritten += BytesWritten;
   } /* if This */

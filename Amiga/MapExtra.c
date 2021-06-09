@@ -476,7 +476,8 @@ void grapherase(void)
 } /* grapherase() */
 #endif /* ENABLE_STATISTICS */
 /************************************************************************/
-/* Obsolete - replaced 4/17/95 by the code below
+#ifdef JHKJSHKASJHDKASHD
+// Obsolete - replaced 4/17/95 by the code below
 
 void findarea(short OBN)
 {
@@ -530,7 +531,7 @@ void findarea(short OBN)
  MapGUI_Message(0, str);
 
 } /* findarea() */
-*/
+#endif
 
 /**********************************************************************/
 
@@ -1567,7 +1568,9 @@ SetFrameCount:
 	"OK|Reset|Cancel", "orc", 1)) == 2)
   goto SetFrameCount;
  if (UseResult == 0)
-  return;
+ {
+     return;
+ }
 
   Vel.PtsIn = points;
   Vel.PtsOut = frames;
@@ -1803,23 +1806,23 @@ ResetPoints:
    {
    Pts = 0;
    if (abs(Data[zip] - Data[zip + Cols]) <= PtRange)
-    Pts ++;
-    if (abs(Data[zip] - Data[zip + Cols + 1]) <= PtRange)
-     Pts ++;
-     if (abs(Data[zip] - Data[zip + 1]) <= PtRange)
-      Pts ++;
-      if (abs(Data[zip] - Data[zip - Cols + 1]) <= PtRange)
        Pts ++;
-       if (abs(Data[zip] - Data[zip - Cols]) <= PtRange)
-        Pts ++;
-        if (abs(Data[zip] - Data[zip - Cols - 1]) <= PtRange)
-         Pts ++;
-         if (abs(Data[zip] - Data[zip - 1]) <= PtRange)
-          Pts ++;
-          if (abs(Data[zip] - Data[zip + Cols - 1]) <= PtRange)
-           Pts ++;
-           if (Pts >= EqualPts)
-            Data[zip] = -30000;
+   if (abs(Data[zip] - Data[zip + Cols + 1]) <= PtRange)
+       Pts ++;
+   if (abs(Data[zip] - Data[zip + 1]) <= PtRange)
+       Pts ++;
+   if (abs(Data[zip] - Data[zip - Cols + 1]) <= PtRange)
+       Pts ++;
+   if (abs(Data[zip] - Data[zip - Cols]) <= PtRange)
+       Pts ++;
+   if (abs(Data[zip] - Data[zip - Cols - 1]) <= PtRange)
+       Pts ++;
+   if (abs(Data[zip] - Data[zip - 1]) <= PtRange)
+       Pts ++;
+   if (abs(Data[zip] - Data[zip + Cols - 1]) <= PtRange)
+       Pts ++;
+   if (Pts >= EqualPts)
+       Data[zip] = -30000;
    } /* for Lc=0... */
   } /* for Lr=0... */
 
@@ -1834,7 +1837,7 @@ ResetPoints:
    } /* for Lc=0... */
   } /* for Lr=0... */
  makemap(MapWind0, (long)Bx->Low.X, (long)Bx->Low.Y, (long)Bx->High.X, (long)Bx->High.Y,
- (topo ? MMF_TOPO : NULL) | (ecoenabled ? MMF_ECO : NULL) | MMF_REFINE | MMF_FLATSPOTS);
+ (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0) | MMF_REFINE | MMF_FLATSPOTS);
 /* ask if ready to continue or reset points */
 
  if ((ans = User_Message_Def("Mapping Module: Fix Flats",
@@ -1857,7 +1860,7 @@ ResetPoints:
   {
   error = 10;
   goto EndFix;
-  } /* if cancel */
+  } // if cancel
  T = atof(str);
 */
  if (FixFlatSpots(Data, Rows, Cols, T))
@@ -1871,7 +1874,7 @@ ResetPoints:
     } /* for Lc=0... */
    } /* for Lr=0... */
   makemap(MapWind0, (long)Bx->Low.X, (long)Bx->Low.Y, (long)Bx->High.X, (long)Bx->High.Y,
-   (topo ? MMF_TOPO : NULL) | (ecoenabled ? MMF_ECO : NULL) | MMF_REFINE);
+   (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0) | MMF_REFINE);
 
   if ((ans = User_Message_Def("Mapping Module: Fix Flats",
 	"Keep or save DEM or reset parameters?", "Keep|Save|Reset|Cancel", "ksrc", 1)) > 0)
@@ -1951,7 +1954,7 @@ EndFix:
      } /* for Lc=0... */
     } /* for Lr=0... */
    makemap(MapWind0, (long)Bx->Low.X, (long)Bx->Low.Y, (long)Bx->High.X, (long)Bx->High.Y,
-    (topo ? MMF_TOPO : NULL) | (ecoenabled ? MMF_ECO : NULL) | MMF_REFINE);
+    (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0) | MMF_REFINE);
    } /* if changes cancelled */
   free_Memory(Backup, Rows * Cols * sizeof (short));
   } /* if Backup */
@@ -2576,10 +2579,10 @@ struct DirList *DLItem;
    {
    strmfp(filename, dirname, DBase[TopoOBN[i]].Name);
    strcat(filename, ".frd");
-   if (fFrd = fopen(filename, "rb"))
+   if ((fFrd = fopen(filename, "rb")))
     {
     mapelmap[i].fractalsize = mapelmap[i].rows * (mapelmap[i].columns - 1) * 2;
-    if (mapelmap[i].fractal = (BYTE *)get_Memory(mapelmap[i].fractalsize, MEMF_ANY))
+    if ((mapelmap[i].fractal = (BYTE *)get_Memory(mapelmap[i].fractalsize, MEMF_ANY)))
      {
      if (fread(mapelmap[i].fractal, mapelmap[i].fractalsize, 1, fFrd) == 1)
       {
@@ -2635,7 +2638,7 @@ struct DirList *DLItem;
 } /* FractalMap_Draw() */
 
 /***********************************************************************/
-/*
+#ifdef JHGSJDGSHGDJSDGJS
 typedef double TDA[3];
 typedef double Matx3x3[3][3];
 
@@ -2982,4 +2985,4 @@ double Dimension;
  return (Dimension);
 
 } /* RandomizeDimension() */
-*/
+#endif

@@ -1,7 +1,8 @@
 /* Functions removed from nngridr code
 */
 
-/*
+#ifdef GJHGFJDGf
+//
 void ShowState(void)
 {
    int i0, i1;
@@ -255,7 +256,7 @@ void ShowState(void)
    if (strcmp(inbuf,"c") EQ 0 OR 
       strcmp(inbuf,"C") EQ 0) saygo = 0;
 }
-*/
+#endif
 /***********************************************************************/
 /*
 void InitScrn(void)
@@ -383,7 +384,7 @@ void ShowMenu(void)
          else sprintf(infform,"%s",inbuf);
       }
       Spacer(indent+2);
-      non_neg = 0;                  /* added 8 July 94 */
+      non_neg = 0;                  // added 8 July 94
       printf("Use estimated gradients? (N or Y) ");
       InString();
       if (strlen(inbuf)<1 OR strcmp(inbuf,"y") EQ 
@@ -413,7 +414,7 @@ void ShowMenu(void)
                if (bJ > 9.0) bJ = 9;
             }
          }
-         Spacer(indent+2);         /* these five line added 8 July 94 */
+         Spacer(indent+2);         // these five line added 8 July 94
          printf("Negative values allowed? (N or Y) ");
          InString();
          if (strcmp(inbuf,"n") EQ 0 OR 
@@ -425,10 +426,10 @@ void ShowMenu(void)
       InString();
       if (strcmp(inbuf,"y") EQ 0 OR strcmp(inbuf,"Y") EQ 0)
       {  Spacer(indent+4);
-         printf("Allow extrapolation? (N or Y) ");    /* reversed order 8 July 94*/
+         printf("Allow extrapolation? (N or Y) ");    // reversed order 8 July 94
          InString();
-         if (strcmp(inbuf,"n") EQ 0 OR strcmp(inbuf,"N") EQ 0) /* replaced y with n */
-         {  extrap = 0;                     /* 1 for 0, 180894 */
+         if (strcmp(inbuf,"n") EQ 0 OR strcmp(inbuf,"N") EQ 0) // replaced y with n
+         {  extrap = 0;                     // 1 for 0, 180894
             Spacer(indent+6);
             printf("Null value? ");
             InString();
@@ -437,9 +438,9 @@ void ShowMenu(void)
                nuldat = bignum;
             }
          }
-         else extrap = 1; /* removed '= gnup = sdip = igif', 080794; 0 for 1, 180894 */
+         else extrap = 1; // removed '= gnup = sdip = igif', 080794; 0 for 1, 180894
       }
-      Spacer(indent+2);    /* removed 'if (extrap)' 8 July 94 */
+      Spacer(indent+2);    // removed 'if (extrap)' 8 July 94
       printf("Calculate aspect and slope? (Y or N) ");
       InString();
       if (strcmp(inbuf,"y") EQ 0 OR 
@@ -650,7 +651,7 @@ void ShowMenu(void)
          yspace = (yterm - ystart) / (y_nodes - 1);
       }
       else
-      {  Spacer(indent+2);  /* removed 'if (extrap)' 8 July 94 */
+      {  Spacer(indent+2);  // removed 'if (extrap)' 8 July 94
          printf("Gnuplot compatible output? (N or Y) ");
          InString();
          if (strlen(inbuf) < 1 OR strcmp(inbuf,"y") EQ 
@@ -723,7 +724,7 @@ void InString(void)
 /***********************************************************************/
 /*
 void Leader(int num)
-           /* 9/9/94 */
+           // 9/9/94
 {
    int i0;
    printf("\n");
@@ -733,7 +734,7 @@ void Leader(int num)
 /***********************************************************************/
 /*
 void Spacer(int num)
-           /* 9/9/94 */
+           // 9/9/94
 {
    int i0;
    for (i0=0; i0<num; i0++) printf(" ");

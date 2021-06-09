@@ -112,7 +112,7 @@ struct BusyWindow *BWDL;
   } /* for i=0... */
 
  fseek(fDLG, 0L, SEEK_END);
- BWDL = BusyWin_New("Reading", ftell(fDLG), 0, "BWDL");
+ BWDL = BusyWin_New("Reading", ftell(fDLG), 0, 'BWDL');
 
  str[0] = 0;
  if (GetInputString("Enter up to 3 characters as a prefix for this DLG set if you desire.", ":;*/?`#%", str))
@@ -341,7 +341,7 @@ struct BusyWindow *BWDL;
  DefaultName[0] = 0;
 
  fseek(fDXF, 0L, SEEK_END);
- BWDL = BusyWin_New("Reading", ftell(fDXF), 0, "BWDL");
+ BWDL = BusyWin_New("Reading", ftell(fDXF), 0, 'BWDL');
  fseek(fDXF, 0L, SEEK_SET);
 
  while (done != EOF)
@@ -1916,7 +1916,7 @@ struct BusyWindow *BWDL = NULL;
  DLG.Pairs = 0;
 
  fseek(fWDB, 0L, SEEK_END);
- BWDL = BusyWin_New("Reading", ftell(fWDB), 0, "BWDL");
+ BWDL = BusyWin_New("Reading", ftell(fWDB), 0, 'BWDL');
  fseek(fWDB, 0L, SEEK_SET);
 
  while (1)

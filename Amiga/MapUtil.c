@@ -603,7 +603,8 @@ void SortAltRenderList(void)
 } /* SortAltRenderList() */
 
 /***********************************************************************/
-/* No longer needed
+#ifdef HGJGJHGJGJHGSD
+// No longer needed
 void reversemap(struct elmapheaderV101 *map)
 {
  short *lowptr, *highptr;
@@ -639,7 +640,7 @@ void reverseimage(UBYTE *image, long rows, long columns)
   } /* for i=0... */
 
 } /* reverseimage */
-*/
+#endif
 /***********************************************************************/
 
 void setclipbounds(struct Window *win, struct clipbounds *cb)

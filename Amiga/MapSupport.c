@@ -1377,7 +1377,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
     SetWindowTitles(MapWind0, "Interactive View Arc", (UBYTE *)-1);
     }
    else return (0);
-   } /* else may be view arc motion */
+   } // else may be view arc motion
 */
   else return (0);
   } /* else may be haze or view arc motion */ 
@@ -1752,7 +1752,7 @@ void ShowCenters_Map(struct clipbounds *cb, short startX, short startY,
     MP->viewlineaz[0] -= anglechg;
     MP->viewlineaz[1] += anglechg;
     }
-   } /* if view arc motion */
+   } // if view arc motion
   else if (modval == 6)
    {
    double angle, anglechg;
@@ -1771,7 +1771,7 @@ void ShowCenters_Map(struct clipbounds *cb, short startX, short startY,
     MP->viewlineaz[0] += anglechg;
     MP->viewlineaz[1] -= anglechg;
     }
-   } /* if view arc motion */
+   } // if view arc motion
 */
   MP->viewlineslope[0] = ((float)MP->viewlinepty[0] - MP->campty[0])
 			 / (MP->viewlineptx[0] - MP->camptx[0]);

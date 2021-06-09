@@ -1025,7 +1025,7 @@ union KeyFrame *KFPtr;
  if (! filename)
   return (0);
 
- if (fCloud = fopen(filename, "r"))
+ if ((fCloud = fopen(filename, "r")))
   {
   fgets(Title, 24, fCloud);
   Title[8] = '\0';
@@ -1290,7 +1290,7 @@ union KeyFrame *KFPtr;
  if (! filename || ! CD)
   return (0);
 
- if (fCloud = fopen(filename, "w"))
+ if ((fCloud = fopen(filename, "w")))
   {
   fprintf(fCloud, "WCSCloud\n");
 

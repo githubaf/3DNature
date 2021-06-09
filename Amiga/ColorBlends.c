@@ -447,7 +447,7 @@ void seashoal(struct ColorComponents *CC)
    } /* wind and slope within 45 degrees bearing */
   } /* if correct depth for breakers */
 
-watercolor:
+//watercolor:
  colavg = 1.0 - (SeaLevel + 150 - el) / 250.0;
  altred = PARC_MCOL_ECO(10, 0) - sunshade * PARC_MCOL_ECO(2, 0);
  altgreen = PARC_MCOL_ECO(10, 1) - sunshade * PARC_MCOL_ECO(2, 1);
@@ -915,9 +915,9 @@ UBYTE val;
 long i, j, k, lastpt;
 FILE *fStrataIn, *fStrataOut;
 
- if (fStrataIn = fopen("DH0:GIS/Documents/Images&Brushes/stratatexture.gray", "rb"))
+ if ((fStrataIn = fopen("DH0:GIS/Documents/Images&Brushes/stratatexture.gray", "rb")))
   {
-  if (fStrataOut = fopen("Ram:StrataTex", "w"))
+  if ((fStrataOut = fopen("Ram:StrataTex", "w")))
    {
    for (i=0; i<INPUT_HEIGHT / 10; i++)
     {

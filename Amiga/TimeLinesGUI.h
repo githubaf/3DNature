@@ -28,25 +28,8 @@
 #define QUICK_DRAW	(1<<3)
 #define NO_CLEAR	(1<<4)
 
-#if defined(__SASC)   // I don't want to add new dependencies to the original SAS/C based sources
-extern __saveds ULONG TL_AskMinMax(struct IClass *cl, Object *obj,
-     struct MUIP_AskMinMax *msg);
-extern __saveds ULONG TL_Draw(struct IClass *cl, Object *obj, struct MUIP_Draw *msg);
-extern __saveds ULONG TL_Setup(struct IClass *cl, Object *obj,
-     struct MUIP_HandleInput *msg);
-extern __saveds ULONG TL_Cleanup(struct IClass *cl, Object *obj,
-     struct MUIP_HandleInput *msg);
-extern __saveds ULONG TL_HandleInput(struct IClass *cl, Object *obj,
-     struct MUIP_HandleInput *msg);
-extern __saveds __asm ULONG TL_Dispatcher(register __a0 struct IClass *cl,
-   register __a2 Object *obj, register __a1 Msg msg);
-extern __saveds ULONG GNTL_HandleInput(struct IClass *cl, Object *obj,
-     struct MUIP_HandleInput *msg);
-extern __saveds __asm ULONG GNTL_Dispatcher(register __a0 struct IClass *cl, register __a2
-     Object *obj, register __a1 Msg msg);
-#else
- // GCC
 #include <SDI_compiler.h>
+
 extern SAVEDS ULONG TL_AskMinMax(struct IClass *cl, Object *obj,
      struct MUIP_AskMinMax *msg);
 extern SAVEDS ULONG TL_Draw(struct IClass *cl, Object *obj, struct MUIP_Draw *msg);
@@ -63,7 +46,6 @@ extern SAVEDS ASM ULONG TL_Dispatcher(REG(a0, struct IClass *cl),
 
 extern SAVEDS ULONG GNTL_HandleInput(struct IClass *cl, Object *obj, struct MUIP_HandleInput *msg);
 extern SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG(a2, Object *obj), REG(a1, Msg msg));
-#endif
 
 
 #endif /* TIMELINESGUI_H */

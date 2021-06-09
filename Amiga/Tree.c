@@ -650,8 +650,9 @@ void DetailTree(struct Window *win, short eco, struct QCvalues *QC,
 } /* DetailTree() */
 
 /************************************************************************/
-/* Converts gray scale raw image file into an ascii array for use as
-	 a texture brush
+#ifdef GHJGFJHDGJAHSDG
+// Converts gray scale raw image file into an ascii array for use as
+//	 a texture brush
 void ConvertTree(void)
 {
  char filename[256], Path[256] = {0}, Filename[32] = {0};
@@ -721,7 +722,7 @@ EndTree:
   free_Memory(TreeArray, width * height);
 
 } /* ConvertTree() */
-*/
+#endif
 /************************************************************************/
 
 short LoadForestModels(void)
@@ -970,7 +971,7 @@ struct WcsBitMapHeader BMHdr;
           {
           close (fh);
           fh = -1;
-          if (*BMI = BitmapImage_New())
+          if ((*BMI = BitmapImage_New()))
            {
            BMICur = *BMI;
            if (BMHdr.Planes == 8)
@@ -994,11 +995,11 @@ struct WcsBitMapHeader BMHdr;
 	     } /* for j=0... */
             if (! error)
              {
-             if (BMICur->MidPt = 
-		(float *)get_Memory(BMICur->Height * sizeof (float), MEMF_ANY))
+             if ((BMICur->MidPt =
+		(float *)get_Memory(BMICur->Height * sizeof (float), MEMF_ANY)))
               {
-              if (BMICur->Span = 
-		(float *)get_Memory(BMICur->Height * sizeof (float), MEMF_ANY))
+              if ((BMICur->Span =
+		(float *)get_Memory(BMICur->Height * sizeof (float), MEMF_ANY)))
                {
                if (LoadImage(filename, BMICur->Colors > 1, BMICur->Bitmap,
 		BMICur->Width, BMICur->Height, 0, &BMICur->Width, &BMICur->Height,
@@ -1025,7 +1026,7 @@ struct WcsBitMapHeader BMHdr;
 
                 while (BMISmall->Height > 10 && BMISmall->Width > 10 && ! error)
                  {
-                 if (BMISmall->Smaller = BitmapImage_New())
+                 if ((BMISmall->Smaller = BitmapImage_New()))
                   {
                   BMIPrev = BMISmall;
                   BMISmall = BMISmall->Smaller;
@@ -1046,17 +1047,17 @@ struct WcsBitMapHeader BMHdr;
                    } /* for j=0... */
                   if (! error)
                    {
-                   if (BMISmall->Covg = (float *)
+                   if ((BMISmall->Covg = (float *)
 			get_Memory(BMISmall->Width * BMISmall->Height * sizeof (float),
-			MEMF_CLEAR))
+			MEMF_CLEAR)))
                     {
-                    if (BMISmall->MidPt = (float *)
+                    if ((BMISmall->MidPt = (float *)
 			get_Memory(BMISmall->Height * sizeof (float),
-			MEMF_ANY))
+			MEMF_ANY)))
                      {
-                     if (BMISmall->Span = (float *)
+                     if ((BMISmall->Span = (float *)
 			get_Memory(BMISmall->Height * sizeof (float),
-			MEMF_ANY))
+			MEMF_ANY)))
                       {
                       BitmapImage_Scale(BMIPrev, BMISmall, 0.0, 0.0);
 	              }
@@ -1166,7 +1167,8 @@ for (i=0; i<ECOPARAMS; i++)
 } /* BitmapImage_Load() */
 
 /**********/
-/* obsolete
+#ifdef GHJDJSDHGJSGFJSDg
+// obsolete
 short BitmapImage_Load(void)
 {
 char filename[256];
@@ -1365,7 +1367,7 @@ Continue without them?", "OK|Cancel", "oc"))
  return (success);
 
 } /* BitmapImage_Load() */
-*/
+#endif
 /**********************************************************************/
 
 void BitmapImage_Unload(void)
@@ -1791,7 +1793,7 @@ long Px, Py, Pxp1, Pyp1, x, y, DRows, DCols, DxStart, DyStart, PixVal[3],
     } /* for Py=... */
    if (SBMI->Colors == 3)
     {
-    if (PixVal[0] || PixVal[1] || PixVal[2] && PixWt > 0.0)
+    if ((PixVal[0] || PixVal[1] || PixVal[2]) && PixWt > 0.0)
      {
      if (Distance <= zbuf[zip] || bytemap[zip] < 100)
       {
@@ -1890,7 +1892,7 @@ long Px, Py, Pxp1, Pyp1, x, y, DRows, DCols, DxStart, DyStart, PixVal[3],
        PixVal[2] = PixVal[0] * (CC->Blu / 255.0);
        PixVal[0] *= (CC->Red / 255.0);
 /*
-       PixVal[0] += AM->Red;					/* ambient */
+       PixVal[0] += AM->Red;					// ambient
        PixVal[1] += AM->Grn;
        PixVal[2] += AM->Blu;
        PixVal[0] += (PARC_RNDR_COLOR(2, 0) - PixVal[0]) * fade;
