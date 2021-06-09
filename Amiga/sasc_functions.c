@@ -479,6 +479,43 @@ double pow2(double x)
     return pow(2,x);
 }
 #endif
+
+
+#ifdef __GNUC__
+/*   SAS/C-only function
+C Library Reference 489
+
+stpblk Skip blanks
+
+Synopsis    # include <string.h>
+            q = stpblk(p);
+            char *q; // updated string pointer
+            const char *p; // string pointer
+
+Description This function advances the string pointer past blank characters, that is,
+past all the characters for which the is space function is true.
+
+This function is not available if the _STRICT_ANSI flag has been
+defined.
+
+Portability SAS/C
+
+Returns The function returns a pointer to the next nonblank character. The NULL
+terminator byte is not considered a blank, and so the function will not go
+past the end of the string.
+*/
+
+char * stpblk(const char *p)
+{
+    char *q=p;
+    while (*q && isspace(*q))
+    {
+        q++;
+    }
+    return q;
+}
+
+#endif
 // ------------- Test -------------------
 // compile this file alone and define TESTING_SASC_FUNCTIONS on compiler call to run the tests
 #define TESTING_SASC_FUNCTIONS
@@ -717,6 +754,45 @@ int main(void)
             i++;
         }
         printf ("pow2(): All tests passed.\n");
+        printf("----------------------------\n\n");
+
+    }
+    // -----------------------------------------------------------------------------------------
+    {
+        typedef struct
+        {
+                char *Input;
+                char *ExpectedOutput;
+        }InputOutputString;
+
+        InputOutputString InputOutputStrings[]=
+        {
+
+                {"", "Q="},
+                {" ", "Q="},
+                {"   ", "Q="},
+                {"Test", "Q=Test"},
+                {" Test", "Q=Test"},
+                {"   Test", "Q=Test"},
+                {0,NULL}    // ExpectedOutput==NULL marks end
+        };
+
+        char result[512];   // enough space3 for our test result-string
+        int i=0;
+        char *q;
+
+        while(InputOutputStrings[i].ExpectedOutput!=NULL)
+        {
+            printf("Testing \"%s\"...",InputOutputStrings[i].Input);
+            q=stpblk(InputOutputStrings[i].Input);
+            sprintf(result,"Q=%s",q);
+            //printf("\n");
+            printf(" Result: %s\n",result);
+            //printf(" Expect: %s\n",InputOutputStrings[i].ExpectedOutput);
+            assert(!strcmp(result,InputOutputStrings[i].ExpectedOutput));
+            i++;
+        }
+        printf ("stpblk(): All tests passed.\n");
         printf("----------------------------\n\n");
 
     }

@@ -19,6 +19,7 @@ void strsfn(const char *file, char *drive, char *path, char *node, char *ext); /
 int stcgfe(char *ext, const char *name); // SAS/C function, needs to be re-implemented for gcc, Get the filename extension
 int stcul_d(char *out, unsigned long uvalue); // SAS/C function, needs to be re-implemented for gcc, Convert an unsigned long integer to a decimal string
 double pow2(double x); // SAS/C function, needs to be re-implemented for gcc, Raise 2 to a power
+char * stpblk(const char *p); // SAS/C function, needs to be re-implemented for gcc, Skip blanks
 
 //#define O_RDONLY 0               /* ALEXANDER */
 //#define O_WRONLY 1
