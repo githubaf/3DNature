@@ -9,6 +9,16 @@
 #include <string.h>
 #include <math.h>
 
+
+#ifndef max
+   #define max(a,b) ((a)>(b)?(a):(b))  // SAS/C library reference 3357
+#endif
+#ifndef min
+   #define min(a,b) ((a)<=(b)?(a):(b))  // SAS/C library reference 347
+#endif
+
+
+
 /***
 *
 * The following symbols define the sizes of file names and node names.
@@ -507,7 +517,7 @@ past the end of the string.
 
 char * stpblk(const char *p)
 {
-    char *q=p;
+    const char *q=p;
     while (*q && isspace(*q))
     {
         q++;
@@ -793,6 +803,84 @@ int main(void)
             i++;
         }
         printf ("stpblk(): All tests passed.\n");
+        printf("----------------------------\n\n");
+
+    }
+
+    // -----------------------------------------------------------------------------------------
+    {
+        typedef struct
+        {
+                double Input1;
+                double Input2;
+                char *ExpectedOutput;
+        }InputOutputString;
+
+        InputOutputString InputOutputStrings[]=
+        {
+
+                {0,0, "M=0.000000"},
+                {-1,1, "M=1.000000"},
+                {1.123,2, "M=2.000000"},
+                {2,1.123, "M=2.000000"},
+                {0,0,NULL}    // ExpectedOutput==NULL marks end
+        };
+
+        char result[512];   // enough space3 for our test result-string
+        int i=0;
+        double m;
+
+        while(InputOutputStrings[i].ExpectedOutput!=NULL)
+        {
+            printf("Testing \"%f,%f\"...",InputOutputStrings[i].Input1,InputOutputStrings[i].Input2);
+            m=max(InputOutputStrings[i].Input1,InputOutputStrings[i].Input2);
+            sprintf(result,"M=%f",m);
+            //printf("\n");
+            printf(" Result: %s\n",result);
+            //printf(" Expect: %s\n",InputOutputStrings[i].ExpectedOutput);
+            assert(!strcmp(result,InputOutputStrings[i].ExpectedOutput));
+            i++;
+        }
+        printf ("max(): All tests passed.\n");
+        printf("----------------------------\n\n");
+
+    }
+
+    // -----------------------------------------------------------------------------------------
+    {
+        typedef struct
+        {
+                double Input1;
+                double Input2;
+                char *ExpectedOutput;
+        }InputOutputString;
+
+        InputOutputString InputOutputStrings[]=
+        {
+
+                {0,0, "M=0.000000"},
+                {-1,1, "M=-1.000000"},
+                {1.123,2, "M=1.123000"},
+                {2,1.123, "M=1.123000"},
+                {0,0,NULL}    // ExpectedOutput==NULL marks end
+        };
+
+        char result[512];   // enough space3 for our test result-string
+        int i=0;
+        double m;
+
+        while(InputOutputStrings[i].ExpectedOutput!=NULL)
+        {
+            printf("Testing \"%f,%f\"...",InputOutputStrings[i].Input1,InputOutputStrings[i].Input2);
+            m=min(InputOutputStrings[i].Input1,InputOutputStrings[i].Input2);
+            sprintf(result,"M=%f",m);
+            //printf("\n");
+            printf(" Result: %s\n",result);
+            //printf(" Expect: %s\n",InputOutputStrings[i].ExpectedOutput);
+            assert(!strcmp(result,InputOutputStrings[i].ExpectedOutput));
+            i++;
+        }
+        printf ("min(): All tests passed.\n");
         printf("----------------------------\n\n");
 
     }
