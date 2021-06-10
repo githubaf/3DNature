@@ -876,7 +876,7 @@ Walk = Root;
 
 for(Scan = 0; Scan < strlen(Word) + 1; Scan++)
 	{
-	if(Word[Scan] == NULL)
+	if(Word[Scan] == 0)
 		{ /* come to end of input word, should have recognised at this point */
 		if(Walk->Term)
 			{

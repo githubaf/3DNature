@@ -603,7 +603,7 @@ NewName:
       if ((Remove = User_Message_Def("Database Module: Remove Item",
 	"Delete object, elevation and relative elevation files from disk as\
  well as remove their names from the Database?",
-	"From Disk|Database Only|Cancel", "fdc", 1)) == NULL)
+	"From Disk|Database Only|Cancel", "fdc", 1)) == 0)
 	break;
       SetPointer(DE_Win->Win, WaitPointer, 16, 16, -6, 0);
       get(DE_Win->LS_List, MUIA_List_Active, &ActiveItem);

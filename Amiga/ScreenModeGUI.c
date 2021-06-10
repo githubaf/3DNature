@@ -35,7 +35,7 @@ while (DInfoID != INVALID_ID)
     if((Sizes.StdOScan.MaxX - Sizes.StdOScan.MinX + 1 >= 500) &&
      (Sizes.StdOScan.MaxY - Sizes.StdOScan.MinY + 1 >= 300) && (Sizes.MaxDepth >= 4))
      {
-     if(ThisMode = get_Memory(sizeof(struct WCSScreenMode), MEMF_CLEAR))
+     if((ThisMode = get_Memory(sizeof(struct WCSScreenMode), MEMF_CLEAR)))
       {
       ThisMode->ModeID = DInfoID;
       strcpy(ThisMode->ModeName, ModeName.Name);
@@ -213,7 +213,7 @@ Selected = This;
 
 for(Finished = NULL; !Finished;)
  {
- if(ReturnID = DoMethod(app, MUIM_Application_Input, &Signalz))
+ if((ReturnID = DoMethod(app, MUIM_Application_Input, &Signalz)))
   {
   switch(ReturnID)
    {

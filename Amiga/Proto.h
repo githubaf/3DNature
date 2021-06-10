@@ -12,7 +12,68 @@
 
 #include <SDI_compiler.h>
 
-typedef double Matx3x3[3][3];
+typedef double Matx3x3[3][3]; // moved to WCS.h
+
+#ifndef __SASC   // ALEXANDER: SAS/C meckert, wenn ich ie forward deklarationen mache???
+// forward declarations */
+struct ZBufferHeader;
+struct ILBMHeader;
+struct ColorComponents;
+struct elmapheaderV101;
+struct DEMConvertData;
+struct DEMInterpolateData;
+struct DEMExtractData;
+struct USGS_DEMHeader;
+struct USGS_DEMProfileHeader;
+struct DLGInfo;
+struct ScaleKeyInfo;
+struct ParHeader;
+union KeyFrameV1;
+struct ParHeaderV1;
+struct SettingsV1;
+union EnvironmentV1;
+struct ParHeaderV1;
+struct SettingsV1;
+union EnvironmentV1;
+struct PaletteV1;
+struct AnimationV1;
+struct FaceData;
+struct VertexIndex;
+struct faces;
+struct WaveData;
+struct RenderAnim;
+struct LightWaveInfo;
+struct LightWaveInfo;
+struct LightWaveMotion;
+struct coords;
+struct RenderAnim;
+struct Box;
+struct VelocityDistr;
+struct Gauss;
+struct Vertex;
+struct clipbounds;
+struct lineseg;
+struct poly4;
+struct UTMLatLonCoords;
+struct AlbLatLonCoords;
+union KeyFrame;
+struct KeyTable;
+struct WCSScreenData;
+struct WindowKeyStuff;
+struct TimeLineWindow;
+struct GUIKeyStuff;
+struct QCvalues;
+struct Wave;
+struct CloudWindow;
+struct NNGrid;
+struct PaletteItem;
+struct Foliage;
+struct Ecotype;
+struct FoliageGroup;
+struct MapData;
+struct MaxMin3;
+struct WaveWindow;
+#endif
 
 /* Bitmaps.c */
 extern short openbitmaps(UBYTE **bitmap, long zsize);

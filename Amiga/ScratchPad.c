@@ -33,11 +33,11 @@ if(Planes > 7)
 
 Width = ROUNDUP(Width,32);
 
-if(This=AllocMem(sizeof(struct RastPort), MEMF_CLEAR))
+if((This=AllocMem(sizeof(struct RastPort), MEMF_CLEAR)))
 	{
 	InitRastPort(This);
 	This->RP_User=(void *)Width; /* cope with it. */
-	if(This->BitMap = AllocMem(sizeof(struct BitMap), MEMF_CLEAR))
+	if((This->BitMap = AllocMem(sizeof(struct BitMap), MEMF_CLEAR)))
 		{
 		InitBitMap(This->BitMap, Planes, Width, Height);
 		for(loop = 0; loop < Planes; loop++)

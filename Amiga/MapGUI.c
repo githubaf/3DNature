@@ -1745,7 +1745,7 @@ HandleEvent:
       } /*  */
      case ID_MC_CONFORMALL:
       {
-      if ((error = (topoload == 0) ? loadtopo(): 0) == NULL)
+      if ((error = (topoload == 0) ? loadtopo(): 0) == 0)
        {
        short i;
        struct BusyWindow *BWMT;

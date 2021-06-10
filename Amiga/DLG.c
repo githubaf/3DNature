@@ -37,7 +37,7 @@ struct BusyWindow *BWDL;
  DLGfile[0] = 0;
  if (! getfilename(0, "DLG File", DLGpath, DLGfile)) goto Cleanup;
 
- if (DLGfile[0] == NULL)
+ if (DLGfile[0] == 0)
   {
   User_Message("Data Ops Module: Import DLG",
 	"No file(s) selected!",	"OK", "o");
@@ -320,7 +320,7 @@ struct BusyWindow *BWDL;
  DXFfile[0] = 0;
  if (! getfilename(0, "DXF File", DXFpath, DXFfile)) goto Cleanup;
 
- if (DXFfile[0] == NULL)
+ if (DXFfile[0] == 0)
   {
   User_Message("Data Ops Module: Import DXF",
 	"No file(s) selected!",	"OK", "o");
@@ -1895,7 +1895,7 @@ struct BusyWindow *BWDL = NULL;
  WDBfile[0] = 0;
  if (! getfilename(0, "WDB File", WDBpath, WDBfile)) goto Cleanup;
 
- if (WDBfile[0] == NULL)
+ if (WDBfile[0] == 0)
   {
   User_Message("Data Ops Module: Import WDB",
 	"No file(s) selected!",	"OK", "o");

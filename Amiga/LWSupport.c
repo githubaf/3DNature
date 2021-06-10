@@ -346,7 +346,7 @@ struct coords DP;
   while (DLItem)
    {
    strmfp(filename, DLItem->Name, DEMName);
-   if (readDEM(filename, &map) != NULL)
+   if (readDEM(filename, &map) != 0)
     {
     DLItem = DLItem->Next;
     } /* if file not found */
@@ -644,7 +644,7 @@ struct coords PP;
   if (LWInfo->MaxPolys < 2 || LWInfo->MaxVerts < 4)
    return;
  
- if (fScene = fopen(filename, "w"))
+ if ((fScene = fopen(filename, "w")))
   {
   fprintf(fScene, "%s\n%d\n\n", "LWSC", 1);
 
@@ -667,7 +667,7 @@ struct coords PP;
   fprintf(fScene, "%s %d\n", "EndBehavior", 1);
   fprintf(fScene, "%s %d\n\n", "ShadowOptions", 7);
 
-  if (fNullObj = fopen(filename, "wb"))
+  if ((fNullObj = fopen(filename, "wb")))
    {
    fwrite((char *)LWNullObj, 48, 1, fNullObj);
    fclose(fNullObj);

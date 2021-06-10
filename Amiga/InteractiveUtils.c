@@ -702,36 +702,38 @@ short CheckDEMStatus(void)
 short i, j, found, reload = 0;
 
 if (! AltRenderList)
+{
  return (0);
+}
 
- for (i=0; i<NoOfObjects; i++)
+for (i=0; i<NoOfObjects; i++)
+ {
+ if (! strcmp(DBase[i].Special, "TOP") || ! strcmp(DBase[i].Special, "SFC"))
   {
-  if (! strcmp(DBase[i].Special, "TOP") || ! strcmp(DBase[i].Special, "SFC"))
+  found = 0;
+  for (j=0; j<NoOfElMaps; j++)
    {
-   found = 0;
-   for (j=0; j<NoOfElMaps; j++)
+   if (i == *(AltRenderList + j * 2))
     {
-    if (i == *(AltRenderList + j * 2))
+    found = 1;
+    if (! (DBase[i].Flags & 2))
      {
-     found = 1;
-     if (! (DBase[i].Flags & 2))
-      {
-      reload = 2;
-      break;
-      } /* if disabled */
-     } /* if match found */
-    } /* for j=0... */
-   if (! found)
+     reload = 2;
+     break;
+     } /* if disabled */
+    } /* if match found */
+   } /* for j=0... */
+  if (! found)
+   {
+   if (DBase[i].Flags & 2)
     {
-    if (DBase[i].Flags & 2)
-     {
-     reload = 1;
-     } /* if enabled */
-    } /* else not already loaded */
-   if (reload)
-    break;
-   } /* if DEM */
-  } /* for i=0... */
+    reload = 1;
+    } /* if enabled */
+   } /* else not already loaded */
+  if (reload)
+   break;
+  } /* if DEM */
+ } /* for i=0... */
 
  return (reload);
 

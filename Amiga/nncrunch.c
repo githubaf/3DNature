@@ -72,7 +72,7 @@ struct datum *DT;
     if (-DT->values[0] > minx AND -DT->values[0] < maxx AND 
             DT->values[1] > miny AND DT->values[1] < maxy)
      {
-     if (NNG->curdat->nextdat = Datum_New())
+     if ((NNG->curdat->nextdat = Datum_New()))
       {
       NNG->curdat = NNG->curdat->nextdat;
       NNG->datcnt++;

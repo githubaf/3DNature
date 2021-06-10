@@ -737,7 +737,7 @@ short LoadForestModels(void)
 
  for (i=0; i<ECOPARAMS; i++)
   {
-  if (EcoPar.en[i].Model[0] == NULL)
+  if (EcoPar.en[i].Model[0] == 0)
    continue;
   if ((PAR_TYPE_ECO(i) & 0x00ff) >= 50)
    continue;
@@ -834,7 +834,7 @@ short LoadForestModels(void)
 
   } /* for i=0... */
 
-EndLoad:
+//EndLoad:
 
  switch (error)
   {

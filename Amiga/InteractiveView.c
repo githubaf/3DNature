@@ -250,7 +250,7 @@ short initinterview(short boundsdiscrim)
     {
     strmfp(filename, DLItem->Name, DBase[OBN].Name);
     strcat(filename, ".elev");
-    if (readDEM(filename, &TempHdr) != NULL)
+    if (readDEM(filename, &TempHdr) != 0)
      {
      DLItem = DLItem->Next;
      } /* if file not found */
@@ -1066,7 +1066,7 @@ void smallwindow(short diagnostics)
    {
    strmfp (filename, DLItem->Name, DBase[MapOBN].Name);
    strcat(filename, ".elev");
-   if (readDEM (filename, &TempHdr) != NULL)
+   if (readDEM (filename, &TempHdr) != 0)
     {
     DLItem = DLItem->Next;
     } /* if not opened */
@@ -1194,7 +1194,7 @@ Continue without Polygon Smoothing?", "OK|Cancel", "oc"))
     {
     strmfp(filename, DLItem->Name, DBase[MapOBN].Name);
     strcat(filename, ".relel");
-    if (readDEM (filename, &TempHdr) != NULL)
+    if (readDEM (filename, &TempHdr) != 0)
      {
      DLItem = DLItem->Next;
      } /* if file not found */
@@ -1210,7 +1210,7 @@ Continue without Polygon Smoothing?", "OK|Cancel", "oc"))
     if (makerelelfile(elevpath, elevfile))
      {
      strmfp(filename, elevpath, elevfile);	/* elevfile suffix changed to .relel */
-     if (readDEM(filename, &TempHdr) != NULL)
+     if (readDEM(filename, &TempHdr) != 0)
       {
       Log(WNG_OPEN_FAIL, elevfile);
       } /* if still no relel file */

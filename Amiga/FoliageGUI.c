@@ -721,14 +721,14 @@ short success = 0;
  if (getfilenameptrn(0, "Select an Ecotype", Path, Name, Ptrn))
   {
   strmfp(filename, Path, Name);
-  if (ffile = fopen(filename, "rb"))
+  if ((ffile = fopen(filename, "rb")))
    {
    if (EcoShift[FE_Win->FolEco].Ecotype)
     Ecotype_Del(EcoShift[FE_Win->FolEco].Ecotype);
    GUIList_Clear(FE_Win->GroupList, FE_Win->GroupListSize, FE_Win->LS_GroupList);
    GUIList_Clear(FE_Win->ImageList, FE_Win->ImageListSize, FE_Win->LS_ImageList);
 
-   if (EcoShift[FE_Win->FolEco].Ecotype = Ecotype_Load(ffile, 0))
+   if ((EcoShift[FE_Win->FolEco].Ecotype = Ecotype_Load(ffile, 0)))
     {
     EcotypeDefaultColors(EcoShift[FE_Win->FolEco].Ecotype, PAR_COLR_ECO(FE_Win->FolEco));
     BuildFoliageGroupList(EcoShift[FE_Win->FolEco].Ecotype);
@@ -762,7 +762,7 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
  if (getfilenameptrn(0, "Select a Foliage Group", Path, Name, Ptrn))
   {
   strmfp(filename, Path, Name);
-  if (ffile = fopen(filename, "rb"))
+  if ((ffile = fopen(filename, "rb")))
    {
    if (! EcoShift[FE_Win->FolEco].Ecotype)
     {
@@ -785,7 +785,7 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
     NewGroup = NewGroup->Next;
     } /* while */
 
-   if (*NewGroupAddr = FoliageGroup_Load(ffile, 0))
+   if ((*NewGroupAddr = FoliageGroup_Load(ffile, 0)))
     {
     NewGroup = *NewGroupAddr;
     FoliageGroupDefaultColors(NewGroup, PAR_COLR_ECO(FE_Win->FolEco));
@@ -848,7 +848,7 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
   NewGroup = NewGroup->Next;
   } /* while */
 
- if (*NewGroupAddr = FoliageGroup_New())
+ if ((*NewGroupAddr = FoliageGroup_New()))
   {
   NewGroup = *NewGroupAddr;
   GUIList_Clear(FE_Win->ImageList, FE_Win->ImageListSize, FE_Win->LS_ImageList);
@@ -895,7 +895,7 @@ short success = 0;
    if (strcmp(&Name[strlen(Name) - 4], ".fgp"))
     strcat(Name, ".fgp");
    strmfp(filename, Path, Name);
-   if (ffile = fopen(filename, "wb"))
+   if ((ffile = fopen(filename, "wb")))
     {
     if (FoliageGroup_Save(FE_Win->CurGrp, ffile))
      success = 1;
@@ -940,7 +940,7 @@ UBYTE *Bitmap[3];
     NewFol = NewFol->Next;
     } /* while */
 
-   if (*NewFolAddr = Foliage_New())
+   if ((*NewFolAddr = Foliage_New()))
     {
     NewFol = *NewFolAddr;
     Foliage_SetDefaults(NewFol, FE_Win->CurGrp);
@@ -1413,7 +1413,7 @@ short success = 0;
    if (strcmp(&Name[strlen(Name) - 4], ".etp"))
     strcat(Name, ".etp");
    strmfp(filename, Path, Name);
-   if (ffile = fopen(filename, "wb"))
+   if ((ffile = fopen(filename, "wb")))
     {
     if (Ecotype_Save(EcoShift[FE_Win->FolEco].Ecotype, ffile))
      success = 1;

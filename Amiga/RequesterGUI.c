@@ -33,7 +33,7 @@ get(ModControlWin, MUIA_Window_Window, &MCPWin);
   if ((AslRequestTags(frbase,
       ASL_Hail, (ULONG)"DataBase File Saver",
       ASL_FuncFlags, FILF_PATGAD | FILF_SAVE | FILF_NEWIDCMP,
-      TAG_DONE)) == NULL) {
+      TAG_DONE)) == 0) {
    FreeAslRequest(frbase);
    return 0;
   }
@@ -42,7 +42,7 @@ get(ModControlWin, MUIA_Window_Window, &MCPWin);
   if ((AslRequestTags(frbase,
       ASL_Hail,(ULONG)"DataBase File Loader",
       ASL_FuncFlags,FILF_PATGAD | FILF_NEWIDCMP,
-      TAG_DONE))==NULL) {
+      TAG_DONE))==0) {
    FreeAslRequest(frbase);
    return 0;
   }
@@ -85,7 +85,7 @@ get(ModControlWin, MUIA_Window_Window, &MCPWin);
       ASL_Hail, (ULONG)"Parameter File Saver",
       ASL_FuncFlags, FILF_PATGAD | FILF_SAVE | FILF_NEWIDCMP,
       ASL_Pattern, (ULONG)"#?.par",
-      TAG_DONE)) == NULL) {
+      TAG_DONE)) == 0) {
    FreeAslRequest(frparam);
    return 0;
   }
@@ -95,7 +95,7 @@ get(ModControlWin, MUIA_Window_Window, &MCPWin);
       ASL_Hail, (ULONG)"Parameter File Loader",
       ASL_FuncFlags, FILF_PATGAD | FILF_NEWIDCMP,
       ASL_Pattern, (ULONG)"#?.par",
-      TAG_DONE)) == NULL) {
+      TAG_DONE)) == 0) {
    FreeAslRequest(frparam);
    return 0;
   }
@@ -137,7 +137,7 @@ short getfilename(long mode, char *requestname, char *pathname,
   if ((AslRequestTags(frfile,
       ASL_Hail, (ULONG)requestname,
       ASL_FuncFlags, FILF_PATGAD | FILF_SAVE | FILF_NEWIDCMP,
-      TAG_DONE)) == NULL) {
+      TAG_DONE)) == 0) {
    FreeAslRequest(frfile);
    return 0;
   }
@@ -146,7 +146,7 @@ short getfilename(long mode, char *requestname, char *pathname,
   if ((AslRequestTags(frfile,
       ASL_Hail, (ULONG)requestname,
       ASL_FuncFlags, FILF_PATGAD | FILF_NEWIDCMP,
-      TAG_DONE)) == NULL) {
+      TAG_DONE)) == 0) {
    FreeAslRequest(frfile);
    return 0;
   }
@@ -189,7 +189,7 @@ short getfilenameptrn(long mode, char *requestname, char *pathname,
   if ((AslRequestTags(frfile,
       ASL_Hail, (ULONG)requestname,
       ASL_FuncFlags, FILF_PATGAD | FILF_SAVE | FILF_NEWIDCMP,
-      TAG_DONE)) == NULL) {
+      TAG_DONE)) == 0) {
    FreeAslRequest(frfile);
    return 0;
   }
@@ -198,7 +198,7 @@ short getfilenameptrn(long mode, char *requestname, char *pathname,
   if ((AslRequestTags(frfile,
       ASL_Hail, (ULONG)requestname,
       ASL_FuncFlags, FILF_PATGAD | FILF_NEWIDCMP,
-      TAG_DONE)) == NULL) {
+      TAG_DONE)) == 0) {
    FreeAslRequest(frfile);
    return 0;
   }
@@ -244,7 +244,7 @@ struct FileRequester *getmultifilename(char *requestname, char *pathname,
      ASL_Hail, (ULONG)requestname,
      ASL_FuncFlags, FILF_PATGAD | FILF_MULTISELECT | FILF_NEWIDCMP,
      ASL_Pattern, (ULONG)pattern,
-     TAG_DONE)) == NULL) {
+     TAG_DONE)) == 0) {
   FreeAslRequest(frfile);
   return (NULL);
  }
@@ -290,7 +290,7 @@ long open;
 
 Set_Param_Menu(10);
 
-if (This = (struct BusyWindow *)get_Memory(sizeof(struct BusyWindow), MEMF_CLEAR))
+if ((This = (struct BusyWindow *)get_Memory(sizeof(struct BusyWindow), MEMF_CLEAR)))
 	{
 	if(TimeEst)
 		{

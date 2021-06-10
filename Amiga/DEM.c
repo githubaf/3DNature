@@ -163,7 +163,7 @@ short makerelelfile(char *elevpath, char *elevfile)
   return (0);
   } /* if wrong file type */
  strmfp(filename, elevpath, elevfile);
- if ((error = readDEM(filename, &map)) != NULL)
+ if ((error = readDEM(filename, &map)) != 0)
   {
   Log(ERR_READ_FAIL, elevfile);
   return (0);
@@ -294,17 +294,18 @@ void padarray(short *arrayptr, struct elmapheaderV101 *map)
 short enterbox(void)
 {
  short stdweight11[11][11] = {
-		0,0,1,1,1, 2,1,1,1,0,0,
-    		0,1,1,2,3, 3,3,2,1,1,0,
-    		1,1,2,3,4, 4,4,3,2,1,1,
-    		1,2,3,4,5, 6,5,4,3,2,1,
-    		1,3,4,5,7, 8,7,5,4,3,1,
-    		2,3,4,6,8,10,8,6,4,3,2,
-    		1,3,4,5,7, 8,7,5,4,3,1,
-    		1,2,3,4,5, 6,5,4,3,2,1,
-    		1,1,2,3,4, 4,4,3,2,1,1,
-    		0,1,1,2,3, 3,3,2,1,1,0,
-		0,0,1,1,1, 2,1,1,1,0,0 };
+             {0,0,1,1,1, 2,1,1,1,0,0},
+             {0,1,1,2,3, 3,3,2,1,1,0},
+             {1,1,2,3,4, 4,4,3,2,1,1},
+             {1,2,3,4,5, 6,5,4,3,2,1},
+             {1,3,4,5,7, 8,7,5,4,3,1},
+             {2,3,4,6,8,10,8,6,4,3,2},
+             {1,3,4,5,7, 8,7,5,4,3,1},
+             {1,2,3,4,5, 6,5,4,3,2,1},
+             {1,1,2,3,4, 4,4,3,2,1,1},
+             {0,1,1,2,3, 3,3,2,1,1,0},
+             {0,0,1,1,1, 2,1,1,1,0,0}
+             };
  short boxsize = 11, i, j;
  double sum = 0.0;
 
@@ -457,7 +458,7 @@ short InterpDEM(struct DEMInterpolateData *DEMInterp)
   {
   strcpy(DEMInterp->elevfile, DEMInterp->FrFile->rf_ArgList[k].wa_Name);
 
-  if (DEMInterp->elevfile[0] == NULL)
+  if (DEMInterp->elevfile[0] == 0)
    {
    User_Message("Data Ops: DEM Interpolate",
 	"No file(s) selected!",	"OK", "o");
@@ -509,7 +510,7 @@ RelelRepeat:
    } /* if elev file */
 
   strmfp(filename, DEMInterp->elevpath, DEMInterp->elevfile);
-  if ((error = readDEM(filename, &map)) != NULL)
+  if ((error = readDEM(filename, &map)) != 0)
    {
    if (! User_Message("Data Ops: Interpolate DEM",
 	"Error reading elevation file!\nContinue?",
@@ -712,7 +713,7 @@ RelelRepeat:
    if (error) break;
    } /* for i=0... */
 
-EndMap:
+//EndMap:
   if (map.map) free_Memory(map.map, map.size);
   map.map = NULL;
   if (arrayptr) free_Memory(arrayptr, arraysize);
@@ -1673,7 +1674,7 @@ FILE *DEMFile;
 
  strcpy(DEMExtract->elevfile, DEMExtract->FrFile->rf_ArgList[k].wa_Name);
 
- if (DEMExtract->elevfile[0] == NULL)
+ if (DEMExtract->elevfile[0] == 0)
   {
   User_Message(MsgHdr,
 	"No file(s) selected!",	"OK", "o");

@@ -26,6 +26,8 @@
 #include "Proto.h"
 #include "Defines.h"
 
+#include <clib/alib_protos.h>
+
 extern struct MWS_Entry SentLookUp[];
 
 #define VE_TERM_FLAG			(1 << 31)
@@ -176,7 +178,7 @@ if ((This) && (RString))
 	if (rmsg = CreateRexxMsg(This->ARexxPort, This->Extension, This->PortName))
 		{
 		rmsg->rm_Action = RXCOMM | (StringFile ? (1L << RXFB_STRING):0);
-		if(rmsg->rm_Args[0] = CreateArgstring(RString, (LONG)strlen(RString)))
+		if((rmsg->rm_Args[0] = CreateArgstring(RString, (LONG)strlen(RString))))
 			{
 			/* We need to find the RexxPort from within a Forbid() */
 			Forbid();
@@ -223,7 +225,7 @@ if (This)
 	while (This->Outstanding)
 		{
 		WaitPort(This->ARexxPort);
-		while(rmsg=Rexx_GetMsg(This))
+		while((rmsg=Rexx_GetMsg(This)))
 			{
 			if(rmsg != REXX_RETURN_ERROR)
 				{
@@ -237,7 +239,7 @@ if (This)
 	/* Clean up the port and delete it... */
 	if (This->ARexxPort)
 		{
-		while (rmsg=Rexx_GetMsg(This))
+		while ((rmsg=Rexx_GetMsg(This)))
 			{
 			/* Any messages that still are coming in are "dead". We just set
 			** the LASTERROR and reply an error of 100... */
@@ -283,7 +285,7 @@ register	short loop;
 /* register	short count; */
 register	char *tmp;
 
-if(This = AllocMem(sizeof(struct ARexxContext), MEMF_PUBLIC|MEMF_CLEAR))
+if((This = AllocMem(sizeof(struct ARexxContext), MEMF_PUBLIC|MEMF_CLEAR)))
 	{
 	if(This->RexxSysBase = OpenLibrary("rexxsyslib.library", NULL))
 		{
@@ -676,7 +678,7 @@ int Skim, Out, Trimming;
 Trimming = 1;
 for(Out = Skim = 0;;Skim++)
 	{
-	if((Out == DestLen) || (Source[Skim] == NULL))
+	if((Out == DestLen) || (Source[Skim] == 0))
 		{
 		Dest[Out] = NULL;
 		return;

@@ -1644,7 +1644,7 @@ short MapCloudObject(struct elmapheaderV101 *map, struct CloudData *CD,
 
  if (BWCL) BusyWin_Del(BWCL);
 
-EndCloud:
+//EndCloud:
 /*
  if (CldMap)
   free_Memory(CldMap, CD->Map.size / 2);
@@ -2506,7 +2506,7 @@ RepeatLoad:
             {
             strmfp(filename, DLItem->Name, DBase[OBN].Name);
             strcat(filename, ".elev");
-            if (readDEM(filename, &map) != NULL)
+            if (readDEM(filename, &map) != 0)
              {
              DLItem = DLItem->Next;
              } /* if open/read fails */

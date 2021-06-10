@@ -476,7 +476,7 @@ short loadtopo(void)
    {
    strmfp(filename, DLItem->Name, DBase[i].Name);
    strcat(filename, ".elev");
-   if (readDEM(filename, &mapelmap[topoct]) != NULL)
+   if (readDEM(filename, &mapelmap[topoct]) != 0)
     {
     DLItem = DLItem->Next;
     } /* if open/read fails */

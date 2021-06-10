@@ -1250,7 +1250,7 @@ short DBaseObject_Add(void)
   {
   strcpy(newfile, FrFile->rf_ArgList[i].wa_Name);
   
-  if (newfile[0] == NULL)
+  if (newfile[0] == 0)
    {
    User_Message("Database: Add Object",
 	"No file(s) selected!",	"OK", "o");

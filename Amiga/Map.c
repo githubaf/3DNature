@@ -832,7 +832,7 @@ FILE *felev;
   strcat(filename, ".elev");
   if ((felev = fopen(filename, "r")) == NULL)
    {
-   DLItem = DLItem = DLItem->Next;
+   DLItem = DLItem->Next;
    } /* if open fail */
   else
    {
@@ -854,7 +854,7 @@ FILE *felev;
  if (makerelelfile(elevpath, elevfile))
   {
   strmfp(filename, elevpath, elevfile);	/* elevfile suffix changed to .relel */
-  if (readDEM(filename, This) == NULL)
+  if (readDEM(filename, This) == 0)
    {
    return (1);
    } /* if still no relel file */
@@ -2153,7 +2153,7 @@ if(This)
 		return(NULL);
 		} /* else */
 	} /* if */
-
+    return NULL;
 } /* TempRas_New() */
 
 /************************************************************************/

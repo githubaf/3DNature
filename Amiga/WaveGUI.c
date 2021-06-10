@@ -460,9 +460,9 @@ APTR Obj;
 
 	      Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
 	        Child, WV_Win->GKS.FramePages = VGroup,
-                  Child, WV_Win->GKS.BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines »"), 
+                  Child, WV_Win->GKS.BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines ï¿½"), 
 	          End, /* VGroup */
-                Child, WV_Win->GKS.BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys »"), 
+                Child, WV_Win->GKS.BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys ï¿½"), 
 		End, /* HGroup */
 	      End, /* VGroup */
 
@@ -748,7 +748,7 @@ struct WaveWindow *WV_Win;
          GUIDisableKeyButtons(&WV_Win->GKS, WV_Win->TL, &WV_Win->WKS);
 	 }
         GUIWave_SetGads(WV_Win, WV_Win->CurWave);
-        if (WinNum == 0 && strcmp(wavepath, WV_Win->WaveDir) || strcmp(wavefile, WV_Win->WaveFile))
+        if ((WinNum == 0 && strcmp(wavepath, WV_Win->WaveDir)) || strcmp(wavefile, WV_Win->WaveFile))
          {
          if (User_Message_Def("Wave Editor",
 	"Make this file the Project Wave File?", "Yes|No", "yn", 1))
@@ -776,7 +776,7 @@ struct WaveWindow *WV_Win;
        strmfp(filename, WV_Win->WaveDir, WV_Win->WaveFile);
        if (Wave_Save(filename, WV_Win->WD))
         {
-        if (WinNum == 0 && strcmp(wavepath, WV_Win->WaveDir) || strcmp(wavefile, WV_Win->WaveFile))
+        if ((WinNum == 0 && strcmp(wavepath, WV_Win->WaveDir)) || strcmp(wavefile, WV_Win->WaveFile))
          {
          if (User_Message_Def("Wave Editor",
 	"Make this file the Project Wave File?", "Yes|No", "yn", 1))
@@ -1063,7 +1063,7 @@ union KeyFrame *KFPtr;
  if (! filename)
   return (0);
 
- if (fWave = fopen(filename, "r"))
+ if ((fWave = fopen(filename, "r")))
   {
   fgets(Title, 24, fWave);
   Title[7] = '\0';
@@ -1223,7 +1223,7 @@ union KeyFrame *KFPtr;
  if (! filename || ! WD)
   return (0);
 
- if (fWave = fopen(filename, "w"))
+ if ((fWave = fopen(filename, "w")))
   {
   fprintf(fWave, "WCSWave\n");
 
@@ -1316,7 +1316,7 @@ short success = 0;
    NewWave = NewWave->Next;
    } /* while */
 
-  if (*NewWaveAddr = Wave_New())
+  if ((*NewWaveAddr = Wave_New()))
    {
    NewWave = *NewWaveAddr;
    Wave_SetDefaults(NewWave, CurWave);

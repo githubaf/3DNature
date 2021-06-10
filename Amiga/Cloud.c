@@ -176,6 +176,11 @@ long CloudData_GetLong(struct CloudData *CD, ULONG Item)
    return (CD->Cols);
    break;
    }
+  default:
+   {
+      printf("Invalid Item %lu in %s %u()",Item,__LINE__);
+      return 0;
+   }
   } /* switch */
 
 } /* CloudData_GetLong() */
@@ -248,6 +253,12 @@ short CloudData_GetShort(struct CloudData *CD, ULONG Item)
    return (CD->CloudType);
    break;
    }
+  default:
+   {
+      printf("Invalid Item %lu in %s %u()",Item,__LINE__);
+      return 0;
+   }
+
   } /*switch */
 
 } /* CloudData_GetShort() */
@@ -390,6 +401,12 @@ double CloudData_GetDouble(struct CloudData *CD, ULONG Item)
    return (CD->LonOff);
    break;
    }
+  default:
+   {
+      printf("Invalid Item %lu in %s %u()",Item,__LINE__);
+      return 0;
+   }
+
   } /* switch */
 
 } /* CloudData_GetDouble() */

@@ -470,7 +470,7 @@ Continue without Waves?", "Continue|Cancel", "oc"))
  if (settings.deformationmap)
   {
   strmfp(filename, deformpath, deformfile);
-  if (readDEM(filename, &DeformMap) != NULL)
+  if (readDEM(filename, &DeformMap) != 0)
    {
    if (! User_Message_Def("Render Module",
 	"Error loading Strata Deformation Map!\n\
@@ -1110,7 +1110,7 @@ RepeatLoad:
     {
     strmfp(filename, DLItem->Name, DBase[OBN].Name);
     strcat(filename, ".elev");
-    if (readDEM(filename, &map) != NULL)
+    if (readDEM(filename, &map) != 0)
      {
      DLItem = DLItem->Next;
      } /* if open/read fails */
@@ -1240,7 +1240,7 @@ Continue without Fractal Maps or retry?", "Continue|Retry|Cancel", "orc")) == 1)
      } /* if settings.colrmap */
     else cmap = 0;
 
-EndCMap:
+//EndCMap:
 
     OpenOK = 0;
 
@@ -1249,7 +1249,7 @@ EndCMap:
      {
      strmfp(filename, DLItem->Name, DBase[OBN].Name);
      strcat(filename, ".relel");
-     if (readDEM(filename, &relelev) != NULL)
+     if (readDEM(filename, &relelev) != 0)
       {
       DLItem = DLItem->Next;
       } /* if relel file open/read failed */
@@ -1264,7 +1264,7 @@ EndCMap:
      if (makerelelfile(elevpath, elevfile))
       {
       strmfp(filename, elevpath, elevfile);	/* elevfile suffix changed to .relel */
-      if (readDEM(filename, &relelev) != NULL)
+      if (readDEM(filename, &relelev) != 0)
        {
        Log(WNG_OPEN_FAIL, elevfile);
        } /* if still no relel file */

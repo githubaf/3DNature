@@ -56,11 +56,11 @@ float fDx, fDy, fDq;
    goto EndDraw;
    } /* if drawing aborted */
   Itchy = NULL;
-  if(Pixie = vgl_makepixmap(InterWind0->Width, InterWind0->Height))
+  if((Pixie = vgl_makepixmap(InterWind0->Width, InterWind0->Height)))
     {
     vgl_dumb_setcur(Pixie, 3, 1);
     vgl_dumb_clear(Pixie);
-    if(Itchy = ScratchRast_New(InterWind0->Width, InterWind0->Height, 4))
+    if((Itchy = ScratchRast_New(InterWind0->Width, InterWind0->Height, 4)))
     	{
      	drawinterview();
 		ScratchRast_CornerTurn(Pixie, Itchy);
@@ -360,7 +360,7 @@ ReCompute:
   DifLat += 360.0;
 
  if (abs(DifLat - 90.0) < .0005)
-  DifLat += .001;		/* don't take the tan of ±90° */
+  DifLat += .001;		/* don't take the tan of ï¿½90ï¿½ */
  if (abs(DifLat) > 90.0)
   SignA = -1.0;
  DifLat = (DifAlt * tan(DifLat * PiOver180));
@@ -374,7 +374,7 @@ ReCompute:
   DifLon += 360.0;
 
  if (abs(DifLon - 90.0) < .0005 )
-  DifLon += .001;		/* don't take the tan of ±90° */
+  DifLon += .001;		/* don't take the tan of ï¿½90ï¿½ */
  if (abs(DifLon) > 90.0)
   SignB = -1.0;
  DifLon = (DifAlt * tan(DifLon * PiOver180));
@@ -1593,11 +1593,11 @@ void Play_Motion(struct RenderAnim *RA)
      break;
      } /* if drawing aborted */
     Itchy = NULL;
-    if(Pixie = vgl_makepixmap(InterWind0->Width, InterWind0->Height))
+    if((Pixie = vgl_makepixmap(InterWind0->Width, InterWind0->Height)))
       {
       vgl_dumb_setcur(Pixie, 3, 1);
       vgl_dumb_clear(Pixie);
-      if(Itchy = ScratchRast_New(InterWind0->Width, InterWind0->Height, 4))
+      if((Itchy = ScratchRast_New(InterWind0->Width, InterWind0->Height, 4)))
     	{
      	error = drawinterview();
 	ScratchRast_CornerTurn(Pixie, Itchy);

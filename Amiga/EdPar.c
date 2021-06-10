@@ -2452,7 +2452,7 @@ short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
   TempHdrV1.KeyFrames = 0;
   } /* else old version, set key frames to zero */
 
-EndLoad:
+//EndLoad:
  fclose(fparam);
  switch (loadcode)
   {
@@ -3071,7 +3071,7 @@ SaveRepeat:
      goto SaveError;
     if ((fwrite((char *)&k, sizeof (short), 1, fparam)) != 1)
      goto SaveError;
-    if ((Ecotype_Save(EcoShift[k].Ecotype, fparam)) == NULL)
+    if ((Ecotype_Save(EcoShift[k].Ecotype, fparam)) == 0)
      goto SaveError;
     } /* if ecotype data exists */
    } /* for k=0... */

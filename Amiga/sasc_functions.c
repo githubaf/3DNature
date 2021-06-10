@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <unistd.h>
+#include <ctype.h>
 
 
 #ifndef max
@@ -515,7 +517,7 @@ terminator byte is not considered a blank, and so the function will not go
 past the end of the string.
 */
 
-char * stpblk(const char *p)
+const char * stpblk(const char *p)
 {
     const char *q=p;
     while (*q && isspace(*q))
@@ -523,6 +525,38 @@ char * stpblk(const char *p)
         q++;
     }
     return q;
+}
+
+#endif
+
+#ifdef __GNUC__
+/*   SAS/C-only function
+ C Library Reference 565
+
+tell Get the level 1 file position
+
+Synopsis #include <fcntl.h>
+         apos = tell(fh) ;
+         long apos; // absolute file position
+         int fh; // file handle
+
+Description The tell function is equivalent to:
+            apos = lseek( fh, OL, 1 ) ;
+
+            The tell function returns a file position that can be used in a
+            subsequent call to the lseek function to restore the file to the position at
+            the time of the tell call.
+
+
+
+Portability UNIX
+
+Returns This function returns -1L if an error occurs, in which case the external
+        integers err no and _OSERR contain additional error information.
+ */
+long tell(int fh)
+{
+    return lseek(fh,0L,1);;
 }
 
 #endif
@@ -789,7 +823,7 @@ int main(void)
 
         char result[512];   // enough space3 for our test result-string
         int i=0;
-        char *q;
+        const char *q;
 
         while(InputOutputStrings[i].ExpectedOutput!=NULL)
         {
@@ -883,6 +917,11 @@ int main(void)
         printf ("min(): All tests passed.\n");
         printf("----------------------------\n\n");
 
+        // -----------------------------------------------------------------------------------------
+        {
+            printf("Still need a test for tell()\n");
+            printf("----------------------------\n\n");
+        }
     }
 
     return 0;
