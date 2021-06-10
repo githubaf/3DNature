@@ -4,7 +4,7 @@
 ** Original code and subsequent clever modifications by Gary R. Huber.
 */
 
-PrintIt = 1;
+//PrintIt = 1;
 
 #include "WCS.h"
 

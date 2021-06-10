@@ -259,6 +259,11 @@ float Rootstock_GetFloatValue(struct Rootstock *This, ULONG Flags)
 			return (This->Density);
 			break;
 			}
+		default:
+		    {
+		    printf("Invalid Flags %lu in %d %u\n",__FILE__,__LINE__);
+		    return 0;
+		    }
 		} /* switch */
 
 	} /* Rootstock_GetFloatValue() */
@@ -285,6 +290,13 @@ short Rootstock_GetShortValue(struct Rootstock *This, ULONG Flags)
 			return (This->MaxImgHeight);
 			break;
 			}
+        default:
+            {
+            printf("Invalid Flags %lu in %d %u\n",__FILE__,__LINE__);
+            return 0;
+            }
+
+
 		} /* switch */
 
 	} /* Rootstock_GetValue() */
@@ -353,6 +365,12 @@ short Foliage_GetImgSize(struct Foliage *This, ULONG Flags)
 			return (This->ColorImage);
 			break;
 			}
+        default:
+            {
+            printf("Invalid Flags %lu in %d %u\n",__FILE__,__LINE__);
+            return 0;
+            }
+
 		} /* switch */
 
 	} /* Foliage_SetImgSize() */

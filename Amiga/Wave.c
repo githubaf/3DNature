@@ -110,6 +110,11 @@ double Wave_Get(struct Wave *WV, ULONG Item)
    return (WV->Pt.Lon);
    break;
    }
+  default:
+  {
+      printf("Invalid Item %lu in %s %d",__FILE__,__LINE__);
+      return 0;
+  }
   } /* switch */
 
 } /* Wave_Get() */
@@ -232,6 +237,12 @@ double WaveData_Get(struct WaveData *WD, ULONG Item)
    return (WD->LonOff);
    break;
    }
+  default:
+  {
+      printf("Invalid Item %lu in %s %d",__FILE__,__LINE__);
+      return 0;
+  }
+
   } /* switch */
 
 } /* WaveData_Get() */

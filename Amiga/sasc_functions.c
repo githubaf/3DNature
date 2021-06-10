@@ -562,7 +562,7 @@ long tell(int fh)
 #endif
 // ------------- Test -------------------
 // compile this file alone and define TESTING_SASC_FUNCTIONS on compiler call to run the tests
-#define TESTING_SASC_FUNCTIONS
+//#define TESTING_SASC_FUNCTIONS
 #ifdef TESTING_SASC_FUNCTIONS
 
 #include <assert.h>
