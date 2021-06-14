@@ -72,3 +72,6 @@ SAS/C specific functions in sasc_functions.c including test. Test should pass on
 sc sasc_functions.c LINK IGNORE=51 DEFINE=TESTING_SASC_FUNCTIONS
 gcc sasc_functions.c -DTESTING_SASC_FUNCTIONS -lm -Wall -pedantic && ./a.out
 
+16.Juni 2021
+------------
+WCS kann jetzt komplett mit Bebbos's gcc gebaut werden. Weiterhin compilierbar mit SAS/C

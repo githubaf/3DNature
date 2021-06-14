@@ -16,6 +16,15 @@
 #define MIN_LIBRARY_REV 37
 #define DITHER_TABLE_SIZE 4096
 
+/*
+ * AF: We use only Mui 3.8 stuff but bebbo's gcc 6 has MUI-5 SDK. So it sets MUIMASTER_VMIN=20 while 19 would be enough.
+ * A new define in the Makefile now overwrites the actual minimum required version from the SDK by 19.
+ */
+#ifdef FORCE_MUIMASTER_VMIN       /* use -DFORCE_MUIMASTER_VMIN=19 on the gcc commandline or in Makefile */
+    #undef MUIMASTER_VMIN
+    #define MUIMASTER_VMIN FORCE_MUIMASTER_VMIN
+#endif
+
 int main(void)
 {
 short ResetScrn = 0;
@@ -183,7 +192,7 @@ if (IntuitionBase = (struct IntuitionBase *)
     }
    else
     {
-    printf("FATAL ERROR: GadTools.Library revision %d required. Aborting.\n", MUIMASTER_VMIN);
+    printf("FATAL ERROR: GadTools.Library revision %d required. Aborting.\n", MIN_LIBRARY_REV);  // AF: was incorrectly MUIMASTER_VMIN
     } /* else */
    CloseLibrary(AslBase);
    AslBase = NULL;
