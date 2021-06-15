@@ -824,7 +824,7 @@ long LatLonElevScan(struct IntuiMessage *Event, char *MsgSupplement,
      
    TempElev = ((float)mapelmap[i].map[col + (row * mapelmap[i].columns)])
 	* mapelmap[i].elscale / ELSCALE_METERS;
-   sprintf(&ReadOut[strlen(ReadOut)], ", ELV: %d", TempElev);
+   sprintf(&ReadOut[strlen(ReadOut)], ", ELV: %ld", TempElev);
      
    } /* if */
     

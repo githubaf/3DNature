@@ -78,7 +78,7 @@ void Make_WV_Window(short WinNum, char *NameStr)
  WV_Win->WKS.Precision = WCS_KFPRECISION_FLOAT;
  for (i=0; i<100; i++)
   {
-  sprintf(WV_Win->WaveNames[i], "%d", i);
+  sprintf(WV_Win->WaveNames[i], "%ld", i);
   } /* for i=... */
 
     WV_Win->WaveWin = WindowObject,
@@ -1078,7 +1078,7 @@ union KeyFrame *KFPtr;
    WD = *WDPtr;
    if (WD)
     {
-    while ((fscanf(fWave, "%d", &Item) == 1) && success)
+    while ((fscanf(fWave, "%ld", &Item) == 1) && success)
      {
      switch (Item)
       {
@@ -1122,7 +1122,7 @@ union KeyFrame *KFPtr;
 	} /* else */
        break;
       case WAVE_SHT_NUMKEYS:
-       fscanf(fWave, "%d", &WV->NumKeys);
+       fscanf(fWave, "%ld", &WV->NumKeys);
        break;
       case WAVE_DBL_AMP:
        fscanf(fWave, "%le", &WV->Amp);

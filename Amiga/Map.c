@@ -2307,7 +2307,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
          error = 1;
          break; 
 	 } /* if abort */
-        sprintf(str, "Rx[%d]=%d  Ry[%d]=%d", i, (long)Rx[i], i, (long)Ry[i]);
+        sprintf(str, "Rx[%d]=%ld  Ry[%d]=%ld", i, (long)Rx[i], i, (long)Ry[i]);
         Log(DTA_NULL, str);
         MapGUI_Message(1, str);
         break;

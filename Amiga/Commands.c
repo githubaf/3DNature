@@ -152,7 +152,7 @@ short i = 0;
 
 while (Call->WordToken[i] && i < 10)
  {
- sprintf(TextMsg, "AREXX: %s -- Token=%d ", FromZone, Call->WordToken[i++]);
+ sprintf(TextMsg, "AREXX: %s -- Token=%ld ", FromZone, Call->WordToken[i++]);
  Log(DTA_NULL, TextMsg);
  }
 

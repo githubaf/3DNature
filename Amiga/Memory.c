@@ -14,7 +14,7 @@ void *get_Memory(long zsize, long attributes)
 #ifdef AMIGA_GUI
  if ((memblock = (void *)AllocMem(zsize,attributes)) == NULL)
   {
-  sprintf(str, "Bytes = %d", zsize);
+  sprintf(str, "Bytes = %ld", zsize);
   Log(ERR_MEM_FAIL, str);
 /*
   sprintf(str, "Allocation: %d, Free: %d, Largest: %d\n", zsize, 

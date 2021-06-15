@@ -929,7 +929,7 @@ FILE *fStrataIn, *fStrataOut;
       if ((unsigned int)val > 240)
        lastpt ++;
       }
-     fprintf(fStrataOut, "%d, ", lastpt);
+     fprintf(fStrataOut, "%ld, ", lastpt);
      } /* for k=0... */
     fprintf(fStrataOut, "\n");
     } /* for i=0... */
@@ -958,7 +958,7 @@ FILE *fStrataIn, *fStrataOut;
         lastpt = 3;
        } /* for j=... */
       } /* for i=... */
-     fprintf(fStrataOut, "%d, ", lastpt);
+     fprintf(fStrataOut, "%ld, ", lastpt);
      } /* for k=0... */
     fprintf(fStrataOut, "\n");
     } /* for i=0... */

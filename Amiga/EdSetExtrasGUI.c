@@ -497,29 +497,29 @@ long Size, BMapSize, ZBufSize, QCBufSize, TotalUse = 0, MaxUse = 0, TempUse,
  str[0] = 0;
  if (Gigas)
   {
-  sprintf(UseStr, "%d,", Gigas);
+  sprintf(UseStr, "%ld,", Gigas);
   strcat(str, UseStr);
   }
  if (Megas)
   {
   if (Gigas)
-   sprintf(UseStr, "%03d,", Megas);
+   sprintf(UseStr, "%03ld,", Megas);
   else
-   sprintf(UseStr, "%d,", Megas);
+   sprintf(UseStr, "%ld,", Megas);
   strcat(str, UseStr);
   }
  if (Kilos)
   {
   if (Megas)
-   sprintf(UseStr, "%03d,", Kilos);
+   sprintf(UseStr, "%03ld,", Kilos);
   else
-   sprintf(UseStr, "%d,", Kilos);
+   sprintf(UseStr, "%ld,", Kilos);
   strcat(str, UseStr);
   }
  if (Kilos)
-  sprintf(UseStr, "%03d", MaxUse);
+  sprintf(UseStr, "%03ld", MaxUse);
  else
-  sprintf(UseStr, "%d", MaxUse);
+  sprintf(UseStr, "%ld", MaxUse);
  strcat(str, UseStr);
 
  set(ES_Win->UseTxt, MUIA_Text_Contents, str);

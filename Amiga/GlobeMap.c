@@ -154,10 +154,10 @@ void globemap(void)
 
 #ifdef AMIGA_GUI
  lmemblock = AvailMem(MEMF_FAST | MEMF_LARGEST);
- sprintf(str, "Largest available memory block = %d", lmemblock); 
+ sprintf(str, "Largest available memory block = %lu", lmemblock); 
  Log(MSG_NULL, str);
  lmemblock = AvailMem(MEMF_FAST);
- sprintf(str, "Fast memory available = %d", lmemblock);
+ sprintf(str, "Fast memory available = %lu", lmemblock);
  Log(MSG_NULL, str);
 #endif
 
@@ -500,10 +500,10 @@ Continue without Waves?", "Continue|Cancel", "oc"))
 #ifdef AMIGA_GUI
  Log(MSG_NULL, "Render memory allocated.");
  lmemblock = AvailMem(MEMF_FAST | MEMF_LARGEST);
- sprintf(str, "Largest available memory block = %d", lmemblock); 
+ sprintf(str, "Largest available memory block = %lu", lmemblock); 
  Log(MSG_NULL, str);
  lmemblock = AvailMem(MEMF_FAST);
- sprintf(str, "Fast memory available = %d", lmemblock);
+ sprintf(str, "Fast memory available = %lu", lmemblock);
  Log(MSG_NULL, str);
 #endif
 
@@ -658,7 +658,7 @@ RepeatAlloc2:
     {
     if (fracount[ct])
      {
-     sprintf(str, "Level %d = %d", ct, fracount[ct]);
+     sprintf(str, "Level %ld = %ld", ct, fracount[ct]);
      Log(MSG_UTIL_TAB, str);
      fracount[ct] = 0;
      } /* if fracount */
@@ -669,7 +669,7 @@ RepeatAlloc2:
     {
     if (ecocount[ct])
      {
-     sprintf(str, "%2d. %-24s %d",
+     sprintf(str, "%2ld. %-24s %ld",
 		ct, PAR_NAME_ECO(ct), ecocount[ct]);
      Log(MSG_UTIL_TAB, str);
      } /* if ecocount */
@@ -1316,7 +1316,7 @@ Continue without Fractal Maps or retry?", "Continue|Retry|Cancel", "orc")) == 1)
    if (error) goto MapCleanup;
    fract = 0;
    for (ct=0; ct<=settings.fractal; ct++) fract += fracount[ct];
-   sprintf(str, "%s = %d\n", DBase[OBN].Name, fract - lastfacect);
+   sprintf(str, "%s = %ld\n", DBase[OBN].Name, fract - lastfacect);
    Log(MSG_UTIL_TAB, str);
    lastfacect = fract;
 

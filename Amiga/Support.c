@@ -903,19 +903,19 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
  if (ScrnData)
   {
   fprintf(fproject, "%d\n", PROJECT_SM_MODEID);
-  fprintf(fproject, "%d\n", ScrnData->ModeID);
+  fprintf(fproject, "%lu\n", ScrnData->ModeID);
   fprintf(fproject, "%d\n", PROJECT_SM_WIDTH);
-  fprintf(fproject, "%d\n", ScrnData->Width);
+  fprintf(fproject, "%ld\n", ScrnData->Width);
   fprintf(fproject, "%d\n", PROJECT_SM_HEIGHT);
-  fprintf(fproject, "%d\n", ScrnData->Height);
+  fprintf(fproject, "%ld\n", ScrnData->Height);
   fprintf(fproject, "%d\n", PROJECT_SM_OTAG);
-  fprintf(fproject, "%d\n", ScrnData->OTag);
+  fprintf(fproject, "%lu\n", ScrnData->OTag);
   fprintf(fproject, "%d\n", PROJECT_SM_OVAL);
-  fprintf(fproject, "%d\n", ScrnData->OVal);
+  fprintf(fproject, "%lu\n", ScrnData->OVal);
   fprintf(fproject, "%d\n", PROJECT_SM_AUTOTAG);
-  fprintf(fproject, "%d\n", ScrnData->AutoTag);
+  fprintf(fproject, "%ld\n", ScrnData->AutoTag);
   fprintf(fproject, "%d\n", PROJECT_SM_AUTOVAL);
-  fprintf(fproject, "%d\n", ScrnData->AutoVal);
+  fprintf(fproject, "%lu\n", ScrnData->AutoVal);
   } /* if ScrnData */
 
  fclose(fproject);

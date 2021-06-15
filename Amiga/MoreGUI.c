@@ -433,7 +433,7 @@ void Handle_DM_Window(ULONG WCS_ID)
         break;
         } /* if */
       set (DM_Win->DirTxt, MUIA_Text_Contents, DM_Win->DEMExtract->elevpath);
-      sprintf(str, "%1d", DM_Win->DEMExtract->FrFile->rf_NumArgs);
+      sprintf(str, "%1ld", DM_Win->DEMExtract->FrFile->rf_NumArgs);
       set(DM_Win->SumFilesTxt, MUIA_Text_Contents, str);
       if  (DM_Win->DEMExtract->FrFile->rf_NumArgs > 0)
        set(DM_Win->BT_Extract, MUIA_Disabled, FALSE); 

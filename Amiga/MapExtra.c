@@ -590,7 +590,7 @@ void findarea(short OBN)
     } /* if map found */
    } /* for i=0... */
   if (found)
-   sprintf(str, "%s (%dc x %dr): A=%f sq km.", DBase[OBN].Name, 
+   sprintf(str, "%s (%ldc x %ldr): A=%f sq km.", DBase[OBN].Name, 
 	mapelmap[i].rows + 1, mapelmap[i].columns, area);
   else
    sprintf(str, "%s: A=%f sq km.", DBase[OBN].Name, area);
@@ -1623,9 +1623,9 @@ void SetSurface_Map(ULONG surface)
  long Lr, Lc;
  struct Vertex Vtx;
 
- sprintf(str, "\0338Select Surface %d Elevation. ESC=Abort", surface + 1);
+ sprintf(str, "\0338Select Surface %lu Elevation. ESC=Abort", surface + 1);
  MapGUI_Message(0, str);
- sprintf(str, "Select Surface %d Elevation", surface + 1);
+ sprintf(str, "Select Surface %lu Elevation", surface + 1);
  SetWindowTitles(MapWind0, str, (UBYTE *)-1);
 
  if (MousePtSet(&Vtx, NULL, 0))

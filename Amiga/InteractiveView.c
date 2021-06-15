@@ -1333,7 +1333,7 @@ EndMap:
   {
   if (ecocount[i])
    {
-   sprintf(str, "%2d. %-24s %d\n", i, EcoPar.en[i].Name, ecocount[i]);
+   sprintf(str, "%2d. %-24s %ld\n", i, EcoPar.en[i].Name, ecocount[i]);
    Log(MSG_UTIL_TAB, str);
    } /* if */
   } /* for i=0... */

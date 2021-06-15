@@ -101,7 +101,7 @@ else if(data->FIFlags & FIOFlag_Char)
 	else
 		{
 		LConv = *(char *)data->MasterVariable;
-		sprintf(Scratch, "%d", LConv);
+		sprintf(Scratch, "%ld", LConv);
 		} /* else */
 	} /* if */
 else if(data->FIFlags & FIOFlag_Short)
@@ -114,7 +114,7 @@ else if(data->FIFlags & FIOFlag_Short)
 	else
 		{
 		LConv = *(short *)data->MasterVariable;
-		sprintf(Scratch, "%d", LConv);
+		sprintf(Scratch, "%ld", LConv);
 		} /* else */
 	} /* if */
 else if(data->FIFlags & FIOFlag_Long)
@@ -127,7 +127,7 @@ else if(data->FIFlags & FIOFlag_Long)
 	else
 		{
 		LConv = *(long *)data->MasterVariable;
-		sprintf(Scratch, "%d", LConv);
+		sprintf(Scratch, "%ld", LConv);
 		} /* else */
 	} /* if */
 

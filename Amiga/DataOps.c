@@ -246,7 +246,7 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
 
   LastOutputRows = OutputRows - DupRow + OUTPUT_ROWS - (OutputRows - DupRow) * OUTPUT_COLMAPS;
   LastOutputCols = OutputCols - DupRow + OUTPUT_COLS - (OutputCols - DupRow) * OUTPUT_ROWMAPS;
-  sprintf(str, "Input data cannot be equally divided among output maps.\nLast Column of maps will have %d columns.\nLast Row of maps will have %d rows.",
+  sprintf(str, "Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows.",
 	LastOutputCols, LastOutputRows);
   if ((ans = User_Message_Def("Data Ops: Convert DEM", str,
 	 "Continue|Truncate|Cancel", "ntc", 1)) == 0)

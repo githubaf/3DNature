@@ -1250,7 +1250,7 @@ short Add_FM_Item(void)
   } /* switch */
   
  sprintf(&FM_Win->ItemStr[MoveItem][0],
-	 "%6d%6d%s%6d%6d%6d", Ht, Stems, str, Red, Grn, Blu);
+	 "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, str, Red, Grn, Blu);
  FM_Win->ItemNum ++;
 
  Set_FM_List(0, MoveItem);
@@ -1407,7 +1407,7 @@ short Load_FM_Win(void)
    strcpy(str, " Stump");
   
   sprintf(&FM_Win->ItemStr[FM_Win->ItemNum][0],
-	 "%6d%6d%s%6d%6d%6d", Ht, Stems, str, Red, Grn, Blu);
+	 "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, str, Red, Grn, Blu);
 
   } /* for FM_Win->ItemNum=1... */
  fclose(fModel);

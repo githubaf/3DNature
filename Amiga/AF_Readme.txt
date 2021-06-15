@@ -72,6 +72,14 @@ SAS/C specific functions in sasc_functions.c including test. Test should pass on
 sc sasc_functions.c LINK IGNORE=51 DEFINE=TESTING_SASC_FUNCTIONS
 gcc sasc_functions.c -DTESTING_SASC_FUNCTIONS -lm -Wall -pedantic && ./a.out
 
-16.Juni 2021
+14.Juni 2021
 ------------
 WCS kann jetzt komplett mit Bebbos's gcc gebaut werden. Weiterhin compilierbar mit SAS/C
+
+15.6.2021
+---------
+Warnungen gezielt bearbeiten. Zuerst printf-Format
+PATH=$PATH:~/opt/m68k-amigaos_27Apr21/bin make all # clean all 2>&1 | grep "warning: format '%d' expects argument of type 'int', but"
+
+- Alle %d-Warnungen ausser denen, die ein double-Argument haben. Erst mit SAS/C ausprobieren, ob wir das %d zu %f aendern oder den Parameter
+  zu int casten muessen.

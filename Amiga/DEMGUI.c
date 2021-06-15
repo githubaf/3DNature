@@ -1078,7 +1078,7 @@ short i;
      {
      val ++;
      } /* else */
-    sprintf(str, "%d", val);
+    sprintf(str, "%ld", val);
     set(GR_Win->Text, MUIA_Text_Contents, str);
     break;
     } /* arrow */

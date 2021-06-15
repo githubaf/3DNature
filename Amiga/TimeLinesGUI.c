@@ -621,7 +621,7 @@ void Handle_EMTL_Window(ULONG WCS_ID)
     if (frame >= mult && (! EM_Win->PrevKey || frame > EM_Win->PrevKey + mult))
      {
      frame -= mult;
-     sprintf(str, "%d", frame); 
+     sprintf(str, "%ld", frame);
      set(EMTL_Win->FrameTxt, MUIA_Text_Contents, str);
      SKT[0]->Key[EMTL_Win->ActiveKey]->MoKey.KeyFrame = frame;
      SplineSingleKey(0, 0);
@@ -679,7 +679,7 @@ void Handle_EMTL_Window(ULONG WCS_ID)
     if (frame < EM_Win->NextKey - mult)
      {
      frame += mult;
-     sprintf(str, "%d", frame);
+     sprintf(str, "%ld", frame);
      set(EMTL_Win->FrameTxt, MUIA_Text_Contents, str);
      SKT[0]->Key[EMTL_Win->ActiveKey]->MoKey.KeyFrame = frame;
      SplineSingleKey(0, 0);
@@ -1432,7 +1432,7 @@ void Handle_ECTL_Window(ULONG WCS_ID)
     if (frame >= mult && (! EC_Win->PrevKey || frame > EC_Win->PrevKey + mult))
      {
      frame -= mult;
-     sprintf(str, "%d", frame); 
+     sprintf(str, "%ld", frame);
      set(ECTL_Win->FrameTxt, MUIA_Text_Contents, str);
      SKT[1]->Key[ECTL_Win->ActiveKey]->CoKey.KeyFrame = frame;
      SplineSingleKey(1, 0);
@@ -1456,7 +1456,7 @@ void Handle_ECTL_Window(ULONG WCS_ID)
     if (frame < EC_Win->NextKey - mult)
      {
      frame += mult;
-     sprintf(str, "%d", frame);
+     sprintf(str, "%ld", frame);
      set(ECTL_Win->FrameTxt, MUIA_Text_Contents, str);
      SKT[1]->Key[ECTL_Win->ActiveKey]->CoKey.KeyFrame = frame;
      SplineSingleKey(1, 0);
@@ -2227,7 +2227,7 @@ void Handle_EETL_Window(ULONG WCS_ID)
     if (frame >= mult && (! EE_Win->PrevKey || frame > EE_Win->PrevKey + mult))
      {
      frame -= mult;
-     sprintf(str, "%d", frame); 
+     sprintf(str, "%ld", frame);
      set(EETL_Win->FrameTxt, MUIA_Text_Contents, str);
      SKT[2]->Key[EETL_Win->ActiveKey]->EcoKey2.KeyFrame = frame;
      SplineSingleKey(2, 0);
@@ -2251,7 +2251,7 @@ void Handle_EETL_Window(ULONG WCS_ID)
     if (frame < EE_Win->NextKey - mult)
      {
      frame += mult;
-     sprintf(str, "%d", frame);
+     sprintf(str, "%ld", frame);
      set(EETL_Win->FrameTxt, MUIA_Text_Contents, str);
      SKT[2]->Key[EETL_Win->ActiveKey]->EcoKey2.KeyFrame = frame;
      SplineSingleKey(2, 0);

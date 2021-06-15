@@ -212,7 +212,7 @@ void Set_Diagnostic_Point(LONG zip)
 
  compval = *(QCmap[0] + zip);
  remainder = compval / 65536;
- sprintf(str, "%-5d", remainder);
+ sprintf(str, "%-5ld", remainder);
  set(DIAG_Win->Txt[1], MUIA_Text_Contents, str);
 
  compval -= remainder * 65536;
@@ -242,20 +242,20 @@ void Set_Diagnostic_Point(LONG zip)
 
  compval = *(QCmap[1] + zip);
  remainder = compval / 65536 - 1000;
- sprintf(str, "%-5d", remainder);
+ sprintf(str, "%-5ld", remainder);
  set(DIAG_Win->Txt[4], MUIA_Text_Contents, str);
 
  compval -= (remainder + 1000) * 65536;
- sprintf(str, "%-4d", compval);
+ sprintf(str, "%-4ld", compval);
  set(DIAG_Win->Txt[5], MUIA_Text_Contents, str);
 
  compval = *(QCmap[2] + zip);
  remainder = compval / 256;
- sprintf(str, "%-2d", remainder);
+ sprintf(str, "%-2ld", remainder);
  set(DIAG_Win->Txt[6], MUIA_Text_Contents, str);
 
  compval -= remainder * 256;
- sprintf(str, "%-2d", compval);
+ sprintf(str, "%-2ld", compval);
  set(DIAG_Win->Txt[7], MUIA_Text_Contents, str);
 
  sprintf(str, "%f", *(QCcoords[0] + zip));

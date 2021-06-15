@@ -459,7 +459,7 @@ if(StartSecs)
         if (settings.fieldrender)
          {
          sprintf(FrameStr, "%1d", (frame / 2) + (frame % 2));
-         sprintf(TotalFrames, "%1d", Frames / 2);
+         sprintf(TotalFrames, "%1ld", Frames / 2);
          if (frame % 2)
           {
 	  strcat(FrameStr, "A");
@@ -473,7 +473,7 @@ if(StartSecs)
         else
          {
          sprintf(FrameStr, "%1d", frame);
-         sprintf(TotalFrames, "%1d", Frames);
+         sprintf(TotalFrames, "%1ld", Frames);
 	 } /* else */
 	sprintf(str, "\0334%s:  %02d:%02d:%02d", FrameStr, ElapHrs, ElapMin, ElapSec);
 	Log(MSG_TIME_ELAPSE, str);

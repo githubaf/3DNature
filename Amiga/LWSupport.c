@@ -114,7 +114,7 @@ short ExportWave(struct LightWaveInfo *LWInfo, FILE *Supplied)
    error = 5;
    break;
    } /* if write error */
-  if (fprintf(fLWM, "%1d %1d %f %f %f\n",
+  if (fprintf(fLWM, "%1ld %1ld %f %f %f\n",
 	LWM->Frame, LWM->Linear,
 	LWM->TCB[0], LWM->TCB[1], LWM->TCB[2]) < 0)
    {
@@ -723,7 +723,7 @@ struct coords PP;
   if (KeyFrames	&& BuildKeyTable())
    {
    LastKey = -1;
-   fprintf(fScene, "%s\n%d\n%d\n", "LightMotion (unnamed)", 9, KeyFrames);
+   fprintf(fScene, "%s\n%d\n%ld\n", "LightMotion (unnamed)", 9, KeyFrames);
    for (i=0; i<ParHdr.KeyFrames; i++)
     {
     if (KF[i].MoKey.KeyFrame != LastKey && (KF[i].MoKey.Group == 0 &&
@@ -806,7 +806,7 @@ struct coords PP;
   if (KeyFrames	&& BuildKeyTable())
    {
    LastKey = -1;
-   fprintf(fScene, "%s\n%d\n%d\n", "ZoomFactor (envelope)", 1, KeyFrames);
+   fprintf(fScene, "%s\n%d\n%ld\n", "ZoomFactor (envelope)", 1, KeyFrames);
    for (i=0; i<ParHdr.KeyFrames; i++)
     {
     if (KF[i].MoKey.KeyFrame != LastKey && (KF[i].MoKey.Group == 0 && (KF[i].MoKey.Item == 10 ||
@@ -974,7 +974,7 @@ struct coords PP;
    } /* for i=0... */
   if (KeyFrames	&& BuildKeyTable())
    {
-   fprintf(fScene, "%s\n%d\n%d\n", "FogMinDist (envelope)", 1, KeyFrames);
+   fprintf(fScene, "%s\n%d\n%ld\n", "FogMinDist (envelope)", 1, KeyFrames);
    for (i=0; i<ParHdr.KeyFrames; i++)
     {
     if (KF[i].MoKey.Group == 0 && KF[i].MoKey.Item == 20)
@@ -1004,7 +1004,7 @@ struct coords PP;
    } /* for i=0... */
   if (KeyFrames	&& BuildKeyTable())
    {
-   fprintf(fScene, "%s\n%d\n%d\n", "FogMaxDist (envelope)", 1, KeyFrames);
+   fprintf(fScene, "%s\n%d\n%ld\n", "FogMaxDist (envelope)", 1, KeyFrames);
    for (i=0; i<ParHdr.KeyFrames; i++)
     {
     if (KF[i].MoKey.Group == 0 && (KF[i].MoKey.Item == 20 || 

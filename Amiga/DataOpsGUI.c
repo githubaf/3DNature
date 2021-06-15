@@ -711,7 +711,7 @@ void Get_DC_InputFile(void)
  else
   {
   set(DC_Win->FileNameStr, MUIA_String_Contents, filename);
-  sprintf(str, "%d", filesize);
+  sprintf(str, "%ld", filesize);
   set(DC_Win->FileSizeTxt, MUIA_Text_Contents, str);
   } /* else file size read OK */
 
@@ -1424,7 +1424,7 @@ void Handle_DI_Window(ULONG WCS_ID)
        break;
        }
       set (DI_Win->DirTxt, MUIA_Text_Contents, DI_Win->DEMInterp->elevpath);
-      sprintf(str, "%1d", DI_Win->DEMInterp->FrFile->rf_NumArgs);
+      sprintf(str, "%1ld", DI_Win->DEMInterp->FrFile->rf_NumArgs);
       set(DI_Win->SumFilesTxt, MUIA_Text_Contents, str);
       if (DI_Win->DEMInterp->FrFile->rf_NumArgs > 0)
        set(DI_Win->BT_Interpolate, MUIA_Disabled, FALSE);

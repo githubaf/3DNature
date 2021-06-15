@@ -976,7 +976,7 @@ void Handle_TL_Window(ULONG WCS_ID)
     if (frame >= mult && (! TL_Win->WKS->PrevKey || frame > TL_Win->WKS->PrevKey + mult))
      {
      frame -= mult;
-     sprintf(str, "%d", frame); 
+     sprintf(str, "%ld", frame); 
      set(TL_Win->FrameTxt, MUIA_Text_Contents, str);
      TL_Win->SKT->Key[TL_Win->ActiveKey]->EcoKey2.KeyFrame = frame;
      SplineGenericKeys(&TL_Win->SKT, &TL_Win->Frames, TL_Win->WKS->NumValues,
@@ -1001,7 +1001,7 @@ void Handle_TL_Window(ULONG WCS_ID)
     if (frame < TL_Win->WKS->NextKey - mult)
      {
      frame += mult;
-     sprintf(str, "%d", frame);
+     sprintf(str, "%ld", frame);
      set(TL_Win->FrameTxt, MUIA_Text_Contents, str);
      TL_Win->SKT->Key[TL_Win->ActiveKey]->EcoKey2.KeyFrame = frame;
      SplineGenericKeys(&TL_Win->SKT, &TL_Win->Frames, TL_Win->WKS->NumValues,

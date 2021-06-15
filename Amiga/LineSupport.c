@@ -281,7 +281,7 @@ short writelinefile(struct elmapheaderV101 *map, long mode)
       DBase[OBN].Points, DBase[OBN].LineWidth, DBase[OBN].Color);
    for (i=1; i<=DBase[OBN].Points && error==0; i++)
     {
-    if (fprintf(fvector, "%d %d\n",
+    if (fprintf(fvector, "%ld %ld\n",
 	(long)*(map->scrnptrx + i), (long)*(map->scrnptry + i)) < 0)
      error = 1;
     } /* for i=1... */ 
@@ -291,7 +291,7 @@ short writelinefile(struct elmapheaderV101 *map, long mode)
    {
    for (Lr=0; Lr<=map->rows && error==0; Lr+=settings.gridsize)
     {
-    if (fprintf(fvector,"%s %s %d %d %d\n", DBase[OBN].Name, DBase[OBN].Layer2,
+    if (fprintf(fvector,"%s %s %ld %d %ld\n", DBase[OBN].Name, DBase[OBN].Layer2,
 	map->columns, DBase[OBN].LineWidth, DBase[OBN].Color) < 0)
      error = 1;
     for (z=1; z<map->columns && error==0; z++)
@@ -308,7 +308,7 @@ short writelinefile(struct elmapheaderV101 *map, long mode)
     } /* for Lr=0... */
    for (Lc=0; Lc<map->columns && error==0; Lc+=settings.gridsize)
     {
-    if (fprintf(fvector,"%s %s %d %d %d\n", DBase[OBN].Name, DBase[OBN].Layer2,
+    if (fprintf(fvector,"%s %s %ld %d %ld\n", DBase[OBN].Name, DBase[OBN].Layer2,
        map->rows + 1, DBase[OBN].LineWidth, DBase[OBN].Color) < 0)
 	error = 1;
     for (z=0; z<map->rows && error==0; z++)
