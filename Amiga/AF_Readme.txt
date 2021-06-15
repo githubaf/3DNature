@@ -83,3 +83,35 @@ PATH=$PATH:~/opt/m68k-amigaos_27Apr21/bin make all # clean all 2>&1 | grep "warn
 
 - Alle %d-Warnungen ausser denen, die ein double-Argument haben. Erst mit SAS/C ausprobieren, ob wir das %d zu %f aendern oder den Parameter
   zu int casten muessen.
+
+--> double DoubleVariable=3.14159;
+--> printf("%d\n",DoubleVariable);
+
+zeigt bei gcc und auch bei SAS/C Unfug an. Hier haben wir also richtige schwere(?) Fehler.
+8x in LineSupport.c und 1x in TLSupportGUI.c
+
+fixed TLSupportGUI.c
+Timelines Editor Water Elev initial value wurde auch im Original-Executable falsch angezeigt. Fehler ist nur beim 1. Mal sichtbar, anderer Tab und wieder zurueck, dann verschwindet der Fehler.
+
+Original Fehler reproduzieren (mit aktuellem Stand korrigiert)
+-------------------------------------------------------------
+
+(Project-> Open->CanyonSunset.proj
+SunsetAnim.par laden
+Parameter nicht fuer neues Format speichern.
+
+SunsetAnim.par laden
+Parameter nicht fuer neues Format speichern.
+
+SunsetAnim.par laden
+Parameter nicht fuer neues Format speichern.
+
+SunsetAnim.par laden
+Parameter nicht fuer neues Format speichern.
+
+SunsetAnim.par laden
+Parameter nicht fuer neues Format speichern.
+4. Icon klicken, Ecosystem Editor auswaehlen
+3x Make Key (z.B. 0,1,2)
+Timelines -> Oben steht "Water" und rechts daneben eine falsche Zahl. Tab Elev ist aktiv. Klickt man andere Tabs und dann wieder zurueck auf Elev, ist der Wert berichtigt.
+

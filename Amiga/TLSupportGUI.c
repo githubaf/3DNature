@@ -647,7 +647,7 @@ short Set_EETL_Item(short item)
  get (EETL_Win->TCB_Cycle, MUIA_Cycle_Active, &data);
  sprintf(str, "%3.2f", EE_Win->TCB[data]);
  set(EETL_Win->CycleStr, MUIA_String_Contents, str);
- sprintf(str, "%1d",
+ sprintf(str, "%ld",(long int)   // param is double! (Timelines Editor Water Elev initial value)
 	 SKT[2]->Key[EETL_Win->ActiveKey]->EcoKey2.Value[EETL_Win->ActiveItem]);
  set(EETL_Win->ValStr[0], MUIA_String_Contents, str);
  EETL_Win->KeyItem = item;
