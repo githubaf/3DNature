@@ -3057,10 +3057,10 @@ else
   set(InfoPar, MUIA_Text_Contents, " -none- ");
 
 InfoData[0] = NULL;
-if(GetDisplayInfoData(NULL, (UBYTE *)&ModeName, sizeof(ModeName), DTAG_NAME, ScrnData.ModeID))
+if(GetDisplayInfoData(NULL, (UBYTE *)&ModeName, sizeof(ModeName), DTAG_NAME, WCSScrn->ViewPort.ColorMap->VPModeID/*ScrnData.ModeID*/)) // ScrnData.ModeID is always 0 if "Save"-Button in World Construction Set ScreenMode-Window was not pressed, i.e. if user pressed "Use" instead))
   {
   strncpy(InfoData, ModeName.Name, 75);
-  InfoData[75] = NULL;
+  InfoData[75] = 0;
   } /* if */
 
 set(InfoScreenMode, MUIA_Text_Contents, InfoData);

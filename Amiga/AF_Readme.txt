@@ -115,3 +115,9 @@ Parameter nicht fuer neues Format speichern.
 3x Make Key (z.B. 0,1,2)
 Timelines -> Oben steht "Water" und rechts daneben eine falsche Zahl. Tab Elev ist aktiv. Klickt man andere Tabs und dann wieder zurueck auf Elev, ist der Wert berichtigt.
 
+16.6.2021
+---------
+Noch einen kleinen Fehler behoben:
+ScreenMode im Info-Fenster war immer falsch, wenn im Screenmode-Selector NICHT auf Save sondern auf Use gedrueckt wurde.
+Behoben, der Mode wird jetzt aus dem Screen ausgelesen. (Agui.c Zeile 3060)
+
