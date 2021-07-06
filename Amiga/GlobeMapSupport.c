@@ -474,7 +474,7 @@ EnterStock:
  }
  printf("Tree model percents computed. Occupied sites = %f\n",runsum);
  if (runsum>1.0)
-   printf("Warning occupatipon > 100% will result in loss of high dbh items\n");
+   printf("Warning occupatipon > 100%% will result in loss of high dbh items\n");
  printf("Species 93 (Englemann Spruce) ecosystem: ");
  scanf("%hd", &treeeco[0]);
  printf("Species 108 (Lodgepole Pine) ecosystem: ");

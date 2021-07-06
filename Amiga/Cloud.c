@@ -178,7 +178,7 @@ long CloudData_GetLong(struct CloudData *CD, ULONG Item)
    }
   default:
    {
-      printf("Invalid Item %lu in %s %u()",Item,__LINE__);
+      printf("Invalid Item %lu in %s %u()",Item,__FILE__,__LINE__);
       return 0;
    }
   } /* switch */
@@ -255,7 +255,7 @@ short CloudData_GetShort(struct CloudData *CD, ULONG Item)
    }
   default:
    {
-      printf("Invalid Item %lu in %s %u()",Item,__LINE__);
+      printf("Invalid Item %lu in %s %u()",Item,__FILE__,__LINE__);
       return 0;
    }
 
@@ -403,7 +403,7 @@ double CloudData_GetDouble(struct CloudData *CD, ULONG Item)
    }
   default:
    {
-      printf("Invalid Item %lu in %s %u()",Item,__LINE__);
+      printf("Invalid Item %lu in %s %u()",Item,__FILE__,__LINE__);
       return 0;
    }
 

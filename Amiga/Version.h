@@ -14,7 +14,7 @@
 
 /* Don't mess with these. */
 #define APP_VERSION		APP_TLA " " APP_VERS "." APP_REV " " __DATE__
-#define APP_COPYR			"©1992-1996"
+#define APP_COPYR			"Â©1992-1996"
 #define APP_COPYRIGHT	APP_COPYR", "APP_AUTHOR
 
 #ifndef EXTERNAL_VERSION_HACK

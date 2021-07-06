@@ -112,7 +112,7 @@ double Wave_Get(struct Wave *WV, ULONG Item)
    }
   default:
   {
-      printf("Invalid Item %lu in %s %d",__FILE__,__LINE__);
+      printf("Invalid Item %lu in %s %d",Item,__FILE__,__LINE__);
       return 0;
   }
   } /* switch */
@@ -239,7 +239,7 @@ double WaveData_Get(struct WaveData *WD, ULONG Item)
    }
   default:
   {
-      printf("Invalid Item %lu in %s %d",__FILE__,__LINE__);
+      printf("Invalid Item %lu in %s %d",Item,__FILE__,__LINE__);
       return 0;
   }
 

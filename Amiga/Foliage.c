@@ -261,7 +261,7 @@ float Rootstock_GetFloatValue(struct Rootstock *This, ULONG Flags)
 			}
 		default:
 		    {
-		    printf("Invalid Flags %lu in %d %u\n",__FILE__,__LINE__);
+		    printf("Invalid Flags %lu in %s %u\n",Flags,__FILE__,__LINE__);
 		    return 0;
 		    }
 		} /* switch */
@@ -292,7 +292,7 @@ short Rootstock_GetShortValue(struct Rootstock *This, ULONG Flags)
 			}
         default:
             {
-            printf("Invalid Flags %lu in %d %u\n",__FILE__,__LINE__);
+            printf("Invalid Flags %lu in %s %u\n",Flags,__FILE__,__LINE__);
             return 0;
             }
 
@@ -367,7 +367,7 @@ short Foliage_GetImgSize(struct Foliage *This, ULONG Flags)
 			}
         default:
             {
-            printf("Invalid Flags %lu in %d %u\n",__FILE__,__LINE__);
+            printf("Invalid Flags %lu in %s %u\n",Flags,__FILE__,__LINE__);
             return 0;
             }
 

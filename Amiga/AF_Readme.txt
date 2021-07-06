@@ -121,3 +121,24 @@ Noch einen kleinen Fehler behoben:
 ScreenMode im Info-Fenster war immer falsch, wenn im Screenmode-Selector NICHT auf Save sondern auf Use gedrueckt wurde.
 Behoben, der Mode wird jetzt aus dem Screen ausgelesen. (Agui.c Zeile 3060)
 
+17.6.2021
+---------
+Jede Menge Wpointer-sign Warnungen:
+PATH=$PATH:~/opt/m68k-amigaos_27Apr21/bin make clean all 2>&1 | grep "Wpointer-sign" | wc -l
+4506
+
+19.6.2021
+---------
+Die original Version von WCS2.04 ist viel schneller als meine gcc-Version, trotz -m68020 -m68881 -flto
+Canyon Synset mit Hires Interlace, standart-Einstellungen (aber 2 Segmenten) braucht 5 Stunden 11 Minuten im Original und 8 Stunden 12 Minuten mit der GCC-Version auf dem A4000T (68040/25)
+Test mit gcc -m68020 -flto -O2, aber ohne -m68881 dauert 11H 26Minuten
+Test mit smake_optimize 5h 3 Minuten
+Test mit smake 5h 30 Minuten
+
+20.6.2021
+Speicherschmierer!!! EM_Win->ValTxt[5] hat nur Eintraege 0...4, wird in der Schleife aber bis index 5 befuellt!
+../EdMoGUI.c:274:27: warning: iteration 5 invokes undefined behavior [-Waggressive-loop-optimizations]
+    DoMethod(EM_Win->ValTxt[i], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
+                           ^
+../EdMoGUI.c:272:3: note: within this loop
+   for (i=0; i<6; i++)
