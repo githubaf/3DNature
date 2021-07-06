@@ -948,7 +948,7 @@ Scleanup:
 void ModFileName(char *tempfile, short renderseg, short imagearray,
 	 short imagenum)
 {
- char framestr[32], suffix[4] = {0,0,0,0};
+ char framestr[32], suffix[5] = {0};   // suffix[5] !, room for 4 chars, e.g ".grn" + terminating null byte
  short i, j, namelen, firstdigit = -1, lastdigit = -1, diglen = 0,
 	digstrlen, suffixlen;
 
