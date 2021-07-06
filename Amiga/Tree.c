@@ -673,24 +673,32 @@ void ConvertTree(void)
  sprintf(str, "%d", "40");
  if (! GetInputString("Enter tree width in pixels.",
 	 "+-.,abcdefghijklmnopqrstuvwxyz", str))
-  return;
+ {
+     fclose (ftree);  // do not leave this resource open
+     return;
+ }
  width = atoi(str);
  if (! GetInputString("Enter tree height in pixels.",
 	 "+-.,abcdefghijklmnopqrstuvwxyz", str))
-  return;
+ {
+     fclose (ftree);  // do not leave this resource open
+     return;
+ }
  height = atoi(str);
 
  TreeArray = (UBYTE *)get_Memory(width * height, MEMF_ANY);
  if (TreeArray == NULL)
   {
-  User_Message("Tree Convert", "Out of memory!\nOperation terminated.", "OK", "c");
-  return;
+     User_Message("Tree Convert", "Out of memory!\nOperation terminated.", "OK", "c");
+     fclose (ftree);  // do not leave this resource open
+     return;
   }
  
  if (fread(TreeArray, width * height, 1, ftree) != 1)
   {
-  User_Message("Tree Convert", "Error reading file!\nOperation terminated.", "OK", "c");
-  return;
+     fclose (ftree);  // do not leave this resource open
+     User_Message("Tree Convert", "Error reading file!\nOperation terminated.", "OK", "c");
+     return;
   }
 
  fclose(ftree);
