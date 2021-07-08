@@ -142,3 +142,15 @@ Speicherschmierer!!! EM_Win->ValTxt[5] hat nur Eintraege 0...4, wird in der Schl
                            ^
 ../EdMoGUI.c:272:3: note: within this loop
    for (i=0; i<6; i++)
+
+Juli 2021
+---------
+cppcheck *.c --force | grep "[0-9]+:[0-9]:" 
+hat vor allem fehlende printf()-Parameter gefunden, resourceleals (fehlendes fclose() im Fehlerfall) und einige Bufferoverlows!
+
+- Einzelne Defines koennen mit -U wegdefiniert werden, die werdenn nicht untersucht)
+cppcheck EdPar.c --force -U C_PLUS_PLUS | grep "[0-9]+:[0-9]:" 
+
+8.Juli 2021
+-----------
+Smakefile/SMakeIt geaendert. c++ Comment detected warning (51) ist jetzt unterdrueckt.

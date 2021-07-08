@@ -1070,6 +1070,13 @@ short modpoints(short modify)
      yhigh = Event.MouseY + 5;
      for (j=1, found=0; j<=DBase[OBN].Points && !found; j++)
       {
+         if(j>=MAXOBJPTS)
+         {
+         sprintf (str, "Arrysize exceeded in %s Line %u. %s %u (AF, 8.July2021)",__FILE__,__LINE__, DBase[OBN].Name,DBase[OBN].Points);
+         Log(ERR_WRONG_SIZE, str);
+         break;
+         }
+
       if (mapxx[j] < xlow || mapxx[j] > xhigh || mapyy[j] < ylow || mapyy[j] > yhigh) continue;
       found = 1;
       } /* for j=1... */

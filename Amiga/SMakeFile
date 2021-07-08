@@ -2,6 +2,7 @@
 # Setup for SAS/6.x
 
 C = sc
+OPTIONS = "IGNORE=51"
 REXXC = rx SMakeIt
 LINK = slink
 LIBS = libvgl.a LIB:sc.lib LIB:amiga.lib
@@ -51,48 +52,48 @@ all: WCS
 
 debug: setdebug setnooptimize WCS.o $(ALLOBJS)
 	@copy envarc:BuildID env:
-	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
 	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS
 
 optimize: setnodebug setoptimize WCS.o $(ALLOBJS)
 	@copy envarc:BuildID env:
-	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
 	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS ND
 
 beta: setnodebug setnooptimize WCS.o $(ALLOBJS)
 	@echo "Enter BuildID Key:"
 	@echo >nil: to env:BuildKey ?
 	@rx selectbuild.rexx $$BuildKey
-	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
 	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS ND
 
 nocoproc: setnodebug setnooptimize WCS.o $(NOCOPROCOBJS)
 	@copy envarc:BuildID env:
-	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
 	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(NOCOPROCMATHLIB) $(NOCOPROCLIBS) TO WCS ND
 
 betanocoproc: setnodebug setnooptimize WCS.o $(NOCOPROCOBJS)
 	@echo "Enter BuildID Key:"
 	@echo >nil: to env:BuildKey ?
 	@rx selectbuild.rexx $$BuildKey
-	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
 	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(NOCOPROCMATHLIB) $(NOCOPROCLIBS) TO WCS ND
 
 noaccel: setnodebug setnooptimize WCS.o $(NOACCELOBJS)
 	@copy envarc:BuildID env:
-	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
 	$(LINK) $(STARTUP) WCS.o WITH $(NOACCELWITHS) LIB $(NOACCELMATHLIB) $(NOACCELLIBS) TO WCS ND
 
 betanoaccel: setnodebug setnooptimize WCS.o $(NOACCELOBJS)
 	@echo "Enter BuildID Key:"
 	@echo >nil: to env:BuildKey ?
 	@rx selectbuild.rexx $$BuildKey
-	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
 	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(NOCOPROCMATHLIB) $(NOCOPROCLIBS) TO WCS ND
 
 WCS: setnodebug setnooptimize WCS.o $(ALLOBJS)
 	@copy envarc:BuildID env:
-	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c
+	$(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
 	$(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS ND
 
 setdebug:
@@ -108,11 +109,11 @@ setnooptimize:
 	@setenv SCOPTOPTS NOOPTIMIZE
 
 WCS.o: WCS.c $(ALLHEADERS)
-	$(C) MAKEGST=WCSGST WCS.c
-	$(C) NOGST WCS.c
+	$(C) MAKEGST=WCSGST WCS.c $(OPTIONS)
+	$(C) NOGST WCS.c $(OPTIONS)
 
 AGUI.o: AGUI.c Version.h $(ALLHEADERS)
-	$(C) AGUI.c
+	$(C) AGUI.c $(OPTIONS)
 
 # $(MAINOBJS): $(MAINHEADERS)
 # $(GUIOBJS): $(GUIHEADERS) 
@@ -122,7 +123,7 @@ HyperKhorner4M-1.o: HyperKhorner4M-1.asm
 
 .c.o:
 #	@echo "        $(C) $$SCOPTOPTS $$SCDEBUGOPTS $*.c"
-	@$(REXXC) $(C) $$SCOPTOPTS $$SCDEBUGOPTS $*.c
+	@$(REXXC) $(C) $$SCOPTOPTS $$SCDEBUGOPTS $*.c $(OPTIONS)
 
 clean:
 	-delete >nil: \#?.o quiet

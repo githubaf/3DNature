@@ -1274,7 +1274,7 @@ void paramcheck(short frame, short oframe)
  } /* while */
 } /* paramcheck() */
 
-End of obsolete code for "simple" animation
+/*End of obsolete code for "simple" animation*/
 #endif
 
 /************************************************************************/
@@ -2115,10 +2115,16 @@ short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
  if (loadcode & 0x0100 && loaditem < 0)
  {
      for (k=0; k<ECOPARAMS; k++)
+     {  /* I guess the original authors forget the {} of the for loop? (AF, 7.7.2021) */
          if (PAR_TYPE_ECO(k) == 10)
+         {
              PAR_TYPE_ECO(k) = 5;
-     if (PAR_TYPE_ECO(k) == 60)
-         PAR_TYPE_ECO(k) = 55;
+         }
+         else if (PAR_TYPE_ECO(k) == 60) /* without the {} of the for loop we would have an buffer-overlow here! (k=50, PAR_TYPE_ECO() 0...49 ((AF, 7.7.2021)) */
+         {
+             PAR_TYPE_ECO(k) = 55;
+         }
+     }
  } /* if */
 
  return (1);
