@@ -779,7 +779,7 @@ short LoadForestModels(void)
    break;
    } /* wrong version */
 
-  fscanf(fModel, "%d", &FM[i].Items);
+  fscanf(fModel, "%ld", &FM[i].Items);
   if (FM[i].Items < 1)
    {
    error = 6;
@@ -796,7 +796,7 @@ short LoadForestModels(void)
   sum = 0;
   for (j=0; j<FM[i].Items; j++)
    {
-   if (fscanf(fModel, "%d%d%s%hd%hd%hd", &FM[i].TM[j].Ht, &FM[i].TM[j].Stems,
+   if (fscanf(fModel, "%ld%ld%s%hd%hd%hd", &FM[i].TM[j].Ht, &FM[i].TM[j].Stems,
 	&Class, &FM[i].TM[j].Red, &FM[i].TM[j].Grn, &FM[i].TM[j].Blu) != 6)
     {
     error = 2;

@@ -291,7 +291,7 @@ short writelinefile(struct elmapheaderV101 *map, long mode)
    {
    for (Lr=0; Lr<=map->rows && error==0; Lr+=settings.gridsize)
     {
-    if (fprintf(fvector,"%s %s %ld %d %ld\n", DBase[OBN].Name, DBase[OBN].Layer2,
+    if (fprintf(fvector,"%s %s %ld %d %hu\n", DBase[OBN].Name, DBase[OBN].Layer2,
 	map->columns, DBase[OBN].LineWidth, DBase[OBN].Color) < 0)
      error = 1;
     for (z=1; z<map->columns && error==0; z++)
@@ -308,7 +308,7 @@ short writelinefile(struct elmapheaderV101 *map, long mode)
     } /* for Lr=0... */
    for (Lc=0; Lc<map->columns && error==0; Lc+=settings.gridsize)
     {
-    if (fprintf(fvector,"%s %s %ld %d %ld\n", DBase[OBN].Name, DBase[OBN].Layer2,
+    if (fprintf(fvector,"%s %s %ld %d %hu\n", DBase[OBN].Name, DBase[OBN].Layer2,
        map->rows + 1, DBase[OBN].LineWidth, DBase[OBN].Color) < 0)
 	error = 1;
     for (z=0; z<map->rows && error==0; z++)

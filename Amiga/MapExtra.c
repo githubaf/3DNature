@@ -1072,7 +1072,7 @@ short modpoints(short modify)
       {
          if(j>=MAXOBJPTS)
          {
-         sprintf (str, "Arrysize exceeded in %s Line %u. %s %u (AF, 8.July2021)",__FILE__,__LINE__, DBase[OBN].Name,DBase[OBN].Points);
+         sprintf (str, "Arrysize exceeded in %s Line %d. %s %u (AF, 8.July2021)",__FILE__,__LINE__, DBase[OBN].Name,DBase[OBN].Points);
          Log(ERR_WRONG_SIZE, str);
          break;
          }

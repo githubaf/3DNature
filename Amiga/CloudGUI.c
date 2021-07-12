@@ -1041,7 +1041,7 @@ union KeyFrame *KFPtr;
    if (CD)
     {
     WD = CD->WD;
-    while ((fscanf(fCloud, "%d", &Item) == 1) && success)
+    while ((fscanf(fCloud, "%ld", &Item) == 1) && success)
      {
      switch (Item)
       {
@@ -1049,10 +1049,10 @@ union KeyFrame *KFPtr;
        fscanf(fCloud, "%hd", &CD->NumKeys);
        break;
       case CLOUDDATA_LNG_ROWS:
-       fscanf(fCloud, "%d", &CD->Rows);
+       fscanf(fCloud, "%ld", &CD->Rows);
        break;
       case CLOUDDATA_LNG_COLS:
-       fscanf(fCloud, "%d", &CD->Cols);
+       fscanf(fCloud, "%ld", &CD->Cols);
        break;
       case CLOUDDATA_SHT_NUMWAVES:
        fscanf(fCloud, "%hd", &CD->WD->NumWaves);
@@ -1092,7 +1092,7 @@ union KeyFrame *KFPtr;
        fscanf(fCloud, "%le", &CD->Alt);
        break;
       case CLOUDDATA_LNG_RANDSEED:
-       fscanf(fCloud, "%d", &CD->RandSeed);
+       fscanf(fCloud, "%ld", &CD->RandSeed);
        break;
       case CLOUDDATA_DBL_STDDEV:
        fscanf(fCloud, "%le", &CD->StdDev);
@@ -1109,7 +1109,7 @@ union KeyFrame *KFPtr;
       case CLOUDDATA_BYT_COLOR:
        for (i=0; i<9; i++)
         {
-        fscanf(fCloud, "%d", &Color);
+        fscanf(fCloud, "%ld", &Color);
 /* this is a dummy since colors are not used */
 	} /* for i=0... */
        break;
@@ -1171,7 +1171,7 @@ union KeyFrame *KFPtr;
        break;
       case WAVE_SHT_NUMKEYS:
        if (WV)
-        fscanf(fCloud, "%d", &WV->NumKeys);
+        fscanf(fCloud, "%hd", &WV->NumKeys);
        else
         success = 0;
        break;

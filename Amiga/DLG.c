@@ -135,9 +135,9 @@ struct BusyWindow *BWDL;
   if ((done = fscanf(fDLG, "%s", &str)) == EOF) break;
   if (! strcmp(str, "L"))
    {
-   fscanf(fDLG, "%d", &DLG.IDNum);
-   fscanf(fDLG, "%d", &DLG.StartNode);
-   fscanf(fDLG, "%d", &DLG.EndNode);
+   fscanf(fDLG, "%ld", &DLG.IDNum);
+   fscanf(fDLG, "%ld", &DLG.StartNode);
+   fscanf(fDLG, "%ld", &DLG.EndNode);
    fscanf(fDLG, "%hd", &DLG.LeftArea);
    fscanf(fDLG, "%hd", &DLG.RightArea);
    fscanf(fDLG, "%hd", &DLG.Pairs);
@@ -358,7 +358,7 @@ struct BusyWindow *BWDL;
    }
   else if (code >= 60 && code <= 79)
    {
-   fscanf(fDXF, "%d", &IntValue);
+   fscanf(fDXF, "%ld", &IntValue);
    }
   else if (code >= 210 && code <= 239)
    {

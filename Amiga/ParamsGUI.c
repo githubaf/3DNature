@@ -1378,7 +1378,7 @@ short Load_FM_Win(void)
  fscanf(fModel, "%hd", &Items);
  for (FM_Win->ItemNum=1; FM_Win->ItemNum<=Items; FM_Win->ItemNum++)
   {
-  if (fscanf(fModel, "%d%d%s%d%d%d", &Ht, &Stems, &Class, &Red, &Grn, &Blu)
+  if (fscanf(fModel, "%ld%ld%s%ld%ld%ld", &Ht, &Stems, &Class, &Red, &Grn, &Blu)
 	!= 6)
    {
    error = 2;

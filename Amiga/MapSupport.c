@@ -48,17 +48,17 @@ void savemapprefs(void)
  fprintf(fprefs, "%s\n", "WCSMVPrefs");
 
  fprintf(fprefs, "%d\n", MAPPREFS_SHT_TOPO);
- fprintf(fprefs, "%hd\n", topo);
+ fprintf(fprefs, "%hu\n", topo);
  fprintf(fprefs, "%d\n", MAPPREFS_SHT_ALIGN);
- fprintf(fprefs, "%hd\n", align);
+ fprintf(fprefs, "%hu\n", align);
  fprintf(fprefs, "%d\n", MAPPREFS_SHT_VECENABLE);
- fprintf(fprefs, "%hd\n", vectorenabled);
+ fprintf(fprefs, "%hu\n", vectorenabled);
  fprintf(fprefs, "%d\n", MAPPREFS_SHT_ECOENABLE);
- fprintf(fprefs, "%hd\n", ecoenabled);
+ fprintf(fprefs, "%hu\n", ecoenabled);
  fprintf(fprefs, "%d\n", MAPPREFS_SHT_INTERSTUFF);
- fprintf(fprefs, "%hd\n", InterStuff);
+ fprintf(fprefs, "%hu\n", InterStuff);
  fprintf(fprefs, "%d\n", MAPPREFS_SHT_AUTOCLEAR);
- fprintf(fprefs, "%hd\n", AutoClear);
+ fprintf(fprefs, "%hu\n", AutoClear);
  fprintf(fprefs, "%d\n", MAPPREFS_SHT_LOWX);
  fprintf(fprefs, "%hd\n", AlignBox.Low.X);
  fprintf(fprefs, "%d\n", MAPPREFS_SHT_LOWY);
@@ -131,37 +131,37 @@ short readmapprefs(void)
   } /* if not WCS Map Prefs file */
  for (; ;)
   {
-  if (fscanf(fprefs, "%d", &item) == EOF) break;
+  if (fscanf(fprefs, "%ld", &item) == EOF) break;
   switch (item)
    {
    case MAPPREFS_SHT_TOPO:
     {
-    fscanf(fprefs, "%hd", &topo);
+    fscanf(fprefs, "%hu", &topo);
     break;
     } /*  */
    case MAPPREFS_SHT_ALIGN:
     {
-    fscanf(fprefs, "%hd", &align);
+    fscanf(fprefs, "%hu", &align);
     break;
     } /*  */
    case MAPPREFS_SHT_VECENABLE:
     {
-    fscanf(fprefs, "%hd", &vectorenabled);
+    fscanf(fprefs, "%hu", &vectorenabled);
     break;
     } /*  */
    case MAPPREFS_SHT_ECOENABLE:
     {
-    fscanf(fprefs, "%hd", &ecoenabled);
+    fscanf(fprefs, "%hu", &ecoenabled);
     break;
     } /*  */
    case MAPPREFS_SHT_INTERSTUFF:
     {
-    fscanf(fprefs, "%hd", &InterStuff);
+    fscanf(fprefs, "%hu", &InterStuff);
     break;
     } /*  */
    case MAPPREFS_SHT_AUTOCLEAR:
     {
-    fscanf(fprefs, "%hd", &AutoClear);
+    fscanf(fprefs, "%hu", &AutoClear);
     break;
     } /*  */
    case MAPPREFS_SHT_LOWX:

@@ -439,17 +439,17 @@ RepeatSave:
   fputs(DBase[i].Name, fname);
   fputs(DBase[i].Layer1, fname);
   fputs(DBase[i].Layer2, fname);
-  fprintf(fname, "%1.1hd", DBase[i].LineWidth);
-  fprintf(fname, "%-2.2hd", DBase[i].Color);
+  fprintf(fname, "%1.1hu", DBase[i].LineWidth);
+  fprintf(fname, "%-2.2hu", DBase[i].Color);
   fputs(DBase[i].Pattern, fname);
   fputs(DBase[i].Label, fname);
-  fprintf(fname, "%-5.5hd", DBase[i].Points);
+  fprintf(fname, "%-5.5hu", DBase[i].Points);
   fputs(DBase[i].Mark, fname);
-  fprintf(fname, "%-3.3hd", DBase[i].Red);
-  fprintf(fname, "%-3.3hd", DBase[i].Grn);
-  fprintf(fname, "%-3.3hd", DBase[i].Blu);
+  fprintf(fname, "%-3.3hu", DBase[i].Red);
+  fprintf(fname, "%-3.3hu", DBase[i].Grn);
+  fprintf(fname, "%-3.3hu", DBase[i].Blu);
   fputs(DBase[i].Special, fname);
-  error = fprintf(fname, "%1.1hd", DBase[i].MaxFract);
+  error = fprintf(fname, "%1.1hu", DBase[i].MaxFract);
   fputc(10, fname);
   } /* for i=0... */
  fclose(fname);

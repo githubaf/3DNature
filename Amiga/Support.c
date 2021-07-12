@@ -302,7 +302,7 @@ void LoadConfig(void)
 
  for (; ;)
   {
-  if (fscanf(fconfig, "%d", &item) == EOF) break;
+  if (fscanf(fconfig, "%ld", &item) == EOF) break;
 
   switch (item)
    {
@@ -913,7 +913,7 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
   fprintf(fproject, "%d\n", PROJECT_SM_OVAL);
   fprintf(fproject, "%lu\n", ScrnData->OVal);
   fprintf(fproject, "%d\n", PROJECT_SM_AUTOTAG);
-  fprintf(fproject, "%ld\n", ScrnData->AutoTag);
+  fprintf(fproject, "%lu\n", ScrnData->AutoTag);
   fprintf(fproject, "%d\n", PROJECT_SM_AUTOVAL);
   fprintf(fproject, "%lu\n", ScrnData->AutoVal);
   } /* if ScrnData */
@@ -988,7 +988,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
   } /* if not WCS Project */
  for (; ;)
   {
-  if (fscanf(fproject, "%d", &item) == EOF) break;
+  if (fscanf(fproject, "%ld", &item) == EOF) break;
   switch (item)
    {
    case PROJECT_PJ_PTH:
@@ -1271,12 +1271,12 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     } /*  */
    case PROJECT_MP_DITHER:
     {
-    fscanf(fproject, "%hd", &MapDither);
+    fscanf(fproject, "%hu", &MapDither);
     break;
     } /*  */
    case PROJECT_MP_CONTINT:
     {
-    fscanf(fproject, "%hd", &ContInt);
+    fscanf(fproject, "%hu", &ContInt);
     break;
     } /*  */
    case PROJECT_MP_CONTINT2:
@@ -1326,37 +1326,37 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
 /* Screen mode info */
    case PROJECT_SM_MODEID:
     {
-    if (ScrnData) fscanf(fproject, "%d", &ScrnData->ModeID);
+    if (ScrnData) fscanf(fproject, "%lu", &ScrnData->ModeID);
     break;
     } /*  */
    case PROJECT_SM_WIDTH:
     {
-    if (ScrnData) fscanf(fproject, "%d", &ScrnData->Width);
+    if (ScrnData) fscanf(fproject, "%ld", &ScrnData->Width);
     break;
     } /*  */
    case PROJECT_SM_HEIGHT:
     {
-    if (ScrnData) fscanf(fproject, "%d", &ScrnData->Height);
+    if (ScrnData) fscanf(fproject, "%ld", &ScrnData->Height);
     break;
     } /*  */
    case PROJECT_SM_OTAG:
     {
-    if (ScrnData) fscanf(fproject, "%d", &ScrnData->OTag);
+    if (ScrnData) fscanf(fproject, "%lu", &ScrnData->OTag);
     break;
     } /*  */
    case PROJECT_SM_OVAL:
     {
-    if (ScrnData) fscanf(fproject, "%d", &ScrnData->OVal);
+    if (ScrnData) fscanf(fproject, "%lu", &ScrnData->OVal);
     break;
     } /*  */
    case PROJECT_SM_AUTOTAG:
     {
-    if (ScrnData) fscanf(fproject, "%d", &ScrnData->AutoTag);
+    if (ScrnData) fscanf(fproject, "%lu", &ScrnData->AutoTag);
     break;
     } /*  */
    case PROJECT_SM_AUTOVAL:
     {
-    if (ScrnData) fscanf(fproject, "%d", &ScrnData->AutoVal);
+    if (ScrnData) fscanf(fproject, "%lu", &ScrnData->AutoVal);
     break;
     } /*  */
 
@@ -1485,7 +1485,7 @@ short LoadDirList(void)
 
  for (; ;)
   {
-  if (fscanf(fproject, "%d", &item) == EOF) break;
+  if (fscanf(fproject, "%ld", &item) == EOF) break;
 
   switch (item)
    {
@@ -1596,7 +1596,7 @@ short LoadDirList(void)
    case PROJECT_SM_AUTOTAG:
    case PROJECT_SM_AUTOVAL:
     {
-    fscanf(fproject, "%d", &item);
+    fscanf(fproject, "%ld", &item);
     break;
     } /* scan long value */
 

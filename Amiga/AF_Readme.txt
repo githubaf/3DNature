@@ -154,3 +154,22 @@ cppcheck EdPar.c --force -U C_PLUS_PLUS | grep "[0-9]+:[0-9]:"
 8.Juli 2021
 -----------
 Smakefile/SMakeIt geaendert. c++ Comment detected warning (51) ist jetzt unterdrueckt.
+
+cppcheck sollte alle Includes kennen:
+~/opt/m68k-amigaos_15Jun21/bin/m68k-amigaos-gcc -E -Wp,-v -
+
+Und wir sollten alle Compiler-Definitionen ubergeben.
+~/opt/m68k-amigaos_27Apr21/bin/m68k-amigaos-gcc -dM -E - < /dev/null
+
+12.July2021
+-----------
+cppcheck mit exclude unbenutzter Files/Directories. Start mit "." und dann -i
+
+time cppcheck . -v --enable=all -I/home/developer/opt/m68k-amigaos_15Jun21/include -I/home/developer/opt/m68k-amigaos_15Jun21/lib/gcc/m68k-amigaos/6.5.0b/include -I/home/developer/opt/m68k-amigaos_15Jun21/m68k-amigaos/ndk-include -I/home/developer/opt/m68k-amigaos_15Jun21/m68k-amigaos/sys-include -I/home/developer/opt/m68k-amigaos_15Jun21/m68k-amigaos/include $(cat aaa)  -i disttools -i hyper -i info -i markov -i nngridr -i af.c -i af_test.c -i chartest.c -i GUI.c -i MapSfc.c -i MapWorld.c -i MarkovTable.c -i muitest.c -i nngridrextra.c -i OldMapTopo.c -i USDEMExtract.c 2>&1 | egrep "[0-9]+:[0-9]+:" | grep "error:" | wc -l
+
+error     9
+warning  72
+style   729
+note    274
+
+

@@ -96,7 +96,7 @@ else if(data->FIFlags & FIOFlag_Char)
 	if(data->FIFlags && FIOFlag_Unsigned)
 		{
 		ULConv = *(unsigned char *)data->MasterVariable;
-		sprintf(Scratch, "%u", ULConv);
+		sprintf(Scratch, "%lu", ULConv);
 		} /* if */
 	else
 		{
@@ -109,7 +109,7 @@ else if(data->FIFlags & FIOFlag_Short)
 	if(data->FIFlags && FIOFlag_Unsigned)
 		{
 		ULConv = *(unsigned short *)data->MasterVariable;
-		sprintf(Scratch, "%u", ULConv);
+		sprintf(Scratch, "%lu", ULConv);
 		} /* if */
 	else
 		{
@@ -122,7 +122,7 @@ else if(data->FIFlags & FIOFlag_Long)
 	if(data->FIFlags && FIOFlag_Unsigned)
 		{
 		ULConv = *(unsigned long *)data->MasterVariable;
-		sprintf(Scratch, "%u", ULConv);
+		sprintf(Scratch, "%lu", ULConv);
 		} /* if */
 	else
 		{
@@ -551,7 +551,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 		{
 		case MUIA_FloatInt_Focus:
 			{
-			printf("New Focus: %x\n", tag->ti_Data);
+			printf("New Focus: %lx\n", tag->ti_Data);
 			return(0);
 			break;
 			} /* Focus */

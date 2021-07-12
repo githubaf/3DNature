@@ -269,7 +269,7 @@ void Make_EM_Window(void)
 /* link string gadgets to application */
   DoMethod(EM_Win->Str[0], MUIM_Notify, MUIA_String_Contents, MUIV_EveryTime,
      app, 2, MUIM_Application_ReturnID, ID_EM_FRAMESTR(0));
-  for (i=0; i<6; i++)
+  for (i=0; i<5; i++)  // was i<6 -> ValTxt has only index 0...4, see definition EM_Win->ValTxt[5]  AF, 12.July2021
    {
    DoMethod(EM_Win->ValTxt[i], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
      app, 2, MUIM_Application_ReturnID, ID_EM_VALSTR(i));
