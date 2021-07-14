@@ -6,7 +6,7 @@
 */
 
 #include "WCS.h"
-#include "vgl.h"
+#include "vgl/vgl.h"
 
 void ScratchRast_CornerTurn(struct vgl_pixmap *This, struct RastPort *ScratchRast)
 {

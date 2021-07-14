@@ -6,7 +6,8 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 #include <time.h>
-#include "vgl.h"
+#include "vgl/vgl.h"
+#include "vgl/vgl_internals.h"
 
 /* HIDDEN_LINE_REMOVE does what it sez. */
 #define HIDDEN_LINE_REMOVE
@@ -20,13 +21,8 @@
 
 #undef USE_MORE_UPDATES
 
-void vgl_dumb_line (PIXMAP * p, int x1, int y1, int x2, int y2);
-void vgl_dumb_setcur (PIXMAP * p, int fg, int bg);
-void vgl_dumb_clear (PIXMAP * p);
-void vgl_dumb_fillpoly (PIXMAP * p, int n_vert, struct vgl_coord *vert);
 void ClipAreaDrawVGL(PIXMAP *PM, struct vgl_coord *Poly, struct clipbounds *cb,
  char Fill, char Border);
-/* int vgl_dumb_fillpoly_n(PIXMAP * p, int n_vert, struct vgl_coord *vert); */
 void vgl_dumb_fillpoly_convex (PIXMAP * p, int n_vert, struct vgl_coord *vert, double DitherCol);
 
 void ClipPoly4RPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb);
