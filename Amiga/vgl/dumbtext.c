@@ -141,7 +141,6 @@ static void copy_plane_1_to_8 (PIXMAP * p, struct image *src_image,
 struct vgl_ffont *
 vgl_expand_font (struct vgl_font *input)
 {
-  struct vgl_ffont *ff = vgl_malloc (sizeof (struct vgl_ffont));
   int nchars = input->max_char - input->min_char + 1;
   int line_length = input->line_length;
   int ch, line;
@@ -150,6 +149,12 @@ vgl_expand_font (struct vgl_font *input)
   int shift;
   int offset;
   int byte;
+  struct vgl_ffont *ff = vgl_malloc (sizeof (struct vgl_ffont));
+
+  if(!ff)
+  {
+      return NULL;  // vgl_malloc() can fail, AF, 14.July 2021
+  }
 
   if (input->width > 32)
     {
@@ -157,6 +162,10 @@ vgl_expand_font (struct vgl_font *input)
          fprintf (stderr, "Fast fonts must be <= 32 pixels wide.\n");
          exit (1);
        */
+      if(ff)
+      {
+          vgl_free(ff);   // avaif memory leak, AF 24.July 2021
+      }
       return (NULL);
     }
 
