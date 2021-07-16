@@ -51,7 +51,7 @@ clean:
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS.unstripped && m68k-amigaos-strip WCS && ls -la WCS
+	-cp WCS WCS.unstripped && m68k-amigaos-strip WCS && ls -la WCS && m68k-amigaos-size WCS
 	-@echo ' '
 
 .PHONY: all clean dependents post-build

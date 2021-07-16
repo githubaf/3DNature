@@ -10,6 +10,9 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
+static short setfaceone(struct elmapheaderV101 *map);  // AF static 16.July2021
+static short setfacetwo(struct elmapheaderV101 *map);  // AF static 16.July2021
+
 short maptopoobject(struct elmapheaderV101 *map, struct Window *win,
 	short DEMnum, short NumDEMs, struct CloudData *CD)
 {
@@ -1318,7 +1321,7 @@ void renderface(struct elmapheaderV101 *map, struct Window *win, struct CloudDat
 
 /*********************************************************************/
 
-short setfaceone(struct elmapheaderV101 *map)
+static short setfaceone(struct elmapheaderV101 *map)
 {
  map->facept[0] = map->facect;
  map->facept[1] = map->facect + map->columns;
@@ -1330,7 +1333,7 @@ short setfaceone(struct elmapheaderV101 *map)
 
 /*********************************************************************/
 
-short setfacetwo(struct elmapheaderV101 *map)
+static short setfacetwo(struct elmapheaderV101 *map)
 {
  map->facept[0] = map->facect + map->columns;
  map->facept[1] = map->facect;		

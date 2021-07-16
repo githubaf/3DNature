@@ -565,8 +565,8 @@ extern void FractFace_Render(struct elmapheaderV101 *map,
 extern void renderface(struct elmapheaderV101 *map, struct Window *win, struct CloudData *CD);
 extern void rendercloud(struct Window *win, short *CloudVal,
 	short *IllumVal, short Elev);
-extern short setfaceone(struct elmapheaderV101 *map);
-extern short setfacetwo(struct elmapheaderV101 *map);
+//extern short setfaceone(struct elmapheaderV101 *map);  // local and therefore static AF, 16.July 2021
+//extern short setfacetwo(struct elmapheaderV101 *map);  // local and therefore static AF, 16.July 2021
 extern short setface(struct elmapheaderV101 *map);
 extern void CloudPointSort(short *CloudVal, short *IllumVal);
 extern short CloudShadow_Init(struct elmapheaderV101 *map, struct CloudData *CD);

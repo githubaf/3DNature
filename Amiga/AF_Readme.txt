@@ -183,7 +183,11 @@ another 40 Bytes by declaring setfaceone() static.
 16.7.2021
 ---------
 Current Size:
-      -O2                        : 1492520 Bytes
--flto -O2                        : 1492392 Bytes   -->    128 Bytes saved due to flto. That is not much!
--flto -O2 -fommit-frame-pointer  : 1478696 Bytes   --> 13.696 Bytes saved die to fommit-frame-pointer
+      -O2                          : 1492520 Bytes
+-flto -O2                          : 1492392 Bytes   -->    128 Bytes saved due to flto. That is not much!
+-flto -O2 -fommit-frame-pointer    : 1478696 Bytes   --> 13.696 Bytes saved die to fommit-frame-pointer
 
+static setfaceone(), setfacetwo()  : 1478632 Bytes   -->     64 Bytes saved. -flto seems not to have optimized that...
+
+   text	   data	    bss	    dec	    hex	filename
+1240672	  93420	 140884	1474976	 1681a0	WCS
