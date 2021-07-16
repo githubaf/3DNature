@@ -21,11 +21,13 @@ EXE=WCS.unstripped
 UNUSED_COUNT=0
 STATIC_COUNT=0
 
-for FUNCTION in $("$COMPILER_PATH"/m68k-amigaos-objdump -tC "$EXE" | awk '/\.text/{print $6}'); do 
-		#((COUNT++))
-	      	#echo "$FUNCTION" 
+ctags --recurse  # we look into "tags" to care only for our own functions. Othrewise clib functions would also be considered
 
-		LINES=$(find .. -name "*.c" -exec grep -nH "$FUNCTION" {} \;)  # look into c-Files for that function. unfortunatelly we see also prototypes and commented/ifdeffed stuff
+for FUNCTION in $("$COMPILER_PATH"/m68k-amigaos-objdump -tC "$EXE" | awk '/\.text.*\.part/{next} /\.text/{print $6}'); do # some function are split in objdump as .part0 .part1 etc, skip them
+	      	#echo "$FUNCTION"
+		if [ $(grep "$FUNCTION[^a-zA-Z0-9_\=\[]" ../tags | grep -c ".") -ne "0" ]; then     # only functions that are definded in our c-Files are considered
+
+		LINES=$(find .. -name "*.c" -exec grep -nH "$FUNCTION[^a-zA-Z0-9_\=\[]" {} \;)  # look into c-Files for that function. unfortunatelly we see also prototypes and commented/ifdeffed stuff
 		                                                               # using the preprocessed files is even worse, they contain all prototypes from headers.
 									       # using the *.s files does not work either. They are unreadable with -flto and do not contain names in function calls :-(
 
@@ -35,17 +37,25 @@ for FUNCTION in $("$COMPILER_PATH"/m68k-amigaos-objdump -tC "$EXE" | awk '/\.tex
 				echo "$LINES"
 				echo "---------------------------------------------------------"
 			elif [ $(echo "$LINES" | awk -F: '{print $1}' | sort --unique | grep -c ".") -eq "1" ]; then  # several occurences but all in one file? --> static
-				((STATIC_COUNT++))
-				echo "$FUNCTION() is used only locally in"
-				echo "$LINES -> make it static if not already done!"
-				echo "---------------------------------------------------------"
+				if [ $(echo "$LINES" | grep -i "static" | grep -c ".") -eq "0" ]; then
+					((STATIC_COUNT++))
+					echo "$FUNCTION() is used only locally in"
+					echo "$LINES -> make it static if not already done!"
+					echo "---------------------------------------------------------"
+				else
+					
+					echo -e "\e[32m$FUNCTION() is already static.\e[0m"
+					echo "---------------------------------------------------------"
+				fi
+
 			fi
+		else
+			echo -e "\e[33m$FUNCTION() is not ours\e[0m"
+			echo "---------------------------------------------------------"
+	       fi
 done
 
 echo
 echo "$UNUSED_COUNT unused functions found."
 echo "$STATIC_COUNT static-candidates found."
-
-
-                                                                  # more lines (but always same c-file)? -> used only locally -> make it static
 

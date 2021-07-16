@@ -6,6 +6,8 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 
+static void SetActiveColor(struct PaletteItem *Pal, short row);  // local --> static AF, 16.July 2021
+
 void Make_EC_Window(void)
 {
  short i;
@@ -1255,7 +1257,7 @@ void SetScreen_8(struct PaletteItem *Pal)
 
 /*********************************************************************/
 
-void SetActiveColor(struct PaletteItem *Pal, short row)
+static void SetActiveColor(struct PaletteItem *Pal, short row)
 {
  short color[3];
 

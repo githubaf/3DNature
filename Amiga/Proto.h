@@ -861,7 +861,7 @@ extern void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode);
 extern void SetAllColorRequester(void);
 extern void SetColorRequester(short row);
 extern void SetScreen_8(struct PaletteItem *Pal);
-extern void SetActiveColor(struct PaletteItem *Pal, short row);
+//extern void SetActiveColor(struct PaletteItem *Pal, short row);  // local static, AF, 16.July 2021
 extern void Adjust_EcoPal(short i);
 extern void Set_EC_Item(short item);
 extern void UnSet_EC_Item(short item);
