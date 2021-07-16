@@ -172,4 +172,18 @@ warning  72
 style   729
 note    274
 
+15.July.2021
+------------
+304 Bytes can be saved by commentig 2 unused functions. Found with my find_unused_funcs.sh script
+vgl_cmyk_to_rgb()
+vgl_cmy_to_rgb()
+
+another 40 Bytes by declaring setfaceone() static.
+
+16.7.2021
+---------
+Current Size:
+      -O2                        : 1492520 Bytes
+-flto -O2                        : 1492392 Bytes   -->    128 Bytes saved due to flto. That is not much!
+-flto -O2 -fommit-frame-pointer  : 1478696 Bytes   --> 13.696 Bytes saved die to fommit-frame-pointer
 
