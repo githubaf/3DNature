@@ -44,7 +44,7 @@ struct CloudLayer *CLDel;
 } /* CloudLayer_Del() */
 
 /*********************************************************************/
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 void CloudLayer_SetDouble(struct CloudLayer *CL, ULONG Item, double Val)
 {
 
@@ -58,9 +58,10 @@ void CloudLayer_SetDouble(struct CloudLayer *CL, ULONG Item, double Val)
   } /* switch */
 
 } /* CloudLayer_Set() */
-
+#endif
 /**********************************************************************/
 
+#ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 void CloudLayer_SetShort(struct CloudLayer *CL, ULONG Item, short Val)
 {
 
@@ -84,7 +85,7 @@ void CloudLayer_SetShort(struct CloudLayer *CL, ULONG Item, short Val)
   } /* switch */
 
 } /* CloudLayer_Set() */
-
+#endif
 /**********************************************************************/
 
 struct CloudData *CloudData_New(void)

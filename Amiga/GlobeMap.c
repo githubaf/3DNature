@@ -1814,7 +1814,7 @@ TryAgain2:
 } /* InitCloudMap() */
 
 /*************************************************************************/
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 17.July 2021
 void Handle_Render_Window(void)
 {
  short abort = 0;
@@ -1888,7 +1888,7 @@ void Handle_Render_Window(void)
   } /* while */
 
 } /* Handle_Render_Window() */
-
+#endif
 /*************************************************************************/
 
 void Close_Render_Window(void)

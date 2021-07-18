@@ -167,6 +167,7 @@ return(OkFlag);
 ** that of your task. If you set StringFile to TRUE, it will set that bit for
 ** the message. Returns TRUE if it send the message, FALSE if it did not...
 **/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 17.July 2021
 short Rexx_SendMsg(struct ARexxContext *This, char *RString, short StringFile)
 {
 register	struct MsgPort *RexxPort;
@@ -205,7 +206,7 @@ if ((This) && (RString))
 	} /* if */
 return(flag);
 } /* Rexx_SendMsg() */
-
+#endif
 
 
 

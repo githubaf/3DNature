@@ -9,7 +9,7 @@
 
 #ifndef C_PLUS_PLUS
 /************************************************************************/
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 17.July 2021
 struct Rootstock *Rootstock_New(void)
 	{
 
@@ -17,7 +17,7 @@ struct Rootstock *Rootstock_New(void)
 			(sizeof (struct Rootstock), MEMF_CLEAR));
 
 	} /* Rootstock_New() */
-
+#endif
 /************************************************************************/
 
 struct Ecotype *Ecotype_New(void)
@@ -66,7 +66,7 @@ short i;
 } /* DisposeEcotypes() */
 
 /************************************************************************/
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 17.July 2021
 void Rootstock_Del(struct Rootstock *This)
 	{
 
@@ -80,7 +80,7 @@ void Rootstock_Del(struct Rootstock *This)
 		} /* if */
 
 	} /* Rootstock_Del() */
-
+#endif
 /************************************************************************/
 
 void Ecotype_Del(struct Ecotype *This)

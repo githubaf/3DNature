@@ -27,7 +27,8 @@ for FUNCTION in $("$COMPILER_PATH"/m68k-amigaos-objdump -tC "$EXE" | awk '/\.tex
 	      	#echo "$FUNCTION"
 		if [ $(grep "$FUNCTION[^a-zA-Z0-9_\=\[]" ../tags | grep -c ".") -ne "0" ]; then     # only functions that are definded in our c-Files are considered
 
-		LINES=$(find .. -name "*.c" -exec grep -nH "$FUNCTION[^a-zA-Z0-9_\=\[]" {} \;)  # look into c-Files for that function. unfortunatelly we see also prototypes and commented/ifdeffed stuff
+		LINES=$(find .. -name "*.c" -exec grep -nH "$FUNCTION[^a-zA-Z0-9_\=\[]" {} \;)  # look into c-Files for that function. 
+		                                                               # unfortunatelly we see also prototypes and commented/ifdeffed stuff
 		                                                               # using the preprocessed files is even worse, they contain all prototypes from headers.
 									       # using the *.s files does not work either. They are unreadable with -flto and do not contain names in function calls :-(
 
@@ -49,9 +50,9 @@ for FUNCTION in $("$COMPILER_PATH"/m68k-amigaos-objdump -tC "$EXE" | awk '/\.tex
 				fi
 
 			fi
-		else
-			echo -e "\e[33m$FUNCTION() is not ours\e[0m"
-			echo "---------------------------------------------------------"
+#		else
+#			echo -e "\e[33m$FUNCTION() is not ours\e[0m"
+#			echo "---------------------------------------------------------"
 	       fi
 done
 

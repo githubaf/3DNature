@@ -61,7 +61,7 @@ get(ModControlWin, MUIA_Window_Window, &MCPWin);
 }
 
 /**************************************************************************/
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 short getparamfile(long mode)
 {
 #ifdef AMIGA_GUI
@@ -112,7 +112,7 @@ get(ModControlWin, MUIA_Window_Window, &MCPWin);
  return 1;
 #endif /* AMIGA_GUI */
 }
-
+#endif
 /**************************************************************************/
 
 short getfilename(long mode, char *requestname, char *pathname,

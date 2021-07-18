@@ -118,6 +118,7 @@ void *vgl_memcpy (void *dest, void *source, size_t size)
 
 /****************************************************************************/
 /****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 17.July 2021
 unsigned long 
 vgl_isqrt (unsigned long n)
 {
@@ -138,11 +139,12 @@ vgl_isqrt (unsigned long n)
 
   return (current);
 }
-
+#endif
 
 
 /****************************************************************************/
 /****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 17.July 2021
 unsigned long 
 vgl_ihypot (unsigned long x, unsigned long y)
 {
@@ -165,7 +167,7 @@ vgl_ihypot (unsigned long x, unsigned long y)
 
   return (current);
 }
-
+#endif
 
 
 /****************************************************************************/
@@ -196,6 +198,7 @@ vgl_ihypot (unsigned long x, unsigned long y)
 #define RAND2_EPS  (1.2e-7)
 #define RAND2_RNMX (1.0-RAND2_EPS)
 
+#ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 float
 vgl_random (long *idum)
 {
@@ -249,7 +252,7 @@ vgl_random (long *idum)
   else
     return (temp);
 }
-
+#endif
 /****************************************************************************/
 /****************************************************************************/
 /*  This is the "current" random value for vgl_random_quick().  The function

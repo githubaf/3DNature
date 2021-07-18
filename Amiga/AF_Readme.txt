@@ -191,3 +191,10 @@ static setfaceone(), setfacetwo()  : 1478632 Bytes   -->     64 Bytes saved. -fl
 
    text	   data	    bss	    dec	    hex	filename
 1240672	  93420	 140884	1474976	 1681a0	WCS
+
+i18.July 2021
+-------------
+21 unused functions ifdefed
+                                 :  1469528 Bytes   -->    9.104 Bytes saved
+
+

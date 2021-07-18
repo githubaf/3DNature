@@ -14,6 +14,7 @@
  *  blue is only encoded as two bits.  At the moment, if the default
  *  pallette is changed, then this function will give bad results.
  */
+#ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 void vgl_setcur_rgb (PIXMAP *p,
 		     int fg_red, int fg_green, int fg_blue,
 		     int bg_red, int bg_green, int bg_blue)
@@ -56,12 +57,13 @@ void vgl_setcur_rgb (PIXMAP *p,
 	      fg_red | (fg_green>>3) || (fg_blue>>6),
 	      bg_red | (bg_green>>3) || (bg_blue>>6) );
 }
-
+#endif
 
 
 /************************************************************************
  *  RGB to HSV (Hue, Saturation, and Value)
  */
+#ifdef UNUSED_FUNCTIONS  // AF, not used 17.July 2021
 void vgl_rgb_to_hsv (double red, double green, double blue, 
 		     double *hue, 
 		     double *saturation, 
@@ -102,10 +104,11 @@ void vgl_rgb_to_hsv (double red, double green, double blue,
 	*hue += 360.0;
     }
 }
-
+#endif
 
 
 /************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 void vgl_hsv_to_rgb (double hue,
 		     double saturation,
 		     double value,
@@ -183,11 +186,12 @@ void vgl_hsv_to_rgb (double hue,
 	}
     }
 }
-
+#endif
 
 /************************************************************************
  *  RGB to HLS (Hue, Lightness, and Saturation)
  */
+#ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 void vgl_rgb_to_hls (double red, double green, double blue,
 		     double *hue,
 		     double *lightness,
@@ -231,7 +235,7 @@ void vgl_rgb_to_hls (double red, double green, double blue,
 	*hue += 360.0;
     }
 }
-
+#endif
 
 /************************************************************************/
 static double
@@ -253,7 +257,7 @@ hls_value (double n1, double n2, double hue)
     return (n1);
 }
 
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 void vgl_hls_to_rgb (double hue,
 		     double lightness,
 		     double saturation,
@@ -291,7 +295,7 @@ void vgl_hls_to_rgb (double hue,
       *blue  = hls_value (m1, m2, hue - 120.0);
     }
 }
-
+#endif
 
 
 /************************************************************************
@@ -305,6 +309,7 @@ void vgl_hls_to_rgb (double hue,
  *
  *  Note:  The strange boxes are supposed to indicate a matrix.
  */
+#ifdef UNUSED_FUNCTIONS  // AF, not used 17.July 2021
 void vgl_rgb_to_cmy (double red, double green, double blue,
 		     double *cyan, 
 		     double *magenta, 
@@ -314,9 +319,10 @@ void vgl_rgb_to_cmy (double red, double green, double blue,
   *magenta = 1.0 - green;
   *yellow =  1.0 - blue;
 }
-
+#endif
 
 /************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 17.July 2021
 void vgl_cmy_to_rgb (double cyan, 
 		     double magenta, 
 		     double yellow, 
@@ -326,11 +332,12 @@ void vgl_cmy_to_rgb (double cyan,
   *green = 1.0 - magenta;
   *blue =  1.0 - yellow;
 }
-
+#endif
 
 /************************************************************************
  *  RGB to CMYK (Cyan, Magenta, Yellow, and Black)
  */
+#ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 void vgl_rgb_to_cmyk (double red, double green, double blue,
 		      double *cyan, 
 		      double *magenta, 
@@ -348,9 +355,10 @@ void vgl_rgb_to_cmyk (double red, double green, double blue,
   *magenta -= *black;
   *yellow  -= *black;
 }
-
+#endif
 
 /************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 void vgl_cmyk_to_rgb (double cyan, 
 		      double magenta, 
 		      double yellow, 
@@ -365,7 +373,7 @@ void vgl_cmyk_to_rgb (double cyan,
   *green = 1.0 - magenta;
   *blue =  1.0 - yellow;
 }
-
+#endif
 
 
 /************************************************************************
@@ -377,6 +385,7 @@ void vgl_cmyk_to_rgb (double cyan,
  *    | Q |   | 0.21  -0.52  0.31 |   | B |
  *    +- -+   +-                 -+   +- -+
  */
+#ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 void vgl_rgb_to_yiq (double red, double green, double blue,
 		     double *y,
 		     double *i,
@@ -386,7 +395,7 @@ void vgl_rgb_to_yiq (double red, double green, double blue,
   *i = 0.60*red + -0.20*green + -0.32*blue;
   *q = 0.21*red + -0.52*green +  0.31*blue;
 }
- 
+#endif 
 
 /************************************************************************/
 void vgl_yiq_to_rgb (double y,
