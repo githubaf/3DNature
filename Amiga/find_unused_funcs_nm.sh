@@ -20,13 +20,15 @@ ctags -L list_of_c_files.txt
 cd - >/dev/null
 
 for FUNCTION in $("$COMPILER_PATH"/m68k-amigaos-objdump -tC "$EXE" | awk '/\.text.*\.part/{next} /\.text/{print $6}'); do
-	if [ $(grep "$FUNCTION[^a-zA-Z0-9_\=\[]" ../tags | egrep "[space]*f$" | grep -v "static" | grep -c ".") -ne "0" ]; then     # only functions that are definded in our c-Files are considered
-		if [ $(grep "$FUNCTION" called_functions.txt  | grep -c ".") -eq "0" ]; then
-			#echo "$FUNCTION not externally referenced, i.e unused or static candidate"
-			#grep "$FUNCTION[^a-zA-Z0-9_\=\[]" ../tags | egrep "[space]*f$"
-			find .. -name "*.c" -exec grep -nH "$FUNCTION" {} \;  # show found functions
-			echo "---------------------------------------------"
-			((UNUSED_OR_STATIC_COUNT++))
+	if [ $FUNCTION != "main" ]; then        # ignore man(), this should be never called by other source code
+		if [ $(grep "$FUNCTION[^a-zA-Z0-9_\=\[]" ../tags | egrep "[space]*f$" | grep -v "static" | grep -c ".") -ne "0" ]; then     # only functions that are definded in our c-Files are considered
+			if [ $(grep "$FUNCTION" called_functions.txt  | grep -c ".") -eq "0" ]; then
+				#echo "$FUNCTION not externally referenced, i.e unused or static candidate"
+				#grep "$FUNCTION[^a-zA-Z0-9_\=\[]" ../tags | egrep "[space]*f$"
+				find .. -name "*.c" -exec grep -nH "$FUNCTION"[^a-zA-Z0-9_\=\[] {} \;  # show found functions
+				echo "---------------------------------------------"
+				((UNUSED_OR_STATIC_COUNT++))
+			fi
 		fi
 	fi
 done
