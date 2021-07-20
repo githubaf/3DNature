@@ -43,8 +43,10 @@ struct ZBufferHeader {
  float  Min, Max, Bkgrnd, ScaleFactor, ScaleBase;
 };
 */
-short CompressRows(struct CompressData *CD);
-short FlushOutputBuff(struct CompressData *CD);
+static short CompressRows(struct CompressData *CD); // used locally only -> static, AF 20.7.2021
+static short FlushOutputBuff(struct CompressData *CD); // used locally only -> static, AF 20.7.2021
+static short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
+        short Width, short Height); // used locally only -> static, AF 20.7.2021
 
 
 short openbitmaps(UBYTE **bitmap, long zsize)
@@ -1028,7 +1030,7 @@ void ModFileName(char *tempfile, short renderseg, short imagearray,
 
 /***********************************************************************/
 
-short CompressRows(struct CompressData *CD)
+static short CompressRows(struct CompressData *CD) // used locally only -> static, AF 20.7.2021
 {
  long lastbyte, startbyte, byte, writebytes, RowBase;
  short i, mode, newmode, forcebreak, error = 0;
@@ -1164,7 +1166,7 @@ short CompressRows(struct CompressData *CD)
 
 /***********************************************************************/
 
-short FlushOutputBuff(struct CompressData *CD)
+static short FlushOutputBuff(struct CompressData *CD) // used locally only -> static, AF 20.7.2021
 {
 
  if (write (CD->fHandle, CD->OutArray, CD->OutCtr) != CD->OutCtr)
@@ -1486,8 +1488,8 @@ Cleanup:
 
 /***********************************************************************/
 
-short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
-	short Width, short Height)
+static short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
+	short Width, short Height) // used locally only -> static, AF 20.7.2021
 {
  short success = 0;
  long fh, ReadSize;

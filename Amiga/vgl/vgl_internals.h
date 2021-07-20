@@ -390,9 +390,9 @@ void vgl_dumb_set_clip (PIXMAP *p, int x_min, int y_min, int x_max, int y_max);
 void vgl_dumb_clip_on (PIXMAP *p);
 void vgl_dumb_clip_off (PIXMAP *p);
 
-void vgl_dumb_nothing (PIXMAP *p);
+// void vgl_dumb_nothing (PIXMAP *p); // used locally only -> static, AF 20.7.2021
 
-void vgl_dumb_set_pixel (PIXMAP *p, int x, int y);
+//void vgl_dumb_set_pixel (PIXMAP *p, int x, int y); // used locally only -> static, AF 19.7.2021
 int vgl_dumb_get_pixel (PIXMAP *p, int x, int y);
 void vgl_dumb_set_pixel_noclip (PIXMAP *p, int x, int y);
 int vgl_dumb_get_pixel_noclip (PIXMAP *p, int x, int y);
@@ -414,9 +414,9 @@ void vgl_dumb_hlinelist_noclip (PIXMAP *p, int count, struct span_list *list);
 #endif
 
 void vgl_dumb_rect (PIXMAP *p, int x1, int y1, int x2, int y2);
-void vgl_dumb_fillrect (PIXMAP *p, int x1, int y1, int x2, int y2);
-void vgl_dumb_rect_noclip (PIXMAP *p, int x1, int y1, int x2, int y2);
-void vgl_dumb_fillrect_noclip (PIXMAP *p, int x1, int y1, int x2, int y2);
+//void vgl_dumb_fillrect (PIXMAP *p, int x1, int y1, int x2, int y2);  // used locally only -> static, AF 19.7.2021
+// void vgl_dumb_rect_noclip (PIXMAP *p, int x1, int y1, int x2, int y2); // used locally only -> static, AF 20.7.2021
+// void vgl_dumb_fillrect_noclip (PIXMAP *p, int x1, int y1, int x2, int y2);  // used locally only -> static, AF 19.7.2021
 
 void vgl_dumb_circle (PIXMAP *p, int x, int y, int radius);
 void vgl_dumb_fillcircle (PIXMAP *p, int x, int y, int radius);
@@ -438,10 +438,10 @@ void vgl_dumb_fillarc (PIXMAP *p,
 		       int x, int y,
 		       int x_axis, int y_axis,
 		       int start, int end);
-void vgl_dumb_arc_noclip (PIXMAP *p,
+/*void vgl_dumb_arc_noclip (PIXMAP *p,
 			  int x, int y,
 			  int x_axis, int y_axis,
-			  int start, int end);
+			  int start, int end);*/ // used locally only -> static, AF 20.7.2021
 void vgl_dumb_fillarc_noclip (PIXMAP *p,
 			      int x, int y,
 			      int x_axis, int y_axis,
@@ -479,12 +479,12 @@ void vgl_dumb_transbitblt_noclip (PIXMAP *source,
 				  PIXMAP *dest,
 				  int dx, int dy,
 				  int mask_color);
-void vgl_dumb_transbitblt_core (PIXMAP *source,
+/*void vgl_dumb_transbitblt_core (PIXMAP *source,
 				int sx, int sy,
 				int width, int height,
 				PIXMAP *dest,
 				int dx, int dy,
-				int mask_color);
+				int mask_color);*/ // used locally only -> static, AF 20.7.2021
 
 void vgl_dumb_setfont (PIXMAP *p, struct vgl_ffont *ffont);
 void vgl_dumb_text (PIXMAP *p, int x, int y, char *s);

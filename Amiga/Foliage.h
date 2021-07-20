@@ -100,10 +100,10 @@ struct Ecotype *Ecotype_Copy(struct Ecotype *This);
 ULONG Ecotype_Save(struct Ecotype *This, FILE *ffile);
 ULONG FoliageGroup_Save(struct FoliageGroup *This, FILE *ffile);
 ULONG Foliage_Save(struct Foliage *This, FILE *ffile);
-ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags);
-ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags);
-ULONG PrepWriteBlock(FILE *ffile, ULONG ItemTag, ULONG SizeSize,
-	ULONG SizeType, ULONG FieldSize, ULONG FieldType, char *FieldAddr);
+//ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags);  // used locally only -> static, AF 19.7.2021
+//ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags); // used locally only -> static, AF 19.7.2021
+/*ULONG PrepWriteBlock(FILE *ffile, ULONG ItemTag, ULONG SizeSize,
+	ULONG SizeType, ULONG FieldSize, ULONG FieldType, char *FieldAddr);*/ // used locally only -> static, AF 19.7.2021
 
 #else /* C_PLUS_PLUS */
 

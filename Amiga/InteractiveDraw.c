@@ -9,6 +9,9 @@
 #include "vgl/vgl.h"
 #include "vgl/vgl_internals.h"
 
+static short computeview(struct elmapheaderV101 *Map); // used locally only -> static, AF 19.7.2021
+static void computefocprof(void); // used locally only -> static, AF 19.7.2021
+
 /* HIDDEN_LINE_REMOVE does what it sez. */
 #define HIDDEN_LINE_REMOVE
 
@@ -21,12 +24,13 @@
 
 #undef USE_MORE_UPDATES
 
-void ClipAreaDrawVGL(PIXMAP *PM, struct vgl_coord *Poly, struct clipbounds *cb,
- char Fill, char Border);
+static void ClipAreaDrawVGL(PIXMAP *PM, struct vgl_coord *Poly, struct clipbounds *cb,
+ char Fill, char Border); // used locally only -> static, AF 19.7.2021
 void vgl_dumb_fillpoly_convex (PIXMAP * p, int n_vert, struct vgl_coord *vert, double DitherCol);
 
-void ClipPoly4RPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb);
-void ClipAreaDrawRPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb);
+static void ClipPoly4RPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb); // used locally only -> static, AF 19.7.2021
+static void ClipAreaDrawRPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb); // used locally only -> static, AF 19.7.2021
+static short drawinterview(void); // used locally only -> static, AF 19.7.2021
 
 struct BusyWindow *BW;
 
@@ -169,7 +173,7 @@ short drawgridpts(short erase)
 
 /**********************************************************************/
 
-short computeview(struct elmapheaderV101 *Map)
+static short computeview(struct elmapheaderV101 *Map) // used locally only -> static, AF 19.7.2021
 {
  short i, error = 0, StartMap, EndMap, Lr, Lc;
  ULONG InputID;
@@ -425,7 +429,7 @@ ReCompute:
 
 /***********************************************************************/
 
-short drawinterview(void)
+static short drawinterview(void) // used locally only -> static, AF 19.7.2021
 {
  short i, error = 0, Lr, Lc, Incr1, Incr2, RowLon, ColLat, ColIncr;
  char Edge;
@@ -1286,7 +1290,7 @@ void drawfocprof(short erase)
 
 /*********************************************************************/
 
-void computefocprof(void)
+static void computefocprof(void) // used locally only -> static, AF 19.7.2021
 {
  short *mapptr;
  long zip, Lr, Lc;
@@ -1338,8 +1342,8 @@ void computefocprof(void)
 /*********************************************************************/
 
 /* Further hacked version of ClipAreaDraw for VGL */
-void ClipAreaDrawVGL(PIXMAP *PM, struct vgl_coord *Poly, struct clipbounds *cb,
- char Fill, char Border)
+static void ClipAreaDrawVGL(PIXMAP *PM, struct vgl_coord *Poly, struct clipbounds *cb,
+ char Fill, char Border) // used locally only -> static, AF 19.7.2021
 {
  short i = 0, ct = 0, Pts;
 
@@ -1420,7 +1424,7 @@ void ClipAreaDrawVGL(PIXMAP *PM, struct vgl_coord *Poly, struct clipbounds *cb,
 /*********************************************************************/
 
 /* Hacked version of ClipAreaDraw for testing purposes */
-void ClipAreaDrawRPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb)
+static void ClipAreaDrawRPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb) // used locally only -> static, AF 19.7.2021
 {
  short i = 0, ct = 0;
 
@@ -1458,7 +1462,7 @@ void ClipAreaDrawRPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipb
 
 /*********************************************************************/
 
-void ClipPoly4RPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb)
+static void ClipPoly4RPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb) // used locally only -> static, AF 19.7.2021
 {
  short i = 0, PolyFirst = 1;
  struct lineseg ls;

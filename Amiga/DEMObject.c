@@ -12,7 +12,7 @@ short DEMData_Save(void);
 
 
 /*********************************************************************/
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 20.July 2021
 struct DEMData *DEMData_New(void)
 {
 
@@ -20,9 +20,9 @@ struct DEMData *DEMData_New(void)
 	get_Memory(sizeof (struct DEMData), MEMF_CLEAR));
 
 } /* DEMData_New() */
-
+#endif
 /*********************************************************************/
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 20.July 2021
 void DEMData_Del(struct DEMData *DEM)
 {
 
@@ -30,22 +30,22 @@ void DEMData_Del(struct DEMData *DEM)
   free_Memory(DEM, sizeof (struct Wave));
 
 } /* DEMData_Del() */
-
+#endif
 /*********************************************************************/
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 20.July 202
 short DEMData_Load(void)
 {
 
  return (0);
 
 } /* DEMData_Load() */
-
+#endif
 /*********************************************************************/
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 20.July 2021
 short DEMData_Save(void)
 {
 
  return (0);
 
 } /* DEMData_Save() */
-
+#endif

@@ -13,6 +13,12 @@
 
 #define MED_HACK
 
+static void MapGUI_Del(struct MapData *MP); // used locally only -> static, AF 20.7.2021
+static short Make_Map_Menu(void); // used locally only -> static, AF 20.7.2021
+static void Close_MA_Window(struct MapData *MP); // used locally only -> static, AF 20.7.2021
+static int MapGUI_New(struct MapData *MP); // used locally only -> static, AF 20.7.2021
+
+
 extern void ParticleTree(void);
 
 struct NewMenu MapNewMenus[] =
@@ -118,7 +124,7 @@ struct NewMenu MapNewMenus[] =
 
 /***********************************************************************/
 
-short Make_Map_Menu(void)
+static short Make_Map_Menu(void) // used locally only -> static, AF 20.7.2021
 {
  short OpenOK = 0;
 
@@ -157,7 +163,7 @@ void MapIDCMP_Restore(struct Window *win)
 
 /***********************************************************************/
 
-int MapGUI_New(struct MapData *MP)
+static int MapGUI_New(struct MapData *MP) // used locally only -> static, AF 20.7.2021
 {
  long open;
  static const char *StyleCycle[] = {"Single", "Multi", "Surface", "Emboss", "Slope", "Contour", NULL};
@@ -456,7 +462,7 @@ return;
 
 /***********************************************************************/
 
-void MapGUI_Del(struct MapData *MP)
+static void MapGUI_Del(struct MapData *MP) // used locally only -> static, AF 20.7.2021
 {
 if(MP->MAPC)
 	{
@@ -623,7 +629,7 @@ short Make_MA_Window(struct MapData *MP)
 
 /*************************************************************************/
 
-void Close_MA_Window(struct MapData *MP)
+static void Close_MA_Window(struct MapData *MP) // used locally only -> static, AF 20.7.2021
 {
 
 if (MP->AlignWin)

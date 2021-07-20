@@ -6,6 +6,8 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
+static void markpt(short edpt, short col); // used locally only -> static, AF 19.7.2021
+
 /* ALEXANDER now in WCS.h struct Gauss {
 	double Arand, Nrand, Add, Fac;
 	long Seed;
@@ -1124,7 +1126,7 @@ short modpoints(short modify)
 
 /************************************************************************/
 
-void markpt(short edpt, short col)
+static void markpt(short edpt, short col) // used locally only -> static, AF 19.7.2021
 {
 
  ptstore[0] = ReadPixel(MapWind0->RPort, mapxx[edpt] - 1,mapyy[edpt] - 1);

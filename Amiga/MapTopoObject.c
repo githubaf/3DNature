@@ -12,6 +12,7 @@
 
 static short setfaceone(struct elmapheaderV101 *map);  // AF static 16.July2021
 static short setfacetwo(struct elmapheaderV101 *map);  // AF static 16.July2021
+static void VertexIndex_Del(struct VertexIndex *Vtx);  // used locally only -> static, AF 19.7.2021
 
 short maptopoobject(struct elmapheaderV101 *map, struct Window *win,
 	short DEMnum, short NumDEMs, struct CloudData *CD)
@@ -2354,7 +2355,7 @@ if (MaxFract == 0)		/* don't need an index */
 
 /*********************************************************************/
 
-void VertexIndex_Del(struct VertexIndex *Vtx)
+static void VertexIndex_Del(struct VertexIndex *Vtx) // used locally only -> static, AF 19.7.2021
 {
 
  if (Vtx)

@@ -17,6 +17,16 @@
 
 /* #define BRESENHAM_LINE */
 
+static void vgl_dumb_fillrect_noclip (PIXMAP *p, int x1, int y1, int x2, int y2);  // used locally only -> static, AF 19.7.202
+static void vgl_dumb_fillrect (PIXMAP * p, int x1, int y1, int x2, int y2); // used locally only -> static, AF 19.7.2021
+static void vgl_dumb_set_pixel (PIXMAP * p, int x, int y); // used locally only -> static, AF 19.7.2021
+static void vgl_dumb_rect_noclip (PIXMAP * p, int x1, int y1, int x2, int y2); // used locally only -> static, AF 20.7.2021
+static void vgl_dumb_transbitblt_core (PIXMAP *source, int sx, int sy,
+                                       int width, int height,
+                                       PIXMAP *dest, int dx, int dy, int mask_color); // used locally only -> static, AF 20.7.2021
+static void vgl_dumb_nothing (PIXMAP * p); // used locally only -> static, AF 20.7.2021
+static void vgl_dumb_arc_noclip (PIXMAP * p, int x, int y, int x_axis, int y_axis, int start, int end); // used locally only -> static, AF 20.7.2021
+
 #ifndef	INLINE_CHECK_MOUSE
 unsigned long 
 check_mouse1_internal (PIXMAP * pixmap, int x1, int y1, int x2, int y2)
@@ -110,6 +120,7 @@ check_mouse1_internal (PIXMAP * pixmap, int x1, int y1, int x2, int y2)
 /***************************************************************************/
 /******** Routines for dumb frame buffers and pixmaps in host RAM **********/
 /***************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 19.July 2021
 void 
 vgl_dumb_set_clip (PIXMAP * p, int x1, int y1, int x2, int y2)
 {
@@ -133,7 +144,7 @@ vgl_dumb_set_clip (PIXMAP * p, int x1, int y1, int x2, int y2)
   p->clip_y_min = min (y1, y2);
   p->clip_y_max = max (y1, y2);
 }
-
+#endif
 
 /****************************************************************************/
 void 
@@ -166,6 +177,7 @@ vgl_dumb_clip_off (PIXMAP * p)
 }
 
 /****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 19.July 2021
 void 
 vgl_dumb_clip_on (PIXMAP * p)
 {
@@ -194,7 +206,7 @@ vgl_dumb_clip_on (PIXMAP * p)
   p->nothing = vgl_dumb_nothing;
   p->hlinelist = vgl_dumb_hlinelist;
 }
-
+#endif
 
 /*****************************************************************************/
 void 
@@ -224,6 +236,7 @@ vgl_dumb_setcur (PIXMAP * p, int fg, int bg)
 
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 19.July 2021
 int 
 vgl_dumb_pixerror (PIXMAP * p)
 {
@@ -233,18 +246,17 @@ vgl_dumb_pixerror (PIXMAP * p)
   p->error = VGL_ERR_NONE;
   return (err);
 }
-
+#endif
 
 /*****************************************************************************/
-void 
-vgl_dumb_nothing (PIXMAP * p)
+static void 
+vgl_dumb_nothing (PIXMAP * p) // used locally only -> static, AF 20.7.2021
 {
 }
 
-
 /*****************************************************************************/
-void 
-vgl_dumb_set_pixel (PIXMAP * p, int x, int y)
+static void 
+vgl_dumb_set_pixel (PIXMAP * p, int x, int y) // used locally only -> static, AF 19.7.2021
 {
   unsigned long mouse;
 
@@ -1078,8 +1090,8 @@ vgl_dumb_rect (PIXMAP * p, int x1, int y1, int x2, int y2)
 
 
 /*****************************************************************************/
-void 
-vgl_dumb_rect_noclip (PIXMAP * p, int x1, int y1, int x2, int y2)
+static void 
+vgl_dumb_rect_noclip (PIXMAP * p, int x1, int y1, int x2, int y2) // used locally only -> static, AF 20.7.2021
 {
   vgl_dumb_hline_noclip (p, x1, x2, y1);
   vgl_dumb_vline_noclip (p, x2, y1, y2);
@@ -1089,8 +1101,8 @@ vgl_dumb_rect_noclip (PIXMAP * p, int x1, int y1, int x2, int y2)
 
 
 /*****************************************************************************/
-void 
-vgl_dumb_fillrect (PIXMAP * p, int x1, int y1, int x2, int y2)
+static void 
+vgl_dumb_fillrect (PIXMAP * p, int x1, int y1, int x2, int y2) // used locally only -> static, AF 19.7.2021
 {
   int out1, out2;
 
@@ -1125,8 +1137,8 @@ vgl_dumb_fillrect (PIXMAP * p, int x1, int y1, int x2, int y2)
 
 
 /*****************************************************************************/
-void 
-vgl_dumb_fillrect_noclip (PIXMAP * p, int x1, int y1, int x2, int y2)
+static void 
+vgl_dumb_fillrect_noclip (PIXMAP * p, int x1, int y1, int x2, int y2)  // used locally only -> static, AF 19.7.2021
 {
   int line_size;
   int x1_trim, x2_trim;
@@ -1227,7 +1239,6 @@ vgl_dumb_fillrect_noclip (PIXMAP * p, int x1, int y1, int x2, int y2)
 
   check_mouse2 (p, mouse);
 }
-
 
 /*****************************************************************************/
 void 
@@ -1778,6 +1789,7 @@ vgl_dumb_ellipse_noclip (PIXMAP * p, int x, int y, int x_axis, int y_axis)
 
 
 /*****************************************************************************/
+
 void 
 vgl_dumb_fillellipse (PIXMAP * p, int x, int y, int x_axis, int y_axis)
 {
@@ -1799,8 +1811,8 @@ vgl_dumb_arc (PIXMAP * p, int x, int y, int x_axis, int y_axis, int start, int e
 
 
 /*****************************************************************************/
-void 
-vgl_dumb_arc_noclip (PIXMAP * p, int x, int y, int x_axis, int y_axis, int start, int end)
+static void 
+vgl_dumb_arc_noclip (PIXMAP * p, int x, int y, int x_axis, int y_axis, int start, int end) // used locally only -> static, AF 20.7.2021
 {
 }
 
@@ -1932,6 +1944,7 @@ vgl_dumb_bitblt_noclip (PIXMAP *source, int sx, int sy, int width, int height,
 
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 20.July 2021
 void 
 vgl_dumb_transbitblt (PIXMAP *source, int sx, int sy, int width, int height,
 		      PIXMAP * dest, int dx, int dy, int mask_color)
@@ -2004,7 +2017,7 @@ vgl_dumb_transbitblt (PIXMAP *source, int sx, int sy, int width, int height,
   check_mouse2 (source, temp1);
   check_mouse2 (dest, temp2);
 }
-
+#endif
 
 /*****************************************************************************/
 void 
@@ -2032,10 +2045,10 @@ vgl_dumb_transbitblt_noclip (PIXMAP *source, int sx, int sy,
 
 
 /*****************************************************************************/
-void 
+static void 
 vgl_dumb_transbitblt_core (PIXMAP *source, int sx, int sy,
 			   int width, int height,
-			   PIXMAP *dest, int dx, int dy, int mask_color)
+			   PIXMAP *dest, int dx, int dy, int mask_color) // used locally only -> static, AF 20.7.2021 
 {
   int source_line, dest_line;
   char *sl, *sb, *sr, *s, *dl, *d;

@@ -138,6 +138,7 @@ static void copy_plane_1_to_8 (PIXMAP * p, struct image *src_image,
 
 /************************************************************************/
 /* Make a fast font from a regular font. */
+#ifdef UNUSED_FUNCTIONS  // AF, not used 19.July 2021
 struct vgl_ffont *
 vgl_expand_font (struct vgl_font *input)
 {
@@ -197,7 +198,7 @@ vgl_expand_font (struct vgl_font *input)
 
   return ff;
 }
-
+#endif
 /************************************************************************/
 /* Below are all of the pixel manipulation routines. */
 

@@ -49,6 +49,9 @@
 #include "WCS.h"
 #include "MUIFloatInt.h"
 
+static double CalcIncDec(double Quantity, struct FloatIntData *data, char Action); // used locally only -> static, AF 19.7.2021
+static ULONG DoIncDec(struct IClass *cl,Object *obj,Msg msg, char Action); // used locally only -> static, AF 19.7.2021
+
 char *FWT[] =
 	{
 	"",
@@ -70,7 +73,7 @@ struct Library *UtilityBase;
 
 char Scratch[50];
 
-SAVEDS ULONG mSync(struct IClass *cl,Object *obj,Msg msg)
+static SAVEDS ULONG mSync(struct IClass *cl,Object *obj,Msg msg) // used locally only -> static, AF 19.7.2021
 {
 struct FloatIntData *data;
 double DConv;
@@ -144,7 +147,7 @@ SetAttrs(obj,MUIV_FloatInt_InhibitAutoSync,TRUE,MUIA_FloatInt_Contents, ULConv,T
 return(0);
 }
 
-SAVEDS ULONG mNew(struct IClass *cl,Object *obj,struct opSet *msg)
+static SAVEDS ULONG mNew(struct IClass *cl,Object *obj,struct opSet *msg) // used locally only -> static, AF 19.7.2021
 {
 	struct FloatIntData *data;
 	double *D;
@@ -271,23 +274,23 @@ SAVEDS ULONG mNew(struct IClass *cl,Object *obj,struct opSet *msg)
 }
 
 
-SAVEDS ULONG mDispose(struct IClass *cl,Object *obj,Msg msg)
+static SAVEDS ULONG mDispose(struct IClass *cl,Object *obj,Msg msg) // used locally only -> static, AF 19.7.2021
 {
 	return(DoSuperMethodA(cl,obj,msg));
 }
 
-SAVEDS ULONG mInc(struct IClass *cl,Object *obj,Msg msg)
+static SAVEDS ULONG mInc(struct IClass *cl,Object *obj,Msg msg) // used locally only -> static, AF 19.7.2021
 {
 return(DoIncDec(cl,obj,msg,1));
 }
 
 
-SAVEDS ULONG mDec(struct IClass *cl,Object *obj,Msg msg)
+static SAVEDS ULONG mDec(struct IClass *cl,Object *obj,Msg msg)
 {
 return(DoIncDec(cl,obj,msg,0));
 }
 
-SAVEDS ULONG mStr(struct IClass *cl,Object *obj,Msg msg)
+static SAVEDS ULONG mStr(struct IClass *cl,Object *obj,Msg msg) // used locally only -> static, AF 19.7.2021
 {
 struct FloatIntData *data;
 char ReSync = 0;
@@ -385,7 +388,7 @@ return(0);
 }
 
 
-SAVEDS ULONG mSet(struct IClass *cl,Object *obj,struct opSet *msg)
+static SAVEDS ULONG mSet(struct IClass *cl,Object *obj,struct opSet *msg) // used locally only -> static, AF 19.7.2021
 {
 struct FloatIntData *data = INST_DATA(cl,obj);
 struct TagItem *tags,*tag;
@@ -520,7 +523,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 return(DoSuperMethodA(cl,obj,(Msg)msg));
 }
 
-SAVEDS ULONG mGet(struct IClass *cl,Object *obj,struct opSet *msg)
+static SAVEDS ULONG mGet(struct IClass *cl,Object *obj,struct opSet *msg) // used locally only -> static, AF 19.7.2021
 {
 struct FloatIntData *data = INST_DATA(cl,obj);
 struct TagItem *tags,*tag;
@@ -540,7 +543,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 return(DoSuperMethodA(cl,obj,(Msg)msg));
 }
 
-SAVEDS ULONG mChangeFocus(struct IClass *cl,Object *obj,struct opSet *msg)
+static SAVEDS ULONG mChangeFocus(struct IClass *cl,Object *obj,struct opSet *msg) // used locally only -> static, AF 19.7.2021
 {
 /* struct FloatIntData *data = INST_DATA(cl,obj); */
 struct TagItem *tags,*tag;
@@ -561,7 +564,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 return(DoSuperMethodA(cl,obj,(Msg)msg));
 }
 
-SAVEDS ULONG mLoseFocus(struct IClass *cl,Object *obj,struct opSet *msg)
+static SAVEDS ULONG mLoseFocus(struct IClass *cl,Object *obj,struct opSet *msg) // used locally only -> static, AF 19.7.2021
 {
 /* struct FloatIntData *data = INST_DATA(cl,obj);
 struct TagItem *tags,*tag; */
@@ -609,7 +612,7 @@ if(!FloatIntClassPointer)
 return(FloatIntClassPointer);
 } /* FloatIntInit() */
 
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 19.July 2021
 void FloatIntCleanup(void)
 {
 if (FloatIntClassPointer)
@@ -618,8 +621,8 @@ if (FloatIntClassPointer)
 	FloatIntClassPointer = NULL;
 	} /* if */
 } /* FloatIntCleanup() */
-
-ULONG DoIncDec(struct IClass *cl,Object *obj,Msg msg, char Action)
+#endif
+static ULONG DoIncDec(struct IClass *cl,Object *obj,Msg msg, char Action) // used locally only -> static, AF 19.7.2021
 {
 double *D;
 float *F;
@@ -690,7 +693,7 @@ else if(data->FIFlags & FIOFlag_Long)
 return(mSync(cl,obj,msg));
 } /* DoIncDec() */
 
-double CalcIncDec(double Quantity, struct FloatIntData *data, char Action)
+static double CalcIncDec(double Quantity, struct FloatIntData *data, char Action) // used locally only -> static, AF 19.7.2021
 {
 double Step;
 

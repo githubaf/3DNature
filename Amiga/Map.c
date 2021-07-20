@@ -28,6 +28,7 @@
 #define ROUNDUP(a,b)		(((a + (b - 1)) / b) * b)
 #endif
 
+static short interpolatepts(short j, long x2, long x1, long y2, long y1); // used locally only -> static, AF 19.7.2021
 
 void alignmap(struct Box *Bx)
 {
@@ -1689,7 +1690,7 @@ EndDig:
 
 /************************************************************************/
 
-short interpolatepts(short j, long x2, long x1, long y2, long y1)
+static short interpolatepts(short j, long x2, long x1, long y2, long y1) // used locally only -> static, AF 19.7.2021
 {
  long x,y;
  float m;

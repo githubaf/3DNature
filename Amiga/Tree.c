@@ -7,6 +7,8 @@
 #include "WCS.h"
 #include "Foliage.h"
 
+static void SetBitmapImageSpan(struct BitmapImage *BMI); // used locally only -> static, AF 19.7.2021
+
 #define MODE_REPLACE 0
 #define MODE_AVERAGE 1
 
@@ -1475,7 +1477,7 @@ long zip;
 
 /***********************************************************************/
 
-void SetBitmapImageSpan(struct BitmapImage *BMI)
+static void SetBitmapImageSpan(struct BitmapImage *BMI) // used locally only -> static, AF 19.7.2021
 {
 long x, y, zip = 0, FirstPt, LastPt;
 

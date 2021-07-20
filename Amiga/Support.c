@@ -13,6 +13,8 @@ extern char ExtVersion[];
 
 #ifdef AMIGA_GUI
 
+static void stripintuimessages(struct MsgPort *mp, struct Window *win); // used locally only -> static, AF 19.7.2021
+
 /************************************************************************/
   
 struct Window *make_window(short x, short y, short w, short h, char name[80],
@@ -159,7 +161,7 @@ void closesharedwindow(struct Window *win, short shared)
 
 /***********************************************************************/
 
-void stripintuimessages(struct MsgPort *mp, struct Window *win)
+static void stripintuimessages(struct MsgPort *mp, struct Window *win) // used locally only -> static, AF 19.7.2021
 {
  struct IntuiMessage *msg;
  struct Node *succ;

@@ -20,7 +20,7 @@ struct CloudLayer *CloudLayer_New(void)
 
 /*********************************************************************/
 
-void CloudLayer_Del(struct CloudLayer *CL)
+static void CloudLayer_Del(struct CloudLayer *CL) // used locally only -> static, AF 19.7.2021
 {
 
  if (CL)
@@ -30,7 +30,7 @@ void CloudLayer_Del(struct CloudLayer *CL)
 
 /**************************:*******************************************/
 
-void CloudLayer_DelAll(struct CloudLayer *CL)
+static void CloudLayer_DelAll(struct CloudLayer *CL) // used locally only -> static, AF 19.7.2021
 {
 struct CloudLayer *CLDel;
 

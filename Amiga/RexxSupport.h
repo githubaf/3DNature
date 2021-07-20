@@ -38,19 +38,19 @@ struct	Library	*RexxSysBase;	/* We will hide the library pointer here... */
 
 extern ULONG Rexx_SigMask(struct ARexxContext *This);
 extern struct RexxMsg *Rexx_GetMsg(struct ARexxContext *This);
-extern void Rexx_ReplyMsg(struct RexxMsg *This, char *RString, LONG Error);
-extern short Rexx_SetLastError(struct ARexxContext *This, struct RexxMsg *rmsg,
- char *ErrorString);
+// extern void Rexx_ReplyMsg(struct RexxMsg *This, char *RString, LONG Error); // used locally only -> static, AF 20.7.2021
+/*extern short Rexx_SetLastError(struct ARexxContext *This, struct RexxMsg *rmsg,
+ char *ErrorString);*/ // used locally only -> static, AF 20.7.2021
 extern short Rexx_SendMsg(struct ARexxContext *This, char *RString, short StringFile);
 extern void Rexx_Del(struct ARexxContext *This);
 extern struct ARexxContext *Rexx_New(char *AppName);
 
 extern long int Cmd_ParseDispatch(struct ARexxContext *Rexx, struct RexxMsg *CmdMsg);
-extern char *Cmd_PullWord(char *Source, char *WordBuf, int WBufSize);
-extern long int Cmd_LookupWord(char *Word);
-extern long int Cmd_HuntShort(unsigned long int BeginPoint);
-extern struct MWS_Entry *Cmd_SearchMe(struct MWS_Entry *FromHere, long int WordUp);
-extern void Cmd_TrimArg(char *Dest, char *Source, int DestLen);
-extern void DemoFunc(struct CmdContext *Call, char *FromZone);
-extern char *Cmd_FetchInlineArg(char *Inline, char *ArgDest, int ArgSize);
+// extern char *Cmd_PullWord(char *Source, char *WordBuf, int WBufSize); // used locally only -> static, AF 20.7.2021
+// extern long int Cmd_LookupWord(char *Word); // used locally only -> static, AF 20.7.2021
+// extern long int Cmd_HuntShort(unsigned long int BeginPoint); // used locally only -> static, AF 20.7.2021
+// extern struct MWS_Entry *Cmd_SearchMe(struct MWS_Entry *FromHere, long int WordUp); // used locally only -> static, AF 20.7.2021
+// extern void Cmd_TrimArg(char *Dest, char *Source, int DestLen); // used locally only -> static, AF 20.7.2021
+//extern void DemoFunc(struct CmdContext *Call, char *FromZone); // used locally only -> static, AF 19.7.2021
+// extern char *Cmd_FetchInlineArg(char *Inline, char *ArgDest, int ArgSize); // used locally only -> static, AF 20.7.2021
 #endif	/* REXX_SUPPORT_H */

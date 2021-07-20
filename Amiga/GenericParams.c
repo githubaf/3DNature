@@ -12,6 +12,9 @@
 
 /**************************************************************************/
 
+static short SearchGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
+        short frame, short group, short item); // used locally only -> static, AF 19.7.2021
+
 void MergeGenericKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFrame **OF,
 	short *OFKeys, long *OFsize, short group)
 {
@@ -212,8 +215,8 @@ short DeleteGenericKeyFrame(union KeyFrame *KF, short *KeyFramesPtr,
 
 /************************************************************************/
 
-short SearchGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
-	short frame, short group, short item)
+static short SearchGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
+	short frame, short group, short item) // used locally only -> static, AF 19.7.2021
 {
  short i, found = -1;
 

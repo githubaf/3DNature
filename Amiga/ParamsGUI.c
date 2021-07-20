@@ -7,6 +7,7 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 
+static short Add_FM_Item(void);  // used locally only -> static, AF 19.7.2021
 
 void Make_PS_Window(ULONG WCS_ID)
 {
@@ -1159,7 +1160,7 @@ void Set_FM_List(short Update, short ActiveItem)
 
 /************************************************************************/
 
-short Add_FM_Item(void)
+static short Add_FM_Item(void)  // used locally only -> static, AF 19.7.2021
 {
  long i, Ht, Stems, Red, Grn, Blu, OldHt, MoveItem, Class;
 

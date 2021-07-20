@@ -6,6 +6,8 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 
+static void Update_EMTL_Item(void); // used locally only -> static, AF 19.7.2021
+
 void Make_EM_Window(void)
 {
  short i;
@@ -1185,7 +1187,7 @@ void Set_Radial_Txt(short drawIA)
 
 /*********************************************************************/
 
-void Update_EMTL_Item(void)
+static void Update_EMTL_Item(void) // used locally only -> static, AF 19.7.2021
 {
 
  if (EMTL_Win)

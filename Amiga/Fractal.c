@@ -6,6 +6,8 @@
 
 #include "WCS.h"
 
+static void Vertex_Sum(struct faces *Vertex, struct faces *Face); // used locally only -> static, AF 19.7.2021
+
 #define DISPLACE_FRACT_SLOPEFACT 10.0
 
 #define FRAMES_PER_HOUR		108000.0
@@ -1081,7 +1083,7 @@ long BaseFace;
 
 /**********************************************************************/
 
-void Vertex_Sum(struct faces *Vertex, struct faces *Face)
+static void Vertex_Sum(struct faces *Vertex, struct faces *Face) // used locally only -> static, AF 19.7.2021
 {
 
  Vertex->slope += Face->slope;

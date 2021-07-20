@@ -8,6 +8,9 @@
 #include "GUIDefines.h"
 #include <time.h>
 
+static void Close_Render_Window(void); // used locally only -> static, AF 20.7.2021
+static short InitDEMMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 20.7.2021
+
 void globemap(void)
 {
  ULONG flags, iflags, lmemblock;
@@ -1043,7 +1046,7 @@ NewStatFile:
 
 /**********************************************************************/
 
-short InitDEMMap(struct Window *win, struct CloudData *CD)
+static short InitDEMMap(struct Window *win, struct CloudData *CD) // used locally only -> static, AF 20.7.2021
 {
  char filename[256], colormapdir[256], FrameStr[16], elevfile[32], elevpath[256];
  short Ans, OrigOBN, error = 0, ct, objectlimit, objectcount, OpenOK,
@@ -1891,7 +1894,7 @@ void Handle_Render_Window(void)
 #endif
 /*************************************************************************/
 
-void Close_Render_Window(void)
+static void Close_Render_Window(void) // used locally only -> static, AF 20.7.2021
 {
 
  if (RenderWind0)

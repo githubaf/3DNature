@@ -6,6 +6,12 @@
 
 #include "WCS.h"
 
+static void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewAz,
+        short RelEl, short MaxRelEl, short MinRelEl, short MaxSlope,
+        short MinSlope, short Color, short Understory, short MatchRed,
+        short MatchGrn, short MatchBlu, short Type, short TreeDens,
+        short TreeHt); // used locally only -> static, AF 19.7.2021
+
 
 short DefaultParams(void)
 {
@@ -238,11 +244,11 @@ void SetParColor(short Color, char *Name, short Red, short Grn, short Blu)
 
 /***********************************************************************/
 
-void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewAz,
+static void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewAz,
 	short RelEl, short MaxRelEl, short MinRelEl, short MaxSlope,
 	short MinSlope, short Color, short Understory, short MatchRed,
 	short MatchGrn, short MatchBlu, short Type, short TreeDens,
-	short TreeHt)
+	short TreeHt) // used locally only -> static, AF 19.7.2021
 {
 
  strcpy(PAR_NAME_ECO(Eco), Name);

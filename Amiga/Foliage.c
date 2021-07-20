@@ -7,6 +7,9 @@
 #include "WCS.h"
 #include "Foliage.h"
 
+static ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags);  // used locally only -> static, AF 19.7.2021
+static ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags); // used locally only -> static, AF 19.7.2021
+
 #ifndef C_PLUS_PLUS
 /************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 17.July 2021
@@ -454,7 +457,7 @@ long Groups = 0;
 
 /***********************************************************************/
 
-ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags)
+static ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags) // used locally only -> static, AF 19.7.2021
 {
 ULONG SizeRead, SizeBlock;
 
@@ -496,7 +499,7 @@ ULONG SizeRead, SizeBlock;
 
 /***********************************************************************/
 
-ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags)
+static ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags) // used locally only -> static, AF 19.7.2021
 {
 ULONG SizeWritten, SizeBlock;
 
@@ -538,8 +541,8 @@ ULONG SizeWritten, SizeBlock;
 
 /***********************************************************************/
 
-ULONG PrepWriteBlock(FILE *ffile, ULONG ItemTag, ULONG SizeSize,
-	ULONG SizeType, ULONG FieldSize, ULONG FieldType, char *FieldAddr)
+static ULONG PrepWriteBlock(FILE *ffile, ULONG ItemTag, ULONG SizeSize,
+	ULONG SizeType, ULONG FieldSize, ULONG FieldType, char *FieldAddr) // used locally only -> static, AF 19.7.2021
 {
 UBYTE CharSize;
 USHORT ShortSize;

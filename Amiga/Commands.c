@@ -11,6 +11,9 @@
 #include "Proto.h"
 #include "VocabTable.h"
 
+
+static void DemoFunc(struct CmdContext *Call, char *FromZone); // used locally only -> static, AF 19.7.2021
+
 /* Beginning of implemented functions */
 
 int DataBase(struct CmdContext *Call)
@@ -145,7 +148,7 @@ return(0);
 
 
 
-void DemoFunc(struct CmdContext *Call, char *FromZone)
+static void DemoFunc(struct CmdContext *Call, char *FromZone) // used locally only -> static, AF 19.7.2021
 {
 char TextMsg[250];
 short i = 0;
@@ -171,8 +174,9 @@ Call->ArgStr[0] = NULL; /* No return string */
 
 return;
 } /* DemoFunc() */
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 19.July 2021
 int ImportDEM(struct CmdContext *Call)
 {
     return 0;
 } /* ImportDEM() */
+#endif

@@ -40,6 +40,13 @@ extern struct MWS_Entry SentLookUp[];
 
 extern unsigned long int MarkovTable[];
 
+static struct MWS_Entry *Cmd_SearchMe(struct MWS_Entry *FromHere, long int WordUp); // used locally only -> static, AF 20.7.2021
+static char *Cmd_PullWord(char *Source, char *WordBuf, int WBufSize); // used locally only -> static, AF 20.7.2021
+static long int Cmd_HuntShort(unsigned long int BeginPoint); // used locally only -> static, AF 20.7.2021
+static long int Cmd_LookupWord(char *Word); // used locally only -> static, AF 20.7.2021
+static char *Cmd_FetchInlineArg(char *Inline, char *ArgDest, int ArgSize); // used locally only -> static, AF 20.7.2021
+static void Rexx_ReplyMsg(struct RexxMsg *This, char *RString, LONG Error); // used locally only -> static, AF 20.7.2021
+static void Cmd_TrimArg(char *Dest, char *Source, int DestLen); // used locally only -> static, AF 20.7.2021
 
 /*
  * This function returns the signal mask that the Rexx port is
@@ -109,7 +116,7 @@ return(tmp);
  * If you wish to return an Error, it must be in the Error.
  * If there is an error, the RString is ignored.
  */
-void Rexx_ReplyMsg(struct RexxMsg *This, char *RString, LONG Error)
+static void Rexx_ReplyMsg(struct RexxMsg *This, char *RString, LONG Error) // used locally only -> static, AF 20.7.2021
 {
 if ((This) && (This != REXX_RETURN_ERROR))
 	{
@@ -142,8 +149,8 @@ if ((This) && (This != REXX_RETURN_ERROR))
  *
  * This returns TRUE if it worked, FALSE if it did not...
  */
-short Rexx_SetLastError(struct ARexxContext *This, struct RexxMsg *rmsg,
- char *ErrorString)
+static short Rexx_SetLastError(struct ARexxContext *This, struct RexxMsg *rmsg,
+ char *ErrorString) // used locally only -> static, AF 20.7.2021
 {
 register	short	OkFlag=FALSE;
 
@@ -499,7 +506,7 @@ Rexx_ReplyMsg(CmdMsg, "", 20);
 return((long)CallFrame.LastToken);
 } /* Cmd_ParseDispatch() */
 
-char *Cmd_PullWord(char *Source, char *WordBuf, int WBufSize)
+static char *Cmd_PullWord(char *Source, char *WordBuf, int WBufSize) // used locally only -> static, AF 20.7.2021
 {
 int WordSize, Index;
 
@@ -558,7 +565,7 @@ return(0);
 
 } /* Cmd_PullWord */
 
-long int Cmd_LookupWord(char *Word)
+static long int Cmd_LookupWord(char *Word) // used locally only -> static, AF 20.7.2021
 {
 unsigned long int MIndex, CurEntry;
 int LetIndex, WordLen;
@@ -619,7 +626,7 @@ while(1) /* We won't be leaving by the usual way */
 
 } /* Cmd_LookupWord() */
 
-long int Cmd_HuntShort(unsigned long int BeginPoint)
+static long int Cmd_HuntShort(unsigned long int BeginPoint) // used locally only -> static, AF 20.7.2021
 {
 
 while(1)
@@ -645,7 +652,7 @@ while(1)
 
 } /* Cmd_HuntShort() */
 
-struct MWS_Entry *Cmd_SearchMe(struct MWS_Entry *FromHere, long int WordUp)
+static struct MWS_Entry *Cmd_SearchMe(struct MWS_Entry *FromHere, long int WordUp) // used locally only -> static, AF 20.7.2021
 {
 
 while(1) /* why not? */
@@ -669,7 +676,7 @@ while(1) /* why not? */
 
 } /* Cmd_SearchMe() */
 
-void Cmd_TrimArg(char *Dest, char *Source, int DestLen)
+static void Cmd_TrimArg(char *Dest, char *Source, int DestLen) // used locally only -> static, AF 20.7.2021
 {
 
 /* Trims off leading spaces and equals signs, and copies to dest string. */
@@ -701,7 +708,7 @@ for(Out = Skim = 0;;Skim++)
 	} /* for */
 } /* Cmd_TrimArg() */
 
-char *Cmd_FetchInlineArg(char *Inline, char *ArgDest, int ArgSize)
+static char *Cmd_FetchInlineArg(char *Inline, char *ArgDest, int ArgSize) // used locally only -> static, AF 20.7.2021
 { /* just slightly copied and hack from PullWord() */
 int WordSize, Index, Quoted;
 

@@ -15,7 +15,7 @@
 typedef double Matx3x3[3][3]; // moved to WCS.h
 
 #ifndef __SASC   // ALEXANDER: SAS/C meckert, wenn ich ie forward deklarationen mache???
-// forward declarations */
+// forward declarations
 struct ZBufferHeader;
 struct ILBMHeader;
 struct ColorComponents;
@@ -91,8 +91,8 @@ extern void ModFileName(char *tempfile, short renderseg, short imagearray,
 extern short LoadImage(char *Name, short ColorImage, UBYTE **bitmap,
 	short Width, short Height, short SupressWng,
 	short *NewWidth, short *NewHeight, short *NewPlanes);
-extern short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
-	short Width, short Height);
+/*extern short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
+	short Width, short Height);*/ // used locally only -> static, AF 20.7.2021
 extern short CheckIFF(long fh, struct ILBMHeader *Hdr);
 extern short FindIFFChunk(long fh, struct ILBMHeader *Hdr, char *Chunk);
 extern short MergeZBufBack(short renderseg, short Width, short Height, struct Window *win);
@@ -100,8 +100,8 @@ extern short InterlaceFields(char *Name, short Width, short Height, short Domina
 
 /* Cloud.c */
 extern struct CloudLayer *CloudLayer_New(void);
-extern void CloudLayer_Del(struct CloudLayer *CL);
-extern void CloudLayer_DelAll(struct CloudLayer *CL);
+//extern void CloudLayer_Del(struct CloudLayer *CL); // used locally only -> static, AF 19.7.2021
+//extern void CloudLayer_DelAll(struct CloudLayer *CL); // used locally only -> static, AF 19.7.2021
 extern void CloudLayer_SetDouble(struct CloudLayer *CL, ULONG Item, double Val);
 extern void CloudLayer_SetShort(struct CloudLayer *CL, ULONG Item, short Val);
 extern struct CloudData *CloudData_New(void);
@@ -145,15 +145,15 @@ extern void StrataConvert(void);
 extern short Database_Load(short lowi, char *filename);
 extern short makedbase(short SaveNewDBase);
 extern short savedbase(short restorename);
-extern struct database *DataBase_New(short Records);
-extern struct database *DataBase_Copy(struct database *OldBase, short OldRecords,
-	short OldUsedRecords, short NewRecords);
+// extern struct database *DataBase_New(short Records); // used locally only -> static, AF 20.7.2021
+/* extern struct database *DataBase_Copy(struct database *OldBase, short OldRecords,
+	short OldUsedRecords, short NewRecords);*/ // used locally only -> static, AF 20.7.2021
 extern struct database *DataBase_Expand(struct database *OldBase, short OldRecords,
 	short OldUsedRecords, short NewRecords);
 extern void DataBase_Del(struct database *DelBase, short Records);
 extern short loadmapbase(short lowi, short onlyselected);
 extern short Load_Object(short i, char **LastDir);
-extern short Find_DBObjPts(char *filename);
+// extern short Find_DBObjPts(char *filename); // used locally only -> static, AF 20.7.2021
 extern struct DirList *DirList_New(char *firstpath, short ReadOnly);
 extern short DirList_Add(struct DirList *DLOld, char *addpath, short ReadOnly);
 extern struct DirList *DirList_Remove(struct DirList *DLOld, short Item);
@@ -166,7 +166,7 @@ extern short DBaseObject_New(void);
 extern short DBaseObject_Add(void);
 /*extern void ConstructDEMObj(void);*/
 extern short DBase_SaveComposite(void);
-extern short DBase_LoadComposite(void);
+// extern short DBase_LoadComposite(void); // used locally only -> static, AF 20.7.2021
 
 /* DataOps.c */
 extern void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly);
@@ -180,7 +180,7 @@ extern short saveDEM(char *filename, struct elmapheaderV101 *Map, short *Array);
 extern short makerelelfile(char *elevpath, char *elevfile);
 extern void padarray(short *arrayptr, struct elmapheaderV101 *map);
 extern short enterbox(void);
-extern short computerelel(short boxsize, short *arrayptr, struct elmapheaderV101 *map);
+// extern short computerelel(short boxsize, short *arrayptr, struct elmapheaderV101 *map); // used locally only -> static, AF 19.7.2021
 extern short InterpDEM(struct DEMInterpolateData *DEMInterp);
 extern short SplineMap(short *map, short Xrows, short Ycols,
 	double elvar, double flatmax);
@@ -189,7 +189,7 @@ extern FILE *DEMFile_Init(struct DEMExtractData *DEMExtract, short k, char *MsgH
 extern short DEMFile_Save(char *BaseName, struct elmapheaderV101 *Hdr,
 	short *MapArray, long MapSize);
 extern short Read_USGSHeader(FILE *DEM, struct USGS_DEMHeader *Hdr);
-extern short Read_USGSProfHeader(FILE *DEM, struct USGS_DEMProfileHeader *Hdr);
+//extern short Read_USGSProfHeader(FILE *DEM, struct USGS_DEMProfileHeader *Hdr); // used locally only -> static, AF 19.7.2021
 extern short Read_USGSDEMProfile(FILE *DEM, short *ProfPtr, short ProfItems);
 extern double FCvt(const char *string);
 extern short FixFlatSpots(short *Data, short Rows, short Cols, float T);
@@ -245,11 +245,11 @@ extern void ParamFmtV1V2_Convert(struct AnimationV1 *MoParV1, struct PaletteV1 *
 extern short saveparams(USHORT savecode, short saveitem, short savecur);
 extern short DefaultParams(void);
 extern void SetParColor(short Color, char *Name, short Red, short Grn, short Blu);
-extern void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewAz,
+/*extern void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewAz,
 	short RelEl, short MaxRelEl, short MinRelEl, short MaxSlope,
 	short MinSlope, short Color, short Understory, short MatchRed,
 	short MatchGrn, short MatchBlu, short Type, short TreeDens,
-	short TreeHt);
+	short TreeHt);*/ // used locally only -> static, AF 19.7.2021
 extern void Sort_Eco_Params(void);
 
 /* Foliage.c - more functions in Foliage.h */
@@ -282,7 +282,7 @@ extern void VertexOne_Set(struct elmapheaderV101 *map, struct faces **FaceIndex,
 	struct faces *Vertex);
 extern void VertexTwo_Set(struct elmapheaderV101 *map, struct faces **FaceIndex,
 	struct faces *Vertex);
-extern void Vertex_Sum(struct faces *Vertex, struct faces *Face);
+// extern void Vertex_Sum(struct faces *Vertex, struct faces *Face); // used locally only -> static, AF 19.7.2021
 /*
 extern void FaceIndex_Increment(long *FaceIndex, short Incr);
 extern void VertexOne_IncrNorth(struct elmapheaderV101 *map, long *FaceIndex,
@@ -306,10 +306,10 @@ extern void WaveAmp_Compute(double *Elev, double *Alt,
 
 /* GlobeMap.c */
 extern void globemap(void);
-extern short InitDEMMap(struct Window *win, struct CloudData *CD);
+//extern short InitDEMMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 20.7.2021
 extern short InitVectorMap(struct Window *win, short zbufplot, short override);
 extern short InitCloudMap(struct Window *win, struct CloudData *CD);
-extern void Close_Render_Window(void);
+//extern void Close_Render_Window(void); // used locally only -> static, AF 20.7.2021
 extern void Handle_Render_Window(void);
 
 /* GlobeMapSupport.c */
@@ -323,9 +323,9 @@ extern void antialias(void);
 extern short Reflection_Render(struct Window *win);
 extern short Celestial_Bodies(UBYTE **Bitmap, long Width, long Height,
 	struct Window *win);
-extern short HaloEffect(UBYTE **Bitmap, long Width, long Height,
+/*extern short HaloEffect(UBYTE **Bitmap, long Width, long Height,
 	double Dr, double Dx, double Dy, double Intensity, double NoHaloDist,
-	struct ColorComponents *CC, char *NameStr, struct Window *win);
+	struct ColorComponents *CC, char *NameStr, struct Window *win);*/ // used locally only -> static, AF 19.7.2021
 extern short Image_Composite(UBYTE **Bitmap, UBYTE **Source, long Iw, long Ih,
 	short Sw, short Sh, double Dr, double Dx, double Dy, double Distance,
 	double *Visible, double *Luminosity, struct ColorComponents *CC,
@@ -340,11 +340,11 @@ extern double Cos_Table(double arcosine);
 /* InteractiveDraw.c */
 extern void drawgridview(void);
 extern short drawgridpts(short erase);
-extern short computeview(struct elmapheaderV101 *Map);
+// extern short computeview(struct elmapheaderV101 *Map); // used locally only -> static, AF 19.7.2021
 extern void makeviewcenter(short erase);
 extern void computequick(void);
 extern void DrawInterFresh(short drawgrid);
-extern short drawinterview(void);
+// extern short drawinterview(void); // used locally only -> static, AF 19.7.2021
 extern void drawveryquick(short undraw);
 extern void drawquick(short a, short b, short c, short Clear);
 extern void constructview(void);
@@ -352,7 +352,7 @@ extern void compass(double oldaz, double newaz);
 extern short make_compass(void);
 extern void computesinglebox(short i);
 extern void drawfocprof(short erase);
-extern void computefocprof(void);
+//extern void computefocprof(void); // used locally only -> static, AF 19.7.2021
 extern void Play_Motion(struct RenderAnim *RA);
 
 /* InteractiveView.c */
@@ -417,9 +417,9 @@ extern void LWScene_Export(struct LightWaveInfo *LWInfo);
 /* MakeFaces.c */
 extern short faceone(struct elmapheaderV101 *map);
 extern short facetwo(struct elmapheaderV101 *map);
-extern short writeface(struct elmapheaderV101 *map);
+// extern short writeface(struct elmapheaderV101 *map); // used locally only -> static, AF 20.7.2021
 extern short minmax(void);
-extern void facecompute(struct elmapheaderV101 *map, short low, short mid, short hi);
+// extern void facecompute(struct elmapheaderV101 *map, short low, short mid, short hi); // used locally only -> static, AF 19.7.2021
 extern void FaceOne_Setup(struct elmapheaderV101 *map, struct faces *Face,
 	long Lr, long Lc);
 extern void FaceTwo_Setup(struct elmapheaderV101 *map, struct faces *Face,
@@ -431,8 +431,8 @@ extern void FractFaceTwo_Setup(struct elmapheaderV101 *map,
 extern void FacePt_Switch(struct elmapheaderV101 *map, struct FaceData *Data,
 	struct faces *Face);
 extern short FacePt_Order(struct FaceData *Data);
-extern void Face_Compute(struct elmapheaderV101 *map, struct FaceData *Data,
-	struct faces *Face, short low, short mid, short hi);
+/*extern void Face_Compute(struct elmapheaderV101 *map, struct FaceData *Data,
+	struct faces *Face, short low, short mid, short hi);*/ // used locally only -> static, AF 20.7.2021
 
 /* Map.c */
 /*extern short paramset(void);*/
@@ -451,7 +451,7 @@ extern short findmouse(short X, short Y, short IdentifyOnly);
 extern short findmulti(void);
 /*extern void findname(void);*/
 extern void addpoints(long lowj,long insert);
-extern short interpolatepts(short j,long x2,long x1,long y2,long y1);
+//extern short interpolatepts(short j,long x2,long x1,long y2,long y1); interpolatepts
 extern void Viewshed_Map(long OBN);
 extern void Close_Viewshed_Window(void);
 extern void Handle_Viewshed_Window(void);
@@ -487,7 +487,7 @@ extern void MakeTempCart(double Lat, double Lon, double SphereRad,
 extern void setorigin(void);
 extern void matchpoints(void);
 extern short modpoints(short modify);
-extern void markpt(short edpt,short col);
+// extern void markpt(short edpt,short col); // used locally only -> static, AF 19.7.2021
 extern void unmarkpt(short edpt);
 extern short CloneObject(void);
 extern void makestream(short lowj);
@@ -578,7 +578,7 @@ extern short MapCloudLayer(struct elmapheaderV101 *map,
 extern short setcloudfaceone(struct elmapheaderV101 *map);
 extern short setcloudfacetwo(struct elmapheaderV101 *map);
 extern short VertexIndex_New(struct VertexIndex *Vtx, long MaxFract);
-extern void VertexIndex_Del(struct VertexIndex *Vtx);
+//extern void VertexIndex_Del(struct VertexIndex *Vtx); // used locally only -> static, AF 19.7.2021
 extern short FractalDepth_Preset(void);
 extern short setquickfaceone(struct elmapheaderV101 *map, long Lr, long Lc);
 extern short setquickfacetwo(struct elmapheaderV101 *map, long Lr, long Lc);
@@ -719,7 +719,7 @@ extern struct Window *FetchMultiWindowEvent(struct IntuiMessage *Event, ...);
 extern ULONG QuickFetchEvent(struct Window *Win, struct IntuiMessage *Event);
 /* extern ULONG QuickCheckEvent(struct Window *Win); */ /* It's a macro now */
 extern void closesharedwindow(struct Window *win, short shared);
-extern void stripintuimessages(struct MsgPort *mp, struct Window *win);
+//extern void stripintuimessages(struct MsgPort *mp, struct Window *win); // used locally only -> static, AF 19.7.2021
 extern short checkuserabort(void);
 extern void SaveConfig(void);
 extern void LoadConfig(void);
@@ -743,7 +743,7 @@ extern struct BitmapImage *BitmapImage_New(void);
 extern void BitmapImage_Del(struct BitmapImage *BMI);
 extern void BitmapImage_DelSingle(struct BitmapImage *BMI);
 extern void ColorToGray(UBYTE **Bitmap, long MaxZip);
-extern void SetBitmapImageSpan(struct BitmapImage *BMI);
+//extern void SetBitmapImageSpan(struct BitmapImage *BMI); // used locally only -> static, AF 19.7.2021
 extern void BitmapImage_Scale(struct BitmapImage *SBMI, struct BitmapImage *DBMI,
 	double Dx, double Dy);
 extern void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
@@ -803,21 +803,21 @@ extern short Database_LoadDisp(short lowi, short AskName, char *FileName, short 
 extern void Make_MD_Window(void);
 extern void Close_MD_Window(void);
 extern void Handle_MD_Window(ULONG WCS_ID);
-extern void MD_Window_Init(void);
-extern void Make_GR_Window(void);
+// extern void MD_Window_Init(void); // used locally only -> static, AF 20.7.2021
+// extern void Make_GR_Window(void); // used locally only -> static, AF 20.7.2021
 extern void Close_GR_Window(void);
 extern void Handle_GR_Window(ULONG WCS_ID);
-extern void GR_Window_Init(void);
-extern short DEMBuild_Import(short FileType);
-extern short Contour_Import(void);
-extern short Object_ImportXYZ(short Points, double *Lat, double *Lon,
- 	short *ElevPtr, float El, struct datum *DT);
-extern short XYZ_Import(short CoordSys);
-extern short DXF_Import(short CoordSys);
-extern short XYZ_Export(struct datum *DT);
-extern short Noise_Init(void);
-extern short Grid_Draw(struct NNGrid *NNG);
-extern short Grid_Save(struct NNGrid *NNG, short Units);
+// extern void GR_Window_Init(void); // used locally only -> static, AF 20.7.2021
+// extern short DEMBuild_Import(short FileType); // used locally only -> static, AF 20.7.2021
+// extern short Contour_Import(void); // used locally only -> static, AF 20.7.2021
+/*extern short Object_ImportXYZ(short Points, double *Lat, double *Lon,
+ 	short *ElevPtr, float El, struct datum *DT);*/ // used locally only -> static, AF 20.7.2021
+// extern short XYZ_Import(short CoordSys); // used locally only -> static, AF 20.7.2021
+// extern short DXF_Import(short CoordSys); // used locally only -> static, AF 20.7.2021
+// extern short XYZ_Export(struct datum *DT); // used locally only -> static, AF 20.7.2021
+//extern short Noise_Init(void); // used locally only -> static, AF 20.7.2021
+// extern short Grid_Draw(struct NNGrid *NNG); // used locally only -> static, AF 20.7.2021
+// extern short Grid_Save(struct NNGrid *NNG, short Units); // used locally only -> static, AF 19.7.2021
 
 /* EdDBaseGUI.c */
 extern void Make_DE_Window(void);
@@ -854,19 +854,19 @@ extern void Make_EC_Window(void);
 extern APTR Make_EC_Group(void);
 extern void Close_EC_Window(short apply);
 extern void Handle_EC_Window(ULONG WCS_ID);
-extern long max3(long a, long b, long c);
+//extern long max3(long a, long b, long c); // used locally only -> static, AF 20.7.2021
 extern long min3(long a, long b, long c);
-extern long mid3(long a, long b, long c);
-extern void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode);
+//extern long mid3(long a, long b, long c); // used locally only -> static, AF 20.7.2021
+//extern void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode); // used locally only -> static, AF 20.7.2021
 extern void SetAllColorRequester(void);
-extern void SetColorRequester(short row);
+//extern void SetColorRequester(short row); // used locally only -> static, AF 20.7.2021
 extern void SetScreen_8(struct PaletteItem *Pal);
 //extern void SetActiveColor(struct PaletteItem *Pal, short row);  // local static, AF, 16.July 2021
-extern void Adjust_EcoPal(short i);
+//extern void Adjust_EcoPal(short i); // used locally only -> static, AF 20.7.2021
 extern void Set_EC_Item(short item);
-extern void UnSet_EC_Item(short item);
+//extern void UnSet_EC_Item(short item); // used locally only -> static, AF 20.7.2021
 extern void Set_EC_List(short update);
-extern void AddColorEntry(void);
+//extern void AddColorEntry(void); // used locally only -> static, AF 20.7.2021
 
 /* EdMoGUI.c */
 extern void Set_EM_Item(short i);
@@ -875,7 +875,7 @@ extern void Close_EM_Window(short apply);
 extern void Handle_EM_Window(ULONG WCS_ID);
 extern void Make_EM_Window(void);
 extern void Set_Radial_Txt(short IAdraw);
-extern void Update_EMTL_Item(void);
+// extern void Update_EMTL_Item(void); // used locally only -> static, AF 19.7.2021
 extern void Set_EM_List(short update);
 extern void MakeMotionKey(void);
 extern void Close_EMIA_Window(short apply);
@@ -913,33 +913,33 @@ extern void Handle_PN_Window(ULONG WCS_ID);
 extern short CreateNewProject(char *NewProjName, char *CloneProjName);
 
 /* FoliageGUI.c */
-extern void Make_FE_Window(void);
+// extern void Make_FE_Window(void); // used locally only -> static, AF 19.7.2021
 extern void Close_FE_Window(short apply);
 extern void Handle_FE_Window(ULONG WCS_ID);
-extern short GUIEcotype_Load(void);
-extern short GUIFoliageGroup_Add(void);
-extern short GUIFoliageGroup_New(void);
-extern short GUIFoliageGroup_Save(void);
-extern short GUIFoliage_Add(void);
-extern short GUIImagePath(struct Foliage *Fol);
-extern short GUIFoliage_Remove(void);
-extern short GUIFoliageGroup_Remove(void);
-extern short GUIFoliage_View(struct Foliage *Fol, UBYTE **Bitmap);
-extern void EcotypeDefaultColors(struct Ecotype *Eco, short Color);
-extern void FoliageGroupDefaultColors(struct FoliageGroup *FolGp, short Color);
-extern void FoliageDefaultColors(struct Foliage *Fol, short Color);
-extern short SearchColorListMatch(char *Name);
+// extern short GUIEcotype_Load(void); // used locally only -> static, AF 19.7.2021
+// extern short GUIFoliageGroup_Add(void); // used locally only -> static, AF 19.7.2021
+// extern short GUIFoliageGroup_New(void); // used locally only -> static, AF 19.7.2021
+// extern short GUIFoliageGroup_Save(void); // used locally only -> static, AF 19.7.2021
+// extern short GUIFoliage_Add(void); // used locally only -> static, AF 19.7.2021
+// extern short GUIImagePath(struct Foliage *Fol); // used locally only -> static, AF 19.7.2021
+// extern short GUIFoliage_Remove(void); // used locally only -> static, AF 19.7.2021
+// extern short GUIFoliageGroup_Remove(void); // used locally only -> static, AF 19.7.2021
+// extern short GUIFoliage_View(struct Foliage *Fol, UBYTE **Bitmap); // used locally only -> static, AF 19.7.2021
+// extern void EcotypeDefaultColors(struct Ecotype *Eco, short Color); // used locally only -> static, AF 19.7.2021
+// extern void FoliageGroupDefaultColors(struct FoliageGroup *FolGp, short Color); // used locally only -> static, AF 19.7.2021
+// extern void FoliageDefaultColors(struct Foliage *Fol, short Color); // used locally only -> static, AF 19.7.2021
+//extern short SearchColorListMatch(char *Name); // used locally only -> static, AF 19.7.2021
 extern short SearchEcotypeColorMatch(struct Ecotype *Eco, short Color);
 extern void AdjustFoliageColors(struct Ecotype *Eco, short Operation,
 	short First, short Last);
 extern void GetFoliageLimits(struct Ecotype *Eco, short *Limit);
-extern short GUIEcotype_Save(void);
+// extern short GUIEcotype_Save(void); // used locally only -> static, AF 19.7.2021
 extern void GUIList_Clear(char **List, long ListSize, APTR ListView);
-extern void GUIFoliageGroup_SetGads(struct FoliageGroup *This);
-extern void GUIFoliage_SetGads(struct Foliage *This);
-extern void BuildFoliageGroupList(struct Ecotype *Eco);
-extern void BuildFoliageList(struct FoliageGroup *FolGp);
-extern void DisableColorChecks(struct FoliageGroup *FolGp, struct Foliage *Fol);
+//extern void GUIFoliageGroup_SetGads(struct FoliageGroup *This); // used locally only -> static, AF 19.7.2021
+//extern void GUIFoliage_SetGads(struct Foliage *This); // used locally only -> static, AF 19.7.2021
+// extern void BuildFoliageGroupList(struct Ecotype *Eco); // used locally only -> static, AF 19.7.2021
+// extern void BuildFoliageList(struct FoliageGroup *FolGp); // used locally only -> static, AF 19.7.2021
+// extern void DisableColorChecks(struct FoliageGroup *FolGp, struct Foliage *Fol); // used locally only -> static, AF 19.7.2021
 
 /* GUI.c */
 extern void Make_EP_Window(short hor_win);
@@ -983,10 +983,10 @@ extern void setfloat(APTR Obj, double Val);
 extern void nnsetfloat(APTR Obj, double Val);
 
 /* MapGUI.c */
-extern int MapGUI_New(struct MapData *MP);
+//extern int MapGUI_New(struct MapData *MP); // used locally only -> static, AF 20.7.2021
 extern void MapGUI_Update(struct MapData *MP);
 extern void MapGUI_Message(short line, char *Message);
-extern void MapGUI_Del(struct MapData *MP);
+//extern void MapGUI_Del(struct MapData *MP); // used locally only -> static, AF 20.7.2021
 extern void TrimZeros(char *String);
 extern void UnderConst_New(void);
 extern void UnderConst_Del(void);
@@ -994,9 +994,9 @@ extern short map(void);
 extern void Handle_Map_Window(ULONG WCS_ID);
 extern void Close_Map_Window(short ExitWCS);
 extern void MapIDCMP_Restore(struct Window *win);
-extern short Make_Map_Menu(void);
+//extern short Make_Map_Menu(void); // used locally only -> static, AF 20.7.2021
 extern short Make_MA_Window(struct MapData *MP);
-extern void Close_MA_Window(struct MapData *MP);
+// extern void Close_MA_Window(struct MapData *MP); // used locally only -> static, AF 20.7.2021
 extern void Make_EL_Window(void);
 extern void Close_EL_Window(void);
 extern void Handle_EL_Window(ULONG WCS_ID);
@@ -1040,7 +1040,7 @@ extern void Make_FM_Window(void);
 extern void Close_FM_Window(void);
 extern void Handle_FM_Window(ULONG WCS_ID);
 extern void Set_FM_List(short Update, short ActiveItem);
-extern short Add_FM_Item(void);
+// extern short Add_FM_Item(void); // used locally only -> static, AF 19.7.2021
 extern void Remove_FM_Item(long item);
 extern void Unset_FM_Item(long item);
 extern short Load_FM_Win(void);

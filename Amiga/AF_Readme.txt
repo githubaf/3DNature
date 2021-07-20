@@ -197,4 +197,18 @@ i18.July 2021
 21 unused functions ifdefed
                                  :  1469528 Bytes   -->    9.104 Bytes saved
 
+20.July 2021
+------------
+cd no_flto/                  # BuildCOnfiguration ohne -flto
+../find_unused_funcs_nm.sh   # findet unused/potential static Funktionen
 
+
+nach no_flto gehen. (nm geht nicht mit lto-Objekten)
+neues Script findet nicht extern referenzierteObjekte, also unused oder Static-Kandidaten
+../find_unused_funcs_nm.sh
+
+Aktuell 200 solche Funktionen (schon sehr viele behoben)
+Aktuelle Groesse von WCS (gcc Relase)      1466164 
+                          scs/c optimize    984292   <-- warum soviel kleiner als die gcc Version???
+
+Die sas/c Version ist *viel* schneller als die GCC-Version. Warum???

@@ -8,6 +8,10 @@
 #include <math.h>
 
 /*********************************************************************/
+static short HaloEffect(UBYTE **Bitmap, long Width, long Height,
+        double Dr, double Dx, double Dy, double Intensity, double NoHaloDist,
+        struct ColorComponents *CC, char *NameStr, struct Window *win); // used locally only -> static, AF 19.7.2021
+
 
 double ComputeBanking(short frame)
 {
@@ -1131,9 +1135,9 @@ EndCelest:
 
 /***********************************************************************/
 
-short HaloEffect(UBYTE **Bitmap, long Width, long Height,
+static short HaloEffect(UBYTE **Bitmap, long Width, long Height,
 	double Dr, double Dx, double Dy, double Intensity, double NoHaloDist,
-	struct ColorComponents *CC, char *NameStr, struct Window *win)
+	struct ColorComponents *CC, char *NameStr, struct Window *win) // used locally only -> static, AF 19.7.2021
 {
 short error = 0;
 long x, y, zip, CheckByteMap;

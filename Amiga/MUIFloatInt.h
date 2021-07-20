@@ -67,7 +67,7 @@
 
 struct MUI_CustomClass *FloatIntInit(void);
 void FloatIntCleanup(void);
-ULONG DoIncDec(struct IClass *cl,Object *obj,Msg msg, char Action);
+// ULONG DoIncDec(struct IClass *cl,Object *obj,Msg msg, char Action); // used locally only -> static, AF 19.7.2021
 
 struct FloatIntData
 {
@@ -81,5 +81,5 @@ struct FloatIntData
     char *LabelText;
 };
 
-double CalcIncDec(double Quantity, struct FloatIntData *data, char Action);
+// double CalcIncDec(double Quantity, struct FloatIntData *data, char Action); // used locally only -> static, AF 19.7.2021
 #endif /* MUI_FLOATINT_H */

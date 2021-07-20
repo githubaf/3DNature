@@ -9,6 +9,11 @@
 #include "WCS.h"
 
 
+static void facecompute(struct elmapheaderV101 *map, short low, short mid, short hi); // used locally only -> static, AF 19.7.2021
+static void Face_Compute(struct elmapheaderV101 *map, struct FaceData *Data,
+        struct faces *Face, short low, short mid, short hi); // used locally only -> static, AF 20.7.2021
+static short writeface(struct elmapheaderV101 *map); // used locally only -> static, AF 20.7.2021
+
 void FaceOne_Setup(struct elmapheaderV101 *map, struct faces *Face,
 	long Lr, long Lc)
 {
@@ -163,7 +168,7 @@ void FacePt_Switch(struct elmapheaderV101 *map, struct FaceData *Data,
 
 /********************************************************************/
 /* this can be eliminated when the calls to faceone, facetwo are eliminated */
-short writeface(struct elmapheaderV101 *map)
+static short writeface(struct elmapheaderV101 *map) // used locally only -> static, AF 20.7.2021
 {
  switch (minmax()) {
   case 1:
@@ -253,8 +258,8 @@ short minmax(void)
 
 /***********************************************************************/
 
-void Face_Compute(struct elmapheaderV101 *map, struct FaceData *Data,
-	struct faces *Face, short low, short mid, short hi)
+static void Face_Compute(struct elmapheaderV101 *map, struct FaceData *Data,
+	struct faces *Face, short low, short mid, short hi) // used locally only -> static, AF 20.7.2021
 {
  double loel, midel, hiel, lowlat, midlat, hilat, longdistort, lowlong,
 	midlong, hilong, splat, splong, elfactor, strikeaz, angledif,
@@ -326,7 +331,7 @@ void Face_Compute(struct elmapheaderV101 *map, struct FaceData *Data,
 
 /***********************************************************************/
 /* pseudo obsolete - this should be eliminated when writeface is eliminated */
-void facecompute(struct elmapheaderV101 *map, short low, short mid, short hi)
+static void facecompute(struct elmapheaderV101 *map, short low, short mid, short hi)
 {
  double loel, midel, hiel, lowlat, midlat, hilat, longdistort, lowlong,
 	midlong, hilong, splat, splong, elfactor, strikeaz, angledif,

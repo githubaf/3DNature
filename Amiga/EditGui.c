@@ -7,6 +7,13 @@
 #include "GUIExtras.h"
 
 static void SetActiveColor(struct PaletteItem *Pal, short row);  // local --> static AF, 16.July 2021
+static long mid3(long a, long b, long c); // used locally only -> static, AF 20.7.2021
+static void AddColorEntry(void); // used locally only -> static, AF 20.7.2021
+static void UnSet_EC_Item(short item); // used locally only -> static, AF 20.7.2021
+static void Adjust_EcoPal(short i); // used locally only -> static, AF 20.7.2021
+static long max3(long a, long b, long c); // used locally only -> static, AF 20.7.2021
+static void SetColorRequester(short row); // used locally only -> static, AF 20.7.2021
+static void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode); // used locally only -> static, AF 20.7.2021
 
 void Make_EC_Window(void)
 {
@@ -1078,7 +1085,7 @@ void Handle_EC_Window(ULONG WCS_ID)
 
 /*********************************************************************/
 
-long max3(long a, long b, long c)
+static long max3(long a, long b, long c) // used locally only -> static, AF 20.7.2021
 {
  if (a > b)
   {
@@ -1104,7 +1111,7 @@ long min3(long a, long b, long c)
 
 /*********************************************************************/
 
-long mid3(long a, long b, long c)
+static long mid3(long a, long b, long c) // used locally only -> static, AF 20.7.2021
 {
  if (a < b)
   {
@@ -1119,7 +1126,7 @@ long mid3(long a, long b, long c)
 
 /*********************************************************************/
 
-void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode)
+static void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode) // used locally only -> static, AF 20.7.2021
 {
  long mmax, mmin, mmid, sign, hueshift;
 
@@ -1223,7 +1230,7 @@ void SetAllColorRequester(void)
 
 /*********************************************************************/
 
-void SetColorRequester(short row)
+static void SetColorRequester(short row) // used locally only -> static, AF 20.7.2021
 {
  struct PaletteItem Pal;
 
@@ -1299,7 +1306,7 @@ static void SetActiveColor(struct PaletteItem *Pal, short row)
 
 /*********************************************************************/
 
-void Adjust_EcoPal(short i)
+static void Adjust_EcoPal(short i) // used locally only -> static, AF 20.7.2021
 {
  struct PaletteItem Pal;
 
@@ -1385,7 +1392,7 @@ void Set_EC_Item(short item)
 
 /*********************************************************************/
 
-void UnSet_EC_Item(short item)
+static void UnSet_EC_Item(short item) // used locally only -> static, AF 20.7.2021
 {
  struct PaletteItem Pal;
 
@@ -1429,7 +1436,7 @@ void Set_EC_List(short update)
 
 /*********************************************************************/
 
-void AddColorEntry(void)
+static void AddColorEntry(void) // used locally only -> static, AF 20.7.2021
 {
 
  EC_Win->PaI[3] = EC_Win->PaI[2];

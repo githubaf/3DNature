@@ -7,6 +7,9 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
+static short computerelel(short boxsize, short *arrayptr, struct elmapheaderV101 *map); // used locally only -> static, AF 19.7.2021
+static short Read_USGSProfHeader(FILE *DEM, struct USGS_DEMProfileHeader *ProfHdr); // used locally only -> static, AF 19.7.2021
+
 short readDEM(char *filename, struct elmapheaderV101 *map)
 {
  short rowlength, error = 0;
@@ -385,7 +388,7 @@ short enterbox(void)
 
 /*********************************************************************/
 
-short computerelel(short boxsize, short *arrayptr, struct elmapheaderV101 *map)
+static short computerelel(short boxsize, short *arrayptr, struct elmapheaderV101 *map) // used locally only -> static, AF 19.7.2021
 {
  short a, b, Lr, Lc, boxoffset, error = 0;
  short *mapptr, *dataptr, *firstpt, *firstptr;
@@ -1892,7 +1895,7 @@ short Read_USGSHeader(FILE *DEM, struct USGS_DEMHeader *Hdr)
 
 /*********************************************************************/
 
-short Read_USGSProfHeader(FILE *DEM, struct USGS_DEMProfileHeader *ProfHdr)
+static short Read_USGSProfHeader(FILE *DEM, struct USGS_DEMProfileHeader *ProfHdr) // used locally only -> static, AF 19.7.2021
 {
  short value = 0;
 
