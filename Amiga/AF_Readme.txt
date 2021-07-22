@@ -212,3 +212,71 @@ Aktuelle Groesse von WCS (gcc Relase)      1466164
                           scs/c optimize    984292   <-- warum soviel kleiner als die gcc Version???
 
 Die sas/c Version ist *viel* schneller als die GCC-Version. Warum???
+
+21.07.2021
+----------
+SAS/C Map-File erzeugen: Beim Linken
+MAP wcs.map h,f
+
+Der komplette slink Aufruf ist damit
+
+slink LIB:c.o WCS.o WITH WCSObjs.lnk lib:utillib.with LIB LIB:scm881.lib libvgl.a LIB :sc.lib LIB:amiga.lib MAP wcs.map h,f TO WCS
+
+Der SAS/C benutzt eine Datei SCOPTIONS mit folgendem Inhalt:
+MATH=68881
+CPU=68040
+PARAMETERS=REGISTERS
+ANSI
+NOSTACKCHECK
+STRINGMERGE
+UNSIGNEDCHARS
+COMMENTNEST
+ERRORREXX
+NOMULTIPLEINCLUDES
+STRUCTUREEQUIVALENCE
+OPTIMIZERSCHEDULER
+NOVERSION
+UTILITYLIBRARY
+NOICONS
+OPTIMIZERTIME
+MULTIPLECHARACTERCONSTANTS
+DEFINE AMIGA
+IGNORE=147
+GLOBALSYMBOLTABLE=WCSGST
+PUBSCREEN=TURBOTEXT
+
+gcc profiler:
+CFLAGS="-pg" LIBS1="-lgcov" 
+-fomit-frame-pointer muss entfernt werden.
+
+Auf WinUAE oder Amiga laufen lassen. Dabei SnoopDos milaufen lasse.
+Das erzeugte Programm moechte nach seinem Lauf (auf dem Amiga) auf die gcda-Files zugreifen, z.B. auf
+/home/developer/Desktop/SelcoGit/3DNature/Amiga/Profiling/WCS.gcda
+
+Deshalb muessen wir beim Compiler noch
+-fprofile-generate=VBox:Desktop/SelcoGit/3DNature/Amiga/Profiling
+angeben. Dann klappt das.
+
+/home/developer/opt/m68k-amigaos_15Jun21/bin/m68k-amigaos-gprof  WCS # (ungestipptes Executable)
+
+der profiler-output zeigt ganz oben, welche Funktion wieviel beigtragen hat.
+
+Oder grafisch:
+
+/home/developer/opt/m68k-amigaos_15Jun21/bin/m68k-amigaos-gprof  WCS | gprof2dot -n0 -e0 | dot -Tsvg -o output.svg && mirage output.svg
+
+
+--> Der Profiler-Lauf war sehr schnell!? Sonst ist mein gcc-Executable ja ziemlich langsam im Vergleich zur SAS/C-Version.
+Compiler-Optionen ueberpruefen. Ist LTO vielleicht doch schaedlich? --> Wohl nicht
+
+--> Es liegt am -m68881 beim Compiler und Linker. Damit ist es unter WinUAE drastisch schneller, sogaer etwas schneller als die SAS/C-Version.
+--> Auf dem Amiga muss das noch ausprobiert werden.
+
+Der Profiler zeigt, dass meine swmem()-Funktion  extrem oft aufgerufen wird und 8% der Zeit braucht. Kann man die inline machen?
+--> erst mal libnix mit -pg bauen. Dann ist der Profiler hoffentlich aussagekräftiger.
+
+22.July2021
+-----------
+Man kann in Eclipse die Compiler-Flag pro File setzen! Einfach rechte Maustaste Preferences. Damit koennte ich alle GUI-Files mit -Os compilieren und den Rest mit -O2 oder -O3.
+
+

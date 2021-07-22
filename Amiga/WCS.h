@@ -11,23 +11,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-int Mkdir(const char *name);  // calls mkdir(name) because mkdir on gcc has two parameters
-void swmem(void*, void*, unsigned);  // SAS/C function, needs to be re-implemented for gcc, Swap two memory blocks
-void strmfp(char *name, const char *path, const char *node); // SAS/C function, needs to be re-implemented for gcc, Make a filename from the path or node
-void strmfn(char *file, const char *drive, const char *path, const char *node, const char *ext); // SAS/C function, needs to be re-implemented for gcc, Make a filename from components
-void strsfn(const char *file, char *drive, char *path, char *node, char *ext); // SAS/C function, needs to be re-implemented for gcc, Split the filename
-int stcgfe(char *ext, const char *name); // SAS/C function, needs to be re-implemented for gcc, Get the filename extension
-int stcul_d(char *out, unsigned long uvalue); // SAS/C function, needs to be re-implemented for gcc, Convert an unsigned long integer to a decimal string
-double pow2(double x); // SAS/C function, needs to be re-implemented for gcc, Raise 2 to a power
-const char * stpblk(const char *p); // SAS/C function, needs to be re-implemented for gcc, Skip blanks
-#ifndef max
-   #define max(a,b) ((a)>(b)?(a):(b))  // SAS/C library reference 3357
-#endif
-#ifndef min
-   #define min(a,b) ((a)<=(b)?(a):(b))  // SAS/C library reference 347
-#endif
-#ifndef tell
-long tell(int fh); // SAS/C function, needs to be re-implemented for gcc, Get the level 1 file position
+#ifndef __SASC
+   #include <sasc_functions.h>   // own implemtation of SAS/C specific functions
 #endif
 
 

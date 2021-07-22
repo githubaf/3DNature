@@ -14,10 +14,10 @@ parse arg SC OPTIMIZE DEBUG FileName EXTRAJUNK
 if (index(FileName, "GUI") == 0 ) then
 	do
 	say "        " SC OPTIMIZE DEBUG FileName EXTRAJUNK
-	SC OPTIMIZE DEBUG FileName EXTRAJUNK
+	SC OPTIMIZE DEBUG FileName EXTRAJUNK VERBOSE
 	end
 else
 	do
 	say "        " SC "NOOPT" DEBUG FileName EXTRAJUNK
-	SC "NOOPT" DEBUG FileName EXTRAJUNK
+	SC "NOOPT" DEBUG FileName EXTRAJUNK VERBOSE
 	end
