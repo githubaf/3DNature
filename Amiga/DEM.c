@@ -9,6 +9,13 @@
 
 static short computerelel(short boxsize, short *arrayptr, struct elmapheaderV101 *map); // used locally only -> static, AF 19.7.2021
 static short Read_USGSProfHeader(FILE *DEM, struct USGS_DEMProfileHeader *ProfHdr); // used locally only -> static, AF 19.7.2021
+static FILE *DEMFile_Init(struct DEMExtractData *DEMExtract, short k, char *MsgHdr); // used locally only -> static, AF 23.7.2021
+static short enterbox(void); // used locally only -> static, AF 23.7.2021
+static short Read_USGSDEMProfile(FILE *DEM, short *ProfPtr, short ProfItems); // used locally only -> static, AF 23.7.2021
+static short Read_USGSHeader(FILE *DEM, struct USGS_DEMHeader *Hdr); // used locally only -> static, AF 23.7.2021
+static short saveDEM(char *filename, struct elmapheaderV101 *Map, short *Array); // used locally only -> static, AF 23.7.2021
+static short SplineMap(short *map, short Xrows, short Ycols, double elvar, double flatmax); // used locally only -> static, AF 23.7.2021
+static void padarray(short *arrayptr, struct elmapheaderV101 *map); // used locally only -> static, AF 23.7.2021
 
 short readDEM(char *filename, struct elmapheaderV101 *map)
 {
@@ -123,7 +130,7 @@ Cleanup:
 
 /*********************************************************************/
 
-short saveDEM(char *filename, struct elmapheaderV101 *Map, short *Array)
+static short saveDEM(char *filename, struct elmapheaderV101 *Map, short *Array) // used locally only -> static, AF 23.7.2021
 {
  long fhelev,
 	 protflags = FIBB_OTR_READ | FIBB_OTR_WRITE | FIBB_OTR_DELETE;
@@ -241,7 +248,7 @@ EndMap:
 
 /*********************************************************************/
 
-void padarray(short *arrayptr, struct elmapheaderV101 *map)
+static void padarray(short *arrayptr, struct elmapheaderV101 *map) // used locally only -> static, AF 23.7.2021
 {
  short *rowptr, *mapptr, Lr, Lc;
  long rowsize, maprowsize, maprowbytes;
@@ -294,9 +301,9 @@ void padarray(short *arrayptr, struct elmapheaderV101 *map)
 
 /*********************************************************************/
 
-short enterbox(void)
+static short enterbox(void) // used locally only -> static, AF 23.7.2021
 {
- short stdweight11[11][11] = {
+ static const short stdweight11[11][11] = {    // static -> init the array only once and reduce stack usage AF, 23.July 2021
              {0,0,1,1,1, 2,1,1,1,0,0},
              {0,1,1,2,3, 3,3,2,1,1,0},
              {1,1,2,3,4, 4,4,3,2,1,1},
@@ -767,8 +774,8 @@ RelelRepeat:
 
 /*********************************************************************/
 
-short SplineMap(short *map, short Xrows, short Ycols,
-	double elvar, double flatmax)
+static short SplineMap(short *map, short Xrows, short Ycols,
+	double elvar, double flatmax) // used locally only -> static, AF 23.7.2021
 {
  long i, j, CurPt, NxtPt, Steps, LastStep, rowsize;
  double Delta, P1, P2, D1, D2, S1, S2, S3, h1, h2, h3, h4, TempVal, RandVar;
@@ -1670,7 +1677,7 @@ EndExtract:
 
 /*********************************************************************/
 
-FILE *DEMFile_Init(struct DEMExtractData *DEMExtract, short k, char *MsgHdr)
+static FILE *DEMFile_Init(struct DEMExtractData *DEMExtract, short k, char *MsgHdr) // used locally only -> static, AF 23.7.2021
 {
 char filename[256];
 FILE *DEMFile;
@@ -1830,7 +1837,7 @@ double Lon[6], Lat[6];
 
 /*********************************************************************/
 
-short Read_USGSHeader(FILE *DEM, struct USGS_DEMHeader *Hdr)
+static short Read_USGSHeader(FILE *DEM, struct USGS_DEMHeader *Hdr) // used locally only -> static, AF 23.7.2021
 {
  short i, j;
 
@@ -1921,7 +1928,7 @@ static short Read_USGSProfHeader(FILE *DEM, struct USGS_DEMProfileHeader *ProfHd
 
 /*********************************************************************/
 
-short Read_USGSDEMProfile(FILE *DEM, short *ProfPtr, short ProfItems)
+static short Read_USGSDEMProfile(FILE *DEM, short *ProfPtr, short ProfItems) // used locally only -> static, AF 23.7.2021
 {
  short i, error = 0;
  short value;

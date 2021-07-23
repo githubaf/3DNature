@@ -8,6 +8,9 @@
 
 #include "WCS.h"
 
+static void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // used locally only -> static, AF 23.7.2021
+static void ZeroMatrix3x3(Matx3x3 A); // used locally only -> static, AF 23.7.2021
+
 void getscrnpt(struct coords *TP, struct coords *SP)
 {
 /* double newpta;*/
@@ -291,7 +294,7 @@ void RotationMatrix3D(short m, double theta, Matx3x3 A)
 
 /***********************************************************************/
 
-void ZeroMatrix3x3(Matx3x3 A)
+static void ZeroMatrix3x3(Matx3x3 A) // used locally only -> static, AF 23.7.2021
 {
 short i, j;
 
@@ -325,7 +328,7 @@ void NegateVector(struct coords *A)
 
 /***********************************************************************/
 
-void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C)
+static void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C) // used locally only -> static, AF 23.7.2021
 {
 short i, j, k;
 double ab;

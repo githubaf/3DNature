@@ -11,7 +11,11 @@
 static short HaloEffect(UBYTE **Bitmap, long Width, long Height,
         double Dr, double Dx, double Dy, double Intensity, double NoHaloDist,
         struct ColorComponents *CC, char *NameStr, struct Window *win); // used locally only -> static, AF 19.7.2021
-
+static short Image_Composite(UBYTE **Bitmap, UBYTE **Source, long Iw, long Ih,
+        short Sw, short Sh, double Dr, double Dx, double Dy, double Distance,
+        double *Visible, double *Luminosity, struct ColorComponents *CC,
+        char *NameStr, struct Window *win); // used locally only -> static, AF 23.7.2021
+static void getskypt(void); // used locally only -> static, AF 23.7.2021
 
 double ComputeBanking(short frame)
 {
@@ -626,7 +630,7 @@ short makesky(short renderseg, struct Window *win)
 
 /*********************************************************************/
 
-void getskypt(void)
+static void getskypt(void) // used locally only -> static, AF 23.7.2021
 {
  double angle,newangle,length;
 
@@ -1197,10 +1201,10 @@ struct BusyWindow *BWDE;
 
 /***********************************************************************/
 
-short Image_Composite(UBYTE **Bitmap, UBYTE **Source, long Iw, long Ih,
+static short Image_Composite(UBYTE **Bitmap, UBYTE **Source, long Iw, long Ih,
 	short Sw, short Sh, double Dr, double Dx, double Dy, double Distance,
 	double *Visible, double *Luminosity, struct ColorComponents *CC,
-	char *NameStr, struct Window *win)
+	char *NameStr, struct Window *win) // used locally only -> static, AF 23.7.2021
 {
 short error = 0;
 double Dox, Doy, Dex, Dey, dX, dY, Sox, Soy, Cox, Coy, Cex, Cey,

@@ -8,6 +8,14 @@
 #include "Foliage.h"
 
 static void SetBitmapImageSpan(struct BitmapImage *BMI); // used locally only -> static, AF 19.7.2021
+static void BitmapImage_Del(struct BitmapImage *BMI); // used locally only -> static, AF 23.7.2021
+static void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
+        double Dw, double Dh, double Dx, double Dy,
+        double Distance, struct ColorComponents *CC,
+        struct ColorComponents *AM, double ElStart,
+        double ElIncr, struct Window *win, struct QCvalues *QC); // used locally only -> static, AF 23.7.2021
+static void ColorToGray(UBYTE **Bitmap, long MaxZip); // used locally only -> static, AF 23.7.2021
+
 
 #define MODE_REPLACE 0
 #define MODE_AVERAGE 1
@@ -1407,7 +1415,7 @@ struct BitmapImage *BitmapImage_New(void)
 
 /**********************************************************************/
 
-void BitmapImage_Del(struct BitmapImage *BMI)
+static void BitmapImage_Del(struct BitmapImage *BMI) // used locally only -> static, AF 23.7.2021
 {
 struct BitmapImage *BMINext;
 
@@ -1459,7 +1467,7 @@ void BitmapImage_DelSingle(struct BitmapImage *BMI)
 
 /***********************************************************************/
 
-void ColorToGray(UBYTE **Bitmap, long MaxZip)
+static void ColorToGray(UBYTE **Bitmap, long MaxZip) // used locally only -> static, AF 23.7.2021
 {
 long zip;
 
@@ -1677,11 +1685,11 @@ long Px, Py, Pxp1, Pyp1, x, y, DRows, DCols, DxStart, DyStart, PixVal[3],
 
 /**********************************************************************/
 
-void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
+static void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
 	double Dw, double Dh, double Dx, double Dy,
 	double Distance, struct ColorComponents *CC, 
 	struct ColorComponents *AM, double ElStart,
-	double ElIncr, struct Window *win, struct QCvalues *QC)
+	double ElIncr, struct Window *win, struct QCvalues *QC) // used locally only -> static, AF 23.7.2021
 {
 double Dox, Doy, Dex, Dey, dX, dY, Sox, Soy, Cox, Coy, Cex, Cey,
 	wtys, wtye, wty, wtxs, wtxe, wt, PixWt, InvPixWt, MaxWt, ElPt,

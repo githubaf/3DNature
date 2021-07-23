@@ -280,3 +280,6 @@ Der Profiler zeigt, dass meine swmem()-Funktion  extrem oft aufgerufen wird und 
 Man kann in Eclipse die Compiler-Flag pro File setzen! Einfach rechte Maustaste Preferences. Damit koennte ich alle GUI-Files mit -Os compilieren und den Rest mit -O2 oder -O3.
 
 
+23.July2021
+-----------
+mor functions static. 150 left.

@@ -12,6 +12,13 @@ struct LightWaveMotion {
  double TCB[3];
 };
 */
+
+static short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
+        short Frame, double Scale); // used locally only -> static, AF 23.7.2021
+
+
+
+
 long LWNullObj[] = {
 0x464F524D, 0x00000028, 0x4C574F42, 0x504E5453,
 0x0000000C, 0x00000000, 0x00000000, 0x00000000,

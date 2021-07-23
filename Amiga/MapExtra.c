@@ -7,6 +7,19 @@
 #include "GUIDefines.h"
 
 static void markpt(short edpt, short col); // used locally only -> static, AF 19.7.2021
+static double SolveDistCart(double XJ, double YJ, double ZJ,
+        double XK, double YK, double ZK); // used locally only -> static, AF 23.7.2021
+static void ZeroMatrix3x3(Matx3x3 A); // used locally only -> static, AF 23.7.2021
+static void MakeTempCart(double Lat, double Lon, double SphereRad,
+        double *X, double *Y, double *Z); // used locally only -> static, AF 23.7.2021
+static double SolveArcAng(double CartDist, double SphereRad); // used locally only -> static, AF 23.7.2021
+static void InitGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
+static double DoGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
+static void unmarkpt(short edpt); // used locally only -> static, AF 23.7.2021
+static void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // used locally only -> static, AF 23.7.2021
+
+
+
 
 /* ALEXANDER now in WCS.h struct Gauss {
 	double Arand, Nrand, Add, Fac;
@@ -649,8 +662,8 @@ EndShift:
 
 /***********************************************************************/
 
-void MakeTempCart(double Lat, double Lon, double SphereRad,
-	double *X, double *Y, double *Z)
+static void MakeTempCart(double Lat, double Lon, double SphereRad,
+	double *X, double *Y, double *Z) // used locally only -> static, AF 23.7.2021
 {
 double TempCos;
 
@@ -663,8 +676,8 @@ double TempCos;
 
 /***********************************************************************/
 
-double SolveDistCart(double XJ, double YJ, double ZJ,
-	double XK, double YK, double ZK)
+static double SolveDistCart(double XJ, double YJ, double ZJ,
+	double XK, double YK, double ZK) // used locally only -> static, AF 23.7.2021
 {
 
 /* printf("XJ=%f, YJ=%f, ZJ=%f, XK=%f, YK=%f, ZK=%f.\n", XJ, YJ, ZJ, XK, YK, ZK);
@@ -678,7 +691,7 @@ double SolveDistCart(double XJ, double YJ, double ZJ,
 
 /***********************************************************************/
 
-double SolveArcAng(double CartDist, double SphereRad)
+static double SolveArcAng(double CartDist, double SphereRad) // used locally only -> static, AF 23.7.2021
 {
 
  return(asin((CartDist / 2) / SphereRad));
@@ -1148,7 +1161,7 @@ static void markpt(short edpt, short col) // used locally only -> static, AF 19.
 
 /************************************************************************/
 
-void unmarkpt(short edpt)
+static void unmarkpt(short edpt) // used locally only -> static, AF 23.7.2021
 {
  if (ptstore[0]>-1) {
   SetAPen(MapWind0->RPort,ptstore[0]);
@@ -2386,7 +2399,7 @@ EndDist:
 
 /*************************************************************************/
 
-void InitGauss(struct Gauss *Gauss)
+static void InitGauss(struct Gauss *Gauss) // used locally only -> static, AF 23.7.2021
 {
 
  Gauss->Nrand = 4;
@@ -2400,7 +2413,7 @@ void InitGauss(struct Gauss *Gauss)
 
 /************************************************************************/
 
-double DoGauss(struct Gauss *Gauss)
+static double DoGauss(struct Gauss *Gauss) // used locally only -> static, AF 23.7.2021
 {
 short i;
 double sum = 0.0;
@@ -2674,9 +2687,9 @@ struct Branch *Branch_New(void);
 void Branch_Del(struct Branch *BR);
 void RotationMatrix(double Ry, double Rz, Matx3x3 RMatx);
 void Rotate3D(short m, double theta, Matx3x3 A);
-void ZeroMatrix3x3(Matx3x3 A);
+//void ZeroMatrix3x3(Matx3x3 A);
 void ZeroTDA(TDA A);
-void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C);
+//void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C);
 void RotateTreeNode(struct Branch *BR);
 void ConvolveMatrices(TDA A, Matx3x3 M);
 double RandomizeDimension(double CentralVal, double Variability,
@@ -2906,7 +2919,7 @@ void Rotate3D(short m, double theta, Matx3x3 A)
 
 /***********************************************************************/
 
-void ZeroMatrix3x3(Matx3x3 A)
+static void ZeroMatrix3x3(Matx3x3 A) // used locally only -> static, AF 23.7.2021
 {
 short i, j;
 
@@ -2929,7 +2942,7 @@ void ZeroTDA(TDA A)
 
 /***********************************************************************/
 
-void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C)
+static void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C) // used locally only -> static, AF 23.7.2021
 {
 short i, j, k;
 double ab;

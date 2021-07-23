@@ -7,6 +7,19 @@
 #include "WCS.h"
 #include "Foliage.h"
 
+static short Set_Bank_Key(short Frame); // used locally only -> static, AF 23.7.2021
+static short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
+        char *paramfile, struct ParHeader *TempHdr, short ExistingKeyFrames); // used locally only -> static, AF 23.7.2021
+static short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
+        char *paramfile, struct ParHeader *TempHdr, short ExistingKeyFrames); // used locally only -> static, AF 23.7.2021
+static void ParamFmtV1V2_Convert(struct AnimationV1 *MoParV1, struct PaletteV1 *CoParV1,
+        union EnvironmentV1 *EcoParV1, struct SettingsV1 *settingsV1,
+        struct ParHeaderV1 *ParHdrV1, union KeyFrameV1 *KFV1, USHORT loadcode,
+        short loaditem, short LoadKeys); // used locally only -> static, AF 23.7.2021
+static short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
+        short Key, short Frame, double Scale, short Linear); // used locally only -> static, AF 23.7.2021
+
+
 #ifdef KJHKJDFHKDHFKJDFH // Now in LWSupport.c
 
 /* ALEXANDER now in WCS.h struct LightWaveMotion {
@@ -47,7 +60,7 @@ void ExportWave(struct LightWaveInfo *LWInfo)
 //  {
 //  error = 6;
 //  goto EndWave;
-//  } /* if spherical system (not yet supported) */
+//  } // if spherical system (not yet supported)
 //
 /* set scale factor for appropriate units of measure */
 
@@ -223,8 +236,8 @@ EndWave:
 
 /***********************************************************************/
 
-short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
-	short Key, short Frame, double Scale, short Linear)
+static short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
+	short Key, short Frame, double Scale, short Linear) // used locally only -> static, AF 23.7.2021
 {
  short j, AheadFrame;
  double lonscale, xxx, yyy, zzz, angle, BankFactor;
@@ -918,7 +931,7 @@ EndBank:
 
 /***********************************************************************/
 
-short Set_Bank_Key(short Frame)
+static short Set_Bank_Key(short Frame) // used locally only -> static, AF 23.7.2021
 {
  short j;
 
@@ -1846,8 +1859,8 @@ short loadparams(USHORT loadcode, short loaditem)
 
 /**********************************************************************/
 
-short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
-	char *paramfile, struct ParHeader *TempHdr, short ExistingKeyFrames)
+static short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
+	char *paramfile, struct ParHeader *TempHdr, short ExistingKeyFrames) // used locally only -> static, AF 23.7.2021
 {
  short k, LoadKeys, KeyFrames;
  char filename[255], TagItem[32];
@@ -2139,8 +2152,8 @@ ReadError:
 
 /************************************************************************/
 
-short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
-	char *paramfile, struct ParHeader *TempHdr, short ExistingKeyFrames)
+static short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
+	char *paramfile, struct ParHeader *TempHdr, short ExistingKeyFrames) // used locally only -> static, AF 23.7.2021
 {
  short k, LoadKeys, KeyFrames;
  long KFV1size;
@@ -2546,10 +2559,10 @@ ReadError:
 
 /************************************************************************/
 
-void ParamFmtV1V2_Convert(struct AnimationV1 *MoParV1, struct PaletteV1 *CoParV1,
+static void ParamFmtV1V2_Convert(struct AnimationV1 *MoParV1, struct PaletteV1 *CoParV1,
 	union EnvironmentV1 *EcoParV1, struct SettingsV1 *settingsV1,
 	struct ParHeaderV1 *ParHdrV1, union KeyFrameV1 *KFV1, USHORT loadcode,
-	short loaditem, short LoadKeys)
+	short loaditem, short LoadKeys) // used locally only -> static, AF 23.7.2021
 {
 short i, j, k;
 

@@ -53,7 +53,7 @@ This function is not available if the _STRICT_ANSI flag has been
 defined.
 */
 
-#ifdef SWMEM_INLINE   // define in Makefile if swmem should be inlined
+#ifdef SWMEM_INLINE   // define in Makefile if swmem() should be inlined
 extern inline void swmem(void *a, void *b, unsigned n);  // SAS/C-only function, own re-implementation AF
 // Body is moved to header-File as inline function
 // C99 says it has to be in the c-File as extern inline

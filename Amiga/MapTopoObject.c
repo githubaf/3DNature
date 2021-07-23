@@ -13,6 +13,28 @@
 static short setfaceone(struct elmapheaderV101 *map);  // AF static 16.July2021
 static short setfacetwo(struct elmapheaderV101 *map);  // AF static 16.July2021
 static void VertexIndex_Del(struct VertexIndex *Vtx);  // used locally only -> static, AF 19.7.2021
+static short VertexIndex_New(struct VertexIndex *Vtx, long MaxFract); // used locally only -> static, AF 23.7.2021
+static void rendercloud(struct Window *win, short *CloudVal, short *IllumVal, short Elev); // used locally only -> static, AF 23.7.2021
+static void Face_Render(struct elmapheaderV101 *map, struct faces *Vertex,
+        struct Window *win, struct CloudData *CD); // used locally only -> static, AF 23.7.2021
+static void FractFace_Render(struct elmapheaderV101 *map,
+        struct Window *win, short WhichFace, struct CloudData *CD); // used locally only -> static, AF 23.7.2021
+static short MakeFractalMap(struct elmapheaderV101 *map,
+        BYTE *FractalMap, long FractalMapSize); // used locally only -> static, AF 23.7.2021
+static void CloudPointSort(short *CloudVal, short *IllumVal); // used locally only -> static, AF 23.7.2021
+static short setcloudfaceone(struct elmapheaderV101 *map); // used locally only -> static, AF 23.7.2021
+static short FractalLevel(short MaxSize); // used locally only -> static, AF 23.7.2021
+static short MapCloudLayer(struct elmapheaderV101 *map,
+        struct CloudData *CD,  struct CloudLayer *CL, struct CloudLayer *More,
+        double MinAmp, double MaxAmp, short j, struct Window *win/*, UBYTE *CldMap*/); // used locally only -> static, AF 23.7.2021
+static short setquickfaceone(struct elmapheaderV101 *map, long Lr, long Lc); // used locally only -> static, AF 23.7.2021
+static short setcloudfacetwo(struct elmapheaderV101 *map); // used locally only -> static, AF 23.7.2021
+static short setquickface(struct elmapheaderV101 *map); // used locally only -> static, AF 23.7.2021
+static short setquickfacetwo(struct elmapheaderV101 *map, long Lr, long Lc); // used locally only -> static, AF 23.7.2021
+static short setfacetwo(struct elmapheaderV101 *map); // used locally only -> static, AF 23.7.2021
+static short setface(struct elmapheaderV101 *map); // used locally only -> static, AF 23.7.2021
+static void renderface(struct elmapheaderV101 *map, struct Window *win, struct CloudData *CD); // used locally only -> static, AF 23.7.2021
+
 
 short maptopoobject(struct elmapheaderV101 *map, struct Window *win,
 	short DEMnum, short NumDEMs, struct CloudData *CD)
@@ -805,8 +827,8 @@ NewFileRequest:
 
 /*********************************************************************/
 
-void Face_Render(struct elmapheaderV101 *map, struct faces *Vertex,
-	struct Window *win, struct CloudData *CD)
+static void Face_Render(struct elmapheaderV101 *map, struct faces *Vertex,
+	struct Window *win, struct CloudData *CD) // used locally only -> static, AF 23.7.2021
 {
  long fract;
  struct FaceData Data;
@@ -933,8 +955,8 @@ void Face_Render(struct elmapheaderV101 *map, struct faces *Vertex,
 
 /********************************************************************/
 
-void FractFace_Render(struct elmapheaderV101 *map,
-	struct Window *win, short WhichFace, struct CloudData *CD)
+static void FractFace_Render(struct elmapheaderV101 *map,
+	struct Window *win, short WhichFace, struct CloudData *CD) // used locally only -> static, AF 23.7.2021
 {
  struct FaceData Data;
  struct faces Face;
@@ -1219,7 +1241,7 @@ void FractFace_Render(struct elmapheaderV101 *map,
 
 /********************************************************************/
 
-void renderface(struct elmapheaderV101 *map, struct Window *win, struct CloudData *CD)
+static void renderface(struct elmapheaderV101 *map, struct Window *win, struct CloudData *CD) // used locally only -> static, AF 23.7.2021
 {
  long fract;
  struct FaceData Data;
@@ -1334,7 +1356,7 @@ static short setfaceone(struct elmapheaderV101 *map)
 
 /*********************************************************************/
 
-static short setfacetwo(struct elmapheaderV101 *map)
+static short setfacetwo(struct elmapheaderV101 *map) // used locally only -> static, AF 23.7.2021
 {
  map->facept[0] = map->facect + map->columns;
  map->facept[1] = map->facect;		
@@ -1346,7 +1368,7 @@ static short setfacetwo(struct elmapheaderV101 *map)
 
 /*********************************************************************/
 
-short setface(struct elmapheaderV101 *map)
+static short setface(struct elmapheaderV101 *map) // used locally only -> static, AF 23.7.2021
 {
  short y, j = 0, k = 0, avgX, avgY, offsetY, width;
  float *zbufbase;
@@ -1660,9 +1682,9 @@ short MapCloudObject(struct elmapheaderV101 *map, struct CloudData *CD,
 
 /*********************************************************************/
 
-short MapCloudLayer(struct elmapheaderV101 *map,
+static short MapCloudLayer(struct elmapheaderV101 *map,
 	struct CloudData *CD,  struct CloudLayer *CL, struct CloudLayer *More,
-	double MinAmp, double MaxAmp, short j, struct Window *win/*, UBYTE *CldMap*/)
+	double MinAmp, double MaxAmp, short j, struct Window *win/*, UBYTE *CldMap*/) // used locally only -> static, AF 23.7.2021
 {
 char BusyWinStr[16];
 short i, CloudVal[3], IllumVal[3], ColDif, *CloudPtr, error = 0, Cld,
@@ -2181,7 +2203,7 @@ EndMap:
 
 /*********************************************************************/
 
-short setcloudfaceone(struct elmapheaderV101 *map)
+static short setcloudfaceone(struct elmapheaderV101 *map) // used locally only -> static, AF 23.7.2021
 {
  map->facept[0] = map->facect;
  map->facept[1] = map->facect + map->columns;
@@ -2195,7 +2217,7 @@ short setcloudfaceone(struct elmapheaderV101 *map)
 
 /*********************************************************************/
 
-short setcloudfacetwo(struct elmapheaderV101 *map)
+static short setcloudfacetwo(struct elmapheaderV101 *map) // used locally only -> static, AF 23.7.2021
 {
  map->facept[0] = map->facect + map->columns;
  map->facept[1] = map->facect;		
@@ -2209,8 +2231,8 @@ short setcloudfacetwo(struct elmapheaderV101 *map)
 
 /************************************************************************/
 
-void rendercloud(struct Window *win, short *CloudVal, short *IllumVal,
-	short Elev)
+static void rendercloud(struct Window *win, short *CloudVal, short *IllumVal,
+	short Elev) // used locally only -> static, AF 23.7.2021
 {
 
  CloudPointSort(CloudVal, IllumVal);
@@ -2228,7 +2250,7 @@ void rendercloud(struct Window *win, short *CloudVal, short *IllumVal,
 
 /*********************************************************************/
 
-void CloudPointSort(short *CloudVal, short *IllumVal)
+static void CloudPointSort(short *CloudVal, short *IllumVal) // used locally only -> static, AF 23.7.2021
 {
 
  if (pty[1] < pty[0])
@@ -2261,7 +2283,7 @@ void CloudPointSort(short *CloudVal, short *IllumVal)
 /*********************************************************************/
 /* Includes reading Edge values */
 
-short VertexIndex_New(struct VertexIndex *Vtx, long MaxFract)
+static short VertexIndex_New(struct VertexIndex *Vtx, long MaxFract)
 {
 char Title[16];
 short error = 0;
@@ -2761,7 +2783,7 @@ MapCleanup:
 
 /*********************************************************************/
 
-short setquickfaceone(struct elmapheaderV101 *map, long Lr, long Lc)
+static short setquickfaceone(struct elmapheaderV101 *map, long Lr, long Lc) // used locally only -> static, AF 23.7.2021
 {
  map->facept[0] = map->facect;
  map->facept[1] = map->facect + map->columns;
@@ -2779,7 +2801,7 @@ short setquickfaceone(struct elmapheaderV101 *map, long Lr, long Lc)
 
 /*************************************************************************/
 
-short setquickfacetwo(struct elmapheaderV101 *map, long Lr, long Lc)
+static short setquickfacetwo(struct elmapheaderV101 *map, long Lr, long Lc) // used locally only -> static, AF 23.7.2021
 {
  map->facept[0] = map->facect + map->columns;
  map->facept[1] = map->facect;		
@@ -2797,7 +2819,7 @@ short setquickfacetwo(struct elmapheaderV101 *map, long Lr, long Lc)
 
 /*********************************************************************/
 
-short setquickface(struct elmapheaderV101 *map)
+short setquickface(struct elmapheaderV101 *map) // used locally only -> static, AF 23.7.2021
 {
  short y, j = 0, k = 0, l = 0;
  long WayWide, WayHigh;
@@ -2833,7 +2855,7 @@ short setquickface(struct elmapheaderV101 *map)
 
 /***********************************************************************/
 
-short FractalLevel(short MaxSize)
+static short FractalLevel(short MaxSize) // used locally only -> static, AF 23.7.2021
 {
  short MaxFract = 0;
  long dif[2][3], Fract;
@@ -2863,8 +2885,8 @@ short FractalLevel(short MaxSize)
 
 /***********************************************************************/
 
-short MakeFractalMap(struct elmapheaderV101 *map,
-	BYTE *FractalMap, long FractalMapSize)
+static short MakeFractalMap(struct elmapheaderV101 *map,
+	BYTE *FractalMap, long FractalMapSize) // used locally only -> static, AF 23.7.2021
 {
 short i, MaxFract, MaxSize = 2, UnderWater;
 long poly, Lr, Lc, MaxCol, stepct;

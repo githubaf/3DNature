@@ -176,21 +176,20 @@ extern short SaveConvertOutput(struct DEMConvertData *data, struct elmapheaderV1
 
 /* DEM.c */
 extern short readDEM(char *filename, struct elmapheaderV101 *map);
-extern short saveDEM(char *filename, struct elmapheaderV101 *Map, short *Array);
+//extern short saveDEM(char *filename, struct elmapheaderV101 *Map, short *Array); // used locally only -> static, AF 23.7.2021
 extern short makerelelfile(char *elevpath, char *elevfile);
-extern void padarray(short *arrayptr, struct elmapheaderV101 *map);
-extern short enterbox(void);
+// extern void padarray(short *arrayptr, struct elmapheaderV101 *map); // used locally only -> static, AF 23.7.2021
+// extern short enterbox(void); // used locally only -> static, AF 23.7.2021
 // extern short computerelel(short boxsize, short *arrayptr, struct elmapheaderV101 *map); // used locally only -> static, AF 19.7.2021
 extern short InterpDEM(struct DEMInterpolateData *DEMInterp);
-extern short SplineMap(short *map, short Xrows, short Ycols,
-	double elvar, double flatmax);
+// extern short SplineMap(short *map, short Xrows, short Ycols, double elvar, double flatmax); // used locally only -> static, AF 23.7.2021
 extern short ExtractDEM(struct DEMExtractData *DEMExtract);
-extern FILE *DEMFile_Init(struct DEMExtractData *DEMExtract, short k, char *MsgHdr);
+// extern FILE *DEMFile_Init(struct DEMExtractData *DEMExtract, short k, char *MsgHdr); // used locally only -> static, AF 23.7.2021
 extern short DEMFile_Save(char *BaseName, struct elmapheaderV101 *Hdr,
 	short *MapArray, long MapSize);
-extern short Read_USGSHeader(FILE *DEM, struct USGS_DEMHeader *Hdr);
+//extern short Read_USGSHeader(FILE *DEM, struct USGS_DEMHeader *Hdr); // used locally only -> static, AF 23.7.2021
 //extern short Read_USGSProfHeader(FILE *DEM, struct USGS_DEMProfileHeader *Hdr); // used locally only -> static, AF 19.7.2021
-extern short Read_USGSDEMProfile(FILE *DEM, short *ProfPtr, short ProfItems);
+//extern short Read_USGSDEMProfile(FILE *DEM, short *ProfPtr, short ProfItems); // used locally only -> static, AF 23.7.2021
 extern double FCvt(const char *string);
 extern short FixFlatSpots(short *Data, short Rows, short Cols, float T);
 extern short FindElMaxMin(struct elmapheaderV101 *Map, short *Array);
@@ -219,7 +218,7 @@ extern unsigned int NameHash_MakeIndex(int HashDigits, char *SubBuf);
 */
 /* EdPar.c */
 extern short  CreateBankKeys(void);
-extern short Set_Bank_Key(short Frame);
+// extern short Set_Bank_Key(short Frame); // used locally only -> static, AF 23.7.2021
 extern short ScaleKeys(struct ScaleKeyInfo *SKI);
 extern void defaultsettings(void);
 extern void initmopar(void);
@@ -234,14 +233,14 @@ extern void setecodefault(short i);
 extern void FixPar(short k, short ParSet);
 extern void UndoPar(short k, short ParUndo);
 extern short loadparams(USHORT loadcode, short loaditem);
-extern short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
-	char *paramfile, struct ParHeader *TempHdr, short ExistingKeyFrames);
-extern short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
-	char *paramfile, struct ParHeader *TempHdr, short ExistingkeyFrames);
-extern void ParamFmtV1V2_Convert(struct AnimationV1 *MoParV1, struct PaletteV1 *CoParV1,
-	union EnvironmentV1 *EcoParV1, struct SettingsV1 *settingsV1,
-	struct ParHeaderV1 *ParHdrV1, union KeyFrameV1 *KFV1, USHORT loadcode,
-	short loaditem, short LoadKeys);
+//extern short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
+//	char *paramfile, struct ParHeader *TempHdr, short ExistingKeyFrames); // used locally only -> static, AF 23.7.2021
+//extern short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
+//	char *paramfile, struct ParHeader *TempHdr, short ExistingkeyFrames); // used locally only -> static, AF 23.7.2021
+//extern void ParamFmtV1V2_Convert(struct AnimationV1 *MoParV1, struct PaletteV1 *CoParV1,
+//	union EnvironmentV1 *EcoParV1, struct SettingsV1 *settingsV1,
+//	struct ParHeaderV1 *ParHdrV1, union KeyFrameV1 *KFV1, USHORT loadcode,
+//	short loaditem, short LoadKeys); // used locally only -> static, AF 23.7.2021
 extern short saveparams(USHORT savecode, short saveitem, short savecur);
 extern short DefaultParams(void);
 extern void SetParColor(short Color, char *Name, short Red, short Grn, short Blu);
@@ -261,12 +260,12 @@ extern void Recurse(struct elmapheaderV101 *map, struct Window *win,
 extern void FractRecurse(struct Window *win, struct elmapheaderV101 *map,
 	short MapAsSFC, struct FaceData *Data, struct faces *Face,
 	struct VertexIndex *Vtx, struct CloudData *CD);
-extern void FractPoly_Divide(struct elmapheaderV101 *map, struct VertexIndex *Vtx);
+// extern void FractPoly_Divide(struct elmapheaderV101 *map, struct VertexIndex *Vtx); // used locally only -> static, AF 23.7.2021
 extern double GaussRand(void);
-extern void Poly_Divide(void);
+//extern void Poly_Divide(void); // used locally only -> static, AF 23.7.2021
 extern void recurse(struct elmapheaderV101 *map, struct Window *win,
 	short MapAsSFC, struct CloudData *CD, struct FaceData *Data);
-extern void polydivide(void);
+// extern void polydivide(void); // used locally only -> static, AF 23.7.2021
 extern void Point_Sort(void);
 extern void FractPoint_Sort(double *Elev);
 extern void PointSort2(void);
@@ -298,7 +297,7 @@ extern void VertexIndexFaceOne_EdgeSet(struct elmapheaderV101 *map,
 	struct VertexIndex *Vtx, long MaxFract);
 extern void VertexIndexFaceTwo_EdgeSet(struct elmapheaderV101 *map,
 	struct VertexIndex *Vtx, long MaxFract);
-extern long MinInt5(long Num1, long Num2, long Num3, long Num4, long Num5);
+// extern long MinInt5(long Num1, long Num2, long Num3, long Num4, long Num5); // used locally only -> static, AF 23.7.2021
 extern void WaveAmp_Compute(double *Elev, double *Alt,
 	double *PolyEl, double *PolyLat, double *PolyLon,
 	struct WaveData *WD, short *MakeWater, short *MakeBeach,
@@ -318,7 +317,7 @@ extern double ComputeBanking(short frame);
 extern void setview(void);
 extern short setquickview(void);
 extern short makesky(short renderseg, struct Window *win);
-extern void getskypt(void);
+// extern void getskypt(void); // used locally only -> static, AF 23.7.2021
 extern void antialias(void);
 extern short Reflection_Render(struct Window *win);
 extern short Celestial_Bodies(UBYTE **Bitmap, long Width, long Height,
@@ -326,10 +325,10 @@ extern short Celestial_Bodies(UBYTE **Bitmap, long Width, long Height,
 /*extern short HaloEffect(UBYTE **Bitmap, long Width, long Height,
 	double Dr, double Dx, double Dy, double Intensity, double NoHaloDist,
 	struct ColorComponents *CC, char *NameStr, struct Window *win);*/ // used locally only -> static, AF 19.7.2021
-extern short Image_Composite(UBYTE **Bitmap, UBYTE **Source, long Iw, long Ih,
+/*extern short Image_Composite(UBYTE **Bitmap, UBYTE **Source, long Iw, long Ih,
 	short Sw, short Sh, double Dr, double Dx, double Dy, double Distance,
 	double *Visible, double *Luminosity, struct ColorComponents *CC,
-	char *NameStr, struct Window *win);
+	char *NameStr, struct Window *win);*/ // used locally only -> static, AF 23.7.2021
 extern short BuildTrigTables(void);
 extern void FreeTrigTables(void);
 extern double ASin_Table(double sine);
@@ -407,8 +406,8 @@ extern short PathToVector(short item);
 
 /* LWSupport.c */
 extern short ExportWave(struct LightWaveInfo *LWInfo, FILE *Supplied);
-extern short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
-	short Frame, double Scale);
+//extern short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
+//	short Frame, double Scale); // used locally only -> static, AF 23.7.2021
 extern short LWOB_Export(char *ObjectName, char *OutputName, struct coords *PP,
 	long MaxVertices, long MaxPolys, short SaveObject,
 	short Bathymetry, double LonRot);
@@ -479,16 +478,16 @@ extern void grapherase(void);
 */
 extern void findarea(short OBN);
 extern void FindDistance(void);
-extern double SolveArcAng(double CartDist, double SphereRad);
-extern double SolveDistCart(double XJ, double YJ, double ZJ,
-	double XK, double YK, double ZK);
-extern void MakeTempCart(double Lat, double Lon, double SphereRad,
-	double *X, double *Y, double *Z);
+//extern double SolveArcAng(double CartDist, double SphereRad); // used locally only -> static, AF 23.7.2021
+/*extern double SolveDistCart(double XJ, double YJ, double ZJ,
+	double XK, double YK, double ZK);*/ // used locally only -> static, AF 23.7.2021
+/*extern void MakeTempCart(double Lat, double Lon, double SphereRad,
+	double *X, double *Y, double *Z);*/ // used locally only -> static, AF 23.7.2021
 extern void setorigin(void);
 extern void matchpoints(void);
 extern short modpoints(short modify);
 // extern void markpt(short edpt,short col); // used locally only -> static, AF 19.7.2021
-extern void unmarkpt(short edpt);
+//extern void unmarkpt(short edpt); // used locally only -> static, AF 23.7.2021
 extern short CloneObject(void);
 extern void makestream(short lowj);
 extern void interpolatepath(void);
@@ -498,8 +497,8 @@ extern short BuildElevTable(double **ElTable, short Frames, float *MaxMin,
 	short PathSource);
 extern short BuildVelocityTable(short Foc, double **ElTable, short Frames, float *MaxMin);
 extern short DistributeVelocity(struct VelocityDistr *Vel);
-extern void InitGauss(struct Gauss *Gauss);
-extern double DoGauss(struct Gauss *Gauss);
+//extern void InitGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
+//extern double DoGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
 extern short Raster_Fract(float *Rast, long N1, long N2, long Seed, double delta,
 	double H, short MaxStage);
 extern void FractalMap_Draw(void);
@@ -558,34 +557,34 @@ extern double CloudCover_Set(struct CloudData *CD, double Lat, double Lon);
 /* MapTopoObject.c */
 extern short maptopoobject(struct elmapheaderV101 *map, struct Window *win,
 	short DEMnum, short NumDEMs, struct CloudData *CD);
-extern void Face_Render(struct elmapheaderV101 *map, struct faces *Vertex,
-	struct Window *win, struct CloudData *CD);
-extern void FractFace_Render(struct elmapheaderV101 *map,
-	struct Window *win, short WhichFace, struct CloudData *CD);
-extern void renderface(struct elmapheaderV101 *map, struct Window *win, struct CloudData *CD);
-extern void rendercloud(struct Window *win, short *CloudVal,
-	short *IllumVal, short Elev);
+/*extern void Face_Render(struct elmapheaderV101 *map, struct faces *Vertex,
+	struct Window *win, struct CloudData *CD);*/ // used locally only -> static, AF 23.7.2021
+/*extern void FractFace_Render(struct elmapheaderV101 *map,
+	struct Window *win, short WhichFace, struct CloudData *CD);*/ // used locally only -> static, AF 23.7.2021
+// extern void renderface(struct elmapheaderV101 *map, struct Window *win, struct CloudData *CD); // used locally only -> static, AF 23.7.2021
+/* extern void rendercloud(struct Window *win, short *CloudVal,
+	short *IllumVal, short Elev);*/ // used locally only -> static, AF 23.7.2021
 //extern short setfaceone(struct elmapheaderV101 *map);  // local and therefore static AF, 16.July 2021
 //extern short setfacetwo(struct elmapheaderV101 *map);  // local and therefore static AF, 16.July 2021
-extern short setface(struct elmapheaderV101 *map);
-extern void CloudPointSort(short *CloudVal, short *IllumVal);
+//extern short setface(struct elmapheaderV101 *map); // used locally only -> static, AF 23.7.2021
+//extern void CloudPointSort(short *CloudVal, short *IllumVal); // used locally only -> static, AF 23.7.2021
 extern short CloudShadow_Init(struct elmapheaderV101 *map, struct CloudData *CD);
 extern short MapCloudObject(struct elmapheaderV101 *map,
 	struct CloudData *CD, struct Window *win);
-extern short MapCloudLayer(struct elmapheaderV101 *map,
+/*extern short MapCloudLayer(struct elmapheaderV101 *map,
 	struct CloudData *CD,  struct CloudLayer *CL, struct CloudLayer *More,
-	double MinAmp, double MaxAmp, short j, struct Window *win/*, UBYTE *CldMap,*/);
-extern short setcloudfaceone(struct elmapheaderV101 *map);
-extern short setcloudfacetwo(struct elmapheaderV101 *map);
-extern short VertexIndex_New(struct VertexIndex *Vtx, long MaxFract);
+	double MinAmp, double MaxAmp, short j, struct Window *win*//*, UBYTE *CldMap,*//*);*/ // used locally only -> static, AF 23.7.2021
+//extern short setcloudfaceone(struct elmapheaderV101 *map); // used locally only -> static, AF 23.7.2021
+//extern short setcloudfacetwo(struct elmapheaderV101 *map); // used locally only -> static, AF 23.7.2021
+// extern short VertexIndex_New(struct VertexIndex *Vtx, long MaxFract); // used locally only -> static, AF 23.7.2021
 //extern void VertexIndex_Del(struct VertexIndex *Vtx); // used locally only -> static, AF 19.7.2021
 extern short FractalDepth_Preset(void);
-extern short setquickfaceone(struct elmapheaderV101 *map, long Lr, long Lc);
-extern short setquickfacetwo(struct elmapheaderV101 *map, long Lr, long Lc);
-extern short setquickface(struct elmapheaderV101 *map);
-extern short FractalLevel(short MaxSize);
-extern short MakeFractalMap(struct elmapheaderV101 *map,
-	BYTE *FractalMap, long FractalMapSize);
+// extern short setquickfaceone(struct elmapheaderV101 *map, long Lr, long Lc); // used locally only -> static, AF 23.7.2021
+// extern short setquickfacetwo(struct elmapheaderV101 *map, long Lr, long Lc); // used locally only -> static, AF 23.7.2021
+// extern short setquickface(struct elmapheaderV101 *map); // used locally only -> static, AF 23.7.2021
+// extern short FractalLevel(short MaxSize); // used locally only -> static, AF 23.7.2021
+/*extern short MakeFractalMap(struct elmapheaderV101 *map,
+	BYTE *FractalMap, long FractalMapSize);*/ // used locally only -> static, AF 23.7.2021
 
 /* MapUtil.c */
 extern void getscrnpt(struct coords *TP, struct coords *SP);
@@ -604,10 +603,10 @@ extern double VectorAngle(struct coords *SN, struct coords *VP);
 extern double SignedVectorAngle2D(struct coords *From, struct coords *To, short Axis);
 extern void BuildRotationMatrix(double Rx, double Ry, double Rz, Matx3x3 RMatx);
 extern void RotationMatrix3D(short m, double theta, Matx3x3 A);
-extern void ZeroMatrix3x3(Matx3x3 A);
+// extern void ZeroMatrix3x3(Matx3x3 A); // used locally only -> static, AF 23.7.2021
 extern void ZeroCoords(struct coords *A);
 extern void NegateVector(struct coords *A);
-extern void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C);
+//extern void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // used locally only -> static, AF 23.7.2021
 extern void RotatePoint(struct coords *A, Matx3x3 M);
 extern double findangle(double pta, double ptb);
 extern double findangle2(double pta, double ptb);
@@ -740,17 +739,17 @@ extern short LoadForestModels(void);
 extern short BitmapImage_Load(void);
 extern void BitmapImage_Unload(void);
 extern struct BitmapImage *BitmapImage_New(void);
-extern void BitmapImage_Del(struct BitmapImage *BMI);
+// extern void BitmapImage_Del(struct BitmapImage *BMI); // used locally only -> static, AF 23.7.2021
 extern void BitmapImage_DelSingle(struct BitmapImage *BMI);
-extern void ColorToGray(UBYTE **Bitmap, long MaxZip);
+//extern void ColorToGray(UBYTE **Bitmap, long MaxZip); // used locally only -> static, AF 23.7.2021
 //extern void SetBitmapImageSpan(struct BitmapImage *BMI); // used locally only -> static, AF 19.7.2021
 extern void BitmapImage_Scale(struct BitmapImage *SBMI, struct BitmapImage *DBMI,
 	double Dx, double Dy);
-extern void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
-	double Dw, double Dh, double Dx, double Dy,
-	double Distance, struct ColorComponents *CC, 
-	struct ColorComponents *AM, double ElStart,
-	double ElIncr, struct Window *win, struct QCvalues *QC);
+//extern void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
+//	double Dw, double Dh, double Dx, double Dy,
+//	double Distance, struct ColorComponents *CC, 
+//	struct ColorComponents *AM, double ElStart,
+//	double ElIncr, struct Window *win, struct QCvalues *QC); // used locally only -> static, AF 23.7.2021
 
 /* Wave.c */
 extern void Wave_DelAll(struct Wave *WV);

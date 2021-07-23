@@ -15,8 +15,24 @@
 static short SearchGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
         short frame, short group, short item); // used locally only -> static, AF 19.7.2021
 
-void MergeGenericKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFrame **OF,
-	short *OFKeys, long *OFsize, short group)
+static void UnsetGenericKeyItem(union KeyFrame *Key,
+        short ItemMatch, short NumValues, double *DblValue, float *FltValue,
+        short *ShortValue, float *TCB, short *LinearPtr, short Precision); // used locally only -> static, AF 23.7.2021
+static short AllocNewGenericKeyArray(union KeyFrame **KF, long *KFsize); // used locally only -> static, AF 23.7.2021
+static void SetGenericKeyFrame(union KeyFrame *KF, short i, short frame, short group,
+        short item, short ItemMatch, short NumValues, double *DblValue,
+        float *FltValue, short *ShortValue, float *TCB, short Linear,
+        short Precision); // used locally only -> static, AF 23.7.2021
+static short GetNextGenericKeyItem(union KeyFrame *KF, short KeyFrames,
+        short group, short curitem, short dir); // used locally only -> static, AF 23.7.2021
+static void SetGenericKeyTableEntry(union KeyFrame *KF, union KeyFrame **Key,
+        short NumKeys, short Group, short Item); // used locally only -> static, AF 23.7.2021
+static short CountGenericKeyFrames(union KeyFrame *KF, short KeyFrames,
+        short group, short item); // used locally only -> static, AF 23.7.2021
+
+
+static void MergeGenericKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFrame **OF,
+	short *OFKeys, long *OFsize, short group) // used locally only -> static, AF 23.7.2021
 {
  short i, j, frame, OrigKeys;
  union KeyFrame *OFptr;
@@ -135,7 +151,7 @@ short MakeGenericKeyFrame(union KeyFrame **KFPtr, long *KFSizePtr,
 
 /************************************************************************/
 
-short AllocNewGenericKeyArray(union KeyFrame **KF, long *KFsize)
+static short AllocNewGenericKeyArray(union KeyFrame **KF, long *KFsize) // used locally only -> static, AF 23.7.2021
 {
  union KeyFrame *NewKF;
  long NewKFsize;
@@ -241,10 +257,10 @@ static short SearchGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
 
 /************************************************************************/
 
-void SetGenericKeyFrame(union KeyFrame *KF, short i, short frame, short group,
+static void SetGenericKeyFrame(union KeyFrame *KF, short i, short frame, short group,
 	short item, short ItemMatch, short NumValues, double *DblValue,
 	float *FltValue, short *ShortValue, float *TCB, short Linear,
-	short Precision)
+	short Precision) // used locally only -> static, AF 23.7.2021
 {
 
  KF[i].MoKey.KeyFrame = frame;
@@ -365,9 +381,9 @@ short UnsetGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
 
 /************************************************************************/
 
-void UnsetGenericKeyItem(union KeyFrame *Key,
+static void UnsetGenericKeyItem(union KeyFrame *Key,
 	short ItemMatch, short NumValues, double *DblValue, float *FltValue,
-	short *ShortValue, float *TCB, short *LinearPtr, short Precision)
+	short *ShortValue, float *TCB, short *LinearPtr, short Precision) // used locally only -> static, AF 23.7.2021
 {
 short i, item;
 
@@ -512,8 +528,8 @@ void GetGenericKeyTableValues(struct KeyTable **KTPtr, union KeyFrame *KF,
 
 /************************************************************************/
 
-short CountGenericKeyFrames(union KeyFrame *KF, short KeyFrames,
-	short group, short item)
+static short CountGenericKeyFrames(union KeyFrame *KF, short KeyFrames,
+	short group, short item) // used locally only -> static, AF 23.7.2021
 {
  short i, CountedKeyFrames = 0;
 
@@ -555,8 +571,8 @@ short GetActiveGenericKey(struct KeyTable *KTbl, short frame)
 
 /***********************************************************************/
 
-short GetNextGenericKeyItem(union KeyFrame *KF, short KeyFrames,
-	short group, short curitem, short dir)
+static short GetNextGenericKeyItem(union KeyFrame *KF, short KeyFrames,
+	short group, short curitem, short dir) // used locally only -> static, AF 23.7.2021
 {
  short i, nextitem;
 
@@ -643,8 +659,8 @@ short BuildGenericKeyTable(struct KeyTable **KTPtr, union KeyFrame *KF,
 
 /*********************************************************************/
 
-void SetGenericKeyTableEntry(union KeyFrame *KF, union KeyFrame **Key,
-	short NumKeys, short Group, short Item)
+static void SetGenericKeyTableEntry(union KeyFrame *KF, union KeyFrame **Key,
+	short NumKeys, short Group, short Item) // used locally only -> static, AF 23.7.2021
 {
  short i, KeyFrame = 0;
 
