@@ -12,7 +12,9 @@
 #include <unistd.h>
 
 #ifndef __SASC
-   #include <sasc_functions.h>   // own implemtation of SAS/C specific functions
+   #include "sasc_functions.h"   // own implemtation of SAS/C specific functions
+#else
+   int Mkdir(const char *name); // AF:  a wrapper for mkdir()
 #endif
 
 
