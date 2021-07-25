@@ -20,6 +20,16 @@ void InfoWin_Update(int flush);
 
 extern struct WaveWindow *WV_Win;
 
+
+
+static void Handle_RN_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
+static void Handle_DB_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
+static void Close_DB_Window(void); // used locally only -> static, AF 25.7.2021
+static USHORT FileExists_Message(STRPTR existsfile); // used locally only -> static, AF 25.7.2021
+static void Close_EP_Window(void); // used locally only -> static, AF 25.7.2021
+static short Handle_APP_Windows(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
+
+
 void Make_EP_Window(short hor_win)
 {
  long open;
@@ -118,7 +128,7 @@ void Make_EP_Window(short hor_win)
 
 /************************************************************************/
 
-void Close_EP_Window(void)
+static void Close_EP_Window(void) // used locally only -> static, AF 25.7.2021
 {
  if (EP_Win)
   {
@@ -574,7 +584,7 @@ void Make_DB_Window(short hor_win)
 
 /************************************************************************/
 
-void Close_DB_Window(void)
+static void Close_DB_Window(void) // used locally only -> static, AF 25.7.2021
 {
  if (DB_Win)
   {
@@ -594,7 +604,7 @@ void Close_DB_Window(void)
 
 /************************************************************************/
 
-void Handle_DB_Window(ULONG WCS_ID)
+static void Handle_DB_Window(ULONG WCS_ID) // used locally only -> static, AF 25.7.2021
 {
 
   switch (WCS_ID & 0x00ff0000)
@@ -1014,7 +1024,7 @@ void Handle_DO_Window(ULONG WCS_ID)
 
 /************************************************************************/
 
-void Handle_RN_Window(ULONG WCS_ID)
+static void Handle_RN_Window(ULONG WCS_ID) // used locally only -> static, AF 25.7.2021
 {
 if (dbaseloaded && paramsloaded)
  {
@@ -1854,7 +1864,7 @@ void NoLoad_Message(STRPTR mod, STRPTR loaditem)
 
 /************************************************************************/
 
-USHORT FileExists_Message(STRPTR existsfile)
+static USHORT FileExists_Message(STRPTR existsfile) // used locally only -> static, AF 25.7.2021
 {
 
   return(User_Message_Def(existsfile, "File already exists.\nDo you wish to overwrite it?",
@@ -2137,7 +2147,7 @@ if(Log_Win)
 
 /************************************************************************/
 
-short Handle_APP_Windows(ULONG WCS_ID)
+static short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static, AF 25.7.2021
 {
  short ResetScrn = 0;
 

@@ -14,6 +14,10 @@ static void Adjust_EcoPal(short i); // used locally only -> static, AF 20.7.2021
 static long max3(long a, long b, long c); // used locally only -> static, AF 20.7.2021
 static void SetColorRequester(short row); // used locally only -> static, AF 20.7.2021
 static void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode); // used locally only -> static, AF 20.7.2021
+static long min3(long a, long b, long c); // used locally only -> static, AF 24.7.2021
+static APTR Make_EC_Group(void); // used locally only -> static, AF 24.7.2021
+
+
 
 void Make_EC_Window(void)
 {
@@ -410,7 +414,7 @@ void Make_EC_Window(void)
 
 /*********************************************************************/
 
-APTR Make_EC_Group(void)
+static APTR Make_EC_Group(void) // used locally only -> static, AF 24.7.2021
 {
   APTR obj;
   short i, error = 0;
@@ -1098,7 +1102,7 @@ static long max3(long a, long b, long c) // used locally only -> static, AF 20.7
 
 /*********************************************************************/
 
-long min3(long a, long b, long c)
+static long min3(long a, long b, long c) // used locally only -> static, AF 24.7.2021
 {
  if (a < b)
   {

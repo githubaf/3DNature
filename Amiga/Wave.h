@@ -77,20 +77,20 @@ void Wave_Init(struct WaveData *WD, short Frame);
 short BuildWaveKeyTable(struct WaveData *WD);
 
 /* WaveGUI.c */
-void Make_WV_Window(short WindowNum, char *NameStr);
+// void Make_WV_Window(short WindowNum, char *NameStr); // used locally only -> static, AF 24.7.2021
 void Close_WV_Window(struct WaveWindow **WVWinPtr);
 void Handle_WV_Window(ULONG WCS_ID);
 short Wave_Load(char *filename, struct WaveData **WDPtr);
 short Wave_Save(char *filename, struct WaveData *WD);
-short GUIWave_Add(struct WaveWindow *WV_Win, struct WaveData *WD,
-	struct Wave *CurWave);
+//short GUIWave_Add(struct WaveWindow *WV_Win, struct WaveData *WD,
+//	struct Wave *CurWave); // used locally only -> static, AF 24.7.2021
 short Wave_Add(struct Wave **Wave);
-short GUIWave_Remove(struct WaveWindow *WV_Win, struct WaveData *WD,
-	struct Wave *WV);
+//short GUIWave_Remove(struct WaveWindow *WV_Win, struct WaveData *WD,
+//	struct Wave *WV); // used locally only -> static, AF 24.7.2021
 void BuildWaveList(struct WaveWindow *WV_Win, struct WaveData *WD);
 void GUIWave_SetGads(struct WaveWindow *WV_Win, struct Wave *WV);
-void GUIWaveKey_SetGads(struct WaveWindow *WV_Win, struct WaveData *WD, short frame);
-void Wave_Draw(struct WaveData *WD, double Frame, short Detail);
+//void GUIWaveKey_SetGads(struct WaveWindow *WV_Win, struct WaveData *WD, short frame); // used locally only -> static, AF 24.7.2021
+//void Wave_Draw(struct WaveData *WD, double Frame, short Detail); // used locally only -> static, AF 24.7.2021
 
 void GUIDisableKeyButtons(struct GUIKeyStuff *GKS,
 	struct TimeLineWindow *TL, struct WindowKeyStuff *WKS);

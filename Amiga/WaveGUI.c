@@ -13,11 +13,22 @@
 
 struct WaveWindow *WVWin[2] = {NULL, NULL};
 
-APTR Make_WVTL_Group(struct WaveWindow *WV_Win, short WinNum);
-APTR Make_WVOption_Group(struct WaveWindow *WV_Win, short WinNum);
-APTR Make_WVAnim_Group(struct WaveWindow *WV_Win, short WinNum);
 
-void Make_WV_Window(short WinNum, char *NameStr)
+static void Wave_Draw(struct WaveData *WD, double Frame, short Detail); // used locally only -> static, AF 24.7.2021
+static short GUIWave_Add(struct WaveWindow *WV_Win, struct WaveData *WD,
+        struct Wave *CurWave); // used locally only -> static, AF 24.7.2021
+static APTR Make_WVOption_Group(struct WaveWindow *WV_Win, short WinNum); // used locally only -> static, AF 24.7.2021
+static short GUIWave_Remove(struct WaveWindow *WV_Win, struct WaveData *WD,
+        struct Wave *WV); // used locally only -> static, AF 24.7.2021
+static APTR Make_WVTL_Group(struct WaveWindow *WV_Win, short WinNum); // used locally only -> static, AF 24.7.2021
+static void GUIWaveKey_SetGads(struct WaveWindow *WV_Win, struct WaveData *WD,
+        short frame); // used locally only -> static, AF 24.7.2021
+static APTR Make_WVAnim_Group(struct WaveWindow *WV_Win, short WinNum); // used locally only -> static, AF 24.7.2021
+
+
+
+
+void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static, AF 24.7.2021
 {
  char filename[256];
  long i, open;
@@ -333,7 +344,7 @@ void Make_WV_Window(short WinNum, char *NameStr)
 
 /*************************************************************************/
 
-APTR Make_WVOption_Group(struct WaveWindow *WV_Win, short WinNum)
+static APTR Make_WVOption_Group(struct WaveWindow *WV_Win, short WinNum) // used locally only -> static, AF 24.7.2021
 {
 APTR Obj;
 
@@ -358,7 +369,7 @@ APTR Obj;
 
 /*********************************************************************/
 
-APTR Make_WVAnim_Group(struct WaveWindow *WV_Win, short WinNum)
+static APTR Make_WVAnim_Group(struct WaveWindow *WV_Win, short WinNum) // used locally only -> static, AF 24.7.2021
 {
 APTR Obj;
 
@@ -423,7 +434,7 @@ APTR Obj;
 
 /*********************************************************************/
 
-APTR Make_WVTL_Group(struct WaveWindow *WV_Win, short WinNum)
+static APTR Make_WVTL_Group(struct WaveWindow *WV_Win, short WinNum) // used locally only -> static, AF 24.7.2021
 {
 APTR Obj;
 
@@ -1300,8 +1311,8 @@ union KeyFrame *KFPtr;
 
 /*********************************************************************/
 
-short GUIWave_Add(struct WaveWindow *WV_Win, struct WaveData *WD,
-	struct Wave *CurWave)
+static short GUIWave_Add(struct WaveWindow *WV_Win, struct WaveData *WD,
+	struct Wave *CurWave) // used locally only -> static, AF 24.7.2021
 {
 struct Wave **NewWaveAddr, *NewWave;
 short success = 0;
@@ -1449,8 +1460,8 @@ struct Wave *WV;
 
 /**********************************************************************/
 
-short GUIWave_Remove(struct WaveWindow *WV_Win, struct WaveData *WD,
-	struct Wave *WV)
+static short GUIWave_Remove(struct WaveWindow *WV_Win, struct WaveData *WD,
+	struct Wave *WV) // used locally only -> static, AF 24.7.2021
 {
 struct Wave *ThisOne, *WVPrev = NULL;
 
@@ -1538,8 +1549,8 @@ void GUIWave_SetGads(struct WaveWindow *WV_Win, struct Wave *WV)
 
 /***********************************************************************/
 
-void GUIWaveKey_SetGads(struct WaveWindow *WV_Win, struct WaveData *WD,
-	short frame)
+static void GUIWaveKey_SetGads(struct WaveWindow *WV_Win, struct WaveData *WD,
+	short frame) // used locally only -> static, AF 24.7.2021
 {
 struct WaveData2 *WD2;
 
@@ -1561,7 +1572,7 @@ struct WaveData2 *WD2;
 
 /**********************************************************************/
 
-void Wave_Draw(struct WaveData *WD, double Frame, short Detail)
+static void Wave_Draw(struct WaveData *WD, double Frame, short Detail) // used locally only -> static, AF 24.7.2021
 {
 long Col, x, y, row, Low_X, Low_Y, High_X, High_Y;
 double ptlat, ptlon, avglat, d1, d2, dist, lonscale, waveamp,

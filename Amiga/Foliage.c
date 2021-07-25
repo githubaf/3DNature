@@ -9,6 +9,10 @@
 
 static ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags);  // used locally only -> static, AF 19.7.2021
 static ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags); // used locally only -> static, AF 19.7.2021
+static ULONG Foliage_Save(struct Foliage *This, FILE *ffile); // used locally only -> static, AF 24.7.2021
+static long Rootstock_Save(struct Rootstock *This, FILE *ffile); // used locally only -> static, AF 24.7.2021
+static struct Foliage *Foliage_Load(FILE *ffile, ULONG ReadSize); // used locally only -> static, AF 24.7.2021
+
 
 #ifndef C_PLUS_PLUS
 /************************************************************************/
@@ -890,7 +894,7 @@ union MultiVal MV;
 
 /***********************************************************************/
 
-struct Foliage *Foliage_Load(FILE *ffile, ULONG ReadSize)
+static struct Foliage *Foliage_Load(FILE *ffile, ULONG ReadSize) // used locally only -> static, AF 24.7.2021
 {
 struct Foliage *This;
 char TempStr[256];
@@ -1103,7 +1107,7 @@ struct Foliage *Fol, *NewFol, **NewFolAddr;
 
 /***********************************************************************/
 
-long Rootstock_Save(struct Rootstock *This, FILE *ffile)
+static long Rootstock_Save(struct Rootstock *This, FILE *ffile) // used locally only -> static, AF 24.7.2021
 {
 
  return (0);
@@ -1334,7 +1338,7 @@ WriteError:
 
 /***********************************************************************/
 
-ULONG Foliage_Save(struct Foliage *This, FILE *ffile)
+static ULONG Foliage_Save(struct Foliage *This, FILE *ffile) // used locally only -> static, AF 24.7.2021
 {
 ULONG ItemTag, BytesWritten, TotalWritten = 0;
 short ShortVal;

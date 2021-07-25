@@ -38,9 +38,9 @@ short UnsetGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
 	short frame, short group, short item, short unset,
 	short ItemMatch, short NumValues, double *DblValue, float *FltValue,
 	short *ShortValue, float *TCB, short *LinearPtr, short Precision);
-static void UnsetGenericKeyItem(union KeyFrame *Key,
-	short ItemMatch, short NumValues, double *DblValue, float *FltValue,
-	short *ShortValue, float *TCB, short *LinearPtr, short Precision);   // used locally only -> static, AF 23.7.2021
+//static void UnsetGenericKeyItem(union KeyFrame *Key,
+//	short ItemMatch, short NumValues, double *DblValue, float *FltValue,
+//	short *ShortValue, float *TCB, short *LinearPtr, short Precision);   // used locally only -> static, AF 23.7.2021
 void UpdateGenericKeyFrames(union KeyFrame *KF, short KeyFrames,
 	short frame, short group, short Item, short ItemMatch, short NumValues,
 	double *DblValue, float *FltValue, short *ShortValue, float *TCB,

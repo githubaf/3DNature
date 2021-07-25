@@ -10,6 +10,12 @@
 
 static void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // used locally only -> static, AF 23.7.2021
 static void ZeroMatrix3x3(Matx3x3 A); // used locally only -> static, AF 23.7.2021
+static void sortrenderlist(void); // used locally only -> static, AF 24.7.2021
+static double DegMinSecToDegrees2(double Val); // used locally only -> static, AF 24.7.2021
+static void ClipAreaDraw(struct Window *win, struct poly4 *Poly, struct clipbounds *cb); // used locally only -> static, AF 24.7.2021
+static void ClipPoly4(struct Window *win, struct poly4 *Poly, struct clipbounds *cb); // used locally only -> static, AF 24.7.2021
+static void RotationMatrix3D(short m, double theta, Matx3x3 A); // used locally only -> static, AF 24.7.2021
+
 
 void getscrnpt(struct coords *TP, struct coords *SP)
 {
@@ -266,7 +272,7 @@ Matx3x3 XRot, YRot, ZRot, Temp;
 
 /**********************************************************************/
 
-void RotationMatrix3D(short m, double theta, Matx3x3 A)
+static void RotationMatrix3D(short m, double theta, Matx3x3 A) // used locally only -> static, AF 24.7.2021
 {
 
  short m1, m2;
@@ -524,7 +530,7 @@ Cleanup:
 
 /***********************************************************************/
 
-void sortrenderlist(void)
+static void sortrenderlist(void) // used locally only -> static, AF 24.7.2021
 {
  short i, j, more;
  long Qsize;
@@ -860,7 +866,7 @@ void ClipDrawRPort(struct RastPort *Rast, struct clipbounds *cb, struct lineseg 
 
 /***********************************************************************/
 
-void ClipAreaDraw(struct Window *win, struct poly4 *Poly, struct clipbounds *cb)
+static void ClipAreaDraw(struct Window *win, struct poly4 *Poly, struct clipbounds *cb) // used locally only -> static, AF 24.7.2021
 {
  short i = 0, ct = 0;
 
@@ -898,7 +904,7 @@ void ClipAreaDraw(struct Window *win, struct poly4 *Poly, struct clipbounds *cb)
 
 /***********************************************************************/
 
-void ClipPoly4(struct Window *win, struct poly4 *Poly, struct clipbounds *cb)
+static void ClipPoly4(struct Window *win, struct poly4 *Poly, struct clipbounds *cb) // used locally only -> static, AF 24.7.2021
 {
  short i = 0, PolyFirst = 1;
  struct lineseg ls;
@@ -1334,7 +1340,7 @@ double x, y, phi, theta, rho, q, phi_rad, sin_phi, sin_sq_phi, delta_phi;
 
 /* For converting a coordinate string of the form dddmmss to decimal degrees */
 
-double DegMinSecToDegrees2(double Val)
+static double DegMinSecToDegrees2(double Val) // used locally only -> static, AF 24.7.2021
 {
 long Deg, Min, DegMinSec;
 

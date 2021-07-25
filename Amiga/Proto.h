@@ -438,11 +438,11 @@ extern short FacePt_Order(struct FaceData *Data);
 extern void alignmap(struct Box *Bx);
 extern void makemap(struct Window *win, long lowx, long lowy, long highx, long highy,
 	unsigned long int FlagBits);
-extern void EnsureLoaded(void);
-extern USHORT MapRelel_Load(struct elmapheaderV101 *This, short MapNum);
-extern void MapRelel_Free(struct elmapheaderV101 *This, short MapNum);
-extern short CalcRefine(double LowLon, double HighLon, double LowLat, double HighLat,
-	short *LocalLowEl, short *LocalHighEl, float *ElevRng);
+//extern void EnsureLoaded(void); // used locally only -> static, AF 23.7.2021
+//extern USHORT MapRelel_Load(struct elmapheaderV101 *This, short MapNum); // used locally only -> static, AF 23.7.2021
+//extern void MapRelel_Free(struct elmapheaderV101 *This, short MapNum); // used locally only -> static, AF 23.7.2021
+//extern short CalcRefine(double LowLon, double HighLon, double LowLat, double HighLat,
+//	short *LocalLowEl, short *LocalHighEl, float *ElevRng); // used locally only -> static, AF 23.7.2021
 extern short shiftmap(int OnePoint, int XCen, int YCen);
 /*extern void setlinewidth(void);*/
 extern short maptotopo(long OBN);
@@ -454,18 +454,18 @@ extern void addpoints(long lowj,long insert);
 extern void Viewshed_Map(long OBN);
 extern void Close_Viewshed_Window(void);
 extern void Handle_Viewshed_Window(void);
-extern short SearchViewLine(short viewpt, short fpx, short fpy,
-	short elfp, short elvp);
-extern struct RastPort *TempRas_New(struct RastPort *Ancestor, int X, int Y);
-extern void TempRas_Del(struct RastPort *This, int X, int Y);
+//extern short SearchViewLine(short viewpt, short fpx, short fpy,
+//	short elfp, short elvp); // used locally only -> static, AF 23.7.2021
+// extern struct RastPort *TempRas_New(struct RastPort *Ancestor, int X, int Y); // used locally only -> static, AF 23.7.2021
+// extern void TempRas_Del(struct RastPort *This, int X, int Y); // used locally only -> static, AF 23.7.2021
 extern double *DitherTable_New(int size);
 extern void DitherTable_Del(double *This, long size);
-extern short InputTabletPoints(long lowj, short TabletType);
-extern void RotatePt(double rotate, double *OriginX, double *OriginY,
-		double *PointX, double *PointY);
+// extern short InputTabletPoints(long lowj, short TabletType); // used locally only -> static, AF 23.7.2021
+//extern void RotatePt(double rotate, double *OriginX, double *OriginY,
+//		double *PointX, double *PointY); // used locally only -> static, AF 23.7.2021
 extern void FindCenter(double *Lat, double *Lon);
 extern void ClearWindow(struct Window *Win, int col);
-extern short Set_Eco_Color(long Lra, long Lca, short i, short *RelEl);
+// extern short Set_Eco_Color(long Lra, long Lca, short i, short *RelEl); // used locally only -> static, AF 23.7.2021
 
 /* MapExtra.c */
 /*
@@ -602,7 +602,7 @@ extern short SurfaceVisible(struct coords *SN, struct coords *VP, short Face);
 extern double VectorAngle(struct coords *SN, struct coords *VP);
 extern double SignedVectorAngle2D(struct coords *From, struct coords *To, short Axis);
 extern void BuildRotationMatrix(double Rx, double Ry, double Rz, Matx3x3 RMatx);
-extern void RotationMatrix3D(short m, double theta, Matx3x3 A);
+// extern void RotationMatrix3D(short m, double theta, Matx3x3 A); // used locally only -> static, AF 24.7.2021
 // extern void ZeroMatrix3x3(Matx3x3 A); // used locally only -> static, AF 23.7.2021
 extern void ZeroCoords(struct coords *A);
 extern void NegateVector(struct coords *A);
@@ -614,7 +614,7 @@ extern double findangle3(double pta, double ptb);
 extern void rotate(double *pta, double *ptb, double rotangle, double angle);
 extern void rotate2(double *pta, double *ptb, double rotangle, double angle);
 extern short autoactivate(void);
-extern void sortrenderlist(void);
+// extern void sortrenderlist(void); // used locally only -> static, AF 24.7.2021
 extern void SortAltRenderList(void);
 extern void setclipbounds(struct Window *win, struct clipbounds *cb);
 extern void setlineseg(struct lineseg *ls, double firstx, double firsty,
@@ -623,17 +623,17 @@ extern void ClipDraw(struct Window *win, struct clipbounds *cb,
 	struct lineseg *ls);
 extern void ClipDrawRPort(struct RastPort *Rast, struct clipbounds *cb,
 	struct lineseg *ls);
-extern void ClipAreaDraw(struct Window *win, struct poly4 *Poly,
-	struct clipbounds *cb);
-extern void ClipPoly4(struct Window *win, struct poly4 *Poly,
-	struct clipbounds *cb);
+//extern void ClipAreaDraw(struct Window *win, struct poly4 *Poly,
+//	struct clipbounds *cb); // used locally only -> static, AF 24.7.2021
+//extern void ClipPoly4(struct Window *win, struct poly4 *Poly,
+//	struct clipbounds *cb); // used locally only -> static, AF 24.7.2021
 extern short ClipPolySeg(struct clipbounds *cb, struct lineseg *ls);
 extern void UTMLatLonCoords_Init(struct UTMLatLonCoords *Coords, short UTMZone);
 extern void UTM_LatLon(struct UTMLatLonCoords *Coords);
 extern void LatLon_UTM(struct UTMLatLonCoords *Coords, short UTMZone);
 extern void AlbLatLonCoords_Init(struct AlbLatLonCoords *Coords);
 extern void Alb_LatLon(struct AlbLatLonCoords *Coords);
-extern double DegMinSecToDegrees2(double Val);
+// extern double DegMinSecToDegrees2(double Val); // used locally only -> static, AF 24.7.2021
 extern double Point_Extract(double X, double Y, double MinX, double MinY,
 	 double IntX, double IntY, short *Data, long Rows, long Cols);
 
@@ -650,20 +650,20 @@ extern short CheckKeyFrame(short frame, short group, short item);
 extern short DeleteKeyFrame(short frame, short group, short Item,
 	 short DeleteAll, short DeleteGp);
 extern short SearchKeyFrame(short frame, short group, short item);
-extern void SetKeyFrame(short i, short frame, short group, short item);
+//extern void SetKeyFrame(short i, short frame, short group, short item); // used locally only -> static, AF 24.7.2021
 extern short UnsetKeyFrame(short frame, short group, short item, short unset);
 extern void UpdateKeyFrames(short frame, short group, short Item,
 	 short UpdateAll, short UpdateGp);
-extern void UnsetKeyItem(union KeyFrame *Key);
+//extern void UnsetKeyItem(union KeyFrame *Key); // used locally only -> static, AF 24.7.2021
 extern short BuildKeyTable(void);
 extern short BuildSingleKeyTable(short group, short item);
 extern void GetKeyTableValues(short group, short item, short allvalues);
 extern short CountKeyFrames(short group, short item);
-extern short GetNextKeyItem(short group, short curitem, short dir);
-extern void SetKeyTableEntry(union KeyFrame **Key, short group, short item);
+//extern short GetNextKeyItem(short group, short curitem, short dir); // used locally only -> static, AF 24.7.2021
+//extern void SetKeyTableEntry(union KeyFrame **Key, short group, short item); // used locally only -> static, AF 24.7.2021
 extern void FreeKeyTable(void);
 extern void FreeSingleKeyTable(short group, short frames);
-extern short SplineAllKeys(void);
+// extern short SplineAllKeys(void); // used locally only -> static, AF 24.7.2021
 extern short SplineSingleKey(short group, short newkey);
 extern short GetActiveKey(struct KeyTable *KTbl, short frame);
 extern void Play_Colors(void);
@@ -850,11 +850,11 @@ extern void AdjustEcosystemColors(short Operation, short First, short Last);
 
 /* EditGUI.c */
 extern void Make_EC_Window(void);
-extern APTR Make_EC_Group(void);
+// extern APTR Make_EC_Group(void); // used locally only -> static, AF 24.7.2021
 extern void Close_EC_Window(short apply);
 extern void Handle_EC_Window(ULONG WCS_ID);
 //extern long max3(long a, long b, long c); // used locally only -> static, AF 20.7.2021
-extern long min3(long a, long b, long c);
+//extern long min3(long a, long b, long c); // used locally only -> static, AF 24.7.2021
 //extern long mid3(long a, long b, long c); // used locally only -> static, AF 20.7.2021
 //extern void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode); // used locally only -> static, AF 20.7.2021
 extern void SetAllColorRequester(void);
@@ -904,12 +904,12 @@ extern void Set_PJ_Window(void);
 extern void Make_TS_Window(void);
 extern void Close_TS_Window(short apply);
 extern void Handle_TS_Window(ULONG WCS_ID);
-extern void Set_TS_Position(void);
-extern void Set_TS_Reverse(short reverse);
-extern void Make_PN_Window(void);
+// extern void Set_TS_Position(void); // used locally only -> static, AF 25.7.2021
+// extern void Set_TS_Reverse(short reverse); // used locally only -> static, AF 25.7.2021
+// extern void Make_PN_Window(void); // used locally only -> static, AF 25.7.2021
 extern void Close_PN_Window(short Apply);
 extern void Handle_PN_Window(ULONG WCS_ID);
-extern short CreateNewProject(char *NewProjName, char *CloneProjName);
+// extern short CreateNewProject(char *NewProjName, char *CloneProjName); // used locally only -> static, AF 25.7.2021
 
 /* FoliageGUI.c */
 // extern void Make_FE_Window(void); // used locally only -> static, AF 19.7.2021
@@ -942,17 +942,17 @@ extern void GUIList_Clear(char **List, long ListSize, APTR ListView);
 
 /* GUI.c */
 extern void Make_EP_Window(short hor_win);
-extern void Close_EP_Window(void);
+// extern void Close_EP_Window(void); // used locally only -> static, AF 25.7.2021
 extern void Handle_EP_Window(ULONG WCS_ID);
 extern void Make_DB_Window(short hor_win);
-extern void Close_DB_Window(void);
-extern void Handle_DB_Window(ULONG WCS_ID);
+// extern void Close_DB_Window(void); // used locally only -> static, AF 25.7.2021
+// extern void Handle_DB_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 extern void Make_DO_Window(short hor_win);
 extern void Close_DO_Window(void);
 extern void Handle_DO_Window(ULONG WCS_ID);
 extern void Make_RN_Window(short hor_win);
 extern void Close_RN_Window(void);
-extern void Handle_RN_Window(ULONG WCS_ID);
+// extern void Handle_RN_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 extern struct WCSApp *WCS_App_New(void);
 extern struct WCSApp *WCS_App_Startup(struct WCSApp *This);
 extern short WCS_App_EventLoop(struct WCSApp *This);
@@ -967,13 +967,13 @@ extern void NoMod_Message(STRPTR mod);
 extern USHORT CloseWindow_Query(STRPTR win);
 extern USHORT NoGUI_Message(STRPTR mod);
 extern void NoLoad_Message(STRPTR mod, STRPTR loaditem);
-extern USHORT FileExists_Message(STRPTR existsfile);
+// extern USHORT FileExists_Message(STRPTR existsfile); // used locally only -> static, AF 25.7.2021
 extern short GetInputString(char *message, char *reject,
 	 char *string);
 extern void Status_Log(STRPTR logtext, int Severity);
 extern void Make_Log_Window(int Severity);
 extern void Close_Log_Window(int Sticky);
-extern short Handle_APP_Windows(ULONG WCS_ID);
+// extern short Handle_APP_Windows(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 extern void Log(USHORT StdMesgNum, STRPTR LogTag);
 extern void DisableKeyButtons(short group);
 extern void Set_Param_Menu(short Group);
@@ -1025,25 +1025,25 @@ extern void Close_PR_Window(void);
 extern void Handle_PR_Window(ULONG WCS_ID);
 
 /* ParamsGUI.c */
-extern void Make_PS_Window(ULONG WCS_ID);
+// extern void Make_PS_Window(ULONG WCS_ID); // used locally only -> static, AF 24.7.2021
 extern void Close_PS_Window(short apply);
 extern void Handle_PS_Window(ULONG WCS_ID);
 extern short Set_PS_List(char **List, short *ListID, short group,
 	short ReqKeys, char *TruncateText);
-extern void Set_PS_Info(void);
+// extern void Set_PS_Info(void); // used locally only -> static, AF 24.7.2021
 extern void Make_LW_Window(void);
 extern void Close_LW_Window(void);
 extern void Handle_LW_Window(ULONG WCS_ID);
-extern void Set_LW_Info(void);
+// extern void Set_LW_Info(void); // used locally only -> static, AF 24.7.2021
 extern void Make_FM_Window(void);
 extern void Close_FM_Window(void);
 extern void Handle_FM_Window(ULONG WCS_ID);
-extern void Set_FM_List(short Update, short ActiveItem);
+// extern void Set_FM_List(short Update, short ActiveItem); // used locally only -> static, AF 24.7.2021
 // extern short Add_FM_Item(void); // used locally only -> static, AF 19.7.2021
-extern void Remove_FM_Item(long item);
-extern void Unset_FM_Item(long item);
-extern short Load_FM_Win(void);
-extern short Save_FM_Win(void);
+// extern void Remove_FM_Item(long item); // used locally only -> static, AF 24.7.2021
+// extern void Unset_FM_Item(long item); // used locally only -> static, AF 24.7.2021
+// extern short Load_FM_Win(void); // used locally only -> static, AF 24.7.2021
+// extern short Save_FM_Win(void); // used locally only -> static, AF 24.7.2021
 extern void Make_AN_Window(void);
 extern void Close_AN_Window(void);
 extern void Handle_AN_Window(ULONG WCS_ID);

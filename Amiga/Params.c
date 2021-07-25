@@ -8,6 +8,14 @@
 #include "GUIDefines.h"
 #include "GUIExtras.h"
 
+
+static void UnsetKeyItem(union KeyFrame *Key); // used locally only -> static, AF 24.7.2021
+static void SetKeyFrame(short i, short frame, short group, short item); // used locally only -> static, AF 24.7.2021
+static short SplineAllKeys(void); // used locally only -> static, AF 24.7.2021
+static short GetNextKeyItem(short group, short curitem, short dir); // used locally only -> static, AF 24.7.2021
+static void SetKeyTableEntry(union KeyFrame **Key, short group, short item); // used locally only -> static, AF 24.7.2021
+
+
 void MergeKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFrame **OF,
 	short *OFKeys, long *OFsize, short group)
 {
@@ -217,7 +225,7 @@ short SearchKeyFrame(short frame, short group, short item)
 
 /************************************************************************/
 
-void SetKeyFrame(short i, short frame, short group, short item)
+static void SetKeyFrame(short i, short frame, short group, short item) // used locally only -> static, AF 24.7.2021
 {
 
  switch (group)
@@ -381,7 +389,7 @@ short UnsetKeyFrame(short frame, short group, short item, short unset)
 
 /************************************************************************/
 
-void UnsetKeyItem(union KeyFrame *Key)
+static void UnsetKeyItem(union KeyFrame *Key) // used locally only -> static, AF 24.7.2021
 {
  short item;
 
@@ -755,7 +763,7 @@ short GetActiveKey(struct KeyTable *KTbl, short frame)
 
 /***********************************************************************/
 
-short GetNextKeyItem(short group, short curitem, short dir)
+static short GetNextKeyItem(short group, short curitem, short dir) // used locally only -> static, AF 24.7.2021
 {
  short i, nextitem;
 
@@ -802,7 +810,7 @@ short GetNextKeyItem(short group, short curitem, short dir)
 
 /***********************************************************************/
 
-void SetKeyTableEntry(union KeyFrame **Key, short group, short item)
+static void SetKeyTableEntry(union KeyFrame **Key, short group, short item) // used locally only -> static, AF 24.7.2021
 {
  short i, KeyFrame = 0;
 
@@ -1282,7 +1290,7 @@ short SplineSingleKey(short group, short newkey)
 
 /***********************************************************************/
 
-short SplineAllKeys(void)
+static short SplineAllKeys(void) // used locally only -> static, AF 24.7.2021
 {
  short i, j, k, CurFr, NxtFr, IbtFr, LstInt, NxtInt, Frames, item, error = 0,
 	MaxCamFrames = 0, MaxFocFrames = 0;
