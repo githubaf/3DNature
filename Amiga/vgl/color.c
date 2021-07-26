@@ -238,6 +238,7 @@ void vgl_rgb_to_hls (double red, double green, double blue,
 #endif
 
 /************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 static double
 hls_value (double n1, double n2, double hue)
 {
@@ -256,6 +257,8 @@ hls_value (double n1, double n2, double hue)
   else
     return (n1);
 }
+#endif
+
 
 #ifdef UNUSED_FUNCTIONS  // AF, not used 16.July 2021
 void vgl_hls_to_rgb (double hue,

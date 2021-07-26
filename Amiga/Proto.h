@@ -967,7 +967,7 @@ extern USHORT User_Message_Def(STRPTR outlinetxt, STRPTR message, STRPTR buttons
 extern USHORT CloseWindow_Query(STRPTR win);
 extern USHORT NoGUI_Message(STRPTR mod);
 extern void NoLoad_Message(STRPTR mod, STRPTR loaditem);
-// extern USHORT FileExists_Message(STRPTR existsfile); // used locally only -> static, AF 25.7.2021
+//extern USHORT FileExists_Message(STRPTR existsfile); // AF, not used 26.July 2021
 extern short GetInputString(char *message, char *reject,
 	 char *string);
 // extern void Status_Log(STRPTR logtext, int Severity); // used locally only -> static, AF 25.7.2021

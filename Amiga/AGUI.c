@@ -23,7 +23,6 @@ extern struct WaveWindow *WV_Win;
 static void Handle_RN_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 static void Handle_DB_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 static void Close_DB_Window(void); // used locally only -> static, AF 25.7.2021
-static USHORT FileExists_Message(STRPTR existsfile); // used locally only -> static, AF 25.7.2021
 static void Close_EP_Window(void); // used locally only -> static, AF 25.7.2021
 static short Handle_APP_Windows(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 static void NoMod_Message(STRPTR mod); // used locally only -> static, AF 25.7.2021
@@ -1869,15 +1868,15 @@ void NoLoad_Message(STRPTR mod, STRPTR loaditem)
 } /* NoLoad_Message() */
 
 /************************************************************************/
-
-static USHORT FileExists_Message(STRPTR existsfile) // used locally only -> static, AF 25.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+USHORT FileExists_Message(STRPTR existsfile)
 {
 
   return(User_Message_Def(existsfile, "File already exists.\nDo you wish to overwrite it?",
 	"OK|CANCEL", "oc", 1));
 
 } /* FileExists_Message() */
-
+#endif
 /************************************************************************/
 
 short GetInputString(char *message, char *reject, char *string)
