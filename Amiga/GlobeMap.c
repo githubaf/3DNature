@@ -10,6 +10,10 @@
 
 static void Close_Render_Window(void); // used locally only -> static, AF 20.7.2021
 static short InitDEMMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 20.7.2021
+static short BuildTrigTables(void); // used locally only -> static, AF 26.7.2021
+static void FreeTrigTables(void); // used locally only -> static, AF 26.7.2021
+static short InitCloudMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 26.7.2021
+
 
 void globemap(void)
 {
@@ -1531,7 +1535,7 @@ LineCleanup:
 
 /**********************************************************************/
 
-short InitCloudMap(struct Window *win, struct CloudData *CD)
+static short InitCloudMap(struct Window *win, struct CloudData *CD) // used locally only -> static, AF 26.7.2021
 {
  char filename[255], FStr[32];
  short error = 0, PageOutSl = 0, PageOutRf = 0, PageOutFail = 0, PageOutAttempt = 0;
@@ -1909,7 +1913,7 @@ static void Close_Render_Window(void) // used locally only -> static, AF 20.7.20
 
 /************************************************************************/
 
-short BuildTrigTables(void)
+static short BuildTrigTables(void) // used locally only -> static, AF 26.7.2021
 {
 short success = 1, i;
 double Val, Interval;
@@ -1965,7 +1969,7 @@ double Val, Interval;
 
 /************************************************************************/
 
-void FreeTrigTables(void)
+static void FreeTrigTables(void) // used locally only -> static, AF 26.7.2021
 {
 
  if (CosTable)

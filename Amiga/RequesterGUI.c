@@ -13,6 +13,9 @@
 struct DateTime PocketWatch;
 char PWDate[26], Today[26], ProjDate[26];
 
+static void MUI_DoNotifyPressed(APTR Target, ULONG ID); // used locally only -> static, AF 26.7.2021
+
+
 short getdbasename(long mode)
 {
 #ifdef AMIGA_GUI
@@ -501,7 +504,7 @@ return(KeyButtonObject(ControlChar), MUIA_Text_Contents, Contents, End);
 /**************************************************************************/
 
 /* Stand and watch the world fall in. */
-void MUI_DoNotifyPressed(APTR Target, ULONG ID)
+static void MUI_DoNotifyPressed(APTR Target, ULONG ID) // used locally only -> static, AF 25.7.2021
 {
 
 DoMethod(Target, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,

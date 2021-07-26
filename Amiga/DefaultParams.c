@@ -11,6 +11,7 @@ static void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewA
         short MinSlope, short Color, short Understory, short MatchRed,
         short MatchGrn, short MatchBlu, short Type, short TreeDens,
         short TreeHt); // used locally only -> static, AF 19.7.2021
+static void SetParColor(short Color, char *Name, short Red, short Grn, short Blu); // used locally only -> static, AF 26.7.2021
 
 
 short DefaultParams(void)
@@ -232,7 +233,7 @@ EndDefault:
 
 /***********************************************************************/
 
-void SetParColor(short Color, char *Name, short Red, short Grn, short Blu)
+static void SetParColor(short Color, char *Name, short Red, short Grn, short Blu) // used locally only -> static, AF 26.7.2021
 {
 
  strcpy(PAR_NAME_COLOR(Color), Name);

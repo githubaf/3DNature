@@ -6,6 +6,9 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
+static void DrawSun(struct Window *Win, int X, int Y, int Rad, struct clipbounds *cb); // used locally only -> static, AF 26.7.2021
+
+
 #define MAPPREFS_DBL_MAPSCALE	2
 #define MAPPREFS_DBL_MAPLAT	3
 #define MAPPREFS_DBL_MAPLON	4
@@ -2392,7 +2395,7 @@ return;
 
 /***********************************************************************/
 
-void DrawSun(struct Window *Win, int X, int Y, int Rad, struct clipbounds *cb)
+static void DrawSun(struct Window *Win, int X, int Y, int Rad, struct clipbounds *cb) // used locally only -> static, AF 26.7.2021
 {
  int OutEnd;
  struct lineseg ls;

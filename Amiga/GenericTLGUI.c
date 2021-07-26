@@ -15,6 +15,14 @@
 
 static __saveds ULONG GNTL_HandleInput(struct IClass *cl, Object *obj,
          struct MUIP_HandleInput *msg); // used locally only -> static, AF 19.7.2021
+static void Set_TL_Data(struct TimeLineWindow *TL_Win, short subitem); // used locally only -> static, AF 25.7.2021
+static APTR Make_TLRegisterGroup(struct TimeLineWindow *TL_Win, short NumValues,
+        char **Titles); // used locally only -> static, AF 25.7.2021
+static SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG( a2, Object *obj), REG(a1, Msg msg)); // used locally only -> static, AF 25.7.2021
+static short Set_TL_Item(struct TimeLineWindow *TL_Win, short item); // used locally only -> static, AF 25.7.2021
+
+
+
 
 
 static __saveds ULONG GNTL_HandleInput(struct IClass *cl, Object *obj,
@@ -141,7 +149,7 @@ static __saveds ULONG GNTL_HandleInput(struct IClass *cl, Object *obj,
 ** Unknown/unused methods are passed to the superclass immediately.
 */
 
-SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG( a2, Object *obj), REG(a1, Msg msg))
+static SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG( a2, Object *obj), REG(a1, Msg msg)) // used locally only -> static, AF 25.7.2021
 {
 
  switch (msg->MethodID)
@@ -158,7 +166,7 @@ SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG( a2, Object *ob
 
 /**********************************************************************/
 
-short Set_TL_Item(struct TimeLineWindow *TL_Win, short item)
+static short Set_TL_Item(struct TimeLineWindow *TL_Win, short item) // used locally only -> static, AF 25.7.2021
 {
  LONG data;
 
@@ -191,7 +199,7 @@ short Set_TL_Item(struct TimeLineWindow *TL_Win, short item)
 
 /*********************************************************************/
 
-void Set_TL_Data(struct TimeLineWindow *TL_Win, short subitem)
+static void Set_TL_Data(struct TimeLineWindow *TL_Win, short subitem) // used locally only -> static, AF 25.7.2021
 {
  LONG first, visible, SelState;
  float valdif, lowval, highval;
@@ -637,8 +645,8 @@ void Make_TL_Window(char *NameStr, char **Titles,
 
 /*********************************************************************/
 
-APTR Make_TLRegisterGroup(struct TimeLineWindow *TL_Win, short NumValues,
-	char **Titles)
+static APTR Make_TLRegisterGroup(struct TimeLineWindow *TL_Win, short NumValues,
+	char **Titles) // used locally only -> static, AF 25.7.2021
 {
 APTR group;
 short i, error = 0;

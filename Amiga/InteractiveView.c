@@ -11,6 +11,10 @@
 #include "WCS.h"
 
 
+static void Close_Small_Window(short win_number); // used locally only -> static, AF 26.7.2021
+static short openinterview(void); // used locally only -> static, AF 26.7.2021
+
+
 short interactiveview(short new_window)
 {
  short error, try = 0;
@@ -129,7 +133,7 @@ Cleanup:
 
 /************************************************************************/
 
-short openinterview(void)
+static short openinterview(void) // used locally only -> static, AF 26.7.2021
 {
  short error, try = 0;
  ULONG flags, iflags;
@@ -1381,7 +1385,7 @@ Cleanup:
 
 /*************************************************************************/
 
-void Close_Small_Window(short win_number)
+static void Close_Small_Window(short win_number) // used locally only -> static, AF 26.7.2021
 {
  short i;
 

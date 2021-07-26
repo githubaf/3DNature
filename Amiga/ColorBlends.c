@@ -8,6 +8,14 @@
 
 #define RENDER_SCREEN_DITHER
 
+
+static short ComputeBumpMapTexture(double LatPt, double LonPt); // used locally only -> static, AF 26.7.2021
+static void StrataConvert(void); // used locally only -> static, AF 26.7.2021
+static long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon); // used locally only -> static, AF 26.7.2021
+static void seashoal(struct ColorComponents *CC); // used locally only -> static, AF 26.7.2021
+static void SetScreenColor(short ecotype); // used locally only -> static, AF 26.7.2021
+
+
 short ecoset(short i, short notsnow, struct ColorComponents *CC)
 {
  short j, understory = 1;
@@ -425,7 +433,7 @@ void colmapavg(struct elmapheaderV101 *map, short colpts, struct ColorComponents
 
 /*********************************************************************/
 
-void seashoal(struct ColorComponents *CC)
+static void seashoal(struct ColorComponents *CC) // used locally only -> static, AF 26.7.2021
 {
 
  if ((SeaLevel - el < 6.0) || (SeaLevel - el > 16 && SeaLevel - el < 20))
@@ -460,7 +468,7 @@ void seashoal(struct ColorComponents *CC)
 
 /***********************************************************************/
 
-void SetScreenColor(short ecotype)
+static void SetScreenColor(short ecotype) // used locally only -> static, AF 26.7.2021
 {
 
   switch (ecotype)
@@ -785,7 +793,7 @@ RepeatTex:
 
 /*************************************************************************/
 
-short ComputeBumpMapTexture(double LatPt, double LonPt)
+static short ComputeBumpMapTexture(double LatPt, double LonPt) // used locally only -> static, AF 26.7.2021
 {
 
  return ((short)(200 + MakeNoise(NoiseMap, 55, LatPt * 240.0, LonPt * 240.0)));
@@ -794,7 +802,7 @@ short ComputeBumpMapTexture(double LatPt, double LonPt)
 
 /***********************************************************************/
 
-long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon)
+static long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon) // used locally only -> static, AF 26.7.2021
 {
 long Noisy, Col, Row, Colp1, Rowp1;
 double Noise, LonOff, LatOff, LonInvOff, LatInvOff, wt[4], val[4];
@@ -909,7 +917,7 @@ into a volumetric texture map for stratified rock */
 #define INPUT_ROW_LENGTH 640
 #define INPUT_HEIGHT 1200
 
-void StrataConvert(void)
+static void StrataConvert(void) // used locally only -> static, AF 26.7.2021
 {
 UBYTE val;
 long i, j, k, lastpt;

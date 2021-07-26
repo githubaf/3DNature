@@ -10,7 +10,12 @@
 #include "GUIExtras.h"
 #include "Cloud.h"
 
-void Make_CL_Window(void)
+static void GUICloudKey_SetGads(struct CloudWindow *CL_Win,
+        struct CloudData *CD, short Frame); // used locally only -> static, AF 26.7.2021
+static void GUICloud_SetGads(struct CloudWindow *CL_Win,
+        struct CloudData *CD); // used locally only -> static, AF 26.7.2021
+
+static void Make_CL_Window(void) // used locally only -> static, AF 26.7.2021
 {
  char filename[256];
  long i, open;
@@ -1413,8 +1418,8 @@ union KeyFrame *KFPtr;
 
 /*********************************************************************/
 
-void GUICloud_SetGads(struct CloudWindow *CL_Win,
-	struct CloudData *CD)
+static void GUICloud_SetGads(struct CloudWindow *CL_Win,
+	struct CloudData *CD) // used locally only -> static, AF 26.7.2021
 {
 char TextStr[32];
 
@@ -1436,8 +1441,8 @@ char TextStr[32];
 
 /***********************************************************************/
 
-void GUICloudKey_SetGads(struct CloudWindow *CL_Win,
-	struct CloudData *CD, short Frame)
+static void GUICloudKey_SetGads(struct CloudWindow *CL_Win,
+	struct CloudData *CD, short Frame) // used locally only -> static, AF 26.7.2021
 {
 
  if (CD && CL_Win)

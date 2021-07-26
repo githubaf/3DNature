@@ -45,7 +45,7 @@ extern SAVEDS ASM ULONG TL_Dispatcher(REG(a0, struct IClass *cl),
                                       REG (a1, Msg msg));
 
 //extern SAVEDS ULONG GNTL_HandleInput(struct IClass *cl, Object *obj, struct MUIP_HandleInput *msg); // used locally only -> static, AF 19.7.2021
-extern SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG(a2, Object *obj), REG(a1, Msg msg));
+// extern SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG(a2, Object *obj), REG(a1, Msg msg)); // used locally only -> static, AF 25.7.2021
 
 
 #endif /* TIMELINESGUI_H */

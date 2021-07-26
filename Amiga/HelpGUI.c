@@ -6,7 +6,7 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 
-void Help_ES_Window(APTR item)
+static void Help_ES_Window(APTR item) // used locally only -> static, AF 26.7.2021
 {
  short i, gadtype = 0;
  static const char *GadType[] = {

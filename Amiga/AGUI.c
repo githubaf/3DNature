@@ -13,10 +13,8 @@
 #define MENU_STOP 35
 
 #ifdef WCS_MUI_2_HACK
-void MUI2_MenuCheck_Hack(void);
+static void MUI2_MenuCheck_Hack(void); // used locally only -> static, AF 25.7.2021
 #endif /* WCS_MUI_2_HACK */
-
-void InfoWin_Update(int flush);
 
 extern struct WaveWindow *WV_Win;
 
@@ -28,6 +26,14 @@ static void Close_DB_Window(void); // used locally only -> static, AF 25.7.2021
 static USHORT FileExists_Message(STRPTR existsfile); // used locally only -> static, AF 25.7.2021
 static void Close_EP_Window(void); // used locally only -> static, AF 25.7.2021
 static short Handle_APP_Windows(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
+static void NoMod_Message(STRPTR mod); // used locally only -> static, AF 25.7.2021
+static void Close_Log_Window(int StayClosed); // used locally only -> static, AF 25.7.2021
+static void Close_DO_Window(void); // used locally only -> static, AF 25.7.2021
+static void Handle_EP_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
+static void InfoWin_Update(int flush); // used locally only -> static, AF 25.7.2021
+static void Handle_DO_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
+static void Status_Log(STRPTR logtext, int Severity); // used locally only -> static, AF 25.7.2021
+static void Make_Log_Window(int Severity); // used locally only -> static, AF 26.7.2021
 
 
 void Make_EP_Window(short hor_win)
@@ -148,7 +154,7 @@ static void Close_EP_Window(void) // used locally only -> static, AF 25.7.2021
 
 /************************************************************************/
 
-void Handle_EP_Window(ULONG WCS_ID)
+static void Handle_EP_Window(ULONG WCS_ID) // used locally only -> static, AF 25.7.2021
 {
  short i;
 
@@ -847,7 +853,7 @@ void Make_DO_Window(short hor_win)
 
 /************************************************************************/
 
-void Close_DO_Window(void)
+static void Close_DO_Window(void) // used locally only -> static, AF 25.7.2021
 {
  if (DO_Win)
   {
@@ -867,7 +873,7 @@ void Close_DO_Window(void)
 
 /************************************************************************/
 
-void Handle_DO_Window(ULONG WCS_ID)
+static void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, AF 25.7.2021
 {
 
   switch (WCS_ID & 0x00ff0000)
@@ -1829,7 +1835,7 @@ USHORT User_Message_Def(STRPTR outlinetxt, STRPTR message, STRPTR buttons,
 
 /************************************************************************/
 
-void NoMod_Message(STRPTR mod)
+static void NoMod_Message(STRPTR mod) // used locally only -> static, AF 25.7.2021
 {
 
   User_Message(mod, "Not yet implemented.\nStay Tuned!", "OK","o");
@@ -1988,7 +1994,7 @@ short GetInputString(char *message, char *reject, char *string)
 
 /************************************************************************/
 
-void Status_Log(STRPTR logtext, int Severity)
+static void Status_Log(STRPTR logtext, int Severity) // used locally only -> static, AF 25.7.2021
 {
 
   Make_Log_Window(Severity);
@@ -2016,7 +2022,7 @@ void Status_Log(STRPTR logtext, int Severity)
 /***********************************************************************/
 
 
-void Make_Log_Window(int Severity)
+static void Make_Log_Window(int Severity) // used locally only -> static, AF 26.7.2021
 {
  long open;
 
@@ -2123,7 +2129,7 @@ void Make_Log_Window(int Severity)
 ** If Log_Win is still there, just set() the Window back open. If Log_Win
 ** is not there, send a Log() message, and it'll open if it can.
 */
-void Close_Log_Window(int StayClosed)
+static void Close_Log_Window(int StayClosed) // used locally only -> static, AF 25.7.2021
 {
 if(Log_Win)
   {
@@ -2969,7 +2975,7 @@ void DisableKeyButtons(short group)
 
 #ifdef WCS_MUI_2_HACK
 
-void MUI2_MenuCheck_Hack(void)
+static void MUI2_MenuCheck_Hack(void) // used locally only -> static, AF 25.7.2021
 {
 LONG WindowState;
 
@@ -3001,7 +3007,7 @@ DoMethod(app, MUIM_Application_SetMenuCheck, ID_INFO, InfoWin);
 
 /***********************************************************************/
 
-void InfoWin_Update(int flush)
+static void InfoWin_Update(int flush) // used locally only -> static, AF 25.7.2021
 {
 char InfoData[80];
 long now, chipavail, fastlarge, chiplarge;

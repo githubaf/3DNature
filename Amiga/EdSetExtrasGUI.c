@@ -7,7 +7,7 @@
 #include "GUIExtras.h"
 #include <stdarg.h>
 
-
+static void Disable_ES_Window(void); // used locally only -> static, AF 26.7.2021
 
 void Set_ES_Window(void)
 {
@@ -135,7 +135,7 @@ void Set_ES_Window(void)
 
 /**********************************************************************/
 
-void Disable_ES_Window(void)
+static void Disable_ES_Window(void) // used locally only -> static, AF 26.7.2021
 {
 
  Disable_ES_Gads((settings.maxframes == 1) && (settings.rendersegs == 1),

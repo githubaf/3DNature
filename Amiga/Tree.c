@@ -15,7 +15,10 @@ static void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
         struct ColorComponents *AM, double ElStart,
         double ElIncr, struct Window *win, struct QCvalues *QC); // used locally only -> static, AF 23.7.2021
 static void ColorToGray(UBYTE **Bitmap, long MaxZip); // used locally only -> static, AF 23.7.2021
-
+static struct BitmapImage *BitmapImage_New(void); // used locally only -> static, AF 26.7.2021
+static void BitmapImage_Scale(struct BitmapImage *SBMI, struct BitmapImage *DBMI,
+        double Dx, double Dy); // used locally only -> static, AF 26.7.2021
+static void BitmapImage_DelSingle(struct BitmapImage *BMI); // used locally only -> static, AF 26.7.2021
 
 #define MODE_REPLACE 0
 #define MODE_AVERAGE 1
@@ -1406,7 +1409,7 @@ long i;
 
 /**********************************************************************/
 
-struct BitmapImage *BitmapImage_New(void)
+static struct BitmapImage *BitmapImage_New(void) // used locally only -> static, AF 26.7.2021
 {
 
  return ((struct BitmapImage *)get_Memory(sizeof (struct BitmapImage), MEMF_CLEAR));
@@ -1443,7 +1446,7 @@ struct BitmapImage *BMINext;
 
 /***********************************************************************/
 
-void BitmapImage_DelSingle(struct BitmapImage *BMI)
+static void BitmapImage_DelSingle(struct BitmapImage *BMI) // used locally only -> static, AF 26.7.2021
 {
 
  if (BMI)
@@ -1522,8 +1525,8 @@ long x, y, zip = 0, FirstPt, LastPt;
 
 /**********************************************************************/
 
-void BitmapImage_Scale(struct BitmapImage *SBMI, struct BitmapImage *DBMI,
-	double Dx, double Dy)
+static void BitmapImage_Scale(struct BitmapImage *SBMI, struct BitmapImage *DBMI,
+	double Dx, double Dy) // used locally only -> static, AF 26.7.2021
 {
 double Dox, Doy, Dex, Dey, dX, dY, Sox, Soy, Cox, Coy, Cex, Cey,
 	wtys, wtye, wty, wtxs, wtxe, wt, PixWt, MaxWt,

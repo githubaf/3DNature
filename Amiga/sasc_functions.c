@@ -149,7 +149,7 @@ followed by the ext string.
 Make sure that the file pointer refers to an area which is large
 enough to hold the result.
 */
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 void strmfn(char *file, const char *drive, const char *path, const char *node, const char *ext)
 {
 
@@ -200,7 +200,7 @@ void strmfn(char *file, const char *drive, const char *path, const char *node, c
 
     sprintf(file,"%s%s%s%s%s%s%s",drive,colon,path,slash,node,dot,ext);
 }
-
+#endif
 #endif
 
 #ifdef __GNUC__
@@ -523,7 +523,7 @@ Returns The function returns a pointer to the next nonblank character. The NULL
 terminator byte is not considered a blank, and so the function will not go
 past the end of the string.
 */
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 const char * stpblk(const char *p)
 {
     const char *q=p;
@@ -533,7 +533,7 @@ const char * stpblk(const char *p)
     }
     return q;
 }
-
+#endif
 #endif
 
 #ifdef __GNUC__

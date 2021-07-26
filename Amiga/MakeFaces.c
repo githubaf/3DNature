@@ -13,6 +13,10 @@ static void facecompute(struct elmapheaderV101 *map, short low, short mid, short
 static void Face_Compute(struct elmapheaderV101 *map, struct FaceData *Data,
         struct faces *Face, short low, short mid, short hi); // used locally only -> static, AF 20.7.2021
 static short writeface(struct elmapheaderV101 *map); // used locally only -> static, AF 20.7.2021
+static short FacePt_Order(struct FaceData *Data); // used locally only -> static, AF 26.7.2021
+static short minmax(void); // used locally only -> static, AF 26.7.2021
+
+
 
 void FaceOne_Setup(struct elmapheaderV101 *map, struct faces *Face,
 	long Lr, long Lc)
@@ -202,7 +206,7 @@ static short writeface(struct elmapheaderV101 *map) // used locally only -> stat
 
 /***********************************************************************/
 
-short FacePt_Order(struct FaceData *Data)
+static short FacePt_Order(struct FaceData *Data) // used locally only -> static, AF 26.7.2021
 {
 
  if (Data->El[0] < Data->El[1])
@@ -230,7 +234,7 @@ short FacePt_Order(struct FaceData *Data)
 
 /***********************************************************************/
 
-short minmax(void)
+static short minmax(void) // used locally only -> static, AF 26.7.2021
 {
  short n;
 

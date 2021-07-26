@@ -6,6 +6,11 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 
+static APTR Make_EE_Group(void); // used locally only -> static, AF 26.7.2021
+static void UnSet_EE_Item(short item, double data); // used locally only -> static, AF 26.7.2021
+static void Set_EcoLimits(void); // used locally only -> static, AF 26.7.2021
+
+
 void Make_EE_Window(void)
 {
  short i;
@@ -429,7 +434,7 @@ void Make_EE_Window(void)
 
 /*********************************************************************/
 
-APTR Make_EE_Group(void)
+static APTR Make_EE_Group(void) // used locally only -> static, AF 26.7.2021
 {
   APTR obj, morestuff;
   short i, error = 0;
@@ -1210,7 +1215,7 @@ void Set_EE_Item(short item)
 
 /*********************************************************************/
 
-void UnSet_EE_Item(short item, double data)
+static void UnSet_EE_Item(short item, double data) // used locally only -> static, AF 26.7.2021
 {
  switch (item)
   {
@@ -1324,7 +1329,7 @@ void Set_EE_List(short update)
 
 /*********************************************************************/
 
-void Set_EcoLimits(void)
+static void Set_EcoLimits(void) // used locally only -> static, AF 26.7.2021
 {
  short Limits[15][2] = {
 	{32000,	 -32000},

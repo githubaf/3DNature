@@ -6,6 +6,9 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 
+static void Set_DL_List(struct DirList *DLItem, short Update, short ActiveItem); // used locally only -> static, AF 26.7.2021
+static void Remove_DE_Item(short OBN, short Remove); // used locally only -> static, AF 26.7.2021
+
 
 void Make_DE_Window(void)
 {
@@ -1476,7 +1479,7 @@ void Set_DE_List(short update)
 
 /*********************************************************************/
 
-void Remove_DE_Item(short OBN, short Remove)
+static void Remove_DE_Item(short OBN, short Remove) // used locally only -> static, AF 26.7.2021
 {
  char filename[255];
  USHORT MoveItems;
@@ -1925,7 +1928,7 @@ void Handle_DL_Window(ULONG WCS_ID)
 
 /***********************************************************************/
 
-void Set_DL_List(struct DirList *DLItem, short Update, short ActiveItem)
+static void Set_DL_List(struct DirList *DLItem, short Update, short ActiveItem) // used locally only -> static, AF 26.7.2021
 {
  short i = 0;
 

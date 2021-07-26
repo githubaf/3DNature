@@ -14,6 +14,7 @@ extern char ExtVersion[];
 #ifdef AMIGA_GUI
 
 static void stripintuimessages(struct MsgPort *mp, struct Window *win); // used locally only -> static, AF 19.7.2021
+static short checkuserabort(void); // used locally only -> static, AF 26.7.2021
 
 /************************************************************************/
   
@@ -178,7 +179,7 @@ static void stripintuimessages(struct MsgPort *mp, struct Window *win) // used l
 }
 
 #ifdef CLI_BREAK
-short checkuserabort(void)
+static short checkuserabort(void) // used locally only -> static, AF 26.7.2021
 {
  short abort;
 

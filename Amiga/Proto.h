@@ -130,16 +130,16 @@ extern short SplineGenericKeys(struct KeyTable **KTPtr, short *MaxFrames, short 
 /* ColorBlends.c */
 extern short ecoset(short i, short notsnow, struct ColorComponents *CC);
 extern short WaterEco_Set(short MakeWater, struct ColorComponents *CC);
-extern void seashoal(struct ColorComponents *CC);
+// extern void seashoal(struct ColorComponents *CC); // used locally only -> static, AF 26.7.2021
 extern void colmapavg(struct elmapheaderV101 *map, short colpts, struct ColorComponents *CC);
-extern void SetScreenColor(short ecotype);
+// extern void SetScreenColor(short ecotype); // used locally only -> static, AF 26.7.2021
 extern short ComputeTexture(double ElPt, double LatPt, double LonPt, double ElY);
 extern short ComputeTextureColor(double ElPt, double LatPt, double LonPt, double ElY,
 	struct ColorComponents *CC);
-extern short ComputeBumpMapTexture(double LatPt, double LonPt);
-extern long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon);
+// extern short ComputeBumpMapTexture(double LatPt, double LonPt); // used locally only -> static, AF 26.7.2021
+// extern long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon); // used locally only -> static, AF 26.7.2021
 extern double DEM_InterpPt(struct elmapheaderV101 *Map, double Lat, double Lon);
-extern void StrataConvert(void);
+// extern void StrataConvert(void); // used locally only -> static, AF 26.7.2021
 
 /* Database.c */
 extern short Database_Load(short lowi, char *filename);
@@ -170,9 +170,9 @@ extern short DBase_SaveComposite(void);
 
 /* DataOps.c */
 extern void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly);
-extern short SaveConvertOutput(struct DEMConvertData *data, struct elmapheaderV101 *DEMHdr,
-	void *OutputData, long OutputDataSize, short i, short j,
-	long rows, long cols, long OutputRows, long OutputCols, char *RGBComp);
+// extern short SaveConvertOutput(struct DEMConvertData *data, struct elmapheaderV101 *DEMHdr,
+//	void *OutputData, long OutputDataSize, short i, short j,
+//	long rows, long cols, long OutputRows, long OutputCols, char *RGBComp); // used locally only -> static, AF 26.7.2021
 
 /* DEM.c */
 extern short readDEM(char *filename, struct elmapheaderV101 *map);
@@ -203,10 +203,10 @@ extern void FixDEM(void);
 /* DLG.c */
 extern short ImportDLG(void);
 extern short ImportDXF(void);
-extern short OpenObjFile(char *filename);
-extern void Set_DXFObject(char *name, short pts, char *ptrn);
-extern void Set_DLGObject(struct DLGInfo *DLG);
-extern short AssignDLGAttrs(struct DLGInfo *DLG, char *Prefix);
+// extern short OpenObjFile(char *filename); // used locally only -> static, AF 25.7.2021
+// extern void Set_DXFObject(char *name, short pts, char *ptrn); // used locally only -> static, AF 25.7.2021
+// extern void Set_DLGObject(struct DLGInfo *DLG); // used locally only -> static, AF 25.7.2021
+// extern short AssignDLGAttrs(struct DLGInfo *DLG, char *Prefix); // used locally only -> static, AF 25.7.2021
 extern short ImportWDB(void);
 /*
 extern void *NameHash_New(void);
@@ -243,7 +243,7 @@ extern short loadparams(USHORT loadcode, short loaditem);
 //	short loaditem, short LoadKeys); // used locally only -> static, AF 23.7.2021
 extern short saveparams(USHORT savecode, short saveitem, short savecur);
 extern short DefaultParams(void);
-extern void SetParColor(short Color, char *Name, short Red, short Grn, short Blu);
+// extern void SetParColor(short Color, char *Name, short Red, short Grn, short Blu); // used locally only -> static, AF 26.7.2021
 /*extern void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewAz,
 	short RelEl, short MaxRelEl, short MinRelEl, short MaxSlope,
 	short MinSlope, short Color, short Understory, short MatchRed,
@@ -307,7 +307,7 @@ extern void WaveAmp_Compute(double *Elev, double *Alt,
 extern void globemap(void);
 //extern short InitDEMMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 20.7.2021
 extern short InitVectorMap(struct Window *win, short zbufplot, short override);
-extern short InitCloudMap(struct Window *win, struct CloudData *CD);
+// extern short InitCloudMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 26.7.2021
 //extern void Close_Render_Window(void); // used locally only -> static, AF 20.7.2021
 extern void Handle_Render_Window(void);
 
@@ -329,8 +329,8 @@ extern short Celestial_Bodies(UBYTE **Bitmap, long Width, long Height,
 	short Sw, short Sh, double Dr, double Dx, double Dy, double Distance,
 	double *Visible, double *Luminosity, struct ColorComponents *CC,
 	char *NameStr, struct Window *win);*/ // used locally only -> static, AF 23.7.2021
-extern short BuildTrigTables(void);
-extern void FreeTrigTables(void);
+// extern short BuildTrigTables(void); // used locally only -> static, AF 26.7.2021
+// extern void FreeTrigTables(void); // used locally only -> static, AF 26.7.2021
 extern double ASin_Table(double sine);
 extern double ACos_Table(double cosine);
 extern double Sin_Table(double arcsine);
@@ -356,13 +356,13 @@ extern void Play_Motion(struct RenderAnim *RA);
 
 /* InteractiveView.c */
 extern short interactiveview(short new_window);
-extern short openinterview(void);
+// extern short openinterview(void); // used locally only -> static, AF 26.7.2021
 extern short initinterview(short boundsdiscrim);
 extern void closeviewmaps(short CloseAll);
 extern void closeinterview(void);
 extern void shaderelief(short reliefshade);
 extern void smallwindow(short diagnostics);
-extern void Close_Small_Window(short win_number);
+// extern void Close_Small_Window(short win_number); // used locally only -> static, AF 26.7.2021
 extern void Handle_Small_Window(short win_number);
 extern void Handle_InterWind0(void);
 extern void Handle_InterWind2(void);
@@ -386,7 +386,7 @@ extern void Set_LandBds(void);
 extern void Set_ProfileBds(void);
 extern void Set_BoxBds(void);
 extern void Set_GridBds(void);
-extern void DisableBoundsButtons(void);
+// extern void DisableBoundsButtons(void); // used locally only -> static, AF 26.7.2021
 extern void FixXYZ(char item);
 extern void Init_IA_View(short view);
 extern void Init_IA_Item(short MoItem, short view);
@@ -417,7 +417,7 @@ extern void LWScene_Export(struct LightWaveInfo *LWInfo);
 extern short faceone(struct elmapheaderV101 *map);
 extern short facetwo(struct elmapheaderV101 *map);
 // extern short writeface(struct elmapheaderV101 *map); // used locally only -> static, AF 20.7.2021
-extern short minmax(void);
+// extern short minmax(void); // used locally only -> static, AF 26.7.2021
 // extern void facecompute(struct elmapheaderV101 *map, short low, short mid, short hi); // used locally only -> static, AF 19.7.2021
 extern void FaceOne_Setup(struct elmapheaderV101 *map, struct faces *Face,
 	long Lr, long Lc);
@@ -429,7 +429,7 @@ extern void FractFaceTwo_Setup(struct elmapheaderV101 *map,
 	long Lr, long Lc);
 extern void FacePt_Switch(struct elmapheaderV101 *map, struct FaceData *Data,
 	struct faces *Face);
-extern short FacePt_Order(struct FaceData *Data);
+// extern short FacePt_Order(struct FaceData *Data); // used locally only -> static, AF 26.7.2021
 /*extern void Face_Compute(struct elmapheaderV101 *map, struct FaceData *Data,
 	struct faces *Face, short low, short mid, short hi);*/ // used locally only -> static, AF 20.7.2021
 
@@ -542,7 +542,7 @@ extern void ShowPaths_Map(struct clipbounds *cb);
 extern void MakeColorMap(void);
 extern void DrawHaze(struct Window *Win, int X, int Y, int Rad, struct clipbounds *cb);
 extern void DrawHazeRPort(struct RastPort *Rast, int X, int Y, int Rad, struct clipbounds *cb);
-extern void DrawSun(struct Window *Win, int X, int Y, int Rad, struct clipbounds *cb);
+// extern void DrawSun(struct Window *Win, int X, int Y, int Rad, struct clipbounds *cb); // used locally only -> static, AF 26.7.2021
 extern struct datum *Datum_MVFind(struct datum *DT, struct datum *ET, long *PT, short WhichOne);
 	
 /* MapTopo.c */
@@ -689,7 +689,7 @@ extern void BusyWin_Del(struct BusyWindow *This);
 extern void BusyWin_Update(struct BusyWindow *This, int Step);
 extern void Log_ElapsedTime(ULONG StartSecs, ULONG FirstSecs, long Frames);
 extern APTR KeyButtonFunc(char ControlChar, char *Contents);
-extern void MUI_DoNotifyPressed(APTR Object, ULONG ID);
+// extern void MUI_DoNotifyPressed(APTR Object, ULONG ID); // used locally only -> static, AF 25.7.2021
 extern void MUI_DoNotiPresFal(APTR App, ...);
 extern short getfilenameptrn(long mode, char *requestname, char *pathname,
     char *filename, char *ptrn);
@@ -719,7 +719,7 @@ extern ULONG QuickFetchEvent(struct Window *Win, struct IntuiMessage *Event);
 /* extern ULONG QuickCheckEvent(struct Window *Win); */ /* It's a macro now */
 extern void closesharedwindow(struct Window *win, short shared);
 //extern void stripintuimessages(struct MsgPort *mp, struct Window *win); // used locally only -> static, AF 19.7.2021
-extern short checkuserabort(void);
+// extern short checkuserabort(void); // used locally only -> static, AF 26.7.2021
 extern void SaveConfig(void);
 extern void LoadConfig(void);
 extern short SaveProject(short NewName,
@@ -738,13 +738,13 @@ extern void ConvertTree(void);
 extern short LoadForestModels(void);
 extern short BitmapImage_Load(void);
 extern void BitmapImage_Unload(void);
-extern struct BitmapImage *BitmapImage_New(void);
+// extern struct BitmapImage *BitmapImage_New(void); // used locally only -> static, AF 26.7.2021
 // extern void BitmapImage_Del(struct BitmapImage *BMI); // used locally only -> static, AF 23.7.2021
-extern void BitmapImage_DelSingle(struct BitmapImage *BMI);
+// extern void BitmapImage_DelSingle(struct BitmapImage *BMI); // used locally only -> static, AF 26.7.2021
 //extern void ColorToGray(UBYTE **Bitmap, long MaxZip); // used locally only -> static, AF 23.7.2021
 //extern void SetBitmapImageSpan(struct BitmapImage *BMI); // used locally only -> static, AF 19.7.2021
-extern void BitmapImage_Scale(struct BitmapImage *SBMI, struct BitmapImage *DBMI,
-	double Dx, double Dy);
+//extern void BitmapImage_Scale(struct BitmapImage *SBMI, struct BitmapImage *DBMI,
+//	double Dx, double Dy); // used locally only -> static, AF 26.7.2021
 //extern void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
 //	double Dw, double Dh, double Dx, double Dy,
 //	double Distance, struct ColorComponents *CC, 
@@ -767,27 +767,27 @@ main(int argc, char *argv[]) function */
 #define WCS_GUI_PROTO_H
 
 /* CloudGUI.c */
-extern void Make_CL_Window(void);
+// extern void Make_CL_Window(void); // used locally only -> static, AF 26.7.2021
 extern void Close_CL_Window(void);
 extern void Handle_CL_Window(ULONG WCS_ID);
 extern short Cloud_Load(char *filename, struct CloudData **CDPtr);
 extern short Cloud_Save(char *filename, struct CloudData *CD);
-extern void GUICloud_SetGads(struct CloudWindow *CL_Win,
-	struct CloudData *CD);
-extern void GUICloudKey_SetGads(struct CloudWindow *CL_Win,
-	struct CloudData *CD, short Frame);
+// extern void GUICloud_SetGads(struct CloudWindow *CL_Win,
+//	struct CloudData *CD); // used locally only -> static, AF 26.7.2021
+//extern void GUICloudKey_SetGads(struct CloudWindow *CL_Win,
+//	struct CloudData *CD, short Frame); // used locally only -> static, AF 26.7.2021
 
 /* DataOpsGUI.c */
 extern void Make_DC_Window(void);
 extern void Close_DC_Window(void);
 extern void Handle_DC_Window(ULONG WCS_ID);
-extern void Get_DC_InputFile(void);
-extern double DegMinSecToDegrees(char *str);
-extern void Set_DC_Data(void);
+// extern void Get_DC_InputFile(void); // used locally only -> static, AF 25.7.2021
+// extern double DegMinSecToDegrees(char *str); //AF, ???
+// extern void Set_DC_Data(void); // used locally only -> static, AF 25.7.2021
 extern void Make_DI_Window(void);
 extern void Close_DI_Window(void);
 extern void Handle_DI_Window(ULONG WCS_ID);
-extern void Set_DI_Data(void);
+// extern void Set_DI_Data(void); // used locally only -> static, AF 25.7.2021
 
 /* DiagnosticGUI.c */
 extern void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle);
@@ -824,25 +824,25 @@ extern void Close_DE_Window(void);
 extern void Handle_DE_Window(ULONG WCS_ID);
 extern void Set_DE_Item(short item);
 extern void Set_DE_List(short update);
-extern void Remove_DE_Item(short OBN, short Remove);
+// extern void Remove_DE_Item(short OBN, short Remove); // used locally only -> static, AF 26.7.2021
 extern short DBList_New(short NewRecords);
 extern void Map_DB_Object(long OBN, long Enabled, long Selected);
 extern void Make_DL_Window(void);
 extern void Close_DL_Window(struct DirList *DLDel);
 extern void Handle_DL_Window(ULONG WCS_ID);
-extern void Set_DL_List(struct DirList *DLItem, short Update, short ActiveItem);
+// extern void Set_DL_List(struct DirList *DLItem, short Update, short ActiveItem); // used locally only -> static, AF 26.7.2021
 extern void Update_DL_Win(void);
 extern short Add_DE_NewItem(void);
 
 /* EdEcoGUI.c */
 extern void Make_EE_Window(void);
-extern APTR Make_EE_Group(void);
+// extern APTR Make_EE_Group(void); // used locally only -> static, AF 26.7.2021
 extern void Close_EE_Window(short apply);
 extern void Handle_EE_Window(ULONG WCS_ID);
 extern void Set_EE_Item(short item);
-extern void UnSet_EE_Item(short item, double data);
+// extern void UnSet_EE_Item(short item, double data); // used locally only -> static, AF 26.7.2021
 extern void Set_EE_List(short update);
-extern void Set_EcoLimits(void);
+// extern void Set_EcoLimits(void); // used locally only -> static, AF 26.7.2021
 extern short Load_EE_Map(long left, long top, long width, long height);
 extern void Draw_EcoMap(short left, short top);
 extern short SearchEcosystemColorMatch(short Color);
@@ -880,7 +880,7 @@ extern void MakeMotionKey(void);
 extern void Close_EMIA_Window(short apply);
 extern void Handle_EMIA_Window(ULONG WCS_ID);
 extern void Make_EMIA_Window(void);
-extern void Close_EMPL_Window(void);
+// extern void Close_EMPL_Window(void); // used locally only -> static, AF 26.7.2021
 extern void Handle_EMPL_Window(ULONG WCS_ID);
 extern void Make_EMPL_Window(void);
 
@@ -892,7 +892,7 @@ extern void Handle_SB_Buttons(ULONG WCS_ID);
 
 /* EdSetExtrasGUI.c */
 extern void Set_ES_Window(void);
-extern void Disable_ES_Window(void);
+// extern void Disable_ES_Window(void); // used locally only -> static, AF 26.7.2021
 extern void Disable_ES_Gads(short status, ...);
 extern void Set_FloatStringValue(short i, short factor, double *value);
 extern void Set_IntStringValue(short i, short factor, long *value);
@@ -943,13 +943,13 @@ extern void GUIList_Clear(char **List, long ListSize, APTR ListView);
 /* GUI.c */
 extern void Make_EP_Window(short hor_win);
 // extern void Close_EP_Window(void); // used locally only -> static, AF 25.7.2021
-extern void Handle_EP_Window(ULONG WCS_ID);
+// extern void Handle_EP_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 extern void Make_DB_Window(short hor_win);
 // extern void Close_DB_Window(void); // used locally only -> static, AF 25.7.2021
 // extern void Handle_DB_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 extern void Make_DO_Window(short hor_win);
-extern void Close_DO_Window(void);
-extern void Handle_DO_Window(ULONG WCS_ID);
+// extern void Close_DO_Window(void); // used locally only -> static, AF 25.7.2021
+// extern void Handle_DO_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 extern void Make_RN_Window(short hor_win);
 extern void Close_RN_Window(void);
 // extern void Handle_RN_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
@@ -963,16 +963,16 @@ extern USHORT User_Message(STRPTR outlinetxt, STRPTR message, STRPTR buttons,
 	STRPTR buttonkey);
 extern USHORT User_Message_Def(STRPTR outlinetxt, STRPTR message, STRPTR buttons,
 	STRPTR buttonkey, int Default);
-extern void NoMod_Message(STRPTR mod);
+//extern void NoMod_Message(STRPTR mod); // used locally only -> static, AF 25.7.2021
 extern USHORT CloseWindow_Query(STRPTR win);
 extern USHORT NoGUI_Message(STRPTR mod);
 extern void NoLoad_Message(STRPTR mod, STRPTR loaditem);
 // extern USHORT FileExists_Message(STRPTR existsfile); // used locally only -> static, AF 25.7.2021
 extern short GetInputString(char *message, char *reject,
 	 char *string);
-extern void Status_Log(STRPTR logtext, int Severity);
-extern void Make_Log_Window(int Severity);
-extern void Close_Log_Window(int Sticky);
+// extern void Status_Log(STRPTR logtext, int Severity); // used locally only -> static, AF 25.7.2021
+// extern void Make_Log_Window(int Severity); // used locally only -> static, AF 26.7.2021
+// extern void Close_Log_Window(int Sticky); // used locally only -> static, AF 25.7.2021
 // extern short Handle_APP_Windows(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 extern void Log(USHORT StdMesgNum, STRPTR LogTag);
 extern void DisableKeyButtons(short group);
@@ -1019,7 +1019,7 @@ extern void Handle_PJ_Window(ULONG WCS_ID);
 extern void Make_SC_Window(void);
 extern void Close_SC_Window(void);
 extern void Handle_SC_Window(ULONG WCS_ID);
-extern void ApplyImageScale(void);
+// extern void ApplyImageScale(void); // used locally only -> static, AF 26.7.2021
 extern void Make_PR_Window(void);
 extern void Close_PR_Window(void);
 extern void Handle_PR_Window(ULONG WCS_ID);
@@ -1069,8 +1069,8 @@ extern short GetInput_Pt(struct IClass *cl, Object *obj);
 extern void ResetTimeLines(short NullGroup);
 
 /* GenericTLGUI.c */
-extern short Set_TL_Item(struct TimeLineWindow *TL_Win, short item);
-extern void Set_TL_Data(struct TimeLineWindow *TL_Win, short subitem);
+// extern short Set_TL_Item(struct TimeLineWindow *TL_Win, short item); // used locally only -> static, AF 25.7.2021
+// extern void Set_TL_Data(struct TimeLineWindow *TL_Win, short subitem); // used locally only -> static, AF 25.7.2021
 extern void TL_Redraw(struct TimeLineWindow *TL_Win);
 extern void TL_Recompute(struct TimeLineWindow *TL_Win);
 extern void Update_TL_Win(struct TimeLineWindow *TL_Win, short subitem);
@@ -1079,8 +1079,8 @@ extern void Make_TL_Window(char *NameStr, char **Titles,
 	struct WindowKeyStuff *WKS, struct GUIKeyStuff *GKS,
 	union KeyFrame **KFPtr, long *KFSizePtr, short *KeyFramesPtr,
 	double *DblValue, float *FltValue, short *ShortValue);
-extern APTR Make_TLRegisterGroup(struct TimeLineWindow *TL_Win, short NumValues,
-	char **Titles);
+// extern APTR Make_TLRegisterGroup(struct TimeLineWindow *TL_Win, short NumValues, 
+//	char **Titles); // used locally only -> static, AF 25.7.2021
 extern void Close_TL_Window(struct TimeLineWindow **TLWinPtr, short apply);
 extern void Handle_TL_Window(ULONG WCS_ID);
 
@@ -1097,37 +1097,37 @@ extern void GUIDisableKeyButtons(struct GUIKeyStuff *GKS, struct TimeLineWindow 
 
 /* nngridr.c */
 extern short            nngridr(void);
-extern struct 		NNGrid *NNGrid_New(void);
-extern void 		NNGrid_Init(struct NNGrid *NNG);
-extern void 		NNGrid_Del(struct NNGrid *NNG);
-extern short 		NNGridr_OptInit(struct NNGrid *NNG);
+// extern struct 	NNGrid *NNGrid_New(void); // used locally only -> static, AF 26.7.2021
+// extern void 		NNGrid_Init(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+// extern void 		NNGrid_Del(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+// extern short 		NNGridr_OptInit(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
 /* extern void            GetOptions(struct NNGrid *NNG);*/
 
 /* nncrunch.c */
 extern short 		NNGrid_DataInit(struct NNGrid *NNG);
 /*extern short            ReadData(struct NNGrid *NNG);*/
 extern short            ChoroPleth(struct NNGrid *NNG);
-extern short            FindNeigh(struct NNGrid *NNG, int ipt);
-extern short            TriCentr(struct NNGrid *NNG);
-extern short            TriNeigh(struct NNGrid *NNG);
+// extern short            FindNeigh(struct NNGrid *NNG, int ipt); // used locally only -> static, AF 26.7.2021
+// extern short            TriCentr(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+// extern short            TriNeigh(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
 extern short            Gradient(struct NNGrid *NNG);
 extern short            MakeGrid(struct NNGrid *NNG, short Units);
-extern short            Find_Prop(struct NNGrid *NNG, double wxd, double wyd);
+// extern short            Find_Prop(struct NNGrid *NNG, double wxd, double wyd); // used locally only -> static, AF 26.7.2021
 extern double          Surface(struct NNGrid *NNG);
-extern double          Meld(struct NNGrid *NNG, double asurf, double wxd, double wyd);
-extern short           TooSteep(struct NNGrid *NNG);
-extern short           TooShallow(struct NNGrid *NNG);
-extern short           TooNarrow(struct NNGrid *NNG);
+// extern double          Meld(struct NNGrid *NNG, double asurf, double wxd, double wyd); // used locally only -> static, AF 26.7.2021
+// extern short           TooSteep(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+// extern short           TooShallow(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+// extern short           TooNarrow(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
 extern struct datum    *Datum_New(void);
 extern void	       Datum_Del(struct datum *CD);
-extern struct simp     *Simp_New(void);
+// extern struct simp     *Simp_New(void); // used locally only -> static, AF 26.7.2021
 extern void	       Simp_Del(struct simp *CS);
-extern struct temp     *Temp_New(void);
+// extern struct temp     *Temp_New(void); // used locally only -> static, AF 26.7.2021
 extern void	       Temp_Del(struct temp *CT);
-extern struct neig     *Neig_New(void);
+// extern struct neig     *Neig_New(void); // used locally only -> static, AF 26.7.2021
 extern void	       Neig_Del(struct neig *CN);
-extern int             *IntVect(int ncols);
+// extern int             *IntVect(int ncols); // used locally only -> static, AF 26.7.2021
 extern void            FreeVecti(int *vectptr, int ncols);
-extern double          **DoubleMatrix(int nrows, int ncols);
+// extern double          **DoubleMatrix(int nrows, int ncols); // used locally only -> static, AF 26.7.2021
 extern void            FreeMatrixd(double **matptr, int nrows, int ncols);
 

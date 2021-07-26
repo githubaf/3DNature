@@ -153,7 +153,10 @@ Additional terrain modification or editing could be done with the Terrain
 
 
 
-
+static void NNGrid_Del(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+static short NNGridr_OptInit(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+static void NNGrid_Init(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+static struct NNGrid *NNGrid_New(void); // used locally only -> static, AF 26.7.2021
 
 
 short nngridr(void)
@@ -212,7 +215,7 @@ EndGrid:
 
 /************************************************************************/
 
-struct NNGrid *NNGrid_New(void)
+static struct NNGrid *NNGrid_New(void) // used locally only -> static, AF 26.7.2021
 {
 
  return ((struct NNGrid *)get_Memory(sizeof (struct NNGrid), MEMF_CLEAR));
@@ -221,7 +224,7 @@ struct NNGrid *NNGrid_New(void)
 
 /*************************************************************************/
 
-void NNGrid_Init(struct NNGrid *NNG)
+static void NNGrid_Init(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 
   NNG->magx = NNG->magy = NNG->magz = 1.0;
@@ -233,7 +236,7 @@ void NNGrid_Init(struct NNGrid *NNG)
 
 /*************************************************************************/
 
-void NNGrid_Del(struct NNGrid *NNG)
+static void NNGrid_Del(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 
  if (NNG)
@@ -254,7 +257,7 @@ void NNGrid_Del(struct NNGrid *NNG)
 
 /*************************************************************************/
 
-short NNGridr_OptInit(struct NNGrid *NNG)
+static short NNGridr_OptInit(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 char *floatdata, *OutFile;
 long data;

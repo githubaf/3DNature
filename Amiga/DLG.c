@@ -6,6 +6,12 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
+static void Set_DXFObject(char *name, short pts, char *ptrn); // used locally only -> static, AF 25.7.2021
+static short AssignDLGAttrs(struct DLGInfo *DLG, char *Prefix); // used locally only -> static, AF 25.7.2021
+static short OpenObjFile(char *ObjName); // used locally only -> static, AF 25.7.2021
+static void Set_DLGObject(struct DLGInfo *DLG); // used locally only -> static, AF 25.7.2021
+
+
 short ImportDLG(void)
 {
 static char filename[255], DLGfile[32], DLGpath[256], UserPrefix[32];
@@ -579,7 +585,7 @@ Cleanup:
 
 /*********************************************************************/
 
-short OpenObjFile(char *ObjName)
+static short OpenObjFile(char *ObjName) // used locally only -> static, AF 25.7.2021
 {
  short i = 0, j = 0, k = 0, l, OBNexists;
 
@@ -644,7 +650,7 @@ Repeat:
 
 /*********************************************************************/
 
-void Set_DXFObject(char *name, short pts, char *ptrn)
+static void Set_DXFObject(char *name, short pts, char *ptrn) // used locally only -> static, AF 25.7.2021
 {
 
   OBN = NoOfObjects;
@@ -671,7 +677,7 @@ void Set_DXFObject(char *name, short pts, char *ptrn)
 
 /************************************************************************/
 
-void Set_DLGObject(struct DLGInfo *DLG)
+static void Set_DLGObject(struct DLGInfo *DLG) // used locally only -> static, AF 25.7.2021
 {
  short i;
 
@@ -704,7 +710,7 @@ void Set_DLGObject(struct DLGInfo *DLG)
 
 /************************************************************************/
 
-short AssignDLGAttrs(struct DLGInfo *DLG, char *Prefix)
+static short AssignDLGAttrs(struct DLGInfo *DLG, char *Prefix) // used locally only -> static, AF 25.7.2021
 {
  short SaveObject = 1;
 

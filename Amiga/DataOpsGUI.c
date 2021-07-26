@@ -8,6 +8,12 @@
 #include "GUIExtras.h"
 #include "Version.h"
 
+static void Set_DC_Data(void); // used locally only -> static, AF 25.7.2021
+static void Set_DI_Data(void); // used locally only -> static, AF 25.7.2021
+static double DegMinSecToDegrees(char *str); // used locally only -> static, AF 25.7.2021
+static void Get_DC_InputFile(void);// used locally only -> static, AF 25.7.2021/
+
+
 #define DEM_DATA_INPUT_ARRAY		0
 #define DEM_DATA_INPUT_WCSDEM		1
 #define DEM_DATA_INPUT_ZBUF		2
@@ -684,7 +690,7 @@ void Handle_DC_Window(ULONG WCS_ID)
 
 /***********************************************************************/
 
-void Get_DC_InputFile(void)
+static void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2021
 {
  char filename[255];
  long filesize, fh, data, headersize;
@@ -1151,7 +1157,7 @@ EndCheck:
 
 /* For converting a coordinate string of the form dddmmss to decimal degrees */
 
-double DegMinSecToDegrees(char *str)
+static double DegMinSecToDegrees(char *str) // used locally only -> static, AF 25.7.2021
 {
 long Deg, Min, DegMinSec;
 
@@ -1168,7 +1174,7 @@ long Deg, Min, DegMinSec;
 
 /***********************************************************************/
 
-void Set_DC_Data(void)
+static void Set_DC_Data(void) // used locally only -> static, AF 25.7.2021
 {
  short i;
  char *floatdata;
@@ -1452,7 +1458,7 @@ void Handle_DI_Window(ULONG WCS_ID)
 
 /**********************************************************************/
 
-void Set_DI_Data(void)
+static void Set_DI_Data(void) // used locally only -> static, AF 25.7.2021
 {
  char *floatstr;
 

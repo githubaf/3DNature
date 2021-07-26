@@ -25,7 +25,7 @@
 
 #include <SDI_compiler.h>  // AF
 
-
+static struct MUI_CustomClass *FloatIntInit(void); // used locally only -> static, AF 26.7.2021
 
 /* Includes */
 #include <libraries/mui.h>
@@ -597,7 +597,7 @@ SAVEDS ASM ULONG Dispatcher(REG(a0, struct IClass *cl),
 }
 
 
-struct MUI_CustomClass *FloatIntInit(void)
+static struct MUI_CustomClass *FloatIntInit(void) // used locally only -> static, AF 26.7.2021
 {
 if(!FloatIntClassPointer)
 	{
