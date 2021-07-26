@@ -273,6 +273,8 @@ vgl_dumb_set_pixel (PIXMAP * p, int x, int y) // used locally only -> static, AF
 
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+
 int 
 vgl_dumb_get_pixel (PIXMAP * p, int x, int y)
 {
@@ -291,8 +293,10 @@ vgl_dumb_get_pixel (PIXMAP * p, int x, int y)
     return (-1);
 }
 
-
+#endif
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+
 void 
 vgl_dumb_set_pixel_noclip (PIXMAP * p, int x, int y)
 {
@@ -303,9 +307,11 @@ vgl_dumb_set_pixel_noclip (PIXMAP * p, int x, int y)
     (x + y * p->pixdata->x_size)) = p->foreground;
   check_mouse2 (p, mouse);
 }
-
+#endif
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+
 int 
 vgl_dumb_get_pixel_noclip (PIXMAP * p, int x, int y)
 {
@@ -318,7 +324,7 @@ vgl_dumb_get_pixel_noclip (PIXMAP * p, int x, int y)
   check_mouse2 (p, mouse);
   return (value);
 }
-
+#endif
 
 /*****************************************************************************/
 void 
@@ -440,7 +446,6 @@ vgl_dumb_line (PIXMAP * p, int x1, int y1, int x2, int y2)
   /* Once line has been clipped, call vgl_dumb_line_noclip */
   vgl_dumb_line_noclip (p, x1, y1, x2, y2);
 }
-
 
 /*****************************************************************************/
 #ifdef	BRESENHAM_LINE
@@ -1080,6 +1085,7 @@ vgl_dumb_vline_noclip (PIXMAP * p, int x, int ya, int yb)
 
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 void 
 vgl_dumb_rect (PIXMAP * p, int x1, int y1, int x2, int y2)
 {
@@ -1088,7 +1094,7 @@ vgl_dumb_rect (PIXMAP * p, int x1, int y1, int x2, int y2)
   vgl_dumb_hline (p, x2, x1, y2);
   vgl_dumb_vline (p, x1, y2, y1);
 }
-
+#endif
 
 /*****************************************************************************/
 static void 
@@ -1242,6 +1248,7 @@ vgl_dumb_fillrect_noclip (PIXMAP * p, int x1, int y1, int x2, int y2)  // used l
 }
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 void 
 vgl_dumb_circle_noclip (PIXMAP * p, int x, int y, int r)
 {
@@ -1322,9 +1329,10 @@ vgl_dumb_circle_noclip (PIXMAP * p, int x, int y, int r)
 
   check_mouse2 (p, mouse);
 }
-
+#endif
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 void 
 vgl_dumb_circle (PIXMAP * p, int x, int y, int r)
 {
@@ -1390,9 +1398,10 @@ vgl_dumb_circle (PIXMAP * p, int x, int y, int r)
 
   check_mouse2 (p, mouse);
 }
-
+#endif
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 void 
 vgl_dumb_fillcircle (PIXMAP * p, int x, int y, int r)
 {
@@ -1506,9 +1515,11 @@ vgl_dumb_fillcircle (PIXMAP * p, int x, int y, int r)
 
   check_mouse2 (p, mouse);
 }
-
+#endif
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+
 void 
 vgl_dumb_fillcircle_noclip (PIXMAP * p, int x, int y, int r)
 {
@@ -1611,7 +1622,7 @@ vgl_dumb_fillcircle_noclip (PIXMAP * p, int x, int y, int r)
 
   check_mouse2 (p, mouse);
 }
-
+#endif
 
 /*****************************************************************************/
 void 
@@ -1675,6 +1686,8 @@ vgl_dumb_clear (PIXMAP * p)
 
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+
 void 
 vgl_dumb_dissolve (PIXMAP * dest, PIXMAP * source, int speed)
 {
@@ -1773,6 +1786,8 @@ vgl_dumb_dissolve (PIXMAP * dest, PIXMAP * source, int speed)
   check_mouse2 (source, mouse1);
   check_mouse2 (dest, mouse2);
 }
+#endif
+
 
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 /*****************************************************************************/
@@ -1923,6 +1938,7 @@ vgl_dumb_bitblt (PIXMAP *source, int sx, int sy, int width, int height,
 }
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 void 
 vgl_dumb_bitblt_noclip (PIXMAP *source, int sx, int sy, int width, int height,
 			PIXMAP *dest, int dx, int dy)
@@ -1943,7 +1959,7 @@ vgl_dumb_bitblt_noclip (PIXMAP *source, int sx, int sy, int width, int height,
   check_mouse2 (source, temp1);
   check_mouse2 (dest, temp2);
 }
-
+#endif
 
 
 /*****************************************************************************/
@@ -2153,14 +2169,16 @@ vgl_dumb_transbitblt_core (PIXMAP *source, int sx, int sy,
 
 
 /****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 void 
 vgl_dumb_setfont (PIXMAP * p, struct vgl_ffont *ffont)
 {
   p->font = ffont;
 }
-
+#endif
 
 /****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 int
 vgl_dumb_test( PIXMAP *p, char *msg)
 {
@@ -2182,8 +2200,10 @@ vgl_dumb_test( PIXMAP *p, char *msg)
   return (err);
 #endif
 }
-
+#endif
 /****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+
 void vgl_dumb_quadlist (PIXMAP *p, int n_quads, struct vgl_quad_def *quad,
 			int xoffset, int yoffset)
 {
@@ -2221,7 +2241,7 @@ void vgl_dumb_quadlist (PIXMAP *p, int n_quads, struct vgl_quad_def *quad,
   vgl_setcur (p, prev_f, prev_b);
 }
 
-
+#endif
 /****************************************************************************/
 void vgl_dumb_linelist (PIXMAP *p, int n_lines, struct vgl_line_def *line,
 			int xoffset, int yoffset)
