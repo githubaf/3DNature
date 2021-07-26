@@ -16,8 +16,6 @@ static void ParamFmtV1V2_Convert(struct AnimationV1 *MoParV1, struct PaletteV1 *
         union EnvironmentV1 *EcoParV1, struct SettingsV1 *settingsV1,
         struct ParHeaderV1 *ParHdrV1, union KeyFrameV1 *KFV1, USHORT loadcode,
         short loaditem, short LoadKeys); // used locally only -> static, AF 23.7.2021
-static short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
-        short Key, short Frame, double Scale, short Linear); // used locally only -> static, AF 23.7.2021
 
 
 #ifdef KJHKJDFHKDHFKJDFH // Now in LWSupport.c

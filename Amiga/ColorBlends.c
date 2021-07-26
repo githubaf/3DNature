@@ -9,8 +9,8 @@
 #define RENDER_SCREEN_DITHER
 
 
-static short ComputeBumpMapTexture(double LatPt, double LonPt); // used locally only -> static, AF 26.7.2021
-static void StrataConvert(void); // used locally only -> static, AF 26.7.2021
+// short ComputeBumpMapTexture(double LatPt, double LonPt); // AF, not used 26.July 2021
+// void StrataConvert(void); // AF, not used 26.July 2021
 static long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon); // used locally only -> static, AF 26.7.2021
 static void seashoal(struct ColorComponents *CC); // used locally only -> static, AF 26.7.2021
 static void SetScreenColor(short ecotype); // used locally only -> static, AF 26.7.2021
@@ -792,14 +792,14 @@ RepeatTex:
 } /* ComputeTextureColor() */
 
 /*************************************************************************/
-
-static short ComputeBumpMapTexture(double LatPt, double LonPt) // used locally only -> static, AF 26.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+short ComputeBumpMapTexture(double LatPt, double LonPt)
 {
 
  return ((short)(200 + MakeNoise(NoiseMap, 55, LatPt * 240.0, LonPt * 240.0)));
 
 } /* ComputeBumpMapTexture() */
-
+#endif
 /***********************************************************************/
 
 static long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon) // used locally only -> static, AF 26.7.2021
@@ -917,7 +917,8 @@ into a volumetric texture map for stratified rock */
 #define INPUT_ROW_LENGTH 640
 #define INPUT_HEIGHT 1200
 
-static void StrataConvert(void) // used locally only -> static, AF 26.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+void StrataConvert(void)
 {
 UBYTE val;
 long i, j, k, lastpt;
@@ -977,4 +978,4 @@ FILE *fStrataIn, *fStrataOut;
   } /* if input file opened */
 
 } /* StrataConvert() */
-
+#endif

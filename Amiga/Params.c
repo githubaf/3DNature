@@ -12,7 +12,7 @@
 static void UnsetKeyItem(union KeyFrame *Key); // used locally only -> static, AF 24.7.2021
 static void SetKeyFrame(short i, short frame, short group, short item); // used locally only -> static, AF 24.7.2021
 static short SplineAllKeys(void); // used locally only -> static, AF 24.7.2021
-static short GetNextKeyItem(short group, short curitem, short dir); // used locally only -> static, AF 24.7.2021
+//short GetNextKeyItem(short group, short curitem, short dir); // AF, not used 26.July 2021
 static void SetKeyTableEntry(union KeyFrame **Key, short group, short item); // used locally only -> static, AF 24.7.2021
 
 
@@ -762,8 +762,8 @@ short GetActiveKey(struct KeyTable *KTbl, short frame)
 } /* GetActiveKey() */
 
 /***********************************************************************/
-
-static short GetNextKeyItem(short group, short curitem, short dir) // used locally only -> static, AF 24.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+short GetNextKeyItem(short group, short curitem, short dir)
 {
  short i, nextitem;
 
@@ -807,7 +807,7 @@ static short GetNextKeyItem(short group, short curitem, short dir) // used local
  return (nextitem);
 
 } /* GetNextKeyItem() */
-
+#endif
 /***********************************************************************/
 
 static void SetKeyTableEntry(union KeyFrame **Key, short group, short item) // used locally only -> static, AF 24.7.2021

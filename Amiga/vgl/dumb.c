@@ -2250,6 +2250,7 @@ void vgl_dumb_quadlist (PIXMAP *p, int n_quads, struct vgl_quad_def *quad,
 
 #endif
 /****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 void vgl_dumb_linelist (PIXMAP *p, int n_lines, struct vgl_line_def *line,
 			int xoffset, int yoffset)
 {
@@ -2282,7 +2283,7 @@ void vgl_dumb_linelist (PIXMAP *p, int n_lines, struct vgl_line_def *line,
   /* Set the color back to what it "should" be */
   vgl_setcur (p, prev_f, prev_b);
 }
-
+#endif
 
 /****************************************************************************/
 /****************************************************************************/

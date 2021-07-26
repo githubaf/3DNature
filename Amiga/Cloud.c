@@ -19,15 +19,15 @@ struct CloudLayer *CloudLayer_New(void)
 } /* CloudLayer_New() */
 
 /*********************************************************************/
-
-static void CloudLayer_Del(struct CloudLayer *CL) // used locally only -> static, AF 19.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+void CloudLayer_Del(struct CloudLayer *CL) // not used AF 19.7.21
 {
 
  if (CL)
   free_Memory(CL, sizeof (struct CloudLayer));
 
 } /* CloudLayer_Del() */
-
+#endif
 /**************************:*******************************************/
 
 static void CloudLayer_DelAll(struct CloudLayer *CL) // used locally only -> static, AF 19.7.2021

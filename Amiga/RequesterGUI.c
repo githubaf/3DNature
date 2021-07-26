@@ -13,7 +13,7 @@
 struct DateTime PocketWatch;
 char PWDate[26], Today[26], ProjDate[26];
 
-static void MUI_DoNotifyPressed(APTR Target, ULONG ID); // used locally only -> static, AF 26.7.2021
+// void MUI_DoNotifyPressed(APTR Target, ULONG ID); // AF, not used 26.July 2021
 
 
 short getdbasename(long mode)
@@ -504,14 +504,15 @@ return(KeyButtonObject(ControlChar), MUIA_Text_Contents, Contents, End);
 /**************************************************************************/
 
 /* Stand and watch the world fall in. */
-static void MUI_DoNotifyPressed(APTR Target, ULONG ID) // used locally only -> static, AF 25.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+void MUI_DoNotifyPressed(APTR Target, ULONG ID)
 {
 
 DoMethod(Target, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
  MUIM_Application_ReturnID, ID);
 return;
 } /* MUI_DoNotifyPressed() */
-
+#endif
 /**************************************************************************/
 
 /* More of the same, but BIGGER BETTER FASTER! */

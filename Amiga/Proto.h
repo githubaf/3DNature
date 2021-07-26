@@ -100,7 +100,7 @@ extern short InterlaceFields(char *Name, short Width, short Height, short Domina
 
 /* Cloud.c */
 extern struct CloudLayer *CloudLayer_New(void);
-//extern void CloudLayer_Del(struct CloudLayer *CL); // used locally only -> static, AF 19.7.2021
+//extern void CloudLayer_Del(struct CloudLayer *CL); // AF, not used 26.July 2021
 //extern void CloudLayer_DelAll(struct CloudLayer *CL); // used locally only -> static, AF 19.7.2021
 extern void CloudLayer_SetDouble(struct CloudLayer *CL, ULONG Item, double Val);
 extern void CloudLayer_SetShort(struct CloudLayer *CL, ULONG Item, short Val);
@@ -626,7 +626,7 @@ extern void ClipDrawRPort(struct RastPort *Rast, struct clipbounds *cb,
 //extern void ClipAreaDraw(struct Window *win, struct poly4 *Poly,
 //	struct clipbounds *cb); // used locally only -> static, AF 24.7.2021
 //extern void ClipPoly4(struct Window *win, struct poly4 *Poly,
-//	struct clipbounds *cb); // used locally only -> static, AF 24.7.2021
+//	struct clipbounds *cb); // AF, not used 26.July 2021
 extern short ClipPolySeg(struct clipbounds *cb, struct lineseg *ls);
 extern void UTMLatLonCoords_Init(struct UTMLatLonCoords *Coords, short UTMZone);
 extern void UTM_LatLon(struct UTMLatLonCoords *Coords);

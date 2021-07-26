@@ -9,14 +9,14 @@
 static void markpt(short edpt, short col); // used locally only -> static, AF 19.7.2021
 static double SolveDistCart(double XJ, double YJ, double ZJ,
         double XK, double YK, double ZK); // used locally only -> static, AF 23.7.2021
-static void ZeroMatrix3x3(Matx3x3 A); // used locally only -> static, AF 23.7.2021
+// void ZeroMatrix3x3(Matx3x3 A); // AF, not used 26.July 2021
 static void MakeTempCart(double Lat, double Lon, double SphereRad,
         double *X, double *Y, double *Z); // used locally only -> static, AF 23.7.2021
 static double SolveArcAng(double CartDist, double SphereRad); // used locally only -> static, AF 23.7.2021
 static void InitGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
 static double DoGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
 static void unmarkpt(short edpt); // used locally only -> static, AF 23.7.2021
-static void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // used locally only -> static, AF 23.7.2021
+// void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // AF, not used 26.July 2021
 
 
 

@@ -10,7 +10,7 @@
 static ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags);  // used locally only -> static, AF 19.7.2021
 static ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags); // used locally only -> static, AF 19.7.2021
 static ULONG Foliage_Save(struct Foliage *This, FILE *ffile); // used locally only -> static, AF 24.7.2021
-static long Rootstock_Save(struct Rootstock *This, FILE *ffile); // used locally only -> static, AF 24.7.2021
+//long Rootstock_Save(struct Rootstock *This, FILE *ffile); // AF, not used 26.July 2021
 static struct Foliage *Foliage_Load(FILE *ffile, ULONG ReadSize); // used locally only -> static, AF 24.7.2021
 
 
@@ -1106,14 +1106,14 @@ struct Foliage *Fol, *NewFol, **NewFolAddr;
 } /* Ecotype_Copy() */
 
 /***********************************************************************/
-
-static long Rootstock_Save(struct Rootstock *This, FILE *ffile) // used locally only -> static, AF 24.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+long Rootstock_Save(struct Rootstock *This, FILE *ffile)
 {
 
  return (0);
 
 } /* Rootstock_Save() */
-
+#endif
 /***********************************************************************/
 
 ULONG Ecotype_Save(struct Ecotype *This, FILE *ffile)

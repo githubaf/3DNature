@@ -23,16 +23,16 @@ static void SetGenericKeyFrame(union KeyFrame *KF, short i, short frame, short g
         short item, short ItemMatch, short NumValues, double *DblValue,
         float *FltValue, short *ShortValue, float *TCB, short Linear,
         short Precision); // used locally only -> static, AF 23.7.2021
-static short GetNextGenericKeyItem(union KeyFrame *KF, short KeyFrames,
-        short group, short curitem, short dir); // used locally only -> static, AF 23.7.2021
+//short GetNextGenericKeyItem(union KeyFrame *KF, short KeyFrames,
+//        short group, short curitem, short dir); // AF, not used 26.July 2021
 static void SetGenericKeyTableEntry(union KeyFrame *KF, union KeyFrame **Key,
         short NumKeys, short Group, short Item); // used locally only -> static, AF 23.7.2021
-static short CountGenericKeyFrames(union KeyFrame *KF, short KeyFrames,
-        short group, short item); // used locally only -> static, AF 23.7.2021
+//short CountGenericKeyFrames(union KeyFrame *KF, short KeyFrames,
+//        short group, short item); // AF, not used 26.July 2021
 
-
-static void MergeGenericKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFrame **OF,
-	short *OFKeys, long *OFsize, short group) // used locally only -> static, AF 23.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+void MergeGenericKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFrame **OF,
+	short *OFKeys, long *OFsize, short group)
 {
  short i, j, frame, OrigKeys;
  union KeyFrame *OFptr;
@@ -94,7 +94,7 @@ static void MergeGenericKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFra
   } /* for i=0... */
 
 } /* MergeGenericKeyFrames() */
-
+#endif
 /************************************************************************/
 
 short MakeGenericKeyFrame(union KeyFrame **KFPtr, long *KFSizePtr,
@@ -527,9 +527,9 @@ void GetGenericKeyTableValues(struct KeyTable **KTPtr, union KeyFrame *KF,
 } /* GetGenericKeyTableValues() */
 
 /************************************************************************/
-
-static short CountGenericKeyFrames(union KeyFrame *KF, short KeyFrames,
-	short group, short item) // used locally only -> static, AF 23.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+short CountGenericKeyFrames(union KeyFrame *KF, short KeyFrames,
+	short group, short item)
 {
  short i, CountedKeyFrames = 0;
 
@@ -547,7 +547,7 @@ static short CountGenericKeyFrames(union KeyFrame *KF, short KeyFrames,
  return (CountedKeyFrames);
 
 } /* CountGenericKeyFrames() */
-
+#endif
 /***********************************************************************/
 
 short GetActiveGenericKey(struct KeyTable *KTbl, short frame)
@@ -570,9 +570,9 @@ short GetActiveGenericKey(struct KeyTable *KTbl, short frame)
 } /* GetActiveGenericKey() */
 
 /***********************************************************************/
-
-static short GetNextGenericKeyItem(union KeyFrame *KF, short KeyFrames,
-	short group, short curitem, short dir) // used locally only -> static, AF 23.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+short GetNextGenericKeyItem(union KeyFrame *KF, short KeyFrames,
+	short group, short curitem, short dir)
 {
  short i, nextitem;
 
@@ -616,7 +616,7 @@ static short GetNextGenericKeyItem(union KeyFrame *KF, short KeyFrames,
  return (nextitem);
 
 } /* GetNextGenericKeyItem() */
-
+#endif
 /***********************************************************************/
 
 short BuildGenericKeyTable(struct KeyTable **KTPtr, union KeyFrame *KF,

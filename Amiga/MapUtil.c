@@ -12,8 +12,8 @@ static void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // used locall
 static void ZeroMatrix3x3(Matx3x3 A); // used locally only -> static, AF 23.7.2021
 static void sortrenderlist(void); // used locally only -> static, AF 24.7.2021
 static double DegMinSecToDegrees2(double Val); // used locally only -> static, AF 24.7.2021
-static void ClipAreaDraw(struct Window *win, struct poly4 *Poly, struct clipbounds *cb); // used locally only -> static, AF 24.7.2021
-static void ClipPoly4(struct Window *win, struct poly4 *Poly, struct clipbounds *cb); // used locally only -> static, AF 24.7.2021
+//void ClipAreaDraw(struct Window *win, struct poly4 *Poly, struct clipbounds *cb); // AF, not used 26.July 2021
+// void ClipPoly4(struct Window *win, struct poly4 *Poly, struct clipbounds *cb); // AF, not used 26.July 2021
 static void RotationMatrix3D(short m, double theta, Matx3x3 A); // used locally only -> static, AF 24.7.2021
 
 
@@ -865,8 +865,8 @@ void ClipDrawRPort(struct RastPort *Rast, struct clipbounds *cb, struct lineseg 
 }/* ClipDraw() */
 
 /***********************************************************************/
-
-static void ClipAreaDraw(struct Window *win, struct poly4 *Poly, struct clipbounds *cb) // used locally only -> static, AF 24.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+void ClipAreaDraw(struct Window *win, struct poly4 *Poly, struct clipbounds *cb)
 {
  short i = 0, ct = 0;
 
@@ -901,10 +901,10 @@ static void ClipAreaDraw(struct Window *win, struct poly4 *Poly, struct clipboun
   } /* if at least one point within clip bounds */
 
 } /* ClipAreaDraw() */
-
+#endif
 /***********************************************************************/
-
-static void ClipPoly4(struct Window *win, struct poly4 *Poly, struct clipbounds *cb) // used locally only -> static, AF 24.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+void ClipPoly4(struct Window *win, struct poly4 *Poly, struct clipbounds *cb)
 {
  short i = 0, PolyFirst = 1;
  struct lineseg ls;
@@ -938,7 +938,7 @@ static void ClipPoly4(struct Window *win, struct poly4 *Poly, struct clipbounds 
   } /* if at least one segment */
 
 } /* ClipPoly4() */
-
+#endif
 /***********************************************************************/
 
 short ClipPolySeg(struct clipbounds *cb, struct lineseg *ls)

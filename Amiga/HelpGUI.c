@@ -6,12 +6,14 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 
-static void Help_ES_Window(APTR item) // used locally only -> static, AF 26.7.2021
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
+void Help_ES_Window(APTR item)
 {
  short i, gadtype = 0;
  static const char *GadType[] = {
   "Button", "String", "Integer String", "Float String", "Cycle"
  };
+
 
  static const char *GadNameStr[] = {
   "Frame Save Path",
@@ -579,3 +581,5 @@ Individual DEM's may be designated as surfaces in the \"Class\" field of the\
   } /* switch */
 
 } /* ES_Win_Help() */
+
+#endif
