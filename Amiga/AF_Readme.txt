@@ -288,7 +288,10 @@ mor functions static. 150 left.
 ------------
 Alle moegliche  Funktion static oder ganz wegdefiniert.
 
+Release:
 1427452  STATIC_FUNCTIONS=static -flto  -fomit-frame-pointer    -> nochmal 3.488 Bytes haben die ganzen static functions gespart 
 1430940  STATIC_FUNCTIONS=       -flto  -fomit-frame-pointer
 
-
+Alle Files mit GUI im Namen mit -Os compiliert, den Rest mit -O2
+Release:
+1151504 STATIC_FUNCTIONS=static -flto  -fomit-frame-pointer
