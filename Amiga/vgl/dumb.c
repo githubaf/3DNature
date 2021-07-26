@@ -147,6 +147,7 @@ vgl_dumb_set_clip (PIXMAP * p, int x1, int y1, int x2, int y2)
 #endif
 
 /****************************************************************************/
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 void 
 vgl_dumb_clip_off (PIXMAP * p)
 {
@@ -175,7 +176,7 @@ vgl_dumb_clip_off (PIXMAP * p)
   p->nothing = vgl_dumb_nothing;
   p->hlinelist = vgl_dumb_hlinelist_noclip;
 }
-
+#endif
 /****************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 19.July 2021
 void 
@@ -1773,7 +1774,7 @@ vgl_dumb_dissolve (PIXMAP * dest, PIXMAP * source, int speed)
   check_mouse2 (dest, mouse2);
 }
 
-
+#ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 /*****************************************************************************/
 void 
 vgl_dumb_ellipse (PIXMAP * p, int x, int y, int a, int b)
@@ -1844,6 +1845,8 @@ vgl_dumb_fillarc_noclip (PIXMAP *p,
 
 
 /*****************************************************************************/
+#endif
+
 void 
 vgl_dumb_bitblt (PIXMAP *source, int sx, int sy, int width, int height,
 		 PIXMAP *dest, int dx, int dy)
