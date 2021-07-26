@@ -10,27 +10,27 @@
 #include "Foliage.h"
 
 
-static void GUIFoliageGroup_SetGads(struct FoliageGroup *This); // used locally only -> static, AF 19.7.2021
-static short SearchColorListMatch(char *Name); // used locally only -> static, AF 19.7.2021
-static short GUIFoliage_Remove(void); // used locally only -> static, AF 19.7.2021
-static short GUIFoliageGroup_Add(void); // used locally only -> static, AF 19.7.2021
-static void GUIFoliage_SetGads(struct Foliage *This); // used locally only -> static, AF 19.7.2021
-static short GUIEcotype_Load(void); // used locally only -> static, AF 19.7.2021
-static void EcotypeDefaultColors(struct Ecotype *Eco, short Color); // used locally only -> static, AF 19.7.2021
-static short GUIImagePath(struct Foliage *Fol); // used locally only -> static, AF 19.7.2021
-static short GUIFoliageGroup_New(void); // used locally only -> static, AF 19.7.2021
-static short GUIFoliage_Add(void); // used locally only -> static, AF 19.7.2021
-static short GUIFoliage_View(struct Foliage *Fol, UBYTE **Bitmap); // used locally only -> static, AF 19.7.2021
-static short GUIFoliageGroup_Remove(void); // used locally only -> static, AF 19.7.2021
-static void BuildFoliageList(struct FoliageGroup *FolGp); // used locally only -> static, AF 19.7.2021
-static short GUIEcotype_Save(void); // used locally only -> static, AF 19.7.2021
-static void DisableColorChecks(struct FoliageGroup *FolGp, struct Foliage *Fol); // used locally only -> static, AF 19.7.2021
-static void BuildFoliageGroupList(struct Ecotype *Eco); // used locally only -> static, AF 19.7.2021
-static short GUIFoliageGroup_Save(void); // used locally only -> static, AF 19.7.202
-static void FoliageGroupDefaultColors(struct FoliageGroup *FolGp, short Color); // used locally only -> static, AF 19.7.2021
-static void FoliageDefaultColors(struct Foliage *Fol, short Color); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void GUIFoliageGroup_SetGads(struct FoliageGroup *This); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short SearchColorListMatch(char *Name); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliage_Remove(void); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliageGroup_Add(void); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void GUIFoliage_SetGads(struct Foliage *This); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIEcotype_Load(void); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void EcotypeDefaultColors(struct Ecotype *Eco, short Color); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIImagePath(struct Foliage *Fol); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliageGroup_New(void); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliage_Add(void); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliage_View(struct Foliage *Fol, UBYTE **Bitmap); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliageGroup_Remove(void); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void BuildFoliageList(struct FoliageGroup *FolGp); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIEcotype_Save(void); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void DisableColorChecks(struct FoliageGroup *FolGp, struct Foliage *Fol); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void BuildFoliageGroupList(struct Ecotype *Eco); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliageGroup_Save(void); // used locally only -> static, AF 19.7.202
+STATIC_FCN void FoliageGroupDefaultColors(struct FoliageGroup *FolGp, short Color); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void FoliageDefaultColors(struct Foliage *Fol, short Color); // used locally only -> static, AF 19.7.2021
 
-static void Make_FE_Window(void) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.2021
 {
  long i, open;
 
@@ -730,7 +730,7 @@ double FloatVal;
 
 /***********************************************************************/
 
-static short GUIEcotype_Load(void) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIEcotype_Load(void) // used locally only -> static, AF 19.7.2021
 {
 char filename[256], Path[256], Name[32], Ptrn[32];
 FILE *ffile;
@@ -770,7 +770,7 @@ short success = 0;
 
 /***********************************************************************/
 
-static short GUIFoliageGroup_Add(void) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliageGroup_Add(void) // used locally only -> static, AF 19.7.2021
 {
 char filename[256], Path[256], Name[32], Ptrn[32], **NameAddr;
 FILE *ffile;
@@ -837,7 +837,7 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
 
 /***********************************************************************/
 
-static short GUIFoliageGroup_New(void) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliageGroup_New(void) // used locally only -> static, AF 19.7.2021
 {
 char Name[64], **NameAddr;
 struct Ecotype *Prototype;
@@ -900,7 +900,7 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
 
 /***********************************************************************/
 
-static short GUIFoliageGroup_Save(void) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliageGroup_Save(void) // used locally only -> static, AF 19.7.2021
 {
 char filename[256], Path[256], Name[32], Ptrn[32];
 FILE *ffile;
@@ -934,7 +934,7 @@ short success = 0;
 
 /***********************************************************************/
 
-static short GUIFoliage_Add(void) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliage_Add(void) // used locally only -> static, AF 19.7.2021
 {
 char filename[256], Path[256], Name[32], **NameAddr;
 struct Foliage *NewFol, **NewFolAddr;
@@ -1003,7 +1003,7 @@ UBYTE *Bitmap[3];
 
 /***********************************************************************/
 
-static short GUIImagePath(struct Foliage *Fol) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIImagePath(struct Foliage *Fol) // used locally only -> static, AF 19.7.2021
 {
 char NewPath[256];
 
@@ -1025,7 +1025,7 @@ char NewPath[256];
 
 /***********************************************************************/
 
-static short GUIFoliage_Remove(void) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliage_Remove(void) // used locally only -> static, AF 19.7.2021
 {
 struct Foliage *Fol, *FolPrev = NULL;
 
@@ -1059,7 +1059,7 @@ struct Foliage *Fol, *FolPrev = NULL;
 
 /***********************************************************************/
 
-static short GUIFoliageGroup_Remove(void) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliageGroup_Remove(void) // used locally only -> static, AF 19.7.2021
 {
 struct FoliageGroup *FolGp, *FolGpPrev = NULL;
 
@@ -1096,7 +1096,7 @@ struct FoliageGroup *FolGp, *FolGpPrev = NULL;
 
 /***********************************************************************/
 
-static short GUIFoliage_View(struct Foliage *Fol, UBYTE **Bitmap) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIFoliage_View(struct Foliage *Fol, UBYTE **Bitmap) // used locally only -> static, AF 19.7.2021
 {
 
  User_Message_Def("Foliage Editor: View Image",
@@ -1109,7 +1109,7 @@ static short GUIFoliage_View(struct Foliage *Fol, UBYTE **Bitmap) // used locall
 
 /***********************************************************************/
 
-static void EcotypeDefaultColors(struct Ecotype *Eco, short Color) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void EcotypeDefaultColors(struct Ecotype *Eco, short Color) // used locally only -> static, AF 19.7.2021
 {
 struct FoliageGroup *FolGp;
 
@@ -1127,7 +1127,7 @@ struct FoliageGroup *FolGp;
 
 /***********************************************************************/
 
-static void FoliageGroupDefaultColors(struct FoliageGroup *FolGp, short Color) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void FoliageGroupDefaultColors(struct FoliageGroup *FolGp, short Color) // used locally only -> static, AF 19.7.2021
 {
 short MatchColor;
 struct Foliage *Fol;
@@ -1150,7 +1150,7 @@ struct Foliage *Fol;
 
 /***********************************************************************/
 
-static void FoliageDefaultColors(struct Foliage *Fol, short Color) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void FoliageDefaultColors(struct Foliage *Fol, short Color) // used locally only -> static, AF 19.7.2021
 {
 short MatchColor;
 
@@ -1166,7 +1166,7 @@ short MatchColor;
 
 /***********************************************************************/
 
-static short SearchColorListMatch(char *Name) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short SearchColorListMatch(char *Name) // used locally only -> static, AF 19.7.2021
 {
 short i, FoundColor = -1;
 
@@ -1418,7 +1418,7 @@ Limit[0] = Limit[1] = Limit[2] = 0;
 
 /***********************************************************************/
 
-static short GUIEcotype_Save(void) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short GUIEcotype_Save(void) // used locally only -> static, AF 19.7.2021
 {
 char filename[256], Path[256], Name[32], Ptrn[32];
 FILE *ffile;
@@ -1464,7 +1464,7 @@ void GUIList_Clear(char **List, long ListSize, APTR ListView)
 
 /***********************************************************************/
 
-static void GUIFoliageGroup_SetGads(struct FoliageGroup *This) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void GUIFoliageGroup_SetGads(struct FoliageGroup *This) // used locally only -> static, AF 19.7.2021
 {
 short color[3];
 float Height, Density;
@@ -1498,7 +1498,7 @@ short UseImgCol, PalCol, MaxImgHt;
 
 /***********************************************************************/
 
-static void GUIFoliage_SetGads(struct Foliage *This) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void GUIFoliage_SetGads(struct Foliage *This) // used locally only -> static, AF 19.7.2021
 {
 short color[3];
 char SizeStr[32];
@@ -1536,7 +1536,7 @@ short UseImgCol, PalCol, ImgWidth, ImgHeight, MaxImgHt;
 
 /***********************************************************************/
 
-static void BuildFoliageGroupList(struct Ecotype *Eco) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void BuildFoliageGroupList(struct Ecotype *Eco) // used locally only -> static, AF 19.7.2021
 {
 short color[3];
 char **NameAddr;
@@ -1597,7 +1597,7 @@ struct FoliageGroup *CurGrp, *FirstGrp;
 
 /*********************************************************************/
 
-static void BuildFoliageList(struct FoliageGroup *FolGp) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void BuildFoliageList(struct FoliageGroup *FolGp) // used locally only -> static, AF 19.7.2021
 {
 char **NameAddr;
 struct Foliage *CurImg, *FirstImg;
@@ -1633,7 +1633,7 @@ struct Foliage *CurImg, *FirstImg;
 
 /***********************************************************************/
 
-static void DisableColorChecks(struct FoliageGroup *FolGp, struct Foliage *Fol) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void DisableColorChecks(struct FoliageGroup *FolGp, struct Foliage *Fol) // used locally only -> static, AF 19.7.2021
 {
 short ColorImage = 0, ColorGroup = 0, UseImgCol = 0, UseGrpCol = 1,
 	BWImage = 0;

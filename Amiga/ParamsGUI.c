@@ -7,17 +7,17 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 
-static short Add_FM_Item(void);  // used locally only -> static, AF 19.7.2021
-static void Set_PS_Info(void); // used locally only -> static, AF 24.7.2021
-static void Remove_FM_Item(long item); // used locally only -> static, AF 24.7.2021
-static void Set_LW_Info(void); // used locally only -> static, AF 24.7.2021
-static short Load_FM_Win(void); // used locally only -> static, AF 24.7.2021
-static void Unset_FM_Item(long item); // used locally only -> static, AF 24.7.2021
-static short Save_FM_Win(void); // used locally only -> static, AF 24.7.2021
-static void Set_FM_List(short Update, short ActiveItem); // used locally only -> static, AF 24.7.2021
+STATIC_FCN short Add_FM_Item(void);  // used locally only -> static, AF 19.7.2021
+STATIC_FCN void Set_PS_Info(void); // used locally only -> static, AF 24.7.2021
+STATIC_FCN void Remove_FM_Item(long item); // used locally only -> static, AF 24.7.2021
+STATIC_FCN void Set_LW_Info(void); // used locally only -> static, AF 24.7.2021
+STATIC_FCN short Load_FM_Win(void); // used locally only -> static, AF 24.7.2021
+STATIC_FCN void Unset_FM_Item(long item); // used locally only -> static, AF 24.7.2021
+STATIC_FCN short Save_FM_Win(void); // used locally only -> static, AF 24.7.2021
+STATIC_FCN void Set_FM_List(short Update, short ActiveItem); // used locally only -> static, AF 24.7.2021
 
 
-static void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 24.7.2021
+STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 24.7.2021
 {
  long open;
 
@@ -505,7 +505,7 @@ short Set_PS_List(char **List, short *ListID, short group, short ReqKeys,
 
 /**********************************************************************/
 
-static void Set_PS_Info(void) // used locally only -> static, AF 24.7.2021
+STATIC_FCN void Set_PS_Info(void) // used locally only -> static, AF 24.7.2021
 {
  long data;
  char *floatdata;
@@ -848,7 +848,7 @@ void Handle_LW_Window(ULONG WCS_ID)
 
 /***********************************************************************/
 
-static void Set_LW_Info(void) // used locally only -> static, AF 24.7.2021
+STATIC_FCN void Set_LW_Info(void) // used locally only -> static, AF 24.7.2021
 {
  char *floatdata;
 long data;
@@ -1140,7 +1140,7 @@ void Handle_FM_Window(ULONG WCS_ID)
 
 /***********************************************************************/
 
-static void Set_FM_List(short Update, short ActiveItem) // used locally only -> static, AF 24.7.2021
+STATIC_FCN void Set_FM_List(short Update, short ActiveItem) // used locally only -> static, AF 24.7.2021
 {
  short i;
 
@@ -1168,7 +1168,7 @@ static void Set_FM_List(short Update, short ActiveItem) // used locally only -> 
 
 /************************************************************************/
 
-static short Add_FM_Item(void)  // used locally only -> static, AF 19.7.2021
+STATIC_FCN short Add_FM_Item(void)  // used locally only -> static, AF 19.7.2021
 {
  long i, Ht, Stems, Red, Grn, Blu, OldHt, MoveItem, Class;
 
@@ -1271,7 +1271,7 @@ static short Add_FM_Item(void)  // used locally only -> static, AF 19.7.2021
 
 /************************************************************************/
 
-static void Remove_FM_Item(long item) // used locally only -> static, AF 24.7.2021
+STATIC_FCN void Remove_FM_Item(long item) // used locally only -> static, AF 24.7.2021
 {
 
  for ( ; item<FM_Win->ItemNum; item++)
@@ -1288,7 +1288,7 @@ static void Remove_FM_Item(long item) // used locally only -> static, AF 24.7.20
 
 /************************************************************************/
 
-static void Unset_FM_Item(long item) // used locally only -> static, AF 24.7.2021
+STATIC_FCN void Unset_FM_Item(long item) // used locally only -> static, AF 24.7.2021
 {
  long Ht, Stems, Red, Grn, Blu, Class;
 
@@ -1334,7 +1334,7 @@ static void Unset_FM_Item(long item) // used locally only -> static, AF 24.7.202
 
 /************************************************************************/
 
-static short Load_FM_Win(void) // used locally only -> static, AF 24.7.2021
+STATIC_FCN short Load_FM_Win(void) // used locally only -> static, AF 24.7.2021
 {
  short error = 0, Items, Version, SaveOld;
  long Ht, Stems, Red, Grn, Blu;
@@ -1480,7 +1480,7 @@ EndLoad:
 
 /************************************************************************/
 
-static short Save_FM_Win(void) // used locally only -> static, AF 24.7.2021
+STATIC_FCN short Save_FM_Win(void) // used locally only -> static, AF 24.7.2021
 {
  short i, error = 0, Version = 1;
  char filename[256], name[32], *nameptr;

@@ -8,11 +8,11 @@
 #include "GUIDefines.h"
 #include <time.h>
 
-static void Close_Render_Window(void); // used locally only -> static, AF 20.7.2021
-static short InitDEMMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 20.7.2021
-static short BuildTrigTables(void); // used locally only -> static, AF 26.7.2021
-static void FreeTrigTables(void); // used locally only -> static, AF 26.7.2021
-static short InitCloudMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 26.7.2021
+STATIC_FCN void Close_Render_Window(void); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short InitDEMMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short BuildTrigTables(void); // used locally only -> static, AF 26.7.2021
+STATIC_FCN void FreeTrigTables(void); // used locally only -> static, AF 26.7.2021
+STATIC_FCN short InitCloudMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 26.7.2021
 
 
 void globemap(void)
@@ -1050,7 +1050,7 @@ NewStatFile:
 
 /**********************************************************************/
 
-static short InitDEMMap(struct Window *win, struct CloudData *CD) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short InitDEMMap(struct Window *win, struct CloudData *CD) // used locally only -> static, AF 20.7.2021
 {
  char filename[256], colormapdir[256], FrameStr[16], elevfile[32], elevpath[256];
  short Ans, OrigOBN, error = 0, ct, objectlimit, objectcount, OpenOK,
@@ -1535,7 +1535,7 @@ LineCleanup:
 
 /**********************************************************************/
 
-static short InitCloudMap(struct Window *win, struct CloudData *CD) // used locally only -> static, AF 26.7.2021
+STATIC_FCN short InitCloudMap(struct Window *win, struct CloudData *CD) // used locally only -> static, AF 26.7.2021
 {
  char filename[255], FStr[32];
  short error = 0, PageOutSl = 0, PageOutRf = 0, PageOutFail = 0, PageOutAttempt = 0;
@@ -1898,7 +1898,7 @@ void Handle_Render_Window(void)
 #endif
 /*************************************************************************/
 
-static void Close_Render_Window(void) // used locally only -> static, AF 20.7.2021
+STATIC_FCN void Close_Render_Window(void) // used locally only -> static, AF 20.7.2021
 {
 
  if (RenderWind0)
@@ -1913,7 +1913,7 @@ static void Close_Render_Window(void) // used locally only -> static, AF 20.7.20
 
 /************************************************************************/
 
-static short BuildTrigTables(void) // used locally only -> static, AF 26.7.2021
+STATIC_FCN short BuildTrigTables(void) // used locally only -> static, AF 26.7.2021
 {
 short success = 1, i;
 double Val, Interval;
@@ -1969,7 +1969,7 @@ double Val, Interval;
 
 /************************************************************************/
 
-static void FreeTrigTables(void) // used locally only -> static, AF 26.7.2021
+STATIC_FCN void FreeTrigTables(void) // used locally only -> static, AF 26.7.2021
 {
 
  if (CosTable)

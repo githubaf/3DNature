@@ -28,20 +28,20 @@
 #define ROUNDUP(a,b)		(((a + (b - 1)) / b) * b)
 #endif
 
-static short interpolatepts(short j, long x2, long x1, long y2, long y1); // used locally only -> static, AF 19.7.2021
-static void EnsureLoaded(void); // used locally only -> static, AF 23.7.2021
-static void TempRas_Del(struct RastPort *This, int X, int Y); // used locally only -> static, AF 23.7.2021
-static struct RastPort *TempRas_New(struct RastPort *Ancestor, int X, int Y); // used locally only -> static, AF 23.7.2021
-static void RotatePt(double rotate, double *OriginX, double *OriginY,
+STATIC_FCN short interpolatepts(short j, long x2, long x1, long y2, long y1); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void EnsureLoaded(void); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void TempRas_Del(struct RastPort *This, int X, int Y); // used locally only -> static, AF 23.7.2021
+STATIC_FCN struct RastPort *TempRas_New(struct RastPort *Ancestor, int X, int Y); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void RotatePt(double rotate, double *OriginX, double *OriginY,
                 double *PointX, double *PointY); // used locally only -> static, AF 23.7.2021
-static short SearchViewLine(short viewpt, short fpx, short fpy,
+STATIC_FCN short SearchViewLine(short viewpt, short fpx, short fpy,
         short elfp, short elvp); // used locally only -> static, AF 23.7.2021
-static short Set_Eco_Color(long Lra, long Lca, short i, short *RelEl); // used locally only -> static, AF 23.7.2021
-static void MapRelel_Free(struct elmapheaderV101 *This, short MapNum); // used locally only -> static, AF 23.7.2021
-static short CalcRefine(double LowLon, double HighLon, double LowLat, double HighLat,
+STATIC_FCN short Set_Eco_Color(long Lra, long Lca, short i, short *RelEl); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void MapRelel_Free(struct elmapheaderV101 *This, short MapNum); // used locally only -> static, AF 23.7.2021
+STATIC_FCN short CalcRefine(double LowLon, double HighLon, double LowLat, double HighLat,
         short *LocalLowEl, short *LocalHighEl, float *ElevRng); // used locally only -> static, AF 23.7.2021
-static USHORT MapRelel_Load(struct elmapheaderV101 *This, short MapNum); // used locally only -> static, AF 23.7.2021
-static short InputTabletPoints(long lowj, short TabletType); // used locally only -> static, AF 23.7.2021
+STATIC_FCN USHORT MapRelel_Load(struct elmapheaderV101 *This, short MapNum); // used locally only -> static, AF 23.7.2021
+STATIC_FCN short InputTabletPoints(long lowj, short TabletType); // used locally only -> static, AF 23.7.2021
 
 
 
@@ -721,7 +721,7 @@ ClearPointer(win);
 
 /************************************************************************/
 
-static void EnsureLoaded(void) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void EnsureLoaded(void) // used locally only -> static, AF 23.7.2021
 {
 short i, Obj, Topo, NeedIt;
 
@@ -789,7 +789,7 @@ else
 
 /***************************************************************************/
 
-static USHORT MapRelel_Load(struct elmapheaderV101 *This, short MapNum) // used locally only -> static, AF 23.7.2021
+STATIC_FCN USHORT MapRelel_Load(struct elmapheaderV101 *This, short MapNum) // used locally only -> static, AF 23.7.2021
 {
 long ct, Row, Col, OpenOK;
 struct DirList *DLItem;
@@ -888,7 +888,7 @@ FILE *felev;
 
 /************************************************************************/
 
-static void MapRelel_Free(struct elmapheaderV101 *This, short MapNum) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void MapRelel_Free(struct elmapheaderV101 *This, short MapNum) // used locally only -> static, AF 23.7.2021
 {
 
 if(mapelmap[MapNum].lmap)
@@ -905,7 +905,7 @@ if(This->map)
 
 /************************************************************************/
 
-static short CalcRefine(double LowLon, double HighLon, double LowLat, double HighLat,
+STATIC_FCN short CalcRefine(double LowLon, double HighLon, double LowLat, double HighLat,
 	short *LocalLowEl, short *LocalHighEl, float *ElevRng) // used locally only -> static, AF 23.7.2021
 { /* Broke this out into a seperate function since it only gets called
   ** under some circumstances, it uses some values and variables that
@@ -1705,7 +1705,7 @@ EndDig:
 
 /************************************************************************/
 
-static short interpolatepts(short j, long x2, long x1, long y2, long y1) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short interpolatepts(short j, long x2, long x1, long y2, long y1) // used locally only -> static, AF 19.7.2021
 {
  long x,y;
  float m;
@@ -2049,7 +2049,7 @@ void Handle_Viewshed_Window(void)
 
 /************************************************************************/
 
-static short SearchViewLine(short viewpt, short fpx, short fpy,
+STATIC_FCN short SearchViewLine(short viewpt, short fpx, short fpy,
 	short elfp, short elvp) // used locally only -> static, AF 23.7.2021
 {
  short offsetX, offsetY, x, y, vpx, vpy, offel, ptx, pty;
@@ -2121,7 +2121,7 @@ static short SearchViewLine(short viewpt, short fpx, short fpy,
 
 /************************************************************************/
 
-static struct RastPort *TempRas_New(struct RastPort *Ancestor, int X, int Y) // used locally only -> static, AF 23.7.2021
+STATIC_FCN struct RastPort *TempRas_New(struct RastPort *Ancestor, int X, int Y) // used locally only -> static, AF 23.7.2021
 {
 struct RastPort *This;
 int bloop;
@@ -2174,7 +2174,7 @@ if(This)
 
 /************************************************************************/
 
-static void TempRas_Del(struct RastPort *This, int X, int Y) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void TempRas_Del(struct RastPort *This, int X, int Y) // used locally only -> static, AF 23.7.2021
 {
 int bloop;
 
@@ -2221,7 +2221,7 @@ free_Memory(This, sizeof(double) * size);
 
 /************************************************************************/
 
-static short InputTabletPoints(long lowj, short TabletType) // used locally only -> static, AF 23.7.2021
+STATIC_FCN short InputTabletPoints(long lowj, short TabletType) // used locally only -> static, AF 23.7.2021
 {
 struct MsgPort *SerialMP;
 struct IOExtSer *SerialIO;
@@ -2473,7 +2473,7 @@ EndCheck:
 
 /************************************************************************/
 
-static void RotatePt(double rotate, double *OriginX, double *OriginY,
+STATIC_FCN void RotatePt(double rotate, double *OriginX, double *OriginY,
 		double *PointX, double *PointY) // used locally only -> static, AF 23.7.2021
 {
  double angle, length;
@@ -2560,7 +2560,7 @@ return;
 
 /**********************************************************************/
 
-static short Set_Eco_Color(long Lra, long Lca, short i, short *RelEl) // used locally only -> static, AF 23.7.2021
+STATIC_FCN short Set_Eco_Color(long Lra, long Lca, short i, short *RelEl) // used locally only -> static, AF 23.7.2021
 {	/* returns 1 by default */
  short eco, Col = 1, relel;
  long elev, ecoline, zipa, zip;

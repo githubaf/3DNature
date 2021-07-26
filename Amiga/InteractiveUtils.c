@@ -5,7 +5,7 @@
 
 #include "WCS.h"
 
-static void DisableBoundsButtons(void); // used locally only -> static, AF 26.7.2021
+STATIC_FCN void DisableBoundsButtons(void); // used locally only -> static, AF 26.7.2021
 
 
 short SetIncrements(short selectitem)
@@ -590,7 +590,7 @@ void Set_GridBds(void)
 
 /************************************************************************/
 
-static void DisableBoundsButtons(void) // used locally only -> static, AF 26.7.2021
+STATIC_FCN void DisableBoundsButtons(void) // used locally only -> static, AF 26.7.2021
 {
 
  if (CompassBounds)

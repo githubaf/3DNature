@@ -7,18 +7,18 @@
 #include "WCS.h"
 #include "Foliage.h"
 
-static void SetBitmapImageSpan(struct BitmapImage *BMI); // used locally only -> static, AF 19.7.2021
-static void BitmapImage_Del(struct BitmapImage *BMI); // used locally only -> static, AF 23.7.2021
-static void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
+STATIC_FCN void SetBitmapImageSpan(struct BitmapImage *BMI); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void BitmapImage_Del(struct BitmapImage *BMI); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
         double Dw, double Dh, double Dx, double Dy,
         double Distance, struct ColorComponents *CC,
         struct ColorComponents *AM, double ElStart,
         double ElIncr, struct Window *win, struct QCvalues *QC); // used locally only -> static, AF 23.7.2021
-static void ColorToGray(UBYTE **Bitmap, long MaxZip); // used locally only -> static, AF 23.7.2021
-static struct BitmapImage *BitmapImage_New(void); // used locally only -> static, AF 26.7.2021
-static void BitmapImage_Scale(struct BitmapImage *SBMI, struct BitmapImage *DBMI,
+STATIC_FCN void ColorToGray(UBYTE **Bitmap, long MaxZip); // used locally only -> static, AF 23.7.2021
+STATIC_FCN struct BitmapImage *BitmapImage_New(void); // used locally only -> static, AF 26.7.2021
+STATIC_FCN void BitmapImage_Scale(struct BitmapImage *SBMI, struct BitmapImage *DBMI,
         double Dx, double Dy); // used locally only -> static, AF 26.7.2021
-static void BitmapImage_DelSingle(struct BitmapImage *BMI); // used locally only -> static, AF 26.7.2021
+STATIC_FCN void BitmapImage_DelSingle(struct BitmapImage *BMI); // used locally only -> static, AF 26.7.2021
 
 #define MODE_REPLACE 0
 #define MODE_AVERAGE 1
@@ -1409,7 +1409,7 @@ long i;
 
 /**********************************************************************/
 
-static struct BitmapImage *BitmapImage_New(void) // used locally only -> static, AF 26.7.2021
+STATIC_FCN struct BitmapImage *BitmapImage_New(void) // used locally only -> static, AF 26.7.2021
 {
 
  return ((struct BitmapImage *)get_Memory(sizeof (struct BitmapImage), MEMF_CLEAR));
@@ -1418,7 +1418,7 @@ static struct BitmapImage *BitmapImage_New(void) // used locally only -> static,
 
 /**********************************************************************/
 
-static void BitmapImage_Del(struct BitmapImage *BMI) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void BitmapImage_Del(struct BitmapImage *BMI) // used locally only -> static, AF 23.7.2021
 {
 struct BitmapImage *BMINext;
 
@@ -1446,7 +1446,7 @@ struct BitmapImage *BMINext;
 
 /***********************************************************************/
 
-static void BitmapImage_DelSingle(struct BitmapImage *BMI) // used locally only -> static, AF 26.7.2021
+STATIC_FCN void BitmapImage_DelSingle(struct BitmapImage *BMI) // used locally only -> static, AF 26.7.2021
 {
 
  if (BMI)
@@ -1470,7 +1470,7 @@ static void BitmapImage_DelSingle(struct BitmapImage *BMI) // used locally only 
 
 /***********************************************************************/
 
-static void ColorToGray(UBYTE **Bitmap, long MaxZip) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void ColorToGray(UBYTE **Bitmap, long MaxZip) // used locally only -> static, AF 23.7.2021
 {
 long zip;
 
@@ -1488,7 +1488,7 @@ long zip;
 
 /***********************************************************************/
 
-static void SetBitmapImageSpan(struct BitmapImage *BMI) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void SetBitmapImageSpan(struct BitmapImage *BMI) // used locally only -> static, AF 19.7.2021
 {
 long x, y, zip = 0, FirstPt, LastPt;
 
@@ -1525,7 +1525,7 @@ long x, y, zip = 0, FirstPt, LastPt;
 
 /**********************************************************************/
 
-static void BitmapImage_Scale(struct BitmapImage *SBMI, struct BitmapImage *DBMI,
+STATIC_FCN void BitmapImage_Scale(struct BitmapImage *SBMI, struct BitmapImage *DBMI,
 	double Dx, double Dy) // used locally only -> static, AF 26.7.2021
 {
 double Dox, Doy, Dex, Dey, dX, dY, Sox, Soy, Cox, Coy, Cex, Cey,
@@ -1688,7 +1688,7 @@ long Px, Py, Pxp1, Pyp1, x, y, DRows, DCols, DxStart, DyStart, PixVal[3],
 
 /**********************************************************************/
 
-static void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
+STATIC_FCN void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,
 	double Dw, double Dh, double Dx, double Dy,
 	double Distance, struct ColorComponents *CC, 
 	struct ColorComponents *AM, double ElStart,

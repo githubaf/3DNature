@@ -8,13 +8,13 @@
 
 #include "WCS.h"
 
-static void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // used locally only -> static, AF 23.7.2021
-static void ZeroMatrix3x3(Matx3x3 A); // used locally only -> static, AF 23.7.2021
-static void sortrenderlist(void); // used locally only -> static, AF 24.7.2021
-static double DegMinSecToDegrees2(double Val); // used locally only -> static, AF 24.7.2021
+STATIC_FCN void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void ZeroMatrix3x3(Matx3x3 A); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void sortrenderlist(void); // used locally only -> static, AF 24.7.2021
+STATIC_FCN double DegMinSecToDegrees2(double Val); // used locally only -> static, AF 24.7.2021
 //void ClipAreaDraw(struct Window *win, struct poly4 *Poly, struct clipbounds *cb); // AF, not used 26.July 2021
 // void ClipPoly4(struct Window *win, struct poly4 *Poly, struct clipbounds *cb); // AF, not used 26.July 2021
-static void RotationMatrix3D(short m, double theta, Matx3x3 A); // used locally only -> static, AF 24.7.2021
+STATIC_FCN void RotationMatrix3D(short m, double theta, Matx3x3 A); // used locally only -> static, AF 24.7.2021
 
 
 void getscrnpt(struct coords *TP, struct coords *SP)
@@ -272,7 +272,7 @@ Matx3x3 XRot, YRot, ZRot, Temp;
 
 /**********************************************************************/
 
-static void RotationMatrix3D(short m, double theta, Matx3x3 A) // used locally only -> static, AF 24.7.2021
+STATIC_FCN void RotationMatrix3D(short m, double theta, Matx3x3 A) // used locally only -> static, AF 24.7.2021
 {
 
  short m1, m2;
@@ -300,7 +300,7 @@ static void RotationMatrix3D(short m, double theta, Matx3x3 A) // used locally o
 
 /***********************************************************************/
 
-static void ZeroMatrix3x3(Matx3x3 A) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void ZeroMatrix3x3(Matx3x3 A) // used locally only -> static, AF 23.7.2021
 {
 short i, j;
 
@@ -334,7 +334,7 @@ void NegateVector(struct coords *A)
 
 /***********************************************************************/
 
-static void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C) // used locally only -> static, AF 23.7.2021
 {
 short i, j, k;
 double ab;
@@ -530,7 +530,7 @@ Cleanup:
 
 /***********************************************************************/
 
-static void sortrenderlist(void) // used locally only -> static, AF 24.7.2021
+STATIC_FCN void sortrenderlist(void) // used locally only -> static, AF 24.7.2021
 {
  short i, j, more;
  long Qsize;
@@ -1340,7 +1340,7 @@ double x, y, phi, theta, rho, q, phi_rad, sin_phi, sin_sq_phi, delta_phi;
 
 /* For converting a coordinate string of the form dddmmss to decimal degrees */
 
-static double DegMinSecToDegrees2(double Val) // used locally only -> static, AF 24.7.2021
+STATIC_FCN double DegMinSecToDegrees2(double Val) // used locally only -> static, AF 24.7.2021
 {
 long Deg, Min, DegMinSec;
 

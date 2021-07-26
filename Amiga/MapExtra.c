@@ -6,16 +6,16 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
-static void markpt(short edpt, short col); // used locally only -> static, AF 19.7.2021
-static double SolveDistCart(double XJ, double YJ, double ZJ,
+STATIC_FCN void markpt(short edpt, short col); // used locally only -> static, AF 19.7.2021
+STATIC_FCN double SolveDistCart(double XJ, double YJ, double ZJ,
         double XK, double YK, double ZK); // used locally only -> static, AF 23.7.2021
 // void ZeroMatrix3x3(Matx3x3 A); // AF, not used 26.July 2021
-static void MakeTempCart(double Lat, double Lon, double SphereRad,
+STATIC_FCN void MakeTempCart(double Lat, double Lon, double SphereRad,
         double *X, double *Y, double *Z); // used locally only -> static, AF 23.7.2021
-static double SolveArcAng(double CartDist, double SphereRad); // used locally only -> static, AF 23.7.2021
-static void InitGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
-static double DoGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
-static void unmarkpt(short edpt); // used locally only -> static, AF 23.7.2021
+STATIC_FCN double SolveArcAng(double CartDist, double SphereRad); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void InitGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
+STATIC_FCN double DoGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void unmarkpt(short edpt); // used locally only -> static, AF 23.7.2021
 // void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // AF, not used 26.July 2021
 
 
@@ -662,7 +662,7 @@ EndShift:
 
 /***********************************************************************/
 
-static void MakeTempCart(double Lat, double Lon, double SphereRad,
+STATIC_FCN void MakeTempCart(double Lat, double Lon, double SphereRad,
 	double *X, double *Y, double *Z) // used locally only -> static, AF 23.7.2021
 {
 double TempCos;
@@ -676,7 +676,7 @@ double TempCos;
 
 /***********************************************************************/
 
-static double SolveDistCart(double XJ, double YJ, double ZJ,
+STATIC_FCN double SolveDistCart(double XJ, double YJ, double ZJ,
 	double XK, double YK, double ZK) // used locally only -> static, AF 23.7.2021
 {
 
@@ -691,7 +691,7 @@ static double SolveDistCart(double XJ, double YJ, double ZJ,
 
 /***********************************************************************/
 
-static double SolveArcAng(double CartDist, double SphereRad) // used locally only -> static, AF 23.7.2021
+STATIC_FCN double SolveArcAng(double CartDist, double SphereRad) // used locally only -> static, AF 23.7.2021
 {
 
  return(asin((CartDist / 2) / SphereRad));
@@ -1139,7 +1139,7 @@ short modpoints(short modify)
 
 /************************************************************************/
 
-static void markpt(short edpt, short col) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void markpt(short edpt, short col) // used locally only -> static, AF 19.7.2021
 {
 
  ptstore[0] = ReadPixel(MapWind0->RPort, mapxx[edpt] - 1,mapyy[edpt] - 1);
@@ -1161,7 +1161,7 @@ static void markpt(short edpt, short col) // used locally only -> static, AF 19.
 
 /************************************************************************/
 
-static void unmarkpt(short edpt) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void unmarkpt(short edpt) // used locally only -> static, AF 23.7.2021
 {
  if (ptstore[0]>-1) {
   SetAPen(MapWind0->RPort,ptstore[0]);
@@ -2399,7 +2399,7 @@ EndDist:
 
 /*************************************************************************/
 
-static void InitGauss(struct Gauss *Gauss) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void InitGauss(struct Gauss *Gauss) // used locally only -> static, AF 23.7.2021
 {
 
  Gauss->Nrand = 4;
@@ -2413,7 +2413,7 @@ static void InitGauss(struct Gauss *Gauss) // used locally only -> static, AF 23
 
 /************************************************************************/
 
-static double DoGauss(struct Gauss *Gauss) // used locally only -> static, AF 23.7.2021
+STATIC_FCN double DoGauss(struct Gauss *Gauss) // used locally only -> static, AF 23.7.2021
 {
 short i;
 double sum = 0.0;
@@ -2919,7 +2919,7 @@ void Rotate3D(short m, double theta, Matx3x3 A)
 
 /***********************************************************************/
 
-static void ZeroMatrix3x3(Matx3x3 A) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void ZeroMatrix3x3(Matx3x3 A) // used locally only -> static, AF 23.7.2021
 {
 short i, j;
 
@@ -2942,7 +2942,7 @@ void ZeroTDA(TDA A)
 
 /***********************************************************************/
 
-static void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C) // used locally only -> static, AF 23.7.2021
 {
 short i, j, k;
 double ab;

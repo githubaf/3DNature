@@ -6,11 +6,11 @@
 
 #include "WCS.h"
 
-static void Vertex_Sum(struct faces *Vertex, struct faces *Face); // used locally only -> static, AF 19.7.2021
-static void FractPoly_Divide(struct elmapheaderV101 *map, struct VertexIndex *Vtx); // used locally only -> static, AF 23.7.2021
-static void Poly_Divide(void); // used locally only -> static, AF 23.7.2021
-static void polydivide(void); // used locally only -> static, AF 23.7.2021
-static long MinInt5(long Num1, long Num2, long Num3, long Num4, long Num5); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void Vertex_Sum(struct faces *Vertex, struct faces *Face); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void FractPoly_Divide(struct elmapheaderV101 *map, struct VertexIndex *Vtx); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void Poly_Divide(void); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void polydivide(void); // used locally only -> static, AF 23.7.2021
+STATIC_FCN long MinInt5(long Num1, long Num2, long Num3, long Num4, long Num5); // used locally only -> static, AF 23.7.2021
 
 #define DISPLACE_FRACT_SLOPEFACT 10.0
 
@@ -254,7 +254,7 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
 
 /*********************************************************************/
 
-static void FractPoly_Divide(struct elmapheaderV101 *map, struct VertexIndex *Vtx) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void FractPoly_Divide(struct elmapheaderV101 *map, struct VertexIndex *Vtx) // used locally only -> static, AF 23.7.2021
 {
  double ElDif[3], MaxDif;
  short Pert[3], Done[3];
@@ -525,7 +525,7 @@ double sum = 0.0;
 
 /*********************************************************************/
 
-static void Poly_Divide(void) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void Poly_Divide(void) // used locally only -> static, AF 23.7.2021
 {
 
  switch (polyct[b])
@@ -750,7 +750,7 @@ void recurse(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 
 /***********************************************************************/
 
-static void polydivide(void) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void polydivide(void) // used locally only -> static, AF 23.7.2021
 {
 
  switch (polyct[b])
@@ -1087,7 +1087,7 @@ long BaseFace;
 
 /**********************************************************************/
 
-static void Vertex_Sum(struct faces *Vertex, struct faces *Face) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void Vertex_Sum(struct faces *Vertex, struct faces *Face) // used locally only -> static, AF 19.7.2021
 {
 
  Vertex->slope += Face->slope;
@@ -1660,7 +1660,7 @@ short Index[12];
 
 /**********************************************************************/
 
-static long MinInt5(long Num1, long Num2, long Num3, long Num4, long Num5) // used locally only -> static, AF 23.7.2021
+STATIC_FCN long MinInt5(long Num1, long Num2, long Num3, long Num4, long Num5) // used locally only -> static, AF 23.7.2021
 {
 long MinVal;
 

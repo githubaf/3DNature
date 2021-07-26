@@ -251,14 +251,14 @@ vgl_dumb_pixerror (PIXMAP * p)
 
 /*****************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
-static void 
+STATIC_FCN void 
 vgl_dumb_nothing (PIXMAP * p) // used locally only -> static, AF 20.7.2021
 {
 }
 #endif
 /*****************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
-static void 
+STATIC_FCN void 
 vgl_dumb_set_pixel (PIXMAP * p, int x, int y) // used locally only -> static, AF 19.7.2021
 {
   unsigned long mouse;
@@ -1100,7 +1100,7 @@ vgl_dumb_rect (PIXMAP * p, int x1, int y1, int x2, int y2)
 
 /*****************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
-static void 
+STATIC_FCN void
 vgl_dumb_rect_noclip (PIXMAP * p, int x1, int y1, int x2, int y2) // used locally only -> static, AF 20.7.2021
 {
   vgl_dumb_hline_noclip (p, x1, x2, y1);
@@ -1112,7 +1112,7 @@ vgl_dumb_rect_noclip (PIXMAP * p, int x1, int y1, int x2, int y2) // used locall
 
 /*****************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
-static void 
+STATIC_FCN void
 vgl_dumb_fillrect (PIXMAP * p, int x1, int y1, int x2, int y2) // used locally only -> static, AF 19.7.2021
 {
   int out1, out2;
@@ -1149,7 +1149,7 @@ vgl_dumb_fillrect (PIXMAP * p, int x1, int y1, int x2, int y2) // used locally o
 
 /*****************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
-static void 
+STATIC_FCN void 
 vgl_dumb_fillrect_noclip (PIXMAP * p, int x1, int y1, int x2, int y2)  // used locally only -> static, AF 19.7.2021
 {
   int line_size;
@@ -1832,7 +1832,7 @@ vgl_dumb_arc (PIXMAP * p, int x, int y, int x_axis, int y_axis, int start, int e
 
 
 /*****************************************************************************/
-static void 
+STATIC_FCN void 
 vgl_dumb_arc_noclip (PIXMAP * p, int x, int y, int x_axis, int y_axis, int start, int end) // used locally only -> static, AF 20.7.2021
 {
 }
@@ -2071,7 +2071,7 @@ vgl_dumb_transbitblt_noclip (PIXMAP *source, int sx, int sy,
 
 /*****************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
-static void 
+STATIC_FCN void 
 vgl_dumb_transbitblt_core (PIXMAP *source, int sx, int sy,
 			   int width, int height,
 			   PIXMAP *dest, int dx, int dy, int mask_color) // used locally only -> static, AF 20.7.2021 

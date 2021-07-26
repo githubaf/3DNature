@@ -8,14 +8,14 @@
 #include <math.h>
 
 /*********************************************************************/
-static short HaloEffect(UBYTE **Bitmap, long Width, long Height,
+STATIC_FCN short HaloEffect(UBYTE **Bitmap, long Width, long Height,
         double Dr, double Dx, double Dy, double Intensity, double NoHaloDist,
         struct ColorComponents *CC, char *NameStr, struct Window *win); // used locally only -> static, AF 19.7.2021
-static short Image_Composite(UBYTE **Bitmap, UBYTE **Source, long Iw, long Ih,
+STATIC_FCN short Image_Composite(UBYTE **Bitmap, UBYTE **Source, long Iw, long Ih,
         short Sw, short Sh, double Dr, double Dx, double Dy, double Distance,
         double *Visible, double *Luminosity, struct ColorComponents *CC,
         char *NameStr, struct Window *win); // used locally only -> static, AF 23.7.2021
-static void getskypt(void); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void getskypt(void); // used locally only -> static, AF 23.7.2021
 
 double ComputeBanking(short frame)
 {
@@ -630,7 +630,7 @@ short makesky(short renderseg, struct Window *win)
 
 /*********************************************************************/
 
-static void getskypt(void) // used locally only -> static, AF 23.7.2021
+STATIC_FCN void getskypt(void) // used locally only -> static, AF 23.7.2021
 {
  double angle,newangle,length;
 
@@ -1139,7 +1139,7 @@ EndCelest:
 
 /***********************************************************************/
 
-static short HaloEffect(UBYTE **Bitmap, long Width, long Height,
+STATIC_FCN short HaloEffect(UBYTE **Bitmap, long Width, long Height,
 	double Dr, double Dx, double Dy, double Intensity, double NoHaloDist,
 	struct ColorComponents *CC, char *NameStr, struct Window *win) // used locally only -> static, AF 19.7.2021
 {
@@ -1201,7 +1201,7 @@ struct BusyWindow *BWDE;
 
 /***********************************************************************/
 
-static short Image_Composite(UBYTE **Bitmap, UBYTE **Source, long Iw, long Ih,
+STATIC_FCN short Image_Composite(UBYTE **Bitmap, UBYTE **Source, long Iw, long Ih,
 	short Sw, short Sh, double Dr, double Dx, double Dy, double Distance,
 	double *Visible, double *Luminosity, struct ColorComponents *CC,
 	char *NameStr, struct Window *win) // used locally only -> static, AF 23.7.2021

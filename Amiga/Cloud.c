@@ -30,7 +30,7 @@ void CloudLayer_Del(struct CloudLayer *CL) // not used AF 19.7.21
 #endif
 /**************************:*******************************************/
 
-static void CloudLayer_DelAll(struct CloudLayer *CL) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void CloudLayer_DelAll(struct CloudLayer *CL) // used locally only -> static, AF 19.7.2021
 {
 struct CloudLayer *CLDel;
 

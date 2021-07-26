@@ -239,7 +239,7 @@ void vgl_rgb_to_hls (double red, double green, double blue,
 
 /************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
-static double
+STATIC_FCN double
 hls_value (double n1, double n2, double hue)
 {
   while (hue >= 360.0)

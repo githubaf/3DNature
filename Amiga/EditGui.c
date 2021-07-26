@@ -6,16 +6,16 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 
-static void SetActiveColor(struct PaletteItem *Pal, short row);  // local --> static AF, 16.July 2021
-static long mid3(long a, long b, long c); // used locally only -> static, AF 20.7.2021
-static void AddColorEntry(void); // used locally only -> static, AF 20.7.2021
-static void UnSet_EC_Item(short item); // used locally only -> static, AF 20.7.2021
-static void Adjust_EcoPal(short i); // used locally only -> static, AF 20.7.2021
-static long max3(long a, long b, long c); // used locally only -> static, AF 20.7.2021
-static void SetColorRequester(short row); // used locally only -> static, AF 20.7.2021
-static void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode); // used locally only -> static, AF 20.7.2021
-static long min3(long a, long b, long c); // used locally only -> static, AF 24.7.2021
-static APTR Make_EC_Group(void); // used locally only -> static, AF 24.7.2021
+STATIC_FCN void SetActiveColor(struct PaletteItem *Pal, short row);  // local --> static AF, 16.July 2021
+STATIC_FCN long mid3(long a, long b, long c); // used locally only -> static, AF 20.7.2021
+STATIC_FCN void AddColorEntry(void); // used locally only -> static, AF 20.7.2021
+STATIC_FCN void UnSet_EC_Item(short item); // used locally only -> static, AF 20.7.2021
+STATIC_FCN void Adjust_EcoPal(short i); // used locally only -> static, AF 20.7.2021
+STATIC_FCN long max3(long a, long b, long c); // used locally only -> static, AF 20.7.2021
+STATIC_FCN void SetColorRequester(short row); // used locally only -> static, AF 20.7.2021
+STATIC_FCN void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode); // used locally only -> static, AF 20.7.2021
+STATIC_FCN long min3(long a, long b, long c); // used locally only -> static, AF 24.7.2021
+STATIC_FCN APTR Make_EC_Group(void); // used locally only -> static, AF 24.7.2021
 
 
 
@@ -414,7 +414,7 @@ void Make_EC_Window(void)
 
 /*********************************************************************/
 
-static APTR Make_EC_Group(void) // used locally only -> static, AF 24.7.2021
+STATIC_FCN APTR Make_EC_Group(void) // used locally only -> static, AF 24.7.2021
 {
   APTR obj;
   short i, error = 0;
@@ -1089,7 +1089,7 @@ void Handle_EC_Window(ULONG WCS_ID)
 
 /*********************************************************************/
 
-static long max3(long a, long b, long c) // used locally only -> static, AF 20.7.2021
+STATIC_FCN long max3(long a, long b, long c) // used locally only -> static, AF 20.7.2021
 {
  if (a > b)
   {
@@ -1102,7 +1102,7 @@ static long max3(long a, long b, long c) // used locally only -> static, AF 20.7
 
 /*********************************************************************/
 
-static long min3(long a, long b, long c) // used locally only -> static, AF 24.7.2021
+STATIC_FCN long min3(long a, long b, long c) // used locally only -> static, AF 24.7.2021
 {
  if (a < b)
   {
@@ -1115,7 +1115,7 @@ static long min3(long a, long b, long c) // used locally only -> static, AF 24.7
 
 /*********************************************************************/
 
-static long mid3(long a, long b, long c) // used locally only -> static, AF 20.7.2021
+STATIC_FCN long mid3(long a, long b, long c) // used locally only -> static, AF 20.7.2021
 {
  if (a < b)
   {
@@ -1130,7 +1130,7 @@ static long mid3(long a, long b, long c) // used locally only -> static, AF 20.7
 
 /*********************************************************************/
 
-static void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode) // used locally only -> static, AF 20.7.2021
+STATIC_FCN void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode) // used locally only -> static, AF 20.7.2021
 {
  long mmax, mmin, mmid, sign, hueshift;
 
@@ -1234,7 +1234,7 @@ void SetAllColorRequester(void)
 
 /*********************************************************************/
 
-static void SetColorRequester(short row) // used locally only -> static, AF 20.7.2021
+STATIC_FCN void SetColorRequester(short row) // used locally only -> static, AF 20.7.2021
 {
  struct PaletteItem Pal;
 
@@ -1268,7 +1268,7 @@ void SetScreen_8(struct PaletteItem *Pal)
 
 /*********************************************************************/
 
-static void SetActiveColor(struct PaletteItem *Pal, short row)
+STATIC_FCN void SetActiveColor(struct PaletteItem *Pal, short row)
 {
  short color[3];
 
@@ -1310,7 +1310,7 @@ static void SetActiveColor(struct PaletteItem *Pal, short row)
 
 /*********************************************************************/
 
-static void Adjust_EcoPal(short i) // used locally only -> static, AF 20.7.2021
+STATIC_FCN void Adjust_EcoPal(short i) // used locally only -> static, AF 20.7.2021
 {
  struct PaletteItem Pal;
 
@@ -1396,7 +1396,7 @@ void Set_EC_Item(short item)
 
 /*********************************************************************/
 
-static void UnSet_EC_Item(short item) // used locally only -> static, AF 20.7.2021
+STATIC_FCN void UnSet_EC_Item(short item) // used locally only -> static, AF 20.7.2021
 {
  struct PaletteItem Pal;
 
@@ -1440,7 +1440,7 @@ void Set_EC_List(short update)
 
 /*********************************************************************/
 
-static void AddColorEntry(void) // used locally only -> static, AF 20.7.2021
+STATIC_FCN void AddColorEntry(void) // used locally only -> static, AF 20.7.2021
 {
 
  EC_Win->PaI[3] = EC_Win->PaI[2];

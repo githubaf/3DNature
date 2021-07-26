@@ -13,7 +13,7 @@ struct LightWaveMotion {
 };
 */
 
-static short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
+STATIC_FCN short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
         short Frame, double Scale); // used locally only -> static, AF 23.7.2021
 
 

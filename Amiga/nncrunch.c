@@ -27,19 +27,19 @@ in the original code.
 
 /*************************************************************************/
 
-static short FindNeigh(struct NNGrid *NNG, int ipt);// used locally only -> static, AF 26.7.2021
-static struct temp *Temp_New(void); // used locally only -> static, AF 26.7.2021
-static short TooShallow(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
-static short TriNeigh(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
-static int *IntVect(int ncols); // used locally only -> static, AF 26.7.2021
-static short Find_Prop(struct NNGrid *NNG, double wxd, double wyd); // used locally only -> static, AF 26.7.2021
-static double Meld(struct NNGrid *NNG, double asurf, double wxd, double wyd); // used locally only -> static, AF 26.7.2021
-static double **DoubleMatrix(int nrows, int ncols); // used locally only -> static, AF 26.7.2021
-static struct neig *Neig_New(void); // used locally only -> static, AF 26.7.2021
-static short TooSteep(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
-static short TooNarrow(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
-static short TriCentr(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
-static struct simp *Simp_New(void); // used locally only -> static, AF 26.7.2021
+STATIC_FCN short FindNeigh(struct NNGrid *NNG, int ipt);// used locally only -> static, AF 26.7.2021
+STATIC_FCN struct temp *Temp_New(void); // used locally only -> static, AF 26.7.2021
+STATIC_FCN short TooShallow(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+STATIC_FCN short TriNeigh(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+STATIC_FCN int *IntVect(int ncols); // used locally only -> static, AF 26.7.2021
+STATIC_FCN short Find_Prop(struct NNGrid *NNG, double wxd, double wyd); // used locally only -> static, AF 26.7.2021
+STATIC_FCN double Meld(struct NNGrid *NNG, double asurf, double wxd, double wyd); // used locally only -> static, AF 26.7.2021
+STATIC_FCN double **DoubleMatrix(int nrows, int ncols); // used locally only -> static, AF 26.7.2021
+STATIC_FCN struct neig *Neig_New(void); // used locally only -> static, AF 26.7.2021
+STATIC_FCN short TooSteep(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+STATIC_FCN short TooNarrow(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+STATIC_FCN short TriCentr(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
+STATIC_FCN struct simp *Simp_New(void); // used locally only -> static, AF 26.7.2021
 
 short NNGrid_DataInit(struct NNGrid *NNG)
 {
@@ -763,7 +763,7 @@ struct BusyWindow *BWGR;
 
 /***********************************************************************/
 
-static short FindNeigh(struct NNGrid *NNG, int ipt) // used locally only -> static, AF 26.7.2021
+STATIC_FCN short FindNeigh(struct NNGrid *NNG, int ipt) // used locally only -> static, AF 26.7.2021
 {
 short success = 1;
 int i0, i1, i2, i3, j1, j2, j3, j4, j5;
@@ -1002,7 +1002,7 @@ EndFind:
 
 /***********************************************************************/
 
-static short TriCentr(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
+STATIC_FCN short TriCentr(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 short success = 1;
 int i0, i1, i2, i3, j1, j2, j3, j4, j5;
@@ -1141,7 +1141,7 @@ EndTri:
 
 /***********************************************************************/
 
-static short TriNeigh(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
+STATIC_FCN short TriNeigh(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 short success = 1;
 int i0, i1, i2, i3, j1, j2, j3, j4, j5;
@@ -1513,7 +1513,7 @@ EndGrid:
 
 /***********************************************************************/
 
-static short Find_Prop(struct NNGrid *NNG, double wxd, double wyd) // used locally only -> static, AF 26.7.2021
+STATIC_FCN short Find_Prop(struct NNGrid *NNG, double wxd, double wyd) // used locally only -> static, AF 26.7.2021
 {
 short success = 1;
 int i2, i3, i4, pos_count, inside;
@@ -1624,7 +1624,7 @@ double xx, asurf;
 
 /***********************************************************************/
 
-static double Meld(struct NNGrid *NNG, double asurf, double wxd, double wyd) // used locally only -> static, AF 26.7.2021
+STATIC_FCN double Meld(struct NNGrid *NNG, double asurf, double wxd, double wyd) // used locally only -> static, AF 26.7.2021
 {
 int i0;
 double rS, rT, rB, bD, bB, hP;
@@ -1670,7 +1670,7 @@ double rS, rT, rB, bD, bB, hP;
 
 /***********************************************************************/
 
-static short TooSteep(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
+STATIC_FCN short TooSteep(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 
    if (User_Message("Map View: Grid DEM",
@@ -1687,7 +1687,7 @@ static short TooSteep(struct NNGrid *NNG) // used locally only -> static, AF 26.
 
 /***********************************************************************/
 
-static short TooShallow(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
+STATIC_FCN short TooShallow(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 
    if (User_Message("Map View: Grid DEM",
@@ -1704,7 +1704,7 @@ static short TooShallow(struct NNGrid *NNG) // used locally only -> static, AF 2
 
 /***********************************************************************/
 
-static short TooNarrow(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
+STATIC_FCN short TooNarrow(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 
    if (User_Message("Map View: Grid DEM",
@@ -1722,7 +1722,7 @@ static short TooNarrow(struct NNGrid *NNG) // used locally only -> static, AF 26
 
 /***********************************************************************/
 
-static int *IntVect(int ncols) // used locally only -> static, AF 26.7.2021
+STATIC_FCN int *IntVect(int ncols) // used locally only -> static, AF 26.7.2021
 {
 
    return ((int *)get_Memory(ncols * sizeof (int), MEMF_ANY));
@@ -1741,7 +1741,7 @@ void FreeVecti(int *vectptr, int ncols)
 
 /***********************************************************************/
 
-static double **DoubleMatrix(int nrows, int ncols) // used locally only -> static, AF 26.7.2021
+STATIC_FCN double **DoubleMatrix(int nrows, int ncols) // used locally only -> static, AF 26.7.2021
 {
 int i0;
 double **matptr;
@@ -1813,7 +1813,7 @@ struct datum *LD;
 
 /***********************************************************************/
 
-static struct simp *Simp_New(void) // used locally only -> static, AF 26.7.2021
+STATIC_FCN struct simp *Simp_New(void) // used locally only -> static, AF 26.7.2021
 {
 
    return ((struct simp *)get_Memory(sizeof(struct simp), MEMF_CLEAR));
@@ -1837,7 +1837,7 @@ struct simp *LS;
 
 /***********************************************************************/
 
-static struct temp *Temp_New(void) // used locally only -> static, AF 26.7.2021
+STATIC_FCN struct temp *Temp_New(void) // used locally only -> static, AF 26.7.2021
 {
 
  return ((struct temp *)get_Memory(sizeof(struct temp), MEMF_CLEAR));
@@ -1861,7 +1861,7 @@ struct temp *LT;
  
 /***********************************************************************/
 
-static struct neig *Neig_New(void) // used locally only -> static, AF 26.7.2021
+STATIC_FCN struct neig *Neig_New(void) // used locally only -> static, AF 26.7.2021
 {
 
  return ((struct neig *)get_Memory(sizeof(struct neig), MEMF_CLEAR));

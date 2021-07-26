@@ -8,7 +8,7 @@
 #include "GUIExtras.h"
 #include "TimeLinesGUI.h"
 
-static __saveds ULONG TL_HandleInput(struct IClass *cl, Object *obj,
+STATIC_FCN __saveds ULONG TL_HandleInput(struct IClass *cl, Object *obj,
          struct MUIP_HandleInput *msg); // used locally only -> static, AF 19.7.2021
 
 /*
@@ -282,7 +282,7 @@ __saveds ULONG TL_Cleanup(struct IClass *cl, Object *obj,
 } /* TL_Cleanup() */
 
 
-static __saveds ULONG TL_HandleInput(struct IClass *cl, Object *obj,
+STATIC_FCN __saveds ULONG TL_HandleInput(struct IClass *cl, Object *obj,
 	 struct MUIP_HandleInput *msg) // used locally only -> static, AF 19.7.2021
 {
  #define _between(a,x,b) ((x)>=(a) && (x)<=(b))

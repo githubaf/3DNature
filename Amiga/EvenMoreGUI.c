@@ -9,10 +9,10 @@
 #include "Version.h"
 #include "Wave.h"
 
-static void Set_TS_Reverse(short reverse); // used locally only -> static, AF 25.7.2021
-static void Set_TS_Position(void); // used locally only -> static, AF 25.7.2021
-static void Make_PN_Window(void); // used locally only -> static, AF 25.7.2021
-static short CreateNewProject(char *NewProjName, char *CloneProjName); // used locally only -> static, AF 25.7.2021
+STATIC_FCN void Set_TS_Reverse(short reverse); // used locally only -> static, AF 25.7.2021
+STATIC_FCN void Set_TS_Position(void); // used locally only -> static, AF 25.7.2021
+STATIC_FCN void Make_PN_Window(void); // used locally only -> static, AF 25.7.2021
+STATIC_FCN short CreateNewProject(char *NewProjName, char *CloneProjName); // used locally only -> static, AF 25.7.2021
 
 
 void Make_TS_Window(void)
@@ -310,7 +310,7 @@ void Handle_TS_Window(ULONG WCS_ID)
 
 /**********************************************************************/
 
-static void Set_TS_Position(void) // used locally only -> static, AF 25.7.2021
+STATIC_FCN void Set_TS_Position(void) // used locally only -> static, AF 25.7.2021
 {
 char *TimeStr, *RefLonStr;
 short Pos = 0, Hour, Mins, Days;
@@ -429,7 +429,7 @@ double SunLon, SunLat, RefLon, SunTime;
 
 /************************************************************************/
 
-static void Set_TS_Reverse(short reverse) // used locally only -> static, AF 25.7.2021
+STATIC_FCN void Set_TS_Reverse(short reverse) // used locally only -> static, AF 25.7.2021
 {
 char *RefLonStr;
 short Hour, Mins, Days;
@@ -557,7 +557,7 @@ double FloatDays, RefLon, SunTime;
 
 /************************************************************************/
 
-static void Make_PN_Window(void) // used locally only -> static, AF 25.7.2021
+STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.2021
 {
  long open, i;
 
@@ -784,7 +784,7 @@ void Handle_PN_Window(ULONG WCS_ID)
 
 /***********************************************************************/
 
-static short CreateNewProject(char *NewProjName, char *CloneProjName) // used locally only -> static, AF 25.7.2021
+STATIC_FCN short CreateNewProject(char *NewProjName, char *CloneProjName) // used locally only -> static, AF 25.7.2021
 {
 char filename[256], *NameBlock,
 	*NewDrive, *NewPath, *NewName, *NewExt,

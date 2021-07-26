@@ -8,7 +8,7 @@
 #include "GUIExtras.h"
 #include "Version.h"
 
-static void ApplyImageScale(void);// used locally only -> static, AF 26.7.2021
+STATIC_FCN void ApplyImageScale(void);// used locally only -> static, AF 26.7.2021
 
 
 void Make_DM_Window(void)
@@ -1634,7 +1634,7 @@ void Handle_SC_Window(ULONG WCS_ID)
 
 /* fractal depth must be modified by user, it is not set here automatically */
 
-static void ApplyImageScale(void) // used locally only -> static, AF 26.7.2021
+STATIC_FCN void ApplyImageScale(void) // used locally only -> static, AF 26.7.2021
 {
 short i;
 long NewWidth, NewHeight;

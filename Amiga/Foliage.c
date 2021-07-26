@@ -7,11 +7,11 @@
 #include "WCS.h"
 #include "Foliage.h"
 
-static ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags);  // used locally only -> static, AF 19.7.2021
-static ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags); // used locally only -> static, AF 19.7.2021
-static ULONG Foliage_Save(struct Foliage *This, FILE *ffile); // used locally only -> static, AF 24.7.2021
+STATIC_FCN ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags);  // used locally only -> static, AF 19.7.2021
+STATIC_FCN ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags); // used locally only -> static, AF 19.7.2021
+STATIC_FCN ULONG Foliage_Save(struct Foliage *This, FILE *ffile); // used locally only -> static, AF 24.7.2021
 //long Rootstock_Save(struct Rootstock *This, FILE *ffile); // AF, not used 26.July 2021
-static struct Foliage *Foliage_Load(FILE *ffile, ULONG ReadSize); // used locally only -> static, AF 24.7.2021
+STATIC_FCN struct Foliage *Foliage_Load(FILE *ffile, ULONG ReadSize); // used locally only -> static, AF 24.7.2021
 
 
 #ifndef C_PLUS_PLUS
@@ -461,7 +461,7 @@ long Groups = 0;
 
 /***********************************************************************/
 
-static ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags) // used locally only -> static, AF 19.7.2021
+STATIC_FCN ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags) // used locally only -> static, AF 19.7.2021
 {
 ULONG SizeRead, SizeBlock;
 
@@ -503,7 +503,7 @@ ULONG SizeRead, SizeBlock;
 
 /***********************************************************************/
 
-static ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags) // used locally only -> static, AF 19.7.2021
+STATIC_FCN ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags) // used locally only -> static, AF 19.7.2021
 {
 ULONG SizeWritten, SizeBlock;
 
@@ -545,7 +545,7 @@ ULONG SizeWritten, SizeBlock;
 
 /***********************************************************************/
 
-static ULONG PrepWriteBlock(FILE *ffile, ULONG ItemTag, ULONG SizeSize,
+STATIC_FCN ULONG PrepWriteBlock(FILE *ffile, ULONG ItemTag, ULONG SizeSize,
 	ULONG SizeType, ULONG FieldSize, ULONG FieldType, char *FieldAddr) // used locally only -> static, AF 19.7.2021
 {
 UBYTE CharSize;
@@ -894,7 +894,7 @@ union MultiVal MV;
 
 /***********************************************************************/
 
-static struct Foliage *Foliage_Load(FILE *ffile, ULONG ReadSize) // used locally only -> static, AF 24.7.2021
+STATIC_FCN struct Foliage *Foliage_Load(FILE *ffile, ULONG ReadSize) // used locally only -> static, AF 24.7.2021
 {
 struct Foliage *This;
 char TempStr[256];
@@ -1338,7 +1338,7 @@ WriteError:
 
 /***********************************************************************/
 
-static ULONG Foliage_Save(struct Foliage *This, FILE *ffile) // used locally only -> static, AF 24.7.2021
+STATIC_FCN ULONG Foliage_Save(struct Foliage *This, FILE *ffile) // used locally only -> static, AF 24.7.2021
 {
 ULONG ItemTag, BytesWritten, TotalWritten = 0;
 short ShortVal;

@@ -13,7 +13,7 @@ extern char ExtVersion[];
 
 #ifdef AMIGA_GUI
 
-static void stripintuimessages(struct MsgPort *mp, struct Window *win); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void stripintuimessages(struct MsgPort *mp, struct Window *win); // used locally only -> static, AF 19.7.2021
 
 /************************************************************************/
   
@@ -161,7 +161,7 @@ void closesharedwindow(struct Window *win, short shared)
 
 /***********************************************************************/
 
-static void stripintuimessages(struct MsgPort *mp, struct Window *win) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void stripintuimessages(struct MsgPort *mp, struct Window *win) // used locally only -> static, AF 19.7.2021
 {
  struct IntuiMessage *msg;
  struct Node *succ;
@@ -178,7 +178,7 @@ static void stripintuimessages(struct MsgPort *mp, struct Window *win) // used l
 }
 
 #ifdef CLI_BREAK
-static short checkuserabort(void) // used locally only -> static, AF 26.7.2021
+STATIC_FCN short checkuserabort(void) // used locally only -> static, AF 26.7.2021
 {
  short abort;
 

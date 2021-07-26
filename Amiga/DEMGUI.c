@@ -6,19 +6,19 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
-static short Grid_Save(struct NNGrid *NNG, short Units); // used locally only -> static, AF 19.7.2021
-static short Noise_Init(void); // used locally only -> static, AF 20.7.2021
-static short Contour_Import(void); // used locally only -> static, AF 20.7.2021
-static short XYZ_Export(struct datum *DT); // used locally only -> static, AF 20.7.2021
-static void Make_GR_Window(void); // used locally only -> static, AF 20.7.2021
-static short DEMBuild_Import(short FileType); // used locally only -> static, AF 20.7.2021
-static short Grid_Draw(struct NNGrid *NNG); // used locally only -> static, AF 20.7.2021
-static void MD_Window_Init(void); // used locally only -> static, AF 20.7.2021
-static short DXF_Import(short CoordSys); // used locally only -> static, AF 20.7.2021
-static short Object_ImportXYZ(short Points, double *Lat, double *Lon,
+STATIC_FCN short Grid_Save(struct NNGrid *NNG, short Units); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short Noise_Init(void); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short Contour_Import(void); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short XYZ_Export(struct datum *DT); // used locally only -> static, AF 20.7.2021
+STATIC_FCN void Make_GR_Window(void); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short DEMBuild_Import(short FileType); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short Grid_Draw(struct NNGrid *NNG); // used locally only -> static, AF 20.7.2021
+STATIC_FCN void MD_Window_Init(void); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short DXF_Import(short CoordSys); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short Object_ImportXYZ(short Points, double *Lat, double *Lon,
         short *ElevPtr, float El, struct datum *DT); // used locally only -> static, AF 20.7.2021
-static void GR_Window_Init(void); // used locally only -> static, AF 20.7.2021
-static short XYZ_Import(short CoordSys); // used locally only -> static, AF 20.7.2021
+STATIC_FCN void GR_Window_Init(void); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short XYZ_Import(short CoordSys); // used locally only -> static, AF 20.7.2021
 
 /*
 EXTERN struct MakeDEMWindow {
@@ -656,7 +656,7 @@ Do you wish to close them both?", "OK|Cancel", "oc"))
 
 /************************************************************************/
 
-static void MD_Window_Init(void) // used locally only -> static, AF 20.7.2021
+STATIC_FCN void MD_Window_Init(void) // used locally only -> static, AF 20.7.2021
 {
 
  MD_Win->MaxEl = 4000;
@@ -681,7 +681,7 @@ static void MD_Window_Init(void) // used locally only -> static, AF 20.7.2021
 
 /***********************************************************************/
 
-static void Make_GR_Window(void) // used locally only -> static, AF 20.7.2021
+STATIC_FCN void Make_GR_Window(void) // used locally only -> static, AF 20.7.2021
 {
 long open;
 
@@ -1103,7 +1103,7 @@ short i;
 
 /************************************************************************/
 
-static void GR_Window_Init(void) // used locally only -> static, AF 20.7.2021
+STATIC_FCN void GR_Window_Init(void) // used locally only -> static, AF 20.7.2021
 {
 long LowRow, LowCol, HighRow, HighCol, rows, cols;
 double North = -10000.0, South = 10000.0, East = 10000.0, West = -10000.0;
@@ -1164,7 +1164,7 @@ struct datum *DT;
 
 /************************************************************************/
 
-static short DEMBuild_Import(short FileType) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short DEMBuild_Import(short FileType) // used locally only -> static, AF 20.7.2021
 {
 short success = 0;
 
@@ -1203,7 +1203,7 @@ short success = 0;
 
 /************************************************************************/
 
-static short Contour_Import(void) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short Contour_Import(void) // used locally only -> static, AF 20.7.2021
 {
 char *LastDir = NULL;
 short ElSource, ActiveItem, j, *ElevPtr, success = 1, Warn = 0;
@@ -1277,7 +1277,7 @@ float El;
 
 /***********************************************************************/
 
-static short Object_ImportXYZ(short Points, double *Lat, double *Lon,
+STATIC_FCN short Object_ImportXYZ(short Points, double *Lat, double *Lon,
 	short *ElevPtr, float El, struct datum *DT) // used locally only -> static, AF 20.7.2021
 {
 short pt, success = 1;
@@ -1325,7 +1325,7 @@ long X, Y;
 
 /**********************************************************************/
 
-static short XYZ_Import(short CoordSys) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short XYZ_Import(short CoordSys) // used locally only -> static, AF 20.7.2021
 {
 char filename[256], XYZPath[256], XYZFile[32];
 short success = 1, Zone;
@@ -1439,7 +1439,7 @@ struct UTMLatLonCoords UTM;
 
 /**********************************************************************/
 
-static short DXF_Import(short CoordSys) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short DXF_Import(short CoordSys) // used locally only -> static, AF 20.7.2021
 {
 
 
@@ -1449,7 +1449,7 @@ return (1);
 
 /*********************************************************************/
 
-static short XYZ_Export(struct datum *DT) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short XYZ_Export(struct datum *DT) // used locally only -> static, AF 20.7.2021
 {
 char XYZPath[256], XYZFile[32], filename[256];
 short success = 1;
@@ -1511,7 +1511,7 @@ FILE *fXYZ;
 
 /*********************************************************************/
 
-static short Noise_Init(void) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short Noise_Init(void) // used locally only -> static, AF 20.7.2021
 {
 short success = 0;
 char *floatdata;
@@ -1573,7 +1573,7 @@ long data, zip, i, j;
 
 /***********************************************************************/
 
-static short Grid_Draw(struct NNGrid *NNG) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short Grid_Draw(struct NNGrid *NNG) // used locally only -> static, AF 20.7.2021
 {
 short col;
 float *NoisePtr;
@@ -1696,7 +1696,7 @@ struct clipbounds cb;
 
 /***********************************************************************/
 
-static short Grid_Save(struct NNGrid *NNG, short Units) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short Grid_Save(struct NNGrid *NNG, short Units) // used locally only -> static, AF 19.7.2021
 {
 char *OutFile, ObjName[32];
 short *SaveMap, *SavePtr;

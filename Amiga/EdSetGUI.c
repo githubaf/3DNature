@@ -7,6 +7,7 @@
 #include "GUIExtras.h"
 #include <stdarg.h>
 
+
 void Make_ES_Window(void)
 {
  short i;

@@ -6,12 +6,12 @@
 
 #include "WCS.h"
 
-static void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewAz,
+STATIC_FCN void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewAz,
         short RelEl, short MaxRelEl, short MinRelEl, short MaxSlope,
         short MinSlope, short Color, short Understory, short MatchRed,
         short MatchGrn, short MatchBlu, short Type, short TreeDens,
         short TreeHt); // used locally only -> static, AF 19.7.2021
-static void SetParColor(short Color, char *Name, short Red, short Grn, short Blu); // used locally only -> static, AF 26.7.2021
+STATIC_FCN void SetParColor(short Color, char *Name, short Red, short Grn, short Blu); // used locally only -> static, AF 26.7.2021
 
 
 short DefaultParams(void)
@@ -233,7 +233,7 @@ EndDefault:
 
 /***********************************************************************/
 
-static void SetParColor(short Color, char *Name, short Red, short Grn, short Blu) // used locally only -> static, AF 26.7.2021
+STATIC_FCN void SetParColor(short Color, char *Name, short Red, short Grn, short Blu) // used locally only -> static, AF 26.7.2021
 {
 
  strcpy(PAR_NAME_COLOR(Color), Name);
@@ -245,7 +245,7 @@ static void SetParColor(short Color, char *Name, short Red, short Grn, short Blu
 
 /***********************************************************************/
 
-static void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewAz,
+STATIC_FCN void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewAz,
 	short RelEl, short MaxRelEl, short MinRelEl, short MaxSlope,
 	short MinSlope, short Color, short Understory, short MatchRed,
 	short MatchGrn, short MatchBlu, short Type, short TreeDens,

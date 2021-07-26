@@ -12,20 +12,20 @@
 
 /**************************************************************************/
 
-static short SearchGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
+STATIC_FCN short SearchGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
         short frame, short group, short item); // used locally only -> static, AF 19.7.2021
 
-static void UnsetGenericKeyItem(union KeyFrame *Key,
+STATIC_FCN void UnsetGenericKeyItem(union KeyFrame *Key,
         short ItemMatch, short NumValues, double *DblValue, float *FltValue,
         short *ShortValue, float *TCB, short *LinearPtr, short Precision); // used locally only -> static, AF 23.7.2021
-static short AllocNewGenericKeyArray(union KeyFrame **KF, long *KFsize); // used locally only -> static, AF 23.7.2021
-static void SetGenericKeyFrame(union KeyFrame *KF, short i, short frame, short group,
+STATIC_FCN short AllocNewGenericKeyArray(union KeyFrame **KF, long *KFsize); // used locally only -> static, AF 23.7.2021
+STATIC_FCN void SetGenericKeyFrame(union KeyFrame *KF, short i, short frame, short group,
         short item, short ItemMatch, short NumValues, double *DblValue,
         float *FltValue, short *ShortValue, float *TCB, short Linear,
         short Precision); // used locally only -> static, AF 23.7.2021
 //short GetNextGenericKeyItem(union KeyFrame *KF, short KeyFrames,
 //        short group, short curitem, short dir); // AF, not used 26.July 2021
-static void SetGenericKeyTableEntry(union KeyFrame *KF, union KeyFrame **Key,
+STATIC_FCN void SetGenericKeyTableEntry(union KeyFrame *KF, union KeyFrame **Key,
         short NumKeys, short Group, short Item); // used locally only -> static, AF 23.7.2021
 //short CountGenericKeyFrames(union KeyFrame *KF, short KeyFrames,
 //        short group, short item); // AF, not used 26.July 2021
@@ -151,7 +151,7 @@ short MakeGenericKeyFrame(union KeyFrame **KFPtr, long *KFSizePtr,
 
 /************************************************************************/
 
-static short AllocNewGenericKeyArray(union KeyFrame **KF, long *KFsize) // used locally only -> static, AF 23.7.2021
+STATIC_FCN short AllocNewGenericKeyArray(union KeyFrame **KF, long *KFsize) // used locally only -> static, AF 23.7.2021
 {
  union KeyFrame *NewKF;
  long NewKFsize;
@@ -231,7 +231,7 @@ short DeleteGenericKeyFrame(union KeyFrame *KF, short *KeyFramesPtr,
 
 /************************************************************************/
 
-static short SearchGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
+STATIC_FCN short SearchGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
 	short frame, short group, short item) // used locally only -> static, AF 19.7.2021
 {
  short i, found = -1;
@@ -257,7 +257,7 @@ static short SearchGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
 
 /************************************************************************/
 
-static void SetGenericKeyFrame(union KeyFrame *KF, short i, short frame, short group,
+STATIC_FCN void SetGenericKeyFrame(union KeyFrame *KF, short i, short frame, short group,
 	short item, short ItemMatch, short NumValues, double *DblValue,
 	float *FltValue, short *ShortValue, float *TCB, short Linear,
 	short Precision) // used locally only -> static, AF 23.7.2021
@@ -381,7 +381,7 @@ short UnsetGenericKeyFrame(union KeyFrame *KF, short KeyFrames,
 
 /************************************************************************/
 
-static void UnsetGenericKeyItem(union KeyFrame *Key,
+STATIC_FCN void UnsetGenericKeyItem(union KeyFrame *Key,
 	short ItemMatch, short NumValues, double *DblValue, float *FltValue,
 	short *ShortValue, float *TCB, short *LinearPtr, short Precision) // used locally only -> static, AF 23.7.2021
 {
@@ -659,7 +659,7 @@ short BuildGenericKeyTable(struct KeyTable **KTPtr, union KeyFrame *KF,
 
 /*********************************************************************/
 
-static void SetGenericKeyTableEntry(union KeyFrame *KF, union KeyFrame **Key,
+STATIC_FCN void SetGenericKeyTableEntry(union KeyFrame *KF, union KeyFrame **Key,
 	short NumKeys, short Group, short Item) // used locally only -> static, AF 23.7.2021
 {
  short i, KeyFrame = 0;

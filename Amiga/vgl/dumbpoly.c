@@ -22,11 +22,9 @@ struct edge
 static struct edge edge_table[MAX_EDGE], *aet;
 /*static struct edge *et[MAX_EDGE];*/
 
-/*static int cmp_edge (const void *a, const void *b);*/
-/*static int cmp_edge_x (const void *a, const void *b);*/
 
-//static void sort_edge (struct edge *e, int n);
-//static void sort_aet (void);
+//STATIC_FCN void sort_edge (struct edge *e, int n);
+//STATIC_FCN void sort_aet (void);
 
 //int vgl_dumb_fillpoly_root (PIXMAP * p, int nvert, struct vgl_coord *vert);  // AF, not used 26.July 2021
 
@@ -35,7 +33,7 @@ void vgl_dumb_fillpoly_convex (PIXMAP * p, int n_vert, struct vgl_coord *vert, d
 #else
 void vgl_dumb_fillpoly_convex (PIXMAP * p, int n_vert, struct vgl_coord *vert);
 #endif
-static int vgl_dumb_fillpoly_convex_root (PIXMAP * p, int n_vert, struct vgl_coord *vert); // used locally only -> static, AF 26.7.2021
+STATIC_FCN int vgl_dumb_fillpoly_convex_root (PIXMAP * p, int n_vert, struct vgl_coord *vert); // used locally only -> static, AF 26.7.2021
 
 
 /*****************************************************************************/
@@ -355,7 +353,7 @@ vgl_dumb_fillpoly_root (PIXMAP * p, int nvert, struct vgl_coord *vert)
 /*****************************************************************************/
 /*****************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
-static int 
+STATIC_FCN int
 cmp_edge (const void *a, const void *b)
 {
   int i;
@@ -376,7 +374,7 @@ cmp_edge (const void *a, const void *b)
 #endif
 
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
-static void 
+STATIC_FCN void
 sort_edge (struct edge *e, int n)
 {
   int i, swap;
@@ -407,7 +405,7 @@ sort_edge (struct edge *e, int n)
 /*****************************************************************************/
 /*****************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
-static void 
+STATIC_FCN void 
 sort_aet (void)
 {
   int k;
@@ -539,7 +537,7 @@ vgl_dumb_fillpoly_convex (PIXMAP * p, int n_vert, struct vgl_coord *vert)
 /*****************************************************************************/
 /*****************************************************************************/
 
-static int
+STATIC_FCN int
 vgl_dumb_fillpoly_convex_root (PIXMAP * p, int n_vert, struct vgl_coord *vert) // used locally only -> static, AF 26.7.2021
 {
   int max_spans, n_spans, xa, xb, dx, adx, y, ya, yb, dy, ady,

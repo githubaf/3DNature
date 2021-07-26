@@ -43,9 +43,9 @@ struct ZBufferHeader {
  float  Min, Max, Bkgrnd, ScaleFactor, ScaleBase;
 };
 */
-static short CompressRows(struct CompressData *CD); // used locally only -> static, AF 20.7.2021
-static short FlushOutputBuff(struct CompressData *CD); // used locally only -> static, AF 20.7.2021
-static short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
+STATIC_FCN short CompressRows(struct CompressData *CD); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short FlushOutputBuff(struct CompressData *CD); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
         short Width, short Height); // used locally only -> static, AF 20.7.2021
 
 
@@ -1030,7 +1030,7 @@ void ModFileName(char *tempfile, short renderseg, short imagearray,
 
 /***********************************************************************/
 
-static short CompressRows(struct CompressData *CD) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short CompressRows(struct CompressData *CD) // used locally only -> static, AF 20.7.2021
 {
  long lastbyte, startbyte, byte, writebytes, RowBase;
  short i, mode, newmode, forcebreak, error = 0;
@@ -1166,7 +1166,7 @@ static short CompressRows(struct CompressData *CD) // used locally only -> stati
 
 /***********************************************************************/
 
-static short FlushOutputBuff(struct CompressData *CD) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short FlushOutputBuff(struct CompressData *CD) // used locally only -> static, AF 20.7.2021
 {
 
  if (write (CD->fHandle, CD->OutArray, CD->OutCtr) != CD->OutCtr)
@@ -1488,7 +1488,7 @@ Cleanup:
 
 /***********************************************************************/
 
-static short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
+STATIC_FCN short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
 	short Width, short Height) // used locally only -> static, AF 20.7.2021
 {
  short success = 0;

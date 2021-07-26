@@ -6,10 +6,10 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
-static void Set_DXFObject(char *name, short pts, char *ptrn); // used locally only -> static, AF 25.7.2021
-static short AssignDLGAttrs(struct DLGInfo *DLG, char *Prefix); // used locally only -> static, AF 25.7.2021
-static short OpenObjFile(char *ObjName); // used locally only -> static, AF 25.7.2021
-static void Set_DLGObject(struct DLGInfo *DLG); // used locally only -> static, AF 25.7.2021
+STATIC_FCN void Set_DXFObject(char *name, short pts, char *ptrn); // used locally only -> static, AF 25.7.2021
+STATIC_FCN short AssignDLGAttrs(struct DLGInfo *DLG, char *Prefix); // used locally only -> static, AF 25.7.2021
+STATIC_FCN short OpenObjFile(char *ObjName); // used locally only -> static, AF 25.7.2021
+STATIC_FCN void Set_DLGObject(struct DLGInfo *DLG); // used locally only -> static, AF 25.7.2021
 
 
 short ImportDLG(void)
@@ -585,7 +585,7 @@ Cleanup:
 
 /*********************************************************************/
 
-static short OpenObjFile(char *ObjName) // used locally only -> static, AF 25.7.2021
+STATIC_FCN short OpenObjFile(char *ObjName) // used locally only -> static, AF 25.7.2021
 {
  short i = 0, j = 0, k = 0, l, OBNexists;
 
@@ -650,7 +650,7 @@ Repeat:
 
 /*********************************************************************/
 
-static void Set_DXFObject(char *name, short pts, char *ptrn) // used locally only -> static, AF 25.7.2021
+STATIC_FCN void Set_DXFObject(char *name, short pts, char *ptrn) // used locally only -> static, AF 25.7.2021
 {
 
   OBN = NoOfObjects;
@@ -677,7 +677,7 @@ static void Set_DXFObject(char *name, short pts, char *ptrn) // used locally onl
 
 /************************************************************************/
 
-static void Set_DLGObject(struct DLGInfo *DLG) // used locally only -> static, AF 25.7.2021
+STATIC_FCN void Set_DLGObject(struct DLGInfo *DLG) // used locally only -> static, AF 25.7.2021
 {
  short i;
 
@@ -710,7 +710,7 @@ static void Set_DLGObject(struct DLGInfo *DLG) // used locally only -> static, A
 
 /************************************************************************/
 
-static short AssignDLGAttrs(struct DLGInfo *DLG, char *Prefix) // used locally only -> static, AF 25.7.2021
+STATIC_FCN short AssignDLGAttrs(struct DLGInfo *DLG, char *Prefix) // used locally only -> static, AF 25.7.2021
 {
  short SaveObject = 1;
 

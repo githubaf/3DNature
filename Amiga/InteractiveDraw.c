@@ -9,8 +9,8 @@
 #include "vgl/vgl.h"
 #include "vgl/vgl_internals.h"
 
-static short computeview(struct elmapheaderV101 *Map); // used locally only -> static, AF 19.7.2021
-static void computefocprof(void); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short computeview(struct elmapheaderV101 *Map); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void computefocprof(void); // used locally only -> static, AF 19.7.2021
 
 /* HIDDEN_LINE_REMOVE does what it sez. */
 #define HIDDEN_LINE_REMOVE
@@ -24,13 +24,13 @@ static void computefocprof(void); // used locally only -> static, AF 19.7.2021
 
 #undef USE_MORE_UPDATES
 
-static void ClipAreaDrawVGL(PIXMAP *PM, struct vgl_coord *Poly, struct clipbounds *cb,
+STATIC_FCN void ClipAreaDrawVGL(PIXMAP *PM, struct vgl_coord *Poly, struct clipbounds *cb,
  char Fill, char Border); // used locally only -> static, AF 19.7.2021
 void vgl_dumb_fillpoly_convex (PIXMAP * p, int n_vert, struct vgl_coord *vert, double DitherCol);
 
-static void ClipPoly4RPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb); // used locally only -> static, AF 19.7.2021
-static void ClipAreaDrawRPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb); // used locally only -> static, AF 19.7.2021
-static short drawinterview(void); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void ClipPoly4RPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void ClipAreaDrawRPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb); // used locally only -> static, AF 19.7.2021
+STATIC_FCN short drawinterview(void); // used locally only -> static, AF 19.7.2021
 
 struct BusyWindow *BW;
 
@@ -173,7 +173,7 @@ short drawgridpts(short erase)
 
 /**********************************************************************/
 
-static short computeview(struct elmapheaderV101 *Map) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short computeview(struct elmapheaderV101 *Map) // used locally only -> static, AF 19.7.2021
 {
  short i, error = 0, StartMap, EndMap, Lr, Lc;
  ULONG InputID;
@@ -429,7 +429,7 @@ ReCompute:
 
 /***********************************************************************/
 
-static short drawinterview(void) // used locally only -> static, AF 19.7.2021
+STATIC_FCN short drawinterview(void) // used locally only -> static, AF 19.7.2021
 {
  short i, error = 0, Lr, Lc, Incr1, Incr2, RowLon, ColLat, ColIncr;
  char Edge;
@@ -1290,7 +1290,7 @@ void drawfocprof(short erase)
 
 /*********************************************************************/
 
-static void computefocprof(void) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void computefocprof(void) // used locally only -> static, AF 19.7.2021
 {
  short *mapptr;
  long zip, Lr, Lc;
@@ -1342,7 +1342,7 @@ static void computefocprof(void) // used locally only -> static, AF 19.7.2021
 /*********************************************************************/
 
 /* Further hacked version of ClipAreaDraw for VGL */
-static void ClipAreaDrawVGL(PIXMAP *PM, struct vgl_coord *Poly, struct clipbounds *cb,
+STATIC_FCN void ClipAreaDrawVGL(PIXMAP *PM, struct vgl_coord *Poly, struct clipbounds *cb,
  char Fill, char Border) // used locally only -> static, AF 19.7.2021
 {
  short i = 0, ct = 0, Pts;
@@ -1424,7 +1424,7 @@ static void ClipAreaDrawVGL(PIXMAP *PM, struct vgl_coord *Poly, struct clipbound
 /*********************************************************************/
 
 /* Hacked version of ClipAreaDraw for testing purposes */
-static void ClipAreaDrawRPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void ClipAreaDrawRPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb) // used locally only -> static, AF 19.7.2021
 {
  short i = 0, ct = 0;
 
@@ -1462,7 +1462,7 @@ static void ClipAreaDrawRPort(struct RastPort *RP, struct vgl_coord *Poly, struc
 
 /*********************************************************************/
 
-static void ClipPoly4RPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void ClipPoly4RPort(struct RastPort *RP, struct vgl_coord *Poly, struct clipbounds *cb) // used locally only -> static, AF 19.7.2021
 {
  short i = 0, PolyFirst = 1;
  struct lineseg ls;

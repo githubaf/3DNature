@@ -9,11 +9,11 @@
 #include "GUIExtras.h"
 
 
-static void UnsetKeyItem(union KeyFrame *Key); // used locally only -> static, AF 24.7.2021
-static void SetKeyFrame(short i, short frame, short group, short item); // used locally only -> static, AF 24.7.2021
-static short SplineAllKeys(void); // used locally only -> static, AF 24.7.2021
+STATIC_FCN void UnsetKeyItem(union KeyFrame *Key); // used locally only -> static, AF 24.7.2021
+STATIC_FCN void SetKeyFrame(short i, short frame, short group, short item); // used locally only -> static, AF 24.7.2021
+STATIC_FCN short SplineAllKeys(void); // used locally only -> static, AF 24.7.2021
 //short GetNextKeyItem(short group, short curitem, short dir); // AF, not used 26.July 2021
-static void SetKeyTableEntry(union KeyFrame **Key, short group, short item); // used locally only -> static, AF 24.7.2021
+STATIC_FCN void SetKeyTableEntry(union KeyFrame **Key, short group, short item); // used locally only -> static, AF 24.7.2021
 
 
 void MergeKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFrame **OF,
@@ -225,7 +225,7 @@ short SearchKeyFrame(short frame, short group, short item)
 
 /************************************************************************/
 
-static void SetKeyFrame(short i, short frame, short group, short item) // used locally only -> static, AF 24.7.2021
+STATIC_FCN void SetKeyFrame(short i, short frame, short group, short item) // used locally only -> static, AF 24.7.2021
 {
 
  switch (group)
@@ -389,7 +389,7 @@ short UnsetKeyFrame(short frame, short group, short item, short unset)
 
 /************************************************************************/
 
-static void UnsetKeyItem(union KeyFrame *Key) // used locally only -> static, AF 24.7.2021
+STATIC_FCN void UnsetKeyItem(union KeyFrame *Key) // used locally only -> static, AF 24.7.2021
 {
  short item;
 
@@ -810,7 +810,7 @@ short GetNextKeyItem(short group, short curitem, short dir)
 #endif
 /***********************************************************************/
 
-static void SetKeyTableEntry(union KeyFrame **Key, short group, short item) // used locally only -> static, AF 24.7.2021
+STATIC_FCN void SetKeyTableEntry(union KeyFrame **Key, short group, short item) // used locally only -> static, AF 24.7.2021
 {
  short i, KeyFrame = 0;
 
@@ -1290,7 +1290,7 @@ short SplineSingleKey(short group, short newkey)
 
 /***********************************************************************/
 
-static short SplineAllKeys(void) // used locally only -> static, AF 24.7.2021
+STATIC_FCN short SplineAllKeys(void) // used locally only -> static, AF 24.7.2021
 {
  short i, j, k, CurFr, NxtFr, IbtFr, LstInt, NxtInt, Frames, item, error = 0,
 	MaxCamFrames = 0, MaxFocFrames = 0;

@@ -11,9 +11,9 @@
 
 // short ComputeBumpMapTexture(double LatPt, double LonPt); // AF, not used 26.July 2021
 // void StrataConvert(void); // AF, not used 26.July 2021
-static long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon); // used locally only -> static, AF 26.7.2021
-static void seashoal(struct ColorComponents *CC); // used locally only -> static, AF 26.7.2021
-static void SetScreenColor(short ecotype); // used locally only -> static, AF 26.7.2021
+STATIC_FCN long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon); // used locally only -> static, AF 26.7.2021
+STATIC_FCN void seashoal(struct ColorComponents *CC); // used locally only -> static, AF 26.7.2021
+STATIC_FCN void SetScreenColor(short ecotype); // used locally only -> static, AF 26.7.2021
 
 
 short ecoset(short i, short notsnow, struct ColorComponents *CC)
@@ -433,7 +433,7 @@ void colmapavg(struct elmapheaderV101 *map, short colpts, struct ColorComponents
 
 /*********************************************************************/
 
-static void seashoal(struct ColorComponents *CC) // used locally only -> static, AF 26.7.2021
+STATIC_FCN void seashoal(struct ColorComponents *CC) // used locally only -> static, AF 26.7.2021
 {
 
  if ((SeaLevel - el < 6.0) || (SeaLevel - el > 16 && SeaLevel - el < 20))
@@ -468,7 +468,7 @@ static void seashoal(struct ColorComponents *CC) // used locally only -> static,
 
 /***********************************************************************/
 
-static void SetScreenColor(short ecotype) // used locally only -> static, AF 26.7.2021
+STATIC_FCN void SetScreenColor(short ecotype) // used locally only -> static, AF 26.7.2021
 {
 
   switch (ecotype)
@@ -802,7 +802,7 @@ short ComputeBumpMapTexture(double LatPt, double LonPt)
 #endif
 /***********************************************************************/
 
-static long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon) // used locally only -> static, AF 26.7.2021
+STATIC_FCN long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon) // used locally only -> static, AF 26.7.2021
 {
 long Noisy, Col, Row, Colp1, Rowp1;
 double Noise, LonOff, LatOff, LonInvOff, LatInvOff, wt[4], val[4];

@@ -6,7 +6,7 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
-static short SaveConvertOutput(struct DEMConvertData *data, struct elmapheaderV101 *DEMHdr,
+STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmapheaderV101 *DEMHdr,
         void *OutputData, long OutputDataSize, short i, short j,
         long rows, long cols, long OutputRows, long OutputCols, char *RGBComp); // used locally only -> static, AF 26.7.2021
 
@@ -2937,7 +2937,7 @@ Cleanup:
 
 /***********************************************************************/
 
-static short SaveConvertOutput(struct DEMConvertData *data, struct elmapheaderV101 *DEMHdr,
+STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmapheaderV101 *DEMHdr,
 	void *OutputData, long OutputDataSize, short i, short j,
 	long rows, long cols, long OutputRows, long OutputCols, char *RGBComp) // used locally only -> static, AF 26.7.2021
 {

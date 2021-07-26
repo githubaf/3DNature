@@ -283,3 +283,12 @@ Man kann in Eclipse die Compiler-Flag pro File setzen! Einfach rechte Maustaste 
 23.July2021
 -----------
 mor functions static. 150 left.
+
+26.July 2021
+------------
+Alle moegliche  Funktion static oder ganz wegdefiniert.
+
+1427452  STATIC_FUNCTIONS=static -flto  -fomit-frame-pointer    -> nochmal 3.488 Bytes haben die ganzen static functions gespart 
+1430940  STATIC_FUNCTIONS=       -flto  -fomit-frame-pointer
+
+

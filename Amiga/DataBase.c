@@ -11,11 +11,11 @@
 #define CUR_DBASE_RECLNGTH	53
 
 
-static short Find_DBObjPts(char *filename); // used locally only -> static, AF 20.7.2021
-static struct database *DataBase_Copy(struct database *OldBase, short OldRecords,
+STATIC_FCN short Find_DBObjPts(char *filename); // used locally only -> static, AF 20.7.2021
+STATIC_FCN struct database *DataBase_Copy(struct database *OldBase, short OldRecords,
         short OldUsedRecords, short NewRecords); // used locally only -> static, AF 20.7.2021
-static short DBase_LoadComposite(void); // used locally only -> static, AF 20.7.2021
-static struct database *DataBase_New(short Records); // used locally only -> static, AF 20.7.2021
+STATIC_FCN short DBase_LoadComposite(void); // used locally only -> static, AF 20.7.2021
+STATIC_FCN struct database *DataBase_New(short Records); // used locally only -> static, AF 20.7.2021
 
 /* Obsolete
 
@@ -513,7 +513,7 @@ RepeatSave:
 
 /*********************************************************************/
 
-static struct database *DataBase_New(short Records) // used locally only -> static, AF 20.7.2021
+STATIC_FCN struct database *DataBase_New(short Records) // used locally only -> static, AF 20.7.2021
 {
 
  if (Records > 0)
@@ -531,7 +531,7 @@ static struct database *DataBase_New(short Records) // used locally only -> stat
 
 /*********************************************************************/
 
-static struct database *DataBase_Copy(struct database *OldBase, short OldRecords,
+STATIC_FCN struct database *DataBase_Copy(struct database *OldBase, short OldRecords,
 	short OldUsedRecords, short NewRecords) // used locally only -> static, AF 20.7.2021
 {
  struct database *NewBase = NULL;
@@ -859,7 +859,7 @@ RepeatLoad:
 
 /*********************************************************************/
 
-static short Find_DBObjPts(char *filename) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short Find_DBObjPts(char *filename) // used locally only -> static, AF 20.7.2021
 {
  char filetype[10];
  short Points = 0;
@@ -1876,7 +1876,7 @@ FILE *fDbs;
 
 /**********************************************************************/
 
-static short DBase_LoadComposite(void) // used locally only -> static, AF 20.7.2021
+STATIC_FCN short DBase_LoadComposite(void) // used locally only -> static, AF 20.7.2021
 {
 char filename[256], Title[32];
 short i, error = 0, Objects, Points, ReadAll = 1;

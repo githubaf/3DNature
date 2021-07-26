@@ -12,7 +12,7 @@
 #include "VocabTable.h"
 
 
-static void DemoFunc(struct CmdContext *Call, char *FromZone); // used locally only -> static, AF 19.7.2021
+STATIC_FCN void DemoFunc(struct CmdContext *Call, char *FromZone); // used locally only -> static, AF 19.7.2021
 
 /* Beginning of implemented functions */
 
@@ -148,7 +148,7 @@ return(0);
 
 
 
-static void DemoFunc(struct CmdContext *Call, char *FromZone) // used locally only -> static, AF 19.7.2021
+STATIC_FCN void DemoFunc(struct CmdContext *Call, char *FromZone) // used locally only -> static, AF 19.7.2021
 {
 char TextMsg[250];
 short i = 0;
