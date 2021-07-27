@@ -1135,7 +1135,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
           End, /* HGroup */
         Child, VSpace(5),
         Child, TextObject, MUIA_Text_Contents,
-		 "\33c" APP_TITLE "®", End,
+		 "\33c" APP_TITLE "®", End,                              // \33c == center text
         Child, TextObject, MUIA_Text_Contents,
 		 ExtAboutVers, End,
         Child, TextObject, MUIA_Text_Contents,
