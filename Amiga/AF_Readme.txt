@@ -295,3 +295,8 @@ Release:
 Alle Files mit GUI im Namen mit -Os compiliert, den Rest mit -O2
 Release:
 1151504 STATIC_FUNCTIONS=static -flto  -fomit-frame-pointer
+
+
+28.Juli 2021
+------------
+pre-commit Script erzeugt. Muss manuell nach .git/hooks kopiert werden. Verhindert das Einchecken von UTF-8 Dateien.
