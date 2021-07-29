@@ -1144,7 +1144,7 @@ STATIC_FCN void FractFace_Render(struct elmapheaderV101 *map,
     if (LonDiff > 105.0)
      LonDiff = 105.0;
     sunangle -= (sunangle * ((LonDiff - 85.0) / 30.0));
-    } /* if surface is positioned near 90� from the sun in longitude */
+    } /* if surface is positioned near 90 from the sun in longitude */
    } /* if surface is lit at all */
   sunfactor = 1.0 - sunangle;
   sunshade = sunfactor * PARC_RNDR_MOTION(22);

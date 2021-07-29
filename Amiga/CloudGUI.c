@@ -219,9 +219,9 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 
 	  Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->GKS.FramePages = VGroup,
-              Child, CL_Win->GKS.BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines �"), 
+              Child, CL_Win->GKS.BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines "), 
 	      End, /* VGroup */
-            Child, CL_Win->GKS.BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys �"), 
+            Child, CL_Win->GKS.BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys "), 
 	    End, /* HGroup */
 	  End, /* VGroup */
 

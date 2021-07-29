@@ -24,13 +24,13 @@ Christopher Eric \"Xenon\" Hanson\n\
 \n"
 "\n\
 World Construction Set uses MUI - MagicUserInterface.\n\
-MUI is copyright Â©1993 by Stefan Stuntz.\n"
+MUI is copyright ©1993 by Stefan Stuntz.\n"
 "\n\
 \n\
 This is an Ent-free product, and is made from 100% \
 recycleable electrons.\n"
 "\n\
-World Construction Set is copyright Â©1993-1995 by Questar Productions,\n\
+World Construction Set is copyright ©1993-1995 by Questar Productions,\n\
 1058 Weld County Road 23.5\n\
 Brighton, Colorado 80601\n\
 (303) 659-4028\n\n";

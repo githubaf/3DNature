@@ -228,7 +228,7 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
                Child, MP->ExagLess = ImageButton(MUII_ArrowLeft),
                Child, MP->ExagMore = ImageButton(MUII_ArrowRight),
                Child, MP->MapObject = KeyButtonObject('b'),
-			MUIA_Text_Contents, "\33c Database �",
+			MUIA_Text_Contents, "\33c Database ",
         		MUIA_HorizWeight, 0, End,
                End, /* ColGroup */
 	     End, /* VGroup */
@@ -248,7 +248,7 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
                Child, RectangleObject, End,
                Child, HGroup, MUIA_Group_HorizSpacing, 0,
                  Child, MP->MapEco = CheckMark(0),
-                 Child, MP->BT_EcoLegend = KeyButtonFunc(',', "\33cEco �"),
+                 Child, MP->BT_EcoLegend = KeyButtonFunc(',', "\33cEco "),
                  End, /* HGroup */
                Child, RectangleObject, End,
                Child, HGroup,
@@ -272,7 +272,7 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
              Child, HGroup, MUIA_VertWeight, 0,
 	       Child, HGroup, MUIA_Group_HorizSpacing, 0,
                  Child, MP->AlignCheck = CheckMark(align),
-                 Child, MP->MapAlign  = KeyButtonFunc('g', "\33cAlign �"),
+                 Child, MP->MapAlign  = KeyButtonFunc('g', "\33cAlign "),
 	         End, /* HGroup */
                Child, MP->MapColor = CycleObject, MUIA_Cycle_Entries, ColorCycle, End,
                End, /* HGroup */

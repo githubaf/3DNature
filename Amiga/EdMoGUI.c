@@ -189,11 +189,11 @@ void Make_EM_Window(void)
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, EM_Win->FramePages = VGroup,
-                  Child, EM_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines �"), 
+                  Child, EM_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines "), 
 	          End, /* VGroup */
-                Child, EM_Win->BT_BankKeys = KeyButtonFunc('b', "\33cBank �"), 
-                Child, EM_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale �"), 
-                Child, EM_Win->BT_SunSet = KeyButtonFunc('n', "\33cSun �"), 
+                Child, EM_Win->BT_BankKeys = KeyButtonFunc('b', "\33cBank "), 
+                Child, EM_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale "), 
+                Child, EM_Win->BT_SunSet = KeyButtonFunc('n', "\33cSun "), 
 		End, /* HGroup */
 	      End, /* VGroup */
 
@@ -205,8 +205,8 @@ void Make_EM_Window(void)
 /* Buttons at bottom */
         Child, HGroup, MUIA_Group_SameWidth, TRUE,
           Child, EM_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
-          Child, EM_Win->BT_WinSize = KeyButtonFunc('w', "\33cList Win �"),
-          Child, EM_Win->BT_Interactive = KeyButtonFunc('i', "\33cCam View �"),
+          Child, EM_Win->BT_WinSize = KeyButtonFunc('w', "\33cList Win "),
+          Child, EM_Win->BT_Interactive = KeyButtonFunc('i', "\33cCam View "),
           Child, EM_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
           End, /* HGroup */
 
@@ -1379,10 +1379,10 @@ void Make_EMIA_Window(void)
             Child, EMIA_Win->BT_Grid = KeyButtonFunc('t', "\33cTerrain"), 
             Child, EMIA_Win->BT_ElShade = KeyButtonFunc('h', "\33cElShade"), 
             Child, EMIA_Win->BT_SunShade = KeyButtonFunc('s', "\33cSunShade"), 
-            Child, EMIA_Win->BT_EcoRender = KeyButtonFunc('e', "\33cEcoSys �"), 
-            Child, EMIA_Win->BT_DiagRender = KeyButtonFunc('d', "\33cDiag �"), 
+            Child, EMIA_Win->BT_EcoRender = KeyButtonFunc('e', "\33cEcoSys "), 
+            Child, EMIA_Win->BT_DiagRender = KeyButtonFunc('d', "\33cDiag "), 
             Child, EMIA_Win->BT_Vector = KeyButtonFunc('v', "\33cVectors"), 
-            Child, EMIA_Win->BT_Anim = KeyButtonFunc('a', "\33cAnim �"), 
+            Child, EMIA_Win->BT_Anim = KeyButtonFunc('a', "\33cAnim "), 
 	    End, /* VGroup */
 
 	  Child, VGroup,

@@ -360,7 +360,7 @@ ReCompute:
   DifLat += 360.0;
 
  if (abs(DifLat - 90.0) < .0005)
-  DifLat += .001;		/* don't take the tan of �90� */
+  DifLat += .001;		/* don't take the tan of 90 */
  if (abs(DifLat) > 90.0)
   SignA = -1.0;
  DifLat = (DifAlt * tan(DifLat * PiOver180));
@@ -374,7 +374,7 @@ ReCompute:
   DifLon += 360.0;
 
  if (abs(DifLon - 90.0) < .0005 )
-  DifLon += .001;		/* don't take the tan of �90� */
+  DifLon += .001;		/* don't take the tan of 90 */
  if (abs(DifLon) > 90.0)
   SignB = -1.0;
  DifLon = (DifAlt * tan(DifLon * PiOver180));

@@ -3,7 +3,7 @@
 ** hex digits), descrambles it, checks the check bytes and reports the
 ** final serial number if everything looks good.
 ** Created from scratch on 03 Aug 1994 by Christopher Eric "Xenon" Hanson
-** Copyright Â©1994 by CXH, Arcticus, and Questar.
+** Copyright ©1994 by CXH, Arcticus, and Questar.
 */
 
 #include <stdio.h>

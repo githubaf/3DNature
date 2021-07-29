@@ -5,7 +5,7 @@
 ** Because last byte is used as check, only serial #'s up to 16,777,215
 ** can be used.
 ** Created from scratch on 03 Aug 1994 by Christopher Eric "Xenon" Hanson
-** Copyright Â©1994 by CXH, Arcticus, and Questar.
+** Copyright ©1994 by CXH, Arcticus, and Questar.
 */
 
 #include <stdio.h>

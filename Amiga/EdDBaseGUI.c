@@ -230,16 +230,16 @@ void Make_DE_Window(void)
         Child, HGroup, MUIA_Group_SameWidth, TRUE,
           Child, DE_Win->BT_New = KeyButtonFunc('o',    "\33cNew Obj"), 
           Child, DE_Win->BT_Add = KeyButtonFunc('d',    "\33cAdd Obj"), 
-          Child, DE_Win->BT_Remove = KeyButtonFunc('m', "\33cRemove �"), 
-          Child, DE_Win->BT_Search = KeyButtonFunc('h', "\33cSearch �"), 
+          Child, DE_Win->BT_Remove = KeyButtonFunc('m', "\33cRemove "), 
+          Child, DE_Win->BT_Search = KeyButtonFunc('h', "\33cSearch "), 
           Child, DE_Win->BT_Sort = KeyButtonFunc('r',   "\33cSort"), 
           End, /* HGroup */
 
         Child, HGroup, MUIA_Group_SameWidth, TRUE,
-          Child, DE_Win->BT_Save = KeyButtonFunc('s',   "\33cSave �"), 
-          Child, DE_Win->BT_Load = KeyButtonFunc('l',   "\33cLoad �"), 
-          Child, DE_Win->BT_Append = KeyButtonFunc('a', "\33cAppend �"), 
-          Child, DE_Win->BT_Create = KeyButtonFunc('t', "\33cCreate �"), 
+          Child, DE_Win->BT_Save = KeyButtonFunc('s',   "\33cSave "), 
+          Child, DE_Win->BT_Load = KeyButtonFunc('l',   "\33cLoad "), 
+          Child, DE_Win->BT_Append = KeyButtonFunc('a', "\33cAppend "), 
+          Child, DE_Win->BT_Create = KeyButtonFunc('t', "\33cCreate "), 
           End, /* HGroup */
 
         End, /* VGroup */

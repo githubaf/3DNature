@@ -88,13 +88,13 @@ const char *path; // directory path
 const char *node; // node
 
 This function copies the path string (if it is not NULL) to the file name
-area and appends the —SLASH separator if the path string does not end
+area and appends the SLASH separator if the path string does not end
 with a slash or colon. Then, the node string is appended to the file
-name. —SLASH is an external character variable that defaults to a slash
+name. SLASH is an external character variable that defaults to a slash
 (/).
 
 The name area must be large enough to accept the filename string.
-This function is not available if the —STRICT— ANSI flag has been
+This function is not available if the STRICT ANSI flag has been
 defined.
 */
 
@@ -141,7 +141,7 @@ drive : path/node . ext
 If the drive pointer is not NULL, the drive pointer is moved to the
 area pointed to by the file argument. Then, a colon is inserted unless
 one is already there. Next, if the path pointer is not NULL, it is
-appended to file, and the directory separator specified by —SLASH is
+appended to file, and the directory separator specified by SLASH is
 added if necessary. The node string is appended next, unless it is NULL.
 Finally, if the ext pointer is not NULL, a period is appended to file,
 followed by the ext string.

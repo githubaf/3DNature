@@ -184,7 +184,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 
 /* We'll add some randomness to our colors for other than snow.
 ** Since "random" varies from -.1 to +.1, this will give us a variation of
-** Â±20 */
+** ±20 */
 
  switch (dir)
   {

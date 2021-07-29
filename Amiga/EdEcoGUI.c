@@ -215,9 +215,9 @@ void Make_EE_Window(void)
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, EE_Win->FramePages = VGroup,
-                  Child, EE_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines �"), 
+                  Child, EE_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines "), 
 	          End, /* VGroup */
-                Child, EE_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys �"), 
+                Child, EE_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys "), 
 		End, /* HGroup */
 	      End, /* VGroup */
 

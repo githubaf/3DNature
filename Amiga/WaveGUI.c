@@ -471,9 +471,9 @@ APTR Obj;
 
 	      Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
 	        Child, WV_Win->GKS.FramePages = VGroup,
-                  Child, WV_Win->GKS.BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines �"), 
+                  Child, WV_Win->GKS.BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines "), 
 	          End, /* VGroup */
-                Child, WV_Win->GKS.BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys �"), 
+                Child, WV_Win->GKS.BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys "), 
 		End, /* HGroup */
 	      End, /* VGroup */
 

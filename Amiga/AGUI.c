@@ -65,13 +65,13 @@ void Make_EP_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, EP_Win->CY_Layout = CycleObject,
         MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, EP_Win->BT_EdMoPar = KeyButtonFunc('m',    "\33l Motion     Â»"),
-        Child, EP_Win->BT_EdCoPar = KeyButtonFunc('c',    "\33l Color      Â»"),
-        Child, EP_Win->BT_EdEcoPar = KeyButtonFunc('e',   "\33l Ecosystem  Â»"),
-        Child, EP_Win->BT_EdClouds = KeyButtonFunc('l',   "\33l Clouds     Â»"),
-        Child, EP_Win->BT_EdWaves  = KeyButtonFunc('w',   "\33l Waves      Â»"),
-        Child, EP_Win->BT_Defaults = KeyButtonFunc('d',   "\33l Defaults   Â»"),
-/*        Child, EP_Win->BT_ExportMo = KeyButtonFunc('i',   "\33l Motion I/O Â»"),*/
+        Child, EP_Win->BT_EdMoPar = KeyButtonFunc('m',    "\33l Motion     »"),
+        Child, EP_Win->BT_EdCoPar = KeyButtonFunc('c',    "\33l Color      »"),
+        Child, EP_Win->BT_EdEcoPar = KeyButtonFunc('e',   "\33l Ecosystem  »"),
+        Child, EP_Win->BT_EdClouds = KeyButtonFunc('l',   "\33l Clouds     »"),
+        Child, EP_Win->BT_EdWaves  = KeyButtonFunc('w',   "\33l Waves      »"),
+        Child, EP_Win->BT_Defaults = KeyButtonFunc('d',   "\33l Defaults   »"),
+/*        Child, EP_Win->BT_ExportMo = KeyButtonFunc('i',   "\33l Motion I/O »"),*/
         End, /* VGroup */
       End; /* EP_win->EditWindow */
 
@@ -524,12 +524,12 @@ void Make_DB_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, DB_Win->CY_Layout = CycleObject,
 		 MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, DB_Win->BT_Load = KeyButtonFunc('l',    "\33l Load     Â»"),
-        Child, DB_Win->BT_Append = KeyButtonFunc('a',  "\33l Append   Â»"),
-        Child, DB_Win->BT_Create = KeyButtonFunc('c',  "\33l Create   Â»"),
-        Child, DB_Win->BT_Edit = KeyButtonFunc('e',    "\33l Edit     Â»"),
-        Child, DB_Win->BT_SaveAs = KeyButtonFunc('s',  "\33l Save     Â»"),
-        Child, DB_Win->BT_DirList = KeyButtonFunc('d', "\33l Dir List Â»"),
+        Child, DB_Win->BT_Load = KeyButtonFunc('l',    "\33l Load     »"),
+        Child, DB_Win->BT_Append = KeyButtonFunc('a',  "\33l Append   »"),
+        Child, DB_Win->BT_Create = KeyButtonFunc('c',  "\33l Create   »"),
+        Child, DB_Win->BT_Edit = KeyButtonFunc('e',    "\33l Edit     »"),
+        Child, DB_Win->BT_SaveAs = KeyButtonFunc('s',  "\33l Save     »"),
+        Child, DB_Win->BT_DirList = KeyButtonFunc('d', "\33l Dir List »"),
         Child, RectangleObject, MUIA_FixHeight, 0, End,
         End, /* VGroup */
       End; /* DB_win->EditWindow */
@@ -787,13 +787,13 @@ void Make_DO_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, DO_Win->CY_Layout = CycleObject,
 		 MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, DO_Win->BT_Extract = KeyButtonFunc('e',   "\33l Extract DEM Â»"),
-        Child, DO_Win->BT_Convert = KeyButtonFunc('c',   "\33l Convert DEM Â»"),
-        Child, DO_Win->BT_InterpMap = KeyButtonFunc('p', "\33l Interp DEM  Â»"),
-        Child, DO_Win->BT_ImportDLG = KeyButtonFunc('i', "\33l Import DLG  Â»"),
-        Child, DO_Win->BT_ImportDXF = KeyButtonFunc('x', "\33l Import DXF  Â»"),
-        Child, DO_Win->BT_ImportWDB = KeyButtonFunc('w', "\33l Import WDB  Â»"),
-        Child, DO_Win->BT_ExportLWOB = KeyButtonFunc('l', "\33l Export LW   Â»"),
+        Child, DO_Win->BT_Extract = KeyButtonFunc('e',   "\33l Extract DEM »"),
+        Child, DO_Win->BT_Convert = KeyButtonFunc('c',   "\33l Convert DEM »"),
+        Child, DO_Win->BT_InterpMap = KeyButtonFunc('p', "\33l Interp DEM  »"),
+        Child, DO_Win->BT_ImportDLG = KeyButtonFunc('i', "\33l Import DLG  »"),
+        Child, DO_Win->BT_ImportDXF = KeyButtonFunc('x', "\33l Import DXF  »"),
+        Child, DO_Win->BT_ImportWDB = KeyButtonFunc('w', "\33l Import WDB  »"),
+        Child, DO_Win->BT_ExportLWOB = KeyButtonFunc('l', "\33l Export LW   »"),
 	Child, RectangleObject, End,
         End, /* VGroup */
       End; /* DO_win->EditWindow */
@@ -1135,7 +1135,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
           End, /* HGroup */
         Child, VSpace(5),
         Child, TextObject, MUIA_Text_Contents,
-		 "\33c" APP_TITLE "Â®", End,                              // \33c == center text
+		 "\33c" APP_TITLE "®", End,                              // \33c == center text
         Child, TextObject, MUIA_Text_Contents,
 		 ExtAboutVers, End,
         Child, TextObject, MUIA_Text_Contents,

@@ -481,7 +481,7 @@ void Make_ES_Window(void)
 		MUIA_Cycle_Entries, ES_Cycle_GlobalGradients, End,
 	    Child, HGroup, 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Eco m/�"),
+                Child, Label2("Eco m/"),
 	        Child, ES_Win->FloatStr[8] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -489,7 +489,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->FloatStrArrow[8][1] = ImageButton(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Snow m/�"),
+                Child, Label2("Snow m/"),
 	        Child, ES_Win->FloatStr[9] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,

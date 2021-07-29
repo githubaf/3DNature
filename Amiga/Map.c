@@ -2370,13 +2370,13 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
      Log(DTA_NULL, str);
 
      MP_DigLonScale = (Elon - MP_Wlon) / length;
-     sprintf(str, "Longitude scale = %f �/point", MP_DigLonScale);
+     sprintf(str, "Longitude scale = %f /point", MP_DigLonScale);
      Log(DTA_NULL, str);
 
      RotatePt(-MP_Rotate, &Rx[0], &Ry[0], &Rx[2], &Ry[2]);
 
      MP_DigLatScale = (Slat - MP_Nlat) / (Ry[2] - Ry[0]);
-     sprintf(str, "Latitude scale = %f �/point", MP_DigLatScale);
+     sprintf(str, "Latitude scale = %f /point", MP_DigLatScale);
      Log(DTA_NULL, str);
      MP_ORy = Ry[0];
      MP_ORx = Rx[0];
