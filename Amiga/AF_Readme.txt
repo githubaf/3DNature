@@ -273,7 +273,7 @@ Compiler-Optionen ueberpruefen. Ist LTO vielleicht doch schaedlich? --> Wohl nic
 --> Auf dem Amiga muss das noch ausprobiert werden.
 
 Der Profiler zeigt, dass meine swmem()-Funktion  extrem oft aufgerufen wird und 8% der Zeit braucht. Kann man die inline machen?
---> erst mal libnix mit -pg bauen. Dann ist der Profiler hoffentlich aussagekrÃ¤ftiger.
+--> erst mal libnix mit -pg bauen. Dann ist der Profiler hoffentlich aussagekräftiger.
 
 22.July2021
 -----------
@@ -300,3 +300,7 @@ Release:
 28.Juli 2021
 ------------
 pre-commit Script erzeugt. Muss manuell nach .git/hooks kopiert werden. Verhindert das Einchecken von UTF-8 Dateien.
+
+29.Juli 2021
+------------
+Eineige Files wraen UTF-8 kodiert. Das fuehrt zu seltsamer Darstellung auf dem Amiga. mit iconv nach ISO 8859-1 konvertiert.
