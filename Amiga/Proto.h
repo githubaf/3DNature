@@ -645,7 +645,7 @@ extern void free_Memory(void *memblock, long zsize);
 extern void MergeKeyFrames(union KeyFrame *MF, short MFKeys,
 	union KeyFrame **OF, short *OFKeys, long *OFsize, short group);
 extern short MakeKeyFrame(short frame, short group, short item);
-extern short AllocNewKeyArray(union KeyFrame **KF, long *KFsize);
+// extern short AllocNewKeyArray(union KeyFrame **KF, long *KFsize); // used locally only -> static, AF 30.7.2021
 extern short CheckKeyFrame(short frame, short group, short item);
 extern short DeleteKeyFrame(short frame, short group, short Item,
 	 short DeleteAll, short DeleteGp);

@@ -14,7 +14,7 @@ STATIC_FCN void SetKeyFrame(short i, short frame, short group, short item); // u
 STATIC_FCN short SplineAllKeys(void); // used locally only -> static, AF 24.7.2021
 //short GetNextKeyItem(short group, short curitem, short dir); // AF, not used 26.July 2021
 STATIC_FCN void SetKeyTableEntry(union KeyFrame **Key, short group, short item); // used locally only -> static, AF 24.7.2021
-
+STATIC_FCN short AllocNewKeyArray(union KeyFrame **KF, long *KFsize); // used locally only -> static, AF 30.7.2021
 
 void MergeKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFrame **OF,
 	short *OFKeys, long *OFsize, short group)
@@ -120,7 +120,7 @@ short MakeKeyFrame(short frame, short group, short item)
 
 /************************************************************************/
 
-short AllocNewKeyArray(union KeyFrame **KF, long *KFsize)
+STATIC_FCN short AllocNewKeyArray(union KeyFrame **KF, long *KFsize) // used locally only -> static, AF 30.7.2021
 {
  union KeyFrame *NewKF;
  long NewKFsize;

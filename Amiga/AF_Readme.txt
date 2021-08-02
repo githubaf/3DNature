@@ -304,3 +304,51 @@ pre-commit Script erzeugt. Muss manuell nach .git/hooks kopiert werden. Verhinde
 29.Juli 2021
 ------------
 Eineige Files wraen UTF-8 kodiert. Das fuehrt zu seltsamer Darstellung auf dem Amiga. mit iconv nach ISO 8859-1 konvertiert.
+
+
+2.August 2021
+-------------
+
+#!/bin/bash
+# rejects commits of UTF-8 text files. 
+# copy this file to .git/hooks/
+# AF, 29.Juli 2021
+
+FILE_LIST="$(git diff --cached --name-only)"
+
+for FILE in $FILE_LIST; do
+if [ $(file "$FILE" | grep -c "UTF-8 Unicode text") -ne 0 ]; then
+echo "Local pre-commit hook"
+echo "Error: File $FILE is UTF-8 encoded. Change that to ISO 8859-1 for Amiga and try again!"
+echo "Commit refused."
+exit 1
+fi
+done
+
+--------------------------------
+
+# copy this file to hooks/
+# AF, 29.Juli 2021
+
+EXIT_CODE=0
+
+# check each branch being pushed
+while read old_sha new_sha refname
+do
+if [ $old_sha == "0000000000000000000000000000000000000000" ]; then
+old_sha=$(git hash-object -t tree /dev/null) # erstes Mal? Dann Hash vom "Empty Tree" nehmen
+fi
+
+FILE_LIST=$(git diff --name-only $old_sha $new_sha)
+for FILE in $FILE_LIST; do
+if [ $(git show "$new_sha":$FILE | file - | grep -c "UTF-8 Unicode text") -ne 0 ]; then
+echo "Error: $refname: $FILE is UTF-8 encoded. Change that to ISO 8859-1 for Amiga and try again!"
+EXIT_CODE=1
+fi
+done
+
+done
+
+exit "$EXIT_CODE"
+
+

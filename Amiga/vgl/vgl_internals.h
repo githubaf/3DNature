@@ -447,9 +447,9 @@ void vgl_dumb_fillarc_noclip (PIXMAP *p,
 			      int x_axis, int y_axis,
 			      int start, int end);
 
-void vgl_dumb_poly (PIXMAP *p, int n_vert, struct vgl_coord *vert);
+// void vgl_dumb_poly (PIXMAP *p, int n_vert, struct vgl_coord *vert); // used locally only -> static, AF 30.7.2021
 void vgl_dumb_fillpoly (PIXMAP *p, int n_vert, struct vgl_coord *vert);
-void vgl_dumb_poly_noclip (PIXMAP *p, int n_vert, struct vgl_coord *vert);
+// void vgl_dumb_poly_noclip (PIXMAP *p, int n_vert, struct vgl_coord *vert); // used locally only -> static, AF 30.7.2021
 void vgl_dumb_fillpoly_noclip (PIXMAP *p, int n_vert, struct vgl_coord *vert);
 
 void vgl_dumb_bitblt (PIXMAP *source,
@@ -487,8 +487,8 @@ void vgl_dumb_transbitblt_noclip (PIXMAP *source,
 				int mask_color);*/ // used locally only -> static, AF 20.7.2021
 
 void vgl_dumb_setfont (PIXMAP *p, struct vgl_ffont *ffont);
-void vgl_dumb_text (PIXMAP *p, int x, int y, char *s);
-void vgl_dumb_text2 (PIXMAP *p, int x, int y, char *s, int len);
+// void vgl_dumb_text (PIXMAP *p, int x, int y, char *s); // used locally only -> static, AF 30.7.2021
+// void vgl_dumb_text2 (PIXMAP *p, int x, int y, char *s, int len); // used locally only -> static, AF 30.7.2021
 
 void vgl_dumb_clear (PIXMAP *p);
 void vgl_dumb_dissolve (PIXMAP *dest, PIXMAP *source, int speed);

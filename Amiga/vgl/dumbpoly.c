@@ -34,12 +34,13 @@ void vgl_dumb_fillpoly_convex (PIXMAP * p, int n_vert, struct vgl_coord *vert, d
 void vgl_dumb_fillpoly_convex (PIXMAP * p, int n_vert, struct vgl_coord *vert);
 #endif
 STATIC_FCN int vgl_dumb_fillpoly_convex_root (PIXMAP * p, int n_vert, struct vgl_coord *vert); // used locally only -> static, AF 26.7.2021
-
+STATIC_FCN void vgl_dumb_poly (PIXMAP * p, int n_vert, struct vgl_coord *vert); // used locally only -> static, AF 30.7.2021
+STATIC_FCN void vgl_dumb_poly_noclip (PIXMAP * p, int n_vert, struct vgl_coord *vert); // used locally only -> static, AF 30.7.2021
 
 /*****************************************************************************/
 /*****************************************************************************/
-void 
-vgl_dumb_poly (PIXMAP * p, int n_vert, struct vgl_coord *vert)
+STATIC_FCN void 
+vgl_dumb_poly (PIXMAP * p, int n_vert, struct vgl_coord *vert) // used locally only -> static, AF 30.7.2021
 {
   int i;
 
@@ -52,8 +53,8 @@ vgl_dumb_poly (PIXMAP * p, int n_vert, struct vgl_coord *vert)
 
 /*****************************************************************************/
 /*****************************************************************************/
-void 
-vgl_dumb_poly_noclip (PIXMAP * p, int n_vert, struct vgl_coord *vert)
+STATIC_FCN void 
+vgl_dumb_poly_noclip (PIXMAP * p, int n_vert, struct vgl_coord *vert) // used locally only -> static, AF 30.7.2021
 {
   int i;
 

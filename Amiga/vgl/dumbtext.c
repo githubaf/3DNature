@@ -30,6 +30,9 @@ struct ffont
   };
 #endif
 
+STATIC_FCN void vgl_dumb_text (PIXMAP * p, int x, int y, char *string); // used locally only -> static, AF 30.7.2021
+STATIC_FCN void vgl_dumb_text2 (PIXMAP * p, int x, int y, char *string, int length); // used locally only -> static, AF 30.7.2021
+
 /* An image. */
 
 struct image
@@ -231,8 +234,8 @@ vgl_expand_font (struct vgl_font *input)
 /************************************************************************/
 /* Draw a string of text at a given position on the display.  No
    clipping is done. */
-void 
-vgl_dumb_text2 (PIXMAP * p, int x, int y, char *string, int length)
+STATIC_FCN void 
+vgl_dumb_text2 (PIXMAP * p, int x, int y, char *string, int length) // used locally only -> static, AF 30.7.2021
 {
   int tmp_bitmap_length;	/* Words in one line of tmp_bitmap. */
   int tmp_bitmap_size;		/* Number of longs in the tmp_bitmap. */
@@ -555,8 +558,8 @@ copy_plane_1_to_8 (PIXMAP * p, struct image *src_image,
 
 
 /***************************************************************************/
-void 
-vgl_dumb_text (PIXMAP * p, int x, int y, char *string)
+STATIC_FCN void 
+vgl_dumb_text (PIXMAP * p, int x, int y, char *string) // used locally only -> static, AF 30.7.2021
 {
   char *s;
 

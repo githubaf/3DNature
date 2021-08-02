@@ -45,12 +45,17 @@ WCS: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	m68k-amigaos-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -Wl,-Map=wcs.map,--trace
 	@echo 'Finished building target: $@'
 	@echo ' '
+	$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
 	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) WCS
 	-@echo ' '
 
-.PHONY: all clean dependents
+post-build:
+	-cp WCS WCS.unstripped && m68k-amigaos-strip WCS && ls -la WCS && m68k-amigaos-size WCS
+	-@echo ' '
+
+.PHONY: all clean dependents post-build
 
 -include ../makefile.targets

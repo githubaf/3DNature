@@ -23,7 +23,7 @@ cd - >/dev/null
 for FUNCTION in $(cat all_defined_functions.txt); do
         if [ $FUNCTION != "main" ]; then        # ignore main(), this should be never called by other source code
                 if [ $(grep "^$FUNCTION[^a-zA-Z0-9_\=\[]" ../tags | egrep "[space]*f$" | grep -v "static" | grep -c ".") -ne "0" ]; then     # only functions that are definded in our c-Files are considered
-                        if [ $(grep "$FUNCTION" called_functions.txt  | grep -c ".") -eq "0" ]; then
+			if [ $(grep "$FUNCTION" called_functions.txt  | grep -c ".") -eq "0" ]; then
                                 echo "--- $FUNCTION() ------------------------------------------"
                                 for FILE in $(cat ../list_of_used_c_files.txt); do
                                         grep -nH "$FUNCTION"[^a-zA-Z0-9_\=\[] "../$FILE" # show found functions
