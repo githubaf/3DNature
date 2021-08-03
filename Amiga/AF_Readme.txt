@@ -146,7 +146,7 @@ Speicherschmierer!!! EM_Win->ValTxt[5] hat nur Eintraege 0...4, wird in der Schl
 Juli 2021
 ---------
 cppcheck *.c --force | grep "[0-9]+:[0-9]:" 
-hat vor allem fehlende printf()-Parameter gefunden, resourceleals (fehlendes fclose() im Fehlerfall) und einige Bufferoverlows!
+hat vor allem fehlende printf()-Parameter gefunden, resourceleaks (fehlendes fclose() im Fehlerfall) und einige Bufferoverlows!
 
 - Einzelne Defines koennen mit -U wegdefiniert werden, die werdenn nicht untersucht)
 cppcheck EdPar.c --force -U C_PLUS_PLUS | grep "[0-9]+:[0-9]:" 
@@ -351,4 +351,23 @@ done
 
 exit "$EXIT_CODE"
 
+3.August 2021
+-------------
+Bebbo hat an seinem gcc fuer mich gearbeitet. Jetzt kann man libnix mit -pg uerbsetzen und sollte dann ein komplettes Profiling machen koennen.
+PATH=$PATH:~/opt/m68k-amigaos_26Jul21/bin/ make clean all 2>&1
 
+PATH=$PATH:~/opt/m68k-amigaos_26Jul21/bin/ m68k-amigaos-gprof  WCS # | gprof2dot -n0 -e0 | dot -Tsvg -o output.svg && mirage output.svg
+
+     # map-File fuer file ordering erzeugen
+     PATH=$PATH:~/opt/m68k-amigaos_26Jul21/bin/  m68k-amigaos-nm --extern-only --defined-only -v --print-file-name WCS.unstripped >map_file
+
+    # jetzt Objekt File Reihenfolge vorschlagen lassen -> geht nicht! gprof behauptet, da sind keine Symbole !?
+    PATH=$PATH:~/opt/m68k-amigaos_26Jul21/bin/ m68k-amigaos-gprof WCS.unstripped -a --file-ordering map_file 
+
+Der Profiler-Aufruf zeigt swmem() als einen Zeitfresser an! 8% nur fuer diese Funktion. Also jetzt Baum nur mit swmem() als Ziel anzeigen:
+PATH=$PATH:~/opt/m68k-amigaos_26Jul21/bin/ m68k-amigaos-gprof  WCS.unstripped | gprof2dot -n0 -e0 --leaf=swmem | dot -Tsvg -o output.svg && mirage output.svg
+
+--> OK. Aufruf von 
+FractPoint_Sort() macht 5,8% aus, hier könnte man optimieren?
+
+Diesen Profiler-Lauf mal mit Amiga oder cycle-exact laufen lassen...
