@@ -18,7 +18,7 @@
 					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.887330398." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.227304855" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug">
 							<option id="cdt.managedbuild.option.gnu.cross.prefix.1596706299" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" useByScannerDiscovery="false" value="m68k-amigaos-" valueType="string"/>
-							<option id="cdt.managedbuild.option.gnu.cross.path.1188121296" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" useByScannerDiscovery="false" value="/home/developer/opt/m68k-amigaos_27Apr21/" valueType="string"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.1188121296" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" useByScannerDiscovery="false" value="/home/developer/opt/m68k-amigaos_26Jul21/" valueType="string"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.975685677" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
 							<builder buildPath="${workspace_loc:/WCS}/Debug" id="cdt.managedbuild.builder.gnu.cross.809432514" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
 							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -m68020 -m68881 -noixemul -Wno-unused-variable -Wno-unused-but-set-variable -Wno-pointer-sign -Wno-int-conversion -Wno-format -Wno-multichar -DSTATIC_FCN=static" id="cdt.managedbuild.tool.gnu.cross.c.compiler.1936062485" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
@@ -397,6 +397,7 @@
 							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.2090262389" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
 							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul" id="cdt.managedbuild.tool.gnu.cross.archiver.1238166695" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
 							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.1128425798" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<option id="gnu.both.asm.option.flags.45667105" superClass="gnu.both.asm.option.flags" useByScannerDiscovery="false" value="--gstabs" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.816628265" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>

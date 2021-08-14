@@ -371,3 +371,18 @@ PATH=$PATH:~/opt/m68k-amigaos_26Jul21/bin/ m68k-amigaos-gprof  WCS.unstripped | 
 FractPoint_Sort() macht 5,8% aus, hier könnte man optimieren?
 
 Diesen Profiler-Lauf mal mit Amiga oder cycle-exact laufen lassen...
+
+10.August 2021
+--------------
+WCS 2.04 auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
+Canyon Sunset, Pal-Hires, Groeße/4 05:08:28
+
+Profiling-Lauf:
+--> Der Speicher reicht nicht, um die Wolken zu berechnen!
+--> Nicht mit Samba-Laufwerk arbeiten sondern assign VBOX: RAM: gemacht. Sonst ist das Schreiben der gcda-Files EXTREM langsam!
+--> Vorher ein 
+makedir ram:Desktop/SelcoGit/3DNature/Amiga/Profiling ALL
+damit die Unterverzeichnisse da sind. Nach Programmende dann das Verzeichnis RAM:Desktop nach Linux: kopieren.
+--> gmon.out nocht kopieren. (Liegt im Verzeichnis, in dem Das Programm gestartet wurde)
+
+--gstabs beim Assembler mit angeben, damit Debuginformationen geschrieben werden.
