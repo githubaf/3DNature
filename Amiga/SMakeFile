@@ -58,7 +58,7 @@ debug: setdebug setnooptimize WCS.o $(ALLOBJS)
 optimize: setnodebug setoptimize WCS.o $(ALLOBJS)
    @copy envarc:BuildID env:
    $(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
-   $(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS ND MAP=wcs.map,h,f
+   $(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS ND MAP wcs.map,h,f
 
 beta: setnodebug setnooptimize WCS.o $(ALLOBJS)
    @echo "Enter BuildID Key:"

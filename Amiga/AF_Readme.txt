@@ -386,3 +386,30 @@ damit die Unterverzeichnisse da sind. Nach Programmende dann das Verzeichnis RAM
 --> gmon.out nocht kopieren. (Liegt im Verzeichnis, in dem Das Programm gestartet wurde)
 
 --gstabs beim Assembler mit angeben, damit Debuginformationen geschrieben werden.
+
+16.8.2021
+----------
+Alter Lauf:
+WCS 2.04 auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
+Canyon Sunset, Pal-Hires, Groeße/4 05:08:28
+
+Neu mit gcc:
+WCS_gcc_Release_Static 68020/68881 auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
+Canyon Sunset, Pal-Hires, Groeße/4 07:36:02    !!! Warum so langsam? Trotz static  
+
+Statt -m68020 -m66881 jetzt nur -m68040
+WCS_gcc_Release_Static_68040 auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
+Canyon Sunset, Pal-Hires, Groeße/4 10:29:07   !!!!!!!!!
+
+
+WCS_gcc_Release_Static_68040_mhard-float auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
+Canyon Sunset, Pal-Hires, Groeße/4 7:35:17, also auch nicht viel besser als 68020/68881
+
+
+Auf dem Amiga muss zum SAS/C compilieren noch http://aminet.net/dev/c/SDI_headers.lha installiert werden und http://aminet.net/dev/mui/mui38dev.lha
+
+Compilieren auf dem C=A4000T mit Smbfs 2.2 ist extrem langsam, geht aber. -> Besser unter WinUAE machen.
+
+WCS_smake_optimize auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
+Canyon Sunset, Pal-Hires, Groeße/4 4:53:40    --> bisher schnellste Variante
+
