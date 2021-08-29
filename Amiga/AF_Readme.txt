@@ -413,3 +413,25 @@ Compilieren auf dem C=A4000T mit Smbfs 2.2 ist extrem langsam, geht aber. -> Bes
 WCS_smake_optimize auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
 Canyon Sunset, Pal-Hires, Groeße/4 4:53:40    --> bisher schnellste Variante
 
+26.8.2021
+---------
+mit -mfast-math übersetzt -> 7:31:54, also praktisch keine Verbesserung.
+
+
+// https://stackoverflow.com/questions/24348227/how-to-disable-double-precision-math-while-compiling-with-gcc-or-and-iar
+gcc has an optimization option -fsingle-precision-constant that treats ordinary floating point constants as single precision
+
+-Wdouble-promotion does exactly what you want, see the doc, under Warning Options. The example in the doc is quite similar to yours by the way.
+
+Here is basically your example:
+
+float f(int int_var, float float_var_2) {
+  return 3.0 * int_var / float_var_2;
+}
+
+
+Coverage:
+gcovr --object-directory=. -r . --html --html-details -o coverage.html
+
+-> Beim Compilieren UND linken -noixemul nicht vergessen. Stack erhöhen!
+
