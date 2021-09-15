@@ -413,6 +413,12 @@ Compilieren auf dem C=A4000T mit Smbfs 2.2 ist extrem langsam, geht aber. -> Bes
 WCS_smake_optimize auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
 Canyon Sunset, Pal-Hires, Groeße/4 4:53:40    --> bisher schnellste Variante
 
+(15.Sep.21)
+WCS_GCC_baserel_O2Os (1048264 Bytes) auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
+GUI-Files mit -Os, die anderen mit -O2 
+Canyon Sunset, Pal-Hires, Groeße/4 7:24:29. In WinUAE braucht es 1:04 statt 1:30, auf dem Amiga aber keine wesentliche Verbesserung!
+
+
 26.8.2021
 ---------
 mit -mfast-math übersetzt -> 7:31:54, also praktisch keine Verbesserung.
