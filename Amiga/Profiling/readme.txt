@@ -1,7 +1,7 @@
 17.Sep.21
 ---------
 
-WCS mit -pg und -g bauen. Beide auch beim Linken angeben! WCS wird dann 14Meg statt 1,2Meg groß. Ohne -g geht line-by-line Profiling nicht.
+WCS mit -pg und -g bauen. Beide auch beim Linken angeben! WCS wird dann 14Meg statt 1,2Meg gross. Ohne -g geht line-by-line Profiling nicht.
 
 WCS hat auf dem Amiga 9 Stunden 32 Minuten gedauert. Canyon-Sunset, 1/4 Size, Pal Hires, C=A4000T 68040/25
 
