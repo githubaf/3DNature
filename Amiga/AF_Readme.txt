@@ -451,3 +451,20 @@ Canyon Sunset, Pal-Hires, Groeße/4  7:24:17  also trotz durchgehend fpu-Instruct
 - Mit -m68040 compiliert und gelinkt.( -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -fbaserel -flto -D__inline="inline static")
 WCS_gcc_Rel_Stat_br68881 auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
 Canyon Sunset, Pal-Hires, Groeße/4  4:49:14, schnellstes Ergebnis!
+
+24.Sep.21
+---------
+Experimente mit -ffast-math. Zusammen mit -O2 und -m68040 oder -m68020 -m68881 werden dann FPU-Instruktionen in den Code eingebaut. Bebbo hat noch Fehler rausgebaut. Jetzt erzeugt WCS ein Bild, das ist aber um 90 Grad gedreht!? Ohne -ffast-math ist alles OK.
+
+-> Das Problem liegt im MapTopo.c  -> wohl doch nicht!
+-> Mit #pragma GCC optimize("no-fast-math") Teile der Datei ohne fast-math compiliert. Komisch, bringt nichts!
+
+--> Es ist MapUtil.c (alles ohne -ffast-math gebaut, dann einzelne File mit -ffast-math compiliert bis der 90 Grad-Fehler auftrat.
+
+--> Bebbo hat das behoben am 25.9.21 morgens.
+
+Test, ob -ffast-math wirkt:
+m68k-amigaos-objdump -D WCS | grep "fsin"
+Er muss fsin finden. 
+Ich muss die Unterschiede -m68020, -m68020 -m68881, -m68020 -m68881 -ffast-math mal untersuchen.
+Was ist bei -m68040 anders als bei -m68020 -m68881?
