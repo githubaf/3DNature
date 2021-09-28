@@ -468,3 +468,15 @@ m68k-amigaos-objdump -D WCS | grep "fsin"
 Er muss fsin finden. 
 Ich muss die Unterschiede -m68020, -m68020 -m68881, -m68020 -m68881 -ffast-math mal untersuchen.
 Was ist bei -m68040 anders als bei -m68020 -m68881?
+
+26.9.2021
+---------
+-mregparm fuehrt immer noch zum Crash. Es liegt nicht an Bebbos -fbbb Optimierungen.
+
+28.9.2021
+---------
+Nochmal Speed-Test. Roadshow und smbfs2.2 waren aktiv, aber Netzwerkkabel gezogen, um konstante Bedingungnen zu erzeugen.
+Mit -m68040 compiliert und gelinkt.( -g -O2 -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -fbaserel -flto -D__inline="inline static")
+WCS_040_basrel_lto auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
+Canyon Sunset, Pal-Hires, Groeﬂe/4  4:42:22, schnellstes Ergebnis!
+
