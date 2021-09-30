@@ -480,3 +480,6 @@ Mit -m68040 compiliert und gelinkt.( -g -O2 -m68040 -noixemul  -fomit-frame-poin
 WCS_040_basrel_lto auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
 Canyon Sunset, Pal-Hires, Groeﬂe/4  4:42:22, schnellstes Ergebnis!
 
+29.9.2021
+---------
+WCS 2.04 auf frischem WinUAE A4000T (3.2) installiert. Dabei wird MUI version 10 installiert. Version 10 ist also genug und wir brauchen nicht Version 19 (MUI 3.8) fordern.
