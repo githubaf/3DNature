@@ -106,7 +106,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
 
      PS_Win->ScaleWin = WindowObject,
       MUIA_Window_Title		, "Scale Keys",
-      MUIA_Window_ID		, 'PSSC',
+      MUIA_Window_ID		, MakeID('P','S','S','C'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -638,7 +638,7 @@ void Make_LW_Window(void)
 
      LW_Win->IOWin = WindowObject,
       MUIA_Window_Title		, "LightWave Export",
-      MUIA_Window_ID		, 'LWMO',
+      MUIA_Window_ID		, MakeID('L','W','M','O'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -903,7 +903,7 @@ void Make_FM_Window(void)
 
      FM_Win->ModelWin = WindowObject,
       MUIA_Window_Title		, "Ecosystem Model Editor",
-      MUIA_Window_ID		, 'FOMO',
+      MUIA_Window_ID		, MakeID('F','O','M','O'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -1580,7 +1580,7 @@ void Make_AN_Window(void)
 
      AN_Win->AnimWin = WindowObject,
       MUIA_Window_Title		, "Anim Control Window",
-      MUIA_Window_ID		, 'ANIM',
+      MUIA_Window_ID		, MakeID('A','N','I','M'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,

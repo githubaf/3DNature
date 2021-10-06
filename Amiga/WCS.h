@@ -3250,3 +3250,8 @@ struct Gauss {
 #include "Proto.h"  // Proto.h needs the structures defined above
 
 EXTERN Matx3x3 ScrRotMatx, NoBankMatx;
+
+
+#ifndef MakeID
+   #define MakeID(a,b,c,d) ( (a)<<24 | (b)<<16 | (c)<<8 | (d) )
+#endif

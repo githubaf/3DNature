@@ -82,7 +82,7 @@ void Make_EMTL_Window(void)
 
      EMTL_Win->TimeLineWin = WindowObject,
       MUIA_Window_Title		, "Motion Time Line",
-      MUIA_Window_ID		, 'EMTL',
+      MUIA_Window_ID		, MakeID('E','M','T','L'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -952,7 +952,7 @@ void Make_ECTL_Window(void)
 
      ECTL_Win->TimeLineWin = WindowObject,
       MUIA_Window_Title		, "Color Time Line",
-      MUIA_Window_ID		, 'ECTL',
+      MUIA_Window_ID		, MakeID('E','C','T','L'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -1683,7 +1683,7 @@ void Make_EETL_Window(void)
 
      EETL_Win->TimeLineWin = WindowObject,
       MUIA_Window_Title		, "Ecosystem Time Line",
-      MUIA_Window_ID		, 'EETL',
+      MUIA_Window_ID		, MakeID('E','E','T','L'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 

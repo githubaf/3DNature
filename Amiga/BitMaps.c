@@ -753,7 +753,7 @@ RepeatMemGrab:
   CD.fHandle = fHandle;
   } /* if compression */
 
- BWIM = BusyWin_New("Saving Image", WriteHeight, 0, 'BWIM');
+ BWIM = BusyWin_New("Saving Image", WriteHeight, 0, MakeID('B','W','I','M'));
 
  if (saveRGB)
   {
@@ -1291,7 +1291,7 @@ RepeatOpen:
     for (color=0; color<BMHdr.Planes/8; color++)
      memset(bitmap[color], 0, Width * Height);
 
-   BWIM = BusyWin_New("Loading Image", Height, 0, 'BWIM');
+   BWIM = BusyWin_New("Loading Image", Height, 0, MakeID('B','W','I','M'));
 
 /* read the data */
     InputDataPtr = InputData;
@@ -1371,7 +1371,7 @@ RepeatOpen:
 
  else
   { /* not IFF file */
-  BWIM = BusyWin_New("Loading Image", Height, 0, 'BWIM');
+  BWIM = BusyWin_New("Loading Image", Height, 0, MakeID('B','W','I','M'));
 
   InputDataSize = Width * Height;
   if (lseek(fh, 0L, 2) != InputDataSize)
@@ -1616,7 +1616,7 @@ short MergeZBufBack(short renderseg, short Width, short Height, struct Window *w
  BkGrndSize = Width * Height;
  ZBufSize = BkGrndSize * sizeof (float);
 
- BWDE = BusyWin_New("Background", Height, 0, 'BWDE');
+ BWDE = BusyWin_New("Background", Height, 0, MakeID('B','W','D','E'));
 
  if (settings.zbuffer)
   {

@@ -521,7 +521,7 @@ Continue without Waves?", "Continue|Cancel", "oc"))
 
  if (settings.maxframes > 1)
   {
-  BWAN = BusyWin_New("Animation", settings.maxframes, 1, 'BWAN');
+  BWAN = BusyWin_New("Animation", settings.maxframes, 1, MakeID('B','W','A','N'));
   } /* if rendering more than one frame */
   
  time((time_t *)&FirstSecs);
@@ -1101,7 +1101,7 @@ STATIC_FCN short InitDEMMap(struct Window *win, struct CloudData *CD) // used lo
   } /* if */
  else
   sprintf(FrameStr, "Frame %d/%d", frame, settings.maxframes);
- BWIM = BusyWin_New(FrameStr, objectlimit, 1, 'BWIM');
+ BWIM = BusyWin_New(FrameStr, objectlimit, 1, MakeID('B','W','I','M'));
 
  for (objectcount=0; objectcount<objectlimit; objectcount++)
   {
@@ -1392,7 +1392,7 @@ short InitVectorMap(struct Window *win, short zbufplot, short override)
   return(0);
   } /* if no vectors */
 
- BWVC = BusyWin_New("Vectors", NoOfObjects, 1, 'BWVC');
+ BWVC = BusyWin_New("Vectors", NoOfObjects, 1, MakeID('B','W','V','C'));
 
 /* try opening master Object file */
  strmfp(filename, dbasepath, dbasename);

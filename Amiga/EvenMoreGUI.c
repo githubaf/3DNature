@@ -52,7 +52,7 @@ void Make_TS_Window(void)
 
      TS_Win->TimeSetWin = WindowObject,
       MUIA_Window_Title		, "Sun Time",
-      MUIA_Window_ID		, 'EPTS',
+      MUIA_Window_ID		, MakeID('E','P','T','S'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -576,7 +576,7 @@ STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.202
 
      PN_Win->NewProjWin = WindowObject,
       MUIA_Window_Title		, "New Project",
-      MUIA_Window_ID		, 'PRON',
+      MUIA_Window_ID		, MakeID('P','R','O','N'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,

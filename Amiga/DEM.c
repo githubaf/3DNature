@@ -403,7 +403,7 @@ STATIC_FCN short computerelel(short boxsize, short *arrayptr, struct elmapheader
  double sum, ScaleFactor;
  struct BusyWindow *BWRE;
 
- BWRE = BusyWin_New("Computing", map->rows + 1, 0, 'BWRE');
+ BWRE = BusyWin_New("Computing", map->rows + 1, 0, MakeID('B','W','R','E'));
  boxoffset = (boxsize - 1) / 2;
  datarowsize = map->columns + 10;
  mapptr = map->map;
@@ -462,7 +462,7 @@ short InterpDEM(struct DEMInterpolateData *DEMInterp)
  struct elmapheaderV101 map;
  struct BusyWindow *BWFI;
 
- BWFI = BusyWin_New("Files", DEMInterp->FrFile->rf_NumArgs, 0, 'BWFI');
+ BWFI = BusyWin_New("Files", DEMInterp->FrFile->rf_NumArgs, 0, MakeID('B','W','F','I'));
 
  for (k=0; k<DEMInterp->FrFile->rf_NumArgs; k++)
   {
@@ -782,7 +782,7 @@ STATIC_FCN short SplineMap(short *map, short Xrows, short Ycols,
  short *rowptr, error = 0;
  struct BusyWindow *BWRE;
 
- BWRE = BusyWin_New("Computing", Xrows, 0, 'BWRE');
+ BWRE = BusyWin_New("Computing", Xrows, 0, MakeID('B','W','R','E'));
 
  Steps = Ycols - 2;
  LastStep = Steps - 2;
@@ -1107,7 +1107,7 @@ printf("URI %f UCI %f LRI %f LCI %f\n", DEMExtract->UTMRowInt, DEMExtract->UTMCo
 
 /* Extract 7.5 Min DEM's */
 
-  BWFI = BusyWin_New("7.5 Minute", DEMExtract->FrFile->rf_NumArgs, 0, 'BWFI');
+  BWFI = BusyWin_New("7.5 Minute", DEMExtract->FrFile->rf_NumArgs, 0, MakeID('B','W','F','I'));
 
   for (k=0; k<DEMExtract->FrFile->rf_NumArgs; k++)
    {
@@ -1119,7 +1119,7 @@ printf("URI %f UCI %f LRI %f LCI %f\n", DEMExtract->UTMRowInt, DEMExtract->UTMCo
 
    Columns = atoi(DEMExtract->USGSHdr.Columns);
 
-   BWRE = BusyWin_New("Reading", Columns, 0, 'BWRE');
+   BWRE = BusyWin_New("Reading", Columns, 0, MakeID('B','W','R','E'));
 
    fseek(DEMFile, 1024, SEEK_SET);
    for (i=0; i<Columns; i++)
@@ -1197,7 +1197,7 @@ if (1)
 
 /* fill any missing cells with adjacent elevations */
 
-  BWRE = BusyWin_New("Blank Patch", 4, 0, 'BWRE');
+  BWRE = BusyWin_New("Blank Patch", 4, 0, MakeID('B','W','R','E'));
 
   MapCtrX 	= DEMExtract->UTMCols / 2;  
   MapCtrY 	= DEMExtract->UTMRows / 2;  
@@ -1304,7 +1304,7 @@ if (1)
 
 /* Resample UTM grid into Lat/Lon grid */
 
-  BWRE = BusyWin_New("Resample", DEMExtract->LLCols, 0, 'BWRE');
+  BWRE = BusyWin_New("Resample", DEMExtract->LLCols, 0, MakeID('B','W','R','E'));
 
   DEMExtract->Convert->Lon = DEMExtract->MaxLon;
   for (i=0; i<DEMExtract->LLCols; i++, DEMExtract->Convert->Lon -= DEMExtract->LLColInt)
@@ -1371,7 +1371,7 @@ EndPhase1:
 
 /* Extract One Degree DEM's if any are selected */
 
- BWFI = BusyWin_New("One Degree", DEMExtract->FrFile->rf_NumArgs, 0, 'BWFI');
+ BWFI = BusyWin_New("One Degree", DEMExtract->FrFile->rf_NumArgs, 0, MakeID('B','W','F','I'));
 
  for (k=0; k<DEMExtract->FrFile->rf_NumArgs; k++)
   {
@@ -1420,7 +1420,7 @@ EndPhase1:
    break;
    } /* if read header failed */
 
-  BWRE = BusyWin_New("Reading", Columns, 0, 'BWRE');
+  BWRE = BusyWin_New("Reading", Columns, 0, MakeID('B','W','R','E'));
   for (i=0; i<Columns; i++)
    {
    TmpPtr = DEMExtract->UTMData + i * Rows;

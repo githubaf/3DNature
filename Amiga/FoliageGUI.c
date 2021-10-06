@@ -89,7 +89,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 
      FE_Win->FoliageWin = WindowObject,
       MUIA_Window_Title		, "Foliage Editor",
-      MUIA_Window_ID		, 'EDFO',
+      MUIA_Window_ID		, MakeID('E','D','F','O'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 

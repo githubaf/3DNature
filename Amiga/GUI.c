@@ -42,7 +42,7 @@ void Make_EP_Window(short hor_win)
 
      EP_Win->EditWindow = WindowObject,
       MUIA_Window_Title		, "Parameter Module",
-      MUIA_Window_ID		, (hor_win ? 'EPAH': 'EPAV'),
+      MUIA_Window_ID		, (hor_win ? MakeID('E','P','A','H'): MakeID('E','P','A','V')),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_LeftEdge	, MUIV_Window_LeftEdge_Moused,
       MUIA_Window_TopEdge	, MUIV_Window_TopEdge_Moused,
@@ -501,7 +501,7 @@ void Make_DB_Window(short hor_win)
 
      DB_Win->DatabaseWindow = WindowObject,
       MUIA_Window_Title		, "Database Module",
-      MUIA_Window_ID		, (hor_win ? 'DBAH': 'DBAV'),
+      MUIA_Window_ID		, (hor_win ? MakeID('D','B','A','H'): MakeID('D','B','A','V')),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_LeftEdge	, MUIV_Window_LeftEdge_Moused,
       MUIA_Window_TopEdge	, MUIV_Window_TopEdge_Moused,
@@ -764,7 +764,7 @@ void Make_DO_Window(short hor_win)
 
      DO_Win->DataOpsWindow = WindowObject,
       MUIA_Window_Title		, "DataOps Module",
-      MUIA_Window_ID		, (hor_win ? 'DOAH': 'DOAV'),
+      MUIA_Window_ID		, (hor_win ? MakeID('D','O','A','H'): MakeID('D','O','A','V')),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_LeftEdge	, MUIV_Window_LeftEdge_Moused,
       MUIA_Window_TopEdge	, MUIV_Window_TopEdge_Moused,
@@ -1078,7 +1078,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
 
  ModControlWin = WindowObject,
       MUIA_Window_Title      , "Module Control Panel",
-      MUIA_Window_ID         , 'WCSM',
+      MUIA_Window_ID         , MakeID('W','C','S','M'),
       MUIA_Window_SizeGadget , FALSE,
       MUIA_Window_Screen     , WCSScrn,
 
@@ -1105,7 +1105,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
  
   AboutWin =  WindowObject,
       MUIA_Window_Title      , "Version",
-      MUIA_Window_ID         , 'ABUT',
+      MUIA_Window_ID         , MakeID('A','B','U','T'),
       MUIA_Window_SizeGadget  , FALSE,
       MUIA_Window_Screen    , WCSScrn,
 
@@ -1702,7 +1702,7 @@ USHORT User_Message_Def(STRPTR outlinetxt, STRPTR message, STRPTR buttons,
 
      UM_Win = WindowObject,
       MUIA_Window_Title		, "Message",
-      MUIA_Window_ID		, 'UMES',
+      MUIA_Window_ID		, MakeID('U','M','E','S'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -1875,7 +1875,7 @@ short GetInputString(char *message, char *reject, char *string)
 
      IS_Win = WindowObject,
       MUIA_Window_Title		, "Input Request",
-      MUIA_Window_ID		, 'ISRQ',
+      MUIA_Window_ID		, MakeID('I','S','R','Q'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -2039,7 +2039,7 @@ void Make_Log_Window(int Severity)
 
      Log_Win->LogWindow = WindowObject,
       MUIA_Window_Title		, "Status Log",
-      MUIA_Window_ID		, 'STLG',
+      MUIA_Window_ID		, MakeID('S','T','L','G'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup, MUIA_Group_SameWidth, TRUE,
@@ -2228,7 +2228,7 @@ short Handle_APP_Windows(ULONG WCS_ID)
 
           InfoWin = WindowObject,
             MUIA_Window_Title		, "Info",
-            MUIA_Window_ID		, 'INFO',
+            MUIA_Window_ID		, MakeID('I','N','F','O'),
             MUIA_Window_Screen	, WCSScrn,
             MUIA_Window_SizeGadget  , FALSE,
 
@@ -2412,7 +2412,7 @@ short Handle_APP_Windows(ULONG WCS_ID)
 
           CreditWin = WindowObject,
             MUIA_Window_Title		, "Credits",
-            MUIA_Window_ID		, 'CRED',
+            MUIA_Window_ID		, MakeID('C','R','E','D'),
             MUIA_Window_Screen	, WCSScrn,
             WindowContents, VGroup,
               Child, HGroup,

@@ -46,7 +46,7 @@ float fDx, fDy, fDq;
   SetPointer(InterWind0, WaitPointer, 16, 16, -6, 0);
   if (EMIA_Win) SetPointer(EMIA_Win->Win, WaitPointer, 16, 16, -6, 0);
   if (EM_Win) SetPointer(EM_Win->Win, WaitPointer, 16, 16, -6, 0);
-  BW = BusyWin_New("Drawing...", NoOfElMaps * 2, 1, 'BWID');
+  BW = BusyWin_New("Drawing...", NoOfElMaps * 2, 1, MakeID('B','W','I','D'));
   constructview();
   if (! computeview(NULL))
    {
@@ -1540,7 +1540,7 @@ void Play_Motion(struct RenderAnim *RA)
   else
    EndFrame = KT_MaxFrames;
   FrameStep = RA->FrameStep;
-  BWAN = BusyWin_New("Anim", EndFrame - StartFrame, 1, 'BWAN');
+  BWAN = BusyWin_New("Anim", EndFrame - StartFrame, 1, MakeID('B','W','A','N'));
   } /* if more than one DEM */
  else
   {
@@ -1584,7 +1584,7 @@ void Play_Motion(struct RenderAnim *RA)
      } /* if bitmap file output */
     IA->recompute = 1;
     sprintf(FrameStr, "Frame %d/%d", frame - StartFrame + 1, EndFrame - StartFrame + 1);
-    BW = BusyWin_New(FrameStr, NoOfElMaps * 2, 1, 'BWID');
+    BW = BusyWin_New(FrameStr, NoOfElMaps * 2, 1, MakeID('B','W','I','D'));
 
     if (! computeview(NULL))
      {

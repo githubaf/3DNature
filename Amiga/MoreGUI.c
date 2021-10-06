@@ -42,7 +42,7 @@ void Make_DM_Window(void)
 
      DM_Win->ExtractWin = WindowObject,
       MUIA_Window_Title		, "DEM Extract",
-      MUIA_Window_ID		, 'DOEX',
+      MUIA_Window_ID		, MakeID('D','O','E','X'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -631,7 +631,7 @@ void Make_PJ_Window(void)
 
      PJ_Win->ProjWin = WindowObject,
       MUIA_Window_Title		, "Project Editor",
-      MUIA_Window_ID		, 'PROJ',
+      MUIA_Window_ID		, MakeID('P','R','O','J'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -1427,7 +1427,7 @@ void Make_SC_Window(void)
 
      SC_Win->ScaleWin = WindowObject,
       MUIA_Window_Title		, "Image Scale",
-      MUIA_Window_ID		, 'IMSC',
+      MUIA_Window_ID		, MakeID('I','M','S','C'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -1695,7 +1695,7 @@ void Make_PR_Window(void)
 
      PR_Win->PrefsWin = WindowObject,
       MUIA_Window_Title		, "Preferences",
-      MUIA_Window_ID		, 'PREF',
+      MUIA_Window_ID		, MakeID('P','R','E','F'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,

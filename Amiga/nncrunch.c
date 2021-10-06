@@ -531,7 +531,7 @@ int i0, i1;
 double cmax[2][2];
 struct BusyWindow *BWGR;
 
-   BWGR = BusyWin_New("ChoroPleth", NNG->datcnt, 0, 'BWGR');
+   BWGR = BusyWin_New("ChoroPleth", NNG->datcnt, 0, MakeID('B','W','G','R'));
 
    NNG->maxxy[0][2] = -BIGNUM;
    NNG->maxxy[1][2] = BIGNUM;
@@ -664,7 +664,7 @@ int i0, i1, i2, i3;
 double u2, wxd, wyd, wxde, wydn, xc, xe, xn;
 struct BusyWindow *BWGR;
 
-   BWGR = BusyWin_New("Gradient", NNG->datcnt, 0, 'BWGR');
+   BWGR = BusyWin_New("Gradient", NNG->datcnt, 0, MakeID('B','W','G','R'));
 
    for (i0=0; i0<NNG->datcnt; i0++)
    {
@@ -1331,7 +1331,7 @@ struct elmapheaderV101 Hdr;
     wyd = NNG->ystart * NNG->magy - y_increm;   /* add scale factor 24/4/95 */
     if (NNG->arriba < 0)
      wyd = NNG->yterm * NNG->magy + y_increm;   /* add scale factor 24/4/95 */
-    BWGR = BusyWin_New("Gridding", NNG->y_nodes, 0, 'BWGR');
+    BWGR = BusyWin_New("Gridding", NNG->y_nodes, 0, MakeID('B','W','G','R'));
     for (y=0; y<NNG->y_nodes; y++) 
      {
      wyd += y_increm * NNG->arriba;
@@ -1406,7 +1406,7 @@ struct elmapheaderV101 Hdr;
 
 /* plot color in Map View, brighter indicates higher amplitude */
 
-     BWGR = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, 'BWGR');
+     BWGR = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, MakeID('B','W','G','R'));
 
      DataRow = 0.0;
      for (y=Low_Y, k=0; y<=High_Y; y++, DataRow+=LatStep, k++)

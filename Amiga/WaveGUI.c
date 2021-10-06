@@ -72,7 +72,7 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
   } /* if */
 
  WV_Win = WVWin[WinNum];
- WinID = WinNum == 0 ? 'WVED': 'WVEC';
+ WinID = WinNum == 0 ? MakeID('W','V','E','D'): MakeID('W','V','E','C');
 
  Set_Param_Menu(10);
 
@@ -1640,7 +1640,7 @@ struct clipbounds cb;
  if (MaxAmp == 0.0)
   MaxAmp = 1.0;
 
- BWMD = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, 'BWMD');
+ BWMD = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));
 
  for (row=0, y=Low_Y, ptlat=HighLat; y<=High_Y; y++, row++, ptlat+=LatStep)
   {

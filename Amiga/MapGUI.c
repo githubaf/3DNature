@@ -173,7 +173,7 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
 
  MP->MAPC = WindowObject,
    MUIA_Window_Title      , "Map View Control",
-   MUIA_Window_ID         , 'MAPC',
+   MUIA_Window_ID         , MakeID('M','A','P','C'),
    MUIA_Window_Screen    , WCSScrn,
 
    WindowContents, VGroup,
@@ -494,7 +494,7 @@ short Make_MA_Window(struct MapData *MP)
 
  MP->AlignWin = WindowObject,
    MUIA_Window_Title      , "Map Alignment",
-   MUIA_Window_ID         , 'MAAL',
+   MUIA_Window_ID         , MakeID('M','A','A','L'),
    MUIA_Window_Screen    , WCSScrn,
    MUIA_Window_Menu	, MapNewMenus,
 
@@ -690,7 +690,7 @@ if(!UnderConst)
 	{
 	UnderConst = WindowObject,
    MUIA_Window_Title      , "Map Control Window Notice",
-   MUIA_Window_ID         , 'NOTC',
+   MUIA_Window_ID         , MakeID('N','O','T','C'),
 /*   MUIA_Window_SizeGadget  , FALSE, */
    MUIA_Window_Screen    , WCSScrn,
    WindowContents, VGroup,
@@ -1568,7 +1568,7 @@ HandleEvent:
       short i;
       struct BusyWindow *BWMT;
 
-      BWMT = BusyWin_New("Save Vectors", NoOfObjects, 1, 'BWMT');
+      BWMT = BusyWin_New("Save Vectors", NoOfObjects, 1, MakeID('B','W','M','T'));
 
       for (i=0; i<NoOfObjects; i++)
        {
@@ -1756,7 +1756,7 @@ HandleEvent:
        short i;
        struct BusyWindow *BWMT;
 
-       BWMT = BusyWin_New("Conform", NoOfObjects, 1, 'BWMT');
+       BWMT = BusyWin_New("Conform", NoOfObjects, 1, MakeID('B','W','M','T'));
        for (i=0; i<NoOfObjects; i++)
         {
         if ((DBase[i].Flags & 2) && DBase[i].Special[0] == 'V')
@@ -2593,7 +2593,7 @@ void Make_EL_Window(void)
 
      EL_Win->EcoLegendWin = WindowObject,
       MUIA_Window_Title		, "Ecosystem Legend",
-      MUIA_Window_ID		, 'ELEG',
+      MUIA_Window_ID		, MakeID('E','L','E','G'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 

@@ -95,7 +95,7 @@ void Make_ES_Window(void)
 
      ES_Win->SettingsWin = WindowObject,
       MUIA_Window_Title		, "Render Settings Editor",
-      MUIA_Window_ID		, 'EDST',
+      MUIA_Window_ID		, MakeID('E','D','S','T'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 

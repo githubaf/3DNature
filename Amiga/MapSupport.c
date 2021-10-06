@@ -463,7 +463,7 @@ short loadtopo(void)
   return (1);
   } /* if memory fail */
 
- BusyLoad = BusyWin_New("Topo Load", topomaps, 0, 'MTLD');
+ BusyLoad = BusyWin_New("Topo Load", topomaps, 0, MakeID('M','T','L','D'));
  topomaps = 0;
 
  for (i=0; i<NoOfObjects; i++)

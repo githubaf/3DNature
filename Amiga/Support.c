@@ -1664,7 +1664,7 @@ long PrintScreen(struct Screen *scr, UWORD srcx, UWORD srcy,
 /*    iodrp->io_DestRows = 0;*/
     iodrp->io_Special = iospecial;
 
-    BWPR = BusyWin_New("Printing...", 1, 0, 'BWPR');
+    BWPR = BusyWin_New("Printing...", 1, 0, MakeID('B','W','P','R'));
 
     Delay(250);
 

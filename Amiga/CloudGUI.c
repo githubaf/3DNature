@@ -47,7 +47,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 
      CL_Win->CloudWin = WindowObject,
       MUIA_Window_Title		, "Cloud Editor",
-      MUIA_Window_ID		, 'CLOD',
+      MUIA_Window_ID		, MakeID('C','L','O','D'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,

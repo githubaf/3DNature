@@ -2452,7 +2452,7 @@ struct BusyWindow *BWMD;
  D = pow(2.0, (double)MaxStage);
  d = D / 2;
 
- BWMD = BusyWin_New("Computing...", MaxStage, 0, 'BWMD');
+ BWMD = BusyWin_New("Computing...", MaxStage, 0, MakeID('B','W','M','D'));
 
  for (Stage=0; Stage<MaxStage; Stage++)
   {
@@ -2574,7 +2574,7 @@ struct DirList *DLItem;
 
  setclipbounds(MapWind0, &cb);
 
- BWMD = BusyWin_New("Drawing...", topomaps, 0, 'BWMD');
+ BWMD = BusyWin_New("Drawing...", topomaps, 0, MakeID('B','W','M','D'));
 
  for (i=0; i<topomaps; i++)
   {

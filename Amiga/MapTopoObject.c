@@ -106,7 +106,7 @@ Continue without Fractal Displacement Mapping?", "OK|Cancel", "oc"))
   } /* if displacement mapping */
 
  sprintf(DEMstr, "DEM %d/%d", DEMnum, NumDEMs);
- BWDE = BusyWin_New(DEMstr, (map->rows + 1) * 2, 0, 'BWDE');
+ BWDE = BusyWin_New(DEMstr, (map->rows + 1) * 2, 0, MakeID('B','W','D','E'));
 
 /* compute screen coordinates */
  map->facect = 0;
@@ -1594,7 +1594,7 @@ short MapCloudObject(struct elmapheaderV101 *map, struct CloudData *CD,
 */
  CL = CD->Layer;
 
- BWCL = BusyWin_New("Clouds", CD->NumLayers, 1, 'BWCL');
+ BWCL = BusyWin_New("Clouds", CD->NumLayers, 1, MakeID('B','W','C','L'));
 
 /* find ampl. range */
 
@@ -1700,7 +1700,7 @@ short Diff, NewDiff, FirstDiff, Sign;
 double h, d, sunshade, Azim, Dip;
 */
  sprintf(BusyWinStr, "Cloud %d", j);
- BWDE = BusyWin_New(BusyWinStr, (map->rows + 1) * 2, 0, 'BWDE');
+ BWDE = BusyWin_New(BusyWinStr, (map->rows + 1) * 2, 0, MakeID('B','W','D','E'));
 
  CC.Red = PARC_RNDR_COLOR(21, 0) * CL->Illum;
  CC.Grn = PARC_RNDR_COLOR(21, 1) * CL->Illum;
@@ -2498,7 +2498,7 @@ FILE *fFrd;
 	} /* if */
        } /* for OBN=0... */
 
-      if ((BWAN = BusyWin_New("Animation", LastFrame-FirstFrame+FrameInt, 1, 'BWAN')))
+      if ((BWAN = BusyWin_New("Animation", LastFrame-FirstFrame+FrameInt, 1, MakeID('B','W','A','N'))))
        {
        for (frame=FirstFrame; frame<=LastFrame; frame+=FrameInt)
         {
@@ -2516,7 +2516,7 @@ FILE *fFrd;
         objectlimit = RenderObjects;
 
         sprintf(FrameStr, "Frame %d/%d", frame, LastFrame);
-        if ((BWIM = BusyWin_New(FrameStr, objectlimit, 1, 'BWIM')))
+        if ((BWIM = BusyWin_New(FrameStr, objectlimit, 1, MakeID('B','W','I','M'))))
          {
          for (objectcount=0; objectcount<objectlimit; objectcount++)
           {
@@ -2588,7 +2588,7 @@ RepeatLoad:
             memset(FractalMap, -1, FractalMapSize);
 
            sprintf(DEMstr, "DEM %d/%d", objectcount + 1, objectlimit);
-           BWDE = BusyWin_New(DEMstr, (map.rows + 1) * 2, 0, 'BWDE');
+           BWDE = BusyWin_New(DEMstr, (map.rows + 1) * 2, 0, MakeID('B','W','D','E'));
 
 /* compute screen coordinates */
            for (j=0, Lr=0; Lr<=map.rows; Lr++)

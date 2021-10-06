@@ -440,7 +440,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
 
      TL_Win->TimeLineWin = WindowObject,
       MUIA_Window_Title		, NameStr,
-      MUIA_Window_ID		, 'GNTL',
+      MUIA_Window_ID		, MakeID('G','N','T','L'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 

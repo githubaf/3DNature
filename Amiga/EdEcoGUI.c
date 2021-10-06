@@ -67,7 +67,7 @@ void Make_EE_Window(void)
 
      EE_Win->EcosystemWin = WindowObject,
       MUIA_Window_Title		, "Ecosystem Editor",
-      MUIA_Window_ID		, 'EDEC',
+      MUIA_Window_ID		, MakeID('E','D','E','C'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 

@@ -188,7 +188,7 @@ if(vectorenabled)
  {
  DrawSteps += NoOfObjects;
  } /* if */
-BusyWin = BusyWin_New("Map Draw", DrawSteps, 0, 'MAPD');
+BusyWin = BusyWin_New("Map Draw", DrawSteps, 0, MakeID('M','A','P','D'));
 DMod = UserAbort = DrawSteps = 0;
 
 if(TopoEnabled || EcoEnabled)

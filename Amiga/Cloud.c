@@ -559,7 +559,7 @@ struct Wave *WV;
  LatStep = 8.0 * (CD->Lat[1] - CD->Lat[0]) / (CD->Rows - 1);
  LonStep = 8.0 * (CD->Lon[1] - CD->Lon[0]) / (CD->Cols - 1);
 
- BWMD = BusyWin_New("Computing...", CD->Rows, 0, 'BWMD');
+ BWMD = BusyWin_New("Computing...", CD->Rows, 0, MakeID('B','W','M','D'));
 
  zip = 0;
  for (y=0, ptlat=CD->Lat[0] + CD->LatOff; y<=CD->Rows; y+=8, ptlat+=LatStep)
@@ -650,7 +650,7 @@ struct clipbounds cb;
 
 /* plot color in Map View, brighter indicates higher wave amplitude */
 
- BWMD = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, 'BWMD');
+ BWMD = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));
 
  Density = CD->Density / 100.0;
 

@@ -626,7 +626,7 @@ short loadmapbase(short lowi, short onlyselected)
 #endif /* DBASE_SAVE_COMPOSITE */
   } /* if load new database */
 
- BusyLoad = BusyWin_New("Vector Load", NoOfObjects - lowi, 0, 'MVLD');
+ BusyLoad = BusyWin_New("Vector Load", NoOfObjects - lowi, 0, MakeID('M','V','L','D'));
  for (i=lowi; i<NoOfObjects; i++)
   {
   if (DBase[i].Lat)
@@ -1886,7 +1886,7 @@ struct BusyWindow *BusyLoad;
  strmfp(filename, dbasepath, dbasename);
  strcat(filename, ".MDB");
  
- BusyLoad = BusyWin_New("Vector Load", NoOfObjects, 0, 'MVLD');
+ BusyLoad = BusyWin_New("Vector Load", NoOfObjects, 0, MakeID('M','V','L','D'));
  if ((fDbs = fopen(filename, "rb")) != NULL)
   {
   fread(Title, 16, 1, fDbs);

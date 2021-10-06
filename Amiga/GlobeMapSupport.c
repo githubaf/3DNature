@@ -503,7 +503,7 @@ short makesky(short renderseg, struct Window *win)
  double angle, xxx, yyy, halfsky, skyfact, maxskyfact, lonscale;
  struct BusyWindow *BWDE;
 
- BWDE = BusyWin_New("Sky", settings.scrnheight, 0, 'BWDE');
+ BWDE = BusyWin_New("Sky", settings.scrnheight, 0, MakeID('B','W','D','E'));
 
  if (! settings.horfix)
   {
@@ -737,7 +737,7 @@ struct BusyWindow *BWDE;
  if (! ReflectionMap || ! ElevationMap || ! bitmap[0] || ! bitmap[1] || ! bitmap[2])
   return (0);
  
- BWDE = BusyWin_New("Reflections", settings.scrnheight, 0, 'BWDE');
+ BWDE = BusyWin_New("Reflections", settings.scrnheight, 0, MakeID('B','W','D','E'));
 
  HalfWidth = wide / 2.0;
 
@@ -1150,7 +1150,7 @@ struct BusyWindow *BWDE;
 
  DistQMax = qmax / 4.0;
 
- BWDE = BusyWin_New(NameStr, Height, 0, 'BWDE');
+ BWDE = BusyWin_New(NameStr, Height, 0, MakeID('B','W','D','E'));
 
  zip = CheckByteMap = 0;
  for (y=0; y<Height; y++)
@@ -1237,7 +1237,7 @@ struct BusyWindow *BWDE;
  DCols = Dex - DxStart + 1.0;
  DRows = Dey - DyStart + 1.0;
 
- BWDE = BusyWin_New(NameStr, DRows, 0, 'BWDE');
+ BWDE = BusyWin_New(NameStr, DRows, 0, MakeID('B','W','D','E'));
 
  for (y=DyStart, Coy=Soy, Cey=Soy+dY, j=0, PixWt = 0, PixVal=0.0; j<DRows;
 	j++, y++, Coy+=dY, Cey+=dY)

@@ -61,7 +61,7 @@ void Make_DE_Window(void)
 
      DE_Win->DatabaseEditWin = WindowObject,
       MUIA_Window_Title		, "Database Editor",
-      MUIA_Window_ID		, 'DBED',
+      MUIA_Window_ID		, MakeID('D','B','E','D'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
@@ -576,7 +576,7 @@ NewName:
       short Change = 1;
       struct BusyWindow *BWDB;
 
-      BWDB = BusyWin_New("Sorting", NoOfObjects, 0, 'BWDB');
+      BWDB = BusyWin_New("Sorting", NoOfObjects, 0, MakeID('B','W','D','B'));
       while (Change)
        {
        Change = 0;
@@ -1647,7 +1647,7 @@ void Make_DL_Window(void)
 
      DL_Win->DirListWin = WindowObject,
       MUIA_Window_Title		, "Directory List Editor",
-      MUIA_Window_ID		, 'DLED',
+      MUIA_Window_ID		, MakeID('D','L','E','D'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,

@@ -46,7 +46,7 @@ void Make_EM_Window(void)
 
      EM_Win->MotionWin = WindowObject,
       MUIA_Window_Title		, "Motion Editor",
-      MUIA_Window_ID		, 'EDMO',
+      MUIA_Window_ID		, MakeID('E','D','M','O'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -1368,7 +1368,7 @@ void Make_EMIA_Window(void)
 
      EMIA_Win->IAMotionWin = WindowObject,
       MUIA_Window_Title		, "Cam VC",
-      MUIA_Window_ID		, 'EDIA',
+      MUIA_Window_ID		, MakeID('E','D','I','A'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
@@ -2043,7 +2043,7 @@ void Make_EMPL_Window(void)
 
      EMPL_Win->ParListWin = WindowObject,
       MUIA_Window_Title		, "Motion Param List",
-      MUIA_Window_ID		, 'EDPL',
+      MUIA_Window_ID		, MakeID('E','D','P','L'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,

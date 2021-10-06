@@ -552,7 +552,7 @@ void shaderelief(short reliefshade)
  if (EMIA_Win) SetPointer(EMIA_Win->Win, WaitPointer, 16, 16, -6, 0);
  if (NoOfElMaps > 1)
   {
-  BWIM = BusyWin_New("Image", NoOfElMaps, 1, 'BWIM');
+  BWIM = BusyWin_New("Image", NoOfElMaps, 1, MakeID('B','W','I','M'));
   } /* if more than one DEM */
  
  

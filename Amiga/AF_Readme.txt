@@ -489,3 +489,11 @@ WCS 2.04 auf frischem WinUAE A4000T (3.2) installiert. Dabei wird MUI version 10
 --------------
 alt   5273 warnings --> CONST_STRPTR Casts fuer Aufrufe von User_Message()
 jetzt 4657 warnings
+
+6.Oktober 2021
+--------------
+Die Ausdruecke 'FORM' durch MakeID('F','O','R','M') ersetzt, um Warnungen zu beseitigen.
+
+for FILE in $(find -type f -name "*.[c\|h]"); do sed  -iv "s/'\([A-Z]\)\([A-Z]\)\([A-Z]\)\([A-Z]\)'/MakeID(\'\1\',\'\2\',\'\3\',\'\4\')/g" $FILE; done
+
+4553 Warnings
