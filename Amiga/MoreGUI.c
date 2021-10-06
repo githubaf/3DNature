@@ -309,7 +309,7 @@ void Make_DM_Window(void)
   if (! DM_Win->ExtractWin)
    {
    Close_DM_Window();
-   User_Message("DEM Extract", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"DEM Extract", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -472,10 +472,10 @@ short Set_DM_Data(struct DEMExtractData *DEMExtract)
  short Proceed;
 
 /* ask for lat/lon values to use */
- Proceed = User_Message("Data Ops Module: DEM Extract",
-"Please enter the latitude and longitude values for the southeast \
+ Proceed = User_Message((CONST_STRPTR)"Data Ops Module: DEM Extract",
+		 (CONST_STRPTR)"Please enter the latitude and longitude values for the southeast \
 corner of the current DEM in the string gadgets near the top of the DEM \
-Extract Window.", "Proceed|Cancel", "pc");
+Extract Window.", (CONST_STRPTR)"Proceed|Cancel", (CONST_STRPTR)"pc");
 
 /* get values from string gadgets */
  get(DM_Win->LatStr, MUIA_String_Contents, &floatstr);
@@ -868,7 +868,7 @@ void Make_PJ_Window(void)
   if (! PJ_Win->ProjWin)
    {
    Close_PJ_Window(1);
-   User_Message("Project: New/Edit", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Project: New/Edit", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1470,7 +1470,7 @@ void Make_SC_Window(void)
   if (! SC_Win->ScaleWin)
    {
    Close_SC_Window();
-   User_Message("Parameters: Image Scale", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameters: Image Scale", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1611,8 +1611,8 @@ void Handle_SC_Window(ULONG WCS_ID)
       }
      case ID_SC_CLOSEQUERY:
       {
-      if (User_Message("Parameters: Image Scale",
-	"Apply changes?", "OK|Cancel", "oc"))
+      if (User_Message((CONST_STRPTR)"Parameters: Image Scale",
+    		  (CONST_STRPTR)"Apply changes?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
        ApplyImageScale();
       Close_SC_Window();
       break;
@@ -1763,7 +1763,7 @@ void Make_PR_Window(void)
   if (! PR_Win->PrefsWin)
    {
    Close_PR_Window();
-   User_Message("Preferences", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Preferences", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 

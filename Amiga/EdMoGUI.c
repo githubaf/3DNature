@@ -23,8 +23,8 @@ void Make_EM_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message("Motion Editor",
-	"You must first load or create a parameter file before opening the Editor.", "OK", "o");
+  User_Message((CONST_STRPTR)"Motion Editor",
+		  (CONST_STRPTR)"You must first load or create a parameter file before opening the Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -216,7 +216,7 @@ void Make_EM_Window(void)
   if (! EM_Win->MotionWin)
    {
    Close_EM_Window(1);
-   User_Message("Motion Editor", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Motion Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -458,8 +458,8 @@ void Handle_EM_Window(ULONG WCS_ID)
        } /* if interactive open */
       else
        {
-       User_Message("Motion Editor: Auto Center",
-	 "Interactive module must be open before auto centering!", "OK", "o");
+       User_Message((CONST_STRPTR)"Motion Editor: Auto Center",
+    		   (CONST_STRPTR)"Interactive module must be open before auto centering!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
        } /* else */
       break;
      case ID_EM_MAKEKEY:
@@ -576,7 +576,7 @@ void Handle_EM_Window(ULONG WCS_ID)
       struct clipbounds cb;
 
       sprintf(str, "Delete all %s Key Frames?", varname[EM_Win->MoItem]);
-      if (User_Message_Def("Parameters Module: Motion", str, "OK|Cancel", "oc", 1))
+      if (User_Message_Def((CONST_STRPTR)"Parameters Module: Motion", str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
        {
        if (MP && MP->ptsdrawn)
         {
@@ -1289,7 +1289,7 @@ struct clipbounds cb;
      strcpy(str, "Make key frames for Camera Parameters also?");
      i = 0;
      } /* else focus group */
-    if (User_Message_Def("Parameters Module: Make Key", str, "Yes|No", "yn", 1))
+    if (User_Message_Def((CONST_STRPTR)"Parameters Module: Make Key", str, (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
      {
      MakeKeyFrame((short)FrameKey, 0, i    );
      MakeKeyFrame((short)FrameKey, 0, i + 1);
@@ -1490,7 +1490,7 @@ void Make_EMIA_Window(void)
   if (! EMIA_Win->IAMotionWin)
    {
    Close_EMIA_Window(-1);
-   User_Message("Camera View", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Camera View", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1870,9 +1870,9 @@ void Handle_EMIA_Window(ULONG WCS_ID)
 
       if (Height > WCSScrn->Height)
        {
-       if (User_Message("Camera View: Aspect",
-	"Computed height is larger than the current screen height.\
- Do you wish to use the screen height?", "OK|Cancel", "oc"))
+       if (User_Message((CONST_STRPTR)"Camera View: Aspect",
+    		   (CONST_STRPTR)"Computed height is larger than the current screen height.\
+ Do you wish to use the screen height?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
         {
         Height = WCSScrn->Height;
         } /* if */
@@ -2060,7 +2060,7 @@ void Make_EMPL_Window(void)
   if (! EMPL_Win->ParListWin)
    {
    Close_EMPL_Window();
-   User_Message("Motion Param List", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Motion Param List", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 

@@ -40,8 +40,8 @@ void Make_DE_Window(void)
 
  if (! dbaseloaded)
   {
-  User_Message("Database Editor",
-	"You must first load or create a database before opening the editor.", "OK", "o");
+  User_Message((CONST_STRPTR)"Database Editor",
+		  (CONST_STRPTR)"You must first load or create a database before opening the editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no database */
 
@@ -51,8 +51,8 @@ void Make_DE_Window(void)
 
  if (! DBList_New(NoOfObjects + 20))
   {
-  User_Message("Database Module",
-	"Out of memory!\nCan't open database window.", "OK", "o");
+  User_Message((CONST_STRPTR)"Database Module",
+		  (CONST_STRPTR)"Out of memory!\nCan't open database window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_DE_Window();
   return;
   } /* if out of memory */
@@ -248,7 +248,7 @@ void Make_DE_Window(void)
   if (! DE_Win->DatabaseEditWin)
    {
    Close_DE_Window();
-   User_Message("Database Editor", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Database Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -483,9 +483,9 @@ NewName:
        } /* for i=0... */
       if (found)
        {
-       if (! User_Message_Def("Database Module: Name",
-		"Object name already present in database!\nTry a new name?",
-		"OK|Cancel", "oc", 1))
+       if (! User_Message_Def((CONST_STRPTR)"Database Module: Name",
+    		   (CONST_STRPTR)"Object name already present in database!\nTry a new name?",
+			   (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
         break;
        goto NewName;
        }
@@ -603,10 +603,10 @@ NewName:
       short Remove;
       long ActiveItem;
 
-      if ((Remove = User_Message_Def("Database Module: Remove Item",
-	"Delete object, elevation and relative elevation files from disk as\
+      if ((Remove = User_Message_Def((CONST_STRPTR)"Database Module: Remove Item",
+    		  (CONST_STRPTR)"Delete object, elevation and relative elevation files from disk as\
  well as remove their names from the Database?",
-	"From Disk|Database Only|Cancel", "fdc", 1)) == 0)
+ (CONST_STRPTR)"From Disk|Database Only|Cancel", (CONST_STRPTR)"fdc", 1)) == 0)
 	break;
       SetPointer(DE_Win->Win, WaitPointer, 16, 16, -6, 0);
       get(DE_Win->LS_List, MUIA_List_Active, &ActiveItem);
@@ -1452,8 +1452,8 @@ void Set_DE_List(short update)
   {
   if (! DBList_New(NoOfObjects + 20))
    {
-   User_Message("Database Module",
-	"Out of memory!\nCan't open database list.", "OK", "o");
+   User_Message((CONST_STRPTR)"Database Module",
+		   (CONST_STRPTR)"Out of memory!\nCan't open database list.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    } /* if out of memory */
   } /* if need more list space */
 
@@ -1628,16 +1628,16 @@ void Make_DL_Window(void)
  DL_Win->DLNameSize = DL_Win->MaxDLItems * (sizeof (char *));
  if ((DL_Win->DLName = (char **)get_Memory(DL_Win->DLNameSize, MEMF_CLEAR)) == NULL)
   {
-  User_Message("Database Module",
-	"Out of memory!\nCan't open directory list window.", "OK", "o");
+  User_Message((CONST_STRPTR)"Database Module",
+		  (CONST_STRPTR)"Out of memory!\nCan't open directory list window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_DL_Window(NULL);
   return;
   } /* if out of memory */
 
  if ((DL_Win->DLCopy = DirList_Copy(DL)) == NULL)
   {
-  User_Message("Database Module",
-	"Out of memory!\nCan't open directory list window.", "OK", "o");
+  User_Message((CONST_STRPTR)"Database Module",
+		  (CONST_STRPTR)"Out of memory!\nCan't open directory list window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_DL_Window(NULL);
   return;
   } /* if out of memory */
@@ -1682,7 +1682,7 @@ void Make_DL_Window(void)
   if (! DL_Win->DirListWin)
    {
    Close_DL_Window(DL_Win->DLCopy);
-   User_Message("Directory List", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Directory List", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1978,8 +1978,8 @@ short Add_DE_NewItem(void)
   {
   if (! DBList_New(NoOfObjects + 20))
    {
-   User_Message("Database Module",
-		"Out of memory expanding database!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Database Module",
+		   (CONST_STRPTR)"Out of memory expanding database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return (0);
    } /* if new list fails */
   } /* if need bigger list */

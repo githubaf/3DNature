@@ -86,7 +86,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
   if (! DIAG_Win->DiagnosticWin)
    {
    Close_Diagnostic_Window();
-   User_Message("Render Data", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Data", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 

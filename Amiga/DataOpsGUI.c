@@ -406,7 +406,7 @@ void Make_DC_Window(void)
   if (! DC_Win->ConvertWin)
    {
    Close_DC_Window();
-   User_Message("DEM Converter", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"DEM Converter", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -702,7 +702,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
  if ((fh = open(filename, O_RDONLY)) < 0)
   {
   User_Message(DC_Win->InFile,
-	"Unable to open file for input!\n", "OK", "o");
+		  (CONST_STRPTR)"Unable to open file for input!\n", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(WNG_OPEN_FAIL, DC_Win->InFile);
   return;
   } /* if open error */
@@ -710,7 +710,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
  if ((filesize = lseek(fh, 0L, 2)) < 0)
   {
   User_Message(DC_Win->InFile,
-	"Unable to read file size!\n", "OK", "o");
+		  (CONST_STRPTR)"Unable to read file size!\n", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(WNG_READ_FAIL, DC_Win->InFile);
   goto EndCheck;
   } /* if file size read fail */
@@ -779,8 +779,8 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     } /* if old file version with padding */
    if (filesize != headersize + (Hdr.rows + 1) * Hdr.columns * sizeof (short))
     {
-    User_Message("Data Ops: Convert",
-	"Warning!\nFile is not a WCS DEM file.", "OK", "o");
+    User_Message((CONST_STRPTR)"Data Ops: Convert",
+    		(CONST_STRPTR)"Warning!\nFile is not a WCS DEM file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     } /* if not WCS DEM */
    break;
    } /* if possibly WCS DEM */
@@ -936,8 +936,8 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     }
    else
     {
-    User_Message("Data Ops: Convert",
-	"Warning!\nFile is not an IFF Z Buffer file.", "OK", "o");
+    User_Message((CONST_STRPTR)"Data Ops: Convert",
+    		(CONST_STRPTR)"Warning!\nFile is not an IFF Z Buffer file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     }
    break;
    } /* if possibly an  IFF Z Buffer file */
@@ -951,8 +951,8 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
    id[31] = 0;
    if (strcmp(id, "Vista DEM File"))
     {
-    User_Message("Data Ops: Convert DEM",
-	"Warning\nFile is not a Vista DEM file.", "OK", "o");
+    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+    		(CONST_STRPTR)"Warning\nFile is not a Vista DEM file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     } /* if no file id match */
    read(fh, name, 32);
@@ -962,14 +962,14 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
    read(fh, &HeaderType, 4);
    if (! Compression)
     {
-    User_Message("Data Ops: Convert DEM",
-	"Warning\nFile is not a compressed Vista file and cannot be imported.", "OK", "o");
+    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+    		(CONST_STRPTR)"Warning\nFile is not a compressed Vista file and cannot be imported.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     }
    if (HeaderType)
     {
-    HeaderType = User_Message("Data Ops: Convert DEM",
-	"Is this a Small, Large or Huge Vista file?", "Small|Large|Huge", "slh");
+    HeaderType = User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+    		(CONST_STRPTR)"Is this a Small, Large or Huge Vista file?", (CONST_STRPTR)"Small|Large|Huge", (CONST_STRPTR)"slh");
     }
    else
     HeaderType = 1;
@@ -1013,21 +1013,21 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
 
    if (! CheckIFF(fh, &Hdr))
     {
-    User_Message("Data Ops: Convert DEM",
-	"Warning\nFile is not an IFF file.", "OK", "o");
+    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+    		(CONST_STRPTR)"Warning\nFile is not an IFF file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     } /* not IFF file */
    if (! FindIFFChunk(fh, &Hdr, "BMHD"))
     {
-    User_Message("Data Ops: Convert DEM",
-	"Warning\nFile is not an IFF image file.", "OK", "o");
+    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+    		(CONST_STRPTR)"Warning\nFile is not an IFF image file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     } /* not IFF image file */
    if ((read(fh, (char *)&BMHdr, sizeof (struct WcsBitMapHeader))) !=
 	 sizeof (struct WcsBitMapHeader))
     {
-    User_Message("Data Ops: Convert DEM",
-	"Error reading bitmap header.", "OK", "o");
+    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+    		(CONST_STRPTR)"Error reading bitmap header.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     } /* read error */
    set(DC_Win->FormatIntStr[0], MUIA_String_Integer, 0);
@@ -1082,8 +1082,8 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     } /* if */
    if (StartPt <= -30000)
     {
-    User_Message("Data Ops: Convert DEM",
-	"Warning\nFile is not recognized as a DTED file.", "OK", "o");
+    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+    		(CONST_STRPTR)"Warning\nFile is not recognized as a DTED file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     } /* if */
 
@@ -1305,7 +1305,7 @@ void Make_DI_Window(void)
   if (! DI_Win->InterpWin)
    {
    Close_DI_Window();
-   User_Message("DEM Interpolate", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"DEM Interpolate", "Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 

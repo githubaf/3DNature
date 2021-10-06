@@ -27,8 +27,8 @@ void Make_EE_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message("Ecosystem Editor",
-	"You must first load or create a parameter file before opening the Editor.", "OK", "o");
+  User_Message((CONST_STRPTR)"Ecosystem Editor",
+		  (CONST_STRPTR)"You must first load or create a parameter file before opening the Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -56,8 +56,8 @@ void Make_EE_Window(void)
 
  if (! EE_Win->EEList || ! EE_Win->ECList)
   {
-  User_Message("Parameters Module: Ecosystem",
-	"Out of memory!\nCan't open Ecosystem Editor.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters Module: Ecosystem",
+		  (CONST_STRPTR)"Out of memory!\nCan't open Ecosystem Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_EE_Window(1);
   return;
   } /* if out of memory */
@@ -255,7 +255,7 @@ void Make_EE_Window(void)
   if (! EE_Win->EcosystemWin)
    {
    Close_EE_Window(1);
-   User_Message("Ecosystem Editor", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Ecosystem Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -679,7 +679,7 @@ void Handle_EE_Window(ULONG WCS_ID)
      case ID_EE_DELETEALL:
       {
       sprintf(str, "Delete all %s Key Frames?", PAR_NAME_ECO(EE_Win->EcoItem));
-      if (User_Message_Def("Parameters Module: Ecosystem", str, "OK|Cancel", "oc", 1))
+      if (User_Message_Def((CONST_STRPTR)"Parameters Module: Ecosystem", str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
        {
        for (i=ParHdr.KeyFrames-1; i>=0; i--)
         {
@@ -730,8 +730,8 @@ void Handle_EE_Window(ULONG WCS_ID)
        get(EE_Win->LS_List, MUIA_List_Active, &SwapItem);
        if (SwapItem < 12)
         {
-        User_Message("Ecosystem Parameters: Swap",
-		"Can't swap with first 12 ecosystems!\nOperation terminated.", "OK", "oc");
+        User_Message((CONST_STRPTR)"Ecosystem Parameters: Swap",
+        		(CONST_STRPTR)"Can't swap with first 12 ecosystems!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"oc");
         set(EE_Win->LS_List, MUIA_List_Active, EE_Win->EcoItem);
 	}
        else

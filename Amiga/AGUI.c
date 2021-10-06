@@ -65,20 +65,20 @@ void Make_EP_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, EP_Win->CY_Layout = CycleObject,
         MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, EP_Win->BT_EdMoPar = KeyButtonFunc('m',    "\33l Motion     »"),
-        Child, EP_Win->BT_EdCoPar = KeyButtonFunc('c',    "\33l Color      »"),
-        Child, EP_Win->BT_EdEcoPar = KeyButtonFunc('e',   "\33l Ecosystem  »"),
-        Child, EP_Win->BT_EdClouds = KeyButtonFunc('l',   "\33l Clouds     »"),
-        Child, EP_Win->BT_EdWaves  = KeyButtonFunc('w',   "\33l Waves      »"),
-        Child, EP_Win->BT_Defaults = KeyButtonFunc('d',   "\33l Defaults   »"),
-/*        Child, EP_Win->BT_ExportMo = KeyButtonFunc('i',   "\33l Motion I/O »"),*/
+        Child, EP_Win->BT_EdMoPar = KeyButtonFunc('m',    "\33l Motion     "),
+        Child, EP_Win->BT_EdCoPar = KeyButtonFunc('c',    "\33l Color      "),
+        Child, EP_Win->BT_EdEcoPar = KeyButtonFunc('e',   "\33l Ecosystem  "),
+        Child, EP_Win->BT_EdClouds = KeyButtonFunc('l',   "\33l Clouds     "),
+        Child, EP_Win->BT_EdWaves  = KeyButtonFunc('w',   "\33l Waves      "),
+        Child, EP_Win->BT_Defaults = KeyButtonFunc('d',   "\33l Defaults   "),
+/*        Child, EP_Win->BT_ExportMo = KeyButtonFunc('i',   "\33l Motion I/O "),*/
         End, /* VGroup */
       End; /* EP_win->EditWindow */
 
   if (! EP_Win->EditWindow)
    {
    Close_EP_Window();
-   User_Message("Parameters Module", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -235,7 +235,7 @@ STATIC_FCN void Handle_EP_Window(ULONG WCS_ID) // used locally only -> static, A
         if (dbaseloaded)
          {
          sprintf(str, "Create Default Parameters for Database %s? All current Parameters will be overwritten.", dbasename);
-         if (User_Message_Def("Parameter Editing: Defaults", str, "OK|Cancel", "oc", 1))
+         if (User_Message_Def((CONST_STRPTR)"Parameter Editing: Defaults", str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
           {
           paramsloaded = DefaultParams();
           if (paramsloaded)
@@ -279,8 +279,8 @@ STATIC_FCN void Handle_EP_Window(ULONG WCS_ID) // used locally only -> static, A
 	 } /* if database loaded */
         else
          {
-         User_Message("Parameter Editing: Defaults",
-		"You must first load a Database before Default Parameters can be computed.", "OK", "o");
+         User_Message((CONST_STRPTR)"Parameter Editing: Defaults",
+        		 (CONST_STRPTR)"You must first load a Database before Default Parameters can be computed.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
 	 } /* else */
         break;
 	} /* create default parameters */
@@ -524,12 +524,12 @@ void Make_DB_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, DB_Win->CY_Layout = CycleObject,
 		 MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, DB_Win->BT_Load = KeyButtonFunc('l',    "\33l Load     »"),
-        Child, DB_Win->BT_Append = KeyButtonFunc('a',  "\33l Append   »"),
-        Child, DB_Win->BT_Create = KeyButtonFunc('c',  "\33l Create   »"),
-        Child, DB_Win->BT_Edit = KeyButtonFunc('e',    "\33l Edit     »"),
-        Child, DB_Win->BT_SaveAs = KeyButtonFunc('s',  "\33l Save     »"),
-        Child, DB_Win->BT_DirList = KeyButtonFunc('d', "\33l Dir List »"),
+        Child, DB_Win->BT_Load = KeyButtonFunc('l',    "\33l Load     "),
+        Child, DB_Win->BT_Append = KeyButtonFunc('a',  "\33l Append   "),
+        Child, DB_Win->BT_Create = KeyButtonFunc('c',  "\33l Create   "),
+        Child, DB_Win->BT_Edit = KeyButtonFunc('e',    "\33l Edit     "),
+        Child, DB_Win->BT_SaveAs = KeyButtonFunc('s',  "\33l Save     "),
+        Child, DB_Win->BT_DirList = KeyButtonFunc('d', "\33l Dir List "),
         Child, RectangleObject, MUIA_FixHeight, 0, End,
         End, /* VGroup */
       End; /* DB_win->EditWindow */
@@ -537,7 +537,7 @@ void Make_DB_Window(short hor_win)
   if (! DB_Win->DatabaseWindow)
    {
    Close_DB_Window();
-   User_Message("Database Module", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Database Module", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -787,13 +787,13 @@ void Make_DO_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, DO_Win->CY_Layout = CycleObject,
 		 MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, DO_Win->BT_Extract = KeyButtonFunc('e',   "\33l Extract DEM »"),
-        Child, DO_Win->BT_Convert = KeyButtonFunc('c',   "\33l Convert DEM »"),
-        Child, DO_Win->BT_InterpMap = KeyButtonFunc('p', "\33l Interp DEM  »"),
-        Child, DO_Win->BT_ImportDLG = KeyButtonFunc('i', "\33l Import DLG  »"),
-        Child, DO_Win->BT_ImportDXF = KeyButtonFunc('x', "\33l Import DXF  »"),
-        Child, DO_Win->BT_ImportWDB = KeyButtonFunc('w', "\33l Import WDB  »"),
-        Child, DO_Win->BT_ExportLWOB = KeyButtonFunc('l', "\33l Export LW   »"),
+        Child, DO_Win->BT_Extract = KeyButtonFunc('e',   "\33l Extract DEM "),
+        Child, DO_Win->BT_Convert = KeyButtonFunc('c',   "\33l Convert DEM "),
+        Child, DO_Win->BT_InterpMap = KeyButtonFunc('p', "\33l Interp DEM  "),
+        Child, DO_Win->BT_ImportDLG = KeyButtonFunc('i', "\33l Import DLG  "),
+        Child, DO_Win->BT_ImportDXF = KeyButtonFunc('x', "\33l Import DXF  "),
+        Child, DO_Win->BT_ImportWDB = KeyButtonFunc('w', "\33l Import WDB  "),
+        Child, DO_Win->BT_ExportLWOB = KeyButtonFunc('l', "\33l Export LW   "),
 	Child, RectangleObject, End,
         End, /* VGroup */
       End; /* DO_win->EditWindow */
@@ -801,7 +801,7 @@ void Make_DO_Window(short hor_win)
   if (! DO_Win->DataOpsWindow)
    {
    Close_DO_Window();
-   User_Message("DataOps Module", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"DataOps Module", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1135,7 +1135,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
           End, /* HGroup */
         Child, VSpace(5),
         Child, TextObject, MUIA_Text_Contents,
-		 "\33c" APP_TITLE "®", End,                              // \33c == center text
+		 "\33c" APP_TITLE "", End,                              // \33c == center text
         Child, TextObject, MUIA_Text_Contents,
 		 ExtAboutVers, End,
         Child, TextObject, MUIA_Text_Contents,
@@ -1375,9 +1375,9 @@ short WCS_App_EventLoop(struct WCSApp *This)
       	{
       	while(! ReadyToClose)
       		{
-      		if ((ans = User_Message_Def("World Construction Set",
-			 "Public Screen still has visitors. Try closing again?",
-			 "Close|Warn|Cancel", "owc", 2)) > 0)
+      		if ((ans = User_Message_Def((CONST_STRPTR)"World Construction Set",
+      				(CONST_STRPTR)"Public Screen still has visitors. Try closing again?",
+					(CONST_STRPTR)"Close|Warn|Cancel", (CONST_STRPTR)"owc", 2)) > 0)
 			ReadyToClose = PubScreenStatus(WCSScrn, PSNF_PRIVATE);
 		else
 			break; /* I hope this punches far enough out. */
@@ -1391,9 +1391,9 @@ short WCS_App_EventLoop(struct WCSApp *This)
       	} /* if */
       else
       	{
-	if ((ans = User_Message_Def("World Construction Set",
-			 "Quit Program\nAre you sure?",
-			 "Close|Warn|Cancel", "owc", 2)) > 0)
+	if ((ans = User_Message_Def((CONST_STRPTR)"World Construction Set",
+			(CONST_STRPTR)"Quit Program\nAre you sure?",
+			(CONST_STRPTR)"Close|Warn|Cancel", (CONST_STRPTR)"owc", 2)) > 0)
 		{
 		running = FALSE;
 		if (ans == 2)
@@ -1456,16 +1456,16 @@ short i;
 
  if (Proj_Mod && Mod_Warn)
 	{
-        if (User_Message_Def("WCS Project",
-		"Project paths have been modified. Save them before closing?",
-		"OK|Cancel", "oc", 1))
+        if (User_Message_Def((CONST_STRPTR)"WCS Project",
+        		(CONST_STRPTR)"Project paths have been modified. Save them before closing?",
+				(CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
          SaveProject(-1, NULL, NULL);
 	} /* if project modified */
  if (Par_Mod && Mod_Warn)
 	{
-        if (User_Message_Def("Parameter Module",
-		"Parameters have been modified. Save them before closing?",
-		"OK|Cancel", "oc", 1))
+        if (User_Message_Def((CONST_STRPTR)"Parameter Module",
+        		(CONST_STRPTR)"Parameters have been modified. Save them before closing?",
+				(CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
          saveparams(0x1111, -1, 0);
 	} /* if parameters modified */
 
@@ -1548,9 +1548,9 @@ short i;
 	} /* if */
  if (DB_Mod && Mod_Warn)
 	{
-        if (User_Message_Def("Database Module",
-		"Database has been modified. Save it before closing?",
-		"OK|Cancel", "oc", 1))
+        if (User_Message_Def((CONST_STRPTR)"Database Module",
+        		(CONST_STRPTR)"Database has been modified. Save it before closing?",
+				(CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
          savedbase(1);
 	} /* if database modified */
  if (DBase)
@@ -1675,8 +1675,8 @@ ULONG CheckInput_ID(void)
 
 /************************************************************************/
 
-USHORT User_Message(STRPTR outlinetxt, STRPTR message, STRPTR buttons,
-	STRPTR buttonkey)
+USHORT User_Message(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
+	CONST_STRPTR buttonkey)
 {
 return(User_Message_Def(outlinetxt, message, buttons, buttonkey, 0));
 
@@ -1684,8 +1684,8 @@ return(User_Message_Def(outlinetxt, message, buttons, buttonkey, 0));
 
 /************************************************************************/
 
-USHORT User_Message_Def(STRPTR outlinetxt, STRPTR message, STRPTR buttons,
-	STRPTR buttonkey, int Default)
+USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
+	CONST_STRPTR buttonkey, int Default)
 {
  USHORT j = 0, i = 0, k = 0, error = 0, done = FALSE, numbuttons = 1;
  ULONG UM_ID, signals;
@@ -1837,7 +1837,7 @@ USHORT User_Message_Def(STRPTR outlinetxt, STRPTR message, STRPTR buttons,
 STATIC_FCN void NoMod_Message(STRPTR mod) // used locally only -> static, AF 25.7.2021
 {
 
-  User_Message(mod, "Not yet implemented.\nStay Tuned!", "OK","o");
+  User_Message(mod, (CONST_STRPTR)"Not yet implemented.\nStay Tuned!", (CONST_STRPTR)"OK",(CONST_STRPTR)"o");
 
   Log(MSG_NO_MOD, mod);
 
@@ -1861,7 +1861,7 @@ void NoLoad_Message(STRPTR mod, STRPTR loaditem)
   sprintf(loadmesg, 
 	"Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature.", loaditem);
 
-  User_Message(mod, loadmesg, "OK","o");
+  User_Message(mod, loadmesg, (CONST_STRPTR)"OK",(CONST_STRPTR)"o");
 
   Log(ERR_NO_LOAD, loaditem);
 
@@ -1999,8 +1999,8 @@ STATIC_FCN void Status_Log(STRPTR logtext, int Severity) // used locally only ->
   Make_Log_Window(Severity);
   if (! Log_Win)
    {
-   User_Message("Log Status Module", "Can't Open Log Status Window!",
-		"OK", "o");
+   User_Message((CONST_STRPTR)"Log Status Module", (CONST_STRPTR)"Can't Open Log Status Window!",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* if no window */
 
@@ -2073,7 +2073,7 @@ STATIC_FCN void Make_Log_Window(int Severity) // used locally only -> static, AF
   if (! Log_Win->LogWindow)
    {
    Close_Log_Window(2);
-   User_Message("Log Window", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Log Window", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -2518,10 +2518,10 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
 	} /* save screen shot */
        case ID_SCRNRESET:
         {
-        ResetScrn = User_Message("WCS: Screen Mode",
-"In order to reset the screen mode WCS will have to close and re-open.\
+        ResetScrn = User_Message((CONST_STRPTR)"WCS: Screen Mode",
+        		(CONST_STRPTR)"In order to reset the screen mode WCS will have to close and re-open.\
  Any work in progress should be saved before invoking this command.\n\
- Do you wish to proceed now?", "OK|Cancel", "oc");
+ Do you wish to proceed now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc");
         break;
 	} /* reset screen mode */
        } /* switch (WCS_ID) */

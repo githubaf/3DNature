@@ -483,3 +483,9 @@ Canyon Sunset, Pal-Hires, Groeße/4  4:42:22, schnellstes Ergebnis!
 29.9.2021
 ---------
 WCS 2.04 auf frischem WinUAE A4000T (3.2) installiert. Dabei wird MUI version 10 installiert. Version 10 ist also genug und wir brauchen nicht Version 19 (MUI 3.8) fordern.
+
+
+5.Oktober 2021
+--------------
+alt   5273 warnings --> CONST_STRPTR Casts fuer Aufrufe von User_Message()
+jetzt 4657 warnings

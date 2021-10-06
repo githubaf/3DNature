@@ -959,10 +959,10 @@ extern short WCS_App_EventLoop(struct WCSApp *This);
 extern void WCS_App_Del(struct WCSApp *This);
 extern ULONG GetInput_ID(void);
 extern ULONG CheckInput_ID(void);
-extern USHORT User_Message(STRPTR outlinetxt, STRPTR message, STRPTR buttons,
-	STRPTR buttonkey);
-extern USHORT User_Message_Def(STRPTR outlinetxt, STRPTR message, STRPTR buttons,
-	STRPTR buttonkey, int Default);
+extern USHORT User_Message(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
+	CONST_STRPTR buttonkey);
+extern USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
+	CONST_STRPTR buttonkey, int Default);
 //extern void NoMod_Message(STRPTR mod); // used locally only -> static, AF 25.7.2021
 extern USHORT CloseWindow_Query(STRPTR win);
 extern USHORT NoGUI_Message(STRPTR mod);

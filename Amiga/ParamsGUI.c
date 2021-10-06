@@ -70,31 +70,31 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
 
  if ((PS_Win->PSList = (char **)get_Memory(PS_Win->PSListSize, MEMF_CLEAR)) == NULL)
   {
-  User_Message("Parameters Module: Scale",
-	"Out of memory!\nCan't open Scale window.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters Module: Scale",
+		  (CONST_STRPTR)"Out of memory!\nCan't open Scale window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
   } /* if out of memory */
  if ((PS_Win->PSListID = (short *)get_Memory(PS_Win->PSListIDSize, MEMF_CLEAR)) == NULL)
   {
-  User_Message("Parameters Module: Scale",
-	"Out of memory!\nCan't open Scale window.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters Module: Scale",
+		  (CONST_STRPTR)"Out of memory!\nCan't open Scale window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
   } /* if out of memory */
 
  if (! Set_PS_List(PS_Win->PSList, PS_Win->PSListID, PS_Win->Group, 1, NULL))
   {
-  User_Message("Parameters Module: Scale",
-	"No key frames to scale!", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters Module: Scale",
+		  (CONST_STRPTR)"No key frames to scale!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
   } /* if out of memory */
 
  if ((PS_Win->AltKF = (union KeyFrame *)get_Memory(KFsize, MEMF_ANY)) == NULL)
   {
-  User_Message("Parameters Module: Scale",
-	"Out of memory!\nCan't open Scale window.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters Module: Scale",
+		  (CONST_STRPTR)"Out of memory!\nCan't open Scale window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
   } /* if out of memory */
@@ -201,7 +201,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
   if (! PS_Win->ScaleWin)
    {
    Close_PS_Window(1);
-   User_Message("Scale Keys", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Scale Keys", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -562,8 +562,8 @@ void Make_LW_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message("LightWave Motion I/O",
-	"You must first load or create a parameter file before using this feature.", "OK", "o");
+  User_Message((CONST_STRPTR)"LightWave Motion I/O",
+		  (CONST_STRPTR)"You must first load or create a parameter file before using this feature.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -576,8 +576,8 @@ void Make_LW_Window(void)
  if (! BuildKeyTable())
   {
   Close_LW_Window();
-  User_Message("LightWave Motion I/O", "Error building motion value table\nOperation terminated",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"LightWave Motion I/O", (CONST_STRPTR)"Error building motion value table\nOperation terminated",
+		  (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no key table = out of memory */
 
@@ -691,7 +691,7 @@ void Make_LW_Window(void)
   if (! LW_Win->IOWin)
    {
    Close_LW_Window();
-   User_Message("LightWave I/O", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"LightWave I/O", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -892,8 +892,8 @@ void Make_FM_Window(void)
  FM_Win->ItemListSize = FM_Win->MaxItems * (sizeof (char *));
  if ((FM_Win->Item = (char **)get_Memory(FM_Win->ItemListSize, MEMF_CLEAR)) == NULL)
   {
-  User_Message("Parameters Module: Model",
-	"Out of memory!\nCan't open model design window.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters Module: Model",
+		  (CONST_STRPTR)"Out of memory!\nCan't open model design window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_FM_Window();
   return;
   } /* if out of memory */
@@ -954,7 +954,7 @@ void Make_FM_Window(void)
   if (! FM_Win->ModelWin)
    {
    Close_FM_Window();
-   User_Message("Parameters Module: Model", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Model", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1046,9 +1046,9 @@ short SaveOld;
    {
    if (FM_Win->Mod)
     {
-    if ((SaveOld = User_Message_Def("Parameters Module: Model",
-	"The current Ecosystem Model has been modified. Do you wish to save it before closing?",
-	"Yes|No|Cancel", "ync", 1)) == 0)
+    if ((SaveOld = User_Message_Def((CONST_STRPTR)"Parameters Module: Model",
+    		(CONST_STRPTR)"The current Ecosystem Model has been modified. Do you wish to save it before closing?",
+			(CONST_STRPTR)"Yes|No|Cancel", (CONST_STRPTR)"ync", 1)) == 0)
      return;
     else if (SaveOld == 1)
      Save_FM_Win();
@@ -1343,9 +1343,9 @@ STATIC_FCN short Load_FM_Win(void) // used locally only -> static, AF 24.7.2021
 
  if (FM_Win->Mod)
   {
-  if ((SaveOld = User_Message_Def("Parameters Module: Model",
-	"The current Ecosystem Model has been modified. Do you wish to save it before proceeding?",
-	"Yes|No|Cancel", "ync", 1)) == 0)
+  if ((SaveOld = User_Message_Def((CONST_STRPTR)"Parameters Module: Model",
+		  (CONST_STRPTR)"The current Ecosystem Model has been modified. Do you wish to save it before proceeding?",
+		  (CONST_STRPTR)"Yes|No|Cancel", (CONST_STRPTR)"ync", 1)) == 0)
    return (0);
   else if (SaveOld == 1)
    Save_FM_Win();
@@ -1434,41 +1434,41 @@ EndLoad:
   {
   case 1:
    {
-   User_Message("Parameters Module: Model",
-	"Error opening Ecosystem Model file for output!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Model",
+		   (CONST_STRPTR)"Error opening Ecosystem Model file for output!\nOperation terminated.",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, name);
    break;
    } /* open fail */
   case 2:
    {
-   User_Message("Parameters Module: Model",
-	"Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Model",
+		   (CONST_STRPTR)"Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_WRITE_FAIL, name);
    break;
    } /* write fail */
   case 3:
    {
-   User_Message("Parameters Module: Model",
-	"Not a WCS Ecosystem Model file!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Model",
+		   (CONST_STRPTR)"Not a WCS Ecosystem Model file!\nOperation terminated.",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_WRONG_TYPE, name);
    break;
    } /* wrong type */
   case 4:
    {
-   User_Message("Parameters Module: Model",
-	"Unsupported WCS Ecosystem Model file version!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Model",
+		   (CONST_STRPTR)"Unsupported WCS Ecosystem Model file version!\nOperation terminated.",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_WRONG_VER, name);
    break;
    } /* wrong version */
   case 5:
    {
-   User_Message("Parameters Module: Model",
-	"You have not selected a file name for input!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Model",
+		   (CONST_STRPTR)"You have not selected a file name for input!\nOperation terminated.",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* no name */
   } /* switch */
@@ -1526,25 +1526,25 @@ EndSave:
   {
   case 1:
    {
-   User_Message("Parameters Module: Model",
-	"Error opening Ecosystem Model file for output!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Model",
+		   (CONST_STRPTR)"Error opening Ecosystem Model file for output!\nOperation terminated.",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, name);
    break;
    } /* open fail */
   case 2:
    {
-   User_Message("Parameters Module: Model",
-	"Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Model",
+		   (CONST_STRPTR)"Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, name);
    break;
    } /* read fail */
   case 5:
    {
-   User_Message("Parameters Module: Model",
-	"You have not selected a file name for output!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Model",
+		   (CONST_STRPTR)"You have not selected a file name for output!\nOperation terminated.",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* no name */
   } /* switch */
@@ -1646,7 +1646,7 @@ void Make_AN_Window(void)
   if (! AN_Win->AnimWin)
    {
    Close_AN_Window();
-   User_Message("Parameters Module: Anim", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Anim", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1817,9 +1817,9 @@ void Init_Anim(short SaveAnim)
 /* check to see that width specified does not exceed screen width */
  if (RA.Width > WCSScrn->Width)
   {
-  if (User_Message("Parameters Module: Anim",
-	"Specified width is larger than the current screen width.\
- Do you wish to use the screen width?", "OK|Cancel", "oc"))
+  if (User_Message((CONST_STRPTR)"Parameters Module: Anim",
+		  (CONST_STRPTR)"Specified width is larger than the current screen width.\
+ Do you wish to use the screen width?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
    {
    RA.Width = WCSScrn->Width;
    set(AN_Win->IntStr[2], MUIA_String_Integer, RA.Width);
@@ -1836,9 +1836,9 @@ void Init_Anim(short SaveAnim)
 
  if (RA.Height > WCSScrn->Height)
   {
-  if (User_Message("Parameters Module: Anim",
-	"Specified or computed height is larger than the current screen height.\
- Do you wish to use the screen height?", "OK|Cancel", "oc"))
+  if (User_Message((CONST_STRPTR)"Parameters Module: Anim",
+		  (CONST_STRPTR)"Specified or computed height is larger than the current screen height.\
+ Do you wish to use the screen height?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
    {
    RA.Height = WCSScrn->Height;
    set(AN_Win->IntStr[3], MUIA_String_Integer, RA.Height);

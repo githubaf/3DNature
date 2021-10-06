@@ -65,8 +65,8 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 
  if (! FE_Win->ECList)
   {
-  User_Message("Parameters Module: Foliage",
-	"Out of memory!\nCan't open Foliage Editor.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters Module: Foliage",
+		  (CONST_STRPTR)"Out of memory!\nCan't open Foliage Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_FE_Window(1);
   return;
   } /* if out of memory */
@@ -79,8 +79,8 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
   {
   if ((FE_Win->Backup = Ecotype_Copy(EcoShift[FE_Win->FolEco].Ecotype)) == NULL)
    {
-   User_Message("Parameters Module: Foliage",
-	"Out of memory!\nCan't open Foliage Editor.", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Foliage",
+		   (CONST_STRPTR)"Out of memory!\nCan't open Foliage Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Close_FE_Window(1);
    return;
    } /* if out of memory */
@@ -215,7 +215,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
   if (! FE_Win->FoliageWin)
    {
    Close_FE_Window(1);
-   User_Message("Foliage Editor", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Foliage Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -380,7 +380,7 @@ double FloatVal;
       {
       short apply;
 
-      apply = FE_Win->Mod && User_Message_Def("Foliage Editor", "Keep changes?", "Yes|No", "yn", 1);
+      apply = FE_Win->Mod && User_Message_Def((CONST_STRPTR)"Foliage Editor", (CONST_STRPTR)"Keep changes?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1);
       Close_FE_Window(apply);
       break;
       } /* Close window */
@@ -433,8 +433,8 @@ double FloatVal;
        GUIFoliage_View(FE_Win->CurImg, Bitmap);
        } /* if image loaded */
       else
-       User_Message_Def("Foliage Editor: View Image",
-	"Unable to load image file for viewing!\nOperation terminated.", "OK", "o", 0);
+       User_Message_Def((CONST_STRPTR)"Foliage Editor: View Image",
+    		   (CONST_STRPTR)"Unable to load image file for viewing!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
       if (Bitmap[0])
        free_Memory(Bitmap[0], Width * Height);
       if (Bitmap[1])
@@ -757,8 +757,8 @@ short success = 0;
     success = 1;
     }
    else
-    User_Message_Def("Foliage Editor: Load Ecotype", "Error loading Ecotype file!\nOperation terminated.",
-	"OK", "o", 0);
+    User_Message_Def((CONST_STRPTR)"Foliage Editor: Load Ecotype", (CONST_STRPTR)"Error loading Ecotype file!\nOperation terminated.",
+    		(CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
    fclose(ffile);
    FE_Win->Mod = 1;
    } /* if file opened */
@@ -789,8 +789,8 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
     {
     if ((EcoShift[FE_Win->FolEco].Ecotype = Ecotype_New()) == NULL)
      {
-     User_Message_Def("Foliage Editor: Add Group",
-	"Out of memory allocating new group!\nOperation terminated.", "OK", "o", 0);
+     User_Message_Def((CONST_STRPTR)"Foliage Editor: Add Group",
+    		 (CONST_STRPTR)"Out of memory allocating new group!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
      fclose(ffile);
      return (0);
      } /* if no memory */
@@ -825,8 +825,8 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
     FE_Win->Mod = 1;
     } /* if new group created */
    else
-    User_Message_Def("Foliage Editor: Add Group", "Error loading Foliage Group file!\nOperation terminated.",
-	"OK", "o", 0);
+    User_Message_Def((CONST_STRPTR)"Foliage Editor: Add Group", "Error loading Foliage Group file!\nOperation terminated.",
+    		(CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
    fclose(ffile);
    } /* if file opened */
   } /* if file name */
@@ -851,8 +851,8 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
   {
   if ((EcoShift[FE_Win->FolEco].Ecotype = Ecotype_New()) == NULL)
    {
-   User_Message_Def("Foliage Editor: New Group",
-	"Out of memory allocating new group!\nOperation terminated.", "OK", "o", 0);
+   User_Message_Def((CONST_STRPTR)"Foliage Editor: New Group",
+		   (CONST_STRPTR)"Out of memory allocating new group!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
    return (0);
    } /* if no memory */
   Ecotype_SetDefaults(EcoShift[FE_Win->FolEco].Ecotype, &EcoPar.en[FE_Win->FolEco]);
@@ -891,8 +891,8 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
   return (1);
   } /* if new group created */
  else
-  User_Message_Def("Foliage Editor: New Group",
-	"Out of memory allocating new group!\nOperation terminated.", "OK", "o", 0);
+  User_Message_Def((CONST_STRPTR)"Foliage Editor: New Group",
+		  (CONST_STRPTR)"Out of memory allocating new group!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
 
  return (0);
 
@@ -921,8 +921,8 @@ short success = 0;
     if (FoliageGroup_Save(FE_Win->CurGrp, ffile))
      success = 1;
     else
-     User_Message_Def("Foliage Editor: Save Group", "Error saving Foliage Group file!\nOperation terminated.",
-	"OK", "o", 0);
+     User_Message_Def((CONST_STRPTR)"Foliage Editor: Save Group", (CONST_STRPTR)"Error saving Foliage Group file!\nOperation terminated.",
+    		 (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
     fclose(ffile);
     } /* if file opened */
    } /* if file name */
@@ -982,12 +982,12 @@ UBYTE *Bitmap[3];
     success= 1;
     } /* if new image created */
    else
-    User_Message_Def("Foliage Editor: Add Image",
-	"Out of memory allocating new group!\nOperation terminated.", "OK", "o", 0);
+    User_Message_Def((CONST_STRPTR)"Foliage Editor: Add Image",
+    		(CONST_STRPTR)"Out of memory allocating new group!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
    } /* if image loaded */
   else
-   User_Message_Def("Foliage Editor: Add Image",
-	"Error loading image file!\nOperation terminated.", "OK", "o", 0);
+   User_Message_Def((CONST_STRPTR)"Foliage Editor: Add Image",
+		   (CONST_STRPTR)"Error loading image file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
   if (Bitmap[0])
    free_Memory(Bitmap[0], Width * Height);
   if (Bitmap[1])
@@ -1099,9 +1099,9 @@ struct FoliageGroup *FolGp, *FolGpPrev = NULL;
 STATIC_FCN short GUIFoliage_View(struct Foliage *Fol, UBYTE **Bitmap) // used locally only -> static, AF 19.7.2021
 {
 
- User_Message_Def("Foliage Editor: View Image",
-	"The image loaded properly. Maybe some day there will even be a way for you to see it!\n",
-	"That would be nice", "t", 0);
+ User_Message_Def((CONST_STRPTR)"Foliage Editor: View Image",
+		 (CONST_STRPTR)"The image loaded properly. Maybe some day there will even be a way for you to see it!\n",
+		 (CONST_STRPTR)"That would be nice", (CONST_STRPTR)"t", 0);
 
  return (0);
 

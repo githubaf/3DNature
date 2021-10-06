@@ -175,7 +175,7 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
   if (! WV_Win->WaveWin)
    {
    Close_WV_Window(&WVWin[WinNum]);
-   User_Message("Map View: Waves", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Map View: Waves", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 

@@ -106,7 +106,7 @@ void Make_TS_Window(void)
   if (! TS_Win->TimeSetWin)
    {
    Close_TS_Window(0);
-   User_Message("Sun Time Window", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Sun Time Window", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -606,7 +606,7 @@ STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.202
   if (! PN_Win->NewProjWin)
    {
    Close_PN_Window(0);
-   User_Message("Project: New/Edit", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Project: New/Edit", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1024,7 +1024,7 @@ EndNewProj:
     break;
     } /* allocating char array */
    } /* switch error */
-  User_Message_Def("New Project", str, "OK", "o", 0);
+  User_Message_Def((CONST_STRPTR)"New Project", str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
   return (0);
   } /* if an error occurred */
 

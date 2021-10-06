@@ -203,7 +203,7 @@ static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
   if (! MD_Win->MakeDEMWin)
    {
    Close_MD_Window();
-   User_Message("Map View: Build DEM", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Map View: Build DEM", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -352,9 +352,9 @@ long i, data;
       {
       if (GR_Win)
        {
-       if (! User_Message("Map View: Build DEM",
-	"This window must remain open while the DEM Gridder is open!\n\
-Do you wish to close them both?", "OK|Cancel", "oc"))
+       if (! User_Message((CONST_STRPTR)"Map View: Build DEM",
+    		   (CONST_STRPTR)"This window must remain open while the DEM Gridder is open!\n\
+Do you wish to close them both?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
         break;
        Close_GR_Window();
        } /* if DEM Gridder window is open */
@@ -869,7 +869,7 @@ long open;
   if (! GR_Win->NNGridWin)
    {
    Close_GR_Window();
-   User_Message("Map View: DEM Gridder", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Map View: DEM Gridder", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1214,12 +1214,12 @@ float El;
   {
   Make_DE_Window();
   if (DE_Win)
-   User_Message("Map View: Build DEM",
-	"Select contour objects to import and reselect \"Import\" when done.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Map View: Build DEM",
+		   (CONST_STRPTR)"Select contour objects to import and reselect \"Import\" when done.",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   else
-   User_Message("Map View: Export Contours",
-	"Can't open Database Editor window!\nOperation terminated.","OK", "o");
+   User_Message((CONST_STRPTR)"Map View: Export Contours",
+		   (CONST_STRPTR)"Can't open Database Editor window!\nOperation terminated.",(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if Database Editor not open */
 
@@ -1259,8 +1259,8 @@ float El;
    if (! Object_ImportXYZ(DBase[j].Points, DBase[j].Lat,
 		DBase[j].Lon, ElevPtr, El, MD_Win->CurDat))
     {
-    User_Message("Map View: Build DEM",
-		"Error importing contour data!\nOperation terminated.","OK", "o");
+    User_Message((CONST_STRPTR)"Map View: Build DEM",
+    		(CONST_STRPTR)"Error importing contour data!\nOperation terminated.",(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     success = 0;
     break;
     } /* if error */
@@ -1269,7 +1269,7 @@ float El;
 
  if (Warn)
   User_Message("Map View: Build DEM",
-	"At least one Object failed to load and could not be imported.","OK", "o");
+		  (CONST_STRPTR)"At least one Object failed to load and could not be imported.",(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
 
  return (success);
 
@@ -1312,8 +1312,8 @@ long X, Y;
    else
     {
     success = 0;
-    User_Message("Map View: Import Contours",
-		"Out of memory!\nOperation terminated.","OK", "o");
+    User_Message((CONST_STRPTR)"Map View: Import Contours",
+    		(CONST_STRPTR)"Out of memory!\nOperation terminated.",(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     } /* else */
    } /* for pt=1... */
@@ -1349,8 +1349,8 @@ struct UTMLatLonCoords UTM;
   return (0);
  if (XYZFile[0] == 0)
   {
-  User_Message("Map View: Build DEM",
-	"You did not select a file to import!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Map View: Build DEM",
+		  (CONST_STRPTR)"You did not select a file to import!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if */
  strmfp(filename, XYZPath, XYZFile);
@@ -1368,8 +1368,8 @@ struct UTMLatLonCoords UTM;
    Zone = atoi(str);
    if (Zone < 0 || Zone > 60)
     {
-    User_Message("Map View: Build DEM",
-	"UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Map View: Build DEM",
+    		(CONST_STRPTR)"UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     return (0);
     } /* if zone out of range */
    UTMLatLonCoords_Init(&UTM, Zone);
@@ -1418,8 +1418,8 @@ struct UTMLatLonCoords UTM;
    else
     {
     success = 0;
-    User_Message("Map View: Build DEM",
-	"Out of memory!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Map View: Build DEM",
+    		(CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     } /* else out of memory */
    } /* while */
@@ -1428,8 +1428,8 @@ struct UTMLatLonCoords UTM;
  else
   {
   Log(ERR_OPEN_FAIL, XYZFile);
-  User_Message("Map View: Build DEM",
-	"Error opening XYZ file to import!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Map View: Build DEM",
+		  (CONST_STRPTR)"Error opening XYZ file to import!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   success = 0;
   } /* else open file failed */
 
@@ -1469,8 +1469,8 @@ FILE *fXYZ;
   return (0);
  if (! XYZFile[0])
   {
-  User_Message("Map View: XYZ Export",
-	"You must specify an output file name!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Map View: XYZ Export",
+		  (CONST_STRPTR)"You must specify an output file name!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if no file name */
  strmfp(filename, XYZPath, XYZFile);
@@ -1487,8 +1487,8 @@ FILE *fXYZ;
    if ((fprintf(fXYZ, "%13.8f  %13.8f  %13.8f\n", DT->values[0],
 	DT->values[1], DT->values[2])) < 0)
     {
-    User_Message("Map View: XYZ Export",
-	"Error writing to XYZ file! Partial file written.\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Map View: XYZ Export",
+    		(CONST_STRPTR)"Error writing to XYZ file! Partial file written.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     Log(ERR_WRITE_FAIL, XYZFile);
     success = 0;
     break;
@@ -1499,8 +1499,8 @@ FILE *fXYZ;
   } /* if file opened */
  else
   {
-  User_Message("Map View: XYZ Export",
-	"Unable to open XYZ file for export!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Map View: XYZ Export",
+		  (CONST_STRPTR)"Unable to open XYZ file for export!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(ERR_OPEN_FAIL, XYZFile);
   success = 0;
   } /* else */

@@ -365,10 +365,10 @@ void Make_TL_Window(char *NameStr, char **Titles,
 
  if (WKS->NumValues > WCS_MAX_TLVALUES)
   {
-  User_Message("Time Lines",
-	"OK, Gary! You know you can't have more than ten values per Time Line.\
+  User_Message((CONST_STRPTR)"Time Lines",
+		  (CONST_STRPTR)"OK, Gary! You know you can't have more than ten values per Time Line.\
  Maybe now you will concede the value of dynamic allocation.",
-	"Sure, anything you say!", "s");
+ (CONST_STRPTR)"Sure, anything you say!", (CONST_STRPTR)"s");
   return;
   } /* if no windows left */
 
@@ -383,9 +383,9 @@ void Make_TL_Window(char *NameStr, char **Titles,
 
  if (WinNum < 0)
   {
-  User_Message("Time Lines",
-	"You've reached the limit of open Time Line windows. Please close one and try again.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"Time Lines",
+		  (CONST_STRPTR)"You've reached the limit of open Time Line windows. Please close one and try again.",
+		  (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no windows left */
 
@@ -541,7 +541,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
   if (! TL_Win->TimeLineWin)
    {
    Close_TL_Window(&TLWin[WinNum], 1);
-   User_Message("Time Line", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Time Line", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -582,9 +582,9 @@ void Make_TL_Window(char *NameStr, char **Titles,
   if (! Set_TL_Item(TL_Win, WKS->Item))
    {
    Close_TL_Window(&TLWin[WinNum], 1);
-   User_Message("Time Lines",
-	"At least two key frames for this parameter must be created prior to opening the time line window",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Time Lines",
+		   (CONST_STRPTR)"At least two key frames for this parameter must be created prior to opening the time line window",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */
   for (i=0; i<WKS->NumValues; i++)

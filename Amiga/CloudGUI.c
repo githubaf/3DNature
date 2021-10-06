@@ -242,7 +242,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
   if (! CL_Win->CloudWin)
    {
    Close_CL_Window();
-   User_Message("Map View: Clouds", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Map View: Clouds", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -417,9 +417,9 @@ void Close_CL_Window(void)
    {
    if (CL_Win->Mod)
     {
-    if (User_Message_Def("Parameters Module: Model",
-	"The current Cloud Model has been modified. Do you wish to save it before closing?",
-	"Yes|No", "yn", 1))
+    if (User_Message_Def((CONST_STRPTR)"Parameters Module: Model",
+    		(CONST_STRPTR)"The current Cloud Model has been modified. Do you wish to save it before closing?",
+			(CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
      {
      char filename[256];
 
@@ -430,8 +430,8 @@ void Close_CL_Window(void)
        {
        if (strcmp(cloudpath, CL_Win->CloudDir) || strcmp(cloudfile, CL_Win->CloudFile))
         {
-        if (User_Message_Def("Cloud Editor",
-	"Make this file the Project Cloud File?", "Yes|No", "yn", 1))
+        if (User_Message_Def((CONST_STRPTR)"Cloud Editor",
+        		(CONST_STRPTR)"Make this file the Project Cloud File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
          {
          strcpy(cloudpath, CL_Win->CloudDir);
          strcpy(cloudfile, CL_Win->CloudFile);
@@ -586,8 +586,8 @@ double FloatVal;
       }
      case ID_CL_DELKEYS:
       {
-      if (User_Message_Def("Cloud Editor",
-	"Delete all cloud key frames?", "OK|Cancel", "oc", 1))
+      if (User_Message_Def((CONST_STRPTR)"Cloud Editor",
+    		  (CONST_STRPTR)"Delete all cloud key frames?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
        {
        CL_Win->CD->NumKeys = 0;
        memset(CL_Win->CD->CloudKey, 0, CL_Win->CD->KFSize);
@@ -654,8 +654,8 @@ double FloatVal;
         GUIDisableKeyButtons(&CL_Win->GKS, CL_Win->TL, &CL_Win->WKS);
         if (strcmp(cloudpath, CL_Win->CloudDir) || strcmp(cloudfile, CL_Win->CloudFile))
          {
-         if (User_Message_Def("Cloud Editor",
-	"Make this file the Project Cloud File?", "Yes|No", "yn", 1))
+         if (User_Message_Def((CONST_STRPTR)"Cloud Editor",
+        		 (CONST_STRPTR)"Make this file the Project Cloud File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
           {
           strcpy(cloudpath, CL_Win->CloudDir);
           strcpy(cloudfile, CL_Win->CloudFile);
@@ -682,8 +682,8 @@ double FloatVal;
         {
         if (strcmp(cloudpath, CL_Win->CloudDir) || strcmp(cloudfile, CL_Win->CloudFile))
          {
-         if (User_Message_Def("Cloud Editor",
-	"Make this file the Project Cloud File?", "Yes|No", "yn", 1))
+         if (User_Message_Def((CONST_STRPTR)"Cloud Editor",
+        		 (CONST_STRPTR)"Make this file the Project Cloud File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
           {
           strcpy(cloudpath, CL_Win->CloudDir);
           strcpy(cloudfile, CL_Win->CloudFile);

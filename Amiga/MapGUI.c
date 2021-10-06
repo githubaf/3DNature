@@ -834,9 +834,9 @@ short map(void)
  if ((MP = (struct MapData *)
 	get_Memory(sizeof (struct MapData), MEMF_CLEAR)) == NULL)
   {
-  User_Message("Mapping Module",
-	"Out of memory!\nCan't initialize map window!\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"Mapping Module",
+		  (CONST_STRPTR)"Out of memory!\nCan't initialize map window!\nOperation terminated.",
+		  (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_Map_Window(1);
   return(0);
   }
@@ -1282,9 +1282,9 @@ if(WCS_ID)
          if  ((AlignBox.High.Y != AlignBox.Low.Y) && (AlignBox.High.X - AlignBox.Low.Y))
           valuesetalign();
          else
-          User_Message("Mapping Module: Align",
-		"Illegal registration values! High and low X or Y values are equal.",
-		"OK", "o");
+          User_Message((CONST_STRPTR)"Mapping Module: Align",
+        		  (CONST_STRPTR)"Illegal registration values! High and low X or Y values are equal.",
+				  (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
          } /* if align */
 	if(AutoClear)
 		{
@@ -1798,8 +1798,8 @@ HandleEvent:
       } /*  */
      case ID_MC_INPUT:
       {
-      MP_DigMode = User_Message("Mapping Module: Digitize",
-		"Set digitizing input source.", "Bitpad|Summagrid|Mouse", "bsm");
+      MP_DigMode = User_Message((CONST_STRPTR)"Mapping Module: Digitize",
+    		  (CONST_STRPTR)"Set digitizing input source.", (CONST_STRPTR)"Bitpad|Summagrid|Mouse", (CONST_STRPTR)"bsm");
       break;
       } /*  */
      case ID_MC_DUPLICATE:
@@ -2073,10 +2073,10 @@ HandleEvent:
 /* if end points not found warn and undraw points if user wishes */
            if (NotFound)
             {
-            if (User_Message("Map View: Build DEM",
-"At least one end control point for the line segment just drawn could not be\
+            if (User_Message((CONST_STRPTR)"Map View: Build DEM",
+            		(CONST_STRPTR)"At least one end control point for the line segment just drawn could not be\
  found!\nDo you wish to use the current and minimum slider elevations for this\
- segment or abort the operation?", "Slider|Abort", "sa"))
+ segment or abort the operation?", (CONST_STRPTR)"Slider|Abort", (CONST_STRPTR)"sa"))
              {
              if (NotFound >= 2)
               Y1 = MD_Win->CurEl;
@@ -2402,9 +2402,9 @@ HandleEvent:
          if  ((AlignBox.High.Y != AlignBox.Low.Y) && (AlignBox.High.X - AlignBox.Low.Y))
           valuesetalign();
          else
-          User_Message("Mapping Module: Align",
-		"Illegal registration values! High and low X or Y values are equal.",
-		"OK", "o");
+          User_Message((CONST_STRPTR)"Mapping Module: Align",
+        		  (CONST_STRPTR)"Illegal registration values! High and low X or Y values are equal.",
+				  (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
          } /* if align */
 	if(AutoClear)
 		{
@@ -2453,10 +2453,10 @@ void Close_Map_Window(short ExitWCS)
 
  if (DB_Mod)
   {
-  SaveIt = User_Message("Database: Save",
-	"The Database has been modified since it was loaded.\n\
+  SaveIt = User_Message((CONST_STRPTR)"Database: Save",
+		  (CONST_STRPTR)"The Database has been modified since it was loaded.\n\
 Do you wish to save it or a Master Object file now?",
-	"D'base|Object|Both|Neither", "dmbn");
+(CONST_STRPTR)"D'base|Object|Both|Neither", (CONST_STRPTR)"dmbn");
   if (SaveIt == 1 || SaveIt == 3)
    savedbase(1);
   if (SaveIt == 2 || SaveIt == 3)
@@ -2566,8 +2566,8 @@ void Make_EL_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message("Ecosystem Legend",
-	"You must first load or create a parameter file before opening the Legend.", "OK", "o");
+  User_Message((CONST_STRPTR)"Ecosystem Legend",
+		  (CONST_STRPTR)"You must first load or create a parameter file before opening the Legend.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -2583,8 +2583,8 @@ void Make_EL_Window(void)
 
  if (! EL_Win->EEList)
   {
-  User_Message("Map View: Ecosystem Legend",
-	"Out of memory!\nCan't open Ecosystem Legend.", "OK", "o");
+  User_Message((CONST_STRPTR)"Map View: Ecosystem Legend",
+		  (CONST_STRPTR)"Out of memory!\nCan't open Ecosystem Legend.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_EL_Window();
   return;
   } /* if out of memory */
@@ -2640,7 +2640,7 @@ void Make_EL_Window(void)
   if (! EL_Win->EcoLegendWin)
    {
    Close_EL_Window();
-   User_Message("Ecosystem Legend", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Ecosystem Legend", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 

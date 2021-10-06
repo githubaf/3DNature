@@ -49,7 +49,7 @@ short error = 0, i, SetDefault = 0;
     if (strcmp(str, dirname))
      {
      SetDefault = User_Message_Def(str,
-	"Make this the default object directory?", "OK|Cancel", "oc", 1);
+    		 (CONST_STRPTR)"Make this the default object directory?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1);
      Proj_Mod = 1;
      } /* if not already default directory */
     } /* if AskName */
@@ -72,31 +72,31 @@ short error = 0, i, SetDefault = 0;
    {
    Log(ERR_OPEN_FAIL, dbasename);
    if (! FileName)
-    User_Message("Database: Load",
-	"Error opening Database file!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Database: Load",
+    		(CONST_STRPTR)"Error opening Database file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* no file */
   case 2:
    {
    Log(ERR_WRONG_TYPE, "Unsupported Database file format.");
    if (! FileName)
-    User_Message("Database: Load",
-	"Not a WCS Database file!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Database: Load",
+    		(CONST_STRPTR)"Not a WCS Database file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* wrong type file */
   case 3:
    {
    Log(ERR_READ_FAIL, dbasename);
    if (! FileName)
-    User_Message("Database: Load",
-	"Error reading Database file!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Database: Load",
+    		(CONST_STRPTR)"Error reading Database file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* read error */
   case 4:
    {
    if (! FileName)
-    User_Message("Database Module: Load",
-	"Out of memory allocating Database!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Database Module: Load",
+    		(CONST_STRPTR)"Out of memory allocating Database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* memory bust */
   } /* switch */

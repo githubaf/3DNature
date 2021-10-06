@@ -82,8 +82,8 @@ void Make_ES_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message("Render Module",
-	"You must first load or create a parameter file before opening the Render Module.", "OK", "o");
+  User_Message((CONST_STRPTR)"Render Module",
+		  (CONST_STRPTR)"You must first load or create a parameter file before opening the Render Module.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -715,7 +715,7 @@ void Make_ES_Window(void)
   if (! ES_Win->SettingsWin)
    {
    Close_ES_Window(1);
-   User_Message("Render Settings Editor", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Settings Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 

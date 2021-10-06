@@ -34,8 +34,8 @@ void Make_EC_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message("Color Editor",
-	"You must first load or create a parameter file before opening the Editor.", "OK", "o");
+  User_Message((CONST_STRPTR)"Color Editor",
+		  (CONST_STRPTR)"You must first load or create a parameter file before opening the Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -252,7 +252,7 @@ void Make_EC_Window(void)
   if (! EC_Win->EcoPalWin)
    {
    Close_EC_Window(1);
-   User_Message("Color Editor", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Color Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -637,7 +637,7 @@ void Handle_EC_Window(ULONG WCS_ID)
      case ID_EC_DELETEALL:
       {
       sprintf(str, "Delete all %s Key Frames?", PAR_NAME_COLOR(EC_Win->PalItem));
-      if (User_Message_Def("Parameters Module: Color", str, "OK|Cancel", "oc", 1))
+      if (User_Message_Def((CONST_STRPTR)"Parameters Module: Color", str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
        {
        for (i=ParHdr.KeyFrames-1; i>=0; i--)
         {
@@ -670,8 +670,8 @@ void Handle_EC_Window(ULONG WCS_ID)
        CoPar.cn[CopyItem].Value[2] = CoPar.cn[EC_Win->PalItem].Value[2];
        if (CountKeyFrames(1, EC_Win->PalItem))
         {
-        if (User_Message_Def("Color Editor: Copy",
-		"Copy Key Frames too?", "Yes|No", "yn", 1))
+        if (User_Message_Def((CONST_STRPTR)"Color Editor: Copy",
+        		(CONST_STRPTR)"Copy Key Frames too?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
          {
          for (i=ParHdr.KeyFrames-1; i>=0; i--)
           {
@@ -711,8 +711,8 @@ void Handle_EC_Window(ULONG WCS_ID)
        get(EC_Win->LS_List, MUIA_List_Active, &SwapItem);
        if (SwapItem < 24)
         {
-        User_Message("Color Parameters: Swap",
-		"Can't swap with first 24 colors!\nOperation terminated.", "OK", "oc");
+        User_Message((CONST_STRPTR)"Color Parameters: Swap",
+        		(CONST_STRPTR)"Can't swap with first 24 colors!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"oc");
         set(EC_Win->LS_List, MUIA_List_Active, EC_Win->PalItem);
 	} /* if */
        else
@@ -777,7 +777,7 @@ void Handle_EC_Window(ULONG WCS_ID)
       if ((Eco = SearchEcosystemColorMatch(EC_Win->PalItem)) > -1)
        {
        Remove = User_Message_Def(PAR_NAME_ECO(Eco),
-	"The current color is being used. Remove it anyway?", "OK|Cancel", "oc", 0);
+    		   (CONST_STRPTR)"The current color is being used. Remove it anyway?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 0);
        } /* if in use */
       if (Remove)
        {

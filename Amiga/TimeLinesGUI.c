@@ -59,16 +59,16 @@ void Make_EMTL_Window(void)
  if (((EMTL_Win->List = (char **)get_Memory(EMTL_Win->ListSize, MEMF_CLEAR)) == NULL)
 	|| ((EMTL_Win->ListID = (short *)get_Memory(EMTL_Win->ListIDSize, MEMF_CLEAR)) == NULL))
   {
-  User_Message("Parameters: Time Line",
-	"Out of memory!\nCan't open Time Line window.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters: Time Line",
+		  (CONST_STRPTR)"Out of memory!\nCan't open Time Line window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_EMTL_Window(1);
   return;
   } /* if out of memory */
 
  if (! Set_PS_List(EMTL_Win->List, EMTL_Win->ListID, 0, 2, NULL))
   {
-  User_Message("Parameters: Time Line",
-	"No Motion Parameters with more than one Key Frame!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters: Time Line",
+		  (CONST_STRPTR)"No Motion Parameters with more than one Key Frame!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_EMTL_Window(1);
   return;
   } /* if out of memory */
@@ -190,7 +190,7 @@ void Make_EMTL_Window(void)
   if (! EMTL_Win->TimeLineWin)
    {
    Close_EMTL_Window(1);
-   User_Message("Motion Time Line", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Motion Time Line", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -227,9 +227,9 @@ void Make_EMTL_Window(void)
   if (! Set_EMTL_Item(EM_Win->MoItem))
    {
    Close_EMTL_Window(1);
-   User_Message("Motion Editor: Time Lines",
-	"At least two key frames for this parameter must be created prior to opening the time line window",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Motion Editor: Time Lines",
+		   (CONST_STRPTR)"At least two key frames for this parameter must be created prior to opening the time line window",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */
   Set_EMTL_Data();
@@ -929,16 +929,16 @@ void Make_ECTL_Window(void)
  if (((ECTL_Win->List = (char **)get_Memory(ECTL_Win->ListSize, MEMF_CLEAR)) == NULL)
 	|| ((ECTL_Win->ListID = (short *)get_Memory(ECTL_Win->ListIDSize, MEMF_CLEAR)) == NULL))
   {
-  User_Message("Parameters: Time Line",
-	"Out of memory!\nCan't open Time Line window.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters: Time Line",
+		  (CONST_STRPTR)"Out of memory!\nCan't open Time Line window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_ECTL_Window(1);
   return;
   } /* if out of memory */
 
  if (! Set_PS_List(ECTL_Win->List, ECTL_Win->ListID, 1, 2, NULL))
   {
-  User_Message("Parameters: Time Line",
-	"No Color Parameters with more than one Key Frame!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters: Time Line",
+		  (CONST_STRPTR)"No Color Parameters with more than one Key Frame!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_ECTL_Window(1);
   return;
   } /* if out of memory */
@@ -1070,7 +1070,7 @@ void Make_ECTL_Window(void)
   if (! ECTL_Win->TimeLineWin)
    {
    Close_ECTL_Window(1);
-   User_Message("Color Time Line", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Color Time Line", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1107,9 +1107,9 @@ void Make_ECTL_Window(void)
   if (! Set_ECTL_Item(EC_Win->PalItem))
    {
    Close_ECTL_Window(1);
-   User_Message("Color Editor: Time Lines",
-	"At least two key frames for this parameter must be created prior to opening the time line window",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Color Editor: Time Lines",
+		   (CONST_STRPTR)"At least two key frames for this parameter must be created prior to opening the time line window",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */
   Set_ECTL_Data(0);
@@ -1660,16 +1660,16 @@ void Make_EETL_Window(void)
  if (((EETL_Win->List = (char **)get_Memory(EETL_Win->ListSize, MEMF_CLEAR)) == NULL)
 	|| ((EETL_Win->ListID = (short *)get_Memory(EETL_Win->ListIDSize, MEMF_CLEAR)) == NULL))
   {
-  User_Message("Parameters: Time Line",
-	"Out of memory!\nCan't open Time Line window.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters: Time Line",
+		  (CONST_STRPTR)"Out of memory!\nCan't open Time Line window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_EETL_Window(1);
   return;
   } /* if out of memory */
 
  if (! Set_PS_List(EETL_Win->List, EETL_Win->ListID, 2, 2, NULL))
   {
-  User_Message("Parameters: Time Line",
-	"No Ecosystem Parameters with more than one Key Frame!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameters: Time Line",
+		  (CONST_STRPTR)"No Ecosystem Parameters with more than one Key Frame!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Close_EETL_Window(1);
   return;
   } /* if out of memory */
@@ -1831,7 +1831,7 @@ void Make_EETL_Window(void)
   if (! EETL_Win->TimeLineWin)
    {
    Close_EETL_Window(1);
-   User_Message("Ecosystem Time Line", "Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Ecosystem Time Line", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1876,9 +1876,9 @@ void Make_EETL_Window(void)
   if (! Set_EETL_Item(EE_Win->EcoItem))
    {
    Close_EETL_Window(1);
-   User_Message("Ecosystem Editor: Time Lines",
-	"At least two key frames for this parameter must be created prior to opening the time line window",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Ecosystem Editor: Time Lines",
+		   (CONST_STRPTR)"At least two key frames for this parameter must be created prior to opening the time line window",
+		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */
   for (i=0; i<10; i++)
