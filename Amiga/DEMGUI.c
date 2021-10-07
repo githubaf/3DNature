@@ -1224,10 +1224,10 @@ float El;
   } /* if Database Editor not open */
 
 
- ElSource = User_Message("Map View: Export Contours",
-	"Extract elevation values from Object Names, Label fields\
+ ElSource = User_Message((CONST_STRPTR)"Map View: Export Contours",
+         (CONST_STRPTR)"Extract elevation values from Object Names, Label fields\
  or use the values embedded in the Objects themselves?",
-	"Name|Label|Embedded", "nle");
+ (CONST_STRPTR)"Name|Label|Embedded", (CONST_STRPTR)"nle");
 
  get(DE_Win->LS_List, MUIA_List_Active, &ActiveItem);
  for (j=0; j<NoOfObjects; j++)
@@ -1268,7 +1268,7 @@ float El;
   } /* for j=0... */
 
  if (Warn)
-  User_Message("Map View: Build DEM",
+  User_Message((CONST_STRPTR)"Map View: Build DEM",
 		  (CONST_STRPTR)"At least one Object failed to load and could not be imported.",(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
 
  return (success);

@@ -679,7 +679,7 @@ void Handle_EE_Window(ULONG WCS_ID)
      case ID_EE_DELETEALL:
       {
       sprintf(str, "Delete all %s Key Frames?", PAR_NAME_ECO(EE_Win->EcoItem));
-      if (User_Message_Def((CONST_STRPTR)"Parameters Module: Ecosystem", str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+      if (User_Message_Def((CONST_STRPTR)"Parameters Module: Ecosystem", (CONST_STRPTR)str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
        {
        for (i=ParHdr.KeyFrames-1; i>=0; i--)
         {

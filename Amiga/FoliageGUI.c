@@ -825,7 +825,7 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
     FE_Win->Mod = 1;
     } /* if new group created */
    else
-    User_Message_Def((CONST_STRPTR)"Foliage Editor: Add Group", "Error loading Foliage Group file!\nOperation terminated.",
+    User_Message_Def((CONST_STRPTR)"Foliage Editor: Add Group", (CONST_STRPTR)"Error loading Foliage Group file!\nOperation terminated.",
     		(CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
    fclose(ffile);
    } /* if file opened */
@@ -1439,8 +1439,8 @@ short success = 0;
     if (Ecotype_Save(EcoShift[FE_Win->FolEco].Ecotype, ffile))
      success = 1;
     else
-     User_Message_Def("Foliage Editor: Save Ecotype", "Error saving Ecotype file!\nOperation terminated.",
-	"OK", "o", 0);
+     User_Message_Def((CONST_STRPTR)"Foliage Editor: Save Ecotype", (CONST_STRPTR)"Error saving Ecotype file!\nOperation terminated.",
+             (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
     fclose(ffile);
     } /* if file opened */
    } /* if file name */

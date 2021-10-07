@@ -337,9 +337,9 @@ short InitDigPerspective(void)
 {
  short NewArray, NewObj;
 
- if ((NewObj = User_Message_Def(DBase[OBN].Name,
-	"Digitize new points for the active vector object or create a new object?",
-	 "Active|New|Cancel", "anc", 1)) == 0)
+ if ((NewObj = User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+         (CONST_STRPTR)"Digitize new points for the active vector object or create a new object?",
+         (CONST_STRPTR)"Active|New|Cancel", (CONST_STRPTR)"anc", 1)) == 0)
   return (0);
  if (NewObj == 2)
   DBaseObject_New();
@@ -347,9 +347,9 @@ short InitDigPerspective(void)
  if (! strcmp(DBase[OBN].Special, "TOP") || 
  	! strcmp(DBase[OBN].Special, "SFC"))
   {
-  User_Message("Diagnostic: Digitize",
-	"Active object is a DEM and may not be digitized!\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"Diagnostic: Digitize",
+          (CONST_STRPTR)"Active object is a DEM and may not be digitized!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if DEM */ 
 
@@ -357,8 +357,8 @@ short InitDigPerspective(void)
 
  if (! allocvecarray(OBN, MAXOBJPTS, NewArray))
   {
-  User_Message("Interactive Module: Add Points",
-	"Out of memory!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Interactive Module: Add Points",
+          (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if out of memory allocating point array */
 
@@ -378,8 +378,8 @@ void QuitDigPerspective(void)
 
  DBase[OBN].Flags |= 1;	/* set modification flag */
 
- if (User_Message_Def(DBase[OBN].Name,
-	 "Save object points?", "OK|CANCEL", "oc", 1))
+ if (User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+         (CONST_STRPTR)"Save object points?", (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc", 1))
   {
   error = saveobject(OBN, NULL, DBase[OBN].Lon, DBase[OBN].Lat, DBase[OBN].Elev);
   if (! error) error = savedbase(1);
@@ -453,8 +453,8 @@ short VectorToPath(short item)
   {
   if (Load_Object(OBN, NULL) > 0)
    {
-   User_Message("Mapping Module: Path",
-	"Error loading vector object!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Mapping Module: Path",
+           (CONST_STRPTR)"Error loading vector object!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return (0);
    } /* if load error */
   } /* if object not in memory */
@@ -472,9 +472,9 @@ short VectorToPath(short item)
     return (0);
     }
 */
-   if (! User_Message("Mapping Module: Path",
-	"Camera Key Frames exist. Proceeding will delete current values!",
-	"Proceed|Cancel", "pc"))
+   if (! User_Message((CONST_STRPTR)"Mapping Module: Path",
+           (CONST_STRPTR)"Camera Key Frames exist. Proceeding will delete current values!",
+           (CONST_STRPTR)"Proceed|Cancel", (CONST_STRPTR)"pc"))
     return (0);
    } /* if cancel */
   } /* if camera path */
@@ -491,9 +491,9 @@ short VectorToPath(short item)
     return (0);
     }
 */
-   if (! User_Message("Mapping Module: Path",
-	"Focus Key Frames exist. Proceeding will delete current values!",
-	"Proceed|Cancel", "pc"))
+   if (! User_Message((CONST_STRPTR)"Mapping Module: Path",
+           (CONST_STRPTR)"Focus Key Frames exist. Proceeding will delete current values!",
+           (CONST_STRPTR)"Proceed|Cancel", (CONST_STRPTR)"pc"))
     return (0);
    } /* if cancel */
   } /* if focus path */
@@ -520,12 +520,12 @@ short VectorToPath(short item)
   } /* for i=0... */
 
  sprintf(str, "%s.elev", DBase[OBN].Name);
- if (User_Message_Def(str, "Use elevation data?", "Yes|No", "yn", 1))
+ if (User_Message_Def((CONST_STRPTR)str, (CONST_STRPTR)"Use elevation data?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
   {
   OpenOK = 1;
-  Flatten = User_Message_Def("Mapping Module: Path",
-	 "Modify altitudes with current flattening, datum and vertical exaggeration?",
-	 "Yes|No", "yn", 1);
+  Flatten = User_Message_Def((CONST_STRPTR)"Mapping Module: Path",
+          (CONST_STRPTR)"Modify altitudes with current flattening, datum and vertical exaggeration?",
+          (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1);
   } /* if use elev */
 
  SetPointer(MapWind0, WaitPointer, 16, 16, -6, 0);
@@ -592,8 +592,8 @@ EndVec:
 
  if (Frame <= DBase[OBN].Points)
   {
-  User_Message("Mapping Module: Path",
-	"Out of memory creating Key Frames!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Mapping Module: Path",
+          (CONST_STRPTR)"Out of memory creating Key Frames!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if error */
 
@@ -622,18 +622,18 @@ short PathToVector(short item)
   return (0);
   } /* if no database */
 
- UseAll = User_Message("Mapping Module: Path",
-	"Use all splined points or only Key Frames?", "All Splined|Key Frames",
-	 "ak");
- Flatten = User_Message_Def("Mapping Module: Path",
-	 "Modify altitudes with current Flattening, Datum and Vertical Exaggeration?",
-	 "Yes|No", "yn", 1);
+ UseAll = User_Message((CONST_STRPTR)"Mapping Module: Path",
+         (CONST_STRPTR)"Use all splined points or only Key Frames?", (CONST_STRPTR)"All Splined|Key Frames",
+         (CONST_STRPTR)"ak");
+ Flatten = User_Message_Def((CONST_STRPTR)"Mapping Module: Path",
+         (CONST_STRPTR)"Modify altitudes with current Flattening, Datum and Vertical Exaggeration?",
+         (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1);
 
  if (! BuildKeyTable())
   {
-  User_Message("Mapping Module: Path",
-	"Out of memory opening Key Frame table!\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"Mapping Module: Path",
+          (CONST_STRPTR)"Out of memory opening Key Frame table!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   } /* if no key table */
 
  if (UseAll)
@@ -650,9 +650,9 @@ short PathToVector(short item)
 
  if (Frames >= MAXOBJPTS)
   {
-  if (! User_Message("Mapping Module: Path",
-	"There are more frames than allowable vector points! Path will be truncated.",
-	"OK|Cancel", "oc"))
+  if (! User_Message((CONST_STRPTR)"Mapping Module: Path",
+          (CONST_STRPTR)"There are more frames than allowable vector points! Path will be truncated.",
+          (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
    return (0);
   Frames = MAXOBJPTS - 1;
   } /* if more than max allowable object points */
@@ -675,9 +675,9 @@ NewName:
    {
    short ans;
 
-   ans = User_Message_Def("Database Module",
-	"Vector name already present in Database!\nOverwrite it or try a new name?",
-	"Overwrite|New|Cancel", "onc", 2);
+   ans = User_Message_Def((CONST_STRPTR)"Database Module",
+           (CONST_STRPTR)"Vector name already present in Database!\nOverwrite it or try a new name?",
+           (CONST_STRPTR)"Overwrite|New|Cancel", (CONST_STRPTR)"onc", 2);
    if (ans == 0)
     return (0);
    if (ans == 2)
@@ -699,8 +699,8 @@ NewName:
    if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 20)) == NULL)
     {
-    User_Message("Database Module",
-	"Out of memory expanding Database!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Database Module",
+            (CONST_STRPTR)"Out of memory expanding Database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     return (0);
     } /* if new database allocation fails */
    else
@@ -741,8 +741,8 @@ NewName:
 /* get some point memory */
  if (! allocvecarray(OBN, Frames, 1))
   {
-  User_Message("Mapping Module: Path",
-	"Out of memory creating new vector object!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Mapping Module: Path",
+          (CONST_STRPTR)"Out of memory creating new vector object!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if memory fails */
 

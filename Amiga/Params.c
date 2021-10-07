@@ -50,7 +50,7 @@ void MergeKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFrame **OF,
      sprintf(str,
 	 "Out of memory restoring old key frames!\nSome %s keys may be lost.",
 	 groupname);
-     User_Message("Key Frame: Cancel", str, "OK", "o");
+     User_Message((CONST_STRPTR)"Key Frame: Cancel", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      break;
      }
     OFptr = *OF;
@@ -128,8 +128,8 @@ STATIC_FCN short AllocNewKeyArray(union KeyFrame **KF, long *KFsize) // used loc
  NewKFsize = *KFsize + 20 * sizeof (union KeyFrame);
  if ((NewKF = (union KeyFrame *)get_Memory(NewKFsize, MEMF_CLEAR)) == NULL)
   {
-  User_Message("Key Frame Module",
-	"Out of memory allocating new key frame!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Key Frame Module",
+          (CONST_STRPTR)"Out of memory allocating new key frame!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if memory bust */
 
@@ -1753,10 +1753,10 @@ if (item == 0)
   Vel.Base = 0;
   if (Vel.EaseIn + Vel.EaseOut > KT_MaxFrames)
    {
-   if (! User_Message("Parameters Module: Velocity Distribution",
-	"\"Ease In\" plus \"Ease Out\" frame values exceed total number of animated frames.\n\
+   if (! User_Message((CONST_STRPTR)"Parameters Module: Velocity Distribution",
+           (CONST_STRPTR)"\"Ease In\" plus \"Ease Out\" frame values exceed total number of animated frames.\n\
 This is illegal! Do you wish to continue without Velocity Distribution?",
-	"OK|Cancel", "oc"))
+(CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
     return (0);
    else
     return (1);

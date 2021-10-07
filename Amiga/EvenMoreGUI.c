@@ -1024,7 +1024,7 @@ EndNewProj:
     break;
     } /* allocating char array */
    } /* switch error */
-  User_Message_Def((CONST_STRPTR)"New Project", str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+  User_Message_Def((CONST_STRPTR)"New Project", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
   return (0);
   } /* if an error occurred */
 

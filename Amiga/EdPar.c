@@ -816,9 +816,9 @@ short  CreateBankKeys(void)
   } /* no motion key frames */
 
  if (CountKeyFrames(0, 8) > 0)
-  if (! User_Message("Parameters Module: Bank Keys",
-	"Key Frames exist for the \"Bank\" Parameter. Overwrite them?",
-	"OK|Cancel", "oc"))
+  if (! User_Message((CONST_STRPTR)"Parameters Module: Bank Keys",
+          (CONST_STRPTR)"Key Frames exist for the \"Bank\" Parameter. Overwrite them?",
+          (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
    {
    error = 10;
    goto EndBank;
@@ -903,20 +903,20 @@ EndBank:
   {
   case 1:
    {
-   User_Message("Parameters Module: Export",
-	"Error creating Key Frame!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Export",
+           (CONST_STRPTR)"Error creating Key Frame!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* no params loaded */
   case 2:
    {
-   User_Message("Parameters Module: Export",
-	"No Camera Path Lat/Lon Key Frames!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Export",
+           (CONST_STRPTR)"No Camera Path Lat/Lon Key Frames!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* no key frames */
   case 3:
    {
-   User_Message("Parameters Module: Export",
-	"Out of memory!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Export",
+           (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* file write fail */
   } /* switch */
@@ -1778,8 +1778,8 @@ short loadparams(USHORT loadcode, short loaditem)
     {
     fclose(fparam);
     Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Version < 1.0");
-    User_Message("Parameter Module: Load",
-	"Unsupported Parameter file type or version!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Parameter Module: Load",
+            (CONST_STRPTR)"Unsupported Parameter file type or version!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     } /*  if version = 0.0 */
 
    else if (fileversion < 2.0)
@@ -1794,9 +1794,9 @@ short loadparams(USHORT loadcode, short loaditem)
      memcpy(&ParHdr, &TempHdr, sizeof (struct ParHeader));
      if (loadcode == 0x1111)
       {
-      if (User_Message_Def("Parameter Module: Load",
-	"This is an old V1 format file! Would you like to re-save it in the new format now?",
-	"OK|Cancel", "oc", 1))
+      if (User_Message_Def((CONST_STRPTR)"Parameter Module: Load",
+              (CONST_STRPTR)"This is an old V1 format file! Would you like to re-save it in the new format now?",
+	(CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
        {
        strcpy(parampath, temppath);
        strcpy(paramfile, tempfile);
@@ -1817,10 +1817,10 @@ short loadparams(USHORT loadcode, short loaditem)
      memcpy(&ParHdr, &TempHdr, sizeof (struct ParHeader));
      if (fileversion < PAR_CURRENT_VERSION - .05)
       {
-      if (User_Message_Def("Parameter Module: Load",
-	"The Parameter File format has been changed slightly since this file was saved.\
+      if (User_Message_Def((CONST_STRPTR)"Parameter Module: Load",
+              (CONST_STRPTR)"The Parameter File format has been changed slightly since this file was saved.\
  Would you like to re-save it in the new format now?",
-	"OK|Cancel", "oc", 1))
+ (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
        {
        strcpy(parampath, temppath);
        strcpy(paramfile, tempfile);
@@ -1890,8 +1890,8 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
  if (loadcode != 0x1111)
   {
   if (loadcode & 0x0111 && KeyFrames > 0)
-   LoadKeys = User_Message_Def("Parameter Module: Load",
-	"Load all key frames?", "Yes|No", "yn", 1);
+   LoadKeys = User_Message_Def((CONST_STRPTR)"Parameter Module: Load",
+           (CONST_STRPTR)"Load all key frames?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1);
   } /* if load partial file */
 
  if (LoadKeys)
@@ -1902,8 +1902,8 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
   KFsize = (KeyFrames + 20) * (sizeof (union KeyFrame));
   if ((KF = (union KeyFrame *)get_Memory(KFsize, MEMF_CLEAR)) == NULL)
    {
-   User_Message("Parameter Module: Load",
-	"Out of memory!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameter Module: Load",
+           (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    KFsize = 0;
    goto ReadError;
    } /* if memory bust */
@@ -1961,7 +1961,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
     if (! found)
      {
      sprintf(str, "Color item %s not found in this file!\nOperation terminated.", PAR_NAME_COLOR(loaditem));
-     User_Message("Color Editor: Load Current", str, "OK", "o");
+     User_Message((CONST_STRPTR)"Color Editor: Load Current", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      } /* if not found */ 
     } /* else load user color */
    fseek(fparam, TempHdr->EcoParamsPos, 0);
@@ -2004,7 +2004,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
     if (! found)
      {
      sprintf(str, "Ecosystem item %s not found in this file!\nOperation terminated.", PAR_NAME_ECO(loaditem));
-     User_Message("Ecosystem Editor: Load Current", str, "OK", "o");
+     User_Message((CONST_STRPTR)"Ecosystem Editor: Load Current", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      } /* if not found */ 
     } /* else */
    fseek(fparam, TempHdr->SettingsPos, 0);
@@ -2179,8 +2179,8 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
 
  if (! settingsV1 || ! MoParV1 || ! CoParV1 || ! EcoParV1)
   {
-  User_Message("Parameter Module: Load",
-	"Out of memory!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Parameter Module: Load",
+          (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   goto ReadError;
   } /* if memory bust */
 
@@ -2207,8 +2207,8 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
  if (loadcode != 0x1111)
   {
   if (loadcode & 0x0111 && KeyFrames > 0)
-   LoadKeys = User_Message_Def("Parameter Module: Load",
-	"Load all key frames?", "Yes|No", "yn", 1);
+   LoadKeys = User_Message_Def((CONST_STRPTR)"Parameter Module: Load",
+           (CONST_STRPTR)"Load all key frames?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1);
   } /* if load partial file */
 
  if (LoadKeys)
@@ -2220,9 +2220,9 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
   KFV1size = (KeyFrames + 20) * (sizeof (union KeyFrameV1));
   if ((KF = (union KeyFrame *)get_Memory(KFsize, MEMF_CLEAR)) == NULL ||
 	(KFV1 = (union KeyFrameV1 *)get_Memory(KFV1size, MEMF_CLEAR)) == NULL)
-   {
-   User_Message("Parameter Module: Load",
-	"Out of memory!\nOperation terminated.", "OK", "o");
+   {(CONST_STRPTR)
+   User_Message((CONST_STRPTR)"Parameter Module: Load",
+           (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    goto ReadError;
    } /* if memory bust */
   } /* if load all parameters */
@@ -2278,14 +2278,14 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
     if (! found)
      {
      sprintf(str, "Color item %s not found in this file!\nOperation terminated.", PAR_NAME_COLOR(loaditem));
-     User_Message("Color Editor: Load Current", str, "OK", "o");
+     User_Message((CONST_STRPTR)"Color Editor: Load Current", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      goto ReadError;
      } /* if not found */ 
     } /* else */
    else
     {
     sprintf(str, "Color item %s not found in this file!\nOperation terminated.", PAR_NAME_COLOR(loaditem));
-    User_Message("Color Editor: Load Current", str, "OK", "o");
+    User_Message((CONST_STRPTR)"Color Editor: Load Current", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     goto ReadError;
     }
    fseek(fparam, sizeof (struct PaletteV1) + sizeof (struct AnimationV1)
@@ -2370,14 +2370,14 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
     if (! found)
      {
      sprintf(str, "Ecosystem item %s not found in this file!\nOperation terminated.", PAR_NAME_ECO(loaditem));
-     User_Message("Ecosystem Editor: Load Current", str, "OK", "o");
+     User_Message((CONST_STRPTR)"Ecosystem Editor: Load Current", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      goto ReadError;
      } /* if not found */ 
     } /* else */
    else
     {
     sprintf(str, "Ecosystem item %s not found in this file!\nOperation terminated.", PAR_NAME_ECO(loaditem));
-    User_Message("Ecosystem Editor: Load Current", str, "OK", "o");
+    User_Message((CONST_STRPTR)"Ecosystem Editor: Load Current", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     goto ReadError;
     }
    if (fileversion > 1.025)
@@ -2877,8 +2877,8 @@ SaveRepeat:
   if ((fparam = fopen(filename, "wb")) == NULL)
    {
    Log(ERR_OPEN_FAIL, paramfile);
-   if (User_Message("paramfile",
-	"Error opening file for output!\nTry again?", "OK|Cancel", "oc"))
+   if (User_Message((CONST_STRPTR)"paramfile",
+           (CONST_STRPTR)"Error opening file for output!\nTry again?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
     goto SaveRepeat;
    return 1;
    } /* if open fail */
@@ -2893,8 +2893,8 @@ SaveRepeat:
    if ((fparam = fopen(filename, "wb")) == NULL)
     {
     Log(ERR_OPEN_FAIL, paramfile);
-    if (User_Message("paramfile",
-	"Error opening file for output!\nTry again?", "OK|Cancel", "oc"))
+    if (User_Message((CONST_STRPTR)"paramfile",
+            (CONST_STRPTR)"Error opening file for output!\nTry again?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
      goto SaveRepeat;
     return 1;
     } /* if open fail */
@@ -2919,17 +2919,17 @@ SaveRepeat:
    if (fileversion < 2.0)
     {
     Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Version < 2.0");
-    if (! User_Message("Parameter Editing Module",
-	"Partial files may not be written to old file versions!\n\
-	Do you wish to save the entire parameter file?", "OK|Cancel", "oc"))
+    if (! User_Message((CONST_STRPTR)"Parameter Editing Module",
+            (CONST_STRPTR)"Partial files may not be written to old file versions!\n\
+	Do you wish to save the entire parameter file?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
      goto SaveError;
     fclose(fparam);
     savecode = 0x1111;
     if ((fparam = fopen(filename, "wb")) == NULL)
      {
      Log(ERR_OPEN_FAIL, paramfile);
-     if (User_Message("paramfile",
-	"Error opening file for output!\nTry again?", "OK|Cancel", "oc"))
+     if (User_Message((CONST_STRPTR)"paramfile",
+             (CONST_STRPTR)"Error opening file for output!\nTry again?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
       goto SaveRepeat;
      return 1;
      } /* if open fail */
@@ -2998,7 +2998,7 @@ SaveRepeat:
     if (! found)
      {
      sprintf(str, "Color item %s not found in this file!\nOperation terminated.", PAR_NAME_COLOR(saveitem));
-     User_Message("Color Editor: Save Current", str, "OK", "o");
+     User_Message((CONST_STRPTR)"Color Editor: Save Current", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      goto SaveError;
      } /* if not found */ 
     } /* else */
@@ -3044,7 +3044,7 @@ SaveRepeat:
     if (! found)
      {
      sprintf(str, "Ecosystem item %s not found in this file!\nOperation terminated.", PAR_NAME_ECO(saveitem));
-     User_Message("Ecosystem Editor: Save Current", str, "OK", "o");
+     User_Message((CONST_STRPTR)"Ecosystem Editor: Save Current", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      goto SaveError;
      } /* if not found */ 
     } /* else */
@@ -3066,8 +3066,8 @@ SaveRepeat:
   {
   if (savecode & 0x0111 && savecode != 0x1111)
    {
-   if (User_Message("Parameter Module: Save",
-	"Save all key frames as well?", "OK|Cancel", "oc"))
+   if (User_Message((CONST_STRPTR)"Parameter Module: Save",
+           (CONST_STRPTR)"Save all key frames as well?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
     {
     if ((fwrite((char *)KF, ParHdr.KeyFrames * sizeof (union KeyFrame), 1, fparam)) != 1)
      goto SaveError;
@@ -3148,11 +3148,11 @@ EndSave:
 SaveError:
  fclose(fparam);
  Log(ERR_WRITE_FAIL, paramfile);
- User_Message("paramfile",
-	"Error writing to Parameter file!\n\
+ User_Message((CONST_STRPTR)"paramfile",
+         (CONST_STRPTR)"Error writing to Parameter file!\n\
 The output file has been modified and may no longer be valid.\
  Try resaving to a different device or freeing some disk space and saving\
- again.", "OK", "o");
+ again.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
 
  return (1);
 

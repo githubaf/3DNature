@@ -422,8 +422,8 @@ struct Box Bx;
 
 if (! MapWind0)
   {
-  if (User_Message_Def("Cloud Editor:Set Bounds", "Map View Module must be open in order\
- to use this funcion. Would you like to open it now?", "OK|Cancel", "oc",1))
+  if (User_Message_Def((CONST_STRPTR)"Cloud Editor:Set Bounds", (CONST_STRPTR)"Map View Module must be open in order\
+ to use this funcion. Would you like to open it now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc",1))
    {
    map();
 
@@ -456,9 +456,9 @@ StartAlign:
 
  if (Bx.Low.X == Bx.High.X || Bx.Low.Y == Bx.High.Y)
   {
-  if (User_Message_Def("Mapping Module: Align",
-	"Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?",
-	"OK|Cancel", "oc", 1))
+  if (User_Message_Def((CONST_STRPTR)"Mapping Module: Align",
+          (CONST_STRPTR)"Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?",
+          (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
    {
    goto StartAlign;
    } /* if try again */

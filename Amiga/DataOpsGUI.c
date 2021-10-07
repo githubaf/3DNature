@@ -701,7 +701,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
  strmfp(filename, DC_Win->InPath, DC_Win->InFile);
  if ((fh = open(filename, O_RDONLY)) < 0)
   {
-  User_Message(DC_Win->InFile,
+  User_Message((CONST_STRPTR)DC_Win->InFile,
 		  (CONST_STRPTR)"Unable to open file for input!\n", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(WNG_OPEN_FAIL, DC_Win->InFile);
   return;
@@ -709,7 +709,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
 
  if ((filesize = lseek(fh, 0L, 2)) < 0)
   {
-  User_Message(DC_Win->InFile,
+  User_Message((CONST_STRPTR)DC_Win->InFile,
 		  (CONST_STRPTR)"Unable to read file size!\n", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(WNG_READ_FAIL, DC_Win->InFile);
   goto EndCheck;
@@ -1305,7 +1305,7 @@ void Make_DI_Window(void)
   if (! DI_Win->InterpWin)
    {
    Close_DI_Window();
-   User_Message((CONST_STRPTR)"DEM Interpolate", "Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)"DEM Interpolate", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 

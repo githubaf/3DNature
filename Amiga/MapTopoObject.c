@@ -66,8 +66,8 @@ StudyVertex = 0;
 RetrySmooth:
   if ((FaceIndex = (struct faces **)get_Memory(16 * sizeof (struct faces *), MEMF_ANY)) == NULL)
    {
-   if (User_Message_Def("Render Module", "Out of memory allocating\
- Smoothing Index array!", "Retry|Cancel", "rc", 1))
+   if (User_Message_Def((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory allocating\
+ Smoothing Index array!", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
     goto RetrySmooth;
    else
     return (1);
@@ -88,8 +88,8 @@ RetrySmooth:
    {
    if (! VertexIndex_New(&Vtx[j], (long)j))
     {
-    if (User_Message("Render Module", "Error allocating or reading Fractal Index arrays!\n\
-Continue without Fractal Displacement Mapping?", "OK|Cancel", "oc"))
+    if (User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Error allocating or reading Fractal Index arrays!\n\
+Continue without Fractal Displacement Mapping?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
      {
      settings.displace = 0;
      for (k=1; k<=j; k++)
@@ -705,8 +705,8 @@ SaveRepeat:
    if (error)
     {
     fclose(fvector);
-    User_Message("Render Module",
-	"Error saving vector vertices to file!", "OK", "o");
+    User_Message((CONST_STRPTR)"Render Module",
+            (CONST_STRPTR)"Error saving vector vertices to file!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
 NewFileRequest:
     if (getfilename(1, "New Line Save Path", linepath, linefile))
      {
@@ -716,7 +716,7 @@ NewFileRequest:
      sprintf(filename, "%s%d", str, frame);
      if ((fvector = fopen(filename, "w")) == NULL)
       {
-      User_Message("Render Module", "Can't open vector file for output!", "OK", "o");
+      User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Can't open vector file for output!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
       goto NewFileRequest;
       } /* if */
      else goto SaveRepeat;
@@ -2563,7 +2563,7 @@ RepeatLoad:
            if (! map.scrnptrx || ! map.scrnptry || ! map.scrnptrq || ! FractalMap)
             {
             sprintf(str, "Out of memory reading map %s!", DBase[OBN].Name);
-            if (User_Message_Def("Render Module: Topo", str, "Retry|Cancel", "rc", 1))
+            if (User_Message_Def((CONST_STRPTR)"Render Module: Topo", (CONST_STRPTR)str, (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
              {
              error = -1;
              goto MapCleanup;
@@ -2769,9 +2769,9 @@ MapCleanup:
   } /* if key table built */
  else
   {
-  User_Message("Render Module",
-	"Out of memory opening key frame table!\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"Render Module",
+          (CONST_STRPTR)"Out of memory opening key frame table!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   success = 0;
   } /* else */
 

@@ -1075,8 +1075,8 @@ struct ColorComponents CC;
   else
    {
    error = 1;
-   User_Message("Render Module", "Error loading Sun Image!\n\
-Operation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Error loading Sun Image!\n\
+Operation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    } /* else */
   if (Image[0])
    free_Memory(Image[0], Sw * Sh);
@@ -1120,8 +1120,8 @@ Operation terminated.", "OK", "o");
   else
    {
    error = 1;
-   User_Message("Render Module", "Error loading Moon Image!\n\
-Operation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Error loading Moon Image!\n\
+Operation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    } /* else */
   if (Image[0])
    free_Memory(Image[0], Sw * Sh);

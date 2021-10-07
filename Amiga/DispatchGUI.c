@@ -48,7 +48,7 @@ short error = 0, i, SetDefault = 0;
     {
     if (strcmp(str, dirname))
      {
-     SetDefault = User_Message_Def(str,
+     SetDefault = User_Message_Def((CONST_STRPTR)str,
     		 (CONST_STRPTR)"Make this the default object directory?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1);
      Proj_Mod = 1;
      } /* if not already default directory */

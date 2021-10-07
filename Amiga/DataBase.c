@@ -463,8 +463,8 @@ RepeatSave:
 
  if (error < 0)
   {
-  if (User_Message(dbasename, "Error saving database!\nSelect a new directory?",
-		"OK|CANCEL", "oc"))
+  if (User_Message((CONST_STRPTR)dbasename, (CONST_STRPTR)"Error saving database!\nSelect a new directory?",
+          (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc"))
    {
    error = 0;
    askname = 1;
@@ -492,7 +492,7 @@ RepeatSave:
   sprintf(str, "Directory Created: %s", filename);
   Log(MSG_NULL,	str);
   sprintf(str, "New directory created: %s. Make it the default directory?", filename);
-  if (User_Message_Def("Database Module: Save", str, "OK|Cancel", "oc", 1))
+  if (User_Message_Def((CONST_STRPTR)"Database Module: Save", (CONST_STRPTR)str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
    strcpy(dirname, filename);
   } /* if no error making directory (as in "already exists") */
  if (! DirList_ItemExists(DL, filename))
@@ -522,9 +522,9 @@ STATIC_FCN struct database *DataBase_New(short Records) // used locally only -> 
 	MEMF_CLEAR));
   } /* if */
 
- User_Message("Database Module",
-	"Illegal number of database records: less than one!\nOperation terminated.",
-	"OK", "o");
+ User_Message((CONST_STRPTR)"Database Module",
+         (CONST_STRPTR)"Illegal number of database records: less than one!\nOperation terminated.",
+         (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
  return ((struct database *)NULL);
 
 } /* DataBase_New() */
@@ -578,8 +578,8 @@ long i;
     }
    else
     {
-    User_Message("Database Module",
-	"Out of memory!\nCan't update database list.", "OK", "o");
+    User_Message((CONST_STRPTR)"Database Module",
+            (CONST_STRPTR)"Out of memory!\nCan't update database list.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     } /* else */
    } /* if */
   } /* if */
@@ -687,7 +687,7 @@ EndLoad:
   sprintf(str, "At least one vector file was found to contain a number of\
  points different from that in its Database record!\nThe record has been\
  updated.\nDatabase should be re-saved.");
-  User_Message("Map View: Load", str, "OK", "o");
+  User_Message((CONST_STRPTR)"Map View: Load", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   } /* if */
 
  return (readmapprefs());
@@ -777,28 +777,28 @@ RepeatLoad:
         ReadOK = 1;
 	} /* if elevation read */
        else
-        User_Message(DBase[i].Name, "Error reading elevations! Object not loaded.",
-		"OK", "o");
+        User_Message((CONST_STRPTR)DBase[i].Name, (CONST_STRPTR)"Error reading elevations! Object not loaded.",
+                (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
        } /* if latitude read */
       else
-       User_Message(DBase[i].Name, "Error reading latitudes! Object not loaded.",
-	"OK", "o");
+       User_Message((CONST_STRPTR)DBase[i].Name, (CONST_STRPTR)"Error reading latitudes! Object not loaded.",
+               (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
       } /* if longitude read */
      else
-      User_Message(DBase[i].Name, "Error reading longitudes! Object not loaded.",
-	"OK", "o");
+      User_Message((CONST_STRPTR)DBase[i].Name, (CONST_STRPTR)"Error reading longitudes! Object not loaded.",
+              (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      } /* if memory allocated */
     else
-     User_Message(DBase[i].Name, "Out of memory! Object not loaded.",
-	"OK", "o");
+     User_Message((CONST_STRPTR)DBase[i].Name, (CONST_STRPTR)"Out of memory! Object not loaded.",
+             (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     } /* if header read */
    else
-    User_Message(DBase[i].Name, "Error reading header! Object not loaded.",
-	"OK", "o");
+    User_Message((CONST_STRPTR)DBase[i].Name, (CONST_STRPTR)"Error reading header! Object not loaded.",
+            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    } /* if version 1.0 */
   else
-   User_Message(DBase[i].Name, "Unsupported file version! Object not loaded.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)DBase[i].Name, (CONST_STRPTR)"Unsupported file version! Object not loaded.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   if (! ReadOK)
    {
    fclose(fobject);
@@ -819,8 +819,8 @@ RepeatLoad:
 
   if (! allocvecarray(i, DBase[i].Points, 1))
    {
-   User_Message(DBase[i].Name, "Out of memory! Object not loaded.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)DBase[i].Name, (CONST_STRPTR)"Out of memory! Object not loaded.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    fclose(fobject);
    return (2);
    } /* if out of memory */
@@ -1137,9 +1137,9 @@ NewName2:
   } /* for i=0... */
  if (found)
   {
-  if (! User_Message_Def("Database Module: Name",
-	"Vector name already present in database!\nTry a new name?",
-		"OK|Cancel", "oc", 1))
+  if (! User_Message_Def((CONST_STRPTR)"Database Module: Name",
+          (CONST_STRPTR)"Vector name already present in database!\nTry a new name?",
+          (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
    return (0);
   goto NewName2;
   }
@@ -1148,8 +1148,8 @@ NewName2:
   if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 20)) == NULL)
    {
-   User_Message("Database Module",
-	"Out of memory expanding database!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Database Module",
+           (CONST_STRPTR)"Out of memory expanding database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return (0);
    } /* if new database allocation fails */
   else
@@ -1199,18 +1199,18 @@ NewName2:
   } /* if memory allocated for lat/lon arrays */
  else
   {
-  User_Message("Database Module: Editor",
-	"No memory for vector coordinates!\nNew object has been created\
+  User_Message((CONST_STRPTR)"Database Module: Editor",
+          (CONST_STRPTR)"No memory for vector coordinates!\nNew object has been created\
  but can not be edited until memory is available.",
-	"OK", "o");
+ (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   } /* else no memory, not even a little bit! */
  if (DE_Win)
   {
   if (! Add_DE_NewItem())
    {
-   User_Message("Database Module: Editor",
-	"Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Database Module: Editor",
+           (CONST_STRPTR)"Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    } /* if no new list item */
   else
    {
@@ -1259,8 +1259,8 @@ short DBaseObject_Add(void)
   
   if (newfile[0] == 0)
    {
-   User_Message("Database: Add Object",
-	"No file(s) selected!",	"OK", "o");
+   User_Message((CONST_STRPTR)"Database: Add Object",
+           (CONST_STRPTR)"No file(s) selected!",	(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* if no file */
 
@@ -1268,7 +1268,7 @@ short DBaseObject_Add(void)
   if (strcmp(extension, "Obj"))
    {
    Log(ERR_WRONG_TYPE, newfile);
-   User_Message(newfile, "Object must end in suffix \"Obj\"!", "OK", "o");
+   User_Message((CONST_STRPTR)newfile, (CONST_STRPTR)"Object must end in suffix \"Obj\"!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* if wrong file type */
 
@@ -1286,9 +1286,9 @@ short DBaseObject_Add(void)
    } /* for j=0... */
   if (found && ! warned)
    {
-   User_Message_Def(str,
-	"Object name already present in database!\nDuplicate items will be skipped.",
-	"OK", "o", 1);
+   User_Message_Def((CONST_STRPTR)str,
+           (CONST_STRPTR)"Object name already present in database!\nDuplicate items will be skipped.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 1);
    warned = 1;
    continue;
    } /* if duplicate object name */
@@ -1301,8 +1301,8 @@ short DBaseObject_Add(void)
    if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 20)) == NULL)
     {
-    User_Message("Database Module",
-	"Out of memory expanding database!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Database Module",
+            (CONST_STRPTR)"Out of memory expanding database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     } /* if new database allocation fails */
    else
@@ -1350,9 +1350,9 @@ short DBaseObject_Add(void)
    {
    if (! Add_DE_NewItem())
     {
-    User_Message("Database Module: Editor",
-	"Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.",
-	"OK", "o");
+    User_Message((CONST_STRPTR)"Database Module: Editor",
+            (CONST_STRPTR)"Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.",
+            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     } /* if no new list item */
    Map_DB_Object(OBN, 1, 0);
    } /* if database editor open */
@@ -1824,8 +1824,8 @@ FILE *fDbs;
    if (Load_Object(i, &LastDir))
     {
     error = 2;
-    User_Message(DBase[i].Name,
-	"Error loading this Object!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)DBase[i].Name,
+            (CONST_STRPTR)"Error loading this Object!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     } /* if */
    } /* if */
@@ -1861,8 +1861,8 @@ FILE *fDbs;
      error = 1;
     if (error)
      {
-     User_Message("Map View: Save All",
-	"Error writing Master Object file!\nOperation terminated.", "OK", "o");
+     User_Message((CONST_STRPTR)"Map View: Save All",
+             (CONST_STRPTR)"Error writing Master Object file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      break;
      } /* if */
     } /* for i=0... */
@@ -1931,11 +1931,11 @@ struct BusyWindow *BusyLoad;
      if (error)
       {
       if (error == 6)
-       User_Message("Map View: Load", 
-	"Out of memory loading Master Object File!\nEnabled Objects will be loaded individually.", "OK", "o");
+       User_Message((CONST_STRPTR)"Map View: Load",
+               (CONST_STRPTR)"Out of memory loading Master Object File!\nEnabled Objects will be loaded individually.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
       else
-       User_Message("Map View: Load", 
-	"Error reading Master Object file!\nOperation terminated.", "OK", "o");
+       User_Message((CONST_STRPTR)"Map View: Load",
+               (CONST_STRPTR)"Error reading Master Object file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
       break;
       } /* if */
      if (CheckInput_ID() == ID_BW_CLOSE)
@@ -1946,18 +1946,18 @@ struct BusyWindow *BusyLoad;
     } /* if correct number of objects */
    else
     {
-    User_Message("Map View: Load",
-	"Number of Objects in the Master Object file does not match the\
+    User_Message((CONST_STRPTR)"Map View: Load",
+            (CONST_STRPTR)"Number of Objects in the Master Object file does not match the\
  number of Objects in the current Database!\
- Master Object file cannot be used. Objects will be loaded from individual files", "OK", "o");
+ Master Object file cannot be used. Objects will be loaded from individual files", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     error = 5;
     } /* if wrong number of objects */
    } /* if correct file type */
   else
    {
    error = 3;
-   User_Message("Map View: Load", 
-	".MDB is not a WCS Master Object file!", "OK", "o");
+   User_Message((CONST_STRPTR)"Map View: Load", 
+	(CONST_STRPTR)".MDB is not a WCS Master Object file!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    } /* else */
 
   fclose(fDbs);

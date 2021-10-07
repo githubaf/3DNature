@@ -159,8 +159,8 @@ STATIC_FCN short AllocNewGenericKeyArray(union KeyFrame **KF, long *KFsize) // u
  NewKFsize = *KFsize + 20 * sizeof (union KeyFrame);
  if ((NewKF = (union KeyFrame *)get_Memory(NewKFsize, MEMF_CLEAR)) == NULL)
   {
-  User_Message("Key Frame Module",
-	"Out of memory allocating new key frame!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Key Frame Module",
+          (CONST_STRPTR)"Out of memory allocating new key frame!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if memory bust */
 

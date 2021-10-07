@@ -330,8 +330,8 @@ short saveobject(long OBN, char *fname, double *Lon, double *Lat, short *Elev)
    if ((fobject = fopen(filename, "wb")) == NULL)
     {
     Log(ERR_OPEN_FAIL, DBase[OBN].Name);
-    User_Message(DBase[OBN].Name, "Can't open object file!\nObject not saved.",
-	"OK", "o");
+    User_Message((CONST_STRPTR)DBase[OBN].Name, (CONST_STRPTR)"Can't open object file!\nObject not saved.",
+            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     return(1);
     } /* if open fail */
    } /* if pre-existing file not found */
@@ -391,8 +391,8 @@ short saveobject(long OBN, char *fname, double *Lon, double *Lat, short *Elev)
   }
  else
   {
-  User_Message(DBase[OBN].Name, "Error saving object file!\nObject not saved.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)DBase[OBN].Name, (CONST_STRPTR)"Error saving object file!\nObject not saved.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(ERR_WRITE_FAIL, DBase[OBN].Name);
   return (1);
   }
@@ -443,8 +443,8 @@ short loadtopo(void)
 
  if (topomaps <= 0)
   {
-  User_Message("Mapping Module: Topo Mapping",
-	"No topo maps found!\nCheck object Enabled Status and Class in database.", "OK", "o");
+  User_Message((CONST_STRPTR)"Mapping Module: Topo Mapping",
+          (CONST_STRPTR)"No topo maps found!\nCheck object Enabled Status and Class in database.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (1);
   } /* if */
 
@@ -458,8 +458,8 @@ short loadtopo(void)
 	== NULL) ||
 	((TopoOBN = (short *)get_Memory(TopoOBNSize, MEMF_CLEAR)) == NULL))
   {
-  User_Message("Map View: Load Topos",
-	"Out of memory!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Map View: Load Topos",
+          (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (1);
   } /* if memory fail */
 
@@ -495,8 +495,8 @@ short loadtopo(void)
    error = 1;
    sprintf(str, "%s.elev", DBase[i].Name);
    Log(ERR_OPEN_FAIL, str);
-   User_Message(str, "Error loading topo map! Check Status Log to see if out of memory.\nOperation terminated.",
-		"OK", "o");
+   User_Message((CONST_STRPTR)str, (CONST_STRPTR)"Error loading topo map! Check Status Log to see if out of memory.\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* if file not found */
 
@@ -582,8 +582,8 @@ if(BusyLoad)
 
  if (! topoct)
   {
-  User_Message("Map View: Load Topos",
-	"Error loading DEMs! None loaded.", "OK", "o");
+  User_Message((CONST_STRPTR)"Map View: Load Topos",
+          (CONST_STRPTR)"Error loading DEMs! None loaded.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (1);
   } /* if */
 
@@ -851,9 +851,9 @@ short XY_latlon(long i, long lowj, long highj)
   {
   if (! allocvecarray(i, highj, NewArray))
    {
-   User_Message("Mapping Module",
-	"Out of memory allocating new vector array!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Mapping Module",
+           (CONST_STRPTR)"Out of memory allocating new vector array!\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return (0);
    } /* if not enough memory */
   } /* if array size too small */
@@ -1133,9 +1133,9 @@ short FreeAllVectors(void)
   {
   if (DBase[i].Flags & 1)
    {
-   if (User_Message_Def(DBase[i].Name,
-	"Vector object has been modified!\nSave it before closing?",
-	"SAVE|CANCEL", "sc", 1))
+   if (User_Message_Def((CONST_STRPTR)DBase[i].Name,
+           (CONST_STRPTR)"Vector object has been modified!\nSave it before closing?",
+           (CONST_STRPTR)"SAVE|CANCEL", (CONST_STRPTR)"sc", 1))
     {
     if (! saveobject(i, NULL, DBase[i].Lon, DBase[i].Lat, DBase[i].Elev))
      ObjectSaved ++;
@@ -1937,9 +1937,9 @@ void MakeColorMap(void)
 
  if (strcmp(DBase[OBN].Special, "TOP"))
   {
-  User_Message("Map View: Color Map",
-	"Selected object must be a Topo DEM!\nSee Class field in Database Editor.\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"Map View: Color Map",
+          (CONST_STRPTR)"Selected object must be a Topo DEM!\nSee Class field in Database Editor.\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* object not topo map */
 
@@ -1952,9 +1952,9 @@ RepeatCheck:
 
  if (topomap == topomaps)
   {
-  if (User_Message_Def("Map View: Color Map",
-	"Selected map is not currently loaded!\nDo you wish to load topo maps?",
-	"OK|CANCEL", "oc", 1))
+  if (User_Message_Def((CONST_STRPTR)"Map View: Color Map",
+          (CONST_STRPTR)"Selected map is not currently loaded!\nDo you wish to load topo maps?",
+          (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc", 1))
    {
    loadtopo();
    if (topoload) goto RepeatCheck;
@@ -1973,8 +1973,8 @@ RepeatCheck:
  scrnrowzip = (long *)get_Memory((high + 1) * 4, MEMF_CLEAR);
  if (! bitmap[0] || ! bitmap[1] || ! bitmap[2] || ! scrnrowzip)
   {
-  User_Message("Map View: Color Map",
-	"Out of memory creating bitmaps!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Map View: Color Map",
+          (CONST_STRPTR)"Out of memory creating bitmaps!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   goto Cleanup;
   } /* if out of memory */
 
@@ -1987,8 +1987,8 @@ RepeatCheck:
   } /* set scrnrowzip values */
 
 /* topo drawing */
- if (User_Message_Def("Map View: Color Map",
-	"Include DEM elevation data in Color Map?", "Yes|No", "yn", 1))
+ if (User_Message_Def((CONST_STRPTR)"Map View: Color Map",
+         (CONST_STRPTR)"Include DEM elevation data in Color Map?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
   {
   SetPointer(MapWind0, WaitPointer, 16, 16, -6, 0);
 

@@ -711,9 +711,9 @@ void setorigin(void)
  if (DBase[OBN].Lat[1] != DBase[OBN].Lat[DBase[OBN].Points] ||
        DBase[OBN].Lon[1] != DBase[OBN].Lon[DBase[OBN].Points])
   {
-  if (User_Message_Def(DBase[OBN].Name,
-	"Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?",
-	"OK|Cancel", "oc", 1))
+  if (User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+          (CONST_STRPTR)"Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?",
+          (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
    {
    DBase[OBN].Lat[DBase[OBN].Points] = DBase[OBN].Lat[1];
    DBase[OBN].Lon[DBase[OBN].Points] = DBase[OBN].Lon[1];
@@ -756,8 +756,8 @@ void setorigin(void)
  Log(MSG_NULL, str);
  DBase[OBN].Flags |= 1;
 
- if (User_Message_Def("Mapping Module: Digitize",
-	"Conform vector to terrain and save Object now?", "OK|Cancel", "oc", 1))
+ if (User_Message_Def((CONST_STRPTR)"Mapping Module: Digitize",
+         (CONST_STRPTR)"Conform vector to terrain and save Object now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
   {
   if (! topoload)
    error = loadtopo();
@@ -822,8 +822,8 @@ void matchpoints(void)
   {
   if (DBase[firstobj].Points + (match1 - match2) > MAXOBJPTS - 1)
    {
-   User_Message(DBase[OBN].Name,
-	"Object resulting from this match would be larger than the maximum of MAXOBJPTS !\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)DBase[OBN].Name,
+           (CONST_STRPTR)"Object resulting from this match would be larger than the maximum of MAXOBJPTS !\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    goto AbortMatch;
    } /* if larger than allowed */
   } /* if destination pts greater */
@@ -848,14 +848,14 @@ void matchpoints(void)
  match = abs(abs(match2) - abs(match1));
  if (! match2 && match1)
   {
-  User_Message("Mapping Module: Point Match", 
-	"Illegal number of points!\nIf first and last destination points are the same, source points must be larger than zero.\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"Mapping Module: Point Match",
+          (CONST_STRPTR)"Illegal number of points!\nIf first and last destination points are the same, source points must be larger than zero.\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   outline(MapWind0, OBN, 2, &cb);
   return;
   } /* if */
- if (! User_Message_Def("Mapping Module: Point Match", 
-	"Proceed with relocation?", "OK|CANCEL", "oc", 1))
+ if (! User_Message_Def((CONST_STRPTR)"Mapping Module: Point Match",
+         (CONST_STRPTR)"Proceed with relocation?", (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc", 1))
    return;
  if (match2 > 0)
   {
@@ -918,8 +918,8 @@ void matchpoints(void)
  outline(MapWind0, OBN, 2, &cb);
  if (error )
   {
-  User_Message("Mapping Module: Point Match",
-	"Out of memory!\nNot enough for new points.\nOperation failed.", "OK", "o");
+  User_Message((CONST_STRPTR)"Mapping Module: Point Match",
+          (CONST_STRPTR)"Out of memory!\nNot enough for new points.\nOperation failed.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if memory allocation error */
 
@@ -927,8 +927,8 @@ void matchpoints(void)
  Log(MSG_NULL, str);
  DBase[OBN].Flags |= 1;
 
- if (User_Message_Def("Mapping Module: Digitize",
-	"Conform vector to terrain and save Object now?", "OK|Cancel", "oc", 1))
+ if (User_Message_Def((CONST_STRPTR)"Mapping Module: Digitize",
+         (CONST_STRPTR)"Conform vector to terrain and save Object now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
   {
   if (! topoload)
    error = loadtopo();
@@ -1113,8 +1113,8 @@ short modpoints(short modify)
 
  if (modify && (DBase[OBN].Flags & 1))
   {
-  if (User_Message_Def("Mapping Module: Digitize",
-	"Conform vector to terrain and save Object now?", "OK|Cancel", "oc", 1))
+  if (User_Message_Def((CONST_STRPTR)"Mapping Module: Digitize",
+          (CONST_STRPTR)"Conform vector to terrain and save Object now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
    {
    short error = 0;
 
@@ -1205,8 +1205,8 @@ short CloneObject(void)
 short OldObj;
 struct clipbounds cb;
 
- if (! User_Message_Def(DBase[OBN].Name,
-	"Duplicate this object?", "OK|Cancel", "oc", 1))
+ if (! User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+         (CONST_STRPTR)"Duplicate this object?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
   return (0);
 
  OldObj = OBN;
@@ -1355,9 +1355,9 @@ void makestream(short lowj)
   if ((tempel.map = (short *)get_Memory(tempel.size, MEMF_ANY)) == NULL ||
 	! allocvecarray(OBN, MAXOBJPTS, 0) )
    {
-   User_Message("Mapping Module: Follow Stream",
-	"Out of memory!\nNot enough for temporary topo array.\nOperation failed.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Mapping Module: Follow Stream",
+           (CONST_STRPTR)"Out of memory!\nNot enough for temporary topo array.\nOperation failed.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    goto EndModify;
    } /* if out of memory */
   memcpy(tempel.map, mapelmap[topoct].map, tempel.size);
@@ -1433,8 +1433,8 @@ HoleLoop:
 
   if (pts == MAXOBJPTS)
    {
-   User_Message("Mapping Module: Follow Stream",
-	"Point maximum has been reached!\nMapping terminated", "OK", "o");
+   User_Message((CONST_STRPTR)"Mapping Module: Follow Stream",
+           (CONST_STRPTR)"Point maximum has been reached!\nMapping terminated", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    superdone = 1;
    } /* if */
   else
@@ -1443,8 +1443,8 @@ HoleLoop:
    outline(MapWind0, OBN, 2, &cb);
    sprintf(str,
 	 "Reached edge of current map!\nPoints = %d\nContinue to next map?", pts);
-   superdone = 1 - User_Message("Mapping Module: Follow Stream", str,
-	"OK|CANCEL", "oc");
+   superdone = 1 - User_Message((CONST_STRPTR)"Mapping Module: Follow Stream", (CONST_STRPTR)str,
+           (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc");
    } /* else */
 
   free_Memory(tempel.map, tempel.size);
@@ -1453,16 +1453,16 @@ HoleLoop:
 
  if (! superdone && pts == 1)
   {
-  User_Message("Mapping Module: Follow Stream",
-	"Initial point not within currently loaded topo boundaries!\nObject points reduced to 1.", "OK", "o");
+  User_Message((CONST_STRPTR)"Mapping Module: Follow Stream",
+          (CONST_STRPTR)"Initial point not within currently loaded topo boundaries!\nObject points reduced to 1.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   DBase[OBN].Points = 1;
   DBase[OBN].Flags |= 1;
   return;
   } /* if */
  else if (! superdone && pts == lowj)
   {
-  User_Message("Mapping Module: Follow Stream",
-	"Initial point not within currently loaded topo boundaries!\nObject points reduced to 1.", "OK", "o");
+  User_Message((CONST_STRPTR)"Mapping Module: Follow Stream",
+          (CONST_STRPTR)"Initial point not within currently loaded topo boundaries!\nObject points reduced to 1.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* else if */
 
@@ -1473,8 +1473,8 @@ HoleLoop:
 EndModify:
  DBase[OBN].Flags |= 1;
 
- if (User_Message_Def("Mapping Module: Follow Stream",
-	"Save vector object now?", "OK|Cancel", "oc", 1))
+ if (User_Message_Def((CONST_STRPTR)"Mapping Module: Follow Stream",
+         (CONST_STRPTR)"Save vector object now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
   saveobject(OBN, NULL, DBase[OBN].Lon, DBase[OBN].Lat, DBase[OBN].Elev);
 
 EndStream:
@@ -1586,8 +1586,8 @@ SetFrameCount:
 
  shift1 = sum / (frames - 1);
  sprintf(str, "Spline length = %f kilometers\nInterval = %f km/segment", sum, shift1);
- if ((UseResult = User_Message_Def("Mapping Module: Spline", str,
-	"OK|Reset|Cancel", "orc", 1)) == 2)
+ if ((UseResult = User_Message_Def((CONST_STRPTR)"Mapping Module: Spline", (CONST_STRPTR)str,
+         (CONST_STRPTR)"OK|Reset|Cancel", (CONST_STRPTR)"orc", 1)) == 2)
   goto SetFrameCount;
  if (UseResult == 0)
  {
@@ -1616,8 +1616,8 @@ SetFrameCount:
   outline(MapWind0, OBN, DBase[OBN].Color, &cb);
   DBase[OBN].Flags |= 1;
 
-  if (User_Message_Def("Mapping Module: Digitize",
-	"Conform vector to terrain and save object now?", "OK|Cancel", "oc", 1))
+  if (User_Message_Def((CONST_STRPTR)"Mapping Module: Digitize",
+          (CONST_STRPTR)"Conform vector to terrain and save object now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
    {
    if (! topoload)
     error = loadtopo();
@@ -1632,8 +1632,8 @@ SetFrameCount:
    } /* if map to topo */
   } /* if memory allocated for larger array */
  else
-  User_Message("Map View Module: Interpolate",
-	"Out of memory! Can't allocate new vector.\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Map View Module: Interpolate",
+          (CONST_STRPTR)"Out of memory! Can't allocate new vector.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
 
 } /* interpolatepath() */
 
@@ -1862,8 +1862,8 @@ ResetPoints:
  (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0) | MMF_REFINE | MMF_FLATSPOTS);
 /* ask if ready to continue or reset points */
 
- if ((ans = User_Message_Def("Mapping Module: Fix Flats",
-	"Proceed or reset points?", "Proceed|Reset|Cancel", "prc", 1)) == 0)
+ if ((ans = User_Message_Def((CONST_STRPTR)"Mapping Module: Fix Flats",
+         (CONST_STRPTR)"Proceed or reset points?", (CONST_STRPTR)"Proceed|Reset|Cancel", (CONST_STRPTR)"prc", 1)) == 0)
   {
   error = 10;
   goto EndFix;
@@ -1898,8 +1898,8 @@ ResetPoints:
   makemap(MapWind0, (long)Bx->Low.X, (long)Bx->Low.Y, (long)Bx->High.X, (long)Bx->High.Y,
    (topo ? MMF_TOPO : 0) | (ecoenabled ? MMF_ECO : 0) | MMF_REFINE);
 
-  if ((ans = User_Message_Def("Mapping Module: Fix Flats",
-	"Keep or save DEM or reset parameters?", "Keep|Save|Reset|Cancel", "ksrc", 1)) > 0)
+  if ((ans = User_Message_Def((CONST_STRPTR)"Mapping Module: Fix Flats",
+          (CONST_STRPTR)"Keep or save DEM or reset parameters?", (CONST_STRPTR)"Keep|Save|Reset|Cancel", (CONST_STRPTR)"ksrc", 1)) > 0)
    {
    if (ans == 3)
     {
@@ -1985,43 +1985,43 @@ EndFix:
   {
   case 1:
    {
-   User_Message("Mapping Module: Fix Flats",
-	"Out of memory!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Mapping Module: Fix Flats",
+           (CONST_STRPTR)"Out of memory!\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* out of memory */
   case 2:
    {
-   User_Message("Mapping Module: Fix Flats",
-	"All corner points must be within topo map boundaries!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Mapping Module: Fix Flats",
+           (CONST_STRPTR)"All corner points must be within topo map boundaries!\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* one corner outside mapped area */
   case 3:
    {
-   User_Message("Mapping Module: Fix Flats",
-	"Illegal dimensions! Try making the rectangle larger.\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Mapping Module: Fix Flats",
+           (CONST_STRPTR)"Illegal dimensions! Try making the rectangle larger.\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* low = high row or column */
   case 4:
    {
-   User_Message("Mapping Module: Fix Flats",
-	"All corner points must be within same DEM!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Mapping Module: Fix Flats",
+           (CONST_STRPTR)"All corner points must be within same DEM!\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* corners no on same map */
   case 5:
    {
-   User_Message(DBase[TopoOBN[i]].Name,
-	"Error opening output file!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)DBase[TopoOBN[i]].Name,
+           (CONST_STRPTR)"Error opening output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, DBase[TopoOBN[i]].Name);
    break;
    } /* file open fail */
   case 6:
    {
-   User_Message(DBase[TopoOBN[i]].Name,
-	"Error writing to output file!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)DBase[TopoOBN[i]].Name,
+           (CONST_STRPTR)"Error writing to output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_WRITE_FAIL, DBase[TopoOBN[i]].Name);
    break;
    } /* file write fail */

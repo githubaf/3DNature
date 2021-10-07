@@ -517,3 +517,6 @@ for FILE in $(find -type f -name "*.[c\|h]"); do sed -i "s/\(Log(.*,\) *\(.*\"\)
 
 Weiter mit Warnungs-Casting
 --> 2500 Warnings
+
+und weiter
+--> 1202 Warnings

@@ -209,20 +209,20 @@ EndDefault:
   {
   case 1:
    {
-   User_Message("Parameters Module: Defaults",
-	"Please enable at least one topo DEM and try again.", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Defaults",
+           (CONST_STRPTR)"Please enable at least one topo DEM and try again.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* no topos */
   case 2:
    {
-   User_Message("Parameters Module: Defaults",
-	"Please close all Time Lines windows and try again.", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Defaults",
+           (CONST_STRPTR)"Please close all Time Lines windows and try again.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* no topos */
   case 3:
    {
-   User_Message("Parameters Module: Defaults",
-	"Out of memory!", "OK", "o");
+   User_Message((CONST_STRPTR)"Parameters Module: Defaults",
+           (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* no topos */
   } /* switch */

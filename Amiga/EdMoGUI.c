@@ -576,7 +576,7 @@ void Handle_EM_Window(ULONG WCS_ID)
       struct clipbounds cb;
 
       sprintf(str, "Delete all %s Key Frames?", varname[EM_Win->MoItem]);
-      if (User_Message_Def((CONST_STRPTR)"Parameters Module: Motion", str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+      if (User_Message_Def((CONST_STRPTR)"Parameters Module: Motion", (CONST_STRPTR)str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
        {
        if (MP && MP->ptsdrawn)
         {
@@ -1289,7 +1289,7 @@ struct clipbounds cb;
      strcpy(str, "Make key frames for Camera Parameters also?");
      i = 0;
      } /* else focus group */
-    if (User_Message_Def((CONST_STRPTR)"Parameters Module: Make Key", str, (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+    if (User_Message_Def((CONST_STRPTR)"Parameters Module: Make Key", (CONST_STRPTR)str, (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
      {
      MakeKeyFrame((short)FrameKey, 0, i    );
      MakeKeyFrame((short)FrameKey, 0, i + 1);

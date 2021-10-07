@@ -200,8 +200,8 @@ void SaveConfig(void)
 
  if (! (fconfig = fopen("ENVARC:WCS/WCS.config", "w")))
   {
-  User_Message("WCS Configuration: Save",
-	"Can't open configuration file!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"WCS Configuration: Save",
+          (CONST_STRPTR)"Can't open configuration file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if, presumably, no ENVARC: */
 
@@ -286,8 +286,8 @@ void LoadConfig(void)
 
  if (! (fconfig = fopen("ENVARC:WCS/WCS.config", "r")))
   {
-  User_Message("WCS Configuration: Load",
-	"Can't open configuration file!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"WCS Configuration: Load",
+          (CONST_STRPTR)"Can't open configuration file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no configuration file */
 
@@ -644,8 +644,8 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
  if ((fproject = fopen(filename, "w")) == NULL)
   {
   if (! SaveName)
-   User_Message("WCS Project: Save",
-	"Can't open project file!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"WCS Project: Save",
+           (CONST_STRPTR)"Can't open project file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if open fail */
 
@@ -932,9 +932,9 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
   if (NewName == 2)
    SaveParts = 1;
   else
-   SaveParts = User_Message_Def("Project: Save",
-	"Save Database and Parameter files as well?", "Both|D'base|Params|No",
-	"bdpn", 1);
+   SaveParts = User_Message_Def((CONST_STRPTR)"Project: Save",
+           (CONST_STRPTR)"Save Database and Parameter files as well?", (CONST_STRPTR)"Both|D'base|Params|No",
+           (CONST_STRPTR)"bdpn", 1);
   if (SaveParts > 0)
    {
    if (dbaseloaded && (SaveParts == 1 || SaveParts == 2))
@@ -973,8 +973,8 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
  if ((fproject = fopen(filename, "r")) == NULL)
   {
   if (! LoadName)
-   User_Message("WCS Project: Load",
-	"Can't open project file!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"WCS Project: Load",
+           (CONST_STRPTR)"Can't open project file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if open fail */
 
@@ -984,8 +984,8 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
   {
   fclose(fproject);
   if (! LoadName)
-   User_Message("Project: Load", "Not a WCS Project file!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Project: Load", (CONST_STRPTR)"Not a WCS Project file!\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if not WCS Project */
  for (; ;)
@@ -1424,9 +1424,9 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     if  ((AlignBox.High.Y != AlignBox.Low.Y) && (AlignBox.High.X - AlignBox.Low.Y))
      valuesetalign();
     else
-     User_Message("Mapping Module: Align",
-	"Illegal map registration values! High and low X or Y values are equal.",
-	"OK", "o");
+     User_Message((CONST_STRPTR)"Mapping Module: Align",
+             (CONST_STRPTR)"Illegal map registration values! High and low X or Y values are equal.",
+             (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     } /* if align */
    if(AutoClear)
     {
@@ -1470,8 +1470,8 @@ short LoadDirList(void)
  strmfp(filename, path, name);
  if ((fproject = fopen(filename, "r")) == NULL)
   {
-  User_Message("Directory List: Load",
-	"Can't open project file!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Directory List: Load",
+          (CONST_STRPTR)"Can't open project file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if open fail */
 
@@ -1480,8 +1480,8 @@ short LoadDirList(void)
  if (strcmp(filename, "WCSProject"))
   {
   fclose(fproject);
-  User_Message("Directory List: Load", "Not a WCS Project file!\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"Directory List: Load", (CONST_STRPTR)"Not a WCS Project file!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if not WCS Project */
 

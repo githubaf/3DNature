@@ -464,8 +464,8 @@ if (! IA_GridStyle) /* If hidden-line-removed */
   RasHeight = InterWind0->Height;
   if ((TempRastPtr = AllocRaster(RasWidth, RasHeight)) == NULL)
    {
-   User_Message("Interactive Motion Module",
- 	"Out of memory!\nHidden line removal not available.", "OK", "o");
+   User_Message((CONST_STRPTR)"Interactive Motion Module",
+           (CONST_STRPTR)"Out of memory!\nHidden line removal not available.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return (1);
    } /* if out of memory initializing TmpRas */
   DrawRast->AreaInfo = &AreaInfo;
@@ -1520,9 +1520,9 @@ void Play_Motion(struct RenderAnim *RA)
 
  if (! BuildKeyTable())
   {
-  User_Message("Parameters Module: Path",
-	"Out of memory opening key frame table!\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"Parameters Module: Path",
+          (CONST_STRPTR)"Out of memory opening key frame table!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   goto EndPlay;
   } /* if no key table */
 

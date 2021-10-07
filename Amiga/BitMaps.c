@@ -513,8 +513,8 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
    if ((fHandle = open(filename, O_RDONLY, 0)) != -1)
     {
     close(fHandle);
-    if (! User_Message(graphname,
-	"File already exists!\nOverwrite it?", "OK|CANCEL", "oc"))
+    if (! User_Message((CONST_STRPTR)graphname,
+            (CONST_STRPTR)"File already exists!\nOverwrite it?", (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc"))
      return(1);
     } /* if open succeeds */
    } /* if not ask name */
@@ -528,8 +528,8 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   {
   if ((fHandle = open(filename, O_RDWR, 0)) == -1)
    {
-   User_Message(filename,
-	"Can't open image file for output!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)filename,
+           (CONST_STRPTR)"Can't open image file for output!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    error=1;
    goto Scleanup;
    } /* if open fail */
@@ -581,8 +581,8 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   {
   if ((fHandle = open(filename, O_CREAT | O_TRUNC | O_RDWR, protflags)) == -1)
    {
-   User_Message(filename,
-	"Can't open image file for output!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)filename,
+           (CONST_STRPTR)"Can't open image file for output!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    error=1;
    goto Scleanup;
    } /* if open fail */
@@ -937,7 +937,7 @@ Scleanup:
  if (error)
   {
   if (AskFile)
-   User_Message(filename, "Error saving image!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)filename, (CONST_STRPTR)"Error saving image!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(ERR_WRITE_FAIL, filename);
   } /* if error */
 
@@ -1972,86 +1972,86 @@ EndMerge:
   {
   case 1:
    {
-   User_Message("Render Module",
-	"Error loading Z Buffer!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error loading Z Buffer!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 2:
    {
-   User_Message("Render Module",
-	"Out of memory merging Z Buffer!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Out of memory merging Z Buffer!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 3:
    {
-   User_Message("Render Module",
-	"Error opening Z Buffer file for input!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error opening Z Buffer file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 4:
    {
-   User_Message("Render Module",
-	"Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 5:
    {
-   User_Message("Render Module",
-	"Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 6:
    {
-   User_Message("Render Module",
-	"Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 7:
    {
-   User_Message("Render Module",
-	"Error reading Z Buffer file!\nWrong Size.\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error reading Z Buffer file!\nWrong Size.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 8:
    {
-   User_Message("Render Module",
-	"Error loading background image!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error loading background image!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 9:
    {
-   User_Message("Render Module",
-	"Out of memory merging background!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Out of memory merging background!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 10:
    {
-   User_Message("Render Module",
-	"Error opening Background file for input!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error opening Background file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 11:
    {
-   User_Message("Render Module",
-	"Error reading Background file!\nWrong Size.\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error reading Background file!\nWrong Size.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 12:
    {
-   User_Message("Render Module",
-	"Error reading Background file!\nNo BODY Chunk.\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error reading Background file!\nNo BODY Chunk.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 13:
    {
-   User_Message("Render Module",
-	"Error reading Background file!\nNo BMHD Chunk.\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error reading Background file!\nNo BMHD Chunk.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 14:
    {
-   User_Message("Render Module",
-	"Error reading Background file!\nCompression error.\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error reading Background file!\nCompression error.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   } /* switch */

@@ -169,29 +169,29 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
   
  if (! filename || ! filename[0])
   {
-  User_Message("Data Ops: Convert DEM",
-	"You must specify a file to convert!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+          (CONST_STRPTR)"You must specify a file to convert!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no row/col sizes */
  if (! OUTPUT_NAMEBASE || ! data->NameBase[0])
   {
-  User_Message("Data Ops: Convert DEM",
-	"You must specify an output file name!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+          (CONST_STRPTR)"You must specify an output file name!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no row/col sizes */
  if (INPUT_ROWS == 0 || INPUT_COLS == 0)
   {
-  User_Message("Data Ops: Convert DEM",
-	"You must specify input rows and columns!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+          (CONST_STRPTR)"You must specify input rows and columns!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return;
   } /* if no row/col sizes */
  if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
   {
   if (! dbaseloaded)
    {
-   User_Message("Data Ops: Convert DEM",
-	"There is no Database to direct output entities to!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"There is no Database to direct output entities to!\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    return;
    } /* if no database */
   } /* if output DEM to database */
@@ -254,8 +254,8 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
   LastOutputCols = OutputCols - DupRow + OUTPUT_COLS - (OutputCols - DupRow) * OUTPUT_ROWMAPS;
   sprintf(str, "Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows.",
 	LastOutputCols, LastOutputRows);
-  if ((ans = User_Message_Def("Data Ops: Convert DEM", str,
-	 "Continue|Truncate|Cancel", "ntc", 1)) == 0)
+  if ((ans = User_Message_Def((CONST_STRPTR)"Data Ops: Convert DEM", (CONST_STRPTR)str,
+          (CONST_STRPTR)"Continue|Truncate|Cancel", (CONST_STRPTR)"ntc", 1)) == 0)
    {
    return;
    } /* if cancel */
@@ -602,8 +602,8 @@ RepeatRGB:
    if ((! INPUT_WRAP && FileSize > INPUT_HEADER + INPUT_ROWS * INPUT_COLS * InValSize)
 	|| (INPUT_WRAP && FileSize > INPUT_HEADER + INPUT_ROWS * (INPUT_COLS - 1) * InValSize))
     {
-    if (! User_Message("Data Ops: Convert DEM",
-	"Incorrect file size for specified header, width and height!\nProceed anyway?.", "OK|Cancel", "oc"))
+    if (! User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+            (CONST_STRPTR)"Incorrect file size for specified header, width and height!\nProceed anyway?.", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
      {
      error = 13;
      } /* if cancel operation */
@@ -847,7 +847,7 @@ ReadMore:
     } /* if wrap longitude */
 
 /* invert file if it is stored SE corner to NW */
-   if (User_Message("Data Ops: Convert DEM", "Invert Data order?", "Yes|No", "yn"))
+   if (User_Message((CONST_STRPTR)"Data Ops: Convert DEM", (CONST_STRPTR)"Invert Data order?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn"))
     {
     long DataPts, ct;
     char *LowPtr, *HighPtr;
@@ -2808,77 +2808,77 @@ Cleanup:
   {
   case 1:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Out of memory!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* out of memory */
   case 2:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Unable to open file for input!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Unable to open file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file open fail */
   case 3:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Incorrect file size for specified header, width and height!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Incorrect file size for specified header, width and height!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file size fail */
   case 4:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Unable to open file for output!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Unable to open file for output!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Convert DEM destination file");
    break;
    } /* file open fail */
   case 5:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Error writing destination file!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Error writing destination file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_WRITE_FAIL, (CONST_STRPTR)"Convert DEM destination file");
    break;
    } /* file open fail */
   case 6:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Error reading source file!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Error reading source file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file open fail */
   case 7:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Not a compressed file!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Not a compressed file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file open fail */
   case 8:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Extended header!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Extended header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file open fail */
   case 10:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Input file configuration not yet supported!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Input file configuration not yet supported!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, (CONST_STRPTR)"Convert DEM source type");
    break;
    } /* file type fail */
   case 11:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Input data format not supported!\nCheck your settings.\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Input data format not supported!\nCheck your settings.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, (CONST_STRPTR)"Convert DEM source type");
    break;
    } /* file type fail */
   case 12:
    {
-   User_Message("Database Module",
-	"Out of memory expanding database!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Database Module",
+           (CONST_STRPTR)"Out of memory expanding database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* out of memory for database expansion */
   case 13:
@@ -2888,14 +2888,14 @@ Cleanup:
    } /* file open fail */
   case 14:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Error saving \".Obj\" file!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Error saving \".Obj\" file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    }
   case 15:
    {
-   User_Message("Data Ops: Convert DEM",
-	"Input file not recognized as a DTED file!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
+           (CONST_STRPTR)"Input file not recognized as a DTED file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_WRONG_TYPE, (CONST_STRPTR)"DTED");
    break;
    }

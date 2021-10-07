@@ -53,7 +53,7 @@ void globemap(void)
   strcat(tempfile, ".temp");
   if ((AltKF = (union KeyFrame *)get_Memory(KFsize, MEMF_ANY)) == NULL)
    {
-   User_Message("Render Module", "Out of memory!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    goto Cleanup2;
    } /* if out of memory */
   memcpy(AltKF, KF, KFsize);
@@ -134,7 +134,7 @@ void globemap(void)
   if (!RenderWind0)
    {
    Log(ERR_WIN_FAIL, (CONST_STRPTR)"Render window.");
-   User_Message("Render Module", "Error opening render window!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Error opening render window!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    goto Cleanup2;
    }
   LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
@@ -174,16 +174,16 @@ void globemap(void)
  QCmapsize = bmapsize * 4;
  if ((zbuf = (float *)get_Memory(zbufsize, MEMF_ANY)) == NULL)
   {
-  User_Message("Render Module", "Out of memory opening Z buffer!\nOperation terminated.",
-		"OK", "o");
+  User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory opening Z buffer!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   goto Cleanup2;
   } /* if */
  if (render & 0x01)
   {
   if ((error = openbitmaps(bitmap, bmapsize)) == 1)
    {
-   User_Message("Render Module", "Out of memory opening bitmaps!\nOperation terminated.",
-		"OK", "o");
+   User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory opening bitmaps!\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    goto Cleanup2;
    } /* if */
   savebmapsize = settings.scrnwidth * 
@@ -191,8 +191,8 @@ void globemap(void)
   } /* if render to RGB buffer */
  if ((bytemap = (USHORT *)get_Memory(bmapsize * 2, MEMF_CLEAR)) == NULL)
   {
-  User_Message("Render Module", "Out of memory opening anti-alias buffer!\nOperation terminated.",
-		"OK", "o");
+  User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory opening anti-alias buffer!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   goto Cleanup2;
   } /* if */
  if (settings.reflections)
@@ -202,8 +202,8 @@ void globemap(void)
   if ((ReflectionMap = (UBYTE *)get_Memory(bmapsize, MEMF_ANY)) == NULL
 	|| ! ElevationMap || ! SlopeMap)
    {
-   if (User_Message("Render Module", "Out of memory allocating Reflection buffer!\n\
-Continue without Reflections?", "Continue|Cancel", "oc"))
+   if (User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory allocating Reflection buffer!\n\
+Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc"))
     settings.reflections = 0;
    else
     {
@@ -217,9 +217,9 @@ Continue without Reflections?", "Continue|Cancel", "oc"))
   {
   if (settings.rendersegs > 1 || settings.maxframes > 1)
    {
-   if (! User_Message_Def("Render Module",
-	"Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?",
-	"OK|CANCEL", "oc", 1))
+   if (! User_Message_Def((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?",
+           (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc", 1))
     goto Cleanup2;
    render ^= 0x100;
    } /* if */
@@ -228,9 +228,9 @@ Continue without Reflections?", "Continue|Cancel", "oc"))
    allocQCmaps();
    if (! (render & 0x100))
     {
-    if (! User_Message_Def("Render Module",
-	"Out of memory opening Diagnostic buffers! Proceed rendering without them?",
-	"OK|CANCEL", "oc", 1))
+    if (! User_Message_Def((CONST_STRPTR)"Render Module",
+            (CONST_STRPTR)"Out of memory opening Diagnostic buffers! Proceed rendering without them?",
+            (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc", 1))
      goto Cleanup2;
     } /* out of memory */
    } /* else */
@@ -238,9 +238,9 @@ Continue without Reflections?", "Continue|Cancel", "oc"))
 
  if (! BuildKeyTable())
   {
-  User_Message("Render Module",
-	"Out of memory opening key frame table!\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"Render Module",
+          (CONST_STRPTR)"Out of memory opening key frame table!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   goto Cleanup2;
   } /* if no key table */
 
@@ -259,8 +259,8 @@ Continue without Reflections?", "Continue|Cancel", "oc"))
   strmfp(filename, wavepath, wavefile);
   if (! Wave_Load(filename, &Tsunami))
    {
-   if (User_Message("Render Module", "Error loading Wave File!\n\
-Continue without Waves?", "Continue|Cancel", "oc"))
+   if (User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Error loading Wave File!\n\
+(CONST_STRPTR)Continue without Waves?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc"))
     settings.waves = 0;
    else
     {
@@ -292,9 +292,9 @@ Continue without Waves?", "Continue|Cancel", "oc"))
    strmfp(filename, cloudpath, cloudfile);
    if (! Cloud_Load(filename, &CD))
     {
-    if (User_Message_Def("Render Module: Clouds",
-	"Error loading Cloud Map file!\nContinue without cloud shadows?",
-	"Continue|Cancel", "oc", 1))
+    if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
+            (CONST_STRPTR)"Error loading Cloud Map file!\nContinue without cloud shadows?",
+            (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc", 1))
      {
      CloudData_Del(CD);
      settings.clouds = 0;
@@ -321,9 +321,9 @@ Continue without Waves?", "Continue|Cancel", "oc"))
    } /* if Cloud Data allocated */
   else
    {
-   if (User_Message_Def("Render Module: Clouds",
-	"Out of memory creating Cloud Map!\nContinue without cloud shadows?",
-	"Continue|Cancel", "oc", 1))
+   if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
+           (CONST_STRPTR)"Out of memory creating Cloud Map!\nContinue without cloud shadows?",
+           (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc", 1))
     {
     settings.clouds = 0;
     } /* if */
@@ -466,10 +466,10 @@ Continue without Waves?", "Continue|Cancel", "oc"))
    colmap[0] = colmap[1] = colmap[2] = NULL;
    if (CMap)	    free_Memory(CMap, sizeof (struct Color_Map));
    CMap = NULL;
-   if (! User_Message_Def("Render Module",
-	"Error loading Master Color Map! See Status Log for more information.\n\
+   if (! User_Message_Def((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error loading Master Color Map! See Status Log for more information.\n\
  Continue rendering without Color Map?",
-	"Continue|Cancel", "oc", 1))
+ (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc", 1))
     goto Cleanup2;
    } /* if error loading color map */
   } /* open color map */
@@ -479,10 +479,10 @@ Continue without Waves?", "Continue|Cancel", "oc"))
   strmfp(filename, deformpath, deformfile);
   if (readDEM(filename, &DeformMap) != 0)
    {
-   if (! User_Message_Def("Render Module",
-	"Error loading Strata Deformation Map!\n\
+   if (! User_Message_Def((CONST_STRPTR)"Render Module",
+           (CONST_STRPTR)"Error loading Strata Deformation Map!\n\
  Continue rendering without Deformation Map?",
-	"Continue|Cancel", "oc", 1))
+ (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc", 1))
     goto Cleanup2;
    settings.deformationmap = 0;
    } /* if */
@@ -495,10 +495,10 @@ Continue without Waves?", "Continue|Cancel", "oc"))
   } /* if noise map created */
  else
   {
-  if (! User_Message_Def("Render Module",
-	"Out of memory creating Noise Map!\n\
+  if (! User_Message_Def((CONST_STRPTR)"Render Module",
+          (CONST_STRPTR)"Out of memory creating Noise Map!\n\
  Continue rendering without Texture Noise?",
-	"Continue|Cancel", "oc", 1))
+ (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc", 1))
    goto Cleanup2;
   } /* else */
 
@@ -566,8 +566,8 @@ RepeatAlloc2:
      }
     else
      {
-     if (User_Message_Def("Render Module: Clouds",
-	"Error creating Cloud Map! Either out of memory or user aborted.", "Retry|Cancel", "rc", 1))
+     if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
+             (CONST_STRPTR)"Error creating Cloud Map! Either out of memory or user aborted.", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
       {
       goto RepeatAlloc2;
       } /* if try again */
@@ -576,8 +576,8 @@ RepeatAlloc2:
     } /* if Cloud Map generated OK */
    else
     {
-    if (User_Message_Def("Render Module: Clouds",
-	"Error creating Cloud Map! Either out of memory or user aborted.", "Retry|Cancel", "rc", 1))
+    if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
+            (CONST_STRPTR)"Error creating Cloud Map! Either out of memory or user aborted.", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
      {
      goto RepeatAlloc1;
      } /* if try again */
@@ -637,9 +637,9 @@ RepeatAlloc2:
     if ((fvector = fopen(filename, "w")) == NULL)
      {
      Log(ERR_OPEN_FAIL, linefile);
-     if (! User_Message(linefile,
-	 "Can't open vector file for output!\nContinue rendering without vectors?",
-	 "OK|CANCEL", "oc"))
+     if (! User_Message((CONST_STRPTR)linefile,
+             (CONST_STRPTR)"Can't open vector file for output!\nContinue rendering without vectors?",
+             (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc"))
       {
       error = 1;
       break;
@@ -765,8 +765,8 @@ RepeatAlloc2:
 	settings.fielddominance);
      if (error)
       {
-      User_Message("Render Module",
-	"Error interlacing fields!\nOperation terminated.", "OK", "o");
+      User_Message((CONST_STRPTR)"Render Module",
+              (CONST_STRPTR)"Error interlacing fields!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
       break;
       } /* if interlace error */
      } /* if field render and even field */
@@ -817,8 +817,8 @@ SaveRepeat:
 
     if (error)
      {
-     if (User_Message_Def("Render Module: Save",
-	"Error saving bitmapped image! Try another device?", "OK|Cancel", "oc", 1))
+     if (User_Message_Def((CONST_STRPTR)"Render Module: Save",
+             (CONST_STRPTR)"Error saving bitmapped image! Try another device?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
       {
       if (getfilename(1, "New Frame Save Path", framepath, framefile))
        {
@@ -838,8 +838,8 @@ RepeatSaveZBuf:
 	zbuf, ILBMname, 0, 0);
     if (error == 2)
      {
-     if (User_Message_Def("Render Module",
-	"Out of memory saving Z Buffer!\n", "Retry|Cancel", "rc", 1))
+     if (User_Message_Def((CONST_STRPTR)"Render Module",
+             (CONST_STRPTR)"Out of memory saving Z Buffer!\n", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
       {
       goto RepeatSaveZBuf;
       } /* if user wants to try again */
@@ -847,8 +847,8 @@ RepeatSaveZBuf:
      } /* memory failed */
     else if (error == 1)
      {
-     if (User_Message_Def("Render Module: Save",
-	"Error saving Z Buffer! Try another device?", "OK|Cancel", "oc", 1))
+     if (User_Message_Def((CONST_STRPTR)"Render Module: Save",
+             (CONST_STRPTR)"Error saving Z Buffer! Try another device?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
       {
       char tempzfile[32] = {0};
 
@@ -1146,7 +1146,7 @@ RepeatLoad:
    if (! map.lmap || ! map.scrnptrx || ! map.scrnptry || ! map.scrnptrq)
     {
     sprintf(str, "Out of memory reading map %s!", DBase[OBN].Name);
-    if (User_Message_Def("Render Module: Topo", str, "Retry|Cancel", "rc", 1))
+    if (User_Message_Def((CONST_STRPTR)"Render Module: Topo", (CONST_STRPTR)str, (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
      {
      error = -1;
      goto MapCleanup;
@@ -1162,9 +1162,9 @@ RetrySmooth:
     if ((map.face = (struct faces *)get_Memory
 	(FacePoints * sizeof (struct faces), MEMF_ANY)) == NULL)
      {
-     if (User_Message_Def("Render Module",
-	 "Out of memory allocating Smoothing Index array!",
-	"Retry|Cancel", "rc", 1))
+     if (User_Message_Def((CONST_STRPTR)"Render Module",
+             (CONST_STRPTR)"Out of memory allocating Smoothing Index array!",
+             (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
       goto RetrySmooth;
      else
       {
@@ -1200,8 +1200,8 @@ RetryFractal:
      } /* if memory allocated */
     else
      {
-     if ((Ans = User_Message("Render Module", "Out of memory allocating Fractal Map array!\n\
-Continue without Fractal Maps or retry?", "Continue|Retry|Cancel", "orc")) == 1)
+     if ((Ans = User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory allocating Fractal Map array!\n\
+Continue without Fractal Maps or retry?", (CONST_STRPTR)"Continue|Retry|Cancel", (CONST_STRPTR)"orc")) == 1)
       settings.fractalmap = 0;
      else if (Ans == 2)
       goto RetryFractal;
@@ -1296,8 +1296,8 @@ Continue without Fractal Maps or retry?", "Continue|Retry|Cancel", "orc")) == 1)
     TreePixArraySize = 10000;
     if ((TreePix = get_Memory(TreePixArraySize, MEMF_CLEAR)) == NULL)
      {
-     User_Message("Render Module",
-	"Out of memory allocating antialias buffer!\nOperation terminated.", "OK", "o");
+     User_Message((CONST_STRPTR)"Render Module",
+             (CONST_STRPTR)"Out of memory allocating antialias buffer!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      error = 1;
      goto MapCleanup;
      } /* if memory fail */
@@ -1313,8 +1313,8 @@ Continue without Fractal Maps or retry?", "Continue|Retry|Cancel", "orc")) == 1)
    Edge2 = (short *)get_Memory(EdgeSize, MEMF_CLEAR);
    if (! Edge1 || ! Edge2 || ! SubPix)
     {
-    User_Message("Render Module",
-	"Out of memory allocating antialias and edge buffers!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Render Module",
+            (CONST_STRPTR)"Out of memory allocating antialias and edge buffers!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     error = 1;
     goto MapCleanup;
     } /* if memory fail */
@@ -1581,9 +1581,9 @@ RepeatAlloc4:
  Edge2 = (short *)get_Memory(EdgeSize, MEMF_CLEAR);
  if (! Edge1 || ! Edge2)
   {
-  if (User_Message_Def("Render Module: Clouds",
-	"Out of memory allocating polygon edge buffers!",
-	"Retry|Cancel", "rc", 1))
+  if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
+          (CONST_STRPTR)"Out of memory allocating polygon edge buffers!",
+          (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
    {
    error = -1;
    goto MapCleanup3;
@@ -1601,8 +1601,8 @@ RepeatAlloc3:
   CD->Map.scrnptrq = (float *)get_Memory (CD->Map.scrnptrsize, MEMF_ANY);
   if (! CD->Map.scrnptrx || ! CD->Map.scrnptry || ! CD->Map.scrnptrq)
    {
-   if (User_Message_Def("Render Module: Clouds",
-	"Out of memory creating Cloud Map!", "Retry|Cancel", "rc", 1))
+   if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
+           (CONST_STRPTR)"Out of memory creating Cloud Map!", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
     {
     error = -1;
     goto MapCleanup2;
@@ -1655,8 +1655,8 @@ RepeatAlloc2:
       CD->Map.scrnptrq = (float *)get_Memory (CD->Map.scrnptrsize, MEMF_ANY);
       if (! CD->Map.map || ! CD->Map.scrnptrx || ! CD->Map.scrnptry || ! CD->Map.scrnptrq)
        {
-       if (User_Message_Def("Render Module: Clouds",
-	"Out of memory creating Cloud Map!", "Retry|Cancel", "rc", 1))
+       if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
+               (CONST_STRPTR)"Out of memory creating Cloud Map!", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
         {
         error = -1;
         goto MapCleanup;
@@ -1683,8 +1683,8 @@ MapCleanup:
       } /* if Cloud Map generated OK */
      else
       {
-      if (User_Message_Def("Render Module: Clouds",
-	"Error creating Cloud Map! Either out of memory or user aborted.", "Retry|Cancel", "rc", 1))
+      if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
+              (CONST_STRPTR)"Error creating Cloud Map! Either out of memory or user aborted.", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
        {
        goto RepeatAlloc1;
        } /* if try again */
@@ -1694,8 +1694,8 @@ MapCleanup:
      }
     else
      {
-     User_Message_Def("Render Module: Clouds",
-	"Out of memory allocating Cloud Key Frames!\nOperation terminated", "OK", "o", 0);
+     User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
+             (CONST_STRPTR)"Out of memory allocating Cloud Key Frames!\nOperation terminated", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
      error = 1;
      } /* else */
     } /* if Cloud Data read */
@@ -1813,7 +1813,7 @@ TryAgain2:
     break;
     }
    } /* switch */
-  User_Message("Render Module", ErrStr, "OK", "o");
+  User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)ErrStr, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   } /* if */
 
  return (error);

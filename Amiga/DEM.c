@@ -470,8 +470,8 @@ short InterpDEM(struct DEMInterpolateData *DEMInterp)
 
   if (DEMInterp->elevfile[0] == 0)
    {
-   User_Message("Data Ops: DEM Interpolate",
-	"No file(s) selected!",	"OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: DEM Interpolate",
+           (CONST_STRPTR)"No file(s) selected!",	(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* if no file */
 
@@ -482,9 +482,9 @@ RelelRepeat:
   if (stricmp(extension, "elev") && stricmp(extension, "relel"))   // AF: make it case independent
    {
    Log(ERR_WRONG_TYPE, DEMInterp->elevfile);
-   if (! User_Message(DEMInterp->elevfile,
-	"Error opening file for interpolation!\nFile not DEM or REM\nContinue?",
-	"OK|CANCEL", "oc"))
+   if (! User_Message((CONST_STRPTR)DEMInterp->elevfile,
+           (CONST_STRPTR)"Error opening file for interpolation!\nFile not DEM or REM\nContinue?",
+           (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc"))
     {
     break;
     }
@@ -496,10 +496,10 @@ RelelRepeat:
    {
    if (rootfile[length[0] - 1] != ' ')
     {
-    if (User_Message_Def(rootfile,
-	"DEM name is too long to add an extra character to.\
+    if (User_Message_Def((CONST_STRPTR)rootfile,
+            (CONST_STRPTR)"DEM name is too long to add an extra character to.\
  Do you wish to enter a new base name for the DEM or abort the interpolation?",
-	"New Name|Abort", "na", 1))
+ (CONST_STRPTR)"New Name|Abort", (CONST_STRPTR)"na", 1))
      {
      strcpy(str, rootfile);
      if (GetInputString("Enter new object name.", ":;*/?`#%", str))
@@ -522,9 +522,9 @@ RelelRepeat:
   strmfp(filename, DEMInterp->elevpath, DEMInterp->elevfile);
   if ((error = readDEM(filename, &map)) != 0)
    {
-   if (! User_Message("Data Ops: Interpolate DEM",
-	"Error reading elevation file!\nContinue?",
-	"OK|CANCEL", "oc"))
+   if (! User_Message((CONST_STRPTR)"Data Ops: Interpolate DEM",
+           (CONST_STRPTR)"Error reading elevation file!\nContinue?",
+           (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc"))
     {
     break;
     } /* if not continue to next file */
@@ -541,8 +541,8 @@ RelelRepeat:
   if (arrayptr == NULL)
    {
    free_Memory (map.map, map.size);
-   User_Message("Data Ops: Interpolate DEM",
-	"Out of memory!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Data Ops: Interpolate DEM",
+           (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    } /* if */
 
   mapptr = map.map;
@@ -613,8 +613,8 @@ RelelRepeat:
     if ((fhelev = open (filename, O_WRONLY | O_TRUNC | O_CREAT, protflags))
 	 == -1)
      {
-     User_Message("Data Ops: Interpolate DEM",
-	"Error opening DEM file for output!\nOperation terminated.", "OK", "o");
+     User_Message((CONST_STRPTR)"Data Ops: Interpolate DEM",
+             (CONST_STRPTR)"Error opening DEM file for output!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      Log(ERR_OPEN_FAIL, DEMInterp->elevfile);
      error = 1;
      break;
@@ -624,8 +624,8 @@ RelelRepeat:
     write (fhelev, (char *)&map, ELEVHDRLENV101);
     if (write (fhelev, (char *)map.map, map.size) != map.size)
      {
-     User_Message("Data Ops: Interpolate DEM",
-	"Error writing DEM file!\nOperation terminated.", "OK", "o");
+     User_Message((CONST_STRPTR)"Data Ops: Interpolate DEM",
+             (CONST_STRPTR)"Error writing DEM file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      Log(ERR_WRITE_FAIL, DEMInterp->elevfile);
      close (fhelev);
      error = 1;
@@ -657,8 +657,8 @@ RelelRepeat:
         if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 20)) == NULL)
          {
-         User_Message("Database Module",
-		"Out of memory expanding database!\nOperation terminated.", "OK", "o");
+         User_Message((CONST_STRPTR)"Database Module",
+                 (CONST_STRPTR)"Out of memory expanding database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
          error = 1;
          break;
          } /* if new database allocation fails */
@@ -684,8 +684,8 @@ RelelRepeat:
         {
         if (! Add_DE_NewItem())
          {
-         User_Message("Database Module",
-		"Out of memory expanding Database Editor List!\nOperation terminated.", "OK", "o");
+         User_Message((CONST_STRPTR)"Database Module",
+                 (CONST_STRPTR)"Out of memory expanding Database Editor List!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
          error = 1;
          } /* if new list fails */
         } /* if database editor open */
@@ -709,9 +709,9 @@ RelelRepeat:
 
       if (saveobject(OBN, filename, &Lon[0], &Lat[0], &Elev[0]))
        {
-       User_Message("Data Ops: Interpolate DEM",
-		"Error opening Object file for output!\nOperation terminated.",
-		"OK", "o");
+       User_Message((CONST_STRPTR)"Data Ops: Interpolate DEM",
+               (CONST_STRPTR)"Error opening Object file for output!\nOperation terminated.",
+               (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
        error = 1;
        break;
        } /* error saving .Obj file */
@@ -890,18 +890,18 @@ short ExtractDEM(struct DEMExtractData *DEMExtract)
 	(DEMExtract->FrFile->rf_NumArgs * sizeof (struct DEMInfo), MEMF_CLEAR))
 	== NULL)
   {
-  User_Message(MsgHdr,
-	"Out of memory allocating DEM Info Header!\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)MsgHdr,
+          (CONST_STRPTR)"Out of memory allocating DEM Info Header!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (0);
   } /* if */
  if ((DEMExtract->Convert = (struct UTMLatLonCoords *)get_Memory
 	(sizeof (struct UTMLatLonCoords), MEMF_CLEAR))
 	== NULL)
   {
-  User_Message(MsgHdr,
-	"Out of memory allocating DEM Info Header!\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)MsgHdr,
+          (CONST_STRPTR)"Out of memory allocating DEM Info Header!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   goto EndExtract;
   } /* if */
 
@@ -958,9 +958,9 @@ short ExtractDEM(struct DEMExtractData *DEMExtract)
     }
    else if (DEMExtract->Info[k].Zone != UTMZone)
     {
-    User_Message(MsgHdr,
-	"7.5 Minute DEMs do not all lie within same UTM Zone!\nOperation terminated.",
-	"OK", "o");
+    User_Message((CONST_STRPTR)MsgHdr,
+            (CONST_STRPTR)"7.5 Minute DEMs do not all lie within same UTM Zone!\nOperation terminated.",
+            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     error = 1;
     break;
     } /* else if */
@@ -1077,9 +1077,9 @@ short ExtractDEM(struct DEMExtractData *DEMExtract)
 
   if (! DEMExtract->UTMData || ! DEMExtract->LLData)
    {
-   User_Message(MsgHdr,
-	"Out of memory allocating DEM Arrays!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)MsgHdr,
+           (CONST_STRPTR)"Out of memory allocating DEM Arrays!\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    error = 1;
    goto EndPhase1;
    } /* if */
@@ -1127,15 +1127,15 @@ printf("URI %f UCI %f LRI %f LCI %f\n", DEMExtract->UTMRowInt, DEMExtract->UTMCo
     if (! Read_USGSProfHeader(DEMFile, &DEMExtract->ProfHdr))
      {
      fclose(DEMFile);
-     User_Message(MsgHdr,
-	"Can't read DEM profile header!\nOperation terminated.", "OK", "o");
+     User_Message((CONST_STRPTR)MsgHdr,
+             (CONST_STRPTR)"Can't read DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL, DEMExtract->elevfile);
      break;
      } /* if read header failed */
     if (atoi(DEMExtract->ProfHdr.Column) != i + 1)
      {
-     User_Message(MsgHdr,
-	"Error reading DEM profile header!\nOperation terminated.", "OK", "o");
+     User_Message((CONST_STRPTR)MsgHdr,
+             (CONST_STRPTR)"Error reading DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL, DEMExtract->elevfile);
      break;
      } /* if read header failed */
@@ -1149,8 +1149,8 @@ printf("URI %f UCI %f LRI %f LCI %f\n", DEMExtract->UTMRowInt, DEMExtract->UTMCo
 
     if (Row < 0 || Col < 0)
      {
-     User_Message(MsgHdr,
-	"Error reading DEM profile header!\nOperation terminated.", "OK", "o");
+     User_Message((CONST_STRPTR)MsgHdr,
+             (CONST_STRPTR)"Error reading DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL, DEMExtract->elevfile);
      break;
      }
@@ -1387,8 +1387,8 @@ EndPhase1:
   if (! Read_USGSProfHeader(DEMFile, &DEMExtract->ProfHdr))
    {
    fclose(DEMFile);
-   User_Message(MsgHdr,
-	"Can't read DEM profile header!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)MsgHdr,
+           (CONST_STRPTR)"Can't read DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, DEMExtract->elevfile);
    error = 1;
    break;
@@ -1413,8 +1413,8 @@ EndPhase1:
 	(DEMExtract->UTMSize, MEMF_ANY)) == NULL)
    {
    fclose(DEMFile);
-   User_Message(MsgHdr,
-	"Out of memory allocating temporary buffer!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)MsgHdr,
+           (CONST_STRPTR)"Out of memory allocating temporary buffer!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, DEMExtract->elevfile);
    error = 1;
    break;
@@ -1426,8 +1426,8 @@ EndPhase1:
    TmpPtr = DEMExtract->UTMData + i * Rows;
    if (! Read_USGSDEMProfile(DEMFile, TmpPtr, Rows))
     {
-    User_Message(MsgHdr,
-	"Error reading DEM profile!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)MsgHdr,
+            (CONST_STRPTR)"Error reading DEM profile!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     Log(ERR_READ_FAIL, DEMExtract->elevfile);
     error = 1;
     break;
@@ -1436,16 +1436,16 @@ EndPhase1:
     {
     if (! Read_USGSProfHeader(DEMFile, &DEMExtract->ProfHdr))
      {
-     User_Message(MsgHdr,
-	"Error reading DEM profile header!\nOperation terminated.", "OK", "o");
+     User_Message((CONST_STRPTR)MsgHdr,
+             (CONST_STRPTR)"Error reading DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL, DEMExtract->elevfile);
      error = 1;
      break;
      } /* if not read error */
     if (atoi(DEMExtract->ProfHdr.ProfRows) != Rows)
      {
-     User_Message(MsgHdr,
-	"Improper DEM profile length!\nOperation terminated.", "OK", "o");
+     User_Message((CONST_STRPTR)MsgHdr,
+             (CONST_STRPTR)"Improper DEM profile length!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL, DEMExtract->elevfile);
      error = 1;
      break;
@@ -1475,8 +1475,8 @@ EndPhase1:
   MapRowSize 		= DEMExtract->LLRows * sizeof (short);
   if ((DEMExtract->LLData = (short *)get_Memory(DEMExtract->LLSize, MEMF_ANY)) == NULL)
    {
-   User_Message(MsgHdr,
-	"Out of memory allocating map buffer!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)MsgHdr,
+           (CONST_STRPTR)"Out of memory allocating map buffer!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, DEMExtract->elevfile);
    if (DEMExtract->UTMData)
     free_Memory(DEMExtract->UTMData, DEMExtract->UTMSize);
@@ -1646,8 +1646,8 @@ EndPhase1:
 
   if (error)
    {
-   User_Message(MsgHdr,
-	"Error creating output file!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)MsgHdr,
+           (CONST_STRPTR)"Error creating output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* if file output error */
 
@@ -1686,8 +1686,8 @@ FILE *DEMFile;
 
  if (DEMExtract->elevfile[0] == 0)
   {
-  User_Message(MsgHdr,
-	"No file(s) selected!",	"OK", "o");
+  User_Message((CONST_STRPTR)MsgHdr,
+          (CONST_STRPTR)"No file(s) selected!",	(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (NULL);
   } /* if no file */
 
@@ -1695,8 +1695,8 @@ FILE *DEMFile;
 
  if ((DEMFile = fopen(filename, "r")) == NULL)
   {
-  User_Message(MsgHdr,
-	"Can't open DEM file for input!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)MsgHdr,
+          (CONST_STRPTR)"Can't open DEM file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(ERR_OPEN_FAIL, DEMExtract->elevfile);
   return (NULL);
   } /* if file open failed */
@@ -1704,8 +1704,8 @@ FILE *DEMFile;
  if (! Read_USGSHeader(DEMFile, &DEMExtract->USGSHdr))
   {
   fclose(DEMFile);
-  User_Message(MsgHdr,
-	"Can't read DEM file header!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)MsgHdr,
+          (CONST_STRPTR)"Can't read DEM file header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(ERR_READ_FAIL, DEMExtract->elevfile);
   return (NULL);
   } /* if read header failed */
@@ -1732,8 +1732,8 @@ double Lon[6], Lat[6];
 
  if ((fh = open(filename, flags, protflags)) == -1)
   {
-  User_Message(FileBase,
-	"Error opening output file!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)FileBase,
+	(CONST_STRPTR)"Error opening output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(ERR_OPEN_FAIL, FileBase);
   return (1);
   } /* error opening file */
@@ -1741,16 +1741,16 @@ double Lon[6], Lat[6];
  write(fh, (char *)&Version, 4);
  if (write(fh, (char *)Hdr, ELEVHDRLENV101) != ELEVHDRLENV101)
   {
-  User_Message(FileBase,
-	"Error writing to output file!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)FileBase,
+          (CONST_STRPTR)"Error writing to output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(ERR_WRITE_FAIL, FileBase);
   close(fh);
   return (1);
   } /* if error writing to file */
  if (write(fh,(char *)MapArray, MapSize) != MapSize)
   {
-  User_Message(FileBase,
-	"Error writing to output file!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)FileBase,
+          (CONST_STRPTR)"Error writing to output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   Log(ERR_WRITE_FAIL, FileBase);
   close(fh);
   return (1);
@@ -1776,8 +1776,8 @@ double Lon[6], Lat[6];
    if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 20)) == NULL)
     {
-    User_Message("Database Module",
-		"Out of memory expanding database!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"Database Module",
+            (CONST_STRPTR)"Out of memory expanding database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     return (1);
     } /* if new database allocation fails */
    else
@@ -1802,8 +1802,8 @@ double Lon[6], Lat[6];
    {
    if (! Add_DE_NewItem())
     {
-    User_Message("Database Module",
-		"Out of memory expanding Database Editor List!", "OK", "o");
+    User_Message((CONST_STRPTR)"Database Module",
+            (CONST_STRPTR)"Out of memory expanding Database Editor List!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     } /* if new list fails */
    } /* if database editor open */
   } /* if object not already exists */
@@ -1826,8 +1826,8 @@ double Lon[6], Lat[6];
 
  if (saveobject(OBN, filename, &Lon[0], &Lat[0], &Elev[0]))
   {
-  User_Message(FileBase,
-	"Error writing to output file!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)FileBase,
+          (CONST_STRPTR)"Error writing to output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   return (1);
   } /* if write error */
 
@@ -2540,21 +2540,21 @@ EndSpline:
   {
   case 1:
    {
-   User_Message("Mapping Module: Fix Flats",
-	"Bad array dimensions! Something doesn't compute.\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Mapping Module: Fix Flats",
+           (CONST_STRPTR)"Bad array dimensions! Something doesn't compute.\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    }
   case 2:
    {
-   User_Message("Mapping Module: Fix Flats",
-	"Out of memory!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Mapping Module: Fix Flats",
+           (CONST_STRPTR)"Out of memory!\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    }
   case 3:
    {
-   User_Message("Mapping Module: Fix Flats",
-	"No flat spots to operate on!\nOperation terminated.",
-	"OK", "o");
+   User_Message((CONST_STRPTR)"Mapping Module: Fix Flats",
+           (CONST_STRPTR)"No flat spots to operate on!\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    }
   } /* switch */
 

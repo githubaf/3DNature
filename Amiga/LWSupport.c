@@ -145,27 +145,27 @@ EndWave:
    {
    case 2:
     {
-    User_Message("LightWave Motion: Export",
-	"No Key Frames to export!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"LightWave Motion: Export",
+            (CONST_STRPTR)"No Key Frames to export!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     } /* no key frames */
    case 3:
     {
-    User_Message("LightWave Motion: Export",
-	"Out of memory!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"LightWave Motion: Export",
+            (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     } /* file write fail */
    case 4:
     {
-    User_Message("LightWave Motion: Export",
-	"Error opening file for output!\nOperation terminated.", "OK", "o");
+    User_Message((CONST_STRPTR)"LightWave Motion: Export",
+            (CONST_STRPTR)"Error opening file for output!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     Log(ERR_OPEN_FAIL, LWInfo->Name);
     break;
     } /* no memory */
    case 5:
     {
-    User_Message("LightWave Motion: Export",
-	"Error writing to file!\nOperation terminated prematurely.", "OK", "o");
+    User_Message((CONST_STRPTR)"LightWave Motion: Export",
+            (CONST_STRPTR)"Error writing to file!\nOperation terminated prematurely.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     Log(ERR_WRITE_FAIL, LWInfo->Name);
     break;
     } /* file open fail */
@@ -337,9 +337,9 @@ struct coords DP;
   strmfp(filename, DEMPath, DEMName);
   if (readDEM(filename, &map))
    {
-   User_Message_Def(DEMName,
-	"Error loading DEM Object!\nOperation terminated.",
-	"OK", "o", 0);
+   User_Message_Def((CONST_STRPTR)DEMName,
+           (CONST_STRPTR)"Error loading DEM Object!\nOperation terminated.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
    goto EndExport;
    } /* if error reading DEM */
   } /* if no object name supplied */
@@ -367,9 +367,9 @@ struct coords DP;
   if (! OpenOK)
    {
    Log(WNG_OPEN_FAIL, DEMName);
-   User_Message_Def("DEMName",
-	"Error loading DEM Object!\nObject not saved.",
-	"OK", "o", 0);
+   User_Message_Def((CONST_STRPTR)DEMName,
+           (CONST_STRPTR)"Error loading DEM Object!\nObject not saved.",
+           (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
    goto EndExport;
    } /* if */
   } /* else find the object and read it */
@@ -415,8 +415,8 @@ struct coords DP;
 
  if (! VertexData || ! PolyData)
   {
-  User_Message_Def("LW Object Export", "Out of memory!\nOperation terminated.",
-	"OK", "o", 0);
+  User_Message_Def((CONST_STRPTR)"LW Object Export", (CONST_STRPTR)"Out of memory!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
   goto EndExport;
   } /* if */
 
@@ -1077,15 +1077,15 @@ EndExport:
   } /* if file opened */
 
  if (error)
-  User_Message_Def("LW Scene Export", "A problem occurred saving the LW scene.\n\
+  User_Message_Def((CONST_STRPTR)"LW Scene Export", (CONST_STRPTR)"A problem occurred saving the LW scene.\n\
 If a file was created it will not be complete and may not load properly into LightWave.",
-	"OK", "o", 0);
+(CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
 
  if (NotFound)
-  User_Message_Def("LW Scene Export", "The output image size is not a standard\
+  User_Message_Def((CONST_STRPTR)"LW Scene Export", (CONST_STRPTR)"The output image size is not a standard\
  LightWave image size. The zoom factor and image dimensions may not be\
  portrayed correctly in the scene file just created.",
-	"OK", "o", 0);
+ (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
 
 } /* LWScene_Export() */
 

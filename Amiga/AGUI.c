@@ -235,7 +235,7 @@ STATIC_FCN void Handle_EP_Window(ULONG WCS_ID) // used locally only -> static, A
         if (dbaseloaded)
          {
          sprintf(str, "Create Default Parameters for Database %s? All current Parameters will be overwritten.", dbasename);
-         if (User_Message_Def((CONST_STRPTR)"Parameter Editing: Defaults", str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+         if (User_Message_Def((CONST_STRPTR)"Parameter Editing: Defaults", (CONST_STRPTR)str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
           {
           paramsloaded = DefaultParams();
           if (paramsloaded)
@@ -1848,7 +1848,7 @@ STATIC_FCN void NoMod_Message(STRPTR mod) // used locally only -> static, AF 25.
 USHORT CloseWindow_Query(STRPTR win)
 {
 
- return (User_Message_Def(win, "Keep changes?", "Keep|Cancel", "kc", 1));
+ return (User_Message_Def(win, (CONST_STRPTR)"Keep changes?", (CONST_STRPTR)"Keep|Cancel", (CONST_STRPTR)"kc", 1));
 
 } /* CloseWindow_Query() */
 
@@ -1861,7 +1861,7 @@ void NoLoad_Message(STRPTR mod, STRPTR loaditem)
   sprintf(loadmesg, 
 	"Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature.", loaditem);
 
-  User_Message(mod, loadmesg, (CONST_STRPTR)"OK",(CONST_STRPTR)"o");
+  User_Message(mod, (CONST_STRPTR)loadmesg, (CONST_STRPTR)"OK",(CONST_STRPTR)"o");
 
   Log(ERR_NO_LOAD, loaditem);
 
