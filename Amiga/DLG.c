@@ -56,7 +56,7 @@ struct BusyWindow *BWDL;
   {
   User_Message((CONST_STRPTR)"Data Ops Module: Import DLG",
           (CONST_STRPTR)"Can't open DLG file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_OPEN_FAIL, DLGfile);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)DLGfile);
   goto Cleanup;
   } /* if file open failed */
 
@@ -73,7 +73,7 @@ struct BusyWindow *BWDL;
   }
  if (i >= 3)
   {
-  Log(ERR_WRONG_TYPE, DLGfile);
+  Log(ERR_WRONG_TYPE, (CONST_STRPTR)DLGfile);
   User_Message((CONST_STRPTR)"Data Ops Module: Import DLG",
           (CONST_STRPTR)"File not a USGS Optional DLG!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   goto Cleanup;
@@ -86,7 +86,7 @@ struct BusyWindow *BWDL;
   {
   User_Message((CONST_STRPTR)"Data Ops Module: Import DLG",
           (CONST_STRPTR)"Inappropriate UTM Zone!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_WRONG_TYPE, DLGfile);
+  Log(ERR_WRONG_TYPE, (CONST_STRPTR)DLGfile);
   goto Cleanup;
   } /* if zone out of range */
 
@@ -104,7 +104,7 @@ struct BusyWindow *BWDL;
   }
  else
   {
-  Log(ERR_WRONG_TYPE, DLGfile);
+  Log(ERR_WRONG_TYPE, (CONST_STRPTR)DLGfile);
   User_Message((CONST_STRPTR)"Data Ops Module: Import DLG",
           (CONST_STRPTR)"This file contains data in an unsupported Reference System!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   goto Cleanup;
@@ -339,7 +339,7 @@ struct BusyWindow *BWDL;
   {
   User_Message((CONST_STRPTR)"Data Ops Module: Import DXF",
           (CONST_STRPTR)"Can't open DXF file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_OPEN_FAIL, DXFfile);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)DXFfile);
   goto Cleanup;
   } /* if file open failed */
 
@@ -1914,7 +1914,7 @@ struct BusyWindow *BWDL = NULL;
   {
   User_Message((CONST_STRPTR)"Data Ops Module: Import WDB",
           (CONST_STRPTR)"Can't open WDB file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_OPEN_FAIL, WDBfile);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)WDBfile);
   error = 2;
   goto Cleanup;
   } /* if file open failed */

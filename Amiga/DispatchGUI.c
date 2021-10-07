@@ -70,7 +70,7 @@ short error = 0, i, SetDefault = 0;
    } /* no error */
   case 1:
    {
-   Log(ERR_OPEN_FAIL, dbasename);
+   Log(ERR_OPEN_FAIL, (CONST_STRPTR)dbasename);
    if (! FileName)
     User_Message((CONST_STRPTR)"Database: Load",
     		(CONST_STRPTR)"Error opening Database file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
@@ -86,7 +86,7 @@ short error = 0, i, SetDefault = 0;
    } /* wrong type file */
   case 3:
    {
-   Log(ERR_READ_FAIL, dbasename);
+   Log(ERR_READ_FAIL, (CONST_STRPTR)dbasename);
    if (! FileName)
     User_Message((CONST_STRPTR)"Database: Load",
     		(CONST_STRPTR)"Error reading Database file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");

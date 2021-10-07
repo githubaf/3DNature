@@ -1427,7 +1427,7 @@ struct UTMLatLonCoords UTM;
   } /* if file opened */
  else
   {
-  Log(ERR_OPEN_FAIL, XYZFile);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)XYZFile);
   User_Message((CONST_STRPTR)"Map View: Build DEM",
 		  (CONST_STRPTR)"Error opening XYZ file to import!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   success = 0;
@@ -1489,7 +1489,7 @@ FILE *fXYZ;
     {
     User_Message((CONST_STRPTR)"Map View: XYZ Export",
     		(CONST_STRPTR)"Error writing to XYZ file! Partial file written.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-    Log(ERR_WRITE_FAIL, XYZFile);
+    Log(ERR_WRITE_FAIL, (CONST_STRPTR)XYZFile);
     success = 0;
     break;
     } /* if error */
@@ -1501,7 +1501,7 @@ FILE *fXYZ;
   {
   User_Message((CONST_STRPTR)"Map View: XYZ Export",
 		  (CONST_STRPTR)"Unable to open XYZ file for export!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_OPEN_FAIL, XYZFile);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)XYZFile);
   success = 0;
   } /* else */
 

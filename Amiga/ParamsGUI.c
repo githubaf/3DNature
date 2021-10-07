@@ -416,7 +416,7 @@ void Handle_PS_Window(ULONG WCS_ID)
      case ID_PS_CLOSEQUERY:
       {
       if (KFsize != PS_Win->AltKFsize || memcmp(KF, PS_Win->AltKF, KFsize))
-       Close_PS_Window(CloseWindow_Query("Scale Keys"));
+       Close_PS_Window(CloseWindow_Query((CONST_STRPTR)"Scale Keys"));
       else
        Close_PS_Window(1);
       break;
@@ -1437,7 +1437,7 @@ EndLoad:
    User_Message((CONST_STRPTR)"Parameters Module: Model",
 		   (CONST_STRPTR)"Error opening Ecosystem Model file for output!\nOperation terminated.",
 		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_OPEN_FAIL, name);
+   Log(ERR_OPEN_FAIL, (CONST_STRPTR)name);
    break;
    } /* open fail */
   case 2:
@@ -1445,7 +1445,7 @@ EndLoad:
    User_Message((CONST_STRPTR)"Parameters Module: Model",
 		   (CONST_STRPTR)"Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
 		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRITE_FAIL, name);
+   Log(ERR_WRITE_FAIL, (CONST_STRPTR)name);
    break;
    } /* write fail */
   case 3:
@@ -1453,7 +1453,7 @@ EndLoad:
    User_Message((CONST_STRPTR)"Parameters Module: Model",
 		   (CONST_STRPTR)"Not a WCS Ecosystem Model file!\nOperation terminated.",
 		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRONG_TYPE, name);
+   Log(ERR_WRONG_TYPE, (CONST_STRPTR)name);
    break;
    } /* wrong type */
   case 4:
@@ -1461,7 +1461,7 @@ EndLoad:
    User_Message((CONST_STRPTR)"Parameters Module: Model",
 		   (CONST_STRPTR)"Unsupported WCS Ecosystem Model file version!\nOperation terminated.",
 		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRONG_VER, name);
+   Log(ERR_WRONG_VER, (CONST_STRPTR)name);
    break;
    } /* wrong version */
   case 5:
@@ -1529,7 +1529,7 @@ EndSave:
    User_Message((CONST_STRPTR)"Parameters Module: Model",
 		   (CONST_STRPTR)"Error opening Ecosystem Model file for output!\nOperation terminated.",
 		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_OPEN_FAIL, name);
+   Log(ERR_OPEN_FAIL, (CONST_STRPTR)name);
    break;
    } /* open fail */
   case 2:
@@ -1537,7 +1537,7 @@ EndSave:
    User_Message((CONST_STRPTR)"Parameters Module: Model",
 		   (CONST_STRPTR)"Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
 		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_READ_FAIL, name);
+   Log(ERR_READ_FAIL, (CONST_STRPTR)name);
    break;
    } /* read fail */
   case 5:

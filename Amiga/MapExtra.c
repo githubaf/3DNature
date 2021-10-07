@@ -753,7 +753,7 @@ void setorigin(void)
  if (DBase[OBN].Color == 2) outline(MapWind0, OBN, 7, &cb);
  else outline(MapWind0, OBN, 2, &cb);
  sprintf(str, "Reset vector origin: %s.\n", DBase[OBN].Name);
- Log(MSG_NULL, str);
+ Log(MSG_NULL, (CONST_STRPTR)str);
  DBase[OBN].Flags |= 1;
 
  if (User_Message_Def((CONST_STRPTR)"Mapping Module: Digitize",
@@ -766,7 +766,7 @@ void setorigin(void)
    if (! maptotopo(OBN))
     {
     sprintf (str, "Vector %s conformed to topography.", DBase[OBN].Name);
-    Log(MSG_NULL, str);
+    Log(MSG_NULL, (CONST_STRPTR)str);
     } /* if conform to terrain */
    } /* if topos loaded */
   } /* if map to topo */
@@ -924,7 +924,7 @@ void matchpoints(void)
   } /* if memory allocation error */
 
  sprintf(str, "Matched vector %s to %s.\n", DBase[OBN].Name, DBase[matchobj].Name);
- Log(MSG_NULL, str);
+ Log(MSG_NULL, (CONST_STRPTR)str);
  DBase[OBN].Flags |= 1;
 
  if (User_Message_Def((CONST_STRPTR)"Mapping Module: Digitize",
@@ -937,7 +937,7 @@ void matchpoints(void)
    if (! maptotopo(OBN))
     {
     sprintf (str, "Vector %s conformed to topography.", DBase[OBN].Name);
-    Log(MSG_NULL, str);
+    Log(MSG_NULL, (CONST_STRPTR)str);
     } /* if conform to terrain */
    } /* if topos loaded */
   } /* if map to topo */
@@ -1088,7 +1088,7 @@ short modpoints(short modify)
          if(j>=MAXOBJPTS)
          {
          sprintf (str, "Arrysize exceeded in %s Line %d. %s %u (AF, 8.July2021)",__FILE__,__LINE__, DBase[OBN].Name,DBase[OBN].Points);
-         Log(ERR_WRONG_SIZE, str);
+         Log(ERR_WRONG_SIZE, (CONST_STRPTR)str);
          break;
          }
 
@@ -1125,7 +1125,7 @@ short modpoints(short modify)
     if (! maptotopo(OBN))
      {
      sprintf (str, "Vector %s conformed to topography.", DBase[OBN].Name);
-     Log(MSG_NULL, str);
+     Log(MSG_NULL, (CONST_STRPTR)str);
      } /* if conform to terrain */
     } /* if topos loaded */
    } /* if map to topo */
@@ -1626,7 +1626,7 @@ SetFrameCount:
     if (! maptotopo(OBN))
      {
      sprintf (str, "Vector %s conformed to topography.", DBase[OBN].Name);
-     Log(MSG_NULL, str);
+     Log(MSG_NULL, (CONST_STRPTR)str);
      } /* if conform to terrain */
     } /* if topos loaded */
    } /* if map to topo */
@@ -1947,7 +1947,7 @@ ResetPoints:
        error = 6;
        } /* if error writing map to file */
       else
-       Log(MSG_DEM_SAVE, DBase[TopoOBN[i]].Name);
+       Log(MSG_DEM_SAVE, (CONST_STRPTR)DBase[TopoOBN[i]].Name);
       } /* else no header write error */
      close(fhelev);
      } /* else file found */
@@ -2015,14 +2015,14 @@ EndFix:
    {
    User_Message((CONST_STRPTR)DBase[TopoOBN[i]].Name,
            (CONST_STRPTR)"Error opening output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_OPEN_FAIL, DBase[TopoOBN[i]].Name);
+   Log(ERR_OPEN_FAIL, (CONST_STRPTR)DBase[TopoOBN[i]].Name);
    break;
    } /* file open fail */
   case 6:
    {
    User_Message((CONST_STRPTR)DBase[TopoOBN[i]].Name,
            (CONST_STRPTR)"Error writing to output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRITE_FAIL, DBase[TopoOBN[i]].Name);
+   Log(ERR_WRITE_FAIL, (CONST_STRPTR)DBase[TopoOBN[i]].Name);
    break;
    } /* file write fail */
   case 10:

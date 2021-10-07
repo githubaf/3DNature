@@ -1741,7 +1741,7 @@ HandleEvent:
         if (! error)
          {
          sprintf (str, "Vector %s conformed to topography.", DBase[OBN].Name);
-         Log(MSG_NULL, str);
+         Log(MSG_NULL, (CONST_STRPTR)str);
 	 }
         else
          Log(MSG_NULL, (CONST_STRPTR)"Vector topo conformation aborted.");
@@ -1781,7 +1781,7 @@ HandleEvent:
        else
         {
         sprintf(str, "Vector topo conformation aborted! %d objects completed.",i);
-        Log(MSG_NULL, str);
+        Log(MSG_NULL, (CONST_STRPTR)str);
         } /* else aborted */
        } /* if topos loaded OK */
       break;

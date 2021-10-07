@@ -159,14 +159,14 @@ EndWave:
     {
     User_Message((CONST_STRPTR)"LightWave Motion: Export",
             (CONST_STRPTR)"Error opening file for output!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-    Log(ERR_OPEN_FAIL, LWInfo->Name);
+    Log(ERR_OPEN_FAIL, (CONST_STRPTR)LWInfo->Name);
     break;
     } /* no memory */
    case 5:
     {
     User_Message((CONST_STRPTR)"LightWave Motion: Export",
             (CONST_STRPTR)"Error writing to file!\nOperation terminated prematurely.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-    Log(ERR_WRITE_FAIL, LWInfo->Name);
+    Log(ERR_WRITE_FAIL, (CONST_STRPTR)LWInfo->Name);
     break;
     } /* file open fail */
    } /* switch */
@@ -366,7 +366,7 @@ struct coords DP;
  
   if (! OpenOK)
    {
-   Log(WNG_OPEN_FAIL, DEMName);
+   Log(WNG_OPEN_FAIL, (CONST_STRPTR)DEMName);
    User_Message_Def((CONST_STRPTR)DEMName,
            (CONST_STRPTR)"Error loading DEM Object!\nObject not saved.",
            (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);

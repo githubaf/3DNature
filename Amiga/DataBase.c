@@ -292,9 +292,9 @@ short Database_Load(short lowi, char *filename)
       } /* for i=lowi... */
      NoOfObjects = i;
      OBN = 0;
-     Log(MSG_DBS_LOAD, dbasename);
+     Log(MSG_DBS_LOAD, (CONST_STRPTR)dbasename);
      sprintf(str, "Records = %d, Marked = %d", NoOfRecords, j);
-     Log(MSG_UTIL_TAB, str); 
+     Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
      } /* if no memory error */
     }
    else
@@ -376,7 +376,7 @@ short makedbase(short SaveNewDBase)
  DataBase_Del(TempBase, TempRecords);
 
  sprintf(str, "New database created: %s", dbasename);
- Log(MSG_NULL, str);
+ Log(MSG_NULL, (CONST_STRPTR)str);
  return (1);
 
 CancelCreate:
@@ -429,7 +429,7 @@ RepeatSave:
 
  if ((fname = fopen(filename,"w")) == NULL)
   {
-  Log(ERR_OPEN_FAIL, dbasename);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)dbasename);
   strcpy(dbasepath, oldpath);
   strcpy(dbasename, oldname);
   return (1);
@@ -481,16 +481,16 @@ RepeatSave:
   }
  else
   {
-  Log(MSG_DBS_SAVE, dbasename);
+  Log(MSG_DBS_SAVE, (CONST_STRPTR)dbasename);
   sprintf(str, "Number of objects = %d", NoOfObjects);
-  Log(MSG_UTIL_TAB, str);
+  Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
   } /* else no save error */
  strmfp(filename, dbasepath, dbasename);
  strcat(filename, ".object");
  if (! Mkdir(filename))
   {
   sprintf(str, "Directory Created: %s", filename);
-  Log(MSG_NULL,	str);
+  Log(MSG_NULL,	(CONST_STRPTR)str);
   sprintf(str, "New directory created: %s. Make it the default directory?", filename);
   if (User_Message_Def((CONST_STRPTR)"Database Module: Save", (CONST_STRPTR)str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
    strcpy(dirname, filename);
@@ -679,7 +679,7 @@ EndLoad:
   } /* if topos loaded previously */
 
  sprintf(str, "%d objects", LoadedObjects);
- Log(MSG_VCS_LOAD, str);
+ Log(MSG_VCS_LOAD, (CONST_STRPTR)str);
 
 
  if (Warn)
@@ -746,7 +746,7 @@ RepeatLoad:
 
  if (! OpenOK)
   {
-  Log(WNG_OPEN_FAIL, DBase[i].Name);
+  Log(WNG_OPEN_FAIL, (CONST_STRPTR)DBase[i].Name);
 /*  DBase[i].Flags &= (255 ^ 2);*/			/* enabled status */
   return (1);
   } /* if */
@@ -803,7 +803,7 @@ RepeatLoad:
    {
    fclose(fobject);
    freevecarray(i);
-   Log(WNG_READ_FAIL, DBase[i].Name);
+   Log(WNG_READ_FAIL, (CONST_STRPTR)DBase[i].Name);
    return (1);
    } /* if read error */
   } /* if binary file format */
@@ -813,7 +813,7 @@ RepeatLoad:
   fclose(fobject);
   if ((fobject = fopen(filename,"r")) == NULL)
    {
-   Log(WNG_OPEN_FAIL, DBase[i].Name);
+   Log(WNG_OPEN_FAIL, (CONST_STRPTR)DBase[i].Name);
    return (1);
    } /* if */
 
@@ -1267,7 +1267,7 @@ short DBaseObject_Add(void)
   strsfn(newfile, NULL, NULL, str, extension);
   if (strcmp(extension, "Obj"))
    {
-   Log(ERR_WRONG_TYPE, newfile);
+   Log(ERR_WRONG_TYPE, (CONST_STRPTR)newfile);
    User_Message((CONST_STRPTR)newfile, (CONST_STRPTR)"Object must end in suffix \"Obj\"!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;
    } /* if wrong file type */

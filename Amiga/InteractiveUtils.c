@@ -210,7 +210,7 @@ void autocenter(void)
  sprintf(str, "Auto-centered: alt = %f  lat = %f  lon = %f\n",
 		PAR_FIRST_MOTION(3),
 		PAR_FIRST_MOTION(4), PAR_FIRST_MOTION(5));
- Log(MSG_NULL, str);
+ Log(MSG_NULL, (CONST_STRPTR)str);
 
 } /* autocenter() */
 

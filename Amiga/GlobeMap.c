@@ -162,10 +162,10 @@ void globemap(void)
 #ifdef AMIGA_GUI
  lmemblock = AvailMem(MEMF_FAST | MEMF_LARGEST);
  sprintf(str, "Largest available memory block = %lu", lmemblock); 
- Log(MSG_NULL, str);
+ Log(MSG_NULL, (CONST_STRPTR)str);
  lmemblock = AvailMem(MEMF_FAST);
  sprintf(str, "Fast memory available = %lu", lmemblock);
- Log(MSG_NULL, str);
+ Log(MSG_NULL, (CONST_STRPTR)str);
 #endif
 
  bmapsize = settings.scrnwidth * (settings.overscan
@@ -508,10 +508,10 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
  Log(MSG_NULL, (CONST_STRPTR)"Render memory allocated.");
  lmemblock = AvailMem(MEMF_FAST | MEMF_LARGEST);
  sprintf(str, "Largest available memory block = %lu", lmemblock); 
- Log(MSG_NULL, str);
+ Log(MSG_NULL, (CONST_STRPTR)str);
  lmemblock = AvailMem(MEMF_FAST);
  sprintf(str, "Fast memory available = %lu", lmemblock);
- Log(MSG_NULL, str);
+ Log(MSG_NULL, (CONST_STRPTR)str);
 #endif
 
  settings.scrnheight /= settings.rendersegs;
@@ -594,7 +594,7 @@ RepeatAlloc2:
    if (settings.rendersegs > 1)
     {
     sprintf(str, "Segment %d", renderseg);
-    Log(MSG_NULL, str);
+    Log(MSG_NULL, (CONST_STRPTR)str);
     } /* if */
 
    if (RenderWind0)
@@ -636,7 +636,7 @@ RepeatAlloc2:
     sprintf(filename, "%s%d", str, frame);
     if ((fvector = fopen(filename, "w")) == NULL)
      {
-     Log(ERR_OPEN_FAIL, linefile);
+     Log(ERR_OPEN_FAIL, (CONST_STRPTR)linefile);
      if (! User_Message((CONST_STRPTR)linefile,
              (CONST_STRPTR)"Can't open vector file for output!\nContinue rendering without vectors?",
              (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc"))
@@ -666,7 +666,7 @@ RepeatAlloc2:
     if (fracount[ct])
      {
      sprintf(str, "Level %ld = %ld", ct, fracount[ct]);
-     Log(MSG_UTIL_TAB, str);
+     Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
      fracount[ct] = 0;
      } /* if fracount */
     } /* for ct=0... */
@@ -678,7 +678,7 @@ RepeatAlloc2:
      {
      sprintf(str, "%2ld. %-24s %ld",
 		ct, PAR_NAME_ECO(ct), ecocount[ct]);
-     Log(MSG_UTIL_TAB, str);
+     Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
      } /* if ecocount */
     } /* for ct=0... */
 
@@ -1134,7 +1134,7 @@ RepeatLoad:
    if (! OpenOK)
     {
     error = 1;
-    Log(ERR_OPEN_FAIL, DBase[OBN].Name);
+    Log(ERR_OPEN_FAIL, (CONST_STRPTR)DBase[OBN].Name);
     break;
     } /* if file not found */
 
@@ -1273,7 +1273,7 @@ Continue without Fractal Maps or retry?", (CONST_STRPTR)"Continue|Retry|Cancel",
       strmfp(filename, elevpath, elevfile);	/* elevfile suffix changed to .relel */
       if (readDEM(filename, &relelev) != 0)
        {
-       Log(WNG_OPEN_FAIL, elevfile);
+       Log(WNG_OPEN_FAIL, (CONST_STRPTR)elevfile);
        } /* if still no relel file */
       } /* if make relel successful */
      } /* if relel file not found */
@@ -1324,7 +1324,7 @@ Continue without Fractal Maps or retry?", (CONST_STRPTR)"Continue|Retry|Cancel",
    fract = 0;
    for (ct=0; ct<=settings.fractal; ct++) fract += fracount[ct];
    sprintf(str, "%s = %ld\n", DBase[OBN].Name, fract - lastfacect);
-   Log(MSG_UTIL_TAB, str);
+   Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
    lastfacect = fract;
 
  MapCleanup:
@@ -1906,7 +1906,7 @@ STATIC_FCN void Close_Render_Window(void) // used locally only -> static, AF 20.
   WCS_Signals ^= RenderWind0_Sig;
   closesharedwindow(RenderWind0, 0);
   RenderWind0 = NULL;
-  RenderWind0_Sig = NULL;
+  RenderWind0_Sig = 0;
   } /* if window opened */
 
 } /* Close_Render_Window() */

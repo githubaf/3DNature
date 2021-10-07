@@ -82,7 +82,7 @@ signed long int LConv;
 
 data = INST_DATA(cl,obj);
 
-Scratch[0] = NULL;
+Scratch[0] = 0;
 
 if(data->FIFlags & FIOFlag_Float)
 	{
@@ -167,46 +167,46 @@ STATIC_FCN SAVEDS ULONG mNew(struct IClass *cl,Object *obj,struct opSet *msg) //
 	data->MinAmount = 0;
 	data->MaxAmount = FLT_MAX;
 	
-	if((Store = GetTagData(MUIA_FloatInt_IncDecInt, NULL, msg->ops_AttrList)))
+	if((Store = GetTagData(MUIA_FloatInt_IncDecInt, 0, msg->ops_AttrList)))
 		{
 		Limit = *(signed long int *)(&Store);
 		data->IncDecAmount = Limit;
 		data->FIFlags &= ~FIOFlag_Frac;
 		} /* if */
 
-	if((Store = GetTagData(MUIA_FloatInt_IncDecDouble, NULL, msg->ops_AttrList)))
+	if((Store = GetTagData(MUIA_FloatInt_IncDecDouble, 0, msg->ops_AttrList)))
 		{
 		D = (double *)Store;
 		data->IncDecAmount = *D;
 		data->FIFlags &= ~FIOFlag_Frac;
 		} /* if */
 
-	if((Store = GetTagData(MUIA_FloatInt_IDFracDouble, NULL, msg->ops_AttrList)))
+	if((Store = GetTagData(MUIA_FloatInt_IDFracDouble, 0, msg->ops_AttrList)))
 		{
 		D = (double *)Store;
 		data->IncDecAmount = *D;
 		data->FIFlags |= FIOFlag_Frac;
 		} /* if */
 
-	if((Store = GetTagData(MUIA_FloatInt_MaxValDouble, NULL, msg->ops_AttrList)))
+	if((Store = GetTagData(MUIA_FloatInt_MaxValDouble, 0, msg->ops_AttrList)))
 		{
 		D = (double *)Store;
 		data->MaxAmount = *D;
 		} /* if */
 
-	if((Store = GetTagData(MUIA_FloatInt_MinValDouble, NULL, msg->ops_AttrList)))
+	if((Store = GetTagData(MUIA_FloatInt_MinValDouble, 0, msg->ops_AttrList)))
 		{
 		D = (double *)Store;
 		data->MinAmount = *D;
 		} /* if */
 
-	if((Store = GetTagData(MUIA_FloatInt_MaxValInt, NULL, msg->ops_AttrList)))
+	if((Store = GetTagData(MUIA_FloatInt_MaxValInt, 0, msg->ops_AttrList)))
 		{
 		Limit = *(signed long int *)(&Store);
 		data->MaxAmount = Limit;
 		} /* if */
 
-	if((Store = GetTagData(MUIA_FloatInt_MinValInt, NULL, msg->ops_AttrList)))
+	if((Store = GetTagData(MUIA_FloatInt_MinValInt, 0, msg->ops_AttrList)))
 		{
 		Limit = *(signed long int *)(&Store);
 		data->MinAmount = Limit;
@@ -216,9 +216,9 @@ STATIC_FCN SAVEDS ULONG mNew(struct IClass *cl,Object *obj,struct opSet *msg) //
 	if(Width > 10) Width = 10;
 	if(Width < 1)  Width = 1;
 
-	data->FIFlags        |= GetTagData(MUIA_FloatInt_VarType, NULL, msg->ops_AttrList);
-	data->MasterVariable  = (void *)GetTagData(MUIA_FloatInt_VarPtr, NULL, msg->ops_AttrList);
-	data->LabelText       = (char *)GetTagData(MUIA_FloatInt_LabelText, NULL, msg->ops_AttrList);
+	data->FIFlags        |= GetTagData(MUIA_FloatInt_VarType, 0, msg->ops_AttrList);
+	data->MasterVariable  = (void *)GetTagData(MUIA_FloatInt_VarPtr, 0, msg->ops_AttrList);
+	data->LabelText       = (char *)GetTagData(MUIA_FloatInt_LabelText, 0, msg->ops_AttrList);
 
 	/* make sure we have required args */
 	if(data->LabelText && data->MasterVariable && (data->FIFlags & FI_TypeMask))

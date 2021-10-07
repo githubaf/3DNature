@@ -696,7 +696,7 @@ STATIC_FCN void Handle_DB_Window(ULONG WCS_ID) // used locally only -> static, A
          {
          Database_LoadDisp(NoOfObjects, 1, NULL, 1);
 	 } /* if database loaded */
-        else NoLoad_Message("Database Module: Append", "a Database");
+        else NoLoad_Message((CONST_STRPTR)"Database Module: Append", (CONST_STRPTR)"a Database");
         break;
         } /* Append database */
        case ID_DB_CREATE:
@@ -707,13 +707,13 @@ STATIC_FCN void Handle_DB_Window(ULONG WCS_ID) // used locally only -> static, A
        case ID_DB_SAVE:
         {
         if (dbaseloaded) savedbase(1);
-         else NoLoad_Message("Database Module: Save", "a Database");
+         else NoLoad_Message((CONST_STRPTR)"Database Module: Save", (CONST_STRPTR)"a Database");
         break;
         } /* SaveAs database */
        case ID_DB_SAVECUR:
         {
         if (dbaseloaded) savedbase(0);
-         else NoLoad_Message("Database Module: Save", "a Database");
+         else NoLoad_Message((CONST_STRPTR)"Database Module: Save", (CONST_STRPTR)"a Database");
         break;
         } /* Save database */
        case ID_DB_LOADCONFIG:
@@ -949,7 +949,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
        case ID_DO_IMPORTDLG:
         {
         if (! dbaseloaded)
-         NoLoad_Message("Data Ops: Import DLG", "a Database");
+         NoLoad_Message((CONST_STRPTR)"Data Ops: Import DLG", (CONST_STRPTR)"a Database");
         else
          ImportDLG();
         break;
@@ -957,7 +957,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
        case ID_DO_IMPORTDXF:
         {
         if (! dbaseloaded)
-         NoLoad_Message("Data Ops: Import DXF", "a Database");
+         NoLoad_Message((CONST_STRPTR)"Data Ops: Import DXF", (CONST_STRPTR)"a Database");
         else
          ImportDXF();
         break;
@@ -971,7 +971,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
 /*        StrataConvert(); See ColorBlends.c for converting gray-scale image into a strata texture array */
 
         if (! dbaseloaded)
-         NoLoad_Message("Data Ops: Import WDB", "a Database");
+         NoLoad_Message((CONST_STRPTR)"Data Ops: Import WDB", (CONST_STRPTR)"a Database");
         else
          ImportWDB();
 
@@ -999,7 +999,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
    case WI_WINDOW3:
     {
     if (! dbaseloaded)
-     NoLoad_Message("Data Ops Module: Interp DEM", "a Database");
+     NoLoad_Message((CONST_STRPTR)"Data Ops Module: Interp DEM", (CONST_STRPTR)"a Database");
     else
      Handle_DI_Window(WCS_ID);
     break;
@@ -1007,7 +1007,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
    case WI_WINDOW4:
     {
     if (! dbaseloaded)
-     NoLoad_Message("Data Ops Module: Extract DEM", "a Database");
+     NoLoad_Message((CONST_STRPTR)"Data Ops Module: Extract DEM", (CONST_STRPTR)"a Database");
     else
      Handle_DM_Window(WCS_ID);
     break;
@@ -1038,7 +1038,7 @@ if (dbaseloaded && paramsloaded)
  globemap();
  } /* if dbaseloaded and paramsloaded */
 else
- NoLoad_Message("Render Module", "a Database and Parameter file");
+ NoLoad_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"a Database and Parameter file");
 
 } /* Handle_RN_Window() */
 
@@ -1271,7 +1271,7 @@ short WCS_App_EventLoop(struct WCSApp *This)
    if(MapWind0)
     if(QuickCheckEvent(MapWind0))
       {
-      Handle_Map_Window(NULL);
+      Handle_Map_Window(0);
       CheckBack = 1;
       } /* if */
    if(MapWind3)
@@ -1350,7 +1350,7 @@ short WCS_App_EventLoop(struct WCSApp *This)
       } /* Render module */
      case MO_EXTRAS:
       {
-      NoMod_Message("Extras Module");
+      NoMod_Message((CONST_STRPTR)"Extras Module");
       break;
       } /* Extras module */
      case MO_DUMMYMENU:
@@ -1854,7 +1854,7 @@ USHORT CloseWindow_Query(STRPTR win)
 
 /************************************************************************/
 
-void NoLoad_Message(STRPTR mod, STRPTR loaditem)
+void NoLoad_Message(CONST_STRPTR mod, CONST_STRPTR loaditem)
 {
  char loadmesg[255];
 
@@ -2596,7 +2596,7 @@ char *Prefix;
     Prefix = "";
     }
   sprintf(LogMesg[LogItem], "%s%s %s", Prefix, StdMesg[StdMesgNum], LogTag);
-  Status_Log(LogMesg[LogItem], ErrMagnitude[StdMesgNum]);
+  Status_Log((STRPTR)LogMesg[LogItem], ErrMagnitude[StdMesgNum]);
 
 } /* Log() */
 
@@ -3020,7 +3020,7 @@ InfoData[19] = NULL;
 set(InfoTime, MUIA_Text_Contents, &InfoData[11]);
 
 strncpy(InfoData, ctime((time_t *)&now), 26);
-InfoData[24] = NULL;
+InfoData[24] = 0;
 strcpy(&InfoData[11], &InfoData[20]);
 
 set(InfoDate, MUIA_Text_Contents, InfoData);

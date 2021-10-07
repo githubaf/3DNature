@@ -329,7 +329,7 @@ short saveobject(long OBN, char *fname, double *Lon, double *Lat, short *Elev)
    strcat(filename, ".Obj");
    if ((fobject = fopen(filename, "wb")) == NULL)
     {
-    Log(ERR_OPEN_FAIL, DBase[OBN].Name);
+    Log(ERR_OPEN_FAIL, (CONST_STRPTR)DBase[OBN].Name);
     User_Message((CONST_STRPTR)DBase[OBN].Name, (CONST_STRPTR)"Can't open object file!\nObject not saved.",
             (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     return(1);
@@ -340,7 +340,7 @@ short saveobject(long OBN, char *fname, double *Lon, double *Lat, short *Elev)
   {
   if ((fobject = fopen(fname, "wb")) == NULL)
    {
-   Log(ERR_OPEN_FAIL, fname);
+   Log(ERR_OPEN_FAIL, (CONST_STRPTR)fname);
    return(1);
    } /* if open fail */
   } /* if name passed to saveobject() */
@@ -386,14 +386,14 @@ short saveobject(long OBN, char *fname, double *Lon, double *Lat, short *Elev)
   {
   DBase[OBN].Flags &= (255 ^ 1);
   sprintf(str, "%s vector saved. %d points", DBase[OBN].Name, DBase[OBN].Points);
-  Log(MSG_NULL, str);
+  Log(MSG_NULL, (CONST_STRPTR)str);
   DB_Mod = 1;
   }
  else
   {
   User_Message((CONST_STRPTR)DBase[OBN].Name, (CONST_STRPTR)"Error saving object file!\nObject not saved.",
           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_WRITE_FAIL, DBase[OBN].Name);
+  Log(ERR_WRITE_FAIL, (CONST_STRPTR)DBase[OBN].Name);
   return (1);
   }
 
@@ -494,7 +494,7 @@ short loadtopo(void)
    {
    error = 1;
    sprintf(str, "%s.elev", DBase[i].Name);
-   Log(ERR_OPEN_FAIL, str);
+   Log(ERR_OPEN_FAIL, (CONST_STRPTR)str);
    User_Message((CONST_STRPTR)str, (CONST_STRPTR)"Error loading topo map! Check Status Log to see if out of memory.\nOperation terminated.",
            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    break;

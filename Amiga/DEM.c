@@ -34,7 +34,7 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
   {
   if ((read (fhelev, map, ELEVHDRLENV100)) != ELEVHDRLENV100)
    {
-   Log(WNG_READ_FAIL, filename);
+   Log(WNG_READ_FAIL, (CONST_STRPTR)filename);
    close (fhelev);
    return (1);
    } /* if */
@@ -46,7 +46,7 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
   {
   if ((read (fhelev, map, ELEVHDRLENV101)) != ELEVHDRLENV101)
    {
-   Log(WNG_READ_FAIL, filename);
+   Log(WNG_READ_FAIL, (CONST_STRPTR)filename);
    close (fhelev);
    return (1);
    } /* if */
@@ -57,7 +57,7 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
   lseek(fhelev, 0L, 0);
   if ((read (fhelev, map, ELEVHDRLENV100)) != ELEVHDRLENV100)
    {
-   Log(WNG_READ_FAIL, filename);
+   Log(WNG_READ_FAIL, (CONST_STRPTR)filename);
    close (fhelev);
    return (1);
    } /* if */
@@ -87,7 +87,7 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
    if ((read (fhelev, mapptr, rowlength)) != rowlength)
     {
     error = 1;
-    Log(WNG_READ_FAIL, filename);
+    Log(WNG_READ_FAIL, (CONST_STRPTR)filename);
     break;
     } /* if */
    mapptr += map->columns;
@@ -99,7 +99,7 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
   {
   if ((read (fhelev, map->map, map->size)) != map->size)
    {
-   Log(WNG_READ_FAIL, filename);
+   Log(WNG_READ_FAIL, (CONST_STRPTR)filename);
    error = 1;
    } /* if */
   close (fhelev);
@@ -169,13 +169,13 @@ short makerelelfile(char *elevpath, char *elevfile)
  strsfn(elevfile, NULL, NULL, str, extension);
  if (strcmp(extension, "elev"))
   {
-  Log(ERR_WRONG_TYPE, elevfile);
+  Log(ERR_WRONG_TYPE, (CONST_STRPTR)elevfile);
   return (0);
   } /* if wrong file type */
  strmfp(filename, elevpath, elevfile);
  if ((error = readDEM(filename, &map)) != 0)
   {
-  Log(ERR_READ_FAIL, elevfile);
+  Log(ERR_READ_FAIL, (CONST_STRPTR)elevfile);
   return (0);
   } /* if error reading DEM file */
 
@@ -234,7 +234,7 @@ short makerelelfile(char *elevpath, char *elevfile)
   close(fhelev);
   elevfile[strlen(elevfile) - 4] = 0;
   strcat(elevfile, "relel");
-  Log(MSG_RELEL_SAVE, elevfile);
+  Log(MSG_RELEL_SAVE, (CONST_STRPTR)elevfile);
   } /* else saved OK */
 
 EndMap:
@@ -466,7 +466,7 @@ short InterpDEM(struct DEMInterpolateData *DEMInterp)
 
  for (k=0; k<DEMInterp->FrFile->rf_NumArgs; k++)
   {
-  strcpy(DEMInterp->elevfile, DEMInterp->FrFile->rf_ArgList[k].wa_Name);
+  strcpy((char*)DEMInterp->elevfile, (char*)DEMInterp->FrFile->rf_ArgList[k].wa_Name);
 
   if (DEMInterp->elevfile[0] == 0)
    {
@@ -481,7 +481,7 @@ RelelRepeat:
   strsfn(DEMInterp->elevfile, NULL, NULL, rootfile, extension);
   if (stricmp(extension, "elev") && stricmp(extension, "relel"))   // AF: make it case independent
    {
-   Log(ERR_WRONG_TYPE, DEMInterp->elevfile);
+   Log(ERR_WRONG_TYPE, (CONST_STRPTR)DEMInterp->elevfile);
    if (! User_Message((CONST_STRPTR)DEMInterp->elevfile,
            (CONST_STRPTR)"Error opening file for interpolation!\nFile not DEM or REM\nContinue?",
            (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc"))
@@ -615,7 +615,7 @@ RelelRepeat:
      {
      User_Message((CONST_STRPTR)"Data Ops: Interpolate DEM",
              (CONST_STRPTR)"Error opening DEM file for output!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-     Log(ERR_OPEN_FAIL, DEMInterp->elevfile);
+     Log(ERR_OPEN_FAIL, (CONST_STRPTR)DEMInterp->elevfile);
      error = 1;
      break;
      } /* if open file failed */
@@ -626,7 +626,7 @@ RelelRepeat:
      {
      User_Message((CONST_STRPTR)"Data Ops: Interpolate DEM",
              (CONST_STRPTR)"Error writing DEM file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-     Log(ERR_WRITE_FAIL, DEMInterp->elevfile);
+     Log(ERR_WRITE_FAIL, (CONST_STRPTR)DEMInterp->elevfile);
      close (fhelev);
      error = 1;
      break;
@@ -634,7 +634,7 @@ RelelRepeat:
     else
      {
      close (fhelev);
-     Log(MSG_DEM_SAVE, DEMInterp->elevfile);
+     Log(MSG_DEM_SAVE, (CONST_STRPTR)DEMInterp->elevfile);
      if (! strcmp(extension, "elev"))
       {
 /* find out if object is already in the database */
@@ -1129,14 +1129,14 @@ printf("URI %f UCI %f LRI %f LCI %f\n", DEMExtract->UTMRowInt, DEMExtract->UTMCo
      fclose(DEMFile);
      User_Message((CONST_STRPTR)MsgHdr,
              (CONST_STRPTR)"Can't read DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-     Log(ERR_READ_FAIL, DEMExtract->elevfile);
+     Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
      break;
      } /* if read header failed */
     if (atoi(DEMExtract->ProfHdr.Column) != i + 1)
      {
      User_Message((CONST_STRPTR)MsgHdr,
              (CONST_STRPTR)"Error reading DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-     Log(ERR_READ_FAIL, DEMExtract->elevfile);
+     Log(ERR_READ_FAIL,(CONST_STRPTR) DEMExtract->elevfile);
      break;
      } /* if read header failed */
 
@@ -1151,7 +1151,7 @@ printf("URI %f UCI %f LRI %f LCI %f\n", DEMExtract->UTMRowInt, DEMExtract->UTMCo
      {
      User_Message((CONST_STRPTR)MsgHdr,
              (CONST_STRPTR)"Error reading DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-     Log(ERR_READ_FAIL, DEMExtract->elevfile);
+     Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
      break;
      }
     Read_USGSDEMProfile(DEMFile,
@@ -1389,7 +1389,7 @@ EndPhase1:
    fclose(DEMFile);
    User_Message((CONST_STRPTR)MsgHdr,
            (CONST_STRPTR)"Can't read DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_READ_FAIL, DEMExtract->elevfile);
+   Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
    error = 1;
    break;
    } /* if read header failed */
@@ -1415,7 +1415,7 @@ EndPhase1:
    fclose(DEMFile);
    User_Message((CONST_STRPTR)MsgHdr,
            (CONST_STRPTR)"Out of memory allocating temporary buffer!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_READ_FAIL, DEMExtract->elevfile);
+   Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
    error = 1;
    break;
    } /* if read header failed */
@@ -1428,7 +1428,7 @@ EndPhase1:
     {
     User_Message((CONST_STRPTR)MsgHdr,
             (CONST_STRPTR)"Error reading DEM profile!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-    Log(ERR_READ_FAIL, DEMExtract->elevfile);
+    Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
     error = 1;
     break;
     } /* if not read error */
@@ -1438,7 +1438,7 @@ EndPhase1:
      {
      User_Message((CONST_STRPTR)MsgHdr,
              (CONST_STRPTR)"Error reading DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-     Log(ERR_READ_FAIL, DEMExtract->elevfile);
+     Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
      error = 1;
      break;
      } /* if not read error */
@@ -1446,7 +1446,7 @@ EndPhase1:
      {
      User_Message((CONST_STRPTR)MsgHdr,
              (CONST_STRPTR)"Improper DEM profile length!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-     Log(ERR_READ_FAIL, DEMExtract->elevfile);
+     Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
      error = 1;
      break;
      } /* if unequal row lengths */
@@ -1477,7 +1477,7 @@ EndPhase1:
    {
    User_Message((CONST_STRPTR)MsgHdr,
            (CONST_STRPTR)"Out of memory allocating map buffer!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_READ_FAIL, DEMExtract->elevfile);
+   Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
    if (DEMExtract->UTMData)
     free_Memory(DEMExtract->UTMData, DEMExtract->UTMSize);
    break;
@@ -1697,7 +1697,7 @@ FILE *DEMFile;
   {
   User_Message((CONST_STRPTR)MsgHdr,
           (CONST_STRPTR)"Can't open DEM file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_OPEN_FAIL, DEMExtract->elevfile);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
   return (NULL);
   } /* if file open failed */
 
@@ -1706,7 +1706,7 @@ FILE *DEMFile;
   fclose(DEMFile);
   User_Message((CONST_STRPTR)MsgHdr,
           (CONST_STRPTR)"Can't read DEM file header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_READ_FAIL, DEMExtract->elevfile);
+  Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
   return (NULL);
   } /* if read header failed */
 
@@ -1734,7 +1734,7 @@ double Lon[6], Lat[6];
   {
   User_Message((CONST_STRPTR)FileBase,
 	(CONST_STRPTR)"Error opening output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_OPEN_FAIL, FileBase);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)FileBase);
   return (1);
   } /* error opening file */
  FindElMaxMin(Hdr, MapArray);
@@ -1743,7 +1743,7 @@ double Lon[6], Lat[6];
   {
   User_Message((CONST_STRPTR)FileBase,
           (CONST_STRPTR)"Error writing to output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_WRITE_FAIL, FileBase);
+  Log(ERR_WRITE_FAIL, (CONST_STRPTR)FileBase);
   close(fh);
   return (1);
   } /* if error writing to file */
@@ -1751,12 +1751,12 @@ double Lon[6], Lat[6];
   {
   User_Message((CONST_STRPTR)FileBase,
           (CONST_STRPTR)"Error writing to output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_WRITE_FAIL, FileBase);
+  Log(ERR_WRITE_FAIL, (CONST_STRPTR)FileBase);
   close(fh);
   return (1);
   } /* if error writing to file */
  close(fh);
- Log(MSG_DEM_SAVE, FileBase);
+ Log(MSG_DEM_SAVE, (CONST_STRPTR)FileBase);
 
  OBNexists = 0;
  for (OBN=0; OBN<NoOfObjects; OBN++)

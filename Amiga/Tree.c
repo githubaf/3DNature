@@ -864,7 +864,7 @@ short LoadForestModels(void)
    User_Message((CONST_STRPTR)"Parameters Module: Model",
            (CONST_STRPTR)"Error opening Ecosystem Model file for input!\nOperation terminated.",
            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_OPEN_FAIL, name);
+   Log(ERR_OPEN_FAIL, (CONST_STRPTR)name);
    break;
    } /* open fail */
   case 2:
@@ -872,7 +872,7 @@ short LoadForestModels(void)
    User_Message((CONST_STRPTR)"Parameters Module: Model",
            (CONST_STRPTR)"Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRITE_FAIL, name);
+   Log(ERR_WRITE_FAIL, (CONST_STRPTR)name);
    break;
    } /* write fail */
   case 3:
@@ -880,7 +880,7 @@ short LoadForestModels(void)
    User_Message((CONST_STRPTR)"Parameters Module: Model",
            (CONST_STRPTR)"Not a WCS Ecosystem Model file!\nOperation terminated.",
            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRONG_TYPE, name);
+   Log(ERR_WRONG_TYPE, (CONST_STRPTR)name);
    break;
    } /* wrong type */
   case 4:
@@ -888,7 +888,7 @@ short LoadForestModels(void)
    User_Message((CONST_STRPTR)"Parameters Module: Model",
            (CONST_STRPTR)"Unsupported WCS Ecosystem Model file version!\nOperation terminated.",
            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRONG_VER, name);
+   Log(ERR_WRONG_VER, (CONST_STRPTR)name);
    break;
    } /* wrong version */
   case 5:
@@ -903,7 +903,7 @@ short LoadForestModels(void)
    User_Message((CONST_STRPTR)"Parameters Module: Model",
            (CONST_STRPTR)"No data in WCS Ecosystem Model!\nOperation terminated.",
            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_ILL_VAL, name);
+   Log(ERR_ILL_VAL, (CONST_STRPTR)name);
    break;
    } /* no data */
   } /* switch */

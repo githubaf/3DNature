@@ -56,7 +56,7 @@ STATIC_FCN void Cmd_TrimArg(char *Dest, char *Source, int DestLen); // used loca
  */
 ULONG Rexx_SigMask(struct ARexxContext *This)
 {
-register	ULONG	tmp=NULL;
+register	ULONG	tmp=0;
 
 if (This)
 	{
@@ -295,7 +295,7 @@ register	char *tmp;
 
 if((This = AllocMem(sizeof(struct ARexxContext), MEMF_PUBLIC|MEMF_CLEAR)))
 	{
-	if(This->RexxSysBase = OpenLibrary("rexxsyslib.library", NULL))
+	if(This->RexxSysBase = OpenLibrary((CONST_STRPTR)"rexxsyslib.library", NULL))
 		{
 		/* Set up the extension... */
 		strcpy(This->Extension, "WCS");
@@ -314,7 +314,7 @@ if((This = AllocMem(sizeof(struct ARexxContext), MEMF_PUBLIC|MEMF_CLEAR)))
 		strcat(This->ErrorName,".LASTERROR");
 
 		Forbid();
-		This->ARexxPort = CreatePort(This->PortName, NULL);
+		This->ARexxPort = CreatePort((CONST_STRPTR)This->PortName, NULL);
 		Permit();
 		} /* if */
 

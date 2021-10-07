@@ -440,12 +440,12 @@ short VectorToPath(short item)
 
  if (! dbaseloaded)
   {
-  NoLoad_Message("Mapping Module: Path", "a Database");
+  NoLoad_Message((CONST_STRPTR)"Mapping Module: Path", (CONST_STRPTR)"a Database");
   return (0);
   } /* if no database */
  if (! paramsloaded)
   {
-  NoLoad_Message("Mapping Module: Path", "a Parameter file");
+  NoLoad_Message((CONST_STRPTR)"Mapping Module: Path", (CONST_STRPTR)"a Parameter file");
   return (0);
   } /* if no database */
 
@@ -613,12 +613,12 @@ short PathToVector(short item)
 
  if (! dbaseloaded)
   {
-  NoLoad_Message("Mapping Module: Path", "a Database");
+  NoLoad_Message((CONST_STRPTR)"Mapping Module: Path", (CONST_STRPTR)"a Database");
   return (0);
   } /* if no database */
  if (! paramsloaded)
   {
-  NoLoad_Message("Mapping Module: Path", "a Parameter file");
+  NoLoad_Message((CONST_STRPTR)"Mapping Module: Path", (CONST_STRPTR)"a Parameter file");
   return (0);
   } /* if no database */
 

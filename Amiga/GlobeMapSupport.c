@@ -219,19 +219,19 @@ void setview(void)
 
  sprintf(str, "Frame %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n",
 		frame, VP.lat * PiUnder180, VP.lon * PiUnder180, VP.alt);
- Log(DTA_NULL, str);
+ Log(DTA_NULL, (CONST_STRPTR)str);
  sprintf(str, "FP.lat=%f, FP.lon=%f, FP.alt=%f\n",
 		FP.lat * PiUnder180, FP.lon * PiUnder180, FP.alt);
- Log(MSG_UTIL_TAB, str);
+ Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
  sprintf(str, "SP.x=%f, SP.y=%f, SP.z=%f\n",
 		SP.x, SP.y, SP.z);
- Log(MSG_UTIL_TAB, str);
+ Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
  sprintf(str, "Y rot=%f, X rot=%f, Z rot=%f\n",
 		yrot * PiUnder180, xrot * PiUnder180, zrot * PiUnder180);
- Log(MSG_UTIL_TAB, str);
+ Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
  sprintf(str, "Q max=%f, Q focus=%f, Banking=%f\n",
 		qmax, FP.q, PARC_RNDR_MOTION(8));
- Log(MSG_UTIL_TAB, str);
+ Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
 
 } /* setview() */
 
@@ -531,7 +531,7 @@ short makesky(short renderseg, struct Window *win)
   } /* if ! horfix, horizon and zenith computed at qmax from viewer */
 
  sprintf(str, "horline=%d, zenithline=%d\n",horline,zenithline);
- Log(MSG_UTIL_TAB, str);
+ Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
  zenithline = horline - zenithline;
 
  if (horpt >= settings.scrnwidth / 2)

@@ -479,7 +479,7 @@ if(StartSecs)
          sprintf(TotalFrames, "%1ld", Frames);
 	 } /* else */
 	sprintf(str, "\0334%s:  %02d:%02d:%02d", FrameStr, ElapHrs, ElapMin, ElapSec);
-	Log(MSG_TIME_ELAPSE, str);
+	Log(MSG_TIME_ELAPSE, (CONST_STRPTR)str);
 
 	Elapsed = NowSecs - FirstSecs;
 	ElapSec = Elapsed % 60;
@@ -487,7 +487,7 @@ if(StartSecs)
 	ElapHrs = Elapsed / 3600;
 
 	sprintf(str, "\0334%s frames:  %02d:%02d:%02d", TotalFrames, ElapHrs, ElapMin, ElapSec);
-	Log(MSG_TOTAL_ELAPS, str);
+	Log(MSG_TOTAL_ELAPS, (CONST_STRPTR)str);
 	} /* if */
 
 } /* Log_ElapsedTime() */

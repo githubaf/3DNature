@@ -24,7 +24,7 @@ void Make_DM_Window(void)
 
  if (! dbaseloaded)
   {
-  NoLoad_Message("Data Ops: Extract DEM", "a Database");
+  NoLoad_Message((CONST_STRPTR)"Data Ops: Extract DEM", (CONST_STRPTR)"a Database");
   return;
   }
 

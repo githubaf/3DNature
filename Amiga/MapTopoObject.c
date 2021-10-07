@@ -2548,7 +2548,7 @@ RepeatLoad:
            if (! OpenOK)
             {
             error = 1;
-            Log(ERR_OPEN_FAIL, DBase[OBN].Name);
+            Log(ERR_OPEN_FAIL, (CONST_STRPTR)DBase[OBN].Name);
             break;
             } /* if file not found */
 
@@ -2578,7 +2578,7 @@ RepeatLoad:
             if (fread(FractalMap, FractalMapSize, 1, fFrd) != 1)
              {
              error = 1;
-             Log(ERR_READ_FAIL, FractalFile);
+             Log(ERR_READ_FAIL, (CONST_STRPTR)FractalFile);
              fclose(fFrd);
              goto MapCleanup;
              } /* if read error */
@@ -2721,14 +2721,14 @@ RepeatLoad:
             if (fwrite(FractalMap, FractalMapSize, 1, fFrd) != 1)
              {
              error = 1;
-             Log(ERR_WRITE_FAIL, FractalFile);
+             Log(ERR_WRITE_FAIL, (CONST_STRPTR)FractalFile);
 	     } /* if read error */
             fclose(fFrd);
 	    } /* if file exists */
            else
             {
             error = 1;
-            Log(ERR_OPEN_FAIL, FractalFile);
+            Log(ERR_OPEN_FAIL, (CONST_STRPTR)FractalFile);
 	    } /* else */
 
 MapCleanup:

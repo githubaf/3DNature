@@ -521,7 +521,7 @@ Cleanup:
   {
   sprintf(str, "%hd. %s Dir=%s", i, DBase[RenderList[i][0]].Name,
 	RenderList[i][1] ? "E-W": "W-E");
-  Log(MSG_UTIL_TAB, str);
+  Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
   } /* for i=0... */
 
  return error;

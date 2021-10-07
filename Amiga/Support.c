@@ -922,7 +922,7 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
 
  fclose(fproject);
 
- if (! SaveName) Log(MSG_PROJ_SAVE, projectname);
+ if (! SaveName) Log(MSG_PROJ_SAVE, (CONST_STRPTR)projectname);
  Proj_Mod = 0;
 
  if (! SaveName && NewName >= 0)
@@ -1445,7 +1445,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
    } /* if map window */
   }/* if update */
 
- if (! LoadName || ForceLoad) Log(MSG_PROJ_LOAD, projectname);
+ if (! LoadName || ForceLoad) Log(MSG_PROJ_LOAD, (CONST_STRPTR)projectname);
  Proj_Mod = 0;
  return (1);
 
@@ -1608,7 +1608,7 @@ short LoadDirList(void)
 
  fclose(fproject);
 
- Log(MSG_DIRLST_LOAD, name);
+ Log(MSG_DIRLST_LOAD, (CONST_STRPTR)name);
  Proj_Mod = 1;
  return (1);
 

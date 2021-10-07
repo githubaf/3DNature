@@ -703,7 +703,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
   {
   User_Message((CONST_STRPTR)DC_Win->InFile,
 		  (CONST_STRPTR)"Unable to open file for input!\n", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(WNG_OPEN_FAIL, DC_Win->InFile);
+  Log(WNG_OPEN_FAIL, (CONST_STRPTR)DC_Win->InFile);
   return;
   } /* if open error */
 
@@ -711,7 +711,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
   {
   User_Message((CONST_STRPTR)DC_Win->InFile,
 		  (CONST_STRPTR)"Unable to read file size!\n", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(WNG_READ_FAIL, DC_Win->InFile);
+  Log(WNG_READ_FAIL, (CONST_STRPTR)DC_Win->InFile);
   goto EndCheck;
   } /* if file size read fail */
  else
@@ -1247,7 +1247,7 @@ void Make_DI_Window(void)
 
  if (! dbaseloaded)
   {
-  NoLoad_Message("Data Ops: Interp DEM", "a Database");
+  NoLoad_Message((CONST_STRPTR)"Data Ops: Interp DEM", (CONST_STRPTR)"a Database");
   return;
   }
 

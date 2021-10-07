@@ -1505,7 +1505,7 @@ EndDig:
      if (! maptotopo(OBN))
       {
       sprintf (str, "Vector %s conformed to topography.", DBase[OBN].Name);
-      Log(MSG_NULL, str);
+      Log(MSG_NULL, (CONST_STRPTR)str);
       } /* if conform to terrain */
      } /* if topos loaded */
     } /* if map to topo */
@@ -1688,7 +1688,7 @@ EndDig:
       if (! maptotopo(OBN))
        {
        sprintf (str, "Vector %s conformed to topography.", DBase[OBN].Name);
-       Log(MSG_NULL, str);
+       Log(MSG_NULL, (CONST_STRPTR)str);
        } /* if conform to terrain */
       } /* if topos loaded */
      } /* if map to topo */
@@ -2324,7 +2324,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
          break; 
 	 } /* if abort */
         sprintf(str, "Rx[%d]=%ld  Ry[%d]=%ld", i, (long)Rx[i], i, (long)Ry[i]);
-        Log(DTA_NULL, str);
+        Log(DTA_NULL, (CONST_STRPTR)str);
         MapGUI_Message(1, str);
         break;
         } /* if Serial input */
@@ -2340,7 +2340,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
      lengthY = Ry[1] - Ry[0];
      length = sqrt(lengthX * lengthX + lengthY * lengthY);
      sprintf(str, "length %f %f %f\n",lengthX, lengthY, length);
-     Log(DTA_NULL, str);
+     Log(DTA_NULL, (CONST_STRPTR)str);
      if (Ry[1] == Ry[0])
       {
       if (Rx[1] > Rx[0]) MP_Rotate = 0.0;
@@ -2367,17 +2367,17 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
       } /* else */
 
      sprintf(str, "Map rotation = %f\n", MP_Rotate * PiUnder180);
-     Log(DTA_NULL, str);
+     Log(DTA_NULL, (CONST_STRPTR)str);
 
      MP_DigLonScale = (Elon - MP_Wlon) / length;
      sprintf(str, "Longitude scale = %f /point", MP_DigLonScale);
-     Log(DTA_NULL, str);
+     Log(DTA_NULL, (CONST_STRPTR)str);
 
      RotatePt(-MP_Rotate, &Rx[0], &Ry[0], &Rx[2], &Ry[2]);
 
      MP_DigLatScale = (Slat - MP_Nlat) / (Ry[2] - Ry[0]);
      sprintf(str, "Latitude scale = %f /point", MP_DigLatScale);
-     Log(DTA_NULL, str);
+     Log(DTA_NULL, (CONST_STRPTR)str);
      MP_ORy = Ry[0];
      MP_ORx = Rx[0];
      } /* if make new setup */

@@ -66,7 +66,9 @@ EXTERN struct Library *MUIMasterBase
 #endif /* MAIN */
 ;
 
-#include <clib/muimaster_protos.h>   //ALEXANDER
+#define NO_INLINE_STDARG              // Bebbo
+#include <proto/muimaster_lib.h>      // Alexander
+#undef  NO_INLINE_STDARG
 
 EXTERN LONG MemTrack;
 

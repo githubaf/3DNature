@@ -156,18 +156,18 @@ short i = 0;
 while (Call->WordToken[i] && i < 10)
  {
  sprintf(TextMsg, "AREXX: %s -- Token=%lu ", FromZone, Call->WordToken[i++]);
- Log(DTA_NULL, TextMsg);
+ Log(DTA_NULL, (CONST_STRPTR)TextMsg);
  }
 
 if(strlen(Call->InlineArg))
 	{
 	sprintf(TextMsg, "     InlineArg=%s", Call->InlineArg);
-	Log(DTA_NULL, TextMsg);
+	Log(DTA_NULL, (CONST_STRPTR)TextMsg);
 	} /* if */
 if(strlen(Call->ArgStr))
 	{
 	sprintf(TextMsg, "     Arg=%s", Call->ArgStr);
-	Log(DTA_NULL, TextMsg);
+	Log(DTA_NULL, (CONST_STRPTR)TextMsg);
 	} /* if */
 
 Call->ArgStr[0] = NULL; /* No return string */

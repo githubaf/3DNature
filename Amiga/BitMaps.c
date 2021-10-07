@@ -377,20 +377,20 @@ short SaveZBuf(short zformat, short renderseg, long numpts, UBYTE *ScratchPad,
     FormSize = OldFormSize + BodySize;
    else
     FormSize = 12 + 36 + BodySize;
-   strncpy(Hdr.ChunkID, "FORM", 4);
+   strncpy((char*)Hdr.ChunkID, "FORM", 4);
    Hdr.ChunkSize = FormSize;
    write(fhz, &Hdr, 8);
-   strncpy(Hdr.ChunkID, "ILBM", 4);
+   strncpy((char*)Hdr.ChunkID, "ILBM", 4);
    write(fhz, &Hdr, 4);
    if (AppendFile)
     lseek(fhz, ZBUFPtr, 0);
-   strncpy(Hdr.ChunkID, "ZBUF", 4);
+   strncpy((char*)Hdr.ChunkID, "ZBUF", 4);
    Hdr.ChunkSize = 36;
    write(fhz, &Hdr, 8);
    write(fhz, &ZBHdr, 36);
    if (AppendFile)
     lseek(fhz, ZBODPtr, 0);
-   strncpy(Hdr.ChunkID, "ZBOD", 4);
+   strncpy((char*)Hdr.ChunkID, "ZBOD", 4);
    Hdr.ChunkSize = BodySize + OldBodySize;
    write(fhz, &Hdr, 8);
    if (AppendFile)
@@ -631,7 +631,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   height += BMHdr.Height;
   } /* if appending existing file */
 
- if ((cbuf = (char *)get_Memory(scrnwidth + 16, MEMF_CLEAR)) == NULL)
+ if ((cbuf = (UBYTE *)get_Memory(scrnwidth + 16, MEMF_CLEAR)) == NULL)
   {
   error = 1;
   goto Scleanup;
@@ -938,7 +938,7 @@ Scleanup:
   {
   if (AskFile)
    User_Message((CONST_STRPTR)filename, (CONST_STRPTR)"Error saving image!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_WRITE_FAIL, filename);
+  Log(ERR_WRITE_FAIL, (CONST_STRPTR)filename);
   } /* if error */
 
  return (error);
@@ -1457,12 +1457,12 @@ Cleanup:
   {
   case 1:
    {
-   if (! SupressWng) Log(WNG_OPEN_FAIL, Name);
+   if (! SupressWng) Log(WNG_OPEN_FAIL, (CONST_STRPTR)Name);
    break;
    }
   case 2:
    {
-   Log(ERR_READ_FAIL, Name);
+   Log(ERR_READ_FAIL, (CONST_STRPTR)Name);
    break;
    }
   case 3:
@@ -1533,7 +1533,7 @@ STATIC_FCN short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
   } /* if file opened OK */
  else
   {
-  Log(ERR_OPEN_FAIL, Name);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)Name);
   } /* else open fail */
 
  return (success);

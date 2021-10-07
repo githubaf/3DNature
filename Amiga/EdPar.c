@@ -1833,13 +1833,13 @@ short loadparams(USHORT loadcode, short loaditem)
   else
    {
    fclose(fparam);
-   Log(ERR_READ_FAIL, tempfile);
+   Log(ERR_READ_FAIL, (CONST_STRPTR)tempfile);
    success = -1;
    } /* else read fail */
   } /* if file opened */
  else
   {
-  Log(ERR_OPEN_FAIL, tempfile);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)tempfile);
   success = -1;
   }
 
@@ -1872,7 +1872,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
  strmfp(filename, parampath, paramfile);
  if ((fparam = fopen(filename, "rb")) == NULL)
   {
-  Log(ERR_OPEN_FAIL, paramfile);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)paramfile);
   goto ReadError;
   } /* if */
 
@@ -2087,31 +2087,31 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
   case 0x0001:
    {
    sprintf(str, "%s motion, Ver %f", paramfile, TempHdr->Version);
-   Log(MSG_PAR_LOAD, str);
+   Log(MSG_PAR_LOAD, (CONST_STRPTR)str);
    break;
    } /* motion only */
   case 0x0010:
    {
    sprintf(str, "%s colors, Ver %f", paramfile, TempHdr->Version);
-   Log(MSG_PAR_LOAD, str);
+   Log(MSG_PAR_LOAD, (CONST_STRPTR)str);
    break;
    } /* colors only */
   case 0x0100:
    {
    sprintf(str, "%s ecosystems, Ver %f", paramfile, TempHdr->Version);
-   Log(MSG_PAR_LOAD, str);
+   Log(MSG_PAR_LOAD, (CONST_STRPTR)str);
    break;
    } /* ecosystems only */
   case 0x1000:
    {
    sprintf(str, "%s settings, Ver %f", paramfile, TempHdr->Version);
-   Log(MSG_PAR_LOAD, str);
+   Log(MSG_PAR_LOAD, (CONST_STRPTR)str);
    break;
    } /* settings only */
   case 0x1111:
    {
    sprintf(str, "%s all, Ver %f", paramfile, TempHdr->Version);
-   Log(MSG_PAR_LOAD, str);
+   Log(MSG_PAR_LOAD, (CONST_STRPTR)str);
    break;
    } /* all parameters */
   } /* switch loadcode */
@@ -2141,7 +2141,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
  return (1);
 
 ReadError:
- Log(ERR_READ_FAIL, paramfile);
+ Log(ERR_READ_FAIL, (CONST_STRPTR)paramfile);
  fclose(fparam);
 
  return (-1);
@@ -2189,7 +2189,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
  strmfp(filename, parampath, paramfile);
  if ((fparam = fopen(filename, "rb")) == NULL)
   {
-  Log(ERR_OPEN_FAIL, paramfile);
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)paramfile);
   goto ReadError;
   } /* if */
 
@@ -2476,31 +2476,31 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
   case 0x0001:
    {
    sprintf(str, "%s motion, Ver %f", paramfile, TempHdrV1.Version);
-   Log(MSG_PAR_LOAD, str);
+   Log(MSG_PAR_LOAD, (CONST_STRPTR)str);
    break;
    } /* motion only */
   case 0x0010:
    {
    sprintf(str, "%s colors, Ver %f", paramfile, TempHdrV1.Version);
-   Log(MSG_PAR_LOAD, str);
+   Log(MSG_PAR_LOAD, (CONST_STRPTR)str);
    break;
    } /* colors only */
   case 0x0100:
    {
    sprintf(str, "%s ecosystems, Ver %f", paramfile, TempHdrV1.Version);
-   Log(MSG_PAR_LOAD, str);
+   Log(MSG_PAR_LOAD, (CONST_STRPTR)str);
    break;
    } /* ecosystems only */
   case 0x1000:
    {
    sprintf(str, "%s settings, Ver %f", paramfile, TempHdrV1.Version);
-   Log(MSG_PAR_LOAD, str);
+   Log(MSG_PAR_LOAD, (CONST_STRPTR)str);
    break;
    } /* settings only */
   case 0x1111:
    {
    sprintf(str, "%s all, Ver %f", paramfile, TempHdrV1.Version);
-   Log(MSG_PAR_LOAD, str);
+   Log(MSG_PAR_LOAD, (CONST_STRPTR)str);
    break;
    } /* all parameters */
   } /* switch loadcode */
@@ -2536,7 +2536,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
  return (1);
 
 ReadError:
- Log(ERR_READ_FAIL, paramfile);
+ Log(ERR_READ_FAIL, (CONST_STRPTR)paramfile);
  fclose(fparam);
  if (settingsV1)
   free_Memory(settingsV1, sizeof (struct SettingsV1));
@@ -2876,7 +2876,7 @@ SaveRepeat:
   {
   if ((fparam = fopen(filename, "wb")) == NULL)
    {
-   Log(ERR_OPEN_FAIL, paramfile);
+   Log(ERR_OPEN_FAIL, (CONST_STRPTR)paramfile);
    if (User_Message((CONST_STRPTR)"paramfile",
            (CONST_STRPTR)"Error opening file for output!\nTry again?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
     goto SaveRepeat;
@@ -2892,7 +2892,7 @@ SaveRepeat:
    savecode = 0x1111;
    if ((fparam = fopen(filename, "wb")) == NULL)
     {
-    Log(ERR_OPEN_FAIL, paramfile);
+    Log(ERR_OPEN_FAIL, (CONST_STRPTR)paramfile);
     if (User_Message((CONST_STRPTR)"paramfile",
             (CONST_STRPTR)"Error opening file for output!\nTry again?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
      goto SaveRepeat;
@@ -2927,7 +2927,7 @@ SaveRepeat:
     savecode = 0x1111;
     if ((fparam = fopen(filename, "wb")) == NULL)
      {
-     Log(ERR_OPEN_FAIL, paramfile);
+     Log(ERR_OPEN_FAIL, (CONST_STRPTR)paramfile);
      if (User_Message((CONST_STRPTR)"paramfile",
              (CONST_STRPTR)"Error opening file for output!\nTry again?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
       goto SaveRepeat;
@@ -3105,31 +3105,31 @@ EndSave:
   case 0x0001:
    {
    sprintf(str, "%s motion", tempfile);
-   Log(MSG_PAR_SAVE, str);
+   Log(MSG_PAR_SAVE, (CONST_STRPTR)str);
    break;
    } /* motion only */
   case 0x0010:
    {
    sprintf(str, "%s colors", tempfile);
-   Log(MSG_PAR_SAVE, str);
+   Log(MSG_PAR_SAVE, (CONST_STRPTR)str);
    break;
    } /* colors only */
   case 0x0100:
    {
    sprintf(str, "%s ecosystems", tempfile);
-   Log(MSG_PAR_SAVE, str);
+   Log(MSG_PAR_SAVE, (CONST_STRPTR)str);
    break;
    } /* ecosystems only */
   case 0x1000:
    {
    sprintf(str, "%s settings", tempfile);
-   Log(MSG_PAR_SAVE, str);
+   Log(MSG_PAR_SAVE, (CONST_STRPTR)str);
    break;
    } /* settings only */
   case 0x1111:
    {
    sprintf(str, "%s all", tempfile);
-   Log(MSG_PAR_SAVE, str);
+   Log(MSG_PAR_SAVE, (CONST_STRPTR)str);
    break;
    } /* all parameters */
   } /* switch savecode */
@@ -3147,7 +3147,7 @@ EndSave:
 
 SaveError:
  fclose(fparam);
- Log(ERR_WRITE_FAIL, paramfile);
+ Log(ERR_WRITE_FAIL, (CONST_STRPTR)paramfile);
  User_Message((CONST_STRPTR)"paramfile",
          (CONST_STRPTR)"Error writing to Parameter file!\n\
 The output file has been modified and may no longer be valid.\

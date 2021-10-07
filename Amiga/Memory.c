@@ -15,7 +15,7 @@ void *get_Memory(long zsize, long attributes)
  if ((memblock = (void *)AllocMem(zsize,attributes)) == NULL)
   {
   sprintf(str, "Bytes = %ld", zsize);
-  Log(ERR_MEM_FAIL, str);
+  Log(ERR_MEM_FAIL, (CONST_STRPTR)str);
 /*
   sprintf(str, "Allocation: %d, Free: %d, Largest: %d\n", zsize, 
 	AvailMem(MEMF_FAST), AvailMem(MEMF_FAST | MEMF_LARGEST));

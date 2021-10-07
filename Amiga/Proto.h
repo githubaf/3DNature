@@ -966,7 +966,7 @@ extern USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CO
 //extern void NoMod_Message(STRPTR mod); // used locally only -> static, AF 25.7.2021
 extern USHORT CloseWindow_Query(STRPTR win);
 extern USHORT NoGUI_Message(STRPTR mod);
-extern void NoLoad_Message(STRPTR mod, STRPTR loaditem);
+extern void NoLoad_Message(CONST_STRPTR mod, CONST_STRPTR loaditem);
 //extern USHORT FileExists_Message(STRPTR existsfile); // AF, not used 26.July 2021
 extern short GetInputString(char *message, char *reject,
 	 char *string);
