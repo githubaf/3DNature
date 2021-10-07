@@ -248,9 +248,9 @@ struct datum *DT;
    else
     {
     success = 0;
-    User_Message("Map View: Build DEM",
-	"Insufficient data in gridded region to triangulate!\
- Increase the size of the gridded region or add more control points.", "OK", "o");
+    User_Message((CONST_STRPTR)"Map View: Build DEM",
+            (CONST_STRPTR)"Insufficient data in gridded region to triangulate!\
+ Increase the size of the gridded region or add more control points.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     goto EndRead;
     } /* else insufficient data */
 
@@ -1673,10 +1673,10 @@ double rS, rT, rB, bD, bB, hP;
 STATIC_FCN short TooSteep(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 
-   if (User_Message("Map View: Grid DEM",
-   "The ratio of vertical to horizontal map dimensions is too large for\
+   if (User_Message((CONST_STRPTR)"Map View: Grid DEM",
+           (CONST_STRPTR)"The ratio of vertical to horizontal map dimensions is too large for\
  gradient estimation. Scale the data if gradients are required.\nDo you wish to\
- continue without gradient estimation?", "Continue|Cancel", "oc"))
+ continue without gradient estimation?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc"))
     {
     NNG->igrad = 0;
     return (1);
@@ -1690,10 +1690,10 @@ STATIC_FCN short TooSteep(struct NNGrid *NNG) // used locally only -> static, AF
 STATIC_FCN short TooShallow(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 
-   if (User_Message("Map View: Grid DEM",
-   "The ratio of vertical to horizontal map dimensions is too small for\
+   if (User_Message((CONST_STRPTR)"Map View: Grid DEM",
+           (CONST_STRPTR)"The ratio of vertical to horizontal map dimensions is too small for\
  gradient estimation. Scale the data if gradients are required.\nDo you wish to\
- continue without gradient estimation?", "Continue|Cancel", "oc"))
+ continue without gradient estimation?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc"))
     {
     NNG->igrad = 0;
     return (1);
@@ -1707,12 +1707,12 @@ STATIC_FCN short TooShallow(struct NNGrid *NNG) // used locally only -> static, 
 STATIC_FCN short TooNarrow(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 
-   if (User_Message("Map View: Grid DEM",
-   "The ratio of width to length of this gridded region may be too extreme for\
+   if (User_Message((CONST_STRPTR)"Map View: Grid DEM",
+           (CONST_STRPTR)"The ratio of width to length of this gridded region may be too extreme for\
  good interpolation.\nChanging the block proportions, or rescaling the\
  x or y coordinate may be a good idea.\nContinue now with the present\
  dimensions?",
- "Continue|Cancel", "oc"))
+ (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc"))
     {
     return (1);
     }
@@ -1751,16 +1751,16 @@ double **matptr;
  if ((matptr = (double **) 
       get_Memory(nrows * sizeof(double *), MEMF_ANY)) EQ NULL)
   {
-  User_Message("Map View: Build DEM",
-	"Out of memory Double Matrix!\nOperation terminated.", "OK", "o");
+  User_Message((CONST_STRPTR)"Map View: Build DEM",
+          (CONST_STRPTR)"Out of memory Double Matrix!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
   } /* if */
  else
   {
   if ((matptr[0] = (double *) 
           get_Memory(nrows * ncols * sizeof(double), MEMF_ANY)) EQ NULL)
    {
-   User_Message("Map View: Build DEM",
-	"Out of memory allocating Double Matrix!\nOperation terminated.", "OK", "o");
+   User_Message((CONST_STRPTR)"Map View: Build DEM",
+           (CONST_STRPTR)"Out of memory allocating Double Matrix!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    } /* if */
   else
    {

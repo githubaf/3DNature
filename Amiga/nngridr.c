@@ -206,8 +206,8 @@ EndGrid:
    NNGrid_Del(NNG);
   } /* if NNGrid structure allocated */
  else
-  User_Message("Map View: Grid DEM", "Out of memory!\nOperation terminated.",
-	"OK", "o");
+  User_Message((CONST_STRPTR)"Map View: Grid DEM", (CONST_STRPTR)"Out of memory!\nOperation terminated.",
+          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
 
  return (success);
 

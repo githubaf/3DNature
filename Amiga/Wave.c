@@ -135,8 +135,8 @@ short Focus, Speed, Direction;
   } /* if a pattern exists */
  else
   {
-  Focus = User_Message_Def("Wave: Set Defaults",
-	"Select general wave center.", "Focus Point|Camera Point", "fc", 0);
+  Focus = User_Message_Def((CONST_STRPTR)"Wave: Set Defaults",
+          (CONST_STRPTR)"Select general wave center.", (CONST_STRPTR)"Focus Point|Camera Point", "fc", 0);
   Speed = User_Message_Def("Wave: Set Defaults",
 	"Select wave speed.", "Fast|Very Fast|Slow", "fvs", 1);
   Direction = User_Message_Def("Wave: Set Defaults",

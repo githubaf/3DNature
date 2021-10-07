@@ -507,9 +507,9 @@ short WinNum = 0;
    {
    if (WV_Win->Mod && WinNum == 0)
     {
-    if (User_Message_Def("Wave Editor",
-	"The current Wave Model has been modified. Do you wish to save it before closing?",
-	"Yes|No", "yn", 1))
+    if (User_Message_Def((CONST_STRPTR)"Wave Editor",
+            (CONST_STRPTR)"The current Wave Model has been modified. Do you wish to save it before closing?",
+            (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
      {
      char filename[256];
 
@@ -689,8 +689,8 @@ struct WaveWindow *WV_Win;
       }
      case 7:					/* ID_WV_DELKEYS(WinNum): */
       {
-      if (User_Message_Def("Wave Editor",
-	"Delete all wave key frames?", "OK|Cancel", "oc", 1))
+      if (User_Message_Def((CONST_STRPTR)"Wave Editor",
+              (CONST_STRPTR)"Delete all wave key frames?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
        {
        WV_Win->WD->NumKeys = 0;
        memset(WV_Win->WD->WaveKey, 0, WV_Win->WD->KFSize);
@@ -789,8 +789,8 @@ struct WaveWindow *WV_Win;
         {
         if ((WinNum == 0 && strcmp(wavepath, WV_Win->WaveDir)) || strcmp(wavefile, WV_Win->WaveFile))
          {
-         if (User_Message_Def("Wave Editor",
-	"Make this file the Project Wave File?", "Yes|No", "yn", 1))
+         if (User_Message_Def((CONST_STRPTR)"Wave Editor",
+                 (CONST_STRPTR)"Make this file the Project Wave File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
           {
           strcpy(wavepath, WV_Win->WaveDir);
           strcpy(wavefile, WV_Win->WaveFile);
@@ -1356,8 +1356,8 @@ struct Wave *WV;
 
  if (! MapWind0)
   {
-  if (User_Message_Def("Add Wave", "Map View Module must be open in order\
- to use this funcion. Would you like to open it now?", "OK|Cancel", "oc",1))
+  if (User_Message_Def((CONST_STRPTR)"Add Wave", (CONST_STRPTR)"Map View Module must be open in order\
+ to use this funcion. Would you like to open it now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc",1))
    {
    map();
 
@@ -1373,8 +1373,8 @@ struct Wave *WV;
 
  if (*Wave)
   {
-  if (User_Message("Map View: Wave Add",
-	"Remove all currently defined waves before adding new ones?", "Yes|No", "yn"))
+  if (User_Message((CONST_STRPTR)"Map View: Wave Add",
+          (CONST_STRPTR)"Remove all currently defined waves before adding new ones?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn"))
    {
    Wave_DelAll(*Wave);
    *Wave = NULL;

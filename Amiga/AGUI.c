@@ -2561,7 +2561,7 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
 
 /************************************************************************/
 
-void Log(USHORT StdMesgNum, STRPTR LogTag)
+void Log(USHORT StdMesgNum, CONST_STRPTR LogTag)
 {
 char *Prefix;
 
