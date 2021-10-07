@@ -136,11 +136,11 @@ short Focus, Speed, Direction;
  else
   {
   Focus = User_Message_Def((CONST_STRPTR)"Wave: Set Defaults",
-          (CONST_STRPTR)"Select general wave center.", (CONST_STRPTR)"Focus Point|Camera Point", "fc", 0);
-  Speed = User_Message_Def("Wave: Set Defaults",
-	"Select wave speed.", "Fast|Very Fast|Slow", "fvs", 1);
-  Direction = User_Message_Def("Wave: Set Defaults",
-	"Select wave direction.", "Spreading|Converging", "sc", 1) * 2 - 1;
+          (CONST_STRPTR)"Select general wave center.", (CONST_STRPTR)"Focus Point|Camera Point", (CONST_STRPTR)"fc", 0);
+  Speed = User_Message_Def((CONST_STRPTR)"Wave: Set Defaults",
+          (CONST_STRPTR)"Select wave speed.", (CONST_STRPTR)"Fast|Very Fast|Slow", (CONST_STRPTR)"fvs", 1);
+  Direction = User_Message_Def((CONST_STRPTR)"Wave: Set Defaults",
+          (CONST_STRPTR)"Select wave direction.", (CONST_STRPTR)"Spreading|Converging", (CONST_STRPTR)"sc", 1) * 2 - 1;
   NewWave->Amp = 2.0;
   NewWave->Length = .1;
   NewWave->Velocity = Direction * (5.0 + Speed * 100);

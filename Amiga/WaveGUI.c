@@ -520,8 +520,8 @@ short WinNum = 0;
        {
        if (strcmp(wavepath, WV_Win->WaveDir) || strcmp(wavefile, WV_Win->WaveFile))
         {
-        if (User_Message_Def("Wave Editor",
-	"Make this file the Project Wave File?", "Yes|No", "yn", 1))
+        if (User_Message_Def((CONST_STRPTR)"Wave Editor",
+                (CONST_STRPTR)"Make this file the Project Wave File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
          {
          strcpy(wavepath, WV_Win->WaveDir);
          strcpy(wavefile, WV_Win->WaveFile);
@@ -761,8 +761,8 @@ struct WaveWindow *WV_Win;
         GUIWave_SetGads(WV_Win, WV_Win->CurWave);
         if ((WinNum == 0 && strcmp(wavepath, WV_Win->WaveDir)) || strcmp(wavefile, WV_Win->WaveFile))
          {
-         if (User_Message_Def("Wave Editor",
-	"Make this file the Project Wave File?", "Yes|No", "yn", 1))
+         if (User_Message_Def((CONST_STRPTR)"Wave Editor",
+                 (CONST_STRPTR)"Make this file the Project Wave File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
           {
           strcpy(wavepath, WV_Win->WaveDir);
           strcpy(wavefile, WV_Win->WaveFile);

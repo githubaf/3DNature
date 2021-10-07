@@ -514,3 +514,6 @@ Also
 for FILE in $(find -type f -name "*.[c\|h]"); do sed -i "s/\(Log(.*,\) *\(.*\"\)/\1 (CONST_STRPTR)\2/g" $FILE; done
 
 --> 2602 Warnings
+
+Weiter mit Warnungs-Casting
+--> 2500 Warnings
