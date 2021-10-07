@@ -182,7 +182,7 @@ short makerelelfile(char *elevpath, char *elevfile)
  arraysize = (map.rows + 11) * (map.columns + 10) * sizeof (short);
  if ((arrayptr = (short *)get_Memory (arraysize, MEMF_ANY)) == NULL)
   {
-  Log(ERR_MEM_FAIL, "Creating Relative Elevation Model");
+  Log(ERR_MEM_FAIL, (CONST_STRPTR)"Creating Relative Elevation Model");
   error = 1;
   goto EndMap;
   } /* if */
@@ -216,7 +216,7 @@ short makerelelfile(char *elevpath, char *elevfile)
 
  if ((fhelev = open (filename, O_WRONLY | O_TRUNC | O_CREAT, 0)) == -1)
   {
-  Log(ERR_OPEN_FAIL, "Relative elevation");
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Relative elevation");
   error = 1;
   goto EndMap;
   } /* if error opening output file */
@@ -224,7 +224,7 @@ short makerelelfile(char *elevpath, char *elevfile)
  write (fhelev, (char *)&map, ELEVHDRLENV101);
  if (write (fhelev, (char *)map.map, map.size) != map.size)
   {
-  Log(ERR_WRITE_FAIL, "Relative elevation");
+  Log(ERR_WRITE_FAIL, (CONST_STRPTR)"Relative elevation");
   close (fhelev);
   error = 1;
   goto EndMap;

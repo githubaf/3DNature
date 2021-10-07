@@ -488,7 +488,7 @@ short autoactivate(void)
   } /* if out of memory */
  else if (result == 2)
   {
-  Log(MSG_NULL, "Render List: No maps found");
+  Log(MSG_NULL, (CONST_STRPTR)"Render List: No maps found");
   error = 1;
   RenderObjects = 0;
   goto Cleanup;
@@ -516,7 +516,7 @@ Cleanup:
  ElmapSize = OldElmapSize;
  BBoxSize = OldBBoxSize;
 
- Log(DTA_NULL, "Render List:");
+ Log(DTA_NULL, (CONST_STRPTR)"Render List:");
  for (i=0; i<RenderObjects; i++)
   {
   sprintf(str, "%hd. %s Dir=%s", i, DBase[RenderList[i][0]].Name,
@@ -539,7 +539,7 @@ STATIC_FCN void sortrenderlist(void) // used locally only -> static, AF 24.7.202
  Qsize = 4 * RenderObjects;
  if ((Qavg = (float *)get_Memory(Qsize, MEMF_CLEAR)) == NULL)
   {
-  Log(ERR_MEM_FAIL, "No render list!");
+  Log(ERR_MEM_FAIL, (CONST_STRPTR)"No render list!");
   return;
   } /* if */
  for (i=0; i<RenderObjects; i++)
@@ -579,7 +579,7 @@ void SortAltRenderList(void)
  Qsize = 4 * NoOfElMaps;
  if ((Qavg = (float *)get_Memory(Qsize, MEMF_CLEAR)) == NULL)
   {
-  Log(ERR_MEM_FAIL, "No render list!");
+  Log(ERR_MEM_FAIL, (CONST_STRPTR)"No render list!");
   return;
   } /* if get memory failed */
 

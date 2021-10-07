@@ -1467,12 +1467,12 @@ Cleanup:
    }
   case 3:
    {
-   Log(ERR_READ_FAIL, "Wrong image size");
+   Log(ERR_READ_FAIL, (CONST_STRPTR)"Wrong image size");
    break;
    }
   case 4:
    {
-   Log(ERR_READ_FAIL, "Wrong image depth");
+   Log(ERR_READ_FAIL, (CONST_STRPTR)"Wrong image depth");
    break;
    }
   case 5:

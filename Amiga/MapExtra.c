@@ -142,7 +142,7 @@ void normalize(void)
   return;
  }
 
- Log(MSG_NULL, "New normalizing data loaded.");
+ Log(MSG_NULL, (CONST_STRPTR)"New normalizing data loaded.");
   
 UseOldData:
  for (i=0; i<statcols; i++) {

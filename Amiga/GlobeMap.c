@@ -111,7 +111,7 @@ void globemap(void)
  initpar();
  frame = settings.startframe;
 
- Log(MSG_NULL, "Render initialization complete."); 
+ Log(MSG_NULL, (CONST_STRPTR)"Render initialization complete."); 
 
 #ifdef AMIGA_GUI
  if (render & 0x10)
@@ -133,7 +133,7 @@ void globemap(void)
 	flags, iflags, c0, c1, WCSScrn);
   if (!RenderWind0)
    {
-   Log(ERR_WIN_FAIL, "Render window.");
+   Log(ERR_WIN_FAIL, (CONST_STRPTR)"Render window.");
    User_Message("Render Module", "Error opening render window!\nOperation terminated.", "OK", "o");
    goto Cleanup2;
    }
@@ -404,7 +404,7 @@ Continue without Waves?", "Continue|Cancel", "oc"))
     } /* if hdr open */
    else
     {
-    Log(ERR_OPEN_FAIL, "Master CMap Header File");
+    Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Master CMap Header File");
     ReadError = 1;
     } /* else no header file */
 
@@ -505,7 +505,7 @@ Continue without Waves?", "Continue|Cancel", "oc"))
  BuildTrigTables();
 
 #ifdef AMIGA_GUI
- Log(MSG_NULL, "Render memory allocated.");
+ Log(MSG_NULL, (CONST_STRPTR)"Render memory allocated.");
  lmemblock = AvailMem(MEMF_FAST | MEMF_LARGEST);
  sprintf(str, "Largest available memory block = %lu", lmemblock); 
  Log(MSG_NULL, str);
@@ -660,7 +660,7 @@ RepeatAlloc2:
    if (! settings.linetoscreen) fclose(fvector);
    if (error) break;
 
-   Log(DTA_NULL, "Fractals:");
+   Log(DTA_NULL, (CONST_STRPTR)"Fractals:");
    for (ct=0; ct<=settings.fractal; ct++)
     {
     if (fracount[ct])
@@ -671,7 +671,7 @@ RepeatAlloc2:
      } /* if fracount */
     } /* for ct=0... */
 
-   Log(DTA_NULL, "Ecosystems:");
+   Log(DTA_NULL, (CONST_STRPTR)"Ecosystems:");
    for (ct=0; ct<ECOPARAMS; ct++)
     {
     if (ecocount[ct])
@@ -1080,13 +1080,13 @@ STATIC_FCN short InitDEMMap(struct Window *win, struct CloudData *CD) // used lo
    if (i == 10)
     {
     CMapEnabled = 0;
-    Log(WNG_NULL, "Color map directory not found.");
+    Log(WNG_NULL, (CONST_STRPTR)"Color map directory not found.");
     } /* directory not found by appending frame # */
    } /* if directory not found as entered by user */
   chdir(path);
   } /* if use color maps */
  OrigOBN = OBN;
- Log(DTA_NULL, "Polygons:");
+ Log(DTA_NULL, (CONST_STRPTR)"Polygons:");
  objectlimit = RenderObjects;
 
  if (settings.fieldrender)

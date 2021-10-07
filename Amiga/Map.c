@@ -878,7 +878,7 @@ FILE *felev;
 
 /* couldn't make a relel file either */
 
- Log(WNG_OPEN_FAIL, "Relative elevation file");
+ Log(WNG_OPEN_FAIL, (CONST_STRPTR)"Relative elevation file");
  free_Memory(mapelmap[MapNum].lmap, mapelmap[MapNum].size * 2);
  This->map = NULL;
  mapelmap[MapNum].lmap = NULL;
@@ -1821,7 +1821,7 @@ void Viewshed_Map(long OBN)
   {
   User_Message("Mapping Module",
 	 "Error opening viewshed window!\nExecution terminated.", "OK", "o");
-  Log(ERR_WIN_FAIL, "Mapping module");
+  Log(ERR_WIN_FAIL, (CONST_STRPTR)"Mapping module");
   return;
   }
 
@@ -2350,7 +2350,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
        User_Message("Mapping Module: Digitize",
 	"Illegal value!\nTwo registration points may not be coincident.\nOperation terminated.",
 	"OK", "o");
-       Log(WNG_ILL_VAL, "Registration points coincident");
+       Log(WNG_ILL_VAL, (CONST_STRPTR)"Registration points coincident");
        error = 1;
        goto EndCheck;
        } /* else two points identical */
@@ -2644,7 +2644,7 @@ STATIC_FCN short Set_Eco_Color(long Lra, long Lca, short i, short *RelEl) // use
 
    if (eco >= ECOPARAMS)
     {
-    Log(WNG_ILL_VAL, "Ecosystem out of range.");
+    Log(WNG_ILL_VAL, (CONST_STRPTR)"Ecosystem out of range.");
     eco = ECOPARAMS - 1;
     } /* if */
 

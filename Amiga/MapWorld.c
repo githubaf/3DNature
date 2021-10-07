@@ -48,7 +48,7 @@ void mapworld(struct Window *win)
 
   if (! OpenOK)
    {
-   Log(WNG_OPEN_FAIL, "earth_topo_720x360");
+   Log(WNG_OPEN_FAIL, (CONST_STRPTR)"earth_topo_720x360");
    return;
    }
 
@@ -59,7 +59,7 @@ void mapworld(struct Window *win)
     {
     if (fread((char *)&val, 4, 1, fname) != 1)
      {
-     Log(ERR_READ_FAIL,"world topo data");
+     Log(ERR_READ_FAIL, (CONST_STRPTR)"world topo data");
      error = 1;
      break;
      } /* if */
@@ -145,7 +145,7 @@ void mapworld(struct Window *win)
 
   if (! OpenOK)
    {
-   Log(WNG_OPEN_FAIL, "NORTH.BTH");
+   Log(WNG_OPEN_FAIL, (CONST_STRPTR)"NORTH.BTH");
    return;
    } /* if */
 
@@ -246,7 +246,7 @@ MapSouth:
 
     if (! OpenOK)
      {
-     Log(WNG_OPEN_FAIL, "SOUTH.BTH");
+     Log(WNG_OPEN_FAIL, (CONST_STRPTR)"SOUTH.BTH");
      return;
      }
     hemisphere = 1;

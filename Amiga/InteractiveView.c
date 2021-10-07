@@ -31,14 +31,14 @@ short interactiveview(short new_window)
   {
   User_Message("Parameters Module: Camera View",
 	"You must first load a complete Parameter file!", "OK", "o");
-  Log(ERR_NO_LOAD, "Complete parameter file");
+  Log(ERR_NO_LOAD, (CONST_STRPTR)"Complete parameter file");
   return(0);
   } /* if no parameter file loaded */
  if (NoOfObjects == 0)
   {
   User_Message("Parameters Module: Camera View",
 	"There are no objects in this Database!\nOperation terminated", "OK", "o");
-  Log(ERR_NO_LOAD, "No objects in Database");
+  Log(ERR_NO_LOAD, (CONST_STRPTR)"No objects in Database");
   return(0);
   } /* if no parameter file loaded */
 
@@ -59,7 +59,7 @@ short interactiveview(short new_window)
    {
    User_Message("Editing Module: Interactive",
 	"Camera View failed to open!\nOperation terminated.", "OK", "o");
-   Log(ERR_WIN_FAIL, "Camera View");
+   Log(ERR_WIN_FAIL, (CONST_STRPTR)"Camera View");
    goto Cleanup;
    } /* if error opening window */
   } /* if open new window */
@@ -878,7 +878,7 @@ void smallwindow(short diagnostics)
   {
   User_Message("Camera View",
 	"Error opening Small Rendering Window!\nOperation terminated.", "OK", "o");
-  Log(ERR_WIN_FAIL, "Small rendering window.");
+  Log(ERR_WIN_FAIL, (CONST_STRPTR)"Small rendering window.");
   goto Cleanup;
   } /* if can't open window */
 
@@ -1332,7 +1332,7 @@ EndMap:
   if (abort) break;
   } /* for j=0... */
 
- Log(DTA_NULL, "Ecosystems:");
+ Log(DTA_NULL, (CONST_STRPTR)"Ecosystems:");
  for (i=0; i<ECOPARAMS; i++)
   {
   if (ecocount[i])

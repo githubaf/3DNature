@@ -78,7 +78,7 @@ short error = 0, i, SetDefault = 0;
    } /* no file */
   case 2:
    {
-   Log(ERR_WRONG_TYPE, "Unsupported Database file format.");
+   Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Unsupported Database file format.");
    if (! FileName)
     User_Message((CONST_STRPTR)"Database: Load",
     		(CONST_STRPTR)"Not a WCS Database file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");

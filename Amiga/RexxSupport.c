@@ -553,14 +553,14 @@ for(Index = WordSize = 0; WordSize < (WBufSize - 1); Index++)
 						return(Source); /* this'll be clever */
 						} /* if */
 					} /* if */
-				Log(ERR_NULL, "Non-alphabetic character found in command word."); /* <<<>>> */
+				Log(ERR_NULL, (CONST_STRPTR)"Non-alphabetic character found in command word."); /* <<<>>> */
 				return(0);
 				} /* else */
 			} /* default */
 		} /* switch */
 	} /* for */
 
-Log(ERR_NULL, "Command word size exceeded."); /* <<<>>> */
+Log(ERR_NULL, (CONST_STRPTR)"Command word size exceeded."); /* <<<>>> */
 return(0);
 
 } /* Cmd_PullWord */
@@ -775,7 +775,7 @@ for(Quoted = Index = WordSize = 0; WordSize < (ArgSize - 1); Index++)
 		} /* switch */
 	} /* for */
 
-Log(ERR_NULL, "Inline Arg size exceeded.");
+Log(ERR_NULL, (CONST_STRPTR)"Inline Arg size exceeded.");
 return(0);
 
 } /* Cmd_FetchInlineArg() */

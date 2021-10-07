@@ -1261,20 +1261,20 @@ union KeyFrame *KFPtr;
     } /* if CD */
    else
     {
-    Log(ERR_MEM_FAIL, "Cloud File");
+    Log(ERR_MEM_FAIL, (CONST_STRPTR)"Cloud File");
     success = 0;
     }
    } /* if correct file type */
   else
    {
-   Log(ERR_WRONG_TYPE, "Cloud File");
+   Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Cloud File");
    success = 0;
    } /* else */
   fclose(fCloud);
   } /* if file opened */
  else
   {
-  Log(ERR_OPEN_FAIL, "Cloud File");
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Cloud File");
   success = 0;
   } /* else no file */
 
@@ -1408,7 +1408,7 @@ union KeyFrame *KFPtr;
   } /* if file opened */
  else
   {
-  Log(ERR_OPEN_FAIL, "Cloud File");
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Cloud File");
   return (0);
   } /* else no file */
 

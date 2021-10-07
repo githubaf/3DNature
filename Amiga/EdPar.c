@@ -1777,7 +1777,7 @@ short loadparams(USHORT loadcode, short loaditem)
    if (fileversion < 1.0)
     {
     fclose(fparam);
-    Log(ERR_WRONG_TYPE, "Version < 1.0");
+    Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Version < 1.0");
     User_Message("Parameter Module: Load",
 	"Unsupported Parameter file type or version!\nOperation terminated.", "OK", "o");
     } /*  if version = 0.0 */
@@ -2918,7 +2918,7 @@ SaveRepeat:
    else fileversion = 0.0;
    if (fileversion < 2.0)
     {
-    Log(ERR_WRONG_TYPE, "Version < 2.0");
+    Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Version < 2.0");
     if (! User_Message("Parameter Editing Module",
 	"Partial files may not be written to old file versions!\n\
 	Do you wish to save the entire parameter file?", "OK|Cancel", "oc"))

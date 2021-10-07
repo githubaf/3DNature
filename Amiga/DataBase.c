@@ -53,7 +53,7 @@ short loaddbase(short lowi, short AskName)
  fscanf(fname, "%hd", &NoOfFields);
  if (NoOfFields != 13)
   {
-  Log(ERR_WRONG_TYPE, "Unsupported Database file format.");
+  Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Unsupported Database file format.");
   fclose(fname);
   goto RestoreName;
   } // if
@@ -474,7 +474,7 @@ RepeatSave:
 
  if (error < 0)
   {
-  Log(ERR_WRITE_FAIL, "Database");
+  Log(ERR_WRITE_FAIL, (CONST_STRPTR)"Database");
   strcpy(dbasepath, oldpath);
   strcpy(dbasename, oldname);
   return (1);

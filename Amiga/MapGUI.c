@@ -818,7 +818,7 @@ short map(void)
 
  if (! MapWind0)
   {
-  Log(ERR_WIN_FAIL, "Mapping module");
+  Log(ERR_WIN_FAIL, (CONST_STRPTR)"Mapping module");
   return (0);
   }
 
@@ -1744,7 +1744,7 @@ HandleEvent:
          Log(MSG_NULL, str);
 	 }
         else
-         Log(MSG_NULL, "Vector topo conformation aborted.");
+         Log(MSG_NULL, (CONST_STRPTR)"Vector topo conformation aborted.");
         }
        }
       break;
@@ -1776,7 +1776,7 @@ HandleEvent:
         BusyWin_Del(BWMT);
        if (! error)
         {
-        Log(MSG_NULL, "All enabled vectors conformed to topography.");
+        Log(MSG_NULL, (CONST_STRPTR)"All enabled vectors conformed to topography.");
         } /* if ! error */
        else
         {

@@ -2816,63 +2816,63 @@ Cleanup:
    {
    User_Message("Data Ops: Convert DEM",
 	"Unable to open file for input!\nOperation terminated.", "OK", "o");
-   Log(ERR_OPEN_FAIL, "Convert DEM source file");
+   Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file open fail */
   case 3:
    {
    User_Message("Data Ops: Convert DEM",
 	"Incorrect file size for specified header, width and height!\nOperation terminated.", "OK", "o");
-   Log(ERR_WRONG_SIZE, "Convert DEM source file");
+   Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file size fail */
   case 4:
    {
    User_Message("Data Ops: Convert DEM",
 	"Unable to open file for output!\nOperation terminated.", "OK", "o");
-   Log(ERR_OPEN_FAIL, "Convert DEM destination file");
+   Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Convert DEM destination file");
    break;
    } /* file open fail */
   case 5:
    {
    User_Message("Data Ops: Convert DEM",
 	"Error writing destination file!\nOperation terminated.", "OK", "o");
-   Log(ERR_WRITE_FAIL, "Convert DEM destination file");
+   Log(ERR_WRITE_FAIL, (CONST_STRPTR)"Convert DEM destination file");
    break;
    } /* file open fail */
   case 6:
    {
    User_Message("Data Ops: Convert DEM",
 	"Error reading source file!\nOperation terminated.", "OK", "o");
-   Log(ERR_WRONG_SIZE, "Convert DEM source file");
+   Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file open fail */
   case 7:
    {
    User_Message("Data Ops: Convert DEM",
 	"Not a compressed file!\nOperation terminated.", "OK", "o");
-   Log(ERR_WRONG_SIZE, "Convert DEM source file");
+   Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file open fail */
   case 8:
    {
    User_Message("Data Ops: Convert DEM",
 	"Extended header!\nOperation terminated.", "OK", "o");
-   Log(ERR_WRONG_SIZE, "Convert DEM source file");
+   Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file open fail */
   case 10:
    {
    User_Message("Data Ops: Convert DEM",
 	"Input file configuration not yet supported!\nOperation terminated.", "OK", "o");
-   Log(ERR_READ_FAIL, "Convert DEM source type");
+   Log(ERR_READ_FAIL, (CONST_STRPTR)"Convert DEM source type");
    break;
    } /* file type fail */
   case 11:
    {
    User_Message("Data Ops: Convert DEM",
 	"Input data format not supported!\nCheck your settings.\nOperation terminated.", "OK", "o");
-   Log(ERR_READ_FAIL, "Convert DEM source type");
+   Log(ERR_READ_FAIL, (CONST_STRPTR)"Convert DEM source type");
    break;
    } /* file type fail */
   case 12:
@@ -2883,7 +2883,7 @@ Cleanup:
    } /* out of memory for database expansion */
   case 13:
    {
-   Log(ERR_WRONG_SIZE, "Convert DEM source file");
+   Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file open fail */
   case 14:
@@ -2896,7 +2896,7 @@ Cleanup:
    {
    User_Message("Data Ops: Convert DEM",
 	"Input file not recognized as a DTED file!\nOperation terminated.", "OK", "o");
-   Log(ERR_WRONG_TYPE, "DTED");
+   Log(ERR_WRONG_TYPE, (CONST_STRPTR)"DTED");
    break;
    }
   case 50:

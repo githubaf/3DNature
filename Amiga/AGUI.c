@@ -2204,7 +2204,7 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
           } /* if window already exists */
         else
           { /* need to create log window */
-          Log(32, "Log window opened.");
+          Log(32, (CONST_STRPTR)"Log window opened.");
           } /* else */
         get(Log_Win->LogWindow, MUIA_Window_Open, &Open);
         DoMethod(app, MUIM_Application_SetMenuCheck, ID_LOG, Open);

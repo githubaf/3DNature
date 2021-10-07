@@ -261,7 +261,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 
  if (eco >= ECOPARAMS)
   {
-  Log(WNG_ILL_VAL, "Ecosystem out of range.");
+  Log(WNG_ILL_VAL, (CONST_STRPTR)"Ecosystem out of range.");
   eco = settings.defaulteco;
   understory = ecoset(eco, notsnow, CC);
   } /* if */
@@ -1371,7 +1371,7 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
 
     if (eco >= ECOPARAMS)
      {
-     Log(WNG_ILL_VAL, "Ecosystem out of range.");
+     Log(WNG_ILL_VAL, (CONST_STRPTR)"Ecosystem out of range.");
      eco = settings.defaulteco;
      } /* if */
 

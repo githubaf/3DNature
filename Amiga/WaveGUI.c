@@ -1201,20 +1201,20 @@ union KeyFrame *KFPtr;
     } /* if WV */
    else
     {
-    Log(ERR_MEM_FAIL, "Wave File");
+    Log(ERR_MEM_FAIL, (CONST_STRPTR)"Wave File");
     success = 0;
     }
    } /* if correct file type */
   else
    {
-   Log(ERR_WRONG_TYPE, "Wave File");
+   Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Wave File");
    success = 0;
    } /* else */
   fclose(fWave);
   } /* if file opened */
  else
   {
-  Log(ERR_OPEN_FAIL, "Wave File");
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Wave File");
   success = 0;
   } /* else no file */
 
@@ -1301,7 +1301,7 @@ union KeyFrame *KFPtr;
   } /* if file opened */
  else
   {
-  Log(ERR_OPEN_FAIL, "Wave File");
+  Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Wave File");
   return (0);
   } /* else no file */
 

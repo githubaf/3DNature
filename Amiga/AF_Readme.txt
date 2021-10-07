@@ -511,4 +511,6 @@ Es gibt viele Log()-Aufrufe, die auch (CONST_STRPTR) brauchen:
 #echo "Log(ERR_OPEN_FAIL, \"Wave File\");" | sed "s/\(Log(.*,\) *\(.*\"\)/\1 (CONST_STR_PTR)\2/g"
 
 Also
-for FILE in $(find -type f -name "*.[c\|h]"); do sed -i "s/\(Log(.*,\) *\(.*\"\)/\1 (CONST_STR_PTR)\2/g" $FILE; done
+for FILE in $(find -type f -name "*.[c\|h]"); do sed -i "s/\(Log(.*,\) *\(.*\"\)/\1 (CONST_STRPTR)\2/g" $FILE; done
+
+--> 2602 Warnings
