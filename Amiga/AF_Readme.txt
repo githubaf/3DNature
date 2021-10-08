@@ -525,3 +525,8 @@ und weiter
 WCS_040_basr_mregparm_lto auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
 Canyon Sunset, Pal-Hires, Groeﬂe/4  4:35:17, schnellstes Ergebnis!
 
+8.Oktober 2021
+--------------
+-ffast-math funktioniert mit -m68040, wenn zusaetzlich -mregparm angegeben wird, sonst nicht!
+
+Die Variante mit -fbaserel (-m68040 -ffast-math -mreparm -fbaserel -flto) ist 120k kleiner als die ohne -fbaserel.
