@@ -837,7 +837,7 @@ void Handle_TL_Window(ULONG WCS_ID)
       {
       if (*TL_Win->KFSizePtr != TL_Win->AltKFsize
 	 || memcmp(*TL_Win->KFPtr, TL_Win->AltKF, *TL_Win->KFSizePtr))
-       Close_TL_Window(&TLWin[WinNum], CloseWindow_Query("Time Lines"));
+       Close_TL_Window(&TLWin[WinNum], CloseWindow_Query((STRPTR)"Time Lines"));
       else
        Close_TL_Window(&TLWin[WinNum], 1);
       break;

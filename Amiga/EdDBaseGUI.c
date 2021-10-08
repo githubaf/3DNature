@@ -1900,7 +1900,7 @@ void Handle_DL_Window(ULONG WCS_ID)
       }
      case ID_DL_CLOSEQUERY:
       {
-      if (! CloseWindow_Query("Directory List"))
+      if (! CloseWindow_Query((STRPTR)"Directory List"))
        {
        strcpy(dirname, DL_Win->Dirname);
        swmem(DL, DL_Win->DLCopy, sizeof (struct DirList *));

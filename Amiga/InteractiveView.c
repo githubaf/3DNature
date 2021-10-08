@@ -1580,7 +1580,7 @@ short abort = 0;
    {
    case CLOSEWINDOW:
     {
-    Close_EMIA_Window(CloseWindow_Query("Interactive Motion"));
+    Close_EMIA_Window(CloseWindow_Query((STRPTR)"Interactive Motion"));
     abort = 1;
     break;
     } /* CLOSEWINDOW */

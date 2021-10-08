@@ -862,7 +862,7 @@ void Handle_EC_Window(ULONG WCS_ID)
       {
       if (KFsize != EC_Win->AltKFsize || memcmp(KF, EC_Win->AltKF, KFsize)
 		|| memcmp(&CoPar, &UndoCoPar[0], sizeof (CoPar)))
-       Close_EC_Window(CloseWindow_Query("Color Editor"));
+       Close_EC_Window(CloseWindow_Query((STRPTR)"Color Editor"));
       else
        Close_EC_Window(1);
       break;

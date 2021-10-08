@@ -452,7 +452,7 @@ void Handle_EMTL_Window(ULONG WCS_ID)
      case ID_EMTL_CLOSEQUERY:
       {
       if (KFsize != EMTL_Win->AltKFsize || memcmp(KF, EMTL_Win->AltKF, KFsize))
-       Close_EMTL_Window(CloseWindow_Query("Motion Time Lines"));
+       Close_EMTL_Window(CloseWindow_Query((STRPTR)"Motion Time Lines"));
       else
        Close_EMTL_Window(1);
       break;
@@ -1297,7 +1297,7 @@ void Handle_ECTL_Window(ULONG WCS_ID)
      case ID_ECTL_CLOSEQUERY:
       {
       if (KFsize != ECTL_Win->AltKFsize || memcmp(KF, ECTL_Win->AltKF, KFsize))
-       Close_ECTL_Window(CloseWindow_Query("Color Time Lines"));
+       Close_ECTL_Window(CloseWindow_Query((STRPTR)"Color Time Lines"));
       else
        Close_ECTL_Window(1);
       break;
@@ -2075,7 +2075,7 @@ void Handle_EETL_Window(ULONG WCS_ID)
      case ID_EETL_CLOSEQUERY:
       {
       if (KFsize != EETL_Win->AltKFsize || memcmp(KF, EETL_Win->AltKF, KFsize))
-       Close_EETL_Window(CloseWindow_Query("Ecosystem Time Lines"));
+       Close_EETL_Window(CloseWindow_Query((STRPTR)"Ecosystem Time Lines"));
       else
        Close_EETL_Window(1);
       break;

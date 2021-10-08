@@ -1137,7 +1137,7 @@ void Handle_ES_Window(ULONG WCS_ID)
       if (memcmp(&settings, &UndoSetPar[0], sizeof (settings)))
        {
        Par_Mod |= 0x1000;
-       Close_ES_Window(CloseWindow_Query("Settings Editor"));
+       Close_ES_Window(CloseWindow_Query((STRPTR)"Settings Editor"));
        }
       else
        Close_ES_Window(1);

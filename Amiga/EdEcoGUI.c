@@ -861,7 +861,7 @@ void Handle_EE_Window(ULONG WCS_ID)
       {
       if (KFsize != EE_Win->AltKFsize || memcmp(KF, EE_Win->AltKF, KFsize)
 		|| memcmp(&EcoPar, &UndoEcoPar[0], sizeof (EcoPar)))
-       Close_EE_Window(CloseWindow_Query("Ecosystem Editor"));
+       Close_EE_Window(CloseWindow_Query((STRPTR)"Ecosystem Editor"));
       else
        Close_EE_Window(1);
       break;

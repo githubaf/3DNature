@@ -699,7 +699,7 @@ void Handle_EM_Window(ULONG WCS_ID)
       {
       if (KFsize != EM_Win->AltKFsize || memcmp(KF, EM_Win->AltKF, KFsize)
 		|| memcmp(&MoPar, &UndoMoPar[0], sizeof (MoPar)))
-       Close_EM_Window(CloseWindow_Query("Motion Editor"));
+       Close_EM_Window(CloseWindow_Query((STRPTR)"Motion Editor"));
       else
        Close_EM_Window(1);
       break;
@@ -1909,7 +1909,7 @@ void Handle_EMIA_Window(ULONG WCS_ID)
       {
       if (KFsize != EM_Win->AltKFsize || memcmp(KF, EM_Win->AltKF, KFsize)
 		|| memcmp(&MoPar, &UndoMoPar[0], sizeof (MoPar)))
-       Close_EMIA_Window(CloseWindow_Query("Interactive Motion"));
+       Close_EMIA_Window(CloseWindow_Query((STRPTR)"Interactive Motion"));
       else
        Close_EMIA_Window(1);
       break;

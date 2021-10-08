@@ -263,7 +263,7 @@ void Handle_TS_Window(ULONG WCS_ID)
      case ID_TS_CLOSEQUERY:
       {
       if (TS_Win->Mod)
-       Close_TS_Window(CloseWindow_Query("Sun Time Window"));
+       Close_TS_Window(CloseWindow_Query((STRPTR)"Sun Time Window"));
       else
        Close_TS_Window(1);
       break;
