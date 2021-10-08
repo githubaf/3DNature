@@ -1399,7 +1399,7 @@ struct Wave *WV;
   sprintf(str, "\0338Set Cloud Wave Source Point %d", WaveNum);
   MapGUI_Message(0, str);
   sprintf(str, "Set Cloud Wave Source Point %d", WaveNum);
-  SetWindowTitles(MapWind0, (CONST_STRPTR)str, (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) (CONST_STRPTR)str, (UBYTE *)-1);
 
   if (! MousePtSet(&Bx.Low, NULL, 0))
    {
@@ -1408,7 +1408,7 @@ struct Wave *WV;
 
   MapGUI_Message(0, " ");
   MapIDCMP_Restore(MapWind0);
-  SetWindowTitles(MapWind0, (CONST_STRPTR)"Map View", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) (CONST_STRPTR)"Map View", (UBYTE *)-1);
   if (done)
    break;
 

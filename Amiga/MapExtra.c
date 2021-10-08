@@ -624,13 +624,13 @@ void FindDistance(void)
  struct Box Bx;
 
  MapGUI_Message(0, "\0338Set origin point.");
- SetWindowTitles(MapWind0, "Set origin point", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Set origin point", (UBYTE *)-1);
 
  if (! MousePtSet(&Bx.Low, NULL, 0))
   goto EndShift;
 
  MapGUI_Message(0, "\0338Set destination point. ESC=abort");
- SetWindowTitles(MapWind0, "Set destination point", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Set destination point", (UBYTE *)-1);
 	
  if (! MousePtSet(&Bx.High, &Bx.Low, 1))
   goto EndShift;
@@ -650,13 +650,13 @@ void FindDistance(void)
  MapGUI_Message(0, str);
 
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
  return;
 
 EndShift:
  MapIDCMP_Restore(MapWind0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
 
 } /* FindDistance() */
 
@@ -725,10 +725,10 @@ void setorigin(void)
  setclipbounds(MapWind0, &cb);
 
  MapGUI_Message(0, "\0338Select new origin. Q=done, Uu=up, Dd=down, ESC=abort");
- SetWindowTitles(MapWind0, "Select new origin", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Select new origin", (UBYTE *)-1);
  selectpoint = modpoints(0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
  if (selectpoint == 0)
   return;
 
@@ -788,12 +788,12 @@ void matchpoints(void)
  firstobj = OBN;
 
  MapGUI_Message(0, "\0338Select first source vertex. Q=done Uu=up Dd=down ESC=abort");
- SetWindowTitles(MapWind0, "Select first source vertex", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Select first source vertex", (UBYTE *)-1);
  if ((matchC = modpoints(0)) == 0)
   goto AbortMatch;
 
  MapGUI_Message(0, "\0338Select last source vertex. Q=done Uu=up Dd=down ESC=abort");
- SetWindowTitles(MapWind0, "Select last source vertex", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Select last source vertex", (UBYTE *)-1);
  if ((matchD = modpoints(0)) == 0)
   goto AbortMatch;
  match2 = matchD - matchC;
@@ -805,17 +805,17 @@ void matchpoints(void)
   goto AbortMatch;
 
  MapGUI_Message(0, "\0338Select first dest'n vertex. Q=done Uu=up Dd=down ESC=abort");
- SetWindowTitles(MapWind0, "Select first destination vertex", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Select first destination vertex", (UBYTE *)-1);
  if ((matchA = modpoints(0)) == 0)
   goto AbortMatch;
 
  MapGUI_Message(0, "\0338Select last dest'n vertex. Q=done Uu=up Dd=down ESC=abort");
- SetWindowTitles(MapWind0, "Set last destination vertex", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Set last destination vertex", (UBYTE *)-1);
  if ((matchB = modpoints(0)) == 0)
   goto AbortMatch;
 
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
 
  match1 = matchB - matchA;
  if (match1 > match2)
@@ -946,7 +946,7 @@ void matchpoints(void)
 
 AbortMatch:
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
  if (matchobj)
   outline(MapWind0, matchobj, DBase[matchobj].Color, &cb);
  OBN = firstobj;
@@ -1251,7 +1251,7 @@ void makestream(short lowj)
  if (lowj == 0)
   {
   MapGUI_Message(0, "\0338Select stream start point. ESC=abort");
-  SetWindowTitles(MapWind0, "Select stream start point", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) "Select stream start point", (UBYTE *)-1);
 
   SetAPen(MapWind0->RPort, 1);
 
@@ -1271,7 +1271,7 @@ void makestream(short lowj)
   } /* else */
 
  MapGUI_Message(0, "\0338Select approximate stream end point. ESC=abort");
- SetWindowTitles(MapWind0, "Select approximate stream end point", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Select approximate stream end point", (UBYTE *)-1);
  strcpy(str,"Making Stream: click on stream end point. ESC=abort");
  if (! MousePtSet(&Bx.High, &Bx.Low, 1))
   {
@@ -1480,7 +1480,7 @@ EndModify:
 EndStream:
  MapGUI_Message(0, " ");
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
 
 } /* makestream() */
 
@@ -1648,7 +1648,7 @@ void SetSurface_Map(ULONG surface)
  sprintf(str, "\0338Select Surface %lu Elevation. ESC=Abort", surface + 1);
  MapGUI_Message(0, str);
  sprintf(str, "Select Surface %lu Elevation", surface + 1);
- SetWindowTitles(MapWind0, str, (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) str, (UBYTE *)-1);
 
  if (MousePtSet(&Vtx, NULL, 0))
   {
@@ -1675,7 +1675,7 @@ void SetSurface_Map(ULONG surface)
   } /* if point selected */
 
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
  MapIDCMP_Restore(MapWind0);
 
 } /* SetSurface_Map() */

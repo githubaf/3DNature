@@ -437,7 +437,7 @@ if (! MapWind0)
 
 StartAlign:
  MapGUI_Message(0, "\0338Set northwest corner with mouse.");
- SetWindowTitles(MapWind0, (CONST_STRPTR)"Set northwest corner", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) (CONST_STRPTR)"Set northwest corner", (UBYTE *)-1);
 
  if (! MousePtSet(&Bx.Low, NULL, 0))
   {
@@ -446,7 +446,7 @@ StartAlign:
   } /* if aborted */
 
  MapGUI_Message(0, "\0338Set southeast corner. ESC=abort");
- SetWindowTitles(MapWind0, (CONST_STRPTR)"Set southeast corner", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) (CONST_STRPTR)"Set southeast corner", (UBYTE *)-1);
 
  if (! MousePtSet(&Bx.High, &Bx.Low, 2))
   {
@@ -481,7 +481,7 @@ StartAlign:
 EndAlign:
  MapGUI_Message(0, " ");
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, (CONST_STRPTR)"Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) (CONST_STRPTR)"Map View", (UBYTE *)-1);
  if (error)
   return (0);
 

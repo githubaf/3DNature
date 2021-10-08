@@ -603,20 +603,20 @@ short GetBounds(struct Box *Bx)
  short success;
 
  MapGUI_Message(0, "\0338Set upper left corner.");
- SetWindowTitles(MapWind0, "Set upper left corner", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Set upper left corner", (UBYTE *)-1);
 
  if (! (success = MousePtSet(&Bx->Low, NULL, 0)))
   goto EndGet;
 
  MapGUI_Message(0, "\0338Set lower right corner. ESC=abort");
- SetWindowTitles(MapWind0, "Set lower right corner", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Set lower right corner", (UBYTE *)-1);
 
  success = MousePtSet(&Bx->High, &Bx->Low, 2);
 
 EndGet:
  MapGUI_Message(0, " ");
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
 
  return (success);
 
@@ -1215,13 +1215,13 @@ void SetView_Map(short camera)
  if (camera)
   {
   MapGUI_Message(0, "\0338Select Camera Point");
-  SetWindowTitles(MapWind0, "Select Camera Point", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) "Select Camera Point", (UBYTE *)-1);
   i = 1;
   } /* if camera point */
  else
   {
   MapGUI_Message(0, "\0338Select Focus Point");
-  SetWindowTitles(MapWind0, "Select Focus Point", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) "Select Focus Point", (UBYTE *)-1);
   i = 4;
   } /* else focus point */
 
@@ -1231,7 +1231,7 @@ void SetView_Map(short camera)
 
  MapIDCMP_Restore(MapWind0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
  if (abort) return;
 
  PAR_FIRST_MOTION(i + 1) = X_Lon_Convert((long)Vtx.X);
@@ -1327,7 +1327,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
   modval = 1;
   PAR_FIRST_MOTION(2) = X_Lon_Convert((long)startX);
   PAR_FIRST_MOTION(1) = Y_Lat_Convert((long)startY);
-  SetWindowTitles(MapWind0, "Interactive Camera Point", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) "Interactive Camera Point", (UBYTE *)-1);
   i = 1;
   } /* if camera motion */
  else if (abs(startX - MP->focctrx) < 6 && abs(startY - MP->focctry) < 6)
@@ -1335,7 +1335,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
   modval = 2;
   PAR_FIRST_MOTION(5) = X_Lon_Convert((long)startX);
   PAR_FIRST_MOTION(4) = Y_Lat_Convert((long)startY);
-  SetWindowTitles(MapWind0, "Interactive Focus Point", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) "Interactive Focus Point", (UBYTE *)-1);
   i = 4;
   } /* else if focus motion */
  else if (abs(startX - MP->sunctrx) < 6 && abs(startY - MP->sunctry) < 6)
@@ -1343,7 +1343,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
   modval = 7;
   PAR_FIRST_MOTION(16) = X_Lon_Convert((long)startX);
   PAR_FIRST_MOTION(15) = Y_Lat_Convert((long)startY);
-  SetWindowTitles(MapWind0, "Interactive Sun Position", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) "Interactive Sun Position", (UBYTE *)-1);
   }
  else
   {
@@ -1356,13 +1356,13 @@ short SetIAView_Map(struct IntuiMessage *Event)
    {
    modval = 3;
    startX = ptrad;
-   SetWindowTitles(MapWind0, "Interactive Start Haze", (UBYTE *)-1);
+   SetWindowTitles(MapWind0, (STRPTR) "Interactive Start Haze", (UBYTE *)-1);
    } /* if modify haze start */
   else if (abs(ptrad - MP->hazerad[1]) < 5)
    {
    modval = 4;
    startX = ptrad;
-   SetWindowTitles(MapWind0, "Interactive Full Haze", (UBYTE *)-1);
+   SetWindowTitles(MapWind0, (STRPTR) "Interactive Full Haze", (UBYTE *)-1);
    } /* if modify haze end (range) */
 /*
   else
@@ -1372,12 +1372,12 @@ short SetIAView_Map(struct IntuiMessage *Event)
    if (abs(ptslope - MP->viewlineslope[0]) < .1)
     {
     modval = 5;
-    SetWindowTitles(MapWind0, "Interactive View Arc", (UBYTE *)-1);
+    SetWindowTitles(MapWind0, (STRPTR) "Interactive View Arc", (UBYTE *)-1);
     }
    else if (abs(ptslope - MP->viewlineslope[1]) < .1)
     {
     modval = 6;
-    SetWindowTitles(MapWind0, "Interactive View Arc", (UBYTE *)-1);
+    SetWindowTitles(MapWind0, (STRPTR) "Interactive View Arc", (UBYTE *)-1);
     }
    else return (0);
    } // else may be view arc motion
@@ -1582,7 +1582,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
  SetWrMsk(MapWind0->RPort, 0x0f);
 
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
 
  if (EMIA_Win && IA_AutoDraw && modval != 7)
   {

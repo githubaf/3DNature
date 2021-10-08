@@ -62,7 +62,7 @@ void alignmap(struct Box *Bx)
 
 StartAlign:
  MapGUI_Message(0, "\0338Set northwest reference point with mouse.");
- SetWindowTitles(MapWind0, "Set northwest reference point", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Set northwest reference point", (UBYTE *)-1);
 
  if (! MousePtSet(&Bx->Low, NULL, 0))
   {
@@ -71,7 +71,7 @@ StartAlign:
   } /* if aborted */
 
  MapGUI_Message(0, "\0338Set southeast reference point. ESC=abort");
- SetWindowTitles(MapWind0, "Set southeast reference point", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Set southeast reference point", (UBYTE *)-1);
 
  if (! MousePtSet(&Bx->High, &Bx->Low, 2))
   {
@@ -106,7 +106,7 @@ StartAlign:
 EndAlign:
  MapGUI_Message(0, " ");
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
 
 } /* alignmap() */
 
@@ -1049,12 +1049,12 @@ short shiftmap(int OnePoint, int XCen, int YCen)
   if(OnePoint)
  	 {
  	 MapGUI_Message(0, "\0338Set center point.");
-	 SetWindowTitles(MapWind0, "Set center point", (UBYTE *)-1);
+	 SetWindowTitles(MapWind0, (STRPTR) "Set center point", (UBYTE *)-1);
  	 } /* if */
   else
  	 {
 	 MapGUI_Message(0, "\0338Set origin point.");
-	 SetWindowTitles(MapWind0, "Set origin point", (UBYTE *)-1);
+	 SetWindowTitles(MapWind0, (STRPTR) "Set origin point", (UBYTE *)-1);
 	 } /* else */
   } /* != 2 */
  else
@@ -1079,7 +1079,7 @@ short shiftmap(int OnePoint, int XCen, int YCen)
  else
  	{
 	MapGUI_Message(0, "\0338Set destination point. ESC=abort");
-	SetWindowTitles(MapWind0, "Set destination point", (UBYTE *)-1);
+	SetWindowTitles(MapWind0, (STRPTR) "Set destination point", (UBYTE *)-1);
 	
 	if (! (success = MousePtSet(&Bx.High, &Bx.Low, 1)))
 	 goto EndShift;
@@ -1096,7 +1096,7 @@ short shiftmap(int OnePoint, int XCen, int YCen)
 EndShift:
  MapIDCMP_Restore(MapWind0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
 
  return (success);
 
@@ -1183,7 +1183,7 @@ short findmouse(short X, short Y, short IdentifyOnly)
  if (! X && ! Y)
   {
   MapGUI_Message(0, "\0338Select object. ESC=abort");
-  SetWindowTitles(MapWind0, "Select object", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) "Select object", (UBYTE *)-1);
   ModifyIDCMP(MapWind0, MOUSEBUTTONS | VANILLAKEY);
   while (! done)
    {
@@ -1199,7 +1199,7 @@ short findmouse(short X, short Y, short IdentifyOnly)
 
   MapIDCMP_Restore(MapWind0);
   MapGUI_Message(0, " ");
-  SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
   if (abortitem)
    {
    return (0);
@@ -1335,29 +1335,29 @@ short findmulti(void)
   SelState = MUIV_List_Select_Off;
 
  MapGUI_Message(0, "\0338Set first corner point with mouse.");
- SetWindowTitles(MapWind0, "Set first corner point with mouse", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Set first corner point with mouse", (UBYTE *)-1);
 
  if (! MousePtSet(&Bx.Low, NULL, 0))
   {
   MapIDCMP_Restore(MapWind0);
   MapGUI_Message(0, " ");
-  SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
   return (-1);
   } /* if aborted */
 
  MapGUI_Message(0, "Set second corner point. ESC=abort");
- SetWindowTitles(MapWind0, "Set second corner point", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Set second corner point", (UBYTE *)-1);
 
  if (! MousePtSet(&Bx.High, &Bx.Low, 2))
   {
   MapIDCMP_Restore(MapWind0);
   MapGUI_Message(0, " ");
-  SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
   return (-1);
   } /* if aborted */
  MapIDCMP_Restore(MapWind0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
 
  if (Bx.Low.X > Bx.High.X)
   swmem(&Bx.Low.X, &Bx.High.X, sizeof (short));
