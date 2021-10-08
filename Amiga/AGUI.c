@@ -3074,7 +3074,7 @@ else
 InfoData[0] = NULL;
 if(GetDisplayInfoData(NULL, (UBYTE *)&ModeName, sizeof(ModeName), DTAG_NAME, WCSScrn->ViewPort.ColorMap->VPModeID/*ScrnData.ModeID*/)) // ScrnData.ModeID is always 0 if "Save"-Button in World Construction Set ScreenMode-Window was not pressed, i.e. if user pressed "Use" instead))
   {
-  strncpy(InfoData, ModeName.Name, 75);
+  strncpy(InfoData, (char*)ModeName.Name, 75);
   InfoData[75] = 0;
   } /* if */
 
@@ -3092,9 +3092,9 @@ void Set_Param_Menu(short Group)
   case 0:
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_ITEM;    
-   WCSNewMenus[MENU_STOP].nm_Label = NM_BARLABEL;    
-   WCSNewMenus[MENU_STOP + 1].nm_Label = "Load Motion..."; 
-   WCSNewMenus[MENU_STOP + 2].nm_Label = "Save Motion..."; 
+   WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)NM_BARLABEL;    
+   WCSNewMenus[MENU_STOP + 1].nm_Label =  (STRPTR)"Load Motion..."; 
+   WCSNewMenus[MENU_STOP + 2].nm_Label =  (STRPTR)"Save Motion..."; 
    WCSNewMenus[MENU_STOP + 1].nm_UserData = (APTR)(ID_EM_LOADALL);
    WCSNewMenus[MENU_STOP + 2].nm_UserData = (APTR)(ID_EM_SAVEALL);
    WCSNewMenus[MENU_STOP + 3].nm_Type = NM_ITEM;
@@ -3105,9 +3105,9 @@ void Set_Param_Menu(short Group)
   case 1:
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_ITEM;    
-   WCSNewMenus[MENU_STOP].nm_Label = NM_BARLABEL;    
-   WCSNewMenus[MENU_STOP + 1].nm_Label = "Load Color..."; 
-   WCSNewMenus[MENU_STOP + 2].nm_Label = "Save Color..."; 
+   WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)NM_BARLABEL;    
+   WCSNewMenus[MENU_STOP + 1].nm_Label =  (STRPTR)"Load Color..."; 
+   WCSNewMenus[MENU_STOP + 2].nm_Label =  (STRPTR)"Save Color..."; 
    WCSNewMenus[MENU_STOP + 1].nm_UserData = (APTR)(ID_EC_LOADALL);
    WCSNewMenus[MENU_STOP + 2].nm_UserData = (APTR)(ID_EC_SAVEALL);
    WCSNewMenus[MENU_STOP + 3].nm_Type = NM_ITEM;
@@ -3118,9 +3118,9 @@ void Set_Param_Menu(short Group)
   case 2:
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_ITEM;    
-   WCSNewMenus[MENU_STOP].nm_Label = NM_BARLABEL;    
-   WCSNewMenus[MENU_STOP + 1].nm_Label = "Load Eco..."; 
-   WCSNewMenus[MENU_STOP + 2].nm_Label = "Save Eco..."; 
+   WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)NM_BARLABEL;    
+   WCSNewMenus[MENU_STOP + 1].nm_Label =  (STRPTR)"Load Eco..."; 
+   WCSNewMenus[MENU_STOP + 2].nm_Label =  (STRPTR)"Save Eco..."; 
    WCSNewMenus[MENU_STOP + 1].nm_UserData = (APTR)(ID_EE_LOADALL);
    WCSNewMenus[MENU_STOP + 2].nm_UserData = (APTR)(ID_EE_SAVEALL);
    WCSNewMenus[MENU_STOP + 3].nm_Type = NM_ITEM;
@@ -3131,9 +3131,9 @@ void Set_Param_Menu(short Group)
   case 3:
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_ITEM;    
-   WCSNewMenus[MENU_STOP].nm_Label = NM_BARLABEL;    
-   WCSNewMenus[MENU_STOP + 1].nm_Label = "Load Settings..."; 
-   WCSNewMenus[MENU_STOP + 2].nm_Label = "Save Settings..."; 
+   WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)NM_BARLABEL;    
+   WCSNewMenus[MENU_STOP + 1].nm_Label =  (STRPTR)"Load Settings..."; 
+   WCSNewMenus[MENU_STOP + 2].nm_Label =  (STRPTR)"Save Settings..."; 
    WCSNewMenus[MENU_STOP + 1].nm_UserData = (APTR)(ID_ES_LOAD);
    WCSNewMenus[MENU_STOP + 2].nm_UserData = (APTR)(ID_ES_SAVE);
    WCSNewMenus[MENU_STOP + 3].nm_Type = NM_END;
@@ -3143,7 +3143,7 @@ void Set_Param_Menu(short Group)
   default:
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_END;    
-   WCSNewMenus[MENU_STOP].nm_Label = 0;    
+   WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)0;    
    break;
    }
   } /* switch */

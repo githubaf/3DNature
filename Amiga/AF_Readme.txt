@@ -530,3 +530,8 @@ Canyon Sunset, Pal-Hires, Groeße/4  4:35:17, schnellstes Ergebnis!
 -ffast-math funktioniert mit -m68040, wenn zusaetzlich -mregparm angegeben wird, sonst nicht!
 
 Die Variante mit -fbaserel (-m68040 -ffast-math -mreparm -fbaserel -flto) ist 120k kleiner als die ohne -fbaserel.
+
+Weiter (STRPTR) eingefügt:
+find . -name "*.[c\|h]" -exec  sed -i "s/\(nm_Label *= *\)\(".*"\)/\1 (STRPTR)\2/g" {} \;
+
+886 Warnings
