@@ -520,3 +520,8 @@ Weiter mit Warnungs-Casting
 
 und weiter
 --> 1202 Warnings
+
+- Mit -m68040 und -mregparm compiliert und gelinkt.( -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -fbaserel -flto -mregparm -D__inline="inline static")
+WCS_040_basr_mregparm_lto auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
+Canyon Sunset, Pal-Hires, Groeﬂe/4  4:35:17, schnellstes Ergebnis!
+
