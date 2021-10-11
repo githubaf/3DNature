@@ -35,16 +35,16 @@ char *AppBaseName;
 ResetScreenMode:
 
 if (IntuitionBase = (struct IntuitionBase *)
- OpenLibrary("intuition.library", MIN_LIBRARY_REV))
+ OpenLibrary((CONST_STRPTR)"intuition.library", MIN_LIBRARY_REV))
  {
  if (GfxBase = (struct GfxBase *)
-  OpenLibrary("graphics.library", MIN_LIBRARY_REV))
+  OpenLibrary((CONST_STRPTR)"graphics.library", MIN_LIBRARY_REV))
   {
-  if (AslBase = OpenLibrary("asl.library", MIN_LIBRARY_REV))
+  if (AslBase = OpenLibrary((CONST_STRPTR)"asl.library", MIN_LIBRARY_REV))
    {
-   if (GadToolsBase = OpenLibrary("gadtools.library", MIN_LIBRARY_REV))
+   if (GadToolsBase = OpenLibrary((CONST_STRPTR)"gadtools.library", MIN_LIBRARY_REV))
     {
-    if(MUIMasterBase = OpenLibrary(MUIMASTER_NAME,MUIMASTER_VMIN))
+    if(MUIMasterBase = OpenLibrary((CONST_STRPTR)MUIMASTER_NAME,MUIMASTER_VMIN))
      {
      getcwd(path, 255);
 

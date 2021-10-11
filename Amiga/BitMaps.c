@@ -1547,11 +1547,11 @@ short CheckIFF(long fh, struct ILBMHeader *Hdr)
 
  if ((read(fh, (char *)Hdr, sizeof (struct ILBMHeader))) == sizeof (struct ILBMHeader))
   {
-  if (! strncmp(Hdr->ChunkID, "FORM", 4))
+  if (! strncmp((char*)Hdr->ChunkID, "FORM", 4))
    {
    if ((read(fh, (char *)Hdr->ChunkID, 4)) == 4)
     {
-    if (! strncmp(Hdr->ChunkID, "ILBM", 4))
+    if (! strncmp((char*)Hdr->ChunkID, "ILBM", 4))
      {
      return (1);
      } /* if ILBM found */
@@ -1573,7 +1573,7 @@ short FindIFFChunk(long fh, struct ILBMHeader *Hdr, char *Chunk)
  while ((readsize = read(fh, (char *)Hdr, sizeof (struct ILBMHeader))) ==
 	sizeof (struct ILBMHeader))
   {
-  if (! strncmp(Hdr->ChunkID, Chunk, 4))
+  if (! strncmp((char*)Hdr->ChunkID, Chunk, 4))
    break;
   if ((lseek(fh, Hdr->ChunkSize, 1)) == -1)
    {

@@ -50,8 +50,8 @@ get(ModControlWin, MUIA_Window_Window, &MCPWin);
    return 0;
   }
  }
- strcpy(dbasepath, frbase->fr_Drawer);
- strcpy(dbasename, frbase->fr_File);
+ strcpy(dbasepath, (char*)frbase->fr_Drawer);
+ strcpy(dbasename, (char*)frbase->fr_File);
  FreeAslRequest(frbase);
  return 1;
 #else
@@ -154,8 +154,8 @@ short getfilename(long mode, char *requestname, char *pathname,
    return 0;
   }
  }
- strcpy(pathname, frfile->fr_Drawer);
- strcpy(filename, frfile->fr_File);
+ strcpy(pathname, (char*)frfile->fr_Drawer);
+ strcpy(filename, (char*)frfile->fr_File);
  FreeAslRequest(frfile);
  return 1;
 #else
@@ -206,8 +206,8 @@ short getfilenameptrn(long mode, char *requestname, char *pathname,
    return 0;
   }
  }
- strcpy(pathname, frfile->fr_Drawer);
- strcpy(filename, frfile->fr_File);
+ strcpy(pathname, (char*)frfile->fr_Drawer);
+ strcpy(filename, (char*)frfile->fr_File);
  FreeAslRequest(frfile);
  return 1;
 #else
@@ -255,15 +255,15 @@ struct FileRequester *getmultifilename(char *requestname, char *pathname,
   {
   if (frfile->rf_File[0])
    {
-   strcpy(SingleFileName, frfile->rf_File);
-   SingleFile.wa_Name = SingleFileName;
+   strcpy(SingleFileName, (char*)frfile->rf_File);
+   SingleFile.wa_Name = (BYTE*)SingleFileName;
    frfile->rf_ArgList = &SingleFile; /* <<<>>> May be a no-no */
    frfile->rf_NumArgs = 1; /* <<<>>> May be a no-no */
    }
   else
    frfile->rf_NumArgs = 0;
   }
- strcpy(pathname, frfile->rf_Dir);
+ strcpy(pathname, (char*)frfile->rf_Dir);
  return (frfile);
 #else
  printf("Enter file path/name: ");

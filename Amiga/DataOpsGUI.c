@@ -943,8 +943,8 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
    } /* if possibly an  IFF Z Buffer file */
   case DEM_DATA_INPUT_VISTA:
    {
-   unsigned char id[32], *LatStr, *LonStr;
-   unsigned char name[32];
+   /*unsigned*/ char id[32], *LatStr, *LonStr;
+   /*unsigned*/ char name[32];
    long Compression, HeaderType, DataPts;
 
    read(fh, id, 32);

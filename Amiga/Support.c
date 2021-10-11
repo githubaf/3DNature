@@ -32,7 +32,7 @@ struct Window *make_window(short x, short y, short w, short h, char name[80],
  NewWindow.Flags=flags | WFLG_SIZEBBOTTOM;
  NewWindow.FirstGadget=NULL;
  NewWindow.CheckMark=NULL;
- NewWindow.Title=name;
+ NewWindow.Title=(UBYTE*)name;
  NewWindow.Screen=(struct Screen *)screen;
  NewWindow.BitMap=NULL;
  NewWindow.MinWidth=20;
@@ -1649,7 +1649,7 @@ long PrintScreen(struct Screen *scr, UWORD srcx, UWORD srcy,
   if ((iodrp =
 	 (struct IODRPReq *)CreateExtIO(printerPort, sizeof (struct IODRPReq))))
    {
-   if (! (error = OpenDevice("printer.device", 0, iodrp, 0)))
+   if (! (error = OpenDevice((CONST_STRPTR)"printer.device", 0, iodrp, 0)))
     {
     vp = &scr->ViewPort;
     iodrp->io_Command = PRD_DUMPRPORT;

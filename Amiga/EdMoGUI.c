@@ -735,7 +735,7 @@ void Handle_EM_Window(ULONG WCS_ID)
     Set_EM_Item(EM_Win->MoItem);
     Set_Radial_Txt(2);
     if (InterWind0)
-     SetWindowTitles(InterWind0, varname[EM_Win->MoItem], (UBYTE *)-1);
+     SetWindowTitles(InterWind0, (CONST_STRPTR) varname[EM_Win->MoItem], (UBYTE *)-1);
     if (EMTL_Win && (EM_Win->IsKey >= 0 || EM_Win->PrevKey >= 0	 || EM_Win->NextKey >= 0))
      {
      if (Set_EMTL_Item(EM_Win->MoItem))

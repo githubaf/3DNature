@@ -410,7 +410,7 @@ if(ContInt == 3 || ContInt == 4)
  sprintf(StringTrans, "%f", MaxElevDiff);
 
 if(ContInt == 0 || ContInt == 2)
- StringTrans[0] = NULL;
+ StringTrans[0] = 0;
 if(ContInt == 3 || ContInt == 4)
 /*else, what about 1*/
  TrimZeros(StringTrans);
@@ -659,13 +659,13 @@ for(i = strlen(String) - 1; i > -1; i--)
 		{
 		case '.':
 			{
-			String[i] = NULL;
+			String[i] = 0;
 			i = -1; /* end loop */
 			break;
 			} /* '.' */
 		case '0':
 			{
-			String[i] = NULL;
+			String[i] = 0;
 			break;
 			} /* '0' */
 		default:

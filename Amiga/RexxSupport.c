@@ -128,7 +128,7 @@ if ((This) && (This != REXX_RETURN_ERROR))
 			{
 			if (RString)
 				{
-				This->rm_Result2=(LONG)CreateArgstring(RString,
+				This->rm_Result2=(LONG)CreateArgstring((CONST_STRPTR)RString,
 				 (LONG)strlen(RString));
 				} /* if */
 			} /* if */
@@ -158,7 +158,7 @@ if ((This) && (rmsg))
 	{
 	if (CheckRexxMsg(rmsg))
 		{
-		if(!SetRexxVar(rmsg, This->ErrorName, ErrorString, (long)strlen(ErrorString)))
+		if(!SetRexxVar(rmsg, (CONST_STRPTR)This->ErrorName, (CONST_STRPTR)ErrorString, (long)strlen(ErrorString)))
 			{
 			OkFlag=TRUE;
 			} /* if */
@@ -394,7 +394,7 @@ int TermNGo, Words, ResolvedWord /*, SentLen*/;
 struct CmdContext CallFrame;
 struct MWS_Entry *Descent, *Found;
 
-CurLinePtr = InLine = ARG0(CmdMsg);
+CurLinePtr = InLine = (char*)ARG0(CmdMsg);
 
 CallFrame.RawText = InLine;
 for(ResolvedWord = 0; ResolvedWord < 10; ResolvedWord++)

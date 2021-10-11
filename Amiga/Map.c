@@ -301,7 +301,7 @@ if(TopoEnabled || EcoEnabled)
 
       if(TopoEnabled || FlatSpots)
        {
-       if((TopoArray = (unsigned short *)get_Memory((mapelmap[MapInc].columns + 1) * sizeof(short), MEMF_CLEAR)))
+       if((TopoArray = (/*unsigned*/ short *)get_Memory((mapelmap[MapInc].columns + 1) * sizeof(short), MEMF_CLEAR)))
         {
         memset(TopoArray, 0xFF, mapelmap[MapInc].columns * sizeof(short));
         } /* if */
@@ -317,7 +317,7 @@ if(TopoEnabled || EcoEnabled)
   
       if(EcoEnabled)
        {
-       if((EcoArray = (unsigned short *)get_Memory((mapelmap[MapInc].columns + 1) * sizeof(short), MEMF_CLEAR)))
+       if((EcoArray = (/*unsigned*/ short *)get_Memory((mapelmap[MapInc].columns + 1) * sizeof(short), MEMF_CLEAR)))
         {
         memset(EcoArray, 0xFF, mapelmap[MapInc].columns * sizeof(short));
         } /* if */
@@ -2256,7 +2256,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
   if ((SerialIO = (struct IOExtSer *)
 	CreateExtIO(SerialMP, sizeof (struct IOExtSer))))
    {
-   if (OpenDevice(SERIALNAME, 0, (struct IORequest *)SerialIO, NULL))
+   if (OpenDevice((CONST_STRPTR)SERIALNAME, 0, (struct IORequest *)SerialIO, NULL))
     {
     error = 1;
     User_Message((CONST_STRPTR)"Mapping Module: Digitize",
@@ -2315,9 +2315,9 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
        if (CheckIO((struct IORequest *)SerialIO))
         {
         WaitIO((struct IORequest *)SerialIO);
-        Rx[i] = atof(&SerialReadBuffer[ByteX]);
-        Ry[i] = atof(&SerialReadBuffer[ByteY]);
-        b = atoi(&SerialReadBuffer[ByteButton]);
+        Rx[i] = atof((char*)&SerialReadBuffer[ByteX]);
+        Ry[i] = atof((char*)&SerialReadBuffer[ByteY]);
+        b = atoi((char*)&SerialReadBuffer[ByteButton]);
         if (b == 3)
          {
          error = 1;
@@ -2403,9 +2403,9 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
       if (CheckIO((struct IORequest *)SerialIO))
        {
        WaitIO((struct IORequest *)SerialIO);
-       Rx[2] = atof(&SerialReadBuffer[ByteX]);
-       Ry[2] = atof(&SerialReadBuffer[ByteY]);
-       b = atoi(&SerialReadBuffer[ByteButton]);
+       Rx[2] = atof((char*)&SerialReadBuffer[ByteX]);
+       Ry[2] = atof((char*)&SerialReadBuffer[ByteY]);
+       b = atoi((char*)&SerialReadBuffer[ByteButton]);
        if (b == 2)
         {
         DBase[OBN].Lat[i] = DBase[OBN].Lat[1];

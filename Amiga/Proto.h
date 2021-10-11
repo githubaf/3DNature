@@ -73,6 +73,9 @@ struct FoliageGroup;
 struct MapData;
 struct MaxMin3;
 struct WaveWindow;
+struct simp;
+struct temp;
+struct neig;
 #endif
 
 /* Bitmaps.c */
@@ -1119,8 +1122,8 @@ extern double          Surface(struct NNGrid *NNG);
 // extern short           TooShallow(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
 // extern short           TooNarrow(struct NNGrid *NNG); // used locally only -> static, AF 26.7.2021
 extern struct datum    *Datum_New(void);
-extern void	       Datum_Del(struct datum *CD);
 // extern struct simp     *Simp_New(void); // used locally only -> static, AF 26.7.2021
+extern void	       Datum_Del(struct datum *CD);
 extern void	       Simp_Del(struct simp *CS);
 // extern struct temp     *Temp_New(void); // used locally only -> static, AF 26.7.2021
 extern void	       Temp_Del(struct temp *CT);

@@ -3201,8 +3201,8 @@ EXTERN struct NewMenu WCSNewMenus[]
 		{  NM_ITEM, (STRPTR)"Restore",		 (STRPTR)"R", 0, 0, (APTR)(ID_EP_UNDO) },
 
 		{ NM_END,	NULL,		 0 , 0, 0, 0 },
-		{  NM_ITEM, 	NULL,		"[", 0, 0, 0 },
-		{  NM_ITEM,	NULL,		"]", 0, 0, 0 },
+		{  NM_ITEM, 	NULL,		(STRPTR)"[", 0, 0, 0 },
+		{  NM_ITEM,	NULL,		(STRPTR)"]", 0, 0, 0 },
 		{  NM_ITEM, (STRPTR)"Load Active...",	 (STRPTR)"{", 0, 0, 0 },
 		{  NM_ITEM, (STRPTR)"Save Active...",	 (STRPTR)"}", 0, 0, 0 },
 

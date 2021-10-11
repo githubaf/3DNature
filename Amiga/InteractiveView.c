@@ -121,7 +121,7 @@ RepeatOpen:
    } /* if more than one attempt to load maps */
   } /* if EMIA window open */
  if (EMTL_Win) set(EMTL_Win->BT_Play, MUIA_Disabled, FALSE);
- SetWindowTitles(InterWind0, varname[EM_Win->MoItem], (UBYTE *)-1);
+ SetWindowTitles(InterWind0, (CONST_STRPTR)varname[EM_Win->MoItem], (UBYTE *)-1);
  return (1);
 
 Cleanup:
@@ -738,7 +738,7 @@ void smallwindow(short diagnostics)
  ModifyIDCMP(InterWind0, MOUSEBUTTONS | INTUITICKS | VANILLAKEY);
 
  SetDrMd(InterWind0->RPort, COMPLEMENT);
- SetWindowTitles(InterWind0, "Select preview region with two clicks", (UBYTE *)-1);
+ SetWindowTitles(InterWind0, (CONST_STRPTR)"Select preview region with two clicks", (UBYTE *)-1);
 
  while (! done)
   {
@@ -826,7 +826,7 @@ void smallwindow(short diagnostics)
  ModifyIDCMP(EMIA_Win->Win, IDCMPFlags);
  ModifyIDCMP(InterWind0, MOUSEBUTTONS | RAWKEY | VANILLAKEY | NEWSIZE
 	 | CLOSEWINDOW | ACTIVEWINDOW);
- SetWindowTitles(InterWind0, varname[EM_Win->MoItem], (UBYTE *)-1);
+ SetWindowTitles(InterWind0, (CONST_STRPTR)varname[EM_Win->MoItem], (UBYTE *)-1);
 
  if (firstX >= -999)
   {

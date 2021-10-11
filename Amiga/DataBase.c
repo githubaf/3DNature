@@ -1255,7 +1255,7 @@ short DBaseObject_Add(void)
 
  for (i=0; i<FrFile->rf_NumArgs; i++)
   {
-  strcpy(newfile, FrFile->rf_ArgList[i].wa_Name);
+  strcpy(newfile, (char*)FrFile->rf_ArgList[i].wa_Name);
   
   if (newfile[0] == 0)
    {

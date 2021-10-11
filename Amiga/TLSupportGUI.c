@@ -69,7 +69,7 @@ __saveds ULONG TL_Draw(struct IClass *cl, Object *obj, struct MUIP_Draw *msg)
  DoSuperMethodA(cl, obj, msg);
 
 /* compute values for redraw */
- TextExtent(_rp(obj), "A", 1, &TE);
+ TextExtent(_rp(obj), (CONST_STRPTR)"A", 1, &TE);
  halftextht = TE.te_Height / 2;
 /*
  data->right 		= _mright(obj) 	- 4;
@@ -82,10 +82,10 @@ __saveds ULONG TL_Draw(struct IClass *cl, Object *obj, struct MUIP_Draw *msg)
  data->bottom 		= _mbottom(obj) - 4 - TE.te_Height;
  data->textbottom	= _mbottom(obj) - 2;
  sprintf(str, "%3.2f", data->texthighval);
- data->textwidthtop 	= TextLength(_rp(obj), str, strlen(str));
+ data->textwidthtop 	= TextLength(_rp(obj), (CONST_STRPTR)str, strlen(str));
  sprintf(str, "%3.2f", data->textlowval);
- data->textwidthbottom = TextLength(_rp(obj), str, strlen(str));
- data->textwidthzero = TextLength(_rp(obj), "0.00", 4);
+ data->textwidthbottom = TextLength(_rp(obj), (CONST_STRPTR)str, strlen(str));
+ data->textwidthzero = TextLength(_rp(obj), (CONST_STRPTR)"0.00", 4);
  data->left 		= _mleft(obj)
 	 	+ 4 + max(data->textwidthtop, data->textwidthbottom);
  data->framepixpt = ((float)data->right - data->left) /
@@ -155,23 +155,23 @@ __saveds ULONG TL_Draw(struct IClass *cl, Object *obj, struct MUIP_Draw *msg)
    Draw(_rp(obj), data->left, data->top);
    sprintf(str, "%2.2f", data->texthighval);
    Move(_rp(obj), data->left - 2 - data->textwidthtop, data->top + halftextht);
-   Text(_rp(obj), str, strlen(str));
+   Text(_rp(obj), (CONST_STRPTR)str, strlen(str));
    sprintf(str, "%2.2f", data->textlowval);
    Move(_rp(obj), data->left - 2 - data->textwidthbottom, data->bottom + halftextht);
-   Text(_rp(obj), str, strlen(str));
+   Text(_rp(obj), (CONST_STRPTR)str, strlen(str));
    if (data->textzero >= data->top + TE.te_Height
 	 && data->textzero < data->bottom - TE.te_Height)
     {
     sprintf(str, "%3.2f", 0.00);
     Move(_rp(obj), data->left - 2 - data->textwidthzero, data->textzero + halftextht);
-    Text(_rp(obj), str, strlen(str));
+    Text(_rp(obj), (CONST_STRPTR)str, strlen(str));
     } /* if */
    sprintf(str, "%1d", data->lowframe);
    Move(_rp(obj), data->left, data->textbottom);
-   Text(_rp(obj), str, strlen(str));
+   Text(_rp(obj), (CONST_STRPTR)str, strlen(str));
    sprintf(str, "%2d", data->highframe);
-   Move(_rp(obj), data->right - TextLength(_rp(obj), str, strlen(str)), data->textbottom);
-   Text(_rp(obj), str, strlen(str));
+   Move(_rp(obj), data->right - TextLength(_rp(obj), (CONST_STRPTR)str, strlen(str)), data->textbottom);
+   Text(_rp(obj), (CONST_STRPTR)str, strlen(str));
 /*   } */ /* if clear display */
 
 /* draw grids */

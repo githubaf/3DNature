@@ -535,3 +535,12 @@ Weiter (STRPTR) eingefügt:
 find . -name "*.[c\|h]" -exec  sed -i "s/\(nm_Label *= *\)\(".*"\)/\1 (STRPTR)\2/g" {} \;
 
 886 Warnings
+
+- Mit -m68040 und -mregparm ohne -fbaserel compiliert und gelinkt.( -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -flto -mregparm -D__inline="inline static")
+WCS_040_basr_mregparm_lto auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
+Canyon Sunset, Pal-Hires, Groeße/4  4:35:56, minimal langsamer, 10% groesser
+
+11.Oktober 2021
+---------------
+Mehr casts und forward Declaration
+580 Warnings

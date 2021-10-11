@@ -38,7 +38,7 @@ while (DInfoID != INVALID_ID)
      if((ThisMode = get_Memory(sizeof(struct WCSScreenMode), MEMF_CLEAR)))
       {
       ThisMode->ModeID = DInfoID;
-      strcpy(ThisMode->ModeName, ModeName.Name);
+      strcpy(ThisMode->ModeName, (char*)ModeName.Name);
       ThisMode->X  = ThisMode->UX = ThisMode->OX =Sizes.Nominal.MaxX - Sizes.Nominal.MinX + 1;
       ThisMode->Y  = ThisMode->UY = ThisMode->OY =Sizes.Nominal.MaxY - Sizes.Nominal.MinY + 1;
       ThisMode->OScans[0].x = Sizes.TxtOScan.MaxX - Sizes.TxtOScan.MinX + 1;
