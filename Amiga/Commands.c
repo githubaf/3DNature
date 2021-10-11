@@ -170,7 +170,7 @@ if(strlen(Call->ArgStr))
 	Log(DTA_NULL, (CONST_STRPTR)TextMsg);
 	} /* if */
 
-Call->ArgStr[0] = NULL; /* No return string */
+Call->ArgStr[0] = 0; /* No return string */
 
 return;
 } /* DemoFunc() */

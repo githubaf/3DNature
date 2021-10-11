@@ -75,7 +75,7 @@ struct Window *FetchMultiWindowEvent(struct IntuiMessage *Event, ...)
 {
 va_list VarA;
 struct IntuiMessage *Brief = NULL;
-ULONG Signals = NULL;
+ULONG Signals = (ULONG)NULL;
 struct Window *ThisWin = NULL;
 
 va_start(VarA, Event);
@@ -154,7 +154,7 @@ void closesharedwindow(struct Window *win, short shared)
  Forbid();
  stripintuimessages(win->UserPort, win);
  if (shared) win->UserPort = NULL;
- ModifyIDCMP(win, NULL);
+ ModifyIDCMP(win, 0);
  Permit();
  CloseWindow(win);
 }

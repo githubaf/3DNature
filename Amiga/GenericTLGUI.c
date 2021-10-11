@@ -181,10 +181,10 @@ STATIC_FCN short Set_TL_Item(struct TimeLineWindow *TL_Win, short item) // used 
  set(TL_Win->BT_Linear, MUIA_Selected,
 	TL_Win->SKT->Key[TL_Win->ActiveKey]->EcoKey2.Linear);
  sprintf(str, "%d", TL_Win->WKS->Frame);
- set(TL_Win->FrameTxt, MUIA_Text_Contents, str);
+ set(TL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
  get (TL_Win->TCB_Cycle, MUIA_Cycle_Active, &data);
  sprintf(str, "%3.2f", TL_Win->WKS->TCB[data]);
- set(TL_Win->CycleStr, MUIA_String_Contents, str);
+ set(TL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
  if (TL_Win->WKS->Precision == WCS_KFPRECISION_DOUBLE)
   setfloat(TL_Win->ValStr[0], TL_Win->SKT->Key[TL_Win->ActiveKey]->MoKey2.Value[TL_Win->ActiveItem]);
  else if (TL_Win->WKS->Precision == WCS_KFPRECISION_FLOAT)
@@ -934,7 +934,7 @@ void Handle_TL_Window(ULONG WCS_ID)
 
     get(TL_Win->TCB_Cycle, MUIA_Cycle_Active, &item);
     sprintf(str, "%3.2f", TL_Win->WKS->TCB[item]);
-    set(TL_Win->CycleStr, MUIA_String_Contents, str);
+    set(TL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Cycle */
 
@@ -962,7 +962,7 @@ void Handle_TL_Window(ULONG WCS_ID)
 
     get(TL_Win->CycleStr, MUIA_String_Contents, &value);
     sprintf(str, "%3.2f", atof(value) - .1);
-    set(TL_Win->CycleStr, MUIA_String_Contents, str);
+    set(TL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Arrow */
 
@@ -972,7 +972,7 @@ void Handle_TL_Window(ULONG WCS_ID)
 
     get(TL_Win->CycleStr, MUIA_String_Contents, &value);
     sprintf(str, "%3.2f", atof(value) + .1);
-    set(TL_Win->CycleStr, MUIA_String_Contents, str);
+    set(TL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Arrow */
 
@@ -989,7 +989,7 @@ void Handle_TL_Window(ULONG WCS_ID)
      {
      frame -= mult;
      sprintf(str, "%ld", frame); 
-     set(TL_Win->FrameTxt, MUIA_Text_Contents, str);
+     set(TL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
      TL_Win->SKT->Key[TL_Win->ActiveKey]->EcoKey2.KeyFrame = frame;
      SplineGenericKeys(&TL_Win->SKT, &TL_Win->Frames, TL_Win->WKS->NumValues,
 	TL_Win->WKS->Precision, &TL_Win->MaxMin[0][0]);
@@ -1014,7 +1014,7 @@ void Handle_TL_Window(ULONG WCS_ID)
      {
      frame += mult;
      sprintf(str, "%ld", frame);
-     set(TL_Win->FrameTxt, MUIA_Text_Contents, str);
+     set(TL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
      TL_Win->SKT->Key[TL_Win->ActiveKey]->EcoKey2.KeyFrame = frame;
      SplineGenericKeys(&TL_Win->SKT, &TL_Win->Frames, TL_Win->WKS->NumValues,
 	TL_Win->WKS->Precision, &TL_Win->MaxMin[0][0]);

@@ -263,7 +263,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
    PS_Win->BT_ValueShift, 3, MUIM_Set, MUIA_Selected, TRUE);
 
 /* Set active gadget */
-  set(PS_Win->ScaleWin, MUIA_Window_ActiveObject, PS_Win->BT_Operate);
+  set(PS_Win->ScaleWin, MUIA_Window_ActiveObject, (ULONG)PS_Win->BT_Operate);
 
 /* Open window */
   set(PS_Win->ScaleWin, MUIA_Window_Open, TRUE);
@@ -416,7 +416,7 @@ void Handle_PS_Window(ULONG WCS_ID)
      case ID_PS_CLOSEQUERY:
       {
       if (KFsize != PS_Win->AltKFsize || memcmp(KF, PS_Win->AltKF, KFsize))
-       Close_PS_Window(CloseWindow_Query((CONST_STRPTR)"Scale Keys"));
+       Close_PS_Window(CloseWindow_Query((STRPTR)"Scale Keys"));
       else
        Close_PS_Window(1);
       break;
@@ -476,7 +476,7 @@ short Set_PS_List(char **List, short *ListID, short group, short ReqKeys,
     {
     if (CountKeyFrames(2, i) >= ReqKeys)
      {
-     List[j] = PAR_NAME_ECO(i);
+     List[j] = (char*)PAR_NAME_ECO(i);
      if (ListID) ListID[j] = i;
      if (TruncateText)
       {
@@ -1001,10 +1001,10 @@ void Make_FM_Window(void)
 	MUIM_Set, MUIA_Window_ActiveObject, FM_Win->IntStr[0]);
 
 /* Set active gadget */
-  set(FM_Win->ModelWin, MUIA_Window_ActiveObject, FM_Win->IntStr[0]);
+  set(FM_Win->ModelWin, MUIA_Window_ActiveObject, (ULONG)FM_Win->IntStr[0]);
 
   get(EE_Win->ModelStr, MUIA_String_Contents, &Name);
-  set(FM_Win->NameStr, MUIA_String_Contents, Name);
+  set(FM_Win->NameStr, MUIA_String_Contents, (ULONG)Name);
 
 /* Create directory list */
   strcpy(&FM_Win->ItemStr[0][0],
@@ -1426,9 +1426,9 @@ STATIC_FCN short Load_FM_Win(void) // used locally only -> static, AF 24.7.2021
 
 EndLoad:
 
- set(FM_Win->NameStr, MUIA_String_Contents, name);
+ set(FM_Win->NameStr, MUIA_String_Contents, (ULONG)name);
  if (EE_Win)
-  set(EE_Win->ModelStr, MUIA_String_Contents, name);
+  set(EE_Win->ModelStr, MUIA_String_Contents, (ULONG)name);
 
  switch (error)
   {
@@ -1518,9 +1518,9 @@ STATIC_FCN short Save_FM_Win(void) // used locally only -> static, AF 24.7.2021
 
 EndSave:
 
- set(FM_Win->NameStr, MUIA_String_Contents, name);
+ set(FM_Win->NameStr, MUIA_String_Contents, (ULONG)name);
  if (EE_Win)
-  set(EE_Win->ModelStr, MUIA_String_Contents, name);
+  set(EE_Win->ModelStr, MUIA_String_Contents, (ULONG)name);
 
  switch (error)
   {
@@ -1692,7 +1692,7 @@ void Make_AN_Window(void)
 	MUIM_Set, MUIA_Window_ActiveObject, AN_Win->Str[0]);
 
 /* Set active gadget */
-  set(AN_Win->AnimWin, MUIA_Window_ActiveObject, AN_Win->IntStr[0]);
+  set(AN_Win->AnimWin, MUIA_Window_ActiveObject, (ULONG)AN_Win->IntStr[0]);
 
 /* Open window */
   set(AN_Win->AnimWin, MUIA_Window_Open, TRUE);
@@ -1763,8 +1763,8 @@ void Handle_AN_Window(ULONG WCS_ID)
       {
       if (getfilename(1, "Anim Frames Path/Name", graphpath, graphname))
        {
-       set(AN_Win->Str[0], MUIA_String_Contents, graphpath);
-       set(AN_Win->Str[1], MUIA_String_Contents, graphname);
+       set(AN_Win->Str[0], MUIA_String_Contents, (ULONG)graphpath);
+       set(AN_Win->Str[1], MUIA_String_Contents, (ULONG)graphname);
        } /* if */
       break;
       }

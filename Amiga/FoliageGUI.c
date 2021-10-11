@@ -1516,9 +1516,9 @@ short UseImgCol, PalCol, ImgWidth, ImgHeight, MaxImgHt;
   MaxImgHt = Rootstock_GetShortValue(&This->Root, WCS_ECOTYPE_MAXIMGHT);
 
   sprintf(SizeStr, "%d", ImgWidth);
-  set(FE_Win->WidthText, MUIA_Text_Contents, SizeStr);
+  set(FE_Win->WidthText, MUIA_Text_Contents, (ULONG)SizeStr);
   sprintf(SizeStr, "%d", ImgHeight);
-  set(FE_Win->HeightText, MUIA_Text_Contents, SizeStr);
+  set(FE_Win->HeightText, MUIA_Text_Contents, (ULONG)SizeStr);
   setfloat(FE_Win->FloatStr[2], 100.0 * Density);
   setfloat(FE_Win->FloatStr[3], 100.0 * Height);
   setfloat(FE_Win->FloatStr[5], (double)MaxImgHt);

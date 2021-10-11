@@ -295,7 +295,7 @@ register	char *tmp;
 
 if((This = AllocMem(sizeof(struct ARexxContext), MEMF_PUBLIC|MEMF_CLEAR)))
 	{
-	if(This->RexxSysBase = OpenLibrary((CONST_STRPTR)"rexxsyslib.library", NULL))
+	if(This->RexxSysBase = OpenLibrary((CONST_STRPTR)"rexxsyslib.library", 0))
 		{
 		/* Set up the extension... */
 		strcpy(This->Extension, "WCS");
@@ -314,7 +314,7 @@ if((This = AllocMem(sizeof(struct ARexxContext), MEMF_PUBLIC|MEMF_CLEAR)))
 		strcat(This->ErrorName,".LASTERROR");
 
 		Forbid();
-		This->ARexxPort = CreatePort((CONST_STRPTR)This->PortName, NULL);
+		This->ARexxPort = CreatePort((CONST_STRPTR)This->PortName, (ULONG)NULL);
 		Permit();
 		} /* if */
 
@@ -688,7 +688,7 @@ for(Out = Skim = 0;;Skim++)
 	{
 	if((Out == DestLen) || (Source[Skim] == 0))
 		{
-		Dest[Out] = NULL;
+		Dest[Out] = 0;
 		return;
 		} /* if */
 	if(Trimming)

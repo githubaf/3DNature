@@ -759,7 +759,7 @@ else
         {
         free_Memory(mapelmap[Topo].map, mapelmap[Topo].size);
         mapelmap[Topo].map = NULL;
-        mapelmap[Topo].size = NULL;
+        mapelmap[Topo].size = 0;
 /* Need to rearrange the rest of the map structures so there aren't any gaps
    There isn't any checking to see if every pointer is valid since by definition
    when the structures are allocated they are all valid up to the number of
@@ -1813,8 +1813,8 @@ void Viewshed_Map(long OBN)
 	WA_MaxWidth,	WCSScrn->Width,
 	WA_MaxHeight,	WCSScrn->Height,
 	WA_IDCMP,	IDCMP_CLOSEWINDOW,
-	WA_Title,	"Visual Sensitivity",
-	WA_CustomScreen,WCSScrn,
+	WA_Title,	(ULONG)"Visual Sensitivity",
+	WA_CustomScreen,(ULONG)WCSScrn,
 	TAG_DONE);
 
  if (! MapWind3)
@@ -1904,7 +1904,7 @@ void Viewshed_Map(long OBN)
   short l;
   long sum;
 
-  BWVS = BusyWin_New("Smoothing...", VS->Width, 0, "BWVS");
+  BWVS = BusyWin_New("Smoothing...", VS->Width, 0, (ULONG)"BWVS");
 
   memcpy(VS->View, VS->Map, VS->Mapsize);
 
@@ -1955,7 +1955,7 @@ void Viewshed_Map(long OBN)
 **	of distance from path to focus * elevation difference.
 */
 
- BWVS = BusyWin_New("Path Point", DBase[OBN].Points, 0, "BWVS");
+ BWVS = BusyWin_New("Path Point", DBase[OBN].Points, 0, (ULONG)"BWVS");
 
  for (i=1; i<=DBase[OBN].Points; i++)
   {
@@ -2006,7 +2006,7 @@ void Viewshed_Map(long OBN)
 
  if (User_Message((CONST_STRPTR)"Mapping Module: Viewshed",
          (CONST_STRPTR)"Draw vectors on viewshed rendering?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn"))
-  makemap(MapWind3, VS->cb.lowx, VS->cb.lowy, VS->cb.highx, VS->cb.highy, NULL);
+  makemap(MapWind3, VS->cb.lowx, VS->cb.lowy, VS->cb.highx, VS->cb.highy, (ULONG)NULL);
 
 } /* Viewshed() */
 
@@ -2022,7 +2022,7 @@ void Close_Viewshed_Window(void)
  if (MapWind3)
   {
   WCS_Signals ^= MapWind3_Sig;
-  MapWind3_Sig = NULL;
+  MapWind3_Sig = 0;
   closesharedwindow(MapWind3, 0);
   MapWind3 = NULL;
  }
@@ -2256,7 +2256,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
   if ((SerialIO = (struct IOExtSer *)
 	CreateExtIO(SerialMP, sizeof (struct IOExtSer))))
    {
-   if (OpenDevice((CONST_STRPTR)SERIALNAME, 0, (struct IORequest *)SerialIO, NULL))
+   if (OpenDevice((CONST_STRPTR)SERIALNAME, 0, (struct IORequest *)SerialIO, 0))
     {
     error = 1;
     User_Message((CONST_STRPTR)"Mapping Module: Digitize",

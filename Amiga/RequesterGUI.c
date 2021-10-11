@@ -22,12 +22,12 @@ short getdbasename(long mode)
 get(ModControlWin, MUIA_Window_Window, &MCPWin); 
  if ((frbase = (struct FileRequester *)
    AllocAslRequestTags(ASL_FileRequest,
-     ASLFR_InitialDrawer, dbasepath,
-     ASLFR_InitialFile, dbasename,
+     ASLFR_InitialDrawer, (ULONG)dbasepath,
+     ASLFR_InitialFile, (ULONG)dbasename,
      ASLFR_InitialHeight, 200,
      ASLFR_InitialLeftEdge, 250,
      ASLFR_InitialTopEdge, 150,
-     ASLFR_Window, MCPWin,
+     ASLFR_Window, (ULONG)MCPWin,
      TAG_DONE)) == NULL) {
   printf("Can't initialize file requester!\n");
   return 0;
@@ -126,12 +126,12 @@ short getfilename(long mode, char *requestname, char *pathname,
 
  if ((frfile=(struct FileRequester *)
    AllocAslRequestTags(ASL_FileRequest,
-     ASLFR_InitialDrawer, pathname,
-     ASLFR_InitialFile, filename,
+     ASLFR_InitialDrawer, (ULONG)pathname,
+     ASLFR_InitialFile, (ULONG)filename,
      ASLFR_InitialHeight, 200,
      ASLFR_InitialLeftEdge, 250,
      ASLFR_InitialTopEdge, 150,
-     ASLFR_Window, MCPWin,
+     ASLFR_Window, (ULONG)MCPWin,
      TAG_DONE)) == NULL) {
   printf("Can't initialize file requester!\n");
   return 0;
@@ -177,13 +177,13 @@ short getfilenameptrn(long mode, char *requestname, char *pathname,
 
  if ((frfile=(struct FileRequester *)
    AllocAslRequestTags(ASL_FileRequest,
-     ASLFR_InitialDrawer, pathname,
-     ASLFR_InitialFile, filename,
-     ASLFR_InitialPattern, ptrn,
+     ASLFR_InitialDrawer, (ULONG)pathname,
+     ASLFR_InitialFile, (ULONG)filename,
+     ASLFR_InitialPattern, (ULONG)ptrn,
      ASLFR_InitialHeight, 200,
      ASLFR_InitialLeftEdge, 250,
      ASLFR_InitialTopEdge, 150,
-     ASLFR_Window, MCPWin,
+     ASLFR_Window, (ULONG)MCPWin,
      TAG_DONE)) == NULL) {
   printf("Can't initialize file requester!\n");
   return 0;
@@ -233,12 +233,12 @@ struct FileRequester *getmultifilename(char *requestname, char *pathname,
 
  if ((frfile = (struct FileRequester *)
    AllocAslRequestTags(ASL_FileRequest,
-     ASLFR_InitialDrawer, pathname,
-     ASLFR_InitialFile, filename,
+     ASLFR_InitialDrawer, (ULONG)pathname,
+     ASLFR_InitialFile, (ULONG)filename,
      ASLFR_InitialHeight, 200,
      ASLFR_InitialLeftEdge, 250,
      ASLFR_InitialTopEdge, 150,
-     ASLFR_Window, MCPWin,
+     ASLFR_Window, (ULONG)MCPWin,
      TAG_DONE)) == NULL) {
   printf("Can't initialize file requester!\n");
   return (0);
@@ -338,9 +338,9 @@ if ((This = (struct BusyWindow *)get_Memory(sizeof(struct BusyWindow), MEMF_CLEA
 	  {
 	  if(This->StartSeconds)
 	  	{
-	  	set(This->BW_Remain, MUIA_Text_Contents, "00:00:00");
-	  	set(This->BW_Elapse, MUIA_Text_Contents, "00:00:00");
-	  	set(This->BW_Percent, MUIA_Gauge_InfoText, "\33c\033200:00:00");
+	  	set(This->BW_Remain, MUIA_Text_Contents, (ULONG)"00:00:00");
+	  	set(This->BW_Elapse, MUIA_Text_Contents, (ULONG)"00:00:00");
+	  	set(This->BW_Percent, MUIA_Gauge_InfoText, (ULONG)"\33c\033200:00:00");
 	  	} /* if */
 	  DoMethod(app, OM_ADDMEMBER, This->BusyWin);
 #ifdef WCS_MUI_2_HACK
@@ -422,22 +422,22 @@ if(This)
 		if(strncmp(Today, PWDate, 10))
 			{
 			sprintf(ProjDate, "\0332%19s", PWDate);
-			ProjDate[21] = NULL;
+			ProjDate[21] = 0;
 /*			strncpy(ProjDate, PWDate, 19);
 			ProjDate[19] = NULL;*/
 			} /* if */
 		else
 			{
 			sprintf(ProjDate, "\0332%8s", &PWDate[11]);
-			ProjDate[10] = NULL;
+			ProjDate[10] = 0;
 /*			strncpy(ProjDate, &PWDate[11], 8);
 			ProjDate[8] = NULL;*/
 			} /* if */
 		sprintf(PWDate, "%02d:%02d:%02d", ElapHrs, ElapMin, ElapSec); /* Elapsed */
 		sprintf(Today, "%02d:%02d:%02d", RemHrs, RemMin, RemSec); /* Remaining */
-		set(This->BW_Percent, MUIA_Gauge_InfoText, ProjDate);
-		set(This->BW_Elapse, MUIA_Text_Contents, PWDate);
-		set(This->BW_Remain, MUIA_Text_Contents, Today);
+		set(This->BW_Percent, MUIA_Gauge_InfoText, (ULONG)ProjDate);
+		set(This->BW_Elapse, MUIA_Text_Contents, (ULONG)PWDate);
+		set(This->BW_Remain, MUIA_Text_Contents, (ULONG)Today);
 		} /* if */
 	} /* if */
 

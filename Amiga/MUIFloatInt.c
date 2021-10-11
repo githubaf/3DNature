@@ -134,7 +134,7 @@ else if(data->FIFlags & FIOFlag_Long)
 		} /* else */
 	} /* if */
 
-set(data->string, MUIA_String_Contents, Scratch);
+set(data->string, MUIA_String_Contents, (ULONG)Scratch);
 
 /* No-op to invoke triggers, if any */
 ULConv = *(unsigned long *)data->MasterVariable;
@@ -161,7 +161,7 @@ STATIC_FCN SAVEDS ULONG mNew(struct IClass *cl,Object *obj,struct opSet *msg) //
 		return(0);
 	data = INST_DATA(cl,obj);
 
-	data->FIFlags = NULL;
+	data->FIFlags = 0;
 	data->MasterVariable = NULL;
 	data->IncDecAmount = 1.0;
 	data->MinAmount = 0;
@@ -437,7 +437,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 			if(D) /* prevent enforcer hits from stupidity */
 				{
 				data->MaxAmount = *D;
-				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, NULL, msg->ops_AttrList))
+				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 					{
 					mSync(cl, obj, msg);
 					} /* if */
@@ -450,7 +450,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 			if(D) /* prevent enforcer hits from stupidity */
 				{
 				data->MinAmount = *D;
-				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, NULL, msg->ops_AttrList))
+				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 					{
 					mSync(cl, obj, msg);
 					} /* if */
@@ -463,7 +463,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 			Temp = tag->ti_Data;
 			Limit = *(signed long int *)(&Temp);
 			data->MaxAmount = Limit;
-			if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, NULL, msg->ops_AttrList))
+			if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 				{
 				mSync(cl, obj, msg);
 				} /* if */
@@ -474,7 +474,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 			Temp = tag->ti_Data;
 			Limit = *(signed long int *)(&Temp);
 			data->MinAmount = Limit;
-			if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, NULL, msg->ops_AttrList))
+			if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 				{
 				mSync(cl, obj, msg);
 				} /* if */
@@ -485,7 +485,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 		case MUIA_FloatInt_VarPtr:
 			{
 			data->MasterVariable = (void *)tag->ti_Data;
-			if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, NULL, msg->ops_AttrList))
+			if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 				{
 				mSync(cl, obj, msg);
 				} /* if */
@@ -498,7 +498,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 				{
 				data->FIFlags &= ~FI_TypeMask;
 				data->FIFlags |= Temp;
-				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, NULL, msg->ops_AttrList))
+				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 					{
 					mSync(cl, obj, msg);
 					} /* if */
@@ -510,7 +510,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 			if(data->MasterVariable)
 				{
 				*((long *)(data->MasterVariable)) = (long)tag->ti_Data;
-				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, NULL, msg->ops_AttrList))
+				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 					{
 					mSync(cl, obj, msg);
 					} /* if */

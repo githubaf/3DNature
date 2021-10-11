@@ -116,7 +116,7 @@ void Make_TS_Window(void)
 #endif /* WCS_MUI_2_HACK */
 
  sprintf(str, "%f", PAR_FIRST_MOTION(5));
- set(TS_Win->LonStr, MUIA_String_Contents, str);
+ set(TS_Win->LonStr, MUIA_String_Contents, (ULONG)str);
  Set_TS_Reverse(0);
 
 /* ReturnIDs */
@@ -161,7 +161,7 @@ void Make_TS_Window(void)
   TS_Win->TimeSetWin, 3, MUIM_Set, MUIA_Window_ActiveObject, TS_Win->LonStr); 
 
 /* set active gadget */
- set(TS_Win->TimeSetWin, MUIA_Window_ActiveObject, TS_Win->TimeStr); 
+ set(TS_Win->TimeSetWin, MUIA_Window_ActiveObject, (ULONG)TS_Win->TimeStr); 
 
 /* Open window */
   set(TS_Win->TimeSetWin, MUIA_Window_Open, TRUE);
@@ -415,9 +415,9 @@ double SunLon, SunLat, RefLon, SunTime;
  SunLon = RefLon + 180.0 * SunTime / 12.0;
 
  sprintf(str, "%f", SunLat);
- set(TS_Win->SunLatStr, MUIA_String_Contents, str); 
+ set(TS_Win->SunLatStr, MUIA_String_Contents, (ULONG)str); 
  sprintf(str, "%f", SunLon);
- set(TS_Win->SunLonStr, MUIA_String_Contents, str); 
+ set(TS_Win->SunLonStr, MUIA_String_Contents, (ULONG)str); 
 
  PAR_FIRST_MOTION(15) = SunLat;
  PAR_FIRST_MOTION(16) = SunLon;
@@ -546,12 +546,12 @@ double FloatDays, RefLon, SunTime;
  set(TS_Win->MonthCycle, MUIA_Cycle_Active, SunMonth);
  set(TS_Win->DateCycle, MUIA_Cycle_Active, SunDate);
  set(TS_Win->AMPMCycle, MUIA_Cycle_Active, AMPM);
- set(TS_Win->TimeStr, MUIA_String_Contents, str);
+ set(TS_Win->TimeStr, MUIA_String_Contents, (ULONG)str);
 
  sprintf(str, "%f", PAR_FIRST_MOTION(15));
- set(TS_Win->SunLatStr, MUIA_String_Contents, str); 
+ set(TS_Win->SunLatStr, MUIA_String_Contents, (ULONG)str); 
  sprintf(str, "%f", PAR_FIRST_MOTION(16));
- set(TS_Win->SunLonStr, MUIA_String_Contents, str); 
+ set(TS_Win->SunLonStr, MUIA_String_Contents, (ULONG)str); 
  
 } /* Set_TS_Reverse() */
 
@@ -641,7 +641,7 @@ STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.202
 	MUIM_Set, MUIA_Window_ActiveObject, PN_Win->Str[0]);
 
 /* Set active gadget */
-  set(PN_Win->NewProjWin, MUIA_Window_ActiveObject, PN_Win->Str[0]);
+  set(PN_Win->NewProjWin, MUIA_Window_ActiveObject, (ULONG)PN_Win->Str[0]);
 
 /* Open window */
   set(PN_Win->NewProjWin, MUIA_Window_Open, TRUE);
@@ -756,7 +756,7 @@ void Handle_PN_Window(ULONG WCS_ID)
        }
       getfilenameptrn(1, "New Project Path/Name", filename, dummyfile, Ptrn);
       strmfp(filename, filename, dummyfile);
-      set(PN_Win->Str[0], MUIA_String_Contents, filename);
+      set(PN_Win->Str[0], MUIA_String_Contents, (ULONG)filename);
       break;
       } /* new project */
      case 1:
@@ -772,7 +772,7 @@ void Handle_PN_Window(ULONG WCS_ID)
        }
       getfilenameptrn(0, "Clone Project", filename, dummyfile, Ptrn);
       strmfp(filename, filename, dummyfile);
-      set(PN_Win->Str[1], MUIA_String_Contents, filename);
+      set(PN_Win->Str[1], MUIA_String_Contents, (ULONG)filename);
       break;
       } /* clone project */
      } /* switch i */

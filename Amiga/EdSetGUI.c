@@ -985,7 +985,7 @@ void Make_ES_Window(void)
 #endif /* USE_SETTINGS_HELP */
 #endif /* USE_WCS_HELP */
 
-  set(ES_Win->SettingsWin, MUIA_Window_ActiveObject, ES_Win->IntStr[0]);
+  set(ES_Win->SettingsWin, MUIA_Window_ActiveObject, (ULONG)ES_Win->IntStr[0]);
 
 /* Open window */
   set(ES_Win->SettingsWin, MUIA_Window_Open, TRUE);
@@ -1158,39 +1158,39 @@ void Handle_ES_Window(ULONG WCS_ID)
      case 0:
       {
       getfilename(1, "Frame Path/Name", framepath, framefile);
-      set(ES_Win->Str[0], MUIA_String_Contents, framepath);
-      set(ES_Win->Str[8], MUIA_String_Contents, framefile);
+      set(ES_Win->Str[0], MUIA_String_Contents, (ULONG)framepath);
+      set(ES_Win->Str[8], MUIA_String_Contents, (ULONG)framefile);
       break;
       } /* framepath */
      case 1:
       {
       getfilename(1, "Vector File Path/Name", linepath, linefile);
-      set(ES_Win->Str[1], MUIA_String_Contents, linepath);
-      set(ES_Win->Str[10], MUIA_String_Contents, linefile);
+      set(ES_Win->Str[1], MUIA_String_Contents, (ULONG)linepath);
+      set(ES_Win->Str[10], MUIA_String_Contents, (ULONG)linefile);
       break;
       } /* linepath */
      case 2:
       {
       getfilename(0, "Background File Path/Name",
 	 backgroundpath, backgroundfile);
-      set(ES_Win->Str[2], MUIA_String_Contents, backgroundpath);
-      set(ES_Win->Str[5], MUIA_String_Contents, backgroundfile);
+      set(ES_Win->Str[2], MUIA_String_Contents, (ULONG)backgroundpath);
+      set(ES_Win->Str[5], MUIA_String_Contents, (ULONG)backgroundfile);
       break;
       } /* backgroundpath */
      case 3:
       {
       getfilename(0, "Z Buffer File Path/Name",
 	 zbufferpath, zbufferfile);
-      set(ES_Win->Str[3], MUIA_String_Contents, zbufferpath);
-      set(ES_Win->Str[6], MUIA_String_Contents, zbufferfile);
+      set(ES_Win->Str[3], MUIA_String_Contents, (ULONG)zbufferpath);
+      set(ES_Win->Str[6], MUIA_String_Contents, (ULONG)zbufferfile);
       break;
       } /* zbufferpath */
      case 4:
       {
       getfilename(0, "Color Map File Path",
 	 colormappath, colormapfile);
-      set(ES_Win->Str[4], MUIA_String_Contents, colormappath);
-      set(ES_Win->Str[12], MUIA_String_Contents, colormapfile);
+      set(ES_Win->Str[4], MUIA_String_Contents, (ULONG)colormappath);
+      set(ES_Win->Str[12], MUIA_String_Contents, (ULONG)colormapfile);
       break;
       } /* colormappath */
      case 5:
@@ -1198,21 +1198,21 @@ void Handle_ES_Window(ULONG WCS_ID)
       strcpy(tempfile, framefile);
       strcat(tempfile, ".temp");
       getfilename(1, "Temporary File Path/Name", temppath, tempfile);
-      set(ES_Win->Str[7], MUIA_String_Contents, temppath);
+      set(ES_Win->Str[7], MUIA_String_Contents, (ULONG)temppath);
 /*      set(ES_Win->Str[9], MUIA_String_Contents, tempfile);*/
       break;
       } /* temppath */
      case 6:
       {
       getfilename(1, "Ecosystem Model Path", modelpath, dummyfile);
-      set(ES_Win->Str[11], MUIA_String_Contents, modelpath);
+      set(ES_Win->Str[11], MUIA_String_Contents, (ULONG)modelpath);
       break;
       } /* temppath */
      case 7:
       {
       getfilename(1, "Deformation Map Path", deformpath, deformfile);
-      set(ES_Win->Str[13], MUIA_String_Contents, deformpath);
-      set(ES_Win->Str[14], MUIA_String_Contents, deformfile);
+      set(ES_Win->Str[13], MUIA_String_Contents, (ULONG)deformpath);
+      set(ES_Win->Str[14], MUIA_String_Contents, (ULONG)deformfile);
       break;
       } /* temppath */
      } /* switch i */
@@ -1644,7 +1644,7 @@ void Handle_ES_Window(ULONG WCS_ID)
       {
       if (settings.defaulteco > 0) settings.defaulteco --;
       set(ES_Win->Txt[0], MUIA_Text_Contents,
-	 PAR_NAME_ECO(settings.defaulteco));
+	 (ULONG)PAR_NAME_ECO(settings.defaulteco));
       break;
       } /* default ecosystem */
      } /* switch (i) */
@@ -1660,7 +1660,7 @@ void Handle_ES_Window(ULONG WCS_ID)
       {
       if (settings.defaulteco < ECOPARAMS - 1) settings.defaulteco ++;
       set(ES_Win->Txt[0], MUIA_Text_Contents,
-	 PAR_NAME_ECO(settings.defaulteco));
+	 (ULONG)PAR_NAME_ECO(settings.defaulteco));
       break;
       } /* default ecosystem */
      } /* switch (i) */

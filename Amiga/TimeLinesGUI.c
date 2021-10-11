@@ -575,7 +575,7 @@ void Handle_EMTL_Window(ULONG WCS_ID)
 
     get(EMTL_Win->TCB_Cycle, MUIA_Cycle_Active, &item);
     sprintf(str, "%3.2f", EM_Win->TCB[item]);
-    set(EMTL_Win->CycleStr, MUIA_String_Contents, str);
+    set(EMTL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Cycle */
 
@@ -594,7 +594,7 @@ void Handle_EMTL_Window(ULONG WCS_ID)
 
     get(EMTL_Win->CycleStr, MUIA_String_Contents, &value);
     sprintf(str, "%3.2f", atof(value) - .1);
-    set(EMTL_Win->CycleStr, MUIA_String_Contents, str);
+    set(EMTL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Arrow */
 
@@ -604,7 +604,7 @@ void Handle_EMTL_Window(ULONG WCS_ID)
 
     get(EMTL_Win->CycleStr, MUIA_String_Contents, &value);
     sprintf(str, "%3.2f", atof(value) + .1);
-    set(EMTL_Win->CycleStr, MUIA_String_Contents, str);
+    set(EMTL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Arrow */
 
@@ -622,7 +622,7 @@ void Handle_EMTL_Window(ULONG WCS_ID)
      {
      frame -= mult;
      sprintf(str, "%ld", frame);
-     set(EMTL_Win->FrameTxt, MUIA_Text_Contents, str);
+     set(EMTL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
      SKT[0]->Key[EMTL_Win->ActiveKey]->MoKey.KeyFrame = frame;
      SplineSingleKey(0, 0);
      if ((EMTL_Win->KeyItem == 1 || EMTL_Win->KeyItem == 2
@@ -680,7 +680,7 @@ void Handle_EMTL_Window(ULONG WCS_ID)
      {
      frame += mult;
      sprintf(str, "%ld", frame);
-     set(EMTL_Win->FrameTxt, MUIA_Text_Contents, str);
+     set(EMTL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
      SKT[0]->Key[EMTL_Win->ActiveKey]->MoKey.KeyFrame = frame;
      SplineSingleKey(0, 0);
      if ((EMTL_Win->KeyItem == 1 || EMTL_Win->KeyItem == 2
@@ -773,14 +773,14 @@ short Set_EMTL_Item(short item)
    } /* if item matches list ID */
   } /* for i=0... */
  sprintf(str, "%d", EM_Win->Frame);
- set(EMTL_Win->FrameTxt, MUIA_Text_Contents, str);
+ set(EMTL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
  set(EMTL_Win->BT_Linear, MUIA_Selected,
 	SKT[0]->Key[EMTL_Win->ActiveKey]->MoKey.Linear);
  get (EMTL_Win->TCB_Cycle, MUIA_Cycle_Active, &data);
  sprintf(str, "%3.2f", EM_Win->TCB[data]);
- set(EMTL_Win->CycleStr, MUIA_String_Contents, str);
+ set(EMTL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
  sprintf(str, "%f", SKT[0]->Key[EMTL_Win->ActiveKey]->MoKey.Value);
- set(EMTL_Win->ValStr[0], MUIA_String_Contents, str);
+ set(EMTL_Win->ValStr[0], MUIA_String_Contents, (ULONG)str);
  EMTL_Win->KeyItem = item;
 
  return (1);
@@ -1387,7 +1387,7 @@ void Handle_ECTL_Window(ULONG WCS_ID)
 
     get(ECTL_Win->TCB_Cycle, MUIA_Cycle_Active, &item);
     sprintf(str, "%3.2f", EC_Win->TCB[item]);
-    set(ECTL_Win->CycleStr, MUIA_String_Contents, str);
+    set(ECTL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Cycle */
 
@@ -1406,7 +1406,7 @@ void Handle_ECTL_Window(ULONG WCS_ID)
 
     get(ECTL_Win->CycleStr, MUIA_String_Contents, &value);
     sprintf(str, "%3.2f", atof(value) - .1);
-    set(ECTL_Win->CycleStr, MUIA_String_Contents, str);
+    set(ECTL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Arrow */
 
@@ -1416,7 +1416,7 @@ void Handle_ECTL_Window(ULONG WCS_ID)
 
     get(ECTL_Win->CycleStr, MUIA_String_Contents, &value);
     sprintf(str, "%3.2f", atof(value) + .1);
-    set(ECTL_Win->CycleStr, MUIA_String_Contents, str);
+    set(ECTL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Arrow */
 
@@ -1433,7 +1433,7 @@ void Handle_ECTL_Window(ULONG WCS_ID)
      {
      frame -= mult;
      sprintf(str, "%ld", frame);
-     set(ECTL_Win->FrameTxt, MUIA_Text_Contents, str);
+     set(ECTL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
      SKT[1]->Key[ECTL_Win->ActiveKey]->CoKey.KeyFrame = frame;
      SplineSingleKey(1, 0);
      Set_ECTL_Data(-1);
@@ -1457,7 +1457,7 @@ void Handle_ECTL_Window(ULONG WCS_ID)
      {
      frame += mult;
      sprintf(str, "%ld", frame);
-     set(ECTL_Win->FrameTxt, MUIA_Text_Contents, str);
+     set(ECTL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
      SKT[1]->Key[ECTL_Win->ActiveKey]->CoKey.KeyFrame = frame;
      SplineSingleKey(1, 0);
      Set_ECTL_Data(-1);
@@ -1518,14 +1518,14 @@ short Set_ECTL_Item(short item)
   } /* for i=0... */
 /* set(ECTL_Win->ParTxt, MUIA_Text_Contents, PAR_NAME_COLOR(EC_Win->PalItem));*/
  sprintf(str, "%d", EC_Win->Frame);
- set(ECTL_Win->FrameTxt, MUIA_Text_Contents, str);
+ set(ECTL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
  get (ECTL_Win->TCB_Cycle, MUIA_Cycle_Active, &data);
  sprintf(str, "%3.2f", EC_Win->TCB[data]);
- set(ECTL_Win->CycleStr, MUIA_String_Contents, str);
+ set(ECTL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
  for (i=0; i<3; i++)
   {
   sprintf(str, "%1d", SKT[1]->Key[ECTL_Win->ActiveKey]->CoKey.Value[i]);
-  set(ECTL_Win->ValStr[i], MUIA_String_Contents, str);
+  set(ECTL_Win->ValStr[i], MUIA_String_Contents, (ULONG)str);
   } /* for i=0... */
  ECTL_Win->KeyItem = item;
 
@@ -2171,7 +2171,7 @@ void Handle_EETL_Window(ULONG WCS_ID)
 
     get(EETL_Win->TCB_Cycle, MUIA_Cycle_Active, &item);
     sprintf(str, "%3.2f", EE_Win->TCB[item]);
-    set(EETL_Win->CycleStr, MUIA_String_Contents, str);
+    set(EETL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Cycle */
 
@@ -2201,7 +2201,7 @@ void Handle_EETL_Window(ULONG WCS_ID)
 
     get(EETL_Win->CycleStr, MUIA_String_Contents, &value);
     sprintf(str, "%3.2f", atof(value) - .1);
-    set(EETL_Win->CycleStr, MUIA_String_Contents, str);
+    set(EETL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Arrow */
 
@@ -2211,7 +2211,7 @@ void Handle_EETL_Window(ULONG WCS_ID)
 
     get(EETL_Win->CycleStr, MUIA_String_Contents, &value);
     sprintf(str, "%3.2f", atof(value) + .1);
-    set(EETL_Win->CycleStr, MUIA_String_Contents, str);
+    set(EETL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
     break;
     } /* TCB Arrow */
 
@@ -2228,7 +2228,7 @@ void Handle_EETL_Window(ULONG WCS_ID)
      {
      frame -= mult;
      sprintf(str, "%ld", frame);
-     set(EETL_Win->FrameTxt, MUIA_Text_Contents, str);
+     set(EETL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
      SKT[2]->Key[EETL_Win->ActiveKey]->EcoKey2.KeyFrame = frame;
      SplineSingleKey(2, 0);
      Set_EETL_Data(EETL_Win->ActiveItem);
@@ -2252,7 +2252,7 @@ void Handle_EETL_Window(ULONG WCS_ID)
      {
      frame += mult;
      sprintf(str, "%ld", frame);
-     set(EETL_Win->FrameTxt, MUIA_Text_Contents, str);
+     set(EETL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
      SKT[2]->Key[EETL_Win->ActiveKey]->EcoKey2.KeyFrame = frame;
      SplineSingleKey(2, 0);
      Set_EETL_Data(EETL_Win->ActiveItem);

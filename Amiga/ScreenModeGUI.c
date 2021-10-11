@@ -190,7 +190,7 @@ if(ModeSelWin)
  DoMethod(ModeSelWin, MUIM_Window_SetCycleChain,
   SM_List, SM_Save, SM_Use, SM_Exit, SM_OSCAN, SM_Width, SM_Height, NULL);
 
- set(ModeSelWin, MUIA_Window_ActiveObject, SM_Save);
+ set(ModeSelWin, MUIA_Window_ActiveObject, (ULONG)SM_Save);
 
  for(Scan = This; Scan; Scan = Scan->Next)
   {
@@ -211,7 +211,7 @@ if(ModeSelWin)
 
 Selected = This;
 
-for(Finished = NULL; !Finished;)
+for(Finished = 0; !Finished;)
  {
  if((ReturnID = DoMethod(app, MUIM_Application_Input, &Signalz)))
   {
@@ -284,7 +284,7 @@ for(Finished = NULL; !Finished;)
     if(Selected->PropertyFlags & DIPF_IS_FOREIGN)
      strcat(ModeInfo,"Foreign ");
     
-    set(SM_Text, MUIA_Floattext_Text, ModeInfo);
+    set(SM_Text, MUIA_Floattext_Text, (ULONG)ModeInfo);
     
     set(SM_Width, MUIA_String_Integer, Selected->UX);
     set(SM_Height, MUIA_String_Integer, Selected->UY);
@@ -298,16 +298,16 @@ for(Finished = NULL; !Finished;)
      {
      CheckVal = Selected->OY;
      set(SM_Height, MUIA_String_Integer, CheckVal);
-     set(ModeSelWin, MUIA_Window_ActiveObject, SM_Height);
+     set(ModeSelWin, MUIA_Window_ActiveObject, (ULONG)SM_Height);
      } /* if */
     else if(CheckVal > Selected->MaxY)
      {
      CheckVal = Selected->MaxY;
      set(SM_Height, MUIA_String_Integer, CheckVal);
-     set(ModeSelWin, MUIA_Window_ActiveObject, SM_Height);
+     set(ModeSelWin, MUIA_Window_ActiveObject, (ULONG)SM_Height);
      } /* else if */
     else
-     set(ModeSelWin, MUIA_Window_ActiveObject, SM_Width);
+     set(ModeSelWin, MUIA_Window_ActiveObject, (ULONG)SM_Width);
     Selected->UY = CheckVal;
     break;
     } /* ID_SM_HEIGHT */
@@ -318,16 +318,16 @@ for(Finished = NULL; !Finished;)
      {
      CheckVal = Selected->OX;
      set(SM_Width, MUIA_String_Integer, CheckVal);
-     set(ModeSelWin, MUIA_Window_ActiveObject, SM_Width);
+     set(ModeSelWin, MUIA_Window_ActiveObject, (ULONG)SM_Width);
      } /* if */
     else if(CheckVal > Selected->MaxX)
      {
      CheckVal = Selected->MaxX;
      set(SM_Width, MUIA_String_Integer, CheckVal);
-     set(ModeSelWin, MUIA_Window_ActiveObject, SM_Width);
+     set(ModeSelWin, MUIA_Window_ActiveObject, (ULONG)SM_Width);
      } /* else if */
     else
-     set(ModeSelWin, MUIA_Window_ActiveObject, SM_Height);
+     set(ModeSelWin, MUIA_Window_ActiveObject, (ULONG)SM_Height);
     Selected->UX = CheckVal;
     break;
     } /* ID_SM_WIDTH */

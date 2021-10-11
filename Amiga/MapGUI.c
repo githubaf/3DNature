@@ -356,7 +356,7 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
     MP->MapPan, NULL);
 
 
-   set(MP->MAPC, MUIA_Window_ActiveObject, MP->MapAuto);
+   set(MP->MAPC, MUIA_Window_ActiveObject, (ULONG)MP->MapAuto);
    
    set(MP->MAPC, MUIA_Window_Open, TRUE);
    get(MP->MAPC, MUIA_Window_Open, &open);
@@ -415,7 +415,7 @@ if(ContInt == 3 || ContInt == 4)
 /*else, what about 1*/
  TrimZeros(StringTrans);
 
-set(MP->Exag, MUIA_String_Contents, StringTrans);
+set(MP->Exag, MUIA_String_Contents, (ULONG)StringTrans);
 set(MP->Exag, MUIA_String_DisplayPos, 0);
 set(MP->Exag, MUIA_String_BufferPos, 0);
 
@@ -454,7 +454,7 @@ void MapGUI_Message(short line, char *Message)
 {
 if(MP)
 	{
-	set(MP->MapMsg[line], MUIA_Text_Contents, Message);
+	set(MP->MapMsg[line], MUIA_Text_Contents, (ULONG)Message);
 	} /* if */
 
 return;
@@ -609,7 +609,7 @@ short Make_MA_Window(struct MapData *MP)
  DoMethod(MP->IntStr[3], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
    MP->AlignWin, 3, MUIM_Set, MUIA_Window_ActiveObject, MP->FloatStr[0]);
 
- set(MP->AlignWin, MUIA_Window_ActiveObject, MP->FloatStr[0]);
+ set(MP->AlignWin, MUIA_Window_ActiveObject, (ULONG)MP->FloatStr[0]);
    
  set(MP->AlignWin, MUIA_Window_Open, TRUE);
  get(MP->AlignWin, MUIA_Window_Open, &open);
@@ -717,7 +717,7 @@ if(!UnderConst)
 
 	   MUI_DoNotiPresFal(app, UnderConstOK, ID_UNDERCONST, NULL);
 
-	   set(UnderConst, MUIA_Window_ActiveObject, UnderConstOK);
+	   set(UnderConst, MUIA_Window_ActiveObject, (ULONG)UnderConstOK);
       set(UnderConst, MUIA_Window_Open, TRUE);
 #ifdef WCS_MUI_2_HACK
 	   MUI2_MenuCheck_Hack();
@@ -812,8 +812,8 @@ short map(void)
 	WA_MaxWidth,	(~0),
 	WA_MaxHeight,	(~0),
 	WA_IDCMP,	iflags,
-	WA_Title,	"Map View",
-	WA_CustomScreen,WCSScrn,
+	WA_Title,	(ULONG)"Map View",
+	WA_CustomScreen,(ULONG)WCSScrn,
 	TAG_DONE);
 
  if (! MapWind0)
@@ -2030,7 +2030,7 @@ HandleEvent:
             PtsAdded ++;
             MD_Win->ControlPts ++; 
             sprintf(str, "%d", MD_Win->ControlPts);
-            set(MD_Win->Text, MUIA_Text_Contents, str);
+            set(MD_Win->Text, MUIA_Text_Contents, (ULONG)str);
             LastX = Event.MouseX;
             LastY = Event.MouseY;
 	    } /* if */
@@ -2099,7 +2099,7 @@ HandleEvent:
              Datum_Del(MD_Win->CurDat->nextdat);
              MD_Win->CurDat->nextdat = NULL;
              sprintf(str, "%d", MD_Win->ControlPts);
-             set(MD_Win->Text, MUIA_Text_Contents, str);
+             set(MD_Win->Text, MUIA_Text_Contents, (ULONG)str);
              break;
 	     } /* else user wishes to abort the operation - remove added points */
 	    } /* if one end point at least not found within 5 pixels of the line seg */
@@ -2180,7 +2180,7 @@ HandleEvent:
              Datum_Del(MD_Win->CurDat->nextdat);
              MD_Win->CurDat->nextdat = NULL;
              sprintf(str, "%d", MD_Win->ControlPts);
-             set(MD_Win->Text, MUIA_Text_Contents, str);
+             set(MD_Win->Text, MUIA_Text_Contents, (ULONG)str);
              break;
 	     } /* if user cancelled remove rest of points */
             DT->values[2] = atof(str);
@@ -2253,7 +2253,7 @@ HandleEvent:
            MD_Win->CurDat = DT;
           MD_Win->ControlPts --;
           sprintf(str, "%d", MD_Win->ControlPts);
-          set(MD_Win->Text, MUIA_Text_Contents, str);
+          set(MD_Win->Text, MUIA_Text_Contents, (ULONG)str);
 	  } /* if point found */
          break;
 	 } /* delete control point */
@@ -2520,7 +2520,7 @@ Do you wish to save it or a Master Object file now?",
   MP_Width = MapWind0->Width;
   MP_Height = MapWind0->Height;
   WCS_Signals ^= MapWind0_Sig;
-  MapWind0_Sig = NULL;
+  MapWind0_Sig = 0;
 #ifndef NEW_MAP_MENUS
   ClearMenuStrip(MapWind0);
 #else

@@ -1214,7 +1214,7 @@ NewName2:
    } /* if no new list item */
   else
    {
-   set(DE_Win->DatabaseEditWin, MUIA_Window_ActiveObject, DE_Win->Str[0]);
+   set(DE_Win->DatabaseEditWin, MUIA_Window_ActiveObject, (ULONG)DE_Win->Str[0]);
    } /* else memory OK */
   } /* if database editor open */
 

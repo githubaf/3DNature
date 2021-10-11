@@ -87,7 +87,7 @@ if (IntuitionBase = (struct IntuitionBase *)
        {
        ModeSelect = NULL;
        ScrnData.AutoTag = TAG_IGNORE;
-       ScrnData.AutoVal = NULL;
+       ScrnData.AutoVal = 0;
        if((ScreenModes = ModeList_New()))
         {
         if((ModeSelect = ModeList_Choose(ScreenModes, &ScrnData)))
@@ -111,13 +111,13 @@ if (IntuitionBase = (struct IntuitionBase *)
          else
           { /* Turn off OverScan */
           ScrnData.OTag = TAG_IGNORE;
-          ScrnData.OVal = NULL;
+          ScrnData.OVal = 0;
           } /* else */
          WCSScrn = OpenScreenTags(NULL, SA_DisplayID, ModeSelect->ModeID,
           SA_Width, ModeSelect->UX, SA_Height, ModeSelect->UY,
-          SA_Depth, 4, SA_Title, APP_TITLE, SA_Type, CUSTOMSCREEN,
-          ScrnData.OTag, ScrnData.OVal, ScrnData.AutoTag, ScrnData.AutoVal, SA_Colors, NewAltColors,
-          SA_Pens, PenSpec, SA_PubName, AppBaseName, TAG_END);
+          SA_Depth, 4, SA_Title, (ULONG)APP_TITLE, SA_Type, CUSTOMSCREEN,
+          ScrnData.OTag, ScrnData.OVal, ScrnData.AutoTag, (ULONG)ScrnData.AutoVal, SA_Colors, (ULONG)NewAltColors,
+          SA_Pens, (ULONG)PenSpec, SA_PubName, (ULONG)AppBaseName, TAG_END);
          } /* if */
         else
          {
@@ -130,18 +130,18 @@ if (IntuitionBase = (struct IntuitionBase *)
         { /* Can't get screenmodes, default: NTSC-Hires-Lace */
         WCSScrn = OpenScreenTags(NULL, SA_DisplayID, HIRESLACE_KEY,
          SA_Width, STDSCREENWIDTH, SA_Height, STDSCREENHEIGHT,
-         SA_Depth, 4, SA_Title, APP_TITLE, SA_Type, CUSTOMSCREEN,
-         SA_Overscan, OSCAN_MAX, SA_Colors, NewAltColors,
-         SA_Pens, PenSpec, SA_PubName, AppBaseName, TAG_END);
+         SA_Depth, 4, SA_Title, (ULONG)APP_TITLE, SA_Type, CUSTOMSCREEN,
+         SA_Overscan, OSCAN_MAX, SA_Colors, (ULONG)NewAltColors,
+         SA_Pens, (ULONG)PenSpec, SA_PubName, (ULONG)AppBaseName, TAG_END);
         } /* else */
        } /* if no screen data in WCS.Prefs */
       else
        {
        WCSScrn = OpenScreenTags(NULL, SA_DisplayID, ScrnData.ModeID,
         SA_Width, ScrnData.Width, SA_Height, ScrnData.Height,
-        SA_Depth, 4, SA_Title, APP_TITLE, SA_Type, CUSTOMSCREEN,
-        ScrnData.OTag, ScrnData.OVal, ScrnData.AutoTag, ScrnData.AutoVal, SA_Colors, NewAltColors,
-        SA_Pens, PenSpec, SA_PubName, AppBaseName, TAG_END);
+        SA_Depth, 4, SA_Title, (ULONG)APP_TITLE, SA_Type, CUSTOMSCREEN,
+        ScrnData.OTag, ScrnData.OVal, ScrnData.AutoTag, ScrnData.AutoVal, SA_Colors, (ULONG)NewAltColors,
+        SA_Pens, (ULONG)PenSpec, SA_PubName, (ULONG)AppBaseName, TAG_END);
        } /* else read screen data from prefs file */
 
       if(WCSScrn)

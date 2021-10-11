@@ -121,7 +121,7 @@ void globemap(void)
 
   flags = ACTIVATE | SMART_REFRESH | WINDOWDEPTH | WINDOWCLOSE | WINDOWDRAG |
 	REPORTMOUSE;
-  iflags = NULL;
+  iflags = 0;
   WinWidth = settings.scrnwidth + WCSScrn->WBorLeft + WCSScrn->WBorRight + 1;
   WinHeight = settings.scrnheight + WCSScrn->WBorTop + WCSScrn->WBorBottom + 1;
   if(WinWidth > WCSScrn->Width)

@@ -599,7 +599,7 @@ struct WaveWindow *WV_Win;
         {
         CL_Win->Mod = 1;
         sprintf(str, "%d", CL_Win->CD->WD->NumWaves);
-        set(CL_Win->Text, MUIA_Text_Contents, str);
+        set(CL_Win->Text, MUIA_Text_Contents, (ULONG)str);
 	} /* if */
        } /* if something actually done */
       break;
@@ -616,7 +616,7 @@ struct WaveWindow *WV_Win;
        if (WinNum == 1 && CL_Win)
         {
         sprintf(TextStr, "%d", WaveNum);
-        set(CL_Win->Text, MUIA_Text_Contents, TextStr);
+        set(CL_Win->Text, MUIA_Text_Contents, (ULONG)TextStr);
         CL_Win->Mod = CL_Win->ReGen = 1;
 	}
        BuildWaveList(WV_Win, WV_Win->WD);
@@ -635,7 +635,7 @@ struct WaveWindow *WV_Win;
        {
        CL_Win->Mod = 1;
        sprintf(str, "%d", CL_Win->CD->WD->NumWaves);
-       set(CL_Win->Text, MUIA_Text_Contents, str);
+       set(CL_Win->Text, MUIA_Text_Contents, (ULONG)str);
        } /* if */
       break;
       }
@@ -926,7 +926,7 @@ struct WaveWindow *WV_Win;
       {
       WV_Win->TL->ActiveKey = GetActiveGenericKey(WV_Win->TL->SKT, WV_Win->WKS.Frame);
       sprintf(str, "%d", WV_Win->WKS.Frame);
-      set(WV_Win->TL->FrameTxt, MUIA_Text_Contents, str);
+      set(WV_Win->TL->FrameTxt, MUIA_Text_Contents, (ULONG)str);
       TL_Redraw(WV_Win->TL);
       }/* if key frame */
      } /* if time line window open */
@@ -1716,32 +1716,32 @@ void GUIDisableKeyButtons(struct GUIKeyStuff *GKS, struct TimeLineWindow *TL,
    {
    set(GKS->BT_PrevKey, MUIA_Disabled, FALSE);
    sprintf(str, "PK %d", WKS->PrevKey);
-   set(GKS->BT_PrevKey, MUIA_Text_Contents, str);
+   set(GKS->BT_PrevKey, MUIA_Text_Contents, (ULONG)str);
    if (TL)
     {
     set(TL->BT_PrevKey, MUIA_Disabled, FALSE);
-    set(TL->BT_PrevKey, MUIA_Text_Contents, str);
+    set(TL->BT_PrevKey, MUIA_Text_Contents, (ULONG)str);
     } /* if motion time line window open */
    } /* if prev key */
   else
    {
    set(GKS->BT_PrevKey, MUIA_Disabled, TRUE);
-   set(GKS->BT_PrevKey, MUIA_Text_Contents, "\33cPrev");
+   set(GKS->BT_PrevKey, MUIA_Text_Contents, (ULONG)"\33cPrev");
    if (TL)
     {
     set(TL->BT_PrevKey, MUIA_Disabled, TRUE);
-    set(TL->BT_PrevKey, MUIA_Text_Contents, "\33cPrev");
+    set(TL->BT_PrevKey, MUIA_Text_Contents, (ULONG)"\33cPrev");
     } /* if motion time line window open */
    } /* else */
   if (WKS->NextKey >= 0)
    {
    set(GKS->BT_NextKey, MUIA_Disabled, FALSE);
    sprintf(str, "NK %d", WKS->NextKey);
-   set(GKS->BT_NextKey, MUIA_Text_Contents, str);
+   set(GKS->BT_NextKey, MUIA_Text_Contents, (ULONG)str);
    if (TL)
     {
     set(TL->BT_NextKey, MUIA_Disabled, FALSE);
-    set(TL->BT_NextKey, MUIA_Text_Contents, str);
+    set(TL->BT_NextKey, MUIA_Text_Contents, (ULONG)str);
     set(TL->TxtArrow[0], MUIA_Disabled, FALSE);
     set(TL->TxtArrow[1], MUIA_Disabled, FALSE);
     set(TL->TxtArrowLg[0], MUIA_Disabled, FALSE);
@@ -1751,11 +1751,11 @@ void GUIDisableKeyButtons(struct GUIKeyStuff *GKS, struct TimeLineWindow *TL,
   else
    {
    set(GKS->BT_NextKey, MUIA_Disabled, TRUE);
-   set(GKS->BT_NextKey, MUIA_Text_Contents, "\33cNext");
+   set(GKS->BT_NextKey, MUIA_Text_Contents, (ULONG)"\33cNext");
    if (TL)
     {
     set(TL->BT_NextKey, MUIA_Disabled, TRUE);
-    set(TL->BT_NextKey, MUIA_Text_Contents, "\33cNext");
+    set(TL->BT_NextKey, MUIA_Text_Contents, (ULONG)"\33cNext");
     set(TL->TxtArrow[0], MUIA_Disabled, TRUE);
     set(TL->TxtArrow[1], MUIA_Disabled, TRUE);
     set(TL->TxtArrowLg[0], MUIA_Disabled, TRUE);
@@ -1768,22 +1768,22 @@ void GUIDisableKeyButtons(struct GUIKeyStuff *GKS, struct TimeLineWindow *TL,
    if (GKS->BT_AllKeys)
     {
     sprintf(str, "All (%d)", WKS->KeysExist);
-    set(GKS->BT_AllKeys, MUIA_Text_Contents, str);
+    set(GKS->BT_AllKeys, MUIA_Text_Contents, (ULONG)str);
     } /* if */
    if (TL)
     {
     sprintf(str, "Keys Exist (%d)", WKS->KeysExist);
-    set(TL->KeysExistTxt, MUIA_Text_Contents, str);
+    set(TL->KeysExistTxt, MUIA_Text_Contents, (ULONG)str);
     } /* if motion time line window open */
    } /* if keys exist */
   else
    {
    set(GKS->BT_UpdateKeys, MUIA_Disabled, TRUE);
    if (GKS->BT_AllKeys)
-    set(GKS->BT_AllKeys, MUIA_Text_Contents, "\33cAll (0)");
+    set(GKS->BT_AllKeys, MUIA_Text_Contents, (ULONG)"\33cAll (0)");
    if (TL)
     {
-    set(TL->KeysExistTxt, MUIA_Text_Contents, "No Other Keys");
+    set(TL->KeysExistTxt, MUIA_Text_Contents, (ULONG)"No Other Keys");
     } /* if motion time line window open */
    } /* else */
   if (WKS->ItemKeys > 1)
@@ -1799,7 +1799,7 @@ void GUIDisableKeyButtons(struct GUIKeyStuff *GKS, struct TimeLineWindow *TL,
    set(TL->BT_Linear, MUIA_Selected, WKS->Linear);
    get(TL->TCB_Cycle, MUIA_Cycle_Active, &item);
    sprintf(str, "%3.2f", WKS->TCB[item]);
-   set(TL->CycleStr, MUIA_String_Contents, str);
+   set(TL->CycleStr, MUIA_String_Contents, (ULONG)str);
    DisableAll = ((WKS->Item != TL->KeyItem)
 	 || WKS->ItemKeys < 2);
    set(TL->BT_AddKey, MUIA_Disabled, DisableAll);

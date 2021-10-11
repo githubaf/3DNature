@@ -367,7 +367,7 @@ void Make_EE_Window(void)
 	EE_Win->BT_Apply, EE_Win->BT_Cancel, NULL);
 
 /* Set active gadget */
-  set(EE_Win->EcosystemWin, MUIA_Window_ActiveObject, EE_Win->LS_List);
+  set(EE_Win->EcosystemWin, MUIA_Window_ActiveObject, (ULONG)EE_Win->LS_List);
 
 /* Create color list */
   Set_EE_List(0);
@@ -951,7 +951,7 @@ void Handle_EE_Window(ULONG WCS_ID)
         {
         EETL_Win->ActiveKey = GetActiveKey(SKT[2], EE_Win->Frame);
         sprintf(str, "%d", EE_Win->Frame);
-        set(EETL_Win->FrameTxt, MUIA_Text_Contents, str);
+        set(EETL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
         MUI_Redraw(EETL_Win->TimeLineObj[EETL_Win->ActiveItem], MADF_DRAWUPDATE);
 	} /* if key frame */
        } /* if time line window open */
@@ -1133,7 +1133,7 @@ void Set_EE_Item(short item)
 {
  short color[3], FoliageLimit[3];
 
- set(EE_Win->NameStr, MUIA_String_Contents, PAR_NAME_ECO(item));
+ set(EE_Win->NameStr, MUIA_String_Contents, (ULONG)PAR_NAME_ECO(item));
  nnset(EE_Win->ClassCycle, MUIA_Cycle_Active, (PAR_TYPE_ECO(item) & 0x00ff) % 50);
  nnset(EE_Win->ProcCheck[0], MUIA_Selected, PAR_TYPE_ECO(item) & 0x0100);
  nnset(EE_Win->ProcCheck[1], MUIA_Selected, PAR_TYPE_ECO(item) & 0x0200);
@@ -1165,7 +1165,7 @@ void Set_EE_Item(short item)
  SetRGB4(&WCSScrn->ViewPort, 9, color[0], color[1], color[2]);
  EE_Win->Colors[9] = color[0] * 256 + color[1] * 16 + color[2];
 
- set(EE_Win->ModelStr, MUIA_String_Contents, PAR_MODEL_ECO(item));
+ set(EE_Win->ModelStr, MUIA_String_Contents, (ULONG)PAR_MODEL_ECO(item));
  GetFoliageLimits(EcoShift[item].Ecotype, FoliageLimit);
 
  settextint(EE_Win->TextureText[0], (long)FoliageLimit[0]);
@@ -1200,15 +1200,15 @@ void Set_EE_Item(short item)
   }
  if (item == 0)
   {
-  set(EE_Win->Label[0], MUIA_Text_Contents, " Sea Level ");
-  set(EE_Win->Label[1], MUIA_Text_Contents, " Sea Depth ");
-  set(EE_Win->Label[2], MUIA_Text_Contents, "   Wind Az ");
+  set(EE_Win->Label[0], MUIA_Text_Contents, (ULONG)" Sea Level ");
+  set(EE_Win->Label[1], MUIA_Text_Contents, (ULONG)" Sea Depth ");
+  set(EE_Win->Label[2], MUIA_Text_Contents, (ULONG)"   Wind Az ");
   }
  else
   {
-  set(EE_Win->Label[0], MUIA_Text_Contents, " Elev Line ");
-  set(EE_Win->Label[1], MUIA_Text_Contents, " Elev Skew ");
-  set(EE_Win->Label[2], MUIA_Text_Contents, "El Skew Az ");
+  set(EE_Win->Label[0], MUIA_Text_Contents, (ULONG)" Elev Line ");
+  set(EE_Win->Label[1], MUIA_Text_Contents, (ULONG)" Elev Skew ");
+  set(EE_Win->Label[2], MUIA_Text_Contents, (ULONG)"El Skew Az ");
   }
 
 } /* Set_EE_Item() */

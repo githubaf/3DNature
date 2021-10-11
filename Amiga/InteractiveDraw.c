@@ -1185,7 +1185,7 @@ short make_compass(void)
 
  InterWind2 = (struct Window *)
      make_window(IA_CompLeft, IA_CompTop, IA_CompWidth, IA_CompHeight,
-	"Compass", flags, NULL, c0, c1, WCSScrn);
+	"Compass", flags, (ULONG)NULL, c0, c1, WCSScrn);
  if (! InterWind2) {
   return 1;
  } /* if */
@@ -1717,7 +1717,7 @@ void Play_Motion(struct RenderAnim *RA)
    if (EMTL_Win)
     {
     sprintf(str, "%1d", frame);
-    set(EMTL_Win->FrameTxt, MUIA_Text_Contents, str);
+    set(EMTL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
     if ((InputID = CheckInput_ID()) == ID_EMTL_PLAY) break;
     } /* check for stop */
    if (RA)

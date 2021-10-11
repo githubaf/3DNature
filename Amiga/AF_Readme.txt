@@ -544,3 +544,5 @@ Canyon Sunset, Pal-Hires, Groeﬂe/4  4:35:56, minimal langsamer, 10% groesser
 ---------------
 Mehr casts und forward Declaration
 580 Warnings
+jetzt sind alle Wint-conversion Warnungen raus.
+114 Warnings uebrig.

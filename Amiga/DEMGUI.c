@@ -365,7 +365,7 @@ Do you wish to close them both?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc")
       {
       DEMBuild_Import(MD_Win->FileType);
       sprintf(str, "%d", MD_Win->ControlPts);
-      set(MD_Win->Text, MUIA_Text_Contents, str);
+      set(MD_Win->Text, MUIA_Text_Contents, (ULONG)str);
       break;
       } /*  */
      case ID_MD_SAVE:
@@ -417,7 +417,7 @@ Do you wish to close them both?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc")
        } /* if */
       MD_Win->ControlPts = 0;
       MD_Win->CurDat = MD_Win->TC;
-      set(MD_Win->Text, MUIA_Text_Contents, "0");
+      set(MD_Win->Text, MUIA_Text_Contents, (ULONG)"0");
       break;
       } /*  */
      } /* switch */
@@ -1093,7 +1093,7 @@ short i;
      val ++;
      } /* else */
     sprintf(str, "%ld", val);
-    set(GR_Win->Text, MUIA_Text_Contents, str);
+    set(GR_Win->Text, MUIA_Text_Contents, (ULONG)str);
     break;
     } /* arrow */
 
@@ -1156,9 +1156,9 @@ struct datum *DT;
  setfloat(GR_Win->FloatStr[12], 10.0);	/* delta */
  setfloat(GR_Win->FloatStr[13], .5);	/* fractal dimension */
 
- set(GR_Win->Str[0], MUIA_String_Contents, "NewDEM");
+ set(GR_Win->Str[0], MUIA_String_Contents, (ULONG)"NewDEM");
 
- set(GR_Win->Text, MUIA_Text_Contents, "3");
+ set(GR_Win->Text, MUIA_Text_Contents, (ULONG)"3");
 
 } /* GR_Window_Init() */
 

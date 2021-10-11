@@ -337,7 +337,7 @@ void Make_DM_Window(void)
   DM_Win->ExtractWin, 3, MUIM_Set, MUIA_Window_ActiveObject, DM_Win->LatStr); 
 
 /* set active gadget */
- set(DM_Win->ExtractWin, MUIA_Window_ActiveObject, DM_Win->BT_GetFiles); 
+ set(DM_Win->ExtractWin, MUIA_Window_ActiveObject, (ULONG)DM_Win->BT_GetFiles); 
  set(DM_Win->BT_Extract, MUIA_Disabled, TRUE); 
 
  strcpy(DM_Win->DEMExtract->elevpath, dirname);
@@ -432,12 +432,12 @@ void Handle_DM_Window(ULONG WCS_ID)
        DM_Win->DEMExtract->pattern)))
         {
         set(DM_Win->BT_Extract, MUIA_Disabled, TRUE); 
-        set(DM_Win->SumFilesTxt, MUIA_Text_Contents, "0");
+        set(DM_Win->SumFilesTxt, MUIA_Text_Contents, (ULONG)"0");
         break;
         } /* if */
-      set (DM_Win->DirTxt, MUIA_Text_Contents, DM_Win->DEMExtract->elevpath);
+      set (DM_Win->DirTxt, MUIA_Text_Contents, (ULONG)DM_Win->DEMExtract->elevpath);
       sprintf(str, "%1ld", DM_Win->DEMExtract->FrFile->rf_NumArgs);
-      set(DM_Win->SumFilesTxt, MUIA_Text_Contents, str);
+      set(DM_Win->SumFilesTxt, MUIA_Text_Contents, (ULONG)str);
       if  (DM_Win->DEMExtract->FrFile->rf_NumArgs > 0)
        set(DM_Win->BT_Extract, MUIA_Disabled, FALSE); 
       break;
@@ -493,33 +493,33 @@ void Set_DM_HdrData(struct USGS_DEMHeader *Hdr)
 {
  short i;
 
- set(DM_Win->Txt[0], MUIA_Text_Contents, Hdr->FileName);
- set(DM_Win->Txt[1], MUIA_Text_Contents, Hdr->LevelCode);
- set(DM_Win->Txt[2], MUIA_Text_Contents, Hdr->ElPattern);
- set(DM_Win->Txt[3], MUIA_Text_Contents, Hdr->RefSysCode);
- set(DM_Win->Txt[4], MUIA_Text_Contents, Hdr->Zone);
+ set(DM_Win->Txt[0], MUIA_Text_Contents, (ULONG)Hdr->FileName);
+ set(DM_Win->Txt[1], MUIA_Text_Contents, (ULONG)Hdr->LevelCode);
+ set(DM_Win->Txt[2], MUIA_Text_Contents, (ULONG)Hdr->ElPattern);
+ set(DM_Win->Txt[3], MUIA_Text_Contents, (ULONG)Hdr->RefSysCode);
+ set(DM_Win->Txt[4], MUIA_Text_Contents, (ULONG)Hdr->Zone);
  for (i=0; i<15; i++)
   {
-  set(DM_Win->ProjTxt[i], MUIA_Text_Contents, Hdr->ProjPar[i]);
+  set(DM_Win->ProjTxt[i], MUIA_Text_Contents, (ULONG)Hdr->ProjPar[i]);
   } /* for i=0... */
- set(DM_Win->Txt[5], MUIA_Text_Contents, Hdr->GrUnits);
- set(DM_Win->Txt[6], MUIA_Text_Contents, Hdr->ElUnits);
- set(DM_Win->Txt[7], MUIA_Text_Contents, Hdr->PolySides);
+ set(DM_Win->Txt[5], MUIA_Text_Contents, (ULONG)Hdr->GrUnits);
+ set(DM_Win->Txt[6], MUIA_Text_Contents, (ULONG)Hdr->ElUnits);
+ set(DM_Win->Txt[7], MUIA_Text_Contents, (ULONG)Hdr->PolySides);
  for (i=0; i<4; i++)
   {
-  set(DM_Win->CoordTxt[i][0], MUIA_Text_Contents, Hdr->Coords[i][0]);
-  set(DM_Win->CoordTxt[i][1], MUIA_Text_Contents, Hdr->Coords[i][1]);
+  set(DM_Win->CoordTxt[i][0], MUIA_Text_Contents, (ULONG)Hdr->Coords[i][0]);
+  set(DM_Win->CoordTxt[i][1], MUIA_Text_Contents, (ULONG)Hdr->Coords[i][1]);
   } /* for i=0... */
- set(DM_Win->Txt[8], MUIA_Text_Contents, Hdr->ElMin);
- set(DM_Win->Txt[9], MUIA_Text_Contents, Hdr->ElMax);
- set(DM_Win->Txt[10], MUIA_Text_Contents, Hdr->AxisRot);
- set(DM_Win->Txt[11], MUIA_Text_Contents, Hdr->Accuracy);
+ set(DM_Win->Txt[8], MUIA_Text_Contents, (ULONG)Hdr->ElMin);
+ set(DM_Win->Txt[9], MUIA_Text_Contents, (ULONG)Hdr->ElMax);
+ set(DM_Win->Txt[10], MUIA_Text_Contents, (ULONG)Hdr->AxisRot);
+ set(DM_Win->Txt[11], MUIA_Text_Contents, (ULONG)Hdr->Accuracy);
  for (i=0; i<3; i++)
   {
-  set(DM_Win->ResTxt[i], MUIA_Text_Contents, Hdr->Resolution[i]);
+  set(DM_Win->ResTxt[i], MUIA_Text_Contents, (ULONG)Hdr->Resolution[i]);
   } /* for i=0... */
- set(DM_Win->Txt[12], MUIA_Text_Contents, Hdr->Rows);
- set(DM_Win->Txt[13], MUIA_Text_Contents, Hdr->Columns);
+ set(DM_Win->Txt[12], MUIA_Text_Contents, (ULONG)Hdr->Rows);
+ set(DM_Win->Txt[13], MUIA_Text_Contents, (ULONG)Hdr->Columns);
 
 } /* Set_DM_Data() */
 
@@ -528,15 +528,15 @@ void Set_DM_HdrData(struct USGS_DEMHeader *Hdr)
 void Set_DM_ProfData(struct USGS_DEMProfileHeader *ProfHdr)
 {
 
- set(DM_Win->ProfTxt[0], MUIA_Text_Contents, ProfHdr->Row);
- set(DM_Win->ProfTxt[1], MUIA_Text_Contents, ProfHdr->Column);
- set(DM_Win->ProfTxt[2], MUIA_Text_Contents, ProfHdr->ProfRows);
- set(DM_Win->ProfTxt[3], MUIA_Text_Contents, ProfHdr->ProfCols);
- set(DM_Win->ProfCoordTxt[0], MUIA_Text_Contents, ProfHdr->Coords[0]);
- set(DM_Win->ProfCoordTxt[1], MUIA_Text_Contents, ProfHdr->Coords[1]);
- set(DM_Win->ProfTxt[4], MUIA_Text_Contents, ProfHdr->ElDatum);
- set(DM_Win->ProfTxt[5], MUIA_Text_Contents, ProfHdr->ElMin);
- set(DM_Win->ProfTxt[6], MUIA_Text_Contents, ProfHdr->ElMax);
+ set(DM_Win->ProfTxt[0], MUIA_Text_Contents, (ULONG)ProfHdr->Row);
+ set(DM_Win->ProfTxt[1], MUIA_Text_Contents, (ULONG)ProfHdr->Column);
+ set(DM_Win->ProfTxt[2], MUIA_Text_Contents, (ULONG)ProfHdr->ProfRows);
+ set(DM_Win->ProfTxt[3], MUIA_Text_Contents, (ULONG)ProfHdr->ProfCols);
+ set(DM_Win->ProfCoordTxt[0], MUIA_Text_Contents, (ULONG)ProfHdr->Coords[0]);
+ set(DM_Win->ProfCoordTxt[1], MUIA_Text_Contents, (ULONG)ProfHdr->Coords[1]);
+ set(DM_Win->ProfTxt[4], MUIA_Text_Contents, (ULONG)ProfHdr->ElDatum);
+ set(DM_Win->ProfTxt[5], MUIA_Text_Contents, (ULONG)ProfHdr->ElMin);
+ set(DM_Win->ProfTxt[6], MUIA_Text_Contents, (ULONG)ProfHdr->ElMax);
 
 } /* Set_DM_Data() */
 
@@ -998,7 +998,7 @@ void Make_PJ_Window(void)
 	MUIM_Set, MUIA_Window_ActiveObject, PJ_Win->Str[16]);
 
 /* Set active gadget */
-  set(PJ_Win->ProjWin, MUIA_Window_ActiveObject, PJ_Win->Str[0]);
+  set(PJ_Win->ProjWin, MUIA_Window_ActiveObject, (ULONG)PJ_Win->Str[0]);
 
 /* Open window */
   set(PJ_Win->ProjWin, MUIA_Window_Open, TRUE);
@@ -1089,29 +1089,29 @@ void Handle_PJ_Window(ULONG WCS_ID)
      case 0:
       {
       getfilename(0, "Project Path/Name", projectpath, projectname);
-      set(PJ_Win->Str[0], MUIA_String_Contents, projectpath);
-      set(PJ_Win->Str[1], MUIA_String_Contents, projectname);
+      set(PJ_Win->Str[0], MUIA_String_Contents, (ULONG)projectpath);
+      set(PJ_Win->Str[1], MUIA_String_Contents, (ULONG)projectname);
       break;
       } /* framepath */
      case 1:
       {
       getfilename(0, "Database Path/Name", dbasepath, dbasename);
-      set(PJ_Win->Str[2], MUIA_String_Contents, dbasepath);
-      set(PJ_Win->Str[3], MUIA_String_Contents, dbasename);
+      set(PJ_Win->Str[2], MUIA_String_Contents, (ULONG)dbasepath);
+      set(PJ_Win->Str[3], MUIA_String_Contents, (ULONG)dbasename);
       break;
       } /* framepath */
      case 2:
       {
       getfilename(0, "Parameter Path/Name", parampath, paramfile);
-      set(PJ_Win->Str[4], MUIA_String_Contents, parampath);
-      set(PJ_Win->Str[5], MUIA_String_Contents, paramfile);
+      set(PJ_Win->Str[4], MUIA_String_Contents, (ULONG)parampath);
+      set(PJ_Win->Str[5], MUIA_String_Contents, (ULONG)paramfile);
       break;
       } /* framepath */
      case 3:
       {
       getfilename(0, "Frame Save Path/Name", framepath, framefile);
-      set(PJ_Win->Str[6], MUIA_String_Contents, framepath);
-      set(PJ_Win->Str[7], MUIA_String_Contents, framefile);
+      set(PJ_Win->Str[6], MUIA_String_Contents, (ULONG)framepath);
+      set(PJ_Win->Str[7], MUIA_String_Contents, (ULONG)framefile);
       break;
       } /* framepath */
      case 4:
@@ -1119,108 +1119,108 @@ void Handle_PJ_Window(ULONG WCS_ID)
       strcpy(tempfile, framefile);
       strcat(tempfile, ".temp");
       getfilename(1, "Temp Frame Path/Name", temppath, tempfile);
-      set(PJ_Win->Str[8], MUIA_String_Contents, temppath);
+      set(PJ_Win->Str[8], MUIA_String_Contents, (ULONG)temppath);
 /*      set(PJ_Win->Str[9], MUIA_String_Contents, tempfile);*/
       break;
       } /* temppath */
      case 5:
       {
       getfilename(1, "Vector Save Path/Name", linepath, linefile);
-      set(PJ_Win->Str[10], MUIA_String_Contents, linepath);
-      set(PJ_Win->Str[11], MUIA_String_Contents, linefile);
+      set(PJ_Win->Str[10], MUIA_String_Contents, (ULONG)linepath);
+      set(PJ_Win->Str[11], MUIA_String_Contents, (ULONG)linefile);
       break;
       } /* linepath */
      case 6:
       {
       getfilename(0, "Z Buffer Path/Name", zbufferpath, zbufferfile);
-      set(PJ_Win->Str[12], MUIA_String_Contents, zbufferpath);
-      set(PJ_Win->Str[13], MUIA_String_Contents, zbufferfile);
+      set(PJ_Win->Str[12], MUIA_String_Contents, (ULONG)zbufferpath);
+      set(PJ_Win->Str[13], MUIA_String_Contents, (ULONG)zbufferfile);
       break;
       } /* zbufferpath */
      case 7:
       {
       getfilename(0, "Background Path/Name", backgroundpath, backgroundfile);
-      set(PJ_Win->Str[14], MUIA_String_Contents, backgroundpath);
-      set(PJ_Win->Str[15], MUIA_String_Contents, backgroundfile);
+      set(PJ_Win->Str[14], MUIA_String_Contents, (ULONG)backgroundpath);
+      set(PJ_Win->Str[15], MUIA_String_Contents, (ULONG)backgroundfile);
       break;
       } /* backgroundpath */
      case 8:
       {
       getfilename(0, "Graphic Save Path/Name", graphpath, graphname);
-      set(PJ_Win->Str[16], MUIA_String_Contents, graphpath);
-      set(PJ_Win->Str[17], MUIA_String_Contents, graphname);
+      set(PJ_Win->Str[16], MUIA_String_Contents, (ULONG)graphpath);
+      set(PJ_Win->Str[17], MUIA_String_Contents, (ULONG)graphname);
       break;
       } /* graphpath */
      case 9:
       {
       getfilename(0, "Color Map File Path", colormappath, colormapfile);
-      set(PJ_Win->Str[18], MUIA_String_Contents, colormappath);
-      set(PJ_Win->Str[9], MUIA_String_Contents, colormapfile);
+      set(PJ_Win->Str[18], MUIA_String_Contents, (ULONG)colormappath);
+      set(PJ_Win->Str[9], MUIA_String_Contents, (ULONG)colormapfile);
       break;
       } /* colormappath */
      case 10:
       {
       getfilename(0, "Ecosystem Model Path", modelpath, dummyfile);
-      set(PJ_Win->Str[19], MUIA_String_Contents, modelpath);
+      set(PJ_Win->Str[19], MUIA_String_Contents, (ULONG)modelpath);
       break;
       } /* modelpath */
      case 11:
       {
       getfilename(0, "Default Directory", dirname, dummyfile);
-      set(PJ_Win->Str[20], MUIA_String_Contents, dirname);
+      set(PJ_Win->Str[20], MUIA_String_Contents, (ULONG)dirname);
       break;
       } /* dirname */
      case 12:
       {
       getfilename(0, "Cloud Map Path", cloudpath, cloudfile);
-      set(PJ_Win->Str[21], MUIA_String_Contents, cloudpath);
-      set(PJ_Win->Str[22], MUIA_String_Contents, cloudfile);
+      set(PJ_Win->Str[21], MUIA_String_Contents, (ULONG)cloudpath);
+      set(PJ_Win->Str[22], MUIA_String_Contents, (ULONG)cloudfile);
       break;
       } /* dirname */
      case 13:
       {
       getfilename(0, "Wave Path", wavepath, wavefile);
-      set(PJ_Win->Str[23], MUIA_String_Contents, wavepath);
-      set(PJ_Win->Str[24], MUIA_String_Contents, wavefile);
+      set(PJ_Win->Str[23], MUIA_String_Contents, (ULONG)wavepath);
+      set(PJ_Win->Str[24], MUIA_String_Contents, (ULONG)wavefile);
       break;
       } /* dirname */
      case 14:
       {
       getfilename(0, "Wave Path", deformpath, deformfile);
-      set(PJ_Win->Str[25], MUIA_String_Contents, deformpath);
-      set(PJ_Win->Str[26], MUIA_String_Contents, deformfile);
+      set(PJ_Win->Str[25], MUIA_String_Contents, (ULONG)deformpath);
+      set(PJ_Win->Str[26], MUIA_String_Contents, (ULONG)deformfile);
       break;
       } /* dirname */
      case 15:
       {
       getfilename(0, "Image Path", imagepath, dummyfile);
-      set(PJ_Win->Str[27], MUIA_String_Contents, imagepath);
+      set(PJ_Win->Str[27], MUIA_String_Contents, (ULONG)imagepath);
       break;
       } /* dirname */
      case 16:
       {
       getfilename(0, "Sun Image File", imagepath, sunfile);
-      set(PJ_Win->Str[27], MUIA_String_Contents, imagepath);
-      set(PJ_Win->Str[28], MUIA_String_Contents, sunfile);
+      set(PJ_Win->Str[27], MUIA_String_Contents, (ULONG)imagepath);
+      set(PJ_Win->Str[28], MUIA_String_Contents, (ULONG)sunfile);
       break;
       } /* dirname */
      case 17:
       {
       getfilename(0, "Moon Image File", imagepath, moonfile);
-      set(PJ_Win->Str[27], MUIA_String_Contents, imagepath);
-      set(PJ_Win->Str[29], MUIA_String_Contents, moonfile);
+      set(PJ_Win->Str[27], MUIA_String_Contents, (ULONG)imagepath);
+      set(PJ_Win->Str[29], MUIA_String_Contents, (ULONG)moonfile);
       break;
       } /* dirname */
      case 18:
       {
       getfilename(0, "PC Project Path", pcprojectpath, dummyfile);
-      set(PJ_Win->Str[30], MUIA_String_Contents, pcprojectpath);
+      set(PJ_Win->Str[30], MUIA_String_Contents, (ULONG)pcprojectpath);
       break;
       } /* dirname */
      case 19:
       {
       getfilename(0, "PC Frames Path", pcframespath, dummyfile);
-      set(PJ_Win->Str[31], MUIA_String_Contents, pcframespath);
+      set(PJ_Win->Str[31], MUIA_String_Contents, (ULONG)pcframespath);
       break;
       } /* dirname */
      } /* switch i */
@@ -1505,11 +1505,11 @@ void Make_SC_Window(void)
 	MUIM_Set, MUIA_Window_ActiveObject, SC_Win->Str[0]);
 
 /* Set active gadget */
-  set(SC_Win->ScaleWin, MUIA_Window_ActiveObject, SC_Win->Str[0]);
+  set(SC_Win->ScaleWin, MUIA_Window_ActiveObject, (ULONG)SC_Win->Str[0]);
 
 /* set aspect string */
   get(ES_Win->FloatStr[0], MUIA_String_Contents, &floatdata);
-  set(SC_Win->Str[2], MUIA_String_Contents, floatdata);
+  set(SC_Win->Str[2], MUIA_String_Contents, (ULONG)floatdata);
 
 /* Open window */
   set(SC_Win->ScaleWin, MUIA_Window_Open, TRUE);
@@ -1669,7 +1669,7 @@ if (ES_Win)
  {
  set(ES_Win->IntStr[4], MUIA_String_Integer, settings.scrnwidth);
  set(ES_Win->IntStr[5], MUIA_String_Integer, settings.scrnheight);
- set(ES_Win->FloatStr[0], MUIA_String_Contents, floatdata);
+ set(ES_Win->FloatStr[0], MUIA_String_Contents, (ULONG)floatdata);
  } /* if settings window open */
 
 } /* ApplyImageScale() */

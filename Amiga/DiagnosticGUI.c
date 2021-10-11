@@ -175,14 +175,14 @@ void Handle_Diagnostic_Window(ULONG WCS_ID)
        {
        QuitDigPerspective();
        IA->Digitizing = 0;
-       set(DIAG_Win->BT_Digitize, MUIA_Text_Contents, "\33cDigitize");
+       set(DIAG_Win->BT_Digitize, MUIA_Text_Contents, (ULONG)"\33cDigitize");
        } /* if digitizing */
       else
        {
        if (allocvecarray(OBN, MAXOBJPTS, 0))
 		IA->Digitizing = InitDigPerspective();
        if (IA->Digitizing)
-        set(DIAG_Win->BT_Digitize, MUIA_Text_Contents, "\33cQuit Dig");
+        set(DIAG_Win->BT_Digitize, MUIA_Text_Contents, (ULONG)"\33cQuit Dig");
        } /* else */
       break;
       } /* digitize vector */
@@ -208,12 +208,12 @@ void Set_Diagnostic_Point(LONG zip)
 
  z = *(zbuf + zip);
  sprintf(str, "%-10f", z);
- set(DIAG_Win->Txt[0], MUIA_Text_Contents, str);
+ set(DIAG_Win->Txt[0], MUIA_Text_Contents, (ULONG)str);
 
  compval = *(QCmap[0] + zip);
  remainder = compval / 65536;
  sprintf(str, "%-5ld", remainder);
- set(DIAG_Win->Txt[1], MUIA_Text_Contents, str);
+ set(DIAG_Win->Txt[1], MUIA_Text_Contents, (ULONG)str);
 
  compval -= remainder * 65536;
  remainder = compval / 256;
@@ -226,7 +226,7 @@ void Set_Diagnostic_Point(LONG zip)
   } /* if a z value */
  else
   sprintf(str, "%-2s", "None");
- set(DIAG_Win->Txt[2], MUIA_Text_Contents, str);
+ set(DIAG_Win->Txt[2], MUIA_Text_Contents, (ULONG)str);
 
  compval -= remainder * 256;
  if (z < 10.0E+010)
@@ -238,31 +238,31 @@ void Set_Diagnostic_Point(LONG zip)
   } /* if a z value */
  else
   sprintf(str, "%-2s", "None");
- set(DIAG_Win->Txt[3], MUIA_Text_Contents, str);
+ set(DIAG_Win->Txt[3], MUIA_Text_Contents, (ULONG)str);
 
  compval = *(QCmap[1] + zip);
  remainder = compval / 65536 - 1000;
  sprintf(str, "%-5ld", remainder);
- set(DIAG_Win->Txt[4], MUIA_Text_Contents, str);
+ set(DIAG_Win->Txt[4], MUIA_Text_Contents, (ULONG)str);
 
  compval -= (remainder + 1000) * 65536;
  sprintf(str, "%-4ld", compval);
- set(DIAG_Win->Txt[5], MUIA_Text_Contents, str);
+ set(DIAG_Win->Txt[5], MUIA_Text_Contents, (ULONG)str);
 
  compval = *(QCmap[2] + zip);
  remainder = compval / 256;
  sprintf(str, "%-2ld", remainder);
- set(DIAG_Win->Txt[6], MUIA_Text_Contents, str);
+ set(DIAG_Win->Txt[6], MUIA_Text_Contents, (ULONG)str);
 
  compval -= remainder * 256;
  sprintf(str, "%-2ld", compval);
- set(DIAG_Win->Txt[7], MUIA_Text_Contents, str);
+ set(DIAG_Win->Txt[7], MUIA_Text_Contents, (ULONG)str);
 
  sprintf(str, "%f", *(QCcoords[0] + zip));
- set(DIAG_Win->Txt[8], MUIA_Text_Contents, str);
+ set(DIAG_Win->Txt[8], MUIA_Text_Contents, (ULONG)str);
 
  sprintf(str, "%f", *(QCcoords[1] + zip));
- set(DIAG_Win->Txt[9], MUIA_Text_Contents, str);
+ set(DIAG_Win->Txt[9], MUIA_Text_Contents, (ULONG)str);
 
 } /* Set_Diagnostic_Point() */
 
