@@ -1059,7 +1059,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     } /*  */
    case PROJECT_ZB_PTH:
     {
-    fscanf(fproject, "255%s", zbufferpath);
+    fscanf(fproject, "%255s", zbufferpath);
     break;
     } /*  */
    case PROJECT_ZB_NME:
@@ -1079,7 +1079,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     } /*  */
    case PROJECT_GR_PTH:
     {
-    fscanf(fproject, "%255s", graphpath);
+    fscanf(fproject, "%254s", graphpath);
     break;
     } /*  */
    case PROJECT_GR_NME:
