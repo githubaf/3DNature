@@ -776,7 +776,7 @@ short LoadForestModels(void)
    error = 1;
    break;
    }
-  fscanf(fModel, "%s", &IDStr);
+  fscanf(fModel, "%31s", IDStr);
   if (strcmp(IDStr, "WCSModel"))
    {
    error = 3;
@@ -809,8 +809,8 @@ short LoadForestModels(void)
   sum = 0;
   for (j=0; j<FM[i].Items; j++)
    {
-   if (fscanf(fModel, "%ld%ld%s%hd%hd%hd", &FM[i].TM[j].Ht, &FM[i].TM[j].Stems,
-	&Class, &FM[i].TM[j].Red, &FM[i].TM[j].Grn, &FM[i].TM[j].Blu) != 6)
+   if (fscanf(fModel, "%ld%ld%11s%hd%hd%hd", &FM[i].TM[j].Ht, &FM[i].TM[j].Stems,
+	Class, &FM[i].TM[j].Red, &FM[i].TM[j].Grn, &FM[i].TM[j].Blu) != 6)
     {
     error = 2;
     break;
