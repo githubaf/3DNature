@@ -1649,7 +1649,7 @@ long PrintScreen(struct Screen *scr, UWORD srcx, UWORD srcy,
   if ((iodrp =
 	 (struct IODRPReq *)CreateExtIO(printerPort, sizeof (struct IODRPReq))))
    {
-   if (! (error = OpenDevice((CONST_STRPTR)"printer.device", 0, iodrp, 0)))
+   if (! (error = OpenDevice((STRPTR)"printer.device", 0, iodrp, 0)))
     {
     vp = &scr->ViewPort;
     iodrp->io_Command = PRD_DUMPRPORT;

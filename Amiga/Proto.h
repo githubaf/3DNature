@@ -8,6 +8,9 @@
 #ifndef WCS_PROTO_H
 #define WCS_PROTO_H
 
+#include <SDI_compiler.h>
+typedef CONST unsigned char  *CONST_STRPTR;
+
 #include "RexxSupport.h"
 
 #include <SDI_compiler.h>

@@ -2256,7 +2256,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
   if ((SerialIO = (struct IOExtSer *)
 	CreateExtIO(SerialMP, sizeof (struct IOExtSer))))
    {
-   if (OpenDevice((CONST_STRPTR)SERIALNAME, 0, (struct IORequest *)SerialIO, 0))
+   if (OpenDevice((STRPTR)SERIALNAME, 0, (struct IORequest *)SerialIO, 0))
     {
     error = 1;
     User_Message((CONST_STRPTR)"Mapping Module: Digitize",

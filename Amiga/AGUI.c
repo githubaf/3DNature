@@ -1350,7 +1350,7 @@ short WCS_App_EventLoop(struct WCSApp *This)
       } /* Render module */
      case MO_EXTRAS:
       {
-      NoMod_Message((CONST_STRPTR)"Extras Module");
+      NoMod_Message((STRPTR)"Extras Module");
       break;
       } /* Extras module */
      case MO_DUMMYMENU:

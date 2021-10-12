@@ -128,7 +128,7 @@ if ((This) && (This != REXX_RETURN_ERROR))
 			{
 			if (RString)
 				{
-				This->rm_Result2=(LONG)CreateArgstring((CONST_STRPTR)RString,
+				This->rm_Result2=(LONG)CreateArgstring((STRPTR)RString,
 				 (LONG)strlen(RString));
 				} /* if */
 			} /* if */
@@ -158,7 +158,7 @@ if ((This) && (rmsg))
 	{
 	if (CheckRexxMsg(rmsg))
 		{
-		if(!SetRexxVar(rmsg, (CONST_STRPTR)This->ErrorName, (CONST_STRPTR)ErrorString, (long)strlen(ErrorString)))
+		if(!SetRexxVar(rmsg, (STRPTR)This->ErrorName, (STRPTR)ErrorString, (long)strlen(ErrorString)))
 			{
 			OkFlag=TRUE;
 			} /* if */
@@ -295,7 +295,7 @@ register	char *tmp;
 
 if((This = AllocMem(sizeof(struct ARexxContext), MEMF_PUBLIC|MEMF_CLEAR)))
 	{
-	if(This->RexxSysBase = OpenLibrary((CONST_STRPTR)"rexxsyslib.library", 0))
+	if(This->RexxSysBase = OpenLibrary((STRPTR)"rexxsyslib.library", 0))
 		{
 		/* Set up the extension... */
 		strcpy(This->Extension, "WCS");
@@ -314,7 +314,7 @@ if((This = AllocMem(sizeof(struct ARexxContext), MEMF_PUBLIC|MEMF_CLEAR)))
 		strcat(This->ErrorName,".LASTERROR");
 
 		Forbid();
-		This->ARexxPort = CreatePort((CONST_STRPTR)This->PortName, (ULONG)NULL);
+		This->ARexxPort = CreatePort((STRPTR)This->PortName, (ULONG)NULL);
 		Permit();
 		} /* if */
 
