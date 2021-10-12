@@ -1682,7 +1682,7 @@ STATIC_FCN FILE *DEMFile_Init(struct DEMExtractData *DEMExtract, short k, char *
 char filename[256];
 FILE *DEMFile;
 
- strcpy(DEMExtract->elevfile, DEMExtract->FrFile->rf_ArgList[k].wa_Name);
+ strcpy(DEMExtract->elevfile, (char*)DEMExtract->FrFile->rf_ArgList[k].wa_Name);
 
  if (DEMExtract->elevfile[0] == 0)
   {

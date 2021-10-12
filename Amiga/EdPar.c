@@ -2220,7 +2220,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
   KFV1size = (KeyFrames + 20) * (sizeof (union KeyFrameV1));
   if ((KF = (union KeyFrame *)get_Memory(KFsize, MEMF_CLEAR)) == NULL ||
 	(KFV1 = (union KeyFrameV1 *)get_Memory(KFV1size, MEMF_CLEAR)) == NULL)
-   {(CONST_STRPTR)
+   {
    User_Message((CONST_STRPTR)"Parameter Module: Load",
            (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    goto ReadError;
