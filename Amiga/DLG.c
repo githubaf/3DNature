@@ -60,9 +60,9 @@ struct BusyWindow *BWDL;
   goto Cleanup;
   } /* if file open failed */
 
- fscanf(fDLG, "%72s", &str);
+ fscanf(fDLG, "%72s", str);  // ALEXANDER: What is the purpose? Its overwritten 2 lines later?
  fseek(fDLG, 80, SEEK_SET);
- fscanf(fDLG, "%40s", &str);
+ fscanf(fDLG, "%40s", str);
 
  fseek(fDLG, 240, SEEK_SET);
  for (i=0; i<3; i++)
@@ -113,7 +113,7 @@ struct BusyWindow *BWDL;
  fseek(fDLG, 800, SEEK_SET);		/* end of headers */
  for (i=0; i<4; i++)
   {
-  fscanf(fDLG, "%s%le%le%le%le", &str, &Coords->UTM.RefLat[i],
+  fscanf(fDLG, "%79s%le%le%le%le", str, &Coords->UTM.RefLat[i],
 	&Coords->UTM.RefLon[i], &Coords->UTM.RefEast[i], &Coords->UTM.RefNorth[i]);
   } /* for i=0... */
 
@@ -132,13 +132,13 @@ struct BusyWindow *BWDL;
   }
 
  fseek(fDLG, 1120, SEEK_SET);
- fscanf(fDLG, "%s", &str);
+ fscanf(fDLG, "%79s", str);
 
  i = 1200;
  fseek(fDLG, i, SEEK_SET);
  while (done != EOF)
   {
-  if ((done = fscanf(fDLG, "%s", &str)) == EOF) break;
+  if ((done = fscanf(fDLG, "%79s", str)) == EOF) break;
   if (! strcmp(str, "L"))
    {
    fscanf(fDLG, "%ld", &DLG.IDNum);
