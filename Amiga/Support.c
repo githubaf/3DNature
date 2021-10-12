@@ -995,22 +995,22 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
    {
    case PROJECT_PJ_PTH:
     {
-    fscanf(fproject, "%s", &projectpath);
+    fscanf(fproject, "%255s", projectpath);
     break;
     } /*  */
    case PROJECT_PJ_NME:
     {
-    fscanf(fproject, "%s", &projectname);
+    fscanf(fproject, "%31s", projectname);
     break;
     } /*  */
    case PROJECT_DB_PTH:
     {
-    fscanf(fproject, "%s", &dbasepath);
+    fscanf(fproject, "%255s", dbasepath);
     break;
     } /*  */
    case PROJECT_DB_NME:
     {
-    fscanf(fproject, "%s", &dbasename);
+    fscanf(fproject, "%31s", dbasename);
     if (! LoadName || ForceLoad)
      {
      Database_LoadDisp(0, 0, NULL, 0);
@@ -1020,12 +1020,12 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     } /*  */
    case PROJECT_PR_PTH:
     {
-    fscanf(fproject, "%s", &parampath);
+    fscanf(fproject, "%255s", parampath);
     break;
     } /*  */
    case PROJECT_PR_NME:
     {
-    fscanf(fproject, "%s", &paramfile);
+    fscanf(fproject, "%31s", paramfile);
     if (! LoadName || ForceLoad)
      {
      if (loadparams(0x1111, -1) == 1)
@@ -1039,159 +1039,159 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     } /*  */
    case PROJECT_FR_PTH:
     {
-    fscanf(fproject, "%s", &framepath);
+    fscanf(fproject, "%255s", framepath);
     break;
     } /*  */
    case PROJECT_FR_NME:
     {
-    fscanf(fproject, "%s", &framefile);
+    fscanf(fproject, "%31s", framefile);
     break;
     } /*  */
    case PROJECT_LN_PTH:
     {
-    fscanf(fproject, "%s", &linepath);
+    fscanf(fproject, "%255s", linepath);
     break;
     } /*  */
    case PROJECT_LN_NME:
     {
-    fscanf(fproject, "%s", &linefile);
+    fscanf(fproject, "%31s", linefile);
     break;
     } /*  */
    case PROJECT_ZB_PTH:
     {
-    fscanf(fproject, "%s", &zbufferpath);
+    fscanf(fproject, "255%s", zbufferpath);
     break;
     } /*  */
    case PROJECT_ZB_NME:
     {
-    fscanf(fproject, "%s", &zbufferfile);
+    fscanf(fproject, "%31s", zbufferfile);
     break;
     } /*  */
    case PROJECT_BG_PTH:
     {
-    fscanf(fproject, "%s", &backgroundpath);
+    fscanf(fproject, "%255s", backgroundpath);
     break;
     } /*  */
    case PROJECT_BG_NME:
     {
-    fscanf(fproject, "%s", &backgroundfile);
+    fscanf(fproject, "%31s", backgroundfile);
     break;
     } /*  */
    case PROJECT_GR_PTH:
     {
-    fscanf(fproject, "%s", &graphpath);
+    fscanf(fproject, "%255s", graphpath);
     break;
     } /*  */
    case PROJECT_GR_NME:
     {
-    fscanf(fproject, "%s", &graphname);
+    fscanf(fproject, "%63s", graphname);
     break;
     } /*  */
    case PROJECT_ST_PTH:
     {
-    fscanf(fproject, "%s", &statpath);
+    fscanf(fproject, "%255s", statpath);
     break;
     } /*  */
    case PROJECT_ST_NME:
     {
-    fscanf(fproject, "%s", &statname);
+    fscanf(fproject, "%31s", statname);
     break;
     } /*  */
    case PROJECT_CM_PTH:
     {
-    fscanf(fproject, "%s", &colormappath);
+    fscanf(fproject, "%255s", colormappath);
     break;
     } /*  */
    case PROJECT_CM_NME:
     {
-    fscanf(fproject, "%s", &colormapfile);
+    fscanf(fproject, "%31s", colormapfile);
     break;
     } /*  */
    case PROJECT_DR_PTH:
     {
-    fscanf(fproject, "%s", &dirname);
+    fscanf(fproject, "%255s", dirname);
     break;
     } /*  */
    case PROJECT_TM_PTH:
     {
-    fscanf(fproject, "%s", &temppath);
+    fscanf(fproject, "%255s", temppath);
     break;
     } /*  */
    case PROJECT_TM_NME:
     {
-    fscanf(fproject, "%s", &tempfile);
+    fscanf(fproject, "%31s", tempfile);
     break;
     } /*  */
    case PROJECT_FM_PTH:
     {
-    fscanf(fproject, "%s", &modelpath);
+    fscanf(fproject, "%255s", modelpath);
     break;
     } /*  */
    case PROJECT_CL_PTH:
     {
-    fscanf(fproject, "%s", &cloudpath);
+    fscanf(fproject, "%255s", cloudpath);
     break;
     } /*  */
    case PROJECT_CL_NME:
     {
-    fscanf(fproject, "%s", &cloudfile);
+    fscanf(fproject, "%31s", cloudfile);
     break;
     } /*  */
    case PROJECT_WV_PTH:
     {
-    fscanf(fproject, "%s", &wavepath);
+    fscanf(fproject, "%255s", wavepath);
     break;
     } /*  */
    case PROJECT_WV_NME:
     {
-    fscanf(fproject, "%s", &wavefile);
+    fscanf(fproject, "%31s", wavefile);
     break;
     } /*  */
    case PROJECT_DF_PTH:
     {
-    fscanf(fproject, "%s", &deformpath);
+    fscanf(fproject, "%255s", deformpath);
     break;
     } /*  */
    case PROJECT_DF_NME:
     {
-    fscanf(fproject, "%s", &deformfile);
+    fscanf(fproject, "%31s", deformfile);
     break;
     } /*  */
    case PROJECT_IM_PTH:
     {
-    fscanf(fproject, "%s", &imagepath);
+    fscanf(fproject, "%255s", imagepath);
     break;
     } /*  */
    case PROJECT_SN_NME:
     {
-    fscanf(fproject, "%s", &sunfile);
+    fscanf(fproject, "%31s", sunfile);
     break;
     } /*  */
    case PROJECT_MN_NME:
     {
-    fscanf(fproject, "%s", &moonfile);
+    fscanf(fproject, "%31s", moonfile);
     break;
     } /*  */
    case PROJECT_PP_PTH:
     {
-    fscanf(fproject, "%s", &pcprojectpath);
+    fscanf(fproject, "%255s", pcprojectpath);
     break;
     } /*  */
    case PROJECT_PF_PTH:
     {
-    fscanf(fproject, "%s", &pcframespath);
+    fscanf(fproject, "%255s", pcframespath);
     break;
     } /*  */
    case PROJECT_AO_PTH:
     {
-    fscanf(fproject, "%s", &altobjectpath);
+    fscanf(fproject, "%255s", altobjectpath);
     break;
     } /*  */
    case PROJECT_DL_NEW:
     {
     short ReadOnly;
 
-    fscanf(fproject, "%s", &filename);
+    fscanf(fproject, "%255s", filename);
     fscanf(fproject, "%hd", &ReadOnly);
     if (DL) DirList_Del(DL);
     DL = DirList_New(filename, ReadOnly);
@@ -1201,7 +1201,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     {
     short ReadOnly;
 
-    fscanf(fproject, "%s", &filename);
+    fscanf(fproject, "%255s", filename);
     fscanf(fproject, "%hd", &ReadOnly);
     if (DL) DirList_Add(DL, filename, ReadOnly);
     break;
@@ -1526,19 +1526,19 @@ short LoadDirList(void)
    case PROJECT_PF_PTH:
    case PROJECT_AO_PTH:
     {
-    fscanf(fproject, "%s", &filename);
+    fscanf(fproject, "%255s", filename);
     break;
     } /* scan string */
    case PROJECT_DR_PTH:
     {
-    fscanf(fproject, "%s", &dirname);
+    fscanf(fproject, "%255s", dirname);
     break;
     } /* default dir */
    case PROJECT_DL_NEW:
     {
     short ReadOnly;
 
-    fscanf(fproject, "%s", &filename);
+    fscanf(fproject, "%255s", filename);
     fscanf(fproject, "%hd", &ReadOnly);
     if (DL) DirList_Del(DL);
     DL = DirList_New(filename, ReadOnly);
@@ -1548,7 +1548,7 @@ short LoadDirList(void)
     {
     short ReadOnly;
 
-    fscanf(fproject, "%s", &filename);
+    fscanf(fproject, "%255s", filename);
     fscanf(fproject, "%hd", &ReadOnly);
     if (DL) DirList_Add(DL, filename, ReadOnly);
     break;

@@ -546,3 +546,9 @@ Mehr casts und forward Declaration
 580 Warnings
 jetzt sind alle Wint-conversion Warnungen raus.
 114 Warnings uebrig.
+
+12.Oktober 2021
+---------------
+fixed fscanf in Support.c  Added lengt limit. removed errournious "&" in front of char arrays
+--> 65 warnings left. Compileable with SAS/C  (smake optimize)
+
