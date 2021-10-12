@@ -49,6 +49,7 @@
 #include "WCS.h"
 #include "MUIFloatInt.h"
 
+
 STATIC_FCN double CalcIncDec(double Quantity, struct FloatIntData *data, char Action); // used locally only -> static, AF 19.7.2021
 STATIC_FCN ULONG DoIncDec(struct IClass *cl,Object *obj,Msg msg, char Action); // used locally only -> static, AF 19.7.2021
 
@@ -153,7 +154,8 @@ STATIC_FCN SAVEDS ULONG mNew(struct IClass *cl,Object *obj,struct opSet *msg) //
 	double *D;
 	ULONG Store;
 	signed long int Limit;
-	char *AllowChars, Width;
+	char *AllowChars;
+	unsigned char Width;  // unsigned, ALEXANDER
 	APTR MyWin;
 
 	/* This looks like cookbook code. */
@@ -268,7 +270,7 @@ STATIC_FCN SAVEDS ULONG mNew(struct IClass *cl,Object *obj,struct opSet *msg) //
 
 	DoMethod(obj,OM_ADDMEMBER,data->group);
 	
-	mSync(cl, obj, msg);
+	mSync(cl, obj, (Msg)msg);
 	
 	return((ULONG)obj);
 }
@@ -439,7 +441,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 				data->MaxAmount = *D;
 				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 					{
-					mSync(cl, obj, msg);
+					mSync(cl, obj, (Msg)msg);
 					} /* if */
 				} /* if */
 			break;
@@ -452,7 +454,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 				data->MinAmount = *D;
 				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 					{
-					mSync(cl, obj, msg);
+					mSync(cl, obj, (Msg)msg);
 					} /* if */
 				} /* if */
 			break;
@@ -465,7 +467,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 			data->MaxAmount = Limit;
 			if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 				{
-				mSync(cl, obj, msg);
+				mSync(cl, obj, (Msg)msg);
 				} /* if */
 			break;
 			} /* MaxValInt */
@@ -476,7 +478,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 			data->MinAmount = Limit;
 			if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 				{
-				mSync(cl, obj, msg);
+				mSync(cl, obj, (Msg)msg);
 				} /* if */
 			break;
 			} /* MinValInt */
@@ -487,7 +489,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 			data->MasterVariable = (void *)tag->ti_Data;
 			if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 				{
-				mSync(cl, obj, msg);
+				mSync(cl, obj, (Msg)msg);
 				} /* if */
 			break;
 			} /* VarPtr */
@@ -500,7 +502,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 				data->FIFlags |= Temp;
 				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 					{
-					mSync(cl, obj, msg);
+					mSync(cl, obj, (Msg)msg);
 					} /* if */
 				} /* if */
 			break;
@@ -512,7 +514,7 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 				*((long *)(data->MasterVariable)) = (long)tag->ti_Data;
 				if(!GetTagData(MUIV_FloatInt_InhibitAutoSync, (ULONG)NULL, msg->ops_AttrList))
 					{
-					mSync(cl, obj, msg);
+					mSync(cl, obj, (Msg)msg);
 					} /* if */
 				} /* if */
 			break;

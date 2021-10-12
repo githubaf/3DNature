@@ -552,3 +552,5 @@ jetzt sind alle Wint-conversion Warnungen raus.
 fixed fscanf in Support.c  Added lengt limit. removed errournious "&" in front of char arrays
 --> 65 warnings left. Compileable with SAS/C  (smake optimize)
 
+mixed more fscanf.
+-->56 warnings left.
