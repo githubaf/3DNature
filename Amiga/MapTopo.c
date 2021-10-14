@@ -10,7 +10,7 @@
 #define MODE_REPLACE 0
 #define MODE_AVERAGE 1
 
-void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
+void __stdargs MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 	short MakeWater, short Visible, double *Elev)
 {
  short eco = 0, understory = 0, notsnow = 0, NoAlias = 0, VolumeTexture = 0,
