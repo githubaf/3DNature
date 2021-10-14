@@ -554,3 +554,8 @@ fixed fscanf in Support.c  Added lengt limit. removed errournious "&" in front o
 
 mixed more fscanf.
 -->56 warnings left.
+
+14.10.2021
+----------
+Erzeugen der Prototypen aus den c-Files
+cproto *.c -E m68k-amigaos-cpp  -I. -DSTATIC_FCN= > aaa.txt
