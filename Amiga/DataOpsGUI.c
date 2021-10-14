@@ -11,7 +11,7 @@
 STATIC_FCN void Set_DC_Data(void); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Set_DI_Data(void); // used locally only -> static, AF 25.7.2021
 STATIC_FCN double DegMinSecToDegrees(char *str); // used locally only -> static, AF 25.7.2021
-STATIC_FCN void Get_DC_InputFile(void);// used locally only -> static, AF 25.7.2021/
+STATIC_FCN void Get_DC_InputFile(void);// used locally only -> static, AF 25.7.2021
 
 
 #define DEM_DATA_INPUT_ARRAY		0
