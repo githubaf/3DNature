@@ -552,7 +552,7 @@ extern void DrawHazeRPort(struct RastPort *Rast, int X, int Y, int Rad, struct c
 extern struct datum *Datum_MVFind(struct datum *DT, struct datum *ET, long *PT, short WhichOne);
 	
 /* MapTopo.c */
-extern void __stdargs MapTopo(struct elmapheaderV101 *map, struct Window *win,
+extern void MapTopo(struct elmapheaderV101 *map, struct Window *win,
 	short MapAsSFC, short MakeWater, short Visible, double *Elev);
 extern short colormap(struct elmapheaderV101 *map, short notsnow,
 	struct ColorComponents *CC, short *understory);
