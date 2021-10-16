@@ -1,3 +1,5 @@
+#undef STATIC_FCN
+#define STATIC_FCN
 
 #include "vgl.h"
 #include "vgl_internals.h"

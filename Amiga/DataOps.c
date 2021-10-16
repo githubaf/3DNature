@@ -1,3 +1,5 @@
+//#undef STATIC_FCN
+//#define STATIC_FCN
 /* DataOps.c
 ** Data manipulations for WCS.
 ** Original code written by Gary R. Huber, March 1994.

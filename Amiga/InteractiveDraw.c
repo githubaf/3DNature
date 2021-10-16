@@ -1,3 +1,5 @@
+#undef STATIC_FCN
+#define STATIC_FCN
 /* InteractiveDraw.c (ne gisinteractivedraw.c 14 Jan 1994 CXH)
 ** Drawing and computing utility routines for GISinteractiveview.c
 ** Written by Gary R. Huber and Chris "Xenon" Hanson, 8/93.

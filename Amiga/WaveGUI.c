@@ -1,3 +1,5 @@
+#undef STATIC_FCN
+#define STATIC_FCN
 /* WaveGUI.c
 ** World Construction Set GUI for Waves.
 ** Copyright 1995 by Gary R. Huber and Chris Eric Hanson.

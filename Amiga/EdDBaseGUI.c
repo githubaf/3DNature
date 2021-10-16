@@ -1,3 +1,5 @@
+//#undef STATIC_FCN
+//#define STATIC_FCN
 /* EdDBaseGUI.c
 ** World Construction Set GUI for Database Editing module.
 */

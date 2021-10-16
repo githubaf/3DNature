@@ -1,3 +1,5 @@
+#undef STATIC_FCN
+#define STATIC_FCN
 /* LWSupport.c
 ** LightWave 3D support functions for WCS
 ** Written on 1/5/95 by Gary R. Huber.

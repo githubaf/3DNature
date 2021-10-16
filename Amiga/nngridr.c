@@ -1,3 +1,5 @@
+#undef STATIC_FCN
+#define STATIC_FCN
 /* nngridr.c
 ** Adapted from code by David F. Watson.
 ** Modified and Incorporated into World Construction Set in June, 1995 by GRH

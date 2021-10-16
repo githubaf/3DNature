@@ -1,3 +1,5 @@
+//#undef STATIC_FCN
+//#define STATIC_FCN
 /* DEMGUI.c
 ** Copyright 1995 by Questar Productions. All rights reserved.
 ** Code written 1995 by Gary R. Huber helpful suggestions from Chris Hanson.

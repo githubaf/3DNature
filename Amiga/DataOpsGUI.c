@@ -1,3 +1,5 @@
+//#undef STATIC_FCN
+//#define STATIC_FCN
 /* DataOpsGUI.c
 ** World Construction Set GUI for Data Operations module.
 ** Copyright 1994 by Gary R. Huber and Chris Eric Hanson.

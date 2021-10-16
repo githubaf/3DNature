@@ -1,3 +1,5 @@
+#undef STATIC_FCN
+#define STATIC_FCN
 /* MapSupport.c (ne gismapsupport.c 14 Jan 1994 CXH)
 ** Support functions for 2-D mapping.
 ** Code by Gary R. Huber, 1992 - 1993.

@@ -1,3 +1,5 @@
+#undef STATIC_FCN
+#define STATIC_FCN
 /* Support.c (ne gissupport.c 14 Jan 1994 CXH)
 ** Intuition stuff, setup, etc for renderer.
 ** Built/ripped from gis.c on 24 Jul 1993 by Chris "Xenon" Hanson.

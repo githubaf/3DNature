@@ -1,3 +1,5 @@
+//#undef STATIC_FCN
+//#define STATIC_FCN
 /* Foliage.c
 ** Foliage and Ecotype-related functions
 ** Built 11/95 by Gary R. Huber.

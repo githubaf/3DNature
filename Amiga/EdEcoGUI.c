@@ -1,3 +1,5 @@
+//#undef STATIC_FCN
+//#define STATIC_FCN
 /* EdEcoGUI.c
 ** World Construction Set GUI for Ecosystem Editing module.
 */

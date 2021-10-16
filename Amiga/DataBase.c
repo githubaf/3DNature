@@ -1,3 +1,5 @@
+//#undef STATIC_FCN
+//#define STATIC_FCN
 /* DataBase.c (ne gisdatabase.c 14 Jan 1994 CXH)
 ** Database load/save/edit functions for WCS
 ** Original code written September, 1992 by Gary R. Huber.

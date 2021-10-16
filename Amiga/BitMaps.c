@@ -1,3 +1,5 @@
+//#undef STATIC_FCN
+//#define STATIC_FCN
 /* BitMaps.c (ne gisbitmaps.h 14 Jan 1994 CXH)
 ** The functions relating to 24-bit maps, creating, saving and closing.
 ** Original code by Gary R. Huber

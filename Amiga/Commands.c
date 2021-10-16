@@ -1,3 +1,5 @@
+//#undef STATIC_FCN
+//#define STATIC_FCN
 /* Commands.c
 ** File of (beginnings of) implemented parser commands.
 ** Copyright 1995 by Questar productions.

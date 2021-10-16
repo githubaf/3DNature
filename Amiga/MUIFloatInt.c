@@ -1,3 +1,5 @@
+//#undef STATIC_FCN
+//#define STATIC_FCN
 /* MUIFloatInt.c
 **
 ** An MUI class, similar to MUI3's numeric class, that builds

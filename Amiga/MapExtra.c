@@ -1,3 +1,5 @@
+#undef STATIC_FCN
+#define STATIC_FCN
 /* MapExtra.c
 ** Bunches of good stuff to make Map work.
 ** original code by Gary R. Huber

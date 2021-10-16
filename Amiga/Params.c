@@ -1,3 +1,5 @@
+#undef STATIC_FCN
+#define STATIC_FCN
 /* Params.c (ne gisparams.c 14 Jan 1994 CXH)
 ** All kinds of functions to set, compute, load, and magle values and params.
 ** Built/ripped from gis.c on 24 Jul 1993 by Chris "Xenon" Hanson.

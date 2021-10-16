@@ -1,3 +1,5 @@
+#undef STATIC_FCN
+#define STATIC_FCN
 /*----------------------- nncrunch.c ----------------------------*/
 #include "WCS.h"
 

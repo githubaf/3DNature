@@ -559,3 +559,11 @@ mixed more fscanf.
 ----------
 Erzeugen der Prototypen aus den c-Files
 cproto *.c -E m68k-amigaos-cpp  -I. -DSTATIC_FCN= > aaa.txt
+
+
+15.10.21
+--------
+Fehler tritt bei STATIC_FCN = static auf, und irgendwo in 
+./LWSupport.c ./MakeFaces.c ./Map.c ./MapExtra.c ./MapGUI.c ./MapSupport.c ./MapTopoObject.c ./MapUtil.c ./MoreGUI.c ./MUIFloatInt.c
+
+--> Das Problem ist in MapUtil.c
