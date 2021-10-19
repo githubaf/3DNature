@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* DEM.c (ne gisdem.c 14 Jan 1994 CXH)
 ** Digital elevation model manipulations for WCS.
 ** Original code written by Gary R. Huber, July 1992. Incorporated into

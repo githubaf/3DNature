@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* EdSetExtrasGUI.c (ne gisedsetgui.c 14 Jan 1994 CXH)
 ** World Construction Set GUI for Settings Editing module.
 */

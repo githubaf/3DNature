@@ -1,5 +1,3 @@
-#undef STATIC_FCN
-#define STATIC_FCN
 /* Tree.c (ne gistree.c 14 Jan 1994 CXH)
 ** Tree-related functions
 ** Built/cut from gisam.c on 24 Jul 1993 by Chris "Xenon" Hanson.

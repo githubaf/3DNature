@@ -572,3 +572,8 @@ Fehler tritt bei STATIC_FCN = static auf, und irgendwo in
 --------
 und dort in der einfachen Funktion ZeroMatrix3x3()!
 Wenn die static ist, funktioniert das Programm nicht. (Keine Landschaft). Wenn sie nicht static ist, klappt alles.
+
+19.10.2021
+----------
+Bebbo hat das Problem im gcc behoben. Mit dem Compiler vom 18.10.2021 funktioniert WCS jetzt mit und ohne .mregparm, mit und ohne static functions und mit und ohne ffastmath.
+-> Testcode wieder aus den WCS-Quellen rausgenommen. 

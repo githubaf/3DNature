@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* GenericTimeLineSupport.c
 ** World Construction Set GUI support functions for Time Line Editing modules.
 ** By Gary R. Huber, 1994.

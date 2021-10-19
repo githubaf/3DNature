@@ -1,5 +1,3 @@
-#undef STATIC_FCN
-#define STATIC_FCN
 /* ParamsGUI.c
 ** World Construction Set GUI for miscellaneous parameter functions.
 ** By Gary R. Huber, 1994.

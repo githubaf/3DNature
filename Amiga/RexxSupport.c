@@ -1,5 +1,3 @@
-#undef STATIC_FCN
-#define STATIC_FCN
 /* RexxSupport.c
 ** Built from SimpleRexx.c
 ** Copyright 1995 by Questar Productions

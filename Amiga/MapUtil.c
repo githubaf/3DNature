@@ -1,5 +1,3 @@
-#undef STATIC_FCN
-#define STATIC_FCN
 /* MapUtil.c (ne gismaputil.c 14 Jan 1994 CXH)
 ** Some utility functions for mapping in WCS renderer.
 ** Built/ripped/hacked from gisam.c on 24 Jul 1993 by Chris "Xenon" Hanson.

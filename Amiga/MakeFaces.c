@@ -1,5 +1,3 @@
-#undef STATIC_FCN
-#define STATIC_FCN
 /* MakeFaces.c (ne gismakefaces.c 14 Jan 1994 CXH)
 ** Includes routines for computing face attributes from DEM data.
 ** Result can be exported directly to rendering module or

@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* FoliageGUI.c
 ** World Construction Set GUI for Foliage Editing module.
 ** By Gary Huber 12/95.

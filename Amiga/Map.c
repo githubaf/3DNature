@@ -1,5 +1,3 @@
-#undef STATIC_FCN
-#define STATIC_FCN
 /* Map.c (ne gismap.c 14 Jan 1994 CXH)
 ** 2-D Mapping routines for World Construction Set.
 ** Programmed by Gary R. Huber in June and July, 1992.

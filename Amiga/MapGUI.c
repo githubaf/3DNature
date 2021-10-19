@@ -1,5 +1,3 @@
-#undef STATIC_FCN
-#define STATIC_FCN
 /* MapGUI.c
 **
 ** MUI user interface stuff for 2D mapping module

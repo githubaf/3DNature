@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* DefaultParams.c (ne gisedpar.c 14 Jan 1994 CXH)
 ** Default Parameter creating function for WCS
 ** Original code built 9 September, 1992 by Gary R. Huber.

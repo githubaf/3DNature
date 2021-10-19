@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* Cloud.c
 ** Cloud generation and manipulation functions for WCS.
 ** Written by Gary R. Huber, Jan 1995.

@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* GUI.c (ne gisgui.c 14 Jan 1994 CXH)
 ** World Construction Set GUI.
 */

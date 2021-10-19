@@ -1,5 +1,3 @@
-#undef STATIC_FCN
-#define STATIC_FCN
 /* InteractiveView.c (ne gisinteractiveview.c 14 Jan 1994 CXH)
 ** Allows interactive modification of view parameters associated
 ** with rendering a scene in GIS. Creates a grid sampled at a specified

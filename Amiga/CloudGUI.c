@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* CloudGUI.c
 ** World Construction Set GUI for Clouds and Waves.
 ** Copyright 1995 by Gary R. Huber and Chris Eric Hanson.

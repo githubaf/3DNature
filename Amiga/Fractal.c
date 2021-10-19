@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* Fractal.c
 ** Functions to subdivide polygons
 ** Original code pulled from MapTopoObject.c and MapUtil.c 8/28/95

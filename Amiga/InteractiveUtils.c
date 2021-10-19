@@ -1,5 +1,3 @@
-#undef STATIC_FCN
-#define STATIC_FCN
 /* InteractiveUtils.c (ne gisinteractiveutils.c 14 Jan 1994 CXH)
 ** Parameter modification utility routines for GISinteractiveview.c
 ** Written by Gary R. Huber and Chris "Xenon" Hanson, 8/93.

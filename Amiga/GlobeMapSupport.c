@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* GlobeMapSupport.c (ne gisglobemapsupport.c 14 Jan 1994 CXH)
 ** Some auxiliary calculation and IO routines for mapping in GIS renderer.
 ** Built (ripped) from gis.c on 24 Jul 1993 by Chris "Xenon" Hanson.

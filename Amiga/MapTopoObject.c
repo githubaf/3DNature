@@ -1,5 +1,3 @@
-#undef STATIC_FCN
-#define STATIC_FCN
 /* MapTopoObject.c (ne gismaptopoobject.c 14 Jan 1994 CXH)
 **
 ** Built, Shredded, Ripped, Mangled, Puree'd, Diced, Chopped, Julienned,

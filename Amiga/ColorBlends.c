@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* ColorBlends.c (ne giscolorblends.c 14 Jan 1994 CXH)
 ** Functions to map and color the various types of terrain.
 ** Ripped and Built from gisam.c on 24 Jul 1993 by Chris "Xenon" Hanson.

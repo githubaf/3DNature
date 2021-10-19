@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* EdPar.c (ne gisedpar.c 14 Jan 1994 CXH)
 ** Parameter editing function for WCS
 ** Original code built 9 September, 1992 by Gary R. Huber.

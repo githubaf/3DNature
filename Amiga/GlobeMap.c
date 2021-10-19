@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* GlobeMap.c (ne gisglobemap.c 14 Jan 1994 CXH)
 ** The globemap() function, not so enormous as it was.
 ** Built (ripped) from gis.c on 24 Jul 1993 by Chris "Xenon" Hanson.

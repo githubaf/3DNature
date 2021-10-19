@@ -1,5 +1,3 @@
-//#undef STATIC_FCN
-//#define STATIC_FCN
 /* DXF.c
 ** DXF file loader for WCS.
 ** Original code written by Gary R. Huber, Jamuary, 1994.
