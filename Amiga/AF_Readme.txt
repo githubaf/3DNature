@@ -577,3 +577,122 @@ Wenn die static ist, funktioniert das Programm nicht. (Keine Landschaft). Wenn s
 ----------
 Bebbo hat das Problem im gcc behoben. Mit dem Compiler vom 18.10.2021 funktioniert WCS jetzt mit und ohne .mregparm, mit und ohne static functions und mit und ohne ffastmath.
 -> Testcode wieder aus den WCS-Quellen rausgenommen. 
+
+Ohne -lto habe ich noch etwa 100 [-Wmaybe-uninitialized] warnings. Mit -lto verschwinden die!?
+
+Mit
+m68k-amigaos-objdump -t WCS.unstripped  | awk '/^[0-9]+.**\.data/{print $6}' | sed 's/^_//g'
+bekomme ich alle globalen Variablen. Der SED-Aufruf entfernt den Unterstrich am Anfang. Ich habe ohne -lto kompiliert.
+
+So kann ich ich nach einer Variablen suchen und azeigenn in wievielen Dateien diese Variable benutzt wird.
+for FILE in $(find .. -name "*.c"); do grep -nH "sinxrot" $FILE; done | awk -F: '{print $1}' | sort --unique
+
+Also als Script:
+
+cat ./find_static_candidate_variables.sh
+
+#!/bin/bash
+# 19.Oktober 2021, AF
+# sucht Variablen, dies nue in einer Datei verwendet werden, also static gemacht werden koennen
+
+for VAR in $(m68k-amigaos-objdump -t WCS.unstripped  | awk '/^[0-9]+.**\.data/{print $6}' | sed 's/^_//g'); do
+        FILELISTE="$(for FILE in $(find .. -name "*.c"); do
+        grep -nH $VAR $FILE | awk -F: '{print $1}';done | sort --unique)" # Alle Files, die die Variable enthalten
+
+	if [ ! -z "$FILELISTE" ]   # wenn Liste nicht leer. (Leere Liste liefert auch Anz=1 ???)
+	then
+	        ANZ=$(echo "$FILELISTE" | wc -l)   # Anzahl Elemente in der FILELISTE
+        	if [ "$ANZ" -eq 1 ]
+	        then
+        	        echo "$FILELISTE $VAR"
+		fi
+        fi
+done
+
+
+Das kam raus:
+--------------
+./find_static_candidate_variables.sh | sort
+../ColorBlends.c colavg
+../DataBase.c fieldname
+../DataBase.c NoOfFields
+../DataBase.c RecordLength
+../EdPar.c CoShift                 // geht nicht, per Macro ueberall benutzt
+../EdPar.c UndoKeyFrames
+../Fractal.c polyct                // 1048236
+../GlobeMap.c ACosTable
+../GlobeMap.c ASinTable
+../GlobeMap.c CosTable
+../GlobeMap.c ILBMnum
+../GlobeMap.c lastfacect
+../GlobeMap.c RenderWind0_Sig
+../GlobeMap.c SinTable
+../GlobeMap.c statfile            // 1048204
+../GlobeMap.c TrigTableEntries    // geht nicht ??? Aerger mit WCS.c ????
+../GlobeMapSupport.c bluesky      <------
+../GlobeMapSupport.c flblue
+../GlobeMapSupport.c flgreen
+../GlobeMapSupport.c flred
+../GlobeMapSupport.c greensky
+../GlobeMapSupport.c redsky
+../InteractiveDraw.c BinarySerialPlaceHolder
+../InteractiveDraw.c Itchy
+../InteractiveDraw.c Pixie
+../InteractiveView.c AltRenderListSize
+../InteractiveView.c InterWind0_Sig
+../InteractiveView.c WindowNumber
+../LineSupport.c ptblue
+../LineSupport.c ptgreen
+../LineSupport.c ptred
+../LWSupport.c LWNullObj
+../MakeFaces.c elface
+../Map.c MapWind3_Sig
+../Map.c MP_DigLatScale
+../Map.c MP_DigLonScale
+../Map.c MP_Nlat
+../Map.c MP_ORx
+../Map.c MP_ORy
+../Map.c MP_Rotate
+../Map.c MP_Wlon
+../MapExtra.c frontpen
+../MapExtra.c graphtype
+../MapExtra.c ptstore
+../MapGUI.c MapNewMenus
+../MapGUI.c MapWind0_Sig
+../MapGUI.c PrimaryColors
+../MapGUI.c PrintColors
+../MapGUI.c UnderConstOK
+../MapSupport.c lat_y
+../MapSupport.c lon_x
+../MapTopoObject.c ptqq
+../MapWorld.c faceel
+../MoreGUI.c SaveAscii
+../MUIFloatInt.c DOSBase
+../MUIFloatInt.c FloatIntClassPointer
+../MUIFloatInt.c FWT
+../MUIFloatInt.c UtilityBase
+../ParamsGUI.c IA_AnimStep
+../RequesterGUI.c frbase
+../RequesterGUI.c frfile
+../RequesterGUI.c frparam
+../RequesterGUI.c PocketWatch
+../RequesterGUI.c ProjDate
+../RequesterGUI.c PWDate
+../RequesterGUI.c Today
+../RexxSupport.c RexxSysBase
+../RexxSupport.c SysBase
+../Tree.c HorSunAngle
+../Tree.c HorSunFact
+../Tree.c VertSunFact
+../vgl/clib.c _vgl_rand_last
+../WCS.c AslBase
+../WCS.c GadToolsBase
+../WCS.c GfxBase
+../WCS.c MUIMasterBase
+../WCS.c NewAltColors
+../WCS.c PenSpec
+
+-g -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -ffast-math -mregparm -fbaserel -flto --> 1054764 Bytes   (groesser als ohne -flto!)
+-g -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -ffast-math -mregparm -fbaserel       --> 1048612 Bytes
+
+Static-Test jetzt wegen schnelleren Linken ohne flto.

@@ -216,7 +216,7 @@ EXTERN /*__far*/ struct Animation UndoMoPar[2];    // ALEXANDER __far raus
  double Value[3];
 };
 
-EXTERN struct ColorShift CoShift[COLORPARAMS];
+EXTERN struct ColorShift CoShift[COLORPARAMS];  // not static. Is used via macro from everywhere, AF
 
 /*EXTERN*/ struct PaletteV1 {
  struct ColorV1 cn[COLORPARAMSV1];
@@ -1472,10 +1472,12 @@ EXTERN UBYTE red,green,blue,ptred,ptgreen,ptblue;
 EXTERN UBYTE *colmap[3];
 EXTERN UBYTE *cloudmap;
 EXTERN UBYTE *NoiseMap;
-EXTERN __far char fieldname[14][20];
+//EXTERN __far char fieldname[14][20];  static AF
 EXTERN __far char str[256],paramfile[32],
 	framepath[256],temppath[256],dbasepath[256],parampath[256],
-	path[256],dirname[256],ILBMname[256],ILBMnum[32],dbasename[32],
+	path[256],dirname[256],ILBMname[256],
+//	ILBMnum[32],  static AF
+	dbasename[32],
 	statname[32],statpath[256],linepath[256],linefile[32],
 	backgroundpath[256], zbufferpath[256], backgroundfile[32],
 	zbufferfile[32], colormappath[256], colormapfile[32], projectpath[256],
@@ -1490,15 +1492,20 @@ EXTERN UBYTE *SubPix, *TreePix;
 
 EXTERN short *Edge1,*Edge2,
       render,horline,horpt,length[14],wide,high,oshigh,
-      DBaseRecords,NoOfObjects,RenderObjects,RecordLength,
-      NoOfFields,NoOfSmWindows,WindowNumber,fixfocus,frame,col,OBN,cmap,dir,
-      treedraw,undertreedraw,polyct[10],paramsloaded,dbaseloaded,NoOfElMaps,item[3],
+      DBaseRecords,NoOfObjects,RenderObjects,
+//      RecordLength,   static AF
+//      NoOfFields,  static AF
+      NoOfSmWindows,WindowNumber,fixfocus,frame,col,OBN,cmap,dir,
+      treedraw,undertreedraw,
+//      polyct[10],  // static AF
+      paramsloaded,dbaseloaded,NoOfElMaps,item[3],
       aliasred,aliasgreen,aliasblue,altred,altgreen,altblue,LogItem, IA_GridSize,
       IA_GridStyle, IA_Movement, KT_MaxFrames, IA_Top, IA_Left, IA_Width,
       IA_AnimStart, IA_AnimEnd, IA_AnimStep,
       IA_Height, IA_CompTop, IA_CompLeft, IA_CompWidth, IA_CompHeight, IA_AutoDraw,
       ColMax, Clouds, DB_Mod, Par_Mod, Proj_Mod, Mod_Warn, EcoClass,
-      UndoKeyFrames, RenderTaskPri, SaveAscii, RenderSize, Reflections;
+//      UndoKeyFrames,  static AF
+      RenderTaskPri, SaveAscii, RenderSize, Reflections;
 
 EXTERN short ReportMesg[4]
 #ifdef MAIN
@@ -1536,7 +1543,8 @@ EXTERN __far short RenderList[1000][2];
 EXTERN __far short *AltRenderList;
 
 EXTERN ULONG WCS_Signals, InterWind0_Sig, InterWind2_Sig, MapWind0_Sig,
-	MapWind3_Sig, RenderWind0_Sig;
+	MapWind3_Sig;
+//	RenderWind0_Sig;  static AF
 
 EXTERN LONG __stack
 #ifdef MAIN
@@ -1545,7 +1553,8 @@ EXTERN LONG __stack
 ;
 EXTERN long *QCmap[3];
 
-EXTERN long extrarand,maxfract,fracount[10],lastfacect,
+EXTERN long extrarand,maxfract,fracount[10],
+ //lastfacect,  static AF
      xx[3],yy[3],pts,hseed,b,randomint,
      redrand,greenrand,bluerand,CamPathPts,FocPathPts,
      drawoffsetX,drawoffsetY,DMod,SubPixArraySize,TreePixArraySize,
@@ -1572,8 +1581,12 @@ EXTERN float weight[11][11];
 /* changed to double from float 10/21/95 and back to float on 12/2/95 */
 EXTERN float *zbuf;
 
-EXTERN float *CosTable, *SinTable, *ASinTable, *ACosTable;
-EXTERN long TrigTableEntries
+//EXTERN float *CosTable; static AF
+// *SinTable; static AF
+// *ASinTable; // static AF
+//*ACosTable; //static AF
+
+EXTERN long TrigTableEntries   //static AF geht nicht, Aerger mit WCS.c Assembler?????
 #ifdef MAIN
 = 361
 #endif
@@ -1641,7 +1654,9 @@ EXTERN double redsky,greensky,bluesky,horstretch;
 EXTERN double *Banking;
 EXTERN double qmax,cosviewlat,sunlat,sunlong,diplat,diplong,
        facelat,facelong,el,faceel,slope,aspect,CenterX,CenterY,
-       ralt,vertscale,horscale,sunangle,sunfactor,fade,colavg,sunshade,
+       ralt,vertscale,horscale,sunangle,sunfactor,fade,
+       //colavg,  static, AF
+       sunshade,
        seadepthfact,
        redsun,greensun,bluesun,Random,dlat,dlong,dslope,flred,flgreen,flblue,
        maxdlat,mindlat,maxdlong,mindlong,transpar,PtrnOffset,HalfPtrnOffset,
@@ -2207,7 +2222,9 @@ EXTERN struct Window *MapWind0, *MapWind3;
 EXTERN struct elmapheaderV101 *mapelmap;
 
 EXTERN char graphpath[255],graphname[64],
-     statdir[255],statfile[64],filetype[6];
+     statdir[255],
+//     statfile[64],   static AF
+     filetype[6];
 
 EXTERN USHORT RecordNumber, InterStuff, AutoClear,
        vectorenabled, ecoenabled,topo,topoload,align,graphtype,MapDither,

@@ -8,6 +8,7 @@
 
 #define RENDER_SCREEN_DITHER
 
+STATIC_VAR double colavg;
 
 // short ComputeBumpMapTexture(double LatPt, double LonPt); // AF, not used 26.July 2021
 // void StrataConvert(void); // AF, not used 26.July 2021

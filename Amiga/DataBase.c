@@ -10,6 +10,9 @@
 #define CUR_DBASE_FIELDS	13
 #define CUR_DBASE_RECLNGTH	53
 
+STATIC_VAR /*__far*/ char fieldname[14][20];
+STATIC_VAR short NoOfFields;
+STATIC_VAR RecordLength;
 
 STATIC_FCN short Find_DBObjPts(char *filename); // used locally only -> static, AF 20.7.2021
 STATIC_FCN struct database *DataBase_Copy(struct database *OldBase, short OldRecords,

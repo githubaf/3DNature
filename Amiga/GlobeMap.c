@@ -8,6 +8,13 @@
 #include "GUIDefines.h"
 #include <time.h>
 
+STATIC_VAR float *ACosTable, *ASinTable,* SinTable,*CosTable;
+STATIC_VAR __far char ILBMnum[32];
+STATIC_VAR long lastfacect;
+STATIC_VAR ULONG RenderWind0_Sig;
+STATIC_VAR char statfile[64];
+//STATIC_VAR long TrigTableEntries=361;   Aerger mit WCS.c ????
+
 STATIC_FCN void Close_Render_Window(void); // used locally only -> static, AF 20.7.2021
 STATIC_FCN short InitDEMMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 20.7.2021
 STATIC_FCN short BuildTrigTables(void); // used locally only -> static, AF 26.7.2021

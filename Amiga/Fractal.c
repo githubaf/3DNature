@@ -6,6 +6,8 @@
 
 #include "WCS.h"
 
+STATIC_VAR short polyct[10];
+
 STATIC_FCN void Vertex_Sum(struct faces *Vertex, struct faces *Face); // used locally only -> static, AF 19.7.2021
 STATIC_FCN void FractPoly_Divide(struct elmapheaderV101 *map, struct VertexIndex *Vtx); // used locally only -> static, AF 23.7.2021
 STATIC_FCN void Poly_Divide(void); // used locally only -> static, AF 23.7.2021

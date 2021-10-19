@@ -7,6 +7,8 @@
 #include "WCS.h"
 #include "Foliage.h"
 
+STATIC_VAR UndoKeyFrames;
+
 STATIC_FCN short Set_Bank_Key(short Frame); // used locally only -> static, AF 23.7.2021
 STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
         char *paramfile, struct ParHeader *TempHdr, short ExistingKeyFrames); // used locally only -> static, AF 23.7.2021
