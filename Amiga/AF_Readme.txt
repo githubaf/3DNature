@@ -567,3 +567,8 @@ Fehler tritt bei STATIC_FCN = static auf, und irgendwo in
 ./LWSupport.c ./MakeFaces.c ./Map.c ./MapExtra.c ./MapGUI.c ./MapSupport.c ./MapTopoObject.c ./MapUtil.c ./MoreGUI.c ./MUIFloatInt.c
 
 --> Das Problem ist in MapUtil.c
+
+17.10.21
+--------
+und dort in der einfachen Funktion ZeroMatrix3x3()!
+Wenn die static ist, funktioniert das Programm nicht. (Keine Landschaft). Wenn sie nicht static ist, klappt alles.
