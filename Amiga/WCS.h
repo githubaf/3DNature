@@ -1031,7 +1031,8 @@ EXTERN struct MapData {
 
 EXTERN struct Box AlignBox;
 
-EXTERN APTR UnderConst, UnderConstOK;
+EXTERN APTR UnderConst;
+// UnderConstOK; static AF
 EXTERN APTR ModControlWin;
 
 EXTERN struct Viewshed {
@@ -1210,98 +1211,98 @@ EXTERN USHORT AltColors[16]
 #endif /* MAIN */
 ;
 
-#ifdef VISTA_SCHEME
+//#ifdef VISTA_SCHEME
+//
+//EXTERN USHORT PrintColors[16]
+//#ifdef MAIN
+//={
+//#ifndef DAVE_WARNER
+// 0x89b,	/* 0, gray-blue */
+// 0x000,	/* 1, black */
+// 0xddd,	/* 2, almost white */
+//#else /* DAVE_WARNER */
+// 0x000,	/* 0, gray-blue, now black */
+// 0xfff,	/* 1, black, now white */
+// 0xbbb,	/* 2, almost white, now greyish */
+//#endif /* DAVE_WARNER */
+// 0xb10,
+// 0x348,
+// 0x392,
+// 0x37c,
+// 0xdd2,
+// 0xfff,	/* VistaLike color scheme */
+// 0xbbb,
+// 0x777,
+// 0xd95,
+// 0x940,
+// 0x7b7,
+// 0x090,
+// 0x060
+// }
+//#endif /* MAIN */
+//;
+//
+//#endif /* VISTA_SCHEME */
+//
+//
+//EXTERN USHORT PrintColors[16]
+//#ifdef MAIN
+//={
+//#ifndef DAVE_WARNER
+// 0x89b,	/* 0, gray-blue */
+// 0x000,	/* 1, black */
+// 0xddd,	/* 2, almost white */
+//#else /* DAVE_WARNER */
+// 0x000,	/* 0, gray-blue, now black */
+// 0xfff,	/* 1, black, now white */
+// 0xbbb,	/* 2, almost white, now greyish */
+//#endif /* DAVE_WARNER */
+// 0xb10,
+// 0x348,
+// 0x392,
+// 0x37c,
+// 0xdd2,
+// 0xfff,	/* lighten color gradient */
+// 0xeee,
+// 0xddd,
+// 0xccc,
+// 0xbbb,
+// 0xaaa,
+// 0x999,
+// 0x888
+// }
+//#endif /* MAIN */
+//;
 
-EXTERN USHORT PrintColors[16]
-#ifdef MAIN
-={
-#ifndef DAVE_WARNER
- 0x89b,	/* 0, gray-blue */
- 0x000,	/* 1, black */
- 0xddd,	/* 2, almost white */
-#else /* DAVE_WARNER */
- 0x000,	/* 0, gray-blue, now black */
- 0xfff,	/* 1, black, now white */
- 0xbbb,	/* 2, almost white, now greyish */
-#endif /* DAVE_WARNER */
- 0xb10,
- 0x348,
- 0x392,
- 0x37c,
- 0xdd2,
- 0xfff,	/* VistaLike color scheme */
- 0xbbb,
- 0x777,
- 0xd95,
- 0x940,
- 0x7b7,
- 0x090,
- 0x060
- }
-#endif /* MAIN */
-;
 
-#endif /* VISTA_SCHEME */
-
-
-EXTERN USHORT PrintColors[16]
-#ifdef MAIN
-={
-#ifndef DAVE_WARNER
- 0x89b,	/* 0, gray-blue */
- 0x000,	/* 1, black */
- 0xddd,	/* 2, almost white */
-#else /* DAVE_WARNER */
- 0x000,	/* 0, gray-blue, now black */
- 0xfff,	/* 1, black, now white */
- 0xbbb,	/* 2, almost white, now greyish */
-#endif /* DAVE_WARNER */
- 0xb10,
- 0x348,
- 0x392,
- 0x37c,
- 0xdd2,
- 0xfff,	/* lighten color gradient */
- 0xeee,
- 0xddd,
- 0xccc,
- 0xbbb,
- 0xaaa,
- 0x999,
- 0x888
- }
-#endif /* MAIN */
-;
-
-
-EXTERN USHORT PrimaryColors[16]
-#ifdef MAIN
-={
-#ifndef DAVE_WARNER
- 0x89b,	/* 0, gray-blue */
- 0x000,	/* 1, black */
- 0xddd,	/* 2, almost white */
-#else /* DAVE_WARNER */
- 0x000,	/* 0, gray-blue, now black */
- 0xfff,	/* 1, black, now white */
- 0xbbb,	/* 2, almost white, now greyish */
-#endif /* DAVE_WARNER */
- 0xb10,
- 0x348,
- 0x392,
- 0x37c,
- 0xdd2,
- 0xfff,
- 0xf00,
- 0xf70,
- 0xff0,
- 0x0f0,
- 0x00f,
- 0xf0f,
- 0x000
- }
-#endif /* MAIN */
-;
+// EXTERN USHORT PrimaryColors[16]  static AF
+// #ifdef MAIN
+// ={
+// #ifndef DAVE_WARNER
+//  0x89b,	/* 0, gray-blue */
+//  0x000,	/* 1, black */
+//  0xddd,	/* 2, almost white */
+// #else /* DAVE_WARNER */
+//  0x000,	/* 0, gray-blue, now black */
+//  0xfff,	/* 1, black, now white */
+//  0xbbb,	/* 2, almost white, now greyish */
+// #endif /* DAVE_WARNER */
+//  0xb10,
+//  0x348,
+//  0x392,
+//  0x37c,
+//  0xdd2,
+//  0xfff,
+//  0xf00,
+//  0xf70,
+//  0xff0,
+//  0x0f0,
+//  0x00f,
+//  0xf0f,
+//  0x000
+// }
+// #endif /* MAIN */
+// ;
 
 
 EXTERN __far char *typename[]
@@ -1547,7 +1548,8 @@ EXTERN __far short *AltRenderList;
 
 EXTERN ULONG WCS_Signals,
 //InterWind0_Sig,  satatic AF
-InterWind2_Sig, MapWind0_Sig;
+InterWind2_Sig;
+// MapWind0_Sig; static AF
 	// MapWind3_Sig; static AF
 //	RenderWind0_Sig;  static AF
 
@@ -1579,7 +1581,9 @@ KFsize, UndoKFsize;
 EXTERN FILE *fvector;
 
 /* changed to double from float 101995 */
-EXTERN double qqq,qmin,ptqq[3],ptx[3],pty[3];
+EXTERN double qqq,qmin,
+//ptqq[3],  static AF
+ptx[3],pty[3];
 
 #ifdef ENABLE_STATISTICS
 EXTERN float meanaspect, meanslope, meanel;
@@ -1661,7 +1665,9 @@ EXTERN double // redsky,greensky,bluesky, static AF
 horstretch;
 EXTERN double *Banking;
 EXTERN double qmax,cosviewlat,sunlat,sunlong,diplat,diplong,
-       facelat,facelong,el,faceel,slope,aspect,CenterX,CenterY,
+       facelat,facelong,el,
+       //faceel,  Mapword.c, not used in WCS-program AF
+       slope,aspect,CenterX,CenterY,
        ralt,vertscale,horscale,sunangle,sunfactor,fade,
        //colavg,  static, AF
        sunshade,
@@ -2238,7 +2244,9 @@ EXTERN char graphpath[255],graphname[64],
      filetype[6];
 
 EXTERN USHORT RecordNumber, InterStuff, AutoClear,
-       vectorenabled, ecoenabled,topo,topoload,align,graphtype,MapDither,
+       vectorenabled, ecoenabled,topo,topoload,align,
+       //graphtype,  static AF
+       MapDither,
        ContInt, NoOfTypes;
 
 EXTERN short EcoLegend[6]
@@ -2254,7 +2262,8 @@ EXTERN short EcoUse[6]
 ;
 
 EXTERN short topomaps,
-     MapHighEl, MapLowEl, ptstore[8],
+     MapHighEl, MapLowEl,
+     //ptstore[8],  static AF
      backpen, MP_DigMode, MP_Width, MP_Height, MP_Left, MP_Top;
 
 #ifdef ENABLE_STATISTICS
@@ -2265,10 +2274,12 @@ EXTERN short statrows,statcols,statsize,normrows,normcols,normsize,
 EXTERN short *TopoOBN;
 
 #ifdef MAIN
-short frontpen=2,/*cornerx=30,cornery=30,grwidth=580,grheight=340,*/
+short //frontpen=2,  static AF
+/*cornerx=30,cornery=30,grwidth=580,grheight=340,*/
 	ContInterval=192;
 #else
-extern short frontpen,/*cornerx,cornery,grwidth,grheight,*/ContInterval;
+extern short // frontpen, static AF
+/*cornerx,cornery,grwidth,grheight,*/ContInterval;
 #endif
 
 EXTERN long MapElmapSize, MapCoordSize, TopoOBNSize;
@@ -2291,8 +2302,11 @@ EXTERN __far double mlon[MAXOBJPTS];
 EXTERN __far double tlat[MAXOBJPTS];
 EXTERN __far double tlon[MAXOBJPTS];
 EXTERN double mapscale,maplat,maplon,latzero,lonzero,
-       latscalefactor,lonscalefactor,lat_y,lon_x,y_lat,x_lon,
+       latscalefactor,lonscalefactor,
+       //lat_y, static AF
+       //lon_x,static AF
        rlat[2],rlon[2],
+       y_lat, x_lon,
        MaxElevDiff;
        // MP_Nlat, MP_Wlon, static AF
        //MP_DigLatScale, MP_DigLonScale, static AF

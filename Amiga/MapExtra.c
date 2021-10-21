@@ -6,6 +6,11 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
+STATIC_VAR short frontpen=2;
+STATIC_VAR USHORT graphtype;
+STATIC_VAR short ptstore[8];
+
+
 STATIC_FCN void markpt(short edpt, short col); // used locally only -> static, AF 19.7.2021
 STATIC_FCN double SolveDistCart(double XJ, double YJ, double ZJ,
         double XK, double YK, double ZK); // used locally only -> static, AF 23.7.2021

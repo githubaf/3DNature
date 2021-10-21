@@ -10,6 +10,8 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
+STATIC_VAR double ptqq[3];
+
 STATIC_FCN short setfaceone(struct elmapheaderV101 *map);  // AF static 16.July2021
 STATIC_FCN short setfacetwo(struct elmapheaderV101 *map);  // AF static 16.July2021
 STATIC_FCN void VertexIndex_Del(struct VertexIndex *Vtx);  // used locally only -> static, AF 19.7.2021

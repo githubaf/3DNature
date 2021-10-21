@@ -6,6 +6,8 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
+STATIC_VAR double lat_y, lon_x;
+
 STATIC_FCN void DrawSun(struct Window *Win, int X, int Y, int Rad, struct clipbounds *cb); // used locally only -> static, AF 26.7.2021
 
 

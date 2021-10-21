@@ -657,16 +657,16 @@ Das kam raus:
 ../MapExtra.c frontpen
 ../MapExtra.c graphtype
 ../MapExtra.c ptstore
-../MapGUI.c MapNewMenus
+../MapGUI.c MapNewMenus             <-- ok bis hier (Canyon Bild ok) 1048412
 ../MapGUI.c MapWind0_Sig
 ../MapGUI.c PrimaryColors
 ../MapGUI.c PrintColors
-../MapGUI.c UnderConstOK
+../MapGUI.c UnderConstOK            <-- ok bis hier (Canyon Bild ok) 1048412
 ../MapSupport.c lat_y
 ../MapSupport.c lon_x
-../MapTopoObject.c ptqq
-../MapWorld.c faceel
-../MoreGUI.c SaveAscii
+../MapTopoObject.c ptqq              
+../MapWorld.c faceel                <--- ok bis hier (Canyon Bild ok) 1048412
+../MoreGUI.c SaveAscii               
 ../MUIFloatInt.c DOSBase
 ../MUIFloatInt.c FloatIntClassPointer
 ../MUIFloatInt.c FWT

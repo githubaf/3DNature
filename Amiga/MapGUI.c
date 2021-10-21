@@ -13,6 +13,95 @@
 
 #define MED_HACK
 
+STATIC_VAR ULONG MapWind0_Sig;
+STATIC_VAR APTR UnderConstOK;
+
+STATIC_VAR USHORT PrimaryColors[16]=
+{
+#ifndef DAVE_WARNER
+ 0x89b, /* 0, gray-blue */
+ 0x000, /* 1, black */
+ 0xddd, /* 2, almost white */
+#else /* DAVE_WARNER */
+ 0x000, /* 0, gray-blue, now black */
+ 0xfff, /* 1, black, now white */
+ 0xbbb, /* 2, almost white, now greyish */
+#endif /* DAVE_WARNER */
+ 0xb10,
+ 0x348,
+ 0x392,
+ 0x37c,
+ 0xdd2,
+ 0xfff,
+ 0xf00,
+ 0xf70,
+ 0xff0,
+ 0x0f0,
+ 0x00f,
+ 0xf0f,
+ 0x000
+ };
+
+#ifdef VISTA_SCHEME
+
+STATIC_VAR USHORT PrintColors[16]=
+{
+#ifndef DAVE_WARNER
+ 0x89b,   /* 0, gray-blue */
+ 0x000,   /* 1, black */
+ 0xddd,   /* 2, almost white */
+#else /* DAVE_WARNER */
+ 0x000,   /* 0, gray-blue, now black */
+ 0xfff,   /* 1, black, now white */
+ 0xbbb,   /* 2, almost white, now greyish */
+#endif /* DAVE_WARNER */
+ 0xb10,
+ 0x348,
+ 0x392,
+ 0x37c,
+ 0xdd2,
+ 0xfff,   /* VistaLike color scheme */
+ 0xbbb,
+ 0x777,
+ 0xd95,
+ 0x940,
+ 0x7b7,
+ 0x090,
+ 0x060
+ }
+;
+
+#endif /* VISTA_SCHEME */
+
+
+STATIC_VAR USHORT PrintColors[16]=
+{
+#ifndef DAVE_WARNER
+ 0x89b,   /* 0, gray-blue */
+ 0x000,   /* 1, black */
+ 0xddd,   /* 2, almost white */
+#else /* DAVE_WARNER */
+ 0x000,   /* 0, gray-blue, now black */
+ 0xfff,   /* 1, black, now white */
+ 0xbbb,   /* 2, almost white, now greyish */
+#endif /* DAVE_WARNER */
+ 0xb10,
+ 0x348,
+ 0x392,
+ 0x37c,
+ 0xdd2,
+ 0xfff,   /* lighten color gradient */
+ 0xeee,
+ 0xddd,
+ 0xccc,
+ 0xbbb,
+ 0xaaa,
+ 0x999,
+ 0x888
+ }
+;
+
+
 STATIC_FCN void MapGUI_Del(struct MapData *MP); // used locally only -> static, AF 20.7.2021
 STATIC_FCN short Make_Map_Menu(void); // used locally only -> static, AF 20.7.2021
 STATIC_FCN void Close_MA_Window(struct MapData *MP); // used locally only -> static, AF 20.7.2021
