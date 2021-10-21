@@ -629,23 +629,23 @@ Das kam raus:
 ../GlobeMap.c SinTable
 ../GlobeMap.c statfile            // 1048204
 ../GlobeMap.c TrigTableEntries    // geht nicht ??? Aerger mit WCS.c ????
-../GlobeMapSupport.c bluesky      <------
+../GlobeMapSupport.c bluesky      ok bis hier, (Canyon Bild ok)
 ../GlobeMapSupport.c flblue
 ../GlobeMapSupport.c flgreen
 ../GlobeMapSupport.c flred
 ../GlobeMapSupport.c greensky
-../GlobeMapSupport.c redsky
-../InteractiveDraw.c BinarySerialPlaceHolder
+../GlobeMapSupport.c redsky       ok bis hier
+../InteractiveDraw.c BinarySerialPlaceHolder  unused
 ../InteractiveDraw.c Itchy
 ../InteractiveDraw.c Pixie
 ../InteractiveView.c AltRenderListSize
 ../InteractiveView.c InterWind0_Sig
-../InteractiveView.c WindowNumber
+../InteractiveView.c WindowNumber   ok bis hier (Canyon Bild ok) 1048236 bigger
 ../LineSupport.c ptblue
 ../LineSupport.c ptgreen
-../LineSupport.c ptred
-../LWSupport.c LWNullObj
-../MakeFaces.c elface
+../LineSupport.c ptred              <--- 1048412 bigger
+../LWSupport.c LWNullObj            ok bis hier (Canyon Bild ok)
+../MakeFaces.c elface               <--
 ../Map.c MapWind3_Sig
 ../Map.c MP_DigLatScale
 ../Map.c MP_DigLonScale
@@ -653,7 +653,7 @@ Das kam raus:
 ../Map.c MP_ORx
 ../Map.c MP_ORy
 ../Map.c MP_Rotate
-../Map.c MP_Wlon
+../Map.c MP_Wlon                    <-- ok bis hier (Canyon Bild ok) 1048412
 ../MapExtra.c frontpen
 ../MapExtra.c graphtype
 ../MapExtra.c ptstore

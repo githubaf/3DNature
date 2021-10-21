@@ -9,6 +9,7 @@
 #include "vgl/vgl.h"
 #include "vgl/vgl_internals.h"
 
+
 STATIC_FCN short computeview(struct elmapheaderV101 *Map); // used locally only -> static, AF 19.7.2021
 STATIC_FCN void computefocprof(void); // used locally only -> static, AF 19.7.2021
 
@@ -34,10 +35,10 @@ STATIC_FCN short drawinterview(void); // used locally only -> static, AF 19.7.20
 
 struct BusyWindow *BW;
 
-PIXMAP *Pixie;
-struct RastPort *Itchy;
+STATIC_VAR PIXMAP *Pixie;
+STATIC_VAR struct RastPort *Itchy;
 char *Mask;
-char BinarySerialPlaceHolder[] = "C0DEF00F";
+//char BinarySerialPlaceHolder[] = "C0DEF00F";   // unused, AF
 
 void drawgridview(void)
 {

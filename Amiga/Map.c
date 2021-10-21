@@ -28,6 +28,9 @@
 #define ROUNDUP(a,b)		(((a + (b - 1)) / b) * b)
 #endif
 
+STATIC_VAR ULONG MapWind3_Sig;
+STATIC_VAR double MP_DigLatScale, MP_DigLonScale,MP_Nlat, MP_Wlon,MP_Rotate, MP_ORx, MP_ORy;
+
 STATIC_FCN short interpolatepts(short j, long x2, long x1, long y2, long y1); // used locally only -> static, AF 19.7.2021
 STATIC_FCN void EnsureLoaded(void); // used locally only -> static, AF 23.7.2021
 STATIC_FCN void TempRas_Del(struct RastPort *This, int X, int Y); // used locally only -> static, AF 23.7.2021

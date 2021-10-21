@@ -10,6 +10,10 @@
 
 #include "WCS.h"
 
+STATIC_VAR long AltRenderListSize;
+STATIC_VAR ULONG InterWind0_Sig;
+STATIC_VAR short WindowNumber;
+
 
 STATIC_FCN void Close_Small_Window(short win_number); // used locally only -> static, AF 26.7.2021
 STATIC_FCN short openinterview(void); // used locally only -> static, AF 26.7.2021

@@ -6,6 +6,8 @@
 
 #include "WCS.h"
 
+STATIC_VAR UBYTE ptred,ptgreen,ptblue;
+
 void FadeLine(long el)
 {
 

@@ -8,6 +8,7 @@
 
 #include "WCS.h"
 
+STATIC_VAR double elface[3];
 
 STATIC_FCN void facecompute(struct elmapheaderV101 *map, short low, short mid, short hi); // used locally only -> static, AF 19.7.2021
 STATIC_FCN void Face_Compute(struct elmapheaderV101 *map, struct FaceData *Data,

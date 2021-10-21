@@ -7,6 +7,9 @@
 #include "WCS.h"
 #include <math.h>
 
+STATIC_VAR double redsky,greensky,bluesky;
+STATIC_VAR double flred,flgreen,flblue;
+
 /*********************************************************************/
 STATIC_FCN short HaloEffect(UBYTE **Bitmap, long Width, long Height,
         double Dr, double Dx, double Dy, double Intensity, double NoHaloDist,

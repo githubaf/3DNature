@@ -1468,7 +1468,8 @@ EXTERN __far char ErrMagnitude[]
 
 EXTERN __far char LogMesg[MAXLOGITEMS][80];
 
-EXTERN UBYTE red,green,blue,ptred,ptgreen,ptblue;
+EXTERN UBYTE red,green,blue;
+//ptred,ptgreen,ptblue;    static AF
 EXTERN UBYTE *colmap[3];
 EXTERN UBYTE *cloudmap;
 EXTERN UBYTE *NoiseMap;
@@ -1495,7 +1496,9 @@ EXTERN short *Edge1,*Edge2,
       DBaseRecords,NoOfObjects,RenderObjects,
 //      RecordLength,   static AF
 //      NoOfFields,  static AF
-      NoOfSmWindows,WindowNumber,fixfocus,frame,col,OBN,cmap,dir,
+      NoOfSmWindows,
+//      WindowNumber,  static AF
+      fixfocus,frame,col,OBN,cmap,dir,
       treedraw,undertreedraw,
 //      polyct[10],  // static AF
       paramsloaded,dbaseloaded,NoOfElMaps,item[3],
@@ -1542,8 +1545,10 @@ EXTERN short *FocPathElev;
 EXTERN __far short RenderList[1000][2];
 EXTERN __far short *AltRenderList;
 
-EXTERN ULONG WCS_Signals, InterWind0_Sig, InterWind2_Sig, MapWind0_Sig,
-	MapWind3_Sig;
+EXTERN ULONG WCS_Signals,
+//InterWind0_Sig,  satatic AF
+InterWind2_Sig, MapWind0_Sig;
+	// MapWind3_Sig; static AF
 //	RenderWind0_Sig;  static AF
 
 EXTERN LONG __stack
@@ -1567,7 +1572,9 @@ EXTERN __far long statcount[37][20];
 
 EXTERN __far long scrnrowzip[2000];
 EXTERN long ecocount[ECOPARAMS];
-EXTERN long zbufsize,bmapsize,QCmapsize,AltRenderListSize,KFsize, UndoKFsize;
+EXTERN long zbufsize,bmapsize,QCmapsize,
+//AltRenderListSize,  static AF
+KFsize, UndoKFsize;
 
 EXTERN FILE *fvector;
 
@@ -1650,7 +1657,8 @@ EXTERN __far float parambounds[USEDMOTIONPARAMS][2]
 #endif /* MAIN */
 ;
 
-EXTERN double redsky,greensky,bluesky,horstretch;
+EXTERN double // redsky,greensky,bluesky, static AF
+horstretch;
 EXTERN double *Banking;
 EXTERN double qmax,cosviewlat,sunlat,sunlong,diplat,diplong,
        facelat,facelong,el,faceel,slope,aspect,CenterX,CenterY,
@@ -1658,11 +1666,14 @@ EXTERN double qmax,cosviewlat,sunlat,sunlong,diplat,diplong,
        //colavg,  static, AF
        sunshade,
        seadepthfact,
-       redsun,greensun,bluesun,Random,dlat,dlong,dslope,flred,flgreen,flblue,
+       redsun,greensun,bluesun,Random,dlat,dlong,dslope,
+       //flred,flgreen,flblue,   static AF
        maxdlat,mindlat,maxdlong,mindlong,transpar,PtrnOffset,HalfPtrnOffset,
        relel,relfactor,treehtfact,treerand,treerand2,treerand3,treerand4,
        cloudcover,xrot,yrot,zrot,cosxrot,cosyrot,coszrot,
-       sinxrot,sinyrot,sinzrot,elface[3],latface[3],longface[3],incr[3],
+       sinxrot,sinyrot,sinzrot,
+       //elface[3],  static AF
+       latface[3],longface[3],incr[3],
        azimuth,oldazimuth,focdist,treeheight,
        fog, fogrange, FloatCol;
 EXTERN double SeaLevel, MaxSeaLevel, MaxWaveAmp, ReflectionStrength,
@@ -2282,8 +2293,10 @@ EXTERN __far double tlon[MAXOBJPTS];
 EXTERN double mapscale,maplat,maplon,latzero,lonzero,
        latscalefactor,lonscalefactor,lat_y,lon_x,y_lat,x_lon,
        rlat[2],rlon[2],
-       MaxElevDiff, MP_Nlat, MP_Wlon, MP_DigLatScale, MP_DigLonScale,
-       MP_Rotate, MP_ORx, MP_ORy;
+       MaxElevDiff;
+       // MP_Nlat, MP_Wlon, static AF
+       //MP_DigLatScale, MP_DigLonScale, static AF
+       //MP_Rotate, MP_ORx, MP_ORy;  static AF
 
 #endif /* GIS_MAP_H */
 
