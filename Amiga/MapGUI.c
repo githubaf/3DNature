@@ -110,7 +110,7 @@ STATIC_FCN int MapGUI_New(struct MapData *MP); // used locally only -> static, A
 
 extern void ParticleTree(void);
 
-struct NewMenu MapNewMenus[] =
+STATIC_FCN struct NewMenu MapNewMenus[] =
 	{
 	{ NM_TITLE, (STRPTR)"Database",		 0 , 0, 0, 0 },
 	{  NM_ITEM, (STRPTR)"Load Objects",	 0 , 0, 0, 0 },

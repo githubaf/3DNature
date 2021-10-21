@@ -702,7 +702,7 @@ jetzt noch einmal
 ./find_static_candidate_variables.sh | sort
 ../EdPar.c CoShift                 // not static. Is used via macro from everywhere, AF
 ../GlobeMap.c TrigTableEntries     // static AF geht nicht, Aerger mit WCS.c Assembler?????
-../MapGUI.c MapNewMenus
+../MapGUI.c MapNewMenus            //ok, nachgeholt
 ../MUIFloatInt.c DOSBase
 ../MUIFloatInt.c UtilityBase
 ../RexxSupport.c RexxSysBase
@@ -712,6 +712,8 @@ jetzt noch einmal
 ../WCS.c GadToolsBase
 ../WCS.c GfxBase
 ../WCS.c MUIMasterBase
-../WCS.c NewAltColors
-../WCS.c PenSpec
+../WCS.c NewAltColors              // ok, nachgeholt
+../WCS.c PenSpec                   // ok, nachgeholt
+
+Jetzt immernoch 1048408 Bytes. Alles OK. (Canyon Bild ok)
 
