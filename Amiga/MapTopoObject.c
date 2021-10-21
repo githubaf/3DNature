@@ -2821,7 +2821,7 @@ STATIC_FCN short setquickfacetwo(struct elmapheaderV101 *map, long Lr, long Lc) 
 
 /*********************************************************************/
 
-short setquickface(struct elmapheaderV101 *map) // used locally only -> static, AF 23.7.2021
+STATIC_FCN short setquickface(struct elmapheaderV101 *map) // used locally only -> static, AF 23.7.2021
 {
  short y, j = 0, k = 0, l = 0;
  long WayWide, WayHigh;

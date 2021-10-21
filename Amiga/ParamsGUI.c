@@ -7,6 +7,8 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 
+STATIC_VAR short IA_AnimStep;
+
 STATIC_FCN short Add_FM_Item(void);  // used locally only -> static, AF 19.7.2021
 STATIC_FCN void Set_PS_Info(void); // used locally only -> static, AF 24.7.2021
 STATIC_FCN void Remove_FM_Item(long item); // used locally only -> static, AF 24.7.2021

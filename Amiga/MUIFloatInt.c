@@ -53,7 +53,7 @@
 STATIC_FCN double CalcIncDec(double Quantity, struct FloatIntData *data, char Action); // used locally only -> static, AF 19.7.2021
 STATIC_FCN ULONG DoIncDec(struct IClass *cl,Object *obj,Msg msg, char Action); // used locally only -> static, AF 19.7.2021
 
-char *FWT[] =
+STATIC_VAR char *FWT[] =
 	{
 	"",
 	"1",
@@ -68,7 +68,7 @@ char *FWT[] =
 	"1234567890"
 	}; /* FWT */
 
-struct MUI_CustomClass *FloatIntClassPointer;
+STATIC_VAR struct MUI_CustomClass *FloatIntClassPointer;
 
 struct Library *UtilityBase;
 

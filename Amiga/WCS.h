@@ -81,7 +81,7 @@ EXTERN LONG MemTrack;
 EXTERN struct Screen *WCSScrn;
 EXTERN struct Window *InterWind0,*InterWind2,
 	*RenderWind0;
-EXTERN struct FileRequester *frbase,*frparam,*frfile;
+//EXTERN struct FileRequester *frbase,*frparam,*frfile;  static AF
 EXTERN struct IntuiMessage Event;
 #endif /* AMIGA_GUI */
 
@@ -1505,11 +1505,14 @@ EXTERN short *Edge1,*Edge2,
       paramsloaded,dbaseloaded,NoOfElMaps,item[3],
       aliasred,aliasgreen,aliasblue,altred,altgreen,altblue,LogItem, IA_GridSize,
       IA_GridStyle, IA_Movement, KT_MaxFrames, IA_Top, IA_Left, IA_Width,
-      IA_AnimStart, IA_AnimEnd, IA_AnimStep,
+      IA_AnimStart, IA_AnimEnd,
+      //IA_AnimStep,  static AF
       IA_Height, IA_CompTop, IA_CompLeft, IA_CompWidth, IA_CompHeight, IA_AutoDraw,
       ColMax, Clouds, DB_Mod, Par_Mod, Proj_Mod, Mod_Warn, EcoClass,
 //      UndoKeyFrames,  static AF
-      RenderTaskPri, SaveAscii, RenderSize, Reflections;
+      RenderTaskPri,
+      //SaveAscii,  static AF
+      RenderSize, Reflections;
 
 EXTERN short ReportMesg[4]
 #ifdef MAIN
@@ -1682,8 +1685,8 @@ EXTERN double qmax,cosviewlat,sunlat,sunlong,diplat,diplong,
        latface[3],longface[3],incr[3],
        azimuth,oldazimuth,focdist,treeheight,
        fog, fogrange, FloatCol;
-EXTERN double SeaLevel, MaxSeaLevel, MaxWaveAmp, ReflectionStrength,
-	VertSunFact, HorSunFact, HorSunAngle;
+EXTERN double SeaLevel, MaxSeaLevel, MaxWaveAmp, ReflectionStrength;
+	//VertSunFact, HorSunFact, HorSunAngle;  static AF
 
 EXTERN double *DTable;
 

@@ -668,7 +668,7 @@ Das kam raus:
 ../MapWorld.c faceel                <--- ok bis hier (Canyon Bild ok) 1048412
 ../MoreGUI.c SaveAscii               
 ../MUIFloatInt.c DOSBase
-../MUIFloatInt.c FloatIntClassPointer
+../MUIFloatInt.c FloatIntClassPointer 
 ../MUIFloatInt.c FWT
 ../MUIFloatInt.c UtilityBase
 ../ParamsGUI.c IA_AnimStep
@@ -678,13 +678,13 @@ Das kam raus:
 ../RequesterGUI.c PocketWatch
 ../RequesterGUI.c ProjDate
 ../RequesterGUI.c PWDate
-../RequesterGUI.c Today
+../RequesterGUI.c Today            <<-- ok bis hier (Canyon Bild ok) 1048408
 ../RexxSupport.c RexxSysBase
 ../RexxSupport.c SysBase
 ../Tree.c HorSunAngle
 ../Tree.c HorSunFact
 ../Tree.c VertSunFact
-../vgl/clib.c _vgl_rand_last
+../vgl/clib.c _vgl_rand_last       <---
 ../WCS.c AslBase
 ../WCS.c GadToolsBase
 ../WCS.c GfxBase
@@ -696,3 +696,22 @@ Das kam raus:
 -g -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -ffast-math -mregparm -fbaserel       --> 1048612 Bytes
 
 Static-Test jetzt wegen schnelleren Linken ohne flto.
+
+21.10.2021
+jetzt noch einmal
+./find_static_candidate_variables.sh | sort
+../EdPar.c CoShift                 // not static. Is used via macro from everywhere, AF
+../GlobeMap.c TrigTableEntries     // static AF geht nicht, Aerger mit WCS.c Assembler?????
+../MapGUI.c MapNewMenus
+../MUIFloatInt.c DOSBase
+../MUIFloatInt.c UtilityBase
+../RexxSupport.c RexxSysBase
+../RexxSupport.c SysBase
+../vgl/clib.c _vgl_rand_last
+../WCS.c AslBase
+../WCS.c GadToolsBase
+../WCS.c GfxBase
+../WCS.c MUIMasterBase
+../WCS.c NewAltColors
+../WCS.c PenSpec
+

@@ -10,8 +10,10 @@
 #include <time.h>
 #include <stdarg.h>
 
-struct DateTime PocketWatch;
-char PWDate[26], Today[26], ProjDate[26];
+
+STATIC_VAR struct DateTime PocketWatch;
+STATIC_VAR char PWDate[26], Today[26], ProjDate[26];
+STATIC_VAR struct FileRequester *frbase,*frparam,*frfile;
 
 // void MUI_DoNotifyPressed(APTR Target, ULONG ID); // AF, not used 26.July 2021
 

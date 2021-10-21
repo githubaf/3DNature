@@ -7,6 +7,8 @@
 #include "WCS.h"
 #include "Foliage.h"
 
+STATIC_VAR double VertSunFact, HorSunFact, HorSunAngle;
+
 STATIC_FCN void SetBitmapImageSpan(struct BitmapImage *BMI); // used locally only -> static, AF 19.7.2021
 STATIC_FCN void BitmapImage_Del(struct BitmapImage *BMI); // used locally only -> static, AF 23.7.2021
 STATIC_FCN void Image_Paste(struct BitmapImage *SBMI, UBYTE **Bitmap,

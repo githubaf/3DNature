@@ -8,6 +8,8 @@
 #include "GUIExtras.h"
 #include "Version.h"
 
+STATIC_VAR short SaveAscii;
+
 STATIC_FCN void ApplyImageScale(void);// used locally only -> static, AF 26.7.2021
 
 
