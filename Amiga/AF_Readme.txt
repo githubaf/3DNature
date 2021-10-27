@@ -701,7 +701,7 @@ Static-Test jetzt wegen schnelleren Linken ohne flto.
 jetzt noch einmal
 ./find_static_candidate_variables.sh | sort
 ../EdPar.c CoShift                 // not static. Is used via macro from everywhere, AF
-../GlobeMap.c TrigTableEntries     // static AF geht nicht, Aerger mit WCS.c Assembler?????
+../GlobeMap.c TrigTableEntries     // static AF geht nicht, Aerger mit WCS.c Assembler?????  Hat bebbo mit neuem gcc 25Sep21 behoben!
 ../MapGUI.c MapNewMenus            //ok, nachgeholt
 ../MUIFloatInt.c DOSBase
 ../MUIFloatInt.c UtilityBase
@@ -716,4 +716,19 @@ jetzt noch einmal
 ../WCS.c PenSpec                   // ok, nachgeholt
 
 Jetzt immernoch 1048408 Bytes. Alles OK. (Canyon Bild ok)
+
+
+27.10.2021
+----------
+swmem()-Statistik von CanyonSunset 752x480 (default) 1 Frame. Fast 38 Mio Aufrufe.
+
+swmem(total)= 37822678
+swmem(1)    =  7894144 (20.9%)
+swmem(2)    =   962530 ( 2.5%)
+swmem(4)    =        2 ( 0.0%)
+swmem(8)    = 28966002 (76.6%)
+swmem(other)=        0 ( 0.0%)
+
+Etwa 190 Stellen, an den swmem aufegrufen wird. Scheinen ALLE eine Konstante für die Anzahl zu haben.
+inline mit Compiletime-Macro machen!
 

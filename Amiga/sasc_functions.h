@@ -13,6 +13,17 @@ int Mkdir(const char *name);  // calls mkdir(name) because mkdir on gcc has two 
 #ifdef SWMEM_INLINE   // define in Makefile if swmem should be inlined
 inline void swmem(void *a, void *b, unsigned n)  // SAS/C function, needs to be re-implemented for gcc, Swap two memory blocks
 {
+    SwapTotal++;
+    switch (n)
+    {
+        case 1:Swap1++; break;
+        case 2:Swap2++; break;
+        case 4:Swap4++; break;
+        case 8:Swap8++; break;
+        default:
+            Swapother++;
+    }
+
     unsigned char temp;
     unsigned int i;
     unsigned char *p1=(unsigned char *)a, *p2=(unsigned char *)b;

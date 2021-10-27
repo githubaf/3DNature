@@ -53,6 +53,7 @@ This function is not available if the _STRICT_ANSI flag has been
 defined.
 */
 
+extern unsigned long long Swap1,Swap2,Swap4,Swap8,Swapother, SwapTotal;
 #ifdef SWMEM_INLINE   // define in Makefile if swmem() should be inlined
 extern inline void swmem(void *a, void *b, unsigned n);  // SAS/C-only function, own re-implementation AF
 // Body is moved to header-File as inline function
@@ -60,6 +61,16 @@ extern inline void swmem(void *a, void *b, unsigned n);  // SAS/C-only function,
 #else
 void swmem(void *a, void *b, unsigned n)  // SAS/C-only function, own re-implementation AF
 {
+    SwapTotal++;
+    switch (n)
+    {
+        case 1:Swap1++; break;
+        case 2:Swap2++; break;
+        case 4:Swap4++; break;
+        case 8:Swap8++; break;
+        default:
+            Swapother++;
+    }
     unsigned char temp;
     unsigned int i;
     unsigned char *p1=(unsigned char *)a, *p2=(unsigned char *)b;
