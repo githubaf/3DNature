@@ -12,8 +12,10 @@ STATIC_VAR float *ACosTable, *ASinTable,* SinTable,*CosTable;
 STATIC_VAR __far char ILBMnum[32];
 STATIC_VAR long lastfacect;
 STATIC_VAR ULONG RenderWind0_Sig;
-STATIC_VAR char statfile[64];
-//STATIC_VAR long TrigTableEntries=361;   Aerger mit WCS.c ????
+#ifdef ENABLE_STATISTICS
+    STATIC_VAR char statfile[64];
+#endif
+STATIC_VAR long TrigTableEntries=361;  // Aerger mit WCS.c -> behoben mit gcc vom 24.10.2021
 
 STATIC_FCN void Close_Render_Window(void); // used locally only -> static, AF 20.7.2021
 STATIC_FCN short InitDEMMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 20.7.2021

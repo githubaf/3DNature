@@ -1600,11 +1600,11 @@ EXTERN float *zbuf;
 // *ASinTable; // static AF
 //*ACosTable; //static AF
 
-EXTERN long TrigTableEntries   //static AF geht nicht, Aerger mit WCS.c Assembler?????
-#ifdef MAIN
-= 361
-#endif
-;
+//EXTERN long TrigTableEntries   //static AF geht nicht, Aerger mit WCS.c Assembler????? behoben mit gcc vom 24.10.2021
+//#ifdef MAIN
+//= 361
+//#endif
+//;
 
 /* changed to double from float 101995 */
 EXTERN double polyq[10][3];
