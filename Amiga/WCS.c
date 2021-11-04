@@ -279,14 +279,6 @@ else
   goto ResetScreenMode;
   } /* if user wishes to reset screen mode */
 
- printf("swmem(total)=%9llu\n",SwapTotal);
- printf("swmem(1)    =%9llu (%4.1f%%)\n",Swap1,(Swap1*100.0)/SwapTotal);   // %4.1f -> 4 chars in total, 1 dot, 1 digit after the dot and 2 before
- printf("swmem(2)    =%9llu (%4.1f%%)\n",Swap2,(Swap2*100.0)/SwapTotal);
- printf("swmem(4)    =%9llu (%4.1f%%)\n",Swap4,(Swap4*100.0)/SwapTotal);
- printf("swmem(8)    =%9llu (%4.1f%%)\n",Swap8,(Swap8*100.0)/SwapTotal);
- printf("swmem(other)=%9llu (%4.1f%%)\n",Swapother,(Swapother*100.0)/SwapTotal);
-
-
  return 0;
 
 

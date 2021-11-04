@@ -732,3 +732,18 @@ swmem(other)=        0 ( 0.0%)
 Etwa 190 Stellen, an den swmem aufegrufen wird. Scheinen ALLE eine Konstante für die Anzahl zu haben.
 inline mit Compiletime-Macro machen!
 
+
+4.Now.2021
+----------
+#define swmem(a,b,n) \
+    (__builtin_constant_p(n) && n==1) ? swmem_1(a,b) :  \
+        (__builtin_constant_p(n) && n==8) ? swmem_8(a,b) : swmem_other(a,b,n);
+
+macht die compiletime-Entscheidung, welches swmem() eingebaut wird. per #define SWMEM_FAST_INLINE einschaltbar.
+
+Compilierbar, aber WCS funktioniert damit nicht mehr richtig. Die neuen Funktionen koennen ohne inline genutzt werden mit -fno-inline.
+
+Wo wird swmem() genutzt?
+find . -name "*.c" -exec grep -nH "swmem" {} \; | awk -F: '{print $1}' | sort -u
+
+Dann dateiweise mit -fno-inline compilieren, bis es wieder funktioniert.

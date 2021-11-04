@@ -13,17 +13,6 @@ int Mkdir(const char *name);  // calls mkdir(name) because mkdir on gcc has two 
 #ifdef SWMEM_INLINE   // define in Makefile if swmem should be inlined
 inline void swmem(void *a, void *b, unsigned n)  // SAS/C function, needs to be re-implemented for gcc, Swap two memory blocks
 {
-    SwapTotal++;
-    switch (n)
-    {
-        case 1:Swap1++; break;
-        case 2:Swap2++; break;
-        case 4:Swap4++; break;
-        case 8:Swap8++; break;
-        default:
-            Swapother++;
-    }
-
     unsigned char temp;
     unsigned int i;
     unsigned char *p1=(unsigned char *)a, *p2=(unsigned char *)b;
@@ -35,6 +24,52 @@ inline void swmem(void *a, void *b, unsigned n)  // SAS/C function, needs to be 
         *p1++=temp;
     }
 }
+#elif SWMEM_FAST_INLINE
+
+
+// special functions for 1, 8 and random number of bytes. 1 and 8 are by far the MOSTLY USED sizes in wcs.
+// The compiler decides at compiler time, which one to use/inline if n is a constant.
+
+#define swmem(a,b,n) \
+    (__builtin_constant_p(n) && n==1) ? swmem_1(a,b) :  \
+        ((__builtin_constant_p(n) && n==8) ? swmem_8(a,b) : swmem_other(a,b,n))
+
+
+
+inline void swmem_1(void *a, void *b)
+{
+    unsigned char temp, *p1=(unsigned char *)a, *p2=(unsigned char *)b;
+    temp=*p2;
+    *p2 = *p1;
+    *p1 = temp;
+}
+
+inline void swmem_8(void *a, void *b)
+{
+    unsigned int temp, *p1=(unsigned int *)a, *p2=(unsigned int *)b;
+    temp=*p2;
+    *p2++ = *p1;
+    *p1++ = temp;
+
+    temp=*p2;
+    *p2 = *p1;
+    *p1 = temp;
+}
+
+inline void swmem_other(void *a, void *b, unsigned n)
+{
+    unsigned char temp;
+    unsigned int i;
+    unsigned char *p1=(unsigned char *)a, *p2=(unsigned char *)b;
+
+    for(i=0;i<n;i++)
+    {
+        temp=*p2;
+        *p2++=*(unsigned char*)p1;
+        *p1++=temp;
+    }
+}
+
 #else
     void swmem(void *a, void *b, unsigned n);  // SAS/C function, needs to be re-implemented for gcc, Swap two memory blocks
 #endif
