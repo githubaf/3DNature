@@ -747,3 +747,56 @@ Wo wird swmem() genutzt?
 find . -name "*.c" -exec grep -nH "swmem" {} \; | awk -F: '{print $1}' | sort -u
 
 Dann dateiweise mit -fno-inline compilieren, bis es wieder funktioniert.
+
+5.11.2021
+---------
+Suche nach problematischem File:
+
+../Cloud.c              -fno-inline
+../DataBase.c           - 
+../DataOps.c            -
+../DEM.c                -
+../EdDBaseGUI.c         -
+../EdEcoGUI.c           -
+../EditGui.c            -
+../EdPar.c              -
+../Fractal.c            -
+
+../InteractiveView.c
+../LineSupport.c
+../Map.c
+../MapExtra.c
+../MapSfc.c
+../MapSupport.c
+../MapTopoObject.c
+../MapUtil.c
+../sasc_functions.c
+../USDEMExtract.c
+
+Funktioniert wieder. Problem also im ersten Block.
+
+../Cloud.c              -  ohne -fno-inline
+../DataBase.c           - 
+../DataOps.c            - 
+../DEM.c                - 
+../EdDBaseGUI.c         - 
+
+noch ok bis hier
+
+../EdEcoGUI.c           - 
+../EditGui.c            - 
+
+noch ok bis hier. Vermutung: Fractal.c ist es? 
+
+../EdPar.c              
+../Fractal.c            - geht nicht mehr. Also Fehler hier! Wenn Fractal.c mit inline uebersetzt wird, geht es nicht mehr.
+
+
+Fuer Compiler-Explorer: Preprocessed File erzeugen
+
+m68k-amigaos-gcc -DFORCE_MUIMASTER_VMIN=10 -DAMIGA_GUI -DSTATIC_FCN=static -DSTATIC_VAR=static -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -O2 -Wall -fmessage-length=0 -funsigned-char -MMD -MP "../Fractal.c" -g -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -fbaserel -Winline -DSWMEM_FAST_INLINE -mregparm -fno-inline -E >Fractal_prepro.c
+
+cat Fractal_prepro.c | sed 's/^#/\/\/\#/g' > Fractal_prepro_2.c    # Kommentare mit Doppelkreuz will der CompilerExplorer nicht
+
+-O2 -m68040 -fomit-frame-pointer -ffast-math -mregparm
+-O2 -m68040 -fomit-frame-pointer -ffast-math -mregparm -fno-inline
