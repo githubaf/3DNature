@@ -800,3 +800,91 @@ cat Fractal_prepro.c | sed 's/^#/\/\/\#/g' > Fractal_prepro_2.c    # Kommentare 
 
 -O2 -m68040 -fomit-frame-pointer -ffast-math -mregparm
 -O2 -m68040 -fomit-frame-pointer -ffast-math -mregparm -fno-inline
+
+--> Problem liegt in Fractal.c in der Funktion 
+void FractPoint_Sort(double *Elev)
+
+11.11.2021
+----------
+Bebbo commented on Github:
+-----------------------------------------------
+...
+and you should convert this
+
+extern double polyq[10][3];
+extern double polyslope[10][3];
+extern double polyrelel[10][3];
+extern double polydiplat[10][3];
+extern double polydiplon[10][3];
+extern double polylat[10][3];
+extern double polylon[10][3];
+extern double polyx[10][3];
+extern double polyy[10][3];
+extern double polyel[10][3];
+extern double polycld[10][3];
+
+into one reference to a struct.
+
+extern struct p [10][3] _p;
+
+but that's work^^
+
+-----------------------------------------------
+
+The problem is an optimization which is ok, since the data isn't marked as volatile. But the swapping modifies the data...
+So the later compares are using invalid data which yields an invalid result.
+
+so either make polyy volatile to catch all modifications
+or use code like
+
+ double p0 = polyy[b][0];
+ double p1 = polyy[b][1];
+ double p2 = polyy[b][2];
+
+and swap the p0/p1 accordingly, to ensure subsequent comparisons are using the correct values.
+And even better: use code like: (check for correctness please)
+
+  if (p0 > p1) {
+	  if (p0 < p2)
+		  SWAP(0,1);
+	  else if (p1 >= p2)
+		  SWAP(0,2);
+	  else 
+		  ROT(2,1,0); // better than many SWAPs
+  } else if (p1 > p2) {
+     if (p0 < p2)
+	  SWAP(1,2);
+    else
+        ROT(2,0,1);
+ }
+
+which avoids double/triple swaps.
+-----------------------------------------------
+For the moment I made polyy volatile and that indeed fixes the problem. I will try Bebbos 
+optimization suggestions later.
+
+Toolchain-Versions ins Executable: Aehnlich wie in espeak
+
+Makefile:
+TOOLCHAIN_VER=$(shell cat $(COMPILER_DIR)/toolchain_commit.txt)
+--> Jetzt erzeugt mein Install-Script ein Script m68k-amigaos-toolchain_hashes.sh, das man aufrufen kann
+TOOLCHAIN_VER=$(68k-amigaos-toolchain_hashes.sh)
+--> TOOLCHAIN_VER=\""$(shell m68k-amigaos-toolchain_hashes.sh)"\" bei Properties->C/C++ Build -> Settings -> Cross GCC Compiler -> Preprozessor
+
+in Version.c:
+char toolchain_ver[] = "\0$TLCN: " TOOLCHAIN_VER;   /* This macro contains git hashes for Bebbos's gcc*/
+
+Man koennte das ganze noch mit rot47 im Makefile verstecken
+| tr '!-~' 'P-~!-O'
+
+m68k-amigaos-strings WCS | grep \$TLCN
+
+
+Das mit rot47 ist gar nicht so einfach:
+TOOLCHAIN_VER=\"'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\"
+-> Das define TOOLCHAIN_VER wird ja zu einem C-String. Dabei wird z.B. \8 zu einem nicht einer binaeren 8 (statt einem \ und einer 8). Beim rot47 enstehen aber "\".
+   Die muessen dan mit sed noch in "\\" umgewandelt werden, damit es im C-String dann wirklich ein "\" ist.
+
+Dekodieren mit
+m68k-amigaos-strings WCS | grep \$TLCN | tr '!-~' 'P-~!-O' | sed 's/[[:space:]]/\n/g'
+Der sed-Aufruf macht das ganze noch schoen zeilenweiseonst steht alles hintereinader.

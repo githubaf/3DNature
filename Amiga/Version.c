@@ -35,4 +35,5 @@ World Construction Set is copyright ©1993-1995 by Questar Productions,\n\
 Brighton, Colorado 80601\n\
 (303) 659-4028\n\n";
 
+char toolchain_ver[] = "\0$TLCN: " TOOLCHAIN_VER;   /* This macro contains git hashes for Bebbos's gcc, AF, 11.11.2021*/
 

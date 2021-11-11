@@ -18,6 +18,24 @@ STATIC_FCN long MinInt5(long Num1, long Num2, long Num3, long Num4, long Num5); 
 
 #define FRAMES_PER_HOUR		108000.0
 
+//---------------------------------------
+// TEST inline bug hunting
+void SwMem(void *a, void *b, unsigned n)  // SAS/C-only function, own re-implementation AF
+{
+    unsigned char temp;
+    unsigned int i;
+    unsigned char *p1=(unsigned char *)a, *p2=(unsigned char *)b;
+
+    for(i=0;i<n;i++)
+    {
+        temp=*p2;
+        *p2++=*(unsigned char*)p1;
+        *p1++=temp;
+    }
+}
+// ---------------------------------------
+
+
 void Recurse(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 	struct CloudData *CD, struct FaceData *Data)
 {

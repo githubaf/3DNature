@@ -1615,7 +1615,11 @@ EXTERN double polydiplon[10][3];
 EXTERN double polylat[10][3];
 EXTERN double polylon[10][3];
 EXTERN double polyx[10][3];
-EXTERN double polyy[10][3];
+#ifdef SWMEM_FAST_INLINE
+#warning SWMEM_FAST_INLINE needs volatile at the moment
+   volatile
+#endif
+EXTERN double polyy[10][3];    // this one must be volatile if swmem() is inlined !?
 EXTERN double polyel[10][3];
 EXTERN double polycld[10][3];
 EXTERN float *QCcoords[2];
