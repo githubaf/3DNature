@@ -888,3 +888,33 @@ TOOLCHAIN_VER=\"'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | 
 Dekodieren mit
 m68k-amigaos-strings WCS | grep \$TLCN | tr '!-~' 'P-~!-O' | sed 's/[[:space:]]/\n/g'
 Der sed-Aufruf macht das ganze noch schoen zeilenweiseonst steht alles hintereinader.
+
+
+13.11.2021
+----------
+Benchmarks, gcc vom 8.Now.21
+noixemul, A4000T mit 68040/25 16MBytes Fast
+
+SWMEM_FAST_INLINE = Inline with volatile double polyy, 3 simple swmem-functions, gcc selects one at compiletime depending on size-parameter
+
+ 1) -g -noixemul -m68000 -DSTATIC_FCN= -DSTATIC_VAR=
+ 2) -g -noixemul -m68020 -DSTATIC_FCN= -DSTATIC_VAR=
+ 3) -g -noixemul -m68020 -m68881 -DSTATIC_FCN= -DSTATIC_VAR=
+ 4) -g -noixemul -m68040 -DSTATIC_FCN= -DSTATIC_VAR=
+ 5) -g -noixemul -m68040 -fomit-frame-pointer -DSTATIC_FCN= -DSTATIC_VAR=
+ 6) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN= -DSTATIC_VAR=
+ 7) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=
+ 8) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static
+ 9) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math
+10) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm
+11) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE
+12) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE -flto
+
+-m68020-40
+-m68020-60
+
+WCS     Size     text	   data	    bss	    dec	    hex    Warnings
+11    1049728   929848	 121496	 114580	1165924	 11ca64      276 
+12    1056588   936048	 121624	 114580	1172252	 11e31c      177
+
+
