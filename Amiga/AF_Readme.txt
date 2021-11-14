@@ -916,13 +916,13 @@ SWMEM_FAST_INLINE = Inline with volatile double polyy, 3 simple swmem-functions,
 -m68020-40
 -m68020-60
 
-WCS     Size     text	   data	    bss	    dec	    hex    Warnings
+WCS     Size     text	   data	    bss	    dec	    hex    Warnings   A4000T/040/25/16     Comment
 01    1442044  1184016	  95032	 141048	1420096	 15ab40	     186 
 02    1410776  1170108	  95040	 141048	1406196	 1574f4      186
 03    1180092   970148	  95028	 141048	1206224	 1267d0	     186
 04    1209540   995488	  95028	 141048	1231564	 12cacc      186
 05    1203388   990124	  95028	 141048	1226200	 12b5d8      186
-06    1080612   959964	 121500	 114580	1196044	 12400c      149        smaller than with static fanctions?           
+06    1080612   959964	 121500	 114580	1196044	 12400c      149         04:33:46           smaller than with static fanctions?           
 07    1081756   961088	 121500	 114580	1197168	 124470      152
 08    1081848   961180	 121500	 114580	1197260	 1244cc      155
 09    1070364   950232	 121496	 114580	1186308	 121a04      155
