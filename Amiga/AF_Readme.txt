@@ -895,11 +895,14 @@ Der sed-Aufruf macht das ganze noch schoen zeilenweiseonst steht alles hinterein
 Benchmarks, gcc vom 8.Now.21
 Cynyon-sunset, 1/4 Size (low memeory on A4000T), Pal HigRes
 noixemul, A4000T mit 68040/25 16MBytes Fast
+CTRL-A-A before each test. No Ip-Stack running, IP-Switch turned off
+
 
 DSTATIC_FCN = make functions static if possible
 DSTATIC_VAR = make global variables static if possible
 SWMEM_FAST_INLINE = Inline with volatile double polyy, 3 simple swmem-functions, gcc selects one at compiletime depending on size-parameter
 
+ 0)  original WCS binary from github (SAS/C)
  1) -g -noixemul -m68000 -DSTATIC_FCN= -DSTATIC_VAR=
  2) -g -noixemul -m68020 -DSTATIC_FCN= -DSTATIC_VAR=
  3) -g -noixemul -m68020 -m68881                        -DSTATIC_FCN=       -DSTATIC_VAR=
@@ -913,21 +916,60 @@ SWMEM_FAST_INLINE = Inline with volatile double polyy, 3 simple swmem-functions,
 11) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE
 12) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE -flto
 
+Slowdon by -fomit-frame-pointer about 0:02 -> ignore for now
+           -fbaserel            about 2:40
+           -DSTATIC_FCN=static  about 2:10 
+           -DSWMEM_FAST_INLINE  about 5:20
+            
+13) -g -noixemul -m68040 -fomit-frame-pointer           -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE -flto
+14) -g -noixemul -m68040 -fomit-frame-pointer           -DSTATIC_FCN=       -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE -flto
+15) -g -noixemul -m68040 -fomit-frame-pointer           -DSTATIC_FCN=       -DSTATIC_VAR=static -ffast-math -mregparm -Winline                     -flto
+
+No big progress at all, repeat the last three without flto
+
+16) -g -noixemul -m68040 -fomit-frame-pointer           -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE
+17) -g -noixemul -m68040 -fomit-frame-pointer           -DSTATIC_FCN=       -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE
+18) -g -noixemul -m68040 -fomit-frame-pointer           -DSTATIC_FCN=       -DSTATIC_VAR=static -ffast-math -mregparm -Winline
+
+Not better. Lets try the best with -flto
+
+19) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm                              -flto 
+
+slower than without -flto.
+
+Lets try the best wit -Os for all sources. (so far all without "GUI" in the name were compiled with -O2)
+20) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Os
+
+-Os for all?
 -m68020-40
 -m68020-60
 
+
 WCS     Size     text	   data	    bss	    dec	    hex    Warnings   A4000T/040/25/16     Comment
-01    1442044  1184016	  95032	 141048	1420096	 15ab40	     186 
-02    1410776  1170108	  95040	 141048	1406196	 1574f4      186
-03    1180092   970148	  95028	 141048	1206224	 1267d0	     186
-04    1209540   995488	  95028	 141048	1231564	 12cacc      186
-05    1203388   990124	  95028	 141048	1226200	 12b5d8      186
-06    1080612   959964	 121500	 114580	1196044	 12400c      149         04:33:46           smaller than with static fanctions?           
-07    1081756   961088	 121500	 114580	1197168	 124470      152
-08    1081848   961180	 121500	 114580	1197260	 1244cc      155
-09    1070364   950232	 121496	 114580	1186308	 121a04      155
-10    1048648   928660	 121496	 114580	1164736	 11c5c0	     155 
-11    1049728   929848	 121496	 114580	1165924	 11ca64      276 
-12    1056588   936048	 121624	 114580	1172252	 11e31c      177
+00    1068664                                                            04:59:44
+01    1442044  1184016	  95032	 141048	1420096	 15ab40	     186         10:48:52
+02    1410776  1170108	  95040	 141048	1406196	 1574f4      186         10:44:25
+03    1180092   970148	  95028	 141048	1206224	 1267d0	     186         07:44:49
+04    1209540   995488	  95028	 141048	1231564	 12cacc      186         04:48:11 
+05    1203388   990124	  95028	 141048	1226200	 12b5d8      186         04:48:13
+06    1080612   959964	 121500	 114580	1196044	 12400c      149         04:50:51           smaller and faster than with static functions?           
+07    1081756   961088	 121500	 114580	1197168	 124470      152         04:53:02
+08    1081848   961180	 121500	 114580	1197260	 1244cc      155         04:49:53
+09    1070364   950232	 121496	 114580	1186308	 121a04      155         04:39:02
+10    1048648   928660	 121496	 114580	1164736	 11c5c0	     155         04:30:26
+11    1049728   929848	 121496	 114580	1165924	 11ca64      276         04:35:49           FAST_INLINE slower than simple function call!?
+12    1056588   936048	 121624	 114580	1172252	 11e31c      177         04:33:46
+
+
+13    1172828   958196	  95080	 141032	1194308	 123944      214         04:35:51
+14    1181428   965528	  95216	 141032	1201776	 125670      211         04:34:21
+15    1181168   964764	  95216	 141032	1201012	 125374       90         04:37:29
+
+16    1165288   951576	  95024	 141048	1187648	 121f40      313         04:31:14
+17    1173772   958924	  95024	 141048	1194996	 123bf4      310         04:37:53
+18    1173164   957872	  95024	 141048	1193944	 1237d8      189         04:32:18
+
+19    1054712   934228	 121524	 114580	1170332	 11db9c       56         04:35:39
+
 
 
