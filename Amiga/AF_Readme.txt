@@ -902,7 +902,9 @@ DSTATIC_FCN = make functions static if possible
 DSTATIC_VAR = make global variables static if possible
 SWMEM_FAST_INLINE = Inline with volatile double polyy, 3 simple swmem-functions, gcc selects one at compiletime depending on size-parameter
 
- 0)  original WCS binary from github (SAS/C)
+ G) Github: Version 2.031 (Emerald) 1.134.884 Bytes) (Jul 19 1996 12:13:22 arcticus)  
+
+ 0)  original WCS binary from orginal Discs,  Version 2.04 (Ruby) (Apr 10 1996 14:15:52 Questar)
  1) -g -noixemul -m68000 -DSTATIC_FCN= -DSTATIC_VAR=
  2) -g -noixemul -m68020 -DSTATIC_FCN= -DSTATIC_VAR=
  3) -g -noixemul -m68020 -m68881                        -DSTATIC_FCN=       -DSTATIC_VAR=
@@ -937,15 +939,17 @@ Not better. Lets try the best with -flto
 
 slower than without -flto.
 
-Lets try the best wit -Os for all sources. (so far all without "GUI" in the name were compiled with -O2)
-20) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Os
+Lets try the best wit -Os for all sources. (so far all without "GUI" in the name were compiled with -O2) (the final -Os overwrites the previous -O2)
+Maybe that improves chache usage?  --> unfortunatelly no
+20) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Os  # -Clouds become distorted. (MapTopo.c-Problem)
+21  -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Os  (MapTopo.c manually compiled with -O2)
 
--Os for all?
 -m68020-40
 -m68020-60
 
 
 WCS     Size     text	   data	    bss	    dec	    hex    Warnings   A4000T/040/25/16     Comment
+G     1134884                                                            05:13:34
 00    1068664                                                            04:59:44
 01    1442044  1184016	  95032	 141048	1420096	 15ab40	     186         10:48:52
 02    1410776  1170108	  95040	 141048	1406196	 1574f4      186         10:44:25
@@ -970,6 +974,10 @@ WCS     Size     text	   data	    bss	    dec	    hex    Warnings   A4000T/040/2
 18    1173164   957872	  95024	 141048	1193944	 1237d8      189         04:32:18
 
 19    1054712   934228	 121524	 114580	1170332	 11db9c       56         04:35:39
+
+20     949492   831448	 121496	 114580	1067524	 104a04      159         04:35:54   distorted clouds !!!???? -> MapTopo.c causes the problem. Try Maptopo manually with -O2
+21     952888   834816	 121496	 114580	1070892	 10572c      ???         04:36:11
+
 
 
 
