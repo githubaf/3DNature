@@ -941,11 +941,16 @@ slower than without -flto.
 
 Lets try the best wit -Os for all sources. (so far all without "GUI" in the name were compiled with -O2) (the final -Os overwrites the previous -O2)
 Maybe that improves chache usage?  --> unfortunatelly no
-20) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Os  # -Clouds become distorted. (MapTopo.c-Problem)
+20) -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Os  # -Clouds become distorted. (MapTopo.c-Problem) -> fixed with gcc from 23.Nov.21
 21  -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Os  (MapTopo.c manually compiled with -O2)
 
--m68020-40
--m68020-60
+fastest version so far (19) but with other CPU-options
+22) -g -noixemul -m68060 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm
+23) -g -noixemul -m68020-40              -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm
+24  -g -noixemul -m68020-40 -mhard-float -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm
+25) -g -noixemul -m68020-60              -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm
+26) -g -noixemul -m68020-60 -mhard-float -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm
+
 
 
 WCS     Size     text	   data	    bss	    dec	    hex    Warnings   A4000T/040/25/16     Comment
@@ -975,9 +980,75 @@ G     1134884                                                            05:13:3
 
 19    1054712   934228	 121524	 114580	1170332	 11db9c       56         04:35:39
 
-20     949492   831448	 121496	 114580	1067524	 104a04      159         04:35:54   distorted clouds !!!???? -> MapTopo.c causes the problem. Try Maptopo manually with -O2
+20     949492   831448	 121496	 114580	1067524	 104a04      159         04:35:54   distorted clouds !!!???? -> MapTopo.c causes the problem. Try Maptopo manually with -O2 -> fixed with gcc from 23.Nov.21
 21     952888   834816	 121496	 114580	1070892	 10572c      ???         04:36:11
 
+22    1014920   894884   121496  114580 1130960  1141d0      155         06:08:57   compiled for 68060 is much slower on the 68040!!!
+23    1253540   1123420  121512  114580 1359512  14be98      155         10:22:46   no floatingpoint commands inside? no fmove!!
+24    1050664   930544   121496  114580 1166620  11cd1c      155         04:59:09   floatingpoint is back. fmove. fastmath fsin.  Wrong Picture! Rock colors distoreted!
+24_02 1048276   928320	 121496	 114580	1164396	 11c46c      155                    gcc from 27.11.21 links correct libs
+25    1238852  1108712   121512  114580 1344804  148524      155         10:17:46   no floatingpoint commands inside? no fmove!! Faster than 23 !?
+26    1037968   917792   121496  114580 1153868  119b4c      155         05:10:50   floatingpoint is back. fmove. fastmath fsin.  Wrong Picture! Rock colors distoreted!
+26_02 1038916   918904	 121496	 114580	1154980	 119fa4      155                    gcc from 27.11.21 links correct libs
+
+The problem with the distoreted clouds is in in MapTopo.c function MapCloud() when compiled with -Os. (added #pragma GCC push_options #pragma GCC optimize ("Os") #pragma GCC pop_options around that functions an compiled everything with -Os then.
 
 
+22.11.21
+--------
+Not enough memory for Cayon-sunset picture in original size. (Not enough mem for cloud map), even if started with no ip-stack. 16 MBytes seem to be to little.
+
+For reference tests with -m68060 and -m68020-60 should be done. How fast are they on my 48040?
+
+Compiler: ${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}                                     -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm
+Linker  : ${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -Wl,-Map=wcs.map,--trace -ldebug    -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm
+
+The longer linker-commandline (including -Wl,-Map=wcs.map,--trace -ldebug)  can be given for both, Compiler and Linker in eclipse.
+
+
+
+23.11.21
+--------
+The new gcc from 23.11.21 fixes the -Os issue found in 20) "distorted clouds !!!????"
+The other issues 24) and 26) "Wrong Picture! Rock colors distoreted!" is still there
+
+25.11.21
+--------
+Suche nach Problem 24/26
+Projekt komplett mit Fehler bauen (-m68020-40)
+ls -1 *.o
+Haelfte der Files nach files.txt kopieren. (das Assembler-File nicht)
+ein Objekt loeschen, dann make all, -> dann haben wir die Kommandozeile zum bauen eines Objekts, geaenderte Optionen verwenden (hier statt -m68020-40 wieder -m68040)
+File durch Variable ersetzen, folgendes Script (mit der gefundenen Compiler-Zeile) aufrufen
+
+set -x
+for FILE in $(cat files.txt); do
+FILE="${FILE%.*}"; m68k-amigaos-gcc -DFORCE_MUIMASTER_VMIN=10 -DAMIGA_GUI -DTOOLCHAIN_VER=\"'%@@=492:?iab}@Ga` 9EEADi^^8:E9F3]4@>^3633@^2>:82\\844]8:E 2>:82\\844i3bc3c3` 2>:82\\?6E:?4=F56i_b6ch77 2C@D\\DEF77idfgedd4 3:?FE:=Di_d`7675g5 4=:3ai7hh7a6d 75aAC28>2i_hc67c7 75aD75i35f6e55 844ide_4fddhe :C2i333f2ge :I6>F=i7_55hhf =:3563F8ica5h5b2 =:3?:Ii6h35276 =:3$s{`aibac7e34 ?6H=:3\\4J8H:?i526`4`_ $sxic2f7d7e D754ia4_dag` G2D>i26b62a4 G344i757fg2h G=:?<ia7`6_3a'\" -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -MMD -MP -MF"$FILE.d" -MT"$FILE.o" -o "$FILE.o" "../$FILE.c" -g -noixemul -m68040 -mhard-float -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm
+done
+set +x
+make all # Linken
+
+A--> Geht es jetzt wieder? Fehler in der ersten Haelfte usw.
+
+26.11.21
+--------
+-> Es werden die falschen libraries gelinkt. (keine m68881). mit -m68881 statt -mhard-float im Linker-Aufruf geht es wieder. 
+
+- Wenn wir 2xhalbe Groesse machen, sind Sonne und Mond viel zu gross. (Canyon-sunset)
+- Wenn ich auf auf Edit im Database-Module klicke, stuerzt WCS ab, zumindest in meiner (letzten??) Version. Im Original scheint es zu gehen.
+
+Die Groesse von Mond und Sonne muesste wohl in STATIC_FCN void ApplyImageScale(void) in MoreGui.c angepasst werden. ??
+Im MotionEditor gibt es Sun Size und Moon Size.
+Die lassen sich nicht ändern!? Mit den kleinen Pfeilen kommt Blödsinn raus und manuell wird es nicht übernommen? (Ist beim nächsten Öffnen des Fensters wieder auf dem alten Wert.)
+-> Mit den Pfeilen wird +- 1000 gemacht, das ist bei der Sonne und dem Mond viel zu viel.
+-> Um die Werte zu übernehmen, muss man nach einer Änderung *jeweils* einen KeyFrame erzeugen, dann das Fenster mit Keep schließen.
+Wenn man Sonne und Mond auf 1/4 der Zahl setzt, stimmt die Größe wieder.
+-> Es gibt bei Motion einen Punk Scale. Der ändert sichm wenn man die Größe des Bilder mit Halv oder double andert.
+-> Anscheinend ändert der sich falschrum. Also bei Halve wird Scale verdoppelt, wahrscheinlich wäre halbieren richtig. Nein. Zumindest bei der Landschaft ist Scale richtig rum
+   Wenn man den Manuell ändert, ändert sich Größe der Berge richtig rum. Vielleicht nur Mond und Sonne falsch rum?
+-> meine WCS-Varianten stuezen ab, wenn im DAtabase-Editor auf Edit gedrueckt wird.
+
+29.11.21
+--------
+Neuere Compiler vom 27.11.21 -> 24 und 26 funktionieren jetzt.
 
