@@ -1046,12 +1046,13 @@ Wenn man Sonne und Mond auf 1/4 der Zahl setzt, stimmt die Größe wieder.
 -> Es gibt bei Motion einen Punk Scale. Der ändert sichm wenn man die Größe des Bilder mit Halv oder double andert.
 -> Anscheinend ändert der sich falschrum. Also bei Halve wird Scale verdoppelt, wahrscheinlich wäre halbieren richtig. Nein. Zumindest bei der Landschaft ist Scale richtig rum
    Wenn man den Manuell ändert, ändert sich Größe der Berge richtig rum. Vielleicht nur Mond und Sonne falsch rum?
--> meine WCS-Varianten stuezen ab, wenn im DAtabase-Editor auf Edit gedrueckt wird.
+-> Meine WCS-Varianten stuerzen ab, wenn im Database-Editor auf Edit gedrueckt wird. -> Liegt an MUI. Wenn mui38usr.lha (muimaster.library 19) installiert ist, geht es. Ich erfordere im Moment muimaster.library 10 wie das originale WCS.
 
 29.11.21
 --------
 Neuere Compiler vom 27.11.21 -> 24 und 26 funktionieren jetzt.
 
+<<<<<<< HEAD
 4.Dez.2021
 ----------
 Version 26_2 ist die schnellste bisher. Komisch, auf meinem C=A4000T mit 68040 ist die 68020-60 schneller als die 68040 Version? Mehrfach nachtesten!
@@ -1079,3 +1080,11 @@ Ich erfordere jetzt "F:ORCE_MUIMASTER_VMIN=19" in den Eclipse/settings, also dem
 8.Dez.2021
 ----------
 Neuer gcc von Bebbo. __chip funktioniert jetzt, damit sind die Bilder und Buttons jetzt immer in Ordnung.
+=======
+
+7.Dez.2021
+----------
+Ich erfordere jetzt "FORCE_MUIMASTER_VMIN=19" in den Eclipse/settings, also dem Makefile. Das ist MUI 3.8. Mit Version10 (also MUI 2.3) stürzt das Editor-Window ab. (Siehe 26.11.21)
+* Zum schnellen Vorschau berechnen Preferences 1/4 Size nehmen. Nicht die Größe im Render-Dialog verändern, sonst stimmt die Größe von Sonne und Mond nicht und es dauert viel länger als bei voller Größe.
+
+>>>>>>> 4106dc929fe943fd462312eaf35037c312a66332
