@@ -986,10 +986,10 @@ G     1134884                                                            05:13:3
 22    1014920   894884   121496  114580 1130960  1141d0      155         06:08:57   compiled for 68060 is much slower on the 68040!!!
 23    1253540   1123420  121512  114580 1359512  14be98      155         10:22:46   no floatingpoint commands inside? no fmove!!
 24    1050664   930544   121496  114580 1166620  11cd1c      155         04:59:09   floatingpoint is back. fmove. fastmath fsin.  Wrong Picture! Rock colors distoreted!
-24_02 1048276   928320	 121496	 114580	1164396	 11c46c      155                    gcc from 27.11.21 links correct libs
+24_02 1048276   928320	 121496	 114580	1164396	 11c46c      155         04:31:25   gcc from 27.11.21 links correct libs
 25    1238852  1108712   121512  114580 1344804  148524      155         10:17:46   no floatingpoint commands inside? no fmove!! Faster than 23 !?
 26    1037968   917792   121496  114580 1153868  119b4c      155         05:10:50   floatingpoint is back. fmove. fastmath fsin.  Wrong Picture! Rock colors distoreted!
-26_02 1038916   918904	 121496	 114580	1154980	 119fa4      155                    gcc from 27.11.21 links correct libs
+26_02 1038916   918904	 121496	 114580	1154980	 119fa4      155         04:28:27   <--- fastest version on my 68040!!! gcc from 27.11.21 links correct libs
 
 The problem with the distoreted clouds is in in MapTopo.c function MapCloud() when compiled with -Os. (added #pragma GCC push_options #pragma GCC optimize ("Os") #pragma GCC pop_options around that functions an compiled everything with -Os then.
 
@@ -1052,3 +1052,30 @@ Wenn man Sonne und Mond auf 1/4 der Zahl setzt, stimmt die Größe wieder.
 --------
 Neuere Compiler vom 27.11.21 -> 24 und 26 funktionieren jetzt.
 
+4.Dez.2021
+----------
+Version 26_2 ist die schnellste bisher. Komisch, auf meinem C=A4000T mit 68040 ist die 68020-60 schneller als die 68040 Version? Mehrfach nachtesten!
+
+- Test Canyon Originaö-Groesse:
+Bisher imer mit 2x Halbe Größe wegen zuwenig Ram. Jetzt in Startup-Sequence das ... raugenommen. Dann habe ich nur den PAL-Bildschirmmodus, dafür aber etwas mehr RAM. (14 MBytes Fast) Damit kann ich das Canyon Sunset-Bild in Originalgröße berechnen.
+
+26_2, Canyon Sunset Originalgröße 02:59:36 !!! Viel Schneller als 2x Halbe Größe (04:28:27) !!!
+--> Buttons werden falsch angezeigt (Grafikmüll) WCS funktioniert aber. (Die Original-Versionen von WCS zeigen alles richtig an) Evtl.Grafik im Fast-Ram???
+
+ G) Github: Version 2.031 (Emerald)                                03:46:44
+ 0) original WCS binary from orginal Discs,  Version 2.04 (Ruby)   03:47:23
+
+26_2 mit 1/4 Groesse über Prferences                               01:16:12 
+G mit 1/4 Groesse über Prferences                                  01:33:20
+0 mit 1/4 Groesse über Prferences                                  01:31:06
+
+7.Dez.2021
+----------
+Ich erfordere jetzt "F:ORCE_MUIMASTER_VMIN=19" in den Eclipse/settings, also dem Makefile. Das ist MUI 3.8. Mit Version10 (also MUI 2.3) stuerzt das Editor-Window ab. (Siehe 26.11.21)
+* Zum schnellen Vorschau-Berechnen Preferences 1/4 Size nehmen. Nicht die Groesse im Render-Dialog veraendern, sonst stimmt die Groesse von Sonne und Mond nicht und es dauert viel laenger als bei voller Groesse.
+
+* Parameter Module -> Motion -> Cam View stürzt in meinen Versionen immer ab.
+ 
+8.Dez.2021
+----------
+Neuer gcc von Bebbo. __chip funktioniert jetzt, damit sind die Bilder und Buttons jetzt immer in Ordnung.
