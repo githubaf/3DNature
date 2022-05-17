@@ -39,6 +39,7 @@ STATIC_FCN void vgl_dumb_poly_noclip (PIXMAP * p, int n_vert, struct vgl_coord *
 
 /*****************************************************************************/
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN void 
 vgl_dumb_poly (PIXMAP * p, int n_vert, struct vgl_coord *vert) // used locally only -> static, AF 30.7.2021
 {
@@ -49,10 +50,11 @@ vgl_dumb_poly (PIXMAP * p, int n_vert, struct vgl_coord *vert) // used locally o
 
   vgl_dumb_line (p, vert[i].x, vert[i].y, vert[0].x, vert[0].y);
 }
-
+#endif
 
 /*****************************************************************************/
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN void 
 vgl_dumb_poly_noclip (PIXMAP * p, int n_vert, struct vgl_coord *vert) // used locally only -> static, AF 30.7.2021
 {
@@ -63,7 +65,7 @@ vgl_dumb_poly_noclip (PIXMAP * p, int n_vert, struct vgl_coord *vert) // used lo
 
   vgl_line (p, vert[i].x, vert[i].y, vert[0].x, vert[0].y);
 }
-
+#endif
 
 /*****************************************************************************/
 /*****************************************************************************/

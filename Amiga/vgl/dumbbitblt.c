@@ -104,6 +104,7 @@ static unsigned int cfbendpartial[] =
    int width,
    int height)
  */
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 void 
 vgl_dumb_bitblt_core (PIXMAP * src_image, int srcx, int srcy, int width, int height, PIXMAP * dest_image, int destx, int desty)
 {
@@ -429,3 +430,4 @@ vgl_dumb_bitblt_core (PIXMAP * src_image, int srcx, int srcy, int width, int hei
 	}
     }
 }
+#endif

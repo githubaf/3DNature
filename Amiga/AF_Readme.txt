@@ -1089,3 +1089,11 @@ Text Bebbo:
 Der 68040 und der 68060 haben ja keine vollwertige FPU, sondern emulieren einige Befehle mittels F-Line Exception (oder so), was Zeit kostet. Deswegen war -ffast-math für diese Targets nicht so toll, denn da wurden die Befehle, wie fsin, fcos usw. verwendet. Nun erzeugt -ffast-math für m68040/60 direkte MathIeee Aufrufe: https://franke.ms/cex/z/75YoWe
 "
 
+17.05.2022
+----------
+neuer gcc unterstuetzt garbage collection -> entfernt unbenutzte Funktionen und Daten. (executable stuerzt aber noch ab!)
+--> trotzdem hat der gcc noch einige weitere unbenutzte Funkionen gefunden, die ich bisher nicht als solche identifiziert hatte.
+Wegdefinieren dieser Funktionen spart 2460 Bytes. (UNUSED_FUNCTIONS_GC)
+Das muss auch mit unbenutzten Daten noch ausprobiert werden.
+
+

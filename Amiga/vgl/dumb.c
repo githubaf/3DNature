@@ -607,7 +607,7 @@ static unsigned long not_start_mask[] =
 static unsigned long not_end_mask[] =
 {0x00FFFFFF, 0x0000FFFF, 0x000000FF, 0x00000000};
 
-
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 void 
 vgl_dumb_hline (PIXMAP * p, int x1, int x2, int y)
 {
@@ -633,7 +633,7 @@ vgl_dumb_hline (PIXMAP * p, int x1, int x2, int y)
 
   vgl_dumb_hline_noclip (p, x1, x2, y);
 }
-
+#endif
 
 /*****************************************************************************/
 void 
@@ -732,6 +732,7 @@ vgl_dumb_hline_noclip (PIXMAP * p, int x1, int x2, int y)
 }
 
 #ifdef VGL_DITHER
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 void 
 vgl_dumb_hlinelist_noclip (PIXMAP * p, int count, struct span_list *list)
 { /* front end to vgl_dumb_hlinelist_noclip_root() if dithering is enabled */
@@ -739,7 +740,7 @@ vgl_dumb_hlinelist_noclip (PIXMAP * p, int count, struct span_list *list)
 vgl_dumb_hlinelist_noclip_root(p, count, list, (double)0);
 
 } /* vgl_dumb_hlinelist_noclip() */
-
+#endif
 /*****************************************************************************/
 
 void 
@@ -1028,6 +1029,7 @@ vgl_dumb_hlinelist (PIXMAP * p, int count, struct span_list *list)
 
 
 /*****************************************************************************/
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 void 
 vgl_dumb_vline (PIXMAP * p, int x, int ya, int yb)
 {
@@ -1059,7 +1061,7 @@ vgl_dumb_vline (PIXMAP * p, int x, int ya, int yb)
 
   vgl_dumb_vline_noclip (p, x, ya, yb);
 }
-
+#endif
 
 void 
 vgl_dumb_vline_noclip (PIXMAP * p, int x, int ya, int yb)
@@ -1866,7 +1868,7 @@ vgl_dumb_fillarc_noclip (PIXMAP *p,
 
 /*****************************************************************************/
 #endif
-
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 void 
 vgl_dumb_bitblt (PIXMAP *source, int sx, int sy, int width, int height,
 		 PIXMAP *dest, int dx, int dy)
@@ -1941,7 +1943,7 @@ vgl_dumb_bitblt (PIXMAP *source, int sx, int sy, int width, int height,
   check_mouse2 (source, temp1);
   check_mouse2 (dest, temp2);
 }
-
+#endif
 /*****************************************************************************/
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 void 

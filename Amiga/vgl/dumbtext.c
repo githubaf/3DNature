@@ -234,6 +234,7 @@ vgl_expand_font (struct vgl_font *input)
 /************************************************************************/
 /* Draw a string of text at a given position on the display.  No
    clipping is done. */
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN void 
 vgl_dumb_text2 (PIXMAP * p, int x, int y, char *string, int length) // used locally only -> static, AF 30.7.2021
 {
@@ -315,7 +316,7 @@ vgl_dumb_text2 (PIXMAP * p, int x, int y, char *string, int length) // used loca
 
   vgl_free (tmp_bitmap);
 }
-
+#endif
 /************************************************************************/
 /* 8 bit framebuffer support. */
 /* NOTE:
@@ -365,6 +366,7 @@ static unsigned int cfbendpartial[] =
 
 /************************************************************************/
 /* Copy from a 1 bit image to an 8 bit image. */
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 static void 
 copy_plane_1_to_8 (PIXMAP * p, struct image *src_image,
 		   int srcx,
@@ -555,9 +557,10 @@ copy_plane_1_to_8 (PIXMAP * p, struct image *src_image,
 
   check_mouse2 (p, mouse);
 }
-
+#endif
 
 /***************************************************************************/
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN void 
 vgl_dumb_text (PIXMAP * p, int x, int y, char *string) // used locally only -> static, AF 30.7.2021
 {
@@ -569,3 +572,4 @@ vgl_dumb_text (PIXMAP * p, int x, int y, char *string) // used locally only -> s
 
   vgl_dumb_text2 (p, x, y, string, (int) (s - string));
 }
+#endif

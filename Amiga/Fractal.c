@@ -20,6 +20,7 @@ STATIC_FCN long MinInt5(long Num1, long Num2, long Num3, long Num4, long Num5); 
 
 //---------------------------------------
 // TEST inline bug hunting
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 void SwMem(void *a, void *b, unsigned n)  // SAS/C-only function, own re-implementation AF
 {
     unsigned char temp;
@@ -33,6 +34,7 @@ void SwMem(void *a, void *b, unsigned n)  // SAS/C-only function, own re-impleme
         *p1++=temp;
     }
 }
+#endif
 // ---------------------------------------
 
 
