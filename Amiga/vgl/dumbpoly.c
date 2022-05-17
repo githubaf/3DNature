@@ -19,7 +19,9 @@ struct edge
   };
 
 /* The edge table, and the start of the active edge table (aet) */
+#ifdef UNUSED_VARIABLES_GC  // AF, not used 17.May 2022 found with -gc
 static struct edge edge_table[MAX_EDGE], *aet;
+#endif
 /*static struct edge *et[MAX_EDGE];*/
 
 

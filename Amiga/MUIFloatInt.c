@@ -17,7 +17,7 @@
 ** Built on 09 Jan 1996 from MUI3's UserData.c by CXH.
 ** Copyright 1996.
 */
-
+#ifdef ALLESWECH
 /* I know we don't normally use this in .C files, but it's an extern thing */
 #ifndef MUI_FLOATINT_C
 #define MUI_FLOATINT_C
@@ -753,3 +753,4 @@ return(Quantity);
 #endif
 
 #endif /* MUI_FLOATINT_C */
+#endif

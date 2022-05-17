@@ -6,8 +6,12 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 
+#ifdef UNUSED_VARIABLES_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_VAR short frontpen=2;
+#endif
+#ifdef UNUSED_VARIABLES_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_VAR USHORT graphtype;
+#endif
 STATIC_VAR short ptstore[8];
 
 
