@@ -74,6 +74,7 @@ struct Library *UtilityBase;
 
 char Scratch[50];
 
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN SAVEDS ULONG mSync(struct IClass *cl,Object *obj,Msg msg) // used locally only -> static, AF 19.7.2021
 {
 struct FloatIntData *data;
@@ -147,7 +148,9 @@ SetAttrs(obj,MUIV_FloatInt_InhibitAutoSync,TRUE,MUIA_FloatInt_Contents, ULConv,T
 
 return(0);
 }
+#endif
 
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN SAVEDS ULONG mNew(struct IClass *cl,Object *obj,struct opSet *msg) // used locally only -> static, AF 19.7.2021
 {
 	struct FloatIntData *data;
@@ -274,24 +277,30 @@ STATIC_FCN SAVEDS ULONG mNew(struct IClass *cl,Object *obj,struct opSet *msg) //
 	
 	return((ULONG)obj);
 }
+#endif
 
-
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN SAVEDS ULONG mDispose(struct IClass *cl,Object *obj,Msg msg) // used locally only -> static, AF 19.7.2021
 {
 	return(DoSuperMethodA(cl,obj,msg));
 }
+#endif
 
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN SAVEDS ULONG mInc(struct IClass *cl,Object *obj,Msg msg) // used locally only -> static, AF 19.7.2021
 {
 return(DoIncDec(cl,obj,msg,1));
 }
+#endif
 
-
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN SAVEDS ULONG mDec(struct IClass *cl,Object *obj,Msg msg)
 {
 return(DoIncDec(cl,obj,msg,0));
 }
+#endif
 
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN SAVEDS ULONG mStr(struct IClass *cl,Object *obj,Msg msg) // used locally only -> static, AF 19.7.2021
 {
 struct FloatIntData *data;
@@ -388,8 +397,9 @@ else
 
 return(0);
 }
+#endif
 
-
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN SAVEDS ULONG mSet(struct IClass *cl,Object *obj,struct opSet *msg) // used locally only -> static, AF 19.7.2021
 {
 struct FloatIntData *data = INST_DATA(cl,obj);
@@ -524,7 +534,9 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 
 return(DoSuperMethodA(cl,obj,(Msg)msg));
 }
+#endif
 
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN SAVEDS ULONG mGet(struct IClass *cl,Object *obj,struct opSet *msg) // used locally only -> static, AF 19.7.2021
 {
 struct FloatIntData *data = INST_DATA(cl,obj);
@@ -544,7 +556,9 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 
 return(DoSuperMethodA(cl,obj,(Msg)msg));
 }
+#endif
 
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN SAVEDS ULONG mChangeFocus(struct IClass *cl,Object *obj,struct opSet *msg) // used locally only -> static, AF 19.7.2021
 {
 /* struct FloatIntData *data = INST_DATA(cl,obj); */
@@ -565,7 +579,9 @@ for (tags=msg->ops_AttrList;(tag=NextTagItem(&tags));)
 
 return(DoSuperMethodA(cl,obj,(Msg)msg));
 }
+#endif
 
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN SAVEDS ULONG mLoseFocus(struct IClass *cl,Object *obj,struct opSet *msg) // used locally only -> static, AF 19.7.2021
 {
 /* struct FloatIntData *data = INST_DATA(cl,obj);
@@ -573,8 +589,9 @@ struct TagItem *tags,*tag; */
 
 return(DoSuperMethodA(cl,obj,(Msg)msg));
 }
+#endif
 
-
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 SAVEDS ASM ULONG Dispatcher(REG(a0, struct IClass *cl),
 				   REG(a2, Object *obj),
 				   REG(a1, Msg msg))
@@ -597,7 +614,7 @@ SAVEDS ASM ULONG Dispatcher(REG(a0, struct IClass *cl),
 
 	return(DoSuperMethodA(cl,obj,msg));
 }
-
+#endif
 
 #ifdef UNUSED_FUNCTIONS  // AF, not used 26.July 2021
 struct MUI_CustomClass *FloatIntInit(void)
@@ -627,6 +644,7 @@ if (FloatIntClassPointer)
 	} /* if */
 } /* FloatIntCleanup() */
 #endif
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN ULONG DoIncDec(struct IClass *cl,Object *obj,Msg msg, char Action) // used locally only -> static, AF 19.7.2021
 {
 double *D;
@@ -697,7 +715,9 @@ else if(data->FIFlags & FIOFlag_Long)
 /* Resync the string gadget */
 return(mSync(cl,obj,msg));
 } /* DoIncDec() */
+#endif
 
+#ifdef UNUSED_FUNCTIONS_GC  // AF, not used 17.May 2022 found with -gc
 STATIC_FCN double CalcIncDec(double Quantity, struct FloatIntData *data, char Action) // used locally only -> static, AF 19.7.2021
 {
 double Step;
@@ -730,5 +750,6 @@ else if(Action == 0)
 
 return(Quantity);
 } /* CalcIncDec() */
+#endif
 
 #endif /* MUI_FLOATINT_C */

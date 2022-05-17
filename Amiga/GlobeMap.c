@@ -2040,7 +2040,7 @@ long Entry;
 } /* ACos_Table() */
 
 /************************************************************************/
-
+#ifdef UNUSED_VARIABLES_GC  // AF, not used 17.May 2022 found with -gc
 double Sin_Table(double arcsine)
 {
 long Entry;
@@ -2061,7 +2061,7 @@ long Entry;
  return (sin(arcsine));
  
 } /* Sin_Table() */
-
+#endif
 /************************************************************************/
 
 double Cos_Table(double arccosine)
