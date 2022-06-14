@@ -1056,7 +1056,7 @@ Neuere Compiler vom 27.11.21 -> 24 und 26 funktionieren jetzt.
 ----------
 Version 26_2 ist die schnellste bisher. Komisch, auf meinem C=A4000T mit 68040 ist die 68020-60 schneller als die 68040 Version? Mehrfach nachtesten!
 
-- Test Canyon Originaö-Groesse:
+- Test Canyon Original-Groesse:
 Bisher imer mit 2x Halbe Größe wegen zuwenig Ram. Jetzt in Startup-Sequence das ... raugenommen. Dann habe ich nur den PAL-Bildschirmmodus, dafür aber etwas mehr RAM. (14 MBytes Fast) Damit kann ich das Canyon Sunset-Bild in Originalgröße berechnen.
 
 26_2, Canyon Sunset Originalgröße 02:59:36 !!! Viel Schneller als 2x Halbe Größe (04:28:27) !!!
@@ -1096,4 +1096,39 @@ neuer gcc unterstuetzt garbage collection -> entfernt unbenutzte Funktionen und 
 Wegdefinieren dieser Funktionen spart 2460 Bytes. (UNUSED_FUNCTIONS_GC)
 Das muss auch mit unbenutzten Daten noch ausprobiert werden.
 
+18.Mai 2022
+-----------
+Release funktioniert nicht mehr richtig? Alte WCS-Verisonen/Alte Compiler testen!
 
+WCS                        gcc
+-----------------------------------------------------------
+HEAD detached at 8903a34   gcc 08Dec21 ok
+current                    gcc 08Dec21 ok
+
+current                    gcc 17May22 HALT3
+current                    gcc 28Apr22     kein MUI.h
+current                    gcc 20Apr22 HALT3
+current                    gcc 28Feb22 HALT3
+-------------------------------------------------
+current                    gcc 24Dec21 ok   # letzter gcc 2021
+current                    gcc 08Jan22 ok
+current                    gcc 09Jan22 ok
+
+current                    gcc 20Jan22 ---  -->09Jan22
+current                    gcc 25Jan22 ---  -->09Jan22
+current                    gcc 26Jan22 ---  -->09Jan22
+current                    gcc 27Jan22 HALT3   Also ab hier HALT3
+current                    gcc 28Jan22 ---  -->27Jan22
+current                    gcc 29Jan22 HALT3
+current                    gcc 30Jan22 HALT3
+
+Stack ueberpruefen!
+
+current                    gcc 18May22 HALT3
+--> libnix zuruck auf Stand vom 9.Jan  ->  adc11af  
+
+cd ~/amiga-gcc/projects/libnix/
+git checkout adc11af
+cd cd ~/amiga-gcc/
+make clean-libnix
+time make libnix PREFIX=/home/developer/opt/m68k-amigaos_18May22
