@@ -1132,3 +1132,17 @@ git checkout adc11af
 cd cd ~/amiga-gcc/
 make clean-libnix
 time make libnix PREFIX=/home/developer/opt/m68k-amigaos_18May22
+
+18. Juni 2022
+-------------
+Bebbos gcc kann jetzt garbage collection! (compilieren mit -ffunction-sections -fdata-sections und linken mit --gc-sections)
+Seit dem 16.6.2022 funktioniert das auch mit WCS. (vorher wurde amiga.lib nicht richtig behandelt, Bebbo hat das jetzt korrigiert)
+Mit -Wl,-Map=wcs_gc.map,--trace,--gc-sections,--print-gc-sections sieht man jetzt, was entfernt wurde. Das kann man also auch manuell aus dem Code rausnehmen.
+
+Eclipse Targets Release unf gc-sections ueberarbeitet. Das Executable heisst jetzt WCS_Release oder WCS_gc-sections. 
+Die Map-Files haben auch den erweiterten Namen.
+Jetzt wird auch das Original-WCS-Icon mit dem neuen Namen kopiert.
+
+WCS funktioniert mit Release und gc-section Buldconfiguration mit dem Compiler m68k-amigaos_16Jun22.
+
+-> -gc-collection hat keinen Effekt, wenn mit -flto compiliert / gelinkt wird. Ist das richtiG? Testen!

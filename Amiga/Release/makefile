@@ -9,6 +9,9 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include vgl/subdir.mk
+-include no_lto/vgl/subdir.mk
+-include no_lto/esp/.metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
+-include no_lto/subdir.mk
 -include esp/.metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include CONFIG_Optimization/vgl/subdir.mk
 -include CONFIG_Optimization/subdir.mk
@@ -43,7 +46,7 @@ all: WCS
 WCS: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
-	m68k-amigaos-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -Wl,-Map=wcs.map,--trace -ldebug    -g -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE -flto
+	m68k-amigaos-gcc  -o "WCS"_Release $(OBJS) $(USER_OBJS) $(LIBS) -lmui -lm -Wl,-Map="WCS"_Release.map,--trace -noixemul -m68040 -fbaserel -flto
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -54,7 +57,7 @@ clean:
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS.unstripped && m68k-amigaos-strip WCS && ls -la WCS && m68k-amigaos-size WCS
+	-cp WCS_Release WCS_Release.unstripped && m68k-amigaos-strip WCS_Release && ls -la WCS_Release && m68k-amigaos-size WCS_Release && cp  ../WCS.info WCS_Release.info
 	-@echo ' '
 
 .PHONY: all clean dependents post-build
