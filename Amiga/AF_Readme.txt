@@ -1146,3 +1146,29 @@ Jetzt wird auch das Original-WCS-Icon mit dem neuen Namen kopiert.
 WCS funktioniert mit Release und gc-section Buldconfiguration mit dem Compiler m68k-amigaos_16Jun22.
 
 -> -gc-collection hat keinen Effekt, wenn mit -flto compiliert / gelinkt wird. Ist das richtiG? Testen!
+
+20.Juni 2022
+------------
+Arexx:
+WCS hat Arexx-Support vorbereitet. Das steckt in Markow
+
+# Fuer die AREXX-Kommandos: Nachschauen in info/GrammarOut
+#---------------------------------------------------------
+Diese Kommandos erzeugen eine Ausgabe im "Status Log" Fenster
+Rx "ADDRESS WCS.1 project load 'Work:WCS_204/WCSProjects/CanyonSunset.proj' " 
+Rx "ADDRESS WCS.1 parameters load 'WCSProjects/Arizona/SunsetAnim.object/SunsetAnim.par' "
+Rx "ADDRESS WCS.1 PROject Project PATh 'work:' "
+Rx "ADDRESS WCS.1 PARameters RENder STArt FRAMes 1"
+Rx "ADDRESS WCS.1 PROject Mapview open" 
+Rx "ADDRESS WCS.1 PROject Mapview set size 1"
+
+Rx "ADDRESS WCS.1 parameters render start frames 1 " 
+Rx "ADDRESS WCS.1 project quit" 
+
+Rx "ADDRESS WCS.1 status inquire" 
+Rx "ADDRESS WCS.1 status notifyme" 
+
+Die Befehle sind nicht im Quelltext! Die stecken in zwei automatische generierten Tabellen. VocabTable.c und GrammarTable.c. Diese wurden aus Markow.c generiert.
+Das Source-File ist wohl info/Grammartest.
+
+Ein kleiner (Original-)Test ist wcstest.rexx. Ich habe da Nummern ringeschrieben, um zu sehen, welche Ausgabe wozu gehört.
