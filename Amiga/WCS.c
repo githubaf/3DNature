@@ -13,6 +13,10 @@
 #include "WCS.h"
 #include "Version.h"
 
+#include <exec/types.h>
+#include <exec/tasks.h>
+#include <clib/exec_protos.h>
+
 #define MIN_LIBRARY_REV 37
 #define DITHER_TABLE_SIZE 4096
 
@@ -65,12 +69,26 @@ STATIC_FCN WORD PenSpec[]=
 
 unsigned long long Swap1=0,Swap2=0,Swap4=0,Swap8=0,Swapother=0, SwapTotal=0;  // ALEXANDER: Test fuer swapmem()
 
+const char min_stack[] = "\0$STACK: 8192";  // ask for enough stack. (OS 3.14, OS3.2)
+const ULONG MinStack=8192;   // abort if stack is actually smaller
+
 int main(void)
 {
-short ResetScrn = 0;
-struct WCSApp *WCSRootApp;
-struct WCSScreenMode *ScreenModes, *ModeSelect;
-char *AppBaseName;
+    short ResetScrn = 0;
+    struct WCSApp *WCSRootApp;
+    struct WCSScreenMode *ScreenModes, *ModeSelect;
+    char *AppBaseName;
+
+    struct Task *me=FindTask(NULL);
+    ULONG stack=(ULONG)me->tc_SPUpper-(ULONG)me->tc_SPLower;
+    printf("Stack ist %lu Bytes\n",stack);
+    if(stack < MinStack)
+    {
+        printf("Stack to small! (%lu) Bytes\n",stack);
+        printf("Please set Stack to %lu Bytes!\n",MinStack);
+        return 20;
+    }
+
 
 ResetScreenMode:
 

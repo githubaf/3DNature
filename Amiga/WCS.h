@@ -1539,11 +1539,12 @@ EXTERN short showY
 =1
 #endif /* MAIN */
 ;
-EXTERN short showhaze
-#ifdef MAIN
-=1
-#endif /* MAIN */
-;
+// Not used, AF, 21.Jun22, found with --gc-sections,--print-gc-sections
+//EXTERN short showhaze
+//#ifdef MAIN
+//=1
+//#endif /* MAIN */
+//;
 EXTERN short *CamPathElev;
 EXTERN short *FocPathElev;
 EXTERN __far short RenderList[1000][2];

@@ -10,10 +10,17 @@
 #include <time.h>
 #include <stdarg.h>
 
-
+// Not used, AF, 21.Jun22, found with --gc-sections,--print-gc-sections
+#ifdef THIS_IS_NOT_USED
 STATIC_VAR struct DateTime PocketWatch;
+#endif
 STATIC_VAR char PWDate[26], Today[26], ProjDate[26];
-STATIC_VAR struct FileRequester *frbase,*frparam,*frfile;
+STATIC_VAR struct FileRequester *frbase,
+// Not used, AF, 21.Jun22, found with --gc-sections,--print-gc-sections
+#ifdef THIS_IS_NOT_USED
+*frparam,
+#endif
+*frfile;
 
 // void MUI_DoNotifyPressed(APTR Target, ULONG ID); // AF, not used 26.July 2021
 
