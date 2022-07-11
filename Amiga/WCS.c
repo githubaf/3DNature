@@ -81,7 +81,7 @@ int main(void)
 
     struct Task *me=FindTask(NULL);
     ULONG stack=(ULONG)me->tc_SPUpper-(ULONG)me->tc_SPLower;
-    printf("Stack ist %lu Bytes\n",stack);
+    //printf("Stack ist %lu Bytes\n",stack);
     if(stack < MinStack)
     {
         printf("Stack to small! (%lu) Bytes\n",stack);

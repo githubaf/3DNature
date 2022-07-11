@@ -1199,5 +1199,15 @@ mit -lstack linken, damit __stack zum seten einer Stacksize funktioniert.
 29 m68k-amigaos-gcc  -o "WCS"_Release  ./vgl/color.o ./vgl/dumb.o ./vgl/dumbpoly.o ./vgl/pixmap.o ./vgl/wuline.o  ./esp/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o  ./AGUI.o      ./BitMaps.o ./Cloud.o ./CloudGUI.o ./ColorBlends.o ./Commands.o ./DEM.o ./DEMGUI.o ./DEMObject.o ./DLG.o ./DataBase.o ./DataOps.o ./DataOpsGUI.o ./DefaultParams.o ./DiagnosticGUI.o .     /DispatchGUI.o ./EdDBaseGUI.o ./EdEcoGUI.o ./EdMoGUI.o ./EdPar.o ./EdSetExtrasGUI.o ./EdSetGUI.o ./EditGui.o ./EvenMoreGUI.o ./Foliage.o ./FoliageGUI.o ./Fractal.o ./GenericParams.o .     /GenericTLGUI.o ./GlobeMap.o ./GlobeMapSupport.o ./GrammarTable.o ./HelpGUI.o ./HyperKhorner4M-1_gcc.o ./Images.o ./InteractiveDraw.o ./InteractiveUtils.o ./InteractiveView.o ./LWSupp     ort.o ./LineSupport.o ./MUIFloatInt.o ./MakeFaces.o ./Map.o ./MapExtra.o ./MapGUI.o ./MapLineObject.o ./MapSupport.o ./MapTopo.o ./MapTopoObject.o ./MapUtil.o ./Memory.o ./Menu.o ./Mo     reGUI.o ./Params.o ./ParamsGUI.o ./PlotGUI.o ./RequesterGUI.o ./RexxSupport.o ./ScratchPad.o ./ScreenModeGUI.o ./Support.o ./TLSupportGUI.o ./TimeLinesGUI.o ./Tree.o ./Version.o ./Voc     abTable.o ./WCS.o ./Wave.o ./WaveGUI.o ./nncrunch.o ./nngridr.o ./sasc_functions.o    -lmui -lm -Wl,-Map="WCS"_Release.map,--trace -noixemul -m68040 -fbaserel -lstack
  
 
+8.Juli 2022
+-----------
+Mal wieder mit SAS/C compilieren:
+#in die user-startup
+assign include: Work:MUI/Developer/C/Include/ add
+assign include: work:SDI/includes/ add
 
+setenv BUILDID=AF_BuildID
+copy env:BUILDID envarc:   ; envarc:BUILDID is needed during smake. What is its purpose?
+
+smake
 
