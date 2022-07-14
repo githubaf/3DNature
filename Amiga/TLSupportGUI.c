@@ -25,7 +25,7 @@ __saveds ULONG TL_AskMinMax(struct IClass *cl, Object *obj,
  ** this will e.g. add the size of frame and inner spacing.
  */
 
- DoSuperMethodA(cl, obj, msg);
+ DoSuperMethodA(cl, obj, (Msg)msg);
 
  /*
  ** now add the values specific to our object. note that we
@@ -66,7 +66,7 @@ __saveds ULONG TL_Draw(struct IClass *cl, Object *obj, struct MUIP_Draw *msg)
  */
 
  
- DoSuperMethodA(cl, obj, msg);
+ DoSuperMethodA(cl, obj, (Msg)msg);
 
 /* compute values for redraw */
  TextExtent(_rp(obj), (STRPTR)"A", 1, &TE);
@@ -265,7 +265,7 @@ __saveds ULONG TL_Draw(struct IClass *cl, Object *obj, struct MUIP_Draw *msg)
 __saveds ULONG TL_Setup(struct IClass *cl, Object *obj,
 	 struct MUIP_HandleInput *msg)
 {
- if (!(DoSuperMethodA(cl, obj, msg)))
+ if (!(DoSuperMethodA(cl, obj, (Msg)msg)))
   return(FALSE);
 
  MUI_RequestIDCMP(obj, IDCMP_MOUSEBUTTONS/* | IDCMP_RAWKEY*/);
@@ -278,7 +278,7 @@ __saveds ULONG TL_Cleanup(struct IClass *cl, Object *obj,
 	 struct MUIP_HandleInput *msg)
 {
  MUI_RejectIDCMP(obj, IDCMP_MOUSEBUTTONS/* | IDCMP_RAWKEY*/);
- return(DoSuperMethodA(cl, obj, msg));
+ return(DoSuperMethodA(cl, obj, (Msg)msg));
 } /* TL_Cleanup() */
 
 
