@@ -212,7 +212,7 @@ short Database_Load(short lowi, char *filename)
    fscanf(fname, "%hd", &NoOfFields);
    if (NoOfFields == 13)
     {
-    fscanf(fname, "%hd%hd", &RecordLength, &NoOfRecords);
+    fscanf(fname, "%d%hd", &RecordLength, &NoOfRecords);
 
     for (i=0; i<=NoOfFields; i++)       /* read file fields */
      {
