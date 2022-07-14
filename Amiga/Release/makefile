@@ -13,9 +13,6 @@ RM := rm -rf
 -include nofastmathregparm/vgl/subdir.mk
 -include nofastmathregparm/esp/.metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include nofastmathregparm/subdir.mk
--include no_lto/vgl/subdir.mk
--include no_lto/esp/.metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
--include no_lto/subdir.mk
 -include esp/.metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include CONFIG_Optimization/vgl/subdir.mk
 -include CONFIG_Optimization/subdir.mk
@@ -61,7 +58,7 @@ clean:
 	-@echo ' '
 
 post-build:
-	-cp WCS_Release WCS_Release.unstripped && m68k-amigaos-strip WCS_Release && ls -la WCS_Release && m68k-amigaos-size WCS_Release && cp  ../WCS.info WCS_Release.info
+	-cp WCS WCS_Release && cp WCS_Release WCS_Release.unstripped && m68k-amigaos-strip WCS_Release && ls -la WCS_Release && m68k-amigaos-size WCS_Release && cp  ../WCS.info WCS_Release.info
 	-@echo ' '
 
 .PHONY: all clean dependents post-build

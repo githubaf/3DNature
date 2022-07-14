@@ -1211,3 +1211,29 @@ copy env:BUILDID envarc:   ; envarc:BUILDID is needed during smake. What is its 
 
 smake
 
+14.Juli 2022
+------------
+Die Bilder hatten oft ein Byte zuviel im Body. (Auch im original WCS204) Das habe ich inzwischen korriguert.
+Ich habe iff-Tools von Thomas Rapp bekommen und fuer Linux angepasst. Damit kann man die Bilder schnell unter Linux auf IFF-Korrektheit pruefen. Ich habe ein Script geschrieben:
+
+~/Desktop/SelcoGit/iff_tests$ cat test_wcs_bilder.sh 
+set -e  # Abort on error
+
+for BILD in $(find ~/Desktop/WCSFrames/ -type f | grep -v "\.info" | sort); do 
+	echo $BILD
+	./CheckPack_Linux $BILD
+	./iff1_Linux $BILD
+	./iff2_Linux $BILD DUMP NOBODY
+	iff/testfile_linux $BILD
+	echo ---------------------
+	
+done
+
+
+Das gcc-WCS erzeugt anscheinend andere Bilder als das original WCS. Der sichtbare Ausschnitt stimmt nicht ganz überein, Wolken sind anders und einige Schaumkoepfe auf dem Wasser???
+
+compare -compose src CanyonSet000 ~/Desktop/CanyonSet000_WCS204 DiffImage
+display DiffImage
+
+Das zeigt Unterschiede rot an. Es ist fast alles rot!
+

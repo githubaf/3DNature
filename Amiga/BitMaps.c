@@ -907,7 +907,7 @@ RepeatMemGrab:
  if ((CD.TotalOutBytes + OldBodySize - OldPad) % 2)
   {
   write(fHandle, &pad1, 			1);
-  CD.TotalOutBytes ++;
+  //CD.TotalOutBytes ++;   // <--- richtig? Muss die Byteanzahl erhoeht werden? Nein!
   Padded = 1;
   } /* if odd number of output bytes */
 
@@ -915,7 +915,8 @@ RepeatMemGrab:
   {
   lseek(fHandle, FormSizePtr, 0);
   FORMsize -= BODYsize;
-  FORMsize += (CD.TotalOutBytes + OldBodySize - OldPad);
+  //FORMsize += (CD.TotalOutBytes + OldBodySize - OldPad);
+  FORMsize += (CD.TotalOutBytes + OldBodySize - OldPad) + Padded;  // AF: Hier muss das Paddingbyte mitgezaehlt werden!
   write(fHandle, &FORMsize,	 		4);
   lseek(fHandle, BodySizePtr, 0);
   BODYsize = CD.TotalOutBytes + OldBodySize - OldPad;
