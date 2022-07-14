@@ -1749,7 +1749,7 @@ void UndoPar(short k, short ParUndo)
 short loadparams(USHORT loadcode, short loaditem)
 {
  short success = 1;
- long ByteOrder;
+// long ByteOrder;
  char temppath[256], tempfile[32], filename[255], Ptrn[32];
  float fileversion;
  FILE *fparam;
@@ -1772,7 +1772,7 @@ short loadparams(USHORT loadcode, short loaditem)
     }
    else if (! strncmp(TempHdr.FType, "%WCSPAR", 8))
     {
-    ByteOrder = TempHdr.ByteOrder;
+//    ByteOrder = TempHdr.ByteOrder;
     fileversion = TempHdr.Version;
     }
    else fileversion = 0.0;
