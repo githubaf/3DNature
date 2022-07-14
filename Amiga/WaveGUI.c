@@ -1133,7 +1133,7 @@ union KeyFrame *KFPtr;
 	} /* else */
        break;
       case WAVE_SHT_NUMKEYS:
-       fscanf(fWave, "%ld", &WV->NumKeys);
+       fscanf(fWave, "%hd", &WV->NumKeys);
        break;
       case WAVE_DBL_AMP:
        fscanf(fWave, "%le", &WV->Amp);
