@@ -1248,7 +1248,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
 short WCS_App_EventLoop(struct WCSApp *This)
 {
  short i, ResetScrn = 0;
- ULONG IDCMP_Signals = 0L, signals, WCS_ID;
+ ULONG /*IDCMP_Signals = 0L,*/ signals, WCS_ID;
  BOOL CheckBack, running = TRUE;
  struct RexxMsg *RexxCom;
 
@@ -1438,7 +1438,7 @@ short WCS_App_EventLoop(struct WCSApp *This)
     ** NO work to be done before we go to sleep. */
     if(CheckBack == 0)
       if (running && signals)
-        IDCMP_Signals = Wait(signals | WCS_Signals | Rexx_SigMask(RexxAp));
+        /*IDCMP_Signals =*/ Wait(signals | WCS_Signals | Rexx_SigMask(RexxAp));
 
    } /* while running */
 
