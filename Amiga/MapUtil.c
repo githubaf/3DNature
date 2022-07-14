@@ -253,7 +253,7 @@ double LFrom, LTo, Sign;
    break;
    } /* Z */
   } /* switch */
-
+  return 0;
 } /* SignedVectorAngle2D() */
 
 /**********************************************************************/
