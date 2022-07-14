@@ -12,7 +12,7 @@
 
 STATIC_VAR /*__far*/ char fieldname[14][20];
 STATIC_VAR short NoOfFields;
-STATIC_VAR RecordLength;
+STATIC_VAR short RecordLength;
 
 STATIC_FCN short Find_DBObjPts(char *filename); // used locally only -> static, AF 20.7.2021
 STATIC_FCN struct database *DataBase_Copy(struct database *OldBase, short OldRecords,
@@ -212,7 +212,7 @@ short Database_Load(short lowi, char *filename)
    fscanf(fname, "%hd", &NoOfFields);
    if (NoOfFields == 13)
     {
-    fscanf(fname, "%d%hd", &RecordLength, &NoOfRecords);
+    fscanf(fname, "%hd%hd", &RecordLength, &NoOfRecords);
 
     for (i=0; i<=NoOfFields; i++)       /* read file fields */
      {
