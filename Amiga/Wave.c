@@ -263,8 +263,6 @@ void WaveData_SetDefaults(struct WaveData *WD, short WaveType, short SetAll)
 
 void Wave_Init(struct WaveData *WD, short Frame)
 {
-struct Wave *WV;
-
  if (WD)
   {
   WV = WD->Wave;
