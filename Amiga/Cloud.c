@@ -825,11 +825,13 @@ struct CloudLayer *CL, *CLPrev;
 void CloudWave_Init(struct CloudData *CD, short Frame)
 {
 double Alt;
-struct Wave *WV = NULL;
+//struct Wave *WV = NULL;
 struct CloudLayer *CL;
 
- if (CD->WD)
-  WV = CD->WD->Wave;
+// if (CD->WD)
+// {
+//     WV = CD->WD->Wave;
+// }
  CL = CD->Layer;
  
  if (Frame > CD->KT_MaxFrames)
