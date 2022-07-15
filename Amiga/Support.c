@@ -1649,7 +1649,7 @@ long PrintScreen(struct Screen *scr, UWORD srcx, UWORD srcy,
   if ((iodrp =
 	 (struct IODRPReq *)CreateExtIO(printerPort, sizeof (struct IODRPReq))))
    {
-   if (! (error = OpenDevice((STRPTR)"printer.device", 0, iodrp, 0)))
+   if (! (error = OpenDevice((STRPTR)"printer.device", 0, (struct IORequest *)iodrp, 0)))
     {
     vp = &scr->ViewPort;
     iodrp->io_Command = PRD_DUMPRPORT;
@@ -1668,7 +1668,7 @@ long PrintScreen(struct Screen *scr, UWORD srcx, UWORD srcy,
 
     Delay(250);
 
-    SendIO(iodrp);
+    SendIO((struct IORequest *)iodrp);
 
     while (! done)
      {
@@ -1690,9 +1690,9 @@ long PrintScreen(struct Screen *scr, UWORD srcx, UWORD srcy,
      } /* while ! done */
     BusyWin_Del(BWPR);
 
-    CloseDevice(iodrp);
+    CloseDevice((struct IORequest *)iodrp);
     } /* if printer.device opened */
-   DeleteExtIO(iodrp);
+   DeleteExtIO((struct IORequest *)iodrp);
    } /* if iodrp */
   DeletePort(printerPort);
   } /* if printerPort */
