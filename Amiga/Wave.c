@@ -265,7 +265,6 @@ void Wave_Init(struct WaveData *WD, short Frame)
 {
  if (WD)
   {
-  WV = WD->Wave;
  
   if (Frame > WD->KT_MaxFrames)
    Frame = WD->KT_MaxFrames;

@@ -1214,6 +1214,7 @@ smake
 14.Juli 2022
 ------------
 Die Bilder hatten oft ein Byte zuviel im Body. (Auch im original WCS204) Das habe ich inzwischen korriguert.
+Bei ungefaehr die Haelfte aller Bilder enthielt der Body-Chunk 1 Bytes zuviel.
 Ich habe iff-Tools von Thomas Rapp bekommen und fuer Linux angepasst. Damit kann man die Bilder schnell unter Linux auf IFF-Korrektheit pruefen. Ich habe ein Script geschrieben:
 
 ~/Desktop/SelcoGit/iff_tests$ cat test_wcs_bilder.sh 
