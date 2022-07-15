@@ -75,7 +75,7 @@ short savebitmaps(UBYTE **bitmap, long zsize, short renderseg)
  short error = 0;
  long flag, i, fhred = -2, fhgreen = -2, fhblue = -2,
 	 protflags = FIBB_OTR_READ | FIBB_OTR_WRITE | FIBB_OTR_DELETE;
- FILE *fred;
+ FILE *fred=NULL;
 
  strcpy(filename, ILBMname);
 
@@ -212,7 +212,7 @@ short SaveZBuf(short zformat, short renderseg, long numpts, UBYTE *ScratchPad,
  char filename[256];
  short error = 0, NewScratch = 0, AppendFile = 0;
  long fhz = -2, i, flag, BodySize, FormSize, OldHeight = 0, OldFormSize = 0,
-	OldBodySize = 0, EndBody, ZBODPtr, ZBUFPtr,
+	OldBodySize = 0, EndBody=0, ZBODPtr=0, ZBUFPtr=0,
 	 protflags = FIBB_OTR_READ | FIBB_OTR_WRITE | FIBB_OTR_DELETE;
  float zbufmax = -FLT_MAX, zbufmin = FLT_MAX;
  struct ILBMHeader Hdr;
@@ -473,13 +473,13 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
  UBYTE power2[8] = {1, 2, 4, 8, 16, 32, 64, 128};
  short error = 0, regTemp, aspect = 0xa0b, temp, width, height, WriteHeight,
 	rr, pp, xpos = 0, ypos = 0, transparentColor = 0, chunks, labelfieldsize,
-	scrRowBytes, RowBytes, AppendFile = 0, Colors;
+	scrRowBytes, RowBytes, AppendFile = 0, Colors=0;
  USHORT Padded = 0, OldPad = 0;
  ULONG VPmode;
  char tt[5], filename[255];
  UBYTE *scrRow, *cbuf = NULL; 
  long protflags = FIBB_OTR_READ | FIBB_OTR_WRITE | FIBB_OTR_DELETE;
- long fHandle, EndBody;
+ long fHandle, EndBody=0;
  long BMHDsize = 20,
       CMAPsize = DEPTH * DEPTH * 3,
       CAMGsize = 4,
@@ -488,15 +488,15 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
       kk,
       FormSizePtr,
       BodySizePtr,
-      BODYPtr,
-      BMHDPtr,
+      BODYPtr=0,
+      BMHDPtr=0,
       TransPtr,
       OldFormSize = 0,
       OldBodySize = 0;
- PLANEPTR *Planes;
- struct CompressData CD;
+ PLANEPTR *Planes=NULL;
+ struct CompressData CD={0};
  struct ILBMHeader Hdr;
- struct WcsBitMapHeader BMHdr;
+ struct WcsBitMapHeader BMHdr={0};
  struct BusyWindow *BWIM = NULL;
 
  if (! saveRGB)
@@ -1185,7 +1185,7 @@ short LoadImage(char *Name, short ColorImage, UBYTE **bitmap,
 {
  UBYTE power2[8] = {1, 2, 4, 8, 16, 32, 64, 128};
  short copyred = 0, namelen, error = 0, pp, rr, color, pixel;
- long byte, x, fh, RowDataSize, InputDataSize, BytesRead, RowSize;
+ long byte, x, fh, RowDataSize=0, InputDataSize=0, BytesRead, RowSize;
  union MultiByte *InputData = NULL, *InputDataPtr;
  UBYTE *RowData = NULL, *RowDataPtr, *BuffPtr, *BitmapPtr;
  struct ILBMHeader Hdr;
@@ -1608,9 +1608,9 @@ short MergeZBufBack(short renderseg, short Width, short Height, struct Window *w
  UBYTE ReadSize, *RowData = NULL, *BkGrnd[3] = {NULL, NULL, NULL}, *BuffPtr,
 	 *BitmapPtr;
  long x, y, ZBufSize, BkGrndSize, zip, colval, BGzip, ZBzip, fhZ = 0,
-	 fhBR = 0, fhBG = 0, fhBB = 0, RowSize, BytesRead, RowDataSize, byte;
+	 fhBR = 0, fhBG = 0, fhBB = 0, RowSize=0, BytesRead, RowDataSize=0, byte;
  struct ILBMHeader Hdr;
- struct WcsBitMapHeader BMHdr;
+ struct WcsBitMapHeader BMHdr={0};
  struct ZBufferHeader ZBHdr;
  struct BusyWindow *BWDE;
 
@@ -1916,7 +1916,7 @@ short MergeZBufBack(short renderseg, short Width, short Height, struct Window *w
       *(bitmap[0] + zip) = *(BkGrnd[0] + BGzip);
       *(bitmap[1] + zip) = *(BkGrnd[1] + BGzip);
       *(bitmap[2] + zip) = *(BkGrnd[2] + BGzip);
-      MergePts = 100;
+      //MergePts = 100;  // Dead assignement, AF
       break;
       } /* replace */
      case BKGRND_MERGE:

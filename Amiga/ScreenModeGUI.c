@@ -228,7 +228,7 @@ for(Finished = 0; !Finished;)
     for(Scan = This; Scan;)
      {
      Selected = Scan;
-     if((unsigned char *)&Scan->ModeName == ModeText)
+     if((char *)&Scan->ModeName == ModeText)
       {
       Scan = NULL;
       } /* if */
@@ -429,7 +429,7 @@ for(Scan = This; Scan; Scan = Scan->Next)
 
  } /* for */
 #endif /* PRINTMODES_DEBUG */
-
+return(NULL);
 
 } /* ModeList_Choose() */
 
