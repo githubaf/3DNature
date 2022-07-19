@@ -306,7 +306,7 @@ short writelinefile(struct elmapheaderV101 *map, long mode)
 	*(map->scrnptrx + map->facept[0]), *(map->scrnptry + map->facept[0])) < 0)
       error = 1;
      } /* for z=1... */
-    printf("AF: %s %d %d %d\n",__FILE__,__LINE__,*(map->scrnptrx + map->facept[1]), *(map->scrnptry + map->facept[1]))
+    printf("AF: %s %d %d %d\n",__FILE__,__LINE__,*(map->scrnptrx + map->facept[1]), *(map->scrnptry + map->facept[1]));
     if (fprintf(fvector,"%d %d\n",
 	*(map->scrnptrx + map->facept[1]), *(map->scrnptry + map->facept[1])) < 0)
      error = 1;

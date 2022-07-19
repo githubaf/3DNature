@@ -47,7 +47,7 @@ all: WCS
 WCS: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
-	m68k-amigaos-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68040 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE -flto
+	m68k-amigaos-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68040 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE  -Wl,-Map=WCS_Release.map -flto -g
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build

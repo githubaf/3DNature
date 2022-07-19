@@ -47,7 +47,8 @@ INPTR       =    A6  | Set before entry
 |  cache. You could roll it back up, and probably get it < 80 bytes to
 |  fir it into a 68020 inst cache. Such was not my concern.
 
-_HK4M:  move.l  D2,-(A7)             | Stack it, eh?
+_HK4M:
+        move.l  D2,-(A7)             | Stack it, eh?
         move.l  D3,-(A7)
         move.l  D4,-(A7)
         move.l  D5,-(A7)
@@ -59,6 +60,9 @@ _HK4M:  move.l  D2,-(A7)             | Stack it, eh?
         move.l  A4,-(A7)
         move.l  A5,-(A7)
         move.l  A6,-(A7)
+
+        movem.l (a0),a0-a6          | AF: We have all parameters in an array on the stack now. We passed the pointer to the arry in A0.
+                                    | now they are in the Registers again
 
         moveq       #1,ONE          | ONE = 1
         moveq       #0,LOOPCNT      | Clear loop

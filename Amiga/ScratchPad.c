@@ -11,11 +11,24 @@
 void ScratchRast_CornerTurn(struct vgl_pixmap *This, struct RastPort *ScratchRast)
 {
 
-HK4M(ScratchRast->BitMap->Planes[0], ScratchRast->BitMap->Planes[1],
- ScratchRast->BitMap->Planes[2], ScratchRast->BitMap->Planes[3],
- ScratchRast->BitMap->Planes[7], /* Mask */
- ((unsigned long)(ScratchRast->RP_User) * ScratchRast->BitMap->Rows),
- This->pixdata->data);
+#ifdef __SASC
+    HK4M(ScratchRast->BitMap->Planes[0], ScratchRast->BitMap->Planes[1],
+            ScratchRast->BitMap->Planes[2], ScratchRast->BitMap->Planes[3],
+            ScratchRast->BitMap->Planes[7], /* Mask */
+            ((unsigned long)(ScratchRast->RP_User) * ScratchRast->BitMap->Rows),
+            This->pixdata->data);
+#else
+    void * regs[8];
+    regs[0] = ScratchRast->BitMap->Planes[0];
+    regs[1] = ScratchRast->BitMap->Planes[1];
+    regs[2] = ScratchRast->BitMap->Planes[2];
+    regs[3] = ScratchRast->BitMap->Planes[3];
+    regs[4] = ScratchRast->BitMap->Planes[7], /* Mask */
+            regs[5] = ((unsigned long)(ScratchRast->RP_User) * ScratchRast->BitMap->Rows);
+    regs[6] = This->pixdata->data;
+
+    HK4M(regs);
+#endif
 
 } /* ScratchRast_CornerTurn() */
 

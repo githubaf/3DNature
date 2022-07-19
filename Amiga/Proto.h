@@ -705,10 +705,17 @@ extern struct RastPort *ScratchRast_New(int Width, int Height, char Planes);
 extern void ScratchRast_Del(struct RastPort *This);
 struct vgl_pixmap;  // ALEXANDER forward declaration
 extern void ScratchRast_CornerTurn(struct vgl_pixmap *This, struct RastPort *ScratchRast);
+
+#ifdef __SASC
 extern void ASM HK4M(REG(a0, void *Plane0), REG(a1, void *Plane1),
                      REG(a2, void *Plane2), REG(a3, void *Plane3),
                      REG(a4, void *PlaneM), REG(a5, unsigned long int PixCnt),
                      REG(a6, void *InPtr));
+#else
+// Do not use so many registers as parameters! Do not use A4 if you compile with baserel. Do not touch A5 in case of gcc!
+// changed that function according to a suggestion by bebbo from here: https://github.com/bebbo/amiga-gcc/issues/296
+extern void ASM HK4M(REG(a0, void *registers));
+#endif
 /* ScreenModeGUI.c */
 extern struct WCSScreenMode *ModeList_New(void);
 extern struct WCSScreenMode *ModeList_Choose(struct WCSScreenMode *This,
