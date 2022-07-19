@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#ifdef __SASC__
+#ifdef __SASC
     #include <m68881.h>
 #endif
 #include <clib/exec_protos.h>
