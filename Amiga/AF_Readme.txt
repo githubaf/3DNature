@@ -1238,3 +1238,11 @@ display DiffImage
 
 Das zeigt Unterschiede rot an. Es ist fast alles rot!
 
+
+20.Juli 2022
+------------
+export LW getestet. (Ram:/Objects korrigiert, Strich muss weg wenn : davor ist)
+Exportierte Szene in LW geladen. Dort ist der gleiche Unteschied SAS/C <-> GCC Versionen zu sehen wie im berechneten Bild, also leicht unteschiedlicher Blickwinkel. Analysieren!
+(lws-Files unterscheiden sich auch, da ansetzten. Fehler passiert also vor der Bildberechnung)
+
+- Beim Compilieren sollte ein Test rein, ob in Git ausgecheckte Files vornaden waren. Eine Warnung oder so. Sonst meinen letzten Git-Hash mit aufnhmen. Vielleicht an der Seriennumern-Stelle?

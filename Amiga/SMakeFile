@@ -56,11 +56,13 @@ debug: setdebug setnooptimize WCS.o $(ALLOBJS)
    $(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS
 
 optimize: setnodebug setoptimize WCS.o $(ALLOBJS)
+   rx "delete Version.o"
    @copy envarc:BuildID env:
    $(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
    $(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS ND MAP wcs.map,h,f
 
 beta: setnodebug setnooptimize WCS.o $(ALLOBJS)
+   rx "delete Version.o"
    @echo "Enter BuildID Key:"
    @echo >nil: to env:BuildKey ?
    @rx selectbuild.rexx $$BuildKey
@@ -68,11 +70,13 @@ beta: setnodebug setnooptimize WCS.o $(ALLOBJS)
    $(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS ND
 
 nocoproc: setnodebug setnooptimize WCS.o $(NOCOPROCOBJS)
+   rx "delete Version.o"
    @copy envarc:BuildID env:
    $(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
    $(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(NOCOPROCMATHLIB) $(NOCOPROCLIBS) TO WCS ND
 
 betanocoproc: setnodebug setnooptimize WCS.o $(NOCOPROCOBJS)
+   rx "delete Version.o"
    @echo "Enter BuildID Key:"
    @echo >nil: to env:BuildKey ?
    @rx selectbuild.rexx $$BuildKey
@@ -80,11 +84,13 @@ betanocoproc: setnodebug setnooptimize WCS.o $(NOCOPROCOBJS)
    $(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(NOCOPROCMATHLIB) $(NOCOPROCLIBS) TO WCS ND
 
 noaccel: setnodebug setnooptimize WCS.o $(NOACCELOBJS)
+   rx "delete Version.o"
    @copy envarc:BuildID env:
    $(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
    $(LINK) $(STARTUP) WCS.o WITH $(NOACCELWITHS) LIB $(NOACCELMATHLIB) $(NOACCELLIBS) TO WCS ND
 
 betanoaccel: setnodebug setnooptimize WCS.o $(NOACCELOBJS)
+   rx "delete Version.o"
    @echo "Enter BuildID Key:"
    @echo >nil: to env:BuildKey ?
    @rx selectbuild.rexx $$BuildKey
@@ -92,6 +98,7 @@ betanoaccel: setnodebug setnooptimize WCS.o $(NOACCELOBJS)
    $(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(NOCOPROCMATHLIB) $(NOCOPROCLIBS) TO WCS ND
 
 WCS: setnodebug setnooptimize WCS.o $(ALLOBJS)
+   rx "delete Version.o"
    @copy envarc:BuildID env:
    $(C) DEF BUILDHOST="$$HOSTNYM" DEF BUILDID="$$BUILDID" Version.c $(OPTIONS)
    $(LINK) $(STARTUP) WCS.o WITH $(WITHS) LIB $(MATHLIB) $(LIBS) TO WCS ND

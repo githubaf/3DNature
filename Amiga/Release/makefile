@@ -41,7 +41,12 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: WCS
+all:
+	$(MAKE) --no-print-directory pre-build
+	$(MAKE) --no-print-directory main-build
+
+# Main-build Target
+main-build: WCS
 
 # Tool invocations
 WCS: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
@@ -57,10 +62,14 @@ clean:
 	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) WCS
 	-@echo ' '
 
+pre-build:
+	-rm -fv Version.o
+	-@echo ' '
+
 post-build:
 	-cp WCS WCS_Release && cp WCS_Release WCS_Release.unstripped && m68k-amigaos-strip WCS_Release && ls -la WCS_Release && m68k-amigaos-size WCS_Release && cp  ../WCS.info WCS_Release.info
 	-@echo ' '
 
-.PHONY: all clean dependents post-build
+.PHONY: all clean dependents main-build pre-build post-build
 
 -include ../makefile.targets

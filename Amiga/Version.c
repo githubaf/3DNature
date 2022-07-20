@@ -9,8 +9,8 @@
 char ExtVersion[]		= "$VER: " APP_VERSION;
 char ExtAboutVers[]	= "\33cVersion " APP_VERS "." APP_REV " " APP_FLAVOR;
 /*char ExtAboutVers[]	= "\33cVersion " APP_VERS "." APP_REV;*/
-#define BUILDHOST "ALEXANDER_BUILDHOST"
-#define BUILDID   "ALEXANDER_BUILDID"
+#define BUILDHOST "selco"
+#define BUILDID   "Thanks 3DNature!"
 char ExtAboutBuild[]	= "\33c("__DATE__ " " __TIME__ " " BUILDHOST ")\n""Serial: " BUILDID ;
 char ExtCreditText[] =
 "\n\
