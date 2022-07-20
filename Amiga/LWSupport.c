@@ -628,7 +628,20 @@ struct coords PP;
 
 /* dem path */
  strcpy(DEMPath, ScenePath);
- strcat(DEMPath, "/Objects");
+ if(strlen(DEMPath)==0){
+     printf("strlen von DEMPath ist 0!\n");
+     return;
+ }
+ if(DEMPath[strlen(DEMPath)-1]!=':')
+ {
+     strcat(DEMPath, "/");     // AF: only a / of path does not end with : (Drive-Name)
+ }
+ else
+ {
+     printf("AF: Kein / hinter einem Laufwerksnamen\n");
+ }
+ strcat(DEMPath, "Objects");
+
  DEMName[0] = 0;
  if (! getfilename(1, "LW DEM Object Path", DEMPath, DEMName))
   {
