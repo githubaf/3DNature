@@ -434,7 +434,9 @@ struct coords DP;
  ptelev = map.map[0] * map.elscale / ELSCALE_METERS;
  ptelev += ((PARC_RNDR_MOTION(13) - ptelev) * PARC_RNDR_MOTION(12));
  if (ptelev <= SeaLevel)
+ {
   ptelev = SeaLevel;
+ }
  DP.alt = ptelev * PARC_RNDR_MOTION(14) * .001;
  DP.lat = map.lolat;
  DP.lon = map.lolong + LonRot;
@@ -635,10 +637,6 @@ struct coords PP;
  if(DEMPath[strlen(DEMPath)-1]!=':')
  {
      strcat(DEMPath, "/");     // AF: only a / of path does not end with : (Drive-Name)
- }
- else
- {
-     printf("AF: Kein / hinter einem Laufwerksnamen\n");
  }
  strcat(DEMPath, "Objects");
 

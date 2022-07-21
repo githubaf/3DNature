@@ -1246,3 +1246,49 @@ Exportierte Szene in LW geladen. Dort ist der gleiche Unteschied SAS/C <-> GCC V
 (lws-Files unterscheiden sich auch, da ansetzten. Fehler passiert also vor der Bildberechnung)
 
 - Beim Compilieren sollte ein Test rein, ob in Git ausgecheckte Files vornaden waren. Eine Warnung oder so. Sonst meinen letzten Git-Hash mit aufnhmen. Vielleicht an der Seriennumern-Stelle?
+
+21.07.2022
+----------
+Wo kommen die Unterschiede her? LWS-Scenefiles verglichen.
+Printausgaben eingefuegt in LWScene_Export() . Dort unterscheiden sich PP.x * 1000.0, PP.y * 1000.0, PP.z * 1000.0 recht deutlich. 
+PP wird von LWOB_Export() gesetzt. Das PP kommt aus MapUtil.c convertpt(&DP); 
+In MapUtil.c convertpt() wird  
+PT->x = -radius * sin(PT->lon) * cos(PT->lat);
+PT->y = radius * sin(PT->lat);
+berechnet. 
+PT->lat und lon sind gleich zur SAS/C Version, PT->lat unterscheidet sich deutlich. Wo wird das gesetzt?
+
+Alle Aufrufe mit printf versehen. Unser Aufruf kommt von
+./LWSupport.c:LWOB_Export() Zeile 444: calling convertpt()
+Gleich beim ersten Aufruf ist  gcc:ptelev=2316.000000 SAS:ptelev=1742.000000. Damit bekommt DP.alt natuerlich auch einen anderen Wert.
+
+Wo Kommt ptelev her?
+wird ein paar Zeilen Vorher berechnet.
+../LWSupport.c:LWOB_Export() Zeile 437: gcc: map.map[0]=2316 sas:map.map[0]=1742
+
+Wo kommt map.map[0]=2316 her?
+
+Dem.c
+short readDEM(char *filename, struct elmapheaderV101 *map)
+DEM.c:readDEM() Zeile 79: Version=1.020000
+
+00000030  d2 f1 a9 fc 09 0c 02 8b  00 01 5f 90 49 d3 65 f8  |.........._.I.e.|
+00000040  4d 06 e8 cd 06 ce 06 ca  06 c9 06 c7 06 c6 06 c3  |M...............|
+
+Wir lesen also von verschiedenen Stellen:
+if ((read (fhelev, map->map, map->size)) != map->size)  // vorher lseek(fh,0,SEEK_CUR) gemacht fuer die Anzeige
+gcc:  ../DEM.c:readDEM() Zeile 105: FilePosition ist 52
+sas:                                FilePosition ist 68
+
+Ein Versionsvergleich geht wohl schief:
+DEM.c:readDEM() Zeile 35: 
+if (abs(Version - 1.00) < .0001)
+gcc (abs(Version - 1.00)=0.000000
+sas (abs(Version - 1.00)=0.020000   <--- SAS ist richtig
+
+--> abs liefert int zurueck, zumindest laut linux manpage. SAS/C liefert das in diesem Fall gewuenschte Ergebnis...
+Es muesste fabs() fuer Fliesskommazahlen benutzt werden.
+--> Im Code gibt es 195 abs()-Aufrufe... Viel zu ueberpruefen. 
+
+fabs() in Dem.c fuer die Versionstests benutzt. Die Landschaft scheint jetzt aus dem korrekten Blicjwinkel berechnet zu werden. Wolken usw sind aber noch unterschiedlich zwischen allen Versionen!
+

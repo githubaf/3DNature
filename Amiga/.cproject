@@ -57,7 +57,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|GUI.c|disttools|af.c|OldMapTopo.c|MapWorld.c|MapSfc.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="version_test.c|vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|GUI.c|disttools|af.c|OldMapTopo.c|MapWorld.c|MapSfc.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -273,7 +273,7 @@
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="version_test.c|vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -339,7 +339,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="version_test.c|vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -581,7 +581,7 @@
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="version_test.c|vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -649,7 +649,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="version_test.c|vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -714,7 +714,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|GUI.c|disttools|af.c|OldMapTopo.c|MapWorld.c|MapSfc.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="version_test.c|vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|GUI.c|disttools|af.c|OldMapTopo.c|MapWorld.c|MapSfc.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -931,7 +931,7 @@
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="version_test.c|vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

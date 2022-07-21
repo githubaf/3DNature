@@ -30,7 +30,7 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
   } /* if open file failed */
  read(fhelev, &Version, 4);
 
- if (abs(Version - 1.00) < .0001)
+ if (fabs(Version - 1.00) < .0001)
   {
   if ((read (fhelev, map, ELEVHDRLENV100)) != ELEVHDRLENV100)
    {
@@ -42,7 +42,9 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
   map->Samples = 0;
   map->SumElDif = map->SumElDifSq = 0.0;
   }
- else if (abs(Version - 1.01) < .0001 || abs(Version - 1.02) < .0001)
+ else
+ {
+     if (fabs(Version - 1.01) < .0001 || fabs(Version - 1.02) < .0001)
   {
   if ((read (fhelev, map, ELEVHDRLENV101)) != ELEVHDRLENV101)
    {
@@ -65,6 +67,7 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
   map->Samples = 0;
   map->SumElDif = map->SumElDifSq = 0.0;
   } /* if oldest file version */
+}
 
  map->size = (map->rows + 1) * (map->columns) * 2;
  map->scrnptrsize = map->size * 2;
@@ -107,7 +110,7 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
 
  if (! error)
   {
-  if (abs(Version - DEM_CURRENT_VERSION) > .0001)
+  if (fabs(Version - DEM_CURRENT_VERSION) > .0001)
    {
    map->elscale = ELSCALE_METERS;
    if (map->MaxEl == map->MinEl && map->MaxEl == 0)

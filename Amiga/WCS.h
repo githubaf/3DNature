@@ -25,6 +25,9 @@
 //#define O_CREAT     (1<<3)
 //#define O_TRUNC     (1<<5)
 
+#ifdef __SASC
+#define __func__ __FUNC__  // for debug output of function name
+#endif
 
 #ifdef MAIN
 #define EXTERN
