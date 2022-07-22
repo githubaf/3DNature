@@ -96,7 +96,7 @@ end questionable */
      {
      if (dir==1) slope += ((Random + Random * slope * 4.0) * .7);
      else  slope += ((Random + Random * slope * 4.0) * .35);
-     slope = abs(slope) < HalfPi ? abs(slope): HalfPi - .001;
+     slope = fabs(slope) < HalfPi ? fabs(slope): HalfPi - .001;
      } /* if */
     } /* if */
 
@@ -758,7 +758,7 @@ void recurse(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
      {
      if (dir==1) slope += ((Random + Random * slope * 2.0) * .7);
      else  slope += ((Random + Random * slope * 2.0) * .35);
-     slope = abs(slope) < HalfPi ? abs(slope): HalfPi - .001;
+     slope = fabs(slope) < HalfPi ? fabs(slope): HalfPi - .001;
      } /* if */
     } /* if */
    dir = dir < 2 ? dir + 1: 0;

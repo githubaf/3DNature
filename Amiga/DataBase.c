@@ -759,7 +759,7 @@ RepeatLoad:
  if (! strcmp(filetype, "WCSVector"))
   {
   fread((char *)&Version, sizeof (float), 1, fobject);
-  if (abs(Version - 1.00) < .001)
+  if (fabs(Version - 1.00) < .001)
    {
    if (fread((char *)&Hdr, sizeof (struct vectorheaderV100), 1, fobject) == 1)
     {
@@ -880,7 +880,7 @@ STATIC_FCN short Find_DBObjPts(char *filename) // used locally only -> static, A
     {
     if (fread((char *)&Version, sizeof (float), 1, fobject) == 1)
      {
-     if (abs(Version - 1.00) < .001)
+     if (fabs(Version - 1.00) < .001)
       {
       if (fread((char *)&Hdr, sizeof (struct vectorheaderV100), 1, fobject) == 1)
        Points = Hdr.points;

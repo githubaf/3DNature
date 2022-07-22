@@ -156,7 +156,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 	diplong * PARC_SKLN_ECO(1) + diplat * PARC_SKLT_ECO(1)
         + PARC_RNDRRE_ECO(1) * relfactor;
  if (settings.worldmap)
-  snowline -= ((abs(facelat) - abs(settings.globreflat)) * settings.globecograd);
+  snowline -= ((fabs(facelat) - fabs(settings.globreflat)) * settings.globecograd);
  if (settings.flatteneco)
   snowline += ( (PARC_RNDR_MOTION(13) - snowline) * PARC_RNDR_MOTION(12) );
 
@@ -241,7 +241,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 	diplong * PARC_SKLN_ECO(eco) + diplat * PARC_SKLT_ECO(eco)
         + PARC_RNDRRE_ECO(eco) * relfactor;
   if (settings.worldmap)
-   ecoline -= ((abs(facelat) - abs(settings.globreflat)) * settings.globecograd);
+   ecoline -= ((fabs(facelat) - fabs(settings.globreflat)) * settings.globecograd);
   if (settings.flatteneco)
    ecoline += ( (PARC_RNDR_MOTION(13) - ecoline) * PARC_RNDR_MOTION(12) );
 
@@ -1352,7 +1352,7 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
 	diplong * PARC_SKLN_ECO(eco) + diplat * PARC_SKLT_ECO(eco)
         + PARC_RNDRRE_ECO(eco) * relfactor;
      if (settings.worldmap)
-      ecoline -= ((abs(facelat) - abs(settings.globreflat)) * settings.globecograd);
+      ecoline -= ((fabs(facelat) - fabs(settings.globreflat)) * settings.globecograd);
      if (settings.flatteneco)
       ecoline += ( (PARC_RNDR_MOTION(13) - ecoline) * PARC_RNDR_MOTION(12) );
 

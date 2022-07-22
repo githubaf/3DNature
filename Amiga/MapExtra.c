@@ -598,7 +598,7 @@ void findarea(short OBN)
   area += (((mlat[1] + mlat[DBase[OBN].Points]) / 2.0) *
             (mlon[1] - mlon[DBase[OBN].Points]));
   } /* if */
- area = abs(area);				/* area in sq km */
+ area = fabs(area);				/* area in sq km */
 
  if ((strcmp(DBase[OBN].Special, "TOP") && strcmp(DBase[OBN].Special, "SFC"))
 	|| ! topoload)
@@ -1306,7 +1306,7 @@ void makestream(short lowj)
 	+ (last_lon - DBase[OBN].Lon[lowj]) * (last_lon - DBase[OBN].Lon[lowj]));
   sintrend = (last_lat - DBase[OBN].Lat[lowj]) / h;
   costrend = (last_lon - DBase[OBN].Lon[lowj]) / h;
-  tantrend = abs((last_lat - DBase[OBN].Lat[lowj]) / (last_lon - DBase[OBN].Lon[lowj]));
+  tantrend = fabs((last_lat - DBase[OBN].Lat[lowj]) / (last_lon - DBase[OBN].Lon[lowj]));
   if (sintrend > 0.0)
    {
    trend = 1;

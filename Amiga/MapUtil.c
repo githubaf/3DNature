@@ -118,8 +118,8 @@ void convertpt(struct coords *PT)
   {
   PT->lon -= 360.0;
   } /* while */
- if (abs(PT->lon) > 90.0) z = 1;
- else if (abs(PT->lon) < 90.0) z = -1;
+ if (fabs(PT->lon) > 90.0) z = 1;
+ else if (fabs(PT->lon) < 90.0) z = -1;
  else PT->z = 0.0;
  PT->lon *= PiOver180;
  PT->lat *= PiOver180;
@@ -546,7 +546,7 @@ STATIC_FCN void sortrenderlist(void) // used locally only -> static, AF 24.7.202
   {
   for (j=4; j<8; j++)
    {
-   Qavg[i] += abs(BBox[i].scrnq[j]);
+   Qavg[i] += fabs(BBox[i].scrnq[j]);
    } /* for j=4... */
   } /* for i=0... */
 
@@ -587,7 +587,7 @@ void SortAltRenderList(void)
   {
   for (j=4; j<8; j++)
    {
-   Qavg[i] += abs(BBox[i].scrnq[j]);
+   Qavg[i] += fabs(BBox[i].scrnq[j]);
    } /* for j=4... */
   } /* for i=0... */
 
@@ -1213,7 +1213,7 @@ void LatLon_UTM(struct UTMLatLonCoords *Coords, short UTMZone)
 
 /* use a very large number for tan_phi if tan(phi) is undefined */
 
- tan_phi = abs(phi) == 90.0 ? (phi >= 0.0 ? 1.0: -1.0) * FLT_MAX / 100.0:
+ tan_phi = fabs(phi) == 90.0 ? (phi >= 0.0 ? 1.0: -1.0) * FLT_MAX / 100.0:
 	 tan(phi_rad);
  cos_phi = cos(phi_rad);
 

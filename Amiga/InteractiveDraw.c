@@ -360,9 +360,9 @@ ReCompute:
  while (DifLat < -180.0)
   DifLat += 360.0;
 
- if (abs(DifLat - 90.0) < .0005)
+ if (fabs(DifLat - 90.0) < .0005)
   DifLat += .001;		/* don't take the tan of 90 */
- if (abs(DifLat) > 90.0)
+ if (fabs(DifLat) > 90.0)
   SignA = -1.0;
  DifLat = (DifAlt * tan(DifLat * PiOver180));
 
@@ -374,9 +374,9 @@ ReCompute:
  while (DifLon < -180.0)
   DifLon += 360.0;
 
- if (abs(DifLon - 90.0) < .0005 )
+ if (fabs(DifLon - 90.0) < .0005 )
   DifLon += .001;		/* don't take the tan of 90 */
- if (abs(DifLon) > 90.0)
+ if (fabs(DifLon) > 90.0)
   SignB = -1.0;
  DifLon = (DifAlt * tan(DifLon * PiOver180));
 
@@ -484,7 +484,7 @@ if (! IA_GridStyle) /* If hidden-line-removed */
    ReducedLon -= 360.0;
   while (ReducedLon < 0.0)
    ReducedLon += 360.0;
-  if (abs(elmap[i].lolong - ReducedLon) < 180.0)
+  if (fabs(elmap[i].lolong - ReducedLon) < 180.0)
    RowLon = -1.0 + (elmap[i].lolong - ReducedLon) / elmap[i].steplong;
   else
    RowLon = -1.0 + (ReducedLon - elmap[i].lolong) / elmap[i].steplong;

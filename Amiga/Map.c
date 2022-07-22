@@ -524,7 +524,7 @@ if(TopoEnabled || EcoEnabled)
              else
               {
               TopoArray[Column[HorizOffset]] =
-               254.99 - abs(254.99 * ((float)ElevDiff / MBossScale));
+               254.99 - fabs(254.99 * ((float)ElevDiff / MBossScale));
               } /* else */
              break;
              } /* embossed and slope */
@@ -2074,7 +2074,7 @@ STATIC_FCN short SearchViewLine(short viewpt, short fpx, short fpy,
     {
     ptx = m * y + vpx;
     pty = y + vpy;
-    offfract = abs((double)y / offsetY);
+    offfract = fabs((double)y / offsetY);
     offel = elvp + offfract * eldif;
     if (offel < *(VS->Map + ptx * VS->Height + pty)) return (0);
     } /* for y=1... */
@@ -2085,7 +2085,7 @@ STATIC_FCN short SearchViewLine(short viewpt, short fpx, short fpy,
     {
     ptx = m * y + vpx;
     pty = y + vpy;
-    offfract = abs((double)y / offsetY);
+    offfract = fabs((double)y / offsetY);
     offel = elvp + offfract * eldif;
     if (offel < *(VS->Map + ptx * VS->Height + pty)) return (0);
     } /* for y=-1... */
@@ -2100,7 +2100,7 @@ STATIC_FCN short SearchViewLine(short viewpt, short fpx, short fpy,
     {
     ptx = x + vpx;
     pty = m * x + vpy;
-    offfract = abs((double)x / offsetX);
+    offfract = fabs((double)x / offsetX);
     offel = elvp + offfract * eldif;
     if (offel < *(VS->Map + ptx * VS->Height + pty)) return (0);
     } /* for x=1... */
@@ -2111,7 +2111,7 @@ STATIC_FCN short SearchViewLine(short viewpt, short fpx, short fpy,
     {
     ptx = x + vpx;
     pty = m * x + vpy;
-    offfract = abs((double)x / offsetX);
+    offfract = fabs((double)x / offsetX);
     offel = elvp + offfract * eldif;
     if (offel < *(VS->Map + ptx * VS->Height + pty)) return (0);
     } /* for x=-1... */

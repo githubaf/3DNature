@@ -464,9 +464,9 @@ void findfocprof(void)
 
 /* find the map containing the focus point */
  for (i=0; i<NoOfElMaps; i++) {
-  ProxLat = abs(PAR_FIRST_MOTION(4)
+  ProxLat = fabs(PAR_FIRST_MOTION(4)
 		- (BBox[i].lat[0] + BBox[i].lat[3]) * .5);
-  ProxLon = abs(PAR_FIRST_MOTION(5)
+  ProxLon = fabs(PAR_FIRST_MOTION(5)
 		- (BBox[i].lon[0] + BBox[i].lon[1]) * .5);
   if (ProxLat + ProxLon < ProxFact) {
    ProxFact = ProxLat + ProxLon;

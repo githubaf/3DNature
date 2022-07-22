@@ -622,7 +622,7 @@ void Handle_DC_Window(ULONG WCS_ID)
       SetPointer(DC_Win->Win, WaitPointer, 16, 16, -6, 0);
       ConvertDEM(DC_Win->DEMData, filename, 1);
       ClearPointer(DC_Win->Win);
-      if (abs(DC_Win->DEMData->MaxMin[0]) < 9999.9)
+      if (fabs(DC_Win->DEMData->MaxMin[0]) < 9999.9)
        sprintf(str, "%f", DC_Win->DEMData->MaxMin[0]);
       else
        {
@@ -632,7 +632,7 @@ void Handle_DC_Window(ULONG WCS_ID)
         sprintf(str, "%1.1lE", DC_Win->DEMData->MaxMin[0]);
        }
       set(DC_Win->MinValTxt, MUIA_Text_Contents, (ULONG)str);
-      if (abs(DC_Win->DEMData->MaxMin[1]) < 9999.9)
+      if (fabs(DC_Win->DEMData->MaxMin[1]) < 9999.9)
        sprintf(str, "%f", DC_Win->DEMData->MaxMin[1]);
       else
        {
@@ -734,11 +734,11 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
 
    read(fh, (char *)&Version, sizeof (float));
 
-   if (abs(Version - 1.00) < .0001)
+   if (fabs(Version - 1.00) < .0001)
     {
     headersize = ELEVHDRLENV100 + sizeof (float);
     }
-   else if (abs(Version - 1.01) < .0001 || abs(Version - 1.02) < .0001)
+   else if (fabs(Version - 1.01) < .0001 || fabs(Version - 1.02) < .0001)
     {
     headersize = ELEVHDRLENV101 + sizeof (float);
     }
@@ -758,17 +758,17 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
    set(DC_Win->Cycle[4], MUIA_Cycle_Active, 0); /* value byte order */
    set(DC_Win->Cycle[5], MUIA_Cycle_Active, 1); /* read order */
    set(DC_Win->Cycle[6], MUIA_Cycle_Active, 1); /* rows equal */
-   if (abs (Hdr.elscale - ELSCALE_KILOM) < .0001)
+   if (fabs (Hdr.elscale - ELSCALE_KILOM) < .0001)
     set(DC_Win->Cycle[7], MUIA_Cycle_Active, 0); /* data units km */
-   else if (abs (Hdr.elscale - ELSCALE_METERS) < .0001)
+   else if (fabs (Hdr.elscale - ELSCALE_METERS) < .0001)
     set(DC_Win->Cycle[7], MUIA_Cycle_Active, 1); /* data units meters */
-   else if (abs (Hdr.elscale - ELSCALE_CENTIM) < .0001)
+   else if (fabs (Hdr.elscale - ELSCALE_CENTIM) < .0001)
     set(DC_Win->Cycle[7], MUIA_Cycle_Active, 2); /* data units centimeters */
-   else if (abs (Hdr.elscale - ELSCALE_MILES) < .0001)
+   else if (fabs (Hdr.elscale - ELSCALE_MILES) < .0001)
     set(DC_Win->Cycle[7], MUIA_Cycle_Active, 3); /* data units miles */
-   else if (abs (Hdr.elscale - ELSCALE_FEET) < .0001)
+   else if (fabs (Hdr.elscale - ELSCALE_FEET) < .0001)
     set(DC_Win->Cycle[7], MUIA_Cycle_Active, 4); /* data units feet */
-   else if (abs (Hdr.elscale - ELSCALE_INCHES) < .0001)
+   else if (fabs (Hdr.elscale - ELSCALE_INCHES) < .0001)
     set(DC_Win->Cycle[7], MUIA_Cycle_Active, 5); /* data units inches */
    else
     set(DC_Win->Cycle[7], MUIA_Cycle_Active, 6); /* data units other */
@@ -919,14 +919,14 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
       } /* undefined */
      } /* switch */
     set(DC_Win->Cycle[7], MUIA_Cycle_Active, data);	/* read order */
-    if (abs(ZBHdr.Min) < 9999.9)
+    if (fabs(ZBHdr.Min) < 9999.9)
      sprintf(str, "%f", ZBHdr.Min);
     else if (ZBHdr.Min > 0.0)
      sprintf(str, "%1.2lE", ZBHdr.Min);
     else
      sprintf(str, "%1.1lE", ZBHdr.Min);
     set(DC_Win->MinValTxt, MUIA_Text_Contents, (ULONG)str);
-    if (abs(ZBHdr.Max) < 9999.9)
+    if (fabs(ZBHdr.Max) < 9999.9)
      sprintf(str, "%f", ZBHdr.Max);
     else if (ZBHdr.Max > 0.0)
      sprintf(str, "%1.2lE", ZBHdr.Max);

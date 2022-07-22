@@ -814,7 +814,7 @@ STATIC_FCN short SplineMap(short *map, short Xrows, short Ycols,
    TempVal = P1 * h1 + P2 * h2 + D1 * h3 + D2 * h4;
    if (TempVal > P1 && TempVal > P2) TempVal = max(P1, P2);
    else if (TempVal < P1 && TempVal < P2) TempVal = min(P1, P2);
-   RandVar = elvar * abs(P2 - P1);
+   RandVar = elvar * fabs(P2 - P1);
    if (RandVar < flatmax) RandVar = flatmax;
    RandVar *= (2.0 * (.5 - drand48()));
    rowptr[CurPt + 1] = (short)(TempVal + RandVar);
@@ -849,7 +849,7 @@ STATIC_FCN short SplineMap(short *map, short Xrows, short Ycols,
    TempVal = P1 * h1 + P2 * h2 + D1 * h3 + D2 * h4;
    if (TempVal > P1 && TempVal > P2) TempVal = max(P1, P2);
    else if (TempVal < P1 && TempVal < P2) TempVal = min(P1, P2);
-   RandVar = elvar * abs(P2 - P1);
+   RandVar = elvar * fabs(P2 - P1);
    if (RandVar < flatmax) RandVar = flatmax;
    RandVar *= (2.0 * (.5 - drand48()));
    rowptr[CurPt + Ycols] = (short)(TempVal + RandVar);
@@ -1045,11 +1045,11 @@ short ExtractDEM(struct DEMExtractData *DEMExtract)
 
   temp = 1 + DEMExtract->MinEast[0] / DEMExtract->UTMColInt;
   DEMExtract->FirstCol = temp * DEMExtract->UTMColInt;
-  DEMExtract->UTMCols = 1 + abs((DEMExtract->MaxEast[0] - DEMExtract->FirstCol)
+  DEMExtract->UTMCols = 1 + fabs((DEMExtract->MaxEast[0] - DEMExtract->FirstCol)
 	 / DEMExtract->UTMColInt); 
   temp = 1 + DEMExtract->MinNorth[0] / DEMExtract->UTMRowInt;
   DEMExtract->FirstRow = temp * DEMExtract->UTMRowInt;
-  DEMExtract->UTMRows = 1 + abs((DEMExtract->MaxNorth[0] - DEMExtract->FirstRow)
+  DEMExtract->UTMRows = 1 + fabs((DEMExtract->MaxNorth[0] - DEMExtract->FirstRow)
 	 / DEMExtract->UTMRowInt);
 
 /* derive the output intervals from the input intervals */

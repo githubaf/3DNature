@@ -444,7 +444,7 @@ STATIC_FCN void seashoal(struct ColorComponents *CC) // used locally only -> sta
 	 cosSkewLat = cos(PARC_SKLT_ECO(0)),
 	 cosaspect  = cos(aspect);
 
-  if (abs(sinSkewLat - sinaspect) < .5 && abs(cosSkewLat - cosaspect) < .5)
+  if (fabs(sinSkewLat - sinaspect) < .5 && fabs(cosSkewLat - cosaspect) < .5)
    { 
    CC->Red=230;
    CC->Grn=240;

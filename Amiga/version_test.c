@@ -49,6 +49,30 @@ int main(void)
       printf("fabs Diff>=.0001\n");
    }
 
+   printf("---- Test abs/fabs assign to long -----\n");
+   {
+      double doublePi=3.141593;
+      double absDoublePi;
+      double fabsDoublePi;
+      double doublePiFabs;
+      long longPiAbs;
 
+      printf("doublePi=%f\n",doublePi);
+
+      absDoublePi=abs(doublePi);
+      fabsDoublePi=fabs(doublePi);
+
+      printf("abs(doublePi)=%f\n",absDoublePi);
+      printf("fabs(doublePi)=%f\n",fabsDoublePi);
+
+      longPiAbs=abs(doublePi);
+      printf("long Result=abs(doublePi)=%ld\n",longPiAbs);
+
+      printf("--------------------------------------\n");
+
+      doublePiFabs=abs(doublePi);
+      printf("double Result=fabs(doublePi)=%f\n",doublePiFabs);
+
+   }
    return 0;
 }

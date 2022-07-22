@@ -2102,7 +2102,7 @@ RepeatCheck:
       ElevDiff = el2 - el1;
       if(ElevDiff > MBossScale) ElevDiff = MBossScale;
       else if(ElevDiff < -MBossScale) ElevDiff = -MBossScale;
-      color = abs(255.0 * ((float)ElevDiff / MBossScale));
+      color = fabs(255.0 * ((float)ElevDiff / MBossScale));
       break;
       } /* slope */
      case 5:

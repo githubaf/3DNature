@@ -1292,3 +1292,31 @@ Es muesste fabs() fuer Fliesskommazahlen benutzt werden.
 
 fabs() in Dem.c fuer die Versionstests benutzt. Die Landschaft scheint jetzt aus dem korrekten Blicjwinkel berechnet zu werden. Wolken usw sind aber noch unterschiedlich zwischen allen Versionen!
 
+22.Juli 2022
+-------------
+find . -name "*.c" -exec grep -nHi "abs.*(" {} \; | grep -v fabs
+
+MapTopo.c abs() durch fabs() ersetzt - alle haben double Parameter
+InteractiveDraw.c abs() bis auf eins durch fabs() ersetzt
+Fractal.c abs() durch fabs() ersetzt (etliche waren schon fabs()
+DataOpsGUI.c abs() durch fabs() ersetzt
+EdPar.c abs() durch fabs() ersetzt
+MapUtil.c durch fabs() ersetzt
+Database.c  durch fabs() ersetzt, hier war es auch ein Versionstest
+ColorBlends.c abs() durch fabs() ersetzt
+DEM.c einige abs() durch fabs() ersetzt
+Maps.c einige abs() durch fabs() ersetzt
+MapExtra.c einige abs() durch fabs() ersetzt
+InteractiveUtils.c
+MapSupport.c einige abs() durch fabs() ersetzt
+EditGui.c alles so gelassen
+EdSetGUI.c alles so gelassen
+
+
+-> Bilder unterscheiden sich immer noch stark in den Wolken.
+Zufallsfubktionen checken:
+   srand48()  <- Die wird oft in WCS benutzt. Werte ausgeben, vergleichen.
+   seed48()
+   lcong48()
+
+

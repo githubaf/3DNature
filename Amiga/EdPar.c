@@ -648,7 +648,7 @@ void ImportWave(struct LightWaveInfo *LWInfo)
      xxx = -1.0;
      zzz = 1.0 / tan(angle);
      }
-    if (abs(zzz) > 1.0)
+    if (fabs(zzz) > 1.0)
      {
      if (LWM[i].HPB[0] < 90.0 || LWM[i].HPB[0] > 270.0)
       {
@@ -674,7 +674,7 @@ void ImportWave(struct LightWaveInfo *LWInfo)
    while (LWM[i].HPB[1] < 0.0)
     LWM[i].HPB[1] += 360.0;
 
-   if (abs(LWM[i].HPB[1]) == 90.0)
+   if (fabs(LWM[i].HPB[1]) == 90.0)
     {
     PAR_FIRST_MOTION(3) = 0.0;
     PAR_FIRST_MOTION(4) = 0.0;
@@ -1381,7 +1381,7 @@ void setvalues(void)
  if (PARC_RNDR_MOTION(21) == 0.0)
 		PARC_RNDR_MOTION(21) = .001;
  horpt = 	PARC_RNDR_MOTION(18) * (float)settings.scrnwidth / 100;
- horstretch = 	abs(1.0 / PARC_RNDR_MOTION(19));
+ horstretch = 	fabs(1.0 / PARC_RNDR_MOTION(19));
  SeaLevel = settings.flatteneco ? PARC_RNDRLN_ECO(0) + (PARC_RNDR_MOTION(13)
 		- PARC_RNDRLN_ECO(0)) * PARC_RNDR_MOTION(12):
 		 PARC_RNDRLN_ECO(0);
