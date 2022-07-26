@@ -1215,12 +1215,26 @@ STATIC_FCN void FractFace_Render(struct elmapheaderV101 *map,
  fracount[maxfract] ++;
 
  srand48(hseed);
- dir = 3.99 * drand48() + ROUNDING_KLUDGE;
+ {
+     static int i=0;
+     double dr=drand48();
+     double dbl=3.99 *dr + ROUNDING_KLUDGE;
+     short shrt=dbl;
+
+     if(i++ <100)
+     {
+         printf("%s %s Zeile %d dbl=%f shrt=%hd dr=%f\n",__FILE__,__func__,__LINE__,dbl,shrt,dr);
+     }
+
+ //dir = 3.99 * drand48() + ROUNDING_KLUDGE;  /* original code */
+     dir=shrt;
+ }
+
  {
      static int i=0;
      if(i++ <100)
      {
-     printf("%s %s Zeile %d dir=%ld\n",__FILE__,__func__,__LINE__,dir);
+     printf("%s %s Zeile %d dir=%hd hssed=%ld ROUNDING_KLUDGE=%f\n",__FILE__,__func__,__LINE__,dir,hseed,ROUNDING_KLUDGE);
      }
  }
 

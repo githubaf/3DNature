@@ -13,7 +13,7 @@ unsigned long long seed=0;
 
 void af_srand48(long int seedval)
 {
-    seed=seedval*65536+0x330e;
+    seed=seedval*65536LL+0x330e;
 }
 
 double af_drand48() 
@@ -85,9 +85,36 @@ char * SASC_SeedBuffs2[8]=
 "x[0]=0x3799 x[1]=0x95b0 x[2]=0xd0e7"
 };
 
+
+float SASC_Results3[8]=
+{
+0.563208,
+0.003215,
+0.346170,
+0.920138,
+0.354232,
+0.663992,
+0.742035,
+0.957116
+};
+
+char * SASC_SeedBuffs3[8]=
+{
+"x[0]=0x902e x[1]=0x69da x[2]=0xbadb",
+"x[0]=0x00d2 x[1]=0xc1e6 x[2]=0x1330",
+"x[0]=0x589e x[1]=0x9473 x[2]=0xdfee",
+"x[0]=0xeb8e x[1]=0x23ee x[2]=0x504f",
+"x[0]=0x5aae x[1]=0xf373 x[2]=0x1f21",
+"x[0]=0xa9fb x[1]=0x6667 x[2]=0x4d7f",
+"x[0]=0xbdf5 x[1]=0xfcb0 x[2]=0x15ce",
+"x[0]=0xf505 x[1]=0x8878 x[2]=0xe539"
+};
+
+
+
 int DoubleEqual(double a, double b)
 {
-   if((a-b) < 0.00001)
+   if(fabs((a-b) < 0.00001))
    {
       return 1;
    }
@@ -118,6 +145,22 @@ int main(void)
       double af_rnd=af_drand48();
       printf("%s %3i) %f (sas/c gives: %f) %012llx %s\n\n",DoubleEqual(af_rnd,SASC_Results2[i])?"Ok ":"Bad",i+1,af_rnd,SASC_Results2[i],seed,SASC_SeedBuffs2[i]);
    }
+
+   printf("---- srand(5282870) ---- \n");
+
+   af_srand48(5282870);
+   for(i=0;i<8;i++)
+   {
+      double af_rnd=af_drand48();
+      printf("%s %3i) %f (sas/c gives: %f) %012llx %s\n\n",DoubleEqual(af_rnd,SASC_Results3[i])?"Ok ":"Bad",i+1,af_rnd,SASC_Results3[i],seed,SASC_SeedBuffs3[i]);
+   }
+
+   printf("Sizeof float=%d\n",sizeof(float));
+   printf("Sizeof double=%d\n",sizeof(double));
+   printf("Sizeof long=%d\n",sizeof(long));
+   printf("Sizeof long long=%d\n",sizeof(long long));
+
+
    return 0;
 }
 

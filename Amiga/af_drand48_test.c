@@ -56,6 +56,21 @@ int main(void)
    printf("%f (sas/c soll: 0.840612) %s\n",drand48(), PrintSeedBuff());
    printf("%f (sas/c soll: 0.781184) %s\n",drand48(), PrintSeedBuff());
    printf("%f (sas/c soll: 0.217187) %s\n",drand48(), PrintSeedBuff());
+
+   printf(" --- 5282870 --- \n");
+
+   srand48(5282870);
+
+   printf("%f (sas/c soll: 0.563208) %s\n",drand48(), PrintSeedBuff());
+   printf("%f (sas/c soll: 0.003215) %s\n",drand48(), PrintSeedBuff());
+   printf("%f (sas/c soll: 0.346170) %s\n",drand48(), PrintSeedBuff());
+   printf("%f (sas/c soll: 0.920138) %s\n",drand48(), PrintSeedBuff());
+   printf("%f (sas/c soll: 0.354232) %s\n",drand48(), PrintSeedBuff());
+   printf("%f (sas/c soll: 0.663992) %s\n",drand48(), PrintSeedBuff());
+   printf("%f (sas/c soll: 0.742035) %s\n",drand48(), PrintSeedBuff());
+   printf("%f (sas/c soll: 0.957116) %s\n",drand48(), PrintSeedBuff());
+
+
    return 0;
 }
 

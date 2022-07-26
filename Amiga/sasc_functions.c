@@ -623,7 +623,7 @@ unsigned long long AF_Drand48Seed=0;
 
 __stdargs void srand48(long int seedval)  // __stdargs  -> same prototype as in stdlib.h
 {
-    AF_Drand48Seed=seedval*65536+0x330e;
+    AF_Drand48Seed=seedval*65536LL+0x330e;
 }
 
 double drand48()
