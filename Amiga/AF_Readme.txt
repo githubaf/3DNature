@@ -1319,4 +1319,27 @@ Zufallsfubktionen checken:
    seed48()
    lcong48()
 
+Die ersten 500 hseed-Aufrufe in MapTopoObject.c sind identisch.
+dir ist auch identisch.
 
+Bilder berechnet ohne Wolken, Wasser, Reflecionen, Fractal-Tiefe=0 -> Bilder unterscheiden sich zwischen den Versionen.
+Mit gleicher Version 2 Bilder berechnet -> Bilder sind gleich, also kein zufaelliges Dithern.
+
+
+---> Ursache gefunden. Die Noisemap wird unterschiedlich initialisiert.
+GaussRand() liefert unterschiedliche Ergebnisee bei SAS/C und gcc.
+Das liegt daran, dass drand48() nur nach dem ersten Aufruf von srand48() gleiche Resultate liefert. Bei weiteren Aufrufen unterscheiden sich die Ergebnisse.
+
+26.07.2022
+Hier wurde mal ein Fehler in der Mathe-Library von Lattice C gesucht...
+https://obligement-free-fr.translate.goog/articles/c_correction_bogue_drand48.php?_x_tr_sch=http&_x_tr_sl=fr&_x_tr_tl=de&_x_tr_hl=de&_x_tr_pto=sc
+
+Ein Besipielquelltext fue drand48() ist in af_drand48_test2.c. Die Ergebnisse entsprechen der gcc Routine, sowohl auf gcc als auch auf SAS/C.
+erand48(seed) funktioniert mit SAS/C richtig, wie unter gcc.
+
+26.07.2022
+----------
+Eigene srand48/drand48 Funktionen. Drand47() addiert beim SAS/C die letzen beiden Shorts des Buffers und haben damit ein anderes letzts Short im Puffer. Damit ist drand48() gleich.
+In Globemap.c wird ein 64k Array von Gauss-Werten erzeugt. Damit wird die float-Berechnung nach UBYTE gecastet. Bei negativen Werten kommt beim SAS/C 0 raus, beim gcc nicht. Entsprechende if()-Aenderung eingebaut.
+--> Bild ohne Wolken, Sonne, Mond und Fraktaltife=0 hat jetzt identischen Himmel in der SAS/C und der gcc-Version.
+Wasser und Berge unterscheiden sich aber noch.

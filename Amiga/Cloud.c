@@ -133,7 +133,7 @@ void CloudData_Del(struct CloudData *CD)
 
 void CloudData_SetLong(struct CloudData *CD, ULONG Item, long Val)
 {
-
+    printf("%s %s %d %ld\n",__FILE__,__func__,__LINE__,Val);
  switch (Item)
   {
   case CLOUDDATA_RANDSEED:
@@ -190,7 +190,7 @@ long CloudData_GetLong(struct CloudData *CD, ULONG Item)
 
 void CloudData_SetShort(struct CloudData *CD, ULONG Item, short Val)
 {
-
+    printf("%s %s %d %hd\n",__FILE__,__func__,__LINE__,Val);
  switch (Item)
   {
   case CLOUDDATA_NUMKEYS:
@@ -268,7 +268,7 @@ short CloudData_GetShort(struct CloudData *CD, ULONG Item)
 
 void CloudData_SetDouble(struct CloudData *CD, ULONG Item, double Val)
 {
-
+    printf("%s %s %d %f\n",__FILE__,__func__,__LINE__,Val);
  switch (Item)
   {
   case CLOUDDATA_COVERAGE:
@@ -527,6 +527,8 @@ double ptlat, ptlon, avglat, d1, d2, dist, lonscale, waveamp,
 struct BusyWindow *BWMD;
 struct Wave *WV;
 
+printf("%s %s %d\n",__FILE__,__func__,__LINE__);
+
  if (CD->CloudPlane)
   free_Memory(CD->CloudPlane, CD->PlaneSize);
 
@@ -706,6 +708,8 @@ void Cloud_SetDefaults(struct CloudData *CD, short CloudType, short SetAll)
 short i;
 struct CloudLayer *CL, *CLPrev;
 
+printf("%s %s %d\n",__FILE__,__func__,__LINE__);
+
  if (CD->Layer)
   CloudLayer_DelAll(CD->Layer);
  CD->CloudType = CloudType;
@@ -827,6 +831,8 @@ void CloudWave_Init(struct CloudData *CD, short Frame)
 double Alt;
 //struct Wave *WV = NULL;
 struct CloudLayer *CL;
+
+printf("%s %s %d\n",__FILE__,__func__,__LINE__);
 
 // if (CD->WD)
 // {

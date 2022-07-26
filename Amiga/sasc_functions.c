@@ -10,6 +10,7 @@
 #include <math.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 #include <sasc_functions.h>
 
@@ -574,7 +575,76 @@ long tell(int fh)
     return lseek(fh,0L,1);;
 }
 
+
+/*
+ * 25.July2022, AF, selco, HGW
+ * drand48() behaves differently on SAS/C compared to gcc and m68k-amigaos-gcc.
+ * We need the same random values if we want to create pixel-identical pictures.
+ *(Dithering, Clouds...)
+ * After a long disassembling and debugging session it turned out, that after
+ * the calculation of a random value,SAS/C adds  the last two 16bit values of
+ * the seed together to and store that as the last seed word.
+ * So we have to do that in gcc, too. We use erand48() from gcc to provide an
+ * own seed-buffer. Therefore we must provide an srand48() function as well.
+ *
+ */
+
+#ifdef SASC_DRAND48_USING_ERAND48
+
+// I had problems with this one
+unsigned short Drand48SeedBuffer[3]={0,0,0x330e};
+
+void srand48(long int seedval)
+{
+    Drand48SeedBuffer[3]=(seedval&0xffff0000)>>16;
+    Drand48SeedBuffer[2]=(seedval&0xffff);
+    Drand48SeedBuffer[3]=0x330e;
+}
+
+double drand48(void)
+{
+    double Random;
+    Random=erand48(Drand48SeedBuffer);
+    Drand48SeedBuffer[2]+=Drand48SeedBuffer[1];  // <-- Additional calculation by SAS/C
+    return Random;
+}
+
+#else
+/*
+AF, selco, 25. Juli 2022,HGW
+drand48() behaves on SAS/C differently than on gcc/m68k-amigaos-gcc
+Even m68k-amigaos-gcc with and without -noixemul result in different values.
+
+gcc af_drand48.c -DSASC_DRAND48_TEST -o af_drand48_linux && ./af_drand48_linux
+m68k-amigaos-gcc af_drand48.c -DSASC_DRAND48_TEST -noixemul -o af_drand48_amiga -lm && vamos af_drand48_amiga
+*/
+unsigned long long AF_Drand48Seed=0;
+
+
+__stdargs void srand48(long int seedval)  // __stdargs  -> same prototype as in stdlib.h
+{
+    AF_Drand48Seed=seedval*65536+0x330e;
+}
+
+double drand48()
+{
+    AF_Drand48Seed = (0x5DEECE66DL * AF_Drand48Seed + 0xBL) & ((1LL << 48) - 1);
+    unsigned short seed_0= AF_Drand48Seed&0xffff;
+    unsigned short seed_1=(AF_Drand48Seed&0xffff0000) >> 16;
+
+    //printf("            Seed_0=%04hx, Seed_1=%04hx\n",seed_0, seed_1);
+
+    seed_0=(short)seed_0+(short)seed_1;
+    AF_Drand48Seed=(AF_Drand48Seed&0xffffffff0000)+ seed_0;
+    //printf("SASC-Fixed: Seed_0=%04hx, Seed_1=%04hx\n",seed_0, seed_1);
+
+    return (double)AF_Drand48Seed / (1LL << 48);
+}
+
 #endif
+#endif
+
+
 // ------------- Test -------------------
 // compile this file alone and define TESTING_SASC_FUNCTIONS on compiler call to run the tests
 //#define TESTING_SASC_FUNCTIONS

@@ -813,10 +813,40 @@ double Noise, LonOff, LatOff, LonInvOff, LatInvOff, wt[4], val[4];
 
  Lat -= ((int)Lat);
  Lon -= ((int)Lon);
+
+ {
+     static int i=0;
+     if(i++ <100)
+     {
+         printf("%s %s %d Lat=%f Lon=%f \n",__FILE__,__func__,__LINE__,Lat,Lon);
+     }
+ }
+
+
+
+
  Lat *= 256.0;
  Lon *= 256.0;
+
+ {
+     static int i=0;
+     if(i++ <100)
+     {
+         printf("%s %s %d Lat=%f Lon=%f \n",__FILE__,__func__,__LINE__,Lat,Lon);
+     }
+ }
+
  Col = Lon;
  Row = Lat;
+
+ {
+     static int i=0;
+     if(i++ <100)
+     {
+         printf("%s %s %d Col=%ld Row=%ld \n",__FILE__,__func__,__LINE__,Col,Row);
+     }
+ }
+
 
  Colp1 = Col < 255 ? Col + 1: 0;
  Rowp1 = Row < 255 ? Row + 1: 0;
@@ -825,18 +855,79 @@ double Noise, LonOff, LatOff, LonInvOff, LatInvOff, wt[4], val[4];
  LatInvOff = 1.0 - LatOff;
  LonInvOff = 1.0 - LonOff;
 
+ {
+      static int i=0;
+      if(i++ <100)
+      {
+          printf("%s %s %d LatInvOff=%f LonInvOff=%f \n",__FILE__,__func__,__LINE__,LatInvOff,LonInvOff);
+      }
+  }
+
+
  wt[0] = LatInvOff * LonInvOff;
  val[0] = NoiseMap[Row * 256 + Col];
+
+ {
+      static int i=0;
+      if(i++ <100)
+      {
+          printf("%s %s %d wt[0]=%f val[0]=%f \n",__FILE__,__func__,__LINE__,wt[0],val[0]);
+      }
+  }
+
+
  wt[1] = LatOff * LonInvOff;
  val[1] = NoiseMap[Row * 256 + Colp1];
+ {
+      static int i=0;
+      if(i++ <100)
+      {
+          printf("%s %s %d wt[1]=%f val[1]=%f \n",__FILE__,__func__,__LINE__,wt[1],val[1]);
+      }
+  }
+
+
  wt[2] = LatOff * LonOff;
  val[2] = NoiseMap[Rowp1 * 256 + Colp1];
+
+ {
+      static int i=0;
+      if(i++ <100)
+      {
+          printf("%s %s %d wt[2]=%f val[2]=%f \n",__FILE__,__func__,__LINE__,wt[2],val[2]);
+      }
+  }
+
  wt[3] = LonOff * LatInvOff;
  val[3] = NoiseMap[Rowp1 * 256 + Col];
+
+ {
+      static int i=0;
+      if(i++ <100)
+      {
+          printf("%s %s %d wt[3]=%f val[3]=%f \n",__FILE__,__func__,__LINE__,wt[3],val[3]);
+      }
+  }
+
  Noise = (wt[0] * val[0] + wt[1] * val[1] + wt[2] * val[2] + wt[3] * val[3]);
 
- Noisy = (Noise * MaxNoise) / 255.0;
+ {
+      static int i=0;
+      if(i++ <100)
+      {
+          printf("%s %s %d Noise=%f \n",__FILE__,__func__,__LINE__,Noise);
+      }
+  }
 
+
+ Noisy = (Noise * MaxNoise) / 255.0;
+ {
+     static int i=0;
+     if(i++ <100)
+     {
+ printf("%s %s %d Noisy=%ld \n",__FILE__,__func__,__LINE__, Noisy);
+     }
+ }
  return (Noisy);
  
 } /* MakeNoise() */
