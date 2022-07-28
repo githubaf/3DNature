@@ -1343,3 +1343,27 @@ Eigene srand48/drand48 Funktionen. Drand47() addiert beim SAS/C die letzen beide
 In Globemap.c wird ein 64k Array von Gauss-Werten erzeugt. Damit wird die float-Berechnung nach UBYTE gecastet. Bei negativen Werten kommt beim SAS/C 0 raus, beim gcc nicht. Entsprechende if()-Aenderung eingebaut.
 --> Bild ohne Wolken, Sonne, Mond und Fraktaltife=0 hat jetzt identischen Himmel in der SAS/C und der gcc-Version.
 Wasser und Berge unterscheiden sich aber noch.
+
+27.07.2022
+----------
+Bilder vergleichen:
+compare -fuzz 1% -channel blue -compose src ~/Desktop/CanyonSet_gcc_no_000 ~/Desktop/CanyonSet_sas_no_000 DiffImage
+#channel und fuzz kann man weglassen.
+
+28.7.2022
+---------
+Weitere Suche nach unterschieden. In colorblends.c gibt es Unterschiede bei
+- liegt an -ffast-math. Ohne das fast-math probieren.
+
+
+Test-File geschrieben. af_fast_math_test.c -> Zeigt das Problem.
+
+CC[0].Red ist 200
+sunshade ist 0.95 bzw 0.9500000000000001
+
+ CC[0].Red = PARC_SCOL_ECO(PAR_UNDER_ECO(i), 0) + redrand;   /* understory color */
+  AF_DEBUG_hd("CC[0].Red",CC[0].Red);
+  AF_DEBUG_f("sunshade",sunshade);
+  AF_DEBUG_double_hex("sunshade hex:",sunshade);
+
+  CC[0].Red -= sunshade * CC[0].Red;  // <- 9 bei gcc und fast-math, 10 (richtig) bei SAS/C

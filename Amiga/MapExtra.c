@@ -2415,7 +2415,8 @@ STATIC_FCN void InitGauss(struct Gauss *Gauss) // used locally only -> static, A
  Gauss->Arand = 1.0;
  Gauss->Add = sqrt(3.0 * Gauss->Nrand);				/* = 3.46410 */
  Gauss->Fac = 2.0 * Gauss->Add / (Gauss->Nrand * Gauss->Arand); /* = 1.73205 */
-printf("Gauss->Add=%f Gauss->Fac=%f\n",Gauss->Add,Gauss->Fac);
+AF_DEBUG_f_f("Gauss->Add Gauss->Fac",Gauss->Add,Gauss->Fac);
+AF_DEBUG_ld("Gauss->Seed",Gauss->Seed);
  srand48(Gauss->Seed);
 
 } /* InitGauss() */
@@ -2431,7 +2432,6 @@ double sum = 0.0;
   {
   sum += drand48();
   } /* for i=0... */
-
  return (Gauss->Fac * sum - Gauss->Add);
 
 } /* DoGauss() */

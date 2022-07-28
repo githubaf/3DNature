@@ -5,6 +5,44 @@
 ** Original code and subsequent rape, pillage and plunder by Gary R. Huber.
 */
 
+#define DEB_MAX 100
+#define AF_DEBUG(s)                {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s\n",            __FILE__,__func__,__LINE__,s);} }
+#define AF_DEBUG_d(s,x)            {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %d\n",         __FILE__,__func__,__LINE__,s,x);} }
+#define AF_DEBUG_f(s,x)            {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %f\n",         __FILE__,__func__,__LINE__,s,x);} }
+#define AF_DEBUG_f_f(s,x,y)        {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %f %f\n",      __FILE__,__func__,__LINE__,s,x,y);} }
+#define AF_DEBUG_f_f_f(s,x,y,z)    {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %f %f %f\n",   __FILE__,__func__,__LINE__,s,x,y,z);} }
+#define AF_DEBUG_hd(s,x)           {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %hd\n",        __FILE__,__func__,__LINE__,s,x);} }
+#define AF_DEBUG_hd_hd_hd(s,x,y,z) {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %hd %hd %hd\n",__FILE__,__func__,__LINE__,s,x,y,z);} }
+#define AF_DEBUG_hu(s,x)           {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %hu\n",        __FILE__,__func__,__LINE__,s,x);} }
+#define AF_DEBUG_hx(s,x)           {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %hx\n",        __FILE__,__func__,__LINE__,s,x);} }
+#define AF_DEBUG_ld(s,x)           {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %ld\n",        __FILE__,__func__,__LINE__,s,x);} }
+#define AF_DEBUG_ld_ld(s,x,y)      {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %ld %ld\n",    __FILE__,__func__,__LINE__,s,x,y);} }
+#define AF_DEBUG_ld_ld_ld(s,x,y,z) {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %ld %ld %ld\n",__FILE__,__func__,__LINE__,s,x,y,z);} }
+#define AF_DEBUG_lu(s,x)           {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %lu\n",        __FILE__,__func__,__LINE__,s,x);} }
+#define AF_DEBUG_lx(s,x)           {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %lx\n",        __FILE__,__func__,__LINE__,s,x);} }
+#define AF_DEBUG_float_hex(s,x)    {static int i; if(i++<DEB_MAX) \
+        { \
+            union \
+            { \
+                float a; \
+                unsigned char bytes[sizeof(float)]; */ sizeof float = 4 */ \
+            } u; \
+            u.a = x; \
+            printf("%s %s() Line %d: %s %02x %02x %02x %02x\n",__FILE__,__func__,__LINE__,s,u.bytes[0],u.bytes[1],u.bytes[2],u.bytes[3]); \
+        }}
+#define AF_DEBUG_double_hex(s,x)  {static int i; if(i++<DEB_MAX) \
+        { \
+            union \
+            { \
+                double a; \
+                unsigned char bytes[sizeof(double)]; /* sizeof double = 8 */ \
+            } u; \
+            u.a = x; \
+            printf("%s %s() Line %d: %s %02x %02x %02x %02x %02x %02x %02x %02x\n",        __FILE__,__func__,__LINE__,s,u.bytes[0],u.bytes[1],u.bytes[2],u.bytes[3],u.bytes[4],u.bytes[5],u.bytes[6],u.bytes[7]); \
+        }}
+
+
+
 #ifndef GIS_GIS_H
 #define GIS_GIS_H
 

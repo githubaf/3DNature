@@ -256,10 +256,21 @@ struct datum *DT;
 
 /* perturb all data points by a fraction to assure that no points are
       coincident */
-   srand(367);     
+   srand(367);
+   {
+       static int i;
+       if(i++ <100)
+       {
+   AF_DEBUG("srand(367)");
+       }
+   }
    for (i0=0; i0<NNG->datcnt; i0++) 
     for (i1=0; i1<2; i1++)
+    {
      NNG->points[i0][i1] += NNG->wbit * (0.5 - (double)rand() / MAXRAND);
+
+     AF_DEBUG_f("NNG->points[i0][i1]",NNG->points[i0][i1]);
+    }
 
 /* Watson cleverly lets the machine tell him what the related values of Pi
      are rather than defining them as I have done elsewhere. A: he gets higher

@@ -235,6 +235,7 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
    treerand = drand48();
    Random = -.2 * treerand + .1;
 
+   AF_DEBUG_f("Random",Random);
 /* shading calculation */
 
    sunangle = VectorAngle(&PP[0], &SP);	/* gives you the cosine of the angle */
@@ -247,6 +248,8 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
 /* these need to be lon mod 360 */
 
     LonDiff = fabs(facelong - PARC_RNDR_MOTION(16));
+    AF_DEBUG_f("LonDiff",LonDiff);
+
     while (LonDiff > 180.0)
      {
      LonDiff -= 360.0;
@@ -265,6 +268,8 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
    sunangle = ACos_Table(sunangle);
 
    dir = dir < 2 ? dir + 1: 0;
+
+   AF_DEBUG_hd("dir",dir);
 
    MapTopo(map, win, MapAsSFC, MakeWater, 1, &Data->El[0]);
    } /* else */

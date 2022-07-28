@@ -50,6 +50,9 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
    CC[0].Blu -= CC[0].Blu * seadepthfact;
    CC[0].Blu -= CC[0].Blu * sunshade;
 
+   AF_DEBUG_hd_hd_hd("CC[0]",CC[0].Red,CC[0].Grn,CC[0].Blu);
+
+
    if (el <= SeaLevel && el > SeaLevel - 100.0)
     {
     seashoal(&CC[0]);
@@ -77,17 +80,64 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
 	treerand * treehtfact * FM[0].TM[j].Ht / 21.34;	/* ht in meters */
      treedraw = 2;
      EcoClass = FM[0].TM[j].Class;
+
+     AF_DEBUG_hd_hd_hd("CC[2]",CC[2].Red,CC[2].Grn,CC[2].Blu);
      }
     } /* if water model */
    return (0);
    } /* if water */
 
+
+  {
+      static unsigned long count=0;
+      count++;
+      AF_DEBUG_lu("Aufruf Nummer ",count);
+  }
+
+  AF_DEBUG_ld_ld_ld("redrand greenrand bluerand",redrand,greenrand,bluerand);
+
   CC[0].Red = PARC_SCOL_ECO(PAR_UNDER_ECO(i), 0) + redrand;	/* understory color */
+  CC[0].Red=200;  // AF
+  AF_DEBUG_hd("CC[0].Red",CC[0].Red);
+  AF_DEBUG_f("sunshade",sunshade);
+  AF_DEBUG_double_hex("sunshade hex:",sunshade);
+
   CC[0].Red -= sunshade * CC[0].Red;			/* shading */
+  AF_DEBUG_hd("*** Falsch: CC[0].Red",CC[0].Red);
+
+  {
+      short My_CC0_Red=200;
+      My_CC0_Red-=sunshade*My_CC0_Red;
+      AF_DEBUG_hd("*** Falsch: set My_CC0_Red",My_CC0_Red);
+  }
+
+
+  {
+      short My_CC0_Red=200;
+      double sunshade=0.95;
+      AF_DEBUG_double_hex("sunshade hex ist jetzt:",sunshade);
+
+      My_CC0_Red-=sunshade*My_CC0_Red;
+      AF_DEBUG_hd("*** Richtig: My_CC0_Red, set sunshade",My_CC0_Red);
+  }
+
+
+  {
+      short My_CC0_Red=200;
+      double My_sunshade=0.95;
+      AF_DEBUG_double_hex("sunshade hex:",My_sunshade);
+      My_CC0_Red-=My_sunshade*My_CC0_Red;
+      AF_DEBUG_hd("*** Richtig: My_CC0_Red My_sunshine",My_CC0_Red);
+  }
+
+
   CC[0].Grn = PARC_SCOL_ECO(PAR_UNDER_ECO(i), 1) + greenrand;
   CC[0].Grn -= sunshade * CC[0].Grn;
+
   CC[0].Blu = PARC_SCOL_ECO(PAR_UNDER_ECO(i), 2) + bluerand;
   CC[0].Blu -= sunshade * CC[0].Blu;
+
+
   if (! settings.rendertrees)
    return (understory);
 
@@ -102,6 +152,9 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
     CC[2].Grn -= sunshade * CC[2].Grn;
     CC[2].Blu = PARC_MCOL_ECO(i, 2) + bluerand;
     CC[2].Blu -= sunshade * CC[2].Blu;
+
+
+    AF_DEBUG_hd_hd_hd("CC[2]",CC[2].Red,CC[2].Grn,CC[2].Blu);
     } /* if no tree model */
    else
     {
@@ -120,6 +173,8 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
 	treerand * treehtfact * FM[i].TM[j].Ht / 21.34;	/* ht in meters */
     treedraw = 2;
     EcoClass = FM[i].TM[j].Class;
+
+    AF_DEBUG_hd_hd_hd("CC[2]",CC[2].Red,CC[2].Grn,CC[2].Blu);
     return (understory);
     } /* else tree model */
    } /* if tree */
@@ -133,6 +188,8 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
    CC[1].Grn -= sunshade * CC[1].Grn;
    CC[1].Blu = PARC_SCOL_ECO(i, 2) + bluerand;
    CC[1].Blu -= sunshade * CC[1].Blu;
+
+   AF_DEBUG_hd_hd_hd("CC[1]",CC[1].Red,CC[1].Grn,CC[1].Blu);
    } /* if draw understory tree */
   } /* if notsnow */
 
@@ -154,12 +211,16 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
      CC[2].Grn -= sunshade * CC[2].Grn;
      CC[2].Blu = PARC_MCOL_ECO(i, 2) + bluerand;
      CC[2].Blu -= sunshade * CC[2].Blu;
+
+     AF_DEBUG_hd_hd_hd("CC[2]",CC[2].Red,CC[2].Grn,CC[2].Blu);
      } /* if it's really a tree, color it a tree */
     else
      {
      CC[2].Red = CC[0].Red;
      CC[2].Grn = CC[0].Grn;
      CC[2].Blu = CC[0].Blu;
+
+     AF_DEBUG_hd_hd_hd("CC[2]",CC[2].Red,CC[2].Grn,CC[2].Blu);
      } /* else it's only a shrub, cover it with snow */
     } /* if no tree model */
    else
@@ -177,12 +238,16 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
      CC[2].Grn -= sunshade * CC[2].Grn;
      CC[2].Blu = FM[i].TM[j].Blu + bluerand;
      CC[2].Blu -= sunshade * CC[2].Blu;
+
+     AF_DEBUG_hd_hd_hd("CC[2]",CC[2].Red,CC[2].Grn,CC[2].Blu);
      } /* if tree height > 1 */
     else
      {
      CC[2].Red = CC[0].Red;
      CC[2].Grn = CC[0].Grn;
      CC[2].Blu = CC[0].Blu;
+
+     AF_DEBUG_hd_hd_hd("CC[2]",CC[2].Red,CC[2].Grn,CC[2].Blu);
      } /* else cover with snow */
     treeheight = 
 	treerand * treehtfact * FM[i].TM[j].Ht / 21.34;	/* ht in meters */
@@ -205,6 +270,8 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
     CC[1].Grn -= sunshade * CC[1].Grn;
     CC[1].Blu = PARC_SCOL_ECO(i, 2) + bluerand;
     CC[1].Blu -= sunshade * CC[1].Blu;
+
+    AF_DEBUG_hd_hd_hd("CC[1]",CC[1].Red,CC[1].Grn,CC[1].Blu);
     understory = PAR_UNDER_ECO(i);
     } /* if understory tree ht > 1 */
    else
@@ -212,6 +279,7 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
     CC[1].Red = CC[0].Red;
     CC[1].Grn = CC[0].Grn;
     CC[1].Blu = CC[0].Blu;
+    AF_DEBUG_hd_hd_hd("CC[1]",CC[1].Red,CC[1].Grn,CC[1].Blu);
     } /* else it's only a shrub, cover it with snow */
    } /* if draw understory trees */
   } /* else snow on ground */
@@ -251,6 +319,9 @@ short WaterEco_Set(short MakeWater, struct ColorComponents *CC)
    CC[0].Red -= pow(sunshade, 3.0) * CC[0].Red;
    CC[0].Grn -= pow(sunshade, 3.0) * CC[0].Grn;
    CC[0].Blu -= pow(sunshade, 3.0) * CC[0].Blu;
+
+   AF_DEBUG_hd_hd_hd("CC[0]",CC[0].Red,CC[0].Grn,CC[0].Blu);
+
    Reflections = 255;
    eco = 0;
    } /* if foam */
@@ -274,12 +345,16 @@ short WaterEco_Set(short MakeWater, struct ColorComponents *CC)
    CC[0].Grn = PARC_MCOL_ECO(0, 1) + greenrand;
    CC[0].Blu = PARC_MCOL_ECO(0, 2) + bluerand;
 
+   AF_DEBUG_hd_hd_hd("CC[0]",CC[0].Red,CC[0].Grn,CC[0].Blu);
+
    if (WaterDepth <= 100.0)
     {
     colavg = 1.0 - (WaterDepth + 50.0) / 150.0;
     CC[0].Red += (PARC_MCOL_ECO(2, 0) - CC[0].Red) * colavg;
     CC[0].Grn += (PARC_MCOL_ECO(2, 1) - CC[0].Grn) * colavg;
     CC[0].Blu += (PARC_MCOL_ECO(2, 2) - CC[0].Blu) * colavg;
+
+    AF_DEBUG_hd_hd_hd("CC[0]",CC[0].Red,CC[0].Grn,CC[0].Blu);
     } /* if */
 
    CC[0].Red -= (CC[0].Red * seadepthfact);
@@ -288,6 +363,8 @@ short WaterEco_Set(short MakeWater, struct ColorComponents *CC)
    CC[0].Red -= (CC[0].Red * sunshade);
    CC[0].Grn -= (CC[0].Grn * sunshade);
    CC[0].Blu -= (CC[0].Blu * sunshade);
+
+   AF_DEBUG_hd_hd_hd("CC[0]",CC[0].Red,CC[0].Grn,CC[0].Blu);
 
    eco = 0;
    } /* else not foam */ 
@@ -299,6 +376,8 @@ short WaterEco_Set(short MakeWater, struct ColorComponents *CC)
    CC[0].Red = PARC_MCOL_ECO(2, 0) + redrand;
    CC[0].Grn = PARC_MCOL_ECO(2, 1) + greenrand;
    CC[0].Blu = PARC_MCOL_ECO(2, 2) + bluerand;
+
+   AF_DEBUG_hd_hd_hd("CC[0]",CC[0].Red,CC[0].Grn,CC[0].Blu);
    eco = 2;
    }
   else
@@ -306,11 +385,15 @@ short WaterEco_Set(short MakeWater, struct ColorComponents *CC)
    CC[0].Red = PARC_MCOL_ECO(3, 0) + redrand;
    CC[0].Grn = PARC_MCOL_ECO(3, 1) + greenrand;
    CC[0].Blu = PARC_MCOL_ECO(3, 2) + bluerand;
+
+   AF_DEBUG_hd_hd_hd("CC[0]",CC[0].Red,CC[0].Grn,CC[0].Blu);
    eco = 3;
    }
   CC[0].Red -= (CC[0].Red * sunshade);
   CC[0].Grn -= (CC[0].Grn * sunshade);
   CC[0].Blu -= (CC[0].Blu * sunshade);
+
+  AF_DEBUG_hd_hd_hd("CC[0]",CC[0].Red,CC[0].Grn,CC[0].Blu);
   } /* else beach */
  FloatCol = 2.0 + 3.99 * seadepthfact * sunshade;
  ColMax = COL_WATER_MAX;
@@ -333,6 +416,8 @@ short WaterEco_Set(short MakeWater, struct ColorComponents *CC)
    CC[2].Blu = FM[0].TM[j].Blu + bluerand;
    CC[2].Blu -= (CC[2].Blu * seadepthfact);
    CC[2].Blu -= (CC[2].Blu * sunshade);
+
+   AF_DEBUG_hd_hd_hd("CC[2]",CC[2].Red,CC[2].Grn,CC[2].Blu);
    treeheight =
 	treerand * treehtfact * FM[0].TM[j].Ht / 21.34;	/* ht in meters */
    treedraw = 2;
@@ -814,39 +899,18 @@ double Noise, LonOff, LatOff, LonInvOff, LatInvOff, wt[4], val[4];
  Lat -= ((int)Lat);
  Lon -= ((int)Lon);
 
- {
-     static int i=0;
-     if(i++ <100)
-     {
-         printf("%s %s %d Lat=%f Lon=%f \n",__FILE__,__func__,__LINE__,Lat,Lon);
-     }
- }
-
+ AF_DEBUG_f_f("Lat Lon",Lat,Lon);
 
 
 
  Lat *= 256.0;
  Lon *= 256.0;
 
- {
-     static int i=0;
-     if(i++ <100)
-     {
-         printf("%s %s %d Lat=%f Lon=%f \n",__FILE__,__func__,__LINE__,Lat,Lon);
-     }
- }
-
+ AF_DEBUG_f_f("Lat Lon",Lat,Lon);
  Col = Lon;
  Row = Lat;
 
- {
-     static int i=0;
-     if(i++ <100)
-     {
-         printf("%s %s %d Col=%ld Row=%ld \n",__FILE__,__func__,__LINE__,Col,Row);
-     }
- }
-
+ AF_DEBUG_ld_ld("Col Row",Col,Row);
 
  Colp1 = Col < 255 ? Col + 1: 0;
  Rowp1 = Row < 255 ? Row + 1: 0;
@@ -855,79 +919,39 @@ double Noise, LonOff, LatOff, LonInvOff, LatInvOff, wt[4], val[4];
  LatInvOff = 1.0 - LatOff;
  LonInvOff = 1.0 - LonOff;
 
- {
-      static int i=0;
-      if(i++ <100)
-      {
-          printf("%s %s %d LatInvOff=%f LonInvOff=%f \n",__FILE__,__func__,__LINE__,LatInvOff,LonInvOff);
-      }
-  }
+ AF_DEBUG_f_f("LatInvOff LonInvOff",LatInvOff,LonInvOff);
 
 
  wt[0] = LatInvOff * LonInvOff;
  val[0] = NoiseMap[Row * 256 + Col];
 
- {
-      static int i=0;
-      if(i++ <100)
-      {
-          printf("%s %s %d wt[0]=%f val[0]=%f \n",__FILE__,__func__,__LINE__,wt[0],val[0]);
-      }
-  }
+ AF_DEBUG_f_f("wt[0] val[0]",wt[0],val[0]);
 
 
  wt[1] = LatOff * LonInvOff;
  val[1] = NoiseMap[Row * 256 + Colp1];
- {
-      static int i=0;
-      if(i++ <100)
-      {
-          printf("%s %s %d wt[1]=%f val[1]=%f \n",__FILE__,__func__,__LINE__,wt[1],val[1]);
-      }
-  }
+
+ AF_DEBUG_f_f("wt[1] val[1]",wt[1],val[1]);
 
 
  wt[2] = LatOff * LonOff;
  val[2] = NoiseMap[Rowp1 * 256 + Colp1];
 
- {
-      static int i=0;
-      if(i++ <100)
-      {
-          printf("%s %s %d wt[2]=%f val[2]=%f \n",__FILE__,__func__,__LINE__,wt[2],val[2]);
-      }
-  }
+ AF_DEBUG_f_f("wt[2] val[2]",wt[2],val[2]);
 
  wt[3] = LonOff * LatInvOff;
  val[3] = NoiseMap[Rowp1 * 256 + Col];
 
- {
-      static int i=0;
-      if(i++ <100)
-      {
-          printf("%s %s %d wt[3]=%f val[3]=%f \n",__FILE__,__func__,__LINE__,wt[3],val[3]);
-      }
-  }
+ AF_DEBUG_f_f("wt[3] val[3]",wt[3],val[3]);
 
  Noise = (wt[0] * val[0] + wt[1] * val[1] + wt[2] * val[2] + wt[3] * val[3]);
 
- {
-      static int i=0;
-      if(i++ <100)
-      {
-          printf("%s %s %d Noise=%f \n",__FILE__,__func__,__LINE__,Noise);
-      }
-  }
-
+ AF_DEBUG_f("Noise",Noise);
 
  Noisy = (Noise * MaxNoise) / 255.0;
- {
-     static int i=0;
-     if(i++ <100)
-     {
- printf("%s %s %d Noisy=%ld \n",__FILE__,__func__,__LINE__, Noisy);
-     }
- }
+
+ AF_DEBUG_ld("Noisy",Noisy);
+
  return (Noisy);
  
 } /* MakeNoise() */
