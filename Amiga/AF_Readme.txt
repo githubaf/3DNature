@@ -1367,3 +1367,19 @@ sunshade ist 0.95 bzw 0.9500000000000001
   AF_DEBUG_double_hex("sunshade hex:",sunshade);
 
   CC[0].Red -= sunshade * CC[0].Red;  // <- 9 bei gcc und fast-math, 10 (richtig) bei SAS/C
+
+- ohne -ffast-math ist die Differenz der Bilder viel kleiner.
+compare  -compose src ~/Desktop/CanyonSet_gcc_no_000 ~/Desktop/CanyonSet_sas_no_000 DiffImage
+
+- Sonne/Mond mit Halo bringen keine Verschlechterung.
+
+Anzeige der Anzahl unterschiedlicher (roter Pixel:)
+compare  -compose src ~/Desktop/CanyonSet_gcc_no_000 ~/Desktop/CanyonSet_sas_no_000 DiffImage  -format %c histogram:info:
+
+Anzeige der Unterschiede mit unterliegendem "Schattenbild"
+compare  ~/Desktop/CanyonSet_gcc_no_000 ~/Desktop/CanyonSet_sas_no_000 DiffImage2
+
+29.07.2022
+----------
+gcc und SAS/C Bilder (FractalDepth=0, No 3dClouds, No reflection, no Shadow, no waves) sind jetzt identisch.
+

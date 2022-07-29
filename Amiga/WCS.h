@@ -5,7 +5,7 @@
 ** Original code and subsequent rape, pillage and plunder by Gary R. Huber.
 */
 
-#define DEB_MAX 100
+#define DEB_MAX 100000
 #define AF_DEBUG(s)                {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s\n",            __FILE__,__func__,__LINE__,s);} }
 #define AF_DEBUG_d(s,x)            {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %d\n",         __FILE__,__func__,__LINE__,s,x);} }
 #define AF_DEBUG_f(s,x)            {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %f\n",         __FILE__,__func__,__LINE__,s,x);} }

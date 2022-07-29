@@ -99,8 +99,8 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
   CC[0].Red = PARC_SCOL_ECO(PAR_UNDER_ECO(i), 0) + redrand;	/* understory color */
   CC[0].Red=200;  // AF
   AF_DEBUG_hd("CC[0].Red",CC[0].Red);
-  AF_DEBUG_f("sunshade",sunshade);
-  AF_DEBUG_double_hex("sunshade hex:",sunshade);
+  //AF_DEBUG_f("sunshade",sunshade);
+  //AF_DEBUG_double_hex("sunshade hex:",sunshade);
 
   CC[0].Red -= sunshade * CC[0].Red;			/* shading */
   AF_DEBUG_hd("*** Falsch: CC[0].Red",CC[0].Red);
@@ -108,14 +108,14 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
   {
       short My_CC0_Red=200;
       My_CC0_Red-=sunshade*My_CC0_Red;
-      AF_DEBUG_hd("*** Falsch: set My_CC0_Red",My_CC0_Red);
+      ////AF_DEBUG_falsch: set My_CC0_Red",My_CC0_Red);
   }
 
 
   {
       short My_CC0_Red=200;
       double sunshade=0.95;
-      AF_DEBUG_double_hex("sunshade hex ist jetzt:",sunshade);
+      //AF_DEBUG_double_hex("sunshade hex ist jetzt:",sunshade);
 
       My_CC0_Red-=sunshade*My_CC0_Red;
       AF_DEBUG_hd("*** Richtig: My_CC0_Red, set sunshade",My_CC0_Red);
@@ -125,7 +125,7 @@ short ecoset(short i, short notsnow, struct ColorComponents *CC)
   {
       short My_CC0_Red=200;
       double My_sunshade=0.95;
-      AF_DEBUG_double_hex("sunshade hex:",My_sunshade);
+      //AF_DEBUG_double_hex("sunshade hex:",My_sunshade);
       My_CC0_Red-=My_sunshade*My_CC0_Red;
       AF_DEBUG_hd("*** Richtig: My_CC0_Red My_sunshine",My_CC0_Red);
   }
@@ -514,6 +514,7 @@ void colmapavg(struct elmapheaderV101 *map, short colpts, struct ColorComponents
    break;
    }
   } /* switch colpts */
+ AF_DEBUG_hd_hd_hd("",CC->Red,CC->Grn,CC->Blu);
 
 } /* colmapavg() */
 
@@ -537,6 +538,7 @@ STATIC_FCN void seashoal(struct ColorComponents *CC) // used locally only -> sta
    CC->Red -= CC->Red * sunshade;
    CC->Grn -= CC->Grn * sunshade;
    CC->Blu -= CC->Blu * sunshade;
+   AF_DEBUG_hd_hd_hd("",CC->Red,CC->Grn,CC->Blu);
    return;
    } /* wind and slope within 45 degrees bearing */
   } /* if correct depth for breakers */
@@ -549,6 +551,7 @@ STATIC_FCN void seashoal(struct ColorComponents *CC) // used locally only -> sta
  CC->Red += (altred - CC->Red) * colavg;
  CC->Grn += (altgreen - CC->Grn) * colavg;
  CC->Blu += (altblue - CC->Blu) * colavg;
+ AF_DEBUG_hd_hd_hd("",CC->Red,CC->Grn,CC->Blu);
 
 } /* seashoal() */
 
@@ -720,8 +723,12 @@ RepeatTex:
 
 /* returns value from 0 to 255 */
 
- return ((short)(SumEl + MakeNoise(NoiseMap, (255 - SumEl) / 2, LatPt, LonPt)));
+ {
+     short result=(short)(SumEl + MakeNoise(NoiseMap, (255 - SumEl) / 2, LatPt, LonPt));
+     AF_DEBUG_hd("",result);
 
+ return (result);
+ }
 } /* ComputeTexture() */
 
 /**********************************************************************/
@@ -870,11 +877,13 @@ RepeatTex:
  CC->Red = SumRed * .5 + MacroSum[1] * .5;
  CC->Grn = SumGrn * .5 + MacroSum[2] * .5;
  CC->Blu = SumBlu * .5 + MacroSum[3] * .5;
-
+ AF_DEBUG_hd_hd_hd("CC[0]",CC->Red,CC->Grn,CC->Blu);
 /* returns value from 0 to 255 */
-
- return ((short)(SumEl + MakeNoise(NoiseMap, (255 - SumEl) / 2, LatPt, LonPt)));
-
+ {
+     short result=(SumEl + MakeNoise(NoiseMap, (255 - SumEl) / 2, LatPt, LonPt));
+     AF_DEBUG_hd("result=",result);
+ return (result);
+ }
 } /* ComputeTextureColor() */
 
 /*************************************************************************/
@@ -899,14 +908,14 @@ double Noise, LonOff, LatOff, LonInvOff, LatInvOff, wt[4], val[4];
  Lat -= ((int)Lat);
  Lon -= ((int)Lon);
 
- AF_DEBUG_f_f("Lat Lon",Lat,Lon);
+ //AF_DEBUG_f_f("Lat Lon",Lat,Lon);
 
 
 
  Lat *= 256.0;
  Lon *= 256.0;
 
- AF_DEBUG_f_f("Lat Lon",Lat,Lon);
+ //AF_DEBUG_f_f("Lat Lon",Lat,Lon);
  Col = Lon;
  Row = Lat;
 
@@ -919,34 +928,34 @@ double Noise, LonOff, LatOff, LonInvOff, LatInvOff, wt[4], val[4];
  LatInvOff = 1.0 - LatOff;
  LonInvOff = 1.0 - LonOff;
 
- AF_DEBUG_f_f("LatInvOff LonInvOff",LatInvOff,LonInvOff);
+ //AF_DEBUG_f_f("LatInvOff LonInvOff",LatInvOff,LonInvOff);
 
 
  wt[0] = LatInvOff * LonInvOff;
  val[0] = NoiseMap[Row * 256 + Col];
 
- AF_DEBUG_f_f("wt[0] val[0]",wt[0],val[0]);
+ //AF_DEBUG_f_f("wt[0] val[0]",wt[0],val[0]);
 
 
  wt[1] = LatOff * LonInvOff;
  val[1] = NoiseMap[Row * 256 + Colp1];
 
- AF_DEBUG_f_f("wt[1] val[1]",wt[1],val[1]);
+ //AF_DEBUG_f_f("wt[1] val[1]",wt[1],val[1]);
 
 
  wt[2] = LatOff * LonOff;
  val[2] = NoiseMap[Rowp1 * 256 + Colp1];
 
- AF_DEBUG_f_f("wt[2] val[2]",wt[2],val[2]);
+ //AF_DEBUG_f_f("wt[2] val[2]",wt[2],val[2]);
 
  wt[3] = LonOff * LatInvOff;
  val[3] = NoiseMap[Rowp1 * 256 + Col];
 
- AF_DEBUG_f_f("wt[3] val[3]",wt[3],val[3]);
+ //AF_DEBUG_f_f("wt[3] val[3]",wt[3],val[3]);
 
  Noise = (wt[0] * val[0] + wt[1] * val[1] + wt[2] * val[2] + wt[3] * val[3]);
 
- AF_DEBUG_f("Noise",Noise);
+ //AF_DEBUG_f("Noise",Noise);
 
  Noisy = (Noise * MaxNoise) / 255.0;
 

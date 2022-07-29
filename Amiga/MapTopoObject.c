@@ -183,16 +183,7 @@ Continue without Fractal Displacement Mapping?", (CONST_STRPTR)"OK|Cancel", (CON
       FaceIndex_Set(Face, FaceIndex, map->Lc, 0);
       VertexOne_Set(map, FaceIndex, Vertex);
       FractFaceOne_Setup(map, map->Lr, map->Lc);
-
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       Face_Render(map, Vertex, win, CD);
       } /* if */
      } /* if */
@@ -211,13 +202,6 @@ NextFace1:
       VertexTwo_Set(map, FaceIndex, Vertex);
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
       Face_Render(map, Vertex, win, CD);
       } /* if */
      } /* if */
@@ -238,14 +222,6 @@ NextFace1:
       VertexTwo_Set(map, FaceIndex, Vertex);
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       Face_Render(map, Vertex, win, CD);
       } /* if */
      } /* if */
@@ -264,14 +240,6 @@ NextFace2:
       VertexOne_Set(map, FaceIndex, Vertex);
       FractFaceOne_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       Face_Render(map, Vertex, win, CD);
       } /* if */
      } /* if */
@@ -307,14 +275,6 @@ NextFace2:
       VertexOne_Set(map, FaceIndex, Vertex);
       FractFaceOne_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       Face_Render(map, Vertex, win, CD);
       } /* if */
      } /* if */
@@ -333,14 +293,6 @@ NextFace3:
       VertexTwo_Set(map, FaceIndex, Vertex);
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       Face_Render(map, Vertex, win, CD);
       } /* if */
      } /* if */
@@ -361,14 +313,6 @@ NextFace3:
       VertexTwo_Set(map, FaceIndex, Vertex);
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       Face_Render(map, Vertex, win, CD);
       } /* if */
      } /* if */
@@ -387,14 +331,6 @@ NextFace4:
       VertexOne_Set(map, FaceIndex, Vertex);
       FractFaceOne_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       Face_Render(map, Vertex, win, CD);
       } /* if */
      } /* if */
@@ -430,14 +366,6 @@ NextFace4:
       {
       FractFaceOne_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       FractFace_Render(map, win, 0, CD);
       } /* if */
      } /* if */
@@ -454,14 +382,6 @@ NextFace5:
       {
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       FractFace_Render(map, win, 1, CD);
       } /* if */
      } /* if */
@@ -480,14 +400,6 @@ NextFace5:
       {
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       FractFace_Render(map, win, 1, CD);
       } /* if */
      } /* if */
@@ -504,14 +416,6 @@ NextFace6:
       {
       FractFaceOne_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       FractFace_Render(map, win, 0, CD);
       } /* if */
      } /* if */
@@ -543,14 +447,6 @@ NextFace6:
       {
       FractFaceOne_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       FractFace_Render(map, win, 0, CD);
       } /* if */
      } /* if */
@@ -567,14 +463,6 @@ NextFace7:
       {
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       FractFace_Render(map, win, 1, CD);
       } /* if */
      } /* if */
@@ -593,14 +481,6 @@ NextFace7:
       {
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       FractFace_Render(map, win, 1, CD);
       } /* if */
      } /* if */
@@ -617,14 +497,6 @@ NextFace8:
       {
       FractFaceOne_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       FractFace_Render(map, win, 0, CD);
       } /* if */
      } /* if */
@@ -659,14 +531,6 @@ NextFace8:
       {
       faceone(map);
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       renderface(map, win, CD);
       } /* if */
      } /* if */
@@ -683,14 +547,6 @@ NextFace9:
       {
       facetwo(map);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       renderface(map, win, CD);
       } /* if */
      } /* if */
@@ -709,14 +565,6 @@ NextFace9:
       {
       facetwo(map);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       renderface(map, win, CD);
       } /* if */
      } /* if */
@@ -733,14 +581,6 @@ NextFace10:
       {
       faceone(map);
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       renderface(map, win, CD);
       } /* if */
      } /* if */
@@ -772,14 +612,6 @@ NextFace10:
       {
       faceone(map);
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       renderface(map, win, CD);
       } /* if */
      } /* if */
@@ -796,14 +628,6 @@ NextFace11:
       {
       facetwo(map);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       renderface(map, win, CD);
       } /* if */
      } /* if */
@@ -822,14 +646,6 @@ NextFace11:
       {
       facetwo(map);
       hseed = map->facect + map->facect * (map->facect % 120);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       renderface(map, win, CD);
       } /* if */
      } /* if */
@@ -846,14 +662,6 @@ NextFace12:
       {
       faceone(map);
       hseed = map->facect + map->facect * (map->facect % 191);
-      {
-          static int i=0;
-          if(i++ <100)
-          {
-          printf("%s %s Zeile %d hseed=%ld\n",__FILE__,__func__,__LINE__,hseed);   // wird nicht aufgerufen
-          }
-      }
-
       renderface(map, win, CD);
       } /* if */
      } /* if */
@@ -1084,14 +892,6 @@ STATIC_FCN void Face_Render(struct elmapheaderV101 *map, struct faces *Vertex,
 
  srand48(hseed);
  dir = 3.99 * drand48() + ROUNDING_KLUDGE;
- {
-     static int i=0;
-     if(i++ <100)
-     {
-     printf("%s %s Zeile %d dir=%ld\n",__FILE__,__func__,__LINE__,dir);
-     }
- }
-
 
  PtrnOffset = map->steplat * LATSCALE / (maxfract + 1);
  HalfPtrnOffset = PtrnOffset * .5;	/* this used to be .75 */
@@ -1215,29 +1015,7 @@ STATIC_FCN void FractFace_Render(struct elmapheaderV101 *map,
  fracount[maxfract] ++;
 
  srand48(hseed);
- {
-     static int i=0;
-     double dr=drand48();
-     double dbl=3.99 *dr + ROUNDING_KLUDGE;
-     short shrt=dbl;
-
-     if(i++ <100)
-     {
-         printf("%s %s Zeile %d dbl=%f shrt=%hd dr=%f\n",__FILE__,__func__,__LINE__,dbl,shrt,dr);
-     }
-
- //dir = 3.99 * drand48() + ROUNDING_KLUDGE;  /* original code */
-     dir=shrt;
- }
-
- {
-     static int i=0;
-     if(i++ <100)
-     {
-     printf("%s %s Zeile %d dir=%hd hssed=%ld ROUNDING_KLUDGE=%f\n",__FILE__,__func__,__LINE__,dir,hseed,ROUNDING_KLUDGE);
-     }
- }
-
+ dir = 3.99 * drand48() + ROUNDING_KLUDGE;
 
  PtrnOffset = map->steplat * LATSCALE / (maxfract + 1);
  HalfPtrnOffset = PtrnOffset * .5;	/* this used to be .75 */
@@ -1514,14 +1292,6 @@ STATIC_FCN void renderface(struct elmapheaderV101 *map, struct Window *win, stru
 
  srand48(hseed);
  dir = 3.99 * drand48() + ROUNDING_KLUDGE;
- {
-     static int i=0;
-     if(i++ <100)
-     {
-     printf("%s %s Zeile %d dir=%ld\n",__FILE__,__func__,__LINE__,dir);
-     }
- }
-
  PtrnOffset = map->steplat * LATSCALE / (maxfract + 1);	/* used to not add 1 */
  HalfPtrnOffset = PtrnOffset * .5;	/* this used to be .75 */
  PtrnOffset *= 2.0;

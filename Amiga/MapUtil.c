@@ -171,8 +171,8 @@ void SurfaceNormal(struct coords *NP, struct coords *FP, struct coords *LP)
  VectorMagnitude(NP);
  UnitVector(NP);
 
- AF_DEBUG_f_f_f("x y z",NP->x,NP->y,NP->z);
- AF_DEBUG_f_f_f("lat lon alt y z",NP->lat,NP->lon,NP->alt);
+ //AF_DEBUG_f_f_f("x y z",NP->x,NP->y,NP->z);
+ //AF_DEBUG_f_f_f("lat lon alt y z",NP->lat,NP->lon,NP->alt);
 } /* SurfaceNormal() */
 
 /***********************************************************************/

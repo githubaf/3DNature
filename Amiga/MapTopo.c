@@ -149,6 +149,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 /* compute the shading factors for normal (not water) ecosystems */
 
  relfactor = relel + 100.0 * Random;
+// AF_DEBUG_f("relfactor",relfactor);
 
 /* see if there is snow on the ground */
 
@@ -293,6 +294,7 @@ EndDrawFace:
    if (ct < 0) ct  += 360;
    QC.compval2 = ((long)relfactor + 1000) * 65536 + ct;
    QC.compval3 = (short)(slope * PiUnder180) * 256 + (short)(sunangle * PiUnder180);
+   //AF_DEBUG_f_f("compval2 und 3",QC.compval2,QC.compval3);
    } /* if render to QC buffer */
 
   if (render & 0x01)
@@ -1140,6 +1142,7 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
  else if (settings.borderandom)
   {
   randomint = treerand * 2.99 + ROUNDING_KLUDGE;
+  AF_DEBUG_ld("randomint",randomint);
   facept[0] = map->facept[randomint];
   facept[1] = map->facept[randomint];
   facept[2] = map->facept[randomint];
@@ -1199,6 +1202,7 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
    {
    switch (colpts)
     {
+       AF_DEBUG_hd("colpts",colpts);
     case 1:
      {
      matchred = colmap[0][facept[0]];
@@ -1291,6 +1295,7 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
      break;
      } /* case 7 */
     } /* switch colpts */
+   AF_DEBUG_hd_hd_hd("",matchred,matchgreen,matchblue);
 
 /* find ecosystem match if there is one and slope is appropriate */ 
 
@@ -1305,7 +1310,10 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
        if (cpts > 1 && slope <= PARC_MXSL_ECO(eco))
         {
         if (eco != 1) *understory = ecoset(eco, notsnow, CC);
+        {
+           AF_DEBUG("");
         return (eco);
+        }
 	} /* if cpts > 1 */
        else
         {
@@ -1338,6 +1346,8 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
     CC[0].Blu += sunshade * PARC_RNDR_COLOR(1, 2);
     } /* if not luminous color mapping */
    eco = settings.defaulteco;
+
+   AF_DEBUG_hd_hd_hd("",CC[0].Red,CC[0].Grn,CC[0].Blu);
    } /* if cpts = 3 */
 
 /* otherwise find normal ecosystem */
@@ -1378,6 +1388,7 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
     CC[0].Red = PARC_SCOL_ECO(eco, 0);
     CC[0].Grn = PARC_SCOL_ECO(eco, 1);
     CC[0].Blu = PARC_SCOL_ECO(eco, 2);
+    AF_DEBUG_hd_hd_hd("",CC[0].Red,CC[0].Grn,CC[0].Blu);
     if (! settings.cmapluminous)
      {
      CC[0].Red -= sunshade * CC[0].Red;			/* shading */
@@ -1386,10 +1397,11 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
      CC[0].Grn += sunshade * PARC_RNDR_COLOR(1, 1);
      CC[0].Blu -= sunshade * CC[0].Blu;
      CC[0].Blu += sunshade * PARC_RNDR_COLOR(1, 2);
+     AF_DEBUG_hd_hd_hd("",CC[0].Red,CC[0].Grn,CC[0].Blu);
      } /* if not luminous */
     } /* if not snow */
 
-   colmapavg(map, colpts, &CC[0]);
+   colmapavg(map, colpts, &CC[0]); //AF: ansehen
    } /* if cpts < 3 || cmaptrees */
   else
    eco = settings.defaulteco;
@@ -1401,7 +1413,7 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
   CC[2].Red = CC[1].Red = CC[0].Red;
   CC[2].Grn = CC[1].Grn = CC[0].Grn;
   CC[2].Blu = CC[1].Blu = CC[0].Blu;
-
+  AF_DEBUG_hd_hd_hd("",CC[2].Red,CC[2].Grn,CC[2].Blu);
   return (eco);
 
   } /* if cpts */
