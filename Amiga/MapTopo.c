@@ -10,6 +10,9 @@
 #define MODE_REPLACE 0
 #define MODE_AVERAGE 1
 
+static unsigned int Count=0;   // ALEXANDER
+
+
 void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 	short MakeWater, short Visible, double *Elev)
 {
@@ -141,6 +144,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
    CC[0].Blu -= CC[0].Blu * sunshade;
    } /* if render to RGB */
 
+AF_DEBUG_hd_hd_hd("",CC[0].Red,CC[0].Grn,CC[0].Blu);
   eco = understory = 50;
 
   goto EndDrawFace;
@@ -176,6 +180,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
     CC[0].Grn -= pow(sunshade, 3.4) * CC[0].Grn * PARC_RNDR_MOTION(22);
     CC[0].Blu  = PARC_MCOL_ECO(1, 2);
     CC[0].Blu -= pow(sunshade, 3.8) * CC[0].Blu * PARC_RNDR_MOTION(22);
+    AF_DEBUG_hd_hd_hd("",CC[0].Red,CC[0].Grn,CC[0].Blu);
     } /* if relel matchup */
    else notsnow = 1;
    } /* if slope matchup */
@@ -302,6 +307,7 @@ EndDrawFace:
    CC[3].Red = sunshade * PARC_RNDR_COLOR(1, 0);	/* ambient pre-calc */
    CC[3].Grn = sunshade * PARC_RNDR_COLOR(1, 1);
    CC[3].Blu = sunshade * PARC_RNDR_COLOR(1, 2);
+   AF_DEBUG_hd_hd_hd("",CC[0].Red,CC[0].Grn,CC[0].Blu);
 /* This is now done on a pixel basis to facilitate texture mapping
    CC[0].Red += sunshade * PARC_RNDR_COLOR(1, 0);	// ambient
    CC[0].Grn += sunshade * PARC_RNDR_COLOR(1, 1);
@@ -432,6 +438,7 @@ EndDrawFace:
     {
     Edge1[y] = (int)Xoffset;
     Xoffset += m;
+    AF_DEBUG_hd("",Edge1[y]);
     }
 
    if (polyy[b][0] == polyy[b][1]) m = 0.0;
@@ -442,6 +449,7 @@ EndDrawFace:
    for (y=StartY; y<=EndY; y++)
     {
     Edge2[y] = (int)Xoffset;
+    AF_DEBUG_hd("",Edge2[y]);
     Xoffset += m;
     }
 
@@ -474,6 +482,8 @@ EndDrawFace:
    for (y=StartY; y<=EndY; y++)
     {
     Edge2[y] = (int)Xoffset;
+    AF_DEBUG_hd("",Edge1[y]);
+
     Xoffset += m;
     }
 
@@ -1029,6 +1039,7 @@ StartDraw:
          *(bitmap[1] + zip) = (UBYTE)fgrn;
          *(bitmap[2] + zip) = (UBYTE)fblu;
 	 } /* else first value */
+        AF_DEBUG_hd_hd_hd("",*(bitmap[0] + zip),*(bitmap[1] + zip),*(bitmap[2] + zip));
         } /* if render to bitmaps */
 
        if (QPt < dist)
@@ -1486,7 +1497,16 @@ double m, EdgeVal, ValCX, ValCY, dCX, dCY, ValIX, ValIY, dIX, dIY;
   m = 0.0;
  EdgeVal = xx[1];
  for (y=Edge2aHt; y<=Edge1Ht; y++, EdgeVal += m)
+ {
   Edge2[y] = EdgeVal;
+  AF_DEBUG_hu_hu("Edge2[y]",y,Edge2[y]);
+  if(Count==41)
+  {
+      AF_DEBUG_f("EdgeVal",EdgeVal);
+      AF_DEBUG_double_hex("EdgeVal",EdgeVal);
+      AF_DEBUG_hd("(short)EdgeVal",(short)EdgeVal);
+  }
+ }
 
  if (Edge1[Edge2aHt] > Edge2[Edge2aHt])
   ScanOrder = SCAN_REVERSE;
@@ -1511,42 +1531,77 @@ double m, EdgeVal, ValCX, ValCY, dCX, dCY, ValIX, ValIY, dIX, dIY;
   SetAPen(win->RPort, AltPen[1]);
  if (ScanOrder)
   {
+     AF_DEBUG_hd("if (ScanOrder) y<=Edge1Ht",Edge1Ht);
   for (y=0, scrnrow=yy[0]; y<=Edge1Ht; y++, scrnrow++, ValCY += dCY, ValIY += dIY)
    {
    if (scrnrow < 0)
+   {
+    AF_DEBUG("scrnrow < 0");
     continue;
+   }
    if (scrnrow > high)
+   {
+    AF_DEBUG("scrnrow > high");
     break;
+   }
    zip = scrnrowzip[scrnrow] + Edge1[y];
    ValCX = ValCY;
    ValIX = ValIY;
+   AF_DEBUG_hd_hd_hd("Edge1[y] Edge2[y]",Edge1[y], Edge2[y],y);
    for (x=Edge1[y]; x<=Edge2[y]; x++, zip++, ValCX += dCX, ValIX += dIX)
     {
     if (x < 0)
+    {
+     AF_DEBUG("x<0");
      continue;
+    }
     if (x > wide)
+    {
+     AF_DEBUG("x > wide");
      break;
+    }
+    //AF_DEBUG_f_f("",qqq,(*(zbuf + zip)));  /* ALEXANDER: float-max3.40282e+038 */
+AF_DEBUG_d("Anzahl:",++Count);
     if (qqq < *(zbuf + zip))
      {
+AF_DEBUG_d("Anzahl qqq kleiner :",Count);
      if (ValCX < 0.0)
+     {
+      AF_DEBUG("ValCX<0");
       ValCX = 0.0;
+     }
      else if (ValCX > 255.0)
+     {
+      AF_DEBUG("ValCX>255.0");
       ValCX = 255.0;
+     }
      if (ValIX < 0.0)
+     {
+      AF_DEBUG("ValIX < 0.0");
       ValIX = 0.0;
+     }
      else if (ValIX > 255.0)
+     {
+      AF_DEBUG("ValIX > 255.0");
       ValIX = 255.0;
+     }
      *(bytemap + zip) = (USHORT)ValCX;
      *(bytemap + zip) += (((USHORT)ValIX) << 8);
+     AF_DEBUG_hu("",(*(bytemap + zip)));
      *(zbuf + zip) = qqq;
      if (ElevationMap)
-      ElevationMap[zip] = Elev;
+     {
+         ElevationMap[zip] = Elev;
+         AF_DEBUG("ElevationMap[zip]");
+     }
      } /* if */
     } /* for x=... */
    } /* for y=0... */
+  AF_DEBUG("Ende if scanorder")
   } /* if normal scan - left to right */
  else
   {
+     AF_DEBUG("else (ScanOrder)");
   for (y=0, scrnrow=yy[0]; y<=Edge1Ht; y++, scrnrow++, ValCY += dCY, ValIY += dIY)
    {
    if (scrnrow < 0)
@@ -1574,9 +1629,14 @@ double m, EdgeVal, ValCX, ValCY, dCX, dCY, ValIX, ValIY, dIX, dIY;
       ValIX = 255.0;
      *(bytemap + zip) = (USHORT)ValCX;
      *(bytemap + zip) += (((USHORT)ValIX) << 8);
+     AF_DEBUG_hu("",(*(bytemap + zip)));
      *(zbuf + zip) = qqq;
      if (ElevationMap)
+     {
       ElevationMap[zip] = Elev;
+      AF_DEBUG_f("",ElevationMap[zip]);
+     }
+
      } /* if */
     } /* for x=... */
    } /* for y=0... */

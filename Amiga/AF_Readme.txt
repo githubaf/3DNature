@@ -1382,4 +1382,16 @@ compare  ~/Desktop/CanyonSet_gcc_no_000 ~/Desktop/CanyonSet_sas_no_000 DiffImage
 29.07.2022
 ----------
 gcc und SAS/C Bilder (FractalDepth=0, No 3dClouds, No reflection, no Shadow, no waves) sind jetzt identisch.
+Reflektionen sind auch identisch.
+Zusaetzlich 3D-Clouds:
+-> 3d-Clouds sind ziemlich identisch, haben aber viele unterschiedliche Punkte die auch noch wie Linien aussehen.
+
+->renderclouds() Berechnet die Wolken, bringt sie auf den Bildschirm und in die fertige Datei. Ohne Renderclouds kommen auch die Clouds-Busy-Fenster und es dauert genauso lange. Aber eben keine Wolken zu sehen.
+
+
+31.07.2022
+----------
+Die Logfiles sind inzwischen viel zu gross fuer meld-
+Kopieren Startzeile bis Endzeile aus einem riesigen Fle:
+sed -n '1415252,1415452 p' ~/Desktop/wcs_gcc.txt > wcs_gcc_1.txt
 

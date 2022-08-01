@@ -20,7 +20,7 @@ STATIC_FCN void SetScreenColor(short ecotype); // used locally only -> static, A
 short ecoset(short i, short notsnow, struct ColorComponents *CC)
 {
  short j, understory = 1;
-
+AF_DEBUG("");
  if (notsnow)
   {
   SetScreenColor((PAR_TYPE_ECO(PAR_UNDER_ECO(i)) & 0x00ff) % 50);
@@ -294,7 +294,7 @@ short WaterEco_Set(short MakeWater, struct ColorComponents *CC)
 {
  short j, eco;
  double waveamp, WaterDepth, waterfactor, WhiteCap, ElDepth;
-
+ AF_DEBUG("");
  WaterDepth = SeaLevel - (polyel[b][0] + polyel[b][1] + polyel[b][2]) / 3.0;
  WaterDepth += (Random * 5.0 * WaterDepth);
  ElDepth = MaxSeaLevel - el;
@@ -433,6 +433,7 @@ short WaterEco_Set(short MakeWater, struct ColorComponents *CC)
 
 void colmapavg(struct elmapheaderV101 *map, short colpts, struct ColorComponents *CC)
 {
+    AF_DEBUG("");
  switch (colpts)
   {
   case 1:
@@ -522,7 +523,7 @@ void colmapavg(struct elmapheaderV101 *map, short colpts, struct ColorComponents
 
 STATIC_FCN void seashoal(struct ColorComponents *CC) // used locally only -> static, AF 26.7.2021
 {
-
+    AF_DEBUG("");
  if ((SeaLevel - el < 6.0) || (SeaLevel - el > 16 && SeaLevel - el < 20))
   {
   double sinSkewLat = sin(PARC_SKLT_ECO(0)),
@@ -559,7 +560,7 @@ STATIC_FCN void seashoal(struct ColorComponents *CC) // used locally only -> sta
 
 STATIC_FCN void SetScreenColor(short ecotype) // used locally only -> static, AF 26.7.2021
 {
-
+    AF_DEBUG("");
   switch (ecotype)
    {
    case 0:
@@ -618,7 +619,7 @@ short ComputeTexture(double ElPt, double LatPt, double LonPt, double ElY)
 {
 long TexEl, SumEl = 0, MacroSum, FirstPass = 1, FirstTexEl, LastTexEl;
 double FirstFraction, LastFraction, LastEl, OrigEl, SumSamp;
-
+AF_DEBUG("");
  ElPt += (LatPt * settings.stratadip);
  ElPt += (LonPt * settings.stratastrike);
  if (settings.deformationmap)
@@ -739,7 +740,7 @@ short ComputeTextureColor(double ElPt, double LatPt, double LonPt, double ElY,
 long TexEl, SumEl = 0, SumRed = 0, SumGrn = 0, SumBlu = 0,
 	MacroSum[4], FirstPass = 1, FirstTexEl, LastTexEl;
 double FirstFraction, LastFraction, LastEl, OrigEl, SumSamp;
-
+AF_DEBUG("");
  ElPt += (LatPt * settings.stratadip);
  ElPt += (LonPt * settings.stratastrike);
  if (settings.deformationmap)
@@ -901,7 +902,7 @@ STATIC_FCN long MakeNoise(UBYTE *NoiseMap, long MaxNoise, double Lat, double Lon
 {
 long Noisy, Col, Row, Colp1, Rowp1;
 double Noise, LonOff, LatOff, LonInvOff, LatInvOff, wt[4], val[4];
-
+AF_DEBUG("");
  if (! NoiseMap)
   return (0);
 
@@ -971,7 +972,7 @@ double DEM_InterpPt(struct elmapheaderV101 *Map, double Lat, double Lon)
 {
 long Row, Col;
 double InterpVal = 0.0, LonOff, LatOff, LonInvOff, LatInvOff, wt[4], val[4], Area;
-
+AF_DEBUG("");
  if (! Map->map)
   return (0.0);
 

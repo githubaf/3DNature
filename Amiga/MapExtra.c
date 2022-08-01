@@ -2446,6 +2446,8 @@ long Np1, Stage, Addition, x, y, D, d;
 struct Gauss Gauss;
 struct BusyWindow *BWMD;
 
+AF_DEBUG("");
+
  Gauss.Seed = Seed;
 
  Addition = 1;
@@ -2531,7 +2533,7 @@ struct BusyWindow *BWMD;
 				  Rast[(x - d) * Np1 + y]);
     } /* for y=d... */
    } /* for x=D... */
-
+  /* ALEXANDER: Addition ist nicht das Problem. */
   if (Addition)
    {
    for (x=0; x<=N2; x+=D)
