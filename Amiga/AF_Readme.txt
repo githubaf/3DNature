@@ -1395,3 +1395,10 @@ Die Logfiles sind inzwischen viel zu gross fuer meld-
 Kopieren Startzeile bis Endzeile aus einem riesigen Fle:
 sed -n '1415252,1415452 p' ~/Desktop/wcs_gcc.txt > wcs_gcc_1.txt
 
+1.Augut 2022
+------------
+Bei den Files von Github was das Binary WCS 2.031 dabei.
+Wenn ich auf den damaligen Stand zuruckgehe und es nachbaue, dann erzeugt das mit SCS/C nachgebaute WCS identische Bilder.
+Das WCS 204 erzeugt zumindest andere Wolken.
+
+
