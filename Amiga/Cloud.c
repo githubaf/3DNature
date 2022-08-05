@@ -12,7 +12,7 @@
 
 struct CloudLayer *CloudLayer_New(void)
 {
-AF_DEBUG("");
+
  return ((struct CloudLayer *)
 	get_Memory(sizeof (struct CloudLayer), MEMF_CLEAR));
 
@@ -33,7 +33,7 @@ void CloudLayer_Del(struct CloudLayer *CL) // not used AF 19.7.21
 STATIC_FCN void CloudLayer_DelAll(struct CloudLayer *CL) // used locally only -> static, AF 19.7.2021
 {
 struct CloudLayer *CLDel;
-AF_DEBUG("");
+
  while (CL)
   {
   CLDel = CL;
@@ -91,7 +91,7 @@ void CloudLayer_SetShort(struct CloudLayer *CL, ULONG Item, short Val)
 struct CloudData *CloudData_New(void)
 {
 struct CloudData *CD;
-AF_DEBUG("");
+
  if ((CD = (struct CloudData *)
 	get_Memory(sizeof (struct CloudData), MEMF_CLEAR)))
   {
@@ -110,7 +110,7 @@ AF_DEBUG("");
 
 void CloudData_Del(struct CloudData *CD)
 {
-    AF_DEBUG("");
+
  if (CD)
   {
   if (CD->CloudPlane)
@@ -133,9 +133,7 @@ void CloudData_Del(struct CloudData *CD)
 
 void CloudData_SetLong(struct CloudData *CD, ULONG Item, long Val)
 {
-    AF_DEBUG("");
-    AF_DEBUG_lu("Item",Item);
-    AF_DEBUG_ld("Val",Val);
+
  switch (Item)
   {
   case CLOUDDATA_RANDSEED:
@@ -161,8 +159,6 @@ void CloudData_SetLong(struct CloudData *CD, ULONG Item, long Val)
 
 long CloudData_GetLong(struct CloudData *CD, ULONG Item)
 {
-    AF_DEBUG("");
-    AF_DEBUG_lu("Item",Item);
 
  switch (Item)
   {
@@ -194,8 +190,7 @@ long CloudData_GetLong(struct CloudData *CD, ULONG Item)
 
 void CloudData_SetShort(struct CloudData *CD, ULONG Item, short Val)
 {
-    AF_DEBUG("");
-    printf("%s %s %d %hd\n",__FILE__,__func__,__LINE__,Val);
+
  switch (Item)
   {
   case CLOUDDATA_NUMKEYS:
@@ -231,7 +226,7 @@ void CloudData_SetShort(struct CloudData *CD, ULONG Item, short Val)
 
 short CloudData_GetShort(struct CloudData *CD, ULONG Item)
 {
-    AF_DEBUG("");
+
  switch (Item)
   {
   case CLOUDDATA_NUMKEYS:
@@ -273,8 +268,7 @@ short CloudData_GetShort(struct CloudData *CD, ULONG Item)
 
 void CloudData_SetDouble(struct CloudData *CD, ULONG Item, double Val)
 {
-    AF_DEBUG("");
-    printf("%s %s %d %f\n",__FILE__,__func__,__LINE__,Val);
+
  switch (Item)
   {
   case CLOUDDATA_COVERAGE:
@@ -345,7 +339,7 @@ void CloudData_SetDouble(struct CloudData *CD, ULONG Item, double Val)
 
 double CloudData_GetDouble(struct CloudData *CD, ULONG Item)
 {
-    AF_DEBUG("");
+
  switch (Item)
   {
   case CLOUDDATA_COVERAGE:
@@ -425,7 +419,6 @@ short Cloud_SetBounds(struct CloudData *CD)
 short error = 0;
 long XRange, YRange, Low_X, Low_Y, High_X, High_Y;
 struct Box Bx;
-AF_DEBUG("");
 
 if (! MapWind0)
   {
@@ -534,8 +527,6 @@ double ptlat, ptlon, avglat, d1, d2, dist, lonscale, waveamp,
 struct BusyWindow *BWMD;
 struct Wave *WV;
 
-AF_DEBUG("");
-
  if (CD->CloudPlane)
   free_Memory(CD->CloudPlane, CD->PlaneSize);
 
@@ -569,6 +560,7 @@ AF_DEBUG("");
  LonStep = 8.0 * (CD->Lon[1] - CD->Lon[0]) / (CD->Cols - 1);
 
  BWMD = BusyWin_New("Computing...", CD->Rows, 0, MakeID('B','W','M','D'));
+
  zip = 0;
  for (y=0, ptlat=CD->Lat[0] + CD->LatOff; y<=CD->Rows; y+=8, ptlat+=LatStep)
   {
@@ -591,7 +583,6 @@ AF_DEBUG("");
      } /* while */
     } /* if */
 
-   //AF_DEBUG_f("CD->CloudPlane[zip]",CD->CloudPlane[zip]);
    CD->CloudPlane[zip] = waveamp;
    } /* for x=... */
 
@@ -611,7 +602,6 @@ AF_DEBUG("");
   success = Raster_Fract(CD->CloudPlane, CD->Cols, CD->Rows, CD->RandSeed,
 	CD->StdDev, CD->H, 3);
 
- AF_DEBUG_hd("success",success);
  return (success);
 
 } /* Cloud_Generate() */
@@ -626,8 +616,6 @@ double MaxAmp, MinAmp, CloudMinAmp, CloudRangeAmp, DataRow, DataCol, Density,
 	LatStep, LonStep;
 struct BusyWindow *BWMD;
 struct clipbounds cb;
-
-AF_DEBUG("");
 
  if (! MapWind0 || ! CD->CloudPlane)
   return (0);
@@ -694,9 +682,6 @@ AF_DEBUG("");
     }
    else
     col = 1;
-
-   AF_DEBUG_hd("col",col);
-
    SetAPen(MapWind0->RPort, col);
    WritePixel(MapWind0->RPort, x, y);
    } /* for x=... */
@@ -720,8 +705,6 @@ void Cloud_SetDefaults(struct CloudData *CD, short CloudType, short SetAll)
 {
 short i;
 struct CloudLayer *CL, *CLPrev;
-
-AF_DEBUG("");
 
  if (CD->Layer)
   CloudLayer_DelAll(CD->Layer);
@@ -845,8 +828,6 @@ double Alt;
 //struct Wave *WV = NULL;
 struct CloudLayer *CL;
 
-AF_DEBUG("");
-
 // if (CD->WD)
 // {
 //     WV = CD->WD->Wave;
@@ -881,7 +862,7 @@ AF_DEBUG("");
 
 short BuildCloudKeyTable(struct CloudData *CD)
 {
-    AF_DEBUG("");
+
 return (BuildGenericKeyTable(&CD->KT, CD->CloudKey, CD->NumKeys,
 		&CD->KT_MaxFrames, 3, 0, 7, WCS_KFPRECISION_FLOAT, NULL));
 

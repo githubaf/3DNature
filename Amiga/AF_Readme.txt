@@ -1401,4 +1401,10 @@ Bei den Files von Github was das Binary WCS 2.031 dabei.
 Wenn ich auf den damaligen Stand zuruckgehe und es nachbaue, dann erzeugt das mit SCS/C nachgebaute WCS identische Bilder.
 Das WCS 204 erzeugt zumindest andere Wolken.
 
+4.Aug.2022
+----------
+Unterschiede in Z-Buffer Files. Sind sehr klein.
+meld <(xxd ~/Desktop/CanyonSet_gcc_000GZB_gray_array) <(xxd ~/Desktop/CanyonSet_sas_000GZB_gray_array)
+
+
 

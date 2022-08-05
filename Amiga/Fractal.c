@@ -47,7 +47,6 @@ void Recurse(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
   Poly_Divide();
   if (maxfract > b)
    {
-      AF_DEBUG_ld("maxfract",maxfract);
    b ++;
    Recurse(map, win, MapAsSFC, CD, Data);
    } /* if */
@@ -95,7 +94,6 @@ end questionable */
 ** 0.0174 corresponds to 1 in radians */
     if (slope > 0.0174)
      {
-        AF_DEBUG("slope > 0.0174");
      if (dir==1) slope += ((Random + Random * slope * 4.0) * .7);
      else  slope += ((Random + Random * slope * 4.0) * .35);
      slope = fabs(slope) < HalfPi ? fabs(slope): HalfPi - .001;
@@ -103,7 +101,6 @@ end questionable */
     } /* if */
 
    dir = dir < 2 ? dir + 1: 0;
-   AF_DEBUG_hd("dir",dir);
    MapTopo(map, win, MapAsSFC, 0, 1, &Data->El[0]);
    } /* else */
   } /* for polyct[b] = 0... */
@@ -238,7 +235,6 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
    treerand = drand48();
    Random = -.2 * treerand + .1;
 
-   AF_DEBUG_f("Random",Random);
 /* shading calculation */
 
    sunangle = VectorAngle(&PP[0], &SP);	/* gives you the cosine of the angle */
@@ -251,8 +247,6 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
 /* these need to be lon mod 360 */
 
     LonDiff = fabs(facelong - PARC_RNDR_MOTION(16));
-    AF_DEBUG_f("LonDiff",LonDiff);
-
     while (LonDiff > 180.0)
      {
      LonDiff -= 360.0;
@@ -271,8 +265,6 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
    sunangle = ACos_Table(sunangle);
 
    dir = dir < 2 ? dir + 1: 0;
-
-   AF_DEBUG_hd("dir",dir);
 
    MapTopo(map, win, MapAsSFC, MakeWater, 1, &Data->El[0]);
    } /* else */
@@ -1027,7 +1019,7 @@ void SmoothFace_ColSet(struct elmapheaderV101 *map, struct faces **Face,
 	long FaceColSize)
 {
 long i;
-AF_DEBUG_ld("FaceColSize",FaceColSize);
+
  Face[0] = map->face;
  Face[1] = map->face + FaceColSize;
  Face[2] = map->face + 2 * FaceColSize;

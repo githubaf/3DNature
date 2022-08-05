@@ -514,49 +514,8 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
 #else    // AF: SAS/C automatically creates Zeros if the float value was negative ??? sounds wrong but it is as it is...*/
       NoiseMap[ct] = (UBYTE)(127.5 + GaussRand() * 127.49999);
 #endif
+   } /* if noise map created */
   }
-  {
-      static int i=0;
-      if(i==0)
-      {
-#ifdef __SASC
-      FILE *NoiseFile=fopen("vbox:noisefile_sas.dat","w");
-#else
-      FILE *NoiseFile=fopen("vbox:noisefile_gcc.dat","w");
-#endif
-      printf("%s %s Zeile %d schreibe Noisedaten\n",__FILE__,__func__,__LINE__);
-      fwrite(NoiseMap,65536,1,NoiseFile);
-      fclose(NoiseFile);
-      i++;
-      }
-/*
-      srand48(11111);
-      printf("%s %s Zeile %d drand48()=%f\n",__FILE__,__func__,__LINE__,drand48());
-      }
-      srand48(11111);
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-      { double x=(127.5 + GaussRand()* 127.49999); printf("%s %s Zeile %d GaussMalPlus=%f UByteCast==%02x\n",__FILE__,__func__,__LINE__,x,(UBYTE)x);}
-*/
-  }
-  } /* if noise map created */
  else
   {
   if (! User_Message_Def((CONST_STRPTR)"Render Module",

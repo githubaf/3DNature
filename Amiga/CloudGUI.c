@@ -21,8 +21,6 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
  long i, open;
  static const char *CL_CloudTypes[] = {"Cirrus", "Stratus", "Nimbus", "Cumulus", NULL};
 
- AF_DEBUG("");
-
  if (CL_Win)
   {
   DoMethod(CL_Win->CloudWin, MUIM_Window_ToFront);
@@ -408,7 +406,6 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 
 void Close_CL_Window(void)
 {
-    AF_DEBUG("");
 
  if (CL_Win)
   {
@@ -468,7 +465,6 @@ char *FloatData;
 short i;
 long data;
 double FloatVal;
-AF_DEBUG("");
 
   if ((WCS_ID & 0x0000ff00) == GP_OPEN_WINDOW)
    {
@@ -1031,8 +1027,6 @@ struct Wave *WV = NULL;
 struct CloudLayer *CL, *CLPrev;
 union KeyFrame *KFPtr;
 
-AF_DEBUG_s("filename",filename);
-
  if (! filename)
   return (0);
 
@@ -1043,7 +1037,6 @@ AF_DEBUG_s("filename",filename);
   if (! strcmp(Title, "WCSCloud"))
    {
    fscanf(fCloud, "%hd", &Version);
-   AF_DEBUG_hd("Version",Version)
    
    if (*CDPtr)
     CloudData_Del(*CDPtr);
@@ -1298,7 +1291,6 @@ FILE *fCloud;
 struct Wave *WV;
 struct CloudLayer *CL;
 union KeyFrame *KFPtr;
-AF_DEBUG("");
 
  if (! filename || ! CD)
   return (0);
@@ -1430,7 +1422,6 @@ STATIC_FCN void GUICloud_SetGads(struct CloudWindow *CL_Win,
 	struct CloudData *CD) // used locally only -> static, AF 26.7.2021
 {
 char TextStr[32];
-AF_DEBUG("");
 
  nnset(CL_Win->Cycle, MUIA_Cycle_Active, CloudData_GetShort(CD, CLOUDDATA_CLOUDTYPE));
 
@@ -1453,7 +1444,6 @@ AF_DEBUG("");
 STATIC_FCN void GUICloudKey_SetGads(struct CloudWindow *CL_Win,
 	struct CloudData *CD, short Frame) // used locally only -> static, AF 26.7.2021
 {
-    AF_DEBUG("");
 
  if (CD && CL_Win)
   {
