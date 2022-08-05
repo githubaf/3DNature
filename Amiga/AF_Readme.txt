@@ -1406,5 +1406,18 @@ Das WCS 204 erzeugt zumindest andere Wolken.
 Unterschiede in Z-Buffer Files. Sind sehr klein.
 meld <(xxd ~/Desktop/CanyonSet_gcc_000GZB_gray_array) <(xxd ~/Desktop/CanyonSet_sas_000GZB_gray_array)
 
+5.August 2022
+-------------
+Git-Hash als BUILDID hinzugefuegt bei den Eclipse Compilersettings. "G/" fuer gcc-Version.  -DBUILDID=\"g/'$(shell git describe --always --dirty)'\" 
+
+Bei SAS manuell ENVARC-Variable setzen.
+# unter Linux:
+git describe --always --dirty  # zeigt z.B. a048f82-dirty
+; in WinUAE:
+setenv BuildID s/a048f82-dirty  ; s fuer SAS/C
+copy env:BuildID  envarc:
+delete version.o 
+smake optimize
+
 
 

@@ -10,7 +10,7 @@ char ExtVersion[]		= "$VER: " APP_VERSION;
 char ExtAboutVers[]	= "\33cVersion " APP_VERS "." APP_REV " " APP_FLAVOR;
 /*char ExtAboutVers[]	= "\33cVersion " APP_VERS "." APP_REV;*/
 #define BUILDHOST "selco"
-#define BUILDID   "Thanks 3DNature!"
+/*#define BUILDID   "Thanks 3DNature!"*/  /* provide git hash on command line! git describe --always --dirty*/
 char ExtAboutBuild[]	= "\33c("__DATE__ " " __TIME__ " " BUILDHOST ")\n""Serial: " BUILDID ;
 char ExtCreditText[] =
 "\n\
