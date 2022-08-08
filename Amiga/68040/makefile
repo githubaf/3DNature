@@ -45,7 +45,7 @@ main-build: WCS
 WCS: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
-	m68k-amigaos-gcc -pg -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68040 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_Profiling.map
+	m68k-amigaos-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68040 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_68040.map -flto
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -56,11 +56,11 @@ clean:
 	-@echo ' '
 
 pre-build:
-	-realpath $$(which m68k-amigaos-gcc) &&   find . \( -name "*.gcno" -o -name "*.gcda" -o -name "gmon.out" \) -exec rm -f {} \; ; rm -fv Version.o
+	-realpath $$(which m68k-amigaos-gcc) &&   rm -fv Version.o
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS_Profiling && cp WCS_Profiling WCS_Profiling.unstripped && m68k-amigaos-strip WCS_Profiling && ls -la WCS_Profiling && m68k-amigaos-size WCS_Profiling && cp  ../WCS.info WCS_Profiling.info
+	-cp WCS WCS_68040 && cp WCS_68040 WCS_68040.unstripped && m68k-amigaos-strip WCS_68040 && ls -la WCS_68040 && m68k-amigaos-size WCS_68040 && cp  ../WCS.info WCS_68040.info
 	-@echo ' '
 
 .PHONY: all clean dependents main-build pre-build post-build

@@ -1420,4 +1420,14 @@ delete version.o
 smake optimize
 
 
+6.August 2022
+-------------
+Reworked build-targets. New Targets are 68040, 68020-60, Coverage, Profiling.
+Latest toolchain version. (31.Juli 2022) -> Profiling does not work, no gmon.out file produced.
+Makefiles need to be added to git. A simple "make all" should build the targets from the command line.
+--> in den Buildverzeichnissen (68040, 68020-60, Coverage etc)
+alles loeschen. Ueberflüssige Verzeichnisse und Dateien Loeschen. Mit Eclipse "Clean Project", dann "Build Project" um die Makefiles neu zu erzeugen. 
+Makefiles einchecken:
+git add -f makefile sources.mk objects.mk subdir.mk vgl/subdir.mk
+
 

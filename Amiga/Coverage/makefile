@@ -9,13 +9,6 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include vgl/subdir.mk
--include noftastmatgregparm/vgl/subdir.mk
--include nofastmathregparm/vgl/subdir.mk
--include nofastmathregparm/esp/.metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
--include nofastmathregparm/subdir.mk
--include esp/.metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
--include CONFIG_Optimization/vgl/subdir.mk
--include CONFIG_Optimization/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -52,7 +45,7 @@ main-build: WCS
 WCS: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
-	m68k-amigaos-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68040 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE  -Wl,-Map=WCS_Release.map -flto -g
+	m68k-amigaos-gcc -pg -ftest-coverage -fprofile-arcs -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68040 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_Coverage.map
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -63,11 +56,11 @@ clean:
 	-@echo ' '
 
 pre-build:
-	-rm -fv Version.o
+	-realpath $$(which m68k-amigaos-gcc) &&  find . \( -name "*.gcno" -o -name "*.gcda" -o -name "gmon.out" \) -exec rm -f {} \; ; rm -fv Version.o
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS_Release && cp WCS_Release WCS_Release.unstripped && m68k-amigaos-strip WCS_Release && ls -la WCS_Release && m68k-amigaos-size WCS_Release && cp  ../WCS.info WCS_Release.info
+	-cp WCS WCS_Coverage && cp WCS_Coverage WCS_Coverage.unstripped && m68k-amigaos-strip WCS_Coverage && ls -la WCS_Coverage && m68k-amigaos-size WCS_Coverage && cp  ../WCS.info WCS_Coverage.info
 	-@echo ' '
 
 .PHONY: all clean dependents main-build pre-build post-build

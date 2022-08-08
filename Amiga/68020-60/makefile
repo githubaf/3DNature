@@ -9,8 +9,6 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include vgl/subdir.mk
--include CONFIG_Optimization/vgl/subdir.mk
--include CONFIG_Optimization/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -36,13 +34,18 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: WCS
+all:
+	$(MAKE) --no-print-directory pre-build
+	$(MAKE) --no-print-directory main-build
+
+# Main-build Target
+main-build: WCS
 
 # Tool invocations
 WCS: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
-	m68k-amigaos-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -Wl,-Map=wcs.map,--trace
+	m68k-amigaos-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68020-60 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_68020-60.map -flto
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -52,10 +55,14 @@ clean:
 	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) WCS
 	-@echo ' '
 
-post-build:
-	-cp WCS WCS.unstripped && m68k-amigaos-strip WCS && ls -la WCS && m68k-amigaos-size WCS
+pre-build:
+	-realpath $$(which m68k-amigaos-gcc) &&   rm -fv Version.o
 	-@echo ' '
 
-.PHONY: all clean dependents post-build
+post-build:
+	-cp WCS WCS_68020-60 && cp WCS_68020-60 WCS_68020-60.unstripped && m68k-amigaos-strip WCS_68020-60 && ls -la WCS_68020-60 && m68k-amigaos-size WCS_68020-60 && cp  ../WCS.info WCS_68020-60.info
+	-@echo ' '
+
+.PHONY: all clean dependents main-build pre-build post-build
 
 -include ../makefile.targets
