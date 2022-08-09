@@ -1430,4 +1430,28 @@ alles loeschen. Ueberflüssige Verzeichnisse und Dateien Loeschen. Mit Eclipse "C
 Makefiles einchecken:
 git add -f makefile sources.mk objects.mk subdir.mk vgl/subdir.mk
 
+8.8.2022
+--------
+Version ac5b912789dbc5431a83ee86618feeb13b231bfe als Testversion verschickt. Ohne fast-math!
+
+gcc vom 31Jul22
+
+WCS       Size     text    data     bss    dec     hex    Warnings   A4000T/040/25/16     Comment
+   30   1034100   930076  102628  114580 1147284  118194    151           3:57:40          schnellstes (68040-Version)
+                                                                          4:39:35          68020-60
+
+30 m68k-amigaos-gcc -DFORCE_MUIMASTER_VMIN=19 -DAMIGA_GUI -DTOOLCHAIN_VER=\"'%@@=492:?ib`yF=aa 9EEADi^^8:E9F3]4@>^3633@^2>:82\\844]8:E 2>:82\\844i5_d`_cd 2>:82\\?6E:?4=F56i_b6ch77 2C@D\\DEF77ig4f`2gb 3:?FE:=Di5eba4c_be 4=:3ai6e4_4d_ 75aAC28>2i6hg7_h_ 75aD75i35f6e55 844i5657`c_ab :C2i333f2ge :I6>F=i7_55hhf =:3563F8ica5h5b2 =:3?:Ii26hgafb =:3$s{`aibac7e34 ?6H=:3\\4J8H:?idfa2c3c $sxic2f7d7e D754if34`42g G2D>i26b62a4 G344iaffgb62 G=:?<ia7`6_3a'\" 
+   -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -MMD -MP -MF"AGUI.d" -MT"AGUI.o" -o "AGUI.o" "../AGUI.c" 
+   -DBUILDID=\"g/'ac5b912'\" -noixemul -m68040 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -flto
+
+30 m68k-amigaos-gcc  -o "WCS"  ./vgl/color.o ./vgl/dumb.o ./vgl/dumbpoly.o ./vgl/pixmap.o ./vgl/wuline.o  ./AGUI.o ./BitMaps.o ./Cloud.o ./CloudGUI.o 
+   ./ColorBlends.o ./Commands.o ./DEM.o ./DEMGUI.o ./DEMObject.o ./DLG.o ./DataBase.o ./DataOps.o ./DataOpsGUI.o ./DefaultParams.o ./DiagnosticGUI.o 
+   ./DispatchGUI.o ./EdDBaseGUI.o ./EdEcoGUI.o ./EdMoGUI.o ./EdPar.o ./EdSetExtrasGUI.o ./EdSetGUI.o ./EditGui.o ./EvenMoreGUI.o ./Foliage.o ./FoliageGUI.o 
+   ./Fractal.o ./GenericParams.o ./GenericTLGUI.o ./GlobeMap.o ./GlobeMapSupport.o ./GrammarTable.o ./HelpGUI.o ./HyperKhorner4M-1_gcc.o ./Images.o ./InteractiveDraw.o 
+   ./InteractiveUtils.o ./InteractiveView.o ./LWSupport.o ./LineSupport.o ./MUIFloatInt.o ./MakeFaces.o ./Map.o ./MapExtra.o ./MapGUI.o ./MapLineObject.o ./MapSupport.o 
+   ./MapTopo.o ./MapTopoObject.o ./MapUtil.o ./Memory.o ./Menu.o ./MoreGUI.o ./Params.o ./ParamsGUI.o ./PlotGUI.o ./RequesterGUI.o ./RexxSupport.o ./ScratchPad.o ./ScreenModeGUI.o 
+   ./Support.o ./TLSupportGUI.o ./TimeLinesGUI.o ./Tree.o ./Version.o ./VocabTable.o ./WCS.o ./Wave.o ./WaveGUI.o ./nncrunch.o ./nngridr.o ./sasc_functions.o    
+   -noixemul -m68040 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_68040.map -flto
+
+
 
