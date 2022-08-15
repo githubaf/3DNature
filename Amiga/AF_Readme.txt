@@ -1453,5 +1453,10 @@ WCS       Size     text    data     bss    dec     hex    Warnings   A4000T/040/
    ./Support.o ./TLSupportGUI.o ./TimeLinesGUI.o ./Tree.o ./Version.o ./VocabTable.o ./WCS.o ./Wave.o ./WaveGUI.o ./nncrunch.o ./nngridr.o ./sasc_functions.o    
    -noixemul -m68040 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_68040.map -flto
 
+Die 68040 noch einmal mit ffast-math compiliert. -> 3:49:50, also 8 Minuten schneller. (Aber das Ergebnis hatte ja mehr Unterschiede)
 
+14.8.2022
+---------
+Neues Target 68060.
+68020-60, 68040 und 68060 als Testversion fuer A1K gedacht.
 
