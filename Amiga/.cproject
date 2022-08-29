@@ -42,7 +42,7 @@
 								<option id="gnu.cpp.compiler.option.optimization.level.2004155774" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.1527898365" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
 							</tool>
-							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68040 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map" id="cdt.managedbuild.tool.gnu.cross.c.linker.220080640" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68040 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map  &amp;&amp; ../check_wcs.sh ${ProjName}_${ConfigName}" id="cdt.managedbuild.tool.gnu.cross.c.linker.220080640" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.link.option.libs.313766888" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" value="mui"/>
 									<listOptionValue builtIn="false" value="gcov"/>
@@ -110,7 +110,7 @@
 								<option id="gnu.cpp.compiler.option.optimization.level.1222994399" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.1344026199" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
 							</tool>
-							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68040 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map -flto" id="cdt.managedbuild.tool.gnu.cross.c.linker.633303799" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68040 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map -flto  &amp;&amp; ../check_wcs.sh ${ProjName}" id="cdt.managedbuild.tool.gnu.cross.c.linker.633303799" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="gnu.c.link.option.libs.1768088352" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.64098905" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -327,7 +327,7 @@
 								<option id="gnu.cpp.compiler.option.optimization.level.1457604703" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.1940307339" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
 							</tool>
-							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68020-60 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map -flto" id="cdt.managedbuild.tool.gnu.cross.c.linker.623105885" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68020-60 -m68881 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map -flto &amp;&amp; ../check_wcs.sh ${ProjName}" id="cdt.managedbuild.tool.gnu.cross.c.linker.623105885" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="gnu.c.link.option.libs.1378581546" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.369047703" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -544,7 +544,7 @@
 								<option id="gnu.cpp.compiler.option.optimization.level.2521202" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.774236897" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
 							</tool>
-							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68040 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map,--gc-sections,--print-gc-sections" id="cdt.managedbuild.tool.gnu.cross.c.linker.180329844" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68040 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -ffast-math -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map,--gc-sections,--print-gc-sections   &amp;&amp; ../check_wcs.sh ${ProjName}_${ConfigName}" id="cdt.managedbuild.tool.gnu.cross.c.linker.180329844" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="gnu.c.link.option.libs.538522007" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1972587543" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -762,7 +762,7 @@
 								<option id="gnu.cpp.compiler.option.optimization.level.1605795965" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.2084377384" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
 							</tool>
-							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68040 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map" id="cdt.managedbuild.tool.gnu.cross.c.linker.1277018818" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68040 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map &amp;&amp; ../check_wcs.sh ${ProjName}_${ConfigName}" id="cdt.managedbuild.tool.gnu.cross.c.linker.1277018818" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.link.option.libs.2115190345" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" value="mui"/>
 									<listOptionValue builtIn="false" value="m"/>
@@ -829,7 +829,7 @@
 								<option id="gnu.cpp.compiler.option.optimization.level.2091366506" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.55430119" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
 							</tool>
-							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68060 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map -flto" id="cdt.managedbuild.tool.gnu.cross.c.linker.1939807488" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68060 -fomit-frame-pointer -fbaserel -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map -flto  &amp;&amp; ../check_wcs.sh ${ProjName}" id="cdt.managedbuild.tool.gnu.cross.c.linker.1939807488" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="gnu.c.link.option.libs.1830398947" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.2112741609" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -1028,24 +1028,27 @@
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
 		<configuration configurationName="Profiling"/>
+		<configuration configurationName="68020-60">
+			<resource resourceType="PROJECT" workspacePath="/WCS"/>
+		</configuration>
+		<configuration configurationName="Release_Static_68040"/>
+		<configuration configurationName="Coverage"/>
+		<configuration configurationName="gc-sections">
+			<resource resourceType="PROJECT" workspacePath="/WCS"/>
+		</configuration>
 		<configuration configurationName="Preopocess_Only">
 			<resource resourceType="PROJECT" workspacePath="/WCS"/>
 		</configuration>
 		<configuration configurationName="no_flto_no_fastmath">
 			<resource resourceType="PROJECT" workspacePath="/WCS"/>
 		</configuration>
-		<configuration configurationName="68020-60">
-			<resource resourceType="PROJECT" workspacePath="/WCS"/>
-		</configuration>
-		<configuration configurationName="Release_Static_68040"/>
-		<configuration configurationName="Preprocess_Only">
-			<resource resourceType="PROJECT" workspacePath="/WCS"/>
-		</configuration>
 		<configuration configurationName="68040">
 			<resource resourceType="PROJECT" workspacePath="/WCS"/>
 		</configuration>
-		<configuration configurationName="Coverage"/>
-		<configuration configurationName="gc-sections">
+		<configuration configurationName="Preprocess_Only">
+			<resource resourceType="PROJECT" workspacePath="/WCS"/>
+		</configuration>
+		<configuration configurationName="68060">
 			<resource resourceType="PROJECT" workspacePath="/WCS"/>
 		</configuration>
 		<configuration configurationName="no_flto"/>

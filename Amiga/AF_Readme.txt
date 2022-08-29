@@ -1460,3 +1460,8 @@ Die 68040 noch einmal mit ffast-math compiliert. -> 3:49:50, also 8 Minuten schn
 Neues Target 68060.
 68020-60, 68040 und 68060 als Testversion fuer A1K gedacht.
 
+29.8.2022
+---------
+Added Check for 68020/68881 to linker-Settings. (Call check_wcs.sh)  -> Was not possible as post-build-step, as errors are ignored there!???
+
+Absturz, wenn "rexxsyslib.library failed to load"
