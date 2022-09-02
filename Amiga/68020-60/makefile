@@ -56,7 +56,7 @@ clean:
 	-@echo ' '
 
 pre-build:
-	-realpath $$(which m68k-amigaos-gcc) &&   rm -fv Version.o
+	-realpath $$(which m68k-amigaos-gcc) &&   rm -fv Version.o; rm -fv WCS_68020-60*
 	-@echo ' '
 
 post-build:

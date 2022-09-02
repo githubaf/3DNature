@@ -1465,3 +1465,30 @@ Neues Target 68060.
 Added Check for 68020/68881 to linker-Settings. (Call check_wcs.sh)  -> Was not possible as post-build-step, as errors are ignored there!???
 
 Absturz, wenn "rexxsyslib.library failed to load"
+
+-> Priority von __cpucheck.c muss die hoechste sein! Hat sich wohl verschoben, Pullrequest gestellt.
+
+1.Sep.2022
+----------
+Nur die 68040 Version funktioniert richtig. 68020, 68020-60 und 68060 erzeugen falsche Bilder. (Compiler vom 31.7.22)
+Compiler 27.11.2021 OK. (Andere Fehler, Icons sehen komplett falsch aus)
+15May22    falsch. z.B. Berge sehr seltsam
+20Apr22    falsch. z.B. Berge sehr seltsam
+13Feb22    falsch. z.B. Berge sehr seltsam
+
+
+2.Sep.2022
+Wenn Toolchain nicht mit meinem Script gebaut:
+
+touch ~/opt/m68k-amigaos/m68k-amigaos/bin/m68k-amigaos-toolchain_hashes.sh
+chmod +x ~/opt/m68k-amigaos/m68k-amigaos/bin/m68k-amigaos-toolchain_hashes.sh
+
+Problem hat nichst mit -flto zu tun.
+
+-> Wenn ich *ohne* -m68881 linke, dann ist der Fehler weg.
+Mit -m68881 wird beim Linken
+LOAD /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a
+gemacht (mapfile)
+ohne -m68881
+LOAD /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libgcc.a
+
