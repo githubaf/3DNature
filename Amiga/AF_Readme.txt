@@ -1492,3 +1492,144 @@ gemacht (mapfile)
 ohne -m68881
 LOAD /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libgcc.a
 
+
+5.Sep.2022
+----------
+Libraryfiles testweise ersetzen:
+mkdir lib-files
+cd lib-files/
+cp /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libgcc.a .
+m68k-amigaos-ar xv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libgcc.a
+cp /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a  libb_libm020_libm881_libgcc.a
+ls *.o
+
+_absvdi2.o   _clear_cache.o  _ctzdi2.o  enable-execute-stack.o  _fixunsdfsi.o  _floatdisf.o    gmon.o      _mulvdi3.o    _popcountdi2.o   _subvsi3.o      unwind-dw2-fde.o          xfpgnulib__floatsisf.o
+_absvsi2.o   _clrsbdi2.o     _ctzsi2.o  _eprintf.o              _fixunssfdi.o  _floatditf.o    _lshrdi3.o  _mulvsi3.o    _popcountsi2.o   _trampoline.o   unwind-dw2.o              xfpgnulib__floatunsidf.o
+_addvdi3.o   _clrsbsi2.o     _divdc3.o  _ffsdi2.o               _fixunssfsi.o  _floatdixf.o    __main.o    _mulxc3.o     _popcount_tab.o  _ucmpdi2.o      unwind-sjlj.o             xfpgnulib__floatunsisf.o
+_addvsi3.o   _clzdi2.o       _divdi3.o  _ffssi2.o               _fixunstfdi.o  _floatundidf.o  _moddi3.o   _negdi2.o     _powidf2.o       _udivdi3.o      xfpgnulib__cmpxf2.o       xfpgnulib.o
+_ashldi3.o   _clz.o          _divsc3.o  _fixdfdi.o              _fixunsxfdi.o  _floatundisf.o  _muldc3.o   _negvdi2.o    _powisf2.o       _udivmoddi4.o   xfpgnulib__extendsfdf2.o  xfpgnulib__truncdfsf2.o
+_ashrdi3.o   _clzsi2.o       _divtc3.o  _fixsfdi.o              _fixunsxfsi.o  _floatunditf.o  _muldi3.o   _negvsi2.o    _powitf2.o       _udiv_w_sdiv.o  xfpgnulib__fixdfsi.o      xfpgnulib__unorddf2.o
+_bswapdi2.o  _cmpdi2.o       _divxc3.o  _fixtfdi.o              _fixxfdi.o     _floatundixf.o  _mulsc3.o   _paritydi2.o  _powixf2.o       _umoddi3.o      xfpgnulib__fixsfsi.o      xfpgnulib__unordsf2.o
+_bswapsi2.o  _ctors.o        emutls.o   _fixunsdfdi.o           _floatdidf.o   __gcc_bcmp.o    _multc3.o   _paritysi2.o  _subvdi3.o       unwind-c.o      xfpgnulib__floatsidf.o
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _absvdi2.o _absvsi2.o  _addvdi3.o _addvsi3.o _ashldi3.o _ashrdi3.o _bswapdi2.o _bswapsi2.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _clear_cache.o _clrsbdi2.o _clrsbsi2.o _clzdi2.o _clz.o _clzsi2.o _cmpdi2.o _ctors.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a enable-execute-stack.o _eprintf.o _ffsdi2.o _ffssi2.o _fixdfdi.o _fixsfdi.o _fixtfdi.o _fixunsdfdi.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _fixunsdfsi.o _fixunssfdi.o _fixunssfsi.o _fixunstfdi.o _fixunsxfdi.o _fixunsxfsi.o _fixxfdi.o _floatdidf.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatdisf.o _floatditf.o _floatdixf.o _floatundidf.o _floatundisf.o _floatunditf.o _floatundixf.o __gcc_bcmp.o
+-> Crash
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a gmon.o _lshrdi3.o __main.o _moddi3.o _muldc3.o _muldi3.o _mulsc3.o _multc3.o
+-> Crash
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _mulvdi3.o _mulvsi3.o _mulxc3.o _negdi2.o _negvdi2.o _negvsi2.o _paritydi2.o _paritysi2.o
+-> Crash.
+
+Mit frischem Archiv:
+-> kein Crash, Fehler wieder da -> wie erwartet.
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a xfpgnulib__unordsf2.o xfpgnulib__unorddf2.o xfpgnulib__truncdfsf2.o xfpgnulib.o xfpgnulib__floatunsisf.o xfpgnulib__floatunsidf.o xfpgnulib__floatsisf.o xfpgnulib__floatsidf.o xfpgnulib__fixsfsi.o xfpgnulib__fixdfsi.o xfpgnulib__extendsfdf2.o xfpgnulib__cmpxf2.o unwind-sjlj.o unwind-dw2.o unwind-dw2-fde.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a unwind-c.o _umoddi3.o _udiv_w_sdiv.o _udivmoddi4.o _udivdi3.o _ucmpdi2.o _trampoline.o _subvsi3.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _subvdi3.o _powixf2.o _powitf2.o _powisf2.o _powidf2.o _popcount_tab.o _popcountsi2.o _popcountdi2.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _paritysi2.o _paritydi2.o _negvsi2.o _negvdi2.o _negdi2.o _mulxc3.o _mulvsi3.o _mulvdi3.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _multc3.o _mulsc3.o _muldi3.o _muldc3.o _moddi3.o __main.o _lshrdi3.o gmon.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatdisf.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatditf.o
+r - _floatditf.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatdixf.o
+r - _floatdixf.o
+-> Fehler noch da
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatundidf.o
+r - _floatundidf.o
+-> FEHLER WEG! Geht wieder!  -> _floatundidf.o hat Probleme!??? "<Convert a 64bit unsigned integer to IEEE double"
+
+Mit frischem Archiv:
+-> Fehler wieder da -> wie erwartet.
+
+Nochmal nur _floatundidf.o ersetzen:
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatundidf.o
+->Jetzt hängt er wieder.
+
+OK, also mehr ersetzen: ???
+
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatundidf.o _floatundisf.o _floatunditf.o _floatundixf.o __gcc_bcmp.o gmon.o _lshrdi3.o __main.o _moddi3.o _muldc3.o _muldi3.o _mulsc3.o _multc3.o _mulvdi3.o _mulvsi3.o _mulxc3.o _negdi2.o _negvdi2.o _negvsi2.o _paritydi2.o _paritysi2.o
+-> haengt noch
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _popcountdi2.o _popcountsi2.o _popcount_tab.o _powidf2.o _powisf2.o _powitf2.o _powixf2.o _subvdi3.o
+-> haengt noch
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _subvsi3.o _trampoline.o _ucmpdi2.o _udivdi3.o _udivmoddi4.o _udiv_w_sdiv.o _umoddi3.o unwind-c.o
+-> hangt noch
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a unwind-dw2-fde.o unwind-dw2.o unwind-sjlj.o xfpgnulib__cmpxf2.o xfpgnulib__extendsfdf2.o xfpgnulib__fixdfsi.o xfpgnulib__fixsfsi.o xfpgnulib__floatsidf.o
+-> haengt noch
+
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a xfpgnulib__floatsisf.o xfpgnulib__floatunsidf.o xfpgnulib__floatunsisf.o xfpgnulib.o xfpgnulib__truncdfsf2.o xfpgnulib__unorddf2.o xfpgnulib__unordsf2.o
+-> Jetzt haben wir wieder die ganze 2. Haelfte und es funktioniert wieder.
+
+Mit frischem Archiv:
+-> Fehler wieder da -> wie erwartet.
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatundidf.o
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a xfpgnulib__cmpxf2.o xfpgnulib__extendsfdf2.o xfpgnulib__fixdfsi.o xfpgnulib__fixsfsi.o xfpgnulib__floatsidf.o xfpgnulib__floatsisf.o xfpgnulib__floatunsidf.o xfpgnulib__floatunsisf.o xfpgnulib.o xfpgnulib__truncdfsf2.o xfpgnulib__unorddf2.o xfpgnulib__unordsf2.o
+also _floatundidf.o und alle xfpgnulib*  -> geht.
+
+Mit frischem Archiv:
+-> Fehler wieder da -> wie erwartet.
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatundidf.o
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a  xfpgnulib.o
+r - xfpgnulib.o
+-> haengt
+
+Mit frischem Archiv:
+-> Fehler wieder da -> wie erwartet.
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatundidf.o
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a xfpgnulib__cmpxf2.o xfpgnulib__extendsfdf2.o xfpgnulib__fixdfsi.o xfpgnulib__fixsfsi.o xfpgnulib__floatsidf.o
+erster Teil der xfpgnulib* > haengt.
+
+Mit frischem Archiv:
+-> Fehler wieder da -> wie erwartet.
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatundidf.o
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a xfpgnulib__floatsisf.o xfpgnulib__floatunsidf.o xfpgnulib__floatunsisf.o xfpgnulib.o xfpgnulib__truncdfsf2.o xfpgnulib__unorddf2.o xfpgnulib__unordsf2.o
+nur 2. Teil der xfpgnulib* -> geht!
+
+Mit frischem Archiv:
+-> Fehler wieder da -> wie erwartet.
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatundidf.o
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a xfpgnulib__floatsisf.o xfpgnulib__floatunsidf.o xfpgnulib__floatunsisf.o
+- geht. Also wenigstens einen von xfpgnulib__floatsisf.o xfpgnulib__floatunsidf.o xfpgnulib__floatunsisf.o brauchen wir.
+
+Mit frischem Archiv:
+-> Fehler wieder da -> wie erwartet.
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatundidf.o
+m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a xfpgnulib__floatunsidf.o
+--> JA; Damit geht es wieder!
+
+rw-r--r-- 0/0    188 Jan  1 00:00 1978 xfpgnulib__floatunsidf.o     OK /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libgcc.a
+rw-r--r-- 0/0    180 Jan  1 00:00 1978 xfpgnulib__floatunsidf.o    BAD /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a
+
+rw-r--r-- 0/0    236 Jan  1 00:00 1978 _floatundidf.o               OK /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libgcc.a 
+rw-r--r-- 0/0    144 Jan  1 00:00 1978 _floatundidf.o              BAD /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a
