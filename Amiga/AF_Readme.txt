@@ -1633,3 +1633,12 @@ rw-r--r-- 0/0    180 Jan  1 00:00 1978 xfpgnulib__floatunsidf.o    BAD /home/dev
 
 rw-r--r-- 0/0    236 Jan  1 00:00 1978 _floatundidf.o               OK /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libgcc.a 
 rw-r--r-- 0/0    144 Jan  1 00:00 1978 _floatundidf.o              BAD /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a
+
+16.9.2022
+---------
+-> Problem scheint mit Toolchain vom 15.Sep.22 geloest zu sein. Berge sehen in allen Varianten gut aus!
+-> CPU.Check ist noch nicht behoben (68060 gar nicht, 20 und 20-60 falsche Prio)
+
+WinUAE:
+schnellste Variante ist 68020-60 und CPU auf 68020 stellen
+
