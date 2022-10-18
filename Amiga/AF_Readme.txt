@@ -1642,3 +1642,22 @@ rw-r--r-- 0/0    144 Jan  1 00:00 1978 _floatundidf.o              BAD /home/dev
 WinUAE:
 schnellste Variante ist 68020-60 und CPU auf 68020 stellen
 
+18.10.2022
+----------
+CPU/FPU-Check in Bebbos Toolchain:
+
+Prio 79 und 80 tauschen. cpucheck soll hoechste Priorität haben. Pullrequest am 31.Aug22 gestellt.
+sources/nix/misc/__cpucheck.c
+sources/nix/misc/__initlibraries.c
+
+CPU-Checkcode fehlt, wenn mit -m68060 copiliert wird.
+
+sources/nix/misc/__cpucheck.c
+#if defined(mc68020) || defined(mc68030) || defined(mc68040) || defined(mc68060) || defined(mc68080)
+Das Define mc68020 ist NICHT gesetzt, wenn fuer eine hoehere CPU comüpiliert wird. Deshalb || defined(mc68030) || defined(mc68040) || defined(mc68060) || defined(mc68080)
+Pullrequest am 17.Oct22 gestellt.
+
+cd ~/amiga-gcc
+make clean-libnix
+make libnix PREFIX=/home/developer/opt/m68k-amigaos_02Oct22
+
