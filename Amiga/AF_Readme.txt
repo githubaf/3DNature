@@ -1661,3 +1661,9 @@ cd ~/amiga-gcc
 make clean-libnix
 make libnix PREFIX=/home/developer/opt/m68k-amigaos_02Oct22
 
+2.Nov.22
+--------
+* CPU/FPU-Check works again with Bebbos's toolchain from 31.Oct.22
+* Profiling works again with Bebbos's toolchain from 1.Nov.22
+
+
