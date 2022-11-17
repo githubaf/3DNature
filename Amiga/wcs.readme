@@ -74,23 +74,23 @@ Version 2.031 (Emerald-Anton)
 
 Deutsch
 -------
-Dies ist ein neu kompilierte Version vom World Construction Set 2.031.
+Dies ist ein neu compilierte Version vom World Construction Set 2.031.
 WCS wurde von Gary R. Huber and Chris "Xenon" Hanson" von Questar Productions
-entwickelt. CanyonSet000.jpg zeigt beispielhaft, was fuer realistische 
+entwickelt. CanyonSet000.jpg zeigt beispielhaft, was für realistische 
 Landschaften mit diesem großartigen Programm berechnet werden können.
 
 3DNature.com hat die Quellen der Version glücklicherweise vor längerer Zeit
 freigegeben, so daß es möglich wurde, das Programm mit Bebbo's gcc neu zu
-kompilieren. Hier ist das Ergebnis der Anpassung des Codes für gcc und unzähliger
-Testläufe mit unterschiedlichen Kompilereinstellungen. Das Ziel dieser Bemühungen
+compilieren. Hier ist das Ergebnis der Anpassung des Codes für gcc und unzähliger
+Testläufe mit unterschiedlichen Compilereinstellungen. Das Ziel dieser Bemühungen
 war dabei stets, die benötigte Rechenzeit zu verkürzen.
 
-Vielen Dank fuer dieses großartige Programm und fuer die Möglichkeit, weiter daran
+Vielen Dank für dieses großartige Programm und für die Möglichkeit, weiter daran
 arbeiten zu können!
 
 Anforderungen:
 --------------
-Um mit WCS sinnvoll zu arbeiten ist ein schneller Amiga Voraussetzung. Es wird
+Um mit WCS sinnvoll zu arbeiten, ist ein schneller Amiga Voraussetzung. Es wird
 mindestens ein 68020 Prozessor benötigt. Des Weiteren muss ein Mathe-Coprozessor
 vorhanden sein.
 Sollte das Programm auf einer kleineren CPU gestartet werden, wird ein "gelber Guru"
@@ -103,7 +103,7 @@ die Arbeit mit WCS ist aber nicht möglich.
 
 Installation:
 -------------
-Zunächst ist eine vollstaendige Installation des kommerziellen WCS 2 Paketes erforderlich.
+Zunächst ist eine vollständige Installation des kommerziellen WCS 2 Paketes erforderlich.
 Großzügigerweise stellt 3DNature.com auch die Installationsdisketten im ADF-Format
 zum freien Download für jedermann bereit. Sie befinden sich auf www.3dnature.com
 unter Downloads -> Legacy Software.
