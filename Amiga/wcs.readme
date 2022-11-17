@@ -1,0 +1,130 @@
+Short:        recompiled version of World Construction Set
+Author:       selco@t-online.de (Alexander Fritsch)
+Uploader:     selco@t-online.de (Alexander Fritsch)
+Type:         gfx/3d
+Version:      2.031 (Emerald-Anton)
+Architecture: m68k-amigaos
+Distribution: Aminet
+
+
+Ein deutscher Text findet sich weiter unten.
+
+
+English
+-------
+
+This is a newly compiled version of World Construction Set 2.031.
+WCS was developed by Gary R. Huber and Chris "Xenon" Hanson" from
+Questar Productions. CanyonSet000.jpg is an example of what can be
+created with this great program.
+
+3DNature.com very gracefully released the source code of version 2.031
+of this wonderful 3d terrain rendering package so it became possible 
+to recompile it with bebbos's new gcc. This is the result of adapting 
+the code to gcc and experimenting with the compiler with the goal of 
+speeding up rendering.
+
+Thank you very much for this great software and for the chance to work
+on it!
+
+Requirements:
+-------------
+A fast Amiga equipped with an 68020 or higher processor and a math
+coprocessor are needed to run WCS.
+If you try running it on a 68000 CPU a "yellow guru" with address 0006.8020
+will be shown. This is not a crash but to inform you about the problem.
+If you run with the correct CPU but without FPU another "yellow guru" with
+address 0006.8881 will be shown. This is again not a crash but a hint.
+
+Installation:
+-------------
+You need a full installation of the commercial WCS 2 package on your Amiga.
+Fortunately, the installation disks have been made available by 3DNature.
+You can download the disk images in adf format from www.3dnature.com from
+the Downloads -> Legacy Software section.
+When installation is complete just copy the executables from this archive
+into the WCS drawer.
+
+WinUAE users:
+-------------
+For maximum speed select an 68020 or 68030 CPU, enable FPU, disable MMU,
+enable JIT and select CPU Emulation Speed "Fastest possible" in WinUAE. 
+Use the 68020-60 version of WCS.
+
+Speed:
+------
+Rendering of the example picture CanyonSet000.jpg, C=A4000T, 68040/25/16MB
+original program, 2.04 release:  04:59:44
+new 68040 version                03:57:40
+i.e., one hour faster!
+
+
+
+History:
+--------
+Version 2.031 (Emerald-Anton)
+	*Initial Aminet release of the recompiled package. 
+        *Code changes to support gcc. Tiny issues fixed.
+        *Replacements for SAS/C specific functions.
+        *Executables care for stack memory and check CPU/FPU requirements.
+
+
+
+
+
+Deutsch
+-------
+Dies ist ein neu kompilierte Version vom World Construction Set 2.031.
+WCS wurde von Gary R. Huber and Chris "Xenon" Hanson" von Questar Productions
+entwickelt. CanyonSet000.jpg zeigt beispielhaft, was fuer realistische 
+Landschaften mit diesem großartigen Programm berechnet werden können.
+
+3DNature.com hat die Quellen der Version glücklicherweise vor längerer Zeit
+freigegeben, so daß es möglich wurde, das Programm mit Bebbo's gcc neu zu
+kompilieren. Hier ist das Ergebnis der Anpassung des Codes für gcc und unzähliger
+Testläufe mit unterschiedlichen Kompilereinstellungen. Das Ziel dieser Bemühungen
+war dabei stets, die benötigte Rechenzeit zu verkürzen.
+
+Vielen Dank fuer dieses großartige Programm und fuer die Möglichkeit, weiter daran
+arbeiten zu können!
+
+Anforderungen:
+--------------
+Um mit WCS sinnvoll zu arbeiten ist ein schneller Amiga Voraussetzung. Es wird
+mindestens ein 68020 Prozessor benötigt. Des Weiteren muss ein Mathe-Coprozessor
+vorhanden sein.
+Sollte das Programm auf einer kleineren CPU gestartet werden, wird ein "gelber Guru"
+mit der Adresse 0006.8020 angezeigt. Das ist kein Absturz, sondern nur ein Hinweis,
+dass mindestens ein 68020 Prozessor vorhanden sein muss. Danach wird WCS beendet.
+Gleiches gilt, wenn kein Mathe-Coprozessor vorhanden ist. In diesem Fall wird wieder
+ein "gelber Guru" angezeigt, diesmal mit der Adresse 0006.8881. Damit wird signalisiert,
+dass ein 68881 Coprozessor erforderlich ist. Der Amiga muss nicht rebootet werden,
+die Arbeit mit WCS ist aber nicht möglich.
+
+Installation:
+-------------
+Zunächst ist eine vollstaendige Installation des kommerziellen WCS 2 Paketes erforderlich.
+Großzügigerweise stellt 3DNature.com auch die Installationsdisketten im ADF-Format
+zum freien Download für jedermann bereit. Sie befinden sich auf www.3dnature.com
+unter Downloads -> Legacy Software.
+Nach der Installation sind einfach die neuen Programmversionen aus diesem Archiv in
+den WCS-Ordner zu kopieren.
+
+WinUAE-Anwender:
+----------------
+Um die maximale Rechengeschwindigkeit unter WinUAE zu erreichen, sollten folgende 
+Einstellungen benutzt werden:
+CPU 68020 oder 68030
+enable FPU
+disable MMU
+enable JIT
+CPU Emulation Speed "Fastest possible".
+Unter WinUAE erreicht die 68020-60 Version die höchste Geschwindigkeit.
+
+Geschwindigkeit:
+----------------
+Berechnung des Beispielbildes CanyonSet000.jpg, C=A4000T, 68040/25/16MB
+originales Programm, 2.04 release:  04:59:44
+neue 68040 Version:                 03:57:40
+also eine Stunde schneller!
+

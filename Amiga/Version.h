@@ -4,8 +4,8 @@
 */
 
 #define APP_VERS    "2"
-//#define APP_REV    "031"
-#define APP_REV    "00 beta"
+#define APP_REV    "031"
+//#define APP_REV    "00 beta"
 #define APP_FLAVOR "(Emerald-Anton)"
 #define APP_TLA    "WCS"
 #define APP_TITLE      "World Construction Set"
