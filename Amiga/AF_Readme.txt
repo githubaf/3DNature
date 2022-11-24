@@ -1666,4 +1666,45 @@ make libnix PREFIX=/home/developer/opt/m68k-amigaos_02Oct22
 * CPU/FPU-Check works again with Bebbos's toolchain from 31.Oct.22
 * Profiling works again with Bebbos's toolchain from 1.Nov.22
 
+22.Nov.22
+---------
+#Aminet preparations:
+
+ARCHIVE=wcs.lha; 
+\rm -rf temp temp_aminet_upload; 
+mkdir temp temp_aminet_upload; 
+for CPU in 68020 68020-60 68040 68060; do cp -f $CPU/WCS_$CPU $CPU/WCS_$CPU.info temp/; done; 
+cd temp; 
+jlha a ../temp_aminet_upload/$ARCHIVE *; 
+cd ..; 
+cp CanyonSet000.jpg wcs.readme temp_aminet_upload
+
+ftp -p   # -p passive mode, falls ftp durch NAT
+open main.aminet.net
+Name (main.aminet.net:developer): anonymous
+Password: selco@t-online.de
+cd new
+pwd
+put wcs.lha
+put wcs.readme    # keine Verzeichnisse! also nicht z.B. amiga/espeak.readme!
+quit
+
+Anzeige der max Zeilenlänge für Aminet-readme-File in vim (78 Zeichen/Zeile erlaubt):
+:set colorcolumn=79
+
+Kontrolle:
+
+function red_msg() {
+    echo -e "\\033[31;1m${@}\033[0m"
+}
+
+function green_msg() {
+    echo -e "\\033[32;1m${@}\033[0m"
+}
+
+awk 'BEGIN{ret=0} END{exit ret} {if(length > 78){ret=1; printf("%s  --> (%u Zeichen)\n",$0,length)}}' wcs.readme \ 
+&& green_msg "\nOK\n" || red_msg "\nERROR: Lines too long\n"
+
+#Test auf Zeilenende-Zeichen:
+cat -v wcs.readme | grep "\^M"; if [ $? -eq 0 ]; then red_msg "0a gefunden"; false; else green_msg "OK"; true; fi
 

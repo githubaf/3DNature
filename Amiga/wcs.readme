@@ -81,39 +81,41 @@ Landschaften mit diesem großartigen Programm berechnet werden können.
 
 3DNature.com hat die Quellen der Version glücklicherweise vor längerer Zeit
 freigegeben, so daß es möglich wurde, das Programm mit Bebbo's gcc neu zu
-compilieren. Hier ist das Ergebnis der Anpassung des Codes für gcc und unzähliger
-Testläufe mit unterschiedlichen Compilereinstellungen. Das Ziel dieser Bemühungen
-war dabei stets, die benötigte Rechenzeit zu verkürzen.
+compilieren. Hier ist das Ergebnis der Anpassung des Codes für gcc und 
+unzähliger Testläufe mit unterschiedlichen Compilereinstellungen. Das Ziel 
+dieser Bemühungen war dabei stets, die benötigte Rechenzeit zu verkürzen.
 
-Vielen Dank für dieses großartige Programm und für die Möglichkeit, weiter daran
-arbeiten zu können!
+Vielen Dank Gary, Chris und 3DNature für dieses großartige Programm und für 
+die Möglichkeit, weiter daran arbeiten zu können!
 
 Anforderungen:
 --------------
-Um mit WCS sinnvoll zu arbeiten, ist ein schneller Amiga Voraussetzung. Es wird
-mindestens ein 68020 Prozessor benötigt. Des Weiteren muss ein Mathe-Coprozessor
-vorhanden sein.
-Sollte das Programm auf einer kleineren CPU gestartet werden, wird ein "gelber Guru"
-mit der Adresse 0006.8020 angezeigt. Das ist kein Absturz, sondern nur ein Hinweis,
-dass mindestens ein 68020 Prozessor vorhanden sein muss. Danach wird WCS beendet.
-Gleiches gilt, wenn kein Mathe-Coprozessor vorhanden ist. In diesem Fall wird wieder
-ein "gelber Guru" angezeigt, diesmal mit der Adresse 0006.8881. Damit wird signalisiert,
-dass ein 68881 Coprozessor erforderlich ist. Der Amiga muss nicht rebootet werden,
-die Arbeit mit WCS ist aber nicht möglich.
+Um mit WCS sinnvoll zu arbeiten, ist ein schneller Amiga Voraussetzung. 
+Es wird mindestens ein 68020 Prozessor benötigt. Des Weiteren muss ein 
+Mathe-Coprozessor vorhanden sein.
+Sollte das Programm auf einer kleineren CPU gestartet werden, wird ein 
+"gelber Guru" mit der Adresse 0006.8020 angezeigt. Das ist kein Absturz, 
+sondern nur ein Hinweis, dass mindestens ein 68020 Prozessor vorhanden sein 
+muss. Danach wird WCS beendet.
+Gleiches gilt, wenn kein Mathe-Coprozessor vorhanden ist. In diesem Fall wird 
+wieder ein "gelber Guru" angezeigt, diesmal mit der Adresse 0006.8881. 
+Damit wird signalisiert, dass ein 68881 Coprozessor erforderlich ist. 
+Der Amiga muss nicht rebootet werden, die Arbeit mit WCS ist aber nicht 
+möglich.
 
 Installation:
 -------------
-Zunächst ist eine vollständige Installation des kommerziellen WCS 2 Paketes erforderlich.
-Großzügigerweise stellt 3DNature.com auch die Installationsdisketten im ADF-Format
-zum freien Download für jedermann bereit. Sie befinden sich auf www.3dnature.com
-unter Downloads -> Legacy Software.
-Nach der Installation sind einfach die neuen Programmversionen aus diesem Archiv in
-den WCS-Ordner zu kopieren.
+Zunächst ist eine vollständige Installation des kommerziellen WCS 2 Paketes 
+erforderlich. Großzügigerweise stellt 3DNature.com auch die Installations-
+disketten im ADF-Format zum freien Download für jedermann bereit. Sie befinden
+sich auf www.3dnature.com unter Downloads -> Legacy Software.
+Nach der Installation sind einfach die neuen Programmversionen aus diesem 
+Archiv in den WCS-Ordner zu kopieren.
 
 WinUAE-Anwender:
 ----------------
-Um die maximale Rechengeschwindigkeit unter WinUAE zu erreichen, sollten folgende 
-Einstellungen benutzt werden:
+Um die maximale Rechengeschwindigkeit unter WinUAE zu erreichen, sollten
+folgende Einstellungen benutzt werden:
 CPU 68020 oder 68030
 enable FPU
 disable MMU
