@@ -31,10 +31,10 @@ Requirements:
 -------------
 A fast Amiga equipped with an 68020 or higher processor and a math
 coprocessor are needed to run WCS.
-If you try running it on a 68000 CPU a "yellow guru" with address 0006.8020
+If you try running it on a 68000 CPU a "yellow guru" with address 0006 8020
 will be shown. This is not a crash but to inform you about the problem.
 If you run with the correct CPU but without FPU another "yellow guru" with
-address 0006.8881 will be shown. This is again not a crash but a hint.
+address 0006 8881 will be shown. This is again not a crash but a hint.
 
 Installation:
 -------------
@@ -94,11 +94,11 @@ Um mit WCS sinnvoll zu arbeiten, ist ein schneller Amiga Voraussetzung.
 Es wird mindestens ein 68020 Prozessor benötigt. Des Weiteren muss ein 
 Mathe-Coprozessor vorhanden sein.
 Sollte das Programm auf einer kleineren CPU gestartet werden, wird ein 
-"gelber Guru" mit der Adresse 0006.8020 angezeigt. Das ist kein Absturz, 
+"gelber Guru" mit der Adresse 0006 8020 angezeigt. Das ist kein Absturz, 
 sondern nur ein Hinweis, dass mindestens ein 68020 Prozessor vorhanden sein 
 muss. Danach wird WCS beendet.
 Gleiches gilt, wenn kein Mathe-Coprozessor vorhanden ist. In diesem Fall wird 
-wieder ein "gelber Guru" angezeigt, diesmal mit der Adresse 0006.8881. 
+wieder ein "gelber Guru" angezeigt, diesmal mit der Adresse 0006 8881. 
 Damit wird signalisiert, dass ein 68881 Coprozessor erforderlich ist. 
 Der Amiga muss nicht rebootet werden, die Arbeit mit WCS ist aber nicht 
 möglich.
