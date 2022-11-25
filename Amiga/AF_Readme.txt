@@ -1687,6 +1687,7 @@ cd new
 pwd
 put wcs.lha
 put wcs.readme    # keine Verzeichnisse! also nicht z.B. amiga/espeak.readme!
+put CanyonSet000.jpg
 quit
 
 Anzeige der max Zeilenlänge für Aminet-readme-File in vim (78 Zeichen/Zeile erlaubt):
@@ -1707,4 +1708,21 @@ awk 'BEGIN{ret=0} END{exit ret} {if(length > 78){ret=1; printf("%s  --> (%u Zeic
 
 #Test auf Zeilenende-Zeichen:
 cat -v wcs.readme | grep "\^M"; if [ $? -eq 0 ]; then red_msg "0a gefunden"; false; else green_msg "OK"; true; fi
+
+25.Nov.22
+---------
+Sichern des Aminet-Uploads:
+
+cd ~/Desktop/SelcoGit/wcs_aminet_upoloads/Emerald-Anton   # Git-Verzeichnis
+for DIR in $(find /home/developer/Desktop/SelcoGit/3DNature/Amiga -type d -name "680*"); do 
+   FILEBASE=WCS_$(basename $DIR); 
+   cp -v $DIR/$FILEBASE .; 
+   cp -v $DIR/$FILEBASE.info .; 
+   cp -v $DIR/$FILEBASE.unstripped .; 
+   done; 
+cp -v /home/developer/Desktop/SelcoGit/3DNature/Amiga/CanyonSet000.jpg .
+
+#readlink ~/amiga_gcc_link in readme-File nicht vergessen
+
+git add *
 
