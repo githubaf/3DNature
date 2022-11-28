@@ -1670,6 +1670,9 @@ make libnix PREFIX=/home/developer/opt/m68k-amigaos_02Oct22
 ---------
 #Aminet preparations:
 
+# TODO: Testen, dass nicht "dirty" im Hash steht.
+# TODO: Testen, dass nicht "beta" in $VER steht.
+
 ARCHIVE=wcs.lha; 
 \rm -rf temp temp_aminet_upload; 
 mkdir temp temp_aminet_upload; 
@@ -1725,4 +1728,21 @@ cp -v /home/developer/Desktop/SelcoGit/3DNature/Amiga/CanyonSet000.jpg .
 #readlink ~/amiga_gcc_link in readme-File nicht vergessen
 
 git add *
+
+
+28.Now.22
+---------
+Taggen der Aminet-Versionen:
+
+m68k-amigaos-strings 68020/WCS_68020 | grep "Serial: "  # Anzeige des Git-Hashes (008e576)
+git tag -a Emerald-Anton 008e576 -m "uploaded to Aminet 25.Nov.2022"
+
+git show Emerald-Anton
+git log
+
+git push origin Emerald-Anton
+git show origin/master Emerald-Anton
+git log origin/master
+
+
 
