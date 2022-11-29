@@ -1745,4 +1745,7 @@ git show origin/master Emerald-Anton
 git log origin/master
 
 
+29.Now.22
+---------
+Packen/Testen des Aminet-Archivs in sh-File aminet_archive.sh gepackt.
 
