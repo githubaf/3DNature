@@ -1749,3 +1749,13 @@ git log origin/master
 ---------
 Packen/Testen des Aminet-Archivs in sh-File aminet_archive.sh gepackt.
 
+
+Aminet-Upload Emerald-Anton am 25.Now.2022
+
+
+08.Dez.2022
+-----------
+-O2 fuer 68020  (war versehentlich -O0)
+-i386-aros begonnen. Einige Quellen compilierbar
+-#include <graphics/display.h> feht beim aros-gcc?
+- SHORT und USHORT gibt es beim aros-gcc auch nicht. 
