@@ -1433,7 +1433,7 @@ HandleEvent:
    {
    LatLonElevScan(&Event, NULL, 0);
    break;
-   } /* INTUITICKS */
+   } /* IDCMP_INTUITICKS */
 
   case IDCMP_ACTIVEWINDOW:
    {
@@ -1451,13 +1451,13 @@ HandleEvent:
     {
     LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
     }
-   ModifyIDCMP(MapWind0, MapWind0->IDCMPFlags | INTUITICKS);
+   ModifyIDCMP(MapWind0, MapWind0->IDCMPFlags | IDCMP_INTUITICKS);
    break;
    } /* ACTIVEWINDOW */
   
   case IDCMP_INACTIVEWINDOW:
    {
-   ModifyIDCMP(MapWind0, MapWind0->IDCMPFlags & (~INTUITICKS));
+   ModifyIDCMP(MapWind0, MapWind0->IDCMPFlags & (~IDCMP_INTUITICKS));
    break;
    } /* INACTIVEWINDOW */
 

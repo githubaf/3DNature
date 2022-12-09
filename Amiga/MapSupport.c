@@ -679,8 +679,8 @@ short MousePtSet(struct Vertex *Vtx, struct Vertex *FixVtx, short Mode)
 
  IDCMPFlags = MP->MAPCWin->IDCMPFlags;
 
- ModifyIDCMP(MapWind0, VANILLAKEY | MOUSEBUTTONS | INTUITICKS);
- ModifyIDCMP(MP->MAPCWin, IDCMPFlags | VANILLAKEY);
+ ModifyIDCMP(MapWind0, IDCMP_VANILLAKEY | IDCMP_MOUSEBUTTONS | IDCMP_INTUITICKS);
+ ModifyIDCMP(MP->MAPCWin, IDCMPFlags | IDCMP_VANILLAKEY);
 
  if (FixVtx && Mode)
   {
@@ -693,12 +693,12 @@ short MousePtSet(struct Vertex *Vtx, struct Vertex *FixVtx, short Mode)
  while (! done)
   {
   ReplyWin = FetchMultiWindowEvent(&Event, MapWind0, MP->MAPCWin, NULL);
-  if (Event.Class == VANILLAKEY && Event.Code == ESC)
+  if (Event.Class == IDCMP_VANILLAKEY && Event.Code == ESC)
    {
    done = 1;
    success = 0;
    } /* if */
-  else if (Event.Class == INTUITICKS && ReplyWin == MapWind0)
+  else if (Event.Class == IDCMP_INTUITICKS && ReplyWin == MapWind0)
    {
    if (Event.MouseX != Vtx->X || Event.MouseY != Vtx->Y)
     {
@@ -740,7 +740,7 @@ short MousePtSet(struct Vertex *Vtx, struct Vertex *FixVtx, short Mode)
     LatLonElevScan(&Event, str, 0);
     } /* if position changed */
    } /* else if */
-  else if (Event.Class == MOUSEBUTTONS && Event.Code == SELECTUP && ReplyWin == MapWind0)
+  else if (Event.Class == IDCMP_MOUSEBUTTONS && Event.Code == SELECTUP && ReplyWin == MapWind0)
    {
    done = 1;
    Vtx->X = Event.MouseX;
@@ -1092,10 +1092,10 @@ short getval(struct Window *w,char *string,short start_x,short end_x,
    flag=1;
    break;
   }
-  if (Event.Class==MOUSEBUTTONS) {
+  if (Event.Class==IDCMP_MOUSEBUTTONS) {
    if (Event.Code==SELECTDOWN || Event.Code==SELECTUP) break;
   }
-  else if (Event.Class==VANILLAKEY) {
+  else if (Event.Class==IDCMP_VANILLAKEY) {
    if (Event.Code==CARRIAGE_RET) break;
    else if (Event.Code==BACK_SP) {
     if (w->RPort->cp_x <= start_x) continue;
@@ -1387,7 +1387,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
   else return (0);
   } /* else may be haze or view arc motion */ 
       
- ModifyIDCMP(MapWind0, MOUSEBUTTONS | INTUITICKS);
+ ModifyIDCMP(MapWind0, IDCMP_MOUSEBUTTONS | IDCMP_INTUITICKS);
 
  setclipbounds(MapWind0, &cb);
  
@@ -1426,7 +1426,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
 
   switch (Event->Class)
    {
-   case MOUSEBUTTONS:
+   case IDCMP_MOUSEBUTTONS:
     {
     switch (Event->Code)
      {
@@ -1437,8 +1437,8 @@ short SetIAView_Map(struct IntuiMessage *Event)
       } /* SELECTUP */
      } /* switch Event->Code */
     break;
-    } /* MOUSEBUTTONS */
-   case INTUITICKS:
+    } /* IDCMP_MOUSEBUTTONS */
+   case IDCMP_INTUITICKS:
     {
     if (modval)
      {
@@ -1576,7 +1576,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
      } /* if modval */
     startX = oldX;
     break;
-    } /* INTUITICKS */
+    } /* IDCMP_INTUITICKS */
    } /* switch */
   } /* while ! abort */
 

@@ -1187,16 +1187,16 @@ short findmouse(short X, short Y, short IdentifyOnly)
   {
   MapGUI_Message(0, "\0338Select object. ESC=abort");
   SetWindowTitles(MapWind0, (STRPTR) "Select object", (UBYTE *)-1);
-  ModifyIDCMP(MapWind0, MOUSEBUTTONS | VANILLAKEY);
+  ModifyIDCMP(MapWind0, IDCMP_MOUSEBUTTONS | IDCMP_VANILLAKEY);
   while (! done)
    {
    FetchEvent(MapWind0, &Event);
-   if (Event.Class == VANILLAKEY && Event.Code == CARRIAGE_RET)
+   if (Event.Class == IDCMP_VANILLAKEY && Event.Code == CARRIAGE_RET)
     {
     done = 1;
     abortitem = 1;
     }
-   else if (Event.Class == MOUSEBUTTONS && Event.Code == SELECTUP)
+   else if (Event.Class == IDCMP_MOUSEBUTTONS && Event.Code == SELECTUP)
     done = 1;
    } /* while */
 
@@ -1533,7 +1533,7 @@ EndDig:
 
  SetAPen(MapWind0->RPort, 2);
 
- ModifyIDCMP(MapWind0, VANILLAKEY | MOUSEBUTTONS | INTUITICKS);
+ ModifyIDCMP(MapWind0, IDCMP_VANILLAKEY | IDCMP_MOUSEBUTTONS | IDCMP_INTUITICKS);
  while (! done)
   {
 
@@ -1544,7 +1544,7 @@ EndDig:
   FetchEvent(MapWind0, &Event);
   switch (Event.Class)
    {
-   case MOUSEBUTTONS:
+   case IDCMP_MOUSEBUTTONS:
     {
     switch (Event.Code)
      {
@@ -1558,7 +1558,7 @@ EndDig:
        } /* if */
       else
        {
-       ModifyIDCMP(MapWind0, MOUSEBUTTONS | INTUITICKS);
+       ModifyIDCMP(MapWind0, IDCMP_MOUSEBUTTONS | IDCMP_INTUITICKS);
        if (j < MAXOBJPTS)
         {
         mapxx[j] = Event.MouseX;
@@ -1572,14 +1572,14 @@ EndDig:
       } /* SELECTDOWN */
      case SELECTUP:
       {
-      ModifyIDCMP(MapWind0, VANILLAKEY | MOUSEBUTTONS | INTUITICKS);
+      ModifyIDCMP(MapWind0, IDCMP_VANILLAKEY | IDCMP_MOUSEBUTTONS | IDCMP_INTUITICKS);
       digitizing = 0;
       break;
       } /* SELECTUP */
      } /* switch Event.Code */
     break;
-    } /* MOUSEBUTTONS */
-   case INTUITICKS:
+    } /* IDCMP_MOUSEBUTTONS */
+   case IDCMP_INTUITICKS:
     {
     sprintf(str, "X: %d, Y: %d", Event.MouseX, Event.MouseY);
     LatLonElevScan(&Event, str, 0);
@@ -1598,8 +1598,8 @@ EndDig:
       } /* if */
      } /* if digitizing */
     break;
-    } /* INTUITICKS */
-   case VANILLAKEY:
+    } /* IDCMP_INTUITICKS */
+   case IDCMP_VANILLAKEY:
     {
     switch (Event.Code)
      {
@@ -1634,17 +1634,17 @@ EndDig:
       } /* quit */
      } /* switch Event.Code */
     break;
-    } /* VANILLAKEY */
+    } /* IDCMP_VANILLAKEY */
    } /* switch Event.Class */
   } /* while ! done */
 
  MapGUI_Message(0, "\0338RETURN to accept, ESC to cancel");
  done = 0;
- ModifyIDCMP(MapWind0, VANILLAKEY);
+ ModifyIDCMP(MapWind0, IDCMP_VANILLAKEY);
  while (! done)
   {
   FetchEvent(MapWind0, &Event);
-  if (Event.Class == VANILLAKEY)
+  if (Event.Class == IDCMP_VANILLAKEY)
    {
    if (Event.Code == CARRIAGE_RET)
     {
@@ -1698,7 +1698,7 @@ EndDig:
     } /* if RETURN */
    else if (Event.Code == ESC)
     done = 1;
-   } /* if Vanillakey */
+   } /* if IDCMP_VANILLAKEY */
   } /* while ! done */
 
  MapGUI_Message(0, " ");
@@ -2041,7 +2041,7 @@ void Handle_Viewshed_Window(void)
 
  switch (Event.Class)
   {
-  case CLOSEWINDOW:
+  case IDCMP_CLOSEWINDOW:
    {
    Close_Viewshed_Window();
    break;
@@ -2254,7 +2254,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
    } /* Summagraphics Summagrid */
   } /* switch */
 
- if (SerialMP = CreateMsgPort())
+ if ((SerialMP = CreateMsgPort()))
   {
   if ((SerialIO = (struct IOExtSer *)
 	CreateExtIO(SerialMP, sizeof (struct IOExtSer))))

@@ -101,7 +101,7 @@ void vgl_install_isr (short vector, void (*fctn) (int param), int param);
 /*****************************************************************************/
 #elif defined (AMIGA)
 
-typedef unsigned int size_t;
+//typedef unsigned int size_t;  // AF: commented due to AROS conflict
 /* void vgl_install_isr (short vector, void (*fctn) (int param), int param); */
 #define USE_VGL_BZERO
 #undef USE_VGL_MALLOC

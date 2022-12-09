@@ -320,7 +320,10 @@ int Mkdir(const char *name)
   }
   else
   {
-    __seterrno(); ret=-1;
+     #ifndef __AROS__
+        _seterrno(); 
+     #endif
+     ret=-1;
   }
   return ret;
 }

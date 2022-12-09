@@ -80,7 +80,10 @@ void strsfn(const char *file, char *drive, char *path, char *node, char *ext); /
 int stcgfe(char *ext, const char *name); // SAS/C function, needs to be re-implemented for gcc, Get the filename extension
 int stcul_d(char *out, unsigned long uvalue); // SAS/C function, needs to be re-implemented for gcc, Convert an unsigned long integer to a decimal string
 double pow2(double x); // SAS/C function, needs to be re-implemented for gcc, Raise 2 to a power
+#ifndef __AROS__
+// in AROS this defined in /usr/local/amiga/i386-aros/include/aros/stdc/string.h
 const char * stpblk(const char *p); // SAS/C function, needs to be re-implemented for gcc, Skip blanks
+#endif
 #ifndef max
    #define max(a,b) ((a)>(b)?(a):(b))  // SAS/C library reference 3357
 #endif

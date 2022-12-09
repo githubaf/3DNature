@@ -1759,3 +1759,24 @@ Aminet-Upload Emerald-Anton am 25.Now.2022
 -i386-aros begonnen. Einige Quellen compilierbar
 -#include <graphics/display.h> feht beim aros-gcc?
 - SHORT und USHORT gibt es beim aros-gcc auch nicht. 
+
+9.Dez.2022
+----------
+* Icaros Dektop VirtualBox Linux Hosted installiert in /home/developer/Desktop/IcarosDesktop  -> Da nehme ich die Include-Files her. (https://vmwaros.blogspot.com/p/download.html # Current version: 2.3)
+* gcc nach /usr/local/amiga installiert. (download AROS_GCC_v6.5.0.tar.xz (169MB) was created from snapshot AROS-20190416-source.tar.bz2, uses GCC 6.5.0) from http://cshandley.co.uk/crosscompilers/
+* neues Target i386-aros fuer Eclipse
+* Buildsteps angepasst, also z.B. kein CPU/FPU-Check bei AROS
+* Code jetzt bis auf das Assembler-File compilierbar.
+* Alte Flags obsolete Flags ACTIVATE | SMART_REFRESH | WINDOWDEPTH usw. durch WFLG_ACTIVATE | WFLG_SMART_REFRESH | WFLG_DEPTHGADGET ersetzt -> noetig fuer AROS, OK fuer 68k
+* Genauso Flags wir VANILLAKEY -> IDCMP_VANILLAKEY
+* #include <graphics/display.h> entfernt. Fehlt bei AROS, nicht noetig bei 68k.
+* IA_Width usw umbenannt in -> ia_width, sonst Namenskonflikt  ???
+* einige extra Klammern gegen Warnungen "Suggest Paranthes...)
+* Testweise struct RxsLib *RexxSysBase; in RexxSupport.c eingefuegt, sonst nicht linkbar. Muss wieder raus!
+* ScratchPad.c -> HK4M(regs) mit ifdef __AROS__, ist Assembler, muss nach C konvertiert werden.
+* Dementsprechend HyperKhorner4M-1_gcc.asm aus der Buildconfiguration fuer AROS rausgenommen.
+* seterrno(); in WCS.c wegdefiniert. Gibt es das bei AROS nicht?
+* in WCS.h eingefuert mit ifdef __AROS__   #include <proto/muimaster.h> und #include <libraries/mui.h> 
+* In vgl_internals.h typedef unsigned int size_t auskommentiert. Konflikt mit AROS
+* WCS ist damit fuer AROS i386 compilierbar/linkbar. Starseite erscheint, Bilder nicht OK, kein Titelmenu?, stuerzt dann spaeter ab.
+

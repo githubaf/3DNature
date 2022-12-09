@@ -148,33 +148,33 @@ STATIC_FCN short openinterview(void) // used locally only -> static, AF 26.7.202
 
 RepeatOpen:
 
- if (! IA_Width || ! IA_Height)
+ if (! ia_Width || ! ia_Height)
   {
   hw_scrn = (float)WCSScrn->Height / WCSScrn->Width;
   hw_ratio = (float)settings.scrnheight / settings.scrnwidth;
   if (hw_scrn < hw_ratio)
    {
    
-   IA_Height = WCSScrn->Height / 2;
-   IA_Width = IA_Height / hw_ratio;
+   ia_Height = WCSScrn->Height / 2;
+   ia_Width = ia_Height / hw_ratio;
    } /* tall image (landscape) */
   else
    {
-   IA_Width = WCSScrn->Width / 2;
-   IA_Height = IA_Width * hw_ratio;
+   ia_Width = WCSScrn->Width / 2;
+   ia_Height = ia_Width * hw_ratio;
    } /* wide image (portrait) */
-  IA_Top = (WCSScrn->Height - IA_Height) / 2;
-  IA_Left = (WCSScrn->Width - IA_Width) / 2;
+  ia_Top = (WCSScrn->Height - ia_Height) / 2;
+  ia_Left = (WCSScrn->Width - ia_Width) / 2;
   } /* if no width or height previously defined */
 
  c0 = 0x00;
  c1 = 0x01; 
- flags = ACTIVATE | SMART_REFRESH | WINDOWSIZING | WINDOWDRAG | WINDOWCLOSE |
-           WINDOWDEPTH | REPORTMOUSE | RMBTRAP | WINDOWREFRESH ;
- iflags = MOUSEBUTTONS | RAWKEY | VANILLAKEY | NEWSIZE | CLOSEWINDOW | ACTIVEWINDOW;
+ flags = WFLG_ACTIVATE | WFLG_SMART_REFRESH | WFLG_SIZEGADGET | WFLG_DRAGBAR | WFLG_CLOSEGADGET |
+           WFLG_DEPTHGADGET | WFLG_REPORTMOUSE | WFLG_RMBTRAP | WFLG_WINDOWREFRESH ;
+ iflags = IDCMP_MOUSEBUTTONS | IDCMP_RAWKEY | IDCMP_VANILLAKEY | IDCMP_NEWSIZE | IDCMP_CLOSEWINDOW | IDCMP_ACTIVEWINDOW;
 
  InterWind0 = (struct Window *)
-	make_window(IA_Left, IA_Top, IA_Width, IA_Height,
+	make_window(ia_Left, ia_Top, ia_Width, ia_Height,
 	"Camera View", flags, 0, c0, c1, WCSScrn);
 
  if (! InterWind0)
@@ -184,7 +184,7 @@ RepeatOpen:
    error = 1;
    goto EndIt;
    } /* if second attempt failed */
-  IA_Width = IA_Height = 0;
+  ia_Width = ia_Height = 0;
   try = 1;
   goto RepeatOpen;
   } /* if no window */
@@ -504,10 +504,10 @@ void closeinterview(void)
   InterWind2_Sig = 0;
  } /* if */
  if (InterWind0) {
-  IA_Top = InterWind0->TopEdge;
-  IA_Left = InterWind0->LeftEdge;
-  IA_Width = InterWind0->Width;
-  IA_Height = InterWind0->Height;
+  ia_Top = InterWind0->TopEdge;
+  ia_Left = InterWind0->LeftEdge;
+  ia_Width = InterWind0->Width;
+  ia_Height = InterWind0->Height;
   WCS_Signals ^= InterWind0_Sig;
   closesharedwindow(InterWind0, 0);
   InterWind0 = NULL;
@@ -738,8 +738,8 @@ void smallwindow(short diagnostics)
 
  if (DIAG_Win) Close_Diagnostic_Window();
 
- ModifyIDCMP(EMIA_Win->Win, IDCMPFlags | VANILLAKEY);
- ModifyIDCMP(InterWind0, MOUSEBUTTONS | INTUITICKS | VANILLAKEY);
+ ModifyIDCMP(EMIA_Win->Win, IDCMPFlags | IDCMP_VANILLAKEY);
+ ModifyIDCMP(InterWind0, IDCMP_MOUSEBUTTONS | IDCMP_INTUITICKS | IDCMP_VANILLAKEY);
 
  SetDrMd(InterWind0->RPort, COMPLEMENT);
  SetWindowTitles(InterWind0, (STRPTR)"Select preview region with two clicks", (UBYTE *)-1);
@@ -749,7 +749,7 @@ void smallwindow(short diagnostics)
   ReplyWin = FetchMultiWindowEvent(&Local, InterWind0, EMIA_Win->Win, NULL);
   switch (Local.Class)
    {
-   case VANILLAKEY:
+   case IDCMP_VANILLAKEY:
     {
     if (Local.Code == ESC)
      {
@@ -757,8 +757,8 @@ void smallwindow(short diagnostics)
      abort = 1;
      } /* if escape */
     break;
-    } /* VANILLAKEY */
-   case MOUSEBUTTONS:
+    } /* IDCMP_VANILLAKEY */
+   case IDCMP_MOUSEBUTTONS:
     {
     if (ReplyWin != InterWind0)
      break;
@@ -794,8 +794,8 @@ void smallwindow(short diagnostics)
      abort = 1;
      } /* else if MENUUP abort */
     break;
-    } /* MOUSEBUTTONS */
-   case INTUITICKS:
+    } /* IDCMP_MOUSEBUTTONS */
+   case IDCMP_INTUITICKS:
     {
     if (ReplyWin != InterWind0)
      break;
@@ -823,13 +823,13 @@ void smallwindow(short diagnostics)
       } /* for undraw and draw */
      } /* if firstX */
     break;
-    } /* INTUITICKS */
+    } /* IDCMP_INTUITICKS */
    } /* switch Local.Class */
   } /* while ! done */
 
  ModifyIDCMP(EMIA_Win->Win, IDCMPFlags);
- ModifyIDCMP(InterWind0, MOUSEBUTTONS | RAWKEY | VANILLAKEY | NEWSIZE
-	 | CLOSEWINDOW | ACTIVEWINDOW);
+ ModifyIDCMP(InterWind0, IDCMP_MOUSEBUTTONS | IDCMP_RAWKEY | IDCMP_VANILLAKEY | IDCMP_NEWSIZE
+	 | IDCMP_CLOSEWINDOW | IDCMP_ACTIVEWINDOW);
  SetWindowTitles(InterWind0, (STRPTR)varname[EM_Win->MoItem], (UBYTE *)-1);
 
  if (firstX >= -999)
@@ -865,8 +865,8 @@ void smallwindow(short diagnostics)
  NoOfSmWindows ++;
 
 /* open small window */
- flags = ACTIVATE | SMART_REFRESH | WINDOWDRAG | WINDOWDEPTH | WINDOWCLOSE |
-		WINDOWSIZING | REPORTMOUSE | RMBTRAP;
+ flags = WFLG_ACTIVATE | WFLG_SMART_REFRESH | WFLG_DRAGBAR | WFLG_DEPTHGADGET | WFLG_CLOSEGADGET |
+		WFLG_SIZEGADGET | WFLG_REPORTMOUSE | WFLG_RMBTRAP;
  iflags = 0;
  c0 = 0x00;
  c1 = 0x01;
@@ -886,7 +886,7 @@ void smallwindow(short diagnostics)
   goto Cleanup;
   } /* if can't open window */
 
- ModifyIDCMP(SmWin[WindowNumber]->win, CLOSEWINDOW | ACTIVEWINDOW | MOUSEBUTTONS);
+ ModifyIDCMP(SmWin[WindowNumber]->win, IDCMP_CLOSEWINDOW | IDCMP_ACTIVEWINDOW | IDCMP_MOUSEBUTTONS);
  SmWin[WindowNumber]->Signal = 1L << SmWin[WindowNumber]->win->UserPort->mp_SigBit;
  WCS_Signals |= SmWin[WindowNumber]->Signal;
  SetPointer(SmWin[WindowNumber]->win, WaitPointer, 16, 16, -6, 0);
@@ -1463,14 +1463,14 @@ short abort = 0;
   {
   switch (Event.Class)
    {
-   case CLOSEWINDOW:
+   case IDCMP_CLOSEWINDOW:
     {
     Close_Small_Window(win_number);
     abort = 1;
     break;
-    } /* CLOSEWINDOW */
+    } /* IDCMP_CLOSEWINDOW */
 
-   case ACTIVEWINDOW:
+   case IDCMP_ACTIVEWINDOW:
     {
     LoadRGB4(&WCSScrn->ViewPort, &Colors[0], 16);
     if (Event.MouseX >= SmWin[win_number]->cb.lowx &&
@@ -1496,9 +1496,9 @@ short abort = 0;
       } /* if parameters changed */
      } /* if in rendered portion of window (so as not to respond to window close */
     break;
-    } /* ACTIVEWINDOW */
+    } /* IDCMP_ACTIVEWINDOW */
 
-   case MOUSEBUTTONS:
+   case IDCMP_MOUSEBUTTONS:
     {
     if (DIAG_Win)
      {
@@ -1517,7 +1517,7 @@ short abort = 0;
 		* SmWin[win_number]->width
 		+ Event.MouseX - SmWin[win_number]->cb.lowx);
          if (! IA->Digitizing)
-          ModifyIDCMP(SmWin[win_number]->win, MOUSEMOVE | MOUSEBUTTONS);
+          ModifyIDCMP(SmWin[win_number]->win, IDCMP_MOUSEMOVE | IDCMP_MOUSEBUTTONS);
          } /* if in rendered bounds */
         break;
         } /* SELECTDOWN */
@@ -1536,7 +1536,7 @@ short abort = 0;
          if (! IA->Digitizing) QuitDigPerspective();
 	 }
         else
-         ModifyIDCMP(SmWin[win_number]->win, CLOSEWINDOW | ACTIVEWINDOW | MOUSEBUTTONS);
+         ModifyIDCMP(SmWin[win_number]->win, IDCMP_CLOSEWINDOW | IDCMP_ACTIVEWINDOW | IDCMP_MOUSEBUTTONS);
         break;
 	} /* SELECTUP */
        case MENUUP:			/* delete last point */
@@ -1548,9 +1548,9 @@ short abort = 0;
       } /* if correct small window */
      } /* if diagnostic window open */
     break;
-    } /* MOUSEBUTTONS */
+    } /* IDCMP_MOUSEBUTTONS */
 
-   case MOUSEMOVE:
+   case IDCMP_MOUSEMOVE:
     {
     if (Event.MouseX >= SmWin[win_number]->cb.lowx &&
 		Event.MouseX <= SmWin[win_number]->cb.highx &&
@@ -1562,7 +1562,7 @@ short abort = 0;
 		+ Event.MouseX - SmWin[win_number]->cb.lowx);
      } /* if in rendered bounds */
     break;
-    } /* MOUSEMOVE */
+    } /* IDCMP_MOUSEMOVE */
 
    } /* switch Event.Class */
 
@@ -1582,21 +1582,21 @@ short abort = 0;
   {
   switch (Event.Class)
    {
-   case CLOSEWINDOW:
+   case IDCMP_CLOSEWINDOW:
     {
     Close_EMIA_Window(CloseWindow_Query((STRPTR)"Interactive Motion"));
     abort = 1;
     break;
-    } /* CLOSEWINDOW */
+    } /* IDCMP_CLOSEWINDOW */
 
-   case ACTIVEWINDOW:
+   case IDCMP_ACTIVEWINDOW:
     {
 /*    WindowToFront(InterWind0);*/
     LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
     break;
-    } /* ACTIVEWINDOW */
+    } /* IDCMP_ACTIVEWINDOW */
 
-   case NEWSIZE:
+   case IDCMP_NEWSIZE:
     {
     setclipbounds(InterWind0, &IA->cb);
     Init_IA_View(2);
@@ -1606,9 +1606,9 @@ short abort = 0;
      set(AN_Win->IntStr[3], MUIA_String_Integer, InterWind0->Height);
      } /* if anim window open */
     break;
-    } /* NEWSIZE */
+    } /* IDCMP_NEWSIZE */
 
-   case RAWKEY:
+   case IDCMP_RAWKEY:
     {
     if (Event.Qualifier & IEQUALIFIER_CONTROL)
      {
@@ -1726,9 +1726,9 @@ short abort = 0;
      IA->shifting = 0;
      } /* if IA->shifting */
     break;
-    } /* RAWKEY */
+    } /* IDCMP_RAWKEY */
 
-   case VANILLAKEY:
+   case IDCMP_VANILLAKEY:
     {
     switch(Event.Code)
      {
@@ -1874,9 +1874,9 @@ short abort = 0;
       } /* enter */
      } /* switch Event.Code */
     break;
-    } /* VANILLAKEY */
+    } /* IDCMP_VANILLAKEY */
 
-   case MOUSEBUTTONS:
+   case IDCMP_MOUSEBUTTONS:
     {
     switch (Event.Code)
      {
@@ -1892,7 +1892,7 @@ short abort = 0;
       if (Event.Qualifier & (IEQUALIFIER_LALT | IEQUALIFIER_RALT))
        AltKey = 1;
 
-      ModifyIDCMP(InterWind0, MOUSEBUTTONS | INTUITICKS ); 
+      ModifyIDCMP(InterWind0, IDCMP_MOUSEBUTTONS | IDCMP_INTUITICKS );
 
       IA->button = Event.Code;
       IA->startx = Event.MouseX;
@@ -1996,10 +1996,10 @@ short abort = 0;
 EndLoop:
        FetchEvent(InterWind0, &Event);
 
-       } /* while Event.Class != MOUSEBUTTONS */
+       } /* while Event.Class != IDCMP_MOUSEBUTTONS */
 
-      ModifyIDCMP(InterWind0, MOUSEBUTTONS | RAWKEY | VANILLAKEY | NEWSIZE |
-	 CLOSEWINDOW | ACTIVEWINDOW);
+      ModifyIDCMP(InterWind0, IDCMP_MOUSEBUTTONS | IDCMP_RAWKEY | IDCMP_VANILLAKEY | IDCMP_NEWSIZE |
+              IDCMP_CLOSEWINDOW | IDCMP_ACTIVEWINDOW);
 /*
       if (MP && MP->ptsdrawn)
        {
@@ -2031,7 +2031,7 @@ EndLoop:
       } /* SELECTDOWN | MENUDOWN */
      } /* switch Event.Code */
     break;
-    } /* MOUSEBUTTONS */
+    } /* IDCMP_MOUSEBUTTONS */
    } /* switch Event.Class */
 
   if (abort) break;
@@ -2050,13 +2050,13 @@ void Handle_InterWind2(void)
   {
   switch (Event.Class)
    {
-   case ACTIVEWINDOW:
+   case IDCMP_ACTIVEWINDOW:
     {
 /*    WindowToFront(InterWind2);*/
     break;
     } /* activate */
 
-   case CLOSEWINDOW:
+   case IDCMP_CLOSEWINDOW:
     {
     IA_CompTop = InterWind2->TopEdge;
     IA_CompLeft = InterWind2->LeftEdge;
@@ -2068,9 +2068,9 @@ void Handle_InterWind2(void)
     InterWind2_Sig = 0;
     abort = 1;
     break;
-    } /* CLOSEWINDOW */
+    } /* IDCMP_CLOSEWINDOW */
 
-   case NEWSIZE:
+   case IDCMP_NEWSIZE:
     {
     struct clipbounds cb;
 
@@ -2089,7 +2089,7 @@ void Handle_InterWind2(void)
 	 IA->CompRadius + 2, IA->CompRadius + 2);
     compass(azimuth, azimuth);
     break;
-    } /* NEWSIZE */
+    } /* IDCMP_NEWSIZE */
 
    } /* switch Event.Class */
 

@@ -27,7 +27,7 @@
 #include <devices/printer.h>
 #include <exec/memory.h>
 #include <graphics/gfxbase.h>
-#include <graphics/display.h>
+
 #include <graphics/displayinfo.h>
 #include <graphics/gfxmacros.h>
 #include <hardware/blit.h>

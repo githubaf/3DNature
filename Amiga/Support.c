@@ -365,10 +365,10 @@ void LoadConfig(void)
     } /* settings editor */
    case CONFIG_EMIA_SIZE:
     {
-    fscanf(fconfig, "%hd", &IA_Top);
-    fscanf(fconfig, "%hd", &IA_Left);
-    fscanf(fconfig, "%hd", &IA_Width);
-    fscanf(fconfig, "%hd", &IA_Height);
+    fscanf(fconfig, "%hd", &ia_Top);
+    fscanf(fconfig, "%hd", &ia_Left);
+    fscanf(fconfig, "%hd", &ia_Width);
+    fscanf(fconfig, "%hd", &ia_Height);
     break;
     } /* interactive view size */
    case CONFIG_EMIA_COMPSIZE:
@@ -880,10 +880,10 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
  fprintf(fproject, "%d\n", ContInterval);
  fprintf(fproject, "%d\n", PROJECT_MP_DIGMODE);
  fprintf(fproject, "%d\n", MP_DigMode);
- if (IA_Width > 0 && IA_Height > 0)
+ if (ia_Width > 0 && ia_Height > 0)
   {
   fprintf(fproject, "%d\n", PROJECT_EMIA_SIZE);
-  fprintf(fproject, "%d %d %d %d\n", IA_Top, IA_Left, IA_Width, IA_Height);
+  fprintf(fproject, "%d %d %d %d\n", ia_Top, ia_Left, ia_Width, ia_Height);
   }
  if (IA_CompWidth > 0 && IA_CompHeight > 0)
   {
@@ -1293,10 +1293,10 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     } /*  */
    case PROJECT_EMIA_SIZE:
     {
-    fscanf(fproject, "%hd", &IA_Top);
-    fscanf(fproject, "%hd", &IA_Left);
-    fscanf(fproject, "%hd", &IA_Width);
-    fscanf(fproject, "%hd", &IA_Height);
+    fscanf(fproject, "%hd", &ia_Top);
+    fscanf(fproject, "%hd", &ia_Left);
+    fscanf(fproject, "%hd", &ia_Width);
+    fscanf(fproject, "%hd", &ia_Height);
     break;
     } /* interactive view size */
    case PROJECT_EMIA_COMPSIZE:

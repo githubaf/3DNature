@@ -40,6 +40,8 @@ extern struct MWS_Entry SentLookUp[];
 
 extern unsigned long int MarkovTable[];
 
+struct RxsLib *RexxSysBase;
+
 STATIC_FCN struct MWS_Entry *Cmd_SearchMe(struct MWS_Entry *FromHere, long int WordUp); // used locally only -> static, AF 20.7.2021
 STATIC_FCN char *Cmd_PullWord(char *Source, char *WordBuf, int WBufSize); // used locally only -> static, AF 20.7.2021
 STATIC_FCN long int Cmd_HuntShort(unsigned long int BeginPoint); // used locally only -> static, AF 20.7.2021
@@ -81,7 +83,7 @@ register	short	flag;
 
 if (This)
 	{
-	if (tmp = (struct RexxMsg *)GetMsg(This->ARexxPort))
+	if ((tmp = (struct RexxMsg *)GetMsg(This->ARexxPort)))
 		{
 		if (tmp->rm_Node.mn_Node.ln_Type==NT_REPLYMSG)
 			{
@@ -128,7 +130,7 @@ if ((This) && (This != REXX_RETURN_ERROR))
 			{
 			if (RString)
 				{
-				This->rm_Result2=(LONG)CreateArgstring((STRPTR)RString,
+			      This->rm_Result2=(LONG)CreateArgstring((STRPTR)RString,
 				 (LONG)strlen(RString));
 				} /* if */
 			} /* if */
@@ -295,7 +297,7 @@ register	char *tmp;
 
 if((This = AllocMem(sizeof(struct ARexxContext), MEMF_PUBLIC|MEMF_CLEAR)))
 	{
-	if(This->RexxSysBase = OpenLibrary((STRPTR)"rexxsyslib.library", 0))
+	if((This->RexxSysBase = OpenLibrary((STRPTR)"rexxsyslib.library", 0)))
 		{
 		/* Set up the extension... */
 		strcpy(This->Extension, "WCS");

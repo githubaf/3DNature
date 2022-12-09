@@ -112,9 +112,14 @@ EXTERN struct Library *MUIMasterBase
 #ifdef __SASC
    #include <clib/muimaster_protos.h>   //ALEXANDER
 #else
-   #define NO_INLINE_STDARG              // Bebbo
-   #include <proto/muimaster_lib.h>      // Alexander
-   #undef  NO_INLINE_STDARG
+   #ifdef __AROS__
+      #include <proto/muimaster.h>
+      #include <libraries/mui.h>
+   #else
+      #define NO_INLINE_STDARG              // Bebbo
+      #include <proto/muimaster_lib.h>      // Alexander
+      #undef  NO_INLINE_STDARG
+   #endif
 #endif
 
 
@@ -1547,10 +1552,10 @@ EXTERN short *Edge1,*Edge2,
 //      polyct[10],  // static AF
       paramsloaded,dbaseloaded,NoOfElMaps,item[3],
       aliasred,aliasgreen,aliasblue,altred,altgreen,altblue,LogItem, IA_GridSize,
-      IA_GridStyle, IA_Movement, KT_MaxFrames, IA_Top, IA_Left, IA_Width,
+      IA_GridStyle, IA_Movement, KT_MaxFrames, ia_Top, ia_Left, ia_Width,   // AF: AROS IA_Top usw gibt es in imageclass.h
       IA_AnimStart, IA_AnimEnd,
       //IA_AnimStep,  static AF
-      IA_Height, IA_CompTop, IA_CompLeft, IA_CompWidth, IA_CompHeight, IA_AutoDraw,
+      ia_Height, IA_CompTop, IA_CompLeft, IA_CompWidth, IA_CompHeight, IA_AutoDraw,
       ColMax, Clouds, DB_Mod, Par_Mod, Proj_Mod, Mod_Warn, EcoClass,
 //      UndoKeyFrames,  static AF
       RenderTaskPri,

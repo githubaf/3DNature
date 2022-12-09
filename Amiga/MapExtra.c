@@ -251,12 +251,12 @@ void graphset(void)
 
 
  setclipbounds(MapWind0, &cb);
- ModifyIDCMP(MapWind1, CLOSEWINDOW | MOUSEBUTTONS | VANILLAKEY);
+ ModifyIDCMP(MapWind1, CLOSEWINDOW | IDCMP_MOUSEBUTTONS | IDCMP_VANILLAKEY);
 
  while (! done) {
   FetchEvent(MapWind1, &Event);
   if (Event.Class == CLOSEWINDOW) done = 1;
-  else if (Event.Class == MOUSEBUTTONS) {
+  else if (Event.Class == IDCMP_MOUSEBUTTONS) {
    if (Event.Code == SELECTUP) {
     if (Event.MouseX > 175 && Event.MouseX < 185 && Event.MouseY > 30 && Event.MouseY < 40) {
      clearchecks(0);
@@ -973,7 +973,7 @@ short modpoints(short modify)
  short j, firstmark = 0, lastmark = 0, done = 0, found, edpt = 1,
 	xlow, xhigh, ylow, yhigh;
 
- ModifyIDCMP(MapWind0, VANILLAKEY | MOUSEBUTTONS);
+ ModifyIDCMP(MapWind0, IDCMP_VANILLAKEY | IDCMP_MOUSEBUTTONS);
 
  if (! DBase[OBN].Lat) return (0);
 
@@ -989,7 +989,7 @@ short modpoints(short modify)
   unmarkpt(edpt);
   switch (Event.Class)
    {
-   case VANILLAKEY:
+   case IDCMP_VANILLAKEY:
     {
     switch (Event.Code)
      {
@@ -1083,8 +1083,8 @@ short modpoints(short modify)
       }
      } /* switch Event.Code */
     break;
-    } /* VANILLAKEY */  
-   case MOUSEBUTTONS:
+    } /* IDCMP_VANILLAKEY */
+   case IDCMP_MOUSEBUTTONS:
     {
     if (Event.Code == SELECTUP)
      {
@@ -1107,7 +1107,7 @@ short modpoints(short modify)
      if (found) edpt = j - 1;
      } /* if SELECTUP */
     break;
-    } /* MOUSEBUTTONS */
+    } /* IDCMP_MOUSEBUTTONS */
    } /* switch Event.Class */
 
   if (edpt < 1)

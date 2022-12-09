@@ -128,8 +128,8 @@ void globemap(void)
   c0 = 0x00;
   c1 = 0x01; 
 
-  flags = ACTIVATE | SMART_REFRESH | WINDOWDEPTH | WINDOWCLOSE | WINDOWDRAG |
-	REPORTMOUSE;
+  flags = WFLG_ACTIVATE | WFLG_SMART_REFRESH | WFLG_DEPTHGADGET | WFLG_CLOSEGADGET | WFLG_DRAGBAR |
+          WFLG_REPORTMOUSE;
   iflags = 0;
   WinWidth = settings.scrnwidth + WCSScrn->WBorLeft + WCSScrn->WBorRight + 1;
   WinHeight = settings.scrnheight + WCSScrn->WBorTop + WCSScrn->WBorBottom + 1;
@@ -148,7 +148,7 @@ void globemap(void)
    }
   LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
   SetRast(RenderWind0->RPort, 8);
-  ModifyIDCMP(RenderWind0, CLOSEWINDOW | ACTIVEWINDOW | MOUSEBUTTONS);
+  ModifyIDCMP(RenderWind0, IDCMP_CLOSEWINDOW | IDCMP_ACTIVEWINDOW | IDCMP_MOUSEBUTTONS);
   RenderWind0_Sig = 1L << RenderWind0->UserPort->mp_SigBit;
   WCS_Signals |= RenderWind0_Sig;
   } /* if render to screen */
