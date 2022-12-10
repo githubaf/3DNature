@@ -72,6 +72,32 @@ unsigned long long Swap1=0,Swap2=0,Swap4=0,Swap8=0,Swapother=0, SwapTotal=0;  //
 const char min_stack[] = "\0$STACK: 8192";  // ask for enough stack. (OS 3.14, OS3.2)
 const ULONG MinStack=8192;   // abort if stack is actually smaller
 
+// AF: 9.Dec.22 Change the images to little Endian in case of i386-aros
+#ifdef __AROS__
+   #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+void FlipImageWords(struct Image *img)
+{
+    UWORD *ImageData=img->ImageData;
+    unsigned int i;
+
+    unsigned int WordsPerLine=img->Width/16;
+    if(WordsPerLine*16 != img->Width)
+    {
+        WordsPerLine+=1;  // each line is organised in 16 bit words.
+    }
+
+    for(i=0;i<WordsPerLine*img->Height*img->Depth;i++)
+    {
+           *ImageData=(((*ImageData & 0xff) << 8) | ((*ImageData & 0xff00) >> 8));
+           ImageData++;
+    }
+}
+
+
+   #endif
+#endif
+
+
 int main(void)
 {
     short ResetScrn = 0;
@@ -89,6 +115,31 @@ int main(void)
         return 20;
     }
 
+// AF: 9.Dec.22 Change the images to little Endian in case of i386-aros
+#ifdef __AROS__
+   #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+      FlipImageWords(&AboutScape);
+      FlipImageWords(&CompRose);
+      FlipImageWords(&DatabaseMod);
+      FlipImageWords(&DataOpsMod);
+      FlipImageWords(&MappingMod);
+      FlipImageWords(&EditingMod);
+      FlipImageWords(&RenderMod);
+      FlipImageWords(&EC_PalGrad);
+      FlipImageWords(&EC_Button2);
+      FlipImageWords(&EC_Button3);
+      FlipImageWords(&EC_Button4);
+      FlipImageWords(&EC_Button5);
+      FlipImageWords(&EC_Button6);
+      FlipImageWords(&EC_Button7);
+      FlipImageWords(&EC_Button8);
+      FlipImageWords(&EC_Button9);
+      FlipImageWords(&Gary);
+      FlipImageWords(&Xenon);
+      FlipImageWords(&DangerSign);
+
+   #endif
+#endif
 
 ResetScreenMode:
 
@@ -321,7 +372,7 @@ int Mkdir(const char *name)
   else
   {
      #ifndef __AROS__
-        _seterrno(); 
+        __seterrno();
      #endif
      ret=-1;
   }

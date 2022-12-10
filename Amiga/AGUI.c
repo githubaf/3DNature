@@ -1061,7 +1061,11 @@ struct WCSApp *WCS_App_New(void)
     MUIA_Application_Author		, APP_AUTHOR,
     MUIA_Application_Description	, APP_DESCRIPTION,
     MUIA_Application_Base			, APP_TLA,
+#ifndef __AROS__
     MUIA_Application_Menu			, WCSNewMenus,
+#else
+    MUIA_Application_Menustrip,  MUI_MakeObject(MUIO_MenustripNM,WCSNewMenus,0),  // AF: MUIA_Application_Menu is obsolete and not suppurted by Aros Zune
+#endif
     MUIA_Application_UseRexx		, FALSE,
     MUIA_Application_UseCommodities,	FALSE,
    End; /* App */

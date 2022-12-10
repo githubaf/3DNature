@@ -1770,7 +1770,7 @@ Aminet-Upload Emerald-Anton am 25.Now.2022
 * Alte Flags obsolete Flags ACTIVATE | SMART_REFRESH | WINDOWDEPTH usw. durch WFLG_ACTIVATE | WFLG_SMART_REFRESH | WFLG_DEPTHGADGET ersetzt -> noetig fuer AROS, OK fuer 68k
 * Genauso Flags wir VANILLAKEY -> IDCMP_VANILLAKEY
 * #include <graphics/display.h> entfernt. Fehlt bei AROS, nicht noetig bei 68k.
-* IA_Width usw umbenannt in -> ia_width, sonst Namenskonflikt  ???
+* IA_Width usw umbenannt in -> ia_width, sonst Namenskonflikt in AROS mit imageclass.h
 * einige extra Klammern gegen Warnungen "Suggest Paranthes...)
 * Testweise struct RxsLib *RexxSysBase; in RexxSupport.c eingefuegt, sonst nicht linkbar. Muss wieder raus!
 * ScratchPad.c -> HK4M(regs) mit ifdef __AROS__, ist Assembler, muss nach C konvertiert werden.
@@ -1779,4 +1779,16 @@ Aminet-Upload Emerald-Anton am 25.Now.2022
 * in WCS.h eingefuert mit ifdef __AROS__   #include <proto/muimaster.h> und #include <libraries/mui.h> 
 * In vgl_internals.h typedef unsigned int size_t auskommentiert. Konflikt mit AROS
 * WCS ist damit fuer AROS i386 compilierbar/linkbar. Starseite erscheint, Bilder nicht OK, kein Titelmenu?, stuerzt dann spaeter ab.
+
+* i386-aros-strip mach das Executable kaputt. Die Exe, die vorher einigermassen ging, stuerzt dann sofort beim Start ab.
+* Images mussten endian-gedreht werden. In WCS.c eine Funktion FlipImageWords() eingebaut und fuer alle Images aufgerufen. Die Bildchen und Buttons sind damit richtig.
+* Das Programm hat unter AROS kein Menu???
+  -> MUIA_Application_Menu wird anscheinen nicht von AROS unterstuetzt (ist auch bei MUI als obsolete gekennzeichnet) Man muss statt 
+     "MUIA_Application_Menu			, WCSNewMenus," 
+     wohl
+     "MUIA_Application_Menustrip,  MUI_MakeObject(MUIO_MenustripNM,WCSNewMenus,0)," nehmen. 
+     -> Damit ist das Menu jetzt da. Erst mal pit ifdef __AROS__ in AGUI.c gemacht, um 68k Version nicht zugefaehrden.
+
+* Die Seriennummer sieht seltsam aus. Da steht Emerald-Anton mit drin!? (Wir sind jetzt Berta und in der Seriennummer sollte das garnicht drin sein)
+  -> liegt an "git describe". Da wird das letzte Tag mit ausgegeben und die Anzahl der Commits danach. --exclude "*" beseitigt das. In Eclipse korrigiert.
 
