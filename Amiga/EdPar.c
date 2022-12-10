@@ -7,6 +7,13 @@
 #include "WCS.h"
 #include "Foliage.h"
 
+// AF, 10.Dec.22
+#ifdef __AROS__
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#include "Useful.h"
+#endif
+#endif
+
 STATIC_VAR short UndoKeyFrames;
 
 STATIC_FCN short Set_Bank_Key(short Frame); // used locally only -> static, AF 23.7.2021
@@ -1766,6 +1773,20 @@ short loadparams(USHORT loadcode, short loaditem)
   {
   if ((fread((char *)&TempHdr, sizeof (struct ParHeader), 1, fparam)) == 1)
    {
+// AF: 10.Dec.2022, Endian correction for i386-aros
+#ifdef __AROS__
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+      SimpleEndianFlip32F(TempHdr.Version,&TempHdr.Version);
+      SimpleEndianFlip32S(TempHdr.ByteOrder,&TempHdr.ByteOrder);
+      SimpleEndianFlip32S(TempHdr.MotionParamsPos,&TempHdr.MotionParamsPos);
+      SimpleEndianFlip32S(TempHdr.ColorParamsPos,&TempHdr.ColorParamsPos);
+      SimpleEndianFlip32S(TempHdr.EcoParamsPos,&TempHdr.EcoParamsPos);
+      SimpleEndianFlip32S(TempHdr.SettingsPos,&TempHdr.SettingsPos);
+      SimpleEndianFlip32S(TempHdr.KeyFramesPos,&TempHdr.KeyFramesPos);
+      SimpleEndianFlip16S(TempHdr.KeyFrames,&TempHdr.KeyFrames);
+#endif
+#endif
+
    if (! strncmp(TempHdr.FType, "%GISPAR", 8))
     {
     fileversion = TempHdr.Version;

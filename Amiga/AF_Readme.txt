@@ -1792,3 +1792,7 @@ Aminet-Upload Emerald-Anton am 25.Now.2022
 * Die Seriennummer sieht seltsam aus. Da steht Emerald-Anton mit drin!? (Wir sind jetzt Berta und in der Seriennummer sollte das garnicht drin sein)
   -> liegt an "git describe". Da wird das letzte Tag mit ausgegeben und die Anzahl der Commits danach. --exclude "*" beseitigt das. In Eclipse korrigiert.
 
+10.Dec.2022
+-----------
+* Endian correction in EdPar.c Funktion short loadparams(USHORT loadcode, short loaditem)
+  -> Projectfile colodemo.proj kann geladen werden. Das zugehoerige Parameterfile Demo1.par schlaegt fehl.
