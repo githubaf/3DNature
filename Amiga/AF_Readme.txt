@@ -1796,3 +1796,8 @@ Aminet-Upload Emerald-Anton am 25.Now.2022
 -----------
 * Endian correction in EdPar.c Funktion short loadparams(USHORT loadcode, short loaditem)
   -> Projectfile colodemo.proj kann geladen werden. Das zugehoerige Parameterfile Demo1.par schlaegt fehl.
+
+12.Dec.2022
+-----------
+* Packed eingebaut. Struktur war zu gross bei Aros i386 
+  -> struct __attribute__((__packed__))ParHeader in WCS.h

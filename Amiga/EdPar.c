@@ -27,6 +27,16 @@ STATIC_FCN void ParamFmtV1V2_Convert(struct AnimationV1 *MoParV1, struct Palette
         short loaditem, short LoadKeys); // used locally only -> static, AF 23.7.2021
 
 
+
+// ALEXANDER
+void AlexanderLog(char * Text, unsigned int Line, FILE *file)
+{
+    static char String[1024]={};
+    sprintf(String,"L: %u ftell: %u %s\n",Line,file?ftell(file):MAXINT, Text);
+    Log(MSG_PAR_LOAD, (CONST_STRPTR)String);
+}
+
+
 #ifdef KJHKJDFHKDHFKJDFH // Now in LWSupport.c
 
 /* ALEXANDER now in WCS.h struct LightWaveMotion {
@@ -1776,14 +1786,14 @@ short loadparams(USHORT loadcode, short loaditem)
 // AF: 10.Dec.2022, Endian correction for i386-aros
 #ifdef __AROS__
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-      SimpleEndianFlip32F(TempHdr.Version,&TempHdr.Version);
-      SimpleEndianFlip32S(TempHdr.ByteOrder,&TempHdr.ByteOrder);
+      SimpleEndianFlip32F(TempHdr.Version,        &TempHdr.Version);
+      SimpleEndianFlip32S(TempHdr.ByteOrder,      &TempHdr.ByteOrder);
       SimpleEndianFlip32S(TempHdr.MotionParamsPos,&TempHdr.MotionParamsPos);
-      SimpleEndianFlip32S(TempHdr.ColorParamsPos,&TempHdr.ColorParamsPos);
-      SimpleEndianFlip32S(TempHdr.EcoParamsPos,&TempHdr.EcoParamsPos);
-      SimpleEndianFlip32S(TempHdr.SettingsPos,&TempHdr.SettingsPos);
-      SimpleEndianFlip32S(TempHdr.KeyFramesPos,&TempHdr.KeyFramesPos);
-      SimpleEndianFlip16S(TempHdr.KeyFrames,&TempHdr.KeyFrames);
+      SimpleEndianFlip32S(TempHdr.ColorParamsPos, &TempHdr.ColorParamsPos);
+      SimpleEndianFlip32S(TempHdr.EcoParamsPos,   &TempHdr.EcoParamsPos);
+      SimpleEndianFlip32S(TempHdr.SettingsPos,    &TempHdr.SettingsPos);
+      SimpleEndianFlip32S(TempHdr.KeyFramesPos,   &TempHdr.KeyFramesPos);
+      SimpleEndianFlip16S(TempHdr.KeyFrames,      &TempHdr.KeyFrames);
 #endif
 #endif
 
@@ -1901,6 +1911,23 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
 
  if ((fread((char *)TempHdr, sizeof (struct ParHeader), 1, fparam)) != 1)
   goto ReadError;
+
+
+  AlexanderLog("",__LINE__,fparam);
+ // AF: 10.Dec.2022, Endian correction for i386-aros
+ #ifdef __AROS__
+ #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+       SimpleEndianFlip32F(TempHdr->Version,        &TempHdr->Version);
+       SimpleEndianFlip32S(TempHdr->ByteOrder,      &TempHdr->ByteOrder);
+       SimpleEndianFlip32S(TempHdr->MotionParamsPos,&TempHdr->MotionParamsPos);
+       SimpleEndianFlip32S(TempHdr->ColorParamsPos, &TempHdr->ColorParamsPos);
+       SimpleEndianFlip32S(TempHdr->EcoParamsPos,   &TempHdr->EcoParamsPos);
+       SimpleEndianFlip32S(TempHdr->SettingsPos,    &TempHdr->SettingsPos);
+       SimpleEndianFlip32S(TempHdr->KeyFramesPos,   &TempHdr->KeyFramesPos);
+       SimpleEndianFlip16S(TempHdr->KeyFrames,      &TempHdr->KeyFrames);
+ #endif
+ #endif
+
  if (! strncmp(TempHdr->FType, "%WCSPAR", 8))
   fileversion = TempHdr->Version;
  else fileversion = 0.0;
@@ -1912,7 +1939,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
 
  if (loadcode != 0x1111)
   {
-  if (loadcode & 0x0111 && KeyFrames > 0)
+  if ((loadcode & 0x0111) && KeyFrames > 0)
    LoadKeys = User_Message_Def((CONST_STRPTR)"Parameter Module: Load",
            (CONST_STRPTR)"Load all key frames?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1);
   } /* if load partial file */
@@ -1938,12 +1965,31 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
    {
    if ((fread((char *)&MoPar, sizeof (struct Animation), 1, fparam)) != 1)
     goto ReadError;
+
+   // AF: 10.Dec.2022, Endian correction for i386-aros
+   #ifdef __AROS__
+   #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+   for(unsigned int i=0;i<MOTIONPARAMS;i++)
+   {
+         SimpleEndianFlip64(MoPar.mn[i].Value,&MoPar.mn[i].Value);
+   }
+   #endif
+   #endif
+
    }
   else
    {
    fseek(fparam, loaditem * (sizeof (struct Motion)), 1);
    if ((fread((char *)&MoPar.mn[loaditem], sizeof (struct Motion), 1, fparam)) != 1)
     goto ReadError;
+
+   // AF: 10.Dec.2022, Endian correction for i386-aros
+   #ifdef __AROS__
+   #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+         SimpleEndianFlip64(MoPar.mn[loaditem].Value,&MoPar.mn[loaditem].Value);
+   #endif
+   #endif
+         AlexanderLog("",__LINE__,fparam);
    fseek(fparam, TempHdr->ColorParamsPos, 0);
    } /* else */
   } /*  if */
@@ -1956,6 +2002,18 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
    {
    if ((fread((char *)&CoPar, sizeof (struct Palette), 1, fparam)) != 1)
     goto ReadError;
+
+   // AF: 10.Dec.2022, Endian correction for i386-aros
+   #ifdef __AROS__
+   #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+   for(unsigned int i=0; i<COLORPARAMS;i++)
+   {
+         SimpleEndianFlip16S(CoPar.cn[i].Value[0],&CoPar.cn[i].Value[0]);
+         SimpleEndianFlip16S(CoPar.cn[i].Value[1],&CoPar.cn[i].Value[1]);
+         SimpleEndianFlip16S(CoPar.cn[i].Value[2],&CoPar.cn[i].Value[2]);
+   }
+   #endif
+   #endif
    }
   else
    {
@@ -1964,6 +2022,16 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
     fseek(fparam, loaditem * (sizeof (struct Color)), 1);
     if ((fread((char *)&CoPar.cn[loaditem], sizeof (struct Color), 1, fparam)) != 1)
      goto ReadError;
+
+    // AF: 10.Dec.2022, Endian correction for i386-aros
+    #ifdef __AROS__
+    #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+          SimpleEndianFlip16S(CoPar.cn[loaditem].Value[0],&CoPar.cn[loaditem].Value[0]);
+          SimpleEndianFlip16S(CoPar.cn[loaditem].Value[1],&CoPar.cn[loaditem].Value[1]);
+          SimpleEndianFlip16S(CoPar.cn[loaditem].Value[2],&CoPar.cn[loaditem].Value[2]);
+    #endif
+    #endif
+
     } /* if load defined color */
    else
     {
@@ -1974,6 +2042,16 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
      {
      if ((fread((char *)&TempCo, sizeof (struct Color), 1, fparam)) != 1)
       goto ReadError;
+
+     // AF: 10.Dec.2022, Endian correction for i386-aros
+     #ifdef __AROS__
+     #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+           SimpleEndianFlip16S(TempCo.Value[0],&TempCo.Value[0]);
+           SimpleEndianFlip16S(TempCo.Value[1],&TempCo.Value[1]);
+           SimpleEndianFlip16S(TempCo.Value[2],&TempCo.Value[2]);
+     #endif
+     #endif
+
      if (! strcmp(TempCo.Name, PAR_NAME_COLOR(loaditem)))
       {
       memcpy(&CoPar.cn[loaditem], &TempCo, sizeof (struct Color));
@@ -1999,6 +2077,33 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
    {
    if ((fread((char *)&EcoPar, sizeof (union Environment), 1, fparam)) != 1)
     goto ReadError;
+
+   // AF: 10.Dec.2022, Endian correction for i386-aros
+   #ifdef __AROS__
+   #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+   for(unsigned int i=0; i< ECOPARAMS; i++)
+   {
+   SimpleEndianFlip32F(EcoPar.en[i].Line,         &(EcoPar.en[i].Line));
+   SimpleEndianFlip32F(EcoPar.en[i].Skew,         &(EcoPar.en[i].Skew));
+   SimpleEndianFlip32F(EcoPar.en[i].SkewAz,       &(EcoPar.en[i].SkewAz));
+   SimpleEndianFlip32F(EcoPar.en[i].RelEl,        &(EcoPar.en[i].RelEl));
+   SimpleEndianFlip32F(EcoPar.en[i].MaxRelEl,     &(EcoPar.en[i].MaxRelEl));
+   SimpleEndianFlip32F(EcoPar.en[i].MinRelEl,     &(EcoPar.en[i].MinRelEl));
+   SimpleEndianFlip32F(EcoPar.en[i].MaxSlope,     &(EcoPar.en[i].MaxSlope));
+   SimpleEndianFlip32F(EcoPar.en[i].MinSlope,     &(EcoPar.en[i].MinSlope));
+   SimpleEndianFlip32F(EcoPar.en[i].Density,      &(EcoPar.en[i].Density));
+   SimpleEndianFlip32F(EcoPar.en[i].Height,       &(EcoPar.en[i].Height));
+   SimpleEndianFlip16S(EcoPar.en[i].Type,         &(EcoPar.en[i].Type));
+   SimpleEndianFlip16S(EcoPar.en[i].Color,        &(EcoPar.en[i].Color));
+   SimpleEndianFlip16S(EcoPar.en[i].UnderEco,     &(EcoPar.en[i].UnderEco));
+   SimpleEndianFlip16S(EcoPar.en[i].MatchColor[0],&(EcoPar.en[i].MatchColor[0]));
+   SimpleEndianFlip16S(EcoPar.en[i].MatchColor[1],&(EcoPar.en[i].MatchColor[1]));
+   SimpleEndianFlip16S(EcoPar.en[i].MatchColor[2],&(EcoPar.en[i].MatchColor[2]));
+   }
+   #endif
+   #endif
+
    } /* if load all ecosystems */
   else
    {
@@ -2007,6 +2112,31 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
     fseek(fparam, loaditem * (sizeof (struct Ecosystem)), 1);
     if ((fread((char *)&EcoPar.en[loaditem], sizeof (struct Ecosystem), 1, fparam)) != 1)
      goto ReadError;
+
+    // AF: 10.Dec.2022, Endian correction for i386-aros
+    #ifdef __AROS__
+    #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+    SimpleEndianFlip32F(EcoPar.en[loaditem].Line,         &EcoPar.en[loaditem].Line);
+    SimpleEndianFlip32F(EcoPar.en[loaditem].Skew,         &EcoPar.en[loaditem].Skew);
+    SimpleEndianFlip32F(EcoPar.en[loaditem].SkewAz,       &EcoPar.en[loaditem].SkewAz);
+    SimpleEndianFlip32F(EcoPar.en[loaditem].RelEl,        &EcoPar.en[loaditem].RelEl);
+    SimpleEndianFlip32F(EcoPar.en[loaditem].MaxRelEl,     &EcoPar.en[loaditem].MaxRelEl);
+    SimpleEndianFlip32F(EcoPar.en[loaditem].MinRelEl,     &EcoPar.en[loaditem].MinRelEl);
+    SimpleEndianFlip32F(EcoPar.en[loaditem].MaxSlope,     &EcoPar.en[loaditem].MaxSlope);
+    SimpleEndianFlip32F(EcoPar.en[loaditem].MinSlope,     &EcoPar.en[loaditem].MinSlope);
+    SimpleEndianFlip32F(EcoPar.en[loaditem].Density,      &EcoPar.en[loaditem].Density);
+    SimpleEndianFlip32F(EcoPar.en[loaditem].Height,       &EcoPar.en[loaditem].Height);
+    SimpleEndianFlip16S(EcoPar.en[loaditem].Type,         &EcoPar.en[loaditem].Type);
+    SimpleEndianFlip16S(EcoPar.en[loaditem].Color,        &EcoPar.en[loaditem].Color);
+    SimpleEndianFlip16S(EcoPar.en[loaditem].UnderEco,     &EcoPar.en[loaditem].UnderEco);
+    SimpleEndianFlip16S(EcoPar.en[loaditem].MatchColor[0],&EcoPar.en[loaditem].MatchColor[0]);
+    SimpleEndianFlip16S(EcoPar.en[loaditem].MatchColor[1],&EcoPar.en[loaditem].MatchColor[1]);
+    SimpleEndianFlip16S(EcoPar.en[loaditem].MatchColor[2],&EcoPar.en[loaditem].MatchColor[2]);
+
+    #endif
+    #endif
+
     } /* if */
    else
     {
@@ -2017,6 +2147,31 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
      {
      if ((fread((char *)&TempEco, sizeof (struct Ecosystem), 1, fparam)) != 1)
       goto ReadError;
+
+     // AF: 10.Dec.2022, Endian correction for i386-aros
+     #ifdef __AROS__
+     #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+     SimpleEndianFlip32F(TempEco.Line,         &TempEco.Line);
+     SimpleEndianFlip32F(TempEco.Skew,         &TempEco.Skew);
+     SimpleEndianFlip32F(TempEco.SkewAz,       &TempEco.SkewAz);
+     SimpleEndianFlip32F(TempEco.RelEl,        &TempEco.RelEl);
+     SimpleEndianFlip32F(TempEco.MaxRelEl,     &TempEco.MaxRelEl);
+     SimpleEndianFlip32F(TempEco.MinRelEl,     &TempEco.MinRelEl);
+     SimpleEndianFlip32F(TempEco.MaxSlope,     &TempEco.MaxSlope);
+     SimpleEndianFlip32F(TempEco.MinSlope,     &TempEco.MinSlope);
+     SimpleEndianFlip32F(TempEco.Density,      &TempEco.Density);
+     SimpleEndianFlip32F(TempEco.Height,       &TempEco.Height);
+     SimpleEndianFlip16S(TempEco.Type,         &TempEco.Type);
+     SimpleEndianFlip16S(TempEco.Color,        &TempEco.Color);
+     SimpleEndianFlip16S(TempEco.UnderEco,     &TempEco.UnderEco);
+     SimpleEndianFlip16S(TempEco.MatchColor[0],&TempEco.MatchColor[0]);
+     SimpleEndianFlip16S(TempEco.MatchColor[1],&TempEco.MatchColor[1]);
+     SimpleEndianFlip16S(TempEco.MatchColor[2],&TempEco.MatchColor[2]);
+
+     #endif
+     #endif
+
      if (! strcmp(TempEco.Name, PAR_NAME_ECO(loaditem)))
       {
       memcpy(&EcoPar.en[loaditem], &TempEco, sizeof (struct Ecosystem));
@@ -2040,6 +2195,121 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
   {
   if ((fread((char *)&settings, sizeof (struct Settings), 1, fparam)) != 1)
    goto ReadError;
+  
+  // AF: 10.Dec.2022, Endian correction for i386-aros
+  #ifdef __AROS__
+  #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+  SimpleEndianFlip16S(settings.startframe,   &settings.startframe);
+  SimpleEndianFlip16S(settings.maxframes,    &settings.maxframes);
+  SimpleEndianFlip16S(settings.startseg,     &settings.startseg);
+  SimpleEndianFlip16S(settings.smoothfaces,  &settings.smoothfaces);
+  SimpleEndianFlip16S(settings.bankturn,     &settings.bankturn);
+  SimpleEndianFlip16S(settings.colrmap,      &settings.colrmap);
+  SimpleEndianFlip16S(settings.borderandom,  &settings.borderandom);
+  SimpleEndianFlip16S(settings.cmaptrees,    &settings.cmaptrees);
+  SimpleEndianFlip16S(settings.rendertrees,  &settings.rendertrees);
+  SimpleEndianFlip16S(settings.statistics,   &settings.statistics);
+  SimpleEndianFlip16S(settings.stepframes,   &settings.stepframes);
+  SimpleEndianFlip16S(settings.zbufalias,    &settings.zbufalias);
+  SimpleEndianFlip16S(settings.horfix,       &settings.horfix);
+  SimpleEndianFlip16S(settings.horizonmax,   &settings.horizonmax);
+  SimpleEndianFlip16S(settings.clouds,       &settings.clouds);
+  SimpleEndianFlip16S(settings.linefade,     &settings.linefade);
+  SimpleEndianFlip16S(settings.drawgrid,     &settings.drawgrid);
+  SimpleEndianFlip16S(settings.gridsize,     &settings.gridsize);
+  SimpleEndianFlip16S(settings.alternateq,   &settings.alternateq);
+  SimpleEndianFlip16S(settings.linetoscreen, &settings.linetoscreen);
+  SimpleEndianFlip16S(settings.mapassfc,     &settings.mapassfc);
+  SimpleEndianFlip16S(settings.cmapluminous, &settings.cmapluminous);
+  SimpleEndianFlip16S(settings.surfel[0],    &settings.surfel[0]);
+  SimpleEndianFlip16S(settings.surfel[1],    &settings.surfel[1]);
+  SimpleEndianFlip16S(settings.surfel[2],    &settings.surfel[2]);
+  SimpleEndianFlip16S(settings.surfel[3],    &settings.surfel[3]);
+
+
+  SimpleEndianFlip16S(settings.worldmap,   &settings.worldmap);
+  SimpleEndianFlip16S(settings.flatteneco, &settings.flatteneco);
+  SimpleEndianFlip16S(settings.fixfract,   &settings.fixfract);
+  SimpleEndianFlip16S(settings.vecsegs,    &settings.vecsegs);
+  SimpleEndianFlip16S(settings.reliefshade,&settings.reliefshade);
+  SimpleEndianFlip16S(settings.renderopts, &settings.renderopts);
+  SimpleEndianFlip16S(settings.scrnwidth,  &settings.scrnwidth);
+  SimpleEndianFlip16S(settings.scrnheight, &settings.scrnheight);
+  SimpleEndianFlip16S(settings.rendersegs, &settings.rendersegs);
+  SimpleEndianFlip16S(settings.overscan,   &settings.overscan);
+  SimpleEndianFlip16S(settings.lookahead,  &settings.lookahead);
+  SimpleEndianFlip16S(settings.composite,  &settings.composite);
+  SimpleEndianFlip16S(settings.defaulteco, &settings.defaulteco);
+  SimpleEndianFlip16S(settings.ecomatch,   &settings.ecomatch);
+  SimpleEndianFlip16S(settings.Yoffset,    &settings.Yoffset);
+  SimpleEndianFlip16S(settings.saveIFF,    &settings.saveIFF);
+  SimpleEndianFlip16S(settings.background, &settings.background);
+  SimpleEndianFlip16S(settings.zbuffer,    &settings.zbuffer);
+  SimpleEndianFlip16S(settings.antialias,  &settings.antialias);
+  SimpleEndianFlip16S(settings.scaleimage, &settings.scaleimage);
+  SimpleEndianFlip16S(settings.fractal,    &settings.fractal);
+  SimpleEndianFlip16S(settings.aliasfactor,&settings.aliasfactor);
+  SimpleEndianFlip16S(settings.scalewidth, &settings.scalewidth);
+  SimpleEndianFlip16S(settings.scaleheight,&settings.scaleheight);
+
+  SimpleEndianFlip16S(settings.exportzbuf,     &settings.exportzbuf);
+  SimpleEndianFlip16S(settings.zformat,        &settings.zformat);
+  SimpleEndianFlip16S(settings.fieldrender,    &settings.fieldrender);
+  SimpleEndianFlip16S(settings.lookaheadframes,&settings.lookaheadframes);
+  SimpleEndianFlip16S(settings.velocitydistr,  &settings.velocitydistr);
+  SimpleEndianFlip16S(settings.easein,         &settings.easein);
+  SimpleEndianFlip16S(settings.easeout,        &settings.easeout);
+  SimpleEndianFlip16S(settings.displace,       &settings.displace);
+  SimpleEndianFlip16S(settings.mastercmap,     &settings.mastercmap);
+  SimpleEndianFlip16S(settings.cmaporientation,&settings.cmaporientation);
+  SimpleEndianFlip16S(settings.fielddominance, &settings.fielddominance);
+  SimpleEndianFlip16S(settings.fractalmap,     &settings.fractalmap);
+  SimpleEndianFlip16S(settings.perturb,        &settings.perturb);
+  SimpleEndianFlip16S(settings.realclouds,     &settings.realclouds);
+  SimpleEndianFlip16S(settings.reflections,    &settings.reflections);
+  SimpleEndianFlip16S(settings.waves,          &settings.waves);
+  SimpleEndianFlip16S(settings.colorstrata,    &settings.colorstrata);
+  SimpleEndianFlip16S(settings.cmapsurface,    &settings.cmapsurface);
+  SimpleEndianFlip16S(settings.deformationmap, &settings.deformationmap);
+  SimpleEndianFlip16S(settings.moon,           &settings.moon);
+  SimpleEndianFlip16S(settings.sun,            &settings.sun);
+  SimpleEndianFlip16S(settings.tides,          &settings.tides);
+  SimpleEndianFlip16S(settings.sunhalo,        &settings.sunhalo);
+  SimpleEndianFlip16S(settings.moonhalo,       &settings.moonhalo);
+
+  for(unsigned int i=0; i<EXTRASHORTSETTINGS; i++)
+  {
+      SimpleEndianFlip16S(settings.extrashorts[i],&settings.extrashorts[i]);
+  }
+
+  for(unsigned int i=0; i<EXTRADOUBLESETTINGS; i++)
+  {
+      SimpleEndianFlip64(settings.extradoubles[i],&settings.extradoubles[i]);
+  }
+
+  SimpleEndianFlip64(settings.deformscale,  &settings.deformscale);
+  SimpleEndianFlip64(settings.stratadip,    &settings.stratadip);
+  SimpleEndianFlip64(settings.stratastrike, &settings.stratastrike);
+  SimpleEndianFlip64(settings.dispslopefact,&settings.dispslopefact);
+  SimpleEndianFlip64(settings.globecograd,  &settings.globecograd);
+  SimpleEndianFlip64(settings.globsnowgrad, &settings.globsnowgrad);
+  SimpleEndianFlip64(settings.globreflat,   &settings.globreflat);
+  SimpleEndianFlip64(settings.zalias,       &settings.zalias);
+  SimpleEndianFlip64(settings.bankfactor,   &settings.bankfactor);
+  SimpleEndianFlip64(settings.skyalias,     &settings.skyalias);
+  SimpleEndianFlip64(settings.lineoffset,   &settings.lineoffset);
+  SimpleEndianFlip64(settings.altqlat,      &settings.altqlat);
+  SimpleEndianFlip64(settings.altqlon,      &settings.altqlon);
+  SimpleEndianFlip64(settings.treefactor,   &settings.treefactor);
+  SimpleEndianFlip64(settings.displacement, &settings.displacement);
+  SimpleEndianFlip64(settings.unused3,      &settings.unused3);
+  SimpleEndianFlip64(settings.picaspect,    &settings.picaspect);
+  SimpleEndianFlip64(settings.zenith,       &settings.zenith);
+
+  #endif
+  #endif
+  
   }
  else
   fseek(fparam, sizeof (struct Settings), 1);
@@ -2072,10 +2342,29 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
      {
      if ((fread((char *)&k, sizeof (short), 1, fparam)) != 1)
       goto ReadError;
+
+     // AF: 10.Dec.2022, Endian correction for i386-aros
+     #ifdef __AROS__
+     #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+     SimpleEndianFlip16S(k, &k);
+#endif
+#endif
+
      if ((EcoShift[k].Ecotype = Ecotype_Load(fparam, 0)) == NULL)
       goto ReadError;
      if ((fread((char *)TagItem, sizeof (long), 1, fparam)) != 1)
       break;
+
+//     // AF: 10.Dec.2022, Endian correction for i386-aros
+//     #ifdef __AROS__
+//     #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+//
+//     SimpleEndianFlip32S(TagItem,&TagItem);
+//#endif
+//#endif
+
+
      } /* while */
     } /* if loading ecosystem */
    } /* if tag is ECOT - ecotype */

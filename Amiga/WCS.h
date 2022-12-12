@@ -205,8 +205,8 @@ EXTERN struct DirList {
 	KeyFrames,
 	CurrentKey;
 };
-
-/*EXTERN*/ struct ParHeader {
+/* AF struct packed for AROS, 12.Dec.22 */
+/*EXTERN*/ struct __attribute__((__packed__))ParHeader {
  char	FType[8];
  float	Version;
  long	ByteOrder;
@@ -493,7 +493,7 @@ EXTERN __far union Environment UndoEcoPar[2];
 	globsnowgrad,
 	globreflat;
 };
-
+// ALEXANDER packed
 /*EXTERN*/ struct Settings {
  short	startframe,
 	maxframes,

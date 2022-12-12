@@ -14,7 +14,25 @@
 
 #endif // ROUNDUP
 
-       void SimpleEndianFlip64 (            double Source64, double *Dest64);
+inline void SimpleEndianFlip64 (            double Source64, double *Dest64)  // AF, 12Dec22 for i386-aros
+{
+    double retVal;
+    char *doubleToConvert = ( char* ) & Source64;
+    char *returnDouble = ( char* ) & retVal;
+
+    // swap the bytes into a temporary buffer
+    returnDouble[0] = doubleToConvert[7];
+    returnDouble[1] = doubleToConvert[6];
+    returnDouble[2] = doubleToConvert[5];
+    returnDouble[3] = doubleToConvert[4];
+    returnDouble[4] = doubleToConvert[3];
+    returnDouble[5] = doubleToConvert[2];
+    returnDouble[6] = doubleToConvert[1];
+    returnDouble[7] = doubleToConvert[0];
+
+    *Dest64=retVal;
+
+}
 
 inline void SimpleEndianFlip32F(             float Source32, float  *Dest32)  // AF, 10Dec22 for i386-aros
        {
