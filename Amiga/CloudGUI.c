@@ -1455,10 +1455,18 @@ char TextStr[32];
 
  nnset(CL_Win->Cycle, MUIA_Cycle_Active, CloudData_GetShort(CD, CLOUDDATA_CLOUDTYPE));
 
- sprintf(TextStr, "%d", CloudData_GetShort(CD, CLOUDDATA_NUMWAVES));
+ if(CD->WD)  // AF, 13.Dec.2022 -386-aros prevent NULL-Ptr Access. (New Start, Parameter Module -> Clouds
+ {
+ sprintf(TextStr, "%d", CloudData_GetShort(CD, CLOUDDATA_NUMWAVES));  // ALEXANDER: Crash NULL-Ptr Access
+ }
+ else
+ {
+     sprintf(TextStr,"0");
+ }
  set(CL_Win->Text, MUIA_Text_Contents, (ULONG)TextStr);
 
- nnset(CL_Win->IntStr[0], MUIA_String_Integer, CloudData_GetLong(CD, CLOUDDATA_RANDSEED));
+
+ nnset(CL_Win->IntStr[0], MUIA_String_Integer, CloudData_GetLong(CD, CLOUDDATA_RANDSEED));  // ALEXANDER: OK
  nnset(CL_Win->CloudStr[0], MUIA_String_Integer, CloudData_GetLong(CD, CLOUDDATA_ROWS));
  nnset(CL_Win->CloudStr[1], MUIA_String_Integer, CloudData_GetLong(CD, CLOUDDATA_COLS));
  nnsetfloat(CL_Win->CloudStr[2], CloudData_GetDouble(CD, CLOUDDATA_NWLAT));
