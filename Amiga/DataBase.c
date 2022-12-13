@@ -6,6 +6,7 @@
 
 #include "WCS.h"
 #include "GUIDefines.h"
+#include "Useful.h"
 
 #define CUR_DBASE_FIELDS	13
 #define CUR_DBASE_RECLNGTH	53
@@ -759,10 +760,27 @@ RepeatLoad:
  if (! strcmp(filetype, "WCSVector"))
   {
   fread((char *)&Version, sizeof (float), 1, fobject);
+  // AF: 12.Dec.2022, Endian correction for i386-aros
+  #ifdef __AROS__
+  #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+  SimpleEndianFlip32F(Version, &Version);
+#endif
+#endif
   if (fabs(Version - 1.00) < .001)
    {
    if (fread((char *)&Hdr, sizeof (struct vectorheaderV100), 1, fobject) == 1)
     {
+       // AF: 12.Dec.2022, Endian correction for i386-aros
+       ENDIAN_CHANGE_IF_NEEDED(
+       SimpleEndianFlip32S(Hdr.points, &Hdr.points);
+       SimpleEndianFlip16S(Hdr.elevs, &Hdr.elevs);
+       SimpleEndianFlip64(Hdr.avglat, &Hdr.avglat);
+       SimpleEndianFlip64(Hdr.avglon, &Hdr.avglon);
+       SimpleEndianFlip64(Hdr.avgelev, &Hdr.avgelev);
+       SimpleEndianFlip64(Hdr.elscale, &Hdr.elscale);
+       SimpleEndianFlip16S(Hdr.MaxEl, &Hdr.MaxEl);
+       SimpleEndianFlip16S(Hdr.MinEl, &Hdr.MinEl);
+       )
     if (Hdr.points != DBase[i].Points)
      {
      PtError = -1;
@@ -880,10 +898,23 @@ STATIC_FCN short Find_DBObjPts(char *filename) // used locally only -> static, A
     {
     if (fread((char *)&Version, sizeof (float), 1, fobject) == 1)
      {
+        ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32F(Version,&Version);) // AF: 12.Dec.2022, Endian correction for i386-aros
      if (fabs(Version - 1.00) < .001)
       {
       if (fread((char *)&Hdr, sizeof (struct vectorheaderV100), 1, fobject) == 1)
+      {
+          ENDIAN_CHANGE_IF_NEEDED(  /* AF: 12.Dec.2022, Endian correction for i386-aros */
+            SimpleEndianFlip32S(Hdr.points,&Hdr.points);
+            SimpleEndianFlip16S(Hdr.elevs,&Hdr.elevs);
+            SimpleEndianFlip64(Hdr.avglat,&Hdr.avglat);
+            SimpleEndianFlip64(Hdr.avglon,&Hdr.avglon);
+            SimpleEndianFlip64(Hdr.avgelev,&Hdr.avgelev);
+            SimpleEndianFlip64(Hdr.elscale,&Hdr.elscale);
+            SimpleEndianFlip16S(Hdr.MaxEl,&Hdr.MaxEl);
+            SimpleEndianFlip16S(Hdr.MinEl,&Hdr.MinEl);
+            )
        Points = Hdr.points;
+      }
       } /* if version 1.0 */
      } /* if header read OK */
     } /* if WCS Vector format */
@@ -1896,11 +1927,13 @@ struct BusyWindow *BusyLoad;
   if (! strcmp(Title, "WCSMasterObject"))
    {
    fread(&Objects, sizeof (short), 1, fDbs);
+   ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16S(Objects,&Objects);) // AF: 12.Dec.2022, Endian correction for i386-aros
    if (Objects == NoOfObjects)
     {
     for (i=0; i<NoOfObjects; i++)
      {
      fread(&Points, sizeof (short), 1, fDbs);
+     ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16S(Points,&Points);) // AF: 12.Dec.2022, Endian correction for i386-aros
      if (Points == DBase[i].Points)
       {
       if (allocvecarray(i, DBase[i].Points, 1))
@@ -1908,12 +1941,36 @@ struct BusyWindow *BusyLoad;
        if (fread((char *)&DBase[i].Lon[0],
 	 (DBase[i].Points + 1) * sizeof (double), 1, fDbs) == 1)
         {
+           ENDIAN_CHANGE_IF_NEEDED( /* AF: 12.Dec.2022, Endian correction for i386-aros */
+             for(unsigned int n=0; n<DBase[i].Points + 1; n++)
+             {
+                 SimpleEndianFlip64(DBase[i].Lon[n], &DBase[i].Lon[n]);
+             }
+           )
         if (fread((char *)&DBase[i].Lat[0],
 	 (DBase[i].Points + 1) * sizeof (double), 1, fDbs) == 1)
          {
+            ENDIAN_CHANGE_IF_NEEDED( /* AF: 12.Dec.2022, Endian correction for i386-aros */
+              for(unsigned int n=0; n<DBase[i].Points + 1; n++)
+              {
+                  SimpleEndianFlip64(DBase[i].Lat[n], &DBase[i].Lat[n]);
+              }
+            )
+
          if (fread((char *)&DBase[i].Elev[0],
 		 (DBase[i].Points + 1) * sizeof (short), 1, fDbs) != 1)
+         {
           error = 1;
+         }
+         else
+         {
+             ENDIAN_CHANGE_IF_NEEDED( /* AF: 12.Dec.2022, Endian correction for i386-aros */
+                     for(unsigned int n=0; n<DBase[i].Points + 1; n++)
+                     {
+                         SimpleEndianFlip16S(DBase[i].Elev[n], &DBase[i].Elev[n]);
+                     }
+             )
+         }
          } /* if */
         else
          error = 1;

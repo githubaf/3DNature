@@ -1801,3 +1801,6 @@ Aminet-Upload Emerald-Anton am 25.Now.2022
 -----------
 * Packed eingebaut. Struktur war zu gross bei Aros i386 
   -> struct __attribute__((__packed__))ParHeader in WCS.h
+* Endian-Korrektur in Database.c
+* Programm stuerz beim Rendern oder Motion Editor -> CamView ab.
+* Compilieren mit -fpack-struct fuehrt zum sofortigen Crash von WCS

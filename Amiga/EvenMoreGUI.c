@@ -838,6 +838,11 @@ short error = 0;
   if (cloudfile[0])
    {
    strmfp(filename, cloudpath, cloudfile);
+   {
+       static char String[1024];
+       sprintf(String,"%s Line %u, Name=%s",__FILE__,__LINE__,filename);
+       Log(MSG_PAR_LOAD, (CONST_STRPTR)String);
+   }
    if (! Cloud_Load(filename, &CD))
     {
     error = 4;

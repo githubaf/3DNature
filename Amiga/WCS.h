@@ -159,7 +159,8 @@ EXTERN struct WCSScreenData
 	long Width, Height;
 	} ScrnData;
 
-EXTERN struct database {
+/* AF struct packed for AROS, 12.Dec.22 */
+EXTERN struct __attribute__((__packed__))database {
  char 	Enabled;
  char 	Name[11];
  char 	Layer1[3];
@@ -921,7 +922,8 @@ EXTERN struct WaveData *Tsunami;
  double MxLon, MnLon, MxLat, MnLat, MxEl, MnEl;
 };
 
-/*EXTERN*/ struct vectorheaderV100 {
+/* AF struct packed for AROS, 12.Dec.22 */
+/*EXTERN*/ struct __attribute__((__packed__)) vectorheaderV100 {
  char	Name[10];
  long	points;
  short	elevs;

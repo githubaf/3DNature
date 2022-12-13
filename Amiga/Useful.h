@@ -14,6 +14,14 @@
 
 #endif // ROUNDUP
 
+// AF, 12.Dec.22
+#if defined  __AROS__ && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+   #define ENDIAN_CHANGE_IF_NEEDED(x) x
+#else
+   #define ENDIAN_CHANGE_IF_NEEDED(x)
+#endif
+
+
 inline void SimpleEndianFlip64 (            double Source64, double *Dest64)  // AF, 12Dec22 for i386-aros
 {
     double retVal;
