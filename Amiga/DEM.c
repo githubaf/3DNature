@@ -6,6 +6,9 @@
 
 #include "WCS.h"
 #include "GUIDefines.h"
+#include "Useful.h"
+LONG KPrintF(STRPTR format, ...);   // ALEXANDER
+#include <errno.h> //ALEXANDER
 
 STATIC_FCN short computerelel(short boxsize, short *arrayptr, struct elmapheaderV101 *map); // used locally only -> static, AF 19.7.2021
 STATIC_FCN short Read_USGSProfHeader(FILE *DEM, struct USGS_DEMProfileHeader *ProfHdr); // used locally only -> static, AF 19.7.2021
@@ -29,7 +32,8 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
   return (1);
   } /* if open file failed */
  read(fhelev, &Version, 4);
-
+ ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32F(Version,&Version);) // AF: 14.Dec.2022, Endian correction for i386-aros
+ 
  if (fabs(Version - 1.00) < .0001)
   {
   if ((read (fhelev, map, ELEVHDRLENV100)) != ELEVHDRLENV100)
@@ -38,6 +42,16 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
    close (fhelev);
    return (1);
    } /* if */
+  ENDIAN_CHANGE_IF_NEEDED( /* AF: 14.Dec.2022, Endian correction for i386-aros */
+          SimpleEndianFlip32S(map->rows,&map->rows);
+          SimpleEndianFlip32S(map->columns,&map->columns);
+          SimpleEndianFlip64(map->lolat,&map->lolat);
+          SimpleEndianFlip64(map->lolong,&map->lolong);
+          SimpleEndianFlip64(map->steplat,&map->steplat);
+          SimpleEndianFlip64(map->steplong,&map->steplong);
+          SimpleEndianFlip64(map->elscale,&map->elscale);   // offset 40, 8 bytes
+          // we read only ELEVHDRLENV100 = 48 bytes, so endian-correct only up to here.
+          )
   map->MaxEl = map->MinEl = 0;
   map->Samples = 0;
   map->SumElDif = map->SumElDifSq = 0.0;
@@ -52,6 +66,23 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
    close (fhelev);
    return (1);
    } /* if */
+
+  ENDIAN_CHANGE_IF_NEEDED( /* AF: 14.Dec.2022, Endian correction for i386-aros */
+          /* same code as above, it is the same target struct. It seems the ELEVHDRLENV101 was just shorter? */
+          SimpleEndianFlip32S(map->rows,&map->rows);
+          SimpleEndianFlip32S(map->columns,&map->columns);
+          SimpleEndianFlip64(map->lolat,&map->lolat);
+          SimpleEndianFlip64(map->lolong,&map->lolong);
+          SimpleEndianFlip64(map->steplat,&map->steplat);
+          SimpleEndianFlip64(map->steplong,&map->steplong);
+          SimpleEndianFlip64(map->elscale,&map->elscale);
+          SimpleEndianFlip16S(map->MaxEl,&map->MaxEl);
+          SimpleEndianFlip16S(map->MinEl,&map->MinEl);
+          SimpleEndianFlip32S(map->Samples,&map->Samples);
+          SimpleEndianFlip32F(map->SumElDif,&map->SumElDif);
+          SimpleEndianFlip32F(map->SumElDifSq,&map->SumElDifSq);  // offset 60, 4 bytes
+          // we read only ELEVHDRLENV101 = 64 bytes, so endian-correct only up to here.
+          )
   }
  else
   {
@@ -63,6 +94,17 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
    close (fhelev);
    return (1);
    } /* if */
+  ENDIAN_CHANGE_IF_NEEDED( /* AF: 14.Dec.2022, Endian correction for i386-aros */
+          /* same code as above, it is the same target struct. It seems the ELEVHDRLENV101 was just shorter? */
+          SimpleEndianFlip32S(map->rows,&map->rows);
+          SimpleEndianFlip32S(map->columns,&map->columns);
+          SimpleEndianFlip64(map->lolat,&map->lolat);
+          SimpleEndianFlip64(map->lolong,&map->lolong);
+          SimpleEndianFlip64(map->steplat,&map->steplat);
+          SimpleEndianFlip64(map->steplong,&map->steplong);
+          SimpleEndianFlip64(map->elscale,&map->elscale);   // offset 40, 8 bytes
+          // we read only ELEVHDRLENV100 = 48 bytes, so endian-correct only up to here.
+          )
   map->MaxEl = map->MinEl = 0;
   map->Samples = 0;
   map->SumElDif = map->SumElDifSq = 0.0;
@@ -93,6 +135,12 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
     Log(WNG_READ_FAIL, (CONST_STRPTR)filename);
     break;
     } /* if */
+   ENDIAN_CHANGE_IF_NEEDED( /* AF: 14.Dec.2022, Endian correction for i386-aros */
+           for(unsigned int i=0;i<rowlength;i++)
+           {
+               SimpleEndianFlip16S(*(mapptr+i),mapptr+i);
+           }
+   )
    mapptr += map->columns;
    lseek(fhelev, 2, 1);
    } /* for */
@@ -105,6 +153,12 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
    Log(WNG_READ_FAIL, (CONST_STRPTR)filename);
    error = 1;
    } /* if */
+  ENDIAN_CHANGE_IF_NEEDED( /* AF: 14.Dec.2022, Endian correction for i386-aros */
+          for(unsigned int i=0;i<map->size;i++)
+          {
+              SimpleEndianFlip16S(*(map->map+i),map->map+i);
+          }
+  )
   close (fhelev);
   } /* else version 1.0+ file */
 

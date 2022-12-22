@@ -1804,3 +1804,82 @@ Aminet-Upload Emerald-Anton am 25.Now.2022
 * Endian-Korrektur in Database.c
 * Programm stuerz beim Rendern oder Motion Editor -> CamView ab.
 * Compilieren mit -fpack-struct fuehrt zum sofortigen Crash von WCS
+
+13.Dec.2022
+-----------
+* Fixed Nullptr-Zugriff in CloudGUI.c GUICloud_SetGads() wenn Neuer Start ohne Projekt laden, Parameter Module -> Clouds
+  -> CloudData_GetShort(CD, CLOUDDATA_NUMWAVES)
+* DEM.c readDEM() muss endian korrigiert werden.
+
+15.Dec.2002
+-----------
+* Fixed Nullptr-Zugriff in MapSupport.c void latlon_XY(long i) wenn Neuer Start ohne Projekt laden, Parameter Module -> Map view, Databse File Loader -> Cancel
+* Viele KPrintF() engebaut. Starten mit "AF: ", damit man spaeter die eigenen Zeilen aus dem Log rausfiltern kann. (AROS/Zune  schreibt viele eigene Ausgaben)
+* Icaros starten mit ./Arch/linux/AROSBootstrap &> aaa.txt; Dann hat man ein Textfile mit den KPrintFs, auch wenn es einen Crash gibt-
+* Ausgaben mit WinUAE vergleichen.
+* z.B. in EdPar.c wird der SPiecher im Fehlerfall nicht wieder komplett freigegeben. if GetMemory() || GetMemory() || .. goto error
+  in Dlg.c und MapToptObject auch
+
+
+#../EvenMoreGUI.c:36:	get_Memory(sizeof (struct TimeSetWindow), MEMF_CLEAR)) == NULL)
+#../ScreenModeGUI.c:38:     if((ThisMode = get_Memory(sizeof(struct WCSScreenMode), MEMF_CLEAR)))
+#../GenericTLGUI.c:393:	get_Memory(sizeof (struct TimeLineWindow), MEMF_CLEAR)) == NULL)
+#../MapExtra.c:2881: return ((struct Branch *)get_Memory(sizeof (struct Branch), MEMF_CLEAR));
+#../DiagnosticGUI.c:15:	get_Memory(sizeof (struct DiagnosticWindow), MEMF_CLEAR)) == NULL)
+#../DEMGUI.c:1772: if ((SaveMap = (short *)get_Memory(SaveSize, MEMF_ANY)) != NULL)
+#../EdEcoGUI.c:55: EE_Win->ECList = (char **)get_Memory(EE_Win->ECListSize, MEMF_CLEAR);
+#../DataBase.c:1142:    if ((DLItem->Next = get_Memory(sizeof (struct DirList), MEMF_CLEAR)) != NULL)
+#../EdMoGUI.c:2041:	get_Memory(sizeof (struct ParListWindow), MEMF_CLEAR)) == NULL)
+#../nncrunch.c:1317:   if ((NNG->Grid = (float *)get_Memory(NNG->GridSize, MEMF_ANY)) != NULL)
+#../nngridr.c:221: return ((struct NNGrid *)get_Memory(sizeof (struct NNGrid), MEMF_CLEAR));
+#../DataOps.c:3160:   if ((RowZip = (long *)get_Memory(rows * sizeof (long), MEMF_ANY)))
+#../Params.c:1620:	get_Memory((KT_MaxFrames + 1) * sizeof (double), MEMF_CLEAR)) == NULL)
+#../Tree.c:1417: return ((struct BitmapImage *)get_Memory(sizeof (struct BitmapImage), MEMF_CLEAR));
+#../DEM.c:218: map->map = (short *)get_Memory (map->size, MEMF_ANY);
+#../MapSupport.c:457: if (((mapelmap = (struct elmapheaderV101 *)get_Memory(MapElmapSize, MEMF_CLEAR))
+#../LineSupport.c:547:	get_Memory(sizeof (struct MotionWindow), MEMF_CLEAR)) == NULL)
+#../EditGui.c:43:	get_Memory(sizeof (struct EcoPalWindow), MEMF_CLEAR)) == NULL)
+#../AGUI.c:2060:	get_Memory(sizeof (struct StatusLogWindow), MEMF_CLEAR)) == NULL)
+#../EdDBaseGUI.c:1629: if ((DL_Win->DLName = (char **)get_Memory(DL_Win->DLNameSize, MEMF_CLEAR)) == NULL)
+#../CloudGUI.c:32:	get_Memory(sizeof (struct CloudWindow), MEMF_CLEAR)) == NULL)
+#../WaveGUI.c:46:	get_Memory(sizeof (struct WaveWindow), MEMF_CLEAR)) == NULL)
+#../MapUtil.c:580: if ((Qavg = (float *)get_Memory(Qsize, MEMF_CLEAR)) == NULL)
+#../EdSetGUI.c:91:	get_Memory(sizeof (struct SettingsWindow), MEMF_CLEAR)) == NULL)
+#../Wave.c:159:	get_Memory(sizeof (struct WaveData), MEMF_CLEAR));
+
+compiler ohne flto, -O0 -g, ohne -fomit-frame-ptr zum debuggen fuer AROS
+
+17.Dec.22
+---------
+Save Screen stuezt ab, weil CD->Data ein Null-Ptr ist. Das liegt wahrscheinlich daran, dass das Programm in 24 Bit laeuft. WCS geht
+von einem nicht-24bit Bildschirm aus. Auf dem Amiga nachtesten! -> crashed dirt auch!
+* Bei RTG ist WCSScrn->RastPort.BitMap->Planes NULL. In dem Fall ReadPixelArray() Kopie der Zeile holen?
+
+20.Dec.2022
+-----------
+* Ueberprueft: Die Farbtabelle wird richtig angespeichert. Trotzdem sind die Farben falsch bei SAve Screen.
+
+21.Dec.2022
+-----------
+Die Fenster haben alle einen weißen oder hellgrauen Hintergrund. Damit sie die gleiche Farbe haben wie die Amiga-Version, muss unter
+      WindowContents, VGroup,
+ein
+      MUIA_Background, MUII_BACKGROUND,  //ALEXANDER
+eingefügt werden.
+
+Dann sind die Buttons immer noch weiß.
+In RequesterGUI.c
+
+APTR KeyButtonFunc(char ControlChar, char *Contents)
+{
+return(KeyButtonObject(ControlChar), MUIA_Text_Contents, Contents,
+        MUIA_Background  , MUII_BACKGROUND,  // Alexander
+        End);
+} /* KeyButtonFunc() */
+
+und dann sehen auch die Buttons so aus wie unter AmigaOS.
+
+22.12.2022
+----------
+Mit ReadPixelArray8() bekomme ich auf dem Amiga bei P96-Screens mit Non-Standard Bitmaps ein fehlerhaftes IFF-File. 
+Auf Aros ist eine Farbe falsch (gelb)

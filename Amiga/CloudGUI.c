@@ -254,18 +254,6 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
   strcpy(CL_Win->CloudDir, cloudpath);
   strcpy(CL_Win->CloudFile, cloudfile);
   strmfp(filename, cloudpath, cloudfile);
-  {
-      static char String[1024];
-      sprintf(String,"CL_Win->CloudDir=%s\n",CL_Win->CloudDir);
-      Log(MSG_PAR_LOAD, (CONST_STRPTR)String);
-
-      sprintf(String,"CL_Win->CloudFile=%s\n",CL_Win->CloudFile);
-      Log(MSG_PAR_LOAD, (CONST_STRPTR)String);
-
-      sprintf(String,"%s Line %u, Name=%s\n",__FILE__,__LINE__,filename);
-      Log(MSG_PAR_LOAD, (CONST_STRPTR)String);
-  }
-
   if (! Cloud_Load(filename, &CL_Win->CD))
    Cloud_SetDefaults(CL_Win->CD, 0, 1);
 
@@ -655,12 +643,6 @@ double FloatVal;
 	(0, "Cloud Path/File", CL_Win->CloudDir, CL_Win->CloudFile, Ptrn))
        {
        strmfp(filename, CL_Win->CloudDir, CL_Win->CloudFile);
-       {
-           static char String[1024];
-           sprintf(String,"%s Line %u, Name=%s",__FILE__,__LINE__,filename);
-           Log(MSG_PAR_LOAD, (CONST_STRPTR)String);
-       }
-
        if (Cloud_Load(filename, &CL_Win->CD))
         {
         UnsetGenericKeyFrame(CL_Win->CD->CloudKey, CL_Win->CD->NumKeys, &CL_Win->WKS,
@@ -1048,22 +1030,10 @@ union KeyFrame *KFPtr;
  if (! filename)
   return (0);
 
- {
-     const char String[1024];
-     sprintf(String,"Cloud File=%s",filename);
-     Log(ERR_WRONG_TYPE, (CONST_STRPTR)String);
- }
  if ((fCloud = fopen(filename, "r")))
   {
   fgets(Title, 24, fCloud);
   Title[8] = '\0';
-  {
-      const char String[1024];
-      sprintf(String,"Title=%s",Title);
-      Log(ERR_WRONG_TYPE, (CONST_STRPTR)String);
-  }
-
-
   if (! strcmp(Title, "WCSCloud"))
    {
    fscanf(fCloud, "%hd", &Version);
@@ -1465,8 +1435,7 @@ char TextStr[32];
  }
  set(CL_Win->Text, MUIA_Text_Contents, (ULONG)TextStr);
 
-
- nnset(CL_Win->IntStr[0], MUIA_String_Integer, CloudData_GetLong(CD, CLOUDDATA_RANDSEED));  // ALEXANDER: OK
+ nnset(CL_Win->IntStr[0], MUIA_String_Integer, CloudData_GetLong(CD, CLOUDDATA_RANDSEED));
  nnset(CL_Win->CloudStr[0], MUIA_String_Integer, CloudData_GetLong(CD, CLOUDDATA_ROWS));
  nnset(CL_Win->CloudStr[1], MUIA_String_Integer, CloudData_GetLong(CD, CLOUDDATA_COLS));
  nnsetfloat(CL_Win->CloudStr[2], CloudData_GetDouble(CD, CLOUDDATA_NWLAT));

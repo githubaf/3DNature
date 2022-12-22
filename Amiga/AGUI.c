@@ -1319,7 +1319,7 @@ short WCS_App_EventLoop(struct WCSApp *This)
          Handle_Map_Window(ID_MC_QUIT);	
         else
          map();
-	}
+        }
        else
         map();
 #ifdef WCS_MUI_2_HACK

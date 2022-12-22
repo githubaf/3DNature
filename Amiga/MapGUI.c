@@ -935,7 +935,7 @@ short map(void)
   Close_Map_Window(1);
   return (0);
   }
-/*  
+ /*
  OBN = 0;
 */
  MapGUI_New(MP);
@@ -949,16 +949,25 @@ short map(void)
  AutoClear = 1;
 
  if (! dbaseloaded)
+ {
   Database_LoadDisp(0, 1, NULL, 0);
+ }
+
  if (dbaseloaded)
+ {
   PrefsLoaded = loadmapbase(0, 1);
+ }
 
  valueset();
 
  if (PrefsLoaded)
+ {
   Handle_Map_Window(ID_MC_DRAW);
- else  
+ }
+ else
+ {
   Handle_Map_Window(ID_MC_AUTO);
+ }
 
 #ifdef WCS_MUI_2_HACK
 	   MUI2_MenuCheck_Hack();
@@ -1636,7 +1645,11 @@ HandleEvent:
      case ID_MC_LOADALL:
       {
       if (! dbaseloaded) Database_LoadDisp(0, 1, NULL, 0);
-      if (dbaseloaded) loadmapbase(0, 1);
+      if (dbaseloaded)
+          {
+          loadmapbase(0, 1);
+
+          }
       break;
       } /* LOADALL */
      case ID_MC_LOADACTIVE:

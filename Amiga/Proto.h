@@ -1144,3 +1144,6 @@ extern void            FreeVecti(int *vectptr, int ncols);
 // extern double          **DoubleMatrix(int nrows, int ncols); // used locally only -> static, AF 26.7.2021
 extern void            FreeMatrixd(double **matptr, int nrows, int ncols);
 
+LONG KPrintF(STRPTR format, ...);   // ALEXANDER
+
+ssize_t write_BigEndian (int filedes, const void *buffer, size_t size); // ALEXANDER

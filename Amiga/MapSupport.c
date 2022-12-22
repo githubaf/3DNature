@@ -553,11 +553,13 @@ short loadtopo(void)
 
   topoct ++;
   if(BusyLoad)
+  {
     if(CheckInput_ID() == ID_BW_CLOSE)
       {
       error = 1;
       break;
       } /* if */
+  }
   if(BusyLoad)
   	{
   	BusyWin_Update(BusyLoad, topoct);
@@ -894,7 +896,15 @@ void latlon_XY(long i)
 {
  long j;
 
- if (! DBase[i].Lat) return;
+ if(!DBase) // AF 15.12.2022, prevents crash on AROS when start, no project loaded, click modules -> Map view, Databse File Loader -> Cancel
+ {
+     return;
+ }
+
+ if (! DBase[i].Lat)  // <- AF: could crash here id DBase is NULL
+ {
+     return;
+ }
 
  for (j=0; j<=DBase[i].Points; j++)
   {

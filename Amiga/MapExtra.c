@@ -2114,7 +2114,7 @@ short BuildElevTable(double **ElTable, short Frames, float *MaxMin,
   }
  else
   return (0);
-  
+
  if ((Table = (double *)get_Memory((Frames + 1) * sizeof (double), MEMF_CLEAR))
 	== NULL)
   return (0);
@@ -2212,7 +2212,7 @@ short BuildVelocityTable(short Foc, double **ElTable, short Frames, float *MaxMi
   }
 
  if (*ElTable == NULL)
-  {  
+  {
   if ((Table = (double *)get_Memory((Frames + 1) * sizeof (double), MEMF_CLEAR))
 	== NULL)
    return (0);

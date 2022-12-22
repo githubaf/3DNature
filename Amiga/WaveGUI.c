@@ -1357,7 +1357,7 @@ struct Wave *WV;
  if (! MapWind0)
   {
   if (User_Message_Def((CONST_STRPTR)"Add Wave", (CONST_STRPTR)"Map View Module must be open in order\
- to use this funcion. Would you like to open it now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc",1))
+ to use this function. Would you like to open it now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc",1))
    {
    map();
 

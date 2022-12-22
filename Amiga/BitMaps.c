@@ -4,6 +4,9 @@
 */
 
 #include "WCS.h"
+#include "Proto.h"
+#include "Useful.h"  // ALEXANDER
+
 
 union  MultiByte {
  UBYTE UBt;
@@ -499,6 +502,8 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
  struct WcsBitMapHeader BMHdr={0};
  struct BusyWindow *BWIM = NULL;
 
+ struct BitMap *RgbBitmap=NULL;  // AF: 19.12.2022, for reading RTG data in Save Screen
+
  if (! saveRGB)
   {
   if (AskFile)
@@ -552,6 +557,16 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
    error = 1;
    goto Scleanup;
    } /* read error */
+  ENDIAN_CHANGE_IF_NEEDED( /* AF: 17.Dec.2022, Endian correction for i386-aros */
+          SimpleEndianFlip16U(BMHdr.Width,&BMHdr.Width);
+          SimpleEndianFlip16U(BMHdr.Height,&BMHdr.Height);
+          SimpleEndianFlip16S(BMHdr.XPos,&BMHdr.XPos);
+          SimpleEndianFlip16S(BMHdr.YPos,&BMHdr.YPos);
+          SimpleEndianFlip16U(BMHdr.Transparent,&BMHdr.Transparent);
+          SimpleEndianFlip16S(BMHdr.PageWidth,&BMHdr.PageWidth);
+          SimpleEndianFlip16S(BMHdr.PageHeight,&BMHdr.PageHeight);
+  )
+
   if (BMHdr.Width != scrnwidth || BMHdr.Compression != compression)
    {
    error = 1;
@@ -652,7 +667,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
  strcpy(tt, "FORM");
  write(fHandle, tt, 			4);
  FormSizePtr = tell(fHandle);
- write(fHandle, &FORMsize, 		4);
+ write_BigEndian(fHandle, &FORMsize,        4); // write(fHandle, &FORMsize, 		4);  // ALEXANDER, 17.12.2022
  strcpy(tt, "ILBM");
  if (write(fHandle, tt, 		4) != 4)
   {
@@ -663,20 +678,20 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   lseek(fHandle, BMHDPtr, 0);
  strcpy(tt, "BMHD");
  write(fHandle, tt, 			4);
- write(fHandle, &BMHDsize, 		4);
- write(fHandle, &width, 		2);
- write(fHandle, &height, 		2);
- write(fHandle, &xpos, 			2);
- write(fHandle, &ypos, 			2);
+ write_BigEndian(fHandle, &BMHDsize, 		4);// ALEXANDER, 17.12.2022
+ write_BigEndian(fHandle, &width, 		2);// ALEXANDER, 17.12.2022
+ write_BigEndian(fHandle, &height, 		2);// ALEXANDER, 17.12.2022
+ write_BigEndian(fHandle, &xpos, 			2);// ALEXANDER, 17.12.2022
+ write_BigEndian(fHandle, &ypos, 			2);// ALEXANDER, 17.12.2022
  write(fHandle, &nplanes, 		1);
  write(fHandle, &masking, 		1);
  write(fHandle, &compression, 		1);
  write(fHandle, &pad1, 			1);
  TransPtr = tell(fHandle);
- write(fHandle, &transparentColor, 	2);
- write(fHandle, &aspect, 		2);
- write(fHandle, &width, 		2);
- if (write(fHandle, &height, 		2) != 2)
+ write_BigEndian(fHandle, &transparentColor, 	2);// ALEXANDER, 17.12.2022
+ write_BigEndian(fHandle, &aspect, 		2);// ALEXANDER, 17.12.2022
+ write_BigEndian(fHandle, &width, 		2);// ALEXANDER, 17.12.2022
+ if (write_BigEndian(fHandle, &height, 		2) != 2)// ALEXANDER, 17.12.2022
   {
   error = 1;
   goto Scleanup;
@@ -687,7 +702,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   {
   strcpy(tt,"CMAP");
   write(fHandle, tt,			4);
-  write(fHandle, &CMAPsize,		4);
+  write_BigEndian(fHandle, &CMAPsize,		4);// ALEXANDER, 17.12.2022
 
   for (kk=0; kk<DEPTH*DEPTH; kk++)
    {
@@ -714,8 +729,8 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   {
   strcpy(tt, "CAMG");
   write(fHandle, tt,			4);
-  write(fHandle, &CAMGsize,		4);
-  if (write(fHandle, &VPmode,		4) != 4)
+  write_BigEndian(fHandle, &CAMGsize,		4);// ALEXANDER, 17.12.2022
+  if (write_BigEndian(fHandle, &VPmode,		4) != 4)// ALEXANDER, 17.12.2022
    {
    error = 1;
    goto Scleanup;
@@ -727,7 +742,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
  strcpy(tt, "BODY");
  write(fHandle, tt,			4);
  BodySizePtr = tell(fHandle);
- write(fHandle, &BODYsize,		4);
+ write_BigEndian(fHandle, &BODYsize,		4);// ALEXANDER, 17.12.2022
 
  if (AppendFile)
   {
@@ -867,17 +882,90 @@ RepeatMemGrab:
  else
   { /* not 24 or 8 bit */
   CD.Rows = 1;
+
+  // ############## ALEXANDER
+  ULONG BitsPerPixel=GetBitMapAttr(WCSScrn->RastPort.BitMap,BMA_DEPTH);  //ALEXANDER  --> 24 hier bei AROS
+  KPrintF((STRPTR) "AF: %s L:%ld BitsPerPixel=%ld\n",__FILE__,__LINE__,BitsPerPixel);  // ALEXANDER
+
+  ULONG isStandardBitMap=GetBitMapAttr(WCSScrn->RastPort.BitMap,BMA_FLAGS) & BMF_STANDARD;
+  KPrintF((STRPTR) "AF: %s L:%ld isStandardBitMap=%ld\n",__FILE__,__LINE__,isStandardBitMap);  // ALEXANDER
+  if(1) //(!isStandardBitMap)
+      // We have a non-planar Graphics-Mode -> Get the pixel-Rows from the GFX-Bord.
+
+  {
+      KPrintF((STRPTR) "AF: %s L:%ld Calling AllocBitMap()\n",__FILE__,__LINE__);  // ALEXANDER
+      RgbBitmap=AllocBitMap(WCSScrn->Width,1,4,0,NULL);  // xsize, ysize, depth, flags friendBitmap
+      if(!RgbBitmap)
+      {
+          Log(ERR_MEM_FAIL, (CONST_STRPTR)"AF: Could not allocate Bitmap!");
+          goto Scleanup;
+      }
+      // get the Bitmap from the RTG card
+      //KPrintF((STRPTR) "AF: %s L:%ld Calling BltBitMap()\n",__FILE__,__LINE__);  // ALEXANDER
+      //set(BWIM->BusyWin,MUIA_Window_Open,FALSE);  // we don't want to see the progress window in the saved picture
+      //BltBitMap(WCSScrn->RastPort.BitMap, 0, 0, RgbBitmap, 0, 0, WCSScrn->Width, WCSScrn->Height,  0xc0, ~0L, NULL);
+      //set(BWIM->BusyWin,MUIA_Window_Open,TRUE);  // turn the progress window on again
+      //KPrintF((STRPTR) "AF: %s L:%ld BltBitMap() done.\n",__FILE__,__LINE__);  // ALEXANDER
+  }
+  // ############## END ALEXANDER
+
   for (rr=0; rr<WriteHeight; rr++)
    {
+   //BltBitMap(WCSScrn->RastPort.BitMap, 0, rr, RgbBitmap, 0, 0, WCSScrn->Width, 1,  0xc0, ~0L, NULL);
+
+   ////////////
+   UBYTE chunkybuf[2048]; // eine Zeile + viel Reserve
+   struct BitMap *temp_bm = AllocBitMap(WCSScrn->Width, 1, DEPTH, BMF_STANDARD | BMF_CLEAR, NULL);
+   if (temp_bm)
+   {
+       struct RastPort temp_rp;
+
+       InitRastPort(&temp_rp);
+       temp_rp.BitMap = temp_bm;
+
+       ReadPixelArray8(&WCSScrn->RastPort, 0, 0+rr, 0 + WCSScrn->Width - 1, 0+rr + 1 -1, chunkybuf, &temp_rp);
+
+       // IFF-Files vergleichen.
+       FreeBitMap(temp_bm);
+
+       // ChunkyToPlanar
+       // RgbBitmap->Planes[0]...
+       for(unsigned int x=0;x<WCSScrn->Width/8;x++)
+       {
+           *(RgbBitmap->Planes[3]+x)=0;
+           *(RgbBitmap->Planes[2]+x)=0;
+           *(RgbBitmap->Planes[1]+x)=0;
+           *(RgbBitmap->Planes[0]+x)=0;
+       }
+       for(unsigned int x=0;x<WCSScrn->Width;x++)
+       {
+           *(RgbBitmap->Planes[3]+x/8)|=((chunkybuf[x]&0x08) >>3) << (7-x%8);
+           *(RgbBitmap->Planes[2]+x/8)|=((chunkybuf[x]&0x04) >>2) << (7-x%8);
+           *(RgbBitmap->Planes[1]+x/8)|=((chunkybuf[x]&0x02) >>1) << (7-x%8);
+           *(RgbBitmap->Planes[0]+x/8)|=((chunkybuf[x]&0x01) >>0) << (7-x%8);
+       }
+   }
+   ////////////
+
    for (pp=0; pp<DEPTH; pp++)
     {
-    scrRow = Planes[pp] + (rr * RowBytes);
+       if(0) // (isStandardBitMap)
+       {
+          scrRow = Planes[pp] + (rr * RowBytes);
+       }
+       else
+       {
+          //scrRow = RgbBitmap->Planes[pp] + (rr * RowBytes);
+          scrRow = RgbBitmap->Planes[pp];  // wenn Bitmap nur eine Zeile hoch ist
+       }
+
 
     CD.Data = scrRow;
     if (compression)
      {
-     if ((error = CompressRows(&CD)) > 0)
-      {
+     if ((error = CompressRows(&CD)) > 0)   // crashes here
+       {
+         KPrintF((STRPTR) "AF: %s L:%ld Error in CompressRows()\n",__FILE__,__LINE__);  // ALEXANDER
       goto Scleanup;
       } /* if write error */
      } /* if byte run 1 compression */
@@ -917,19 +1005,23 @@ RepeatMemGrab:
   FORMsize -= BODYsize;
   //FORMsize += (CD.TotalOutBytes + OldBodySize - OldPad);
   FORMsize += (CD.TotalOutBytes + OldBodySize - OldPad) + Padded;  // AF: Hier muss das Paddingbyte mitgezaehlt werden!
-  write(fHandle, &FORMsize,	 		4);
+  write_BigEndian(fHandle, &FORMsize,	 		4);// ALEXANDER, 17.12.2022
   lseek(fHandle, BodySizePtr, 0);
   BODYsize = CD.TotalOutBytes + OldBodySize - OldPad;
-  write(fHandle, &BODYsize,	 		4);
+  write_BigEndian(fHandle, &BODYsize,	 		4);// ALEXANDER, 17.12.2022
 /* Use Transparent Color in BMHD for notice of pad byte for later appending */
   if (Padded)
    {
    lseek(fHandle, TransPtr, 0);
-   write(fHandle, &Padded, 2);
+   write_BigEndian(fHandle, &Padded, 2);// ALEXANDER, 17.12.2022
    }
   } /* if compression */
 
 Scleanup:
+ if (RgbBitmap)
+ {
+     FreeBitMap(RgbBitmap);  // AF: 19.12.2022 for reading RTG-Data in Save Screen
+ }
  if (BWIM)
   BusyWin_Del(BWIM);
  if (fHandle >= 0) close(fHandle);
@@ -1548,6 +1640,7 @@ short CheckIFF(long fh, struct ILBMHeader *Hdr)
 
  if ((read(fh, (char *)Hdr, sizeof (struct ILBMHeader))) == sizeof (struct ILBMHeader))
   {
+  SimpleEndianFlip32S(Hdr->ChunkSize,&Hdr->ChunkSize); // AF: 17.12.2022
   if (! strncmp((char*)Hdr->ChunkID, "FORM", 4))
    {
    if ((read(fh, (char *)Hdr->ChunkID, 4)) == 4)

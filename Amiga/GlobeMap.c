@@ -299,12 +299,6 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
   if ((CD = CloudData_New()))
    {
    strmfp(filename, cloudpath, cloudfile);
-   {
-       static char String[1024];
-       sprintf(String,"%s Line %u, Name=%s",__FILE__,__LINE__,filename);
-       Log(MSG_PAR_LOAD, (CONST_STRPTR)String);
-   }
-
    if (! Cloud_Load(filename, &CD))
     {
     if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
@@ -588,7 +582,9 @@ RepeatAlloc1:
     CD->Map.size = CD->PlaneSize / 2;	/* sizeof (float) / sizeof (short) */
 RepeatAlloc2:
     if (! CD->Map.map)
+    {
      CD->Map.map = (short *)get_Memory (CD->Map.size, MEMF_ANY);
+    }
     if (CD->Map.map)
      {
      error = CloudShadow_Init(&CD->Map, CD);
@@ -1659,12 +1655,6 @@ MapCleanup2:
   if ((CD = CloudData_New()))
    {
    strmfp(filename, cloudpath, cloudfile);
-   {
-       static char String[1024];
-       sprintf(String,"%s Line %u, Name=%s",__FILE__,__LINE__,filename);
-       Log(MSG_PAR_LOAD, (CONST_STRPTR)String);
-   }
-
    if (Cloud_Load(filename, &CD))
     {
     if (BuildCloudKeyTable(CD))

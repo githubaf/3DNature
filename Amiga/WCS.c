@@ -143,17 +143,17 @@ int main(void)
 
 ResetScreenMode:
 
-if (IntuitionBase = (struct IntuitionBase *)
- OpenLibrary((STRPTR)"intuition.library", MIN_LIBRARY_REV))
+if ((IntuitionBase = (struct IntuitionBase *)
+ OpenLibrary((STRPTR)"intuition.library", MIN_LIBRARY_REV)))
  {
- if (GfxBase = (struct GfxBase *)
-  OpenLibrary((STRPTR)"graphics.library", MIN_LIBRARY_REV))
+ if ((GfxBase = (struct GfxBase *)
+  OpenLibrary((STRPTR)"graphics.library", MIN_LIBRARY_REV)))
   {
-  if (AslBase = OpenLibrary((STRPTR)"asl.library", MIN_LIBRARY_REV))
+  if ((AslBase = OpenLibrary((STRPTR)"asl.library", MIN_LIBRARY_REV)))
    {
-   if (GadToolsBase = OpenLibrary((STRPTR)"gadtools.library", MIN_LIBRARY_REV))
+   if ((GadToolsBase = OpenLibrary((STRPTR)"gadtools.library", MIN_LIBRARY_REV)))
     {
-    if(MUIMasterBase = OpenLibrary((STRPTR)MUIMASTER_NAME,MUIMASTER_VMIN))
+    if((MUIMasterBase = OpenLibrary((STRPTR)MUIMASTER_NAME,MUIMASTER_VMIN)))
      {
      getcwd(path, 255);
 
@@ -384,4 +384,93 @@ int Mkdir(const char *name)
     return mkdir(name);
 }
 #endif
+
+
+
+
+void SimpleEndianFlip64 (            double Source64, double *Dest64)  // AF, 12Dec22 for i386-aros
+{
+    double retVal;
+    char *doubleToConvert = ( char* ) & Source64;
+    char *returnDouble = ( char* ) & retVal;
+
+    // swap the bytes into a temporary buffer
+    returnDouble[0] = doubleToConvert[7];
+    returnDouble[1] = doubleToConvert[6];
+    returnDouble[2] = doubleToConvert[5];
+    returnDouble[3] = doubleToConvert[4];
+    returnDouble[4] = doubleToConvert[3];
+    returnDouble[5] = doubleToConvert[2];
+    returnDouble[6] = doubleToConvert[1];
+    returnDouble[7] = doubleToConvert[0];
+
+    *Dest64=retVal;
+
+}
+
+void SimpleEndianFlip32F(             float Source32, float  *Dest32)  // AF, 10Dec22 for i386-aros
+       {
+           float retVal;
+           char *floatToConvert = ( char* ) & Source32;
+           char *returnFloat = ( char* ) & retVal;
+
+           // swap the bytes into a temporary buffer
+           returnFloat[0] = floatToConvert[3];
+           returnFloat[1] = floatToConvert[2];
+           returnFloat[2] = floatToConvert[1];
+           returnFloat[3] = floatToConvert[0];
+
+           *Dest32=retVal;
+       }
+void SimpleEndianFlip32U( unsigned long int Source32, unsigned long int *Dest32)  // AF, 10Dec22 for i386-aros
+       {
+           (*Dest32) = (unsigned long int)( ((Source32 & 0x00ff) << 24) | ((Source32 & 0xff00) << 8) |
+                       (unsigned long int)( ((Source32 & 0xff0000) >> 8) | ((Source32 & 0xff000000) >> 24)));
+       }
+
+
+void SimpleEndianFlip32S(   signed long int Source32, signed long int   *Dest32)  //AF, 10Dec22 for i386-aros
+       {
+           (*Dest32) = ( long int)( ((Source32 & 0x00ff) << 24) | ((Source32 & 0xff00) << 8) |
+                       ( long int)( ((Source32 & 0xff0000) >> 8) | ((Source32 & 0xff000000) >> 24)));
+       }
+
+void SimpleEndianFlip16U(unsigned short int Source16, unsigned short int *Dest16) {(*Dest16) = (unsigned short int)( ((Source16 & 0x00ff) << 8) | ((Source16 & 0xff00) >> 8) );};
+void SimpleEndianFlip16S(  signed short int Source16, signed short int   *Dest16) {(*Dest16) = (  signed short int)( ((Source16 & 0x00ff) << 8) | ((Source16 & 0xff00) >> 8) );};
+
+// AF, 17.12.2022
+
+ssize_t write_BigEndian (int filedes, const void *buffer, size_t size)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    if(size==2)
+    {
+        unsigned short int Value=*(USHORT*)buffer;
+        SimpleEndianFlip16U(Value,&Value);
+        return write(filedes, &Value, size);
+    }
+    else if(size==4)
+    {
+        unsigned long int Value=*(ULONG*)buffer;
+        SimpleEndianFlip32U(Value,&Value);
+        return write(filedes, &Value, size);
+    }
+    else if(size==8)
+    {
+        double Value=*(double*)buffer;
+        SimpleEndianFlip64(Value,&Value);
+        return write(filedes, &Value, size);
+    }
+    else
+    {
+        KPrintF((STRPTR) "AF: wrong size for %s L:%d %s(%d)\n",__FILE__, __LINE__,__func__,size);
+        return 0;
+    }
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__ // Big endian? Then just call the original version
+    return write(filedes, buffer, size);
+#else
+    error Not implemented!
+#endif
+}
 
