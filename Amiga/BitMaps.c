@@ -888,7 +888,7 @@ RepeatMemGrab:
   KPrintF((STRPTR) "AF: %s L:%ld BitsPerPixel=%ld\n",__FILE__,__LINE__,BitsPerPixel);  // ALEXANDER
 
   ULONG isStandardBitMap=GetBitMapAttr(WCSScrn->RastPort.BitMap,BMA_FLAGS) & BMF_STANDARD;
-  KPrintF((STRPTR) "AF: %s L:%ld isStandardBitMap=%ld\n",__FILE__,__LINE__,isStandardBitMap);  // ALEXANDER
+  KPrintF((STRPTR) "AF: %s L:%ld isStandardBitMap=%s\n",__FILE__,__LINE__,isStandardBitMap?"YES":"NO");  // ALEXANDER
   if(1) //(!isStandardBitMap)
       // We have a non-planar Graphics-Mode -> Get the pixel-Rows from the GFX-Bord.
 
@@ -909,12 +909,32 @@ RepeatMemGrab:
   }
   // ############## END ALEXANDER
 
+//-----------------------------------
+  FILE *pgmfile=fopen("test.pgm","w");
+  FILE *ppmcolorfile=fopen("colormap.ppm","w");
+
+  fprintf(ppmcolorfile,"P3\n %d 1 255\n",1<<DEPTH);
+  for (int i=0; i<DEPTH*DEPTH; i++)
+  {
+      short regTemp          = GetRGB4(WCSScrn->ViewPort.ColorMap, i);
+      short temp             = (regTemp & 0xf00);
+      UBYTE red              = temp / 16;
+      temp                   = (regTemp &0xf0);
+      UBYTE green            = temp;
+      temp                   = (regTemp & 0xf) * 16;
+      UBYTE blue             = temp;
+      fprintf(ppmcolorfile,"%d %d %d\n",red,green,blue);
+  }
+  fclose(ppmcolorfile);
+
+  fprintf(pgmfile,"P2\n %d %d 15\n",WCSScrn->Width,WCSScrn->Height,15);
+//--------------------------------------------
   for (rr=0; rr<WriteHeight; rr++)
    {
    //BltBitMap(WCSScrn->RastPort.BitMap, 0, rr, RgbBitmap, 0, 0, WCSScrn->Width, 1,  0xc0, ~0L, NULL);
 
    ////////////
-   UBYTE chunkybuf[2048]; // eine Zeile + viel Reserve
+   static UBYTE chunkybuf[2048]; // eine Zeile + viel Reserve
    struct BitMap *temp_bm = AllocBitMap(WCSScrn->Width, 1, DEPTH, BMF_STANDARD | BMF_CLEAR, NULL);
    if (temp_bm)
    {
@@ -923,8 +943,27 @@ RepeatMemGrab:
        InitRastPort(&temp_rp);
        temp_rp.BitMap = temp_bm;
 
-       ReadPixelArray8(&WCSScrn->RastPort, 0, 0+rr, 0 + WCSScrn->Width - 1, 0+rr + 1 -1, chunkybuf, &temp_rp);
+       //              -Src-rp,          xstart, ystart,          xstop,        ystop,        array,     temprp
+       ReadPixelArray8(&WCSScrn->RastPort, 0,     0+rr, 0 + WCSScrn->Width - 1, 0+rr + 1 -1, chunkybuf, &temp_rp);
 
+        // Abspeichern und Anzeigen des ReadPixelArray8-Ergebnisses. Funktioniert Amiga RTG
+       // pgmtoppm -map colormap.ppm  test.pgm >image.ppm
+       // display image.ppm
+       for(int i=0;i<WCSScrn->Width;i++)
+       {
+           fprintf(pgmfile,"%d ",chunkybuf[i]&0x0f);  // testweise. Das PGM-File ist auf dem Amiga OK!
+                                                      // bei AROS ist 0x0f noetig. Trotzdem ist dann eine Farbe falsch
+       }
+       fprintf(pgmfile,"\n");
+
+/*
+       for(int i=0;i<WCSScrn->Width;i++)
+       {
+//           chunkybuf[i]=0;        // CompressRows() erzeugt gute Datei
+//           chunkybuf[i]=i&0xff;   // CompressRows() erzeugt fehlerhafte Datei
+           KPrintF("%02lx ",chunkybuf[i]);
+       }
+*/
        // IFF-Files vergleichen.
        FreeBitMap(temp_bm);
 
@@ -980,6 +1019,10 @@ RepeatMemGrab:
     } /* for pp=0... */
    BusyWin_Update(BWIM, rr + 1);
    } /* for rr=0... */
+
+
+  fclose (pgmfile);  // Alexander
+
 
   if (compression && CD.OutCtr > 0)
    {
