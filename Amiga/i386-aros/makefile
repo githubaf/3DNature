@@ -9,7 +9,13 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include vgl/subdir.mk
+-include Release/vgl/subdir.mk
+-include Release/subdir.mk
+-include Debug/vgl/subdir.mk
+-include Debug/subdir.mk
 -include subdir.mk
+-include objects.mk
+
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(strip $(C_DEPS)),)
 -include $(C_DEPS)
@@ -39,7 +45,7 @@ all:
 main-build: WCS
 
 # Tool invocations
-WCS: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
+WCS: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
 	i386-aros-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -fomit-frame-pointer -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_i386-aros.map && ../check_wcs_aros_i386.sh WCS
@@ -48,7 +54,7 @@ WCS: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 
 # Other Targets
 clean:
-	-$(RM) WCS
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) WCS
 	-@echo ' '
 
 pre-build:

@@ -1883,3 +1883,7 @@ und dann sehen auch die Buttons so aus wie unter AmigaOS.
 ----------
 Mit ReadPixelArray8() bekomme ich auf dem Amiga bei P96-Screens mit Non-Standard Bitmaps ein fehlerhaftes IFF-File. 
 Auf Aros ist eine Farbe falsch (gelb)
+
+25.12.2022
+-----------
+Lesen in DEM.c readDEM() ist OK. (Alles mit KPrintF Verglichen. 
