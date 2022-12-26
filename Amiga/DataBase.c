@@ -791,10 +791,28 @@ RepeatLoad:
      {
      if (fread((char *)&DBase[i].Lon[0], Size, 1, fobject) == 1)
       {
+  	   ENDIAN_CHANGE_IF_NEEDED(
+  		   for(unsigned int k=0;k<Hdr.points + 1;k++)
+  		   {
+  			   SimpleEndianFlip64(DBase[i].Lon[k],&DBase[i].Lon[k]);  //AF: 25.12.2022
+  		   }
+  	   )
       if (fread((char *)&DBase[i].Lat[0], Size, 1, fobject) == 1)
        {
+     	   ENDIAN_CHANGE_IF_NEEDED(
+     		   for(unsigned int k=0;k<Hdr.points + 1;k++)
+     		   {
+     			   SimpleEndianFlip64(DBase[i].Lat[k],&DBase[i].Lat[k]);  //AF: 25.12.2022
+     		   }
+     	   )
        if (fread((char *)&DBase[i].Elev[0], Size / 4, 1, fobject) == 1)
         {
+     	   ENDIAN_CHANGE_IF_NEEDED(
+     		   for(unsigned int k=0;k<Size/8;k++)   // AF: Warum /4 oder 8?
+     		   {
+     			   SimpleEndianFlip16S(DBase[i].Elev[k],&DBase[i].Elev[k]);  //AF: 25.12.2022
+     		   }
+     	   )
         ReadOK = 1;
 	} /* if elevation read */
        else

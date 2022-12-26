@@ -7,6 +7,7 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 #include <time.h>
+#include <Useful.h>
 
 STATIC_VAR float *ACosTable, *ASinTable,* SinTable,*CosTable;
 STATIC_VAR __far char ILBMnum[32];
@@ -1431,6 +1432,7 @@ short InitVectorMap(struct Window *win, short zbufplot, short override)
   if (! strcmp(Title, "WCSMasterObject"))
    {
    fread(&Objects, sizeof (short), 1, fMObj);
+   ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16S(Objects,&Objects));  //AF: 25.12.2022
    if (Objects != NoOfObjects)
     {
     fclose(fMObj);
@@ -1448,10 +1450,13 @@ short InitVectorMap(struct Window *win, short zbufplot, short override)
   {
   if (fMObj)
    fread(&Points, sizeof (short), 1, fMObj);
+   ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16S(Points,&Points));  //AF: 25.12.2022
   if (! (DBase[OBN].Flags & 2))
    {
    if (fMObj)
+   {
     fseek(fMObj, (Points + 1) * PointSize, SEEK_CUR);
+   }
    continue;
    } /* if */
   if (DBase[OBN].Special[0] == 'V')
@@ -1469,12 +1474,35 @@ short InitVectorMap(struct Window *win, short zbufplot, short override)
        if (fread((char *)&DBase[OBN].Lon[0],
 	 (DBase[OBN].Points + 1) * sizeof (double), 1, fMObj) == 1)
         {
+    	   ENDIAN_CHANGE_IF_NEEDED(
+    		   for(unsigned int i=0;(i<DBase[OBN].Points + 1)/sizeof(double);i++)
+    		   {
+    			   SimpleEndianFlip64(DBase[OBN].Lon[0],&DBase[OBN].Lon[0]);  //AF: 25.12.2022
+    		   }
+    	   )
+
         if (fread((char *)&DBase[OBN].Lat[0],
 	 (DBase[OBN].Points + 1) * sizeof (double), 1, fMObj) == 1)
          {
+     	   ENDIAN_CHANGE_IF_NEEDED(
+     		   for(unsigned int i=0;(i<DBase[OBN].Points + 1)/sizeof (double);i++)
+     		   {
+     			   SimpleEndianFlip64(DBase[OBN].Lat[0],&DBase[OBN].Lat[0]);  //AF: 25.12.2022
+     		   }
+     	   )
+
          if (fread((char *)&DBase[OBN].Elev[0],
 		 (DBase[OBN].Points + 1) * sizeof (short), 1, fMObj) != 1)
+         {
           error = 1;
+         }
+     	   ENDIAN_CHANGE_IF_NEEDED(
+     			   for(unsigned int i=0;(i<DBase[OBN].Points + 1)/sizeof (short);i++)
+     			   {
+     				   SimpleEndianFlip16S(DBase[OBN].Elev[0],&DBase[OBN].Elev[0]);  //AF: 25.12.2022
+     			   }
+     	   )
+
          } /* if */
         else
          error = 1;
@@ -1489,17 +1517,23 @@ short InitVectorMap(struct Window *win, short zbufplot, short override)
       fseek(fMObj, (Points + 1) * PointSize, SEEK_CUR);
      } /* if Master Object file open */
     if (error)
+    {
      goto LineCleanup;
+    }
     if (LoadIt)
      {
      if (Load_Object(OBN, &LastDir) > 0)
+     {
       goto LineCleanup;
+     }
      } /* if */
     } /* if object not already in memory */
    else
     {
     if (fMObj)
+    {
      fseek(fMObj, (Points + 1) * PointSize, SEEK_CUR);
+    }
     FreeVec = 0;
     }
    map.size = 2 * (DBase[OBN].Points + 1);
