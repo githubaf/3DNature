@@ -1475,9 +1475,9 @@ short InitVectorMap(struct Window *win, short zbufplot, short override)
 	 (DBase[OBN].Points + 1) * sizeof (double), 1, fMObj) == 1)
         {
     	   ENDIAN_CHANGE_IF_NEEDED(
-    		   for(unsigned int i=0;(i<DBase[OBN].Points + 1)/sizeof(double);i++)
+    		   for(unsigned int i=0;i<DBase[OBN].Points + 1;i++)
     		   {
-    			   SimpleEndianFlip64(DBase[OBN].Lon[0],&DBase[OBN].Lon[0]);  //AF: 25.12.2022
+    			   SimpleEndianFlip64(DBase[OBN].Lon[i],&DBase[OBN].Lon[i]);  //AF: 25.12.2022
     		   }
     	   )
 
@@ -1485,9 +1485,9 @@ short InitVectorMap(struct Window *win, short zbufplot, short override)
 	 (DBase[OBN].Points + 1) * sizeof (double), 1, fMObj) == 1)
          {
      	   ENDIAN_CHANGE_IF_NEEDED(
-     		   for(unsigned int i=0;(i<DBase[OBN].Points + 1)/sizeof (double);i++)
+     		   for(unsigned int i=0;i<DBase[OBN].Points + 1;i++)
      		   {
-     			   SimpleEndianFlip64(DBase[OBN].Lat[0],&DBase[OBN].Lat[0]);  //AF: 25.12.2022
+     			   SimpleEndianFlip64(DBase[OBN].Lat[i],&DBase[OBN].Lat[i]);  //AF: 25.12.2022
      		   }
      	   )
 
@@ -1497,9 +1497,9 @@ short InitVectorMap(struct Window *win, short zbufplot, short override)
           error = 1;
          }
      	   ENDIAN_CHANGE_IF_NEEDED(
-     			   for(unsigned int i=0;(i<DBase[OBN].Points + 1)/sizeof (short);i++)
+     			   for(unsigned int i=0;i<DBase[OBN].Points + 1;i++)
      			   {
-     				   SimpleEndianFlip16S(DBase[OBN].Elev[0],&DBase[OBN].Elev[0]);  //AF: 25.12.2022
+     				   SimpleEndianFlip16S(DBase[OBN].Elev[i],&DBase[OBN].Elev[i]);  //AF: 25.12.2022
      			   }
      	   )
 
@@ -1792,6 +1792,12 @@ TryAgain:
       SlopeMap = NULL;
       PageOutFail = 1;
       } /* if write */
+	   ENDIAN_CHANGE_IF_NEEDED(
+		   for(unsigned int i=0;i<bmapsize;i++)
+		   {
+			   SimpleEndianFlip32F(SlopeMap[i],&SlopeMap[i]);  //AF: 26.12.2022
+		   }
+	   )
      }
     else
      {
@@ -1828,6 +1834,12 @@ TryAgain2:
       ReflectionMap = NULL;
       PageOutFail = 1;
       } /* if write */
+//	   ENDIAN_CHANGE_IF_NEEDED(
+//		   for(unsigned int i=0;i<bmapsize;i++)
+//		   {
+//			   SimpleEndianFlip32F(ReflectionMap[i],&ReflectionMap[i]);  //AF: 26.12.2022
+//		   }
+//	   )
      }
     else
      {

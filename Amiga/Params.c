@@ -491,6 +491,8 @@ void UpdateKeyFrames(short frame, short group, short Item,
 
 short BuildKeyTable(void)
 {
+
+	KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
  short i, error = 0;
 
  if (KT) FreeKeyTable();
@@ -500,19 +502,23 @@ short BuildKeyTable(void)
 	get_Memory((USEDMOTIONPARAMS + COLORPARAMS + ECOPARAMS)
 	* sizeof (struct KeyTable), MEMF_CLEAR)) == NULL)
   {
+	 KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
   return (0);
   } /* if out of memory */
 
  for (i=0; i<USEDMOTIONPARAMS; i++)
   {
+	 KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
   KT[i].NumKeys = CountKeyFrames(0, i);
   }
  for (i=USEDMOTIONPARAMS; i<USEDMOTIONPARAMS + COLORPARAMS; i++)
   {
+	 KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
   KT[i].NumKeys = CountKeyFrames(1, i - USEDMOTIONPARAMS);
   }
  for (i=USEDMOTIONPARAMS + COLORPARAMS; i<USEDMOTIONPARAMS + COLORPARAMS + ECOPARAMS; i++)
   {
+	 KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
   KT[i].NumKeys = CountKeyFrames(2, i - USEDMOTIONPARAMS - COLORPARAMS);
   }
 
@@ -520,6 +526,7 @@ short BuildKeyTable(void)
   {
   if (KT[i].NumKeys > 0)
    {
+	  KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
    if ((KT[i].Key = (union KeyFrame **)
 	get_Memory(KT[i].NumKeys * sizeof (union KeyFrame *), MEMF_CLEAR))
 	== NULL)
@@ -532,6 +539,7 @@ short BuildKeyTable(void)
 
  if (error)
   {
+	 KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
   for (i=0; i<USEDMOTIONPARAMS + COLORPARAMS + ECOPARAMS; i++)
    {
    if (KT[i].Key)
@@ -544,28 +552,38 @@ short BuildKeyTable(void)
    return (0);
   } /* if memory error */
 
+ KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
  for (i=0; i<USEDMOTIONPARAMS; i++)
   {
+	 KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
   if (KT[i].Key)
    {
+	  KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
    SetKeyTableEntry(KT[i].Key, 0, i);
    } /* if key frames exist */
   } /* for i=0... */
+ KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
  for (i=USEDMOTIONPARAMS; i<USEDMOTIONPARAMS + COLORPARAMS; i++)
   {
+	 KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
   if (KT[i].Key)
    {
    SetKeyTableEntry(KT[i].Key, 1, i - USEDMOTIONPARAMS);
    } /* if key frames exist */
   } /* for i=0... */
+ KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
  for (i=USEDMOTIONPARAMS + COLORPARAMS; i<USEDMOTIONPARAMS + COLORPARAMS + ECOPARAMS; i++)
   {
+	 KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
   if (KT[i].Key)
    {
+	  KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
    SetKeyTableEntry(KT[i].Key, 2, i - USEDMOTIONPARAMS - COLORPARAMS);
    } /* if key frames exist */
   } /* for i=0... */
 
+ KPrintF("AF:%s %ld\n",__FILE__,__LINE__);
+ AvailMem(MEMF_CLEAR);
  return (SplineAllKeys());
 
 } /* BuildKeyTable() */
@@ -1435,7 +1453,7 @@ STATIC_FCN short SplineAllKeys(void) // used locally only -> static, AF 24.7.202
 
    Ptr[NxtFr] = P2;
 
-   if (KT[i].Key[0]->MoKey.KeyFrame > 0)
+   if (KT[i].Key[0]->MoKey.KeyFrame > 0)   // <--- Crash
     {
     for (j=0; j< KT[i].Key[0]->MoKey.KeyFrame; j++)
      {
@@ -1468,7 +1486,7 @@ STATIC_FCN short SplineAllKeys(void) // used locally only -> static, AF 24.7.202
    for (item=0; item<3; item++)
     {
     if ((Ptr = (double *)
-	get_Memory((KT_MaxFrames + 1) * sizeof (double), MEMF_CLEAR)) == NULL)
+	get_Memory((KT_MaxFrames + 1) * sizeof (double), MEMF_CLEAR)) == NULL)   // Alexander hier crash
      {
      error = 1;
      break;

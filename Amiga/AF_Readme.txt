@@ -1887,3 +1887,41 @@ Auf Aros ist eine Farbe falsch (gelb)
 25.12.2022
 -----------
 Lesen in DEM.c readDEM() ist OK. (Alles mit KPrintF Verglichen. 
+
+29.12.2022
+----------
+Ich will die Groesse aller Strukturen ausgebe, um herauszufinden, ob ich noch irhendwo packed hinchreiben muss:
+
+ctags ../WCS.h   # ezeugt eine Datei "tags".  Die ist Tab-separiert. Das 4. Wort zeigt den Typ: s=struct, u=union
+cat tags  | awk -F'\t' '{ if ($4=="u") {printf(" KPrintF(\"AF: sizeof(union %s)=%%ld\\n\",sizeof(union %s));\n", $1,$1);} }'
+cat tags  | awk -F'\t' '{ if ($4=="s") {printf(" KPrintF(\"AF: sizeof(struct %s)=%%ld\\n\",sizeof(struct %s));\n", $1,$1);} }'
+#damit C_File bauen.
+
+
+ifdef __AROS__
+#define USHORT unsigned short
+#define SHORT short
+//#define EXTERN
+#define __far
+#define __chip
+#endif
+
+#include "WCS.h"
+
+int main(void)
+{
+ KPrintF...
+ retuen 0;
+}
+
+m68k-amigaos-gcc -I.. af_size.c -ldebug -o af_size_68k
+i386-aros-gcc -I.. -I/usr/local/amiga/i386-aros/include/SDI/ af_size.c -ldebug -o  af_size_i386-aros
+cp af_size_i386-aros ~/Desktop/aros_build/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/Alexander/WCS_204/
+
+mit Meld Diffs anschauen.
+
+Raussuchen, wo in Strukturen riengelesen wird:
+
+find .. -name "*.c" -exec grep -nH "read.*sizeof" {} \; | awk -F 'struct ' 'NF>1{ sub(/ .*/,"",$NF); print $NF }' | awk -F\) '{print $1}' | sort --unique
+
+In meld nachschauen, ob es eine Struktur ist, deren Groesse sich unterscheidet.
