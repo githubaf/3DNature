@@ -639,7 +639,8 @@ EXTERN __far struct Settings UndoSetPar[2];
  struct NoLinearEcosystemKey2 EcoKey2;
 };
 
-/*EXTERN*/ struct MotionKey {
+/* AF struct packed for AROS, 30.Dec.22 */
+/*EXTERN*/ struct __attribute__((__packed__)) MotionKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -648,7 +649,8 @@ EXTERN __far struct Settings UndoSetPar[2];
  double	Value;
 };
 
-/*EXTERN*/ struct MotionKey2 {
+/* AF struct packed for AROS, 30.Dec.22 */
+/*EXTERN*/ struct __attribute__((__packed__)) MotionKey2 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -657,7 +659,8 @@ EXTERN __far struct Settings UndoSetPar[2];
  double	Value[1];
 };
 
-/*EXTERN*/ struct ColorKey {
+/* AF struct packed for AROS, 30.Dec.22 */
+/*EXTERN*/ struct __attribute__((__packed__)) ColorKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -666,7 +669,8 @@ EXTERN __far struct Settings UndoSetPar[2];
  short	Value[3];
 };
 
-/*EXTERN*/ struct EcosystemKeyV1 {
+/* AF struct packed for AROS, 30.Dec.22 */
+/*EXTERN*/ struct __attribute__((__packed__)) EcosystemKeyV1 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -682,7 +686,7 @@ EXTERN __far struct Settings UndoSetPar[2];
 	MinSlope;		/* Min slope */
 };
 
-/*EXTERN*/ struct EcosystemKey2V1 {
+/*EXTERN*/ struct __attribute__((__packed__)) EcosystemKey2V1 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -691,7 +695,8 @@ EXTERN __far struct Settings UndoSetPar[2];
  short	Value[8];
 };
 
-/*EXTERN*/ struct EcosystemKey {
+/* AF struct packed for AROS, 30.Dec.22 */
+/*EXTERN*/ struct __attribute__((__packed__)) EcosystemKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -709,7 +714,8 @@ EXTERN __far struct Settings UndoSetPar[2];
 	Height;			/* Tree height */
 };
 
-/*EXTERN*/ struct EcosystemKey2 {
+/* AF struct packed for AROS, 30.Dec.22 */
+/*EXTERN*/ struct __attribute__((__packed__)) EcosystemKey2 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -718,7 +724,8 @@ EXTERN __far struct Settings UndoSetPar[2];
  float	Value[10];
 };
 
-/*EXTERN*/ struct CloudKey {
+/* AF struct packed for AROS, 30.Dec.22 */
+/*EXTERN*/ struct __attribute__((__packed__)) CloudKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -727,7 +734,8 @@ EXTERN __far struct Settings UndoSetPar[2];
  float	Value[7];	/* Coverage, Density, StdDev, H, Alt, LatOff, LonOff*/
 };
 
-/*EXTERN*/ struct WaveKey {
+/* AF struct packed for AROS, 30.Dec.22 */
+/*EXTERN*/ struct __attribute__((__packed__)) WaveKey {
  short	KeyFrame,
 	Group,
 	Item;

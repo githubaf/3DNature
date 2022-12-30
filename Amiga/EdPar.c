@@ -2307,14 +2307,17 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
     goto ReadError;
     }
    ENDIAN_CHANGE_IF_NEEDED( /* AF: 16.Dec.2022, Endian correction for i386-aros */
-       SimpleEndianFlip16S(KF->MoKey.KeyFrame,&KF->MoKey.KeyFrame);
-       SimpleEndianFlip16S(KF->MoKey.Group,&KF->MoKey.Group);
-       SimpleEndianFlip16S(KF->MoKey.Item,&KF->MoKey.Item);
-       SimpleEndianFlip32F(KF->MoKey.TCB[0],&KF->MoKey.TCB[0]);
-       SimpleEndianFlip32F(KF->MoKey.TCB[1],&KF->MoKey.TCB[1]);
-       SimpleEndianFlip32F(KF->MoKey.TCB[2],&KF->MoKey.TCB[2]);
-       SimpleEndianFlip16S(KF->MoKey.Linear,&KF->MoKey.Linear);
-       SimpleEndianFlip64(KF->MoKey.Value,&KF->MoKey.Value);
+		   for(unsigned int i=0;i<KeyFrames;i++)
+		   {
+			   SimpleEndianFlip16S(KF[i].MoKey.KeyFrame,&KF[i].MoKey.KeyFrame);
+			   SimpleEndianFlip16S(KF[i].MoKey.Group,   &KF[i].MoKey.Group);
+			   SimpleEndianFlip16S(KF[i].MoKey.Item,    &KF[i].MoKey.Item);
+			   SimpleEndianFlip32F(KF[i].MoKey.TCB[0],  &KF[i].MoKey.TCB[0]);
+			   SimpleEndianFlip32F(KF[i].MoKey.TCB[1],  &KF[i].MoKey.TCB[1]);
+			   SimpleEndianFlip32F(KF[i].MoKey.TCB[2],  &KF[i].MoKey.TCB[2]);
+			   SimpleEndianFlip16S(KF[i].MoKey.Linear,  &KF[i].MoKey.Linear);
+			   SimpleEndianFlip64(KF [i].MoKey.Value,   &KF[i].MoKey.Value);
+		   }
            )
 
    TempHdr->KeyFrames = KeyFrames;
@@ -3085,14 +3088,17 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
       goto ReadError;
      }
      ENDIAN_CHANGE_IF_NEEDED( /* AF: 16.Dec.2022, Endian correction for i386-loaditemros */
-             SimpleEndianFlip16S(KFV1->MoKey.KeyFrame,&KFV1->MoKey.KeyFrame);
-             SimpleEndianFlip16S(KFV1->MoKey.Group,&KFV1->MoKey.Group);
-             SimpleEndianFlip16S(KFV1->MoKey.Item,&KFV1->MoKey.Item);
-             SimpleEndianFlip32F(KFV1->MoKey.TCB[0],&KFV1->MoKey.TCB[0]);
-             SimpleEndianFlip32F(KFV1->MoKey.TCB[1],&KFV1->MoKey.TCB[1]);
-             SimpleEndianFlip32F(KFV1->MoKey.TCB[2],&KFV1->MoKey.TCB[2]);
-             SimpleEndianFlip16S(KFV1->MoKey.Linear,&KFV1->MoKey.Linear);
-             SimpleEndianFlip64(KFV1->MoKey.Value,&KFV1->MoKey.Value);
+    		 for(unsigned int i=0;i<KeyFrames;i++)
+    		 {
+    			 SimpleEndianFlip16S(KFV1[i].MoKey.KeyFrame,&KFV1[i].MoKey.KeyFrame);
+    			 SimpleEndianFlip16S(KFV1[i].MoKey.Group,   &KFV1[i].MoKey.Group);
+    			 SimpleEndianFlip16S(KFV1[i].MoKey.Item,    &KFV1[i].MoKey.Item);
+    			 SimpleEndianFlip32F(KFV1[i].MoKey.TCB[0],  &KFV1[i].MoKey.TCB[0]);
+    			 SimpleEndianFlip32F(KFV1[i].MoKey.TCB[1],  &KFV1[i].MoKey.TCB[1]);
+    			 SimpleEndianFlip32F(KFV1[i].MoKey.TCB[2],  &KFV1[i].MoKey.TCB[2]);
+    			 SimpleEndianFlip16S(KFV1[i].MoKey.Linear,  &KFV1[i].MoKey.Linear);
+    			 SimpleEndianFlip64 (KFV1[i].MoKey.Value,   &KFV1[i].MoKey.Value);
+    		 }
          )
      }
     else

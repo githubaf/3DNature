@@ -1925,3 +1925,33 @@ Raussuchen, wo in Strukturen riengelesen wird:
 find .. -name "*.c" -exec grep -nH "read.*sizeof" {} \; | awk -F 'struct ' 'NF>1{ sub(/ .*/,"",$NF); print $NF }' | awk -F\) '{print $1}' | sort --unique
 
 In meld nachschauen, ob es eine Struktur ist, deren Groesse sich unterscheidet.
+
+30.12.2022
+----------
+Die unions 
+KeyFrame
+KeyFrameV1
+NoLinearKeyFrame
+haben unterschiedliche Groessen bei 68k und i386-aros
+
+-> Alle Strukturen in den unions haben unterschiedliche Groessen -> pragma packed einfuegen
+
+/*EXTERN*/ union KeyFrameV1 {
+ struct MotionKey MoKey;          <-
+ struct ColorKey CoKey;           <-
+ struct EcosystemKeyV1 EcoKey;    <-
+ struct EcosystemKey2V1 EcoKey2;  <-
+};
+
+/*EXTERN*/ union KeyFrame {
+ struct MotionKey MoKey;          <-
+ struct MotionKey2 MoKey2;        <-
+ struct ColorKey CoKey;           <-
+ struct EcosystemKey EcoKey;      <-
+ struct EcosystemKey2 EcoKey2;    <-
+ struct CloudKey CldKey;          <-
+ struct WaveKey WvKey;            <-
+};
+
+
+
