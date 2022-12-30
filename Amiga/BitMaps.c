@@ -1318,6 +1318,9 @@ short LoadImage(char *Name, short ColorImage, UBYTE **bitmap,
 	short Width, short Height, short SupressWng,
 	short *NewWidth, short *NewHeight, short *NewPlanes)
 {
+
+	KPrintF("AF: %s %ld  Name=%s}\n",__FILE__,__LINE__,Name);
+
  UBYTE power2[8] = {1, 2, 4, 8, 16, 32, 64, 128};
  short copyred = 0, namelen, error = 0, pp, rr, color, pixel;
  long byte, x, fh, RowDataSize=0, InputDataSize=0, BytesRead, RowSize;
@@ -1352,6 +1355,15 @@ RepeatOpen:
     error = 2;
     goto Cleanup;
     } /* read error */
+   ENDIAN_CHANGE_IF_NEEDED( /* AF: 30.Dec.2022, Endian correction for i386-aros */
+		   SimpleEndianFlip16U(BMHdr.Width,&BMHdr.Width);
+		   SimpleEndianFlip16U(BMHdr.Height,&BMHdr.Height);
+		   SimpleEndianFlip16S(BMHdr.XPos,&BMHdr.XPos);
+		   SimpleEndianFlip16S(BMHdr.YPos,&BMHdr.YPos);
+		   SimpleEndianFlip16U(BMHdr.Transparent,&BMHdr.Transparent);
+		   SimpleEndianFlip16S(BMHdr.PageWidth,&BMHdr.PageWidth);
+	       SimpleEndianFlip16S(BMHdr.PageHeight,&BMHdr.PageHeight);
+         )
    if ((ColorImage && BMHdr.Planes != 24 && bitmap[0])
 	 || (! ColorImage && BMHdr.Planes != 8 && bitmap[0]) ||
 	(BMHdr.Planes != 8 && BMHdr.Planes != 24))
@@ -1641,6 +1653,19 @@ STATIC_FCN short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
     {
     if (read(fh, (char *)ZBHdr, sizeof (struct ZBufferHeader)) == sizeof (struct ZBufferHeader))
      {
+    	  ENDIAN_CHANGE_IF_NEEDED( /* AF: 30.Dec.2022, Endian correction for i386-aros */
+    	     SimpleEndianFlip32U(ZBHdr->Width,&ZBHdr->Width);
+    	     SimpleEndianFlip32U(ZBHdr->Height,&ZBHdr->Height);
+    	     SimpleEndianFlip16U(ZBHdr->VarType,&ZBHdr->VarType);
+    	     SimpleEndianFlip16U(ZBHdr->Compression,&ZBHdr->Compression);
+    	     SimpleEndianFlip16U(ZBHdr->Sorting,&ZBHdr->Sorting);
+    	     SimpleEndianFlip16U(ZBHdr->Units,&ZBHdr->Units);
+    	     SimpleEndianFlip32F(ZBHdr->Min,&ZBHdr->Min);
+    	     SimpleEndianFlip32F(ZBHdr->Max,&ZBHdr->Max);
+    	     SimpleEndianFlip32F(ZBHdr->Bkgrnd,&ZBHdr->Bkgrnd);
+    	     SimpleEndianFlip32F(ZBHdr->ScaleFactor,&ZBHdr->ScaleFactor);
+    	     SimpleEndianFlip32F(ZBHdr->ScaleBase,&ZBHdr->ScaleBase);
+          )
      if (FindIFFChunk(fh, &Hdr, "ZBOD"))
       {
       if (ZBHdr->VarType == 6)
@@ -1710,6 +1735,8 @@ short FindIFFChunk(long fh, struct ILBMHeader *Hdr, char *Chunk)
  while ((readsize = read(fh, (char *)Hdr, sizeof (struct ILBMHeader))) ==
 	sizeof (struct ILBMHeader))
   {
+	  SimpleEndianFlip32S(Hdr->ChunkSize,&Hdr->ChunkSize); // AF: 30.12.2022
+
   if (! strncmp((char*)Hdr->ChunkID, Chunk, 4))
    break;
   if ((lseek(fh, Hdr->ChunkSize, 1)) == -1)

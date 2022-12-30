@@ -9,6 +9,7 @@
 
 #include "WCS.h"
 #include "GUIDefines.h"
+#include "Useful.h"
 
 STATIC_VAR double ptqq[3];
 
@@ -2304,9 +2305,11 @@ if (MaxFract == 0)		/* don't need an index */
   if (! strcmp(Title, "WCSFractalIndex"))
    {
    fread((char *)&Depth, sizeof (long), 1, fVtx);
+   ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32S(Depth,&Depth); ) /* AF: 30.Dec.2022, Endian correction for i386-aros */
    if (Depth == MaxFract)
     {
     fread((char *)&Vertices, sizeof (long), 1, fVtx);
+    ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32S(Vertices,&Vertices); ) /* AF: 30.Dec.2022, Endian correction for i386-aros */
     Vtx->PSize = Vertices;
     if ((Vtx->Use = (long *)get_Memory(Vertices * sizeof (long), MEMF_ANY)) != NULL)
      {
@@ -2316,6 +2319,11 @@ if (MaxFract == 0)		/* don't need an index */
        {
        if ((fread((char *)Vtx->Use, Vertices * sizeof (long), 1, fVtx)) == 1)
         {
+    	ENDIAN_CHANGE_IF_NEEDED(
+    			for(unsigned int i=0;i<Vertices;i++)
+    			{
+    				SimpleEndianFlip32S(Vtx->Use[i],&Vtx->Use[i]); ) /* AF: 30.Dec.2022, Endian correction for i386-aros */
+    			}
         if ((fread((char *)Vtx->Pert, Vertices, 1, fVtx)) == 1)
          {
          if ((fread((char *)Vtx->Edge, Vertices, 1, fVtx)) == 1)
