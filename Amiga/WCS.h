@@ -642,8 +642,8 @@ EXTERN __far struct Settings UndoSetPar[2];
 /* AF struct packed for AROS, 30.Dec.22 */
 /*EXTERN*/ struct __attribute__((__packed__)) MotionKey {
  short	KeyFrame,
-	Group,
-	Item;
+	Group,            // AF: 2.Jan23  0=Motion Key, 1=Color Key, 2=Ecosystem Key
+	Item;             // AF: 2.Jan23  Motion 8 = Bank Key (?)
  float	TCB[3];
  short	Linear;
  double	Value;

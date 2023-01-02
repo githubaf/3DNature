@@ -10,12 +10,17 @@ C_SRCS += \
 ../vgl/pixmap.c \
 ../vgl/wuline.c 
 
-OBJS += \
-./vgl/color.o \
-./vgl/dumb.o \
-./vgl/dumbpoly.o \
-./vgl/pixmap.o \
-./vgl/wuline.o 
+O_SRCS += \
+../vgl/clib.o \
+../vgl/color.o \
+../vgl/defpal.o \
+../vgl/dumb.o \
+../vgl/dumbbitblt.o \
+../vgl/dumbpoly.o \
+../vgl/dumbtext.o \
+../vgl/fontsmall.o \
+../vgl/pixmap.o \
+../vgl/wuline.o 
 
 C_DEPS += \
 ./vgl/color.d \
@@ -23,6 +28,13 @@ C_DEPS += \
 ./vgl/dumbpoly.d \
 ./vgl/pixmap.d \
 ./vgl/wuline.d 
+
+OBJS += \
+./vgl/color.o \
+./vgl/dumb.o \
+./vgl/dumbpoly.o \
+./vgl/pixmap.o \
+./vgl/wuline.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -33,4 +45,11 @@ vgl/%.o: ../vgl/%.c vgl/subdir.mk
 	@echo 'Finished building: $<'
 	@echo ' '
 
+
+clean: clean-vgl
+
+clean-vgl:
+	-$(RM) ./vgl/color.d ./vgl/color.o ./vgl/dumb.d ./vgl/dumb.o ./vgl/dumbpoly.d ./vgl/dumbpoly.o ./vgl/pixmap.d ./vgl/pixmap.o ./vgl/wuline.d ./vgl/wuline.o
+
+.PHONY: clean-vgl
 

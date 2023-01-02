@@ -1992,6 +1992,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
    #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
    for(unsigned int i=0; i<COLORPARAMS;i++)
    {
+       KPrintF("AF: %s %s() %ld\n",__FILE__,__func__,__LINE__);
          SimpleEndianFlip16S(CoPar.cn[i].Value[0],&CoPar.cn[i].Value[0]);
          SimpleEndianFlip16S(CoPar.cn[i].Value[1],&CoPar.cn[i].Value[1]);
          SimpleEndianFlip16S(CoPar.cn[i].Value[2],&CoPar.cn[i].Value[2]);
@@ -2010,9 +2011,10 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
     // AF: 10.Dec.2022, Endian correction for i386-aros
     #ifdef __AROS__
     #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-          SimpleEndianFlip16S(CoPar.cn[loaditem].Value[0],&CoPar.cn[loaditem].Value[0]);
-          SimpleEndianFlip16S(CoPar.cn[loaditem].Value[1],&CoPar.cn[loaditem].Value[1]);
-          SimpleEndianFlip16S(CoPar.cn[loaditem].Value[2],&CoPar.cn[loaditem].Value[2]);
+    KPrintF("AF: %s %s() %ld\n",__FILE__,__func__,__LINE__);
+         SimpleEndianFlip16S(CoPar.cn[loaditem].Value[0],&CoPar.cn[loaditem].Value[0]);
+         SimpleEndianFlip16S(CoPar.cn[loaditem].Value[1],&CoPar.cn[loaditem].Value[1]);
+         SimpleEndianFlip16S(CoPar.cn[loaditem].Value[2],&CoPar.cn[loaditem].Value[2]);
     #endif
     #endif
 
@@ -2030,6 +2032,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
      // AF: 10.Dec.2022, Endian correction for i386-aros
      #ifdef __AROS__
      #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+     KPrintF("AF: %s %s() %ld\n",__FILE__,__func__,__LINE__);
            SimpleEndianFlip16S(TempCo.Value[0],&TempCo.Value[0]);
            SimpleEndianFlip16S(TempCo.Value[1],&TempCo.Value[1]);
            SimpleEndianFlip16S(TempCo.Value[2],&TempCo.Value[2]);
@@ -2316,7 +2319,27 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
 			   SimpleEndianFlip32F(KF[i].MoKey.TCB[1],  &KF[i].MoKey.TCB[1]);
 			   SimpleEndianFlip32F(KF[i].MoKey.TCB[2],  &KF[i].MoKey.TCB[2]);
 			   SimpleEndianFlip16S(KF[i].MoKey.Linear,  &KF[i].MoKey.Linear);
-			   SimpleEndianFlip64(KF [i].MoKey.Value,   &KF[i].MoKey.Value);
+			   // all union-components are identical up to here
+
+			   if(KF[i].MoKey.Group == 0)  // Motion Key
+			   {
+			       SimpleEndianFlip64(KF [i].MoKey.Value,   &KF[i].MoKey.Value);;
+			   }
+			   else if (KF[i].MoKey.Group == 1)  // Color Key
+                {
+			       SimpleEndianFlip16S(KF[i].CoKey.Value[0],  &KF[i].CoKey.Value[0]);
+			       SimpleEndianFlip16S(KF[i].CoKey.Value[1],  &KF[i].CoKey.Value[1]);
+			       SimpleEndianFlip16S(KF[i].CoKey.Value[2],  &KF[i].CoKey.Value[2]);
+                }
+			   else // 2=Ecosystem Key, ??=Cloud and ??=Wave
+			   {
+
+			       // AF: 2.Jan.23: Eco and Eco2 have 10 floats, Cloud has 7 and wave has 4 floats. So with 10 flips we change all in all cases
+			       for(unsigned int k=0;k<10;k++)
+			       {
+			           SimpleEndianFlip32F(KF[i].EcoKey2.Value[k],&KF[i].EcoKey2.Value[k]); // EcoKey and EcoKey2 have both 10 floats
+			       }
+			   }
 		   }
            )
 

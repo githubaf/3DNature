@@ -1236,6 +1236,8 @@ void SetAllColorRequester(void)
 
 STATIC_FCN void SetColorRequester(short row) // used locally only -> static, AF 20.7.2021
 {
+    // Set the Color-Names and Color Components in "Color Editor" Window
+
  struct PaletteItem Pal;
 
   Pal.red = PAR_FIRST_COLOR(EC_Win->PaI[row], 0);

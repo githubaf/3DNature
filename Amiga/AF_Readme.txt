@@ -1954,4 +1954,13 @@ haben unterschiedliche Groessen bei 68k und i386-aros
 };
 
 
+2.Jan2023
+---------
+68k-Original
+Der Farbverlaufsbalken im "Color Editor" funktioniert nicht in NON-Standard Screenmodes.
 
+AROS:
+Das Lesen und Endian-Korrigieren der Union KeyFrame in EdPar.c musste Spezialbehandlungen fuer die Faelle 
+MotionKey, ColorKey und den Rest bekommen.
+
+anyonSunset kann gerendert werden. Farben sind OK. Wasserwellen fehlen, es ist spiegelglatt.
