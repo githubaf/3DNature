@@ -1964,3 +1964,7 @@ Das Lesen und Endian-Korrigieren der Union KeyFrame in EdPar.c musste Spezialbeh
 MotionKey, ColorKey und den Rest bekommen.
 
 anyonSunset kann gerendert werden. Farben sind OK. Wasserwellen fehlen, es ist spiegelglatt.
+
+3.Jan23
+-------
+C-Ersatz fuer HyperKHorner.asm. Motion-Window Cam-View funktioniert damit komplett.

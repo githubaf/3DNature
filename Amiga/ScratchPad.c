@@ -18,19 +18,24 @@ void ScratchRast_CornerTurn(struct vgl_pixmap *This, struct RastPort *ScratchRas
             ((unsigned long)(ScratchRast->RP_User) * ScratchRast->BitMap->Rows),
             This->pixdata->data);
 #else
+#ifndef __AROS__
     void * regs[8];
     regs[0] = ScratchRast->BitMap->Planes[0];
     regs[1] = ScratchRast->BitMap->Planes[1];
     regs[2] = ScratchRast->BitMap->Planes[2];
     regs[3] = ScratchRast->BitMap->Planes[3];
     regs[4] = ScratchRast->BitMap->Planes[7], /* Mask */
-            regs[5] = ((unsigned long)(ScratchRast->RP_User) * ScratchRast->BitMap->Rows);
+    regs[5] = ((unsigned long)(ScratchRast->RP_User) * ScratchRast->BitMap->Rows);
     regs[6] = This->pixdata->data;
 
-    Log(MSG_PAR_LOAD, (CONST_STRPTR)"HK4M() nicht aufgerufen.");
-    #ifndef __AROS__
-    HK4M(regs);  // ALEXANDER: wegdefiniert fuer ersten Linker-Test AROS
-    #endif
+
+    HK4M(regs);
+#else   // AROS
+    void *regs [2];
+    regs[0]=ScratchRast;
+    regs[1]=This->pixdata->data;
+    HK4M(regs);
+#endif
 #endif
 
 } /* ScratchRast_CornerTurn() */

@@ -2583,6 +2583,7 @@ RepeatLoad:
             } /* if */
            strcat(FractalFile, ".frd");
            strmfp(filename, dirname, FractalFile);
+           KPrintF("AF: Loading %s\n",filename);
            if ((fFrd = fopen(filename, "rb")))
             {
             if (fread(FractalMap, FractalMapSize, 1, fFrd) != 1)
