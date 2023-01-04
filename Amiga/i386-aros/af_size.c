@@ -1,3 +1,5 @@
+// AUsgabe alle Struktur- und Union Groessen von WCS. Auf i386 und A68k laufen lassen, Ausgaben vergleichen.
+
 #ifdef __AROS__
 #define USHORT unsigned short
 #define SHORT short

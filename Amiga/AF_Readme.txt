@@ -1890,7 +1890,7 @@ Lesen in DEM.c readDEM() ist OK. (Alles mit KPrintF Verglichen.
 
 29.12.2022
 ----------
-Ich will die Groesse aller Strukturen ausgebe, um herauszufinden, ob ich noch irhendwo packed hinchreiben muss:
+Ich will die Groesse aller Strukturen ausgeben, um herauszufinden, ob ich noch irgendwo packed hinschreiben muss:
 
 ctags ../WCS.h   # ezeugt eine Datei "tags".  Die ist Tab-separiert. Das 4. Wort zeigt den Typ: s=struct, u=union
 cat tags  | awk -F'\t' '{ if ($4=="u") {printf(" KPrintF(\"AF: sizeof(union %s)=%%ld\\n\",sizeof(union %s));\n", $1,$1);} }'
