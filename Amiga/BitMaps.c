@@ -1709,7 +1709,7 @@ short CheckIFF(long fh, struct ILBMHeader *Hdr)
 
  if ((read(fh, (char *)Hdr, sizeof (struct ILBMHeader))) == sizeof (struct ILBMHeader))
   {
-  SimpleEndianFlip32S(Hdr->ChunkSize,&Hdr->ChunkSize); // AF: 17.12.2022
+     ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32S(Hdr->ChunkSize,&Hdr->ChunkSize);) // AF: 17.12.2022
   if (! strncmp((char*)Hdr->ChunkID, "FORM", 4))
    {
    if ((read(fh, (char *)Hdr->ChunkID, 4)) == 4)
@@ -1736,7 +1736,7 @@ short FindIFFChunk(long fh, struct ILBMHeader *Hdr, char *Chunk)
  while ((readsize = read(fh, (char *)Hdr, sizeof (struct ILBMHeader))) ==
 	sizeof (struct ILBMHeader))
   {
-	  SimpleEndianFlip32S(Hdr->ChunkSize,&Hdr->ChunkSize); // AF: 30.12.2022
+     ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32S(Hdr->ChunkSize,&Hdr->ChunkSize);) // AF: 30.12.2022
 
   if (! strncmp((char*)Hdr->ChunkID, Chunk, 4))
    break;
