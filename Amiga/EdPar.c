@@ -1988,17 +1988,14 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
     goto ReadError;
 
    // AF: 10.Dec.2022, Endian correction for i386-aros
-   #ifdef __AROS__
-   #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-   for(unsigned int i=0; i<COLORPARAMS;i++)
-   {
-       KPrintF("AF: %s %s() %ld\n",__FILE__,__func__,__LINE__);
-         SimpleEndianFlip16S(CoPar.cn[i].Value[0],&CoPar.cn[i].Value[0]);
-         SimpleEndianFlip16S(CoPar.cn[i].Value[1],&CoPar.cn[i].Value[1]);
-         SimpleEndianFlip16S(CoPar.cn[i].Value[2],&CoPar.cn[i].Value[2]);
-   }
-   #endif
-   #endif
+   ENDIAN_CHANGE_IF_NEEDED(
+           for(unsigned int i=0; i<COLORPARAMS;i++)
+           {
+               SimpleEndianFlip16S(CoPar.cn[i].Value[0],&CoPar.cn[i].Value[0]);
+               SimpleEndianFlip16S(CoPar.cn[i].Value[1],&CoPar.cn[i].Value[1]);
+               SimpleEndianFlip16S(CoPar.cn[i].Value[2],&CoPar.cn[i].Value[2]);
+           }
+       )
    }
   else
    {
@@ -2009,15 +2006,11 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
      goto ReadError;
 
     // AF: 10.Dec.2022, Endian correction for i386-aros
-    #ifdef __AROS__
-    #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-    KPrintF("AF: %s %s() %ld\n",__FILE__,__func__,__LINE__);
+    ENDIAN_CHANGE_IF_NEEDED(
          SimpleEndianFlip16S(CoPar.cn[loaditem].Value[0],&CoPar.cn[loaditem].Value[0]);
          SimpleEndianFlip16S(CoPar.cn[loaditem].Value[1],&CoPar.cn[loaditem].Value[1]);
          SimpleEndianFlip16S(CoPar.cn[loaditem].Value[2],&CoPar.cn[loaditem].Value[2]);
-    #endif
-    #endif
-
+       )
     } /* if load defined color */
    else
     {
@@ -2030,14 +2023,11 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
       goto ReadError;
 
      // AF: 10.Dec.2022, Endian correction for i386-aros
-     #ifdef __AROS__
-     #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-     KPrintF("AF: %s %s() %ld\n",__FILE__,__func__,__LINE__);
+     ENDIAN_CHANGE_IF_NEEDED(
            SimpleEndianFlip16S(TempCo.Value[0],&TempCo.Value[0]);
            SimpleEndianFlip16S(TempCo.Value[1],&TempCo.Value[1]);
            SimpleEndianFlip16S(TempCo.Value[2],&TempCo.Value[2]);
-     #endif
-     #endif
+        )
 
      if (! strcmp(TempCo.Name, PAR_NAME_COLOR(loaditem)))
       {

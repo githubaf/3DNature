@@ -927,7 +927,7 @@ RepeatMemGrab:
   }
   fclose(ppmcolorfile);
 
-  fprintf(pgmfile,"P2\n %d %d 15\n",WCSScrn->Width,WCSScrn->Height,15);
+  fprintf(pgmfile,"P2\n %d %d 15\n",WCSScrn->Width,WCSScrn->Height);
 //--------------------------------------------
   for (rr=0; rr<WriteHeight; rr++)
    {
@@ -1319,8 +1319,6 @@ short LoadImage(char *Name, short ColorImage, UBYTE **bitmap,
 	short *NewWidth, short *NewHeight, short *NewPlanes)
 {
 
-	KPrintF("AF: %s %ld  Name=%s\n",__FILE__,__LINE__,Name);
-
  UBYTE power2[8] = {1, 2, 4, 8, 16, 32, 64, 128};
  short copyred = 0, namelen, error = 0, pp, rr, color, pixel;
  long byte, x, fh, RowDataSize=0, InputDataSize=0, BytesRead, RowSize;
@@ -1333,7 +1331,6 @@ short LoadImage(char *Name, short ColorImage, UBYTE **bitmap,
 RepeatOpen:
  if ((fh = open(Name, O_RDONLY, 0)) == -1)
   {
-     KPrintF("AF: %s %ld  open(%s) OK\n",__FILE__,__LINE__,Name);
   namelen = strlen(Name);
   if (namelen > 1)
   if (Name[namelen - 1] == ' ')

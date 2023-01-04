@@ -6,6 +6,7 @@
 
 #include "WCS.h"
 #include "Foliage.h"
+#include "Useful.h"
 
 STATIC_FCN ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags);  // used locally only -> static, AF 19.7.2021
 STATIC_FCN ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags); // used locally only -> static, AF 19.7.2021
@@ -640,6 +641,7 @@ union MultiVal MV;
    if ((BytesRead = ReadBlock(ffile, (char *)&ItemTag,
 	WCS_BLOCKTYPE_LONGINT + WCS_BLOCKSIZE_LONG)))
     {
+    ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32U(ItemTag, &ItemTag);)   // AF: 4.Jan.2023, Endian correction for i386-aros
     TotalRead += BytesRead;
     if (ItemTag != WCS_ECOTYPE_DONE)
      {
@@ -657,11 +659,13 @@ union MultiVal MV;
 	}
        case WCS_BLOCKSIZE_SHORT:
         {
+        ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(MV.Short[0], &MV.Short[0]);)   // AF: 4.Jan.2023, Endian correction for i386-aros
         Size = MV.Short[0];
         break;
 	}
        case WCS_BLOCKSIZE_LONG:
         {
+        ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32S(MV.Long, &MV.Long);)   // AF: 4.Jan.2023, Endian correction for i386-aros
         Size = MV.Long;
         break;
 	}
@@ -688,30 +692,40 @@ union MultiVal MV;
         case WCS_ECOTYPE_HEIGHT:
          {
          BytesRead = ReadBlock(ffile, (char *)&FloatVal, WCS_BLOCKTYPE_FLOAT + Size);
+         // AF: FloatVal is only a single float, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32F(FloatVal, &FloatVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_HEIGHT, FloatVal, 0);
          break;
 	 }
         case WCS_ECOTYPE_DENSITY:
          {
          BytesRead = ReadBlock(ffile, (char *)&FloatVal, WCS_BLOCKTYPE_FLOAT + Size);
+         // AF: FloatVal is only a single float, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32F(FloatVal, &FloatVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_DENSITY, FloatVal, 0);
          break;
 	 }
         case WCS_ECOTYPE_USEIMGCOL:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_USEIMGCOL, (float)0.0, ShortVal);
          break;
 	 }
         case WCS_ECOTYPE_PALCOL:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_PALCOL, (float)0.0, ShortVal);
          break;
 	 }
         case WCS_ECOTYPE_MAXIMGHT:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_MAXIMGHT, (float)0.0, ShortVal);
          break;
 	 }
@@ -778,6 +792,7 @@ union MultiVal MV;
    if ((BytesRead = ReadBlock(ffile, (char *)&ItemTag,
 	WCS_BLOCKTYPE_LONGINT + WCS_BLOCKSIZE_LONG)))
     {
+    ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32U(ItemTag, &ItemTag);)   // AF: 4.Jan.2023, Endian correction for i386-aros
     TotalRead += BytesRead;
     if (ItemTag != WCS_ECOTYPE_DONE)
      {
@@ -794,11 +809,13 @@ union MultiVal MV;
 	}
        case WCS_BLOCKSIZE_SHORT:
         {
+        ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(MV.Short[0], &MV.Short[0]);)   // AF: 4.Jan.2023, Endian correction for i386-aros
         Size = MV.Short[0];
         break;
 	}
        case WCS_BLOCKSIZE_LONG:
         {
+        ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32S(MV.Long, &MV.Long);)   // AF: 4.Jan.2023, Endian correction for i386-aros
         Size = MV.Long;
         break;
 	}
@@ -825,30 +842,40 @@ union MultiVal MV;
         case WCS_ECOTYPE_HEIGHT:
          {
          BytesRead = ReadBlock(ffile, (char *)&FloatVal, WCS_BLOCKTYPE_FLOAT + Size);
+         // AF: FloatVal is only a single float, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32F(FloatVal, &FloatVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_HEIGHT, FloatVal, 0);
          break;
 	 }
         case WCS_ECOTYPE_DENSITY:
          {
          BytesRead = ReadBlock(ffile, (char *)&FloatVal, WCS_BLOCKTYPE_FLOAT + Size);
+         // AF: FloatVal is only a single float, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32F(FloatVal, &FloatVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_DENSITY, FloatVal, 0);
          break;
 	 }
         case WCS_ECOTYPE_USEIMGCOL:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_USEIMGCOL, (float)0.0, ShortVal);
          break;
 	 }
         case WCS_ECOTYPE_PALCOL:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_PALCOL, (float)0.0, ShortVal);
          break;
 	 }
         case WCS_ECOTYPE_MAXIMGHT:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_MAXIMGHT, (float)0.0, ShortVal);
          break;
 	 }
@@ -911,6 +938,7 @@ union MultiVal MV;
    if ((BytesRead = ReadBlock(ffile, (char *)&ItemTag,
 	WCS_BLOCKTYPE_LONGINT + WCS_BLOCKSIZE_LONG)))
     {
+    ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32U(ItemTag, &ItemTag);)   // AF: 4.Jan.2023, Endian correction for i386-aros
     TotalRead += BytesRead;
     if (ItemTag != WCS_ECOTYPE_DONE)
      {
@@ -927,11 +955,13 @@ union MultiVal MV;
 	}
        case WCS_BLOCKSIZE_SHORT:
         {
+        ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(MV.Short[0], &MV.Short[0]);)   // AF: 4.Jan.2023, Endian correction for i386-aros
         Size = MV.Short[0];
         break;
 	}
        case WCS_BLOCKSIZE_LONG:
         {
+        ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32S(MV.Long, &MV.Long);)   // AF: 4.Jan.2023, Endian correction for i386-aros
         Size = MV.Long;
         break;
 	}
@@ -958,48 +988,64 @@ union MultiVal MV;
         case WCS_ECOTYPE_HEIGHT:
          {
          BytesRead = ReadBlock(ffile, (char *)&FloatVal, WCS_BLOCKTYPE_FLOAT + Size);
+         // AF: FloatVal is only a single float, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32F(FloatVal, &FloatVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_HEIGHT, FloatVal, 0);
          break;
 	 }
         case WCS_ECOTYPE_DENSITY:
          {
          BytesRead = ReadBlock(ffile, (char *)&FloatVal, WCS_BLOCKTYPE_FLOAT + Size);
+         // AF: FloatVal is only a single float, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32F(FloatVal, &FloatVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_DENSITY, FloatVal, 0);
          break;
 	 }
         case WCS_ECOTYPE_USEIMGCOL:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_USEIMGCOL, (float)0.0, ShortVal);
          break;
 	 }
         case WCS_ECOTYPE_PALCOL:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_PALCOL, (float)0.0, ShortVal);
          break;
 	 }
         case WCS_ECOTYPE_MAXIMGHT:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Rootstock_SetValue(&This->Root, WCS_ECOTYPE_MAXIMGHT, (float)0.0, ShortVal);
          break;
 	 }
         case WCS_ECOTYPE_IMGHEIGHT:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Foliage_SetImgSize(This, WCS_ECOTYPE_IMGHEIGHT, ShortVal);
          break;
 	 }
         case WCS_ECOTYPE_IMGWIDTH:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Foliage_SetImgSize(This, WCS_ECOTYPE_IMGWIDTH, ShortVal);
          break;
 	 }
         case WCS_ECOTYPE_COLORIMAGE:
          {
          BytesRead = ReadBlock(ffile, (char *)&ShortVal, WCS_BLOCKTYPE_SHORTINT + Size);
+         // AF: ShortVal is only a single short, so Size must be one, no loop for endian correction
+         ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip16S(ShortVal, &ShortVal);)   // AF: 4.Jan.2023, Endian correction for i386-aros
          Foliage_SetImgSize(This, WCS_ECOTYPE_COLORIMAGE, ShortVal);
          break;
 	 }

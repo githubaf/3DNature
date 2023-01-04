@@ -939,33 +939,19 @@ struct Foliage *Fol;
 struct ILBMHeader Hdr;
 struct WcsBitMapHeader BMHdr;
 
-KPrintF("AF: %s %ld  in BitmapImage_Load()\n",__FILE__,__LINE__);
-
  if (! settings.rendertrees)
   return (1);
 
- KPrintF("AF: %s %ld\n",__FILE__,__LINE__);
-
  for (i=0, error=0; i<ECOPARAMS && success; i++, error=0)
   {
-     KPrintF("AF: %s %ld i=%ld PAR_TYPE_ECO(%ld)=0x%04lx)\n",__FILE__,__LINE__,i,i,PAR_TYPE_ECO(i));
-/*
-     EcoPar.en[i].Type=0;
-     union Environment {
- struct Ecosystem en[ECOPARAMS];
- struct Ecosystem2 en2[ECOPARAMS];
-};
-*/
 
-  if ((PAR_TYPE_ECO(i) & 0x00ff) >= 50 && (PAR_TYPE_ECO(i) & 0x00ff) < 100)  // hier kommen wir nicht rein.
+  if ((PAR_TYPE_ECO(i) & 0x00ff) >= 50 && (PAR_TYPE_ECO(i) & 0x00ff) < 100)
    {
-      KPrintF("AF: %s %ld\n",__FILE__,__LINE__);
+
    if (EcoShift[i].Ecotype && EcoShift[i].Ecotype->FolGp && EcoShift[i].Ecotype->FolGp->Fol)
     {
-       KPrintF("AF: %s %ld\n",__FILE__,__LINE__);
     BMI = &EcoShift[i].BMImage;
     SumDensity = 0.0;
-    KPrintF("AF: %s %ld\n",__FILE__,__LINE__);
 /* sum group densities */
 
     FolGp = EcoShift[i].Ecotype->FolGp;
@@ -979,7 +965,6 @@ KPrintF("AF: %s %ld  in BitmapImage_Load()\n",__FILE__,__LINE__);
      SumGrpDens = 1.0;
 
 /* for each group */
-    KPrintF("AF: %s %ld\n",__FILE__,__LINE__);
 
     FolGp = EcoShift[i].Ecotype->FolGp;
     while (FolGp)
@@ -1000,20 +985,15 @@ KPrintF("AF: %s %ld  in BitmapImage_Load()\n",__FILE__,__LINE__);
      while (Fol)
       {
       strcpy(filename, Rootstock_GetName(&Fol->Root));
-      KPrintF("AF: trying to load %s\n",filename);
       if ((fh = open(filename, O_RDONLY)) >= 0)
        {
-          KPrintF("AF: %s %ld  open(%s) ok\n",__FILE__,__LINE__,filename);
        if (CheckIFF(fh, &Hdr))
         {
-           KPrintF("AF: %s %ld  checkiff() ok\n",__FILE__,__LINE__);
         if (FindIFFChunk(fh, &Hdr, "BMHD"))
          {
-            KPrintF("AF: %s %ld  FidnIFFChunk(BMHD) ok\n",__FILE__,__LINE__);
          if ((read(fh, (char *)&BMHdr, sizeof (struct WcsBitMapHeader))) ==
 		 sizeof (struct WcsBitMapHeader))
           {
-             KPrintF("AF: %s %ld  read(bmhdr) ok\n",__FILE__,__LINE__);
              ENDIAN_CHANGE_IF_NEEDED(
              SimpleEndianFlip16U(BMHdr.Width,&BMHdr.Width);
              SimpleEndianFlip16U(BMHdr.Height,&BMHdr.Height);
@@ -1200,7 +1180,6 @@ KPrintF("AF: %s %ld  in BitmapImage_Load()\n",__FILE__,__LINE__);
      FolGp = FolGp->Next;
      } /* while FolGp */
     } /* if */
-   KPrintF("AF: %s %ld\n",__FILE__,__LINE__);
    if (EcoShift[i].BitmapImages <= 0 || error)
     {
     if (! User_Message((CONST_STRPTR)PAR_NAME_ECO(i), (CONST_STRPTR)"A problem occurred loading at least one image\
@@ -1209,9 +1188,7 @@ Continue without it or them?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
      success = 0;
     } /* if no images found and loaded */
    } /* if image ecosystem */
-  KPrintF("AF: %s %ld\n",__FILE__,__LINE__);
   } /* for i=0... */
- KPrintF("AF: %s %ld\n",__FILE__,__LINE__);
 
 /* some test stuff
 for (i=0; i<ECOPARAMS; i++)
