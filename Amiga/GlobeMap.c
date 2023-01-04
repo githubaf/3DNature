@@ -1792,12 +1792,14 @@ TryAgain:
       SlopeMap = NULL;
       PageOutFail = 1;
       } /* if write */
-	   ENDIAN_CHANGE_IF_NEEDED(
-		   for(unsigned int i=0;i<bmapsize;i++)
-		   {
-			   SimpleEndianFlip32F(SlopeMap[i],&SlopeMap[i]);  //AF: 26.12.2022
-		   }
-	   )
+// AF: 4.Jan.23 SlopeMap has been written in host-byteorder at the beginning of this function. Its is only used in
+// this function and is a temp file. So no need to endian.correct it before writing and after reading.
+//	   ENDIAN_CHANGE_IF_NEEDED(
+//		   for(unsigned int i=0;i<bmapsize;i++)
+//		   {
+//			   SimpleEndianFlip32F(SlopeMap[i],&SlopeMap[i]);  //AF: 26.12.2022
+//		   }
+//	   )
      }
     else
      {

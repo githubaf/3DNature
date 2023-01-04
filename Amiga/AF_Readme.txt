@@ -1968,3 +1968,8 @@ anyonSunset kann gerendert werden. Farben sind OK. Wasserwellen fehlen, es ist s
 3.Jan23
 -------
 C-Ersatz fuer HyperKHorner.asm. Motion-Window Cam-View funktioniert damit komplett.
+
+4.Jan23
+--------
+Water waves are correct now. In fact it was the reflection that killed the waves. The file WCSSlMap%1d.Temp was endian-corrected after reading but
+written in host-byteorder. There is no need to endian-correct this file at all.
