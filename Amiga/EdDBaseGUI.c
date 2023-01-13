@@ -82,10 +82,10 @@ void Make_DE_Window(void)
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-              Child, DE_Win->LgArrow[0] = ImageButton(MUII_ArrowLeft),
-              Child, DE_Win->Arrow[0][0] = ImageButton(MUII_ArrowLeft),
-              Child, DE_Win->Arrow[0][1] = ImageButton(MUII_ArrowRight),
-              Child, DE_Win->LgArrow[1] = ImageButton(MUII_ArrowRight),
+              Child, DE_Win->LgArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, DE_Win->Arrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, DE_Win->Arrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
+              Child, DE_Win->LgArrow[1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 #endif
 	/* object name */
@@ -136,8 +136,8 @@ void Make_DE_Window(void)
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012", End,
-              Child, DE_Win->Arrow[3][0] = ImageButton(MUII_ArrowLeft),
-              Child, DE_Win->Arrow[3][1] = ImageButton(MUII_ArrowRight),
+              Child, DE_Win->Arrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, DE_Win->Arrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	/* line type */
 	    Child, HGroup,
@@ -153,8 +153,8 @@ void Make_DE_Window(void)
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012", End,
-              Child, DE_Win->Arrow[1][0] = ImageButton(MUII_ArrowLeft),
-              Child, DE_Win->Arrow[1][1] = ImageButton(MUII_ArrowRight),
+              Child, DE_Win->Arrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, DE_Win->Arrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	/* draw pen */
 	    Child, HGroup,
@@ -166,8 +166,8 @@ void Make_DE_Window(void)
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012", End,
-                Child, DE_Win->Arrow[2][0] = ImageButton(MUII_ArrowLeft),
-                Child, DE_Win->Arrow[2][1] = ImageButton(MUII_ArrowRight),
+                Child, DE_Win->Arrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, DE_Win->Arrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
 	      End, /* HGroup */
 	/* RGB render values */

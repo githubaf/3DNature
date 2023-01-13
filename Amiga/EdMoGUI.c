@@ -81,8 +81,8 @@ void Make_EM_Window(void)
                 Child, HGroup, MUIA_Group_HorizSpacing, 0,
                   Child, EM_Win->ValTxt[0] = StringObject, StringFrame,
 			   MUIA_FixWidthTxt, "01234567890", End,
-		  Child, EM_Win->L_IAArrow[0] = ImageButton(MUII_ArrowLeft),
-		  Child, EM_Win->R_IAArrow[0] = ImageButton(MUII_ArrowRight),
+		  Child, EM_Win->L_IAArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
+		  Child, EM_Win->R_IAArrow[0] = ImageButtonWCS(MUII_ArrowRight),
 		  End, /* HGroup */
                 End, /* HGroup */
 	      Child, HGroup,
@@ -92,8 +92,8 @@ void Make_EM_Window(void)
                 Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		     Child, EM_Win->ValTxt[2] = StringObject, StringFrame,
 			   MUIA_FixWidthTxt, "01234567890", End,
-		     Child, EM_Win->L_IAArrow[2] = ImageButton(MUII_ArrowLeft),
-		     Child, EM_Win->R_IAArrow[2] = ImageButton(MUII_ArrowRight),
+		     Child, EM_Win->L_IAArrow[2] = ImageButtonWCS(MUII_ArrowLeft),
+		     Child, EM_Win->R_IAArrow[2] = ImageButtonWCS(MUII_ArrowRight),
 		     End, /* HGroup */
                 End, /* HGroup */
 	      Child, HGroup,
@@ -103,8 +103,8 @@ void Make_EM_Window(void)
                 Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		     Child, EM_Win->ValTxt[1] = StringObject, StringFrame,
 			   MUIA_FixWidthTxt, "01234567890", End,
-		     Child, EM_Win->L_IAArrow[1] = ImageButton(MUII_ArrowLeft),
-		     Child, EM_Win->R_IAArrow[1] = ImageButton(MUII_ArrowRight),
+		     Child, EM_Win->L_IAArrow[1] = ImageButtonWCS(MUII_ArrowLeft),
+		     Child, EM_Win->R_IAArrow[1] = ImageButtonWCS(MUII_ArrowRight),
 		     End, /* HGroup */
                 End, /* HGroup */
 	      Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
@@ -118,8 +118,8 @@ void Make_EM_Window(void)
                 Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		    Child, EM_Win->ValTxt[3] = StringObject, StringFrame,
 			  MUIA_FixWidthTxt, "01234567890", End,
-		  Child, EM_Win->L_IAArrow[3] = ImageButton(MUII_ArrowLeft),
-		  Child, EM_Win->R_IAArrow[3] = ImageButton(MUII_ArrowRight),
+		  Child, EM_Win->L_IAArrow[3] = ImageButtonWCS(MUII_ArrowLeft),
+		  Child, EM_Win->R_IAArrow[3] = ImageButtonWCS(MUII_ArrowRight),
 		  End, /* HGroup */
                 End, /* HGroup */
 	      Child, HGroup,
@@ -132,8 +132,8 @@ void Make_EM_Window(void)
                 Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		  Child, EM_Win->ValTxt[4] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567890", End,
-		  Child, EM_Win->L_IAArrow[4] = ImageButton(MUII_ArrowLeft),
-		  Child, EM_Win->R_IAArrow[4] = ImageButton(MUII_ArrowRight),
+		  Child, EM_Win->L_IAArrow[4] = ImageButtonWCS(MUII_ArrowLeft),
+		  Child, EM_Win->R_IAArrow[4] = ImageButtonWCS(MUII_ArrowRight),
 		  End, /* HGroup */
                 End, /* HGroup */
 
@@ -143,8 +143,8 @@ void Make_EM_Window(void)
 			MUIA_String_Integer, IA_Sensitivity,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-                Child, EM_Win->IA_L_SensArrow = ImageButton(MUII_ArrowLeft),
-                Child, EM_Win->IA_R_SensArrow = ImageButton(MUII_ArrowRight),
+                Child, EM_Win->IA_L_SensArrow = ImageButtonWCS(MUII_ArrowLeft),
+                Child, EM_Win->IA_R_SensArrow = ImageButtonWCS(MUII_ArrowRight),
 
 		Child, EM_Win->BT_Sens[0] = KeyButtonFunc('l', "\33cLow"),
 		Child, EM_Win->BT_Sens[1] = KeyButtonFunc('e', "\33cMed"),
@@ -165,8 +165,8 @@ void Make_EM_Window(void)
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
-                  Child, EM_Win->StrArrow[0][0] = ImageButton(MUII_ArrowLeft),
-                  Child, EM_Win->StrArrow[0][1] = ImageButton(MUII_ArrowRight),
+                  Child, EM_Win->StrArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+                  Child, EM_Win->StrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
                   End, /* HGroup */
                 Child, EM_Win->BT_NextKey = KeyButtonFunc('x', "\33cNext"), 
                 End, /* HGroup */
@@ -1428,8 +1428,8 @@ void Make_EMIA_Window(void)
             Child, EMIA_Win->Str[0] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		/*MUIA_FixWidthTxt, "01234",*/ End,
-            Child, EMIA_Win->StrArrow[0][0] = ImageButton(MUII_ArrowLeft),
-            Child, EMIA_Win->StrArrow[0][1] = ImageButton(MUII_ArrowRight),
+            Child, EMIA_Win->StrArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+            Child, EMIA_Win->StrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
             End, /* HGroup */
 	  Child, HGroup,
             Child, EMIA_Win->BT_ShowLat = KeyButtonObject('-'),
@@ -1469,10 +1469,10 @@ void Make_EMIA_Window(void)
 		MUIA_String_Integer, EM_Win->Frame,
 		/*MUIA_FixWidthTxt, "01234",*/
 		MUIA_String_Accept, "0123456789", End,
-            Child, EMIA_Win->StrArrow[2][0] = ImageButton(MUII_ArrowLeft),
-            Child, EMIA_Win->StrArrow[1][0] = ImageButton(MUII_ArrowLeft),
-            Child, EMIA_Win->StrArrow[1][1] = ImageButton(MUII_ArrowRight),
-            Child, EMIA_Win->StrArrow[2][1] = ImageButton(MUII_ArrowRight),
+            Child, EMIA_Win->StrArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
+            Child, EMIA_Win->StrArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
+            Child, EMIA_Win->StrArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
+            Child, EMIA_Win->StrArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
             End, /* HGroup */
           Child, EMIA_Win->BT_MakeKey = KeyButtonFunc('m', "\33cMake Key"),
 	  End, /* VGroup */

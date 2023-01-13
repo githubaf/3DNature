@@ -22,6 +22,407 @@ STATIC_FCN void ParamFmtV1V2_Convert(struct AnimationV1 *MoParV1, struct Palette
         struct ParHeaderV1 *ParHdrV1, union KeyFrameV1 *KFV1, USHORT loadcode,
         short loaditem, short LoadKeys); // used locally only -> static, AF 23.7.2021
 
+// AF: 5.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
+int fwriteParHeader(const struct ParHeader *ParHdr,FILE *file)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    static struct ParHeader TempParHdr;
+
+    TempParHdr=*ParHdr;
+
+    SimpleEndianFlip32F(TempParHdr.Version,&TempParHdr.Version);
+    SimpleEndianFlip32S(TempParHdr.ByteOrder,&TempParHdr.ByteOrder);
+    SimpleEndianFlip16S(TempParHdr.KeyFrames,&TempParHdr.KeyFrames);
+    SimpleEndianFlip32S(TempParHdr.MotionParamsPos,&TempParHdr.MotionParamsPos);
+    SimpleEndianFlip32S(TempParHdr.ColorParamsPos,&TempParHdr.ColorParamsPos);
+    SimpleEndianFlip32S(TempParHdr.EcoParamsPos,&TempParHdr.EcoParamsPos);
+    SimpleEndianFlip32S(TempParHdr.SettingsPos,&TempParHdr.SettingsPos);
+    SimpleEndianFlip32S(TempParHdr.KeyFramesPos,&TempParHdr.KeyFramesPos);
+
+    return (fwrite(&TempParHdr, sizeof(struct ParHeader), 1, file));
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite(ParHdr, sizeof(struct ParHeader), 1, file));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
+// AF: 5.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
+int fwriteMotion(const struct Motion *Value, FILE *file)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    static struct Motion TempMotion;
+    TempMotion=*Value;
+    SimpleEndianFlip64(TempMotion.Value,&TempMotion.Value);
+    return (fwrite(&TempMotion, sizeof (struct Motion), 1, file));
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite(Value, sizeof (struct Motion), 1, file));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
+
+
+// AF: 5.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
+int fwriteMoPar(const struct Animation *MoPar, FILE *file)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    static struct Animation TempMoPar;
+    TempMoPar=*MoPar;
+
+    for(unsigned int i=0;i<MOTIONPARAMS;i++)
+    {
+        SimpleEndianFlip64(TempMoPar.mn[i].Value,&TempMoPar.mn[i].Value);
+    }
+    return (fwrite(&TempMoPar, sizeof (TempMoPar), 1, file));
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite((char *)MoPar, sizeof (struct Animation), 1, file));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
+// AF: 5.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
+int fwriteCoPar(const struct Palette *CoPar, FILE *file)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    static struct Palette TempCoPar;
+    TempCoPar=*CoPar;
+
+    for(unsigned int i=0;i<COLORPARAMS;i++)
+    {
+        SimpleEndianFlip16S(TempCoPar.cn[i].Value[0],&TempCoPar.cn[i].Value[0]);
+        SimpleEndianFlip16S(TempCoPar.cn[i].Value[1],&TempCoPar.cn[i].Value[1]);
+        SimpleEndianFlip16S(TempCoPar.cn[i].Value[2],&TempCoPar.cn[i].Value[2]);
+    }
+    return (fwrite(&TempCoPar, sizeof (TempCoPar), 1, file));
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite((char *)CoPar, sizeof (struct Palette), 1, file));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
+//    if ((fwrite((char *)&CoPar.cn[saveitem], sizeof (struct Color), 1, fparam))!=1)
+// AF: 5.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
+int fwriteColorItem(const struct Color *CoItem, FILE *file)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    static struct Color TempColor;
+    TempColor=*CoItem;
+
+    SimpleEndianFlip16S(TempColor.Value[0],&TempColor.Value[0]);
+    SimpleEndianFlip16S(TempColor.Value[1],&TempColor.Value[1]);
+    SimpleEndianFlip16S(TempColor.Value[2],&TempColor.Value[2]);
+
+    return (fwrite(&TempColor, sizeof (struct Color), 1, file));
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite((char *)CoItem, sizeof (struct Color), 1, file));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
+// AF: 6.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
+int fwriteEcoPar(const union Environment *EcoPar, FILE *file)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    static union Environment TempEcoPar;
+    TempEcoPar=*EcoPar;
+
+    for(unsigned int i=0;i<ECOPARAMS;i++)
+    {
+        SimpleEndianFlip32F(TempEcoPar.en[i].Line,          &TempEcoPar.en[i].Line    );
+        SimpleEndianFlip32F(TempEcoPar.en[i].Skew,          &TempEcoPar.en[i].Skew    );
+        SimpleEndianFlip32F(TempEcoPar.en[i].SkewAz,        &TempEcoPar.en[i].SkewAz  );
+        SimpleEndianFlip32F(TempEcoPar.en[i].RelEl,         &TempEcoPar.en[i].RelEl   );
+        SimpleEndianFlip32F(TempEcoPar.en[i].MaxRelEl,      &TempEcoPar.en[i].MaxRelEl);
+        SimpleEndianFlip32F(TempEcoPar.en[i].MinRelEl,      &TempEcoPar.en[i].MinRelEl);
+        SimpleEndianFlip32F(TempEcoPar.en[i].MaxSlope,      &TempEcoPar.en[i].MaxSlope);
+        SimpleEndianFlip32F(TempEcoPar.en[i].MinSlope,      &TempEcoPar.en[i].MinSlope);
+        SimpleEndianFlip32F(TempEcoPar.en[i].Density,       &TempEcoPar.en[i].Density );
+        SimpleEndianFlip32F(TempEcoPar.en[i].Height,        &TempEcoPar.en[i].Height  );
+        SimpleEndianFlip16S(TempEcoPar.en[i].Type,          &TempEcoPar.en[i].Type    );
+        SimpleEndianFlip16S(TempEcoPar.en[i].Color,         &TempEcoPar.en[i].Color   );
+        SimpleEndianFlip16S(TempEcoPar.en[i].UnderEco,      &TempEcoPar.en[i].UnderEco);
+        SimpleEndianFlip16S(TempEcoPar.en[i].MatchColor[0], &TempEcoPar.en[i].MatchColor[0]);
+        SimpleEndianFlip16S(TempEcoPar.en[i].MatchColor[1], &TempEcoPar.en[i].MatchColor[1]);
+        SimpleEndianFlip16S(TempEcoPar.en[i].MatchColor[2], &TempEcoPar.en[i].MatchColor[2]);
+    }
+    return (fwrite(&TempEcoPar, sizeof (union Environment), 1, file));
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite((char *)EcoPar, sizeof (union Environment), 1, file));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
+// AF: 6.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
+int fwriteEcoParItem(const struct Ecosystem *EcoParItem, FILE *file)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    static struct Ecosystem TempEcoParItem;
+    TempEcoParItem=*EcoParItem;
+
+    SimpleEndianFlip32F(TempEcoParItem.Line,          &TempEcoParItem.Line    );
+    SimpleEndianFlip32F(TempEcoParItem.Skew,          &TempEcoParItem.Skew    );
+    SimpleEndianFlip32F(TempEcoParItem.SkewAz,        &TempEcoParItem.SkewAz  );
+    SimpleEndianFlip32F(TempEcoParItem.RelEl,         &TempEcoParItem.RelEl   );
+    SimpleEndianFlip32F(TempEcoParItem.MaxRelEl,      &TempEcoParItem.MaxRelEl);
+    SimpleEndianFlip32F(TempEcoParItem.MinRelEl,      &TempEcoParItem.MinRelEl);
+    SimpleEndianFlip32F(TempEcoParItem.MaxSlope,      &TempEcoParItem.MaxSlope);
+    SimpleEndianFlip32F(TempEcoParItem.MinSlope,      &TempEcoParItem.MinSlope);
+    SimpleEndianFlip32F(TempEcoParItem.Density,       &TempEcoParItem.Density );
+    SimpleEndianFlip32F(TempEcoParItem.Height,        &TempEcoParItem.Height  );
+    SimpleEndianFlip16S(TempEcoParItem.Type,          &TempEcoParItem.Type    );
+    SimpleEndianFlip16S(TempEcoParItem.Color,         &TempEcoParItem.Color   );
+    SimpleEndianFlip16S(TempEcoParItem.UnderEco,      &TempEcoParItem.UnderEco);
+    SimpleEndianFlip16S(TempEcoParItem.MatchColor[0], &TempEcoParItem.MatchColor[0]);
+    SimpleEndianFlip16S(TempEcoParItem.MatchColor[1], &TempEcoParItem.MatchColor[1]);
+    SimpleEndianFlip16S(TempEcoParItem.MatchColor[2], &TempEcoParItem.MatchColor[2]);
+
+    return (fwrite(&TempEcoParItem, sizeof (struct Ecosystem), 1, file));
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite((char *)EcoParItem, sizeof (struct Ecosystem), 1, file));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
+//  if ((fwrite((char *)&settings, sizeof settings, 1, fparam)) != 1)
+// AF: 6.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
+int fwriteSettings(const struct Settings *settings, FILE *file)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    static struct Settings TempSettings;
+    TempSettings=*settings;
+
+    SimpleEndianFlip16S(TempSettings.startframe,  &TempSettings.startframe   );
+    SimpleEndianFlip16S(TempSettings.maxframes,   &TempSettings.maxframes    );
+    SimpleEndianFlip16S(TempSettings.startseg,    &TempSettings.startseg     );
+    SimpleEndianFlip16S(TempSettings.smoothfaces, &TempSettings.smoothfaces  );
+    SimpleEndianFlip16S(TempSettings.bankturn,    &TempSettings.bankturn     );
+    SimpleEndianFlip16S(TempSettings.colrmap,     &TempSettings.colrmap      );
+    SimpleEndianFlip16S(TempSettings.borderandom, &TempSettings.borderandom  );
+    SimpleEndianFlip16S(TempSettings.cmaptrees,   &TempSettings.cmaptrees    );
+    SimpleEndianFlip16S(TempSettings.rendertrees, &TempSettings.rendertrees  );
+    SimpleEndianFlip16S(TempSettings.statistics,  &TempSettings.statistics   );
+    SimpleEndianFlip16S(TempSettings.stepframes,  &TempSettings.stepframes   );
+    SimpleEndianFlip16S(TempSettings.zbufalias,   &TempSettings.zbufalias    );
+    SimpleEndianFlip16S(TempSettings.horfix,      &TempSettings.horfix       );
+    SimpleEndianFlip16S(TempSettings.horizonmax,  &TempSettings.horizonmax   );
+    SimpleEndianFlip16S(TempSettings.clouds,      &TempSettings.clouds       );
+    SimpleEndianFlip16S(TempSettings.linefade,    &TempSettings.linefade     );
+    SimpleEndianFlip16S(TempSettings.drawgrid,    &TempSettings.drawgrid     );
+    SimpleEndianFlip16S(TempSettings.gridsize,    &TempSettings.gridsize     );
+    SimpleEndianFlip16S(TempSettings.alternateq,  &TempSettings.alternateq   );
+    SimpleEndianFlip16S(TempSettings.linetoscreen,&TempSettings.linetoscreen );
+    SimpleEndianFlip16S(TempSettings.mapassfc,    &TempSettings.mapassfc     );
+    SimpleEndianFlip16S(TempSettings.cmapluminous,&TempSettings.cmapluminous );
+    SimpleEndianFlip16S(TempSettings.surfel[0],   &TempSettings.surfel[0]    );
+    SimpleEndianFlip16S(TempSettings.surfel[1],   &TempSettings.surfel[1]    );
+    SimpleEndianFlip16S(TempSettings.surfel[2],   &TempSettings.surfel[2]    );
+    SimpleEndianFlip16S(TempSettings.surfel[3],   &TempSettings.surfel[3]    );
+
+    SimpleEndianFlip16S(TempSettings.worldmap,       &TempSettings.worldmap        );
+    SimpleEndianFlip16S(TempSettings.flatteneco,     &TempSettings.flatteneco      );
+    SimpleEndianFlip16S(TempSettings.fixfract,       &TempSettings.fixfract        );
+    SimpleEndianFlip16S(TempSettings.vecsegs,        &TempSettings.vecsegs         );
+    SimpleEndianFlip16S(TempSettings.reliefshade,    &TempSettings.reliefshade     );
+    SimpleEndianFlip16S(TempSettings.renderopts,     &TempSettings.renderopts      );
+    SimpleEndianFlip16S(TempSettings.scrnwidth,      &TempSettings.scrnwidth       );
+    SimpleEndianFlip16S(TempSettings.scrnheight,     &TempSettings.scrnheight      );
+    SimpleEndianFlip16S(TempSettings.rendersegs,     &TempSettings.rendersegs      );
+    SimpleEndianFlip16S(TempSettings.overscan,       &TempSettings.overscan        );
+    SimpleEndianFlip16S(TempSettings.lookahead,      &TempSettings.lookahead       );
+    SimpleEndianFlip16S(TempSettings.composite,      &TempSettings.composite       );
+    SimpleEndianFlip16S(TempSettings.defaulteco,     &TempSettings.defaulteco      );
+    SimpleEndianFlip16S(TempSettings.ecomatch,       &TempSettings.ecomatch        );
+    SimpleEndianFlip16S(TempSettings.Yoffset,        &TempSettings.Yoffset         );
+    SimpleEndianFlip16S(TempSettings.saveIFF,        &TempSettings.saveIFF         );
+    SimpleEndianFlip16S(TempSettings.background,     &TempSettings.background      );
+    SimpleEndianFlip16S(TempSettings.zbuffer,        &TempSettings.zbuffer         );
+    SimpleEndianFlip16S(TempSettings.antialias,      &TempSettings.antialias       );
+    SimpleEndianFlip16S(TempSettings.scaleimage,     &TempSettings.scaleimage      );
+    SimpleEndianFlip16S(TempSettings.fractal,        &TempSettings.fractal         );
+    SimpleEndianFlip16S(TempSettings.aliasfactor,    &TempSettings.aliasfactor     );
+    SimpleEndianFlip16S(TempSettings.scalewidth,     &TempSettings.scalewidth      );
+    SimpleEndianFlip16S(TempSettings.scaleheight,    &TempSettings.scaleheight     );
+
+    SimpleEndianFlip16S(TempSettings.exportzbuf,        &TempSettings.exportzbuf          );
+    SimpleEndianFlip16S(TempSettings.zformat,           &TempSettings.zformat             );
+    SimpleEndianFlip16S(TempSettings.fieldrender,       &TempSettings.fieldrender         );
+    SimpleEndianFlip16S(TempSettings.lookaheadframes,   &TempSettings.lookaheadframes     );
+    SimpleEndianFlip16S(TempSettings.velocitydistr,     &TempSettings.velocitydistr       );
+    SimpleEndianFlip16S(TempSettings.easein,            &TempSettings.easein              );
+    SimpleEndianFlip16S(TempSettings.easeout,           &TempSettings.easeout             );
+    SimpleEndianFlip16S(TempSettings.displace,          &TempSettings.displace            );
+    SimpleEndianFlip16S(TempSettings.mastercmap,        &TempSettings.mastercmap          );
+    SimpleEndianFlip16S(TempSettings.cmaporientation,   &TempSettings.cmaporientation     );
+    SimpleEndianFlip16S(TempSettings.fielddominance,    &TempSettings.fielddominance      );
+    SimpleEndianFlip16S(TempSettings.fractalmap,        &TempSettings.fractalmap          );
+    SimpleEndianFlip16S(TempSettings.perturb,           &TempSettings.perturb             );
+    SimpleEndianFlip16S(TempSettings.realclouds,        &TempSettings.realclouds          );
+    SimpleEndianFlip16S(TempSettings.reflections,       &TempSettings.reflections         );
+    SimpleEndianFlip16S(TempSettings.waves,             &TempSettings.waves               );
+    SimpleEndianFlip16S(TempSettings.colorstrata,       &TempSettings.colorstrata         );
+    SimpleEndianFlip16S(TempSettings.cmapsurface,       &TempSettings.cmapsurface         );
+    SimpleEndianFlip16S(TempSettings.deformationmap,    &TempSettings.deformationmap      );
+    SimpleEndianFlip16S(TempSettings.moon,              &TempSettings.moon                );
+    SimpleEndianFlip16S(TempSettings.sun,               &TempSettings.sun                 );
+    SimpleEndianFlip16S(TempSettings.tides,             &TempSettings.tides               );
+    SimpleEndianFlip16S(TempSettings.sunhalo,           &TempSettings.sunhalo             );
+    SimpleEndianFlip16S(TempSettings.moonhalo,          &TempSettings.moonhalo            );
+
+   for(unsigned int i=0;i<EXTRASHORTSETTINGS;i++)
+   {
+       SimpleEndianFlip16S(TempSettings.extrashorts[i], &TempSettings.extrashorts[i] );
+   }
+
+   for(unsigned int i=0;i<EXTRADOUBLESETTINGS;i++)
+   {
+       SimpleEndianFlip64(TempSettings.extradoubles[i], &TempSettings.extradoubles[i] );
+   }
+
+   SimpleEndianFlip64(TempSettings.deformscale,   &TempSettings.deformscale   );
+   SimpleEndianFlip64(TempSettings.stratadip,     &TempSettings.stratadip     );
+   SimpleEndianFlip64(TempSettings.stratastrike,  &TempSettings.stratastrike  );
+   SimpleEndianFlip64(TempSettings.dispslopefact, &TempSettings.dispslopefact );
+   SimpleEndianFlip64(TempSettings.globecograd,   &TempSettings.globecograd   );
+   SimpleEndianFlip64(TempSettings.globsnowgrad,  &TempSettings.globsnowgrad  );
+   SimpleEndianFlip64(TempSettings.globreflat,    &TempSettings.globreflat    );
+   SimpleEndianFlip64(TempSettings.zalias,        &TempSettings.zalias        );
+   SimpleEndianFlip64(TempSettings.bankfactor,    &TempSettings.bankfactor    );
+   SimpleEndianFlip64(TempSettings.skyalias,      &TempSettings.skyalias      );
+   SimpleEndianFlip64(TempSettings.lineoffset,    &TempSettings.lineoffset    );
+   SimpleEndianFlip64(TempSettings.altqlat,       &TempSettings.altqlat       );
+   SimpleEndianFlip64(TempSettings.altqlon,       &TempSettings.altqlon       );
+   SimpleEndianFlip64(TempSettings.treefactor,    &TempSettings.treefactor    );
+   SimpleEndianFlip64(TempSettings.displacement,  &TempSettings.displacement  );
+   SimpleEndianFlip64(TempSettings.unused3,       &TempSettings.unused3       );
+   SimpleEndianFlip64(TempSettings.picaspect,     &TempSettings.picaspect     );
+   SimpleEndianFlip64(TempSettings.zenith,        &TempSettings.zenith        );
+
+   return (fwrite(&TempSettings, sizeof (struct Settings), 1, file));
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite((char *)settings, sizeof (struct Settings), 1, file));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
+// AF: 9.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
+int fwriteKeyFrames(const union KeyFrame *KeyFrames, short NumKeyframes, FILE *file)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    union KeyFrame *TempKeyFrames;
+
+    TempKeyFrames=malloc(sizeof(union KeyFrame)*NumKeyframes);
+    if(!TempKeyFrames)
+    {
+        return 0;
+    }
+
+    memcpy(TempKeyFrames,KeyFrames,NumKeyframes*sizeof(union KeyFrame));
+
+/*
+    struct MotionKey MoKey;      // 3x short, 3x float, 1x short,  1x double
+    struct MotionKey2 MoKey2;    // 3x short, 3x float, 1x short,  1x double[1]
+    struct ColorKey CoKey;       // 3x short, 3x float, 1x short,  3x short
+
+    struct EcosystemKey EcoKey;  // 3x short, 3x float, 1x short, 10x float
+    struct EcosystemKey2 EcoKey2;// 3x short, 3x float, 1x short,  1x float[10]
+    struct CloudKey CldKey;      // 3x short, 3x float, 1x short,  1x float[7]
+    struct WaveKey WvKey;        // 3x short, 3x float, 1x short,  1x float[4]
+*/
+
+
+    // The first 7 Values are identical for all structs in the union
+    for(unsigned int i=0;i<NumKeyframes;i++)
+    {
+       SimpleEndianFlip16S(TempKeyFrames[i].MoKey.KeyFrame,&TempKeyFrames[i].MoKey.KeyFrame);
+       SimpleEndianFlip16S(TempKeyFrames[i].MoKey.Group,   &TempKeyFrames[i].MoKey.Group);
+       SimpleEndianFlip16S(TempKeyFrames[i].MoKey.Item,    &TempKeyFrames[i].MoKey.Item);
+       SimpleEndianFlip32F(TempKeyFrames[i].MoKey.TCB[0],  &TempKeyFrames[i].MoKey.TCB[0]);
+       SimpleEndianFlip32F(TempKeyFrames[i].MoKey.TCB[1],  &TempKeyFrames[i].MoKey.TCB[1]);
+       SimpleEndianFlip32F(TempKeyFrames[i].MoKey.TCB[2],  &TempKeyFrames[i].MoKey.TCB[2]);
+       SimpleEndianFlip16S(TempKeyFrames[i].MoKey.Linear,  &TempKeyFrames[i].MoKey.Linear);
+
+       // now some special handling...
+       switch (KeyFrames[i].MoKey.Group)  // AF: 13.Jan.23 Das Switch/Case geht ueber die native Group, also ungeswappt!
+       {
+           case 0:
+           {
+               SimpleEndianFlip64(TempKeyFrames[i].MoKey.Value,&TempKeyFrames[i].MoKey.Value);
+               break;
+           } /* Motion */
+           case 1:
+           {
+               SimpleEndianFlip16S(TempKeyFrames[i].CoKey.Value[0], &TempKeyFrames[i].CoKey.Value[0]);
+               SimpleEndianFlip16S(TempKeyFrames[i].CoKey.Value[1], &TempKeyFrames[i].CoKey.Value[1]);
+               SimpleEndianFlip16S(TempKeyFrames[i].CoKey.Value[2], &TempKeyFrames[i].CoKey.Value[2]);
+               break;
+           } /* Color */
+           case 2:
+           {
+               for (unsigned int j=0; j<10; j++)  // we have 4 to 10 float values, flip them all
+               {
+                   SimpleEndianFlip32F(TempKeyFrames[i].EcoKey2.Value[j],&TempKeyFrames[i].EcoKey2.Value[j]);
+               }
+               break;
+           }/* Ecosystem */
+       }
+    }
+    // -------------------
+
+   int result=fwrite(TempKeyFrames, NumKeyframes*sizeof (union KeyFrame), 1, file);
+   free(TempKeyFrames);
+   return (result);
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite((char *)KeyFrames, NumKeyframes*sizeof (union KeyFrame), 1, file));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
+// AF: 9.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
+int fwriteShort(const short *Value, FILE *file)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+    short TempValue = *Value;
+
+    SimpleEndianFlip16S(TempValue,  &TempValue);
+
+    return (fwrite(&TempValue, sizeof (short), 1, file));
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite((char *)Value, sizeof (short), 1, file));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
 
 #ifdef KJHKJDFHKDHFKJDFH // Now in LWSupport.c
 
@@ -1795,7 +2196,11 @@ short loadparams(USHORT loadcode, short loaditem)
    else fileversion = 0.0;
    if (fileversion < 1.0)
     {
-    fclose(fparam);
+    if(fparam)
+    {
+        fclose(fparam);
+        fparam=NULL;
+    }
     Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Version < 1.0");
     User_Message((CONST_STRPTR)"Parameter Module: Load",
             (CONST_STRPTR)"Unsupported Parameter file type or version!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
@@ -1803,7 +2208,11 @@ short loadparams(USHORT loadcode, short loaditem)
 
    else if (fileversion < 2.0)
     {
-    fclose(fparam);
+       if(fparam)
+       {
+           fclose(fparam);
+           fparam=NULL;
+       }
     if (loadcode & 0x0100)
      DisposeEcotypes();
     if ((success = loadparamsV1(loadcode, loaditem, temppath,
@@ -1851,7 +2260,11 @@ short loadparams(USHORT loadcode, short loaditem)
    } /* if header read */
   else
    {
-   fclose(fparam);
+   if(fparam)
+   {
+       fclose(fparam);
+       fparam=NULL;
+   }
    Log(ERR_READ_FAIL, (CONST_STRPTR)tempfile);
    success = -1;
    } /* else read fail */
@@ -2404,7 +2817,11 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
   settings.colorstrata = 0;
   } /* if Version 2.0 */
 
- fclose(fparam);
+ if(fparam)
+ {
+     fclose(fparam);
+     fparam=NULL;
+ }
  switch (loadcode)
   {
   case 0x0001:
@@ -2465,7 +2882,11 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
 
 ReadError:
  Log(ERR_READ_FAIL, (CONST_STRPTR)paramfile);
- fclose(fparam);
+ if(fparam)
+ {
+     fclose(fparam);
+     fparam=NULL;
+ }
 
  return (-1);
 
@@ -2476,11 +2897,11 @@ ReadError:
 STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
 	char *paramfile, struct ParHeader *TempHdr, short ExistingKeyFrames) // used locally only -> static, AF 23.7.2021
 {
- short k, LoadKeys, KeyFrames;
+ short k=0, LoadKeys, KeyFrames;
  long KFV1size;
  char filename[255];
  float fileversion;
- FILE *fparam;
+ FILE *fparam=NULL;
  struct ParHeaderV1 TempHdrV1;
  struct ColorV1 TempCo;
  struct EcosystemV1 TempEco;
@@ -3131,7 +3552,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
               SimpleEndianFlip32F(TempKF.MoKey.TCB[0],&TempKF.MoKey.TCB[0]);
               SimpleEndianFlip32F(TempKF.MoKey.TCB[1],&TempKF.MoKey.TCB[1]);
               SimpleEndianFlip32F(TempKF.MoKey.TCB[2],&TempKF.MoKey.TCB[2]);
-              SimpleEndianFlip64(TempKF.MoKey.Value,&TempKF.MoKey.Value);
+// AF               SimpleEndianFlip64(TempKF.MoKey.Value,&TempKF.MoKey.Value);
           )
       KFV1[k].MoKey.KeyFrame = TempKF.MoKey.KeyFrame;
       KFV1[k].MoKey.Group    = TempKF.MoKey.Group;
@@ -3144,11 +3565,16 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
        {
        case 0:
         {
+        SimpleEndianFlip64(TempKF.MoKey.Value,&TempKF.MoKey.Value);
         KFV1[k].MoKey.Value = TempKF.MoKey.Value;
         break;
         } /* Motion */
        case 1:
         {
+        SimpleEndianFlip16S(TempKF.CoKey.Value[0],&TempKF.CoKey.Value[0]);
+        SimpleEndianFlip16S(TempKF.CoKey.Value[1],&TempKF.CoKey.Value[1]);
+        SimpleEndianFlip16S(TempKF.CoKey.Value[1],&TempKF.CoKey.Value[2]);
+
         KFV1[k].CoKey.Value[0] = TempKF.CoKey.Value[0];
         KFV1[k].CoKey.Value[1] = TempKF.CoKey.Value[1];
         KFV1[k].CoKey.Value[2] = TempKF.CoKey.Value[2];
@@ -3157,7 +3583,10 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
        case 2:
         {
         for (i=0; i<8; i++)
+        {
+         SimpleEndianFlip16S(TempKF.EcoKey2.Value[i],&TempKF.EcoKey2.Value[i]);
          KFV1[k].EcoKey2.Value[i] = TempKF.EcoKey2.Value[i];
+        }
         break;
         } /* Ecosystem */
        } /* switch */
@@ -3179,7 +3608,11 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
   } /* else old version, set key frames to zero */
 
 //EndLoad:
- fclose(fparam);
+ if(fparam)
+ {
+     fclose(fparam);
+     fparam=NULL;
+ }
  switch (loadcode)
   {
   case 0x0001:
@@ -3246,7 +3679,11 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
 
 ReadError:
  Log(ERR_READ_FAIL, (CONST_STRPTR)paramfile);
- fclose(fparam);
+ if(fparam)
+ {
+     fclose(fparam);
+     fparam=NULL;
+ }
  if (settingsV1)
   free_Memory(settingsV1, sizeof (struct SettingsV1));
  if (MoParV1)
@@ -3538,7 +3975,7 @@ short i, j, k;
     case 2:
      {
      for (j=0; j<8; j++)
-      KF[i].EcoKey2.Value[j] = KFV1[i].EcoKey2.Value[j];
+     KF[i].EcoKey2.Value[j] = KFV1[i].EcoKey2.Value[j];
      KF[i].EcoKey2.Value[8] = PAR_FIRSTDN_ECO(KFV1[i].EcoKey.Item);
      KF[i].EcoKey2.Value[9] = PAR_FIRSTHT_ECO(KFV1[i].EcoKey.Item);
      break;
@@ -3591,7 +4028,7 @@ SaveRepeat:
     goto SaveRepeat;
    return 1;
    } /* if open fail */
-  if ((fwrite((char *)&ParHdr, sizeof (struct ParHeader), 1, fparam)) != 1)
+  if ((fwriteParHeader(&ParHdr, fparam)) != 1)
    goto SaveError;
   } /* if save entire file */
  else
@@ -3607,7 +4044,7 @@ SaveRepeat:
      goto SaveRepeat;
     return 1;
     } /* if open fail */
-   if ((fwrite((char *)&ParHdr, sizeof (struct ParHeader), 1, fparam)) != 1)
+   if ((fwriteParHeader(&ParHdr, fparam)) != 1)
     goto SaveError;
    } /* if open to append fail */
   else
@@ -3616,6 +4053,22 @@ SaveRepeat:
     {
     goto SaveError;
     }
+
+   // AF: 13.Jan.2023, Endian correction for i386-aros
+   #ifdef __AROS__
+   #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+         SimpleEndianFlip32F(TempHdr.Version,        &TempHdr.Version);
+         SimpleEndianFlip32S(TempHdr.ByteOrder,      &TempHdr.ByteOrder);
+         SimpleEndianFlip16S(TempHdr.KeyFrames,      &TempHdr.KeyFrames);
+         SimpleEndianFlip32S(TempHdr.MotionParamsPos,&TempHdr.MotionParamsPos);
+         SimpleEndianFlip32S(TempHdr.ColorParamsPos, &TempHdr.ColorParamsPos);
+         SimpleEndianFlip32S(TempHdr.EcoParamsPos,   &TempHdr.EcoParamsPos);
+         SimpleEndianFlip32S(TempHdr.SettingsPos,    &TempHdr.SettingsPos);
+         SimpleEndianFlip32S(TempHdr.KeyFramesPos,   &TempHdr.KeyFramesPos);
+   #endif
+   #endif
+
+
 
 /* the following do-nothing command is necessary to work around a compiler bug
    that won't let you write after a read without a seek inbetween */
@@ -3632,7 +4085,11 @@ SaveRepeat:
             (CONST_STRPTR)"Partial files may not be written to old file versions!\n\
 	Do you wish to save the entire parameter file?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
      goto SaveError;
-    fclose(fparam);
+    if(fparam)
+    {
+        fclose(fparam);
+        fparam=NULL;
+    }
     savecode = 0x1111;
     if ((fparam = fopen(filename, "wb")) == NULL)
      {
@@ -3642,7 +4099,7 @@ SaveRepeat:
       goto SaveRepeat;
      return 1;
      } /* if open fail */
-    if ((fwrite((char *)&ParHdr, sizeof (struct ParHeader), 1, fparam)) != 1)
+    if ((fwriteParHeader(&ParHdr, fparam)) != 1)
      goto SaveError;
     } /*  if version = 0.0 */
    } /* else file opened to append */
@@ -3653,7 +4110,7 @@ SaveRepeat:
   {
   if (saveitem < 0)
    {
-   if ((fwrite((char *)&MoPar, sizeof MoPar, 1, fparam)) != 1)
+   if ((fwriteMoPar(&MoPar, fparam)) != 1)
     {
     goto SaveError;
     }
@@ -3661,7 +4118,7 @@ SaveRepeat:
   else
    {
    fseek(fparam, saveitem * (sizeof (struct Motion)), 1);
-   if ((fwrite((char *)&MoPar.mn[saveitem], sizeof (struct Motion), 1, fparam))!=1)
+   if ((fwriteMotion(&MoPar.mn[saveitem], fparam))!=1)
     goto SaveError;
    goto EndSave;
    } /* else */
@@ -3675,7 +4132,7 @@ SaveRepeat:
   {
   if (saveitem < 0)
    {
-   if ((fwrite((char *)&CoPar, sizeof CoPar, 1, fparam)) != 1)
+   if ((fwriteCoPar(&CoPar, fparam)) != 1)
     goto SaveError;
    } /* if */
   else
@@ -3683,7 +4140,7 @@ SaveRepeat:
    if (saveitem < 24)
     {
     fseek(fparam, saveitem * (sizeof (struct Color)), 1);
-    if ((fwrite((char *)&CoPar.cn[saveitem], sizeof (struct Color), 1, fparam))!=1)
+    if ((fwriteColorItem(&CoPar.cn[saveitem], fparam))!=1)
      goto SaveError;
     } /* if */
    else
@@ -3698,7 +4155,7 @@ SaveRepeat:
      if (! strcmp(TempCo.Name, PAR_NAME_COLOR(saveitem)))
       {
       fseek(fparam, -(sizeof (struct Color)), 1);
-      if ((fwrite((char *)&CoPar.cn[saveitem], sizeof (struct Color), 1, fparam))!=1)
+      if ((fwriteColorItem(&CoPar.cn[saveitem], fparam))!=1)
        goto SaveError;
       found = 1;
       break;
@@ -3721,7 +4178,7 @@ SaveRepeat:
   {
   if (saveitem < 0)
    {
-   if ((fwrite((char *)&EcoPar, sizeof EcoPar, 1, fparam))!=1)
+   if ((fwriteEcoPar(&EcoPar, fparam))!=1)
     goto SaveError;
    } /* if */
   else
@@ -3729,7 +4186,7 @@ SaveRepeat:
    if (saveitem < 12)
     {
     fseek(fparam, saveitem * (sizeof (struct Ecosystem)), 1);
-    if ((fwrite((char *)&EcoPar.en[saveitem], sizeof (struct Ecosystem), 1, fparam))!=1)
+    if ((fwriteEcoParItem(&EcoPar.en[saveitem], fparam))!=1)
      goto SaveError;
     } /* if */
    else
@@ -3744,7 +4201,7 @@ SaveRepeat:
      if (! strcmp(TempEco.Name, PAR_NAME_ECO(saveitem)))
       {
       fseek(fparam, -(sizeof (struct Ecosystem)), 1);
-      if ((fwrite((char *)&EcoPar.en[saveitem], sizeof (struct Ecosystem), 1, fparam))!=1)
+      if ((fwriteEcoParItem(&EcoPar.en[saveitem], fparam))!=1)
        goto SaveError;
       found = 1;
       break;
@@ -3765,7 +4222,7 @@ SaveRepeat:
  ParHdr.SettingsPos = ftell(fparam);
  if (savecode & 0x1000)
   {
-  if ((fwrite((char *)&settings, sizeof settings, 1, fparam)) != 1)
+  if ((fwriteSettings(&settings, fparam)) != 1)
    goto SaveError;
   } /* if */
  else fseek(fparam, sizeof settings, 1);
@@ -3778,11 +4235,11 @@ SaveRepeat:
    if (User_Message((CONST_STRPTR)"Parameter Module: Save",
            (CONST_STRPTR)"Save all key frames as well?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
     {
-    if ((fwrite((char *)KF, ParHdr.KeyFrames * sizeof (union KeyFrame), 1, fparam)) != 1)
+    if ((fwriteKeyFrames(KF, ParHdr.KeyFrames, fparam)) != 1)
      goto SaveError;
     } /* if save key frames */
    } /* if not save whole file and not just save settings */
-  else if ((fwrite((char *)KF, ParHdr.KeyFrames * sizeof (union KeyFrame), 1, fparam)) 	!= 1)
+  else if (fwriteKeyFrames(KF, ParHdr.KeyFrames, fparam) 	!= 1)
    goto SaveError;
   } /* if key frames to save */
 
@@ -3793,9 +4250,9 @@ SaveRepeat:
    {
    if (EcoShift[k].Ecotype)
     {
-    if ((fwrite((char *)TagItem, sizeof (long), 1, fparam)) != 1)
+    if ((fwrite((char *)TagItem, sizeof (long), 1, fparam)) != 1)  // String, no endian flipping
      goto SaveError;
-    if ((fwrite((char *)&k, sizeof (short), 1, fparam)) != 1)
+    if ((fwriteShort(&k, fparam)) != 1)
      goto SaveError;
     if ((Ecotype_Save(EcoShift[k].Ecotype, fparam)) == 0)
      goto SaveError;
@@ -3804,11 +4261,15 @@ SaveRepeat:
   } /* if saving ecosystems */
  
  fseek(fparam, 0L, 0);
- if ((fwrite((char *)&ParHdr, sizeof (struct ParHeader), 1, fparam)) != 1)
+ if ((fwriteParHeader(&ParHdr, fparam)) != 1)
      goto SaveError;
 
 EndSave:
+if(fparam)
+{
  fclose(fparam);
+ fparam=NULL;
+}
  switch (savecode)
   {
   case 0x0001:
@@ -3855,7 +4316,11 @@ EndSave:
  return (error);
 
 SaveError:
- fclose(fparam);
+ if(fparam)
+ {
+     fclose(fparam);
+     fparam=NULL;
+ }
  Log(ERR_WRITE_FAIL, (CONST_STRPTR)paramfile);
  User_Message((CONST_STRPTR)"paramfile",
          (CONST_STRPTR)"Error writing to Parameter file!\n\

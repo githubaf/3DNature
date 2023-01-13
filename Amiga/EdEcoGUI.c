@@ -195,8 +195,8 @@ void Make_EE_Window(void)
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
-                  Child, EE_Win->StrArrow[0] = ImageButton(MUII_ArrowLeft),
-                  Child, EE_Win->StrArrow[1] = ImageButton(MUII_ArrowRight),
+                  Child, EE_Win->StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
+                  Child, EE_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
                   End, /* HGroup */
                 Child, EE_Win->BT_NextKey = KeyButtonFunc('x', "\33cNext"), 
                 End, /* HGroup */
@@ -489,8 +489,8 @@ STATIC_FCN APTR Make_EE_Group(void) // used locally only -> static, AF 26.7.2021
 	MUIA_String_Integer, -20000,
 	MUIA_String_Accept, ".+-0123456789",
 	MUIA_FixWidthTxt, "0123456", End,
-     Child, EE_Win->IntArrow[i][0] = ImageButton(MUII_ArrowLeft),
-     Child, EE_Win->IntArrow[i][1] = ImageButton(MUII_ArrowRight),
+     Child, EE_Win->IntArrow[i][0] = ImageButtonWCS(MUII_ArrowLeft),
+     Child, EE_Win->IntArrow[i][1] = ImageButtonWCS(MUII_ArrowRight),
      End; /* HGroup */
 
    if (! name) error = 1;
@@ -507,8 +507,8 @@ STATIC_FCN APTR Make_EE_Group(void) // used locally only -> static, AF 26.7.2021
 	MUIA_String_Integer, -20000,
 	MUIA_String_Accept, ".+-0123456789",
 	MUIA_FixWidthTxt, "0123456", End,
-     Child, EE_Win->IntArrow[i][0] = ImageButton(MUII_ArrowLeft),
-     Child, EE_Win->IntArrow[i][1] = ImageButton(MUII_ArrowRight),
+     Child, EE_Win->IntArrow[i][0] = ImageButtonWCS(MUII_ArrowLeft),
+     Child, EE_Win->IntArrow[i][1] = ImageButtonWCS(MUII_ArrowRight),
      End; /* HGroup */
 
    if (! name) error = 1;

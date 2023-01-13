@@ -110,16 +110,16 @@ void Make_ES_Window(void)
 	        Child, ES_Win->IntStr[4] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-                Child, ES_Win->IntStrArrow[4][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[4][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
                 Child, Label2("Height "),
 	        Child, ES_Win->IntStr[5] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 		 	MUIA_FixWidthTxt, "01234", End,
-                Child, ES_Win->IntStrArrow[5][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[5][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[5][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      End, /* HGroup */
 	    Child, HGroup,
@@ -128,16 +128,16 @@ void Make_ES_Window(void)
 	        Child, ES_Win->FloatStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-                Child, ES_Win->FloatStrArrow[0][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->FloatStrArrow[0][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->FloatStrArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->FloatStrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
                 Child, Label2("V Oscn "),
 	        Child, ES_Win->IntStr[6] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-                Child, ES_Win->IntStrArrow[6][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[6][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[6][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[6][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      End, /* HGroup */
             Child, ES_Win->BT_ChangeScale = KeyButtonFunc('i', "\33cChange Image Size"), 
@@ -150,16 +150,16 @@ void Make_ES_Window(void)
 	        Child, ES_Win->IntStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
-                Child, ES_Win->IntStrArrow[0][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[0][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
                 Child, Label2("    End "),
 	        Child, ES_Win->IntStr[22] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
-                Child, ES_Win->IntStrArrow[22][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[22][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[22][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[22][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
@@ -167,16 +167,16 @@ void Make_ES_Window(void)
 	        Child, ES_Win->IntStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, "-0123456789",
 			MUIA_FixWidthTxt, "012345", End,
-                Child, ES_Win->IntStrArrow[2][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[2][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
                 Child, Label2(" Frames "),
 	        Child, ES_Win->IntStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
-                Child, ES_Win->IntStrArrow[1][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[1][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
@@ -184,16 +184,16 @@ void Make_ES_Window(void)
 	        Child, ES_Win->IntStr[3] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
-                Child, ES_Win->IntStrArrow[3][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[3][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
                 Child, Label2("1st Seg "),
 	        Child, ES_Win->IntStr[21] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
-                Child, ES_Win->IntStrArrow[21][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[21][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[21][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[21][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      End, /* ColGroup */
 	    Child, ES_Win->Cycle[0] = CycleObject,
@@ -216,7 +216,7 @@ void Make_ES_Window(void)
 	      Child, Label2("Save Path "),
 	      Child, ES_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
-	      Child, ES_Win->BT_Get[0] = ImageButton(MUII_Disk),
+	      Child, ES_Win->BT_Get[0] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, Label2("Save File "),
@@ -227,7 +227,7 @@ void Make_ES_Window(void)
 	      Child, Label2("Temp Path "),
 	      Child, ES_Win->Str[7] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
-	      Child, ES_Win->BT_Get[5] = ImageButton(MUII_Disk),
+	      Child, ES_Win->BT_Get[5] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, ES_Win->Cycle[4] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_SaveFormat, End, 
@@ -249,8 +249,8 @@ void Make_ES_Window(void)
 	        Child, ES_Win->IntStr[18] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
-                Child, ES_Win->IntStrArrow[18][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[18][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[18][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[18][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
               Child, Label2("Frames"),
 	      End, /* HGroup */
@@ -261,8 +261,8 @@ void Make_ES_Window(void)
 	        Child, ES_Win->FloatStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-                Child, ES_Win->FloatStrArrow[1][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->FloatStrArrow[1][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->FloatStrArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->FloatStrArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
               Child, Label2("Banking"),
 	      End, /* HGroup */
@@ -274,16 +274,16 @@ void Make_ES_Window(void)
 	        Child, ES_Win->IntStr[19] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
-                Child, ES_Win->IntStrArrow[19][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[19][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[19][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[19][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
                 Child, Label2(" Out "),
 	        Child, ES_Win->IntStr[20] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
-                Child, ES_Win->IntStrArrow[20][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[20][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[20][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[20][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
 	      End, /* HGroup */
 	    Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
@@ -298,7 +298,7 @@ void Make_ES_Window(void)
 	      Child, Label2("Vector Path "),
 	      Child, ES_Win->Str[1] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
-	      Child, ES_Win->BT_Get[1] = ImageButton(MUII_Disk),
+	      Child, ES_Win->BT_Get[1] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, Label2("Vector File "),
@@ -311,16 +311,16 @@ void Make_ES_Window(void)
 	        Child, ES_Win->FloatStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-                Child, ES_Win->FloatStrArrow[2][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->FloatStrArrow[2][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->FloatStrArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->FloatStrArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
                 Child, Label2(" Segs "),
 	        Child, ES_Win->IntStr[17] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-                Child, ES_Win->IntStrArrow[17][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->IntStrArrow[17][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->IntStrArrow[17][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->IntStrArrow[17][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      End, /* HGroup */
 	    Child, RectangleObject, End,
@@ -346,14 +346,14 @@ void Make_ES_Window(void)
 	      Child, Label2("Default Eco "),
 	      Child, ES_Win->Txt[0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789", End,
-              Child, ES_Win->TxtArrow[0][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->TxtArrow[0][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->TxtArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->TxtArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, Label2("CMap Path "),
 	      Child, ES_Win->Str[4] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "01234567890123456", End,
-	      Child, ES_Win->BT_Get[4] = ImageButton(MUII_Disk),
+	      Child, ES_Win->BT_Get[4] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, Label2("CMap File "),
@@ -371,8 +371,8 @@ void Make_ES_Window(void)
 	      Child, ES_Win->IntStr[8] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
-              Child, ES_Win->IntStrArrow[8][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->IntStrArrow[8][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->IntStrArrow[8][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->IntStrArrow[8][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, ES_Win->Cycle[30] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_MapAsSfc, End,
@@ -384,32 +384,32 @@ void Make_ES_Window(void)
 	      Child, ES_Win->IntStr[9] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-0123456789",
 		MUIA_FixWidthTxt, "012345", End,
-              Child, ES_Win->IntStrArrow[9][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->IntStrArrow[9][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->IntStrArrow[9][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->IntStrArrow[9][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
               Child, Label2("Surface El 2 "),
 	      Child, ES_Win->IntStr[10] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-0123456789",
 		MUIA_FixWidthTxt, "012345", End,
-              Child, ES_Win->IntStrArrow[10][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->IntStrArrow[10][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->IntStrArrow[10][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->IntStrArrow[10][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
               Child, Label2("Surface El 3 "),
 	      Child, ES_Win->IntStr[11] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-0123456789",
 		MUIA_FixWidthTxt, "012345", End,
-              Child, ES_Win->IntStrArrow[11][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->IntStrArrow[11][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->IntStrArrow[11][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->IntStrArrow[11][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
               Child, Label2("Surface El 4 "),
 	      Child, ES_Win->IntStr[12] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-0123456789",
 		MUIA_FixWidthTxt, "012345", End,
-              Child, ES_Win->IntStrArrow[12][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->IntStrArrow[12][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->IntStrArrow[12][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->IntStrArrow[12][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    End, /* VGroup Surfaces */
 
@@ -420,8 +420,8 @@ void Make_ES_Window(void)
 	      Child, ES_Win->IntStr[7] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "01", End,
-              Child, ES_Win->IntStrArrow[7][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->IntStrArrow[7][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->IntStrArrow[7][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->IntStrArrow[7][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, ES_Win->Cycle[6] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_RenderStyle, End, 
@@ -434,8 +434,8 @@ void Make_ES_Window(void)
 	        Child, ES_Win->FloatStr[11] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-                Child, ES_Win->FloatStrArrow[11][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->FloatStrArrow[11][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->FloatStrArrow[11][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->FloatStrArrow[11][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
               Child, Label2("Displacement"),
 	      End, /* HGroup */
@@ -444,8 +444,8 @@ void Make_ES_Window(void)
 	        Child, ES_Win->FloatStr[12] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-                Child, ES_Win->FloatStrArrow[12][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->FloatStrArrow[12][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->FloatStrArrow[12][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->FloatStrArrow[12][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
               Child, Label2("Slope Factor"),
 	      End, /* HGroup */
@@ -485,16 +485,16 @@ void Make_ES_Window(void)
 	        Child, ES_Win->FloatStr[8] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-                Child, ES_Win->FloatStrArrow[8][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->FloatStrArrow[8][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->FloatStrArrow[8][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->FloatStrArrow[8][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
                 Child, Label2("Snow m/"),
 	        Child, ES_Win->FloatStr[9] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
-                Child, ES_Win->FloatStrArrow[9][0] = ImageButton(MUII_ArrowLeft),
-                Child, ES_Win->FloatStrArrow[9][1] = ImageButton(MUII_ArrowRight),
+                Child, ES_Win->FloatStrArrow[9][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, ES_Win->FloatStrArrow[9][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
@@ -502,22 +502,22 @@ void Make_ES_Window(void)
 	      Child, ES_Win->FloatStr[10] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
-              Child, ES_Win->FloatStrArrow[10][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->FloatStrArrow[10][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->FloatStrArrow[10][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->FloatStrArrow[10][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
               Child, Label2("Tree Ht Fact "),
 	      Child, ES_Win->FloatStr[4] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
-              Child, ES_Win->FloatStrArrow[4][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->FloatStrArrow[4][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->FloatStrArrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->FloatStrArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, Label2("Model Path "),
 	      Child, ES_Win->Str[11] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "01234567890123456", End,
-	      Child, ES_Win->BT_Get[6] = ImageButton(MUII_Disk),
+	      Child, ES_Win->BT_Get[6] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 
 	    Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
@@ -528,7 +528,7 @@ void Make_ES_Window(void)
 	      Child, Label2("Def Map Path "),
 	      Child, ES_Win->Str[13] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
-	      Child, ES_Win->BT_Get[7] = ImageButton(MUII_Disk),
+	      Child, ES_Win->BT_Get[7] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, Label2("Def Map File "),
@@ -540,24 +540,24 @@ void Make_ES_Window(void)
 	      Child, ES_Win->FloatStr[13] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
-              Child, ES_Win->FloatStrArrow[13][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->FloatStrArrow[13][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->FloatStrArrow[13][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->FloatStrArrow[13][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
               Child, Label2("Strata Strike "),
 	      Child, ES_Win->FloatStr[14] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
-              Child, ES_Win->FloatStrArrow[14][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->FloatStrArrow[14][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->FloatStrArrow[14][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->FloatStrArrow[14][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
               Child, Label2("  Deformation "),
 	      Child, ES_Win->FloatStr[15] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
-              Child, ES_Win->FloatStrArrow[15][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->FloatStrArrow[15][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->FloatStrArrow[15][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->FloatStrArrow[15][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 
 	    End, /* VGroup Ecosystems */
@@ -573,16 +573,16 @@ void Make_ES_Window(void)
 	      Child, ES_Win->FloatStr[3] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
-              Child, ES_Win->FloatStrArrow[3][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->FloatStrArrow[3][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->FloatStrArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->FloatStrArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
               Child, Label2("Sky Dither "),
 	      Child, ES_Win->IntStr[13] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-0123456789",
 		MUIA_FixWidthTxt, "012345", End,
-              Child, ES_Win->IntStrArrow[13][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->IntStrArrow[13][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->IntStrArrow[13][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->IntStrArrow[13][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, ES_Win->Cycle[21] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_AltQ, End, 
@@ -591,16 +591,16 @@ void Make_ES_Window(void)
 	      Child, ES_Win->FloatStr[5] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
-              Child, ES_Win->FloatStrArrow[5][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->FloatStrArrow[5][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->FloatStrArrow[5][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->FloatStrArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
               Child, Label2("Ref Longitude "),
 	      Child, ES_Win->FloatStr[6] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
-              Child, ES_Win->FloatStrArrow[6][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->FloatStrArrow[6][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->FloatStrArrow[6][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->FloatStrArrow[6][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */ 
 	    Child, ES_Win->Cycle[22] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_CloudShadows, End, 
@@ -630,7 +630,7 @@ void Make_ES_Window(void)
 	      Child, Label2("   BG Path "),
 	      Child, ES_Win->Str[2] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
-	      Child, ES_Win->BT_Get[2] = ImageButton(MUII_Disk),
+	      Child, ES_Win->BT_Get[2] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, Label2("   BG File "),
@@ -643,7 +643,7 @@ void Make_ES_Window(void)
 	      Child, Label2("Z Buf Path "),
 	      Child, ES_Win->Str[3] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
-	      Child, ES_Win->BT_Get[3] = ImageButton(MUII_Disk),
+	      Child, ES_Win->BT_Get[3] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, Label2("Z Buf File "),
@@ -657,8 +657,8 @@ void Make_ES_Window(void)
 	      Child, ES_Win->IntStr[14] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
-              Child, ES_Win->IntStrArrow[14][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->IntStrArrow[14][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->IntStrArrow[14][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->IntStrArrow[14][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, ES_Win->Cycle[28] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_ZBufBlur, End, 
@@ -667,8 +667,8 @@ void Make_ES_Window(void)
 	      Child, ES_Win->FloatStr[7] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
-              Child, ES_Win->FloatStrArrow[7][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->FloatStrArrow[7][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->FloatStrArrow[7][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->FloatStrArrow[7][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    End, /* VGroup Processing */
 
@@ -683,16 +683,16 @@ void Make_ES_Window(void)
 	      Child, ES_Win->IntStr[15] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
-              Child, ES_Win->IntStrArrow[15][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->IntStrArrow[15][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->IntStrArrow[15][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->IntStrArrow[15][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
               Child, Label2("  Final Height "),
 	      Child, ES_Win->IntStr[16] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
-              Child, ES_Win->IntStrArrow[16][0] = ImageButton(MUII_ArrowLeft),
-              Child, ES_Win->IntStrArrow[16][1] = ImageButton(MUII_ArrowRight),
+              Child, ES_Win->IntStrArrow[16][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, ES_Win->IntStrArrow[16][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    End, /* VGroup Post-Process */
 #endif /* ENABLE_SCALING */

@@ -114,7 +114,7 @@ void Make_DC_Window(void)
 		 MUIA_Cycle_Entries, InputCycle, End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, DC_Win->BT_GetFile = ImageButton(MUII_Disk),
+	      Child, DC_Win->BT_GetFile = ImageButtonWCS(MUII_Disk),
 	      Child, DC_Win->FileNameStr = StringObject, StringFrame, End,
 	      End, /* HGroup */
 	    Child, HGroup,
@@ -240,7 +240,7 @@ void Make_DC_Window(void)
 	      Child, Label2("Out Dir"),
 	      Child, DC_Win->OutDirStr = StringObject, StringFrame,
 			MUIA_String_Contents, dirname, End,
-	      Child, DC_Win->BT_GetOutDir = ImageButton(MUII_Disk),
+	      Child, DC_Win->BT_GetOutDir = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup,
 /*	      Child, DC_Win->OutputDBaseCheck = CheckMark(0),*/
@@ -254,8 +254,8 @@ void Make_DC_Window(void)
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, DC_Win->OutputMapStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789", End,
-	        Child, DC_Win->OutputMapArrow[0][0] = ImageButton(MUII_ArrowLeft),
-	        Child, DC_Win->OutputMapArrow[0][1] = ImageButton(MUII_ArrowRight),
+	        Child, DC_Win->OutputMapArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+	        Child, DC_Win->OutputMapArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      End, /* HGroup */
 	    Child, HGroup,
@@ -263,8 +263,8 @@ void Make_DC_Window(void)
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, DC_Win->OutputMapStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789", End,
-	        Child, DC_Win->OutputMapArrow[1][0] = ImageButton(MUII_ArrowLeft),
-	        Child, DC_Win->OutputMapArrow[1][1] = ImageButton(MUII_ArrowRight),
+	        Child, DC_Win->OutputMapArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
+	        Child, DC_Win->OutputMapArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      End, /* HGroup */
 

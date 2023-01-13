@@ -1592,7 +1592,7 @@ void Make_AN_Window(void)
 	    Child, AN_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345",
 		MUIA_String_Contents, graphpath, End,
-	    Child, AN_Win->BT_GetPath = ImageButton(MUII_Disk),
+	    Child, AN_Win->BT_GetPath = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 /* save name */
 	  Child, HGroup,

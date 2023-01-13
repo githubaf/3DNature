@@ -34,7 +34,8 @@
 #define FloatStringObject StringObject,\
   MUIA_String_Accept, "0123456789.-+"
 
-#define ImageButton(i) ImageObject,\
+
+#define ImageButtonWCS(i) ImageObject,\
   ImageButtonFrame,\
   MUIA_Background, MUII_ButtonBack,\
   MUIA_InputMode, MUIV_InputMode_RelVerify,\

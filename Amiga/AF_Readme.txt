@@ -1973,3 +1973,12 @@ C-Ersatz fuer HyperKHorner.asm. Motion-Window Cam-View funktioniert damit komple
 --------
 Water waves are correct now. In fact it was the reflection that killed the waves. The file WCSSlMap%1d.Temp was endian-corrected after reading but
 written in host-byteorder. There is no need to endian-correct this file at all.
+
+13.Jan23
+---------
+Beim Abspeichern darf in EdPar.c fwriteKeyFrames() nicht der endian-gedrehte Wert fuer das switch (KeyFrames[i].MoKey.Group) benutzt werden!
+
+* Project Save As / Load new Project funktioniert jetzt.
+* 'The Parameter File format has been changed slightly since this file was saved. Would you like to re-save it in the new format now?' Speichern und dann neue laden funktioniert jetzt.
+(Beides mit CanyonSunset getestet)
+* Der Screenmode kann auch gespeichert werden und wird dann wieder geladen. Das ist ein ASCII-File, keine Endian-Probleme.

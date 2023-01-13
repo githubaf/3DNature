@@ -585,14 +585,14 @@ STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.202
 	    Child, PN_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234567890",
 		MUIA_String_Contents, "WCSProjects:", End,
-	    Child, PN_Win->BT_Get[0] = ImageButton(MUII_Disk),
+	    Child, PN_Win->BT_Get[0] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Clone Project"),
 	    Child, PN_Win->Str[1] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234567890",
 		MUIA_String_Contents, "WCSProjects:", End,
-	    Child, PN_Win->BT_Get[1] = ImageButton(MUII_Disk),
+	    Child, PN_Win->BT_Get[1] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, RectangleObject, End,

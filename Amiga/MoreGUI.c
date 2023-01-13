@@ -644,7 +644,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, projectpath, End,
-	    Child, PJ_Win->BT_Get[0] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[0] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Project Name        "),
@@ -656,7 +656,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[2] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, dbasepath, End,
-	    Child, PJ_Win->BT_Get[1] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[1] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Database Name       "),
@@ -668,7 +668,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[4] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, parampath, End,
-	    Child, PJ_Win->BT_Get[2] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[2] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Parameter Name      "),
@@ -680,7 +680,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[6] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, framepath, End,
-	    Child, PJ_Win->BT_Get[3] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[3] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Frame Save Name     "),
@@ -692,14 +692,14 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[8] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, temppath, End,
-	    Child, PJ_Win->BT_Get[4] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[4] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Vector Save Path    "),
 	    Child, PJ_Win->Str[10] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, linepath, End,
-	    Child, PJ_Win->BT_Get[5] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[5] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Vector Save Name    "),
@@ -711,7 +711,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[12] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, zbufferpath, End,
-	    Child, PJ_Win->BT_Get[6] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[6] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Z Buffer Name       "),
@@ -723,7 +723,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[14] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, backgroundpath, End,
-	    Child, PJ_Win->BT_Get[7] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[7] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Background Name     "),
@@ -735,7 +735,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[20] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, dirname, End,
-	    Child, PJ_Win->BT_Get[11] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[11] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  End, /* VGroup */
 
@@ -745,7 +745,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[16] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, graphpath, End,
-	    Child, PJ_Win->BT_Get[8] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[8] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Graphic Save Name   "),
@@ -757,7 +757,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[18] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, colormappath, End,
-	    Child, PJ_Win->BT_Get[9] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[9] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Color Map Name      "),
@@ -770,7 +770,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[21] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, cloudpath, End,
-	    Child, PJ_Win->BT_Get[12] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[12] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Cloud Map Name      "),
@@ -782,7 +782,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[23] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, wavepath, End,
-	    Child, PJ_Win->BT_Get[13] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[13] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Wave File Name      "),
@@ -795,7 +795,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[25] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, deformpath, End,
-	    Child, PJ_Win->BT_Get[14] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[14] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Deformation Map Name"),
@@ -808,7 +808,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[19] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, modelpath, End,
-	    Child, PJ_Win->BT_Get[10] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[10] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 
 	  Child, HGroup,
@@ -816,21 +816,21 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[27] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, imagepath, End,
-	    Child, PJ_Win->BT_Get[15] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[15] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Sun Image File      "),
 	    Child, PJ_Win->Str[28] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, sunfile, End,
-	    Child, PJ_Win->BT_Get[16] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[16] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("Moon Image File     "),
 	    Child, PJ_Win->Str[29] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, moonfile, End,
-	    Child, PJ_Win->BT_Get[17] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[17] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 
 	  Child, HGroup,
@@ -838,14 +838,14 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[30] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, pcprojectpath, End,
-	    Child, PJ_Win->BT_Get[18] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[18] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, Label2("PC Frames Directory "),
 	    Child, PJ_Win->Str[31] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, pcframespath, End,
-	    Child, PJ_Win->BT_Get[19] = ImageButton(MUII_Disk),
+	    Child, PJ_Win->BT_Get[19] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  End, /* VGroup */
 	  End, /* RegisterGroup */
