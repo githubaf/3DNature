@@ -2024,6 +2024,8 @@ warum geht "display -depth 8 -size 752x480 rgb:CanyonSet000.RAW  &" dann nicht r
 convert -depth 8 -size 752x480 gray:AROS_CanyonSet000.RAW.red  gray:AROS_CanyonSet000.RAW.grn gray:AROS_CanyonSet000.RAW.blu -combine AROS_RAW_recombined.jpg
 display AROS_RAW_recombined.jpg  # -> genauso falsch wie "display -depth 8 -size 752x480 rgb:CanyonSet000.RAW  &"
 ---> also Fehler im RAW-File
+-> Behoben in BitMaps.c savebitmaps(), width*3 
+Kann jetzt mit "display -depth 8 -size 752x480 rgb:AROS_CanyonSet000.RAW  &" angezeigt werden.
 
 *Export Z-Buffer testen  (Alle haben default den gleichen Namen)
  * Z As Floating Pt IFF     CanyonSet000ZB

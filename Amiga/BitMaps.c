@@ -116,7 +116,7 @@ short savebitmaps(UBYTE **bitmap, long zsize, short renderseg)
    BluPtr = bitmap[2];
    for ( ; j<settings.scrnheight; j++)
     {
-    for (i=0; i<settings.scrnwidth; i+=3)
+    for (i=0; i<settings.scrnwidth*3; i+=3)  // AF, 14.Jan23   *3 ! otherwise RAW-Picture is totally damaged!
      {
      ByteRow[i]     = *RedPtr;
      ByteRow[i + 1] = *GrnPtr;
