@@ -1981,4 +1981,54 @@ Beim Abspeichern darf in EdPar.c fwriteKeyFrames() nicht der endian-gedrehte Wer
 * Project Save As / Load new Project funktioniert jetzt.
 * 'The Parameter File format has been changed slightly since this file was saved. Would you like to re-save it in the new format now?' Speichern und dann neue laden funktioniert jetzt.
 (Beides mit CanyonSunset getestet)
-* Der Screenmode kann auch gespeichert werden und wird dann wieder geladen. Das ist ein ASCII-File, keine Endian-Probleme.
+
+Der Screenmode kann auch gespeichert werden und wird dann wieder geladen. Das ist ein ASCII-File, keine Endian-Probleme.
+
+Lightwave Export:
+* "Scene" Das exportierte LWS File von CanyonSunset stimmt fast mit der Amiga-Version ueberein. (ASCII-File) Scheinen Rundung/Genauigkeits-Unterschiede zu sein.
+* "Scene + DEMs"  ???
+* "DEM only" ??? Error loadinf DEM object ???
+* "Motion only" stimmt fast mit der Amiga-Version ueberein. (ASCII-File) Scheinen Rundung/Genauigkeits-Unterschiede zu sein.
+
+Bilder speichern, Render Settings, 2. Tab
+* "IFF"    -> geht ja schon
+* "Sculpt" -> CynyonSet000.blu .grn .red  -> OK, getestet 14.Jan23
+
+# erst mal Breite und Hoehe des Bildes anzeigen
+identify AROS_CanyonSet000.iff
+   ilbmtoppm: warning - non-square pixels; to fix do a 'pnmscale -yscale 1.1'
+   ilbmtoppm: input is a deep (24-bit) ILBM
+   AROS_CanyonSet000.iff PPM 752x480 752x480+0+0 8-bit sRGB 1.03273MiB 0.000u 0:00.009
+
+# zusammenfuegen. die red grn und blue Files sind einfach Arrays von 8Bit Werten. In der reihenfolge R G B angeben.
+convert -depth 8 -size 752x480 gray:AROS_CanyonSet000.red  gray:AROS_CanyonSet000.grn gray:AROS_CanyonSet000.blu -combine rgb_combined.jpg
+
+# anzeigen. OK.
+display rgb_combined.jpg
+
+- Auch getestet mit ADPRO 2.5.0 unter WinUAE mit dem SCULPT Loader 14.Jan23
+
+* "Raw intrlvd RGB" -> CynyonSet000.RAW
+    AROS_CynyonSet000.RAW  3Bytes grouping "xxd -g3 AROS_CanyonSet000.RAW | more"  
+
+    .RAW 00000000: f59f3d f49d3b f39d3b f39c3b f39b3b f2  ..=..;..;..;..;.  jeweils RGB RGB RGB
+
+    .red 00000000: f5f4f3 f3f3f2 f2f2f2 f2f2f1 f1f2f2 f2  ................  nur die Rot-Werte. Anfang passt mit .RAW zusammen
+    .grn 00000000: 9f9d9d 9c9b9b 9a9a9b 9b9b99 999999 99  ................  nur die Gruen-Werte. Anfang passt mit .RAW zusammen
+    .blu 00000000: 3d3b3b 3b3b3b 3a3a3a 3a3938 383838 38  =;;;;;::::988888  nur die Blau-Werte. Anfang passt mit .RAW zusammen
+
+warum geht "display -depth 8 -size 752x480 rgb:CanyonSet000.RAW  &" dann nicht richtig?
+
+#eigenes Programm zum Zerlegen des RAW-Files geschrieben.
+./af_split_RAW_image AROS_CanyonSet000.RAW 752 480
+convert -depth 8 -size 752x480 gray:AROS_CanyonSet000.RAW.red  gray:AROS_CanyonSet000.RAW.grn gray:AROS_CanyonSet000.RAW.blu -combine AROS_RAW_recombined.jpg
+display AROS_RAW_recombined.jpg  # -> genauso falsch wie "display -depth 8 -size 752x480 rgb:CanyonSet000.RAW  &"
+---> also Fehler im RAW-File
+
+*Export Z-Buffer testen  (Alle haben default den gleichen Namen)
+ * Z As Floating Pt IFF     CanyonSet000ZB
+ * Z As Gray Scale IFF      CanyonSet000ZB  OK.  unterschiedlich gross, unterschiedlich -> Linux "display" zeigt zwei praktisch gleiche Bilder. Beide keinen ColorMap. Kann auch mit ADPRO angezeigt werden. 14.Jan23
+ * Z As Floating Pt Array   CanyonSet000FZB
+ * Z As Gray Scale Array    CanyonSet000GZB ??? gleich gross, kleine Unterschiede
+
+Der Himmel scheint unterschiedlich zu sein.

@@ -68,7 +68,11 @@ Version 2.031 (Emerald-Anton)
         *Replacements for SAS/C specific functions.
         *Executables care for stack memory and check CPU/FPU requirements.
 
-
+Version 2.031 (Emerald-Berta)
+        *BugFix: Image saved as "Raw intrlvd RGB" were damaged. 
+                 (This bug existed already in last original version 2.04)
+        *AROS i386 version.
+                 Some features untested.
 
 
 
