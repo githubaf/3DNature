@@ -2043,3 +2043,25 @@ Der Himmel scheint unterschiedlich zu sein.
 "Z As Floating Pt Array" fertig und getestet fuer AROS.
 todo: "Z As Floating Pt IFF" fuer AROS
 
+# Anzeige der Floating Pt IFF-Files:
+# zeigt Offset der Chunks im IFF-File an
+~/Desktop/SelcoGit/amiga_buch/sources/fuzzer_test/src/iff_structure_linux CanyonSet000ZB_fl.iff
+
+Pos=12 (0xc)
+Chunk name: ZBUF
+ChunkLen: 36 (0x24)
+---------------------------------
+Pos=56 (0x38)
+Chunk name: ZBOD
+ChunkLen: 1443840 (0x160800)
+---------------------------------
+
+tail --bytes 1443840 CanyonSet000ZB_fl.iff | display -endian MSB -depth 32 -size 752x480 -define quantum:format=floating-point -define quantum:offset=100 -define quantum:scale=4e+03 gray:
+# oder
+identify CanyonSet000FZB  # fuer die Abmessungen
+tail --bytes $((752*480*4)) CanyonSet000FZB | display -endian MSB -depth 32 -size 752x480 -define quantum:format=floating-point -define quantum:offset=100 -define quantum:scale=4e+03 gray:
+
+* der ZBOD Chunk ist ok, Big-Endian
+* der ZBUF Chunk muss endian.korrigiert werden. Neue Variante von iff_structure mit ZBUF Infos geschrieben. 
+~/Desktop/SelcoGit/af_iff_structure/iff_structure_linux CanyonSet000ZB_fl.iff
+
