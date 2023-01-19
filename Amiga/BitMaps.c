@@ -382,23 +382,23 @@ short SaveZBuf(short zformat, short renderseg, long numpts, UBYTE *ScratchPad,
     FormSize = 12 + 36 + BodySize;
    strncpy((char*)Hdr.ChunkID, "FORM", 4);
    Hdr.ChunkSize = FormSize;
-   write(fhz, &Hdr, 8);
+   writeILBMHeader_BigEndian(fhz, &Hdr);  // AF, 19.Jan23, always write BigEndian
    strncpy((char*)Hdr.ChunkID, "ILBM", 4);
    write(fhz, &Hdr, 4);
    if (AppendFile)
     lseek(fhz, ZBUFPtr, 0);
    strncpy((char*)Hdr.ChunkID, "ZBUF", 4);
    Hdr.ChunkSize = 36;
-   write(fhz, &Hdr, 8);
-   write(fhz, &ZBHdr, 36);
+   writeILBMHeader_BigEndian(fhz, &Hdr);  // AF, 19.Jan23, always write BigEndian
+   writeZBufferHeader(fhz, &ZBHdr);  // AF, 19.Jan23, always write BigEndian
    if (AppendFile)
     lseek(fhz, ZBODPtr, 0);
    strncpy((char*)Hdr.ChunkID, "ZBOD", 4);
    Hdr.ChunkSize = BodySize + OldBodySize;
-   write(fhz, &Hdr, 8);
+   writeILBMHeader_BigEndian(fhz, &Hdr);  // AF, 19.Jan23, always write BigEndian
    if (AppendFile)
     lseek(fhz, EndBody, 0);
-   if (write(fhz, (char *)ZBuf, BodySize) != BodySize)
+   if (writeFloatArray_BigEndian(fhz, ZBuf, BodySize) != BodySize)
     {
     error = 1;
     goto Cleanup;

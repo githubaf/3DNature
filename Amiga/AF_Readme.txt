@@ -2059,9 +2059,41 @@ ChunkLen: 1443840 (0x160800)
 tail --bytes 1443840 CanyonSet000ZB_fl.iff | display -endian MSB -depth 32 -size 752x480 -define quantum:format=floating-point -define quantum:offset=100 -define quantum:scale=4e+03 gray:
 # oder
 identify CanyonSet000FZB  # fuer die Abmessungen
-tail --bytes $((752*480*4)) CanyonSet000FZB | display -endian MSB -depth 32 -size 752x480 -define quantum:format=floating-point -define quantum:offset=100 -define quantum:scale=4e+03 gray:
+tail --bytes $((752*480*4)) CanyonSet000ZB | display -endian MSB -depth 32 -size 752x480 -define quantum:format=floating-point -define quantum:offset=100 -define quantum:scale=4e+03 gray:
 
 * der ZBOD Chunk ist ok, Big-Endian
 * der ZBUF Chunk muss endian.korrigiert werden. Neue Variante von iff_structure mit ZBUF Infos geschrieben. 
 ~/Desktop/SelcoGit/af_iff_structure/iff_structure_linux CanyonSet000ZB_fl.iff
+
+
+~/Desktop/SelcoGit/af_iff_structure/iff_structure_linux CanyonSet000ZB_fl.iff 
+Filesize is 1443904
+FORM
+FORM-ChunkLen: 1443888 (0x160830)
+---------------------------------
+Chunk name: ILBM
+---------------------------------
+Pos=12 (0xc)
+Chunk name: ZBUF
+ChunkLen: 36 (0x24)
+  additional info available:
+     Width:       752
+     Height:      480
+     VarType:     6
+     Compression: 0
+     Sorting:     0
+     Units:       3
+     Min:         1.461988
+     Max:         144.360977
+     Bkgrnd:      340282346638528859811704183484516925440.000000
+     ScaleFactor: 1.000000
+     ScaleBase    0.000000
+---------------------------------
+Pos=56 (0x38)
+Chunk name: ZBOD
+ChunkLen: 1443840 (0x160800)
+---------------------------------
+
+ZBuffer-Float IFF save ist jetzt OK. Kann vom Amiga in WCS DEM-Convert eingelesen werden.
+AROS DEM-Convert kommt mit den Files noch nicht klar.
 

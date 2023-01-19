@@ -1151,3 +1151,9 @@ ssize_t write_UShort_BigEndian (int filedes, const void *buffer, size_t size); /
 ssize_t writeFloatArray_BigEndian(int filehandle, float *FloatArray, size_t size); // AF, HGW, 19.Jan23
 // size in Bytes, not floats!
 // returns number of Bytes written
+
+ssize_t writeILBMHeader_BigEndian(int filehandle, struct ILBMHeader *Hdr);  // AF, 19.Jan23, always write BigEndian
+// returns number of Bytes written (8)
+
+ssize_t writeZBufferHeader(int filehandle, struct ZBufferHeader *ZBufHdr);  // AF, 19.Jan23, always write BigEndian
+// returns number of Bytes written (36)

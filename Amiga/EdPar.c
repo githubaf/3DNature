@@ -467,6 +467,41 @@ ssize_t writeFloatArray_BigEndian(int filehandle, float *FloatArray, size_t size
 #endif
 }
 
+ssize_t writeILBMHeader_BigEndian(int filehandle, struct ILBMHeader *Hdr)  // AF, 19.Jan23, always write BigEndian
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    struct ILBMHeader TempHdr=*Hdr;
+    SimpleEndianFlip32S(TempHdr.ChunkSize, &TempHdr.ChunkSize);
+    return(write(filehandle,&TempHdr,8));
+#else
+    // just write as it is
+    return (write(filehandle, Hdr, 8));
+#endif
+}
+
+ssize_t writeZBufferHeader(int filehandle, struct ZBufferHeader *ZBufHdr)  // AF, 19.Jan23, always write BigEndian
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    struct ZBufferHeader TempHdr=*ZBufHdr;
+
+    SimpleEndianFlip32U(TempHdr.Width, &TempHdr.Width);
+    SimpleEndianFlip32U(TempHdr.Height, &TempHdr.Height);
+    SimpleEndianFlip16U(TempHdr.VarType, &TempHdr.VarType);
+    SimpleEndianFlip16U(TempHdr.Compression, &TempHdr.Compression);
+    SimpleEndianFlip16U(TempHdr.Sorting, &TempHdr.Sorting);
+    SimpleEndianFlip16U(TempHdr.Units, &TempHdr.Units);
+    SimpleEndianFlip32F(TempHdr.Min, &TempHdr.Min);
+    SimpleEndianFlip32F(TempHdr.Max, &TempHdr.Max);
+    SimpleEndianFlip32F(TempHdr.Bkgrnd, &TempHdr.Bkgrnd);
+    SimpleEndianFlip32F(TempHdr.ScaleFactor, &TempHdr.ScaleFactor);
+    SimpleEndianFlip32F(TempHdr.ScaleBase, &TempHdr.ScaleBase);
+
+    return(write(filehandle,&TempHdr,sizeof(struct ZBufferHeader)));
+#else
+    // just write as it is
+    return (write(filehandle, ZBufHdr, sizeof (struct ZBufferHeader)));
+#endif
+}
 
 #ifdef KJHKJDFHKDHFKJDFH // Now in LWSupport.c
 
