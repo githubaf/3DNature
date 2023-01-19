@@ -440,7 +440,7 @@ void SimpleEndianFlip16S(  signed short int Source16, signed short int   *Dest16
 
 // AF, 17.12.2022
 
-ssize_t write_BigEndian (int filedes, const void *buffer, size_t size)
+ssize_t write_UShort_BigEndian (int filedes, const void *buffer, size_t size)
 {
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
     if(size==2)

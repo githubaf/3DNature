@@ -1146,4 +1146,8 @@ extern void            FreeMatrixd(double **matptr, int nrows, int ncols);
 
 LONG KPrintF(STRPTR format, ...);   // ALEXANDER
 
-ssize_t write_BigEndian (int filedes, const void *buffer, size_t size); // ALEXANDER
+ssize_t write_UShort_BigEndian (int filedes, const void *buffer, size_t size); // ALEXANDER
+
+ssize_t writeFloatArray_BigEndian(int filehandle, float *FloatArray, size_t size); // AF, HGW, 19.Jan23
+// size in Bytes, not floats!
+// returns number of Bytes written

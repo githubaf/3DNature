@@ -2027,10 +2027,19 @@ display AROS_RAW_recombined.jpg  # -> genauso falsch wie "display -depth 8 -size
 -> Behoben in BitMaps.c savebitmaps(), width*3 
 Kann jetzt mit "display -depth 8 -size 752x480 rgb:AROS_CanyonSet000.RAW  &" angezeigt werden.
 
-*Export Z-Buffer testen  (Alle haben default den gleichen Namen)
- * Z As Floating Pt IFF     CanyonSet000ZB
+*Export Z-Buffer testen  (Alle haben default sehr aenhliche Namen)
+ * Z As Floating Pt IFF     CanyonSet000ZB  -> falsch, Zeilen/Spalten werden in WCS-Amiga Convert DEM Format ZBuf falsch angezeigt.
  * Z As Gray Scale IFF      CanyonSet000ZB  OK.  unterschiedlich gross, unterschiedlich -> Linux "display" zeigt zwei praktisch gleiche Bilder. Beide keinen ColorMap. Kann auch mit ADPRO angezeigt werden. 14.Jan23
- * Z As Floating Pt Array   CanyonSet000FZB
- * Z As Gray Scale Array    CanyonSet000GZB ??? gleich gross, kleine Unterschiede
+ * Z As Floating Pt Array   CanyonSet000FZB 4 Bytes/Pixel "display -endian MSB -depth 32 -size 752x480 -define quantum:format=floating-point -define quantum:scale=4e+03 gray:Amiga_CanyonSet000FZB"
+                                            (quantum:scale=4e+03 soll die FloatWerte in den Bereich von 0...1 normieren durch Division)
+                            - muss bei AROS noch Endian gedreht werden!
+                            19.Jan23: Done! OK.
+ * Z As Gray Scale Array    CanyonSet000GZB 4 Bytes/Pixel, gleich gross, kleine Unterschiede -> OK: "display -depth 8 -size 752x480 gray:AROS_CanyonSet000GZB_gray_array"
 
 Der Himmel scheint unterschiedlich zu sein.
+
+19.Jan23
+--------
+"Z As Floating Pt Array" fertig und getestet fuer AROS.
+todo: "Z As Floating Pt IFF" fuer AROS
+

@@ -296,7 +296,7 @@ short SaveZBuf(short zformat, short renderseg, long numpts, UBYTE *ScratchPad,
    error = 1;
    goto Cleanup;
    } /* if no z buf file */
-  if (write(fhz, (char *)ZBuf, BodySize) != BodySize)
+   if (writeFloatArray_BigEndian(fhz, ZBuf, BodySize) != BodySize)
    {
    error = 1;
    goto Cleanup;
@@ -667,7 +667,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
  strcpy(tt, "FORM");
  write(fHandle, tt, 			4);
  FormSizePtr = tell(fHandle);
- write_BigEndian(fHandle, &FORMsize,        4); // write(fHandle, &FORMsize, 		4);  // ALEXANDER, 17.12.2022
+ write_UShort_BigEndian(fHandle, &FORMsize,        4); // write(fHandle, &FORMsize, 		4);  // ALEXANDER, 17.12.2022
  strcpy(tt, "ILBM");
  if (write(fHandle, tt, 		4) != 4)
   {
@@ -678,20 +678,20 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   lseek(fHandle, BMHDPtr, 0);
  strcpy(tt, "BMHD");
  write(fHandle, tt, 			4);
- write_BigEndian(fHandle, &BMHDsize, 		4);// ALEXANDER, 17.12.2022
- write_BigEndian(fHandle, &width, 		2);// ALEXANDER, 17.12.2022
- write_BigEndian(fHandle, &height, 		2);// ALEXANDER, 17.12.2022
- write_BigEndian(fHandle, &xpos, 			2);// ALEXANDER, 17.12.2022
- write_BigEndian(fHandle, &ypos, 			2);// ALEXANDER, 17.12.2022
+ write_UShort_BigEndian(fHandle, &BMHDsize, 		4);// ALEXANDER, 17.12.2022
+ write_UShort_BigEndian(fHandle, &width, 		2);// ALEXANDER, 17.12.2022
+ write_UShort_BigEndian(fHandle, &height, 		2);// ALEXANDER, 17.12.2022
+ write_UShort_BigEndian(fHandle, &xpos, 			2);// ALEXANDER, 17.12.2022
+ write_UShort_BigEndian(fHandle, &ypos, 			2);// ALEXANDER, 17.12.2022
  write(fHandle, &nplanes, 		1);
  write(fHandle, &masking, 		1);
  write(fHandle, &compression, 		1);
  write(fHandle, &pad1, 			1);
  TransPtr = tell(fHandle);
- write_BigEndian(fHandle, &transparentColor, 	2);// ALEXANDER, 17.12.2022
- write_BigEndian(fHandle, &aspect, 		2);// ALEXANDER, 17.12.2022
- write_BigEndian(fHandle, &width, 		2);// ALEXANDER, 17.12.2022
- if (write_BigEndian(fHandle, &height, 		2) != 2)// ALEXANDER, 17.12.2022
+ write_UShort_BigEndian(fHandle, &transparentColor, 	2);// ALEXANDER, 17.12.2022
+ write_UShort_BigEndian(fHandle, &aspect, 		2);// ALEXANDER, 17.12.2022
+ write_UShort_BigEndian(fHandle, &width, 		2);// ALEXANDER, 17.12.2022
+ if (write_UShort_BigEndian(fHandle, &height, 		2) != 2)// ALEXANDER, 17.12.2022
   {
   error = 1;
   goto Scleanup;
@@ -702,7 +702,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   {
   strcpy(tt,"CMAP");
   write(fHandle, tt,			4);
-  write_BigEndian(fHandle, &CMAPsize,		4);// ALEXANDER, 17.12.2022
+  write_UShort_BigEndian(fHandle, &CMAPsize,		4);// ALEXANDER, 17.12.2022
 
   for (kk=0; kk<DEPTH*DEPTH; kk++)
    {
@@ -729,8 +729,8 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   {
   strcpy(tt, "CAMG");
   write(fHandle, tt,			4);
-  write_BigEndian(fHandle, &CAMGsize,		4);// ALEXANDER, 17.12.2022
-  if (write_BigEndian(fHandle, &VPmode,		4) != 4)// ALEXANDER, 17.12.2022
+  write_UShort_BigEndian(fHandle, &CAMGsize,		4);// ALEXANDER, 17.12.2022
+  if (write_UShort_BigEndian(fHandle, &VPmode,		4) != 4)// ALEXANDER, 17.12.2022
    {
    error = 1;
    goto Scleanup;
@@ -742,7 +742,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
  strcpy(tt, "BODY");
  write(fHandle, tt,			4);
  BodySizePtr = tell(fHandle);
- write_BigEndian(fHandle, &BODYsize,		4);// ALEXANDER, 17.12.2022
+ write_UShort_BigEndian(fHandle, &BODYsize,		4);// ALEXANDER, 17.12.2022
 
  if (AppendFile)
   {
@@ -1048,15 +1048,15 @@ RepeatMemGrab:
   FORMsize -= BODYsize;
   //FORMsize += (CD.TotalOutBytes + OldBodySize - OldPad);
   FORMsize += (CD.TotalOutBytes + OldBodySize - OldPad) + Padded;  // AF: Hier muss das Paddingbyte mitgezaehlt werden!
-  write_BigEndian(fHandle, &FORMsize,	 		4);// ALEXANDER, 17.12.2022
+  write_UShort_BigEndian(fHandle, &FORMsize,	 		4);// ALEXANDER, 17.12.2022
   lseek(fHandle, BodySizePtr, 0);
   BODYsize = CD.TotalOutBytes + OldBodySize - OldPad;
-  write_BigEndian(fHandle, &BODYsize,	 		4);// ALEXANDER, 17.12.2022
+  write_UShort_BigEndian(fHandle, &BODYsize,	 		4);// ALEXANDER, 17.12.2022
 /* Use Transparent Color in BMHD for notice of pad byte for later appending */
   if (Padded)
    {
    lseek(fHandle, TransPtr, 0);
-   write_BigEndian(fHandle, &Padded, 2);// ALEXANDER, 17.12.2022
+   write_UShort_BigEndian(fHandle, &Padded, 2);// ALEXANDER, 17.12.2022
    }
   } /* if compression */
 

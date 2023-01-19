@@ -423,6 +423,50 @@ int fwriteShort(const short *Value, FILE *file)
 #endif
 }
 
+// size in Bytes, not floats!
+// returns number of Bytes written
+ssize_t writeFloatArray_BigEndian(int filehandle, float *FloatArray, size_t size) // AF, HGW, 19.Jan23
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#define TEMP_FLOAT_ARR_ENTRIES 128
+    static float TempArray[TEMP_FLOAT_ARR_ENTRIES];
+    ssize_t TotalBytesWritten=0;
+
+    size_t FloatsToDo=size/(sizeof(float));
+
+    unsigned int i=0;
+    for(i=0; i<FloatsToDo/TEMP_FLOAT_ARR_ENTRIES;i++)
+    {
+        for(unsigned int k=0;k<TEMP_FLOAT_ARR_ENTRIES;k++)
+        {
+            SimpleEndianFlip32F(FloatArray[i*TEMP_FLOAT_ARR_ENTRIES+k],&TempArray[k]);
+        }
+        ssize_t Result=write(filehandle, TempArray, TEMP_FLOAT_ARR_ENTRIES*sizeof(float));
+        TotalBytesWritten+=Result;
+        if(Result!=TEMP_FLOAT_ARR_ENTRIES*sizeof(float))
+        {
+            return TotalBytesWritten;
+        }
+    }
+
+    // now the rest that did not fill a complete TempArray
+    for(unsigned int k=0;i<FloatsToDo%TEMP_FLOAT_ARR_ENTRIES;k++)
+    {
+        SimpleEndianFlip32F(FloatArray[i*TEMP_FLOAT_ARR_ENTRIES+k],&TempArray[k]);
+    }
+    ssize_t Result=write(filehandle, TempArray, (FloatsToDo%TEMP_FLOAT_ARR_ENTRIES)*sizeof(float));
+    TotalBytesWritten+=Result;
+    return TotalBytesWritten;
+#undef TEMP_FLOAT_ARR_ENTRIES
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (write(filehandle, FloatArray, size));
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
 
 #ifdef KJHKJDFHKDHFKJDFH // Now in LWSupport.c
 
