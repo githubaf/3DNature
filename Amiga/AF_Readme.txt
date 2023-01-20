@@ -2082,7 +2082,7 @@ ChunkLen: 36 (0x24)
      VarType:     6
      Compression: 0
      Sorting:     0
-     Units:       3
+     Units:       3            <km>
      Min:         1.461988
      Max:         144.360977
      Bkgrnd:      340282346638528859811704183484516925440.000000
@@ -2097,3 +2097,6 @@ ChunkLen: 1443840 (0x160800)
 ZBuffer-Float IFF save ist jetzt OK. Kann vom Amiga in WCS DEM-Convert eingelesen werden.
 AROS DEM-Convert kommt mit den Files noch nicht klar.
 
+20.Jan2023
+----------
+FLoat Pt IFF ZBuffer-File kann jetzt im DEM-Converter eingelesen werden.

@@ -794,7 +794,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     {
     if (FindIFFChunk(fh, &Hdr, "ZBUF"))
      {
-     if (read(fh, &ZBHdr, sizeof (struct ZBufferHeader)) == sizeof (struct ZBufferHeader))
+     if (readZBufHdr_BigEndian(fh, &ZBHdr) == sizeof (struct ZBufferHeader))
       {
       if (FindIFFChunk(fh, &Hdr, "ZBOD"))
        {

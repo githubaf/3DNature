@@ -497,10 +497,39 @@ ssize_t writeZBufferHeader(int filehandle, struct ZBufferHeader *ZBufHdr)  // AF
     SimpleEndianFlip32F(TempHdr.ScaleBase, &TempHdr.ScaleBase);
 
     return(write(filehandle,&TempHdr,sizeof(struct ZBufferHeader)));
-#else
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
     // just write as it is
     return (write(filehandle, ZBufHdr, sizeof (struct ZBufferHeader)));
+#else
+#error "Unsupported Byte-Order"
 #endif
+}
+
+// AF, HGW, 20.Jan23
+ssize_t readZBufHdr_BigEndian(int filehandle, struct ZBufferHeader *ZBufHdr)
+{
+    int Result=read(filehandle, ZBufHdr, sizeof (struct ZBufferHeader));
+
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    // Flip Endian if host is not Big Endian
+    SimpleEndianFlip32U(ZBufHdr->Width      , &ZBufHdr->Width);
+    SimpleEndianFlip32U(ZBufHdr->Height     , &ZBufHdr->Height);
+    SimpleEndianFlip16U(ZBufHdr->VarType    , &ZBufHdr->VarType);
+    SimpleEndianFlip16U(ZBufHdr->Compression, &ZBufHdr->Compression);
+    SimpleEndianFlip16U(ZBufHdr->Sorting    , &ZBufHdr->Sorting);
+    SimpleEndianFlip16U(ZBufHdr->Units      , &ZBufHdr->Units);
+    SimpleEndianFlip32F(ZBufHdr->Min        , &ZBufHdr->Min);
+    SimpleEndianFlip32F(ZBufHdr->Max        , &ZBufHdr->Max);
+    SimpleEndianFlip32F(ZBufHdr->Bkgrnd     , &ZBufHdr->Bkgrnd);
+    SimpleEndianFlip32F(ZBufHdr->ScaleFactor, &ZBufHdr->ScaleFactor);
+    SimpleEndianFlip32F(ZBufHdr->ScaleBase  , &ZBufHdr->ScaleBase);
+    return Result;
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // nothing to change
+#else
+#error "Unsupported Byte-Order"
+#endif
+    return Result;
 }
 
 #ifdef KJHKJDFHKDHFKJDFH // Now in LWSupport.c
