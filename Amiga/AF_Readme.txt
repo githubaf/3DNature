@@ -2104,4 +2104,7 @@ FLoat Pt IFF ZBuffer-File kann jetzt im DEM-Converter eingelesen werden.
 23.Jan.2023
 -----------
 Beta-Timeout (62 Tage) in WCS.c eingebaut. Defines in Version.h
+Ablaufdatum wird in Beta-Versionen mit printf als "epoch" (Sekunden seit 1970) ausgegeben. (Bei AROS von der Shell starten)
+Anzeige des Klartext-Datums mit
+date -d@1674518400
 
