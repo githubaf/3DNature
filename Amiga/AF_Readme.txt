@@ -2100,3 +2100,8 @@ AROS DEM-Convert kommt mit den Files noch nicht klar.
 20.Jan2023
 ----------
 FLoat Pt IFF ZBuffer-File kann jetzt im DEM-Converter eingelesen werden.
+
+23.Jan.2023
+-----------
+Beta-Timeout (62 Tage) in WCS.c eingebaut. Defines in Version.h
+

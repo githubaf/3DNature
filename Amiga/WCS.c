@@ -16,6 +16,7 @@
 #include <exec/types.h>
 #include <exec/tasks.h>
 #include <clib/exec_protos.h>
+#include <time.h>
 
 #define MIN_LIBRARY_REV 37
 #define DITHER_TABLE_SIZE 4096
@@ -96,6 +97,26 @@ void FlipImageWords(struct Image *img)
 
    #endif
 #endif
+
+// for beta timeout calculation. Converts Date-String "20 Jan 23" to epoch
+// see https://stackoverflow.com/questions/1765014/convert-string-from-date-into-a-time-t
+time_t cvt_TIME(char const *time) {
+    char s_month[5];
+    int month, day, year;
+    struct tm t = {0};
+    static const char month_names[] = "JanFebMarAprMayJunJulAugSepOctNovDec";
+
+    sscanf(time, "%s %d %d", s_month, &day, &year);
+
+    month = (strstr(month_names, s_month)-month_names)/3;
+
+    t.tm_mon = month;
+    t.tm_mday = day;
+    t.tm_year = year - 1900;
+    t.tm_isdst = -1;
+
+    return mktime(&t);
+}
 
 
 int main(void)
@@ -188,10 +209,25 @@ if ((IntuitionBase = (struct IntuitionBase *)
      
      if((WCSRootApp = WCS_App_New()))
       {
+         extern char Date[]; // set in Version.c
+         extern char ExtAboutVers[];  // set in Version.c
+
       app = WCSRootApp->MUIApp;
       
       get(app, MUIA_Application_Base, &AppBaseName);
-      
+
+      if(strstr(ExtAboutVers, "beta") != NULL)
+      {
+          printf("%d\n",cvt_TIME(Date)+BETA_DAYS*24*60*60);
+      }
+      if((strstr(ExtAboutVers, "beta") != NULL) && (cvt_TIME(Date)+BETA_DAYS*24*60*60 <time(NULL)))  // beta and beta period over
+      {
+
+          User_Message((CONST_STRPTR)"World Construction set",
+                  (CONST_STRPTR)"Beta period expired...", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+      }
+      else
+      {
       if (ScrnData.ModeID == 0)
        {
        ModeSelect = NULL;
@@ -283,6 +319,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
        CloseScreen(WCSScrn);
        WCSScrn = NULL;
        } /* if */
+      }   // beta not expired
       if(WCSRootApp) /* May have already shut down above. */
        {
        WCS_App_Del(WCSRootApp);

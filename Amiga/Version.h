@@ -5,7 +5,7 @@
 
 #define APP_VERS    "2"
 //#define APP_REV    "031"
-#define APP_REV    "00 beta"
+#define APP_REV    "00 beta"  // Beta timeout (see BETA_DAYS) applies if the word "beta" is found here. See WCS.c AF, 23.Jan.23
 #define APP_FLAVOR "(Emerald-Berta)"
 #define APP_TLA    "WCS"
 #define APP_TITLE      "World Construction Set"
@@ -16,6 +16,8 @@
 #define APP_VERSION		APP_TLA " " APP_VERS "." APP_REV " " __DATE__
 #define APP_COPYR			"©1992-1996"
 #define APP_COPYRIGHT	APP_COPYR", "APP_AUTHOR
+
+#define BETA_DAYS 61  // two months for Beta testing
 
 #ifndef EXTERNAL_VERSION_HACK
 extern char ExtVersion[], ExtAboutVers[], ExtAboutBuild[], ExtCreditText[];

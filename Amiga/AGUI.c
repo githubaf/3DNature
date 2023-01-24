@@ -1697,7 +1697,7 @@ USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STR
  APTR UM_Win, UM_BTGroup, UM_BT[11];
  char buttontext[11][20];
 
- Set_Param_Menu(10);
+ //Set_Param_Menu(10);
 
  while (buttons[i] && numbuttons<12)
   {
