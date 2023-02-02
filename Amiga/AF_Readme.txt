@@ -2108,3 +2108,6 @@ Ablaufdatum wird in Beta-Versionen mit printf als "epoch" (Sekunden seit 1970) a
 Anzeige des Klartext-Datums mit
 date -d@1674518400
 
+2.Feb.23
+--------
+Added x86_64-aros als neue Konfiguration. Benutze deadw00ds toolchain/Aros von https://github.com/deadw00d/AROS/blob/master/INSTALL.md
