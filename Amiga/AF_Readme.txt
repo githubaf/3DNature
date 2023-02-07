@@ -2111,3 +2111,32 @@ date -d@1674518400
 2.Feb.23
 --------
 Added x86_64-aros als neue Konfiguration. Benutze deadw00ds toolchain/Aros von https://github.com/deadw00d/AROS/blob/master/INSTALL.md
+
+7.Feb.2023
+----------
+* Fuer AROS copilieren zwei Scripte in ~/bin angelegt. Die enthalten den gcc-Aufruf mit --sysroot und -I fuer das SDI-Include-Dir.
+
+# cat i386-aros-gcc
+
+#!/bin/sh
+
+#Wrapper fuer AROS-gcc, damit man nicht manuell sysroot uebergeben muss
+
+exec /home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/toolchain-alt-abiv0-i386/i386-aros-gcc --sysroot=/home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/Development -I/home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/Development/include/SDI/ "$@"
+
+#cat x86_64-aros-gcc 
+
+#!/bin/sh
+
+#Wrapper fuer AROS-gcc, damit man nicht manuell sysroot uebergeben muss
+exec /home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/toolchain-alt-abiv0-i386/i386-aros-gcc --sysroot=/home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/Development -I/home/developer/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/gen/include/SDI "$@"
+
+* Laut Deadwood muss Strip für AROS muss Strip extra Parameter bekommen.
+Krzysztof Smiechowicz <deadwood@onet.pl> schrieb mir am Mo 06.02.2023 19:44
+AROS executables are not full executables in ELF sense, they are more relocable objects. Due to this, default use of strip strips too much. Here is the command line which should be ok:
+
+x86_64-aros-strip --strip-unneeded -R.comment
+
+
+* Die 32bit-Versionen von WCS (unstripped unf stripped) funktionieren unter 32Bit-Aros.
+* Die 64bit-Versionen von WCS sind angeblich nicht ausfuehrbar!?

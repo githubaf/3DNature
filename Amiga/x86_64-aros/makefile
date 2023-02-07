@@ -42,7 +42,7 @@ main-build: WCS
 WCS: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
-	x86_64-aros-gcc --sysroot=/home/developer/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/Development -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -fomit-frame-pointer -lm -lmui  -g -ldebug  -Wl,-Map=WCS_x86_64-aros.map && ../check_wcs_aros_i386.sh WCS
+	x86_64-aros-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -fomit-frame-pointer -lm -lmui  -g -ldebug  -Wl,-Map=WCS_x86_64-aros.map && ../check_wcs_aros_i386.sh WCS
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -56,7 +56,7 @@ pre-build:
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS_x86_64-aros && cp WCS_x86_64-aros WCS_x86_64-aros.unstripped && x86_64-aros-strip WCS_x86_64-aros && ls -la WCS_x86_64-aros && x86_64-aros-size WCS_x86_64-aros && cp  ../WCS.info WCS_x86_64-aros.info
+	-cp WCS WCS_x86_64-aros && cp WCS_x86_64-aros WCS_x86_64-aros.unstripped && x86_64-aros-strip --strip-unneeded -R.comment WCS_x86_64-aros && ls -la WCS_x86_64-aros && x86_64-aros-size WCS_x86_64-aros && cp  ../WCS.info WCS_x86_64-aros.info
 	-@echo ' '
 
 .PHONY: all clean dependents main-build pre-build post-build
