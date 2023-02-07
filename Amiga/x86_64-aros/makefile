@@ -42,7 +42,7 @@ main-build: WCS
 WCS: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
-	x86_64-aros-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -fomit-frame-pointer -lm -lmui  -g -ldebug  -Wl,-Map=WCS_x86_64-aros.map && ../check_wcs_aros_i386.sh WCS
+	x86_64-aros-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -fomit-frame-pointer -lm -lmui  -g -ldebug  -Wl,-Map=WCS_x86_64-aros.map && ../check_wcs_aros_x86_64.sh WCS
 	@echo 'Finished building target: $@'
 	@echo ' '
 
