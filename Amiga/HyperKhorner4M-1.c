@@ -27,7 +27,7 @@ void ASM HK4M(REG(a0, void **registers))
     struct RastPort *rp     =((struct RastPort**)registers)[0];
     UBYTE           *Pixels =       ((UBYTE**)   registers)[1];
 
-    struct BitMap *temp_bm = AllocBitMap((LONG)rp->RP_User-1, 1, 4, BMF_STANDARD | BMF_CLEAR, NULL);
+    struct BitMap *temp_bm = AllocBitMap((IPTR)rp->RP_User-1, 1, 4, BMF_STANDARD | BMF_CLEAR, NULL);
     if (temp_bm)
     {
         struct RastPort temp_rp;
@@ -35,7 +35,7 @@ void ASM HK4M(REG(a0, void **registers))
         InitRastPort(&temp_rp);
         temp_rp.BitMap = temp_bm;
 
-        WritePixelArray8 (rp,0,0,(LONG)rp->RP_User-1,rp->BitMap->Rows-1,Pixels,&temp_rp);
+        WritePixelArray8 (rp,0,0,(IPTR)rp->RP_User-1,rp->BitMap->Rows-1,Pixels,&temp_rp);
 
         FreeBitMap(temp_bm);
     }

@@ -118,7 +118,7 @@ return (ThisWin);
 
 /***********************************************************************/
 
-ULONG QuickFetchEvent(struct Window *Win, struct IntuiMessage *Event)
+BOOL QuickFetchEvent(struct Window *Win, struct IntuiMessage *Event)
 {
 struct IntuiMessage *Brief;
 

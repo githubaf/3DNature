@@ -31,19 +31,19 @@ short getdbasename(long mode)
 get(ModControlWin, MUIA_Window_Window, &MCPWin); 
  if ((frbase = (struct FileRequester *)
    AllocAslRequestTags(ASL_FileRequest,
-     ASLFR_InitialDrawer, (ULONG)dbasepath,
-     ASLFR_InitialFile, (ULONG)dbasename,
+     ASLFR_InitialDrawer, (IPTR)dbasepath,
+     ASLFR_InitialFile, (IPTR)dbasename,
      ASLFR_InitialHeight, 200,
      ASLFR_InitialLeftEdge, 250,
      ASLFR_InitialTopEdge, 150,
-     ASLFR_Window, (ULONG)MCPWin,
+     ASLFR_Window, (IPTR)MCPWin,
      TAG_DONE)) == NULL) {
   printf("Can't initialize file requester!\n");
   return 0;
  }
  if (mode) {
   if ((AslRequestTags(frbase,
-      ASL_Hail, (ULONG)"DataBase File Saver",
+      ASL_Hail, (IPTR)"DataBase File Saver",
       ASL_FuncFlags, FILF_PATGAD | FILF_SAVE | FILF_NEWIDCMP,
       TAG_DONE)) == 0) {
    FreeAslRequest(frbase);
@@ -52,7 +52,7 @@ get(ModControlWin, MUIA_Window_Window, &MCPWin);
  }
  else {
   if ((AslRequestTags(frbase,
-      ASL_Hail,(ULONG)"DataBase File Loader",
+      ASL_Hail,(IPTR)"DataBase File Loader",
       ASL_FuncFlags,FILF_PATGAD | FILF_NEWIDCMP,
       TAG_DONE))==0) {
    FreeAslRequest(frbase);
@@ -135,19 +135,19 @@ short getfilename(long mode, char *requestname, char *pathname,
 
  if ((frfile=(struct FileRequester *)
    AllocAslRequestTags(ASL_FileRequest,
-     ASLFR_InitialDrawer, (ULONG)pathname,
-     ASLFR_InitialFile, (ULONG)filename,
+     ASLFR_InitialDrawer, (IPTR)pathname,
+     ASLFR_InitialFile, (IPTR)filename,
      ASLFR_InitialHeight, 200,
      ASLFR_InitialLeftEdge, 250,
      ASLFR_InitialTopEdge, 150,
-     ASLFR_Window, (ULONG)MCPWin,
+     ASLFR_Window, (IPTR)MCPWin,
      TAG_DONE)) == NULL) {
   printf("Can't initialize file requester!\n");
   return 0;
  }
  if (mode) {
   if ((AslRequestTags(frfile,
-      ASL_Hail, (ULONG)requestname,
+      ASL_Hail, (IPTR)requestname,
       ASL_FuncFlags, FILF_PATGAD | FILF_SAVE | FILF_NEWIDCMP,
       TAG_DONE)) == 0) {
    FreeAslRequest(frfile);
@@ -156,7 +156,7 @@ short getfilename(long mode, char *requestname, char *pathname,
  }
  else {
   if ((AslRequestTags(frfile,
-      ASL_Hail, (ULONG)requestname,
+      ASL_Hail, (IPTR)requestname,
       ASL_FuncFlags, FILF_PATGAD | FILF_NEWIDCMP,
       TAG_DONE)) == 0) {
    FreeAslRequest(frfile);
@@ -186,20 +186,20 @@ short getfilenameptrn(long mode, char *requestname, char *pathname,
 
  if ((frfile=(struct FileRequester *)
    AllocAslRequestTags(ASL_FileRequest,
-     ASLFR_InitialDrawer, (ULONG)pathname,
-     ASLFR_InitialFile, (ULONG)filename,
-     ASLFR_InitialPattern, (ULONG)ptrn,
+     ASLFR_InitialDrawer, (IPTR)pathname,
+     ASLFR_InitialFile, (IPTR)filename,
+     ASLFR_InitialPattern, (IPTR)ptrn,
      ASLFR_InitialHeight, 200,
      ASLFR_InitialLeftEdge, 250,
      ASLFR_InitialTopEdge, 150,
-     ASLFR_Window, (ULONG)MCPWin,
+     ASLFR_Window, (IPTR)MCPWin,
      TAG_DONE)) == NULL) {
   printf("Can't initialize file requester!\n");
   return 0;
  }
  if (mode) {
   if ((AslRequestTags(frfile,
-      ASL_Hail, (ULONG)requestname,
+      ASL_Hail, (IPTR)requestname,
       ASL_FuncFlags, FILF_PATGAD | FILF_SAVE | FILF_NEWIDCMP,
       TAG_DONE)) == 0) {
    FreeAslRequest(frfile);
@@ -208,7 +208,7 @@ short getfilenameptrn(long mode, char *requestname, char *pathname,
  }
  else {
   if ((AslRequestTags(frfile,
-      ASL_Hail, (ULONG)requestname,
+      ASL_Hail, (IPTR)requestname,
       ASL_FuncFlags, FILF_PATGAD | FILF_NEWIDCMP,
       TAG_DONE)) == 0) {
    FreeAslRequest(frfile);
@@ -242,20 +242,20 @@ struct FileRequester *getmultifilename(char *requestname, char *pathname,
 
  if ((frfile = (struct FileRequester *)
    AllocAslRequestTags(ASL_FileRequest,
-     ASLFR_InitialDrawer, (ULONG)pathname,
-     ASLFR_InitialFile, (ULONG)filename,
+     ASLFR_InitialDrawer, (IPTR)pathname,
+     ASLFR_InitialFile, (IPTR)filename,
      ASLFR_InitialHeight, 200,
      ASLFR_InitialLeftEdge, 250,
      ASLFR_InitialTopEdge, 150,
-     ASLFR_Window, (ULONG)MCPWin,
+     ASLFR_Window, (IPTR)MCPWin,
      TAG_DONE)) == NULL) {
   printf("Can't initialize file requester!\n");
   return (0);
  }
  if ((AslRequestTags(frfile,
-     ASL_Hail, (ULONG)requestname,
+     ASL_Hail, (IPTR)requestname,
      ASL_FuncFlags, FILF_PATGAD | FILF_MULTISELECT | FILF_NEWIDCMP,
-     ASL_Pattern, (ULONG)pattern,
+     ASL_Pattern, (IPTR)pattern,
      TAG_DONE)) == 0) {
   FreeAslRequest(frfile);
   return (NULL);

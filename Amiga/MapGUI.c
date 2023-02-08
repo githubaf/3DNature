@@ -901,8 +901,8 @@ short map(void)
 	WA_MaxWidth,	(~0),
 	WA_MaxHeight,	(~0),
 	WA_IDCMP,	iflags,
-	WA_Title,	(ULONG)"Map View",
-	WA_CustomScreen,(ULONG)WCSScrn,
+	WA_Title,	(IPTR)"Map View",
+	WA_CustomScreen,(IPTR)WCSScrn,
 	TAG_DONE);
 
  if (! MapWind0)
@@ -1494,7 +1494,7 @@ HandleEvent:
     {
     FieldUpdate = ReDraw = 0;
     Item = ItemAddress(MP->MenuStrip, MenuNumber);
-    ReturnID = (ULONG)(GTMENUITEM_USERDATA(Item));
+    ReturnID =(IPTR)(GTMENUITEM_USERDATA(Item));
 
     switch (ReturnID)
      {

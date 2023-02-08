@@ -1644,7 +1644,7 @@ void Handle_ES_Window(ULONG WCS_ID)
       {
       if (settings.defaulteco > 0) settings.defaulteco --;
       set(ES_Win->Txt[0], MUIA_Text_Contents,
-	 (ULONG)PAR_NAME_ECO(settings.defaulteco));
+	 (IPTR)PAR_NAME_ECO(settings.defaulteco));
       break;
       } /* default ecosystem */
      } /* switch (i) */
@@ -1660,7 +1660,7 @@ void Handle_ES_Window(ULONG WCS_ID)
       {
       if (settings.defaulteco < ECOPARAMS - 1) settings.defaulteco ++;
       set(ES_Win->Txt[0], MUIA_Text_Contents,
-	 (ULONG)PAR_NAME_ECO(settings.defaulteco));
+	 (IPTR)PAR_NAME_ECO(settings.defaulteco));
       break;
       } /* default ecosystem */
      } /* switch (i) */

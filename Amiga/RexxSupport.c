@@ -130,7 +130,7 @@ if ((This) && (This != REXX_RETURN_ERROR))
 			{
 			if (RString)
 				{
-			      This->rm_Result2=(LONG)CreateArgstring((STRPTR)RString,
+			      This->rm_Result2=(IPTR)CreateArgstring((STRPTR)RString,
 				 (LONG)strlen(RString));
 				} /* if */
 			} /* if */
@@ -316,7 +316,7 @@ if((This = AllocMem(sizeof(struct ARexxContext), MEMF_PUBLIC|MEMF_CLEAR)))
 		strcat(This->ErrorName,".LASTERROR");
 
 		Forbid();
-		This->ARexxPort = CreatePort((STRPTR)This->PortName, (ULONG)NULL);
+		This->ARexxPort = CreatePort((STRPTR)This->PortName, (IPTR)NULL);
 		Permit();
 		} /* if */
 

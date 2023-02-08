@@ -538,14 +538,15 @@ RepeatRGB:
 
   if (INPUT_WRAP)
    {
-   ULONG Source, Dest, InputRowSize, FullRowSize;
+   IPTR Source, Dest;
+   ULONG InputRowSize, FullRowSize;
 
    InputRowSize = (INPUT_COLS - 1) * InValSize;
    FullRowSize = InputRowSize + InValSize;
    for (i=INPUT_ROWS-1; i>=0; i--)
     {
-    Source = (ULONG)InputData + i * InputRowSize;
-    Dest = (ULONG)InputData + i * FullRowSize;
+    Source = (IPTR)InputData + i * InputRowSize;
+    Dest = (IPTR)InputData + i * FullRowSize;
     if (i > 0)
      memmove((char *)Dest, (char *)Source, InputRowSize);
     memcpy((char *)(Dest + InputRowSize), (char *)Dest, InValSize);
@@ -660,7 +661,8 @@ RepeatRGB:
     } /* if no wrap longitude */
    else
     {
-    ULONG Source, Dest, InputRowSize, FullRowSize;
+    IPTR Source, Dest;
+    ULONG InputRowSize, FullRowSize;
 
     if ((read(fInput, InputData, (InputDataSize - INPUT_ROWS * InValSize)))
 	 != InputDataSize - INPUT_ROWS * InValSize)
@@ -671,8 +673,8 @@ RepeatRGB:
     FullRowSize = InputRowSize + InValSize;
     for (i=INPUT_ROWS-1; i>=0; i--)
      {
-     Source = (ULONG)InputData + i * InputRowSize;
-     Dest = (ULONG)InputData + i * FullRowSize;
+     Source = (IPTR)InputData + i * InputRowSize;
+     Dest = (IPTR)InputData + i * FullRowSize;
      if (i > 0)
       memmove((char *)Dest, (char *)Source, InputRowSize);
      memcpy((char *)(Dest + InputRowSize), (char *)Dest, InValSize);
@@ -832,14 +834,15 @@ ReadMore:
    fclose(fAscii);
    if (INPUT_WRAP)
     {
-    ULONG Source, Dest, InputRowSize, FullRowSize;
+    IPTR Source, Dest;
+    ULONG InputRowSize, FullRowSize;
 
     InputRowSize = (INPUT_COLS - 1) * InValSize;
     FullRowSize = InputRowSize + InValSize;
     for (i=INPUT_ROWS-1; i>=0; i--)
      {
-     Source = (ULONG)InputData + i * InputRowSize;
-     Dest = (ULONG)InputData + i * FullRowSize;
+     Source = (IPTR)InputData + i * InputRowSize;
+     Dest = (IPTR)InputData + i * FullRowSize;
      if (i > 0)
       memmove((char *)Dest, (char *)Source, InputRowSize);
      memcpy((char *)(Dest + InputRowSize), (char *)Dest, InValSize);

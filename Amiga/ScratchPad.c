@@ -105,14 +105,14 @@ if(This)
 		{
 		if(This->BitMap->Planes[7])
 			{
-			FreeRaster(This->BitMap->Planes[7], (int)This->RP_User, This->BitMap->Rows);
+			FreeRaster(This->BitMap->Planes[7], (IPTR)This->RP_User, This->BitMap->Rows);
 			This->BitMap->Planes[7] = NULL;
 			} /* if */
 		for(loop = 0; loop < This->BitMap->Depth; loop++)
 			{
 			if(This->BitMap->Planes[loop])
 				{
-				FreeRaster(This->BitMap->Planes[loop], (int)This->RP_User, This->BitMap->Rows);
+				FreeRaster(This->BitMap->Planes[loop], (IPTR)This->RP_User, This->BitMap->Rows);
 				} /* if */
 			} /* for */
 		FreeMem(This->BitMap, sizeof(struct BitMap));

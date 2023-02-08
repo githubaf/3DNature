@@ -1816,8 +1816,8 @@ void Viewshed_Map(long OBN)
 	WA_MaxWidth,	WCSScrn->Width,
 	WA_MaxHeight,	WCSScrn->Height,
 	WA_IDCMP,	IDCMP_CLOSEWINDOW,
-	WA_Title,	(ULONG)"Visual Sensitivity",
-	WA_CustomScreen,(ULONG)WCSScrn,
+	WA_Title,	(IPTR)"Visual Sensitivity",
+	WA_CustomScreen,(IPTR)WCSScrn,
 	TAG_DONE);
 
  if (! MapWind3)
@@ -1907,7 +1907,7 @@ void Viewshed_Map(long OBN)
   short l;
   long sum;
 
-  BWVS = BusyWin_New("Smoothing...", VS->Width, 0, (ULONG)"BWVS");
+  BWVS = BusyWin_New("Smoothing...", VS->Width, 0, (IPTR)"BWVS");
 
   memcpy(VS->View, VS->Map, VS->Mapsize);
 
@@ -1958,7 +1958,7 @@ void Viewshed_Map(long OBN)
 **	of distance from path to focus * elevation difference.
 */
 
- BWVS = BusyWin_New("Path Point", DBase[OBN].Points, 0, (ULONG)"BWVS");
+ BWVS = BusyWin_New("Path Point", DBase[OBN].Points, 0, (IPTR)"BWVS");
 
  for (i=1; i<=DBase[OBN].Points; i++)
   {
@@ -2009,7 +2009,7 @@ void Viewshed_Map(long OBN)
 
  if (User_Message((CONST_STRPTR)"Mapping Module: Viewshed",
          (CONST_STRPTR)"Draw vectors on viewshed rendering?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn"))
-  makemap(MapWind3, VS->cb.lowx, VS->cb.lowy, VS->cb.highx, VS->cb.highy, (ULONG)NULL);
+  makemap(MapWind3, VS->cb.lowx, VS->cb.lowy, VS->cb.highx, VS->cb.highy, (IPTR)NULL);
 
 } /* Viewshed() */
 

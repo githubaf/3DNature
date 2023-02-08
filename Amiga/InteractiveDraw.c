@@ -1186,7 +1186,7 @@ short make_compass(void)
 
  InterWind2 = (struct Window *)
      make_window(IA_CompLeft, IA_CompTop, IA_CompWidth, IA_CompHeight,
-	"Compass", flags, (ULONG)NULL, c0, c1, WCSScrn);
+	"Compass", flags, (IPTR)NULL, c0, c1, WCSScrn);
  if (! InterWind2) {
   return 1;
  } /* if */
