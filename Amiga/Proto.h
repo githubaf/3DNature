@@ -728,7 +728,7 @@ extern struct Window *make_window(short x, short y, short w, short h,
 	struct Screen *screen);
 extern void FetchEvent(struct Window *Win, struct IntuiMessage *Event);
 extern struct Window *FetchMultiWindowEvent(struct IntuiMessage *Event, ...);
-extern ULONG QuickFetchEvent(struct Window *Win, struct IntuiMessage *Event);
+extern BOOL QuickFetchEvent(struct Window *Win, struct IntuiMessage *Event);
 /* extern ULONG QuickCheckEvent(struct Window *Win); */ /* It's a macro now */
 extern void closesharedwindow(struct Window *win, short shared);
 //extern void stripintuimessages(struct MsgPort *mp, struct Window *win); // used locally only -> static, AF 19.7.2021

@@ -313,7 +313,7 @@ void Make_EM_Window(void)
 	EM_Win->MotionWin, 3, MUIM_Set, MUIA_Window_ActiveObject, EM_Win->ValTxt[0]);
 
 /* Set active gadget */
-  set(EM_Win->MotionWin, MUIA_Window_ActiveObject, (ULONG)EM_Win->LS_List);
+  set(EM_Win->MotionWin, MUIA_Window_ActiveObject, (IPTR)EM_Win->LS_List);
 
 /* Set list view to Motion list */
   Set_EM_List(0);
@@ -762,7 +762,7 @@ void Handle_EM_Window(ULONG WCS_ID)
      PAR_FIRST_MOTION(item[i]) = value;
      boundscheck(item[i]);
      sprintf(str, "%f", PAR_FIRST_MOTION(item[i]));
-     set(EM_Win->ValTxt[i], MUIA_String_Contents, (ULONG)str);
+     set(EM_Win->ValTxt[i], MUIA_String_Contents, (IPTR)str);
      set(EM_Win->ValTxt[i], MUIA_String_BufferPos, 0);
      Set_Radial_Txt(1);
      } /* if rectilinear motion */
@@ -801,10 +801,10 @@ void Handle_EM_Window(ULONG WCS_ID)
        } /* if map interactive */
       } /* else focus interactive group */
      sprintf(str, "%f", PAR_FIRST_MOTION(item[0]));
-     set(EM_Win->ValTxt[0], MUIA_String_Contents, (ULONG)str);
+     set(EM_Win->ValTxt[0], MUIA_String_Contents, (IPTR)str);
      set(EM_Win->ValTxt[0], MUIA_String_BufferPos, 0);
      sprintf(str, "%f", PAR_FIRST_MOTION(item[1]));
-     set(EM_Win->ValTxt[1], MUIA_String_Contents, (ULONG)str);
+     set(EM_Win->ValTxt[1], MUIA_String_Contents, (IPTR)str);
      set(EM_Win->ValTxt[1], MUIA_String_BufferPos, 0);
      Set_Radial_Txt(1);
      } /* else radial motion */
@@ -871,7 +871,7 @@ void Handle_EM_Window(ULONG WCS_ID)
         {
         EMTL_Win->ActiveKey = GetActiveKey(SKT[0], EM_Win->Frame);
         sprintf(str, "%d", EM_Win->Frame);
-        set(EMTL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
+        set(EMTL_Win->FrameTxt, MUIA_Text_Contents, (IPTR)str);
         MUI_Redraw(EMTL_Win->TimeLineObj[0], MADF_DRAWUPDATE);
 	} /* if key frame */
        } /* if time line window open */
@@ -919,7 +919,7 @@ void Handle_EM_Window(ULONG WCS_ID)
        PAR_FIRST_MOTION(item[i]) -= incr[i];
       }
      sprintf(str, "%f", PAR_FIRST_MOTION(item[i]));
-     set(EM_Win->ValTxt[i], MUIA_String_Contents, (ULONG)str);
+     set(EM_Win->ValTxt[i], MUIA_String_Contents, (IPTR)str);
      set(EM_Win->ValTxt[i], MUIA_String_BufferPos, 0);
      Set_Radial_Txt(1);
      } /* if rectilinear motion */
@@ -938,10 +938,10 @@ void Handle_EM_Window(ULONG WCS_ID)
       else modifyfocpt(0, 1, SELECTDOWN);
       }
      sprintf(str, "%f", PAR_FIRST_MOTION(item[0]));
-     set(EM_Win->ValTxt[0], MUIA_String_Contents, (ULONG)str);
+     set(EM_Win->ValTxt[0], MUIA_String_Contents, (IPTR)str);
      set(EM_Win->ValTxt[0], MUIA_String_BufferPos, 0);
      sprintf(str, "%f", PAR_FIRST_MOTION(item[1]));
-     set(EM_Win->ValTxt[1], MUIA_String_Contents, (ULONG)str);
+     set(EM_Win->ValTxt[1], MUIA_String_Contents, (IPTR)str);
      set(EM_Win->ValTxt[1], MUIA_String_BufferPos, 0);
      Set_Radial_Txt(1);
      } /* else radial motion */
@@ -965,7 +965,7 @@ void Handle_EM_Window(ULONG WCS_ID)
        PAR_FIRST_MOTION(item[i]) += incr[i];
       }
      sprintf(str, "%f", PAR_FIRST_MOTION(item[i]));
-     set(EM_Win->ValTxt[i], MUIA_String_Contents, (ULONG)str);
+     set(EM_Win->ValTxt[i], MUIA_String_Contents, (IPTR)str);
      set(EM_Win->ValTxt[i], MUIA_String_BufferPos, 0);
      Set_Radial_Txt(1);
      } /* if rectilinear motion */
@@ -984,10 +984,10 @@ void Handle_EM_Window(ULONG WCS_ID)
       else modifyfocpt(0, -1, SELECTDOWN);
       }
      sprintf(str, "%f", PAR_FIRST_MOTION(item[0]));
-     set(EM_Win->ValTxt[0], MUIA_String_Contents, (ULONG)str);
+     set(EM_Win->ValTxt[0], MUIA_String_Contents, (IPTR)str);
      set(EM_Win->ValTxt[0], MUIA_String_BufferPos, 0);
      sprintf(str, "%f", PAR_FIRST_MOTION(item[1]));
-     set(EM_Win->ValTxt[1], MUIA_String_Contents, (ULONG)str);
+     set(EM_Win->ValTxt[1], MUIA_String_Contents, (IPTR)str);
      set(EM_Win->ValTxt[1], MUIA_String_BufferPos, 0);
      Set_Radial_Txt(1);
      } /* else radial motion */
@@ -1031,54 +1031,54 @@ void Set_EM_Item(short i)
 /* set values in interactive group texts */
  if (incr[0] == 0.0)
   {
-  set(EM_Win->ParTxt[0], MUIA_Text_Contents, (ULONG)"\0");
+  set(EM_Win->ParTxt[0], MUIA_Text_Contents, (IPTR)"\0");
   sprintf(str, "%f", PAR_FIRST_MOTION(item[1]));
-  set(EM_Win->ValTxt[0], MUIA_String_Contents, (ULONG)"\0");
+  set(EM_Win->ValTxt[0], MUIA_String_Contents, (IPTR)"\0");
   set(EM_Win->ValTxt[0], MUIA_String_BufferPos, 0);
   set(EM_Win->L_IAArrow[0], MUIA_Disabled, TRUE);
   set(EM_Win->R_IAArrow[0], MUIA_Disabled, TRUE);
   }
  else
   {
-  set(EM_Win->ParTxt[0], MUIA_Text_Contents, (ULONG)varname[item[0]]);
+  set(EM_Win->ParTxt[0], MUIA_Text_Contents, (IPTR)varname[item[0]]);
   sprintf(str, "%f", PAR_FIRST_MOTION(item[0]));
-  set(EM_Win->ValTxt[0], MUIA_String_Contents, (ULONG)str);
+  set(EM_Win->ValTxt[0], MUIA_String_Contents, (IPTR)str);
   set(EM_Win->ValTxt[0], MUIA_String_BufferPos, 0);
   set(EM_Win->L_IAArrow[0], MUIA_Disabled, FALSE);
   set(EM_Win->R_IAArrow[0], MUIA_Disabled, FALSE);
   } /* else */
  if (incr[1] == 0.0)
   {
-  set(EM_Win->ParTxt[1], MUIA_Text_Contents, (ULONG)"\0");
+  set(EM_Win->ParTxt[1], MUIA_Text_Contents, (IPTR)"\0");
   sprintf(str, "%f", PAR_FIRST_MOTION(item[1]));
-  set(EM_Win->ValTxt[1], MUIA_String_Contents, (ULONG)"\0");
+  set(EM_Win->ValTxt[1], MUIA_String_Contents, (IPTR)"\0");
   set(EM_Win->ValTxt[1], MUIA_String_BufferPos, 0);
   set(EM_Win->L_IAArrow[1], MUIA_Disabled, TRUE);
   set(EM_Win->R_IAArrow[1], MUIA_Disabled, TRUE);
   } /* if only one item active */
  else
   {
-  set(EM_Win->ParTxt[1], MUIA_Text_Contents, (ULONG)varname[item[1]]);
+  set(EM_Win->ParTxt[1], MUIA_Text_Contents, (IPTR)varname[item[1]]);
   sprintf(str, "%f", PAR_FIRST_MOTION(item[1]));
-  set(EM_Win->ValTxt[1], MUIA_String_Contents, (ULONG)str);
+  set(EM_Win->ValTxt[1], MUIA_String_Contents, (IPTR)str);
   set(EM_Win->ValTxt[1], MUIA_String_BufferPos, 0);
   set(EM_Win->L_IAArrow[1], MUIA_Disabled, FALSE);
   set(EM_Win->R_IAArrow[1], MUIA_Disabled, FALSE);
   } /* else */
  if (incr[2] == 0.0)
   {
-  set(EM_Win->ParTxt[2], MUIA_Text_Contents, (ULONG)"\0");
+  set(EM_Win->ParTxt[2], MUIA_Text_Contents, (IPTR)"\0");
   sprintf(str, "%f", PAR_FIRST_MOTION(item[2]));
-  set(EM_Win->ValTxt[2], MUIA_String_Contents, (ULONG)"\0");
+  set(EM_Win->ValTxt[2], MUIA_String_Contents, (IPTR)"\0");
   set(EM_Win->ValTxt[2], MUIA_String_BufferPos, 0);
   set(EM_Win->L_IAArrow[2], MUIA_Disabled, TRUE);
   set(EM_Win->R_IAArrow[2], MUIA_Disabled, TRUE);
   } /* if */
  else
   {
-  set(EM_Win->ParTxt[2], MUIA_Text_Contents, (ULONG)varname[item[2]]);
+  set(EM_Win->ParTxt[2], MUIA_Text_Contents, (IPTR)varname[item[2]]);
   sprintf(str, "%f", PAR_FIRST_MOTION(item[2]));
-  set(EM_Win->ValTxt[2], MUIA_String_Contents, (ULONG)str);
+  set(EM_Win->ValTxt[2], MUIA_String_Contents, (IPTR)str);
   set(EM_Win->ValTxt[2], MUIA_String_BufferPos, 0);
   set(EM_Win->L_IAArrow[2], MUIA_Disabled, FALSE);
   set(EM_Win->R_IAArrow[2], MUIA_Disabled, FALSE);
@@ -1117,28 +1117,28 @@ void Update_EM_Item(void)
  if (incr[0] != 0.0)
   {
   sprintf(str, "%f", PAR_FIRST_MOTION(item[0]));
-  set(EM_Win->ValTxt[0], MUIA_String_Contents, (ULONG)str);
+  set(EM_Win->ValTxt[0], MUIA_String_Contents, (IPTR)str);
   set(EM_Win->ValTxt[0], MUIA_String_BufferPos, 0);
   } /* if incr[0] */
  if (incr[1] != 0.0)
   {
   sprintf(str, "%f", PAR_FIRST_MOTION(item[1]));
-  set(EM_Win->ValTxt[1], MUIA_String_Contents, (ULONG)str);
+  set(EM_Win->ValTxt[1], MUIA_String_Contents, (IPTR)str);
   set(EM_Win->ValTxt[1], MUIA_String_BufferPos, 0);
   } /* if incr[1] */
  if (incr[2] != 0.0)
   {
   sprintf(str, "%f", PAR_FIRST_MOTION(item[2]));
-  set(EM_Win->ValTxt[2], MUIA_String_Contents, (ULONG)str);
+  set(EM_Win->ValTxt[2], MUIA_String_Contents, (IPTR)str);
   set(EM_Win->ValTxt[2], MUIA_String_BufferPos, 0);
   } /* if incr[2] */
 
 /* update radial text */
  sprintf(str, "%f", azimuth * PiUnder180);
- set(EM_Win->ValTxt[3], MUIA_String_Contents, (ULONG)str);
+ set(EM_Win->ValTxt[3], MUIA_String_Contents, (IPTR)str);
  set(EM_Win->ValTxt[3], MUIA_String_BufferPos, 0);
  sprintf(str, "%f", focdist);
- set(EM_Win->ValTxt[4], MUIA_String_Contents, (ULONG)str);
+ set(EM_Win->ValTxt[4], MUIA_String_Contents, (IPTR)str);
  set(EM_Win->ValTxt[4], MUIA_String_BufferPos, 0);
 
  Update_EMTL_Item();
@@ -1176,10 +1176,10 @@ void Set_Radial_Txt(short drawIA)
   ShowView_Map(&cb);
   } /* if map interactive */
  sprintf(str, "%f", azimuth * PiUnder180);
- set(EM_Win->ValTxt[3], MUIA_String_Contents, (ULONG)str);
+ set(EM_Win->ValTxt[3], MUIA_String_Contents, (IPTR)str);
  set(EM_Win->ValTxt[3], MUIA_String_BufferPos, 0);
  sprintf(str, "%f", focdist);
- set(EM_Win->ValTxt[4], MUIA_String_Contents, (ULONG)str);
+ set(EM_Win->ValTxt[4], MUIA_String_Contents, (IPTR)str);
  set(EM_Win->ValTxt[4], MUIA_String_BufferPos, 0);
 
  Update_EMTL_Item();
@@ -1202,7 +1202,7 @@ STATIC_FCN void Update_EMTL_Item(void) // used locally only -> static, AF 19.7.2
    else if (EMTL_Win->KeyItem == item[2])
     sprintf(str, "%f", PAR_FIRST_MOTION(item[2]));
    if ((EM_Win->NextKey >= 0 || EM_Win->PrevKey >= 0) && (EM_Win->IsKey >= 0))
-    set(EMTL_Win->ValStr[0], MUIA_String_Contents, (ULONG)str);
+    set(EMTL_Win->ValStr[0], MUIA_String_Contents, (IPTR)str);
    } /* if */
   } /* if time lines open */
 
@@ -2078,7 +2078,7 @@ void Make_EMPL_Window(void)
     app, 2, MUIM_Application_ReturnID, ID_EMPL_LIST);
 
 /* Set active gadget */
-  set(EMPL_Win->ParListWin, MUIA_Window_ActiveObject, (ULONG)EMPL_Win->LS_List);
+  set(EMPL_Win->ParListWin, MUIA_Window_ActiveObject, (IPTR)EMPL_Win->LS_List);
 
 /* Set list view to ParList list */
   DoMethod(EMPL_Win->LS_List,

@@ -1718,7 +1718,7 @@ void Play_Motion(struct RenderAnim *RA)
    if (EMTL_Win)
     {
     sprintf(str, "%1d", frame);
-    set(EMTL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
+    set(EMTL_Win->FrameTxt, MUIA_Text_Contents, (IPTR)str);
     if ((InputID = CheckInput_ID()) == ID_EMTL_PLAY) break;
     } /* check for stop */
    if (RA)

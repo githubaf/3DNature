@@ -347,9 +347,9 @@ if ((This = (struct BusyWindow *)get_Memory(sizeof(struct BusyWindow), MEMF_CLEA
 	  {
 	  if(This->StartSeconds)
 	  	{
-	  	set(This->BW_Remain, MUIA_Text_Contents, (ULONG)"00:00:00");
-	  	set(This->BW_Elapse, MUIA_Text_Contents, (ULONG)"00:00:00");
-	  	set(This->BW_Percent, MUIA_Gauge_InfoText, (ULONG)"\33c\033200:00:00");
+	  	set(This->BW_Remain, MUIA_Text_Contents, (IPTR)"00:00:00");
+	  	set(This->BW_Elapse, MUIA_Text_Contents, (IPTR)"00:00:00");
+	  	set(This->BW_Percent, MUIA_Gauge_InfoText, (IPTR)"\33c\033200:00:00");
 	  	} /* if */
 	  DoMethod(app, OM_ADDMEMBER, This->BusyWin);
 #ifdef WCS_MUI_2_HACK
@@ -444,9 +444,9 @@ if(This)
 			} /* if */
 		sprintf(PWDate, "%02d:%02d:%02d", ElapHrs, ElapMin, ElapSec); /* Elapsed */
 		sprintf(Today, "%02d:%02d:%02d", RemHrs, RemMin, RemSec); /* Remaining */
-		set(This->BW_Percent, MUIA_Gauge_InfoText, (ULONG)ProjDate);
-		set(This->BW_Elapse, MUIA_Text_Contents, (ULONG)PWDate);
-		set(This->BW_Remain, MUIA_Text_Contents, (ULONG)Today);
+		set(This->BW_Percent, MUIA_Gauge_InfoText, (IPTR)ProjDate);
+		set(This->BW_Elapse, MUIA_Text_Contents, (IPTR)PWDate);
+		set(This->BW_Remain, MUIA_Text_Contents, (IPTR)Today);
 		} /* if */
 	} /* if */
 

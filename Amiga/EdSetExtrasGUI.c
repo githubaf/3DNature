@@ -13,20 +13,20 @@ void Set_ES_Window(void)
 {
 
 /* Put values in strings */
-  set(ES_Win->Str[0], MUIA_String_Contents, (ULONG)framepath); /* frame path */
-  set(ES_Win->Str[1], MUIA_String_Contents, (ULONG)linepath); /* vector path */
-  set(ES_Win->Str[2], MUIA_String_Contents, (ULONG)backgroundpath); /* background path */
-  set(ES_Win->Str[3], MUIA_String_Contents, (ULONG)zbufferpath); /* z buffer path */
-  set(ES_Win->Str[4], MUIA_String_Contents, (ULONG)colormappath); /* cmap path */
-  set(ES_Win->Str[5], MUIA_String_Contents, (ULONG)backgroundfile); /* background file */
-  set(ES_Win->Str[6], MUIA_String_Contents, (ULONG)zbufferfile); /* z buffer file */
-  set(ES_Win->Str[7], MUIA_String_Contents, (ULONG)temppath); /* temp path */
-  set(ES_Win->Str[8], MUIA_String_Contents, (ULONG)framefile); /* frame file */
-  set(ES_Win->Str[10], MUIA_String_Contents, (ULONG)linefile); /* vector file */
-  set(ES_Win->Str[11], MUIA_String_Contents, (ULONG)modelpath); /* forest model path */
-  set(ES_Win->Str[12], MUIA_String_Contents, (ULONG)colormapfile); /* cmap file */
-  set(ES_Win->Str[13], MUIA_String_Contents, (ULONG)deformpath); /* strata deformation map path */
-  set(ES_Win->Str[14], MUIA_String_Contents, (ULONG)deformfile); /* strata deformation map file */
+  set(ES_Win->Str[0], MUIA_String_Contents, (IPTR)framepath); /* frame path */
+  set(ES_Win->Str[1], MUIA_String_Contents, (IPTR)linepath); /* vector path */
+  set(ES_Win->Str[2], MUIA_String_Contents, (IPTR)backgroundpath); /* background path */
+  set(ES_Win->Str[3], MUIA_String_Contents, (IPTR)zbufferpath); /* z buffer path */
+  set(ES_Win->Str[4], MUIA_String_Contents, (IPTR)colormappath); /* cmap path */
+  set(ES_Win->Str[5], MUIA_String_Contents, (IPTR)backgroundfile); /* background file */
+  set(ES_Win->Str[6], MUIA_String_Contents, (IPTR)zbufferfile); /* z buffer file */
+  set(ES_Win->Str[7], MUIA_String_Contents, (IPTR)temppath); /* temp path */
+  set(ES_Win->Str[8], MUIA_String_Contents, (IPTR)framefile); /* frame file */
+  set(ES_Win->Str[10], MUIA_String_Contents, (IPTR)linefile); /* vector file */
+  set(ES_Win->Str[11], MUIA_String_Contents, (IPTR)modelpath); /* forest model path */
+  set(ES_Win->Str[12], MUIA_String_Contents, (IPTR)colormapfile); /* cmap file */
+  set(ES_Win->Str[13], MUIA_String_Contents, (IPTR)deformpath); /* strata deformation map path */
+  set(ES_Win->Str[14], MUIA_String_Contents, (IPTR)deformfile); /* strata deformation map file */
 
   set(ES_Win->IntStr[0], MUIA_String_Integer, settings.startframe); /* start frame */
   set(ES_Win->IntStr[1], MUIA_String_Integer, settings.maxframes); /* end frame */
@@ -126,7 +126,7 @@ void Set_ES_Window(void)
   set(ES_Win->Cycle[50], MUIA_Cycle_Active, settings.moonhalo); /* Moon Halo */
 
 /* set text items */
-  set(ES_Win->Txt[0], MUIA_Text_Contents, (ULONG)PAR_NAME_ECO(settings.defaulteco)); /* Default Ecosystem */
+  set(ES_Win->Txt[0], MUIA_Text_Contents, (IPTR)PAR_NAME_ECO(settings.defaulteco)); /* Default Ecosystem */
 
 /* disable gadgets */
   Disable_ES_Window();
@@ -522,7 +522,7 @@ long Size, BMapSize, ZBufSize, QCBufSize, TotalUse = 0, MaxUse = 0, TempUse,
   sprintf(UseStr, "%ld", MaxUse);
  strcat(str, UseStr);
 
- set(ES_Win->UseTxt, MUIA_Text_Contents, (ULONG)str);
+ set(ES_Win->UseTxt, MUIA_Text_Contents, (IPTR)str);
 
 } /* SetMemoryReqTxt() */
 
@@ -562,40 +562,40 @@ long IntRenderTime;
 void Set_PJ_Window(void)
 {
 
- nnset(PJ_Win->Str[0], MUIA_String_Contents, (ULONG)projectpath);
- nnset(PJ_Win->Str[1], MUIA_String_Contents, (ULONG)projectname);
- nnset(PJ_Win->Str[2], MUIA_String_Contents, (ULONG)dbasepath);
- nnset(PJ_Win->Str[3], MUIA_String_Contents, (ULONG)dbasename);
- nnset(PJ_Win->Str[4], MUIA_String_Contents, (ULONG)parampath);
- nnset(PJ_Win->Str[5], MUIA_String_Contents, (ULONG)paramfile);
- nnset(PJ_Win->Str[6], MUIA_String_Contents, (ULONG)framepath);
- nnset(PJ_Win->Str[7], MUIA_String_Contents, (ULONG)framefile);
- nnset(PJ_Win->Str[8], MUIA_String_Contents, (ULONG)temppath);
- nnset(PJ_Win->Str[9], MUIA_String_Contents, (ULONG)colormapfile);
- nnset(PJ_Win->Str[10], MUIA_String_Contents, (ULONG)linepath);
- nnset(PJ_Win->Str[11], MUIA_String_Contents, (ULONG)linefile);
- nnset(PJ_Win->Str[12], MUIA_String_Contents, (ULONG)zbufferpath);
- nnset(PJ_Win->Str[13], MUIA_String_Contents, (ULONG)zbufferfile);
- nnset(PJ_Win->Str[14], MUIA_String_Contents, (ULONG)backgroundpath);
- nnset(PJ_Win->Str[15], MUIA_String_Contents, (ULONG)backgroundfile);
- nnset(PJ_Win->Str[16], MUIA_String_Contents, (ULONG)graphpath);
- nnset(PJ_Win->Str[17], MUIA_String_Contents, (ULONG)graphname);
- nnset(PJ_Win->Str[18], MUIA_String_Contents, (ULONG)colormappath);
- nnset(PJ_Win->Str[19], MUIA_String_Contents, (ULONG)modelpath);
- nnset(PJ_Win->Str[20], MUIA_String_Contents, (ULONG)dirname);
- nnset(PJ_Win->Str[21], MUIA_String_Contents, (ULONG)cloudpath);
- nnset(PJ_Win->Str[22], MUIA_String_Contents, (ULONG)cloudfile);
- nnset(PJ_Win->Str[23], MUIA_String_Contents, (ULONG)wavepath);
- nnset(PJ_Win->Str[24], MUIA_String_Contents, (ULONG)wavefile);
- nnset(PJ_Win->Str[25], MUIA_String_Contents, (ULONG)deformpath);
- nnset(PJ_Win->Str[26], MUIA_String_Contents, (ULONG)deformfile);
- nnset(PJ_Win->Str[27], MUIA_String_Contents, (ULONG)imagepath);
- nnset(PJ_Win->Str[27], MUIA_String_Contents, (ULONG)imagepath);
- nnset(PJ_Win->Str[28], MUIA_String_Contents, (ULONG)sunfile);
- nnset(PJ_Win->Str[27], MUIA_String_Contents, (ULONG)imagepath);
- nnset(PJ_Win->Str[29], MUIA_String_Contents, (ULONG)moonfile);
- nnset(PJ_Win->Str[30], MUIA_String_Contents, (ULONG)pcprojectpath);
- nnset(PJ_Win->Str[31], MUIA_String_Contents, (ULONG)pcframespath);
+ nnset(PJ_Win->Str[0], MUIA_String_Contents, (IPTR)projectpath);
+ nnset(PJ_Win->Str[1], MUIA_String_Contents, (IPTR)projectname);
+ nnset(PJ_Win->Str[2], MUIA_String_Contents, (IPTR)dbasepath);
+ nnset(PJ_Win->Str[3], MUIA_String_Contents, (IPTR)dbasename);
+ nnset(PJ_Win->Str[4], MUIA_String_Contents, (IPTR)parampath);
+ nnset(PJ_Win->Str[5], MUIA_String_Contents, (IPTR)paramfile);
+ nnset(PJ_Win->Str[6], MUIA_String_Contents, (IPTR)framepath);
+ nnset(PJ_Win->Str[7], MUIA_String_Contents, (IPTR)framefile);
+ nnset(PJ_Win->Str[8], MUIA_String_Contents, (IPTR)temppath);
+ nnset(PJ_Win->Str[9], MUIA_String_Contents, (IPTR)colormapfile);
+ nnset(PJ_Win->Str[10], MUIA_String_Contents, (IPTR)linepath);
+ nnset(PJ_Win->Str[11], MUIA_String_Contents, (IPTR)linefile);
+ nnset(PJ_Win->Str[12], MUIA_String_Contents, (IPTR)zbufferpath);
+ nnset(PJ_Win->Str[13], MUIA_String_Contents, (IPTR)zbufferfile);
+ nnset(PJ_Win->Str[14], MUIA_String_Contents, (IPTR)backgroundpath);
+ nnset(PJ_Win->Str[15], MUIA_String_Contents, (IPTR)backgroundfile);
+ nnset(PJ_Win->Str[16], MUIA_String_Contents, (IPTR)graphpath);
+ nnset(PJ_Win->Str[17], MUIA_String_Contents, (IPTR)graphname);
+ nnset(PJ_Win->Str[18], MUIA_String_Contents, (IPTR)colormappath);
+ nnset(PJ_Win->Str[19], MUIA_String_Contents, (IPTR)modelpath);
+ nnset(PJ_Win->Str[20], MUIA_String_Contents, (IPTR)dirname);
+ nnset(PJ_Win->Str[21], MUIA_String_Contents, (IPTR)cloudpath);
+ nnset(PJ_Win->Str[22], MUIA_String_Contents, (IPTR)cloudfile);
+ nnset(PJ_Win->Str[23], MUIA_String_Contents, (IPTR)wavepath);
+ nnset(PJ_Win->Str[24], MUIA_String_Contents, (IPTR)wavefile);
+ nnset(PJ_Win->Str[25], MUIA_String_Contents, (IPTR)deformpath);
+ nnset(PJ_Win->Str[26], MUIA_String_Contents, (IPTR)deformfile);
+ nnset(PJ_Win->Str[27], MUIA_String_Contents, (IPTR)imagepath);
+ nnset(PJ_Win->Str[27], MUIA_String_Contents, (IPTR)imagepath);
+ nnset(PJ_Win->Str[28], MUIA_String_Contents, (IPTR)sunfile);
+ nnset(PJ_Win->Str[27], MUIA_String_Contents, (IPTR)imagepath);
+ nnset(PJ_Win->Str[29], MUIA_String_Contents, (IPTR)moonfile);
+ nnset(PJ_Win->Str[30], MUIA_String_Contents, (IPTR)pcprojectpath);
+ nnset(PJ_Win->Str[31], MUIA_String_Contents, (IPTR)pcframespath);
 
 } /* Set_PJ_Window() */
 

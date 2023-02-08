@@ -2140,3 +2140,17 @@ x86_64-aros-strip --strip-unneeded -R.comment
 
 * Die 32bit-Versionen von WCS (unstripped unf stripped) funktionieren unter 32Bit-Aros.
 * Die 64bit-Versionen von WCS sind angeblich nicht ausfuehrbar!?
+
+-> Laut Deadw00d soll ich -fno-common beim Compilieren mit angeben. -> Ja, dann geht es. Warum? app wird nur einmal in main anelegt. Wenn man app in WCS.c anlegt UND dabei auf NULL setzt, ist der Fehler weg und er meckert wegen dem naechsten globalen Ding. -> ich mache bei AROS -fno-common und lassen den Quellcode unveraendert.
+
+-> 32 Bit Version funktioniert, 64 Bit Version stuerzt an, sobald man etwas mit MUI macht.
+Krzysztof sagt:
+BTW, if your software has never been compiled for 64-bit and it is a MUI software, you need to change your ULONG variables used for getting attributes to IPTRs. IPTR is "integer large enough to hold a pointer" and this is what AROS MUI expects (on both 32 and 64 platforms. On 32-bit IPTR = ULONG, on 64-bit IPTR = UQUAD)
+
+Also bei den set() Funktionen nicht auf (ULONG) casen sonder auf (IPTR)
+
+Das ist ein Job fuer sed
+#im Source-Verzeichnis
+sed -i -E "s/(set.+)ULONG(.+)/\1IPTR\2/" *.c
+
+

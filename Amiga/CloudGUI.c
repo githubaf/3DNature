@@ -496,7 +496,7 @@ double FloatVal;
        {
        CL_Win->CD->WD->NumWaves = WaveNum;
        sprintf(TextStr, "%d", WaveNum);
-       set(CL_Win->Text, MUIA_Text_Contents, (ULONG)TextStr);
+       set(CL_Win->Text, MUIA_Text_Contents, (IPTR)TextStr);
        CL_Win->Mod = CL_Win->ReGen = 1;
        if (WVWin[1])
         {
@@ -866,7 +866,7 @@ double FloatVal;
       {
       CL_Win->TL->ActiveKey = GetActiveGenericKey(CL_Win->TL->SKT, CL_Win->WKS.Frame);
       sprintf(str, "%d", CL_Win->WKS.Frame);
-      set(CL_Win->TL->FrameTxt, MUIA_Text_Contents, (ULONG)str);
+      set(CL_Win->TL->FrameTxt, MUIA_Text_Contents, (IPTR)str);
       TL_Redraw(CL_Win->TL);
       }/* if key frame */
      } /* if time line window open */
@@ -1433,7 +1433,7 @@ char TextStr[32];
  {
      sprintf(TextStr,"0");
  }
- set(CL_Win->Text, MUIA_Text_Contents, (ULONG)TextStr);
+ set(CL_Win->Text, MUIA_Text_Contents, (IPTR)TextStr);
 
  nnset(CL_Win->IntStr[0], MUIA_String_Integer, CloudData_GetLong(CD, CLOUDDATA_RANDSEED));
  nnset(CL_Win->CloudStr[0], MUIA_String_Integer, CloudData_GetLong(CD, CLOUDDATA_ROWS));

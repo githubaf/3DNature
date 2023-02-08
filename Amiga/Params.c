@@ -1819,7 +1819,7 @@ void Play_Colors(void)
    Pal.blu = SKT[1]->Val[2][frame];
    SetScreen_8(&Pal);
    sprintf(str, "%1d", frame);
-   set(ECTL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
+   set(ECTL_Win->FrameTxt, MUIA_Text_Contents, (IPTR)str);
    Delay(1);
    if ((InputID = CheckInput_ID()) == ID_ECTL_PLAY) break;
    } /* for frame=1... */

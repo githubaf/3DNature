@@ -519,7 +519,7 @@ void Make_DC_Window(void)
   DC_Win->ConvertWin, 3, MUIM_Set, MUIA_Window_ActiveObject, DC_Win->FormatIntStr[2]); 
 
 /* set active gadget */
- set(DC_Win->ConvertWin, MUIA_Window_ActiveObject, (ULONG)DC_Win->Cycle[0]); 
+ set(DC_Win->ConvertWin, MUIA_Window_ActiveObject, (IPTR)DC_Win->Cycle[0]); 
 
  strcpy(DC_Win->InPath, dirname);
 
@@ -609,8 +609,8 @@ void Handle_DC_Window(ULONG WCS_ID)
       get(DC_Win->DBaseNameStr, MUIA_String_Contents, &CurStr);
       strcpy(filename, CurStr);
       getfilename(1, "Output Directory", dirpath, filename);
-      set(DC_Win->OutDirStr, MUIA_String_Contents, (ULONG)dirpath);
-      set(DC_Win->DBaseNameStr, MUIA_String_Contents, (ULONG)filename);
+      set(DC_Win->OutDirStr, MUIA_String_Contents, (IPTR)dirpath);
+      set(DC_Win->DBaseNameStr, MUIA_String_Contents, (IPTR)filename);
       break;
       } /* check file size DEM */
      case ID_DC_TEST:
@@ -631,7 +631,7 @@ void Handle_DC_Window(ULONG WCS_ID)
        else
         sprintf(str, "%1.1lE", DC_Win->DEMData->MaxMin[0]);
        }
-      set(DC_Win->MinValTxt, MUIA_Text_Contents, (ULONG)str);
+      set(DC_Win->MinValTxt, MUIA_Text_Contents, (IPTR)str);
       if (fabs(DC_Win->DEMData->MaxMin[1]) < 9999.9)
        sprintf(str, "%f", DC_Win->DEMData->MaxMin[1]);
       else
@@ -641,7 +641,7 @@ void Handle_DC_Window(ULONG WCS_ID)
        else
         sprintf(str, "%1.1lE", DC_Win->DEMData->MaxMin[1]);
        }
-      set(DC_Win->MaxValTxt, MUIA_Text_Contents, (ULONG)str);
+      set(DC_Win->MaxValTxt, MUIA_Text_Contents, (IPTR)str);
       break;
       } /* convert DEM */
      case ID_DC_CONVERT:
@@ -716,9 +716,9 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
   } /* if file size read fail */
  else
   {
-  set(DC_Win->FileNameStr, MUIA_String_Contents, (ULONG)filename);
+  set(DC_Win->FileNameStr, MUIA_String_Contents, (IPTR)filename);
   sprintf(str, "%ld", filesize);
-  set(DC_Win->FileSizeTxt, MUIA_Text_Contents, (ULONG)str);
+  set(DC_Win->FileSizeTxt, MUIA_Text_Contents, (IPTR)str);
   } /* else file size read OK */
 
  get(DC_Win->Cycle[0], MUIA_Cycle_Active, &data);
@@ -925,14 +925,14 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
      sprintf(str, "%1.2lE", ZBHdr.Min);
     else
      sprintf(str, "%1.1lE", ZBHdr.Min);
-    set(DC_Win->MinValTxt, MUIA_Text_Contents, (ULONG)str);
+    set(DC_Win->MinValTxt, MUIA_Text_Contents, (IPTR)str);
     if (fabs(ZBHdr.Max) < 9999.9)
      sprintf(str, "%f", ZBHdr.Max);
     else if (ZBHdr.Max > 0.0)
      sprintf(str, "%1.2lE", ZBHdr.Max);
     else
      sprintf(str, "%1.1lE", ZBHdr.Max);
-    set(DC_Win->MaxValTxt, MUIA_Text_Contents, (ULONG)str);
+    set(DC_Win->MaxValTxt, MUIA_Text_Contents, (IPTR)str);
     }
    else
     {
@@ -991,13 +991,13 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
      DataPts = 514;
      break;
     }
-   set(DC_Win->DBaseNameStr, MUIA_String_Contents, (ULONG)name);
+   set(DC_Win->DBaseNameStr, MUIA_String_Contents, (IPTR)name);
    set(DC_Win->FormatIntStr[2], MUIA_String_Integer, DataPts);
    set(DC_Win->FormatIntStr[1], MUIA_String_Integer, DataPts);
-   set(DC_Win->LatScaleStr[0], MUIA_String_Contents, (ULONG)LatStr);
-   set(DC_Win->LatScaleStr[1], MUIA_String_Contents, (ULONG)"0.0");
-   set(DC_Win->LatScaleStr[2], MUIA_String_Contents, (ULONG)LonStr);
-   set(DC_Win->LatScaleStr[3], MUIA_String_Contents, (ULONG)"180.0");
+   set(DC_Win->LatScaleStr[0], MUIA_String_Contents, (IPTR)LatStr);
+   set(DC_Win->LatScaleStr[1], MUIA_String_Contents, (IPTR)"0.0");
+   set(DC_Win->LatScaleStr[2], MUIA_String_Contents, (IPTR)LonStr);
+   set(DC_Win->LatScaleStr[3], MUIA_String_Contents, (IPTR)"180.0");
    set(DC_Win->Cycle[3], MUIA_Cycle_Active, 1); /* value size */
    set(DC_Win->Cycle[2], MUIA_Cycle_Active, 0); /* value format */
    set(DC_Win->Cycle[4], MUIA_Cycle_Active, 0); /* value byte order */
@@ -1096,7 +1096,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     Coord = -Coord;
     }
    sprintf(str, "%f", Coord);
-   set(DC_Win->LatScaleStr[1], MUIA_String_Contents, (ULONG)str);
+   set(DC_Win->LatScaleStr[1], MUIA_String_Contents, (IPTR)str);
 
    read(fh, test, 8);
    test[8] = 0;
@@ -1106,7 +1106,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     Coord = -Coord;
     }
    sprintf(str, "%f", Coord);
-   set(DC_Win->LatScaleStr[2], MUIA_String_Contents, (ULONG)str);
+   set(DC_Win->LatScaleStr[2], MUIA_String_Contents, (IPTR)str);
 
    read(fh, test, 7);
    test[7] = 0;
@@ -1116,7 +1116,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     Coord = -Coord;
     }
    sprintf(str, "%f", Coord);
-   set(DC_Win->LatScaleStr[0], MUIA_String_Contents, (ULONG)str);
+   set(DC_Win->LatScaleStr[0], MUIA_String_Contents, (IPTR)str);
 
    lseek(fh, StartPt + 401, 0);
    read(fh, test, 8);
@@ -1127,15 +1127,15 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     Coord = -Coord;
     }
    sprintf(str, "%f", Coord);
-   set(DC_Win->LatScaleStr[3], MUIA_String_Contents, (ULONG)str);
+   set(DC_Win->LatScaleStr[3], MUIA_String_Contents, (IPTR)str);
 
    lseek(fh, StartPt + 441, 0);
    read(fh, test, 4);
    test[4] = 0;
-   set(DC_Win->FormatIntStr[1], MUIA_String_Contents, (ULONG)test);
+   set(DC_Win->FormatIntStr[1], MUIA_String_Contents, (IPTR)test);
 
    read(fh, test, 4);
-   set(DC_Win->FormatIntStr[2], MUIA_String_Contents, (ULONG)test);
+   set(DC_Win->FormatIntStr[2], MUIA_String_Contents, (IPTR)test);
    
    set(DC_Win->Cycle[3], MUIA_Cycle_Active, 1); /* value size */
    set(DC_Win->Cycle[2], MUIA_Cycle_Active, 0); /* value format */
@@ -1333,7 +1333,7 @@ void Make_DI_Window(void)
   DI_Win->InterpWin, 3, MUIM_Set, MUIA_Window_ActiveObject, DI_Win->ElVarStr); 
 
 /* set active gadget */
- set(DI_Win->InterpWin, MUIA_Window_ActiveObject, (ULONG)DI_Win->BT_GetFiles); 
+ set(DI_Win->InterpWin, MUIA_Window_ActiveObject, (IPTR)DI_Win->BT_GetFiles); 
  set(DI_Win->BT_Interpolate, MUIA_Disabled, TRUE);
 
  strcpy(DI_Win->DEMInterp->elevpath, dirname);
@@ -1425,13 +1425,13 @@ void Handle_DI_Window(ULONG WCS_ID)
         } /* if */
       if(!(DI_Win->DEMInterp->FrFile = getmultifilename("DEM Files", DI_Win->DEMInterp->elevpath, DI_Win->DEMInterp->elevfile, DI_Win->DEMInterp->pattern)))
        {
-       set(DI_Win->SumFilesTxt, MUIA_Text_Contents, (ULONG)"0");
+       set(DI_Win->SumFilesTxt, MUIA_Text_Contents, (IPTR)"0");
        set(DI_Win->BT_Interpolate, MUIA_Disabled, TRUE);
        break;
        }
-      set (DI_Win->DirTxt, MUIA_Text_Contents, (ULONG)DI_Win->DEMInterp->elevpath);
+      set (DI_Win->DirTxt, MUIA_Text_Contents, (IPTR)DI_Win->DEMInterp->elevpath);
       sprintf(str, "%1ld", DI_Win->DEMInterp->FrFile->rf_NumArgs);
-      set(DI_Win->SumFilesTxt, MUIA_Text_Contents, (ULONG)str);
+      set(DI_Win->SumFilesTxt, MUIA_Text_Contents, (IPTR)str);
       if (DI_Win->DEMInterp->FrFile->rf_NumArgs > 0)
        set(DI_Win->BT_Interpolate, MUIA_Disabled, FALSE);
       break;

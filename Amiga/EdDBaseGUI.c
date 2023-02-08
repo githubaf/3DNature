@@ -361,7 +361,7 @@ void Make_DE_Window(void)
 	DE_Win->BT_Load, DE_Win->BT_Append, DE_Win->BT_Create, NULL);
 
 /* Set active gadget */
-  set(DE_Win->DatabaseEditWin, MUIA_Window_DefaultObject, (ULONG)DE_Win->LS_List);
+  set(DE_Win->DatabaseEditWin, MUIA_Window_DefaultObject, (IPTR)DE_Win->LS_List);
 
 /* Create database list */
   Set_DE_List(0);
@@ -490,7 +490,7 @@ NewName:
        goto NewName;
        }
       strncpy(DBase[OBN].Name, str, length[0]);
-      set(DE_Win->Str[0], MUIA_Text_Contents, (ULONG)DBase[OBN].Name);
+      set(DE_Win->Str[0], MUIA_Text_Contents, (IPTR)DBase[OBN].Name);
 /* find old file directories */
       for (i=0; i<3; i++)
        {
@@ -880,7 +880,7 @@ NewName:
        DBase[OBN].Layer1[j] = toupper(DBase[OBN].Layer1[j]);
        j ++;
        } /* while */
-      set(DE_Win->Str[1], MUIA_String_Contents, (ULONG)DBase[OBN].Layer1);
+      set(DE_Win->Str[1], MUIA_String_Contents, (IPTR)DBase[OBN].Layer1);
       set(DE_Win->Str[1], MUIA_String_BufferPos, pos);
 
       if (! DE_Win->Block[1])
@@ -909,7 +909,7 @@ NewName:
        DBase[OBN].Layer2[j] = toupper(DBase[OBN].Layer2[j]);
        j ++;
        } /* while */
-      set(DE_Win->Str[2], MUIA_String_Contents, (ULONG)DBase[OBN].Layer2);
+      set(DE_Win->Str[2], MUIA_String_Contents, (IPTR)DBase[OBN].Layer2);
       set(DE_Win->Str[2], MUIA_String_BufferPos, pos);
 
       if (! DE_Win->Block[2])
@@ -931,7 +931,7 @@ NewName:
       {
       strncpy(DBase[OBN].Label, data, length[6]);
       while (strlen(DBase[OBN].Label) < length[6]) strcat(DBase[OBN].Label, " ");
-      set(DE_Win->Str[3], MUIA_String_Contents, (ULONG)DBase[OBN].Label);
+      set(DE_Win->Str[3], MUIA_String_Contents, (IPTR)DBase[OBN].Label);
       set(DE_Win->Str[3], MUIA_String_BufferPos, pos);
 
       if (! DE_Win->Block[3])
@@ -1392,10 +1392,10 @@ void Set_DE_Item(short item)
  set(DE_Win->IntStr[4], MUIA_String_Integer, DBase[item].Grn);
  set(DE_Win->IntStr[5], MUIA_String_Integer, DBase[item].Blu);
  set(DE_Win->IntStr[6], MUIA_String_Integer, DBase[item].MaxFract);
- set(DE_Win->Str[0], MUIA_Text_Contents, (ULONG)DBase[item].Name);
- set(DE_Win->Str[1], MUIA_String_Contents, (ULONG)DBase[item].Layer1);
- set(DE_Win->Str[2], MUIA_String_Contents, (ULONG)DBase[item].Layer2);
- set(DE_Win->Str[3], MUIA_String_Contents, (ULONG)DBase[item].Label);
+ set(DE_Win->Str[0], MUIA_Text_Contents, (IPTR)DBase[item].Name);
+ set(DE_Win->Str[1], MUIA_String_Contents, (IPTR)DBase[item].Layer1);
+ set(DE_Win->Str[2], MUIA_String_Contents, (IPTR)DBase[item].Layer2);
+ set(DE_Win->Str[3], MUIA_String_Contents, (IPTR)DBase[item].Label);
  switch (DBase[item].Pattern[0])
   {
   case 'P': data = 0; break;
@@ -1420,7 +1420,7 @@ void Set_DE_Item(short item)
  else						data = 2;
  set(DE_Win->CY_Spec, MUIA_Cycle_Active, data);
  sprintf(str, "%4d", DBase[item].Points);
- set(DE_Win->PointTxt, MUIA_Text_Contents, (ULONG)str);
+ set(DE_Win->PointTxt, MUIA_Text_Contents, (IPTR)str);
  set(DE_Win->Check, MUIA_Selected, (DBase[item].Mark[0] == 'Y'));
  SetRGB4(&WCSScrn->ViewPort, 8, 
 	((AltColors[DBase[item].Color] & 0xf00) / 256),
@@ -1711,7 +1711,7 @@ void Make_DL_Window(void)
 	DL_Win->BT_Cancel, NULL);
 
 /* Set active gadget */
-  set(DL_Win->DirListWin, MUIA_Window_ActiveObject, (ULONG)DL_Win->BT_Add);
+  set(DL_Win->DirListWin, MUIA_Window_ActiveObject, (IPTR)DL_Win->BT_Add);
 
 /* Create directory list */
   Set_DL_List(DL, 0, 0);
@@ -1858,7 +1858,7 @@ void Handle_DL_Window(ULONG WCS_ID)
       get(DL_Win->LS_List, MUIA_List_Active, &item);
       DLDef = DirList_Search(DL, (short)item);
       strcpy(dirname, DLDef->Name);
-      set(DL_Win->DefaultTxt, MUIA_Text_Contents, (ULONG)dirname);
+      set(DL_Win->DefaultTxt, MUIA_Text_Contents, (IPTR)dirname);
       DL_Win->Proj_Mod = 1;
       break;
       }
@@ -1881,7 +1881,7 @@ void Handle_DL_Window(ULONG WCS_ID)
       if (LoadDirList())
        {
        Set_DL_List(DL, 0, 0);
-       set(DL_Win->DefaultTxt, MUIA_Text_Contents, (ULONG)dirname);
+       set(DL_Win->DefaultTxt, MUIA_Text_Contents, (IPTR)dirname);
        }
       break;
       }
@@ -1965,7 +1965,7 @@ void Update_DL_Win(void)
 {
 
  Set_DL_List(DL, 0, -1);
- set(DL_Win->DefaultTxt, MUIA_Text_Contents, (ULONG)dirname);
+ set(DL_Win->DefaultTxt, MUIA_Text_Contents, (IPTR)dirname);
 
 } /* Update_DL_Win() */
 

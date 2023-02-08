@@ -354,7 +354,7 @@ void Make_EC_Window(void)
 	EC_Win->BT_Apply, EC_Win->BT_Cancel, NULL);
 
 /* Set active gadget */
-  set(EC_Win->EcoPalWin, MUIA_Window_ActiveObject, (ULONG)EC_Win->LS_List);
+  set(EC_Win->EcoPalWin, MUIA_Window_ActiveObject, (IPTR)EC_Win->LS_List);
 
 /* Create color list */
   Set_EC_List(0);
@@ -1021,7 +1021,7 @@ void Handle_EC_Window(ULONG WCS_ID)
         {
         ECTL_Win->ActiveKey = GetActiveKey(SKT[1], EC_Win->Frame);
         sprintf(str, "%d", EC_Win->Frame);
-        set(ECTL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
+        set(ECTL_Win->FrameTxt, MUIA_Text_Contents, (IPTR)str);
         MUI_Redraw(ECTL_Win->TimeLineObj[0], MADF_DRAWUPDATE);
 	} /* if key frame */
        } /* if time line window open */
@@ -1243,7 +1243,7 @@ STATIC_FCN void SetColorRequester(short row) // used locally only -> static, AF 
   Pal.red = PAR_FIRST_COLOR(EC_Win->PaI[row], 0);
   Pal.grn = PAR_FIRST_COLOR(EC_Win->PaI[row], 1);
   Pal.blu = PAR_FIRST_COLOR(EC_Win->PaI[row], 2);
-  set(EC_Win->Nme[row], MUIA_Text_Contents, (ULONG)EC_Win->Colorname[EC_Win->PaI[row]]);
+  set(EC_Win->Nme[row], MUIA_Text_Contents, (IPTR)EC_Win->Colorname[EC_Win->PaI[row]]);
 
   SetActiveColor(&Pal, row);
 
@@ -1374,7 +1374,7 @@ STATIC_FCN void Adjust_EcoPal(short i) // used locally only -> static, AF 20.7.2
 void Set_EC_Item(short item)
 {
 
- set(EC_Win->Str[5], MUIA_String_Contents, (ULONG)PAR_NAME_COLOR(item));
+ set(EC_Win->Str[5], MUIA_String_Contents, (IPTR)PAR_NAME_COLOR(item));
  set(EC_Win->Prop[0], MUIA_Prop_First, PAR_FIRST_COLOR(item, 0));
  set(EC_Win->Prop[1], MUIA_Prop_First, PAR_FIRST_COLOR(item, 1));
  set(EC_Win->Prop[2], MUIA_Prop_First, PAR_FIRST_COLOR(item, 2));

@@ -75,7 +75,7 @@ struct Window *FetchMultiWindowEvent(struct IntuiMessage *Event, ...)
 {
 va_list VarA;
 struct IntuiMessage *Brief = NULL;
-ULONG Signals = (ULONG)NULL;
+ULONG Signals = 0;
 struct Window *ThisWin = NULL;
 
 va_start(VarA, Event);
@@ -134,7 +134,7 @@ struct IntuiMessage *Brief;
 ** Do not try to access the IntuiMessage through it since the Message itself
 ** was destroyed by ReplyMsg.
 */
-  return ((ULONG)Brief);
+  return (Brief ? TRUE:FALSE);
 
 } /* QuickFetchEvent() */
 

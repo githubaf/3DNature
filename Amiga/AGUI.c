@@ -111,7 +111,7 @@ void Make_EP_Window(short hor_win)
   set(EP_Win->CY_Layout, MUIA_Cycle_Active, hor_win);
 
 /* Set active gadget */
-  set(EP_Win->EditWindow, MUIA_Window_ActiveObject, (ULONG)EP_Win->BT_EdMoPar);
+  set(EP_Win->EditWindow, MUIA_Window_ActiveObject, (IPTR)EP_Win->BT_EdMoPar);
 
 /* Open window */
   set(EP_Win->EditWindow, MUIA_Window_Open, TRUE);
@@ -567,7 +567,7 @@ void Make_DB_Window(short hor_win)
 
 /* Set active gadget */
   set(DB_Win->DatabaseWindow, MUIA_Window_ActiveObject,
-		(ULONG)(dbaseloaded ? DB_Win->BT_Edit: DB_Win->BT_Load));
+		(IPTR)(dbaseloaded ? DB_Win->BT_Edit: DB_Win->BT_Load));
 
 /* Open window */
   set(DB_Win->DatabaseWindow, MUIA_Window_Open, TRUE);
@@ -830,7 +830,7 @@ void Make_DO_Window(short hor_win)
   set(DO_Win->CY_Layout, MUIA_Cycle_Active, hor_win);
 
 /* Set active gadget */
-  set(DO_Win->DataOpsWindow, MUIA_Window_ActiveObject, (ULONG)DO_Win->BT_Extract);
+  set(DO_Win->DataOpsWindow, MUIA_Window_ActiveObject, (IPTR)DO_Win->BT_Extract);
 
 /* Open window */
   set(DO_Win->DataOpsWindow, MUIA_Window_Open, TRUE);
@@ -1208,11 +1208,11 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
 
 /* Set tab cycle chains */
   DoMethod(AboutWin, MUIM_Window_SetCycleChain, BT_AboutOK, NULL);
-  set(AboutWin, MUIA_Window_ActiveObject, (ULONG)BT_AboutOK);
+  set(AboutWin, MUIA_Window_ActiveObject, (IPTR)BT_AboutOK);
   DoMethod(ModControlWin, MUIM_Window_SetCycleChain,
 	BT_Database, BT_DataOps, BT_Mapping, BT_Editing, BT_Render, NULL);
 
-  set(ModControlWin, MUIA_Window_ActiveObject, (ULONG)BT_Database);
+  set(ModControlWin, MUIA_Window_ActiveObject, (IPTR)BT_Database);
 
 /* Open AboutWindow and Module Control Panel */
   set(ModControlWin,MUIA_Window_Open,TRUE);
@@ -1781,7 +1781,7 @@ USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STR
   DoMethod(UM_Win, MUIM_Window_SetCycleChain,
 	UM_BT[0], UM_BT[1], UM_BT[2], UM_BT[3], UM_BT[4],
 	UM_BT[5], UM_BT[6], UM_BT[7], UM_BT[8], UM_BT[9], UM_BT[10]);
-  set(UM_Win, MUIA_Window_ActiveObject, (ULONG)UM_BT[Default]);
+  set(UM_Win, MUIA_Window_ActiveObject, (IPTR)UM_BT[Default]);
  
 /* Open Window and wait for button press */
   set(UM_Win, MUIA_Window_Open, TRUE);
@@ -1930,7 +1930,7 @@ short GetInputString(char *message, char *reject, char *string)
 /* Set tab cycle chain */
   DoMethod(IS_Win, MUIM_Window_SetCycleChain,
 	InputStr, BT_OK, BT_Cancel, NULL);
-  set(IS_Win, MUIA_Window_ActiveObject, (ULONG)InputStr);
+  set(IS_Win, MUIA_Window_ActiveObject, (IPTR)InputStr);
 
 /* set return cycle */
 /*
@@ -2104,7 +2104,7 @@ STATIC_FCN void Make_Log_Window(int Severity) // used locally only -> static, AF
 	NULL);
 
 /* Set active gadget */
-  set(Log_Win->LogWindow, MUIA_Window_ActiveObject, (ULONG)Log_Win->BT_Quit);
+  set(Log_Win->LogWindow, MUIA_Window_ActiveObject, (IPTR)Log_Win->BT_Quit);
 
 /* Open window */
   set(Log_Win->LogWindow, MUIA_Window_Open, TRUE);
@@ -2482,7 +2482,7 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
           	DoMethod(app, OM_ADDMEMBER, CreditWin);
 /*          	DoMethod(app, MUIM_Application_SetMenuCheck, ID_CREDITS, TRUE); */
           	
-          	set(CreditWin, MUIA_Window_ActiveObject, (ULONG)CreditList);
+          	set(CreditWin, MUIA_Window_ActiveObject, (IPTR)CreditList);
 
           	set(CreditWin, MUIA_Window_Open, TRUE);
           get(CreditWin, MUIA_Window_Open, &open);
@@ -2627,11 +2627,11 @@ void DisableKeyButtons(short group)
     {
     set(EM_Win->BT_PrevKey, MUIA_Disabled, FALSE);
     sprintf(str, "PK %d", EM_Win->PrevKey);
-    set(EM_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)str);
+    set(EM_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)str);
     if (EMTL_Win)
      {
      set(EMTL_Win->BT_PrevKey, MUIA_Disabled, FALSE);
-     set(EMTL_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)str);
+     set(EMTL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)str);
      } /* if motion time line window open */
     if (EMIA_Win)
      {
@@ -2641,11 +2641,11 @@ void DisableKeyButtons(short group)
    else
     {
     set(EM_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-    set(EM_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)"\33cPrev");
+    set(EM_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
     if (EMTL_Win)
      {
      set(EMTL_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-     set(EMTL_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)"\33cPrev");
+     set(EMTL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
      } /* if motion time line window open */
     if (EMIA_Win)
      {
@@ -2656,11 +2656,11 @@ void DisableKeyButtons(short group)
     {
     set(EM_Win->BT_NextKey, MUIA_Disabled, FALSE);
     sprintf(str, "NK %d", EM_Win->NextKey);
-    set(EM_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)str);
+    set(EM_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)str);
     if (EMTL_Win)
      {
      set(EMTL_Win->BT_NextKey, MUIA_Disabled, FALSE);
-     set(EMTL_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)str);
+     set(EMTL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)str);
      set(EMTL_Win->TxtArrow[0], MUIA_Disabled, FALSE);
      set(EMTL_Win->TxtArrow[1], MUIA_Disabled, FALSE);
      set(EMTL_Win->TxtArrowLg[0], MUIA_Disabled, FALSE);
@@ -2674,11 +2674,11 @@ void DisableKeyButtons(short group)
    else
     {
     set(EM_Win->BT_NextKey, MUIA_Disabled, TRUE);
-    set(EM_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)"\33cNext");
+    set(EM_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
     if (EMTL_Win)
      {
      set(EMTL_Win->BT_NextKey, MUIA_Disabled, TRUE);
-     set(EMTL_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)"\33cNext");
+     set(EMTL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
      set(EMTL_Win->TxtArrow[0], MUIA_Disabled, TRUE);
      set(EMTL_Win->TxtArrow[1], MUIA_Disabled, TRUE);
      set(EMTL_Win->TxtArrowLg[0], MUIA_Disabled, TRUE);
@@ -2693,20 +2693,20 @@ void DisableKeyButtons(short group)
     {
     set(EM_Win->BT_UpdateKeys, MUIA_Disabled, FALSE);
     sprintf(str, "All (%d)", EM_Win->KeysExist);
-    set(EM_Win->BT_AllKeys, MUIA_Text_Contents, (ULONG)str);
+    set(EM_Win->BT_AllKeys, MUIA_Text_Contents, (IPTR)str);
     if (EMTL_Win)
      {
      sprintf(str, "Keys Exist (%d)", EM_Win->KeysExist);
-     set(EMTL_Win->KeysExistTxt, MUIA_Text_Contents, (ULONG)str);
+     set(EMTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)str);
      } /* if motion time line window open */
     }
    else
     {
     set(EM_Win->BT_UpdateKeys, MUIA_Disabled, TRUE);
-    set(EM_Win->BT_AllKeys, MUIA_Text_Contents, (ULONG)"\33cAll (0)");
+    set(EM_Win->BT_AllKeys, MUIA_Text_Contents, (IPTR)"\33cAll (0)");
     if (EMTL_Win)
      {
-     set(EMTL_Win->KeysExistTxt, MUIA_Text_Contents, (ULONG)"No Other Keys");
+     set(EMTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)"No Other Keys");
      } /* if motion time line window open */
     }
    if (EM_Win->ItemKeys > 1)
@@ -2722,7 +2722,7 @@ void DisableKeyButtons(short group)
     set(EMTL_Win->BT_Linear, MUIA_Selected, EM_Win->Linear);
     get(EMTL_Win->TCB_Cycle, MUIA_Cycle_Active, &item);
     sprintf(str, "%3.2f", EM_Win->TCB[item]);
-    set(EMTL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
+    set(EMTL_Win->CycleStr, MUIA_String_Contents, (IPTR)str);
     DisableAll = ((EM_Win->MoItem != EMTL_Win->KeyItem)
 	 || EM_Win->ItemKeys < 2);
     set(EMTL_Win->BT_AddKey, MUIA_Disabled, DisableAll);
@@ -2756,32 +2756,32 @@ void DisableKeyButtons(short group)
     {
     set(EC_Win->BT_PrevKey, MUIA_Disabled, FALSE);
     sprintf(str, "PK %d", EC_Win->PrevKey);
-    set(EC_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)str);
+    set(EC_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)str);
     if (ECTL_Win)
      {
      set(ECTL_Win->BT_PrevKey, MUIA_Disabled, FALSE);
-     set(ECTL_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)str);
+     set(ECTL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)str);
      } /* if color time line window open */
     }
    else
     {
     set(EC_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-    set(EC_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)"\33cPrev");
+    set(EC_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
     if (ECTL_Win)
      {
      set(ECTL_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-     set(ECTL_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)"\33cPrev");
+     set(ECTL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
      } /* if color time line window open */
     }
    if (EC_Win->NextKey >= 0)
     {
     set(EC_Win->BT_NextKey, MUIA_Disabled, FALSE);
     sprintf(str, "NK %d", EC_Win->NextKey);
-    set(EC_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)str);
+    set(EC_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)str);
     if (ECTL_Win)
      {
      set(ECTL_Win->BT_NextKey, MUIA_Disabled, FALSE);
-     set(ECTL_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)str);
+     set(ECTL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)str);
      set(ECTL_Win->TxtArrow[0], MUIA_Disabled, FALSE);
      set(ECTL_Win->TxtArrow[1], MUIA_Disabled, FALSE);
      set(ECTL_Win->TxtArrowLg[0], MUIA_Disabled, FALSE);
@@ -2791,11 +2791,11 @@ void DisableKeyButtons(short group)
    else
     {
     set(EC_Win->BT_NextKey, MUIA_Disabled, TRUE);
-    set(EC_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)"\33cNext");
+    set(EC_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
     if (ECTL_Win)
      {
      set(ECTL_Win->BT_NextKey, MUIA_Disabled, TRUE);
-     set(ECTL_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)"\33cNext");
+     set(ECTL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
      set(ECTL_Win->TxtArrow[0], MUIA_Disabled, TRUE);
      set(ECTL_Win->TxtArrow[1], MUIA_Disabled, TRUE);
      set(ECTL_Win->TxtArrowLg[0], MUIA_Disabled, TRUE);
@@ -2806,20 +2806,20 @@ void DisableKeyButtons(short group)
     {
     set(EC_Win->BT_UpdateKeys, MUIA_Disabled, FALSE);
     sprintf(str, "All (%d)", EC_Win->KeysExist);
-    set(EC_Win->BT_UpdateAll, MUIA_Text_Contents, (ULONG)str);
+    set(EC_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)str);
     if (ECTL_Win)
      {
      sprintf(str, "Keys Exist (%d)", EC_Win->KeysExist);
-     set(ECTL_Win->KeysExistTxt, MUIA_Text_Contents, (ULONG)str);
+     set(ECTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)str);
      } /* if color time line window open */
     }
    else
     {
     set(EC_Win->BT_UpdateKeys, MUIA_Disabled, TRUE);
-    set(EC_Win->BT_UpdateAll, MUIA_Text_Contents, (ULONG)"\33cAll (0)");
+    set(EC_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)"\33cAll (0)");
     if (ECTL_Win)
      {
-     set(ECTL_Win->KeysExistTxt, MUIA_Text_Contents, (ULONG)"No Other Keys");
+     set(ECTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)"No Other Keys");
      } /* if color time line window open */
     }
    if (EC_Win->ItemKeys > 1)
@@ -2835,7 +2835,7 @@ void DisableKeyButtons(short group)
     set(ECTL_Win->BT_Linear, MUIA_Selected, EC_Win->Linear);
     get(ECTL_Win->TCB_Cycle, MUIA_Cycle_Active, &item);
     sprintf(str, "%3.2f", EC_Win->TCB[item]);
-    set(ECTL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
+    set(ECTL_Win->CycleStr, MUIA_String_Contents, (IPTR)str);
     DisableAll = ((EC_Win->PalItem != ECTL_Win->KeyItem)
 	 || EC_Win->ItemKeys < 2);
     set(ECTL_Win->BT_AddKey, MUIA_Disabled, DisableAll);
@@ -2871,32 +2871,32 @@ void DisableKeyButtons(short group)
     {
     set(EE_Win->BT_PrevKey, MUIA_Disabled, FALSE);
     sprintf(str, "PK %d", EE_Win->PrevKey);
-    set(EE_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)str);
+    set(EE_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)str);
     if (EETL_Win)
      {
      set(EETL_Win->BT_PrevKey, MUIA_Disabled, FALSE);
-     set(EETL_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)str);
+     set(EETL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)str);
      } /* if ecosystem time line window open */
     }
    else
     {
     set(EE_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-    set(EE_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)"\33cPrev");
+    set(EE_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
     if (EETL_Win)
      {
      set(EETL_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-     set(EETL_Win->BT_PrevKey, MUIA_Text_Contents, (ULONG)"\33cPrev");
+     set(EETL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
      } /* if ecosystem time line window open */
     }
    if (EE_Win->NextKey >= 0)
     {
     set(EE_Win->BT_NextKey, MUIA_Disabled, FALSE);
     sprintf(str, "NK %d", EE_Win->NextKey);
-    set(EE_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)str);
+    set(EE_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)str);
     if (EETL_Win)
      {
      set(EETL_Win->BT_NextKey, MUIA_Disabled, FALSE);
-     set(EETL_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)str);
+     set(EETL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)str);
      set(EETL_Win->TxtArrow[0], MUIA_Disabled, FALSE);
      set(EETL_Win->TxtArrow[1], MUIA_Disabled, FALSE);
      set(EETL_Win->TxtArrowLg[0], MUIA_Disabled, FALSE);
@@ -2906,11 +2906,11 @@ void DisableKeyButtons(short group)
    else
     {
     set(EE_Win->BT_NextKey, MUIA_Disabled, TRUE);
-    set(EE_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)"\33cNext");
+    set(EE_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
     if (EETL_Win)
      {
      set(EETL_Win->BT_NextKey, MUIA_Disabled, TRUE);
-     set(EETL_Win->BT_NextKey, MUIA_Text_Contents, (ULONG)"\33cNext");
+     set(EETL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
      set(EETL_Win->TxtArrow[0], MUIA_Disabled, TRUE);
      set(EETL_Win->TxtArrow[1], MUIA_Disabled, TRUE);
      set(EETL_Win->TxtArrowLg[0], MUIA_Disabled, TRUE);
@@ -2921,20 +2921,20 @@ void DisableKeyButtons(short group)
     {
     set(EE_Win->BT_UpdateKeys, MUIA_Disabled, FALSE);
     sprintf(str, "All (%d)", EE_Win->KeysExist);
-    set(EE_Win->BT_UpdateAll, MUIA_Text_Contents, (ULONG)str);
+    set(EE_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)str);
     if (EETL_Win)
      {
      sprintf(str, "Keys Exist (%d)", EE_Win->KeysExist);
-     set(EETL_Win->KeysExistTxt, MUIA_Text_Contents, (ULONG)str);
+     set(EETL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)str);
      } /* if ecosystem time line window open */
     }
    else
     {
     set(EE_Win->BT_UpdateKeys, MUIA_Disabled, TRUE);
-    set(EE_Win->BT_UpdateAll, MUIA_Text_Contents, (ULONG)"\33cAll (0)");
+    set(EE_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)"\33cAll (0)");
     if (EETL_Win)
      {
-     set(EETL_Win->KeysExistTxt, MUIA_Text_Contents, (ULONG)"No Other Keys");
+     set(EETL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)"No Other Keys");
      } /* if ecosystem time line window open */
     }
    if (EE_Win->ItemKeys > 1)
@@ -2950,7 +2950,7 @@ void DisableKeyButtons(short group)
     set(EETL_Win->BT_Linear, MUIA_Selected, EE_Win->Linear);
     get(EETL_Win->TCB_Cycle, MUIA_Cycle_Active, &item);
     sprintf(str, "%3.2f", EE_Win->TCB[item]);
-    set(EETL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
+    set(EETL_Win->CycleStr, MUIA_String_Contents, (IPTR)str);
     DisableAll = ((EE_Win->EcoItem != EETL_Win->KeyItem)
 	 || EE_Win->ItemKeys < 2);
     set(EETL_Win->BT_AddKey, MUIA_Disabled, DisableAll);
@@ -3021,13 +3021,13 @@ time((time_t *)&now);
 strncpy(InfoData, ctime((time_t *)&now), 26);
 InfoData[19] = 0;
 
-set(InfoTime, MUIA_Text_Contents, (ULONG)&InfoData[11]);
+set(InfoTime, MUIA_Text_Contents, (IPTR)&InfoData[11]);
 
 strncpy(InfoData, ctime((time_t *)&now), 26);
 InfoData[24] = 0;
 strcpy(&InfoData[11], &InfoData[20]);
 
-set(InfoDate, MUIA_Text_Contents, (ULONG)InfoData);
+set(InfoDate, MUIA_Text_Contents, (IPTR)InfoData);
 
 if(flush)
   {
@@ -3041,39 +3041,39 @@ fastlarge = AvailMem(MEMF_FAST | MEMF_LARGEST);
 chiplarge = AvailMem(MEMF_CHIP | MEMF_LARGEST);
 
 stcul_d(InfoData, chipavail);
-set(InfoChipAvail, MUIA_Text_Contents, (ULONG)InfoData);
+set(InfoChipAvail, MUIA_Text_Contents, (IPTR)InfoData);
 
 stcul_d(InfoData, now);
-set(InfoFastAvail, MUIA_Text_Contents, (ULONG)InfoData);
+set(InfoFastAvail, MUIA_Text_Contents, (IPTR)InfoData);
 
 stcul_d(InfoData, chiplarge);
-set(InfoChipLarge, MUIA_Text_Contents, (ULONG)InfoData);
+set(InfoChipLarge, MUIA_Text_Contents, (IPTR)InfoData);
 
 stcul_d(InfoData, fastlarge);
-set(InfoFastLarge, MUIA_Text_Contents, (ULONG)InfoData);
+set(InfoFastLarge, MUIA_Text_Contents, (IPTR)InfoData);
 
 
 sprintf(InfoData, "%1d", NoOfElMaps);
 /*stcul_d(InfoData, NoOfElMaps);*/
-set(InfoInterTopos, MUIA_Text_Contents, (ULONG)InfoData);
+set(InfoInterTopos, MUIA_Text_Contents, (IPTR)InfoData);
 
 sprintf(InfoData, "%1d", topomaps);
 /*stcul_d(InfoData, topomaps);*/
-set(InfoMapTopos, MUIA_Text_Contents, (ULONG)InfoData);
+set(InfoMapTopos, MUIA_Text_Contents, (IPTR)InfoData);
 
 /* There's probably a clever MUI way to do this in one DoMethod, but I don't care. */
 get(app, MUIA_Application_Base, &AppRexxName);
-set(InfoARexx, MUIA_Text_Contents, (ULONG)AppRexxName);
+set(InfoARexx, MUIA_Text_Contents, (IPTR)AppRexxName);
 
 if(dbaseloaded)
-  set(InfoDataBase, MUIA_Text_Contents, (ULONG)dbasename);
+  set(InfoDataBase, MUIA_Text_Contents, (IPTR)dbasename);
 else
-  set(InfoDataBase, MUIA_Text_Contents, (ULONG)" -none- ");
+  set(InfoDataBase, MUIA_Text_Contents, (IPTR)" -none- ");
 
 if(paramsloaded)
-  set(InfoPar, MUIA_Text_Contents, (ULONG)paramfile);
+  set(InfoPar, MUIA_Text_Contents, (IPTR)paramfile);
 else
-  set(InfoPar, MUIA_Text_Contents, (ULONG)" -none- ");
+  set(InfoPar, MUIA_Text_Contents, (IPTR)" -none- ");
 
 InfoData[0] = 0;
 if(GetDisplayInfoData(NULL, (UBYTE *)&ModeName, sizeof(ModeName), DTAG_NAME, WCSScrn->ViewPort.ColorMap->VPModeID/*ScrnData.ModeID*/)) // ScrnData.ModeID is always 0 if "Save"-Button in World Construction Set ScreenMode-Window was not pressed, i.e. if user pressed "Use" instead))
@@ -3082,7 +3082,7 @@ if(GetDisplayInfoData(NULL, (UBYTE *)&ModeName, sizeof(ModeName), DTAG_NAME, WCS
   InfoData[75] = 0;
   } /* if */
 
-set(InfoScreenMode, MUIA_Text_Contents, (ULONG)InfoData);
+set(InfoScreenMode, MUIA_Text_Contents, (IPTR)InfoData);
 
 } /* InfoWin_Update() */
 
@@ -3161,7 +3161,7 @@ void settextint(APTR Obj, long Val)
 char Str[32];
 
  sprintf(Str, "%ld", Val);
- set(Obj, MUIA_Text_Contents, (ULONG)Str);
+ set(Obj, MUIA_Text_Contents, (IPTR)Str);
  
 } /* settextint() */
 
@@ -3173,7 +3173,7 @@ char Str[32];
 
  sprintf(Str, "%f", Val);
  TrimZeros(Str);
- set(Obj, MUIA_String_Contents, (ULONG)Str);
+ set(Obj, MUIA_String_Contents, (IPTR)Str);
  set(Obj, MUIA_String_DisplayPos, 0);
  set(Obj, MUIA_String_BufferPos, 0);
  
@@ -3187,7 +3187,7 @@ char Str[32];
 
  sprintf(Str, "%f", Val);
  TrimZeros(Str);
- nnset(Obj, MUIA_String_Contents, (ULONG)Str);
+ nnset(Obj, MUIA_String_Contents, (IPTR)Str);
  nnset(Obj, MUIA_String_DisplayPos, 0);
  nnset(Obj, MUIA_String_BufferPos, 0);
  

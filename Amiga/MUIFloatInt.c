@@ -136,7 +136,7 @@ else if(data->FIFlags & FIOFlag_Long)
 		} /* else */
 	} /* if */
 
-set(data->string, MUIA_String_Contents, (ULONG)Scratch);
+set(data->string, MUIA_String_Contents, (IPTR)Scratch);
 
 /* No-op to invoke triggers, if any */
 ULConv = *(unsigned long *)data->MasterVariable;

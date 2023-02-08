@@ -498,8 +498,8 @@ STATIC_FCN __saveds ULONG TL_HandleInput(struct IClass *cl, Object *obj,
         data->SKT->Key[data->activekey]->CoKey.Value[data->activeitem]
 	 	= (short)newdata;
         sprintf(str, "%1d", (short)newdata);
-        set(data->win->ValStr[data->activeitem], MUIA_String_Contents, (ULONG)str);
-	set(EC_Win->CoStr[data->activeitem], MUIA_String_Contents, (ULONG)str);
+        set(data->win->ValStr[data->activeitem], MUIA_String_Contents, (IPTR)str);
+	set(EC_Win->CoStr[data->activeitem], MUIA_String_Contents, (IPTR)str);
         SplineSingleKey(1, 0);
         Set_ECTL_Data(data->activeitem);
         break;
@@ -645,13 +645,13 @@ short Set_EETL_Item(short item)
   } /* for i=0... */
 /* set(EETL_Win->ParTxt, MUIA_Text_Contents, PAR_NAME_ECO(EE_Win->EcoItem));*/
  sprintf(str, "%d", EE_Win->Frame);
- set(EETL_Win->FrameTxt, MUIA_Text_Contents, (ULONG)str);
+ set(EETL_Win->FrameTxt, MUIA_Text_Contents, (IPTR)str);
  get (EETL_Win->TCB_Cycle, MUIA_Cycle_Active, &data);
  sprintf(str, "%3.2f", EE_Win->TCB[data]);
- set(EETL_Win->CycleStr, MUIA_String_Contents, (ULONG)str);
+ set(EETL_Win->CycleStr, MUIA_String_Contents, (IPTR)str);
  sprintf(str, "%ld",(long int)   // param is double! (Timelines Editor Water Elev initial value)
 	 SKT[2]->Key[EETL_Win->ActiveKey]->EcoKey2.Value[EETL_Win->ActiveItem]);
- set(EETL_Win->ValStr[0], MUIA_String_Contents, (ULONG)str);
+ set(EETL_Win->ValStr[0], MUIA_String_Contents, (IPTR)str);
  EETL_Win->KeyItem = item;
 
  return (1);
