@@ -210,9 +210,9 @@ EXTERN struct DirList {
 /*EXTERN*/ struct __attribute__((__packed__))ParHeader {
  char	FType[8];
  float	Version;
- long	ByteOrder;
+ LONG	ByteOrder;
  short	KeyFrames;
- long	MotionParamsPos,
+ LONG	MotionParamsPos,
 	ColorParamsPos,
 	EcoParamsPos,
 	SettingsPos,
@@ -812,7 +812,7 @@ EXTERN struct faces {
 /* changed float* to double* 101995 */
 EXTERN struct VertexIndex {
 double	*Lat, *Lon, *El, *RelEl, *Cld;
-long 	*Use;
+LONG 	*Use;  // MapTopoObject.c fread((char *)&Vertices, sizeof (LONG), 1, fVtx); // sizeof LONG, so here it must be LONG for AROS, too. AF 9.Feb.23
 UBYTE 	*Pert;
 UBYTE 	*Edge;
 long	PSize;
@@ -823,20 +823,20 @@ short	Max[7];
 			/* same as V1.02 in size and members */
 			/* 1.02 allowed the elscale variable to reflect whether */
 			/* the data was in meters, feet, etc... */
- long	rows,columns;
+ LONG	rows,columns;
  double lolat,lolong,steplat,steplong,elscale;
  short  MaxEl, MinEl;
- long	Samples;
+ LONG	Samples;
  float	SumElDif, SumElDifSq;
  short	*map;
- long	*lmap;
- long	size, scrnptrsize, fractalsize;
+ LONG	*lmap;
+ LONG	size, scrnptrsize, fractalsize;
  float	*scrnptrx,
  	*scrnptry,
  	*scrnptrq;
  struct	faces *face;
  BYTE	*fractal;
- long	facept[3], facect, fracct, Lr, Lc;
+ LONG	facept[3], facect, fracct, Lr, Lc;
  short	MapAsSFC, ForceBath;
  float	LonRange, LatRange;
 };
@@ -933,7 +933,7 @@ EXTERN struct WaveData *Tsunami;
 /* AF struct packed for AROS, 12.Dec.22 */
 /*EXTERN*/ struct __attribute__((__packed__)) vectorheaderV100 {
  char	Name[10];
- long	points;
+ LONG	points;
  short	elevs;
  double avglat, avglon, avgelev, elscale;
  short  MaxEl, MinEl;

@@ -2863,7 +2863,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
   TempHdr->KeyFrames = ExistingKeyFrames;
 
 
- if ((fread((char *)TagItem, sizeof (long), 1, fparam)) == 1)
+ if ((fread((char *)TagItem, sizeof (LONG), 1, fparam)) == 1)
   {
   TagItem[4] = 0;
   if (! strncmp(TagItem, "ECOT", 4))
@@ -2885,7 +2885,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
 
      if ((EcoShift[k].Ecotype = Ecotype_Load(fparam, 0)) == NULL)
       goto ReadError;
-     if ((fread((char *)TagItem, sizeof (long), 1, fparam)) != 1)
+     if ((fread((char *)TagItem, sizeof (LONG), 1, fparam)) != 1)
       break;
 
 //     // AF: 10.Dec.2022, Endian correction for i386-aros
@@ -4358,7 +4358,7 @@ SaveRepeat:
    {
    if (EcoShift[k].Ecotype)
     {
-    if ((fwrite((char *)TagItem, sizeof (long), 1, fparam)) != 1)  // String, no endian flipping
+    if ((fwrite((char *)TagItem, sizeof (LONG), 1, fparam)) != 1)  // String, no endian flipping
      goto SaveError;
     if ((fwriteShort(&k, fparam)) != 1)
      goto SaveError;

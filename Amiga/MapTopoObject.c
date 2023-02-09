@@ -2304,11 +2304,11 @@ if (MaxFract == 0)		/* don't need an index */
   fread((char *)Title, 16, 1, fVtx);
   if (! strcmp(Title, "WCSFractalIndex"))
    {
-   fread((char *)&Depth, sizeof (long), 1, fVtx);
+   fread((char *)&Depth, sizeof (LONG), 1, fVtx);
    ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32S(Depth,&Depth); ) /* AF: 30.Dec.2022, Endian correction for i386-aros */
    if (Depth == MaxFract)
     {
-    fread((char *)&Vertices, sizeof (long), 1, fVtx);
+    fread((char *)&Vertices, sizeof (LONG), 1, fVtx);
     ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32S(Vertices,&Vertices); ) /* AF: 30.Dec.2022, Endian correction for i386-aros */
     Vtx->PSize = Vertices;
     if ((Vtx->Use = (long *)get_Memory(Vertices * sizeof (long), MEMF_ANY)) != NULL)
@@ -2317,7 +2317,7 @@ if (MaxFract == 0)		/* don't need an index */
       {
       if ((Vtx->Edge = (UBYTE *)get_Memory(Vertices * sizeof (char), MEMF_ANY)) != NULL)
        {
-       if ((fread((char *)Vtx->Use, Vertices * sizeof (long), 1, fVtx)) == 1)
+       if ((fread((char *)Vtx->Use, Vertices * sizeof (LONG), 1, fVtx)) == 1)
         {
     	ENDIAN_CHANGE_IF_NEEDED(
     			for(unsigned int i=0;i<Vertices;i++)

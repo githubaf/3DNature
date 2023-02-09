@@ -2153,4 +2153,7 @@ Das ist ein Job fuer sed
 #im Source-Verzeichnis
 sed -i -E "s/(set.+)ULONG(.+)/\1IPTR\2/" *.c
 
-
+9.Feb23
+-------
+Alle Strukturen, die mit fread oder read geladen werden, muessen LONG/ULONG statt long/unsigned long verwenden, weil long bei AROS64 8 Bytes gross ist! Auch beim Einlesen beachten, dass die Zielstruktur/Array dann vom Typ LONG sein muessen.
+--> AROS64 kann jetzt alle 3 Demo-Projekte rendern. Problem: MUI reagiert nicht auf Mausklicks oder stuerzt ab, z.B. Cancel-Button beim Rendern oder EingabeZeilen bei Parametern.
