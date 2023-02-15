@@ -1987,7 +1987,7 @@ Der Screenmode kann auch gespeichert werden und wird dann wieder geladen. Das is
 Lightwave Export:
 * "Scene" Das exportierte LWS File von CanyonSunset stimmt fast mit der Amiga-Version ueberein. (ASCII-File) Scheinen Rundung/Genauigkeits-Unterschiede zu sein.
 * "Scene + DEMs"  ???
-* "DEM only" ??? Error loadinf DEM object ???
+* "DEM only" ??? Error loading DEM object ???
 * "Motion only" stimmt fast mit der Amiga-Version ueberein. (ASCII-File) Scheinen Rundung/Genauigkeits-Unterschiede zu sein.
 
 Bilder speichern, Render Settings, 2. Tab
@@ -2157,3 +2157,62 @@ sed -i -E "s/(set.+)ULONG(.+)/\1IPTR\2/" *.c
 -------
 Alle Strukturen, die mit fread oder read geladen werden, muessen LONG/ULONG statt long/unsigned long verwenden, weil long bei AROS64 8 Bytes gross ist! Auch beim Einlesen beachten, dass die Zielstruktur/Array dann vom Typ LONG sein muessen.
 --> AROS64 kann jetzt alle 3 Demo-Projekte rendern. Problem: MUI reagiert nicht auf Mausklicks oder stuerzt ab, z.B. Cancel-Button beim Rendern oder EingabeZeilen bei Parametern.
+
+15.Feb23
+--------
+Nochmal AROS Lightwave Export:
+
+Lightwave Export:
+* "Scene" Das exportierte LWS File von CanyonSunset stimmt fast mit der Amiga-Version ueberein. (ASCII-File) Scheinen Rundung/Genauigkeits-Unterschiede zu sein.
+* "Scene + DEMs"  ???
+* "DEM only" ??? Error loading DEM object ???
+* "Motion only" stimmt fast mit der Amiga-Version ueberein. (ASCII-File) Scheinen Rundung/Genauigkeits-Unterschiede zu sein.
+
+
+Frische Installation: Ein Verzeichnis Objects gibt es nicht!
+* "Scene" 
+  "Scene Path/File" "WCSProjects:" and "CanyonSunset.LWS"
+  "LW DEM Object Path" "WCSProjects:/Objects"  Mit "/" im Original. Datei leer lassen.
+  es entsteht: "WCSProjects:CanyonSunset.LWS"   (ASCII-File)
+
+LWSC
+1
+
+FirstFrame 0
+LastFrame 399
+FrameStep 1
+
+LoadObject Objects/WCSNull.LWO
+ObjectMotion (unnamed)
+9
+1
+0.000000 0.000000 0.000000 0.0 0.0 0.0 1.0 1.0 1.0
+0 0 0.0 0.0 0.0
+EndBehavior 1
+ShadowOptions 7
+
+
+* "Scene + DEMs"
+  "Scene Path/File" "WCSProjects:" and "CanyonSunset.LWS"
+  "LW DEM Object Path" "WCSProjects:/Objects"  Mit "/" im Original. Datei leer lassen.
+  Neue Schublade WCSProjects:/Objects wird angelegt, also in Wirklichkeit wegen des "\" WCS:Objetcs.
+  Es entsteht "WCSProjects:CanyonSunset.LWS" und WCSProjects:/Objects/ "36112.I   .LWO", "36112.M   .LWO" und "WCSNull.LWO". (also in Wirklichkeit wegen des "\" in WCS:)
+AMIGA OK.
+  
+Das "WCSProjects:CanyonSunset.LWS" ist jetzt viel groesser und weitere "LoadObject Objects/36112.I   .LWO" und "LoadObject Objects/36112.M   .LWO"
+Lightwave findes die LWO-Files nicht, weil LW in "Objects" sucht.
+
+Ich hatte in meiner WCS-Version den "/" schon entfernt. Damit entsteht Objects jetzt IN "WCSProjects:" und liegt damit auf gleicher Hoehe wie "CanyonSunset.LWS" und die
+"LoadObject Objects/36112.I   .LWO" Kommandos in CanyonSunset.LWS passen.
+LW-Options Panel Content Directory auf WCSProjects: setzen.
+Szene kann in LW geladen werden.
+AMIGA OK.
+AROS nur wenn WCSProjects:Objects schon vorhanden ist. Amiga-LW laedt die von AROS generierte Scene ewig (busy)
+
+* "DEM only" Es muss ein existierendes *.elev File angegeben werden. Daraus wird ein *.LWO File erzeugt.
+* In LW geladen: https://ftp2.grandis.nu/turran/FTP/~Uploads/emu/Lightwave/Lightwave.3D_v5.0r-CDSetup/LW50r_Incl.CDContent.lha
+AMIGA OK.
+
+* "Motion only" Es entsteht "WCSProjects:CanyonSunset.LWM"
+Amiga OK.
+
