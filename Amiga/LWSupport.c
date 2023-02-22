@@ -13,19 +13,41 @@ struct LightWaveMotion {
 };
 */
 
+// AF: 9.Jan23, Write short in Big-Endian (i.e. native Amiga-) format
+int fwriteShort(const short *Value, FILE *file);
+
+// AF: 16.Feb23, Write LONG in Big-Endian (i.e. native Amiga-) format
+int fwriteLONG(const LONG *Value, FILE *file);
+
+// size in Bytes, not SHORTs!
+// returns 1 if all bytes written, otherwise 0
+ssize_t fwriteSHORTArray_BigEndian(SHORT *SHORTArray, size_t size, FILE *file); // AF, HGW, 16.Feb23
+
+// returns 1 if all bytes written, otherwise 0
+ssize_t fwriteFloatArray_BigEndian(float *FloatArray, size_t size,FILE *file); // AF, HGW, 16.Feb23
 
 
-STATIC_FCN short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
+short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
         short Frame, double Scale); // used locally only -> static, AF 23.7.2021
 
 
 
-
-STATIC_VAR long LWNullObj[] = {
+// use LONG (4 bytes values) not long (8 bytes on 64 bit AROS) AF, 16.Feb.23
+#if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+STATIC_VAR LONG LWNullObj[] = {
 0x464F524D, 0x00000028, 0x4C574F42, 0x504E5453,
 0x0000000C, 0x00000000, 0x00000000, 0x00000000,
 0x53524653, 0x00000000, 0x504F4C53, 0x00000000
 };
+#elif __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+STATIC_VAR LONG LWNullObj[] = {
+0x4D524f46, 0x28000000, 0x424F574c, 0x53544e50,
+0x0C000000, 0x00000000, 0x00000000, 0x00000000,
+0x53465253, 0x00000000, 0x534C4F50, 0x00000000
+};
+#else
+#error "Unsupported Byte-Order"
+#endif
 
 short ExportWave(struct LightWaveInfo *LWInfo, FILE *Supplied)
 {
@@ -310,15 +332,16 @@ short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
 /**************************************************************************/
 
 short LWOB_Export(char *ObjectName, char *OutputName, struct coords *PP,
-	long MaxVertices, long MaxPolys, short SaveObject,
+	LONG MaxVertices, LONG MaxPolys, short SaveObject,
 	short Bathymetry, double LonRot)
 {
 char filename[256], DEMPath[256], DEMName[32], Ptrn[32], *ChunkTag;
 FILE *fLWOB = NULL;
 float *VertexData = NULL;
 struct elmapheaderV101 map;
-short Done = 0, success = 0, ShortPad = 0, OpenOK, *PolyData = NULL;
-long Vertices, Polys, LWRows, LWCols, LWRowInt, LWColInt, FORMSize = 0,
+short Done = 0, success = 0, ShortPad = 0, OpenOK;
+SHORT *PolyData = NULL;
+LONG Vertices, Polys, LWRows, LWCols, LWRowInt, LWColInt, FORMSize = 0,
 	PNTSSize, SRFSSize, POLSSize, zip, pzip, LWr, LWc, Lr, Lc, CurVtx;
 double PivotPt[3], ptelev;
 struct DirList *DLItem;
@@ -531,33 +554,33 @@ struct coords DP;
 /* write "FORM" and temporary size */
  ChunkTag = "FORM";
  fwrite((char *)ChunkTag, 4, 1, fLWOB);
- fwrite((char *)&FORMSize, 4, 1, fLWOB);
+ fwriteLONG(&FORMSize,fLWOB);
  ChunkTag = "LWOB";
  fwrite((char *)ChunkTag, 4, 1, fLWOB);
  ChunkTag = "PNTS";
  fwrite((char *)ChunkTag, 4, 1, fLWOB);
- fwrite((char *)&PNTSSize, 4, 1, fLWOB);
+ fwriteLONG(&PNTSSize, fLWOB);
 
-/* write the points array to the file */
- fwrite((char *)VertexData, PNTSSize, 1, fLWOB);
+ /* write the points array to the file */
+ fwriteFloatArray_BigEndian(VertexData, PNTSSize,fLWOB);
 
 /* write "SRFS" */
  ChunkTag = "SRFS";
  fwrite((char *)ChunkTag, 4, 1, fLWOB);
- fwrite((char *)&SRFSSize, 4, 1, fLWOB);
+ fwriteLONG(&SRFSSize, fLWOB);
 
 /* write "WCSDEM" + 0 + 0 */
  ChunkTag = "WCSDEM";
  fwrite((char *)ChunkTag, 6, 1, fLWOB);
- fwrite((char *)&ShortPad, 2, 1, fLWOB);
+ fwriteShort(&ShortPad, fLWOB);
 
 /* write "POLS" */
  ChunkTag = "POLS";
  fwrite((char *)ChunkTag, 4, 1, fLWOB);
- fwrite((char *)&POLSSize, 4, 1, fLWOB);
+ fwriteLONG(&POLSSize, fLWOB);
 
 /* write out polygon data */
- if (fwrite((char *)PolyData, POLSSize, 1, fLWOB) == 1)
+ if (fwriteSHORTArray_BigEndian(PolyData, POLSSize, fLWOB) == 1)
   success = 1;
 
 EndExport:

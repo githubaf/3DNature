@@ -404,7 +404,7 @@ int fwriteKeyFrames(const union KeyFrame *KeyFrames, short NumKeyframes, FILE *f
 #endif
 }
 
-// AF: 9.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
+// AF: 9.Jan23, Write short in Big-Endian (i.e. native Amiga-) format
 int fwriteShort(const short *Value, FILE *file)
 {
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
@@ -422,6 +422,26 @@ int fwriteShort(const short *Value, FILE *file)
     #error "Unsupported Byte-Order"
 #endif
 }
+
+// AF: 16.Feb23, Write LONG in Big-Endian (i.e. native Amiga-) format
+int fwriteLONG(const LONG *Value, FILE *file)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+    LONG TempValue = *Value;
+
+    SimpleEndianFlip32S(TempValue,  &TempValue);
+
+    return (fwrite(&TempValue, sizeof (LONG), 1, file));
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite((char *)Value, sizeof (LONG), 1, file));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
 
 // size in Bytes, not floats!
 // returns number of Bytes written
@@ -466,6 +486,92 @@ ssize_t writeFloatArray_BigEndian(int filehandle, float *FloatArray, size_t size
 #error "Unsupported Byte-Order"
 #endif
 }
+
+// returns number of Blocks written
+// the fwrite()-version
+ssize_t fwriteFloatArray_BigEndian(float *FloatArray, size_t size, FILE *file) // AF, HGW, 16.Feb23
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#define TEMP_FLOAT_ARR_ENTRIES 128
+    static float TempArray[TEMP_FLOAT_ARR_ENTRIES];
+
+    size_t FloatsToDo=size/(sizeof(float));
+
+    unsigned int i=0;
+    for(i=0; i<FloatsToDo/TEMP_FLOAT_ARR_ENTRIES;i++)
+    {
+        for(unsigned int k=0;k<TEMP_FLOAT_ARR_ENTRIES;k++)
+        {
+            SimpleEndianFlip32F(FloatArray[i*TEMP_FLOAT_ARR_ENTRIES+k],&TempArray[k]);
+        }
+        ssize_t Result=fwrite(TempArray, TEMP_FLOAT_ARR_ENTRIES*sizeof(float),1,file);
+        if(Result!=1)
+        {
+            return 0;
+        }
+    }
+
+    // now the rest that did not fill a complete TempArray
+    for(unsigned int k=0;i<FloatsToDo%TEMP_FLOAT_ARR_ENTRIES;k++)
+    {
+        SimpleEndianFlip32F(FloatArray[i*TEMP_FLOAT_ARR_ENTRIES+k],&TempArray[k]);
+    }
+    ssize_t Result=fwrite(TempArray, (FloatsToDo%TEMP_FLOAT_ARR_ENTRIES)*sizeof(float),1,file);  // Result is 0 (error) or 1 (all bytes written)
+    return Result;
+#undef TEMP_FLOAT_ARR_ENTRIES
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite(FloatArray, size,1,file));
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+
+// size in Bytes, not SHORTs!
+// returns 1 if all bytes written, otherwise 0
+ssize_t fwriteSHORTArray_BigEndian(SHORT *SHORTArray, size_t size, FILE *file) // AF, HGW, 16.Feb23
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#define TEMP_SHORT_ARR_ENTRIES 128
+    static SHORT TempArray[TEMP_SHORT_ARR_ENTRIES];
+
+    size_t SHORTsToDo=size/(sizeof(SHORT));
+
+    unsigned int i=0;
+    for(i=0; i<SHORTsToDo/TEMP_SHORT_ARR_ENTRIES;i++)
+    {
+        for(unsigned int k=0;k<TEMP_SHORT_ARR_ENTRIES;k++)
+        {
+            SimpleEndianFlip16S(SHORTArray[i*TEMP_SHORT_ARR_ENTRIES+k],&TempArray[k]);
+        }
+        ssize_t Result=fwrite(TempArray, TEMP_SHORT_ARR_ENTRIES*sizeof(SHORT),1,file);  // Result is 0 (error) or 1 (all bytes written)
+
+        if(Result!=1)
+        {
+            return 0;
+        }
+    }
+
+    // now the rest that did not fill a complete TempArray
+    for(unsigned int k=0;i<SHORTsToDo%TEMP_SHORT_ARR_ENTRIES;k++)
+    {
+        SimpleEndianFlip16S(SHORTArray[i*TEMP_SHORT_ARR_ENTRIES+k],&TempArray[k]);
+    }
+    ssize_t Result=fwrite(TempArray, (SHORTsToDo%TEMP_SHORT_ARR_ENTRIES)*sizeof(SHORT),1,file);
+
+    return Result;
+#undef TEMP_SHORT_ARR_ENTRIES
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (fwrite(SHORTArray, size,1,file));
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
 
 ssize_t writeILBMHeader_BigEndian(int filehandle, struct ILBMHeader *Hdr)  // AF, 19.Jan23, always write BigEndian
 {

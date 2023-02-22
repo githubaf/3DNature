@@ -2208,6 +2208,12 @@ LW-Options Panel Content Directory auf WCSProjects: setzen.
 Szene kann in LW geladen werden.
 AMIGA OK.
 AROS nur wenn WCSProjects:Objects schon vorhanden ist. Amiga-LW laedt die von AROS generierte Scene ewig (busy)
+-> Amiga-LW laedt die von AROS generierte Scene jetzt. Die Lightwave-Ansicht ist aber nicht ganz identisch. Es gibt eine diagonale Kante in der Ansicht.
+-> In beiden erueugten LWP-Files sind die letzten 17 Koordinaten unterschiedlich 
+   ~/Desktop/SelcoGit/af_iff_structure/iff_structure_linux  '36112.M   .LWO' >'36112.M.LWO.decoded'
+   ~/Desktop/SelcoGit/af_iff_structure/iff_structure_linux  '36112.M_Amiga.LWO' >36112.M_Amiga.LWO.decoded
+   meld 36112.I_Amiga.LWO.decoded 36112.I.LWO.decoded
+   -> In meiner 68020er Version ist die gleiche Kante? Nur im Original nicht? Nochmal mit SAS/C kompilieren!
 
 * "DEM only" Es muss ein existierendes *.elev File angegeben werden. Daraus wird ein *.LWO File erzeugt.
 * In LW geladen: https://ftp2.grandis.nu/turran/FTP/~Uploads/emu/Lightwave/Lightwave.3D_v5.0r-CDSetup/LW50r_Incl.CDContent.lha
@@ -2215,4 +2221,29 @@ AMIGA OK.
 
 * "Motion only" Es entsteht "WCSProjects:CanyonSunset.LWM"
 Amiga OK.
+
+22.Feb.2023
+-----------
+Mal wieder SAS/C compilieren:
+sc-Ordener vom Amiga geholt. User-Startup:
+;---------------------------------------------------
+;BEGIN SAS/C
+assign netinclude: Work:AmiTCP-SDK-4.3/netinclude/
+assign netlib: Work:AmiTCP-SDK-4.3/netlib
+assign sc: Work:sc
+assign lib: sc:lib
+assign include: sc:include
+assign cxxinclude: sc:cxxinclude
+path sc:c add
+
+assign include: Work:MUI/Developer/C/Include/ add
+assign include: Work:SDI/includes/ add
+
+;END SAS/C
+;---------------------------------------------------
+
+http://aminet.net/dev/mui/mui38dev.lha installieren
+
+* Amiga/WinUAE neu booten.
+
 

@@ -415,7 +415,7 @@ extern short ExportWave(struct LightWaveInfo *LWInfo, FILE *Supplied);
 //extern short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
 //	short Frame, double Scale); // used locally only -> static, AF 23.7.2021
 extern short LWOB_Export(char *ObjectName, char *OutputName, struct coords *PP,
-	long MaxVertices, long MaxPolys, short SaveObject,
+	LONG MaxVertices, LONG MaxPolys, short SaveObject,
 	short Bathymetry, double LonRot);
 extern void LWScene_Export(struct LightWaveInfo *LWInfo);
 
