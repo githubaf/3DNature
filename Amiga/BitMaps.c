@@ -472,6 +472,10 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
 	UBYTE **bitmap, long *scrnrowzip, short renderseg, short segments,
 	short concat, short scrnwidth, short scrnheight)
 {
+	// Alexander
+	  FILE *pgmfile;
+	  FILE *ppmcolorfile;
+
  UBYTE red, green, blue, pad1 = 0, masking = 0, nplanes, compression = 1;
  UBYTE power2[8] = {1, 2, 4, 8, 16, 32, 64, 128};
  short error = 0, regTemp, aspect = 0xa0b, temp, width, height, WriteHeight,
@@ -881,14 +885,15 @@ RepeatMemGrab:
 
  else
   { /* not 24 or 8 bit */
+
   CD.Rows = 1;
 
-  // ############## ALEXANDER
-  ULONG BitsPerPixel=GetBitMapAttr(WCSScrn->RastPort.BitMap,BMA_DEPTH);  //ALEXANDER  --> 24 hier bei AROS
-  KPrintF((STRPTR) "AF: %s L:%ld BitsPerPixel=%ld\n",__FILE__,__LINE__,BitsPerPixel);  // ALEXANDER
-
-  ULONG isStandardBitMap=GetBitMapAttr(WCSScrn->RastPort.BitMap,BMA_FLAGS) & BMF_STANDARD;
-  KPrintF((STRPTR) "AF: %s L:%ld isStandardBitMap=%s\n",__FILE__,__LINE__,isStandardBitMap?"YES":"NO");  // ALEXANDER
+//  // ############## ALEXANDER
+//  ULONG BitsPerPixel=GetBitMapAttr(WCSScrn->RastPort.BitMap,BMA_DEPTH);  //ALEXANDER  --> 24 hier bei AROS
+//  KPrintF((STRPTR) "AF: %s L:%ld BitsPerPixel=%ld\n",__FILE__,__LINE__,BitsPerPixel);  // ALEXANDER
+//
+//  ULONG isStandardBitMap=GetBitMapAttr(WCSScrn->RastPort.BitMap,BMA_FLAGS) & BMF_STANDARD;
+//  KPrintF((STRPTR) "AF: %s L:%ld isStandardBitMap=%s\n",__FILE__,__LINE__,isStandardBitMap?"YES":"NO");  // ALEXANDER
   if(1) //(!isStandardBitMap)
       // We have a non-planar Graphics-Mode -> Get the pixel-Rows from the GFX-Bord.
 
@@ -910,23 +915,28 @@ RepeatMemGrab:
   // ############## END ALEXANDER
 
 //-----------------------------------
-  FILE *pgmfile=fopen("test.pgm","w");
-  FILE *ppmcolorfile=fopen("colormap.ppm","w");
+  pgmfile=fopen("test.pgm","w");
+  ppmcolorfile=fopen("colormap.ppm","w");
 
   fprintf(ppmcolorfile,"P3\n %d 1 255\n",1<<DEPTH);
-  for (int i=0; i<DEPTH*DEPTH; i++)
   {
-      short regTemp          = GetRGB4(WCSScrn->ViewPort.ColorMap, i);
-      short temp             = (regTemp & 0xf00);
-      UBYTE red              = temp / 16;
-      temp                   = (regTemp &0xf0);
-      UBYTE green            = temp;
-      temp                   = (regTemp & 0xf) * 16;
-      UBYTE blue             = temp;
-      fprintf(ppmcolorfile,"%d %d %d\n",red,green,blue);
+	  int i;
+	  short regTemp, temp;
+	  UBYTE red,green,blue;
+
+	  for (i=0; i<DEPTH*DEPTH; i++)
+	  {
+		  regTemp          = GetRGB4(WCSScrn->ViewPort.ColorMap, i);
+		  temp             = (regTemp & 0xf00);
+		  red              = temp / 16;
+		  temp             = (regTemp &0xf0);
+		  green            = temp;
+		  temp             = (regTemp & 0xf) * 16;
+		  blue             = temp;
+		  fprintf(ppmcolorfile,"%d %d %d\n",red,green,blue);
+	  }
   }
   fclose(ppmcolorfile);
-
   fprintf(pgmfile,"P2\n %d %d 15\n",WCSScrn->Width,WCSScrn->Height);
 //--------------------------------------------
   for (rr=0; rr<WriteHeight; rr++)
@@ -949,10 +959,13 @@ RepeatMemGrab:
         // Abspeichern und Anzeigen des ReadPixelArray8-Ergebnisses. Funktioniert Amiga RTG
        // pgmtoppm -map colormap.ppm  test.pgm >image.ppm
        // display image.ppm
-       for(int i=0;i<WCSScrn->Width;i++)
        {
-           fprintf(pgmfile,"%d ",chunkybuf[i]&0x0f);  // testweise. Das PGM-File ist auf dem Amiga OK!
-                                                      // bei AROS ist 0x0f noetig. Trotzdem ist dann eine Farbe falsch
+    	   int i;
+    	   for(i=0;i<WCSScrn->Width;i++)
+    	   {
+    		   fprintf(pgmfile,"%d ",chunkybuf[i]&0x0f);  // testweise. Das PGM-File ist auf dem Amiga OK!
+    		   // bei AROS ist 0x0f noetig. Trotzdem ist dann eine Farbe falsch
+    	   }
        }
        fprintf(pgmfile,"\n");
 
@@ -969,19 +982,22 @@ RepeatMemGrab:
 
        // ChunkyToPlanar
        // RgbBitmap->Planes[0]...
-       for(unsigned int x=0;x<WCSScrn->Width/8;x++)
        {
-           *(RgbBitmap->Planes[3]+x)=0;
-           *(RgbBitmap->Planes[2]+x)=0;
-           *(RgbBitmap->Planes[1]+x)=0;
-           *(RgbBitmap->Planes[0]+x)=0;
-       }
-       for(unsigned int x=0;x<WCSScrn->Width;x++)
-       {
-           *(RgbBitmap->Planes[3]+x/8)|=((chunkybuf[x]&0x08) >>3) << (7-x%8);
-           *(RgbBitmap->Planes[2]+x/8)|=((chunkybuf[x]&0x04) >>2) << (7-x%8);
-           *(RgbBitmap->Planes[1]+x/8)|=((chunkybuf[x]&0x02) >>1) << (7-x%8);
-           *(RgbBitmap->Planes[0]+x/8)|=((chunkybuf[x]&0x01) >>0) << (7-x%8);
+    	   unsigned int x;
+    	   for(x=0;x<WCSScrn->Width/8;x++)
+    	   {
+    		   *(RgbBitmap->Planes[3]+x)=0;
+    		   *(RgbBitmap->Planes[2]+x)=0;
+    		   *(RgbBitmap->Planes[1]+x)=0;
+    		   *(RgbBitmap->Planes[0]+x)=0;
+    	   }
+    	   for(x=0;x<WCSScrn->Width;x++)
+    	   {
+    		   *(RgbBitmap->Planes[3]+x/8)|=((chunkybuf[x]&0x08) >>3) << (7-x%8);
+    		   *(RgbBitmap->Planes[2]+x/8)|=((chunkybuf[x]&0x04) >>2) << (7-x%8);
+    		   *(RgbBitmap->Planes[1]+x/8)|=((chunkybuf[x]&0x02) >>1) << (7-x%8);
+    		   *(RgbBitmap->Planes[0]+x/8)|=((chunkybuf[x]&0x01) >>0) << (7-x%8);
+    	   }
        }
    }
    ////////////

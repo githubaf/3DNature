@@ -2251,7 +2251,7 @@ http://aminet.net/dev/c/SDI_headers.lha installieren
 
 * Amiga/WinUAE neu booten.
 cd vgl
-smake optimize
+smake
 cd /
 smake optimize
 
