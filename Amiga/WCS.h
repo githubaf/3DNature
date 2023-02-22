@@ -159,8 +159,15 @@ EXTERN struct WCSScreenData
 	long Width, Height;
 	} ScrnData;
 
+
+#ifdef __AROS__
+   #define PACKED __attribute__((__packed__))
+#else
+   #define PACKED
+#endif
+
 /* AF struct packed for AROS, 12.Dec.22 */
-EXTERN struct __attribute__((__packed__))database {
+EXTERN struct PACKED database {
  char 	Enabled;
  char 	Name[11];
  char 	Layer1[3];
@@ -207,7 +214,7 @@ EXTERN struct DirList {
 	CurrentKey;
 };
 /* AF struct packed for AROS, 12.Dec.22 */
-/*EXTERN*/ struct __attribute__((__packed__))ParHeader {
+/*EXTERN*/ struct PACKED ParHeader {
  char	FType[8];
  float	Version;
  LONG	ByteOrder;
@@ -640,7 +647,7 @@ EXTERN __far struct Settings UndoSetPar[2];
 };
 
 /* AF struct packed for AROS, 30.Dec.22 */
-/*EXTERN*/ struct __attribute__((__packed__)) MotionKey {
+/*EXTERN*/ struct PACKED  MotionKey {
  short	KeyFrame,
 	Group,            // AF: 2.Jan23  0=Motion Key, 1=Color Key, 2=Ecosystem Key
 	Item;             // AF: 2.Jan23  Motion 8 = Bank Key (?)
@@ -650,7 +657,7 @@ EXTERN __far struct Settings UndoSetPar[2];
 };
 
 /* AF struct packed for AROS, 30.Dec.22 */
-/*EXTERN*/ struct __attribute__((__packed__)) MotionKey2 {
+/*EXTERN*/ struct PACKED  MotionKey2 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -660,7 +667,7 @@ EXTERN __far struct Settings UndoSetPar[2];
 };
 
 /* AF struct packed for AROS, 30.Dec.22 */
-/*EXTERN*/ struct __attribute__((__packed__)) ColorKey {
+/*EXTERN*/ struct PACKED  ColorKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -670,7 +677,7 @@ EXTERN __far struct Settings UndoSetPar[2];
 };
 
 /* AF struct packed for AROS, 30.Dec.22 */
-/*EXTERN*/ struct __attribute__((__packed__)) EcosystemKeyV1 {
+/*EXTERN*/ struct PACKED  EcosystemKeyV1 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -686,7 +693,7 @@ EXTERN __far struct Settings UndoSetPar[2];
 	MinSlope;		/* Min slope */
 };
 
-/*EXTERN*/ struct __attribute__((__packed__)) EcosystemKey2V1 {
+/*EXTERN*/ struct PACKED  EcosystemKey2V1 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -696,7 +703,7 @@ EXTERN __far struct Settings UndoSetPar[2];
 };
 
 /* AF struct packed for AROS, 30.Dec.22 */
-/*EXTERN*/ struct __attribute__((__packed__)) EcosystemKey {
+/*EXTERN*/ struct PACKED  EcosystemKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -715,7 +722,7 @@ EXTERN __far struct Settings UndoSetPar[2];
 };
 
 /* AF struct packed for AROS, 30.Dec.22 */
-/*EXTERN*/ struct __attribute__((__packed__)) EcosystemKey2 {
+/*EXTERN*/ struct PACKED  EcosystemKey2 {
  short	KeyFrame,
 	Group,
 	Item;
@@ -725,7 +732,7 @@ EXTERN __far struct Settings UndoSetPar[2];
 };
 
 /* AF struct packed for AROS, 30.Dec.22 */
-/*EXTERN*/ struct __attribute__((__packed__)) CloudKey {
+/*EXTERN*/ struct PACKED  CloudKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -735,7 +742,7 @@ EXTERN __far struct Settings UndoSetPar[2];
 };
 
 /* AF struct packed for AROS, 30.Dec.22 */
-/*EXTERN*/ struct __attribute__((__packed__)) WaveKey {
+/*EXTERN*/ struct PACKED  WaveKey {
  short	KeyFrame,
 	Group,
 	Item;
@@ -931,7 +938,7 @@ EXTERN struct WaveData *Tsunami;
 };
 
 /* AF struct packed for AROS, 12.Dec.22 */
-/*EXTERN*/ struct __attribute__((__packed__)) vectorheaderV100 {
+/*EXTERN*/ struct PACKED  vectorheaderV100 {
  char	Name[10];
  LONG	points;
  short	elevs;

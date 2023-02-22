@@ -15,6 +15,12 @@ typedef CONST unsigned char  *CONST_STRPTR;
 
 #include <SDI_compiler.h>
 
+#ifdef __SASC
+   typedef int ssize_t;
+#endif
+
+
+
 typedef double Matx3x3[3][3]; // moved to WCS.h
 
 #ifndef __SASC   // ALEXANDER: SAS/C meckert, wenn ich ie forward deklarationen mache???

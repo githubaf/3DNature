@@ -68,7 +68,6 @@ STATIC_FCN WORD PenSpec[]=
   };
 
 
-unsigned long long Swap1=0,Swap2=0,Swap4=0,Swap8=0,Swapother=0, SwapTotal=0;  // ALEXANDER: Test fuer swapmem()
 
 const char min_stack[] = "\0$STACK: 8192";  // ask for enough stack. (OS 3.14, OS3.2)
 const ULONG MinStack=8192;   // abort if stack is actually smaller
@@ -472,8 +471,8 @@ void SimpleEndianFlip32S(   signed long int Source32, signed long int   *Dest32)
                        ( long int)( ((Source32 & 0xff0000) >> 8) | ((Source32 & 0xff000000) >> 24)));
        }
 
-void SimpleEndianFlip16U(unsigned short int Source16, unsigned short int *Dest16) {(*Dest16) = (unsigned short int)( ((Source16 & 0x00ff) << 8) | ((Source16 & 0xff00) >> 8) );};
-void SimpleEndianFlip16S(  signed short int Source16, signed short int   *Dest16) {(*Dest16) = (  signed short int)( ((Source16 & 0x00ff) << 8) | ((Source16 & 0xff00) >> 8) );};
+void SimpleEndianFlip16U(unsigned short int Source16, unsigned short int *Dest16) {(*Dest16) = (unsigned short int)( ((Source16 & 0x00ff) << 8) | ((Source16 & 0xff00) >> 8) );}
+void SimpleEndianFlip16S(  signed short int Source16, signed short int   *Dest16) {(*Dest16) = (  signed short int)( ((Source16 & 0x00ff) << 8) | ((Source16 & 0xff00) >> 8) );}
 
 // AF, 17.12.2022
 

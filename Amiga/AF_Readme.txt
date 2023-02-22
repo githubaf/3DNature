@@ -2243,7 +2243,11 @@ assign include: Work:SDI/includes/ add
 ;---------------------------------------------------
 
 http://aminet.net/dev/mui/mui38dev.lha installieren
+http://aminet.net/dev/c/SDI_headers.lha installieren
 
 * Amiga/WinUAE neu booten.
-
+cd vgl
+smake optimize
+cd /
+smake optimize
 

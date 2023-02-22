@@ -13,6 +13,7 @@ STATIC_FCN void Set_DI_Data(void); // used locally only -> static, AF 25.7.2021
 STATIC_FCN double DegMinSecToDegrees(char *str); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Get_DC_InputFile(void);// used locally only -> static, AF 25.7.2021
 
+ssize_t readZBufHdr_BigEndian(int filehandle, struct ZBufferHeader *ZBufHdr); // defined in EdPar.c, AF
 
 #define DEM_DATA_INPUT_ARRAY		0
 #define DEM_DATA_INPUT_WCSDEM		1
@@ -59,7 +60,7 @@ struct ZBufferHeader {
 void Make_DC_Window(void)
 {
  short i;
- long open;
+ long open=FALSE;
  static const char *InputCycle[] =
 	 {"Binary Array", "WCS DEM", "Z Buffer", "Ascii Array", "Vista DEM",
 	"IFF", "DTED", NULL};
@@ -602,7 +603,7 @@ void Handle_DC_Window(ULONG WCS_ID)
       } /* check file size DEM */
      case ID_DC_GETOUTDIR:
       {
-      char dirpath[256], filename[32], *CurStr;
+      char dirpath[256], filename[32], *CurStr=NULL;
 
       get(DC_Win->OutDirStr, MUIA_String_Contents, &CurStr);
       strcpy(dirpath, CurStr);
@@ -615,7 +616,7 @@ void Handle_DC_Window(ULONG WCS_ID)
       } /* check file size DEM */
      case ID_DC_TEST:
       {
-      char *filename;
+      char *filename=NULL;
 
       get(DC_Win->FileNameStr, MUIA_String_Contents, &filename);
       Set_DC_Data();
@@ -646,7 +647,7 @@ void Handle_DC_Window(ULONG WCS_ID)
       } /* convert DEM */
      case ID_DC_CONVERT:
       {
-      char *filename;
+      char *filename=NULL;
 
       get(DC_Win->FileNameStr, MUIA_String_Contents, &filename);
       Set_DC_Data();
@@ -666,7 +667,7 @@ void Handle_DC_Window(ULONG WCS_ID)
 
    case GP_ARROW1:
     {
-    LONG data;
+    LONG data=0;
 
     i = WCS_ID - ID_DC_ARROWLEFT(0);
     get(DC_Win->OutputMapStr[i], MUIA_String_Integer, &data);
@@ -676,7 +677,7 @@ void Handle_DC_Window(ULONG WCS_ID)
 
    case GP_ARROW2:
     {
-    LONG data;
+    LONG data=0;
 
     i = WCS_ID - ID_DC_ARROWRIGHT(0);
     get(DC_Win->OutputMapStr[i], MUIA_String_Integer, &data);
@@ -693,7 +694,7 @@ void Handle_DC_Window(ULONG WCS_ID)
 STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2021
 {
  char filename[255];
- long filesize, fh, data, headersize;
+ long filesize, fh, data=0, headersize;
 
  if (! getfilename(0, "File to Convert", DC_Win->InPath, DC_Win->InFile))
   return;
@@ -1177,8 +1178,8 @@ long Deg, Min, DegMinSec;
 STATIC_FCN void Set_DC_Data(void) // used locally only -> static, AF 25.7.2021
 {
  short i;
- char *floatdata;
- LONG data;
+ char *floatdata=NULL;
+ LONG data=0;
 
  for (i=0; i<10; i++)
   {
@@ -1236,7 +1237,7 @@ STATIC_FCN void Set_DC_Data(void) // used locally only -> static, AF 25.7.2021
 
 void Make_DI_Window(void)
 {
- long open;
+ long open=FALSE;
 
  if (DI_Win)
   {
@@ -1460,7 +1461,7 @@ void Handle_DI_Window(ULONG WCS_ID)
 
 STATIC_FCN void Set_DI_Data(void) // used locally only -> static, AF 25.7.2021
 {
- char *floatstr;
+ char *floatstr=NULL;
 
  get(DI_Win->ElVarStr, MUIA_String_Contents, &floatstr);
  DI_Win->DEMInterp->elvar = .01 * atof(floatstr);
