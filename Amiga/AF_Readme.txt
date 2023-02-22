@@ -2240,6 +2240,10 @@ assign include: Work:MUI/Developer/C/Include/ add
 assign include: Work:SDI/includes/ add
 
 ;END SAS/C
+
+setenv BUILDID=AF_BuildID  ; for WCS compiling
+copy env:BUILDID envarc:   ; envarc:BUILDID is needed during smake. What is its purpose?
+
 ;---------------------------------------------------
 
 http://aminet.net/dev/mui/mui38dev.lha installieren
