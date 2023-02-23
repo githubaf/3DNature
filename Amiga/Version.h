@@ -17,7 +17,7 @@
 
 /* Don't mess with these. */
 #define APP_VERSION		APP_TLA " " APP_VERS "." APP_REV " " __DATE__
-#define APP_COPYR			"ï¿½1992-1996"
+#define APP_COPYR			"©1992-1996"
 #define APP_COPYRIGHT	APP_COPYR", "APP_AUTHOR
 
 #define BETA_DAYS 61  // two months for Beta testing
