@@ -10,6 +10,18 @@ C_SRCS += \
 ../vgl/pixmap.c \
 ../vgl/wuline.c 
 
+O_SRCS += \
+../vgl/clib.o \
+../vgl/color.o \
+../vgl/defpal.o \
+../vgl/dumb.o \
+../vgl/dumbbitblt.o \
+../vgl/dumbpoly.o \
+../vgl/dumbtext.o \
+../vgl/fontsmall.o \
+../vgl/pixmap.o \
+../vgl/wuline.o 
+
 C_DEPS += \
 ./vgl/color.d \
 ./vgl/dumb.d \

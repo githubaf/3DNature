@@ -2279,4 +2279,16 @@ Multiple include guards may be useful for:
 
 --> Erledigt.
 
+smake clean
+sc MAKEGST=WCSGST WCS.c "IGNORE=51" "DEFINE=STATIC_FCN=static" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1"
+smake AGUI.o
 
+Mit Emerald_Anton verglichen. Dort laesst sich alles mit smake bauen. Altes WCS.c vom Emerald_Anton genommen, Header-Files aktuell -> geht auch!
+mit gitk die History vom WCS.c angeschaut und ann einzelne Versione mit git checkout geholt:
+- WCS.c 22.12.2022 geht noch
+        19.1.2023 geht noch
+        24.1.2023 geht nicht mehr (AGUI.c kann nicht mehr compiliert werdenm wenn das WCSGST mit WCS.c neu gebaut wurde)
+
+-> in WCS.c durfte kein #include <time.h> stehen. Sonst kann man AGUI.c nicht mehr kompilieren, wenn das WCSGST schon da ist (!!???)
+
+Korrigiert, Kann wieder mit SAS/C gebaut werden.

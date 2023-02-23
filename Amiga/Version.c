@@ -42,3 +42,36 @@ char toolchain_ver[] = "\0$TLCN: " "SAS/C";
     char toolchain_ver[] = "\0$TLCN: " TOOLCHAIN_VER;   /* This macro contains git hashes for Bebbos's gcc, AF, 11.11.2021*/
 #endif
 
+
+// --------------------------------------------------------------------
+    // AF, 32.Feb32
+    // wrappers for time() and cvt_TIME. time() cannot be called directly in WCS.c because it needs time.h
+    // and that include breaks GST on SAS/C (AGUI.c(!) no longer compiler clean when WCS.c included time.h)
+
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+    // for beta timeout calculation. Converts Date-String "20 Jan 23" to epoch
+    // see https://stackoverflow.com/questions/1765014/convert-string-from-date-into-a-time-t
+    unsigned long cvt_TIME(char const *time) {
+    	char s_month[5];
+    	int month, day, year;
+    	struct tm t = {0};
+    	static const char month_names[] = "JanFebMarAprMayJunJulAugSepOctNovDec";
+
+    	sscanf(time, "%s %d %d", s_month, &day, &year);
+
+    	month = (strstr(month_names, s_month)-month_names)/3;
+
+    	t.tm_mon = month;
+    	t.tm_mday = day;
+    	t.tm_year = year - 1900;
+    	t.tm_isdst = -1;
+
+    	return (unsigned long)mktime(&t);
+    }
+
+    unsigned long get_time(unsigned long *result)
+    {
+    	return (unsigned long) time((time_t*)result);
+    }
