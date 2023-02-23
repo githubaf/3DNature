@@ -2253,5 +2253,30 @@ http://aminet.net/dev/c/SDI_headers.lha installieren
 cd vgl
 smake
 cd /
+smake all ; no optimization or
 smake optimize
+
+23.Feb.2023
+-----------
+Das WCSGST File macht bei der SAS/C Version Aerger. Da darf u.A. kein inline drinstehen. Das GST-File wird aus WCS.c gebaut. Welche includes benutzt WCS.c?
+Die Includes sieht man beim gcc mit -H. Kann man mit 
+gcc ....     -c -H 2>&1 | grep "^\.\+ " | grep -v "m68k-amigaos_08Nov22"
+ (ein oder mehrere Punkte am Zeilenanfang, dann ein Leerzeichen. Blende die Systemheader aus.)
+rausfiltern, also
+
+m68k-amigaos-gcc -DFORCE_MUIMASTER_VMIN=19 -DAMIGA_GUI -DTOOLCHAIN_VER=\"'%@@=492:?i_g}@Gaa 9EEADi^^8:E9F3]4@>^3633@^2>:82\\844]8:E 2>:82\\844ig5d556a 2>:82\\?6E:?4=F56i_b6ch77 2C@D\\DEF77ig4f`2gb 3:?FE:=Di_d6df`3b5 4=:3ai6e4_4d_ 75aAC28>2i6hg7_h_ 75aD75i35f6e55 844i5524b4aa4 :C2i333f2ge :I6>F=i7_55hhf =:3$s{`aibac7e34 =:3563F8ica5h5b2 =:3?:Iib5d42b2 ?6H=:3\\4J8H:?i32be_6b D754i2f3ce_7 G2D>i26b62a4 G344iaffgb62 G=:?<ia7`6_3a'\" -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -O2 -Wall  -fmessage-length=0 -funsigned-char -MMD -MP -MF"WCS.d" -MT"WCS.o"  "../WCS.c" -DBUILDID=\"g/'daa6ae6-dirty'\" -noixemul -m68020 -m68881 -fomit-frame-pointer -fbaserel -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -c -H 2>&1 | grep "^\.\+ " | grep -v "m68k-amigaos_08Nov22"
+
+Ohne die Greps zeigt er auch noch an, wo Include-Ifdefs hin sollten:
+
+Multiple include guards may be useful for:
+../CmdCallProtos.h
+../GUIDefines.h
+../GUIExtras.h
+../Headers.h
+../Proto.h
+../Version.h
+../WCS.h
+
+--> Erledigt.
+
 

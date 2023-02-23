@@ -5,6 +5,9 @@
 ** By Gary R. Huber and Chris "Xenon" Hanson, 1993.
 */
 
+#ifndef _GUIDEFINES_H_
+#define _GUIDEFINES_H_
+
 #include "Defines.h"
 
 /* General define values */
@@ -1086,3 +1089,5 @@
 #define ID_RN_QUIT	(MO_RENDER | WI_WINDOW0 | GP_BUTTONS1 | GA_GADNUM(0))
 #define ID_RN_RENDER	(MO_RENDER | WI_WINDOW0 | GP_BUTTONS1 | GA_GADNUM(1))
 #define ID_RN_LAYOUT	(MO_RENDER | WI_WINDOW0 | GP_CYCLE1   | GA_GADNUM(0))
+
+#endif

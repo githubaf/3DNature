@@ -4,6 +4,8 @@
 ** Built on 24 Jul 1993 from gis.c and gisam.c by Chris "Xenon" Hanson.
 ** Original code and subsequent rape, pillage and plunder by Gary R. Huber.
 */
+#ifndef _WCS_H_
+#define _WCS_H_
 
 #define DEB_MAX 100000
 #define AF_DEBUG(s)                {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s\n",            __FILE__,__func__,__LINE__,s);} }
@@ -3264,4 +3266,7 @@ EXTERN Matx3x3 ScrRotMatx, NoBankMatx;
 
 #ifndef MakeID
    #define MakeID(a,b,c,d) ( (a)<<24 | (b)<<16 | (c)<<8 | (d) )
+#endif
+
+
 #endif

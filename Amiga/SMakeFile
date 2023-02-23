@@ -2,7 +2,7 @@
 # Setup for SAS/6.x
 
 C = sc
-OPTIONS = "IGNORE=51" "DEFINE=STATIC_FCN=static" "DEFINE=STATIC_VAR=static"
+OPTIONS = "IGNORE=51" "DEFINE=STATIC_FCN=static" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1"
 REXXC = rx SMakeIt
 LINK = slink
 LIBS = libvgl.a LIB:sc.lib LIB:amiga.lib

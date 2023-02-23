@@ -49,6 +49,7 @@ int fwriteParHeader(const struct ParHeader *ParHdr,FILE *file)
 #endif
 }
 
+
 // AF: 5.Jan23, Write struct in Big-Endian (i.e. native Amiga-) format
 int fwriteMotion(const struct Motion *Value, FILE *file)
 {
@@ -3635,7 +3636,8 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
    {
       goto ReadError;
    }
-  ENDIAN_CHANGE_IF_NEEDED( /* AF: 16.Dec.2022, Endian correction for i386-loaditemros */
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+  /* AF: 16.Dec.2022, Endian correction for i386-loaditemros (too big for ENDIAN_CHANGE_IF_NEEDED() on SAS/C) */
           SimpleEndianFlip16S(settingsV1->startframe,&settingsV1->startframe);
           SimpleEndianFlip16S(settingsV1->maxframes,&settingsV1->maxframes);
           SimpleEndianFlip16S(settingsV1->startseg,&settingsV1->startseg);
@@ -3717,8 +3719,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
           SimpleEndianFlip64(settingsV1->globecograd,&settingsV1->globecograd);
           SimpleEndianFlip64(settingsV1->globsnowgrad,&settingsV1->globsnowgrad);
           SimpleEndianFlip64(settingsV1->globreflat,&settingsV1->globreflat);
-
-  )
+#endif
   }
  else
   fseek(fparam, sizeof (struct SettingsV1), 1);
@@ -3779,15 +3780,15 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
        {
        case 0:
         {
-        SimpleEndianFlip64(TempKF.MoKey.Value,&TempKF.MoKey.Value);
+        	ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip64(TempKF.MoKey.Value,&TempKF.MoKey.Value);)
         KFV1[k].MoKey.Value = TempKF.MoKey.Value;
         break;
         } /* Motion */
        case 1:
         {
-        SimpleEndianFlip16S(TempKF.CoKey.Value[0],&TempKF.CoKey.Value[0]);
-        SimpleEndianFlip16S(TempKF.CoKey.Value[1],&TempKF.CoKey.Value[1]);
-        SimpleEndianFlip16S(TempKF.CoKey.Value[1],&TempKF.CoKey.Value[2]);
+        	ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16S(TempKF.CoKey.Value[0],&TempKF.CoKey.Value[0]);)
+        	ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16S(TempKF.CoKey.Value[1],&TempKF.CoKey.Value[1]);)
+        	ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16S(TempKF.CoKey.Value[1],&TempKF.CoKey.Value[2]);)
 
         KFV1[k].CoKey.Value[0] = TempKF.CoKey.Value[0];
         KFV1[k].CoKey.Value[1] = TempKF.CoKey.Value[1];
@@ -3798,7 +3799,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
         {
         for (i=0; i<8; i++)
         {
-         SimpleEndianFlip16S(TempKF.EcoKey2.Value[i],&TempKF.EcoKey2.Value[i]);
+         ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16S(TempKF.EcoKey2.Value[i],&TempKF.EcoKey2.Value[i]);)
          KFV1[k].EcoKey2.Value[i] = TempKF.EcoKey2.Value[i];
         }
         break;

@@ -898,7 +898,7 @@ RepeatMemGrab:
       // We have a non-planar Graphics-Mode -> Get the pixel-Rows from the GFX-Bord.
 
   {
-      KPrintF((STRPTR) "AF: %s L:%ld Calling AllocBitMap()\n",__FILE__,__LINE__);  // ALEXANDER
+//      KPrintF((STRPTR) "AF: %s L:%ld Calling AllocBitMap()\n",__FILE__,__LINE__);  // ALEXANDER
       RgbBitmap=AllocBitMap(WCSScrn->Width,1,4,0,NULL);  // xsize, ysize, depth, flags friendBitmap
       if(!RgbBitmap)
       {
@@ -1020,7 +1020,7 @@ RepeatMemGrab:
      {
      if ((error = CompressRows(&CD)) > 0)   // crashes here
        {
-         KPrintF((STRPTR) "AF: %s L:%ld Error in CompressRows()\n",__FILE__,__LINE__);  // ALEXANDER
+//         KPrintF((STRPTR) "AF: %s L:%ld Error in CompressRows()\n",__FILE__,__LINE__);  // ALEXANDER
       goto Scleanup;
       } /* if write error */
      } /* if byte run 1 compression */

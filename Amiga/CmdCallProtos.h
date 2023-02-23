@@ -3,7 +3,8 @@
 ** get called from the command parser.
 ** Copyright 1995 by Questar Productions
 */
-
+#ifndef _CMDALLPROTOS_H_
+#define _CMDALLPROTOS_H_
 
 EXTERN int DataBase(struct CmdContext *Call);
 EXTERN int ParamIO(struct CmdContext *Call);
@@ -20,3 +21,4 @@ EXTERN int RenderOps(struct CmdContext *Call);
 EXTERN int Status(struct CmdContext *Call);
 EXTERN int ImportDEM(struct CmdContext *Call);
 
+#endif

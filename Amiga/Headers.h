@@ -6,6 +6,9 @@
 ** Cleaned up and rearranged on 22 May 1995 by CXH
 */
 
+#ifndef _HEADERS_H_H
+#define _HEADERS_H_H
+
 /* ANSI headers */
 //#include <dos.h>
 #include <dos/dos.h>
@@ -73,3 +76,5 @@
 #include <graphics/text.h> // i/i.h
 #include <libraries/dos.h> // dos.h
 */
+
+#endif

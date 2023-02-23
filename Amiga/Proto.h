@@ -5,6 +5,9 @@
 ** Original code by Gary R. Huber.
 */
 
+#ifndef _PROTO_H
+#define _PROTO_H
+
 #ifndef WCS_PROTO_H
 #define WCS_PROTO_H
 
@@ -1163,3 +1166,5 @@ ssize_t writeILBMHeader_BigEndian(int filehandle, struct ILBMHeader *Hdr);  // A
 
 ssize_t writeZBufferHeader(int filehandle, struct ZBufferHeader *ZBufHdr);  // AF, 19.Jan23, always write BigEndian
 // returns number of Bytes written (36)
+
+#endif

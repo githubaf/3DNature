@@ -6,6 +6,9 @@
 ** And more, 03 Sep 1995 -CXH
 */
 
+#ifndef _GUIEXTRAS_H_
+#define _GUIEXTRAS_H_
+
 /* Used only in EditGUI.c */
 #define hcenter(obj)  HGroup, Child, sp, Child, obj, Child, sp, End
 
@@ -62,3 +65,5 @@
   MUIA_InnerTop, 0, MUIA_InnerBottom, 0,\
   MUIA_Image_OldImage, i,\
   End
+
+#endif

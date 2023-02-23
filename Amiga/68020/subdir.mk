@@ -79,6 +79,13 @@ C_SRCS += \
 ../nngridr.c \
 ../sasc_functions.c 
 
+O_SRCS += \
+../CloudGUI.o \
+../DEMGUI.o \
+../DataOpsGUI.o \
+../DispatchGUI.o \
+../WCS.o 
+
 C_DEPS += \
 ./AGUI.d \
 ./BitMaps.d \

@@ -1143,32 +1143,32 @@ struct WcsBitMapHeader BMHdr;
 	   } /* if new BitmapImage structure allocated */
           else
           {
-           KPrintF("AF: BitmapImage_New() failed\n");
+           //KPrintF("AF: BitmapImage_New() failed\n");
            error = 1;
           }
           } /* if bitmap header read */
          else
          {
-          KPrintF("AF: read WCSBitMapHeader failed\n");
+          //KPrintF("AF: read WCSBitMapHeader failed\n");
           error = 1;
          }
          } /* if IFF image file */
         else
         {
-            KPrintF("AF: FindIFFChunk() failed\n");
+            //KPrintF("AF: FindIFFChunk() failed\n");
          error = 1;
         }
         } /* if IFF file */
        else
        {
-           KPrintF("AF: CheckIff() failed\n",filename);
+           //KPrintF("AF: CheckIff() failed\n",filename);
         error = 1;
        }
        close(fh);
        } /* if file opened */
       else
       {
-          KPrintF("AF: open(%s) failed\n",filename);
+          //KPrintF("AF: open(%s) failed\n",filename);
        error = 1;
       }
       if (error)

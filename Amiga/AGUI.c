@@ -3076,7 +3076,7 @@ else
   set(InfoPar, MUIA_Text_Contents, (IPTR)" -none- ");
 
 InfoData[0] = 0;
-if(GetDisplayInfoData(NULL, (UBYTE *)&ModeName, sizeof(ModeName), DTAG_NAME, WCSScrn->ViewPort.ColorMap->VPModeID/*ScrnData.ModeID*/)) // ScrnData.ModeID is always 0 if "Save"-Button in World Construction Set ScreenMode-Window was not pressed, i.e. if user pressed "Use" instead))
+if(GetDisplayInfoData(NULL, (UBYTE *)&ModeName, sizeof(ModeName), DTAG_NAME, WCSScrn->ViewPort.ColorMap->VPModeID/*ScrnData.ModeID*/)) // ScrnData.ModeID is always 0 if "Save"-Button in World Construction Set ScreenMode-Window was not pressed, i.e. if uer pressed "Use" instead))
   {
   strncpy(InfoData, (char*)ModeName.Name, 75);
   InfoData[75] = 0;
