@@ -12,3 +12,8 @@ for FILE in $FILE_LIST; do
 	exit 1
     fi
 done
+
+#check, if WCS is still compileable with SAS/C
+cd /home/developer/Desktop/SelcoGit/3DNature/Amiga/
+./build_wcs_sasc.sh
+

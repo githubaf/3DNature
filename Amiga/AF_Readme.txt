@@ -303,7 +303,7 @@ pre-commit Script erzeugt. Muss manuell nach .git/hooks kopiert werden. Verhinde
 
 29.Juli 2021
 ------------
-Eineige Files wraen UTF-8 kodiert. Das fuehrt zu seltsamer Darstellung auf dem Amiga. mit iconv nach ISO 8859-1 konvertiert.
+Eineige Files waren UTF-8 kodiert. Das fuehrt zu seltsamer Darstellung auf dem Amiga. mit iconv nach ISO 8859-1 konvertiert.
 
 
 2.August 2021
@@ -2292,3 +2292,73 @@ mit gitk die History vom WCS.c angeschaut und ann einzelne Versione mit git chec
 -> in WCS.c durfte kein #include <time.h> stehen. Sonst kann man AGUI.c nicht mehr kompilieren, wenn das WCSGST schon da ist (!!???)
 
 Korrigiert, Kann wieder mit SAS/C gebaut werden.
+
+27.Feb.23
+---------
+SAS/C-Version kann mit Vamos 0.7 gebaut werden. Ohne smake, aufruf aller Compiler/Linker-Kommandos. Folgende ~/.vamosrc benutzt. SC, MUI, SDI auf den Linux-Rechner kopiert.
+
+[vamos]
+#quiet=True
+
+# 8Meg Ram for 68000er Computer
+#ram_size=8192
+
+# more RAM for bigger CPUs, disable HW access for so much RAM
+cpu=68020
+hw_access=disable
+ram_size=32768
+
+#16 KBytes of Stack
+stack=16
+
+[volumes]
+# wb310=~/amiga/wb310
+sc=~/Desktop/AmigaFiles/sc
+C=~/Desktop/AmigaFiles/C
+L=~/Desktop/AmigaFiles/L
+MUI=~/Desktop/AmigaFiles/MUI
+SDI=~/Desktop/AmigaFiles/SDI
+Libs=~/Desktop/AmigaFiles/Libs
+
+[assigns]
+include=sc:include,MUI:Developer/C/Include,SDI:includes
+lib=sc:lib
+t=root:tmp
+ENV=t:ENV
+
+[path]
+path=sc:c,L:
+#,wb310:c
+
+#wichtig, sonst meckert smake "Can't open version 0 of icon.library"
+[icon.library]
+mode=fake
+
+
+##############################################
+
+Script zum bauen mit SAS/C und vamos
+build_wcs_sasc.sh
+
+Script-Aufruf in die pre_commit Datei uebernommen. Nicht vergessen, die Datei nach .git/hooks zu kopieren!
+
+#!/bin/bash
+# rejects commits of UTF-8 text files. 
+# copy this file to .git/hooks
+
+FILE_LIST="$(git diff --cached --name-only)"
+
+for FILE in $FILE_LIST; do
+    if [ $(file "$FILE" | grep -c "UTF-8 Unicode text") -ne 0 ]; then
+        echo "Local pre-commit hook"
+        echo "Error: File $FILE is UTF-8 encoded. Change that to ISO 8859-1 for Amiga and try again!"
+        echo "Commit refused."
+        exit 1
+    fi
+done
+
+#check, if WCS is still compileable with SAS/C
+cd /home/developer/Desktop/SelcoGit/3DNature/Amiga/
+./build_wcs_sasc.sh
+
+
