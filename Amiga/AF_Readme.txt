@@ -2361,4 +2361,13 @@ done
 cd /home/developer/Desktop/SelcoGit/3DNature/Amiga/
 ./build_wcs_sasc.sh
 
+7.Mar.23
+--------
+neuer Amiga-Gcc (4.Mar23) produces crashing executable and many messages like
+WCS: classface reloc for _DoMethod is out of range: 00000000
+WCS: text reloc for _CheckRexxMsg is out of range: 00000000
+WCS: text reloc for _SetRexxVar is out of range: 00000000
+WCS: text reloc for _DeletePort is out of range: 00000000
+WCS: text reloc for _DeletePort is out of range: 00000000
 
+Compiler vom 08.Nov22 funktioniert.
