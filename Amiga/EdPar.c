@@ -471,7 +471,7 @@ ssize_t writeFloatArray_BigEndian(int filehandle, float *FloatArray, size_t size
     }
 
     // now the rest that did not fill a complete TempArray
-    for(unsigned int k=0;i<FloatsToDo%TEMP_FLOAT_ARR_ENTRIES;k++)
+    for(unsigned int k=0;k<FloatsToDo%TEMP_FLOAT_ARR_ENTRIES;k++)
     {
         SimpleEndianFlip32F(FloatArray[i*TEMP_FLOAT_ARR_ENTRIES+k],&TempArray[k]);
     }
@@ -513,7 +513,7 @@ ssize_t fwriteFloatArray_BigEndian(float *FloatArray, size_t size, FILE *file) /
     }
 
     // now the rest that did not fill a complete TempArray
-    for(unsigned int k=0;i<FloatsToDo%TEMP_FLOAT_ARR_ENTRIES;k++)
+    for(unsigned int k=0;k<FloatsToDo%TEMP_FLOAT_ARR_ENTRIES;k++)
     {
         SimpleEndianFlip32F(FloatArray[i*TEMP_FLOAT_ARR_ENTRIES+k],&TempArray[k]);
     }
@@ -556,7 +556,7 @@ ssize_t fwriteSHORTArray_BigEndian(SHORT *SHORTArray, size_t size, FILE *file) /
     }
 
     // now the rest that did not fill a complete TempArray
-    for(unsigned int k=0;i<SHORTsToDo%TEMP_SHORT_ARR_ENTRIES;k++)
+    for(unsigned int k=0;k<SHORTsToDo%TEMP_SHORT_ARR_ENTRIES;k++)
     {
         SimpleEndianFlip16S(SHORTArray[i*TEMP_SHORT_ARR_ENTRIES+k],&TempArray[k]);
     }

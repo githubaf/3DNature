@@ -2371,3 +2371,23 @@ WCS: text reloc for _DeletePort is out of range: 00000000
 WCS: text reloc for _DeletePort is out of range: 00000000
 
 Compiler vom 08.Nov22 funktioniert.
+
+13.Mar.23
+---------
+Bebbo hat libamiga.a zwischenzeitlich von NDK 3.2 genommen. Das hatte nicht funktioniert und zu den reloc-Fehlern gefuert.
+Compiler vom 08.Mar23 funktioniert.
+
+16.Mar.23
+---------
+Export LW (Scene+LWO) mit dem ColoDemo-Projekt bringt eine Fehlermeldung. Das LWS-File ist OK, (minimale FloatingPoint-Abweichungen), alle LWO-Files sind unterschiedlich, nur das NULL-Object ist gleich.
+
+--> Dummer Fehler in meinen 
+writeFloatArray_BigEndian()
+fwriteFloatArray_BigEndian()
+fwriteSHORTArray_BigEndian()
+Die letzten Bytes wurden falsch geschrieben. (Falsche Variable, i statt k, Argh!)
+Jetzt sind die LWO Files identisch. (Bis auf einzelne FloatingPoint Bytes)
+
+-> Damit sieht jetzt auch CanyonSunset in LW richtig aus!
+-> ColoDemo bringt beim LW-Export aber eine Fehlermeldung. (Auch im Amiga Original WCS 2.04!)
+
