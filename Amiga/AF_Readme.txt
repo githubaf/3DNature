@@ -2401,3 +2401,22 @@ Motion only: ExportWave(NULL) aufgerufen, also fscene nicht gesetzt, richtige "k
 
 -> Also: Colodemo hat keine Keyframes, deshalb geht Lightwave Export nicht. Einfach Keyframe erzeugen, dann geht es (Amiga) Aros 64 haengt wegen Zune-Notification-Loop?
 -> In ExportWave() die vedingung if(Supplied) rausgenommen. Damit werden die Fehlermeldung jetzt immer angezeigt, nicht nur beim reinen Motion-only Export.
+
+Convert DEM
+-----------
+Bsp. (Files auf Amiga (WinUAE) konvertiert)
+Input  :  Vista Pro DEM, alps.dem
+Output :  Bin Array -> 258x258 Werten (signed oder unsigned int 1,2 oder 4 Bytes, 8 nicht unterstuetzt)
+                       Warum stoert -endian MSB hier? gibt schwarze Bilder   
+                       display -depth  8 -size 258x258 gray:alps_s8.bin   <-- nur weisses Bild, alle Hoehen zu gross? (253...1385 laut Test-Button)
+                       display -depth 16 -size 258x258 gray:/home/developer/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS/alps_s16.bin
+                       display -depth 32 -size 258x258 gray:/home/developer/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS/alps_s32.bin
+                    ->                (floating point 4 Bytes oder 8 Bytes)
+                       display -depth 32 -size 258x258 -endian MSB -define quantum:format=floating-point -define quantum:scale=5e+01  gray:alps_f32.bin
+                       display -depth 64 -size 258x258 -endian MSB -define quantum:format=floating-point -define quantum:scale=5e+01  gray:alps_f64.bin
+           -----------
+                    
+          ColorMap ??????? -> Array von 258x258 Bytes, int/unsigned/fload und die Anzahl ValueBytes sind egal
+
+AROS kann das Vista-DEM-File im Moment nicht einlesen.
+
