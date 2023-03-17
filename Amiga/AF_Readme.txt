@@ -2391,3 +2391,13 @@ Jetzt sind die LWO Files identisch. (Bis auf einzelne FloatingPoint Bytes)
 -> Damit sieht jetzt auch CanyonSunset in LW richtig aus!
 -> ColoDemo bringt beim LW-Export aber eine Fehlermeldung. (Auch im Amiga Original WCS 2.04!)
 
+17.Mar.23
+---------
+LightWave Export und Colodemo
+Scene:       Problem-Message (fscene ist gesetzt, Meldung nur, wenn nicht gesetzt)
+Scene+DEM:   Problem-Message (fscene ist gesetzt, Meldung nur, wenn nicht gesetzt)
+DEM only:    es muss ein *.elev File ausgewaehlt werden. Das winr dann als LWO-File gespeichert.
+Motion only: ExportWave(NULL) aufgerufen, also fscene nicht gesetzt, richtige "keine Keyframes Meldung kommt)
+
+-> Also: Colodemo hat keine Keyframes, deshalb geht Lightwave Export nicht. Einfach Keyframe erzeugen, dann geht es (Amiga) Aros 64 haengt wegen Zune-Notification-Loop?
+-> In ExportWave() die vedingung if(Supplied) rausgenommen. Damit werden die Fehlermeldung jetzt immer angezeigt, nicht nur beim reinen Motion-only Export.

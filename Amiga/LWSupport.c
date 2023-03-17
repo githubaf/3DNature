@@ -70,9 +70,13 @@ short ExportWave(struct LightWaveInfo *LWInfo, FILE *Supplied)
   LWInfo->Name[strlen(LWInfo->Name) - 4] = 0;
   strcat(LWInfo->Name, "LWM");
   if (! getfilename(1, "Export Motion Path/File", LWInfo->Path, LWInfo->Name))
+  {
    return (0);
+  }
   if (LWInfo->Name[0] == 0)
+  {
    return (0);
+  }
   strmfp(filename, LWInfo->Path, LWInfo->Name);
   } /* if */
 
@@ -163,7 +167,8 @@ EndWave:
   free_Memory(LWM, LWMsize);
  if (KT)
   FreeKeyTable();
- if (! Supplied)
+// if (! Supplied) // AF: 17.Mar.23 commented out
+  if (TRUE) // AF: 17.Mar.23 Always show the error description, not only for "Lighwave Export - Motion only"
   {
   switch (error)
    {
