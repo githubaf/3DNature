@@ -573,6 +573,304 @@ ssize_t fwriteSHORTArray_BigEndian(SHORT *SHORTArray, size_t size, FILE *file) /
 #endif
 }
 
+// size in Bytes, not doubles!
+// returns number of Bytes written
+ssize_t writeDoubleArray_BigEndian(int filehandle, double *DoubleArray, size_t size) // AF, HGW, 20.Mar23
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#define TEMP_DOUBLE_ARR_ENTRIES 128
+    static double TempArray[TEMP_DOUBLE_ARR_ENTRIES];
+    ssize_t TotalBytesWritten=0;
+
+    size_t DoublesToDo=size/(sizeof(double));
+
+    unsigned int i=0;
+    for(i=0; i<DoublesToDo/TEMP_DOUBLE_ARR_ENTRIES;i++)
+    {
+        for(unsigned int k=0;k<TEMP_DOUBLE_ARR_ENTRIES;k++)
+        {
+            SimpleEndianFlip64(DoubleArray[i*TEMP_DOUBLE_ARR_ENTRIES+k],&TempArray[k]);
+        }
+        ssize_t Result=write(filehandle, TempArray, TEMP_DOUBLE_ARR_ENTRIES*sizeof(double));
+        TotalBytesWritten+=Result;
+        if(Result!=TEMP_DOUBLE_ARR_ENTRIES*sizeof(double))
+        {
+            return TotalBytesWritten;
+        }
+    }
+
+    // now the rest that did not fill a complete TempArray
+    for(unsigned int k=0;k<DoublesToDo%TEMP_DOUBLE_ARR_ENTRIES;k++)
+    {
+        SimpleEndianFlip64(DoubleArray[i*TEMP_DOUBLE_ARR_ENTRIES+k],&TempArray[k]);
+    }
+    ssize_t Result=write(filehandle, TempArray, (DoublesToDo%TEMP_DOUBLE_ARR_ENTRIES)*sizeof(double));
+    TotalBytesWritten+=Result;
+    return TotalBytesWritten;
+#undef TEMP_DOUBLE_ARR_ENTRIES
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (write(filehandle, DoubleArray, size));
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+// size in Bytes, not short!
+// returns number of Bytes written
+long writeShortArray_BigEndian(int filehandle, short *ShortArray, size_t size) // AF, HGW, 20.Mar23
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#define TEMP_SHORT_ARR_ENTRIES 128
+    static short TempArray[TEMP_SHORT_ARR_ENTRIES];
+    ssize_t TotalBytesWritten=0;
+
+    size_t ShortsToDo=size/(sizeof(short));
+
+    unsigned int i=0;
+    for(i=0; i<ShortsToDo/TEMP_SHORT_ARR_ENTRIES;i++)
+    {
+        for(unsigned int k=0;k<TEMP_SHORT_ARR_ENTRIES;k++)
+        {
+            SimpleEndianFlip16S(ShortArray[i*TEMP_SHORT_ARR_ENTRIES+k],&TempArray[k]);
+        }
+        ssize_t Result=write(filehandle, TempArray, TEMP_SHORT_ARR_ENTRIES*sizeof(short));
+        TotalBytesWritten+=Result;
+        if(Result!=TEMP_SHORT_ARR_ENTRIES*sizeof(short))
+        {
+            return TotalBytesWritten;
+        }
+    }
+
+    // now the rest that did not fill a complete TempArray
+    for(unsigned int k=0;k<ShortsToDo%TEMP_SHORT_ARR_ENTRIES;k++)
+    {
+        SimpleEndianFlip16S(ShortArray[i*TEMP_SHORT_ARR_ENTRIES+k],&TempArray[k]);
+    }
+    ssize_t Result=write(filehandle, TempArray, (ShortsToDo%TEMP_SHORT_ARR_ENTRIES)*sizeof(short));
+    TotalBytesWritten+=Result;
+    return TotalBytesWritten;
+#undef TEMP_SHORT_ARR_ENTRIES
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (write(filehandle, ShortArray, size));
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+long writeUShortArray_BigEndian(int filehandle, short *UShortArray, size_t size) // AF, HGW, 20.Mar23
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#define TEMP_USHORT_ARR_ENTRIES 128
+    static unsigned short TempArray[TEMP_USHORT_ARR_ENTRIES];
+    ssize_t TotalBytesWritten=0;
+
+    size_t UShortsToDo=size/(sizeof(unsigned short));
+
+    unsigned int i=0;
+    for(i=0; i<UShortsToDo/TEMP_USHORT_ARR_ENTRIES;i++)
+    {
+        for(unsigned int k=0;k<TEMP_USHORT_ARR_ENTRIES;k++)
+        {
+            SimpleEndianFlip16U(UShortArray[i*TEMP_USHORT_ARR_ENTRIES+k],&TempArray[k]);
+        }
+        ssize_t Result=write(filehandle, TempArray, TEMP_USHORT_ARR_ENTRIES*sizeof(unsigned short));
+        TotalBytesWritten+=Result;
+        if(Result!=TEMP_USHORT_ARR_ENTRIES*sizeof(unsigned short))
+        {
+            return TotalBytesWritten;
+        }
+    }
+
+    // now the rest that did not fill a complete TempArray
+    for(unsigned int k=0;k<UShortsToDo%TEMP_USHORT_ARR_ENTRIES;k++)
+    {
+        SimpleEndianFlip16U(UShortArray[i*TEMP_USHORT_ARR_ENTRIES+k],&TempArray[k]);
+    }
+    ssize_t Result=write(filehandle, TempArray, (UShortsToDo%TEMP_USHORT_ARR_ENTRIES)*sizeof(unsigned short));
+    TotalBytesWritten+=Result;
+    return TotalBytesWritten;
+#undef TEMP_USHORT_ARR_ENTRIES
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (write(filehandle, UShortArray, size));
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+// size in Bytes, not LONG!
+// returns number of Bytes written
+long writeLongArray_BigEndian(int filehandle, LONG *LongArray, size_t size) // AF, HGW, 20.Mar23
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#define TEMP_LONG_ARR_ENTRIES 128
+    static LONG TempArray[TEMP_LONG_ARR_ENTRIES];
+    ssize_t TotalBytesWritten=0;
+
+    size_t LongsToDo=size/(sizeof(LONG));
+
+    unsigned int i=0;
+    for(i=0; i<LongsToDo/TEMP_LONG_ARR_ENTRIES;i++)
+    {
+        for(unsigned int k=0;k<TEMP_LONG_ARR_ENTRIES;k++)
+        {
+            SimpleEndianFlip32S(LongArray[i*TEMP_LONG_ARR_ENTRIES+k],&TempArray[k]);
+        }
+        ssize_t Result=write(filehandle, TempArray, TEMP_LONG_ARR_ENTRIES*sizeof(LONG));
+        TotalBytesWritten+=Result;
+        if(Result!=TEMP_LONG_ARR_ENTRIES*sizeof(LONG))
+        {
+            return TotalBytesWritten;
+        }
+    }
+
+    // now the rest that did not fill a complete TempArray
+    for(unsigned int k=0;k<LongsToDo%TEMP_LONG_ARR_ENTRIES;k++)
+    {
+        SimpleEndianFlip32S(LongArray[i*TEMP_LONG_ARR_ENTRIES+k],&TempArray[k]);
+    }
+    ssize_t Result=write(filehandle, TempArray, (LongsToDo%TEMP_LONG_ARR_ENTRIES)*sizeof(LONG));
+    TotalBytesWritten+=Result;
+    return TotalBytesWritten;
+#undef TEMP_LONG_ARR_ENTRIES
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (write(filehandle, LongArray, size));
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+// size in Bytes, not ULONG!
+// returns number of Bytes written
+long writeULongArray_BigEndian(int filehandle, ULONG *ULongArray, size_t size) // AF, HGW, 20.Mar23
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#define TEMP_ULONG_ARR_ENTRIES 128
+    static ULONG TempArray[TEMP_ULONG_ARR_ENTRIES];
+    ssize_t TotalBytesWritten=0;
+
+    size_t ULongsToDo=size/(sizeof(ULONG));
+
+    unsigned int i=0;
+    for(i=0; i<ULongsToDo/TEMP_ULONG_ARR_ENTRIES;i++)
+    {
+        for(unsigned int k=0;k<TEMP_ULONG_ARR_ENTRIES;k++)
+        {
+            SimpleEndianFlip32U(ULongArray[i*TEMP_ULONG_ARR_ENTRIES+k],&TempArray[k]);
+        }
+        ssize_t Result=write(filehandle, TempArray, TEMP_ULONG_ARR_ENTRIES*sizeof(ULONG));
+        TotalBytesWritten+=Result;
+        if(Result!=TEMP_ULONG_ARR_ENTRIES*sizeof(ULONG))
+        {
+            return TotalBytesWritten;
+        }
+    }
+
+    // now the rest that did not fill a complete TempArray
+    for(unsigned int k=0;k<ULongsToDo%TEMP_ULONG_ARR_ENTRIES;k++)
+    {
+        SimpleEndianFlip32U(ULongArray[i*TEMP_ULONG_ARR_ENTRIES+k],&TempArray[k]);
+    }
+    ssize_t Result=write(filehandle, TempArray, (ULongsToDo%TEMP_ULONG_ARR_ENTRIES)*sizeof(ULONG));
+    TotalBytesWritten+=Result;
+    return TotalBytesWritten;
+#undef TEMP_ULONG_ARR_ENTRIES
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (write(filehandle, ULongArray, size));
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+
+// AF, 20.Mar23 writes the DEM-Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
+long writeDemArray_BigEndian(long fOutput,void *OutputData,long OutputDataSize,short outvalue_format,short outvalue_size)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+// defines copied from DataOps.c, should be moved to a common header
+#define DEM_DATA_FORMAT_SIGNEDINT	0
+#define DEM_DATA_FORMAT_UNSIGNEDINT	1
+#define DEM_DATA_FORMAT_FLOAT		2
+#define DEM_DATA_FORMAT_UNKNOWN		3
+
+#define DEM_DATA_VALSIZE_BYTE		0  //1 byte
+#define DEM_DATA_VALSIZE_SHORT		1  //2 bytes
+#define DEM_DATA_VALSIZE_LONG		2  //4 bytes
+#define DEM_DATA_VALSIZE_DOUBLE		3  //8 bytes
+#define DEM_DATA_VALSIZE_UNKNOWN	4
+
+	// AF: we are always called with valid Format-Type / Format-Length combinations
+
+	switch(outvalue_format)
+	{
+	case DEM_DATA_FORMAT_SIGNEDINT:
+		switch (outvalue_size)
+				{
+					case DEM_DATA_VALSIZE_BYTE:
+						return write(fOutput, (char *)OutputData, OutputDataSize); // just plain write
+						break;
+					case DEM_DATA_VALSIZE_SHORT:
+						return writeShortArray_BigEndian(fOutput,OutputData,OutputDataSize);
+						break;
+					case DEM_DATA_VALSIZE_LONG:
+						return writeLongArray_BigEndian(fOutput,OutputData,OutputDataSize);
+						break;
+					default:
+						return 0;
+				}
+		break;
+	case DEM_DATA_FORMAT_UNSIGNEDINT:
+		switch (outvalue_size)
+				{
+					case DEM_DATA_VALSIZE_BYTE:
+						return write(fOutput, (char *)OutputData, OutputDataSize); // just plain write
+						break;
+					case DEM_DATA_VALSIZE_SHORT:
+						return writeUShortArray_BigEndian(fOutput,OutputData,OutputDataSize);
+						break;
+					case DEM_DATA_VALSIZE_LONG:
+						return writeULongArray_BigEndian(fOutput,OutputData,OutputDataSize);
+						break;
+					default:
+						return 0;
+				}
+		break;
+	case DEM_DATA_FORMAT_FLOAT:
+		switch (outvalue_size)
+		{
+			case DEM_DATA_VALSIZE_LONG:
+				return (writeFloatArray_BigEndian(fOutput,OutputData,OutputDataSize));
+				break;
+			case DEM_DATA_VALSIZE_DOUBLE:
+				return (writeDoubleArray_BigEndian(fOutput,OutputData,OutputDataSize));
+				break;
+			default:
+			return 0;
+		}
+		break;
+	default:
+		return 0;
+	}
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (write(fOutput, (char *)OutputData, OutputDataSize));
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+
 
 ssize_t writeILBMHeader_BigEndian(int filehandle, struct ILBMHeader *Hdr)  // AF, 19.Jan23, always write BigEndian
 {
@@ -3174,7 +3472,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
 
  if (loadcode != 0x1111)
   {
-  if (loadcode & 0x0111 && KeyFrames > 0)
+  if ((loadcode & 0x0111) && (KeyFrames > 0))
    LoadKeys = User_Message_Def((CONST_STRPTR)"Parameter Module: Load",
            (CONST_STRPTR)"Load all key frames?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1);
   } /* if load partial file */

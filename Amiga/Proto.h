@@ -1161,6 +1161,9 @@ ssize_t writeFloatArray_BigEndian(int filehandle, float *FloatArray, size_t size
 // size in Bytes, not floats!
 // returns number of Bytes written
 
+// AF, 20.Mar23 writes the DEM-Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
+long writeDemArray_BigEndian(long fOutput,void *OutputData,long OutputDataSize,short outvalue_format,short outvalue_size);
+
 ssize_t writeILBMHeader_BigEndian(int filehandle, struct ILBMHeader *Hdr);  // AF, 19.Jan23, always write BigEndian
 // returns number of Bytes written (8)
 

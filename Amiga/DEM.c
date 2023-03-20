@@ -2713,6 +2713,8 @@ short LoadVistaDEM(char *filename, short *Output, short DataPts)
   {
   if ((fread(&count, 1, 2, fDEM)) != 2)
    break;
+  ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16U(count,&count);) /* AF: 17.Mar.2023, Endian correction for i386-aros */
+
   if ((fread(buffy, 1, count, fDEM)) != count)
    break;
   ndx = 0;

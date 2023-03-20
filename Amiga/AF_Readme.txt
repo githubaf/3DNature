@@ -2420,3 +2420,15 @@ Output :  Bin Array -> 258x258 Werten (signed oder unsigned int 1,2 oder 4 Bytes
 
 AROS kann das Vista-DEM-File im Moment nicht einlesen.
 
+20Mar23
+-------
+Unterschiede in DEM-Convert Vista->bin  Files.
+
+FILE=alps_f64.bin; meld <(xxd ~/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS/aros_"$FILE") <(xxd ~/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS/"$FILE")
+
+oder cmp fuer alle aros_ Dateien Vergleich mit den Files vom Amiga
+
+for FILE in $(find /home/developer/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS/ -name "aros_*.bin"); do echo $(echo "$FILE" | sed 's/aros_alps/alps/g') "$FILE"; done
+
+* Vista -> bin OK
+
