@@ -937,6 +937,48 @@ ssize_t readZBufHdr_BigEndian(int filehandle, struct ZBufferHeader *ZBufHdr)
     return Result;
 }
 
+// AF: 20-Mar.23 read and correct endian if necessary
+long readElMapHeaderV101(int fh, struct elmapheaderV101 *Hdr)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+	long Result=read(fh, Hdr, ELEVHDRLENV101);
+	SimpleEndianFlip32S(Hdr->rows, &Hdr->rows);
+	SimpleEndianFlip32S(Hdr->columns, &Hdr->columns);
+	SimpleEndianFlip64(Hdr->lolat,&Hdr->lolat);
+	SimpleEndianFlip64(Hdr->lolong,&Hdr->lolong);
+	SimpleEndianFlip64(Hdr->steplat,&Hdr->steplat);
+	SimpleEndianFlip64(Hdr->steplong,&Hdr->steplong);
+	SimpleEndianFlip64(Hdr->elscale,&Hdr->elscale);
+	SimpleEndianFlip16S(Hdr->MaxEl,&Hdr->MaxEl);
+	SimpleEndianFlip16S(Hdr->MinEl,&Hdr->MinEl);
+	SimpleEndianFlip32S(Hdr->Samples,&Hdr->Samples);
+	SimpleEndianFlip32F(Hdr->SumElDif,&Hdr->SumElDif);
+	SimpleEndianFlip32F(Hdr->SumElDifSq,&Hdr->SumElDifSq);
+	SimpleEndianFlip32S(Hdr->size,&Hdr->size);
+	SimpleEndianFlip32S(Hdr->scrnptrsize,&Hdr->scrnptrsize);
+	SimpleEndianFlip32S(Hdr->fractalsize,&Hdr->fractalsize);
+	SimpleEndianFlip32S(Hdr->facept[0],&Hdr->facept[0]);
+	SimpleEndianFlip32S(Hdr->facept[1],&Hdr->facept[1]);
+	SimpleEndianFlip32S(Hdr->facept[2],&Hdr->facept[2]);
+	SimpleEndianFlip32S(Hdr->facect,&Hdr->facect);
+	SimpleEndianFlip32S(Hdr->fracct,&Hdr->fracct);
+	SimpleEndianFlip32S(Hdr->Lr,&Hdr->Lr);
+	SimpleEndianFlip32S(Hdr->Lc,&Hdr->Lc);
+	SimpleEndianFlip16S(Hdr->MapAsSFC,&Hdr->MapAsSFC);
+	SimpleEndianFlip16S(Hdr->ForceBath,&Hdr->ForceBath);
+	SimpleEndianFlip32F(Hdr->LonRange,&Hdr->LonRange);
+    SimpleEndianFlip32F(Hdr->LatRange,&Hdr->LatRange);
+    return Result;
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just read as it is
+    return read(fh, Hdr, ELEVHDRLENV101);
+#else
+#error "Unsupported Byte-Order"
+#endif
+
+}
+
 #ifdef KJHKJDFHKDHFKJDFH // Now in LWSupport.c
 
 /* ALEXANDER now in WCS.h struct LightWaveMotion {

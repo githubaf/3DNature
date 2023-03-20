@@ -2432,3 +2432,21 @@ for FILE in $(find /home/developer/Desktop/SelcoGit/aros_deadw00d/core-linux-x86
 
 * Vista -> bin OK
 
+* Vista -> ColorMap OK
+- 3 color component files ???
+- Format (int, float )und Laenge 1,2,4,8 sind egal, werden nicht beachtet.
+
+* Vista -> Zbuffer OK
+- erzeugt ein float iff File
+- Format (int, float )und Laenge 1,2,4,8 sind egal, werden nicht beachtet.
+- An den Namen wird ZB angehaengt
+
+* Vista -> Gray IFF Falsch  ???
+* erzeugt 8 Planes IFF File, soll kleiner als 24 Bit sein, ist es aber hier nicht. (Alps-DEM konvertiert
+
+* Vista -> Color IFF OK
+* erzeugt 24 Planes IFF (GRAU!!!) File
+
+* WCS DEM sind die .elev-Files zu sein
+* WCS DEM -> ZBuffer OK
+

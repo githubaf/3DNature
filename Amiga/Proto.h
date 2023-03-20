@@ -1170,4 +1170,7 @@ ssize_t writeILBMHeader_BigEndian(int filehandle, struct ILBMHeader *Hdr);  // A
 ssize_t writeZBufferHeader(int filehandle, struct ZBufferHeader *ZBufHdr);  // AF, 19.Jan23, always write BigEndian
 // returns number of Bytes written (36)
 
+// AF: 20-Mar.23 read and correct endian if necessary
+long readElMapHeaderV101(int fh, struct elmapheaderV101 *Hdr);
+
 #endif
