@@ -2450,3 +2450,22 @@ for FILE in $(find /home/developer/Desktop/SelcoGit/aros_deadw00d/core-linux-x86
 * WCS DEM sind die .elev-Files zu sein
 * WCS DEM -> ZBuffer OK
 
+* Vista ->WCS DEM:  *.elev-Files OK. (kleine Unterschiede im elemaphdr durch floating point bei steplat und steplon)
+                    *.Obj-File noch nicht ok. Aenderungen in MapSupport.c Funktion saveobject() noetig.
+- Vorgehensweise:
+Open Project -> CanyonSunset.project
+                WCSProjects:Arizona/SunsetAnim.object/SunsetAnim.par
+
+Convert DEM
+  Vista DEM Alps.dem   -> WCS DEM
+  * Wir muessen Low/High Lon and Alt eingeben. 
+    Woher wissen wir die? 
+	Einfach aehnlich werte wie bei den anderen CanyonSunset Sachen eingeben.
+	Dazu Database Edit einen von den mit * nehmen und z.B. 36 (+Offset) und 112 (+Offset) eintragen
+    
+-> WCSProjects:Arizona/SunsetAnim.object
+  Endungen elev und Obj werden automatisch erzeugt. Mit Leerzeichen vor dem Punkt.
+     AF_ALPS.elev  (133196 Bytes)  // Die Hoehendaten
+     AF_ALPS.Obj   (   173 Bytes)  // Da steht WCSVector drin
+
+Das kann man dann in MapView auch anschauen.

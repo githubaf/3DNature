@@ -1173,4 +1173,12 @@ ssize_t writeZBufferHeader(int filehandle, struct ZBufferHeader *ZBufHdr);  // A
 // AF: 20-Mar.23 read and correct endian if necessary
 long readElMapHeaderV101(int fh, struct elmapheaderV101 *Hdr);
 
+// AF: 21.Mar23, Write float in Big-Endian (i.e. native Amiga-) format
+int writefloat(int fh, const float *Value);
+
+// AF: 21.Mar.23 read and correct endian if necessary
+long writeElMapHeaderV101(int fh, struct elmapheaderV101 *Hdr);
+
+long writeShortArray_BigEndian(int filehandle, short *ShortArray, size_t size); // AF, HGW, 20.Mar23
+
 #endif

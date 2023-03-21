@@ -3070,10 +3070,13 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
     } /* if not WCS DEM input */
 
    FindElMaxMin(DEMHdr, OutputData);
-   write(fOutput, (char *)&Version, 4);
-   write(fOutput, (char *)DEMHdr, ELEVHDRLENV101);
+   //write(fOutput, (char *)&Version, 4);
+   writefloat(fOutput, &Version); // AF, 21.3.23, Write Big Endian
+   //write(fOutput, (char *)DEMHdr, ELEVHDRLENV101);
+   writeElMapHeaderV101(fOutput,DEMHdr); // AF, 21.3.23, Write Big Endian
 
-   if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
+   //if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
+   if ((writeShortArray_BigEndian(fOutput, OutputData, OutputDataSize)) != OutputDataSize) // AF, 21.3.23, Write Big Endian
     {
     error = 5;
     close(fOutput);

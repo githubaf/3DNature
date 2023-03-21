@@ -444,6 +444,26 @@ int fwriteLONG(const LONG *Value, FILE *file)
 }
 
 
+// AF: 21.Mar23, Write float in Big-Endian (i.e. native Amiga-) format
+int writefloat(int fh, const float *Value)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+    float TempValue = *Value;
+
+    SimpleEndianFlip32F(TempValue,  &TempValue);
+
+    return write(fh,&TempValue, sizeof (float));
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return write(fh, Value, sizeof (float));
+#else
+    #error "Unsupported Byte-Order"
+#endif
+}
+
+
 // size in Bytes, not floats!
 // returns number of Bytes written
 ssize_t writeFloatArray_BigEndian(int filehandle, float *FloatArray, size_t size) // AF, HGW, 19.Jan23
@@ -978,6 +998,52 @@ long readElMapHeaderV101(int fh, struct elmapheaderV101 *Hdr)
 #endif
 
 }
+
+// AF: 21.Mar.23 read and correct endian if necessary
+long writeElMapHeaderV101(int fh, struct elmapheaderV101 *Hdr)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+	struct elmapheaderV101 TempHdr=*Hdr;
+
+	SimpleEndianFlip32S(TempHdr.rows, &TempHdr.rows);
+	SimpleEndianFlip32S(TempHdr.columns, &TempHdr.columns);
+	SimpleEndianFlip64(TempHdr.lolat,&TempHdr.lolat);
+	SimpleEndianFlip64(TempHdr.lolong,&TempHdr.lolong);
+	SimpleEndianFlip64(TempHdr.steplat,&TempHdr.steplat);
+	SimpleEndianFlip64(TempHdr.steplong,&TempHdr.steplong);
+	SimpleEndianFlip64(TempHdr.elscale,&TempHdr.elscale);
+	SimpleEndianFlip16S(TempHdr.MaxEl,&TempHdr.MaxEl);
+	SimpleEndianFlip16S(TempHdr.MinEl,&TempHdr.MinEl);
+	SimpleEndianFlip32S(TempHdr.Samples,&TempHdr.Samples);
+	SimpleEndianFlip32F(TempHdr.SumElDif,&TempHdr.SumElDif);
+	SimpleEndianFlip32F(TempHdr.SumElDifSq,&TempHdr.SumElDifSq);
+	SimpleEndianFlip32S(TempHdr.size,&TempHdr.size);
+	SimpleEndianFlip32S(TempHdr.scrnptrsize,&TempHdr.scrnptrsize);
+	SimpleEndianFlip32S(TempHdr.fractalsize,&TempHdr.fractalsize);
+	SimpleEndianFlip32S(TempHdr.facept[0],&TempHdr.facept[0]);
+	SimpleEndianFlip32S(TempHdr.facept[1],&TempHdr.facept[1]);
+	SimpleEndianFlip32S(TempHdr.facept[2],&TempHdr.facept[2]);
+	SimpleEndianFlip32S(TempHdr.facect,&TempHdr.facect);
+	SimpleEndianFlip32S(TempHdr.fracct,&TempHdr.fracct);
+	SimpleEndianFlip32S(TempHdr.Lr,&TempHdr.Lr);
+	SimpleEndianFlip32S(TempHdr.Lc,&TempHdr.Lc);
+	SimpleEndianFlip16S(TempHdr.MapAsSFC,&TempHdr.MapAsSFC);
+	SimpleEndianFlip16S(TempHdr.ForceBath,&TempHdr.ForceBath);
+	SimpleEndianFlip32F(TempHdr.LonRange,&TempHdr.LonRange);
+    SimpleEndianFlip32F(TempHdr.LatRange,&TempHdr.LatRange);
+	return write(fh, &TempHdr, ELEVHDRLENV101);
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return write(fh, Hdr, ELEVHDRLENV101);
+#else
+#error "Unsupported Byte-Order"
+#endif
+
+}
+
+
+
 
 #ifdef KJHKJDFHKDHFKJDFH // Now in LWSupport.c
 
