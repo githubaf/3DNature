@@ -6,7 +6,7 @@
 
 #include "WCS.h"
 #include "GUIDefines.h"
-#include "Useful.h"
+#include "BigEndianReadWrite.h"
 
 #define CUR_DBASE_FIELDS	13
 #define CUR_DBASE_RECLNGTH	53

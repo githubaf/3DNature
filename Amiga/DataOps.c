@@ -3071,12 +3071,12 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 
    FindElMaxMin(DEMHdr, OutputData);
    //write(fOutput, (char *)&Version, 4);
-   writefloat(fOutput, &Version); // AF, 21.3.23, Write Big Endian
+   write_float_BE(fOutput, &Version); // AF, 21.3.23, Write Big Endian
    //write(fOutput, (char *)DEMHdr, ELEVHDRLENV101);
-   writeElMapHeaderV101(fOutput,DEMHdr); // AF, 21.3.23, Write Big Endian
+   writeElMapHeaderV101_BE(fOutput,DEMHdr); // AF, 21.3.23, Write Big Endian
 
    //if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
-   if ((writeShortArray_BigEndian(fOutput, OutputData, OutputDataSize)) != OutputDataSize) // AF, 21.3.23, Write Big Endian
+   if ((write_short_Array_BE(fOutput, OutputData, OutputDataSize)) != OutputDataSize) // AF, 21.3.23, Write Big Endian
     {
     error = 5;
     close(fOutput);
@@ -3187,7 +3187,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
     } /* if open fail */
    // AF: old: if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
    // AF, 20.Mar23 writes the Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
-   if((writeDemArray_BigEndian(fOutput,OutputData,OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != OutputDataSize)
+   if((writeDemArray_BE(fOutput,OutputData,OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != OutputDataSize)
     {
     error = 5;
     close(fOutput);

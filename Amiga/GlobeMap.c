@@ -7,7 +7,7 @@
 #include "WCS.h"
 #include "GUIDefines.h"
 #include <time.h>
-#include "Useful.h"
+#include "BigEndianReadWrite.h"
 
 STATIC_VAR float *ACosTable, *ASinTable,* SinTable,*CosTable;
 STATIC_VAR __far char ILBMnum[32];

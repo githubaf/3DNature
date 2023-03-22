@@ -23,7 +23,7 @@ MAINOBJS = AGUI.o BitMaps.o ColorBlends.o Cloud.o DataBase.o DataOps.o DefaultPa
  InteractiveUtils.o InteractiveView.o LineSupport.o LWSupport.o MakeFaces.o Map.o\
  MapExtra.o MapLineObject.o MapSupport.o MapTopo.o MapTopoObject.o\
  MapUtil.o Memory.o nngridr.o nncrunch.o Params.o RexxSupport.o Support.o Tree.o Wave.o\
- Commands.o GrammarTable.o VocabTable.o
+ Commands.o GrammarTable.o VocabTable.o BigEndianReadWrite.o
 
 GUIHEADERS = GUIDefines.h GUIExtras.h
 GUIOBJS = CloudGUI.o DataOpsGUI.o DEMGUI.o DiagnosticGUI.o DispatchGUI.o EditGUI.o EdMoGUI.o EdDBaseGUI.o EdEcoGUI.o\

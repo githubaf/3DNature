@@ -14,17 +14,17 @@ struct LightWaveMotion {
 */
 
 // AF: 9.Jan23, Write short in Big-Endian (i.e. native Amiga-) format
-int fwriteShort(const short *Value, FILE *file);
+int fwrite_short_BE(const short *Value, FILE *file);
 
 // AF: 16.Feb23, Write LONG in Big-Endian (i.e. native Amiga-) format
-int fwriteLONG(const LONG *Value, FILE *file);
+int fwrite_LONG_BE(const LONG *Value, FILE *file);
 
 // size in Bytes, not SHORTs!
 // returns 1 if all bytes written, otherwise 0
-ssize_t fwriteSHORTArray_BigEndian(SHORT *SHORTArray, size_t size, FILE *file); // AF, HGW, 16.Feb23
+ssize_t fwrite_SHORT_Array_BE(SHORT *SHORTArray, size_t size, FILE *file); // AF, HGW, 16.Feb23
 
 // returns 1 if all bytes written, otherwise 0
-ssize_t fwriteFloatArray_BigEndian(float *FloatArray, size_t size,FILE *file); // AF, HGW, 16.Feb23
+ssize_t fwrite_float_Array_BE(float *FloatArray, size_t size,FILE *file); // AF, HGW, 16.Feb23
 
 
 short Set_LWM(struct LightWaveMotion *LWM, struct LightWaveInfo *LWInfo,
@@ -559,33 +559,33 @@ struct coords DP;
 /* write "FORM" and temporary size */
  ChunkTag = "FORM";
  fwrite((char *)ChunkTag, 4, 1, fLWOB);
- fwriteLONG(&FORMSize,fLWOB);
+ fwrite_LONG_BE(&FORMSize,fLWOB);
  ChunkTag = "LWOB";
  fwrite((char *)ChunkTag, 4, 1, fLWOB);
  ChunkTag = "PNTS";
  fwrite((char *)ChunkTag, 4, 1, fLWOB);
- fwriteLONG(&PNTSSize, fLWOB);
+ fwrite_LONG_BE(&PNTSSize, fLWOB);
 
  /* write the points array to the file */
- fwriteFloatArray_BigEndian(VertexData, PNTSSize,fLWOB);
+ fwrite_float_Array_BE(VertexData, PNTSSize,fLWOB);
 
 /* write "SRFS" */
  ChunkTag = "SRFS";
  fwrite((char *)ChunkTag, 4, 1, fLWOB);
- fwriteLONG(&SRFSSize, fLWOB);
+ fwrite_LONG_BE(&SRFSSize, fLWOB);
 
 /* write "WCSDEM" + 0 + 0 */
  ChunkTag = "WCSDEM";
  fwrite((char *)ChunkTag, 6, 1, fLWOB);
- fwriteShort(&ShortPad, fLWOB);
+ fwrite_short_BE(&ShortPad, fLWOB);
 
 /* write "POLS" */
  ChunkTag = "POLS";
  fwrite((char *)ChunkTag, 4, 1, fLWOB);
- fwriteLONG(&POLSSize, fLWOB);
+ fwrite_LONG_BE(&POLSSize, fLWOB);
 
 /* write out polygon data */
- if (fwriteSHORTArray_BigEndian(PolyData, POLSSize, fLWOB) == 1)
+ if (fwrite_SHORT_Array_BE(PolyData, POLSSize, fLWOB) == 1)
   success = 1;
 
 EndExport:

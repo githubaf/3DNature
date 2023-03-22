@@ -5,7 +5,7 @@
 
 #include "WCS.h"
 #include "Proto.h"
-#include "Useful.h"  // ALEXANDER
+#include "BigEndianReadWrite.h"  // ALEXANDER
 
 
 union  MultiByte {
@@ -296,7 +296,7 @@ short SaveZBuf(short zformat, short renderseg, long numpts, UBYTE *ScratchPad,
    error = 1;
    goto Cleanup;
    } /* if no z buf file */
-   if (writeFloatArray_BigEndian(fhz, ZBuf, BodySize) != BodySize)
+   if (write_float_Array_BE(fhz, ZBuf, BodySize) != BodySize)
    {
    error = 1;
    goto Cleanup;
@@ -382,23 +382,23 @@ short SaveZBuf(short zformat, short renderseg, long numpts, UBYTE *ScratchPad,
     FormSize = 12 + 36 + BodySize;
    strncpy((char*)Hdr.ChunkID, "FORM", 4);
    Hdr.ChunkSize = FormSize;
-   writeILBMHeader_BigEndian(fhz, &Hdr);  // AF, 19.Jan23, always write BigEndian
+   writeILBMHeader_BE(fhz, &Hdr);  // AF, 19.Jan23, always write BigEndian
    strncpy((char*)Hdr.ChunkID, "ILBM", 4);
    write(fhz, &Hdr, 4);
    if (AppendFile)
     lseek(fhz, ZBUFPtr, 0);
    strncpy((char*)Hdr.ChunkID, "ZBUF", 4);
    Hdr.ChunkSize = 36;
-   writeILBMHeader_BigEndian(fhz, &Hdr);  // AF, 19.Jan23, always write BigEndian
-   writeZBufferHeader(fhz, &ZBHdr);  // AF, 19.Jan23, always write BigEndian
+   writeILBMHeader_BE(fhz, &Hdr);  // AF, 19.Jan23, always write BigEndian
+   writeZBufferHeader_BE(fhz, &ZBHdr);  // AF, 19.Jan23, always write BigEndian
    if (AppendFile)
     lseek(fhz, ZBODPtr, 0);
    strncpy((char*)Hdr.ChunkID, "ZBOD", 4);
    Hdr.ChunkSize = BodySize + OldBodySize;
-   writeILBMHeader_BigEndian(fhz, &Hdr);  // AF, 19.Jan23, always write BigEndian
+   writeILBMHeader_BE(fhz, &Hdr);  // AF, 19.Jan23, always write BigEndian
    if (AppendFile)
     lseek(fhz, EndBody, 0);
-   if (writeFloatArray_BigEndian(fhz, ZBuf, BodySize) != BodySize)
+   if (write_float_Array_BE(fhz, ZBuf, BodySize) != BodySize)
     {
     error = 1;
     goto Cleanup;

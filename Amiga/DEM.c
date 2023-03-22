@@ -9,6 +9,7 @@
 #include "Useful.h"
 LONG KPrintF(STRPTR format, ...);   // ALEXANDER
 #include <errno.h> //ALEXANDER
+#include "BigEndianReadWrite.h"
 
 STATIC_FCN short computerelel(short boxsize, short *arrayptr, struct elmapheaderV101 *map); // used locally only -> static, AF 19.7.2021
 STATIC_FCN short Read_USGSProfHeader(FILE *DEM, struct USGS_DEMProfileHeader *ProfHdr); // used locally only -> static, AF 19.7.2021

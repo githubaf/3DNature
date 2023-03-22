@@ -6,7 +6,7 @@
 
 #include "WCS.h"
 #include "Foliage.h"
-#include "Useful.h"
+#include "BigEndianReadWrite.h"
 
 STATIC_VAR double VertSunFact, HorSunFact, HorSunAngle;
 

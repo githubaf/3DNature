@@ -6,7 +6,7 @@
 
 #include "WCS.h"
 #include "Foliage.h"
-#include "Useful.h"
+#include "BigEndianReadWrite.h"
 
 STATIC_FCN ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags);  // used locally only -> static, AF 19.7.2021
 STATIC_FCN ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags); // used locally only -> static, AF 19.7.2021

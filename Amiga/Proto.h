@@ -1157,28 +1157,28 @@ LONG KPrintF(STRPTR format, ...);   // ALEXANDER
 
 ssize_t write_UShort_BigEndian (int filedes, const void *buffer, size_t size); // ALEXANDER
 
-ssize_t writeFloatArray_BigEndian(int filehandle, float *FloatArray, size_t size); // AF, HGW, 19.Jan23
+ssize_t write_float_Array_BE(int filehandle, float *FloatArray, size_t size); // AF, HGW, 19.Jan23
 // size in Bytes, not floats!
 // returns number of Bytes written
 
 // AF, 20.Mar23 writes the DEM-Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
-long writeDemArray_BigEndian(long fOutput,void *OutputData,long OutputDataSize,short outvalue_format,short outvalue_size);
+long writeDemArray_BE(long fOutput,void *OutputData,long OutputDataSize,short outvalue_format,short outvalue_size);
 
-ssize_t writeILBMHeader_BigEndian(int filehandle, struct ILBMHeader *Hdr);  // AF, 19.Jan23, always write BigEndian
+ssize_t writeILBMHeader_BE(int filehandle, struct ILBMHeader *Hdr);  // AF, 19.Jan23, always write BigEndian
 // returns number of Bytes written (8)
 
-ssize_t writeZBufferHeader(int filehandle, struct ZBufferHeader *ZBufHdr);  // AF, 19.Jan23, always write BigEndian
+ssize_t writeZBufferHeader_BE(int filehandle, struct ZBufferHeader *ZBufHdr);  // AF, 19.Jan23, always write BigEndian
 // returns number of Bytes written (36)
 
 // AF: 20-Mar.23 read and correct endian if necessary
-long readElMapHeaderV101(int fh, struct elmapheaderV101 *Hdr);
+long readElMapHeaderV101_BE(int fh, struct elmapheaderV101 *Hdr);
 
 // AF: 21.Mar23, Write float in Big-Endian (i.e. native Amiga-) format
-int writefloat(int fh, const float *Value);
+int write_float_BE(int fh, const float *Value);
 
 // AF: 21.Mar.23 read and correct endian if necessary
-long writeElMapHeaderV101(int fh, struct elmapheaderV101 *Hdr);
+long writeElMapHeaderV101_BE(int fh, struct elmapheaderV101 *Hdr);
 
-long writeShortArray_BigEndian(int filehandle, short *ShortArray, size_t size); // AF, HGW, 20.Mar23
+long write_short_Array_BE(int filehandle, short *ShortArray, size_t size); // AF, HGW, 20.Mar23
 
 #endif

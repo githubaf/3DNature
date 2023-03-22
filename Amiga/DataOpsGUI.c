@@ -7,14 +7,14 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 #include "Version.h"
-#include "Useful.h"
+#include "BigEndianReadWrite.h"
 
 STATIC_FCN void Set_DC_Data(void); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Set_DI_Data(void); // used locally only -> static, AF 25.7.2021
 STATIC_FCN double DegMinSecToDegrees(char *str); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Get_DC_InputFile(void);// used locally only -> static, AF 25.7.2021
 
-ssize_t readZBufHdr_BigEndian(int filehandle, struct ZBufferHeader *ZBufHdr); // defined in EdPar.c, AF
+ssize_t readZBufHdr_BE(int filehandle, struct ZBufferHeader *ZBufHdr); // defined in EdPar.c, AF
 
 #define DEM_DATA_INPUT_ARRAY		0
 #define DEM_DATA_INPUT_WCSDEM		1
@@ -754,7 +754,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
 
    set(DC_Win->FormatIntStr[0], MUIA_String_Integer, headersize);
    //read(fh, (char *)&Hdr, ELEVHDRLENV101);    // AF: 20.Mar23 ELEVHDRLENV101 or headersize ??? We have  ELEVHDRLENV100 and ELEVHDRLENV101
-   readElMapHeaderV101(fh, &Hdr); // AF: 20-Mar.23 read and correct endian if necessary
+   readElMapHeaderV101_BE(fh, &Hdr); // AF: 20-Mar.23 read and correct endian if necessary
    set(DC_Win->FormatIntStr[1], MUIA_String_Integer, (Hdr.rows + 1)); 
    set(DC_Win->FormatIntStr[2], MUIA_String_Integer, Hdr.columns);
    set(DC_Win->Cycle[3], MUIA_Cycle_Active, 1); /* value size */
@@ -798,7 +798,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     {
     if (FindIFFChunk(fh, &Hdr, "ZBUF"))
      {
-     if (readZBufHdr_BigEndian(fh, &ZBHdr) == sizeof (struct ZBufferHeader))
+     if (readZBufHdr_BE(fh, &ZBHdr) == sizeof (struct ZBufferHeader))
       {
       if (FindIFFChunk(fh, &Hdr, "ZBOD"))
        {

@@ -11,3 +11,4 @@ FROM
  RexxSupport.o Support.o TimeLinesGUI.o TLSupportGUI.o Tree.o Wave.o WaveGUI.o
  ScratchPad.o ScreenModeGUI.o HyperKhorner4M-1.o
  Version.o Commands.o VocabTable.o GrammarTable.o
+ BigEndianReadWrite.o

@@ -9,7 +9,7 @@
 
 #include "WCS.h"
 #include "GUIDefines.h"
-#include "Useful.h"
+#include "BigEndianReadWrite.h"
 
 STATIC_VAR double ptqq[3];
 
