@@ -943,9 +943,9 @@ EXTERN struct WaveData *Tsunami;
 /*EXTERN*/ struct PACKED  vectorheaderV100 {
  char	Name[10];
  LONG	points;
- short	elevs;
+ SHORT	elevs;
  double avglat, avglon, avgelev, elscale;
- short  MaxEl, MinEl;
+ SHORT  MaxEl, MinEl;
 };
 
 /*EXTERN*/ struct DEMInfo {

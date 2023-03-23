@@ -76,7 +76,8 @@ Version 2.031 (Emerald-Berta)
         *Feature:Export LigthWave shows better error messages
                  exporting colodemo "Scene" and "Scene + DEMs" did not
                  show relevant information in error messages. 
-
+        *BugFix: In Obj-Files (WCS vector objects) MaxEl and MinEl
+                 had random values. Initialized to 0 now.
 
 
 Deutsch

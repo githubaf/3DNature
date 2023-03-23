@@ -2469,3 +2469,10 @@ Convert DEM
      AF_ALPS.Obj   (   173 Bytes)  // Da steht WCSVector drin
 
 Das kann man dann in MapView auch anschauen.
+
+23.Mar.2023
+-----------
+* af_cmpObjFiles.c Tool zum Vergleichen der Obj-Files (WCS-Vector Object, entsteht beim Konvertieren zu WCS DEM)
+* Obj-Files vom Vista -> WCS DEM-Konvertieren sind jetzt auch sind jetzt OK.
+* Im Obj-File Header war das MaxEl und MinEl-Feld im vectorheaderV100 nicht gesetzt. Jetzt auf 0 initialisiert.
+

@@ -5,6 +5,7 @@
 
 #include "WCS.h"
 #include "GUIDefines.h"
+#include "BigEndianReadWrite.h"
 
 STATIC_VAR double lat_y, lon_x;
 
@@ -288,7 +289,7 @@ short saveobject(long OBN, char *fname, double *Lon, double *Lat, short *Elev)
  long Size;
  float Version;
  double LatSum = 0.0, LonSum = 0.0;
- struct vectorheaderV100 Hdr;
+ struct vectorheaderV100 Hdr={0};  // init, AF, 23.Mar.23
  struct DirList *DLItem;
  FILE *fobject;
 
@@ -365,15 +366,15 @@ short saveobject(long OBN, char *fname, double *Lon, double *Lat, short *Elev)
 
  if (fwrite((char *)filetype, 9, 1, fobject) == 1)
   {
-  if (fwrite((char *)&Version, sizeof (float), 1, fobject) == 1)
+  if (fwrite_float_BE(&Version,fobject)==1)   //(fwrite((char *)&Version, sizeof (float), 1, fobject) == 1) AF: 22.Mar.23
    {
-   if (fwrite((char *)&Hdr, sizeof (struct vectorheaderV100), 1, fobject) == 1)
+   if (fwriteVectorheaderV100_BE(&Hdr, fobject) == 1) // (fwrite((char *)&Hdr, sizeof (struct vectorheaderV100), 1, fobject) == 1)  AF: 22.Mar.23
     {
-    if (fwrite((char *)&Lon[0], Size, 1, fobject) == 1)
+    if (fwrite_double_Array_BE(&Lon[0], Size,fobject)==1) //(fwrite((char *)&Lon[0], Size, 1, fobject) == 1) AF: 22.Mar.23
      {
-     if (fwrite((char *)&Lat[0], Size, 1, fobject) == 1)
+     if (fwrite_double_Array_BE(&Lat[0], Size, fobject) == 1) // (fwrite((char *)&Lat[0], Size, 1, fobject) == 1) AF: 22.Mar.23
       {
-      if (fwrite((char *)&Elev[0], Size / 4, 1, fobject) == 1)
+      if (fwrite_SHORT_Array_BE(&Elev[0], Size / 4, fobject) == 1) // (fwrite((char *)&Elev[0], Size / 4, 1, fobject) == 1) AF: 22.Mar.23
        {
        WriteOK = 1;
        }
