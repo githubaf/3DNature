@@ -2476,3 +2476,27 @@ Das kann man dann in MapView auch anschauen.
 * Obj-Files vom Vista -> WCS DEM-Konvertieren sind jetzt auch sind jetzt OK.
 * Im Obj-File Header war das MaxEl und MinEl-Feld im vectorheaderV100 nicht gesetzt. Jetzt auf 0 initialisiert.
 
+
+28.Maerz 2023
+-------------
+Falsche Hintergrund in der Zune-GUI:
+Da werden die Zune(MUI) Prefs genommen. Ist beim Amiga auch so. Bei dem Deadw00d (?) AROS sind die Prefs aber "verstellt".
+* Es sieht ziemlich so aus wie auf dem Amiga, wenn man die Prefs-Datei einfach löscht.
+delete ENVARC:Zune/global.prefs
+
+*Wiederherstellen der AROS Zune-Prefs-Datei:
+cp /home/developer/Desktop/SelcoGit/aros_deadw00d/AROS/workbench/prefs/env-archive/default/Zune/global.prefs ~/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/Prefs/Env-Archive/Zune/
+
+(Es gibt dort Prefs für classic, default und showcase) (classic hat auch flasche Hintergundfarben)
+
+-> Lösung:
+In der Shell
+zune WCS.1  ; öffnet den Zune(MUI) Prefs Editor. Da alles wie gewünscht einstellen (sieht man aber nicht leider nicht sofort) und dann speichern. Wird in ENVARC: und ENV: gespeichert.
+            ; Bei Start wird dann nach "WCS.1.prefs" gesucht.
+
+
+Convert ZBuffer -> WCS DEM  (ZBuffer-File vorher mit WCS in WinUAE aus ALPS.DEM erstellt) Floating Point, 4 Bytes, HiLo
+Die Max/Min-Anzeige ist nach dem einlesen des ZBuffer-Files korrekt. Nach Test springt sie auf 0.0000 und 0.0000
+elev-File enthaelt fast nur Nullen???
+
+Convert ZBuffer -> WCS DEM fixed. Resulting Files are identical to Amiga generated ones. (29.3.23)

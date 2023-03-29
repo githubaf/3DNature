@@ -80,6 +80,7 @@ C_SRCS += \
 
 O_SRCS += \
 ../AGUI.o \
+../BigEndianReadWrite.o \
 ../BitMaps.o \
 ../Cloud.o \
 ../CloudGUI.o \

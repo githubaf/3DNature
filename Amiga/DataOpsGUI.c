@@ -633,7 +633,7 @@ void Handle_DC_Window(ULONG WCS_ID)
        else
         sprintf(str, "%1.1lE", DC_Win->DEMData->MaxMin[0]);
        }
-      set(DC_Win->MinValTxt, MUIA_Text_Contents, (IPTR)str);
+      set(DC_Win->MinValTxt, MUIA_Text_Contents, (IPTR)str);   // <--- Min field in Convert DEM Window
       if (fabs(DC_Win->DEMData->MaxMin[1]) < 9999.9)
        sprintf(str, "%f", DC_Win->DEMData->MaxMin[1]);
       else
@@ -643,7 +643,7 @@ void Handle_DC_Window(ULONG WCS_ID)
        else
         sprintf(str, "%1.1lE", DC_Win->DEMData->MaxMin[1]);
        }
-      set(DC_Win->MaxValTxt, MUIA_Text_Contents, (IPTR)str);
+      set(DC_Win->MaxValTxt, MUIA_Text_Contents, (IPTR)str);   // <--- Max field in Convert DEM Window
       break;
       } /* convert DEM */
      case ID_DC_CONVERT:

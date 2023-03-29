@@ -5,6 +5,7 @@
 
 #include "WCS.h"
 #include "GUIDefines.h"
+#include "BigEndianReadWrite.h"
 
 STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmapheaderV101 *DEMHdr,
         void *OutputData, long OutputDataSize, short i, short j,
@@ -654,18 +655,37 @@ RepeatRGB:
    {
    if (! INPUT_WRAP)
     {
-    if ((read(fInput, InputData, InputDataSize)) != InputDataSize)
-     {
-     error = 3;
-     } /* if read fail */
-    } /* if no wrap longitude */
-   else
-    {
-    IPTR Source, Dest;
-    ULONG InputRowSize, FullRowSize;
+	   int ReadResult;
+	   if(INPUT_FORMAT==DEM_DATA_INPUT_ZBUF)  // AF: ZBUF is an IFF format format with float values
+	   {
+		   ReadResult=read_float_Array_BE(fInput, InputData, InputDataSize);
+	   }
+	   else // Format is DEM_DATA_INPUT_ARRAY. ToDO: Distinguish between 2,4,8 bytes (un)signed, float, double!
+	   {
+		   ReadResult=read(fInput, InputData, InputDataSize);
+	   }
 
-    if ((read(fInput, InputData, (InputDataSize - INPUT_ROWS * InValSize)))
-	 != InputDataSize - INPUT_ROWS * InValSize)
+	   if (ReadResult != InputDataSize)  // AF: 29.Mar.23
+	   {
+		   error = 3;
+	   } /* if read fail */
+    } /* if no wrap longitude */
+   else // INPUT_WRAP
+   {
+	   IPTR Source, Dest;
+	   ULONG InputRowSize, FullRowSize;
+
+	   int ReadResult;
+	   if(INPUT_FORMAT==DEM_DATA_INPUT_ZBUF)  // AF: ZBUF is an IFF format format with float values
+	   {
+		   ReadResult=read_float_Array_BE(fInput, InputData, (InputDataSize - INPUT_ROWS * InValSize));
+	   }
+	   else // Format is DEM_DATA_INPUT_ARRAY. ToDO: Distinguish between 2,4,8 bytes (un)signed, float, double!
+	   {
+		   ReadResult=read(fInput, InputData, (InputDataSize - INPUT_ROWS * InValSize));
+	   }
+
+    if (ReadResult != InputDataSize - INPUT_ROWS * InValSize)
      {
      error = 3;
      } /* if read fail */
@@ -2277,7 +2297,7 @@ EndLoad:
    } /*  */
   } /* switch scale operator */
 
- SCALE_TESTMAX = DataMaxEl;
+ SCALE_TESTMAX = DataMaxEl;   // Test Button and Min and Max text field in DEM Converter window
  SCALE_TESTMIN = DataMinEl;
 
  if (TestOnly)
