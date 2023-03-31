@@ -160,6 +160,10 @@ if ((IntuitionBase = (struct IntuitionBase *)
     {
     if((MUIMasterBase = OpenLibrary((STRPTR)MUIMASTER_NAME,MUIMASTER_VMIN)))
      {
+#if defined __AROS__
+    	if( (MUIMasterBase->lib_Version==19 && MUIMasterBase->lib_Revision>=67))  // AF: deadw00d's muimaster.library 19.67 fixes notification-event-loops that made WCS flickering and unuseable
+    	{
+#endif
      getcwd(path, 255);
 
      memset(&ScrnData, 0, sizeof (struct WCSScreenData));
@@ -202,7 +206,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
 
       if(strstr(ExtAboutVers, "beta") != NULL)
       {
-          printf("%d\n",cvt_TIME(Date)+BETA_DAYS*24*60*60);
+          printf("%d\n",cvt_TIME(Date)+BETA_DAYS*24*60*60+102030405);  // disguise it a bit
       }
       if((strstr(ExtAboutVers, "beta") != NULL) && (cvt_TIME(Date)+BETA_DAYS*24*60*60 <get_time(NULL)))  // beta and beta period over
       {
@@ -309,10 +313,23 @@ if ((IntuitionBase = (struct IntuitionBase *)
        WCS_App_Del(WCSRootApp);
        WCSRootApp = NULL;
        } /* if */
-      } /* if */
      CloseLibrary(MUIMasterBase);
      MUIMasterBase = NULL;
-     } /* if */
+    	}
+#if defined __AROS__
+     } // AROS muimaster.library > 19.67
+	else
+	{
+		MUI_RequestA(NULL, NULL, 0, (CONST_STRPTR)"Error", (CONST_STRPTR)"Cancel", (CONST_STRPTR)"For WCS AROS\nmuimaster.library revision 19.67\nor higher required.",0);
+
+	} /* else */
+#endif
+	CloseLibrary(MUIMasterBase);
+	MUIMasterBase=NULL;
+	CloseLibrary(GadToolsBase);
+	GadToolsBase = NULL;
+	}
+
     else
      {
      printf("FATAL ERROR: MUIMaster.Library revision %d required. Aborting.\n", MUIMASTER_VMIN);

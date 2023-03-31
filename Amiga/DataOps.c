@@ -762,16 +762,16 @@ ReadMore:
      error = 3;
      break;
      }
-    if (InputChar < 45 || InputChar > 57)
+    if (InputChar < 45 || InputChar > 57)  // AF: < '-'   || >  '9'  i.e. in "-0123456789"
      goto ReadMore;
     InValue[0] = InputChar;
     j = 0;
-    while (j < 63 && InValue[j] > 44 && InValue[j] < 58 && InValue[j] != EOF)
+    while (j < 63 && InValue[j] > 44 && InValue[j] < 58 && InValue[j] != EOF)  //AF:  > ','  && < ':' i.e. in "-0123456789"
      {
      j ++;
      InValue[j] = fgetc(fAscii);
      } /*while */
-    if (j >= 63)
+    if (j >= 63) // max 63 characters + final \0
      {
      error = 3;
      break;

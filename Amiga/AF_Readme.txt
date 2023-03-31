@@ -2500,3 +2500,33 @@ Die Max/Min-Anzeige ist nach dem einlesen des ZBuffer-Files korrekt. Nach Test s
 elev-File enthaelt fast nur Nullen???
 
 Convert ZBuffer -> WCS DEM fixed. Resulting Files are identical to Amiga generated ones. (29.3.23)
+
+
+29.3.23
+-------
+AROS 64bit
+* Eventloop im Render-Window hat deadw00d mit muimaster.library 19.64 behoben
+* Komische Zeichen in Tabs, die die Farbe aendern sollen, hat deadw00d in muimaster.library 19.65 behoben
+
+* "Map View" hat noch eine event loop, es flackert und ist nicht bedienbar -> Beispiel an deadw00d geschickt.
+
+30.3.2023
+---------
+Convert Ascii -> WCS DEM
+* Auf dem Amiga ein float-Bin 4 Bytes erzeugen aus dem Vista Alps.dem. Als AF_ALPS_flt4Bin speichern und auf den Linux-Rechner bringen
+* od ist ein Standard-Tool zum ausgeben von Hex-Files in allen möglichen Formaten
+COLS=258; MYPATH=~/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS/WCSProjects; od --format=fF --width=$(( $COLS*4 )) --endian=big --address-radix=none --output-duplicates "$MYPATH/AF_ALPS_flt4Bin" > "$MYPATH/AF_ALPS_Float.txt";
+* Jetzt haben wir ein ASCII Array mit 258x258 Einträgen. 
+
+*Min und Max aus dem ASCII-File kann man mit datamash (installieren) anzeigen/kontrollieren:
+* Dab bestimmt min und max pro Spalte(!) und gibt als Ergebnis eine Zeile mit 258 Minima und Maxima aus. Mit transform machen wir daraus eine(!) Spalte und suchen darin dann nochmal nach min und max
+COLUMNS=258; datamash --whitespace min 1-$COLUMNS max 1-$COLUMNS < ~/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS/WCSProjects/AF_ALPS_Float.txt | datamash transpose | datamash min 1 max 1
+
+* Beim ASCII->WCS DEM Konvertieren fragt er dann unter AROS, ob er invertieren soll!? Das macht er beim Amiga Original nicht. In meiner 68k-Version haengt er sich dann auf.
+* Wenn man zustimmt, stuerzt AROS WCS ab.
+
+31.3.2023
+---------
+* AROS: minimum muimaster.library 19.67 wird jetzt vorrausgesetzt. Da sind alle notwndigen notification-Loop Fixes von deadw00d drin.
+* 102030405 abziehen, um Beta-Timeout zu bekommen. (ein wenig verschleiert)
+
