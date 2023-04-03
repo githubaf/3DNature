@@ -3,6 +3,8 @@
 #include "vgl.h"
 #include "vgl_internals.h"
 
+#include <exec/types.h>  // for ULONG, AF 3.Apr.23
+
 #define FAST_vgl_dumb_set_pixel_noclip(pixmap,xxx,yyy)   \
 	{*(((unsigned char *)(pixmap->pixdata->data)) + \
 	   ((xxx) + (yyy)*pixmap->pixdata->x_size)) = \
@@ -640,7 +642,7 @@ void
 vgl_dumb_hline_noclip (PIXMAP * p, int x1, int x2, int y)
 {
   int x1_trim, x2_trim;
-  unsigned long *loc1, *loc2;
+  ULONG /*unsigned long*/ *loc1, *loc2;  // AF: 3.Apr23 ULONG! unsigned long is 8 byte on Aros 64Bit, i.e. wrong pointer to Amiga ULONG data
   unsigned long color_mask, mouse;
 
   color_mask = p->fore_8;
@@ -655,7 +657,7 @@ vgl_dumb_hline_noclip (PIXMAP * p, int x1, int x2, int y)
 
   check_mouse1 (p, x1, y, x2, y, mouse);
 
-    loc1 = (((unsigned long *) (p->pixdata->data)) + 
+    loc1 = (((ULONG /*unsigned long*/ *) (p->pixdata->data)) +
 	    ((x1 + y * p->pixdata->x_size) / 4));
   /*
     loc2=  (((unsigned long *)(p->pixdata->data)) + 
@@ -759,13 +761,13 @@ vgl_dumb_hlinelist_noclip (PIXMAP * p, int count, struct span_list *list)
 
 
   int i, x1, x2, x1_trim, x2_trim, y, linewords;
-  unsigned long *loc_y, *loc1, *loc2;
+  ULONG /*unsigned long*/ *loc_y, *loc1, *loc2; // AF: 3.Apr23 ULONG! unsigned long is 8 byte on Aros 64Bit, i.e. wrong pointer to Amiga ULONG data
   unsigned long color_mask;
 
   color_mask = p->fore_8;
   linewords = p->pixdata->x_size >> 2;
   y = 0;
-  loc_y = (unsigned long *) p->pixdata->data;
+  loc_y = (ULONG /*unsigned long*/ *) p->pixdata->data;
 
 
   for (i = 0; i < count; i++, list++)
@@ -794,7 +796,7 @@ vgl_dumb_hlinelist_noclip (PIXMAP * p, int count, struct span_list *list)
 	  else
 	    {
 	      y = list->y;
-	      loc_y = ((unsigned long *) p->pixdata->data) + (y * linewords);
+	      loc_y = ((ULONG/*unsigned long*/ *) p->pixdata->data) + (y * linewords);
 	    }
 	}
 
@@ -894,7 +896,7 @@ void
 vgl_dumb_hlinelist (PIXMAP * p, int count, struct span_list *list)
 {
   int i, x1, x2, x1_trim, x2_trim, y, linewords, out1, out2;
-  unsigned long *loc_y, *loc1, *loc2;
+  ULONG /*unsigned long*/ *loc_y, *loc1, *loc2;  // AF: 3.Apr23 ULONG! unsigned long is 8 byte on Aros 64Bit, i.e. wrong pointer to Amiga ULONG data
   unsigned long color_mask;
 
   color_mask = p->fore_8;
@@ -931,7 +933,7 @@ vgl_dumb_hlinelist (PIXMAP * p, int count, struct span_list *list)
 	    {
 #endif /* THIS_IS_BROKEN */
 	      y = list->y;
-	      loc_y = ((unsigned long *) p->pixdata->data) + (y * linewords);
+	      loc_y = ((ULONG /*unsigned long*/ *) p->pixdata->data) + (y * linewords);
 #ifdef THIS_IS_BROKEN
 	    }
 	}
@@ -1636,13 +1638,13 @@ void
 vgl_dumb_clear (PIXMAP * p)
 {
   int count, size;
-  unsigned long *loc, color;
+  ULONG /*unsigned long*/ *loc, color;  // AF: 3.Apr23 ULONG! unsigned long is 8 byte on Aros 64Bit, i.e. wrong pointer to Amiga ULONG data
   unsigned long mouse;
 
   check_mouse1 (p, 0, 0, vgl_x_res (p), vgl_y_res (p), mouse);
 
   size = (p->pixdata->x_size >> 2) * p->pixdata->y_res;
-  loc = ((unsigned long *) (p->pixdata->data));
+  loc = ((ULONG /*unsigned long*/ *) (p->pixdata->data));
   color = p->back_8;
 
   count = 0;

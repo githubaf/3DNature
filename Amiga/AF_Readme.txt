@@ -1963,7 +1963,7 @@ AROS:
 Das Lesen und Endian-Korrigieren der Union KeyFrame in EdPar.c musste Spezialbehandlungen fuer die Faelle 
 MotionKey, ColorKey und den Rest bekommen.
 
-anyonSunset kann gerendert werden. Farben sind OK. Wasserwellen fehlen, es ist spiegelglatt.
+CanyonSunset kann gerendert werden. Farben sind OK. Wasserwellen fehlen, es ist spiegelglatt.
 
 3.Jan23
 -------
@@ -2522,11 +2522,21 @@ COLS=258; MYPATH=~/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-
 * Dab bestimmt min und max pro Spalte(!) und gibt als Ergebnis eine Zeile mit 258 Minima und Maxima aus. Mit transform machen wir daraus eine(!) Spalte und suchen darin dann nochmal nach min und max
 COLUMNS=258; datamash --whitespace min 1-$COLUMNS max 1-$COLUMNS < ~/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS/WCSProjects/AF_ALPS_Float.txt | datamash transpose | datamash min 1 max 1
 
-* Beim ASCII->WCS DEM Konvertieren fragt er dann unter AROS, ob er invertieren soll!? Das macht er beim Amiga Original nicht. In meiner 68k-Version haengt er sich dann auf.
-* Wenn man zustimmt, stuerzt AROS WCS ab.
+* Beim ASCII->WCS DEM Konvertieren fragt er dann unter AROS, ob er invertieren soll!? Das macht er beim Amiga Original nicht. 
+* In meiner 68k-Version haengt er sich dann auf - nein, dauert nur EWIG. fgetc() zu langsam bei bebbos gcc?
 
 31.3.2023
 ---------
 * AROS: minimum muimaster.library 19.67 wird jetzt vorrausgesetzt. Da sind alle notwndigen notification-Loop Fixes von deadw00d drin.
 * 102030405 abziehen, um Beta-Timeout zu bekommen. (ein wenig verschleiert)
+
+* Kann man Images.c CompRoseImgData irgendwie transparent machen? Dort passt die Hintergrundfarbe nicht zu de AROS Default-Einstellungen.
+  in Agui.c  wird es benutzt: Child, ImageObject, MUIA_Image_OldImage, &CompRose,
+
+3.April 2023
+------------
+Motion-Window Cam-View funktioniert nicht richtig in der 64 Bit-Version. In der 32Bit-Version ost alles OK.
+-> 64Bit Problem. "unsigned long" Pointer to BitmapData. Muss fuer Ptr++ aber auf 32Bit Werte zeigen, also ULONG  Korrigiert in dump.c
+-> Motion-Window Cam-View geht jetzt auch unter AROS 64Bit.
+Das DIAG-Fenster crashed beim Schlieﬂen.
 
