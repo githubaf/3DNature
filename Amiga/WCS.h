@@ -1629,7 +1629,7 @@ EXTERN LONG __stack
  = 8192
 #endif /* MAIN */
 ;
-EXTERN long *QCmap[3];
+EXTERN LONG /*long*/ *QCmap[3];  // AF, 3.Apr.23  32 Bit values!
 
 EXTERN long extrarand,maxfract,fracount[10],
  //lastfacect,  static AF

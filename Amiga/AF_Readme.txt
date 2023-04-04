@@ -2540,3 +2540,7 @@ Motion-Window Cam-View funktioniert nicht richtig in der 64 Bit-Version. In der 
 -> Motion-Window Cam-View geht jetzt auch unter AROS 64Bit.
 Das DIAG-Fenster crashed beim Schlieﬂen.
 
+4.April23
+---------
+Es gibt eine Variable "scrnrowzip[2000];" Was ist da auf 2000 beschraenkt?
+QCmap[] typ auf von long auf LONG geaendert. Das DIAG Window stuerzt jetzt beim Schlieﬂen nicht mehr ab.

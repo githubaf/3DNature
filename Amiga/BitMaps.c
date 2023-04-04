@@ -434,11 +434,11 @@ void closebitmaps(UBYTE **bitmap,long zsize)
 void allocQCmaps(void)
 {
 
- if ((QCmap[0] = (long *)get_Memory(QCmapsize, MEMF_CLEAR)) == NULL ||
-	(QCmap[1] = (long *)get_Memory(QCmapsize, MEMF_CLEAR)) == NULL ||
-	(QCmap[2] = (long *)get_Memory(QCmapsize, MEMF_CLEAR)) == NULL ||
-	(QCcoords[0] = (float *)get_Memory(QCmapsize, MEMF_CLEAR)) == NULL ||
-	(QCcoords[1] = (float *)get_Memory(QCmapsize, MEMF_CLEAR)) == NULL)
+ if ((QCmap[0]   = get_Memory(QCmapsize, MEMF_CLEAR)) == NULL ||
+	(QCmap[1]    = get_Memory(QCmapsize, MEMF_CLEAR)) == NULL ||
+	(QCmap[2]    = get_Memory(QCmapsize, MEMF_CLEAR)) == NULL ||
+	(QCcoords[0] = get_Memory(QCmapsize, MEMF_CLEAR)) == NULL ||
+	(QCcoords[1] = get_Memory(QCmapsize, MEMF_CLEAR)) == NULL)
   {
   render ^= 0x100;
   freeQCmaps();
@@ -452,15 +452,15 @@ void freeQCmaps(void)
 {
 
  if (QCmap[0]) free_Memory(QCmap[0], QCmapsize);
- QCmap[0] = (long *)NULL;
+ QCmap[0] = NULL;
  if (QCmap[1]) free_Memory(QCmap[1], QCmapsize);
- QCmap[1] = (long *)NULL;
+ QCmap[1] = NULL;
  if (QCmap[2]) free_Memory(QCmap[2], QCmapsize);
- QCmap[2] = (long *)NULL;
+ QCmap[2] = NULL;
  if (QCcoords[0]) free_Memory(QCcoords[0], QCmapsize);
- QCcoords[0] = (float *)NULL;
+ QCcoords[0] = NULL;
  if (QCcoords[1]) free_Memory(QCcoords[1], QCmapsize);
- QCcoords[1] = (float *)NULL;
+ QCcoords[1] = NULL;
 
 } /* freeQCmaps() */
 
