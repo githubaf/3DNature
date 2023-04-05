@@ -115,8 +115,8 @@ int main(void)
     //printf("Stack ist %lu Bytes\n",stack);
     if(stack < MinStack)
     {
-        printf("Stack to small! (%lu) Bytes\n",stack);
-        printf("Please set Stack to %lu Bytes!\n",MinStack);
+        printf("Stack to small! (%lu) Bytes\n",(unsigned long)stack);
+        printf("Please set Stack to %lu Bytes!\n",(unsigned long)MinStack);
         return 20;
     }
 
@@ -161,7 +161,13 @@ if ((IntuitionBase = (struct IntuitionBase *)
     if((MUIMasterBase = OpenLibrary((STRPTR)MUIMASTER_NAME,MUIMASTER_VMIN)))
      {
 #if defined __AROS__
-    	if( (MUIMasterBase->lib_Version==19 && MUIMasterBase->lib_Revision>=67))  // AF: deadw00d's muimaster.library 19.67 fixes notification-event-loops that made WCS flickering and unuseable
+
+#ifdef __x86_64
+	#define MUIMASTER_LIB_REV 67
+#elif defined __i386
+	#define MUIMASTER_LIB_REV 55
+#endif
+    	if( (MUIMasterBase->lib_Version==19 && MUIMasterBase->lib_Revision>=MUIMASTER_LIB_REV))  // AF: deadw00d's muimaster.library 19.67 fixes notification-event-loops that made WCS flickering and unuseable
     	{
 #endif
      getcwd(path, 255);
@@ -206,7 +212,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
 
       if(strstr(ExtAboutVers, "beta") != NULL)
       {
-          printf("%d\n",cvt_TIME(Date)+BETA_DAYS*24*60*60+102030405);  // disguise it a bit
+          printf("%lu\n",cvt_TIME(Date)+BETA_DAYS*24*60*60+102030405);  // disguise it a bit
       }
       if((strstr(ExtAboutVers, "beta") != NULL) && (cvt_TIME(Date)+BETA_DAYS*24*60*60 <get_time(NULL)))  // beta and beta period over
       {

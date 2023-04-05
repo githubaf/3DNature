@@ -2544,3 +2544,22 @@ Das DIAG-Fenster crashed beim Schließen.
 ---------
 Es gibt eine Variable "scrnrowzip[2000];" Was ist da auf 2000 beschraenkt?
 QCmap[] typ auf von long auf LONG geaendert. Das DIAG Window stuerzt jetzt beim Schließen nicht mehr ab.
+
+4.April23
+---------
+* Test auf mindest-Revision fuer muimaster.library in der i386 Version eingebaut.
+* viele IPTR statt LONG in EdMoGUI.c (wo get()-Aufrufe sind
+
+// x86_64
+Motion Editor -> Parameters List -> Center X
+
+EdMoGUI.c
+void Set_EM_Item() Zeile 1071
+
+ if (incr[2] == 0.0)
+  {
+  set(EM_Win->ParTxt[2], MUIA_Text_Contents, (IPTR)"\0");
+  sprintf(str, "%f", PAR_FIRST_MOTION(item[2]));  // <-- Crash in sprintf. String ist OK!
+                                                  // ein printf (ohne s) crashed auch, wenn es "%f",3.14159 enthaelt
+												  // also weder str noch PAR_FIRST_MOTION(item[2]) Problem
+

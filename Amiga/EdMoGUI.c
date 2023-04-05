@@ -12,7 +12,7 @@ STATIC_FCN void Close_EMPL_Window(void); // used locally only -> static, AF 26.7
 void Make_EM_Window(void)
 {
  short i;
- long open;
+ IPTR open;
 
  if (EM_Win)
   {
@@ -469,7 +469,7 @@ void Handle_EM_Window(ULONG WCS_ID)
       } /* Make Key frame */
      case ID_EM_UPDATEKEYS:
       {
-      long UpdateGp, UpdateAll;
+      IPTR UpdateGp, UpdateAll;
       struct clipbounds cb;
 
       if (MP && MP->ptsdrawn)
@@ -527,7 +527,7 @@ void Handle_EM_Window(ULONG WCS_ID)
       } /* Prev Key */
      case ID_EM_DELETEKEY:
       {
-      long DeleteGp, DeleteAll;
+      IPTR DeleteGp, DeleteAll;
       struct clipbounds cb;
 
       if (MP && MP->ptsdrawn)
@@ -721,7 +721,7 @@ void Handle_EM_Window(ULONG WCS_ID)
 
    case GP_LIST1:
     {
-    LONG data;
+    IPTR data;
 
     get(EM_Win->LS_List, MUIA_List_Active, &data);
     EM_Win->MoItem = data;
@@ -813,7 +813,7 @@ void Handle_EM_Window(ULONG WCS_ID)
 
    case GP_STRING2:
     {
-    LONG data;
+    IPTR data;
 
     get(EM_Win->IA_SensStr, MUIA_String_Integer, &data);
     if (data > 1000)
@@ -827,7 +827,7 @@ void Handle_EM_Window(ULONG WCS_ID)
 
    case GP_STRING3:
     {
-    LONG data;
+    IPTR data;
 
     i = WCS_ID - ID_EM_FRAMESTR(0);
     get(EM_Win->Str[i], MUIA_String_Integer, &data);
@@ -857,7 +857,7 @@ void Handle_EM_Window(ULONG WCS_ID)
        } /* if map window */
       if (EMTL_Win)
        {
-       long data2;
+       IPTR data2;
 
        get(EMTL_Win->Prop[2], MUIA_Prop_First, &data2);
        data = (100.0 * ((float)EM_Win->Frame / (float)EMTL_Win->Frames));
@@ -883,7 +883,7 @@ void Handle_EM_Window(ULONG WCS_ID)
 
    case GP_ARROW1:
     {
-    LONG data;
+    IPTR data;
 
     i = WCS_ID - ID_EM_SARROWLEFT(0);
     get(EM_Win->Str[i], MUIA_String_Integer, &data);
@@ -894,7 +894,7 @@ void Handle_EM_Window(ULONG WCS_ID)
 
    case GP_ARROW2:
     {
-    LONG data;
+    IPTR data;
 
     i = WCS_ID - ID_EM_SARROWRIGHT(0);
     get(EM_Win->Str[i], MUIA_String_Integer, &data);
@@ -997,7 +997,7 @@ void Handle_EM_Window(ULONG WCS_ID)
 
    case GP_ARROW5:
     {
-    LONG data;
+    IPTR data;
 
     get(EM_Win->IA_SensStr, MUIA_String_Integer, &data);
     if (data > 1)
@@ -1007,7 +1007,7 @@ void Handle_EM_Window(ULONG WCS_ID)
 
    case GP_ARROW6:
     {
-    LONG data;
+    IPTR data;
 
     get(EM_Win->IA_SensStr, MUIA_String_Integer, &data);
     if (data < 1000)
@@ -1220,6 +1220,10 @@ void Set_EM_List(short update)
    sprintf(EM_Win->Motionname[i], "\0333%s", varname[i]);
   else
    sprintf(EM_Win->Motionname[i], "\33n%s", varname[i]);
+
+  //KPrintF("%ld %s\n",i,EM_Win->Motionname[i]);   // 6 Center X
+  //                                               // 7 Center Y
+
   EM_Win->MName[i] = &EM_Win->Motionname[i][0];
   } /* for i=0... */
  EM_Win->MName[USEDMOTIONPARAMS] = NULL;
@@ -1241,7 +1245,8 @@ void Set_EM_List(short update)
 
 void MakeMotionKey(void)
 {
-long i, GroupKey, FrameKey, MoItem;
+long i;
+IPTR GroupKey, FrameKey, MoItem;
 struct clipbounds cb;
 
  if (MP && MP->ptsdrawn)
@@ -1336,7 +1341,7 @@ struct clipbounds cb;
 void Make_EMIA_Window(void)
 {
  short i;
- long open;
+ IPTR open;
  static const char *EMIA_Cycle_Page[] = {"\0334Draw", "\0334Bounds", NULL};
  static const char *EMIA_Cycle_Move[] = {"Radial", "Rectang", NULL};
  static const char *EMIA_Cycle_Grid[] = {"Solid", "Wire", NULL};
@@ -1856,7 +1861,7 @@ void Handle_EMIA_Window(ULONG WCS_ID)
       } /* fix menu button movement */
      case ID_EMIA_AUTODRAW:
       {
-      long data;
+      IPTR data;
 
       get(EMIA_Win->BT_AutoDraw, MUIA_Selected, &data);
       IA_AutoDraw = data;
@@ -1920,7 +1925,8 @@ void Handle_EMIA_Window(ULONG WCS_ID)
 
    case GP_BUTTONS2:
     {
-    long data, redraw = 0;
+    IPTR data;
+    long redraw = 0;
 
     i = WCS_ID - ID_EMIA_GBDENS(0);
     get(EMIA_Win->BT_GBDens[i], MUIA_Selected, &data);
@@ -1953,7 +1959,7 @@ void Handle_EMIA_Window(ULONG WCS_ID)
 
    case GP_ARROW1:
     {
-    LONG data;
+    IPTR data;
 
     i = WCS_ID - ID_EMIA_SARROWLEFT(0);
     get(EMIA_Win->Str[i], MUIA_String_Integer, &data);
@@ -1964,7 +1970,7 @@ void Handle_EMIA_Window(ULONG WCS_ID)
 
    case GP_ARROW2:
     {
-    LONG data;
+    IPTR data;
 
     i = WCS_ID - ID_EMIA_SARROWRIGHT(0);
     get(EMIA_Win->Str[i], MUIA_String_Integer, &data);
@@ -1974,7 +1980,7 @@ void Handle_EMIA_Window(ULONG WCS_ID)
 
    case GP_STRING1:
     {
-    LONG data;
+    IPTR data;
 
     i = WCS_ID - ID_EMIA_STRING(0);
     get(EMIA_Win->Str[i], MUIA_String_Integer, &data);
@@ -1998,7 +2004,7 @@ void Handle_EMIA_Window(ULONG WCS_ID)
 
    case GP_CYCLE1:
     {
-    LONG data;
+    IPTR data;
 
     get(EMIA_Win->CY_Move, MUIA_Cycle_Active, &data);
     IA_Movement = data;
@@ -2008,7 +2014,7 @@ void Handle_EMIA_Window(ULONG WCS_ID)
 
    case GP_CYCLE2:
     {
-    LONG data;
+    IPTR data;
 
     get(EMIA_Win->CY_Grid, MUIA_Cycle_Active, &data);
     IA_GridStyle = data;
@@ -2028,7 +2034,7 @@ void Handle_EMIA_Window(ULONG WCS_ID)
 
 void Make_EMPL_Window(void)
 {
- long open;
+ IPTR open;
 
  if (EMPL_Win)
   {
@@ -2164,7 +2170,7 @@ void Handle_EMPL_Window(ULONG WCS_ID)
 
    case GP_LIST1:
     {
-    LONG data;
+    IPTR data;
 
     get(EMPL_Win->LS_List, MUIA_List_Active, &data);
     set(EM_Win->LS_List, MUIA_List_Active, data);
