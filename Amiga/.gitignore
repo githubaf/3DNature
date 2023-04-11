@@ -1,0 +1,7 @@
+.settings
+i386-aros
+x86_64-aros
+68020
+68020-60
+*.info
+*.map
