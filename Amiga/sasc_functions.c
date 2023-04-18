@@ -658,6 +658,7 @@ int Mkdir(const char *name)
 
   if ((fl=CreateDir((STRPTR)name)))
   {
+	UnLock(fl);  // CreateDir returns an exclusive lock on the new directory if it succeeds.
     ret=0;
   }
   else
