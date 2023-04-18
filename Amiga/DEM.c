@@ -2668,7 +2668,16 @@ short FindElMaxMin(struct elmapheaderV101 *Map, short *Array)
 } /* FindElMaxMin() */
 
 /**********************************************************************/
-
+/*
+ * filename of Vista DEM file
+ * Putput = ptr to short array of DataPts*DataPts*sizeof(short) bytes
+ * DataPts = number of points per line
+ * return: 0  ok
+ *         1 not enough memory for internal buffers
+ *         2 file open error
+ *         6 not enough data points in file
+ *         7 no compression in file
+ */
 short LoadVistaDEM(char *filename, short *Output, short DataPts)
 {
  short error = 0, elev;

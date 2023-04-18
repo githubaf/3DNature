@@ -167,7 +167,30 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
  FILE *fAscii = NULL;
  struct BusyWindow *BWDC;
 
-  
+//#define  PRINT_CONVERTDEM_PARAMS  // used to create convert-testcases, AF, 17.April 23
+#ifdef PRINT_CONVERTDEM_PARAMS
+ {
+	 printf("AF: %s() %d Filename=%s TestOnly=%d\n",__func__,__LINE__,filename,TestOnly);
+
+	 for(i=0;i< 2;i++) { printf("data->ActiveFC[%d]=%d;\n",i,data->ActiveFC[i]); }
+	 for(i=0;i< 4;i++) { printf("data->Crop[%d]=%d;\n",i,data->Crop[i]); }
+	 for(i=0;i< 2;i++) { printf("data->FloorCeiling[%d]=%f;\n",i,data->FloorCeiling[i]); }
+	 for(i=0;i<10;i++) { printf("data->FormatCy[%d]=%d;\n",i,data->FormatCy[i]); }
+	 for(i=0;i< 5;i++) { printf("data->FormatInt[%d]=%d;\n",i,data->FormatInt[i]); }
+	 for(i=0;i< 4;i++) { printf("data->LateralScale[%d]=%f;\n",i,data->LateralScale[i]); }
+	 for(i=0;i< 2;i++) { printf("data->MaxMin[%d]=%f;\n",i,data->MaxMin[i]); }
+	 printf("snprintf(data->NameBase,24,\"%s\");\n",data->NameBase);
+	 printf("snprintf(data->OutputDir,256,\"%s\");\n",data->OutputDir);
+	 for(i=0;i< 2;i++) { printf("data->OutputMaps[%d]=%d;\n",i,data->OutputMaps[i]); }
+	 printf("data->ScaleType=%d;\n",data->ScaleType);
+	 printf("data->SplineConstrain=%d;\n",data->SplineConstrain);
+	 printf("data->VSOperator=%d;\n",data->VSOperator);
+	 for(i=0;i< 9;i++) { printf("data->VertScale[%d]=%f;\n",i,data->VertScale[i]); }
+	 printf("data->WrapLon=%d;\n",data->WrapLon);
+	 printf("\n");
+	 }
+#endif
+
  if (! filename || ! filename[0])
   {
   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",

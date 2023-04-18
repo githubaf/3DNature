@@ -2563,3 +2563,8 @@ void Set_EM_Item() Zeile 1071
                                                   // ein printf (ohne s) crashed auch, wenn es "%f",3.14159 enthaelt
 												  // also weder str noch PAR_FIRST_MOTION(item[2]) Problem
 
+18.April23
+----------
+Test fuer Convert DEM begonnen. (68020)
+test_files Schublade nach WinUAE kopieren. Vista DEM -> andere Formate funktioniert weitgehend (ausser WCS DEM Onj-Files und Colormap Files)
+- In DataOps.c habe ich ein #define  PRINT_CONVERTDEM_PARAMS  eingebaut. Dann werden die Aufrufparameter der Funktion ConvertDEM() fuer den Test ausgegeben.

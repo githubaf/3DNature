@@ -393,6 +393,47 @@ int fwriteKeyFrames_BE(const union KeyFrame *KeyFrames, short NumKeyframes, FILE
 #endif
 }
 
+
+
+
+// AF, 17.12.2022
+
+ssize_t write_UShort_BigEndian (int filedes, const void *buffer, size_t size)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    if(size==2)
+    {
+        unsigned short int Value=*(USHORT*)buffer;
+        SimpleEndianFlip16U(Value,&Value);
+        return write(filedes, &Value, size);
+    }
+    else if(size==4)
+    {
+        unsigned long int Value=*(ULONG*)buffer;
+        SimpleEndianFlip32U(Value,&Value);
+        return write(filedes, &Value, size);
+    }
+    else if(size==8)
+    {
+        double Value=*(double*)buffer;
+        SimpleEndianFlip64(Value,&Value);
+        return write(filedes, &Value, size);
+    }
+    else
+    {
+        KPrintF((STRPTR) "AF: wrong size for %s L:%d %s(%d)\n",__FILE__, __LINE__,__func__,size);
+        return 0;
+    }
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__ // Big endian? Then just call the original version
+    return write(filedes, buffer, size);
+#else
+    error Not implemented!
+#endif
+}
+
+
+
 // AF: 9.Jan23, Write short in Big-Endian (i.e. native Amiga-) format
 int fwrite_short_BE(const short *Value, FILE *file)
 {

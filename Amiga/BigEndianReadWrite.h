@@ -84,6 +84,9 @@ inline void SimpleEndianFlip16S(SHORT Source16, SHORT *Dest16) {(*Dest16) = ( SH
 // AF: 9.Jan23, Write short in Big-Endian (i.e. native Amiga-) format
 int fwrite_short_BE(const short *Value, FILE *file);
 
+// AF, 17.12.2022
+ssize_t write_UShort_BigEndian (int filedes, const void *buffer, size_t size);
+
 // AF: 16.Feb23, Write LONG in Big-Endian (i.e. native Amiga-) format
 int fwrite_LONG_BE(const LONG *Value, FILE *file);
 

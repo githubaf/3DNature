@@ -12,7 +12,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-#include <sasc_functions.h>
+#include "sasc_functions.h"
 
 #ifndef max
    #define max(a,b) ((a)>(b)?(a):(b))  // SAS/C library reference 3357
@@ -644,6 +644,37 @@ double drand48()
 #endif
 #endif
 
+#ifdef __GNUC__
+// ALEXANDER
+// SAS/C has a mkdir() function with path parameter only. (gcc has additional mode parameter)
+// This is a modified version from projects/libnix/sources/nix/extra/mkdir.c
+extern void __seterrno(void);
+#include <dos/dos.h>
+#include <clib/dos_protos.h>
+int Mkdir(const char *name)
+{
+  BPTR fl;
+  int ret;
+
+  if ((fl=CreateDir((STRPTR)name)))
+  {
+    ret=0;
+  }
+  else
+  {
+     #ifndef __AROS__
+        __seterrno();
+     #endif
+     ret=-1;
+  }
+  return ret;
+}
+#else
+int Mkdir(const char *name)
+{
+    return mkdir(name);
+}
+#endif
 
 // ------------- Test -------------------
 // compile this file alone and define TESTING_SASC_FUNCTIONS on compiler call to run the tests
