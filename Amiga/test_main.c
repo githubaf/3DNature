@@ -16,24 +16,34 @@
 #include <exec/tasks.h>
 #include <clib/exec_protos.h>
 
+unsigned int printMessages=0;
 
 USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
 	CONST_STRPTR buttonkey, int Default)
 {
-	fprintf(stderr,"ALEXANDER: %s() %s\n",__func__,message);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s() %s\n",__func__,message);
+	}
 	return 0;
 }
 
 USHORT User_Message(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
 	CONST_STRPTR buttonkey)
 {
-	fprintf(stderr,"ALEXANDER: %s() %s\n",__func__,message);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s() %s\n",__func__,message);
+	}
 	return 0;
 }
 
 void Log(USHORT StdMesgNum, CONST_STRPTR LogTag)
 {
-	fprintf(stderr,"ALEXANDER: %s() %s\n",__func__,LogTag);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s() %s\n",__func__,LogTag);
+	}
 }
 
 ULONG CheckInput_ID(void)
@@ -49,54 +59,81 @@ void BusyWin_Update(struct BusyWindow *This, int Step)
 
 struct BusyWindow *BusyWin_New(char *Title, int Steps, int TimeEst, ULONG Section)
 {
-	fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	}
 	return (struct BusyWindow *)1; // invalid address but newer used in this test
 }
 
 void BusyWin_Del(struct BusyWindow *This)
 {
-	fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	}
 }
 
 
 short getfilename(long mode, char *requestname, char *pathname,
     char *filename)
 {
-	fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	}
 	return 0;
 }
 
 void Set_DM_HdrData(struct USGS_DEMHeader *Hdr)
 {
-	fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	}
 }
 
 short makesky(short renderseg, struct Window *win)
 {
-	fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	}
 	return 0;
 }
 
 void ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
 {
-	fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	}
 }
 
 short GetInputString(char *message, char *reject, char *string)
 {
-	fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	}
 	return 0;
 }
 
 short Set_DM_Data(struct DEMExtractData *DEMExtract)
 {
-	fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	}
 	return 1;
 }
 
 short Add_DE_NewItem(void)
 {
-	fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	}
 	return 1;
 }
 
@@ -104,13 +141,19 @@ struct database *DataBase_Expand(struct database *OldBase, short OldRecords,
 	short OldUsedRecords, short NewRecords)
 {
 	static char *DataBase="Database";
-	fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	}
 	return (struct database *)DataBase;   // something that is not NULL
 }
 
 void Set_DM_ProfData(struct USGS_DEMProfileHeader *ProfHdr)
 {
-	fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	if(printMessages)
+	{
+		fprintf(stderr,"ALEXANDER: %s()\n",__func__);
+	}
 }
 
 // frpm Maputil.c
@@ -539,6 +582,80 @@ Cleanup:
 	return Error;
 }
 
+/* Copied from DataOps.c */
+#define DEM_DATA_INPUT_ARRAY		0
+#define DEM_DATA_INPUT_WCSDEM		1
+#define DEM_DATA_INPUT_ZBUF		2
+#define DEM_DATA_INPUT_ASCII		3
+#define DEM_DATA_INPUT_VISTA		4
+#define DEM_DATA_INPUT_IFF		5
+#define DEM_DATA_INPUT_DTED		6
+#define DEM_DATA_OUTPUT_ARRAY		0
+#define DEM_DATA_OUTPUT_WCSDEM		1
+#define DEM_DATA_OUTPUT_ZBUF		2
+#define DEM_DATA_OUTPUT_COLORMAP	3
+#define DEM_DATA_OUTPUT_GRAYIFF		4
+#define DEM_DATA_OUTPUT_COLORIFF	5
+#define DEM_DATA_FORMAT_SIGNEDINT	0
+#define DEM_DATA_FORMAT_UNSIGNEDINT	1
+#define DEM_DATA_FORMAT_FLOAT		2
+#define DEM_DATA_FORMAT_UNKNOWN		3
+#define DEM_DATA_VALSIZE_BYTE		0
+#define DEM_DATA_VALSIZE_SHORT		1
+#define DEM_DATA_VALSIZE_LONG		2
+#define DEM_DATA_VALSIZE_DOUBLE		3
+#define DEM_DATA_VALSIZE_UNKNOWN	4
+
+
+void InitDEMConvertData(struct DEMConvertData *data, int InFormat, int InValueFormat, int InValueSize, int OutFormat, int OutValueFormat, int OutValueSize, char *outDir, char *outNameBase)
+{
+	data->ActiveFC[0]=0;
+	data->ActiveFC[1]=0;
+	data->Crop[0]=0;
+	data->Crop[1]=0;
+	data->Crop[2]=0;
+	data->Crop[3]=0;
+	data->FloorCeiling[0]=0.000000;
+	data->FloorCeiling[1]=0.000000;
+	data->FormatCy[0]=InFormat;      //  INPUT_FORMAT 0=binary Array, 1=WCS DEM, 2=Z-Buffer, 3=ASCII Array, 5=IFF, 6=DTED
+	data->FormatCy[1]=OutFormat;     // OUTPUT_FORMAT 0=ARRAY, 1=WCSDEM, 2=ZBUF,3=COLORMAP,4=GRAYIFF, 5=COLORIFF
+	data->FormatCy[2]=InValueFormat;
+	data->FormatCy[3]=InValueSize;
+	data->FormatCy[4]=0;
+	data->FormatCy[5]=0;
+	data->FormatCy[6]=0;
+	data->FormatCy[7]=1;
+	data->FormatCy[8]=OutValueFormat;
+	data->FormatCy[9]=OutValueSize;
+	data->FormatInt[0]=0;
+	data->FormatInt[1]=258;
+	data->FormatInt[2]=258;
+	data->FormatInt[3]=0;
+	data->FormatInt[4]=0;
+	data->LateralScale[0]=0.069428;
+	data->LateralScale[1]=0.000000;
+	data->LateralScale[2]=180.069427;
+	data->LateralScale[3]=180.000000;
+	data->MaxMin[0]=0.000000;
+	data->MaxMin[1]=0.000000;
+	snprintf(data->NameBase,24,outNameBase);
+	snprintf(data->OutputDir,256,outDir);
+	data->OutputMaps[0]=1;
+	data->OutputMaps[1]=1;
+	data->ScaleType=0;
+	data->SplineConstrain=0;
+	data->VSOperator=0;
+	data->VertScale[0]=0.000000;
+	data->VertScale[1]=0.000000;
+	data->VertScale[2]=0.000000;
+	data->VertScale[3]=0.000000;
+	data->VertScale[4]=0.000000;
+	data->VertScale[5]=0.000000;
+	data->VertScale[6]=0.000000;
+	data->VertScale[7]=0.000000;
+	data->VertScale[8]=0.000000;
+	data->WrapLon=0;
+}
 
 int Test_ConvertDem(void)
 {
@@ -549,52 +666,7 @@ int Test_ConvertDem(void)
 
 
 	// --- Vista DEM -> Bin Array Signed 1 Byte -------------------------------------------------------------------------------
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;  //  INPUT_FORMAT 0=binary Array, 1=WCS DEM, 2=Z-Buffer, 3=ASCII Array, 5=IFF, 6=DTED
-	data.FormatCy[1]=0;  // OUTPUT_FORMAT 0=ARRAY, 1=WCSDEM, 2=ZBUF,3=COLORMAP,4=GRAYIFF, 5=COLORIFF
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=0;
-	data.FormatCy[9]=0;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_AlpsBinArrS1");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_SIGNEDINT, DEM_DATA_VALSIZE_BYTE, "Ram:WCS_Test", "tst_AlpsBinArrS1");
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
@@ -605,52 +677,8 @@ int Test_ConvertDem(void)
 
 
 	// --- Vista DEM -> Bin Array Signed 2 Bytes ------------------------------------------------------------------------------
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=0;
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=0;
-	data.FormatCy[9]=1;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_AlpsBinArrS2");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_SIGNEDINT, DEM_DATA_VALSIZE_SHORT, "Ram:WCS_Test", "tst_AlpsBinArrS2");
+
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
@@ -660,52 +688,8 @@ int Test_ConvertDem(void)
 	printf("ConvertDem(Vista DEM -> Bin Array Signed 2 Bytes passed\n");
 
 	// --- Vista DEM -> Bin Array Signed 4 Bytes ------------------------------------------------------------------------------
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=0;
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=0;
-	data.FormatCy[9]=2;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_AlpsBinArrS4");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_SIGNEDINT, DEM_DATA_VALSIZE_LONG, "Ram:WCS_Test", "tst_AlpsBinArrS4");
+
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
@@ -715,52 +699,8 @@ int Test_ConvertDem(void)
 	printf("ConvertDem(Vista DEM -> Bin Array Signed 4 Bytes passed\n");
 
 	// --- Vista DEM -> Bin Array Unsigned 1 Byte -----------------------------------------------------------------------------
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=0;
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=1;
-	data.FormatCy[9]=0;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_AlpsBinArrU1");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_BYTE, "Ram:WCS_Test", "tst_AlpsBinArrU1");
+
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
@@ -770,52 +710,8 @@ int Test_ConvertDem(void)
 	printf("ConvertDem(Vista DEM -> Bin Array Unsigned 1 Byte passed\n");
 
 	// --- Vista DEM -> Bin Array Unsigned 2 Bytes ----------------------------------------------------------------------------
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=0;
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=1;
-	data.FormatCy[9]=1;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_AlpsBinArrU2");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_SHORT, "Ram:WCS_Test", "tst_AlpsBinArrU2");
+
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
@@ -829,52 +725,8 @@ int Test_ConvertDem(void)
 
 
 	// --- Vista DEM -> Bin Array Unsigned 4 Bytes ----------------------------------------------------------------------------
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=0;
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=1;
-	data.FormatCy[9]=2;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_AlpsBinArrU4");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_LONG, "Ram:WCS_Test", "tst_AlpsBinArrU4");
+
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
@@ -885,52 +737,8 @@ int Test_ConvertDem(void)
 
 
 	// --- Vista DEM -> Bin Array Float 4 Bytes -------------------------------------------------------------------------------
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=0;
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=2;
-	data.FormatCy[9]=2;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_AlpsBinArrF4");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_FLOAT, DEM_DATA_VALSIZE_LONG, "Ram:WCS_Test", "tst_AlpsBinArrF4");
+
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
@@ -940,52 +748,8 @@ int Test_ConvertDem(void)
 	printf("ConvertDem(Vista DEM -> Bin Array Float 4 Bytes passed\n");
 
 	// --- Vista DEM -> Bin Array Float 8 Bytes -------------------------------------------------------------------------------
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=0;
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=2;
-	data.FormatCy[9]=3;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_AlpsBinArrF8");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_FLOAT, DEM_DATA_VALSIZE_DOUBLE, "Ram:WCS_Test", "tst_AlpsBinArrF8");
+
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
@@ -995,53 +759,8 @@ int Test_ConvertDem(void)
 	printf("ConvertDem(Vista DEM -> Bin Array Float 8 Bytes passed\n");
 
 	// --- Vista DEM -> WCS DEM -----------------------------------------------------------------------------------------------
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_WCSDEM,DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test", "tst_Alps");
 
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=1;
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=0;
-	data.FormatCy[9]=0;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_Alps");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
@@ -1052,114 +771,23 @@ int Test_ConvertDem(void)
 	//assert(CompareFileExactly("test_files/reference/ref_Alps  .elev","Ram:WCS_Test/tst_Alps  .elev")==0);  // Spaces and .elev are automatically appended
 	printf("Check for WCS elev-File missing!\n");
 
-	printf("ConvertDem(Vista DEM -> Bin Array Float 8 Bytes passed\n");
+	printf("ConvertDem(Vista DEM -> WCS DEM passed\n");
 
 
 	// --- Vista DEM -> ZBuffer -----------------------------------------------------------------------------------------------
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=2;
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=0;
-	data.FormatCy[9]=0;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_Alps");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ZBUF,DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test", "tst_Alps");
+
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
 
 	// now compare the resulting file against a WCS.204 reference file
 	assert(CompareFileExactly("test_files/reference/ref_AlpsZB","Ram:WCS_Test/tst_AlpsZB")==0);  // ZB is automatically appended
-	printf("ConvertDem(Vista DEM -> Bin Array Float 8 Bytes passed\n");
+	printf("ConvertDem(Vista DEM -> Z Buffer passed\n");
 
-#define TEST_COLORMAP
-#ifdef TEST_COLORMAP
 	// --- Vista DEM -> Color Map ---------------------------------------------------------------------------------------------
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_COLORMAP,DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test", "tst_Alps");
 
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=3;  // Dest Color Map
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=0;
-	data.FormatCy[9]=0;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_Alps");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
@@ -1170,56 +798,10 @@ int Test_ConvertDem(void)
 	assert(CompareFileExactly("test_files/reference/ref_Alps  .red","Ram:WCS_Test/tst_Alps  .blu")==0);
 	printf("ConvertDem(Vista DEM -> Color Map passed\n");
 
-#endif
 
 	// --- Vista DEM -> Gray IFF ---------------------------------------------------------------------------------------------
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_GRAYIFF,DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test", "tst_AlpsGray.iff");
 
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=4;  // Dest Gray IFF
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=0;
-	data.FormatCy[9]=0;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_AlpsGray.iff");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
@@ -1229,53 +811,8 @@ int Test_ConvertDem(void)
 	printf("ConvertDem(Vista DEM -> Gray IFF passed\n");
 
 	// --- Vista DEM -> Color IFF ---------------------------------------------------------------------------------------------
+	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test", "tst_AlpsColor.iff");
 
-	data.ActiveFC[0]=0;
-	data.ActiveFC[1]=0;
-	data.Crop[0]=0;
-	data.Crop[1]=0;
-	data.Crop[2]=0;
-	data.Crop[3]=0;
-	data.FloorCeiling[0]=0.000000;
-	data.FloorCeiling[1]=0.000000;
-	data.FormatCy[0]=4;
-	data.FormatCy[1]=5;     // Dest Color IFF
-	data.FormatCy[2]=0;
-	data.FormatCy[3]=1;
-	data.FormatCy[4]=0;
-	data.FormatCy[5]=0;
-	data.FormatCy[6]=0;
-	data.FormatCy[7]=1;
-	data.FormatCy[8]=0;
-	data.FormatCy[9]=0;
-	data.FormatInt[0]=0;
-	data.FormatInt[1]=258;
-	data.FormatInt[2]=258;
-	data.FormatInt[3]=0;
-	data.FormatInt[4]=0;
-	data.LateralScale[0]=0.069428;
-	data.LateralScale[1]=0.000000;
-	data.LateralScale[2]=180.069427;
-	data.LateralScale[3]=180.000000;
-	data.MaxMin[0]=0.000000;
-	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_AlpsColor.iff");
-	snprintf(data.OutputDir,256,"Ram:WCS_Test");
-	data.OutputMaps[0]=1;
-	data.OutputMaps[1]=1;
-	data.ScaleType=0;
-	data.SplineConstrain=0;
-	data.VSOperator=0;
-	data.VertScale[0]=0.000000;
-	data.VertScale[1]=0.000000;
-	data.VertScale[2]=0.000000;
-	data.VertScale[3]=0.000000;
-	data.VertScale[4]=0.000000;
-	data.VertScale[5]=0.000000;
-	data.VertScale[6]=0.000000;
-	data.VertScale[7]=0.000000;
-	data.VertScale[8]=0.000000;
-	data.WrapLon=0;
 
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
