@@ -1164,9 +1164,11 @@ int Test_ConvertDem(void)
 	ConvertDEM(&data, filename, TestOnly);
 //	for(i=0;i< 2;i++) { printf("2) data.MaxMin[%d]=%f;\n",i,data.MaxMin[i]); }
 
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsColor","Ram:WCS_Test/tst_AlpsColor")==0);
-	printf("ConvertDem(Vista DEM -> Gray Color Map passed\n");
+	// now compare the resulting files against a WCS.204 reference file
+	assert(CompareFileExactly("test_files/reference/ref_Alps  .red","Ram:WCS_Test/tst_Alps  .red")==0);
+	assert(CompareFileExactly("test_files/reference/ref_Alps  .red","Ram:WCS_Test/tst_Alps  .grn")==0);
+	assert(CompareFileExactly("test_files/reference/ref_Alps  .red","Ram:WCS_Test/tst_Alps  .blu")==0);
+	printf("ConvertDem(Vista DEM -> Color Map passed\n");
 
 #endif
 
