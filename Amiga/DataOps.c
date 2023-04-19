@@ -292,13 +292,17 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
 
  if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP)
   {
+#ifdef OLD_COLORMAP  // AF, 18.April 23 Old code does NOT generate 3 files with .red, .grn and .blu but only one without suffix. See also below!
   short length;
 
-  length = strlen(filename) - 3;
-  if (! stricmp("red", &filename[length]))
+  length = strlen(filename) - 3;             // file is the INPUT(!) file name. Has nothing to do with the resulting file! And what if filename-length is shorter 3 ???
+  if (! stricmp("red", &filename[length]))   // INPUT filename will usually not end in "red"! So no red, grn and blu suffixes will ever be generated
    {
    strcpy(RGBComponent, ".red");
    } /* if red component file */
+#else
+  strcpy(RGBComponent, ".red");
+#endif
   } /* if output color map */
 
 RepeatRGB:
@@ -2960,6 +2964,7 @@ Cleanup:
 
  if ((! error && OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP) && ! TestOnly)
   {
+#ifdef OLD_COLORMAP_CODE  // AF, 18.April 23 Old code does NOT generate 3 files with .red, .grn and .blu but only one without suffix. See also above!
   short length;
 
   length = strlen(filename) - 3;
@@ -2977,6 +2982,18 @@ Cleanup:
    strcpy(RGBComponent, ".blu");
    goto RepeatRGB;
    } /* else if filename ends in "grn" */
+#else
+  if(!strcmp(RGBComponent,".red"))
+  {
+	  strcpy(RGBComponent, ".grn");
+	  goto RepeatRGB;
+  }
+  else if(!strcmp(RGBComponent,".grn"))
+  {
+	  strcpy(RGBComponent, ".blu");
+	  goto RepeatRGB;
+  }
+#endif
   } /* if may need to repeat process for other color components */
 
 } /* ConvertDEM() */

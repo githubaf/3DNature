@@ -1110,7 +1110,7 @@ int Test_ConvertDem(void)
 	assert(CompareFileExactly("test_files/reference/ref_AlpsZB","Ram:WCS_Test/tst_AlpsZB")==0);  // ZB is automatically appended
 	printf("ConvertDem(Vista DEM -> Bin Array Float 8 Bytes passed\n");
 
-//#define TEST_COLORMAP
+#define TEST_COLORMAP
 #ifdef TEST_COLORMAP
 	// --- Vista DEM -> Color Map ---------------------------------------------------------------------------------------------
 
@@ -1143,7 +1143,7 @@ int Test_ConvertDem(void)
 	data.LateralScale[3]=180.000000;
 	data.MaxMin[0]=0.000000;
 	data.MaxMin[1]=0.000000;
-	snprintf(data.NameBase,24,"tst_AlpsColor");
+	snprintf(data.NameBase,24,"tst_Alps");
 	snprintf(data.OutputDir,256,"Ram:WCS_Test");
 	data.OutputMaps[0]=1;
 	data.OutputMaps[1]=1;

@@ -78,6 +78,10 @@ Version 2.031 (Emerald-Berta)
                  show relevant information in error messages. 
         *BugFix: In Obj-Files (WCS vector objects) MaxEl and MinEl
                  had random values. Initialized to 0 now.
+        *BugFix: Convert DEM: If targed was Color Map only ony file without
+                 .red/.grn/.blu ending was written. Now all 3 files are
+                 created.
+                 (This bug existed already in last original version 2.04)
 
 
 Deutsch

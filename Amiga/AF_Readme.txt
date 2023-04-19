@@ -2568,3 +2568,8 @@ void Set_EM_Item() Zeile 1071
 Test fuer Convert DEM begonnen. (68020)
 test_files Schublade nach WinUAE kopieren. Vista DEM -> andere Formate funktioniert weitgehend (ausser WCS DEM Onj-Files und Colormap Files)
 - In DataOps.c habe ich ein #define  PRINT_CONVERTDEM_PARAMS  eingebaut. Dann werden die Aufrufparameter der Funktion ConvertDEM() fuer den Test ausgegeben.
+
+- In DataOPs.c #ifdef OLD_COLORMAP eingebaut und Code geaendert. Jetzt werden bei "ColorMap" als Ziel wirklich 3 red, grn und blue Files erzeugt. 
+  (mit Leerzeichen wie schon bei Obj und elev). Der Alte Code hat immer nur ein File ohne Endung erzeugt, weil er auf die Endung des INPUT-Files geschaut hat, die
+  natuerlich im Normalfall nie "red" ist. Das war ein Fehler im Originalcode.
+
