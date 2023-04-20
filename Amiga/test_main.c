@@ -884,7 +884,9 @@ int Test_ConvertDem(void)
 #include <sys/stat.h>
 #include <unistd.h>
 
-void rmtree(const char path[])
+// from https://stackoverflow.com/questions/5467725/how-to-delete-a-directory-and-its-contents-in-posix-c
+
+int rmtree(const char path[])
 {
     size_t path_len;
     char *full_path;
@@ -898,13 +900,13 @@ void rmtree(const char path[])
     // if path does not exists or is not dir - exit with status -1
     if (S_ISDIR(stat_path.st_mode) == 0) {
         fprintf(stderr, "%s: %s\n", "Is not directory", path);
-        exit(-1);
+        return 0;
     }
 
     // if not possible to read the directory for this user
     if ((dir = opendir(path)) == NULL) {
         fprintf(stderr, "%s: %s\n", "Can`t open directory", path);
-        exit(-1);
+        return 0;
     }
 
     // the length of the path
@@ -914,16 +916,14 @@ void rmtree(const char path[])
     while ((entry = readdir(dir)) != NULL) {
 
         // skip entries "." and ".."
-        if (!strcmp(entry->d_name, ".") || !strcmp(entry->d_name, ".."))  // AF, weglassen, . ist gueltiger name
-            continue;
+        //if (!strcmp(entry->d_name, ".") || !strcmp(entry->d_name, ".."))  // AF, weglassen, . ist gueltiger name
+        //    continue;
 
         // determinate a full path of an entry
         full_path = calloc(path_len + strlen(entry->d_name) + 1, sizeof(char));
         strcpy(full_path, path);
         strcat(full_path, "/");
         strcat(full_path, entry->d_name);
-
-        printf("full_path=<%s>\n",full_path); // AF
 
         // stat for the entry
         stat(full_path, &stat_entry);
@@ -935,23 +935,30 @@ void rmtree(const char path[])
         }
 
         // remove a file object
-        if (unlink(full_path) == 0)
-            printf("Removed a file: %s\n", full_path);
+        if (DeleteFile((STRPTR)full_path))  // was: (unlink(full_path)==0), but that printed the filename to console before deleting it???
+        {
+            //printf("Removed a file: %s\n", full_path);
+        }
         else
+        {
             printf("Can`t remove a file: %s\n", full_path);
+        }
         free(full_path);
     }
-
+    closedir(dir);  // moved closedir() from end to here, AF, 20.April.23 otherwise I get "file busy" when calling rmdir()
     // remove the devastated directory and close the object of it
     if (rmdir(path) == 0)
-        printf("Removed a directory: %s\n", path);
+    {
+         // printf("Removed a directory: %s\n", path);
+    }
     else
     {
         printf("Can`t remove a directory: %s\n", path);
         printf("Error-Text: %s\n",strerror(errno));
+        return 0;
     }
-
-    closedir(dir);
+    // closedir(dir);
+    return 1;
 }
 // #############################################################
 
@@ -966,8 +973,7 @@ int main(void)
 
     int Errors;
 
-    //rmtree("Ram:test");
-    //return 0;
+    rmtree("Ram:WCS_Test");
 
     int Res=Mkdir("Ram:WCS_Test");
     if(Res!=0)
