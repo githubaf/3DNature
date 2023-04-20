@@ -720,7 +720,7 @@ struct ConvertDemTestStruct ConverDemTestData[]=
 		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_AlpsBinArrU4",  "test_files/reference/ref_AlpsBinArrU4",  },
 		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_AlpsBinArrF4",  "test_files/reference/ref_AlpsBinArrF4",  },
 		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  "Ram:WCS_Test/", "tst_AlpsBinArrF8",  "test_files/reference/ref_AlpsBinArrF8",  },
-//		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_Alps",          "test_files/reference/ref_Alps",          },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_Alps",          "test_files/reference/ref_Alps  ",        },
 		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ZBUF,    DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_Alps",          "test_files/reference/ref_AlpsZB",        },
 		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_COLORMAP,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_Alps",          "test_files/reference/ref_Alps  ",        },
 		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_AlpsGray.iff",  "test_files/reference/ref_AlpsGray.iff",  },
@@ -753,6 +753,7 @@ int Test_ConvertDem(void)
 		static char tstFileName[256];
 		static char refFileNameExtended[256];
 		char *tstFileEnding;
+		static char tempOutFilename[256]={0};
 
 		TestNameSourceFormat=inFormatStrings[ConverDemTestData[testIndex].InFormat];    // DEM_DATA_INPUT_VISTA
 		TestNameSourceValueFormat="";
@@ -794,6 +795,16 @@ int Test_ConvertDem(void)
 			tstFileEnding="ZB";
 		}
 
+		// append spaces to the end or trim name until length is length[0] (global WCS variable, i.e. 10)
+		// needed for CLORMAP and WCSDEM
+		sprintf(tempOutFilename,"%s",ConverDemTestData[testIndex].outNameBase);
+		while (strlen(tempOutFilename) < length[0])
+		{
+			strcat(tempOutFilename, " ");         // append spaces
+		}
+		tempOutFilename[length[0]] = 0;           // trim name
+
+
 		// COLOR_MAP and WCSDEM need special care as they have more than 1 resulting file
 		switch(ConverDemTestData[testIndex].OutFormat)
 		{
@@ -803,16 +814,6 @@ int Test_ConvertDem(void)
 				int i;
 				char *rgbEnding[]={".red",".grn",".blu"};
 				int rgbError=0;
-				static char tempOutFilename[256]={0};
-
-				// append spaces to the end or trim name until length is length[0] (global WCS variable, i.e. 10)
-				sprintf(tempOutFilename,"%s",ConverDemTestData[testIndex].outNameBase);
-
-				   while (strlen(tempOutFilename) < length[0])
-				   {
-					   strcat(tempOutFilename, " ");         // append spaces
-				   }
-				   tempOutFilename[length[0]] = 0;           // trim name
 
 
 				for(i=0;i<3;i++)
@@ -840,8 +841,21 @@ int Test_ConvertDem(void)
 			}
 			case DEM_DATA_OUTPUT_WCSDEM:
 			{
-				// muss noch gemacht werden.
+
+				// once for the elev-File
+				snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,".elev");
+				snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,".elev");
+
+				if(!CompareFileExactly(refFileNameExtended,tstFileName)==0)
 				Errors++;
+
+				// and once for the Obj-File
+				snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,".Obj");
+				snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,".Obj");
+
+				if(!CompareFileExactly(refFileNameExtended,tstFileName)==0)
+				Errors++;
+
 				break;
 			}
 			default:
