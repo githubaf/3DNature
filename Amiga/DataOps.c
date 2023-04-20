@@ -3026,7 +3026,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
    suffix[2] = 65 + mapct % 26;
    }
   else
-   suffix[1] = 65 + mapct;
+   suffix[1] = 65 + mapct;  // 'A' + count
 
   if ((OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
 	|| (OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP && RGBComp[0]))

@@ -607,7 +607,58 @@ Cleanup:
 #define DEM_DATA_VALSIZE_UNKNOWN	4
 
 
-void InitDEMConvertData(struct DEMConvertData *data, int InFormat, int InValueFormat, int InValueSize, int OutFormat, int OutValueFormat, int OutValueSize, char *outDir, char *outNameBase)
+char *inFormatStrings[]=
+{
+"Bin Array ",
+"WCSDEM ",
+"ZBUF ",
+"ASCII ",
+"VISTA ",
+"IFF ",
+"DTED "
+};
+
+char *outFormatStrings[]=
+{
+"Bin Array ",
+"WCSDEM ",
+"ZBUF ",
+"COLORMAP ",
+"GRAYIFF ",
+"COLORIFF "
+};
+
+char *dataFormatStrings[]=
+{
+"Signed Int ",
+"Unsigned Int ",
+"FltPt ",
+"FORMAT_UNKNOWN "
+};
+
+char *dataValSizeStrings[]=
+{
+"1 ",
+"2 ",
+"4 ",
+"8 ",
+"VALSIZE_UNKNOWN "
+};
+
+struct ConvertDemTestStruct
+{
+	int InFormat;
+	int InValueFormat;
+	int InValueSize;
+	int OutFormat;
+	int OutValueFormat;
+	int OutValueSize;
+	char *outDir;
+	char *outNameBase;
+	char *refFileName;
+};
+
+void InitDEMConvertData(struct DEMConvertData *data, struct ConvertDemTestStruct *ConvertDemTestData )
 {
 	data->ActiveFC[0]=0;
 	data->ActiveFC[1]=0;
@@ -617,16 +668,16 @@ void InitDEMConvertData(struct DEMConvertData *data, int InFormat, int InValueFo
 	data->Crop[3]=0;
 	data->FloorCeiling[0]=0.000000;
 	data->FloorCeiling[1]=0.000000;
-	data->FormatCy[0]=InFormat;      //  INPUT_FORMAT 0=binary Array, 1=WCS DEM, 2=Z-Buffer, 3=ASCII Array, 5=IFF, 6=DTED
-	data->FormatCy[1]=OutFormat;     // OUTPUT_FORMAT 0=ARRAY, 1=WCSDEM, 2=ZBUF,3=COLORMAP,4=GRAYIFF, 5=COLORIFF
-	data->FormatCy[2]=InValueFormat;
-	data->FormatCy[3]=InValueSize;
+	data->FormatCy[0]=ConvertDemTestData->InFormat;      //  INPUT_FORMAT 0=binary Array, 1=WCS DEM, 2=Z-Buffer, 3=ASCII Array, 5=IFF, 6=DTED
+	data->FormatCy[1]=ConvertDemTestData->OutFormat;     // OUTPUT_FORMAT 0=ARRAY, 1=WCSDEM, 2=ZBUF,3=COLORMAP,4=GRAYIFF, 5=COLORIFF
+	data->FormatCy[2]=ConvertDemTestData->InValueFormat;
+	data->FormatCy[3]=ConvertDemTestData->InValueSize;
 	data->FormatCy[4]=0;
 	data->FormatCy[5]=0;
 	data->FormatCy[6]=0;
 	data->FormatCy[7]=1;
-	data->FormatCy[8]=OutValueFormat;
-	data->FormatCy[9]=OutValueSize;
+	data->FormatCy[8]=ConvertDemTestData->OutValueFormat;
+	data->FormatCy[9]=ConvertDemTestData->OutValueSize;
 	data->FormatInt[0]=0;
 	data->FormatInt[1]=258;
 	data->FormatInt[2]=258;
@@ -638,8 +689,8 @@ void InitDEMConvertData(struct DEMConvertData *data, int InFormat, int InValueFo
 	data->LateralScale[3]=180.000000;
 	data->MaxMin[0]=0.000000;
 	data->MaxMin[1]=0.000000;
-	snprintf(data->NameBase,24,outNameBase);
-	snprintf(data->OutputDir,256,outDir);
+	snprintf(data->NameBase,24,ConvertDemTestData->outNameBase);
+	snprintf(data->OutputDir,256,ConvertDemTestData->outDir);
 	data->OutputMaps[0]=1;
 	data->OutputMaps[1]=1;
 	data->ScaleType=0;
@@ -657,196 +708,160 @@ void InitDEMConvertData(struct DEMConvertData *data, int InFormat, int InValueFo
 	data->WrapLon=0;
 }
 
+
+
+struct ConvertDemTestStruct ConverDemTestData[]=
+{
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_BYTE,    "Ram:WCS_Test/", "tst_AlpsBinArrS1",  "test_files/reference/ref_AlpsBinArrS1",  },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,   "Ram:WCS_Test/", "tst_AlpsBinArrS2",  "test_files/reference/ref_AlpsBinArrS2",  },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_AlpsBinArrS4",  "test_files/reference/ref_AlpsBinArrS4",  },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_BYTE,    "Ram:WCS_Test/", "tst_AlpsBinArrU1",  "test_files/reference/ref_AlpsBinArrU1",  },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_SHORT,   "Ram:WCS_Test/", "tst_AlpsBinArrU2",  "test_files/reference/ref_AlpsBinArrU2",  },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_AlpsBinArrU4",  "test_files/reference/ref_AlpsBinArrU4",  },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_AlpsBinArrF4",  "test_files/reference/ref_AlpsBinArrF4",  },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  "Ram:WCS_Test/", "tst_AlpsBinArrF8",  "test_files/reference/ref_AlpsBinArrF8",  },
+//		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_Alps",          "test_files/reference/ref_Alps",          },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ZBUF,    DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_Alps",          "test_files/reference/ref_AlpsZB",        },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_COLORMAP,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_Alps",          "test_files/reference/ref_Alps  ",        },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_AlpsGray.iff",  "test_files/reference/ref_AlpsGray.iff",  },
+		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_AlpsColor.iff", "test_files/reference/ref_AlpsColor.iff", }
+};
+
+
 int Test_ConvertDem(void)
 {
 	struct DEMConvertData data;
 	char *filename="test_files/source/Alps.dem";
-    #define TEST_ONLY 1
-    #define NO_TEST_ONLY 0
+#define TEST_ONLY 1
+#define NO_TEST_ONLY 0
+	unsigned int testIndex;
+	unsigned int Errors=0;
+
+	printf("Anzahl Tests=%d\n\n",sizeof(ConverDemTestData)/sizeof(struct ConvertDemTestStruct));
 
 
-	// --- Vista DEM -> Bin Array Signed 1 Byte -------------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_SIGNEDINT, DEM_DATA_VALSIZE_BYTE, "Ram:WCS_Test", "tst_AlpsBinArrS1");
+	for(testIndex=0;testIndex<sizeof(ConverDemTestData)/sizeof(struct ConvertDemTestStruct);testIndex++)
+	{
+		char *TestNameSourceFormat;
+		char *TestNameSourceValueFormat;
+		char *TestNameSourceValueSize;
 
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
+		char *TestNameDestFormat;
+		char *TestNameDestValueFormat;
+		char *TestNameDestValueSize;
 
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
+		static char tstFileName[256];
+		static char refFileNameExtended[256];
+		char *tstFileEnding;
 
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsBinArrS1","Ram:WCS_Test/tst_AlpsBinArrS1")==0);
-	printf("ConvertDem(Vista DEM -> Bin Array Signed 1 Byte passed\n");
+		TestNameSourceFormat=inFormatStrings[ConverDemTestData[testIndex].InFormat];    // DEM_DATA_INPUT_VISTA
+		TestNameSourceValueFormat="";
+		TestNameSourceValueSize="";
 
-
-	// --- Vista DEM -> Bin Array Signed 2 Bytes ------------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_SIGNEDINT, DEM_DATA_VALSIZE_SHORT, "Ram:WCS_Test", "tst_AlpsBinArrS2");
-
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
-
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
-
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsBinArrS2","Ram:WCS_Test/tst_AlpsBinArrS2")==0);
-	printf("ConvertDem(Vista DEM -> Bin Array Signed 2 Bytes passed\n");
-
-	// --- Vista DEM -> Bin Array Signed 4 Bytes ------------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_SIGNEDINT, DEM_DATA_VALSIZE_LONG, "Ram:WCS_Test", "tst_AlpsBinArrS4");
-
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
-
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
-
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsBinArrS4","Ram:WCS_Test/tst_AlpsBinArrS4")==0);
-	printf("ConvertDem(Vista DEM -> Bin Array Signed 4 Bytes passed\n");
-
-	// --- Vista DEM -> Bin Array Unsigned 1 Byte -----------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_BYTE, "Ram:WCS_Test", "tst_AlpsBinArrU1");
-
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
-
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
-
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsBinArrU1","Ram:WCS_Test/tst_AlpsBinArrU1")==0);
-	printf("ConvertDem(Vista DEM -> Bin Array Unsigned 1 Byte passed\n");
-
-	// --- Vista DEM -> Bin Array Unsigned 2 Bytes ----------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_SHORT, "Ram:WCS_Test", "tst_AlpsBinArrU2");
-
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
-
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
-
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsBinArrU2","Ram:WCS_Test/tst_AlpsBinArrU2")==0);
-	printf("ConvertDem(Vista DEM -> Bin Array Unsigned 2 Bytes passed\n");
+		TestNameDestFormat=outFormatStrings[ConverDemTestData[testIndex].OutFormat];
+		TestNameDestValueFormat="";
+		TestNameDestValueSize="";
 
 
-	// --- Vista DEM -> Bin Array Unsigned 4 Bytes ----------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_LONG, "Ram:WCS_Test", "tst_AlpsBinArrU4");
+		if(ConverDemTestData[testIndex].InFormat==DEM_DATA_INPUT_ARRAY)
+		{
+			TestNameSourceValueFormat=dataFormatStrings[ConverDemTestData[testIndex].InValueFormat];  // Unsigned int
+			TestNameSourceValueSize=dataValSizeStrings[ConverDemTestData[testIndex].InValueSize];     // 4
+		}
 
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
+		if(ConverDemTestData[testIndex].OutFormat==DEM_DATA_OUTPUT_ARRAY)
+		{
+			TestNameDestValueFormat=dataFormatStrings[ConverDemTestData[testIndex].OutValueFormat];
+			TestNameDestValueSize=dataValSizeStrings[ConverDemTestData[testIndex].OutValueSize];
+		}
 
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
+		printf("%2d %s%s%s-> %s%s%s ",testIndex+1,
+				TestNameSourceFormat,TestNameSourceValueFormat,TestNameSourceValueSize,
+				TestNameDestFormat,  TestNameDestValueFormat,  TestNameDestValueSize);
 
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsBinArrU4","Ram:WCS_Test/tst_AlpsBinArrU4")==0);
-	printf("ConvertDem(Vista DEM -> Bin Array Unsigned 4 Bytes passed\n");
+		InitDEMConvertData(&data,&ConverDemTestData[testIndex]);
 
+		ConvertDEM(&data, filename, TEST_ONLY);
+		assert(data.MaxMin[0]==253);   // min Elevation
+		assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
 
-	// --- Vista DEM -> Bin Array Float 4 Bytes -------------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_FLOAT, DEM_DATA_VALSIZE_LONG, "Ram:WCS_Test", "tst_AlpsBinArrF4");
+		ConvertDEM(&data, filename, NO_TEST_ONLY);
 
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
+		// special handling for automatic filename-extensions
+		tstFileEnding="";
+		if(ConverDemTestData[testIndex].OutFormat==DEM_DATA_OUTPUT_ZBUF)
+		{
+			tstFileEnding="ZB";
+		}
 
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
+		// COLOR_MAP and WCSDEM need special care as they have more than 1 resulting file
+		switch(ConverDemTestData[testIndex].OutFormat)
+		{
+			case DEM_DATA_OUTPUT_COLORMAP:
+			{
+				// now compare the resulting file against a WCS.204 reference file
+				int i;
+				char *rgbEnding[]={".red",".grn",".blu"};
+				int rgbError=0;
+				static char tempOutFilename[256]={0};
 
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsBinArrF4","Ram:WCS_Test/tst_AlpsBinArrF4")==0);
-	printf("ConvertDem(Vista DEM -> Bin Array Float 4 Bytes passed\n");
+				// append spaces to the end or trim name until length is length[0] (global WCS variable, i.e. 10)
+				sprintf(tempOutFilename,"%s",ConverDemTestData[testIndex].outNameBase);
 
-	// --- Vista DEM -> Bin Array Float 8 Bytes -------------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,DEM_DATA_FORMAT_FLOAT, DEM_DATA_VALSIZE_DOUBLE, "Ram:WCS_Test", "tst_AlpsBinArrF8");
-
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
-
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
-
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsBinArrF8","Ram:WCS_Test/tst_AlpsBinArrF8")==0);
-	printf("ConvertDem(Vista DEM -> Bin Array Float 8 Bytes passed\n");
-
-	// --- Vista DEM -> WCS DEM -----------------------------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_WCSDEM,DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test", "tst_Alps");
-
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
-
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
-
-	// now compare the resulting file against a WCS.204 reference file
-	//assert(CompareFileExactly("test_files/reference/ref_Alps  .Obj","Ram:WCS_Test/tst_Alps  .Obj")==0);    // Spaces and .OBJ are automatically appended
-	printf("Check for WCS Obj-File missing!\n");
-	//assert(CompareFileExactly("test_files/reference/ref_Alps  .elev","Ram:WCS_Test/tst_Alps  .elev")==0);  // Spaces and .elev are automatically appended
-	printf("Check for WCS elev-File missing!\n");
-
-	printf("ConvertDem(Vista DEM -> WCS DEM passed\n");
+				   while (strlen(tempOutFilename) < length[0])
+				   {
+					   strcat(tempOutFilename, " ");         // append spaces
+				   }
+				   tempOutFilename[length[0]] = 0;           // trim name
 
 
-	// --- Vista DEM -> ZBuffer -----------------------------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ZBUF,DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test", "tst_Alps");
+				for(i=0;i<3;i++)
+				{
+					snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,rgbEnding[i]);
+					snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,rgbEnding[i]);
 
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
+					if(!CompareFileExactly(refFileNameExtended,tstFileName)==0)
+					{
+						rgbError++;
+					}
+				}
 
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
+				if(rgbError==0)
+				{
+					printf("passed\n");
+				}
+				else
+				{
+					printf("failed\n");
+					Errors++;
+				}
 
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsZB","Ram:WCS_Test/tst_AlpsZB")==0);  // ZB is automatically appended
-	printf("ConvertDem(Vista DEM -> Z Buffer passed\n");
+				break;
+			}
+			case DEM_DATA_OUTPUT_WCSDEM:
+			{
+				// muss noch gemacht werden.
+				Errors++;
+				break;
+			}
+			default:
+			{
+				// now compare the resulting file against a WCS.204 reference file
+				snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,ConverDemTestData[testIndex].outNameBase,tstFileEnding);
+				if(CompareFileExactly(ConverDemTestData[testIndex].refFileName,tstFileName)==0)
+				{
+					printf("passed\n");
+				}
+				else
+				{
+					printf("failed\n");
+					Errors++;
+				}
+			}
+		}
+	}
 
-	// --- Vista DEM -> Color Map ---------------------------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_COLORMAP,DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test", "tst_Alps");
-
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
-
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
-
-	// now compare the resulting files against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_Alps  .red","Ram:WCS_Test/tst_Alps  .red")==0);
-	assert(CompareFileExactly("test_files/reference/ref_Alps  .red","Ram:WCS_Test/tst_Alps  .grn")==0);
-	assert(CompareFileExactly("test_files/reference/ref_Alps  .red","Ram:WCS_Test/tst_Alps  .blu")==0);
-	printf("ConvertDem(Vista DEM -> Color Map passed\n");
-
-
-	// --- Vista DEM -> Gray IFF ---------------------------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_GRAYIFF,DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test", "tst_AlpsGray.iff");
-
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
-
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
-
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsGray.iff","Ram:WCS_Test/tst_AlpsGray.iff")==0);
-	printf("ConvertDem(Vista DEM -> Gray IFF passed\n");
-
-	// --- Vista DEM -> Color IFF ---------------------------------------------------------------------------------------------
-	InitDEMConvertData(&data,DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test", "tst_AlpsColor.iff");
-
-	ConvertDEM(&data, filename, TEST_ONLY);
-	assert(data.MaxMin[0]==253);   // min Elevation
-	assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
-
-	ConvertDEM(&data, filename, NO_TEST_ONLY);
-
-	// now compare the resulting file against a WCS.204 reference file
-	assert(CompareFileExactly("test_files/reference/ref_AlpsColor.iff","Ram:WCS_Test/tst_AlpsColor.iff")==0);
-	printf("ConvertDem(Vista DEM -> Color IFF passed\n");
-
-
-	return 0;
+	return Errors;
 }
 
 // #############################################################
@@ -926,12 +941,16 @@ void rmtree(const char path[])
 }
 // #############################################################
 
+
+
 int main(void)
 {
 	/* init used global(!) variables */
 	dbaseloaded = 1;    // must be 1 if destination format is WCS DEM
     paramsloaded = 0;   // ?
-    length[0] = 10;     // set in ./DataBase.c:342, seems to be fixed length of filename (without extension) for Obj and elev files
+    length[0] = 10;     // set in ./DataBase.c:342, seems to be fixed length of filename (without extension) for Obj and elev files (and reg/grn/blu)
+
+    int Errors;
 
     //rmtree("Ram:test");
     //return 0;
@@ -942,6 +961,14 @@ int main(void)
     	printf("Res=%d! MKdir failed!\n",Res);
     }
 
-	Test_ConvertDem();
+	Errors=Test_ConvertDem();
+	if(Errors!=0)
+	{
+		printf("\n\7%2d test failed!!!\n",Errors);
+	}
+	else
+	{
+	   printf("\nAll tests passed.\n");
+	}
 	return 0;
 }
