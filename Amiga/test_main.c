@@ -464,16 +464,22 @@ double Point_Extract(double X, double Y, double MinX, double MinY,
 
 
 // ##############################################################################################################
-#define OPEN_FILE1_ERROR     1
-#define OPEN_FILE2_ERROR     2
-#define FILESIZE1_ERROR      3
-#define FILESIZE2_ERROR      4
-#define SIZE_DIFFERENT_ERROR 5
-#define ALLOC1_ERROR         6
-#define ALLOC2_ERROR         7
-#define FREAD1_ERROR         8
-#define FREAD2_ERROR         9
-#define MEMCMP_ERROR        10
+#define OPEN_FILE1_ERROR      1
+#define OPEN_FILE2_ERROR      2
+#define FILESIZE1_ERROR       3
+#define FILESIZE2_ERROR       4
+#define SIZE_DIFFERENT_ERROR  5
+#define ALLOC1_ERROR          6
+#define ALLOC2_ERROR          7
+#define FREAD1_ERROR          8
+#define FREAD2_ERROR          9
+#define MEMCMP_ERROR         10
+
+#define READ_VER1_ERROR      11
+#define READ_VER2_ERROR      12
+#define READ_ELMAPHDR1_ERROR 13
+#define READ_ELMAPHDR2_ERROR 14
+
 
 int GetFileSize(FILE *File)
 {
@@ -518,9 +524,6 @@ int CompareFileExactly(char *FileName1, char *FileName2)
 		}
 
 		Size1=GetFileSize(File1);
-		fseek(File1,0,SEEK_END);
-		Size1=ftell(File1);
-		rewind(File1);
 		if(Size1<0)
 		{
 			Error=FILESIZE1_ERROR;
@@ -645,6 +648,28 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 		goto Cleanup;
 	}
 
+	// compare filesizes
+	long Size1=GetFileSize(File1);
+	if(Size1<0)
+	{
+		Error=FILESIZE1_ERROR;
+		goto Cleanup;
+	}
+
+	long Size2=GetFileSize(File2);
+	if(Size2<0)
+	{
+		Error=FILESIZE2_ERROR;
+		goto Cleanup;
+	}
+
+	if(Size1!=Size2)
+	{
+		Error=SIZE_DIFFERENT_ERROR;
+		goto Cleanup;
+	}
+
+
 	char Filetype1[10]={0}; // inkl abschliessender 0 fuer printf
 	if(fread(Filetype1,9,1,File1)!=1)
 	{
@@ -746,7 +771,10 @@ int CmpObjFiles(char *FileName1, char *FileName2)
     {
     	printf("Error!!! There are differences!\n");
     }
+#else
+#warning compare fehlt hier!
 #endif
+
 
     Cleanup:
     	if(File1) { fclose(File1); }
@@ -755,7 +783,210 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 }
 
 // --------------------------------------------------------------------------
+// AF: 21.Apr.23 read and correct endian if necessary
+// fread-Version needed in this test
+long freadElMapHeaderV101_BE(struct elmapheaderV101 *Hdr,FILE *File)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+	long Result=fread(Hdr, ELEVHDRLENV101,1,File);
+	SimpleEndianFlip32S(Hdr->rows, &Hdr->rows);
+	SimpleEndianFlip32S(Hdr->columns, &Hdr->columns);
+	SimpleEndianFlip64(Hdr->lolat,&Hdr->lolat);
+	SimpleEndianFlip64(Hdr->lolong,&Hdr->lolong);
+	SimpleEndianFlip64(Hdr->steplat,&Hdr->steplat);
+	SimpleEndianFlip64(Hdr->steplong,&Hdr->steplong);
+	SimpleEndianFlip64(Hdr->elscale,&Hdr->elscale);
+	SimpleEndianFlip16S(Hdr->MaxEl,&Hdr->MaxEl);
+	SimpleEndianFlip16S(Hdr->MinEl,&Hdr->MinEl);
+	SimpleEndianFlip32S(Hdr->Samples,&Hdr->Samples);
+	SimpleEndianFlip32F(Hdr->SumElDif,&Hdr->SumElDif);
+	SimpleEndianFlip32F(Hdr->SumElDifSq,&Hdr->SumElDifSq);
+	SimpleEndianFlip32S(Hdr->size,&Hdr->size);
+	SimpleEndianFlip32S(Hdr->scrnptrsize,&Hdr->scrnptrsize);
+	SimpleEndianFlip32S(Hdr->fractalsize,&Hdr->fractalsize);
+	SimpleEndianFlip32S(Hdr->facept[0],&Hdr->facept[0]);
+	SimpleEndianFlip32S(Hdr->facept[1],&Hdr->facept[1]);
+	SimpleEndianFlip32S(Hdr->facept[2],&Hdr->facept[2]);
+	SimpleEndianFlip32S(Hdr->facect,&Hdr->facect);
+	SimpleEndianFlip32S(Hdr->fracct,&Hdr->fracct);
+	SimpleEndianFlip32S(Hdr->Lr,&Hdr->Lr);
+	SimpleEndianFlip32S(Hdr->Lc,&Hdr->Lc);
+	SimpleEndianFlip16S(Hdr->MapAsSFC,&Hdr->MapAsSFC);
+	SimpleEndianFlip16S(Hdr->ForceBath,&Hdr->ForceBath);
+	SimpleEndianFlip32F(Hdr->LonRange,&Hdr->LonRange);
+    SimpleEndianFlip32F(Hdr->LatRange,&Hdr->LatRange);
+    return Result;
 
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just read as it is
+    return fread(Hdr, ELEVHDRLENV101,1,File);
+#else
+#error "Unsupported Byte-Order"
+#endif
+
+}
+
+#define ELHDRINFO(x) x
+// define ELHDRINFO(x)
+int CmpElevFiles(char *FileName1, char *FileName2)
+{
+	int Error=0;
+	FILE *File1=NULL;
+	FILE *File2=NULL;
+
+	printf("Compare <%s> and <%s>\n",FileName1,FileName2);
+
+	File1=fopen(FileName1,"rb");
+	if(!File1)
+	{
+		Error=OPEN_FILE1_ERROR;
+		printf("Failed to open %s\n",FileName1);
+		goto Cleanup;
+	}
+	File2=fopen(FileName2,"rb");
+	if(!File2)
+	{
+		printf("Failed to open %s\n",FileName2);
+		Error=OPEN_FILE2_ERROR;
+		goto Cleanup;
+	}
+
+	// compare filesizes
+	long Size1=GetFileSize(File1);
+	if(Size1<0)
+	{
+		Error=FILESIZE1_ERROR;
+		goto Cleanup;
+	}
+
+	long Size2=GetFileSize(File2);
+	if(Size2<0)
+	{
+		Error=FILESIZE2_ERROR;
+		goto Cleanup;
+	}
+
+	if(Size1!=Size2)
+	{
+		Error=SIZE_DIFFERENT_ERROR;
+		printf("File size differs!\n");
+		goto Cleanup;
+	}
+
+
+	float Version1=0;
+	float Version2=0;
+	struct elmapheaderV101 Hdr1;
+	struct elmapheaderV101 Hdr2;
+
+	if(fread_float_BE(&Version1,File1)!=1)
+	{
+		printf("Failed to read version from %s\n",FileName1);
+		Error=READ_VER1_ERROR;
+		goto Cleanup;
+	}
+
+	if(freadElMapHeaderV101_BE(&Hdr1,File1)!=1)
+	{
+		printf("Failed to read ElMapHeader from %s\n",FileName1);
+		Error=READ_ELMAPHDR1_ERROR;
+		goto Cleanup;
+	}
+
+	if(fread_float_BE(&Version2,File2)!=1)
+	{
+		printf("Failed to read version from %s\n",FileName2);
+		Error=READ_VER2_ERROR;
+		goto Cleanup;
+	}
+
+
+	if(freadElMapHeaderV101_BE(&Hdr2,File2)!=1)
+	{
+		printf("Failed to read ElMapHeader from %s\n",FileName2);
+		Error=READ_ELMAPHDR2_ERROR;
+		goto Cleanup;
+	}
+
+	printf("Version1=%f\n",Version1);
+	printf("Version2=%f\n",Version2);
+
+	if(fpcmp(Version1,Version2))
+	{
+		printf("Versions differ! %f  %f\n",Version1,Version2);
+		Error=1;
+	}
+
+	// now compare ElMapHeaderV101 headers
+	printf("rows:        %d   %d",Hdr1.rows,        Hdr2.rows);        if(      Hdr1.rows        != Hdr2.rows)         { Error=1; printf(" <---");} printf("\n");
+	printf("columns:     %d   %d",Hdr1.columns,     Hdr2.columns);     if(      Hdr1.columns     != Hdr2.columns)      { Error=1; printf(" <---");} printf("\n");
+	printf("lolat:       %f   %f",Hdr1.lolat,       Hdr2.lolat);       if(fpcmp(Hdr1.lolat ,        Hdr2.lolat))       { Error=1; printf(" <---");} printf("\n");
+	printf("lolong:      %f   %f",Hdr1.lolong,      Hdr2.lolong);      if(fpcmp(Hdr1.lolong,        Hdr2.lolong))      { Error=1; printf(" <---");} printf("\n");
+	printf("steplat:     %f   %f",Hdr1.lolat,       Hdr2.lolat);       if(fpcmp(Hdr1.steplat,       Hdr2.steplat))     { Error=1; printf(" <---");} printf("\n");
+	printf("steplong:    %f   %f",Hdr1.steplat,     Hdr2.steplat);     if(fpcmp(Hdr1.steplong,      Hdr2.steplong))    { Error=1; printf(" <---");} printf("\n");
+	printf("elscale:     %f   %f",Hdr1.elscale,     Hdr2.elscale);     if(fpcmp(Hdr1.elscale,       Hdr2.elscale))     { Error=1; printf(" <---");} printf("\n");
+	printf("MaxEl:       %d   %d",Hdr1.MaxEl,       Hdr2.MaxEl);	   if(      Hdr1.MaxEl       != Hdr2.MaxEl)        { Error=1; printf(" <---");} printf("\n");
+	printf("MinEl:       %d   %d",Hdr1.MinEl,       Hdr2.MinEl);       if(      Hdr1.MinEl       != Hdr2.MinEl)        { Error=1; printf(" <---");} printf("\n");
+	printf("Samples:     %d   %d",Hdr1.Samples,     Hdr2.Samples);	   if(      Hdr1.Samples     != Hdr2.Samples)      { Error=1; printf(" <---");} printf("\n");
+	printf("SumElDif:    %f   %f",Hdr1.SumElDif,    Hdr2.SumElDif);    if(fpcmp(Hdr1.SumElDif,      Hdr2.SumElDif))    { Error=1; printf(" <---");} printf("\n");
+	printf("SumElDifSq:  %f   %f",Hdr1.SumElDifSq,  Hdr2.SumElDifSq);  if(fpcmp(Hdr1.SumElDifSq,    Hdr2.SumElDifSq))  { Error=1; printf(" <---");} printf("\n");
+
+// alle weiteren nicht benutzt in DataOps.c !?
+#warning Nicht alle Felder des elev-Headers getestet!
+
+//	// short	*map;
+//	// LONG	*lmap;
+//	printf("size:        %d   %d",Hdr1.size,       Hdr2.size);         if(      Hdr1.size        != Hdr2.size)         { Error=1; printf(" <---");} printf("\n");
+//	printf("scrnptrsize: %d   %d",Hdr1.scrnptrsize,Hdr2.scrnptrsize);  if(      Hdr1.scrnptrsize != Hdr2.scrnptrsize)  { Error=1; printf(" <---");} printf("\n");
+//	printf("fractalsize: %d   %d",Hdr1.fractalsize,Hdr2.fractalsize);  if(      Hdr1.fractalsize != Hdr2.fractalsize)  { Error=1; printf(" <---");} printf("\n");
+	// float	*scrnptrx,
+	// *scrnptry,
+	// *scrnptrq;
+	// struct	faces *face;
+	// BYTE	*fractal;
+//	printf("facept[0]:   %d   %d",Hdr1.facept[0],Hdr2.facept[0]);	   if(      Hdr1.facept[0]   != Hdr2.facept[0])    { Error=1; printf(" <---");} printf("\n");
+//	printf("facept[1]:   %d   %d",Hdr1.facept[1],Hdr2.facept[1]);	   if(      Hdr1.facept[1]   != Hdr2.facept[1])    { Error=1; printf(" <---");} printf("\n");
+//	printf("facept[2]:   %d   %d",Hdr1.facept[2],Hdr2.facept[2]);      if(      Hdr1.facept[2]   != Hdr2.facept[2])    { Error=1; printf(" <---");} printf("\n");
+//	printf("facect:      %d   %d",Hdr1.facect,   Hdr2.facect);         if(      Hdr1.facect      != Hdr2.facect)       { Error=1; printf(" <---");} printf("\n");
+//	printf("fracct:      %d   %d",Hdr1.fracct,   Hdr2.fracct);         if(      Hdr1.fracct      != Hdr2.fracct)       { Error=1; printf(" <---");} printf("\n");
+//	printf("Lr:          %d   %d",Hdr1.Lr,       Hdr2.Lr);             if(      Hdr1.Lr          != Hdr2.Lr)           { Error=1; printf(" <---");} printf("\n");
+//	printf("Lc:          %d   %d",Hdr1.Lc,       Hdr2.Lc);             if(      Hdr1.Lc          != Hdr2.Lc)           { Error=1; printf(" <---");} printf("\n");
+//	printf("MapAsSFC:    %d   %d",Hdr1.MapAsSFC, Hdr2.MapAsSFC);       if(      Hdr1.MapAsSFC    != Hdr2.MapAsSFC)     { Error=1; printf(" <---");} printf("\n");
+//	printf("ForceBath:   %d   %d",Hdr1.ForceBath,Hdr2.ForceBath);	   if(      Hdr1.ForceBath   != Hdr2.ForceBath)    { Error=1; printf(" <---");} printf("\n");
+//	printf("LonRange:    %f   %f",Hdr1.LonRange, Hdr2.LonRange);       if(fpcmp(Hdr1.LonRange,      Hdr2.LonRange))    { Error=1; printf(" <---");} printf("\n");
+//	printf("LatRange:    %f   %f",Hdr1.LatRange, Hdr2.LatRange);       if(fpcmp(Hdr1.LatRange,      Hdr2.LatRange))    { Error=1; printf(" <---");} printf("\n");
+//
+
+	printf("Hdr1.rows*Hdr1.columns=%d\n",Hdr1.rows*Hdr1.columns);
+	// now the rest
+	unsigned int i;
+	for(i=0;i<(Hdr1.rows+1)*Hdr1.columns;i++)
+	{
+		short Elev1,Elev2;
+		if((fread_short_BE(&Elev1,File1)!=1) ||
+		   (fread_short_BE(&Elev2,File2)!=1))
+		   {
+			printf("Read Elevation Values falied!\n");
+			Error=1;
+			goto Cleanup;
+		   }
+		if(fpcmp(Elev1,Elev2)) { Error=1; printf("Pixel %d differs!\n",i); goto Cleanup;}
+	}
+
+	if(ftell(File1)!=Size1)
+	{
+		printf("Not at end of file after reading elevation data!\n");
+		Error=1;
+		goto Cleanup;
+	}
+
+    Cleanup:
+    	if(File1) { fclose(File1); }
+    	if(File2) { fclose(File2); }
+	return Error;
+}
+
+// --------------------------------------------------------------------------
 /* Copied from DataOps.c */
 #define DEM_DATA_INPUT_ARRAY		0
 #define DEM_DATA_INPUT_WCSDEM		1
@@ -1020,22 +1251,31 @@ int Test_ConvertDem(void)
 				snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,".elev");
 				snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,".elev");
 
-//				if(!CompareFileExactly(refFileNameExtended,tstFileName)==0)
-//				Errors++;
+				if(!CmpElevFiles(refFileNameExtended,tstFileName)==0)
+				{
+					printf("- Elev-Files problem - ");
+					Errors++;
+				}
 
 				// and once for the Obj-File
 				snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,".Obj");
 				snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,".Obj");
 
-				if(CmpObjFiles(refFileNameExtended,tstFileName)==0)
+				if(CmpObjFiles(refFileNameExtended,tstFileName)!=0)
+				{
+					printf("- Obj-Files problem - ");
+					Errors++;
+				}
+
+				if(Errors==0)
 				{
 					printf("passed\n");
 				}
 				else
 				{
 					printf("failed\n");
-					Errors++;
 				}
+
 
 				break;
 			}
@@ -1154,7 +1394,7 @@ int main(void)
 
     int Errors;
 
-    rmtree("Ram:WCS_Test");
+    //rmtree("Ram:WCS_Test");
 
     int Res=Mkdir("Ram:WCS_Test");
     if(Res!=0)

@@ -177,6 +177,9 @@ long fwriteVectorheaderV100_BE(struct vectorheaderV100 *Hdr, FILE *file);
 
 // basic types
 
+// AF, HGW, 21.Apr23
+int fread_float_BE(float *Value, FILE *file);
+
 // AF, HGW, 22.Jan23
 int fread_double_BE(double *Value, FILE *file);
 

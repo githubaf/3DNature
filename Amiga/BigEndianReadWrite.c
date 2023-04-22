@@ -1157,6 +1157,19 @@ long fwriteVectorheaderV100_BE(struct vectorheaderV100 *Hdr, FILE *file)
 }
 
 
+// AF, HGW, 21.Apr23
+int fread_float_BE(float *Value, FILE *file)
+{
+    int Result=fread(Value, sizeof (float),1,file);
+
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    // Flip Endian if host is not Big Endian
+    SimpleEndianFlip32F(*Value,Value);
+#endif
+    return Result;
+}
+
+
 // AF, HGW, 22.Jan23
 int fread_double_BE(double *Value, FILE *file)
 {
