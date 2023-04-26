@@ -167,7 +167,7 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
  FILE *fAscii = NULL;
  struct BusyWindow *BWDC;
 
-#define  PRINT_CONVERTDEM_PARAMS  // used to create convert-testcases, AF, 17.April 23
+//#define  PRINT_CONVERTDEM_PARAMS  // used to create convert-testcases, AF, 17.April 23
 #ifdef PRINT_CONVERTDEM_PARAMS
  {
 	 printf("AF: %s() %d Filename=%s TestOnly=%d\n",__func__,__LINE__,filename,TestOnly);
@@ -738,7 +738,6 @@ RepeatRGB:
     error = 1;
     break;
     } /* if read fail */
-   printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
    InputData = InputData2S = DEMHdr->map;
    if (InputDataSize != DEMHdr->size)
     {
@@ -765,7 +764,6 @@ RepeatRGB:
     swmem(&data->LateralScale[0], &data->LateralScale[2], sizeof (float));
     swmem(&data->LateralScale[1], &data->LateralScale[3], sizeof (float));
     } /* user got latitude and longitude reversed */
-   printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
    break;
    } /* WCS DEM */
   case DEM_DATA_INPUT_IFF:
@@ -923,17 +921,12 @@ EndLoad:
  if (error)
   goto Cleanup;
 
-
- printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
-
 /*
 ** Invert data if Intel format (Low-High byte order)
 */
  if (INBYTE_ORDER == DEM_DATA_BYTEORDER_LOHI
 	 && INVALUE_SIZE != DEM_DATA_VALSIZE_BYTE)
   {
-	   printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
-
   BWDC = BusyWin_New("Inverting", INPUT_ROWS, 0, MakeID('B','W','D','C'));
   datazip = 0;
   for (i=0; i<INPUT_ROWS; i++)
@@ -978,8 +971,6 @@ EndLoad:
  if (error)
   goto Cleanup;
 
-
- printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
 /*
 ** Apply floor and ceiling values
 */
@@ -1078,9 +1069,6 @@ EndLoad:
  if (error)
   goto Cleanup;
 
-
- printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
-
  if (ACTIVE_CEILING)
   {
   BWDC = BusyWin_New("Ceiling", INPUT_ROWS, 0, MakeID('B','W','D','C'));
@@ -1175,8 +1163,6 @@ EndLoad:
   } /* if active ceiling */
  if (error)
   goto Cleanup;
-
- printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
 
 /*
 ** Re-Sample to output size
@@ -2130,7 +2116,7 @@ EndLoad:
 
   } /* if need to resample data array to new size */
 
- printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
+
 /*
 ** Compute scale
 */
@@ -2262,8 +2248,6 @@ EndLoad:
  if (error)
   goto Cleanup;
 
- printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
-
  switch (SCALEOP)
   {
   case DEM_DATA_SCALEOP_MAXMINSCALE:
@@ -2346,8 +2330,6 @@ EndLoad:
  if (TestOnly)
 	goto Cleanup;
 
-
- printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
 /*
 ** If no scaling required and only one map for output - as in resampling only -
 **  and same input/output formats, simply save the current array.
@@ -2358,11 +2340,10 @@ EndLoad:
   {
   SaveConvertOutput(data, DEMHdr, InputData, InputDataSize, 0, 0,
 	OUTPUT_ROWS, OUTPUT_COLS, OUTPUT_ROWS, OUTPUT_COLS, RGBComponent);
-  printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
   goto Cleanup;
   }
 
- printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
+
 /*
 ** Transform
 */
@@ -2389,8 +2370,6 @@ EndLoad:
    break;
    } /* if Z Buffer output */
   } /* switch */
-
- printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
 
  for (i=0; i<OUTPUT_ROWMAPS; i++)	/* W-E */
   {
@@ -2874,8 +2853,6 @@ EndLoad:
   if (error) break;
   } /* for i=0... */
 
- printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
-
 Cleanup:
  switch (error)
   {
@@ -3019,7 +2996,6 @@ Cleanup:
 #endif
   } /* if may need to repeat process for other color components */
 
- printf("ALEXANDER: %s() %d filename=%s, SumElDifSq=%f\n",__func__,__LINE__,filename,DEMHdr->SumElDifSq);
 } /* ConvertDEM() */
 
 /***********************************************************************/
@@ -3036,11 +3012,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
  float	Version = DEM_CURRENT_VERSION;
  double Lon[6], Lat[6];
 
-
  strcpy(tempfilename, OUTPUT_NAMEBASE);
-
- printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
-
 
  if (OUTPUT_ROWMAPS > 1 || OUTPUT_COLMAPS > 1)
   {
@@ -3069,8 +3041,6 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
     strcat(OutFilename, ".elev");
    else
     strcat(OutFilename, RGBComp);
-
-   printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
    } /* if output DEM to database */
   else
    {
@@ -3083,7 +3053,6 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
   if ((OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
 	|| (OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP && RGBComp[0]))
    {
-	  printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
    while (strlen(tempfilename) < length[0])
 	strcat(tempfilename, " ");
    tempfilename[length[0]] = 0;
@@ -3092,8 +3061,6 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
     strcat(OutFilename, ".elev");
    else
     strcat(OutFilename, RGBComp);
-
-   printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
    } /* if output DEM to database */
   else
    {
@@ -3110,7 +3077,6 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
     error = 4;
     break;
     } /* if open fail */
-   printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
    DEMHdr->rows	 = cols - 1;
    DEMHdr->columns	 = rows;
    DEMHdr->steplat	 = (OUTPUT_HILAT - OUTPUT_LOLAT) / (OUTPUT_ROWS - 1);
@@ -3120,12 +3086,8 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
    DEMHdr->lolong	 =
 	 OUTPUT_HILON - i * (OutputCols - DUPROW) * DEMHdr->steplong;
 /*   DEMHdr->elscale; don't change it*/
-
-   printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
-
    if (INPUT_FORMAT != DEM_DATA_INPUT_WCSDEM)
     {
-	   printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
     switch (DATA_UNITS)
      {
      case DEM_DATA_UNITS_KILOM:
@@ -3159,7 +3121,6 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
       break;
       }
      } /* switch */
-    printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
 
     if (ROWS_EQUAL == DEM_DATA_ROW_LON)
      {
@@ -3168,19 +3129,11 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
      } /* if rows = longitude */
     } /* if not WCS DEM input */
 
-   printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
-
-   FindElMaxMin(DEMHdr, OutputData);  // hier wird SumElDifSq geaendert!?
-
-   printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
+   FindElMaxMin(DEMHdr, OutputData);
    //write(fOutput, (char *)&Version, 4);
    write_float_BE(fOutput, &Version); // AF, 21.3.23, Write Big Endian
-
-   printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
    //write(fOutput, (char *)DEMHdr, ELEVHDRLENV101);
    writeElMapHeaderV101_BE(fOutput,DEMHdr); // AF, 21.3.23, Write Big Endian
-
-   printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
 
    //if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
    if ((write_short_Array_BE(fOutput, OutputData, OutputDataSize)) != OutputDataSize) // AF, 21.3.23, Write Big Endian
@@ -3190,7 +3143,6 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
     goto Cleanup;
     } /* if write fail */
 
-   printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
    close(fOutput);
 
    OBNexists = 0;
@@ -3311,7 +3263,6 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
    break;
    } /* Z Buffer */
   } /* switch output file format */
- printf("ALEXANDER: %s() %d tempfilename=%s, SumElDifSq=%f\n",__func__,__LINE__,tempfilename,DEMHdr->SumElDifSq);
 
 Cleanup:
 

@@ -16,7 +16,7 @@
 #include <exec/tasks.h>
 #include <clib/exec_protos.h>
 
-unsigned int printMessages=1;
+unsigned int printMessages=0;
 
 USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
 	CONST_STRPTR buttonkey, int Default)
@@ -1104,7 +1104,7 @@ void InitDEMConvertData(struct DEMConvertData *data, struct ConvertDemTestStruct
 struct ConvertDemTestStruct ConverDemTestData[]=
 {
 
-		// header-size is 0 and does not matter for DEM_DATA_INPUT_VISTA Coordinaten noch einbauen.
+		// header-size is 0 and does not matter for DEM_DATA_INPUT_VISTA Coordinaten noch einbauen!
 //		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_BYTE,     "Ram:WCS_Test/", "tst_AlpsBinArrS1",    "test_files/reference/ref_AlpsBinArrS1"   },
 //		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,    "Ram:WCS_Test/", "tst_AlpsBinArrS2",    "test_files/reference/ref_AlpsBinArrS2"   },
 //		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_LONG,     "Ram:WCS_Test/", "tst_AlpsBinArrS4",    "test_files/reference/ref_AlpsBinArrS4"   },
@@ -1119,20 +1119,20 @@ struct ConvertDemTestStruct ConverDemTestData[]=
 //		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  "Ram:WCS_Test/", "tst_AlpsGray.iff",    "test_files/reference/ref_AlpsGray.iff"   },
 //		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  "Ram:WCS_Test/", "tst_AlpsColor.iff",   "test_files/reference/ref_AlpsColor.iff"  },
 
-		// header-size is 68 DEM_DATA_INPUT_WCSDEM. data->LateralScale[]=0,0,0,0 -> Data is taken from Input-WCS-Header  0,0,0,0 einbauen. evtl float-comp mit delta machen???
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_BYTE,    "Ram:WCS_Test/", "tst_36112IS1",        "test_files/reference/ref_ref_36112IS1"   },
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,   "Ram:WCS_Test/", "tst_36112IS2",        "test_files/reference/ref_ref_36112IS2"   },
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_36112IS4",        "test_files/reference/ref_ref_36112IS4"   },
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_BYTE,    "Ram:WCS_Test/", "tst_36112IU1",        "test_files/reference/ref_ref_36112IU1"   },
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_SHORT,   "Ram:WCS_Test/", "tst_36112IU2",        "test_files/reference/ref_ref_36112IU2"   },
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_36112IU4",        "test_files/reference/ref_ref_36112IU4"   },
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_36112IF4",        "test_files/reference/ref_ref_36112IF4"   },
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  "Ram:WCS_Test/", "tst_36112IF8",        "test_files/reference/ref_ref_36112IF8"   },
-		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112I",          "test_files/reference/ref_36112I"         },
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ZBUF,    DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112I",          "test_files/reference/ref_36112IZB"       },
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_COLORMAP,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112I",          "test_files/reference/ref_36112I"         },
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112IGray.iff",  "test_files/reference/ref_36112IGray.iff" },
-//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112IColor.iff", "test_files/reference/ref_36112IColor.iff"},
+		// header-size is 68 DEM_DATA_INPUT_WCSDEM. data->LateralScale[]=0,0,0,0 -> Data is taken from Input-WCS-Header  0,0,0,0 einbauen.
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_BYTE,    "Ram:WCS_Test/", "tst_36112IS1",        "test_files/reference/ref_36112IS1"   },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,   "Ram:WCS_Test/", "tst_36112IS2",        "test_files/reference/ref_36112IS2"   },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_36112IS4",        "test_files/reference/ref_36112IS4"   },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_BYTE,    "Ram:WCS_Test/", "tst_36112IU1",        "test_files/reference/ref_36112IU1"   },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_SHORT,   "Ram:WCS_Test/", "tst_36112IU2",        "test_files/reference/ref_36112IU2"   },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_36112IU4",        "test_files/reference/ref_36112IU4"   },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_36112IF4",        "test_files/reference/ref_36112IF4"   },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  "Ram:WCS_Test/", "tst_36112IF8",        "test_files/reference/ref_36112IF8"   },
+	    { "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112I",          "test_files/reference/ref_36112I"         },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ZBUF,    DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112I",          "test_files/reference/ref_36112IZB"       },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_COLORMAP,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112I",          "test_files/reference/ref_36112I"         },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112IGray.iff",  "test_files/reference/ref_36112IGray.iff" },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112IColor.iff", "test_files/reference/ref_36112IColor.iff"},
 
 };
 
