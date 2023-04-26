@@ -28,6 +28,8 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
  LONG fhelev, Lr;
  float Version;
 
+ printf("ALEXANDER: %s() %d filename=%s\n",__func__,__LINE__,filename);
+
  if ((fhelev = open(filename, O_RDONLY, 0)) == -1)
   {
   return (1);
@@ -35,8 +37,11 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
  read(fhelev, &Version, 4);
  ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32F(Version,&Version);) // AF: 14.Dec.2022, Endian correction for i386-aros
  
+ printf("ALEXANDER: %s() %d filename=%s, Version=%f\n",__func__,__LINE__,filename,Version);
+
  if (fabs(Version - 1.00) < .0001)
   {
+	 printf("ALEXANDER: %s() %d filename=%s, Version=%f\n",__func__,__LINE__,filename,Version);
   if ((read (fhelev, map, ELEVHDRLENV100)) != ELEVHDRLENV100)
    {
    Log(WNG_READ_FAIL, (CONST_STRPTR)filename);
@@ -67,7 +72,7 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
    close (fhelev);
    return (1);
    } /* if */
-
+  printf("ALEXANDER: %s() %d filename=%s, Version=%f, SumElDifSq=%f\n",__func__,__LINE__,filename,Version,map->SumElDifSq);
   ENDIAN_CHANGE_IF_NEEDED( /* AF: 14.Dec.2022, Endian correction for i386-aros */
           /* same code as above, it is the same target struct. It seems the ELEVHDRLENV101 was just shorter? */
           SimpleEndianFlip32S(map->rows,&map->rows);
@@ -84,6 +89,7 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
           SimpleEndianFlip32F(map->SumElDifSq,&map->SumElDifSq);  // offset 60, 4 bytes
           // we read only ELEVHDRLENV101 = 64 bytes, so endian-correct only up to here.
           )
+  printf("ALEXANDER: %s() %d filename=%s, Version=%f, SumElDifSq=%f\n",__func__,__LINE__,filename,Version,map->SumElDifSq);
   }
  else
   {
@@ -154,12 +160,14 @@ short readDEM(char *filename, struct elmapheaderV101 *map)
    Log(WNG_READ_FAIL, (CONST_STRPTR)filename);
    error = 1;
    } /* if */
+  printf("ALEXANDER: %s() %d filename=%s, Version=%f, SumElDifSq=%f\n",__func__,__LINE__,filename,Version,map->SumElDifSq);
   ENDIAN_CHANGE_IF_NEEDED( /* AF: 14.Dec.2022, Endian correction for i386-aros */
           for(unsigned int i=0;i<map->size/2;i++)
           {
               SimpleEndianFlip16S(*(map->map+i),map->map+i);
           }
   )
+  printf("ALEXANDER: %s() %d filename=%s, Version=%f, SumElDifSq=%f\n",__func__,__LINE__,filename,Version,map->SumElDifSq);
   close (fhelev);
   } /* else version 1.0+ file */
 
@@ -199,6 +207,9 @@ STATIC_FCN short saveDEM(char *filename, struct elmapheaderV101 *Map, short *Arr
   return (0);
   } /* if error opening output file */
  write (fhelev, (char *)&Version, 4);
+
+ printf("ALEXANDER: %s() %d filename=%s, Version=%f\n",__func__,__LINE__,filename,Version);
+
  write (fhelev, (char *)Map, ELEVHDRLENV101);
  if (write (fhelev, (char *)Array, Map->size) != Map->size)
   {
@@ -2639,7 +2650,7 @@ short FindElMaxMin(struct elmapheaderV101 *Map, short *Array)
  Map->SumElDif = Map->SumElDifSq = 0.0;
  mapptr = Array;
  LastCol = Map->columns - 1;
-
+ printf("------------------------\n");
  for (Lr=0; Lr<=Map->rows; Lr++)
   {
   for (Lc=0; Lc<Map->columns; Lc++)
@@ -2655,6 +2666,7 @@ short FindElMaxMin(struct elmapheaderV101 *Map, short *Array)
    if (Lr != 0 && Lc != LastCol)
     {
     ElDif = abs(*mapptr - *(mapptr - Map->columns + 1));
+//printf("%ld\n",ElDif);
     Map->SumElDif += ElDif;
     Map->SumElDifSq += (ElDif * ElDif);
     Map->Samples ++;
@@ -2663,6 +2675,9 @@ short FindElMaxMin(struct elmapheaderV101 *Map, short *Array)
    } /* for Lc=0... */
   } /* for Lr=0... */
 
+ printf("--> %s() Line %d: Map->SumElDif=%f\n",__func__,__LINE__,Map->SumElDif);
+ printf("--> %s() Line %d: Map->SumElDifSq=%f\n",__func__,__LINE__,Map->SumElDifSq);
+ printf("------------------------\n");
  return (1);
 
 } /* FindElMaxMin() */

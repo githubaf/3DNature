@@ -1063,20 +1063,7 @@ long readElMapHeaderV101_BE(int fh, struct elmapheaderV101 *Hdr)
 	SimpleEndianFlip32S(Hdr->Samples,&Hdr->Samples);
 	SimpleEndianFlip32F(Hdr->SumElDif,&Hdr->SumElDif);
 	SimpleEndianFlip32F(Hdr->SumElDifSq,&Hdr->SumElDifSq);
-	SimpleEndianFlip32S(Hdr->size,&Hdr->size);
-	SimpleEndianFlip32S(Hdr->scrnptrsize,&Hdr->scrnptrsize);
-	SimpleEndianFlip32S(Hdr->fractalsize,&Hdr->fractalsize);
-	SimpleEndianFlip32S(Hdr->facept[0],&Hdr->facept[0]);
-	SimpleEndianFlip32S(Hdr->facept[1],&Hdr->facept[1]);
-	SimpleEndianFlip32S(Hdr->facept[2],&Hdr->facept[2]);
-	SimpleEndianFlip32S(Hdr->facect,&Hdr->facect);
-	SimpleEndianFlip32S(Hdr->fracct,&Hdr->fracct);
-	SimpleEndianFlip32S(Hdr->Lr,&Hdr->Lr);
-	SimpleEndianFlip32S(Hdr->Lc,&Hdr->Lc);
-	SimpleEndianFlip16S(Hdr->MapAsSFC,&Hdr->MapAsSFC);
-	SimpleEndianFlip16S(Hdr->ForceBath,&Hdr->ForceBath);
-	SimpleEndianFlip32F(Hdr->LonRange,&Hdr->LonRange);
-    SimpleEndianFlip32F(Hdr->LatRange,&Hdr->LatRange);
+// the following other elements of struct elmapheaderV101 are not read/written! Only the first ELEVHDRLENV101 bytes
     return Result;
 
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
@@ -1106,20 +1093,7 @@ long writeElMapHeaderV101_BE(int fh, struct elmapheaderV101 *Hdr)
 	SimpleEndianFlip32S(TempHdr.Samples,&TempHdr.Samples);
 	SimpleEndianFlip32F(TempHdr.SumElDif,&TempHdr.SumElDif);
 	SimpleEndianFlip32F(TempHdr.SumElDifSq,&TempHdr.SumElDifSq);
-	SimpleEndianFlip32S(TempHdr.size,&TempHdr.size);
-	SimpleEndianFlip32S(TempHdr.scrnptrsize,&TempHdr.scrnptrsize);
-	SimpleEndianFlip32S(TempHdr.fractalsize,&TempHdr.fractalsize);
-	SimpleEndianFlip32S(TempHdr.facept[0],&TempHdr.facept[0]);
-	SimpleEndianFlip32S(TempHdr.facept[1],&TempHdr.facept[1]);
-	SimpleEndianFlip32S(TempHdr.facept[2],&TempHdr.facept[2]);
-	SimpleEndianFlip32S(TempHdr.facect,&TempHdr.facect);
-	SimpleEndianFlip32S(TempHdr.fracct,&TempHdr.fracct);
-	SimpleEndianFlip32S(TempHdr.Lr,&TempHdr.Lr);
-	SimpleEndianFlip32S(TempHdr.Lc,&TempHdr.Lc);
-	SimpleEndianFlip16S(TempHdr.MapAsSFC,&TempHdr.MapAsSFC);
-	SimpleEndianFlip16S(TempHdr.ForceBath,&TempHdr.ForceBath);
-	SimpleEndianFlip32F(TempHdr.LonRange,&TempHdr.LonRange);
-    SimpleEndianFlip32F(TempHdr.LatRange,&TempHdr.LatRange);
+	// the following other elements of struct elmapheaderV101 are not read/written! Only the first ELEVHDRLENV101 bytes
 	return write(fh, &TempHdr, ELEVHDRLENV101);
 
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__

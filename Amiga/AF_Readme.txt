@@ -2573,3 +2573,8 @@ test_files Schublade nach WinUAE kopieren. Vista DEM -> andere Formate funktioni
   (mit Leerzeichen wie schon bei Obj und elev). Der Alte Code hat immer nur ein File ohne Endung erzeugt, weil er auf die Endung des INPUT-Files geschaut hat, die
   natuerlich im Normalfall nie "red" ist. Das war ein Fehler im Originalcode.
 
+22.Apr.23
+- Wenn ich mit -mregparms compilie ist argc=0. Damit argc/argv klappt, muss die main()-Funktion ein __stdargs vorangestellt bekommen!
+
+AROS: Nur die ersten 64 Bytes von elMapHeaderV101 werden gelesen/geschrieben, also auch diese muessen/duerfen Endian-gedreht werden!
+

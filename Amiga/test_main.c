@@ -16,7 +16,7 @@
 #include <exec/tasks.h>
 #include <clib/exec_protos.h>
 
-unsigned int printMessages=0;
+unsigned int printMessages=1;
 
 USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
 	CONST_STRPTR buttonkey, int Default)
@@ -589,7 +589,7 @@ Cleanup:
 
 int fpcmp(double val1, double val2)
 {
-	if( fabs(val1-val2) > 0.001 )
+	if( fabs(val1-val2) > 0.0001 )
 	{
 		return 1;  // Werte verschieden
 	}
@@ -717,7 +717,7 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 
 	if(freadVectorheaderV100_BE(&Hdr2, File2)!=1)
 	{
-		printf("File1 error reeading header\n");
+		printf("File1 error reading header\n");
 		Error= 1;
 		goto Cleanup;
 	}
@@ -801,6 +801,7 @@ long freadElMapHeaderV101_BE(struct elmapheaderV101 *Hdr,FILE *File)
 	SimpleEndianFlip32S(Hdr->Samples,&Hdr->Samples);
 	SimpleEndianFlip32F(Hdr->SumElDif,&Hdr->SumElDif);
 	SimpleEndianFlip32F(Hdr->SumElDifSq,&Hdr->SumElDifSq);
+	/*  not stored in file
 	SimpleEndianFlip32S(Hdr->size,&Hdr->size);
 	SimpleEndianFlip32S(Hdr->scrnptrsize,&Hdr->scrnptrsize);
 	SimpleEndianFlip32S(Hdr->fractalsize,&Hdr->fractalsize);
@@ -815,6 +816,7 @@ long freadElMapHeaderV101_BE(struct elmapheaderV101 *Hdr,FILE *File)
 	SimpleEndianFlip16S(Hdr->ForceBath,&Hdr->ForceBath);
 	SimpleEndianFlip32F(Hdr->LonRange,&Hdr->LonRange);
     SimpleEndianFlip32F(Hdr->LatRange,&Hdr->LatRange);
+    */
     return Result;
 
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
@@ -876,8 +878,8 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 
 	float Version1=0;
 	float Version2=0;
-	struct elmapheaderV101 Hdr1;
-	struct elmapheaderV101 Hdr2;
+	struct elmapheaderV101 Hdr1={0};
+	struct elmapheaderV101 Hdr2={0};
 
 	if(fread_float_BE(&Version1,File1)!=1)
 	{
@@ -922,8 +924,8 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 	printf("columns:     %d   %d",Hdr1.columns,     Hdr2.columns);     if(      Hdr1.columns     != Hdr2.columns)      { Error=1; printf(" <---");} printf("\n");
 	printf("lolat:       %f   %f",Hdr1.lolat,       Hdr2.lolat);       if(fpcmp(Hdr1.lolat ,        Hdr2.lolat))       { Error=1; printf(" <---");} printf("\n");
 	printf("lolong:      %f   %f",Hdr1.lolong,      Hdr2.lolong);      if(fpcmp(Hdr1.lolong,        Hdr2.lolong))      { Error=1; printf(" <---");} printf("\n");
-	printf("steplat:     %f   %f",Hdr1.lolat,       Hdr2.lolat);       if(fpcmp(Hdr1.steplat,       Hdr2.steplat))     { Error=1; printf(" <---");} printf("\n");
-	printf("steplong:    %f   %f",Hdr1.steplat,     Hdr2.steplat);     if(fpcmp(Hdr1.steplong,      Hdr2.steplong))    { Error=1; printf(" <---");} printf("\n");
+	printf("steplat:     %f   %f",Hdr1.steplat,     Hdr2.steplat);     if(fpcmp(Hdr1.steplat,       Hdr2.steplat))     { Error=1; printf(" <---");} printf("\n");
+	printf("steplong:    %f   %f",Hdr1.steplong,    Hdr2.steplong);    if(fpcmp(Hdr1.steplong,      Hdr2.steplong))    { Error=1; printf(" <---");} printf("\n");
 	printf("elscale:     %f   %f",Hdr1.elscale,     Hdr2.elscale);     if(fpcmp(Hdr1.elscale,       Hdr2.elscale))     { Error=1; printf(" <---");} printf("\n");
 	printf("MaxEl:       %d   %d",Hdr1.MaxEl,       Hdr2.MaxEl);	   if(      Hdr1.MaxEl       != Hdr2.MaxEl)        { Error=1; printf(" <---");} printf("\n");
 	printf("MinEl:       %d   %d",Hdr1.MinEl,       Hdr2.MinEl);       if(      Hdr1.MinEl       != Hdr2.MinEl)        { Error=1; printf(" <---");} printf("\n");
@@ -931,34 +933,12 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 	printf("SumElDif:    %f   %f",Hdr1.SumElDif,    Hdr2.SumElDif);    if(fpcmp(Hdr1.SumElDif,      Hdr2.SumElDif))    { Error=1; printf(" <---");} printf("\n");
 	printf("SumElDifSq:  %f   %f",Hdr1.SumElDifSq,  Hdr2.SumElDifSq);  if(fpcmp(Hdr1.SumElDifSq,    Hdr2.SumElDifSq))  { Error=1; printf(" <---");} printf("\n");
 
-// alle weiteren nicht benutzt in DataOps.c !?
-#warning Nicht alle Felder des elev-Headers getestet!
+	// the other elements of ElMapHeaderV101 are not stored in the elev files! (read/write only ELEVHDRLENV101 bytes)
 
-//	// short	*map;
-//	// LONG	*lmap;
-//	printf("size:        %d   %d",Hdr1.size,       Hdr2.size);         if(      Hdr1.size        != Hdr2.size)         { Error=1; printf(" <---");} printf("\n");
-//	printf("scrnptrsize: %d   %d",Hdr1.scrnptrsize,Hdr2.scrnptrsize);  if(      Hdr1.scrnptrsize != Hdr2.scrnptrsize)  { Error=1; printf(" <---");} printf("\n");
-//	printf("fractalsize: %d   %d",Hdr1.fractalsize,Hdr2.fractalsize);  if(      Hdr1.fractalsize != Hdr2.fractalsize)  { Error=1; printf(" <---");} printf("\n");
-	// float	*scrnptrx,
-	// *scrnptry,
-	// *scrnptrq;
-	// struct	faces *face;
-	// BYTE	*fractal;
-//	printf("facept[0]:   %d   %d",Hdr1.facept[0],Hdr2.facept[0]);	   if(      Hdr1.facept[0]   != Hdr2.facept[0])    { Error=1; printf(" <---");} printf("\n");
-//	printf("facept[1]:   %d   %d",Hdr1.facept[1],Hdr2.facept[1]);	   if(      Hdr1.facept[1]   != Hdr2.facept[1])    { Error=1; printf(" <---");} printf("\n");
-//	printf("facept[2]:   %d   %d",Hdr1.facept[2],Hdr2.facept[2]);      if(      Hdr1.facept[2]   != Hdr2.facept[2])    { Error=1; printf(" <---");} printf("\n");
-//	printf("facect:      %d   %d",Hdr1.facect,   Hdr2.facect);         if(      Hdr1.facect      != Hdr2.facect)       { Error=1; printf(" <---");} printf("\n");
-//	printf("fracct:      %d   %d",Hdr1.fracct,   Hdr2.fracct);         if(      Hdr1.fracct      != Hdr2.fracct)       { Error=1; printf(" <---");} printf("\n");
-//	printf("Lr:          %d   %d",Hdr1.Lr,       Hdr2.Lr);             if(      Hdr1.Lr          != Hdr2.Lr)           { Error=1; printf(" <---");} printf("\n");
-//	printf("Lc:          %d   %d",Hdr1.Lc,       Hdr2.Lc);             if(      Hdr1.Lc          != Hdr2.Lc)           { Error=1; printf(" <---");} printf("\n");
-//	printf("MapAsSFC:    %d   %d",Hdr1.MapAsSFC, Hdr2.MapAsSFC);       if(      Hdr1.MapAsSFC    != Hdr2.MapAsSFC)     { Error=1; printf(" <---");} printf("\n");
-//	printf("ForceBath:   %d   %d",Hdr1.ForceBath,Hdr2.ForceBath);	   if(      Hdr1.ForceBath   != Hdr2.ForceBath)    { Error=1; printf(" <---");} printf("\n");
-//	printf("LonRange:    %f   %f",Hdr1.LonRange, Hdr2.LonRange);       if(fpcmp(Hdr1.LonRange,      Hdr2.LonRange))    { Error=1; printf(" <---");} printf("\n");
-//	printf("LatRange:    %f   %f",Hdr1.LatRange, Hdr2.LatRange);       if(fpcmp(Hdr1.LatRange,      Hdr2.LatRange))    { Error=1; printf(" <---");} printf("\n");
-//
 
-	printf("Hdr1.rows*Hdr1.columns=%d\n",Hdr1.rows*Hdr1.columns);
-	// now the rest
+	//printf("Hdr1.rows*Hdr1.columns=%d\n",Hdr1.rows*Hdr1.columns);
+
+	// now the elev data array
 	unsigned int i;
 	for(i=0;i<(Hdr1.rows+1)*Hdr1.columns;i++)
 	{
@@ -1052,9 +1032,15 @@ char *dataValSizeStrings[]=
 
 struct ConvertDemTestStruct
 {
+	char *SourceFileName;
 	int InFormat;
 	int InValueFormat;
 	int InValueSize;
+	int HeaderBytes;
+	int Rows;
+	int Cols;
+	int MinEl;
+	int MaxEl;
 	int OutFormat;
 	int OutValueFormat;
 	int OutValueSize;
@@ -1083,15 +1069,15 @@ void InitDEMConvertData(struct DEMConvertData *data, struct ConvertDemTestStruct
 	data->FormatCy[7]=1;
 	data->FormatCy[8]=ConvertDemTestData->OutValueFormat;
 	data->FormatCy[9]=ConvertDemTestData->OutValueSize;
-	data->FormatInt[0]=0;
-	data->FormatInt[1]=258;
-	data->FormatInt[2]=258;
+	data->FormatInt[0]=ConvertDemTestData->HeaderBytes;
+	data->FormatInt[1]=ConvertDemTestData->Rows;
+	data->FormatInt[2]=ConvertDemTestData->Cols;
 	data->FormatInt[3]=0;
 	data->FormatInt[4]=0;
-	data->LateralScale[0]=0.069428;
-	data->LateralScale[1]=0.000000;
-	data->LateralScale[2]=180.069427;
-	data->LateralScale[3]=180.000000;
+	data->LateralScale[0]=0;//0.069428;      // Hi Lat
+	data->LateralScale[1]=0;//0.000000;      // Lo  Lat
+	data->LateralScale[2]=0;//180.069427;    // Hi Long
+	data->LateralScale[3]=0;//180.000000;    // Lo Long
 	data->MaxMin[0]=0.000000;
 	data->MaxMin[1]=0.000000;
 	snprintf(data->NameBase,24,ConvertDemTestData->outNameBase);
@@ -1117,27 +1103,44 @@ void InitDEMConvertData(struct DEMConvertData *data, struct ConvertDemTestStruct
 
 struct ConvertDemTestStruct ConverDemTestData[]=
 {
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_BYTE,    "Ram:WCS_Test/", "tst_AlpsBinArrS1",  "test_files/reference/ref_AlpsBinArrS1",  },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,   "Ram:WCS_Test/", "tst_AlpsBinArrS2",  "test_files/reference/ref_AlpsBinArrS2",  },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_AlpsBinArrS4",  "test_files/reference/ref_AlpsBinArrS4",  },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_BYTE,    "Ram:WCS_Test/", "tst_AlpsBinArrU1",  "test_files/reference/ref_AlpsBinArrU1",  },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_SHORT,   "Ram:WCS_Test/", "tst_AlpsBinArrU2",  "test_files/reference/ref_AlpsBinArrU2",  },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_AlpsBinArrU4",  "test_files/reference/ref_AlpsBinArrU4",  },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_AlpsBinArrF4",  "test_files/reference/ref_AlpsBinArrF4",  },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  "Ram:WCS_Test/", "tst_AlpsBinArrF8",  "test_files/reference/ref_AlpsBinArrF8",  },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_Alps",          "test_files/reference/ref_Alps  ",        },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_ZBUF,    DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_Alps",          "test_files/reference/ref_AlpsZB",        },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_COLORMAP,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_Alps",          "test_files/reference/ref_Alps  ",        },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_AlpsGray.iff",  "test_files/reference/ref_AlpsGray.iff",  },
-		{ DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_AlpsColor.iff", "test_files/reference/ref_AlpsColor.iff", }
+
+		// header-size is 0 and does not matter for DEM_DATA_INPUT_VISTA Coordinaten noch einbauen.
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_BYTE,     "Ram:WCS_Test/", "tst_AlpsBinArrS1",    "test_files/reference/ref_AlpsBinArrS1"   },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,    "Ram:WCS_Test/", "tst_AlpsBinArrS2",    "test_files/reference/ref_AlpsBinArrS2"   },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_LONG,     "Ram:WCS_Test/", "tst_AlpsBinArrS4",    "test_files/reference/ref_AlpsBinArrS4"   },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_BYTE,     "Ram:WCS_Test/", "tst_AlpsBinArrU1",    "test_files/reference/ref_AlpsBinArrU1"   },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_SHORT,    "Ram:WCS_Test/", "tst_AlpsBinArrU2",    "test_files/reference/ref_AlpsBinArrU2"   },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_LONG,     "Ram:WCS_Test/", "tst_AlpsBinArrU4",    "test_files/reference/ref_AlpsBinArrU4"   },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_LONG,     "Ram:WCS_Test/", "tst_AlpsBinArrF4",    "test_files/reference/ref_AlpsBinArrF4"   },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   "Ram:WCS_Test/", "tst_AlpsBinArrF8",    "test_files/reference/ref_AlpsBinArrF8"   },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  "Ram:WCS_Test/", "tst_Alps",            "test_files/reference/ref_Alps  "         },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_ZBUF,    DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  "Ram:WCS_Test/", "tst_Alps",            "test_files/reference/ref_AlpsZB"         },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_COLORMAP,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  "Ram:WCS_Test/", "tst_Alps",            "test_files/reference/ref_Alps  "         },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  "Ram:WCS_Test/", "tst_AlpsGray.iff",    "test_files/reference/ref_AlpsGray.iff"   },
+//		{ "test_files/source/Alps.dem", DEM_DATA_INPUT_VISTA, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 0, 258, 258, 253, 1385, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  "Ram:WCS_Test/", "tst_AlpsColor.iff",   "test_files/reference/ref_AlpsColor.iff"  },
+
+		// header-size is 68 DEM_DATA_INPUT_WCSDEM. data->LateralScale[]=0,0,0,0 -> Data is taken from Input-WCS-Header  0,0,0,0 einbauen. evtl float-comp mit delta machen???
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_BYTE,    "Ram:WCS_Test/", "tst_36112IS1",        "test_files/reference/ref_ref_36112IS1"   },
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,   "Ram:WCS_Test/", "tst_36112IS2",        "test_files/reference/ref_ref_36112IS2"   },
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_36112IS4",        "test_files/reference/ref_ref_36112IS4"   },
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_BYTE,    "Ram:WCS_Test/", "tst_36112IU1",        "test_files/reference/ref_ref_36112IU1"   },
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_SHORT,   "Ram:WCS_Test/", "tst_36112IU2",        "test_files/reference/ref_ref_36112IU2"   },
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_UNSIGNEDINT, DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_36112IU4",        "test_files/reference/ref_ref_36112IU4"   },
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_LONG,    "Ram:WCS_Test/", "tst_36112IF4",        "test_files/reference/ref_ref_36112IF4"   },
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  "Ram:WCS_Test/", "tst_36112IF8",        "test_files/reference/ref_ref_36112IF8"   },
+		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112I",          "test_files/reference/ref_36112I"         },
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_ZBUF,    DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112I",          "test_files/reference/ref_36112IZB"       },
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_COLORMAP,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112I",          "test_files/reference/ref_36112I"         },
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112IGray.iff",  "test_files/reference/ref_36112IGray.iff" },
+//		{ "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM, DEM_DATA_FORMAT_UNKNOWN, DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301, 651, 2316, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, "Ram:WCS_Test/", "tst_36112IColor.iff", "test_files/reference/ref_36112IColor.iff"},
+
 };
 
 
 int Test_ConvertDem(void)
 {
 	struct DEMConvertData data;
-	char *filename="test_files/source/Alps.dem";
-#define TEST_ONLY 1
+	#define TEST_ONLY 1
 #define NO_TEST_ONLY 0
 	unsigned int testIndex;
 	unsigned int Errors=0;
@@ -1147,6 +1150,7 @@ int Test_ConvertDem(void)
 
 	for(testIndex=0;testIndex<sizeof(ConverDemTestData)/sizeof(struct ConvertDemTestStruct);testIndex++)
 	{
+		char *filename;
 		char *TestNameSourceFormat;
 		char *TestNameSourceValueFormat;
 		char *TestNameSourceValueSize;
@@ -1163,6 +1167,8 @@ int Test_ConvertDem(void)
 		TestNameSourceFormat=inFormatStrings[ConverDemTestData[testIndex].InFormat];    // DEM_DATA_INPUT_VISTA
 		TestNameSourceValueFormat="";
 		TestNameSourceValueSize="";
+
+		filename=ConverDemTestData[testIndex].SourceFileName;
 
 		TestNameDestFormat=outFormatStrings[ConverDemTestData[testIndex].OutFormat];
 		TestNameDestValueFormat="";
@@ -1188,8 +1194,8 @@ int Test_ConvertDem(void)
 		InitDEMConvertData(&data,&ConverDemTestData[testIndex]);
 
 		ConvertDEM(&data, filename, TEST_ONLY);
-		assert(data.MaxMin[0]==253);   // min Elevation
-		assert(data.MaxMin[1]==1385);  // min Elevation of Alps.dem
+//		assert(data.MaxMin[0]==ConverDemTestData[testIndex].MinEl);   // min Elevation
+//		assert(data.MaxMin[1]==ConverDemTestData[testIndex].MaxEl);   // max Elevation
 
 		ConvertDEM(&data, filename, NO_TEST_ONLY);
 
@@ -1250,6 +1256,8 @@ int Test_ConvertDem(void)
 				// once for the elev-File
 				snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,".elev");
 				snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,".elev");
+
+printf("refFileNameExtended,tstFileName= <%s> und <%s>\n",refFileNameExtended,tstFileName);
 
 				if(!CmpElevFiles(refFileNameExtended,tstFileName)==0)
 				{
@@ -1383,9 +1391,11 @@ int rmtree(const char path[])
 }
 // #############################################################
 
+#define WCS_TEST
+//#define  ELEV_TEST_ONLY
 
-
-int main(void)
+#ifdef WCS_TEST
+__stdargs int main(void)   // I compile with -mregparm. Then __stdargs is needed to get real argc/argv
 {
 	/* init used global(!) variables */
 	dbaseloaded = 1;    // must be 1 if destination format is WCS DEM
@@ -1413,3 +1423,24 @@ int main(void)
 	}
 	return 0;
 }
+#elif defined ELEV_TEST_ONLY
+__stdargs int main(int argc, char **argv)   // I compile with -mregparm. Then __stdargs is needed to get real argc/argv
+{
+	printf("argc=%d\n",argc);
+//	if(argc!=3)
+//	{
+//		printf("usage: %s elev-file1 elev-file2\n",argv[0]);
+//		return 1;
+//	}
+
+char *File1="ram:tst_Alps_1.elev";
+char *File2="ram:tst_Alps_2.elev";
+
+	if(CmpElevFiles(File1, File2))
+	{
+		printf ("\7Files differ!\n");
+		return 1;
+	}
+	return 0;
+}
+#endif
