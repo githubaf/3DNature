@@ -17,6 +17,7 @@
 #include <clib/exec_protos.h>
 
 unsigned int printMessages=0;
+unsigned int Verbose=0;
 
 USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
 	CONST_STRPTR buttonkey, int Default)
@@ -464,6 +465,19 @@ double Point_Extract(double X, double Y, double MinX, double MinY,
 
 
 // ##############################################################################################################
+// print only, if verbose is set
+void my_printf(int verbose, const char *format, ...)
+{
+    if (verbose)
+    {
+        va_list args;
+        va_start(args, format);
+        vfprintf(stderr, format, args);
+        va_end(args);
+    }
+}
+
+
 #define OPEN_FILE1_ERROR      1
 #define OPEN_FILE2_ERROR      2
 #define FILESIZE1_ERROR       3
@@ -740,28 +754,40 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 		goto Cleanup;
 	}
 
-#ifdef PRINT_OBJ_COMPARISON
-	printf("Filetype: %s       %s",Filetype1,Filetype2);        if(strcmp(Filetype1,Filetype2))      {printf("   <---"); Error=1;} printf("\n");
-	printf("Version:  %f       %f",Version1,Version2);          if(fpcmp(Version1,Version2))         {printf("   <---"); Error=1;} printf("\n");
-	printf("------ Start of Header ----\n");
-	printf("Name:     %s       %s (ignored, can be different)\n",Hdr1.Name,Hdr2.Name);
-	printf("points:   %d       %d",Hdr1.points,Hdr2.points);    if(Hdr1.points != Hdr2.points)       {printf("   <---"); Error=1;} printf("\n");
-	printf("elevs:    %d       %d",Hdr1.elevs,Hdr2.elevs);      if(Hdr1.elevs != Hdr2.elevs)         {printf("   <---"); Error=1;} printf("\n");
-	printf("avglat:   %f       %f",Hdr1.avglat,Hdr2.avglat);    if(fpcmp(Hdr1.avglat,Hdr2.avglat))   {printf("   <---"); Error=1;} printf("\n");
-	printf("avglon:   %f       %f",Hdr1.avglon,Hdr2.avglon);    if(fpcmp(Hdr1.avglon,Hdr2.avglon))   {printf("   <---"); Error=1;} printf("\n");
-	printf("avgelev:  %f       %f",Hdr1.avgelev,Hdr2.avgelev);  if(fpcmp(Hdr1.avgelev,Hdr2.avgelev)) {printf("   <---"); Error=1;} printf("\n");
-	printf("elscale:  %f       %f",Hdr1.elscale,Hdr2.elscale);  if(fpcmp(Hdr1.elscale,Hdr2.elscale)) {printf("   <---"); Error=1;} printf("\n");
-	printf("MaxEl:    %d       %d (ignored, not initialized in original WCS)\n",Hdr1.MaxEl,Hdr2.MaxEl);
-	printf("MinEl:    %d       %d (ignored, not initialized in original WCS)\n",Hdr1.MinEl,Hdr2.MinEl);
+
+    if(strcmp(Filetype1,Filetype2))      {Error=1;}
+    if(fpcmp(Version1,Version2))         {Error=1;}
+
+    if(Hdr1.points != Hdr2.points)       {Error=1;}
+    if(Hdr1.elevs != Hdr2.elevs)         {Error=1;}
+    if(fpcmp(Hdr1.avglat,Hdr2.avglat))   {Error=1;}
+    if(fpcmp(Hdr1.avglon,Hdr2.avglon))   {Error=1;}
+    if(fpcmp(Hdr1.avgelev,Hdr2.avgelev)) {Error=1;}
+    if(fpcmp(Hdr1.elscale,Hdr2.elscale)) {Error=1;}
+
+
+	my_printf(Error || Verbose,"Filetype: %s       %s",Filetype1,Filetype2);        if(strcmp(Filetype1,Filetype2))      {printf("   <---\n");}
+	my_printf(Error || Verbose,"Version:  %f       %f",Version1,Version2);          if(fpcmp(Version1,Version2))         {printf("   <---\n");}
+	my_printf(Error || Verbose,"------ Start of Header ----\n");
+	my_printf(Error || Verbose,"Name:     %s       %s (ignored, can be different)\n",Hdr1.Name,Hdr2.Name);
+	my_printf(Error || Verbose,"points:   %d       %d",Hdr1.points,Hdr2.points);    if(Hdr1.points != Hdr2.points)       {printf("   <---\n");}
+	my_printf(Error || Verbose,"elevs:    %d       %d",Hdr1.elevs,Hdr2.elevs);      if(Hdr1.elevs != Hdr2.elevs)         {printf("   <---\n");}
+	my_printf(Error || Verbose,"avglat:   %f       %f",Hdr1.avglat,Hdr2.avglat);    if(fpcmp(Hdr1.avglat,Hdr2.avglat))   {printf("   <---\n");}
+	my_printf(Error || Verbose,"avglon:   %f       %f",Hdr1.avglon,Hdr2.avglon);    if(fpcmp(Hdr1.avglon,Hdr2.avglon))   {printf("   <---\n");}
+	my_printf(Error || Verbose,"avgelev:  %f       %f",Hdr1.avgelev,Hdr2.avgelev);  if(fpcmp(Hdr1.avgelev,Hdr2.avgelev)) {printf("   <---\n");}
+	my_printf(Error || Verbose,"elscale:  %f       %f",Hdr1.elscale,Hdr2.elscale);  if(fpcmp(Hdr1.elscale,Hdr2.elscale)) {printf("   <---\n");}
+	my_printf(Error || Verbose,"MaxEl:    %d       %d (ignored, not initialized in original WCS)\n",Hdr1.MaxEl,Hdr2.MaxEl);
+	my_printf(Error || Verbose,"MinEl:    %d       %d (ignored, not initialized in original WCS)\n",Hdr1.MinEl,Hdr2.MinEl);
 
 	unsigned int i;
-	printf("----- End of Header ------\n");
+	my_printf(Error || Verbose,"----- End of Header ------\n");
 	for(i=0;i<Hdr1.points+1;i++)
 	{
 		double Lon1,Lon2;
 		fread_double_BE(&Lon1,File1);
 		fread_double_BE(&Lon2,File2);
-		printf("Lon[%d]=%f   %f",i,Lon1,Lon2); if(fpcmp(Lon1,Lon2))   {printf("   <---"); Error=1;} printf("\n");
+		Error=fpcmp(Lon1,Lon2);
+		my_printf(Error || Verbose,"Lon[%d]=%f   %f",i,Lon1,Lon2); if(Error)   {printf("   <---"); } my_printf(Error || Verbose,"\n");
 	}
 
 	for(i=0;i<Hdr1.points+1;i++)
@@ -769,7 +795,8 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 		double Lat1,Lat2;
 		fread_double_BE(&Lat1,File1);
 		fread_double_BE(&Lat2,File2);
-		printf("Lat[%d]=%f   %f",i,Lat1,Lat2); if(fpcmp(Lat1,Lat2))   {printf("   <---"); Error=1;} printf("\n");
+		Error=fpcmp(Lat1,Lat2);
+		my_printf(Error || Verbose,"Lat[%d]=%f   %f",i,Lat1,Lat2); if(Error)   {printf("   <---"); } my_printf(Error || Verbose,"\n");
 	}
 
 	for(i=0;i<Hdr1.points+1;i++)
@@ -777,22 +804,13 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 		short Elev1,Elev2;
 		fread_short_BE(&Elev1,File1);
 		fread_short_BE(&Elev2,File2);
-		printf("Elev[%d]=%d   %d",i,Elev1,Elev2); if(Elev1 != Elev2)   {printf("   <---"); Error=1;} printf("\n");
+		Error=(Elev1 != Elev2);
+		my_printf(Error || Verbose,"Elev[%d]=%d   %d",i,Elev1,Elev2); if(Elev1 != Elev2)   {printf("   <---"); } my_printf(Error || Verbose,"\n");
 	}
 
-	printf("\n");
-    if(Error==0)
-    {
-    	printf("OK, identical.\n");
-    }
-    else
-    {
-    	printf("Error!!! There are differences!\n");
-    }
-#else
-#warning compare fehlt hier!
-#endif
-
+	my_printf(Error || Verbose,"\n");
+   	my_printf(Verbose,"OK, identical.\n");
+    my_printf(Error,"Error!!! There are differences!\n");
 
     Cleanup:
     	if(File1) { fclose(File1); }
@@ -928,8 +946,8 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 		goto Cleanup;
 	}
 
-	printf("Version1=%f\n",Version1);
-	printf("Version2=%f\n",Version2);
+	my_printf(Verbose,"Version1=%f\n",Version1);
+	my_printf(Verbose,"Version2=%f\n",Version2);
 
 	if(fpcmp(Version1,Version2))
 	{
@@ -938,18 +956,32 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 	}
 
 	// now compare ElMapHeaderV101 headers
-	printf("rows:        %d   %d",Hdr1.rows,        Hdr2.rows);        if(      Hdr1.rows        != Hdr2.rows)         { Error=1; printf(" <---");} printf("\n");
-	printf("columns:     %d   %d",Hdr1.columns,     Hdr2.columns);     if(      Hdr1.columns     != Hdr2.columns)      { Error=1; printf(" <---");} printf("\n");
-	printf("lolat:       %f   %f",Hdr1.lolat,       Hdr2.lolat);       if(fpcmp(Hdr1.lolat ,        Hdr2.lolat))       { Error=1; printf(" <---");} printf("\n");
-	printf("lolong:      %f   %f",Hdr1.lolong,      Hdr2.lolong);      if(fpcmp(Hdr1.lolong,        Hdr2.lolong))      { Error=1; printf(" <---");} printf("\n");
-	printf("steplat:     %f   %f",Hdr1.steplat,     Hdr2.steplat);     if(fpcmp(Hdr1.steplat,       Hdr2.steplat))     { Error=1; printf(" <---");} printf("\n");
-	printf("steplong:    %f   %f",Hdr1.steplong,    Hdr2.steplong);    if(fpcmp(Hdr1.steplong,      Hdr2.steplong))    { Error=1; printf(" <---");} printf("\n");
-	printf("elscale:     %f   %f",Hdr1.elscale,     Hdr2.elscale);     if(fpcmp(Hdr1.elscale,       Hdr2.elscale))     { Error=1; printf(" <---");} printf("\n");
-	printf("MaxEl:       %d   %d",Hdr1.MaxEl,       Hdr2.MaxEl);	   if(      Hdr1.MaxEl       != Hdr2.MaxEl)        { Error=1; printf(" <---");} printf("\n");
-	printf("MinEl:       %d   %d",Hdr1.MinEl,       Hdr2.MinEl);       if(      Hdr1.MinEl       != Hdr2.MinEl)        { Error=1; printf(" <---");} printf("\n");
-	printf("Samples:     %d   %d",Hdr1.Samples,     Hdr2.Samples);	   if(      Hdr1.Samples     != Hdr2.Samples)      { Error=1; printf(" <---");} printf("\n");
-	printf("SumElDif:    %f   %f",Hdr1.SumElDif,    Hdr2.SumElDif);    if(fpcmp(Hdr1.SumElDif,      Hdr2.SumElDif))    { Error=1; printf(" <---");} printf("\n");
-	printf("SumElDifSq:  %f   %f",Hdr1.SumElDifSq,  Hdr2.SumElDifSq);  if(fpcmp(Hdr1.SumElDifSq,    Hdr2.SumElDifSq))  { Error=1; printf(" <---");} printf("\n");
+	if(      Hdr1.rows        != Hdr2.rows)         { Error=1; }
+	if(      Hdr1.columns     != Hdr2.columns)      { Error=1; }
+	if(fpcmp(Hdr1.lolat ,        Hdr2.lolat))       { Error=1; }
+	if(fpcmp(Hdr1.lolong,        Hdr2.lolong))      { Error=1; }
+	if(fpcmp(Hdr1.steplat,       Hdr2.steplat))     { Error=1; }
+	if(fpcmp(Hdr1.steplong,      Hdr2.steplong))    { Error=1; }
+	if(fpcmp(Hdr1.elscale,       Hdr2.elscale))     { Error=1; }
+	if(      Hdr1.MaxEl       != Hdr2.MaxEl)        { Error=1; }
+	if(      Hdr1.MinEl       != Hdr2.MinEl)        { Error=1; }
+	if(      Hdr1.Samples     != Hdr2.Samples)      { Error=1; }
+	if(fpcmp(Hdr1.SumElDif,      Hdr2.SumElDif))    { Error=1; }
+	if(fpcmp(Hdr1.SumElDifSq,    Hdr2.SumElDifSq))  { Error=1; }
+
+	my_printf(Error || Verbose,"rows:        %d   %d",Hdr1.rows,        Hdr2.rows);        if(      Hdr1.rows        != Hdr2.rows)         {printf(" <---");} my_printf(Error || Verbose,"\n");
+	my_printf(Error || Verbose,"columns:     %d   %d",Hdr1.columns,     Hdr2.columns);     if(      Hdr1.columns     != Hdr2.columns)      {printf(" <---");} my_printf(Error || Verbose,"\n");
+	my_printf(Error || Verbose,"lolat:       %f   %f",Hdr1.lolat,       Hdr2.lolat);       if(fpcmp(Hdr1.lolat ,        Hdr2.lolat))       {printf(" <---");} my_printf(Error || Verbose,"\n");
+	my_printf(Error || Verbose,"lolong:      %f   %f",Hdr1.lolong,      Hdr2.lolong);      if(fpcmp(Hdr1.lolong,        Hdr2.lolong))      {printf(" <---");} my_printf(Error || Verbose,"\n");
+	my_printf(Error || Verbose,"steplat:     %f   %f",Hdr1.steplat,     Hdr2.steplat);     if(fpcmp(Hdr1.steplat,       Hdr2.steplat))     {printf(" <---");} my_printf(Error || Verbose,"\n");
+	my_printf(Error || Verbose,"steplong:    %f   %f",Hdr1.steplong,    Hdr2.steplong);    if(fpcmp(Hdr1.steplong,      Hdr2.steplong))    {printf(" <---");} my_printf(Error || Verbose,"\n");
+	my_printf(Error || Verbose,"elscale:     %f   %f",Hdr1.elscale,     Hdr2.elscale);     if(fpcmp(Hdr1.elscale,       Hdr2.elscale))     {printf(" <---");} my_printf(Error || Verbose,"\n");
+	my_printf(Error || Verbose,"MaxEl:       %d   %d",Hdr1.MaxEl,       Hdr2.MaxEl);	   if(      Hdr1.MaxEl       != Hdr2.MaxEl)        {printf(" <---");} my_printf(Error || Verbose,"\n");
+	my_printf(Error || Verbose,"MinEl:       %d   %d",Hdr1.MinEl,       Hdr2.MinEl);       if(      Hdr1.MinEl       != Hdr2.MinEl)        {printf(" <---");} my_printf(Error || Verbose,"\n");
+	my_printf(Error || Verbose,"Samples:     %d   %d",Hdr1.Samples,     Hdr2.Samples);	   if(      Hdr1.Samples     != Hdr2.Samples)      {printf(" <---");} my_printf(Error || Verbose,"\n");
+	my_printf(Error || Verbose,"SumElDif:    %f   %f",Hdr1.SumElDif,    Hdr2.SumElDif);    if(fpcmp(Hdr1.SumElDif,      Hdr2.SumElDif))    {printf(" <---");} my_printf(Error || Verbose,"\n");
+	my_printf(Error || Verbose,"SumElDifSq:  %f   %f",Hdr1.SumElDifSq,  Hdr2.SumElDifSq);  if(fpcmp(Hdr1.SumElDifSq,    Hdr2.SumElDifSq))  {printf(" <---");} my_printf(Error || Verbose,"\n");
+
 
 	// the other elements of ElMapHeaderV101 are not stored in the elev files! (read/write only ELEVHDRLENV101 bytes)
 
@@ -1089,7 +1121,7 @@ void InitDEMConvertData(struct DEMConvertData *data, struct ConvertDemTestStruct
 	data->FormatCy[4]=0;
 	data->FormatCy[5]=0;
 	data->FormatCy[6]=0;
-	data->FormatCy[7]=1; // DATA_UNITS,  DEM_DATA_UNITS_METERS=1
+	data->FormatCy[7]=1;    // ZBuf->WCSDEM will 0 haben; // DATA_UNITS,  0=KILOM, 1=METERS, 2=CENTIM, 3=MILES, 4=FEET, 5=INCHES, 6=Other
 	data->FormatCy[8]=ConvertDemTestData->OutValueFormat;
 	data->FormatCy[9]=ConvertDemTestData->OutValueSize;
 	data->FormatInt[0]=ConvertDemTestData->HeaderBytes;
@@ -1127,7 +1159,8 @@ void InitDEMConvertData(struct DEMConvertData *data, struct ConvertDemTestStruct
 struct ConvertDemTestStruct ConverDemTestData[]=
 {
    //     SourceFileName,                 InFormat,              InValueFormat,           InValueSize,      HeaderBytes,Rows,Cols,MinEl,MaxEl,     OutFormat,              OutValueFormat,           OutValueSize,              Hi_Lat,   Lo_Lat,  Hi_Long,    Lo_Long,       outDir,        outNameBase,               refFileName
-
+#define oritzroiuzoritzoiu
+#ifdef oritzroiuzoritzoiu
    // header-size is 0 and does not matter for DEM_DATA_INPUT_VISTA
    { "test_files/source/BigSur.DEM",        DEM_DATA_INPUT_VISTA,  DEM_DATA_FORMAT_UNKNOWN,   DEM_DATA_VALSIZE_UNKNOWN,  0, 258, 258,    0, 1122, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_BYTE,     0.069428, 0.000000, 180.069428, 180.000000, "Ram:WCS_Test/", "tst_BSurBinArrS1",    "test_files/reference/ref_BSurBinArrS1",__LINE__   },
    { "test_files/source/BigSur.DEM",        DEM_DATA_INPUT_VISTA,  DEM_DATA_FORMAT_UNKNOWN,   DEM_DATA_VALSIZE_UNKNOWN,  0, 258, 258,    0, 1122, DEM_DATA_OUTPUT_ARRAY,   DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,    0.069428, 0.000000, 180.069428, 180.000000, "Ram:WCS_Test/", "tst_BSurBinArrS2",    "test_files/reference/ref_BSurBinArrS2",__LINE__   },
@@ -1339,6 +1372,12 @@ struct ConvertDemTestStruct ConverDemTestData[]=
 //   { "test_files/source/BSur.DEMDT",      DEM_DATA_INPUT_DTED,     DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 258, 258,    0, 1122, DEM_DATA_OUTPUT_COLORMAP,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  0,        0,          0,          0,        "Ram:WCS_Test/", "tst_BSurDT",          "test_files/reference/ref_BSurDT",__LINE__         },
 //   { "test_files/source/BSur.DEMDT",      DEM_DATA_INPUT_DTED,     DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 258, 258,    0, 1122, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  0,        0,          0,          0,        "Ram:WCS_Test/", "tst_BSurDTGray.iff",  "test_files/reference/ref_BSurDTGray.iff",__LINE__ },
 //   { "test_files/source/BSur.DEMDT",      DEM_DATA_INPUT_DTED,     DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 258, 258,    0, 1122, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  0,        0,          0,          0,        "Ram:WCS_Test/", "tst_BSurDTColor.iff", "test_files/reference/ref_BSurDTColor.iff",__LINE__},
+#else
+
+// 1   /* einziger! ZBuf-Test, der fehlschlaegt! */  { "test_files/source/BigSur.DEM",        DEM_DATA_INPUT_VISTA,  DEM_DATA_FORMAT_UNKNOWN,   DEM_DATA_VALSIZE_UNKNOWN,  0, 258, 258,    0, 1122, DEM_DATA_OUTPUT_ZBUF,    DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  0.069428, 0.000000, 180.069428, 180.000000, "Ram:WCS_Test/", "tst_BSur",            "test_files/reference/ref_BSurZB",__LINE__         },
+// 1 (Elev)   /* geht schief! */   { "test_files/source/36112.I   .elev", DEM_DATA_INPUT_WCSDEM,   DEM_DATA_FORMAT_UNKNOWN,   DEM_DATA_VALSIZE_UNKNOWN, 68, 301, 301,  651, 2316, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  0,        0,          0,          0,        "Ram:WCS_Test/", "tst_36112I",          "test_files/reference/ref_36112I",__LINE__         },
+  /* geht schief! */   { "test_files/source/BSur.DEMZB",      DEM_DATA_INPUT_ZBUF,     DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_LONG,    64, 258, 258,    0, 1122, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  0,        0,          0,          0,        "Ram:WCS_Test/", "tst_BSurZB",          "test_files/reference/ref_BSurZB",__LINE__         }
+#endif
 
 };
 
@@ -1438,7 +1477,7 @@ int Test_ConvertDem(void)
 				}
 				else
 				{
-					printf("failed --> Line %ld\n",ConverDemTestData[testIndex].LineNumber);
+					printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
 					Errors++;
 				}
 
@@ -1446,6 +1485,7 @@ int Test_ConvertDem(void)
 			}
 			case DEM_DATA_OUTPUT_WCSDEM:
 			{
+				int CmpElevError=0, CmpObjError=0;
 
 				// once for the elev-File
 				snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,".elev");
@@ -1456,6 +1496,7 @@ int Test_ConvertDem(void)
 				if(!CmpElevFiles(refFileNameExtended,tstFileName)==0)
 				{
 					printf("- Elev-Files problem - ");
+					CmpElevError=1;
 					Errors++;
 				}
 
@@ -1466,16 +1507,17 @@ int Test_ConvertDem(void)
 				if(CmpObjFiles(refFileNameExtended,tstFileName)!=0)
 				{
 					printf("- Obj-Files problem - ");
+					CmpObjError=1;
 					Errors++;
 				}
 
-				if(Errors==0)
+				if(CmpElevError==0 && CmpObjError==0)
 				{
 					printf("passed\n");
 				}
 				else
 				{
-					printf("failed --> Line %ld\n",ConverDemTestData[testIndex].LineNumber);
+					printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
 				}
 
 
@@ -1491,7 +1533,7 @@ int Test_ConvertDem(void)
 				}
 				else
 				{
-					printf("failed --> Line %ld\n",ConverDemTestData[testIndex].LineNumber);
+					printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
 					Errors++;
 				}
 			}

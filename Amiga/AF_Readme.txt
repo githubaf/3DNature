@@ -2590,4 +2590,4 @@ COLS=258; MYPATH=~/Desktop/SelcoGit/3DNature/Amiga/test_files/source; od --forma
 --------
 156 Convert DEM Tests, 3 failed, (gcc for Amiga)
 
-
+-FLoating-Point to hex online converter (braucht man manchmal):  https://gregstoll.com/~gregstoll/floattohex/
