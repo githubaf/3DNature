@@ -170,6 +170,28 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
 //#define  PRINT_CONVERTDEM_PARAMS  // used to create convert-testcases, AF, 17.April 23
 #ifdef PRINT_CONVERTDEM_PARAMS
  {
+		 /*
+		 // FormatCy
+		 0 InFormat       //  INPUT_FORMAT 0=binary Array, 1=WCS DEM, 2=Z-Buffer, 3=ASCII Array, 5=IFF, 6=DTED   3 ASCII Array
+		 1 OutFormat      // OUTPUT_FORMAT 0=ARRAY, 1=WCSDEM, 2=ZBUF,3=COLORMAP,4=GRAYIFF, 5=COLORIFF            3 COLORMAP
+		 2 InValueFormat  // 0=SIGNEDINT, 1=UNSIGNEDINT, 2=Float, 3=Unknown                                      2 Float
+		 3 InValueSize    // 0=BYTE, 1=Short, 2=Long, 3=Double,4=Unknown                                         2 Long
+		 4 Byte Order                                                                                            0
+		 5 Read Order                                                                                            0
+		 6 Rows Equal                                                                                            0
+		 7 DATA_UNITS                                                                                            1
+	     8 OutValueFormat // 0=Array, 1=WCSDEM, 2=ZBuf, 3=Colormap, 4=GrayIFF, 5=ColorIFF                        0 Array
+		 9 OutValueSize   // 0=BYTE, 1=Short, 2=Long, 3=Double,4=Unknown                                         0 Byte
+
+		 //FormatInt
+		 0 HeaderBytes
+		 1 Rows
+		 2 Cols
+		 3
+		 4
+*/
+
+
 	 printf("AF: %s() %d Filename=%s TestOnly=%d\n",__func__,__LINE__,filename,TestOnly);
 
 	 for(i=0;i< 2;i++) { printf("data->ActiveFC[%d]=%d;\n",i,data->ActiveFC[i]); }
@@ -292,7 +314,8 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
 
  if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP)
   {
-#ifdef OLD_COLORMAP  // AF, 18.April 23 Old code does NOT generate 3 files with .red, .grn and .blu but only one without suffix. See also below!
+//#define OLD_COLORMAP_CODE
+#ifdef OLD_COLORMAP_CODE  // AF, 18.April 23 Old code does NOT generate 3 files with .red, .grn and .blu but only one without suffix. See also below!
   short length;
 
   length = strlen(filename) - 3;             // file is the INPUT(!) file name. Has nothing to do with the resulting file! And what if filename-length is shorter 3 ???

@@ -4,7 +4,7 @@
 
 BigSur.DEM instead of Alps.dem used because it hat elevations from 0 ... 1122, i.e. covering signed/unsigned int8, too 28.Apr.23
 
-Source File Alps.dem taken from VistaPro3.5 for Amiga
+Source File BigSur.DEM taken from VistaPro3.5 for Amiga
 
 'ref_BSur  .Obj'    - Vista DEM BigSur.DEM -> WCS DEM,                       generated with WCS 2.04
 'ref_BSur  .elev'   - Vista DEM BigSur.DEM -> WCS DEM,                       generated with WCS 2.04

@@ -2578,3 +2578,16 @@ test_files Schublade nach WinUAE kopieren. Vista DEM -> andere Formate funktioni
 
 AROS: Nur die ersten 64 Bytes von elMapHeaderV101 werden gelesen/geschrieben, also auch diese muessen/duerfen Endian-gedreht werden!
 
+
+2.Mai.23
+--------
+Convert-Test mit ASCII als Source. Siehe 30.3.
+ASCII-File erzeugen:
+* erst ein Bin-Array erzeugen. z.B. Float 4 Bytes. aus BigSur.DEM, weil dort kleine (<128) und grosse Hoehen drin sind. Wie nehmen das BSur.DEMF4 aus test_files/sources, das wir vorher schon mit WCS2.04 erzeugt hatten
+COLS=258; MYPATH=~/Desktop/SelcoGit/3DNature/Amiga/test_files/source; od --format=fF --width=$(( $COLS*4 )) --endian=big --address-radix=none --output-duplicates "$MYPATH/BSur.DEMF4" > "$MYPATH/BSur.DEMAS"
+
+4.Mai.23
+--------
+156 Convert DEM Tests, 3 failed, (gcc for Amiga)
+
+
