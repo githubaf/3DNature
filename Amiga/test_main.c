@@ -1437,8 +1437,12 @@ int Test_ConvertDem(void)
 		InitDEMConvertData(&data,&ConverDemTestData[testIndex]);
 
 		ConvertDEM(&data, filename, TEST_ONLY);
-//		assert(data.MaxMin[0]==ConverDemTestData[testIndex].MinEl);   // min Elevation
-//		assert(data.MaxMin[1]==ConverDemTestData[testIndex].MaxEl);   // max Elevation
+		if((data.MaxMin[0]!=ConverDemTestData[testIndex].MinEl) ||     // min Elevation
+		   (data.MaxMin[1]!=ConverDemTestData[testIndex].MaxEl))      // max Elevation
+		{
+			Errors++;
+			printf("Line %ld Min/Max Test failed\n",ConverDemTestData[testIndex].LineNumber);
+		}
 
 		ConvertDEM(&data, filename, NO_TEST_ONLY);
 
