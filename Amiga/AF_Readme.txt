@@ -2590,8 +2590,17 @@ COLS=258; MYPATH=~/Desktop/SelcoGit/3DNature/Amiga/test_files/source; od --forma
 --------
 156 Convert DEM Tests, 3 failed, (gcc for Amiga)
 
--FLoating-Point to hex online converter (braucht man manchmal):  https://gregstoll.com/~gregstoll/floattohex/
+-Floating-Point to hex online converter (braucht man manchmal):  https://gregstoll.com/~gregstoll/floattohex/
 
 5.Mai.23
 --------
 Fixed Data-Units and one reference file for test. Now only one failed test left. (SumElDifSq wrong. Bug on Amiga?)
+
+- Wenn das Source-Format IFF ist, dann gibt es nur 256 Höhenwerte. 8Bit-IFF Bilder = 256 Werte. 24Bit IFF Bilder werden intern (Rot + Grün + Blau ) /3 gerechnet.
+- Wahrscheinlich kann man mir Floor und Ceiling den Wertebereich runterskalieren.
+- Ich nehme zum Test einfach BigSur.DEM als Input je einmal Grayiff und einmal ColorIFF als Output. Die Sind dann Source für die IFF-Tests.A
+
+6.Mai.23
+--------
+IFF Tests fertig. insgesamt 182 Tests, 2 Fehler (SumElDifSq)
+
