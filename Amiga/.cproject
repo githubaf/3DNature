@@ -1894,6 +1894,231 @@
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730" moduleId="org.eclipse.cdt.core.settings" name="test_i386-aros">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="of WCS functions" id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730" name="test_i386-aros" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.connection=unix:///var/run/docker.sock" parent="cdt.managedbuild.config.gnu.cross.exe.release" postbuildStep="cp ${ProjName} ${ProjName}_${ConfigName} &amp;&amp; cp ${ProjName}_${ConfigName} ${ProjName}_${ConfigName}.unstripped &amp;&amp; m68k-amigaos-strip ${ProjName}_${ConfigName} &amp;&amp; ls -la ${ProjName}_${ConfigName} &amp;&amp; m68k-amigaos-size ${ProjName}_${ConfigName} &amp;&amp; cp  ../WCS.info ${ProjName}_${ConfigName}.info" preannouncebuildStep="" prebuildStep="realpath $$(which m68k-amigaos-gcc) &amp;&amp;   rm -fv Version.o; rm -fv ${ProjName}_${ConfigName}* ">
+					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.1226111499" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
+							<option id="cdt.managedbuild.option.gnu.cross.prefix.749033370" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" useByScannerDiscovery="false" value="i386-aros-" valueType="string"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.1991790942" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" useByScannerDiscovery="false" value="" valueType="string"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1045244322" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/WCS}/Release" id="cdt.managedbuild.builder.gnu.cross.980915312" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" parallelBuildOn="false" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -DBUILDID=\&quot;g/'$(shell git describe --always --dirty --exclude &quot;*&quot;)'\&quot;  -fomit-frame-pointer  -DSTATIC_FCN=static -DSTATIC_VAR=static  -Winline -DSWMEM_FAST_INLINE -g" id="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.569016783" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.none" valueType="enumerated"/>
+								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.1505644335" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.1558958315" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
+									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
+									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
+									<listOptionValue builtIn="false" value="USHORT=UWORD"/>
+									<listOptionValue builtIn="false" value="SHORT=int16_t"/>
+									<listOptionValue builtIn="false" value="__stdargs="/>
+									<listOptionValue builtIn="false" value="__chip="/>
+									<listOptionValue builtIn="false" value="__far="/>
+									<listOptionValue builtIn="false" value="__saveds="/>
+									<listOptionValue builtIn="false" value="STACKED="/>
+									<listOptionValue builtIn="false" value="MUI_OBSOLETE="/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.1675780923" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WCS}&quot;"/>
+								</option>
+								<option id="gnu.c.compiler.option.dialect.std.11495083" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.misc.other.1342511316" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -funsigned-char" valueType="string"/>
+								<option id="gnu.c.compiler.option.optimization.flags.1914752272" name="Other optimization flags" superClass="gnu.c.compiler.option.optimization.flags" useByScannerDiscovery="false" value="" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1607109171" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.562748766" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
+								<option id="gnu.cpp.compiler.option.optimization.level.1734162503" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.1371901971" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+							</tool>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}  -fomit-frame-pointer  -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static  -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map  &amp;&amp; ../check_wcs_aros_i386.sh ${ProjName}" id="cdt.managedbuild.tool.gnu.cross.c.linker.177021496" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="gnu.c.link.option.libs.217885700" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.2017180624" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.978068068" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul" id="cdt.managedbuild.tool.gnu.cross.archiver.1712030285" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.403156205" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1706264899" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.EditGui.c" name="EditGui.c" rcbsApplicability="disable" resourcePath="EditGui.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.374863740">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.374863740" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.871779825" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1100792532" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.ParamsGUI.c" name="ParamsGUI.c" rcbsApplicability="disable" resourcePath="ParamsGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1752172127">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1752172127" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.500302559" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1542103322" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.EdEcoGUI.c" name="EdEcoGUI.c" rcbsApplicability="disable" resourcePath="EdEcoGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1477066950">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1477066950" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.859729503" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.306259023" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.WaveGUI.c" name="WaveGUI.c" rcbsApplicability="disable" resourcePath="WaveGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1909478270">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1909478270" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.2045671378" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.842778937" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.EdMoGUI.c" name="EdMoGUI.c" rcbsApplicability="disable" resourcePath="EdMoGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1707349181">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1707349181" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.2095209966" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1352781209" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.ScreenModeGUI.c" name="ScreenModeGUI.c" rcbsApplicability="disable" resourcePath="ScreenModeGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1728004545">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1728004545" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.734757873" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.111211549" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.AGUI.c" name="AGUI.c" rcbsApplicability="disable" resourcePath="AGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.516256888">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.516256888" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.569204809" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.894373132" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+						<tool customBuildStep="true" id="org.eclipse.cdt.managedbuilder.ui.rcbs.1088998489.417756479.1181546401.2008673583.1143113636.1489244328.2101984025.820635021.849200544" name="Resource Custom Build Step">
+							<inputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.inputtype.1729140170.1554896756.999758116.1606482326.1538777211.382749978.1529826273.633620915.1546856614" name="Resource Custom Build Step Input Type">
+								<additionalInput kind="additionalinputdependency" paths=""/>
+							</inputType>
+							<outputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.outputtype.849400752.604188231.468425984.1958671330.665595007.628304015.1698835977.1631206065.763127481" name="Resource Custom Build Step Output Type"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.PlotGUI.c" name="PlotGUI.c" rcbsApplicability="disable" resourcePath="PlotGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.2004229227">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.2004229227" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.190361496" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1443007699" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.DataOpsGUI.c" name="DataOpsGUI.c" rcbsApplicability="disable" resourcePath="DataOpsGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.899375538">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.899375538" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.438794254" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1436813403" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.DiagnosticGUI.c" name="DiagnosticGUI.c" rcbsApplicability="disable" resourcePath="DiagnosticGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.415396736">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.415396736" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.1652929820" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1624736873" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.TimeLinesGUI.c" name="TimeLinesGUI.c" rcbsApplicability="disable" resourcePath="TimeLinesGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1802005567">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1802005567" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.803540797" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2123675388" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.MoreGUI.c" name="MoreGUI.c" rcbsApplicability="disable" resourcePath="MoreGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.582085563">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.582085563" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.749554273" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.6869647" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.EvenMoreGUI.c" name="EvenMoreGUI.c" rcbsApplicability="disable" resourcePath="EvenMoreGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.693499872">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.693499872" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.1204576559" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.340354200" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.EdSetExtrasGUI.c" name="EdSetExtrasGUI.c" rcbsApplicability="disable" resourcePath="EdSetExtrasGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.742355462">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.742355462" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.1533582052" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2098137660" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.HelpGUI.c" name="HelpGUI.c" rcbsApplicability="disable" resourcePath="HelpGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.770631149">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.770631149" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.224031631" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1074866448" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.GenericTLGUI.c" name="GenericTLGUI.c" rcbsApplicability="disable" resourcePath="GenericTLGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.109801446">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.109801446" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.1645340152" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.958455558" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.EdSetGUI.c" name="EdSetGUI.c" rcbsApplicability="disable" resourcePath="EdSetGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.564342860">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.564342860" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.1236620401" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1743284159" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.RequesterGUI.c" name="RequesterGUI.c" rcbsApplicability="disable" resourcePath="RequesterGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.221701135">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.221701135" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.319455844" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.438615379" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.FoliageGUI.c" name="FoliageGUI.c" rcbsApplicability="disable" resourcePath="FoliageGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1661192914">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1661192914" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.733579558" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1276002868" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.MapGUI.c" name="MapGUI.c" rcbsApplicability="disable" resourcePath="MapGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.931318892">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.931318892" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.1068846552" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1151186931" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.DEMGUI.c" name="DEMGUI.c" rcbsApplicability="disable" resourcePath="DEMGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1321140078">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1321140078" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.1930201736" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1861419848" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.DispatchGUI.c" name="DispatchGUI.c" rcbsApplicability="disable" resourcePath="DispatchGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.452773150">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.452773150" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.1314562778" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1838127116" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.CloudGUI.c" name="CloudGUI.c" rcbsApplicability="disable" resourcePath="CloudGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1063857111">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1063857111" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.1765900275" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.159267211" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.EdDBaseGUI.c" name="EdDBaseGUI.c" rcbsApplicability="disable" resourcePath="EdDBaseGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.857817112">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.857817112" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.2049682604" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.729991986" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.1025979792.1107986290.152829730.TLSupportGUI.c" name="TLSupportGUI.c" rcbsApplicability="disable" resourcePath="TLSupportGUI.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1391545546">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1391545546" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1988038859">
+							<option id="gnu.c.compiler.option.optimization.level.1454288125" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1710526635" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<sourceEntries>
+						<entry excluding="MapSupport.c|HyperKhorner4M-1_gcc.asm|vgl|WaveGUI.c|Wave.c|VocabTable.c|Version.c|Tree.c|TLSupportGUI.c|TimeLinesGUI.c|Support.c|ScreenModeGUI.c|ScratchPad.c|RexxSupport.c|RequesterGUI.c|PlotGUI.c|ParamsGUI.c|Params.c|nngridr.c|nncrunch.c|MUIFloatInt.c|MoreGUI.c|Menu.c|MapUtil.c|MapTopoObject.c|MapTopo.c|MapLineObject.c|MapGUI.c|MapExtra.c|Map.c|MakeFaces.c|LWSupport.c|LineSupport.c|InteractiveView.c|InteractiveUtils.c|InteractiveDraw.c|Images.c|HelpGUI.c|GrammarTable.c|GlobeMapSupport.c|GlobeMap.c|GenericTLGUI.c|GenericParams.c|Fractal.c|FoliageGUI.c|Foliage.c|EvenMoreGUI.c|EdSetGUI.c|EdSetExtrasGUI.c|EdPar.c|EdMoGUI.c|EditGui.c|EdEcoGUI.c|EdDBaseGUI.c|DLG.c|DispatchGUI.c|DiagnosticGUI.c|DEMObject.c|DEMGUI.c|DefaultParams.c|DataOpsGUI.c|DataBase.c|Commands.c|ColorBlends.c|CloudGUI.c|Cloud.c|AGUI.c|WCS.c|af_cmpObjFiles.c|deleteme|HyperKhorner4M-1.c|af_double2short_test.c|af_fast_math_test.c|deleteme_drand48_test.c|af_drand48_disassembly|af_drand48_test2.c|af_drand48.c|af_drand48_test.c|version_test.c|vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="WCS.cdt.managedbuild.target.gnu.cross.exe.93764662" name="Executable" projectType="cdt.managedbuild.target.gnu.cross.exe"/>

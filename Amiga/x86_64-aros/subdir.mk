@@ -147,7 +147,8 @@ O_SRCS += \
 ../Wave.o \
 ../WaveGUI.o \
 ../nncrunch.o \
-../nngridr.o 
+../nngridr.o \
+../sasc_functions.o 
 
 C_DEPS += \
 ./AGUI.d \

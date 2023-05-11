@@ -42,7 +42,7 @@ main-build: WCS
 WCS: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
-	m68k-amigaos-gcc -pg -ftest-coverage -fprofile-arcs -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68040 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_Coverage.map  && ../check_wcs.sh WCS -lmui -lgcov -lm
+	m68k-amigaos-gcc -pg -ftest-coverage -fprofile-arcs -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68040 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_Coverage.map  && ../check_wcs_amigaos_m68k.sh WCS -lmui -lgcov -lm
 	@echo 'Finished building target: $@'
 	@echo ' '
 

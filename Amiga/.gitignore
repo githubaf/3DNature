@@ -6,3 +6,5 @@ x86_64-aros
 *.info
 *.map
 /test_68020/
+/tests_i386-aros/
+/test_i386-aros/

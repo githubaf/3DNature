@@ -16,8 +16,21 @@
 #include <exec/tasks.h>
 #include <clib/exec_protos.h>
 
+#include <errno.h>
+
 unsigned int printMessages=0;
 unsigned int Verbose=0;
+
+
+// the inline functions. exactly once with extern and without inline.
+#if defined  __AROS__ && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+extern void SimpleEndianFlip64 (double Source64, double *Dest64);  // AF, 12Dec22 for i386-aros
+extern inline void SimpleEndianFlip32F(float Source32, float  *Dest32);  // AF, 10Dec22 for i386-aros
+extern void SimpleEndianFlip32U( ULONG Source32, ULONG *Dest32);  // AF, 10Dec22 for i386-aros
+extern void SimpleEndianFlip32S( LONG Source32, LONG *Dest32);  //AF, 10Dec22 for i386-aros
+extern void SimpleEndianFlip16U(USHORT Source16, USHORT *Dest16);
+extern void SimpleEndianFlip16S(SHORT Source16, SHORT *Dest16);
+#endif
 
 USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
 	CONST_STRPTR buttonkey, int Default)

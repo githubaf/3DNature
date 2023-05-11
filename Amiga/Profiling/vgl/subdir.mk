@@ -41,7 +41,7 @@ OBJS += \
 vgl/%.o: ../vgl/%.c vgl/subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	m68k-amigaos-gcc -DFORCE_MUIMASTER_VMIN=19 -DTOOLCHAIN_VER=\"'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DAMIGA_GUI -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -O2 -g -pg -Wall -c -fmessage-length=0 -funsigned-char -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty)'\" -noixemul -fprofile-dir=/WCS_204 -m68040 -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g
+	m68k-amigaos-gcc -DFORCE_MUIMASTER_VMIN=19 -DTOOLCHAIN_VER=\"'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DAMIGA_GUI -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -O2 -g -pg -Wall -c -fmessage-length=0 -funsigned-char -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -noixemul -fprofile-dir=/WCS_204 -m68040 -DSTATIC_FCN=static -DSTATIC_VAR=static -mregparm -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
