@@ -2862,6 +2862,7 @@ EndLoad:
 /*
 ** Output
 */
+   printf("%s Line %d, rows=%ld, Cols=%ld\n",__FILE__,__LINE__,rows,cols);
    error = SaveConvertOutput(data, DEMHdr, OutputData, OutputDataSize, i, j,
 	rows, cols, OutputRows, OutputCols, RGBComponent);
 

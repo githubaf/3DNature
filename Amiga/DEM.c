@@ -2785,6 +2785,18 @@ Cleanup:
 } /* LoadVistaDEM() */
 
 /**********************************************************************/
+long DteddDataCheckSum(short *DataPtr, unsigned int ColSize)
+{
+	long Sum=0;
+	char *Ptr=(char*)DataPtr;
+	unsigned int i;
+	for(i=0;i<ColSize;i++)
+	{
+		Sum+=Ptr[i];
+	}
+	return Sum;
+}
+
 
 short LoadDTED(char *filename, short *Output, long OutputSize)
 {
@@ -2793,16 +2805,19 @@ short error = 0, *DataPtr, PtCt[2];
 long row, col, Rows, Cols, ColSize, StartPt = 0;
 FILE *fDEM;
 
+//printf("%s() Line %d: filename=%s OutputSize=%ld\n",__func__, __LINE__,filename,OutputSize);
+
  if ((fDEM = fopen(filename, "r")) == NULL)
   {
   return (2);
   } /* if file open error */
 
- fseek(fDEM, 160, SEEK_SET);
+ fseek(fDEM, 160, SEEK_SET);                    // What is 160? DSI should be at Offs 80!  ("Pos 81", Pos in MIL-PRF-89020B.pdf counts from 1)
  fread((char *)Sentinel, 3, 1, fDEM);
  Sentinel[3] = 0;
- if (strcmp(Sentinel, "DSI"))
+ if (strcmp(Sentinel, "DSI"))                   // if not found, search from the beginning to max offset 20000
   {
+  //printf("%s() Line %d\n",__func__, __LINE__);
   StartPt = -30000;
   fseek(fDEM, 0L, SEEK_SET);
   for (col=0; col<20000; col++)
@@ -2816,26 +2831,68 @@ FILE *fDEM;
      fread((char *)Sentinel, 1, 1, fDEM);
      if (Sentinel[0] == 'I')
       {
-      StartPt = ftell(fDEM) - 163;
+      StartPt = ftell(fDEM) - 163;              // found, set StartPt to curret offset -163  ??? Why 163??? -3 sounds more reasonable! (Begin of DSI record)
       break;
       } /* if */
      } /* if */
     } /* if */
    } /* for col=0... */
   } /* if */
- if (StartPt <= -30000)
+
+ // we found "DSI"
+
+ printf("%s() Line %d StartPt=%ld (0x%08lx)\n",__func__, __LINE__,StartPt,StartPt);
+ if (StartPt <= -30000)                         // if not found, report Error
   {
   error = 15;
   goto EndLoad;
   } /* if can't find DSI record */
 
- fseek(fDEM, StartPt + 441, SEEK_SET);
+
+ //printf("%s() Line %d Offset=%ld (0x%08lx)\n",__func__, __LINE__,StartPt+441,StartPt+441);
+ // Offset = 361
+
+ fseek(fDEM, StartPt + 441, SEEK_SET);          // goto offeset 441. DSI Record is 648 bytes long
+                                                // What is offset + 441 ??? 361 -> We should be 281! -> We are!
+/*
+ 0000-9999 4 282 Number of Latitude lines.
+ For magnetic tape, this is the
+ actual count of the number of
+ latitude points (rows that
+ contain data).
+ For CD-ROM, this is the count
+ of the number of latitude
+ points in a full one-degree
+ cell. (e.g. 1201 for DTED1,
+ 3601 for DTED2.
+*/
+
  fread((char *)Sentinel, 4, 1, fDEM);
  Sentinel[4] = 0;
  Rows = atoi(Sentinel);
 
+ //printf("%s() Line %d Rows=%ld\n",__func__, __LINE__,Rows); // 1201 is correct for Ruegen island
+
  fread((char *)Sentinel, 4, 1, fDEM);
+
+ /*
+ 0000-9999 4 286 Number of Longitude lines.
+ For magnetic tape, this is the
+ actual count of the number of
+ longitude points (columns that
+ contain data).
+ For CD-ROM, this is the count
+ of the number of longitude
+ points in a full one-degree
+ cell. The count is based on
+ the level of DTED and the
+ latitude zone of the cell.
+ (See Table II and III).
+  */
+
  Cols = atoi(Sentinel);
+ //printf("%s() Line %d Cols=%ld\n",__func__, __LINE__,Cols);    // 601 is correct for Ruegen island
+
  ColSize = Rows * sizeof (short);
 
  if (ColSize * Cols > OutputSize)
@@ -2844,20 +2901,43 @@ FILE *fDEM;
   goto EndLoad;
   }
 
- fseek(fDEM, StartPt + 3508, SEEK_SET);
+ fseek(fDEM, StartPt + 3508, SEEK_SET);   // To the Data Records. What is 3508??? It is the beginning of data record because we 80 started at -80
+                                          // Data Records (Each data record is 2414 bytes)*, Starts at byte 3429
  DataPtr = Output;
  
- for (col=0; col<Cols; col++)
+ for (col=0; col<Cols; col++)   // All Cols, i.e. 0 ... 600 for Ruegen island
   {
-  fread((char *)Sentinel, 4, 1, fDEM);
-  fread((char *)&PtCt[0], 4, 1, fDEM);
+  fread((char *)Sentinel, 4, 1, fDEM);   printf("%s() Line %d\n",__func__, __LINE__);
+
+  //printf("Sentinel[0]=%d (0x%02x)\n",Sentinel[0],Sentinel[0]);  // 170 Dec == 252 Octal Ok, 252_oct 1 byte, Recognition Sentinel. paragraph f in MIL-PRF-89020B.pdf
+  //printf("Sentinel[1]=%d (0x%02x)\n",Sentinel[1],Sentinel[1]);  // Data block count,  3 bytes Sequential count of the block within
+  //printf("Sentinel[2]=%d (0x%02x)\n",Sentinel[2],Sentinel[2]);
+  //printf("Sentinel[3]=%d (0x%02x)\n",Sentinel[3],Sentinel[3]);
+
+
+  fread((char *)&PtCt[0], 4, 1, fDEM);   printf("%s() Line %d PtCt=%d\n",__func__, __LINE__,PtCt[0]);  // 0 ... 600
+  //printf("((char *)PtCt)[0]=%d\n",((char *)PtCt)[0]);
+  //printf("((char *)PtCt)[1]=%d\n",((char *)PtCt)[1]);
+  //printf("((char *)PtCt)[2]=%d\n",((char *)PtCt)[2]);
+  //printf("((char *)PtCt)[3]=%d\n",((char *)PtCt)[3]);
+
+
+  // Longitude count, 2 bytes, Count of the meridian. True longitude = longitude count x data interval + origin (Offset from the
+  // SW corner longitude) (Fixed Binary).  paragraph f in MIL-PRF-89020B.pdf
+
+  // Latitude count, 2 bytes, Count of the parallel. True latitude = latitude count x data interval + origin (Offset from the SW corner latitude) (Fixed Binary).
+
   if (PtCt[0] != col)
    {
+	  //printf("%s() Line %d error = 6\n",__func__, __LINE__);
    error = 6;
    break;
    }
-  fread((char *)DataPtr, ColSize, 1, fDEM);
+  // Data of one latitude
+  fread((char *)DataPtr, ColSize, 1, fDEM);  printf("%s() Line %d ColSize=%ld\n",__func__, __LINE__,ColSize);    // 2402  (1201 points per longitude, 2 bytes) for Ruegen island
   fread((char *)Sentinel, 4, 1, fDEM);
+  //printf("%s() Line %d Sentinel=%ld\n",__func__, __LINE__,*(long*)Sentinel); // Checksum
+  //printf("Checksum=%ld\n",DteddDataCheckSum(DataPtr,ColSize));  // Checksum is inclusive Sentinel 252 octal lat and log count
   for (row=0; row<Rows; row++)
    {
    if (DataPtr[row] & 0x8000)

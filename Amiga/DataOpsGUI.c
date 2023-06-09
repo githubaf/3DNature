@@ -777,6 +777,33 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
    else
     set(DC_Win->Cycle[7], MUIA_Cycle_Active, 6); /* data units other */
 
+   // AF, 9.June 2023, show corner coordinates when WCS-DEM File is loaded
+   {
+	   double lolat=Hdr.lolat;
+	   double lolong=Hdr.lolong;
+	   double hilong= Hdr.lolong-Hdr.steplong*Hdr.rows;
+	   double hilat = Hdr.lolat+Hdr.steplat*(Hdr.columns-1);
+
+	   if(hilat<lolat)
+	   {
+		   swmem(&lolat, &hilat, sizeof(double));
+	   }
+
+	   if(hilong<lolong)
+	   {
+		   swmem(&lolong, &hilong, sizeof(double));
+	   }
+	   sprintf(str, "%f", lolat);
+	   set(DC_Win->LatScaleStr[1], MUIA_String_Contents, (IPTR)str);  //OK // DEM Converter Window, DEM-Registrat Tab, Low Lat
+	   sprintf(str, "%f", lolong);
+	   set(DC_Win->LatScaleStr[3], MUIA_String_Contents, (IPTR)str);  // DEM Converter Window, DEM-Registrat Tab, Low Lon
+
+	   sprintf(str, "%f", hilong);
+	   set(DC_Win->LatScaleStr[2], MUIA_String_Contents, (IPTR)str);  // DEM Converter Window, DEM-Registrat Tab, High Lon  ???
+	   sprintf(str, "%f", hilat);
+	   set(DC_Win->LatScaleStr[0], MUIA_String_Contents, (IPTR)str);  // DEM Converter Window, DEM-Registrat Tab, High Lat
+   }
+
    if (Version == 0.0)
     {
     Hdr.columns += 2;
@@ -1100,7 +1127,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     Coord = -Coord;
     }
    sprintf(str, "%f", Coord);
-   set(DC_Win->LatScaleStr[1], MUIA_String_Contents, (IPTR)str);
+   set(DC_Win->LatScaleStr[1], MUIA_String_Contents, (IPTR)str);  // DEM Converter Window, DEM-Registrat Tab, Low Lat
 
    read(fh, test, 8);
    test[8] = 0;
@@ -1110,7 +1137,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     Coord = -Coord;
     }
    sprintf(str, "%f", Coord);
-   set(DC_Win->LatScaleStr[2], MUIA_String_Contents, (IPTR)str);
+   set(DC_Win->LatScaleStr[2], MUIA_String_Contents, (IPTR)str);  // DEM Converter Window, DEM-Registrat Tab, High Lon
 
    read(fh, test, 7);
    test[7] = 0;
@@ -1120,7 +1147,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     Coord = -Coord;
     }
    sprintf(str, "%f", Coord);
-   set(DC_Win->LatScaleStr[0], MUIA_String_Contents, (IPTR)str);
+   set(DC_Win->LatScaleStr[0], MUIA_String_Contents, (IPTR)str);  // DEM Converter Window, DEM-Registrat Tab, High Lat
 
    lseek(fh, StartPt + 401, 0);
    read(fh, test, 8);
@@ -1131,7 +1158,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     Coord = -Coord;
     }
    sprintf(str, "%f", Coord);
-   set(DC_Win->LatScaleStr[3], MUIA_String_Contents, (IPTR)str);
+   set(DC_Win->LatScaleStr[3], MUIA_String_Contents, (IPTR)str);  // DEM Converter Window, DEM-Registrat Tab, Low Lon
 
    lseek(fh, StartPt + 441, 0);
    read(fh, test, 4);

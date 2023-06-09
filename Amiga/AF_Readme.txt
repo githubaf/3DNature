@@ -2604,3 +2604,65 @@ Fixed Data-Units and one reference file for test. Now only one failed test left.
 --------
 IFF Tests fertig. insgesamt 182 Tests, 2 Fehler (SumElDifSq)
 
+
+24.Mai 2023
+-----------
+DTED-Files:
+Rügen von Earthexplorer.usgs.gov/ geladen. (Account erforderlich).
+File: n54_e013_3arc_v2.dt1
+
+Koordinaten:
+
+Resolution 	3-ARC
+Date Updated 	2013-04-17 12:17:06-05
+NW Corner Lat 	55°00'00"N
+NW Corner Long 	13°00'00"E
+NE Corner Lat 	55°00'00"N
+NE Corner Long 	14°00'00"E
+SE Corner Lat 	54°00'00"N
+SE Corner Long 	14°00'00"E
+SW Corner Lat 	54°00'00"N
+SW Corner Long 	13°00'00"E
+
+Die Datei kann mit WCS convertiert werden. Allerdings ist in der Mapansicht nur Unfug zu sehen und das Programm stürzt dann auch später ab.
+
+Das Format ist 1201x601 Pixel. Kann WCS das? Mal als iff oder ASCII-Array convertieren.
+
+Zuerst mit gdal das dt1-File in ein Bildformat umwandeln:
+docker run -it -v /home/developer/Desktop/SelcoGit/3DNature/Amiga/test_usgs_dted:/tmp  ghcr.io/osgeo/gdal:alpine-small-3.7.0
+/ # gdal_translate tmp/n54_e013_3arc_v2.dt1 -of gif /tmp/n54_e013_3arc_v2.gif
+
+Das gif-Bild in ein iff-Bild umwandeln:
+convert n54_e013_3arc_v2.gif  n54_e013_3arc_v2.ilbm
+identify n54_e013_3arc_v2.ilbm
+display n54_e013_3arc_v2.ilbm
+
+* Das IFF-Bild kann WCS 2.04 nach WCS-DEM konvertien. Es kann in der Mapview richtig angezeigt werden. (Scale 25, Lat 54.5, Lon -13.5, Exag 48)
+
+Man kann auch ein ASCII-Array erzeugen:
+gdal_translate -of AAIGrid /tmp/n54_e013_3arc_v2.dt1 /tmp/n54_e013_3arc_v2.asc
+
+Von dem n54_e013_3arc_v2.asc müssen dann die ersten Zeilen entfernt werden, sie sind Beschreibung.
+tail -n +8 n54_e013_3arc_v2.asc > n54_e013_3arc_v2.ascarr
+
+Kann konvertiert werden. Bei Value-Bytes 2 oder 4 einstellen, sonst wird bei 8Bit abgeschnitten!
+
+26.Mai.2023
+-----------
+Bild auf 301x301 verkleinern:
+Das ! sorgt dafuer, das der Aspect ignoriert wird. Sonst macht er 151x301 draus.
+
+convert n54_e013_3arc_v2.ilbm -resize 301x301! n54_e013_3arc_v2_small.ilbm
+identify n54_e013_3arc_v2_small.ilbm
+
+
+5.Juni.2023
+----------
+DTED File Rügen (601x1201) ist total verzerrt.
+DTED-File Teneriffa (1201x1201) is ok!
+-> Problem scheint zu sein, wenn DTED-File nicht quadratisch ist.
+Die DTED-Lesefunktion LoadDTED() ist ok. Der Fehler muss später sein.
+
+9.Juni2023
+----------
+Wenn in Convert DEM ein WCS-DEM File geladen wird, werden jetzt im DEM Registrat TAB die Lo und Hi Koordinaten angezeigt, genauso wir beim Laden von DTED-Dateien.

@@ -82,6 +82,9 @@ Version 2.031 (Emerald-Berta)
                  .red/.grn/.blu ending was written. Now all 3 files are
                  created.
                  (This bug existed already in last original version 2.04)
+        *Feature:Convert DEM. If a WCS-DEM file is loaded as source, the
+                 corrdinates are now show in DEM Registrat TAB
+                 (Same behaviour as if a DTED file was loaded)
 
 
 Deutsch
