@@ -2666,3 +2666,17 @@ Die DTED-Lesefunktion LoadDTED() ist ok. Der Fehler muss später sein.
 9.Juni2023
 ----------
 Wenn in Convert DEM ein WCS-DEM File geladen wird, werden jetzt im DEM Registrat TAB die Lo und Hi Koordinaten angezeigt, genauso wir beim Laden von DTED-Dateien.
+
+13.6.2023
+---------
+Die Targets Profiling und Coveriage ließen sich nicht mehr linken. Lag ev. am neuem Eclipse? -lm, -lmui tauchte in der Linker-Zeile ganz am Ende auf, also hinter dem Test-Script, nicht am Ende des Linker-Aufrufes. -> Korrigiert.
+
+Coverage:
+Auf dem Amiga in der Linux-Verzeichnis gehen, wo WCS_Coverage liegt. WCS_Coverage starten.
+Auf Linux:
+cd ~/Desktop/SelcoGit/3DNature/Amiga/Coverage
+gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=. -r .. --html --html-details -o coverage.html
+
+14.6.2023
+---------
+Coverage geht wieder. -mregparm musste weg, sonst wurden keine gcda-Files erzeugt.

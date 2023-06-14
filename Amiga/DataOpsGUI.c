@@ -799,7 +799,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
 	   set(DC_Win->LatScaleStr[3], MUIA_String_Contents, (IPTR)str);  // DEM Converter Window, DEM-Registrat Tab, Low Lon
 
 	   sprintf(str, "%f", hilong);
-	   set(DC_Win->LatScaleStr[2], MUIA_String_Contents, (IPTR)str);  // DEM Converter Window, DEM-Registrat Tab, High Lon  ???
+	   set(DC_Win->LatScaleStr[2], MUIA_String_Contents, (IPTR)str);  // DEM Converter Window, DEM-Registrat Tab, High Lon
 	   sprintf(str, "%f", hilat);
 	   set(DC_Win->LatScaleStr[0], MUIA_String_Contents, (IPTR)str);  // DEM Converter Window, DEM-Registrat Tab, High Lat
    }

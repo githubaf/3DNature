@@ -2841,16 +2841,12 @@ FILE *fDEM;
 
  // we found "DSI"
 
- printf("%s() Line %d StartPt=%ld (0x%08lx)\n",__func__, __LINE__,StartPt,StartPt);
  if (StartPt <= -30000)                         // if not found, report Error
   {
   error = 15;
   goto EndLoad;
   } /* if can't find DSI record */
 
-
- //printf("%s() Line %d Offset=%ld (0x%08lx)\n",__func__, __LINE__,StartPt+441,StartPt+441);
- // Offset = 361
 
  fseek(fDEM, StartPt + 441, SEEK_SET);          // goto offeset 441. DSI Record is 648 bytes long
                                                 // What is offset + 441 ??? 361 -> We should be 281! -> We are!
@@ -2907,7 +2903,7 @@ FILE *fDEM;
  
  for (col=0; col<Cols; col++)   // All Cols, i.e. 0 ... 600 for Ruegen island
   {
-  fread((char *)Sentinel, 4, 1, fDEM);   printf("%s() Line %d\n",__func__, __LINE__);
+  fread((char *)Sentinel, 4, 1, fDEM);   // printf("%s() Line %d\n",__func__, __LINE__);
 
   //printf("Sentinel[0]=%d (0x%02x)\n",Sentinel[0],Sentinel[0]);  // 170 Dec == 252 Octal Ok, 252_oct 1 byte, Recognition Sentinel. paragraph f in MIL-PRF-89020B.pdf
   //printf("Sentinel[1]=%d (0x%02x)\n",Sentinel[1],Sentinel[1]);  // Data block count,  3 bytes Sequential count of the block within
@@ -2915,7 +2911,7 @@ FILE *fDEM;
   //printf("Sentinel[3]=%d (0x%02x)\n",Sentinel[3],Sentinel[3]);
 
 
-  fread((char *)&PtCt[0], 4, 1, fDEM);   printf("%s() Line %d PtCt=%d\n",__func__, __LINE__,PtCt[0]);  // 0 ... 600
+  fread((char *)&PtCt[0], 4, 1, fDEM);   // printf("%s() Line %d PtCt=%d\n",__func__, __LINE__,PtCt[0]);  // 0 ... 600
   //printf("((char *)PtCt)[0]=%d\n",((char *)PtCt)[0]);
   //printf("((char *)PtCt)[1]=%d\n",((char *)PtCt)[1]);
   //printf("((char *)PtCt)[2]=%d\n",((char *)PtCt)[2]);
@@ -2934,7 +2930,7 @@ FILE *fDEM;
    break;
    }
   // Data of one latitude
-  fread((char *)DataPtr, ColSize, 1, fDEM);  printf("%s() Line %d ColSize=%ld\n",__func__, __LINE__,ColSize);    // 2402  (1201 points per longitude, 2 bytes) for Ruegen island
+  fread((char *)DataPtr, ColSize, 1, fDEM); // printf("%s() Line %d ColSize=%ld\n",__func__, __LINE__,ColSize);    // 2402  (1201 points per longitude, 2 bytes) for Ruegen island
   fread((char *)Sentinel, 4, 1, fDEM);
   //printf("%s() Line %d Sentinel=%ld\n",__func__, __LINE__,*(long*)Sentinel); // Checksum
   //printf("Checksum=%ld\n",DteddDataCheckSum(DataPtr,ColSize));  // Checksum is inclusive Sentinel 252 octal lat and log count
