@@ -2680,3 +2680,17 @@ gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=. -r .. --html --ht
 14.6.2023
 ---------
 Coverage geht wieder. -mregparm musste weg, sonst wurden keine gcda-Files erzeugt.
+
+--> coverage als ASCII, damit man verschiedene Laeufe vergleichen kann:
+for FILE in $(ls *.gcno); do m68k-amigaos-gcov $(basename $FILE .gcno); done
+mkdir no_scale
+mv *.gcov no_scale/
+rm *.cgda  # neue Coverage, nicht aufaddieren
+
+DTED-File convertieren und diesemal mit Skalierung, also neue Rows/Columns Werte
+
+und dann gcno-Dateien mit meld vergleichen
+
+16.6.2023
+---------
+Skalieren geht nicht bei ILBM auch nicht. (Ruegen 601x1201 -> 301x601) zeigt nur 1. Viertel
