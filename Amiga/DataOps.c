@@ -1354,6 +1354,22 @@ printf("ORows=%ld OCols=%ld\n",ORows,OCols);
   LastOutRow = ORows - 1;
   LastOutCol = OCols - 1;
 
+  if(INPUT_FORMAT==DEM_DATA_INPUT_DTED) // AF, 22.June 23 need to swap for scaling if input is DTED
+  {
+	  long temp1=LastInRow;
+	  long temp2=INPUT_ROWS;
+	  double temp3=RowStep;
+
+	  LastInRow=LastInCol;
+	  LastInCol=temp1;
+
+	  INPUT_ROWS=INPUT_COLS;
+	  INPUT_COLS=temp2;
+
+	  RowStep=ColStep;
+	  ColStep=temp3;
+  }
+
   // Werte sehen alle richtig aus Ruegen.ilbm 601x1201  ->  301x601
   printf("RowStep: %f\n",RowStep);
   printf("ColStep: %f\n",ColStep);

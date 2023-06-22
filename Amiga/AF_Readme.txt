@@ -2694,3 +2694,11 @@ und dann gcno-Dateien mit meld vergleichen
 16.6.2023
 ---------
 Skalieren geht nicht bei ILBM auch nicht. (Ruegen 601x1201 -> 301x601) zeigt nur 1. Viertel
+
+19.6.2023
+---------
+Skalieren bei ILBM geht jetzt.
+
+22.6.2023
+---------
+Damit das Skalieren auch bei DTED geht, muessen einige Werte vertauscht werden. LastInRow/Col, INPUT_ROWS/COLS, Row/ColStep in ConvertDEM().
