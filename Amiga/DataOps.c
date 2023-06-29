@@ -1187,8 +1187,8 @@ EndLoad:
  if (error)
   goto Cleanup;
 
-printf("CROP_ROWS=%d CROP_COLS=%d\n",CROP_ROWS,CROP_COLS);
-printf("ORows=%ld OCols=%ld\n",ORows,OCols);
+//printf("CROP_ROWS=%d CROP_COLS=%d\n",CROP_ROWS,CROP_COLS);
+//printf("ORows=%ld OCols=%ld\n",ORows,OCols);
 
 
 /*
@@ -1211,7 +1211,6 @@ printf("ORows=%ld OCols=%ld\n",ORows,OCols);
      {
      case DEM_DATA_FORMAT_UNSIGNEDINT:
       {
-    	  printf("%d OutputDataSize=%d\n",__LINE__,OutputDataSize);
       if ((OutputData1U = (UBYTE *)get_Memory(OutputDataSize, MEMF_ANY|MEMF_CLEAR)) == NULL)
        {
        error = 1;
@@ -1356,30 +1355,33 @@ printf("ORows=%ld OCols=%ld\n",ORows,OCols);
 
   if(INPUT_FORMAT==DEM_DATA_INPUT_DTED) // AF, 22.June 23 need to swap for scaling if input is DTED
   {
-	  long temp1=LastInRow;
-	  long temp2=INPUT_ROWS;
-	  double temp3=RowStep;
+	  long temp1;
+	  short temp2;
+	  double temp3;
 
+	  temp1=LastInRow;
 	  LastInRow=LastInCol;
 	  LastInCol=temp1;
 
+	  temp2=INPUT_ROWS;
 	  INPUT_ROWS=INPUT_COLS;
 	  INPUT_COLS=temp2;
 
+	  temp3=RowStep;
 	  RowStep=ColStep;
 	  ColStep=temp3;
+
   }
 
   // Werte sehen alle richtig aus Ruegen.ilbm 601x1201  ->  301x601
-  printf("RowStep: %f\n",RowStep);
-  printf("ColStep: %f\n",ColStep);
-  printf("LastInRow: %ld\n",LastInRow);
-  printf("LastInCol: %ld\n",LastInCol);
-  printf("LastOutRow: %ld\n",LastOutRow);
-  printf("LastOutCol: %ld\n",LastOutCol);
-  printf("OCols: %ld\n",OCols);
-  printf("CROP_TOP: %d\n",CROP_TOP);
-
+  //printf("RowStep: %f\n",RowStep);
+  //printf("ColStep: %f\n",ColStep);
+  //printf("LastInRow: %ld\n",LastInRow);
+  //printf("LastInCol: %ld\n",LastInCol);
+  //printf("LastOutRow: %ld\n",LastOutRow);
+  //printf("LastOutCol: %ld\n",LastOutCol);
+  //printf("OCols: %ld\n",OCols);
+  //printf("CROP_TOP: %d\n",CROP_TOP);
 
   BWDC = BusyWin_New("Resample", ORows, 0, MakeID('B','W','D','C'));
   for (i=0; i<OUTPUT_ROWS; i++)  // AF: OCols  ???  mit 1201 geht das ILBM??? Was ist der Unterschied ORows und OUTPUT_ROWS? Mit OUTPUT_ROWS geht das ILBM-File!
@@ -2449,7 +2451,6 @@ printf("ORows=%ld OCols=%ld\n",ORows,OCols);
       {
       case DEM_DATA_FORMAT_UNSIGNEDINT:
        {
-    	   printf("OutputDataSize: %ld\n",OutputDataSize);
        if ((OutputData1U = (UBYTE *)get_Memory(OutputDataSize, MEMF_ANY|MEMF_CLEAR)) == NULL)
         {
         error = 1;
@@ -2895,9 +2896,9 @@ printf("ORows=%ld OCols=%ld\n",ORows,OCols);
 /*
 ** Output
 */
-   printf("%s Line %d, rows=%ld, Cols=%ld\n",__FILE__,__LINE__,rows,cols);
-   printf("%s Line %d, OutputRows=%ld, OutputCols=%ld\n",__FILE__,__LINE__,OutputRows,OutputCols);
-   printf("%s Line %d, DEMHdr rows=%d, Cols=%d\n",__FILE__,__LINE__,DEMHdr->rows,DEMHdr->columns);
+//   printf("%s Line %d, rows=%ld, Cols=%ld\n",__FILE__,__LINE__,rows,cols);
+//   printf("%s Line %d, OutputRows=%ld, OutputCols=%ld\n",__FILE__,__LINE__,OutputRows,OutputCols);
+//   printf("%s Line %d, DEMHdr rows=%d, Cols=%d\n",__FILE__,__LINE__,DEMHdr->rows,DEMHdr->columns);
 if(INPUT_FORMAT == DEM_DATA_INPUT_DTED)  // exchange cols and rows for DTED. The Ruegen.dt1 (601x1201) can be converted.
 {
    error = SaveConvertOutput(data, DEMHdr, OutputData, OutputDataSize, i, j,
@@ -3204,8 +3205,6 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
    //write(fOutput, (char *)DEMHdr, ELEVHDRLENV101);
    writeElMapHeaderV101_BE(fOutput,DEMHdr); // AF, 21.3.23, Write Big Endian
 
-   printf("Line %d, OutputDataSize=%ld\n",__LINE__,OutputDataSize);  // 361802 = 301 x 601 x 2
-   // outputdata mit iff vergleichen ???
 
    //if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
    if ((write_short_Array_BE(fOutput, OutputData, OutputDataSize)) != OutputDataSize) // AF, 21.3.23, Write Big Endian

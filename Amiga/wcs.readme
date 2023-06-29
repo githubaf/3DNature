@@ -83,8 +83,16 @@ Version 2.031 (Emerald-Berta)
                  created.
                  (This bug existed already in last original version 2.04)
         *Feature:Convert DEM. If a WCS-DEM file is loaded as source, the
-                 corrdinates are now show in DEM Registrat TAB
+                 corrdinates are now shown in DEM Registrat TAB
                  (Same behaviour as if a DTED file was loaded)
+        *BugFix: Convert DEM: IFF files with columns!=rows can now be
+                 scaled.
+                 (Scaling did not work in last original version 2.04)
+        *BugFix: Convert DEM: DTED files with columns!=rows can now be
+                 used. Also scaling of these DTEDs is now possible.
+                 (That did not work in last original version 2.04)
+                 This is very importand for DTED files above 50° north 
+                 and below 50° aquired from https://earthexplorer.usgs.gov
 
 
 Deutsch

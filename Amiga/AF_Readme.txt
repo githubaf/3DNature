@@ -2702,3 +2702,8 @@ Skalieren bei ILBM geht jetzt.
 22.6.2023
 ---------
 Damit das Skalieren auch bei DTED geht, muessen einige Werte vertauscht werden. LastInRow/Col, INPUT_ROWS/COLS, Row/ColStep in ConvertDEM().
+
+- DTED -> IFF geht nur, wenn Cols==Rows, sonst nicht.
+- IFF  -> IFF geht.
+
+
