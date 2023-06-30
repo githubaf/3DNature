@@ -2714,3 +2714,4 @@ also Ruegen 601x1201 -> 301x601 geht nicht,
 
 - aehnliches Problem bei IFF -> Gray IFF
 
+- Der Test kann auch mit vamos ausgefuehrt werden, wenn ohne 68881 compiliert wird. Dauert dann ca 4 Minuten.
