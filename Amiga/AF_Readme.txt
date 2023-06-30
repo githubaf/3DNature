@@ -2706,4 +2706,10 @@ Damit das Skalieren auch bei DTED geht, muessen einige Werte vertauscht werden. 
 - DTED -> IFF geht nur, wenn Cols==Rows, sonst nicht.
 - IFF  -> IFF geht.
 
+30.6.2023
+---------
+- IFF -> IFF geht nicht, wenn Targed x!=y, 
+also Ruegen 601x1201 -> 301x601 geht nicht, 
+     Ruegen 601x1201 -> 301x301 geht aber
+
 
