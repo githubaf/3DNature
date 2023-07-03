@@ -2708,8 +2708,8 @@ Damit das Skalieren auch bei DTED geht, muessen einige Werte vertauscht werden. 
 
 30.6.2023
 ---------
-- IFF -> Color IFF geht nicht, wenn Targed x!=y, 
-also Ruegen 601x1201 -> 301x601 geht nicht, 
+- IFF -> Color IFF geht (manchmal?) nicht
+also Ruegen 601x1201 -> 301x601 geht nicht, (meistens fehlt die untere Haelfte fehlt oder ist zerstoert???) 
      Ruegen 601x1201 -> 301x301 geht aber
 
 - aehnliches Problem bei IFF -> Gray IFF

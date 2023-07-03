@@ -175,308 +175,185 @@ void Set_DM_ProfData(struct USGS_DEMProfileHeader *ProfHdr)
 void setlineseg(struct lineseg *ls, double firstx, double firsty,
 	double lastx, double lasty)
 {
- ls->oldx = ls->lastx;
- ls->oldy = ls->lasty;
- ls->firstx = firstx;
- ls->firsty = firsty;
- ls->lastx = lastx;
- ls->lasty = lasty;
+	printf("%s() Dummy-Function called!\n",__func__);
+}
 
-} /* setlineseg() */
 
-// from, MapUtil.c
-short saveobject(long OBN, char *fname, double *Lon, double *Lat, short *Elev)
+// dummy-mock, original in InteractiveView.c
+short initinterview(short boundsdiscrim)
 {
- char filename[255], filetype[10];
- short j, OpenOK, WriteOK = 0;
- long Size;
- float Version;
- double LatSum = 0.0, LonSum = 0.0;
- struct vectorheaderV100 Hdr={0};  // init, AF, 23.Mar.23
- struct DirList *DLItem;
- FILE *fobject;
+	printf("%s() Dummy-Function called!\n",__func__);
+	return 0;
+}
 
- Version = VEC_CURRENT_VERSION;
- if (! Lat || ! Lon || ! Elev)
-  {
-  return (1);
-  }
-
- OpenOK = 0;
-
- if (! fname)
-  {
-  DLItem = DL;
-  while (DLItem)
-   {
-   if (DLItem->Read == '*')
-    {
-    DLItem = DLItem->Next;
-    continue;
-    } /* if directory is write protected */
-   strmfp(filename, DLItem->Name, DBase[OBN].Name);
-   strcat(filename, ".Obj");
-   if ((fobject = fopen(filename, "rb")) == NULL)
-    {
-    DLItem = DLItem->Next;
-    }
-   else
-    {
-    fclose(fobject);
-    if ((fobject = fopen(filename, "wb")) != NULL)
-     OpenOK = 1;
-    break;
-    }
-   } /* while */
-
-  if (! OpenOK)
-   {
-   strmfp(filename, dirname, DBase[OBN].Name);
-   strcat(filename, ".Obj");
-   if ((fobject = fopen(filename, "wb")) == NULL)
-    {
-    Log(ERR_OPEN_FAIL, (CONST_STRPTR)DBase[OBN].Name);
-    User_Message((CONST_STRPTR)DBase[OBN].Name, (CONST_STRPTR)"Can't open object file!\nObject not saved.",
-            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-    return(1);
-    } /* if open fail */
-   } /* if pre-existing file not found */
-  } /* if no supplied name */
- else
-  {
-  if ((fobject = fopen(fname, "wb")) == NULL)
-   {
-   Log(ERR_OPEN_FAIL, (CONST_STRPTR)fname);
-   return(1);
-   } /* if open fail */
-  } /* if name passed to saveobject() */
-
- strcpy(filetype, "WCSVector");
- strncpy(Hdr.Name, DBase[OBN].Name, 10);
- Hdr.points = DBase[OBN].Points;
- Hdr.elevs = 0;
-
- for (j=1; j<=DBase[OBN].Points; j++)
-  {
-  LatSum += Lat[j];
-  LonSum += Lon[j];
-  } /* for j=0... */
- Hdr.avglat = LatSum / Hdr.points;
- Hdr.avglon = LonSum / Hdr.points;
- Hdr.elscale = ELSCALE_METERS;
-
- Size = (DBase[OBN].Points + 1) * sizeof (double);
-
- if (fwrite((char *)filetype, 9, 1, fobject) == 1)
-  {
-  if (fwrite_float_BE(&Version,fobject)==1)   //(fwrite((char *)&Version, sizeof (float), 1, fobject) == 1) AF: 22.Mar.23
-   {
-   if (fwriteVectorheaderV100_BE(&Hdr, fobject) == 1) // (fwrite((char *)&Hdr, sizeof (struct vectorheaderV100), 1, fobject) == 1)  AF: 22.Mar.23
-    {
-    if (fwrite_double_Array_BE(&Lon[0], Size,fobject)==1) //(fwrite((char *)&Lon[0], Size, 1, fobject) == 1) AF: 22.Mar.23
-     {
-     if (fwrite_double_Array_BE(&Lat[0], Size, fobject) == 1) // (fwrite((char *)&Lat[0], Size, 1, fobject) == 1) AF: 22.Mar.23
-      {
-      if (fwrite_SHORT_Array_BE(&Elev[0], Size / 4, fobject) == 1) // (fwrite((char *)&Elev[0], Size / 4, 1, fobject) == 1) AF: 22.Mar.23
-       {
-       WriteOK = 1;
-       }
-      }
-     }
-    }
-   }
-  }
- fclose(fobject);
-
- if (WriteOK)
-  {
-  DBase[OBN].Flags &= (255 ^ 1);
-  sprintf(str, "%s vector saved. %d points", DBase[OBN].Name, DBase[OBN].Points);
-  Log(MSG_NULL, (CONST_STRPTR)str);
-  DB_Mod = 1;
-  }
- else
-  {
-  User_Message((CONST_STRPTR)DBase[OBN].Name, (CONST_STRPTR)"Error saving object file!\nObject not saved.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_WRITE_FAIL, (CONST_STRPTR)DBase[OBN].Name);
-  return (1);
-  }
-
- return(0);
-
-} /* saveobject() */
 
 void UTM_LatLon(struct UTMLatLonCoords *Coords)
 {
-double x, y, M, mu, phi_1, C_1, T_1, N_1, R_1, D_1,
-	cos_phi_1, tan_phi_1, sin_phi_1, sin_sq_phi_1, C_1_sq, T_1_sq, D_1_sq;
-
-
- x 		= Coords->East;
- y 		= Coords->North;
- x 		-= 500000.0;
- M 		= Coords->M_0 + y / Coords->k_0;
- mu = M / (Coords->a * (1.0 - Coords->e_sq / 4.0 - 3.0 * Coords->e_sq_sq
-	/ 64 - 5.0 * Coords->e_sq * Coords->e_sq_sq / 256.0));
- phi_1 = (mu + (3.0 * Coords->e_1 / 2.0 - 27.0 * Coords->e_1 * Coords->e_1_sq / 32.0)
-	* sin(2.0 * mu)
-	+ (21.0 * Coords->e_1_sq / 16.0 - 55.0 * Coords->e_1_sq * Coords->e_1_sq / 32.0)
-	* sin(4.0 * mu)
-	+ (151.0 * Coords->e_1 * Coords->e_1_sq / 96.0) * sin(6.0 * mu)); /* radians */
- cos_phi_1 	= cos(phi_1);
- tan_phi_1 	= tan(phi_1);
- sin_phi_1 	= sin(phi_1);
- sin_sq_phi_1	= sin_phi_1 * sin_phi_1;
- phi_1 		*= PiUnder180;				/* degrees */
- C_1 		= Coords->e_pr_sq * cos_phi_1 * cos_phi_1;
- C_1_sq 	= C_1 * C_1;
- T_1 		= tan_phi_1 * tan_phi_1;
- T_1_sq 	= T_1 * T_1;
- N_1 		= Coords->a / sqrt(1.0 - Coords->e_sq * sin_sq_phi_1);
- R_1 		= Coords->a * (1.0 - Coords->e_sq) / pow((1.0 - Coords->e_sq * sin_sq_phi_1), 1.5);
- D_1		= x / (N_1 * Coords->k_0);
- D_1_sq 	= D_1 * D_1;
-
- Coords->Lat = phi_1 - (N_1 * tan_phi_1 / R_1) *
-	(D_1_sq / 2.0
-	- (5.0 + 3.0 * T_1 + 10.0 * C_1 - 4.0 * C_1_sq - 9.0 * Coords->e_pr_sq)
-	* D_1_sq * D_1_sq / 24.0
-	+ (61.0 + 90.0 * T_1 + 298.0 * C_1 + 45.0 * T_1_sq - 252.0 * Coords->e_pr_sq
-		- 3.0 * C_1_sq)
-	* D_1_sq * D_1_sq * D_1_sq / 720.0)
-	* PiUnder180;		/* degrees */
-
-/* note: if longitude is desired in negative degrees for West then the central
-	meridian longitude must be negative and the first minus sign in the
-	following formula should be a plus */
-
- Coords->Lon = Coords->lam_0 - ((D_1 - (1.0 + 2.0 * T_1 + C_1) * D_1 * D_1_sq / 6.0
-	+ (5.0 - 2.0 * C_1 + 28.0 * T_1 - 3.0 * C_1_sq + 8.0 * Coords->e_pr_sq
-		+ 24.0 * T_1_sq)
-	* D_1 * D_1_sq * D_1_sq / 120.0) / cos_phi_1) * PiUnder180; /* degrees */
-
-} /* UTM_LatLon() */
+	printf("%s() Dummy-Function called!\n",__func__);
+}
 
 
 // from Maputil.c
 void LatLon_UTM(struct UTMLatLonCoords *Coords, short UTMZone)
 {
- double a, e_sq, k_0, lam_0, M_0, x, y, e_pr_sq, M,
-	C, T, N, phi, lam, phi_rad,
-	cos_phi, sin_phi, tan_phi, A, A_sq, A_cu, A_fo, A_fi, A_si, T_sq;
-
- a 	= 6378206.4;
- e_sq 	= 0.00676866;
- k_0 	= 0.9996;
- M_0 	= 0.0;
- phi 	= Coords->Lat;
- lam 	= -Coords->Lon;	/* change sign to conform with GIS standard */
- lam_0 	= -(double)(183 - UTMZone * 6);
- phi_rad = phi * PiOver180;
-
- e_pr_sq = e_sq / (1.0 - e_sq);
- sin_phi = sin(phi_rad);
-
-/* use a very large number for tan_phi if tan(phi) is undefined */
-
- tan_phi = fabs(phi) == 90.0 ? (phi >= 0.0 ? 1.0: -1.0) * FLT_MAX / 100.0:
-	 tan(phi_rad);
- cos_phi = cos(phi_rad);
-
- N	= a / sqrt(1.0 - e_sq * sin_phi * sin_phi);
- T	= tan_phi * tan_phi;
- T_sq	= T * T;
- C	= e_pr_sq * cos_phi * cos_phi;
- A	= cos_phi * (lam - lam_0) * PiOver180;
- A_sq	= A * A;
- A_cu	= A * A_sq;
- A_fo	= A * A_cu;
- A_fi	= A * A_fo;
- A_si	= A * A_fi;
- M	= 111132.0894 * phi - 16216.94 * sin (2.0 * phi_rad)
-	 + 17.21 * sin(4.0 * phi_rad) - .02 * sin(6.0 * phi_rad);
- x	= k_0 * N * (A + ((1.0 - T + C) * A_cu / 6.0)
-	  + ((5.0 - 18.0 * T + T_sq + 72.0 * C - 58.0 * e_pr_sq) * A_fi / 120.0)
-	  ) + 500000;
- y	= k_0 * (M - M_0 + N * tan_phi *
-	   (A_sq / 2.0 + ((5.0 - T + 9.0 * C + 4.0 * C * C) * A_fo / 24.0)
-	   + ((61.0 - 58.0 * T + T_sq + 600.0 * C - 330.0 * e_pr_sq) * A_si / 720.0)
-	  ));
-
-
-/* note: if longitude is desired in negative degrees for West then the central
-	meridian longitude must be negative and the first minus sign in the
-	following formula should be a plus */
-
-
- Coords->North = y;
- Coords->East  = x;
-
-} /* UTM_LatLon() */
+}
 
 // from Maputil.c
 void UTMLatLonCoords_Init(struct UTMLatLonCoords *Coords, short UTMZone)
 {
-
-  Coords->a 	= 6378206.4;
-  Coords->e_sq 	= 0.00676866;
-  Coords->k_0 	= 0.9996;
-  Coords->M_0 	= 0.0;
-  Coords->lam_0	= (double)(183 - UTMZone * 6);
-
-  Coords->e_pr_sq 	= Coords->e_sq / (1.0 - Coords->e_sq);
-  Coords->e_sq_sq 	= Coords->e_sq * Coords->e_sq;
-  Coords->e_1 		= (1.0 - sqrt(1.0 - Coords->e_sq)) / (1.0 + sqrt(1.0 - Coords->e_sq));
-  Coords->e_1_sq 	= Coords->e_1 * Coords->e_1;
-
-} /* UTMLatLonCoords_Init() */
+	printf("%s() Dummy-Function called!\n",__func__);
+}
 
 //from MapUtil.c
 double Point_Extract(double X, double Y, double MinX, double MinY,
 	 double IntX, double IntY, short *Data, long Rows, long Cols)
 {
- long Row, Col, Col_p, Row_p, TrueRow, TrueCol;
- double RemX = 0.0, RemY = 0.0, P1, P2;
+	printf("%s() Dummy-Function called!\n",__func__);
+	return 0;
+}
 
- Row = TrueRow = ((Y - MinY) / IntY);
- Col = TrueCol = ((X - MinX) / IntX);
- if (Row < 0)
-  Row = 0;
- else if (Row >= Rows)
-  Row = Rows - 1;
- if (Col < 0)
-  Col = 0;
- if (Col >= Cols)
-  Col = Cols - 1;
+// MapGUI.c
+void MapGUI_Message(short line, char *Message)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
 
- Row_p = Row;
- Col_p = Col;
+// MapUtil.c
+void ClipDraw(struct Window *win, struct clipbounds *cb, struct lineseg *ls)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
 
- if (Row < Rows - 1 && TrueRow >= 0)
-  {
-  RemY = (Y - (Row * IntY + MinY)) / IntY;
-  if (RemY < 0.0)
-   RemY = 0.0;
-  Row_p ++;
-  } /* if not last row */
- if (Col < Cols - 1 && TrueCol >= 0)
-  {
-  RemX = (X - (Col * IntX + MinX)) / IntX;
-  if (RemX < 0.0)
-   RemX = 0.0;
-  Col_p ++;
-  } /* if not last column */
+// MapUtil.c
+void ClipDrawRPort(struct RastPort *Rast, struct clipbounds *cb, struct lineseg *ls)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
 
- P1 = RemX * (Data[Col_p * Rows + Row] - Data[Col * Rows + Row])
-	 + Data[Col * Rows + Row];
- P2 = RemX * (Data[Col_p * Rows + Row_p] - Data[Col * Rows + Row_p])
-	 + Data[Col * Rows + Row_p];
+//MapGUI.c
+void MapIDCMP_Restore(struct Window *win)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
 
- return ( RemY * (P2 - P1) + P1 );
+//Support.c
+struct Window *FetchMultiWindowEvent(struct IntuiMessage *Event, ...)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+	return 0;
+}
 
-} /* Point_Extract() */
+//MapUtil.c
+void setclipbounds(struct Window *win, struct clipbounds *cb)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
 
+//InteractiveDraw.c
+void drawgridview(void)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//InteractiveUtils.c
+void setcompass(short focusaz)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//InteractiveDraw.c
+void constructview(void)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//InteractiveDraw.c
+void DrawInterFresh(short drawgrid)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//InteractiveDraw.c
+void makeviewcenter(short erase)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//InteractiveDraw.c
+void drawveryquick(short undraw)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//InteractiveDraw.c
+void drawquick(short a, short b, short c, short Clear)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//InteractiveDraw.c
+void computequick(void)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//InteractiveDraw.c
+void drawfocprof(short erase)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//EdMoGUI.c
+void Update_EM_Item(void)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//InteractiveDraw.c
+short drawgridpts(short erase)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+	return 0;
+}
+
+//InteractiveUtils.c
+void azimuthcompute(short focusaz, double flat, double flon,
+          double tlat, double tlon)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//InteractiveUtils.c
+void findfocprof(void)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//DataBase.c
+short Load_Object(short i, char **LastDir)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+	return 0;
+}
+
+//Support.c
+void FetchEvent(struct Window *Win, struct IntuiMessage *Event)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//Params.c
+void FreeKeyTable(void)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+}
+
+//Params.c
+short BuildKeyTable(void)
+{
+	printf("%s() Dummy-Function called!\n",__func__);
+	return 0;
+}
 
 // ##############################################################################################################
 // print only, if verbose is set
@@ -1438,7 +1315,7 @@ struct ConvertDemTestStruct ConverDemTestData[]=
 	 { "IFF 601x1201 -> Color IFF 601x1201", "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  173, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_COLORIFF,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1201,601,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug601x1201IFF.iff",          "test_files/reference/ref_RuegenIFF_601x1201.iff",__LINE__         },
 
 	 // IFF 601x1201 -> Color IFF 301x601   geht nicht, nur halbes Bild
-//	   { "IFF 601x1201 -> Color IFF 301x601", "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  255, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  601,301,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug301x601_IFF.iff",          "test_files/reference/ref_Ruegen301x601.iff",__LINE__         },
+     { "IFF 601x1201 -> Color IFF 301x601",  "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  170, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_COLORIFF,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,   601,301,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug301x601_IFF.iff",          "test_files/reference/ref_RuegenIFF_301x601.iff",__LINE__         },
 
      // IFF 601x1201 -> Color IFF 301x301 Spline Constrain
 	 { "IFF 601x1201 -> Color IFF 301x301 Spline Contrain", "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  170, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_COLORIFF,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  301,301,1, 0,        0,          0,          0,        "Ram:WCS_Test/",  "tst_Rug301x301SCIFF.iff",          "test_files/reference/ref_RuegenIFF_301x301SplnCnstr.iff",__LINE__         },
