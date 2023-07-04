@@ -2722,3 +2722,6 @@ also Ruegen 601x1201 -> 301x601 geht nicht, (meistens fehlt die untere Haelfte f
 - ASCII-Buffer -> IFF funktioniert auch mit 601x1201 und mit und ohne Skalierung.
 - Wo kommt das "Invert Data Order?" her? Das ist bei WCS 2.04 nicht so.  -> Im Binary 2.04 gibt es den String nicht! Ist also wohl so richtig.
 
+4.7.2023
+--------
+Test ASCII-Puffer 601x1201 -> Gray IFF mit Skalierung und Spline Constraints hinzugefuegt. 
