@@ -1311,13 +1311,8 @@ struct ConvertDemTestStruct ConverDemTestData[]=
      // more IFF tests (x!=y, Scaling, Spline Constrain)
 
 	 // IFF with x != y (Ruegen converted to gif and further to iff with gdal and image magic)
-	 // IFF 601x1201 -> Color IFF 601x1201
-	 { "IFF 601x1201 -> Color IFF 601x1201", "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  173, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_COLORIFF,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1201,601,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug601x1201IFF.iff",          "test_files/reference/ref_RuegenIFF_601x1201.iff",__LINE__         },
-
-	 // IFF 601x1201 -> Color IFF 301x601   geht nicht, nur halbes Bild
-     { "IFF 601x1201 -> Color IFF 301x601",  "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  170, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_COLORIFF,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,   601,301,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug301x601_IFF.iff",          "test_files/reference/ref_RuegenIFF_301x601.iff",__LINE__         },
-
-     // IFF 601x1201 -> Color IFF 301x301 Spline Constrain
+	 { "IFF 601x1201 -> Color IFF 601x1201",                "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  173, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_COLORIFF,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1201,601,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug601x1201IFF.iff",          "test_files/reference/ref_RuegenIFF_601x1201.iff",__LINE__         },
+     { "IFF 601x1201 -> Color IFF 301x601",                 "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  170, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_COLORIFF,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,   601,301,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug301x601_IFF.iff",          "test_files/reference/ref_RuegenIFF_301x601.iff",__LINE__         },
 	 { "IFF 601x1201 -> Color IFF 301x301 Spline Contrain", "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  170, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_COLORIFF,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  301,301,1, 0,        0,          0,          0,        "Ram:WCS_Test/",  "tst_Rug301x301SCIFF.iff",          "test_files/reference/ref_RuegenIFF_301x301SplnCnstr.iff",__LINE__         },
 
      // -------------------------------------------------------------------
@@ -1329,8 +1324,20 @@ struct ConvertDemTestStruct ConverDemTestData[]=
 //	   { "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  255, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_WCSDEM,  DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  601,301,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug301x601_IFF.iff",          "test_files/reference/ref_Ruegen301x601Gray.iff",__LINE__         },
 
      // IFF 601x1201 -> Gray IFF 301x301 Spline Constrain
-	 { "IFF 601x1201 -> Gray IFF 301x301 Spline Constrain", "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  170, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_GRAYIFF,   DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  301,301,1, 0,        0,          0,          0,        "Ram:WCS_Test/",  "tst_Rg301301SCIFFGr.iff",          "test_files/reference/ref_RuegenIFF_301x301SplnCnstrGray.iff",__LINE__         },
+	 { "IFF 601x1201 -> Gray IFF 301x301 Spline Constrain", "test_files/source/n54_e013_3arc_v2.iff", DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601,    0,  170, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_GRAYIFF,   DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  301,301,1,   0,        0,          0,          0,        "Ram:WCS_Test/",  "tst_Rg301301SCIFFGr.iff",          "test_files/reference/ref_RuegenIFF_301x301SplnCnstrGray.iff",__LINE__         },
 
+     // -------------------------------------------------------------------
+
+	 // ASCII 601x1201 -> Color IFF
+	 { "ASCII Array 601x1201 -> Color IFF 601x1201",        "test_files/source/n54_e013_3arc_v2.ascarr", DEM_DATA_INPUT_ASCII,    DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,   0, 1201, 601,    -18, 173,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, 1201, 601,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "Rug601x1201ASColr.iff",  "test_files/reference/ref_RuegenASC_601x1201.iff",__LINE__},
+	 { "ASCII Array 601x1201 -> Color IFF 301x601",         "test_files/source/n54_e013_3arc_v2.ascarr", DEM_DATA_INPUT_ASCII,    DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,   0, 1201, 601,    -12, 170,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  601, 301,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "Rug301x601ASClr.iff",   "test_files/reference/ref_RuegenASC_301x601.iff", __LINE__},
+	 { "ASCII Array 601x1201 -> Color IFF 301x601",         "test_files/source/n54_e013_3arc_v2.ascarr", DEM_DATA_INPUT_ASCII,    DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,   0, 1201, 601,    -12, 170,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_COLORIFF,DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  301, 301,1, 0,        0,          0,          0,        "Ram:WCS_Test/", "Rug301x301ASCSClr.iff", "test_files/reference/ref_RuegenASC_301x301SplnCnstrColor.iff", __LINE__},
+
+
+
+
+	 // ASCII 601x1201 -> Gray IFF
+//	 { "ASCII Array -> GRAYIFF",      "test_files/source/n54_e013_3arc_v2.ascarr",      DEM_DATA_INPUT_ASCII,    DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_LONG,   0, 258, 258,    0, 1122,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  258,258,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_BSurASGray.iff",  "test_files/reference/ref_BSurASGray.iff",__LINE__ },
 
 
 #else

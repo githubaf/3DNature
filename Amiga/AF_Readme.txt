@@ -2715,3 +2715,10 @@ also Ruegen 601x1201 -> 301x601 geht nicht, (meistens fehlt die untere Haelfte f
 - aehnliches Problem bei IFF -> Gray IFF
 
 - Der Test kann auch mit vamos ausgefuehrt werden, wenn ohne 68881 compiliert wird. Dauert dann ca 4 Minuten.
+
+3.7.2023
+--------
+- IFF -> Color IFF scheint doch immer zu gehen. Ich habe wohl manchmal versehentlich mit einer aelteren Version von mir getestet.
+- ASCII-Buffer -> IFF funktioniert auch mit 601x1201 und mit und ohne Skalierung.
+- Wo kommt das "Invert Data Order?" her? Das ist bei WCS 2.04 nicht so.  -> Im Binary 2.04 gibt es den String nicht! Ist also wohl so richtig.
+
