@@ -360,6 +360,9 @@ RepeatRGB:
 
  InputDataSize = INPUT_ROWS * INPUT_COLS;
 
+ printf("INVALUE_SIZE=%ld\n",INVALUE_SIZE);
+ printf("InputDataSize=%ld\n",InputDataSize);
+
  switch (INVALUE_SIZE)
   {
   case DEM_DATA_VALSIZE_BYTE:
@@ -518,6 +521,8 @@ RepeatRGB:
    } /* unknown value size */
   } /* switch value size */
 
+ // --- Now load the Sourcefile into void *InputData Buffer ---
+
  if (INPUT_FORMAT == DEM_DATA_INPUT_VISTA)
   {
   error = LoadVistaDEM(filename, (short *)InputData, (short)INPUT_COLS);
@@ -527,8 +532,27 @@ RepeatRGB:
  if (INPUT_FORMAT == DEM_DATA_INPUT_DTED)
   {
   error = LoadDTED(filename, (short *)InputData, InputDataSize);
+
+  // ------------
+  {
+ 	 FILE *pgmfile=fopen("Ram:LoadDted.txt","w");
+ 	 int i;
+ 	 fprintf(pgmfile,"P2\n %d %d 170\n",601,1201);
+
+ 	 for (i=0;i<601*1201;i++)
+ 	 {
+ 		 fprintf(pgmfile,"%u ",((unsigned short*)InputData)[i]);
+ 		 if(i%16==0)
+ 		 {
+ 			 fprintf(pgmfile, "\n");   // max 70 chars per line -> make a newline after 16 values
+ 		 }
+ 	 }
+ 	 fclose (pgmfile);
+  }
+  // ------------
+
   goto EndLoad;
-  } /* if Vista DEM */
+  } /* if DTED */
 
  if (INPUT_FORMAT == DEM_DATA_INPUT_IFF)
   {
@@ -944,6 +968,8 @@ EndLoad:
  if (error)
   goto Cleanup;
 
+ // Now we have the Source file data in buffer void *InputData.
+
 /*
 ** Invert data if Intel format (Low-High byte order)
 */
@@ -995,7 +1021,7 @@ EndLoad:
   goto Cleanup;
 
 /*
-** Apply floor and ceiling values
+** Apply floor and ceiling values to the InputData buffer
 */
  if (ACTIVE_FLOOR)
   {
@@ -1190,7 +1216,8 @@ EndLoad:
 //printf("CROP_ROWS=%d CROP_COLS=%d\n",CROP_ROWS,CROP_COLS);
 //printf("ORows=%ld OCols=%ld\n",ORows,OCols);
 
-
+ // floor and ceiling has been applied to void *InputData buffer
+ // Alexander: Warum wird jetzt mit  INVALUE_SIZE und INVALUE_FORMAT gearbeitet? Wir wollen doch den Output-Puffer allockieren???
 /*
 ** Re-Sample to output size
 */
@@ -1200,6 +1227,8 @@ EndLoad:
   long RowBase[4], LastInRow, LastInCol, LastOutRow, LastOutCol, CurRow[4], CurCol[4];
   double RowStep, ColStep, RowDelta, ColDelta, TP[4],
 	P0, P1, P2, P3, D1, D2, S1, S2, S3, h1, h2, h3, h4;
+
+  printf("ALEXANDER: CROP_ROWS != ORows || CROP_COLS != OCols\n",__LINE__);
 
   OutputDataSize = ORows * OCols;
 
@@ -1382,6 +1411,9 @@ EndLoad:
   //printf("LastOutCol: %ld\n",LastOutCol);
   //printf("OCols: %ld\n",OCols);
   //printf("CROP_TOP: %d\n",CROP_TOP);
+
+  printf("Resample line %d\n",__LINE__);
+
 
   BWDC = BusyWin_New("Resample", ORows, 0, MakeID('B','W','D','C'));
   for (i=0; i<OUTPUT_ROWS; i++)  // AF: OCols  ???  mit 1201 geht das ILBM??? Was ist der Unterschied ORows und OUTPUT_ROWS? Mit OUTPUT_ROWS geht das ILBM-File!
@@ -2185,6 +2217,9 @@ EndLoad:
   long RightEdge = INPUT_COLS - CROP_RIGHT;
   long BottomEdge = INPUT_ROWS - CROP_BOTTOM;
 
+  printf("ALEXANDER: Compute Scale\n",__LINE__);
+
+
   datazip = 0;
   BWDC = BusyWin_New("Extrema", BottomEdge, 0, MakeID('B','W','D','C'));
   for (i=0; i<BottomEdge; i++)
@@ -2599,13 +2634,15 @@ EndLoad:
     case DEM_DATA_OUTPUT_COLORMAP:
      {
      if (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM 
-	|| INPUT_FORMAT == DEM_DATA_INPUT_DTED)
+	|| INPUT_FORMAT == DEM_DATA_INPUT_DTED)       // DTED -> WCSDEM funktioniert anscheinend
       {
+    	 printf("Line %d\n",__LINE__);
       BaseOff = (CROP_LEFT + i * (OutputCols - DUPROW)) * INPUT_COLS
 		+ j * (OutputRows - DUPROW) + CROP_BOTTOM;
       } /* if WCS DEM input */
      else
       {
+    	 printf("Line %d\n",__LINE__);
       BaseOff = (CROP_TOP + ((OUTPUT_COLMAPS - 1 - j) * (OutputRows - DUPROW)
 		+ LastOutputRows - DUPROW)) * INPUT_COLS
 		+ i * (OutputCols - DUPROW) + CROP_LEFT;
@@ -2614,9 +2651,10 @@ EndLoad:
      } /* if WCS DEM or Color Map output */
     default:
      {
-     if (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM
+     if (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM   // z.B. DTED -> IFF
 	|| INPUT_FORMAT == DEM_DATA_INPUT_DTED)
       {
+    	 printf("Line %d\n",__LINE__);
       BaseOff = (CROP_LEFT + i * (OutputCols)) * INPUT_COLS
 		+ j * (OutputRows) + rows - 1 + CROP_BOTTOM;
       } /* if WCS DEM input */
@@ -2624,11 +2662,13 @@ EndLoad:
       {
       if (OUTPUT_COLMAPS - 1 - j > 0)
        {
+    	  printf("Line %d\n",__LINE__);
        BaseOff = (CROP_TOP + ((OUTPUT_COLMAPS - 2 - j) * OutputRows
 		+ LastOutputRows)) * INPUT_COLS  + i * OutputCols + CROP_LEFT;
        } /* if not top row of output maps */
       else
        {
+    	  printf("Line %d\n",__LINE__);
        BaseOff = CROP_TOP * INPUT_COLS + i * OutputCols + CROP_LEFT;
        } /* else top row of output maps */
       } /* else not DEM input */
@@ -2647,6 +2687,7 @@ EndLoad:
      if (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM
 	|| INPUT_FORMAT == DEM_DATA_INPUT_DTED)
       {
+    	 printf("ALEXANDER: DTED -> WCSDEM zip Berechnung\n");
 /*      datazip = BaseOff + colctr * INPUT_ROWS;*/
       datazip = BaseOff + colctr * INPUT_COLS;
       outzip = colctr * rows;
@@ -2661,6 +2702,8 @@ EndLoad:
      if (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM
 	|| INPUT_FORMAT == DEM_DATA_INPUT_DTED)
       {
+    	 printf("ALEXANDER: DTED -> IFF zip Berechnung\n");
+
 /*      datazip = BaseOff + colctr * INPUT_ROWS;*/
       datazip = BaseOff + colctr * INPUT_COLS;
       outzip = colctr;
@@ -3070,6 +3113,21 @@ Cleanup:
 
 /***********************************************************************/
 
+unsigned char FAR DestBuffer[601*1201];
+
+STATIC_FCN void FlipUnsignedCharBufColsRows(unsigned char *DestBuf,unsigned char *SrcBuf,long cols,long rows)
+{
+	int i,j;
+	for (i = 0; i < rows; i++)  // rows
+	{
+		for (j = 0; j < cols; j++) // cols
+		{
+			DestBuf[j * rows + (rows - i- 1)] = SrcBuf[i * cols + j];
+		}
+	}
+}
+
+
 STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmapheaderV101 *DEMHdr,
 	void *OutputData, long OutputDataSize, short i, short j,
 	long rows, long cols, long OutputRows, long OutputCols, char *RGBComp) // used locally only -> static, AF 26.7.2021
@@ -3081,6 +3139,44 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 	OutFlags = O_WRONLY | O_CREAT | O_TRUNC;
  float	Version = DEM_CURRENT_VERSION;
  double Lon[6], Lat[6];
+
+ printf("Line %d\n",__LINE__);
+ printf("cols=%ld, rows=%ld\n",cols,rows);                          // ASCIIARRAY 301x601             DTED   301x601
+ printf("OutputCols=%ld OutputRows=%ld\n",OutputCols,OutputRows);   //            301x601                    601x301 !!!
+ printf("OutputDataSize=%ld\n\n",OutputDataSize);                   //            180901 = 301x601           180901 = 301x601
+// OutputData enthaelt schon die auszugebenden Daten!
+ // ------------
+ // bei Ruegen AsciiArray -> ColorIFF bekommen wir hier ein richtiges Bild. Bei DTed->ColorIFF kommt was falsches.
+
+// if(INPUT_FORMAT==DEM_DATA_INPUT_DTED && OUTPUT_FORMAT==DEM_DATA_OUTPUT_COLORIFF)
+// {
+//	 FlipUnsignedCharBufColsRows(DestBuffer,OutputData,rows,cols);
+//	 {
+//		 unsigned int i;
+//		 for(i=0;i<OutputDataSize;i++)
+//		 {
+//			 ((unsigned char*)OutputData)[i]=DestBuffer[i];
+//		 }
+//	 }
+// }
+
+ {
+	 FILE *pgmfile=fopen("Ram:debug.txt","w");
+	 int i;
+	 fprintf(pgmfile,"P2\n %d %d 170\n",cols,rows);
+
+	 for (i=0;i<rows*cols;i++)
+	 {
+		 fprintf(pgmfile,"%u ",((unsigned char*)OutputData)[i]);   // short for dted, char for iff
+		 if(i%16==0)
+		 {
+			 fprintf(pgmfile, "\n");   // max 70 chars per line -> make a newline after 16 values
+		 }
+	 }
+	 fclose (pgmfile);
+ }
+ // ------------
+
 
  strcpy(tempfilename, OUTPUT_NAMEBASE);
 
@@ -3199,7 +3295,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
      } /* if rows = longitude */
     } /* if not WCS DEM input */
 
-   FindElMaxMin(DEMHdr, OutputData);
+   FindElMaxMin(DEMHdr, OutputData);   // searches in OutputData for Max and Min values.
    //write(fOutput, (char *)&Version, 4);
    write_float_BE(fOutput, &Version); // AF, 21.3.23, Write Big Endian
    //write(fOutput, (char *)DEMHdr, ELEVHDRLENV101);

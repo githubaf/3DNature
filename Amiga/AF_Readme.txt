@@ -2725,3 +2725,41 @@ also Ruegen 601x1201 -> 301x601 geht nicht, (meistens fehlt die untere Haelfte f
 4.7.2023
 --------
 Test ASCII-Puffer 601x1201 -> Gray IFF mit Skalierung und Spline Constraints hinzugefuegt. 
+
+6.7.23
+------
+DTED-> Color IFF:
+*Das DTED-File muss NICHT quadratisch sein. Das ZIEL-File muss Quadratisch sein, dann geht es.
+*Auch eine 1:1 (601x1201 -> 601x1201) Umrechning klappt nicht, weil es nicht quadratisch ist. Es sollte also nicht am Skalieren liegen.
+
+Am Anfang der Funktion SaveConvertOutput() habe ich OutputData als pgm-File ausgegeben. Das soll sich dann als vernuentiges Bild anzeigen lassen. Schon verkleinert, als ein Byte pro Pixel.
+Wenn das Ziel quadratisch ist, klappt das auch.
+
+10.7.23
+-------
+-Test.
+DTED 601x1201 -> WCSDEM
+ASCII-ARRAY 601x1201 -> WCSDEM
+Am Anfang von SaveConvertOutput() haben wir einen Buffer "OutputData", in dem die Hoehenwerte liegen. Der Puffer ist 1201x601, also um 90 Grad im Uhrzeigersinn gedreht. WCSDEM hat die Daten also genauso wie DTED spaltenweise von Sued nach Nord.
+
+Bei ARRAY->WCSDEM muss also irgendwo gedreht worden sein, denn das ARRAY ist 601x1201 und Zeilenweise.
+Das Drehen anschauen, sowas brauchen wir dann sicher auch f¸r DTED -> IFF.
+
+DTED 601x1201 -> color IFF
+
+ASCIIArray 601x1201 -> Color IFF 
+Am Anfang von SaveConvertOutput() haben wir einen Buffer "OutputData", in dem die Hoehenwerte liegen. Der Puffer ist 601x1201, also nicht gedreht und zeilenweise.
+
+Die Daten scheinen in InputData zu liegen und werden von dort nach Output-Data kopiert, zeilen- oder Spaltenweise und 1,2,4 Bytes pro Wert.
+Das m¸sste man wohl rein.
+
+Emerald Anton (Aminet)
+WCSDEM 601x1201 Ruegen -> WCSDEM     Mapview falsch
+                       -> Color IFF  Bild ist 1201x601, also x/y vertausch und falsch
+DTED 601x1201 Ruegen   -> WCSDEM     Mapview falsch wie bei WCSDEM
+                       -> auf 601x601 skaliert: einigermassen richtig, aber verzerrt.
+                       -> Color IFF  Bild ist 1201x601, also x/y vertausch und falsch, genauso falsch wie bei WCSDEM
+
+12.7.23
+-------
+Aktueller Stand eingecheckt. Ich werde wohl einige Aenderungen anschlieﬂend wie rueckgaengig machen. Convert ist immer noch eine grosse Baustelle. Ich brauche noch mehr Tests, vor Allem fuer nicht quadratische Files.
