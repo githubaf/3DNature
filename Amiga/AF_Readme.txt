@@ -2763,3 +2763,102 @@ DTED 601x1201 Ruegen   -> WCSDEM     Mapview falsch wie bei WCSDEM
 12.7.23
 -------
 Aktueller Stand eingecheckt. Ich werde wohl einige Aenderungen anschließend wie rueckgaengig machen. Convert ist immer noch eine grosse Baustelle. Ich brauche noch mehr Tests, vor Allem fuer nicht quadratische Files.
+
+Aufgeraeumt. DETD->IFF von Ruegen als Quellfile.
+
+iff -> color iff       Ruegen 601x1201 -> Ruegen 601x1201 OK    im Test vorhanden
+                                                 301x601  OK    im Test vorhanden
+                                                 301x301  OK    im Test vorhanden
+
+iff -> gray iff        Ruegen 601x1201 -> Ruegen 601x1201 OK    display aaa   in Test aufgenommen
+                                                 301x601  OK    display aaa   in Test aufgenommen
+                                                 301x301  OK    display aaa   in Test aufgenommen
+
+iff -> WCSDEM          Ruegen 601x1201 -> Ruegen 601x1201 OK    (Anzeige in WCS->Mapview)   in Test aufgenommen 
+                                                 301x601  OK    (Anzeige in WCS->Mapview)   in Test aufgenommen
+                                                 301x301  OK    (Anzeige in WCS->Mapview)   in Test aufgenommen
+
+iff -> bin array u1    Ruegen 601x1201 -> Ruegen 601x1201 OK    display -depth 8 -size 601x1201 gray:aaa    in Test aufgenommen
+       bin array u2    Ruegen 601x1201 -> Ruegen 601x1201 OK    display -depth 16 -size 601x1201 gray:aaa   in Test aufgenommen
+       bin array u4    Ruegen 601x1201 -> Ruegen 601x1201 OK    display -depth 32 -size 601x1201 gray:aaa   in Test aufgenommen
+
+       bin array s1    Ruegen 601x1201 -> Ruegen 601x1201 OK    display -depth 8 -size 601x1201 gray:aaa    in Test aufgenommen
+       bin array s2    Ruegen 601x1201 -> Ruegen 601x1201 OK    display -depth 16 -size 601x1201 gray:aaa   in Test aufgenommen
+       bin array s4    Ruegen 601x1201 -> Ruegen 601x1201 OK    display -depth 32 -size 601x1201 gray:aaa   in Test aufgenommen
+
+       float array f4  Ruegen 601x1201 -> Ruegen 601x1201 OK    display -endian MSB -depth 32 -size 601x1201 -define quantum:format=floating-point -define quantum:scale=4e+03 gray:aaa  in Test aufgenommen
+       float array f8  Ruegen 601x1201 -> Ruegen 601x1201 OK    display -endian MSB -depth 64 -size 601x1201 -define quantum:format=floating-point -define quantum:scale=4e+03 gray:aaa  in Test aufgenommen
+
+       bin array u1    Ruegen 601x1201 -> Ruegen 301x601  OK    display -depth 8 -size 301x601 gray:aaa    in Test aufgenommen  
+       bin array u2    Ruegen 601x1201 -> Ruegen 301x601  OK    display -depth 16 -size 301x601 gray:aaa   in Test aufgenommen
+       bin array u4    Ruegen 601x1201 -> Ruegen 301x601  OK    display -depth 32 -size 301x601 gray:aaa   in Test aufgenommen
+
+       bin array s1    Ruegen 601x1201 -> Ruegen 301x601  OK    display -depth 8 -size 301x601 gray:aaa    in Test aufgenommen
+       bin array s2    Ruegen 601x1201 -> Ruegen 301x601  OK    display -depth 16 -size 301x601 gray:aaa   in Test aufgenommen
+       bin array s4    Ruegen 601x1201 -> Ruegen 301x601  OK    display -depth 32 -size 301x601 gray:aaa   in Test aufgenommen
+
+       float array f4  Ruegen 601x1201 -> Ruegen 301x601 OK    display -endian MSB -depth 32 -size 301x601 -define quantum:format=floating-point -define quantum:scale=4e+03 gray:aaa  in Test aufgenommen
+       float array f8  Ruegen 601x1201 -> Ruegen 301x601 OK    display -endian MSB -depth 64 -size 301x601 -define quantum:format=floating-point -define quantum:scale=4e+03 gray:aaa  in Test aufgenommen
+
+       bin array u1    Ruegen 601x1201 -> Ruegen 301x301  OK    display -depth 8 -size 301x301 gray:aaa     in Test aufgenommen
+       bin array u2    Ruegen 601x1201 -> Ruegen 301x301  OK    display -depth 16 -size 301x301 gray:aaa    in Test aufgenommen
+       bin array u4    Ruegen 601x1201 -> Ruegen 301x301  OK    display -depth 32 -size 301x301 gray:aaa    in Test aufgenommen
+
+       bin array s1    Ruegen 601x1201 -> Ruegen 301x301  OK    display -depth 8 -size 301x301 gray:aaa     in Test aufgenommen
+       bin array s2    Ruegen 601x1201 -> Ruegen 301x301  OK    display -depth 16 -size 301x301 gray:aaa    in Test aufgenommen
+       bin array s4    Ruegen 601x1201 -> Ruegen 301x301  OK    display -depth 32 -size 301x301 gray:aaa    in Test aufgenommen
+
+       float array f4  Ruegen 601x1201 -> Ruegen 301x301 OK    display -endian MSB -depth 32 -size 301x301 -define quantum:format=floating-point -define quantum:scale=4e+03 gray:aaa  in Test aufgenommen
+       float array f8  Ruegen 601x1201 -> Ruegen 301x301 OK    display -endian MSB -depth 64 -size 301x301 -define quantum:format=floating-point -define quantum:scale=4e+03 gray:aaa  in Test aufgenommen
+
+
+iff -> Z Buffer, floating point iff, wie anzeigen? So ein ZBuffer-iff File kann in Convert DEM wieder als "Z Buffer" eingelesen und nach Color IFF konvertiert werden. Das kann man dann wenigstens anzeigen.
+
+       Z Buffer        Ruegen 601x1201 -> Ruegen 601x1201  OK   Anzeige: Ergebnis in "Convert DEM" nach "Color IFF" konvertieren, dann anzeigen. in Test aufgenommen
+                       Ruegen 601x1201 -> Ruegen 601x301   OK   Anzeige: Ergebnis in "Convert DEM" nach "Color IFF" konvertieren, dann anzeigen. in Test aufgenommen 
+                       Ruegen 601x1201 -> Ruegen 301x301   OK   Anzeige: Ergebnis in "Convert DEM" nach "Color IFF" konvertieren, dann anzeigen. in Test aufgenommen
+
+iff -> Color Map       Ruegen 601x1201 -> Ruegen 601x1201  OK   in Test aufgenommen
+                       Ruegen 601x1201 -> Ruegen 601x301   "Error Reading Source File", Min/Max Test funktioniert aber  In 2.04 kam der Fehler nicht, aber da wurde auch nicht reg/grm/blue erzeugt.
+                       Ruegen 601x1201 -> Ruegen 301x301   "Error Reading Source File", Min/Max Test funktioniert aber  In 2.04 kam der Fehler nicht, aber da wurde auch nicht reg/grm/blue erze
+ugt.
+
+-------------------------------
+
+Jetzt das WCSDEM , das wir aus dem iff erzeugt haben
+
+WCSDEM -> color iff    Ruegen 601x1201 -> Ruegen 601x1201    OK 
+                                                 301x601     falsch. Querformat und unkenntlich
+                                                 301x301     OK 
+
+WCSDEM -> gray iff     Ruegen 601x1201 -> Ruegen 601x1201     OK (display aaa)
+                                                 301x601      falsch. Querformat und unkenntlich  (display aaa)
+                                                 301x301      OK (display aaa)
+
+WCSDEM -> WCSDEM       Ruegen 601x1201 -> Ruegen 601x1201     OK (Anzeige in WCS->Mapview)
+                                                 301x601      falsch, total unkenntlich (Anzeige in WCS->Mapview)
+                                                 301x301      OK (Anzeige in WCS->Mapview)
+
+WCSDEM -> bin array u1    Ruegen 601x1201 -> Ruegen 601x1201  OK     display -depth 8 -size 601x1201 gray:aaa   
+          bin array u2    Ruegen 601x1201 -> Ruegen 601x1201  OK     display -depth 16 -size 601x1201 gray:aaa  
+          bin array u4    Ruegen 601x1201 -> Ruegen 601x1201  OK     display -depth 32 -size 601x1201 gray:aaa  
+
+          bin array u1    Ruegen 601x1201 -> Ruegen 301x601   falsch, hochkant aber unkenntlich    display -depth 8 -size 301x601 gray:aaa    
+          bin array u2    Ruegen 601x1201 -> Ruegen 301x601   falsch, hochkant aber unkenntlich        display -depth 16 -size 301x601 gray:aaa   
+          bin array u4    Ruegen 601x1201 -> Ruegen 301x601   falsch, hochkant aber unkenntlich        display -depth 32 -size 301x601 gray:aaa   
+
+          bin array u1    Ruegen 601x1201 -> Ruegen 301x301  OK     display -depth 8 -size 601x1201 gray:aaa
+          bin array u2    Ruegen 601x1201 -> Ruegen 301x301  OK     display -depth 16 -size 601x1201 gray:aaa
+          bin array u4    Ruegen 601x1201 -> Ruegen 301x301  OK     display -depth 32 -size 601x1201 gray:aaa
+
+
+DTED 601x1201 -> WCS-DEM im Test horhanden
+
+IFF 601x1201 -> COLORMAP: Man muss x/y tasuchen. Dann ist das Bild um 0 Grad gedreht dementsprechend breiter als hoch.
+
+17.7.20213
+----------
+VistaDEM scheinen alle falsch zu sein. Im originalen WCS2.04. Auch die Quadratischen Vista-Pro DEM Files sind nach dem Laden uns speichern als COLORMAP um 90 Grad gedreht!?
+
+Warum haben die alle keinen Namen mehr sondern nuch noch die Endung? Warum klappt das in meinem Test, aber nicht im richtigen Programm?
+
