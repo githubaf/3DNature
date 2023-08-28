@@ -2856,9 +2856,25 @@ DTED 601x1201 -> WCS-DEM im Test horhanden
 
 IFF 601x1201 -> COLORMAP: Man muss x/y tasuchen. Dann ist das Bild um 0 Grad gedreht dementsprechend breiter als hoch.
 
-17.7.20213
-----------
+17.7.2023
+---------
 VistaDEM scheinen alle falsch zu sein. Im originalen WCS2.04. Auch die Quadratischen Vista-Pro DEM Files sind nach dem Laden uns speichern als COLORMAP um 90 Grad gedreht!?
 
 Warum haben die alle keinen Namen mehr sondern nuch noch die Endung? Warum klappt das in meinem Test, aber nicht im richtigen Programm?
+
+28.8.2023
+---------
+Jetzt sind auch die Filenamen beim Konvertieren in Colormap richtig. In DataOps.c wird beim Zusammenbauen der Zielnamen an einigen Stellen length[0] benutzt. Das ist eine
+eterne globale Variable, die erst beim Erzeugen einer neuen Datenbank oder beim Laden einer bestehenden Datenbank auf 10 gesetzt wird. Andernfalls ist die Null.
+der Name wird dann bei Name[length[0]]=0 gesetzt und das macht den Namen dann leer, so dass nur die Endung red, grn blu uebrig bleibt. Wird jetzt auf 10 gesetzt, falls sie 0 ist.
+ /*
+  * AF, 28.8.2023
+  * Here sometimes the external variable length[0] is read. It is set to 10 in
+  * short makedbase(short SaveNewDBase) and would be read if a databasefile is read.
+  * If we come into this function and no databese has been loaded before (because we only want to convert a file to a format other than WCS-DEM)
+  * then length[0] would still be 0 (set by the compiler in global external variable definition)
+  * but we alredy need the value 10, for instance for filename construction when converting Vista-DEM to ColorMap.
+  * So either load a database before or set it hard here!
+  */
+
 

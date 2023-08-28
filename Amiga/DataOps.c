@@ -337,8 +337,6 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
 
 RepeatRGB:
 
-printf("Source-Filename=<%s>\n",filename);
-
  if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM
 	 || INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM)
   {
@@ -3095,7 +3093,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 	void *OutputData, long OutputDataSize, short i, short j,
 	long rows, long cols, long OutputRows, long OutputCols, char *RGBComp) // used locally only -> static, AF 26.7.2021
 {
- char tempfilename[32], OutFilename[256];
+ char tempfilename[32]={0}, OutFilename[256]={0};
  short error = 0, OBNexists, Elev[6];
  long	fOutput,
 	ProtFlags = FIBB_OTR_READ | FIBB_OTR_WRITE | FIBB_OTR_DELETE,
@@ -3103,7 +3101,19 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
  float	Version = DEM_CURRENT_VERSION;
  double Lon[6], Lat[6];
 
- printf("%s Line %d: OUTPUT_NAMEBASE=%s\n",__FILE__,__LINE__,OUTPUT_NAMEBASE);
+ /*
+  * AF, 28.8.2023
+  * Here sometimes the external variable length[0] is read. It is set to 10 in
+  * short makedbase(short SaveNewDBase) and would be read if a databasefile is read.
+  * If we come into this function and no databese has been loaded before (because we only want to convert a file to a format other than WCS-DEM)
+  * then length[0] would still be 0 (set by the compiler in global external variable definition)
+  * but we alredy need the value 10, for instance for filename construction when converting Vista-DEM to ColorMap.
+  * So either load a database before or set it hard here!
+  */
+ if(length[0]==0)  // not yet set? (i.e. no database created or loaded)
+ {
+	 length[0]=10;
+ }
 
  strcpy(tempfilename, OUTPUT_NAMEBASE);
 
