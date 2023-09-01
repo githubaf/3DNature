@@ -93,6 +93,8 @@ Version 2.031 (Emerald-Berta)
                  (That did not work in last original version 2.04)
                  This is very importand for DTED files above 50° north 
                  and below 50° aquired from https://earthexplorer.usgs.gov
+        *BugFix: Convert DEM: Target format Color Map lost filename
+                 (only extension left) if no database was loaded.
 
 
 Deutsch

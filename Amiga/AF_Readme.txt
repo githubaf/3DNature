@@ -2877,4 +2877,36 @@ der Name wird dann bei Name[length[0]]=0 gesetzt und das macht den Namen dann le
   * So either load a database before or set it hard here!
   */
 
+30.8.2023
+---------
+Konvertierung Vista-Dem -> Colormap falsch!
+Die Colormap-Files sind um 90 Grad gedreht. (Vergleich mit der Anzeige in VistaPro)
+display -depth 8 -size 258x258 gray:"AF_BigSur .red"
 
+Konvertierung Vista-Dem -> WCS-DEM scheint OK zu sein. (Vergleich Anzeige BigSur.DEM in VistaPro und in der Map View in WCS (Lon Auto, Exag 384 fuer richtigen Kontrast), also
+auch nicht verdreht.
+
+Konvertierung Vista-Dem -> ZBuffer OK. (nicht um 90 Grad verdreht)
+tail --bytes $((258*258*4)) AF_BigSurZB | display -endian MSB -depth 32 -size 258x258 -define quantum:format=floating-point -define quantum:offset=100 -define quantum:scale=6e+01 gray:
+
+1.9.2023
+--------
+Konvertierung (besonders nachgeschaut, ob Zieldatei ev. gedreht ist)
+Vista-Dem -> Color IFF                  OK                  display AF_BigSur_col.iff
+
+Vista-Dem -> Gray IFF                   FALSCH (Bildmuell)  display AF_BigSur_gray.iff (Auch mit WCS 2.04) anderes Vista-DEM Versuchen?
+
+Vista-Dem -> Bin Array Singed   1 Byte  OK                  display -depth 8  -size 258x258 gray:AF_BigSur_int8
+Vista-Dem -> Bin Array Singed   2 Bytes OK                  display -depth 16 -size 258x258 gray:AF_BigSur_int16
+Vista-Dem -> Bin Array Singed   4 Bytes OK                  display -depth 32 -size 258x258 gray:AF_BigSur_int32
+Vista-Dem -> Bin Array unsigned 1 Byte  OK                  display -depth 8 -size 258x258 gray:AF_BigSur_u8
+Vista-Dem -> Bin Array unsigned 2 Bytes OK                  display -depth 16 -size 258x258 gray:AF_BigSur_u16
+Vista-Dem -> Bin Array unsigned 4 Bytes OK                  display -depth 32 -size 258x258 gray:AF_BigSur_u32
+Vista-Dem -> Bin Array float    4 Bytes OK                  display -depth 32 -size 258x258 -endian MSB -define quantum:format=floating-point -define quantum:scale=16e+01  gray:AF_BigSur_float32
+Vista-Dem -> Bin Array float    4 Bytes OK                  display -depth 64 -size 258x258 -endian MSB -define quantum:format=floating-point -define quantum:scale=16e+01  gray:AF_BigSur_float64
+
+Vista-Dem -> WCS-DEM                    OK                  (Vergleich Anzeige BigSur.DEM in VistaPro und in der Map View in WCS (Lon Auto, Exag 384 fuer richtigen Kontrast)
+
+Vista-Dem -> ZBuffer                    OK                  tail --bytes $((258*258*4)) AF_BigSurZB | display -endian MSB -depth 32 -size 258x258 -define quantum:format=floating-point -define quantum:offset=100 -define quantum:scale=6e+01 gray:
+
+Vista-Dem -> Colormap                   FALSCH (90 Grad)    display -depth 8 -size 258x258 gray:"AF_BigSur .red"
