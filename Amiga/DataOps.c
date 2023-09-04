@@ -2611,7 +2611,7 @@ EndLoad:
    switch (OUTPUT_FORMAT)
     {
     case DEM_DATA_OUTPUT_WCSDEM:
-    case DEM_DATA_OUTPUT_COLORMAP:
+//    case DEM_DATA_OUTPUT_COLORMAP:   // AF, 2.9.23 This would rotate the file by 90 degrees
      {
      if (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM 
 	|| INPUT_FORMAT == DEM_DATA_INPUT_DTED)       // DTED -> WCSDEM funktioniert anscheinend
@@ -2657,7 +2657,8 @@ EndLoad:
    for (colctr=0; colctr<cols; colctr++)
     {
     if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM
-	|| OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP)
+//	|| OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP  // AF, 2.9.23 This would rotate the file by 90 degrees
+	   )
      {
      if (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM
 	|| INPUT_FORMAT == DEM_DATA_INPUT_DTED)
@@ -2867,7 +2868,8 @@ EndLoad:
       } /* switch output size */
 
      if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM
-	|| OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP)
+//	|| OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP   // AF, 2.9.23 This would rotate the file by 90 degrees
+	    )
       {
       if (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM
 	|| INPUT_FORMAT == DEM_DATA_INPUT_DTED)

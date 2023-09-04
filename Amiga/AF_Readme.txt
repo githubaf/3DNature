@@ -2910,3 +2910,24 @@ Vista-Dem -> WCS-DEM                    OK                  (Vergleich Anzeige B
 Vista-Dem -> ZBuffer                    OK                  tail --bytes $((258*258*4)) AF_BigSurZB | display -endian MSB -depth 32 -size 258x258 -define quantum:format=floating-point -define quantum:offset=100 -define quantum:scale=6e+01 gray:
 
 Vista-Dem -> Colormap                   FALSCH (90 Grad)    display -depth 8 -size 258x258 gray:"AF_BigSur .red"
+
+
+2.9.2023
+--------
+ColorMap war *IMMER* um 90 Grad gedreht? Überprüfen!
+- AN 3 Stellen wird auf    
+if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM
+//	|| OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP <--- Das gier ist aber falsch!
+getestet. Auskommentiert, VistaDEM->Color Map ist jetzt nicht mehr gedreht. 
+Dafür müssen aber meine bisherigen Tests mit Ziel=Color Map angefasst werden, weil die ja einfach mit dem Ergebnis von WCS 2.04 verglichen haben, und da war es auch schon gedreht. 
+Und drehen ist falsch. (Mit Adpro Sculpt-Loader überprüft)
+
+4.9.2023
+--------
+Ueberarbeitung der Tests: Durc das "nicht mehr 90 Grad Drehen" muessen die Ref-Files fuer Color Map aktualisiert werden. Manuell angeschaut. Fertig.
+tst_BSurAS.red  tst_BSurGr.red  sehen komisch/falsch aus!
+
+IFF-Gray scheint falsch zu sein.
+ASCII Array überprüfen!
+
+
