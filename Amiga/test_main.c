@@ -923,9 +923,10 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 #define DEM_DATA_OUTPUT_ARRAY		0
 #define DEM_DATA_OUTPUT_WCSDEM		1
 #define DEM_DATA_OUTPUT_ZBUF		2
-#define DEM_DATA_OUTPUT_COLORMAP	3
-#define DEM_DATA_OUTPUT_GRAYIFF		4
-#define DEM_DATA_OUTPUT_COLORIFF	5
+#define DEM_DATA_OUTPUT_ASCII		3
+#define DEM_DATA_OUTPUT_COLORMAP	4
+#define DEM_DATA_OUTPUT_GRAYIFF		5
+#define DEM_DATA_OUTPUT_COLORIFF	6
 #define DEM_DATA_FORMAT_SIGNEDINT	0
 #define DEM_DATA_FORMAT_UNSIGNEDINT	1
 #define DEM_DATA_FORMAT_FLOAT		2
@@ -1372,6 +1373,18 @@ struct ConvertDemTestStruct ConverDemTestData[]=
 	 { "ASCII Array 601x1201 -> Gray IFF 601x1201",         "test_files/source/n54_e013_3arc_v2.ascarr", DEM_DATA_INPUT_ASCII,    DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,   0, 1201, 601,    -18, 173,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN, 1201, 601,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "Rug601x1201ASGray.iff",  "test_files/reference/ref_RuegenASC_601x1201Gray.iff",__LINE__},
 	 { "ASCII Array 601x1201 -> Gray IFF 301x601",          "test_files/source/n54_e013_3arc_v2.ascarr", DEM_DATA_INPUT_ASCII,    DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,   0, 1201, 601,    -12, 170,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  601, 301,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "Rug301x601ASGray.iff",   "test_files/reference/ref_RuegenASC_301x601Gray.iff", __LINE__},
 	 { "ASCII Array 601x1201 -> Gray IFF 301x601",          "test_files/source/n54_e013_3arc_v2.ascarr", DEM_DATA_INPUT_ASCII,    DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,   0, 1201, 601,    -12, 170,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_GRAYIFF, DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  301, 301,1, 0,        0,          0,          0,        "Ram:WCS_Test/", "Rug301x301ASCSClr.iff",  "test_files/reference/ref_RuegenASC_301x301SplnCnstrGray.iff", __LINE__},
+
+     // -------------------------------------------------------------------
+
+	 // new Target Ascii Buffer
+	 // IFF with x != y (Ruegen converted to gif and further to iff with gdal and image magic)
+	 // Source file test_files/source/n54_e013_3arc_v2.iff verified with viewer from imagemagic
+	 { "IFF 601x1201 -> Ascii Buffer 601x1201",                 "test_files/source/n54_e013_3arc_v2.iff",    DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  0, 1201, 601,      0, 173,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ASCII,   DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1201,601,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug601x1201IFF.asc", "test_files/reference/ref_RuegenIFF_601x1201.asc",__LINE__}, // verified ("imagej" viewer)
+	 { "IFF 601x1201 -> Ascii Buffer 500x100",                  "test_files/source/n54_e013_3arc_v2.iff",    DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  0, 1201, 601,      0, 173,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ASCII,   DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1000,500,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug500x1000IFF.asc", "test_files/reference/ref_RuegenIFF_500x1000.asc",__LINE__}, // verified ("imagej" viewer) (white pixels)
+	 { "IFF 601x1201 -> Ascii Buffer 500x100 Spline Contraint", "test_files/source/n54_e013_3arc_v2.iff",    DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  0, 1201, 601,      0, 173,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ASCII,   DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1000,500,1, 0,        0,          0,          0,        "Ram:WCS_Test/", "_Rug500x1000IFFSpl.asc", "test_files/reference/ref_RuegenIFF_500x1000SplnCnstr.asc",__LINE__}, // verified ("imagej" viewer) (no white pixels)
+
+// Source Files sollten als define genommen werden.
+
 
 #else
 

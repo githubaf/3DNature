@@ -23,12 +23,13 @@ ssize_t readZBufHdr_BE(int filehandle, struct ZBufferHeader *ZBufHdr); // define
 #define DEM_DATA_INPUT_VISTA		4
 #define DEM_DATA_INPUT_IFF		5
 #define DEM_DATA_INPUT_DTED		6
-#define DEM_DATA_OUTPUT_ARRAY		0
-#define DEM_DATA_OUTPUT_WCSDEM		1
-#define DEM_DATA_OUTPUT_ZBUF		2
-#define DEM_DATA_OUTPUT_COLORMAP	3
-#define DEM_DATA_OUTPUT_GRAYIFF		4
-#define DEM_DATA_OUTPUT_COLORIFF	5
+//#define DEM_DATA_OUTPUT_ASCII		0
+//#define DEM_DATA_OUTPUT_ARRAY		1
+//#define DEM_DATA_OUTPUT_WCSDEM		2
+//#define DEM_DATA_OUTPUT_ZBUF		3
+//#define DEM_DATA_OUTPUT_COLORMAP	4
+//#define DEM_DATA_OUTPUT_GRAYIFF		5
+//#define DEM_DATA_OUTPUT_COLORIFF	6
 #define DEM_DATA_UNITS_KILOM		0	
 #define DEM_DATA_UNITS_METERS		1
 #define DEM_DATA_UNITS_CENTIM		2
@@ -66,7 +67,7 @@ void Make_DC_Window(void)
 	 {"Binary Array", "WCS DEM", "Z Buffer", "Ascii Array", "Vista DEM",
 	"IFF", "DTED", NULL};
  static const char *OutputCycle[] =
-	 {"Bin Array", "WCS DEM", "Z Buffer", "Color Map", "Gray IFF", "Color IFF", NULL};
+	 {"Bin Array", "WCS DEM", "Z Buffer", "Ascii Array", "Color Map", "Gray IFF", "Color IFF", NULL};
  static const char *FormatCycle[] =
 	 {"Signed Int", "Unsigned Int", "Floating Pt",/* "Unknown",*/ NULL};
  static const char *ValSizeCycle[] =

@@ -2930,4 +2930,85 @@ tst_BSurAS.red  tst_BSurGr.red  sehen komisch/falsch aus!
 IFF-Gray scheint falsch zu sein.
 ASCII Array überprüfen!
 
+5.9.2023
+--------
+Anzeige der ASCII-Buffer-Bilder:
+Mit "imagej". Starten, File -> Import -> Text Image
+Größe oder Format müssen nicht angegeben werden. n54_e013_3arc_v2.ascarr hat 1201 Text-Zeile. Daher weiß er das wohl. n54_e013_3arc_v2.ascarr ist korrekt.
+"imagej" kann auch 2 Bilder synchronisiert anzeigen. Dann Bewegt sich der Curso in beiden Bildern synchron und vom aktiven Cursor wird der Hoehenwert angezeigt (Im Status vom Hauptmenu)
+Dazu unter Analyze -> Tools ->Synchronize Windows auswaehlen.
 
+-----
+
+Convert n54_e013_3arc_v2.ascarr -> Color IFF, 1 Byte signed 
+display RuegAS.iff  -> Bild ist OK, aber Jasmund ist fast schwarz. Werte ueber 127 haben Uberlauf. (Hoehe dort ist um die 150) OK, muss so
+
+Convert n54_e013_3arc_v2.ascarr -> Color IFF, 1 Byte unsigned
+display RuegAS.iff  -> Bild ist OK, aber Ruegen hat viele weiße Stellen. Die Werte dort sind kleiner als 0 (z.B. -3m) Damit werden die negativen werte zu großen positiven Zahlen. OK, muss so.
+
+Convert n54_e013_3arc_v2.ascarr -> Color IFF, 2 Byte signed
+display RuegAS.iff  -> Bild ist OK
+
+Convert n54_e013_3arc_v2.ascarr -> Color IFF, 2 Byte unsigned
+display RuegAS.iff  -> Bild ist OK, aber Ruegen hat viele weiße Stellen. Die Werte dort sind kleiner als 0 (z.B. -3m) Damit werden die negativen werte zu großen positiven Zahlen. OK, muss so.
+
+Convert n54_e013_3arc_v2.ascarr -> Color IFF, 4 Byte signed
+display RuegAS.iff  -> Bild ist OK
+
+Convert n54_e013_3arc_v2.ascarr -> Color IFF, 4 Byte unsigned
+display RuegAS.iff  -> Bild ist OK, aber Ruegen hat viele weiße Stellen. Die Werte dort sind kleiner als 0 (z.B. -3m) Damit werden die negativen werte zu großen positiven Zahlen. OK, muss so.
+
+Convert n54_e013_3arc_v2.ascarr -> Color IFF, 4 Byte Floating Point
+display RuegAS.iff  -> Bild ist OK
+
+Convert n54_e013_3arc_v2.ascarr -> Color IFF, 8 Byte Floating Point
+display RuegAS.iff  -> Bild ist OK
+
+---> ASCII-Buffer nach Color IFF ist also komplett OK!
+
+ASCII-Buffer nach Color Map ist nicht richtig! Sollte ja genau so funktionieren wie Color IFF...
+ASCII -> signed/unsigned 1 byte -> mit weißen Stellen.
+
+8.9.2023
+--------
+Variablen-Namen des Scale-Operations Fensers dargestellt in ScaleVariables.png
+
+Was wird a eigentlich bereichnet?
+
+MaxMinScale
+-----------
+VertScale = (SCALE_MAXEL - SCALE_MINEL) / (DataMaxEl - DataMinEl);
+-> Faktor=  (Max Out Val - Min Out Val) / Größter Wert aus File - Kleinster wert aus File)
+DataRef = DataMinEl;
+OutRef = SCALE_MINEL;
+
+MatchScale
+----------
+VertScale = (SCALE_SCALE - SCALE_ELEV1) / (DataMaxEl - SCALE_VALU1);  (Max Out)
+DataRef = SCALE_VALU1;
+OutRef = SCALE_ELEV1;
+
+VertScale = (SCALE_ELEV1 - SCALE_SCALE) / (SCALE_VALU1 - DataMinEl);  (Min Out)
+DataRef = SCALE_VALU1;
+OutRef = SCALE_ELEV1;
+
+VertScale = SCALE_SCALE;                                              (I/O Scale)
+DataRef = SCALE_VALU1;
+OutRef = SCALE_ELEV1;
+
+MatchMatch
+----------
+VertScale = (SCALE_ELEV3 - SCALE_ELEV2) / (SCALE_VALU3 - SCALE_VALU2);
+-> Faktor= (Input 2 -Input 1) / Output 2 -Output 1)  Bereich zerren/stauchen ?
+DataRef = SCALE_VALU2;
+OutRef = SCALE_ELEV2;
+
+Am Ende dann
+OutValue = OutRef + (InputData1S[datazip] - DataRef) * VertScale;
+
+Ein Replace 0 -Eintrag koennte sinnvoll sein. Dann koennte man das Meer pauschal tiefer machen
+
+
+12.Sep.2023
+-----------
+Convert to ASCII-Buffer eingebaut. Dted -> ASCII sieht noch komisch aus.

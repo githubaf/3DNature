@@ -43,9 +43,10 @@ EXTERN struct DEMConvertData {
 #define DEM_DATA_OUTPUT_ARRAY		0
 #define DEM_DATA_OUTPUT_WCSDEM		1
 #define DEM_DATA_OUTPUT_ZBUF		2
-#define DEM_DATA_OUTPUT_COLORMAP	3
-#define DEM_DATA_OUTPUT_GRAYIFF		4
-#define DEM_DATA_OUTPUT_COLORIFF	5
+#define DEM_DATA_OUTPUT_ASCII		3
+#define DEM_DATA_OUTPUT_COLORMAP	4
+#define DEM_DATA_OUTPUT_GRAYIFF		5
+#define DEM_DATA_OUTPUT_COLORIFF	6
 #define DEM_DATA_FORMAT_SIGNEDINT	0
 #define DEM_DATA_FORMAT_UNSIGNEDINT	1
 #define DEM_DATA_FORMAT_FLOAT		2
@@ -125,6 +126,33 @@ EXTERN struct DEMConvertData {
 #define SCALE_TESTMIN		data->MaxMin[0]
 #define SCALE_TESTMAX		data->MaxMin[1]
 #define DUPROW			1
+
+// AF: 12.Sep.2023 writes values as ASCII to file. x values per line, y rows
+long writeDemArray_ASCII(FILE *OutFile, float *OutputData,long cols, long rows)
+{
+	unsigned long x,y;
+	unsigned long ValsPrinted=0;
+
+	printf("ALEXANDER: %s() Line %d: OutputDataSize=%ld\n",__func__,__LINE__,cols*rows);
+
+	for (y=0; y<rows; y++)
+	{
+		for (x=0;x<cols;x++)
+		{
+			if(0==fprintf(OutFile,"%.0f",OutputData[x+y*cols]))  // do decimal point
+			{
+				break;
+			}
+			ValsPrinted++;
+			if(x!=cols-1)  // not last value in line
+			{
+				fprintf(OutFile," "); // the add space
+			}
+		}
+		fprintf(OutFile,"\n");
+	}
+	return ValsPrinted;
+}
 
 void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
 {
@@ -290,6 +318,7 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
   case DEM_DATA_OUTPUT_GRAYIFF:
   case DEM_DATA_OUTPUT_COLORIFF:
   case DEM_DATA_OUTPUT_ARRAY:
+  case DEM_DATA_OUTPUT_ASCII:
    {
    LastOutputRows = OutputRows = OUTPUT_ROWS / OUTPUT_COLMAPS;
    LastOutputCols = OutputCols = OUTPUT_COLS / OUTPUT_ROWMAPS;
@@ -2441,6 +2470,12 @@ EndLoad:
    OUTVALUE_FORMAT = DEM_DATA_FORMAT_FLOAT;
    break;
    } /* if Z Buffer output */
+  case DEM_DATA_OUTPUT_ASCII:
+   {
+   OUTVALUE_SIZE = DEM_DATA_VALSIZE_LONG;
+   OUTVALUE_FORMAT = DEM_DATA_FORMAT_FLOAT;
+   break;
+   }
   } /* switch */
 
  for (i=0; i<OUTPUT_ROWMAPS; i++)	/* W-E */
@@ -3362,6 +3397,26 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
    close(fOutput);
    break;
    } /* array */
+  case DEM_DATA_OUTPUT_ASCII: // AF, HGW 12.Sep.2023
+  {
+  FILE *OutFile;
+  if ((OutFile = fopen(OutFilename, "w")) == NULL)
+   {
+   error = 5; // Error Writing Destination File
+   break;
+   }
+   // OUTVALUE_FORMAT is always DEM_DATA_FORMAT_FLOAT
+   // OUTVALUE_SIZE is always DEM_DATA_VALSIZE_LONG (4 Bytes)
+  printf("ALEXANDER: calling writeDemArray_ASCII(). OUTVALUE_FORMAT=%d, OUTVALUE_SIZE=%d\n",OUTVALUE_FORMAT,OUTVALUE_SIZE);
+  if((writeDemArray_ASCII(OutFile,OutputData,cols,rows)) != cols*rows)
+   {
+   error = 5; // Error Writing Destination File
+   fclose(OutFile);
+   goto Cleanup;
+   } /* if write fail */
+  fclose(OutFile);
+  break;
+  } /* ASCII array */
   case DEM_DATA_OUTPUT_ZBUF:
    {
    SaveZBuf(0, 0, OutputDataSize / sizeof (float), NULL,
