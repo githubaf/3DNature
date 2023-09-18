@@ -95,6 +95,10 @@ Version 2.031 (Emerald-Berta)
                  and below 50° aquired from https://earthexplorer.usgs.gov
         *BugFix: Convert DEM: Target format Color Map lost filename
                  (only extension left) if no database was loaded.
+        *Feature:Convert DEM to ASCII-Buffer (new targed format)
+        *Feature:Convert DEM Replace Elevation value. Useful for changing
+                 elevation zero to something below sea level
+                 
 
 
 Deutsch

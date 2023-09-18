@@ -3012,3 +3012,8 @@ Ein Replace 0 -Eintrag koennte sinnvoll sein. Dann koennte man das Meer pauschal
 12.Sep.2023
 -----------
 Convert to ASCII-Buffer eingebaut. Dted -> ASCII sieht noch komisch aus.
+
+18.Sep.2023
+-----------
+Replace in Gui eingebaut in Convert DEM -> Pre-Process. (noch keine Funktion)
+

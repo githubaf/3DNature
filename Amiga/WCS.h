@@ -2019,7 +2019,7 @@ EXTERN struct DataOpsModWindow {
 EXTERN struct DEMConvertWindow {
   APTR ConvertWin, Cycle[10], VSRegister, FileSizeTxt, FileNameStr, DBaseNameStr,
 	FormatIntStr[5], LatScaleStr[4], VertScaleStr[9], OutputMapStr[2],
-	FloatStr[2], FloorCeilingCheck[2], CropStr[4], MinValTxt, MaxValTxt,
+	FloatStr[2], FloorCeilingCheck[2], CropStr[4],ReplaceStr[2], MinValTxt, MaxValTxt, // AF: 18.Sep.23, added ReplaceStr
 	OutputMapArrow[2][2], ScaleCycle, BT_GetFile, BT_Convert,
 	WrapCheck, ConstraintCheck, BT_GetOutDir, BT_Test, OutDirStr;
   struct DEMConvertData *DEMData;
