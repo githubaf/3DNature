@@ -92,6 +92,7 @@ EXTERN struct DEMConvertData {
 #define INPUT_WRAP		data->WrapLon
 #define ACTIVE_FLOOR		data->ActiveFC[0]
 #define ACTIVE_CEILING		data->ActiveFC[1]
+#define ACTIVE_REPLACE  data->ActiveReplace
 #define CROP_LEFT		data->Crop[0]
 #define CROP_RIGHT		data->Crop[1]
 #define CROP_TOP		data->Crop[2]
@@ -126,6 +127,10 @@ EXTERN struct DEMConvertData {
 #define SCALE_TESTMIN		data->MaxMin[0]
 #define SCALE_TESTMAX		data->MaxMin[1]
 #define DUPROW			1
+
+// AF 18.Sep.2023
+#define INPUT_REPLACE	data->Replace[0]
+#define OUTPUT_REPLACE	data->Replace[1]
 
 // AF: 12.Sep.2023 writes values as ASCII to file. x values per line, y rows
 long writeDemArray_ASCII(FILE *OutFile, float *OutputData,long cols, long rows)
@@ -1227,8 +1232,104 @@ EndLoad:
  if (error)
   goto Cleanup;
 
-
- // floor and ceiling has been applied to void *InputData buffer
+// AF: 18.Sep.2023 BEGIN Replace
+ if (ACTIVE_REPLACE)
+ {
+ BWDC = BusyWin_New("Replace", INPUT_ROWS, 0, MakeID('B','W','D','C'));
+ datazip = 0;
+ for (i=0; i<INPUT_ROWS; i++)
+  {
+  for (j=0; j<INPUT_COLS; j++)
+   {
+   switch (INVALUE_SIZE)
+    {
+    case DEM_DATA_VALSIZE_BYTE:
+     {
+     switch (INVALUE_FORMAT)
+      {
+      case DEM_DATA_FORMAT_UNSIGNEDINT:
+       {
+       if (InputData1U[datazip] == INPUT_REPLACE)
+		InputData1U[datazip] = OUTPUT_REPLACE;
+       break;
+	} /* unsigned byte */
+      case DEM_DATA_FORMAT_SIGNEDINT:
+       {
+       if (InputData1S[datazip] == INPUT_REPLACE)
+		InputData1S[datazip] = OUTPUT_REPLACE;
+       break;
+	} /* unsigned byte */
+      } /* switch value format */
+     break;
+     } /* byte */
+    case DEM_DATA_VALSIZE_SHORT:
+     {
+     switch (INVALUE_FORMAT)
+      {
+      case DEM_DATA_FORMAT_UNSIGNEDINT:
+       {
+       if (InputData2U[datazip] == INPUT_REPLACE)
+		InputData2U[datazip] = OUTPUT_REPLACE;
+       break;
+	} /* unsigned short */
+      case DEM_DATA_FORMAT_SIGNEDINT:
+       {
+       if (InputData2S[datazip] == INPUT_REPLACE)
+		InputData2S[datazip] = OUTPUT_REPLACE;
+       break;
+	} /* signed short */
+      } /* switch value format */
+     break;
+     } /* short int */
+    case DEM_DATA_VALSIZE_LONG:
+     {
+     switch (INVALUE_FORMAT)
+      {
+      case DEM_DATA_FORMAT_FLOAT:
+       {
+       if (InputData4F[datazip] == INPUT_REPLACE)
+		InputData4F[datazip] = OUTPUT_REPLACE;
+       break;
+	} /* floating point long */
+      case DEM_DATA_FORMAT_UNSIGNEDINT:
+       {
+       if (InputData4U[datazip] == INPUT_REPLACE)
+		InputData4U[datazip] = OUTPUT_REPLACE;
+       break;
+	} /* unsigned long integer */
+      case DEM_DATA_FORMAT_SIGNEDINT:
+       {
+       if (InputData4S[datazip] == INPUT_REPLACE)
+		InputData4S[datazip] = OUTPUT_REPLACE;
+       break;
+	} /* signed long integer */
+      } /* switch value format */
+     break;
+     } /* long word */
+    case DEM_DATA_VALSIZE_DOUBLE:
+     {
+     if (InputData8F[datazip] == INPUT_REPLACE)    // Delta needed for float comparison?
+		InputData8F[datazip] = OUTPUT_REPLACE;
+     break;
+     } /* double */
+    } /* switch input value size */
+   datazip ++;
+   } /* for j=0... */
+  if (CheckInput_ID() == ID_BW_CLOSE)
+   {
+   error = 50;
+   break;
+   } /* if user abort */
+  if (BWDC)
+   BusyWin_Update(BWDC, i + 1);
+  } /* for i=0... */
+ if (BWDC) BusyWin_Del(BWDC);
+ }
+ /* if active replace */
+ if (error)
+  goto Cleanup;
+// AF: END Replace
+ // floor and ceiling and replace has been applied to void *InputData buffer
 /*
 ** Re-Sample to output size
 */

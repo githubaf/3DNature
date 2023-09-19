@@ -181,6 +181,7 @@ void Make_DC_Window(void)
 
 			  Child, HGroup,   // AF: 18Sep23 new hgroup to specify elevation value replacement
 	            Child, Label2(" Replace"),
+				Child, DC_Win->ReplaceCheck[0] = CheckMark(0),
 	            Child, DC_Win->ReplaceStr[0] = StringObject, StringFrame,
 			      MUIA_FixWidthTxt, "012345",
 			      MUIA_String_Accept, "-0123456789",
@@ -461,7 +462,7 @@ void Make_DC_Window(void)
    DC_Win->Cycle[6], DC_Win->Cycle[7], DC_Win->FormatIntStr[2],
    DC_Win->FormatIntStr[1], DC_Win->WrapCheck, DC_Win->BT_Test, DC_Win->FloorCeilingCheck[0],
    DC_Win->FloatStr[0], DC_Win->FloorCeilingCheck[1], DC_Win->FloatStr[1],
-   DC_Win->ReplaceStr[0],DC_Win->ReplaceStr[1],      // AF, 18.Sep. 23
+   DC_Win->ReplaceCheck[0],DC_Win->ReplaceStr[0],DC_Win->ReplaceStr[1],      // AF, 18.Sep. 23
    DC_Win->CropStr[0], DC_Win->CropStr[1], DC_Win->CropStr[2], DC_Win->CropStr[3],
    DC_Win->Cycle[1], DC_Win->OutDirStr, DC_Win->BT_GetOutDir,
    DC_Win->DBaseNameStr, DC_Win->OutputMapStr[0], DC_Win->OutputMapStr[1],
@@ -1259,7 +1260,14 @@ STATIC_FCN void Set_DC_Data(void) // used locally only -> static, AF 25.7.2021
   DC_Win->DEMData->ActiveFC[i] = data;
   get(DC_Win->FloatStr[i], MUIA_String_Contents, &floatdata);
   DC_Win->DEMData->FloorCeiling[i] = atof(floatdata);
+  get(DC_Win->ReplaceStr[i], MUIA_String_Contents, &floatdata);  // AF, 18.Sep.23 Replace
+  DC_Win->DEMData->Replace[i] = atof(floatdata);                 // AF, 18.Sep.23 Replace
+
   } /* for i=0... */
+
+ get(DC_Win->ReplaceCheck[0], MUIA_Selected, &data);             // AF, 19.Sep.23 Replace
+ DC_Win->DEMData->ActiveReplace = data;
+
  get(DC_Win->ConstraintCheck, MUIA_Selected, &data);
  DC_Win->DEMData->SplineConstrain = data;
  for (i=0; i<4; i++)

@@ -1142,12 +1142,14 @@ EXTERN struct ForestModel {
 	VSOperator,
 	ScaleType,
 	SplineConstrain,
+	ActiveReplace, // AF, 19.Sep.2023
 	ActiveFC[2],
 	Crop[4];
  float	LateralScale[4],
 	VertScale[9],
 	FloorCeiling[2],
-	MaxMin[2];
+	MaxMin[2],
+ 	Replace[2];   // AF, 18.Sep.2023
  char	NameBase[24],
 	OutputDir[256];	
 };
@@ -2019,7 +2021,7 @@ EXTERN struct DataOpsModWindow {
 EXTERN struct DEMConvertWindow {
   APTR ConvertWin, Cycle[10], VSRegister, FileSizeTxt, FileNameStr, DBaseNameStr,
 	FormatIntStr[5], LatScaleStr[4], VertScaleStr[9], OutputMapStr[2],
-	FloatStr[2], FloorCeilingCheck[2], CropStr[4],ReplaceStr[2], MinValTxt, MaxValTxt, // AF: 18.Sep.23, added ReplaceStr
+	FloatStr[2], FloorCeilingCheck[2],ReplaceCheck[1],CropStr[4],ReplaceStr[2], MinValTxt, MaxValTxt, // AF: 18.Sep.23, added ReplaceStr
 	OutputMapArrow[2][2], ScaleCycle, BT_GetFile, BT_Convert,
 	WrapCheck, ConstraintCheck, BT_GetOutDir, BT_Test, OutDirStr;
   struct DEMConvertData *DEMData;
