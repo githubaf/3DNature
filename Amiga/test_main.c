@@ -1015,6 +1015,7 @@ struct ConvertDemTestStruct
 
 void InitDEMConvertData(struct DEMConvertData *data, struct ConvertDemTestStruct *ConvertDemTestData )
 {
+	data->ActiveReplace=0;
 	data->ActiveFC[0]=0;
 	data->ActiveFC[1]=0;
 	data->Crop[0]=0;
@@ -1023,6 +1024,8 @@ void InitDEMConvertData(struct DEMConvertData *data, struct ConvertDemTestStruct
 	data->Crop[3]=0;
 	data->FloorCeiling[0]=0.000000;
 	data->FloorCeiling[1]=0.000000;
+	data->Replace[0]=0;
+	data->Replace[1]=0;
 	data->FormatCy[0]=ConvertDemTestData->InFormat;      //  INPUT_FORMAT 0=binary Array, 1=WCS DEM, 2=Z-Buffer, 3=ASCII Array, 5=IFF, 6=DTED
 	data->FormatCy[1]=ConvertDemTestData->OutFormat;     // OUTPUT_FORMAT 0=ARRAY, 1=WCSDEM, 2=ZBUF,3=COLORMAP,4=GRAYIFF, 5=COLORIFF
 	data->FormatCy[2]=ConvertDemTestData->InValueFormat;
@@ -1379,9 +1382,9 @@ struct ConvertDemTestStruct ConverDemTestData[]=
 	 // new Target Ascii Buffer
 	 // IFF with x != y (Ruegen converted to gif and further to iff with gdal and image magic)
 	 // Source file test_files/source/n54_e013_3arc_v2.iff verified with viewer from imagemagic
-	 { "IFF 601x1201 -> Ascii Buffer 601x1201",                 "test_files/source/n54_e013_3arc_v2.iff",    DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  0, 1201, 601,      0, 173,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ASCII,   DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1201,601,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug601x1201IFF.asc", "test_files/reference/ref_RuegenIFF_601x1201.asc",__LINE__}, // verified ("imagej" viewer)
-	 { "IFF 601x1201 -> Ascii Buffer 500x100",                  "test_files/source/n54_e013_3arc_v2.iff",    DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  0, 1201, 601,      0, 173,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ASCII,   DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1000,500,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug500x1000IFF.asc", "test_files/reference/ref_RuegenIFF_500x1000.asc",__LINE__}, // verified ("imagej" viewer) (white pixels)
-	 { "IFF 601x1201 -> Ascii Buffer 500x100 Spline Contraint", "test_files/source/n54_e013_3arc_v2.iff",    DEM_DATA_INPUT_IFF,      DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,  0, 1201, 601,      0, 173,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ASCII,   DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1000,500,1, 0,        0,          0,          0,        "Ram:WCS_Test/", "_Rug500x1000IFFSpl.asc", "test_files/reference/ref_RuegenIFF_500x1000SplnCnstr.asc",__LINE__}, // verified ("imagej" viewer) (no white pixels)
+	 { "IFF 601x1201 -> Ascii Buffer 601x1201",                 "test_files/source/n54_e013_3arc_v2.iff",     DEM_DATA_INPUT_IFF,     DEM_DATA_FORMAT_FLOAT,      DEM_DATA_VALSIZE_DOUBLE,  0, 1201, 601,      0, 173,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ASCII,   DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1201,601,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug601x1201IFF.asc", "test_files/reference/ref_RuegenIFF_601x1201.asc",__LINE__}, // verified ("imagej" viewer)
+	 { "IFF 601x1201 -> Ascii Buffer 500x1000",                  "test_files/source/n54_e013_3arc_v2.iff",    DEM_DATA_INPUT_IFF,     DEM_DATA_FORMAT_FLOAT,      DEM_DATA_VALSIZE_DOUBLE,  0, 1201, 601,      0, 255,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ASCII,   DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1000,500,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug500x1000IFF.asc", "test_files/reference/ref_RuegenIFF_500x1000.asc",__LINE__}, // verified ("imagej" viewer) (white pixels, min-max 0...255)
+	 { "IFF 601x1201 -> Ascii Buffer 500x1000 Spline Contraint", "test_files/source/n54_e013_3arc_v2.iff",    DEM_DATA_INPUT_IFF,     DEM_DATA_FORMAT_FLOAT,      DEM_DATA_VALSIZE_DOUBLE,  0, 1201, 601,      0, 173,   DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ASCII,   DEM_DATA_FORMAT_UNKNOWN,     DEM_DATA_VALSIZE_UNKNOWN,  1000,500,1, 0,        0,          0,          0,        "Ram:WCS_Test/", "_Rug500x1000IFFSpl.asc", "test_files/reference/ref_RuegenIFF_500x1000SplnCnstr.asc",__LINE__}, // verified ("imagej" viewer) (no white pixels)
 
 // Source Files sollten als define genommen werden.
 
