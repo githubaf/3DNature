@@ -17,3 +17,6 @@ done
 cd /home/developer/Desktop/SelcoGit/3DNature/Amiga/
 ./build_wcs_sasc.sh
 
+#check if all eclipse build configurations can be build
+cd /home/developer/Desktop/SelcoGit/3DNature/Amiga/
+./make_all_configurations.sh

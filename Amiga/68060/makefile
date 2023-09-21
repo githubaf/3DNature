@@ -56,7 +56,7 @@ pre-build:
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS_68060 && cp WCS_68060 WCS_68060.unstripped && m68k-amigaos-strip WCS_68060 && ls -la WCS_68060 && m68k-amigaos-size WCS_68060 && cp  ../WCS.info WCS_68060.info
+	-cp WCS WCS_68060 && cp WCS_68060 WCS_68060.unstripped && m68k-amigaos-strip WCS_68060 && ls -la WCS_68060 && m68k-amigaos-size WCS_68060 && cp  ../WCS.info WCS_68060.info && ../check_pre-commit-hook
 	-@echo ' '
 
 .PHONY: all clean dependents main-build pre-build post-build

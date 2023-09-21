@@ -56,7 +56,7 @@ pre-build:
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS_Coverage && cp WCS_Coverage WCS_Coverage.unstripped && m68k-amigaos-strip WCS_Coverage && ls -la WCS_Coverage && m68k-amigaos-size WCS_Coverage && cp  ../WCS.info WCS_Coverage.info
+	-cp WCS WCS_Coverage && cp WCS_Coverage WCS_Coverage.unstripped && m68k-amigaos-strip WCS_Coverage && ls -la WCS_Coverage && m68k-amigaos-size WCS_Coverage && cp  ../WCS.info WCS_Coverage.info && ../check_pre-commit-hook
 	-@echo ' '
 
 .PHONY: all clean dependents main-build pre-build post-build

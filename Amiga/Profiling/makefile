@@ -56,7 +56,7 @@ pre-build:
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS_Profiling && cp WCS_Profiling WCS_Profiling.unstripped && m68k-amigaos-strip WCS_Profiling && ls -la WCS_Profiling && m68k-amigaos-size WCS_Profiling && cp  ../WCS.info WCS_Profiling.info
+	-cp WCS WCS_Profiling && cp WCS_Profiling WCS_Profiling.unstripped && m68k-amigaos-strip WCS_Profiling && ls -la WCS_Profiling && m68k-amigaos-size WCS_Profiling && cp  ../WCS.info WCS_Profiling.info && ../check_pre-commit-hook
 	-@echo ' '
 
 .PHONY: all clean dependents main-build pre-build post-build

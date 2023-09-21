@@ -3017,3 +3017,8 @@ Convert to ASCII-Buffer eingebaut. Dted -> ASCII sieht noch komisch aus.
 -----------
 Replace in Gui eingebaut in Convert DEM -> Pre-Process. (noch keine Funktion)
 
+21.Sep.2023
+-----------
+*In den Eclipse-Configurationen wird getestet, ob der pre-commit hook installiert ist. Sonst sollte man den manuell von 3DNature/Amiga nach 3DNature/.git(hooks kopieren, damit vor einem Commit bestimmte Tests durchgeführt werden.
+*Alle Eclipse-Buildconfiguratonen lassen sich compilieren.
+*Alle Eclipse-Buildconfigurationen werden testweise beim Commit neu gebaut.

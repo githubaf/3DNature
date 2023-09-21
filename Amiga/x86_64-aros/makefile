@@ -56,7 +56,7 @@ pre-build:
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS_x86_64-aros && cp WCS_x86_64-aros WCS_x86_64-aros.unstripped && x86_64-aros-strip --strip-unneeded -R.comment WCS_x86_64-aros && ls -la WCS_x86_64-aros && x86_64-aros-size WCS_x86_64-aros && cp  ../WCS.info WCS_x86_64-aros.info
+	-cp WCS WCS_x86_64-aros && cp WCS_x86_64-aros WCS_x86_64-aros.unstripped && x86_64-aros-strip --strip-unneeded -R.comment WCS_x86_64-aros && ls -la WCS_x86_64-aros && x86_64-aros-size WCS_x86_64-aros && cp  ../WCS.info WCS_x86_64-aros.info && ../check_pre-commit-hook
 	-@echo ' '
 
 .PHONY: all clean dependents main-build pre-build post-build
