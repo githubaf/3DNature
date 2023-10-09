@@ -3022,3 +3022,8 @@ Replace in Gui eingebaut in Convert DEM -> Pre-Process. (noch keine Funktion)
 *In den Eclipse-Configurationen wird getestet, ob der pre-commit hook installiert ist. Sonst sollte man den manuell von 3DNature/Amiga nach 3DNature/.git(hooks kopieren, damit vor einem Commit bestimmte Tests durchgeführt werden.
 *Alle Eclipse-Buildconfiguratonen lassen sich compilieren.
 *Alle Eclipse-Buildconfigurationen werden testweise beim Commit neu gebaut.
+
+9.Oktober.2023
+--------------
+neuer gcc (20Sep23), davor war 07Jun23
+Test zeigt jetzt noch eine Zusammenfassung der Fehler am Ende an

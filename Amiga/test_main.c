@@ -1400,6 +1400,55 @@ struct ConvertDemTestStruct ConverDemTestData[]=
 };
 
 
+// We store failed tests in an array for displaying a summary at the end.
+#define ERROR_ARRAY_SIZE sizeof(ConverDemTestData)/sizeof(struct ConvertDemTestStruct)
+
+static unsigned int ErrorLines[ERROR_ARRAY_SIZE];
+
+void AddErrorLine(unsigned int testIndex)
+{
+	static unsigned int i=0;
+
+	// first init the array to UINT_MAX.
+	// init via static unsigned int ErrorLines[ERROR_ARRAY_SIZE]={UINT_MAX}; does not work. Only the first entry would be UINT_MAX
+	if(i==0)
+	{
+
+		unsigned int j;
+		for(j=0;j<ERROR_ARRAY_SIZE;j++ )
+		{
+			ErrorLines[j]=UINT_MAX;
+		}
+	}
+
+	if(i<ERROR_ARRAY_SIZE)
+	{
+		ErrorLines[i]=testIndex;
+		i++;
+	}
+	else
+	{
+		printf("Index to big in line %d\n",__LINE__);
+		exit(1);
+	}
+}
+
+int PrintErrorLines(void)
+{
+	unsigned int i=0;
+
+	printf("\nSummary:\n");
+	printf(  "--------\n");
+
+	while(ErrorLines[i]!=UINT_MAX)
+	{
+		printf("Line %4ld (%s) failed\n",ConverDemTestData[ErrorLines[i]].LineNumber,ConverDemTestData[ErrorLines[i]].TestName);
+		i++;
+	}
+	printf("\n");
+	return i;
+}
+
 int Test_ConvertDem(void)
 {
 	struct DEMConvertData data;
@@ -1436,6 +1485,7 @@ int Test_ConvertDem(void)
 		{
 			Errors++;
 			printf("Line %ld Min/Max Test failed\n",ConverDemTestData[testIndex].LineNumber);
+			AddErrorLine(testIndex);
 		}
 
 /* Damit geht es! */		InitDEMConvertData(&data,&ConverDemTestData[testIndex]);
@@ -1488,6 +1538,7 @@ int Test_ConvertDem(void)
 				{
 					printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
 					Errors++;
+					AddErrorLine(testIndex);
 				}
 
 				break;
@@ -1527,6 +1578,7 @@ int Test_ConvertDem(void)
 				else
 				{
 					printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
+					AddErrorLine(testIndex);
 				}
 
 
@@ -1544,6 +1596,7 @@ int Test_ConvertDem(void)
 				{
 					printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
 					Errors++;
+					AddErrorLine(testIndex);
 				}
 			}
 		}
@@ -1649,6 +1702,8 @@ __stdargs int main(void)   // I compile with -mregparm. Then __stdargs is needed
 
     int Errors;
 
+    printf("ERROR_ARRAY_SIZE=%d\n",ERROR_ARRAY_SIZE);
+
     //rmtree("Ram:WCS_Test");
 
     int Res=Mkdir("Ram:WCS_Test");
@@ -1665,6 +1720,7 @@ __stdargs int main(void)   // I compile with -mregparm. Then __stdargs is needed
 	Errors=Test_ConvertDem();
 	if(Errors!=0)
 	{
+		PrintErrorLines();
 		printf("\n\7%2d test failed!!!\n",Errors);
 	}
 	else
