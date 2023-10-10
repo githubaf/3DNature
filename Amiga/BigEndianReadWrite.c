@@ -1190,3 +1190,72 @@ ssize_t read_float_Array_BE(int filehandle, float *FloatArray, ssize_t size)
 #error "Unsupported Byte-Order"
 #endif
 }
+
+// AF, HGW, 10.Oct23
+ssize_t read_double_Array_BE(int filehandle, double *DoubleArray, ssize_t size)
+{
+
+    ssize_t Result=read(filehandle, DoubleArray, size);
+
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+    unsigned int i=0;
+    for(i=0; i<Result/sizeof(double);i++)  // swap all floats we could read
+    {
+    	SimpleEndianFlip64(DoubleArray[i],&DoubleArray[i]);
+    }
+    return Result;
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just  return
+    return Result;
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+// AF, HGW, 10.Oct23
+ssize_t read_int_Array_BE(int filehandle, int *IntArray, ssize_t size)
+{
+
+    ssize_t Result=read(filehandle, IntArray, size);
+
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+    unsigned int i=0;
+    for(i=0; i<Result/sizeof(int);i++)  // swap all ints we could read
+    {
+    	SimpleEndianFlip32S(IntArray[i],&IntArray[i]);
+    }
+    return Result;
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just  return
+    return Result;
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+// AF, HGW, 10.Oct23
+ssize_t read_short_Array_BE(int filehandle, short *ShortArray, ssize_t size)
+{
+
+    ssize_t Result=read(filehandle, ShortArray, size);
+
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+    unsigned int i=0;
+    for(i=0; i<Result/sizeof(short);i++)  // swap all shorts we could read
+    {
+    	SimpleEndianFlip16S(ShortArray[i],&ShortArray[i]);
+    }
+    return Result;
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just  return
+    return Result;
+#else
+#error "Unsupported Byte-Order"
+#endif
+}

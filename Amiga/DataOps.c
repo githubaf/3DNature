@@ -755,7 +755,25 @@ RepeatRGB:
 	   }
 	   else // Format is DEM_DATA_INPUT_ARRAY. ToDO: Distinguish between 2,4,8 bytes (un)signed, float, double!
 	   {
-		   ReadResult=read(fInput, InputData, InputDataSize);
+		   if(INVALUE_SIZE==DEM_DATA_VALSIZE_DOUBLE)
+		   {
+			   printf("ALEXANDER Line %d, sizeof(double)=%d\n",__LINE__,sizeof(double));
+			   ReadResult=read_double_Array_BE(fInput, InputData, InputDataSize);
+		   }
+		   else if(INVALUE_SIZE==DEM_DATA_VALSIZE_LONG)
+		   {
+			   printf("ALEXANDER Line %d, sizeof(int)=%d\n",__LINE__,sizeof(int));
+			   ReadResult=read_int_Array_BE(fInput, InputData, InputDataSize);
+		   }
+		   else if(INVALUE_SIZE==DEM_DATA_VALSIZE_SHORT)
+		   {
+			   printf("ALEXANDER Line %d, sizeof(short)=%d\n",__LINE__,sizeof(short));
+			   ReadResult=read_short_Array_BE(fInput, InputData, InputDataSize);
+		   }
+		   else
+		   {
+			   ReadResult=read(fInput, InputData, InputDataSize);
+		   }
 	   }
 
 	   if (ReadResult != InputDataSize)  // AF: 29.Mar.23
@@ -775,7 +793,16 @@ RepeatRGB:
 	   }
 	   else // Format is DEM_DATA_INPUT_ARRAY. ToDO: Distinguish between 2,4,8 bytes (un)signed, float, double!
 	   {
-		   ReadResult=read(fInput, InputData, (InputDataSize - INPUT_ROWS * InValSize));
+		   if(InValSize==DEM_DATA_VALSIZE_LONG)
+		   {
+			   printf("ALEXANDER Line %d\n",__LINE__);
+			   ReadResult=read_int_Array_BE(fInput, InputData, InputDataSize);
+		   }
+		   else
+		   {
+
+			   ReadResult=read(fInput, InputData, (InputDataSize - INPUT_ROWS * InValSize));
+		   }
 	   }
 
     if (ReadResult != InputDataSize - INPUT_ROWS * InValSize)

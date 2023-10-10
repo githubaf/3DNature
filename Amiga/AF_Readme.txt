@@ -3027,3 +3027,12 @@ Replace in Gui eingebaut in Convert DEM -> Pre-Process. (noch keine Funktion)
 --------------
 neuer gcc (20Sep23), davor war 07Jun23
 Test zeigt jetzt noch eine Zusammenfassung der Fehler am Ende an
+
+- 68020 zeigt 4 Fehler an.
+- AROS 32 Bit zeigt 171 Fehler an.
+
+10.Oktober.2023
+---------------
+- Edian-Korrekturen fuer Bin-Arrays. AROS 32 Bit zeigt noch 61 Fehler an.
+- Eine readDemArray_BE() Funktion analog zur writeDemArray_BE() sollte gemacht werden.
+

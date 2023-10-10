@@ -189,6 +189,12 @@ int fread_short_BE(short *Value, FILE *file);
 // AF, HGW, 29.Mar23, returns number of Bytes read
 ssize_t read_float_Array_BE(int filehandle, float *FloatArray, ssize_t size);
 
+// AF, HGW, 10.Oct23
+ssize_t read_double_Array_BE(int filehandle, double *DoubleArray, ssize_t size);
+
+// AF, HGW, 10.Oct23
+ssize_t read_int_Array_BE(int filehandle, int *IntArray, ssize_t size);
+
 // ------------------------------------------------------------------------------------------------------------------------
 // special structures
 
