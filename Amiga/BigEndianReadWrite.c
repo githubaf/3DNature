@@ -409,7 +409,7 @@ ssize_t write_UShort_BigEndian (int filedes, const void *buffer, size_t size)
     }
     else if(size==4)
     {
-        unsigned long int Value=*(ULONG*)buffer;
+        ULONG Value=*(ULONG*)buffer;
         SimpleEndianFlip32U(Value,&Value);
         return write(filedes, &Value, size);
     }
@@ -1255,6 +1255,153 @@ ssize_t read_short_Array_BE(int filehandle, short *ShortArray, ssize_t size)
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
     // just  return
     return Result;
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+// AF, HGW, 10.Oct23
+ssize_t read_ushort_Array_BE(int filehandle, unsigned short *UShortArray, ssize_t size)
+{
+
+    ssize_t Result=read(filehandle, UShortArray, size);
+
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+    unsigned int i=0;
+    for(i=0; i<Result/sizeof(unsigned short);i++)  // swap all unsigned shorts we could read
+    {
+    	SimpleEndianFlip16U(UShortArray[i],&UShortArray[i]);
+    }
+    return Result;
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just  return
+    return Result;
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+// AF, HGW, 11.Oct23
+ssize_t read_long_Array_BE(int filehandle, LONG *LongArray, ssize_t size)
+{
+
+    ssize_t Result=read(filehandle, LongArray, size);
+
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+    unsigned int i=0;
+    for(i=0; i<Result/sizeof(LONG);i++)  // swap all shorts we could read
+    {
+    	SimpleEndianFlip32S(LongArray[i],&LongArray[i]);
+    }
+    return Result;
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just  return
+    return Result;
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+// AF, HGW, 11.Oct23
+ssize_t read_ulong_Array_BE(int filehandle, ULONG *ULongArray, ssize_t size)
+{
+
+    ssize_t Result=read(filehandle, ULongArray, size);
+
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+    unsigned int i=0;
+    for(i=0; i<Result/sizeof(ULONG);i++)  // swap all unsigned shorts we could read
+    {
+    	SimpleEndianFlip32U(ULongArray[i],&ULongArray[i]);
+    }
+    return Result;
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just  return
+    return Result;
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+// AF, 11.Oct23 reads the DEM-Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
+long readDemArray_BE(long fInput,void *InputData,long InputDataSize,short invalue_format,short invalue_size)
+{
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+// defines copied from DataOps.c, should be moved to a common header
+#define DEM_DATA_FORMAT_SIGNEDINT	0
+#define DEM_DATA_FORMAT_UNSIGNEDINT	1
+#define DEM_DATA_FORMAT_FLOAT		2
+#define DEM_DATA_FORMAT_UNKNOWN		3
+
+#define DEM_DATA_VALSIZE_BYTE		0  //1 byte
+#define DEM_DATA_VALSIZE_SHORT		1  //2 bytes
+#define DEM_DATA_VALSIZE_LONG		2  //4 bytes
+#define DEM_DATA_VALSIZE_DOUBLE		3  //8 bytes
+#define DEM_DATA_VALSIZE_UNKNOWN	4
+
+	// AF: we are always called with valid Format-Type / Format-Length combinations
+
+	switch(invalue_format)
+	{
+	case DEM_DATA_FORMAT_SIGNEDINT:
+		switch (invalue_size)
+				{
+					case DEM_DATA_VALSIZE_BYTE:
+						return read(fInput, (char *)InputData, InputDataSize); // just plain read
+						break;
+					case DEM_DATA_VALSIZE_SHORT:
+						return read_short_Array_BE(fInput,InputData,InputDataSize);
+						break;
+					case DEM_DATA_VALSIZE_LONG:
+						return read_long_Array_BE(fInput,InputData,InputDataSize);
+						break;
+					default:
+						return 0;
+				}
+		break;
+	case DEM_DATA_FORMAT_UNSIGNEDINT:
+		switch (invalue_size)
+				{
+					case DEM_DATA_VALSIZE_BYTE:
+						return read(fInput, (char *)InputData, InputDataSize); // just plain write
+						break;
+					case DEM_DATA_VALSIZE_SHORT:
+						return read_ushort_Array_BE(fInput,InputData,InputDataSize);
+						break;
+					case DEM_DATA_VALSIZE_LONG:
+						return read_ulong_Array_BE(fInput,InputData,InputDataSize);
+						break;
+					default:
+						return 0;
+				}
+		break;
+	case DEM_DATA_FORMAT_FLOAT:
+		switch (invalue_size)
+		{
+			case DEM_DATA_VALSIZE_LONG:
+				return (read_float_Array_BE(fInput,InputData,InputDataSize));
+				break;
+			case DEM_DATA_VALSIZE_DOUBLE:
+				return (read_double_Array_BE(fInput,InputData,InputDataSize));
+				break;
+			default:
+			return 0;
+		}
+		break;
+	default:
+		return 0;
+	}
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just write as it is
+    return (write(fInput, (char *)InputData, InputDataSize));
 #else
 #error "Unsupported Byte-Order"
 #endif

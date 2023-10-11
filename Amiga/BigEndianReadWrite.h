@@ -204,4 +204,8 @@ ssize_t readZBufHdr_BE(int filehandle, struct ZBufferHeader *ZBufHdr);
 // AF: 20-Mar.23 read and correct endian if necessary
 long readElMapHeaderV101_BE(int fh, struct elmapheaderV101 *Hdr);
 
+// AF, 11.Oct23 reads the DEM-Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
+long readDemArray_BE(long fInput,void *InputData,long InputDataSize,short invalue_format,short invalue_size);
+
+
 #endif /* BIGENDIANREADWRITE_H_ */
