@@ -3036,3 +3036,29 @@ Test zeigt jetzt noch eine Zusammenfassung der Fehler am Ende an
 - Edian-Korrekturen fuer Bin-Arrays. AROS 32 Bit zeigt noch 61 Fehler an.
 - Eine readDemArray_BE() Funktion analog zur writeDemArray_BE() sollte gemacht werden.
 
+19.Oktober 2023
+---------------
+test_files/reference/ref_BSurS2S1 scheint falsch zu sein! Anzeige funktioniert mit 16 Bit???
+display -depth 16 -size 258x258 gray:/home/developer/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/test_files/reference/ref_BSurS2S1
+* Datei ist doppelt so groß wie sie sein müste!? (258x258x2)
+* Also ist der Fehler aohl auch im original-WCS 2.04 
+* DTED-Errors korrigiert. Der Test zeigt jetzt bei AROS 32 Bit noch 52 Errors statt 61.
+
+68020 Testergebnisse
+--------------------
+VistaProDEM -> COLORMAP
+VistaProDEM -> GRAYIFF
+ASCII Array -> COLORMAP
+Gray IFF -> COLORMAP
+
+AROS32 Testergebnisse
+---------------------
+Bei AROS32 gehen die Test mit Bin-Array als Quelle schief und
+
+Line 1087 (VistaProDEM -> COLORMAP) failed
+Line 1088 (VistaProDEM -> GRAYIFF) failed
+Line 1255 (ASCII Array -> COLORMAP) failed
+Line 1271 (Gray IFF -> COLORMAP) failed
+bei A68k OK --> Line 1386 (IFF 601x1201 -> Ascii Buffer 500x1000) failed
+bei A68k OK --> Line 1387 (IFF 601x1201 -> Ascii Buffer 500x1000 Spline Contraint) failed
+

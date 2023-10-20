@@ -1401,7 +1401,7 @@ struct ConvertDemTestStruct ConverDemTestData[]=
 
 
 // We store failed tests in an array for displaying a summary at the end.
-#define ERROR_ARRAY_SIZE sizeof(ConverDemTestData)/sizeof(struct ConvertDemTestStruct)
+#define ERROR_ARRAY_SIZE (sizeof(ConverDemTestData)/sizeof(struct ConvertDemTestStruct))
 
 static unsigned int ErrorLines[ERROR_ARRAY_SIZE];
 
@@ -1449,159 +1449,160 @@ int PrintErrorLines(void)
 	return i;
 }
 
-int Test_ConvertDem(void)
+int Test_ConvertDem(char *Testcase)
 {
 	struct DEMConvertData data;
-	#define TEST_ONLY 1
+#define TEST_ONLY 1
 #define NO_TEST_ONLY 0
 	unsigned int testIndex;
 	unsigned int Errors=0;
 
-	printf("Anzahl Tests=%d\n\n",sizeof(ConverDemTestData)/sizeof(struct ConvertDemTestStruct));
-
+	printf("Anzahl Tests insgesamt=%u\n\n",(unsigned int)(sizeof(ConverDemTestData)/sizeof(struct ConvertDemTestStruct)));
 
 	for(testIndex=0;testIndex<sizeof(ConverDemTestData)/sizeof(struct ConvertDemTestStruct);testIndex++)
 	{
-		char *filename;
-		static char tstFileName[256];
-		static char refFileNameExtended[256];
-		char *tstFileEnding;
-		static char tempOutFilename[256]={0};
-
-		filename=ConverDemTestData[testIndex].SourceFileName;
-
-		printf("%3d %s ",testIndex+1,ConverDemTestData[testIndex].TestName);
-
-		InitDEMConvertData(&data,&ConverDemTestData[testIndex]);
-
-		ConvertDEM(&data, filename, TEST_ONLY);
-		// ConvertDEM() swaps four valus OUTPUT_ROWS/OUTPUT_COLS and INPUT_ROWS/INPUT_COLS in case of DETD. Undo it!
-//		swmem(&data.FormatInt[3], &data.FormatInt[4], sizeof (short));  //   OUTPUT_ROWS/OUTPUT_COLS
-//		swmem(&data.FormatInt[1], &data.FormatInt[2], sizeof (short));  //   INPUT_ROWS/INPUT_COLS
-
-
-		if((data.MaxMin[0]!=ConverDemTestData[testIndex].MinEl) ||     // min Elevation
-		   (data.MaxMin[1]!=ConverDemTestData[testIndex].MaxEl))      // max Elevation
+		if(!strcmp(Testcase,ConverDemTestData[testIndex].TestName) || !strcmp(Testcase,"*"))  /* Nur angegebenen Testcase oder alle Tescases */
 		{
-			Errors++;
-			printf("Line %ld Min/Max Test failed\n",ConverDemTestData[testIndex].LineNumber);
-			AddErrorLine(testIndex);
-		}
+			char *filename;
+			static char tstFileName[256];
+			static char refFileNameExtended[256];
+			char *tstFileEnding;
+			static char tempOutFilename[256]={0};
 
-/* Damit geht es! */		InitDEMConvertData(&data,&ConverDemTestData[testIndex]);
-		ConvertDEM(&data, filename, NO_TEST_ONLY);
+			filename=ConverDemTestData[testIndex].SourceFileName;
 
-		// special handling for automatic filename-extensions
-		tstFileEnding="";
-		if(ConverDemTestData[testIndex].OutFormat==DEM_DATA_OUTPUT_ZBUF)
-		{
-			tstFileEnding="ZB";
-		}
+			printf("%3d %s ",testIndex+1,ConverDemTestData[testIndex].TestName);
 
-		// append spaces to the end or trim name until length is length[0] (global WCS variable, i.e. 10)
-		// needed for CLORMAP and WCSDEM
-		sprintf(tempOutFilename,"%s",ConverDemTestData[testIndex].outNameBase);
-		while (strlen(tempOutFilename) < length[0])
-		{
-			strcat(tempOutFilename, " ");         // append spaces
-		}
-		tempOutFilename[length[0]] = 0;           // trim name
+			InitDEMConvertData(&data,&ConverDemTestData[testIndex]);
+
+			ConvertDEM(&data, filename, TEST_ONLY);
+			// ConvertDEM() swaps four valus OUTPUT_ROWS/OUTPUT_COLS and INPUT_ROWS/INPUT_COLS in case of DETD. Undo it!
+			//		swmem(&data.FormatInt[3], &data.FormatInt[4], sizeof (short));  //   OUTPUT_ROWS/OUTPUT_COLS
+			//		swmem(&data.FormatInt[1], &data.FormatInt[2], sizeof (short));  //   INPUT_ROWS/INPUT_COLS
 
 
-		// COLOR_MAP and WCSDEM need special care as they have more than 1 resulting file
-		switch(ConverDemTestData[testIndex].OutFormat)
-		{
-			case DEM_DATA_OUTPUT_COLORMAP:
+			if((data.MaxMin[0]!=ConverDemTestData[testIndex].MinEl) ||     // min Elevation
+					(data.MaxMin[1]!=ConverDemTestData[testIndex].MaxEl))      // max Elevation
 			{
-				// now compare the resulting file against a WCS.204 reference file
-				int i;
-				char *rgbEnding[]={".red",".grn",".blu"};
-				int rgbError=0;
+				Errors++;
+				printf("Line %ld Min/Max Test failed\n",ConverDemTestData[testIndex].LineNumber);
+				AddErrorLine(testIndex);
+			}
+
+			/* Damit geht es! */		InitDEMConvertData(&data,&ConverDemTestData[testIndex]);
+			ConvertDEM(&data, filename, NO_TEST_ONLY);
+
+			// special handling for automatic filename-extensions
+			tstFileEnding="";
+			if(ConverDemTestData[testIndex].OutFormat==DEM_DATA_OUTPUT_ZBUF)
+			{
+				tstFileEnding="ZB";
+			}
+
+			// append spaces to the end or trim name until length is length[0] (global WCS variable, i.e. 10)
+			// needed for CLORMAP and WCSDEM
+			sprintf(tempOutFilename,"%s",ConverDemTestData[testIndex].outNameBase);
+			while (strlen(tempOutFilename) < length[0])
+			{
+				strcat(tempOutFilename, " ");         // append spaces
+			}
+			tempOutFilename[length[0]] = 0;           // trim name
 
 
-				for(i=0;i<3;i++)
+			// COLOR_MAP and WCSDEM need special care as they have more than 1 resulting file
+			switch(ConverDemTestData[testIndex].OutFormat)
+			{
+				case DEM_DATA_OUTPUT_COLORMAP:
 				{
-					snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,rgbEnding[i]);
-					snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,rgbEnding[i]);
+					// now compare the resulting file against a WCS.204 reference file
+					int i;
+					char *rgbEnding[]={".red",".grn",".blu"};
+					int rgbError=0;
 
-					if(!CompareFileExactly(refFileNameExtended,tstFileName)==0)
+
+					for(i=0;i<3;i++)
 					{
-						rgbError++;
+						snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,rgbEnding[i]);
+						snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,rgbEnding[i]);
+
+						if(!CompareFileExactly(refFileNameExtended,tstFileName)==0)
+						{
+							rgbError++;
+						}
 					}
+
+					if(rgbError==0)
+					{
+						printf("passed\n");
+					}
+					else
+					{
+						printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
+						Errors++;
+						AddErrorLine(testIndex);
+					}
+
+					break;
 				}
-
-				if(rgbError==0)
+				case DEM_DATA_OUTPUT_WCSDEM:
 				{
-					printf("passed\n");
+					int CmpElevError=0, CmpObjError=0;
+
+					// once for the elev-File
+					snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,".elev");
+					snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,".elev");
+
+					//printf("refFileNameExtended,tstFileName= <%s> und <%s>\n",refFileNameExtended,tstFileName);
+
+					if(!CmpElevFiles(refFileNameExtended,tstFileName)==0)
+					{
+						printf("- Elev-Files problem - ");
+						CmpElevError=1;
+						Errors++;
+					}
+
+					// and once for the Obj-File
+					snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,".Obj");
+					snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,".Obj");
+
+					if(CmpObjFiles(refFileNameExtended,tstFileName)!=0)
+					{
+						printf("- Obj-Files problem - ");
+						CmpObjError=1;
+						Errors++;
+					}
+
+					if(CmpElevError==0 && CmpObjError==0)
+					{
+						printf("passed\n");
+					}
+					else
+					{
+						printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
+						AddErrorLine(testIndex);
+					}
+
+
+					break;
 				}
-				else
+				default:
 				{
-					printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
-					Errors++;
-					AddErrorLine(testIndex);
-				}
-
-				break;
-			}
-			case DEM_DATA_OUTPUT_WCSDEM:
-			{
-				int CmpElevError=0, CmpObjError=0;
-
-				// once for the elev-File
-				snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,".elev");
-				snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,".elev");
-
-//printf("refFileNameExtended,tstFileName= <%s> und <%s>\n",refFileNameExtended,tstFileName);
-
-				if(!CmpElevFiles(refFileNameExtended,tstFileName)==0)
-				{
-					printf("- Elev-Files problem - ");
-					CmpElevError=1;
-					Errors++;
-				}
-
-				// and once for the Obj-File
-				snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,tempOutFilename,".Obj");
-				snprintf(refFileNameExtended,256,"%s%s",ConverDemTestData[testIndex].refFileName,".Obj");
-
-				if(CmpObjFiles(refFileNameExtended,tstFileName)!=0)
-				{
-					printf("- Obj-Files problem - ");
-					CmpObjError=1;
-					Errors++;
-				}
-
-				if(CmpElevError==0 && CmpObjError==0)
-				{
-					printf("passed\n");
-				}
-				else
-				{
-					printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
-					AddErrorLine(testIndex);
-				}
-
-
-				break;
-			}
-			default:
-			{
-				// now compare the resulting file against a WCS.204 reference file
-				snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,ConverDemTestData[testIndex].outNameBase,tstFileEnding);
-				if(CompareFileExactly(ConverDemTestData[testIndex].refFileName,tstFileName)==0)
-				{
-					printf("passed\n");
-				}
-				else
-				{
-					printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
-					Errors++;
-					AddErrorLine(testIndex);
+					// now compare the resulting file against a WCS.204 reference file
+					snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,ConverDemTestData[testIndex].outNameBase,tstFileEnding);
+					if(CompareFileExactly(ConverDemTestData[testIndex].refFileName,tstFileName)==0)
+					{
+						printf("passed\n");
+					}
+					else
+					{
+						printf("Line %ld failed\n",ConverDemTestData[testIndex].LineNumber);
+						Errors++;
+						AddErrorLine(testIndex);
+					}
 				}
 			}
 		}
 	}
-
 	return Errors;
 }
 
@@ -1693,16 +1694,18 @@ int rmtree(const char path[])
 //#define  ELEV_TEST_ONLY
 
 #ifdef WCS_TEST
-__stdargs int main(void)   // I compile with -mregparm. Then __stdargs is needed to get real argc/argv
+__stdargs int main(int argc, char **argv)   // I compile with -mregparm. Then __stdargs is needed to get real argc/argv
 {
 	/* init used global(!) variables */
 	dbaseloaded = 1;    // must be 1 if destination format is WCS DEM
     paramsloaded = 0;   // ?
     length[0] = 10;     // set in ./DataBase.c:342, seems to be fixed length of filename (without extension) for Obj and elev files (and reg/grn/blu)
 
-    int Errors;
+    int Errors=0;
 
-    printf("ERROR_ARRAY_SIZE=%d\n",ERROR_ARRAY_SIZE);
+    int arg=0;
+
+    printf("ERROR_ARRAY_SIZE=%u\n",(unsigned int)ERROR_ARRAY_SIZE);
 
     //rmtree("Ram:WCS_Test");
 
@@ -1717,7 +1720,18 @@ __stdargs int main(void)   // I compile with -mregparm. Then __stdargs is needed
     	printf("Warning: The value of SumElDifSq will not be checked!\n");
     }
 
-	Errors=Test_ConvertDem();
+    if(argc>1)
+    {
+    	for(arg=1;arg<argc;arg++)
+    	{
+    		Errors+=Test_ConvertDem(argv[arg]);
+    	}
+    }
+    else
+    {
+    	Errors+=Test_ConvertDem("*");
+    }
+
 	if(Errors!=0)
 	{
 		PrintErrorLines();

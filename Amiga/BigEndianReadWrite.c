@@ -1168,6 +1168,42 @@ int fread_short_BE(short *Value, FILE *file)
     return Result;
 }
 
+// AF, HGW, 19.Oct23
+int fread_LONG_BE(LONG *Value, FILE *file)
+{
+    int Result=fread(Value, sizeof (LONG),1,file);
+
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    // Flip Endian if host is not Big Endian
+    SimpleEndianFlip32S(*Value,Value);
+#endif
+    return Result;
+}
+
+// AF, HGW, 19.Oct23
+int fread_SHORT_Array_BE(SHORT *ShortArray, ssize_t size, ssize_t cnt,FILE *file)
+{
+
+    int Result=fread(ShortArray, size,cnt,file);
+
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+
+    unsigned int i=0;
+    for(i=0; i<size*cnt/sizeof(SHORT);i++)  // swap all SHORTs we could read
+    {
+    	SimpleEndianFlip16S(ShortArray[i],&ShortArray[i]);
+    }
+    return Result;
+
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+    // just  return
+    return Result;
+#else
+#error "Unsupported Byte-Order"
+#endif
+}
+
+
 // AF, HGW, 29.Mar23
 ssize_t read_float_Array_BE(int filehandle, float *FloatArray, ssize_t size)
 {

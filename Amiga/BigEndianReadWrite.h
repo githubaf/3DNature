@@ -185,7 +185,13 @@ int fread_double_BE(double *Value, FILE *file);
 
 int fread_short_BE(short *Value, FILE *file);
 
+// AF, HGW, 19.Oct23
+int fread_LONG_BE(LONG *Value, FILE *file);
+
 // basic arrays
+// AF, HGW, 19.Oct23, returns number of Bytes read
+int fread_SHORT_Array_BE(SHORT *FloatArray, ssize_t size, ssize_t cnt, FILE *file);
+
 // AF, HGW, 29.Mar23, returns number of Bytes read
 ssize_t read_float_Array_BE(int filehandle, float *FloatArray, ssize_t size);
 

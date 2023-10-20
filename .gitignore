@@ -29,3 +29,6 @@
 
 #Dependency-Files
 *.d
+
+# Coverage-Files
+*.gcno

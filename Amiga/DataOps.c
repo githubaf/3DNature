@@ -755,6 +755,7 @@ RepeatRGB:
 	   }
 	   else // Format is DEM_DATA_INPUT_ARRAY. ToDO: Distinguish between 2,4,8 bytes (un)signed, float, double!
 	   {
+           //ReadResult=read(fInput, InputData, InputDataSize);
 		   ReadResult=readDemArray_BE(fInput, InputData, InputDataSize,INVALUE_FORMAT,INVALUE_SIZE);
 	   }
 
@@ -775,7 +776,8 @@ RepeatRGB:
 	   }
 	   else // Format is DEM_DATA_INPUT_ARRAY. ToDO: Distinguish between 2,4,8 bytes (un)signed, float, double!
 	   {
-		   ReadResult=readDemArray_BE(fInput, InputData, InputDataSize,INVALUE_FORMAT,INVALUE_SIZE);
+		   //ReadResult=read(fInput, InputData, (InputDataSize - INPUT_ROWS * InValSize));
+           ReadResult=readDemArray_BE(fInput, InputData, (InputDataSize - INPUT_ROWS * InValSize),INVALUE_FORMAT,INVALUE_SIZE);
 	   }
 
     if (ReadResult != InputDataSize - INPUT_ROWS * InValSize)
