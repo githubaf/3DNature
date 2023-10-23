@@ -3491,6 +3491,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
     } /* if open fail */
    // AF: old: if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
    // AF, 20.Mar23 writes the Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
+   printf("\nALEXANDER: OutputDataSize=%ld, OUTVALUE_FORMAT=%d, OUTVALUE_SIZE=%d\n",OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE);
    if((writeDemArray_BE(fOutput,OutputData,OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != OutputDataSize)
     {
     error = 5;
