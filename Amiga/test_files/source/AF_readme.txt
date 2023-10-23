@@ -4,7 +4,7 @@ BSur.demZB       - BigSur.DEM from Amiga VistaPro 3.05 converted to ZB with WCS 
 
 n54_e013_3arc_v2.dt1 - DTED file, island of Ruegen, aquired from https://earthexplorer.usgs.gov/ -> Select your Data Sets-> Digital Elevation -> SRTM -> SRTM Void Filled
 
-ÃœberprÃ¼fung der Files, 23. Oktober 2023
+Überprüfung der Files, 23. Oktober 2023
 ---------------------------------------
   181270 Oct 20 12:15 '36112.I   .elev'
  1065282 Oct 20 12:15  BSur.DEMAS              # start imagej", File -> Import -> Text Image, Big Sur, 2058x258 OK
