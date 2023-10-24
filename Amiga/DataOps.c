@@ -3469,7 +3469,11 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
     for (row=0; row<rows; row++)
      RowZip[row] = row * cols;
     if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_GRAYIFF)
+    {
      saveILBM(8, 0, NULL, (UBYTE **)&OutputData, RowZip, 0, 1, 0, cols, rows);
+    //	BitMap[0] = OutputData;
+    //	saveILBM(8, 0, NULL, BitMap, RowZip, 0, 1, 0, cols, rows);
+    }
     else
      {
      BitMap[0] = BitMap[1] = BitMap[2] = OutputData;
@@ -3491,7 +3495,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
     } /* if open fail */
    // AF: old: if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
    // AF, 20.Mar23 writes the Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
-   printf("\nALEXANDER: OutputDataSize=%ld, OUTVALUE_FORMAT=%d, OUTVALUE_SIZE=%d\n",OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE);
+   //printf("\nALEXANDER: OutputDataSize=%ld, OUTVALUE_FORMAT=%d, OUTVALUE_SIZE=%d\n",OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE);
    if((writeDemArray_BE(fOutput,OutputData,OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != OutputDataSize)
     {
     error = 5;

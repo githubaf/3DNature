@@ -1436,8 +1436,8 @@ long readDemArray_BE(long fInput,void *InputData,long InputDataSize,short invalu
 	}
 
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-    // just write as it is
-    return (write(fInput, (char *)InputData, InputDataSize));
+    // just read as it is
+    return (read(fInput, (char *)InputData, InputDataSize));
 #else
 #error "Unsupported Byte-Order"
 #endif

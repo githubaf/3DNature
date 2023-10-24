@@ -3062,3 +3062,23 @@ Line 1271 (Gray IFF -> COLORMAP) failed
 bei A68k OK --> Line 1386 (IFF 601x1201 -> Ascii Buffer 500x1000) failed
 bei A68k OK --> Line 1387 (IFF 601x1201 -> Ascii Buffer 500x1000 Spline Contraint) failed
 
+24.Oktober 2023
+---------------
+Fixed conversion to GrayIFF.
+-> Test sagt 3 Errors Amiga, 51 Errors on AROS32
+
+AROS starten und Test ausführen
+-------------------------------
+cd ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS
+Arch/linux/AROSBootstrap &
+
+cd ~/Desktop/SelcoGit/3DNature/Amiga/test_i386-aros
+make clean && make all
+rm -rf ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox
+cp -r ~/Desktop/SelcoGit/3DNature/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox
+
+# in AROS
+cd System:VBox/Amiga
+test_i386-aros/WCS_test_i386-aros
+
+
