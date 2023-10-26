@@ -3081,4 +3081,16 @@ cp -r ~/Desktop/SelcoGit/3DNature/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin
 cd System:VBox/Amiga
 test_i386-aros/WCS_test_i386-aros
 
+15.Oktober 2023
+---------------
+Convert DEM
+Vista-DEM (BigSur.DEM) -> alle Bin-Array Varianten 68k OK. (manuell mit "display" nachgetestet, ohne weitere Optionen) Anzeigen und Filesize OK.
+Ruegen DTED (601x1201) -> alle Bin-Array Varianten FASLCH. (Filesize ok, Bilder falsch)
+Ruegen ASCII(601x1201) -> alle Bin-Array Varianten 68k OK. (manuell mit "display" nachgetestet, ohne weitere Optionen) Anzeigen (bei signed weisse Stellen) und Filesize OK.
 
+Bin Array -> Bin Array manuell testen! geht nicht, falsche groesse. Mit Original nachtesten!
+
+26.Oktober 2023
+---------------
+Das kaputte Testfile test_files/source/BSurDEMGray.iff korrigiert. Demtsprechend die zugehoerenden Referenzfiles neu gemacht. Damit sind alle source-Files jetzt ueberprueft OK.
+ 

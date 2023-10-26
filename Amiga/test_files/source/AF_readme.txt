@@ -18,7 +18,7 @@ n54_e013_3arc_v2.dt1 - DTED file, island of Ruegen, aquired from https://earthex
   266256 Oct 20 13:36  BSur.DEMU4              # display -depth 16 -size 258x258 gray:BSur.DEMU2  # Display OK, Filesize ok
   266320 Oct 20 12:15  BSur.DEMZB              # tail --bytes $((258*258*4)) BSur.DEMZB | display -endian MSB -depth 32 -size 258x258 -define quantum:format=floating-point -define quantum:scale=8e+01 gray: # Display OK
   123624 Oct 20 12:15  BSurDEMColr.iff         # display BSurDEMColr.iff # Display OK, file BSurDEMColr.iff #ILBM interleaved image, 258 x 258
-   68100 Oct 20 12:15  BSurDEMGray.iff         # display BSurDEMGray.iff # FALSCH !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   68100 Oct 20 12:15  BSurDEMGray.iff         # display BSurDEMGray.iff # fixed 26.Oct.23, Display OK, file BSurDEMGray.iff #IFF data, ILBM interleaved image, 258 x 258 identify zeigt 8-plane ILBM no colormap - interpreting values as grayscale
    60793 Oct 20 12:15  BigSur.DEM              # --- original File ---
  1593084 Oct 20 12:15  n54_e013_3arc_v2.ascarr # start imagej", File -> Import -> Text Image, Ruegen, 601x1201 OK
  1454242 Oct 20 12:15  n54_e013_3arc_v2.dt1    # --- Original File ---
