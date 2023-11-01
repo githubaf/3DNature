@@ -3093,4 +3093,8 @@ Bin Array -> Bin Array manuell testen! geht nicht, falsche groesse. Mit Original
 26.Oktober 2023
 ---------------
 Das kaputte Testfile test_files/source/BSurDEMGray.iff korrigiert. Demtsprechend die zugehoerenden Referenzfiles neu gemacht. Damit sind alle source-Files jetzt ueberprueft OK.
- 
+
+1.Now. 2023
+-----------
+Test-Referenzfiles fuer ASCII -> Colormap korrigiert.WCS 2.04 liefert hier falsche Ergebnisse. (Colormap haengt da von SOURCE an (unint, int, float, 1,2,3,4,8 Bytes), soll aler aber im Ergebnis immer Unsigned int 1 Byte sein.
+

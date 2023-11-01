@@ -78,7 +78,7 @@ Version 2.031 (Emerald-Berta)
                  show relevant information in error messages. 
         *BugFix: In Obj-Files (WCS vector objects) MaxEl and MinEl
                  had random values. Initialized to 0 now.
-        *BugFix: Convert DEM: If targed was Color Map only ony file without
+        *BugFix: Convert DEM: If target was Color Map only one file without
                  .red/.grn/.blu ending was written. Now all 3 files are
                  created.
                  (This bug existed already in last original version 2.04)
@@ -100,6 +100,10 @@ Version 2.031 (Emerald-Berta)
                  elevation zero to something below sea level
         *BugFix: Convert to Gray IFF fixed. Resulting files contained garbage.
                  (This bug existed already in last original version 2.04)
+        *BugFix: Convert ASCII-Arry to Colormap: Resulting file has 1 Byte per
+                 pixel Unsigned int now. In original WCS 2.04 that depended on 
+                 source format
+
                  
 
 
