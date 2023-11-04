@@ -1676,7 +1676,8 @@ make libnix PREFIX=/home/developer/opt/m68k-amigaos_02Oct22
 ARCHIVE=wcs.lha; 
 \rm -rf temp temp_aminet_upload; 
 mkdir temp temp_aminet_upload; 
-for CPU in 68020 68020-60 68040 68060; do cp -f $CPU/WCS_$CPU $CPU/WCS_$CPU.info temp/; done; 
+for CPU in 68020 68020-60 68040 68060; do cp -f $CPU/WCS_$CPU $CPU/WCS_$CPU.info temp/; done;
+cp wcs.readme temp/ 
 cd temp; 
 jlha a ../temp_aminet_upload/$ARCHIVE *; 
 cd ..; 
@@ -1724,6 +1725,7 @@ for DIR in $(find /home/developer/Desktop/SelcoGit/3DNature/Amiga -type d -name 
    cp -v $DIR/$FILEBASE.unstripped .; 
    done; 
 cp -v /home/developer/Desktop/SelcoGit/3DNature/Amiga/CanyonSet000.jpg .
+cp -v /home/developer/Desktop/SelcoGit/3DNature/Amiga/wcs.readme .
 
 #readlink ~/amiga_gcc_link in readme-File nicht vergessen
 

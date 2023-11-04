@@ -17,6 +17,7 @@ mkdir temp temp_aminet_upload;
 for CPU in 68020 68020-60 68040 68060; do 
    cp -f $CPU/WCS_$CPU $CPU/WCS_$CPU.info temp/; 
 done;
+cp wcs.readme temp/
 
 # Jetzt liegen alle Dateien in ./temp
 
