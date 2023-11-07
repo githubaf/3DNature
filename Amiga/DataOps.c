@@ -137,7 +137,7 @@ const char *VALUE_FORMAT_Strings[]={
 
 };
 
-const int *VALUE_Bytes[]={
+const char *VALUE_Bytes[]={
 "DEM_DATA_VALSIZE_BYTE",
 "DEM_DATA_VALSIZE_SHORT",
 "DEM_DATA_VALSIZE_LONG",
@@ -3247,313 +3247,453 @@ Cleanup:
 /***********************************************************************/
 
 STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmapheaderV101 *DEMHdr,
-	void *OutputData, long OutputDataSize, short i, short j,
-	long rows, long cols, long OutputRows, long OutputCols, char *RGBComp) // used locally only -> static, AF 26.7.2021
+		void *OutputData, long OutputDataSize, short i, short j,
+		long rows, long cols, long OutputRows, long OutputCols, char *RGBComp) // used locally only -> static, AF 26.7.2021
 {
- char tempfilename[32]={0}, OutFilename[256]={0};
- short error = 0, OBNexists, Elev[6];
- long	fOutput,
+	char tempfilename[32]={0}, OutFilename[256]={0};
+	short error = 0, OBNexists, Elev[6];
+	long	fOutput,
 	ProtFlags = FIBB_OTR_READ | FIBB_OTR_WRITE | FIBB_OTR_DELETE,
 	OutFlags = O_WRONLY | O_CREAT | O_TRUNC;
- float	Version = DEM_CURRENT_VERSION;
- double Lon[6], Lat[6];
+	float	Version = DEM_CURRENT_VERSION;
+	double Lon[6], Lat[6];
 
- /*
-  * AF, 28.8.2023
-  * Here sometimes the external variable length[0] is read. It is set to 10 in
-  * short makedbase(short SaveNewDBase) and would be read if a databasefile is read.
-  * If we come into this function and no databese has been loaded before (because we only want to convert a file to a format other than WCS-DEM)
-  * then length[0] would still be 0 (set by the compiler in global external variable definition)
-  * but we alredy need the value 10, for instance for filename construction when converting Vista-DEM to ColorMap.
-  * So either load a database before or set it hard here!
-  */
- if(length[0]==0)  // not yet set? (i.e. no database created or loaded)
- {
-	 length[0]=10;
- }
+	/*
+	 * AF, 28.8.2023
+	 * Here sometimes the external variable length[0] is read. It is set to 10 in
+	 * short makedbase(short SaveNewDBase) and would be read if a databasefile is read.
+	 * If we come into this function and no databese has been loaded before (because we only want to convert a file to a format other than WCS-DEM)
+	 * then length[0] would still be 0 (set by the compiler in global external variable definition)
+	 * but we alredy need the value 10, for instance for filename construction when converting Vista-DEM to ColorMap.
+	 * So either load a database before or set it hard here!
+	 */
+	if(length[0]==0)  // not yet set? (i.e. no database created or loaded)
+	{
+		length[0]=10;
+	}
 
- strcpy(tempfilename, OUTPUT_NAMEBASE);
+	strcpy(tempfilename, OUTPUT_NAMEBASE);
 
- if (OUTPUT_ROWMAPS > 1 || OUTPUT_COLMAPS > 1)
-  {
-  char suffix[4] = { '.', 0, 0, 0 };
-  short mapct;
+	if (OUTPUT_ROWMAPS > 1 || OUTPUT_COLMAPS > 1)
+	{
+		char suffix[4] = { '.', 0, 0, 0 };
+		short mapct;
 
-  mapct = i * OUTPUT_COLMAPS + j;
-  if (OUTPUT_COLMAPS * OUTPUT_ROWMAPS > 25)
-   {
-   suffix[1] = 65 + mapct / 26;
-   suffix[2] = 65 + mapct % 26;
-   }
-  else
-   suffix[1] = 65 + mapct;  // 'A' + count
+		mapct = i * OUTPUT_COLMAPS + j;
+		if (OUTPUT_COLMAPS * OUTPUT_ROWMAPS > 25)
+		{
+			suffix[1] = 65 + mapct / 26;
+			suffix[2] = 65 + mapct % 26;
+		}
+		else
+			suffix[1] = 65 + mapct;  // 'A' + count
 
-  if ((OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
-	|| (OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP && RGBComp[0]))
-   {
-   if (strlen(tempfilename) > length[0] - 3)
-     	tempfilename[length[0] - 3] = 0;
-   strcat(tempfilename, suffix);
-   while (strlen(tempfilename) < length[0])
-	strcat(tempfilename, " ");
-   strmfp(OutFilename, OUTPUT_DIRECTORY, tempfilename);
-   if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
-    strcat(OutFilename, ".elev");
-   else
-    strcat(OutFilename, RGBComp);
-   } /* if output DEM to database */
-  else
-   {
-   strcat(tempfilename, suffix);
-   strmfp(OutFilename, OUTPUT_DIRECTORY, tempfilename);
-   } /* if no database output */
-  } /* if more than one output map */
- else
-  {
-  if ((OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
-	|| (OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP && RGBComp[0]))
-   {
-   while (strlen(tempfilename) < length[0])
-	strcat(tempfilename, " ");
-   tempfilename[length[0]] = 0;
-   strmfp(OutFilename, OUTPUT_DIRECTORY, tempfilename);
-   if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
-    strcat(OutFilename, ".elev");
-   else
-    strcat(OutFilename, RGBComp);
-   } /* if output DEM to database */
-  else
-   {
-   strmfp(OutFilename, OUTPUT_DIRECTORY, tempfilename);
-   } /* if no output to database */
-  } /* else only one output map */
+		if ((OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
+				|| (OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP && RGBComp[0]))
+		{
+			if (strlen(tempfilename) > length[0] - 3)
+				tempfilename[length[0] - 3] = 0;
+			strcat(tempfilename, suffix);
+			while (strlen(tempfilename) < length[0])
+				strcat(tempfilename, " ");
+			strmfp(OutFilename, OUTPUT_DIRECTORY, tempfilename);
+			if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
+				strcat(OutFilename, ".elev");
+			else
+				strcat(OutFilename, RGBComp);
+		} /* if output DEM to database */
+		else
+		{
+			strcat(tempfilename, suffix);
+			strmfp(OutFilename, OUTPUT_DIRECTORY, tempfilename);
+		} /* if no database output */
+	} /* if more than one output map */
+	else
+	{
+		if ((OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
+				|| (OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP && RGBComp[0]))
+		{
+			while (strlen(tempfilename) < length[0])
+				strcat(tempfilename, " ");
+			tempfilename[length[0]] = 0;
+			strmfp(OutFilename, OUTPUT_DIRECTORY, tempfilename);
+			if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
+				strcat(OutFilename, ".elev");
+			else
+				strcat(OutFilename, RGBComp);
+		} /* if output DEM to database */
+		else
+		{
+			strmfp(OutFilename, OUTPUT_DIRECTORY, tempfilename);
+		} /* if no output to database */
+	} /* else only one output map */
 
- switch (OUTPUT_FORMAT)
-  {
-  case DEM_DATA_OUTPUT_WCSDEM:
-   {
-   if ((fOutput = open(OutFilename, OutFlags, ProtFlags)) < 0)
-    {
-    error = 4;
-    break;
-    } /* if open fail */
-   DEMHdr->rows	 = cols - 1;
-   DEMHdr->columns	 = rows;
-   DEMHdr->steplat	 = (OUTPUT_HILAT - OUTPUT_LOLAT) / (OUTPUT_ROWS - 1);
-   DEMHdr->steplong	 = (OUTPUT_HILON - OUTPUT_LOLON) / (OUTPUT_COLS - 1);
-   DEMHdr->lolat	 =
-	 OUTPUT_LOLAT + j * (OutputRows - DUPROW) * DEMHdr->steplat ;
-   DEMHdr->lolong	 =
-	 OUTPUT_HILON - i * (OutputCols - DUPROW) * DEMHdr->steplong;
-/*   DEMHdr->elscale; don't change it*/
-   if (INPUT_FORMAT != DEM_DATA_INPUT_WCSDEM)
-    {
-    switch (DATA_UNITS)
-     {
-     case DEM_DATA_UNITS_KILOM:
-      {
-      DEMHdr->elscale	 = ELSCALE_KILOM;
-      break;
-      }
-     case DEM_DATA_UNITS_CENTIM:
-      {
-      DEMHdr->elscale	 = ELSCALE_CENTIM;
-      break;
-      }
-     case DEM_DATA_UNITS_MILES:
-      {
-      DEMHdr->elscale	 = ELSCALE_MILES;
-      break;
-      }
-     case DEM_DATA_UNITS_FEET:
-      {
-      DEMHdr->elscale	 = ELSCALE_FEET;
-      break;
-      }
-     case DEM_DATA_UNITS_INCHES:
-      {
-      DEMHdr->elscale	 = ELSCALE_INCHES;
-      break;
-      }
-     default:
-      {
-      DEMHdr->elscale	 = ELSCALE_METERS;
-      break;
-      }
-     } /* switch */
+	switch (OUTPUT_FORMAT)
+	{
+		case DEM_DATA_OUTPUT_WCSDEM:
+		{
+			if ((fOutput = open(OutFilename, OutFlags, ProtFlags)) < 0)
+			{
+				error = 4;
+				break;
+			} /* if open fail */
+			DEMHdr->rows	 = cols - 1;
+			DEMHdr->columns	 = rows;
+			DEMHdr->steplat	 = (OUTPUT_HILAT - OUTPUT_LOLAT) / (OUTPUT_ROWS - 1);
+			DEMHdr->steplong	 = (OUTPUT_HILON - OUTPUT_LOLON) / (OUTPUT_COLS - 1);
+			DEMHdr->lolat	 =
+					OUTPUT_LOLAT + j * (OutputRows - DUPROW) * DEMHdr->steplat ;
+			DEMHdr->lolong	 =
+					OUTPUT_HILON - i * (OutputCols - DUPROW) * DEMHdr->steplong;
+			/*   DEMHdr->elscale; don't change it*/
+			if (INPUT_FORMAT != DEM_DATA_INPUT_WCSDEM)
+			{
+				switch (DATA_UNITS)
+				{
+					case DEM_DATA_UNITS_KILOM:
+					{
+						DEMHdr->elscale	 = ELSCALE_KILOM;
+						break;
+					}
+					case DEM_DATA_UNITS_CENTIM:
+					{
+						DEMHdr->elscale	 = ELSCALE_CENTIM;
+						break;
+					}
+					case DEM_DATA_UNITS_MILES:
+					{
+						DEMHdr->elscale	 = ELSCALE_MILES;
+						break;
+					}
+					case DEM_DATA_UNITS_FEET:
+					{
+						DEMHdr->elscale	 = ELSCALE_FEET;
+						break;
+					}
+					case DEM_DATA_UNITS_INCHES:
+					{
+						DEMHdr->elscale	 = ELSCALE_INCHES;
+						break;
+					}
+					default:
+					{
+						DEMHdr->elscale	 = ELSCALE_METERS;
+						break;
+					}
+				} /* switch */
 
-    if (ROWS_EQUAL == DEM_DATA_ROW_LON)
-     {
-     swmem(&DEMHdr->steplat, &DEMHdr->steplong, 8);
-     swmem(&DEMHdr->lolat, &DEMHdr->lolong, 8);
-     } /* if rows = longitude */
-    } /* if not WCS DEM input */
+				if (ROWS_EQUAL == DEM_DATA_ROW_LON)
+				{
+					swmem(&DEMHdr->steplat, &DEMHdr->steplong, 8);
+					swmem(&DEMHdr->lolat, &DEMHdr->lolong, 8);
+				} /* if rows = longitude */
+			} /* if not WCS DEM input */
 
-   FindElMaxMin(DEMHdr, OutputData);   // searches in OutputData for Max and Min values.
-   //write(fOutput, (char *)&Version, 4);
-   write_float_BE(fOutput, &Version); // AF, 21.3.23, Write Big Endian
-   //write(fOutput, (char *)DEMHdr, ELEVHDRLENV101);
-   writeElMapHeaderV101_BE(fOutput,DEMHdr); // AF, 21.3.23, Write Big Endian
+			FindElMaxMin(DEMHdr, OutputData);   // searches in OutputData for Max and Min values.
+			//write(fOutput, (char *)&Version, 4);
+			write_float_BE(fOutput, &Version); // AF, 21.3.23, Write Big Endian
+			//write(fOutput, (char *)DEMHdr, ELEVHDRLENV101);
+			writeElMapHeaderV101_BE(fOutput,DEMHdr); // AF, 21.3.23, Write Big Endian
 
 
-   //if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
-   if ((write_short_Array_BE(fOutput, OutputData, OutputDataSize)) != OutputDataSize) // AF, 21.3.23, Write Big Endian
-    {
-    error = 5;
-    close(fOutput);
-    goto Cleanup;
-    } /* if write fail */
+			//if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
+			if ((write_short_Array_BE(fOutput, OutputData, OutputDataSize)) != OutputDataSize) // AF, 21.3.23, Write Big Endian
+			{
+				error = 5;
+				close(fOutput);
+				goto Cleanup;
+			} /* if write fail */
 
-   close(fOutput);
+			close(fOutput);
 
-   OBNexists = 0;
-   for (OBN=0; OBN<NoOfObjects; OBN++)
-    {
-    if (! strcmp(tempfilename, DBase[OBN].Name))
-     {
-     OBNexists = 1;
-     break;
-     }
-    } /* for OBN=0... */
-   if (! OBNexists)
-    {
-    if (NoOfObjects + 1 > DBaseRecords)
-     {
-     struct database *NewBase;
+			OBNexists = 0;
+			for (OBN=0; OBN<NoOfObjects; OBN++)
+			{
+				if (! strcmp(tempfilename, DBase[OBN].Name))
+				{
+					OBNexists = 1;
+					break;
+				}
+			} /* for OBN=0... */
+			if (! OBNexists)
+			{
+				if (NoOfObjects + 1 > DBaseRecords)
+				{
+					struct database *NewBase;
 
-     if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
-	 DBaseRecords + 20)) == NULL)
-      {
-      error = 12;
-      break;
-      } /* if new database allocation fails */
-     else
-      {
-      DBase = NewBase;
-      DBaseRecords += 20;
-      } /* else new database allocated and copied */
-     } /* if need more database space */
-    strncpy(DBase[OBN].Name, tempfilename, length[0]);
-    strcpy(DBase[OBN].Layer1, "  ");
-    strcpy(DBase[OBN].Layer2, "TOP");
-    DBase[OBN].Color = 2;
-    DBase[OBN].LineWidth = 1;
-    strcpy(DBase[OBN].Label, "               ");
-    DBase[OBN].MaxFract = 9;
-    DBase[OBN].Pattern[0] = 'L';
-    DBase[OBN].Red = 255;
-    DBase[OBN].Grn = 255;
-    DBase[OBN].Blu = 255;
-    NoOfObjects ++;
-    if (DE_Win)
-     {
-     if (! Add_DE_NewItem())
-      {
-      error = 1;
-      } /* if new list fails */
-     } /* if database editor open */
-    } /* if object not already exists */
-   DBase[OBN].Points = 5;
-   DBase[OBN].Mark[0] = 'Y';
-   DBase[OBN].Enabled = '*';
-   DBase[OBN].Flags = 6;
-   strcpy(DBase[OBN].Special, "TOP");
+					if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
+							DBaseRecords + 20)) == NULL)
+					{
+						error = 12;
+						break;
+					} /* if new database allocation fails */
+					else
+					{
+						DBase = NewBase;
+						DBaseRecords += 20;
+					} /* else new database allocated and copied */
+				} /* if need more database space */
+				strncpy(DBase[OBN].Name, tempfilename, length[0]);
+				strcpy(DBase[OBN].Layer1, "  ");
+				strcpy(DBase[OBN].Layer2, "TOP");
+				DBase[OBN].Color = 2;
+				DBase[OBN].LineWidth = 1;
+				strcpy(DBase[OBN].Label, "               ");
+				DBase[OBN].MaxFract = 9;
+				DBase[OBN].Pattern[0] = 'L';
+				DBase[OBN].Red = 255;
+				DBase[OBN].Grn = 255;
+				DBase[OBN].Blu = 255;
+				NoOfObjects ++;
+				if (DE_Win)
+				{
+					if (! Add_DE_NewItem())
+					{
+						error = 1;
+					} /* if new list fails */
+				} /* if database editor open */
+			} /* if object not already exists */
+			DBase[OBN].Points = 5;
+			DBase[OBN].Mark[0] = 'Y';
+			DBase[OBN].Enabled = '*';
+			DBase[OBN].Flags = 6;
+			strcpy(DBase[OBN].Special, "TOP");
 
-   strmfp(OutFilename, OUTPUT_DIRECTORY, tempfilename);
-   strcat(OutFilename, ".Obj");
+			strmfp(OutFilename, OUTPUT_DIRECTORY, tempfilename);
+			strcat(OutFilename, ".Obj");
 
-   Lat[0] = Lat[1] = Lat[2] = Lat[5] = DEMHdr->lolat;
-   Lat[3] = Lat[4] = DEMHdr->lolat + (DEMHdr->columns - 1) * DEMHdr->steplat;
-   Lon[0] = Lon[1] = Lon[4] = Lon[5] = DEMHdr->lolong - DEMHdr->rows * DEMHdr->steplong;
-   Lon[2] = Lon[3] = DEMHdr->lolong;
-   memset(&Elev[0], 0, 6 * sizeof (short));
+			Lat[0] = Lat[1] = Lat[2] = Lat[5] = DEMHdr->lolat;
+			Lat[3] = Lat[4] = DEMHdr->lolat + (DEMHdr->columns - 1) * DEMHdr->steplat;
+			Lon[0] = Lon[1] = Lon[4] = Lon[5] = DEMHdr->lolong - DEMHdr->rows * DEMHdr->steplong;
+			Lon[2] = Lon[3] = DEMHdr->lolong;
+			memset(&Elev[0], 0, 6 * sizeof (short));
 
-   if (saveobject(OBN, OutFilename, &Lon[0], &Lat[0], &Elev[0]))
-    {
-    error = 14;
-    }
-   break;
-   } /* WCS DEM */
-  case DEM_DATA_OUTPUT_GRAYIFF:
-  case DEM_DATA_OUTPUT_COLORIFF:
-   {
-   long *RowZip, row;
-   UBYTE *BitMap[3];
+			if (saveobject(OBN, OutFilename, &Lon[0], &Lat[0], &Elev[0]))
+			{
+				error = 14;
+			}
+			break;
+		} /* WCS DEM */
+		case DEM_DATA_OUTPUT_GRAYIFF:
+		case DEM_DATA_OUTPUT_COLORIFF:
+		{
+			long *RowZip, row;
+			UBYTE *BitMap[3];
 
-   strcpy(ILBMname, OutFilename);
-   if ((RowZip = (long *)get_Memory(rows * sizeof (long), MEMF_ANY)))
-    {
-    for (row=0; row<rows; row++)
-     RowZip[row] = row * cols;
-    if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_GRAYIFF)
-    {
-     saveILBM(8, 0, NULL, (UBYTE **)&OutputData, RowZip, 0, 1, 0, cols, rows);
-    //	BitMap[0] = OutputData;
-    //	saveILBM(8, 0, NULL, BitMap, RowZip, 0, 1, 0, cols, rows);
-    }
-    else
-     {
-     BitMap[0] = BitMap[1] = BitMap[2] = OutputData;
-     saveILBM(24, 0, NULL, BitMap, RowZip, 0, 1, 0, cols, rows);
-     }
-    free_Memory(RowZip, rows * sizeof (long));
-    } /* if */
-   else
-    error = 1;
-   break;
-   } /* iff */
-  case DEM_DATA_OUTPUT_ARRAY:
-  case DEM_DATA_OUTPUT_COLORMAP:
-   {
-   if ((fOutput = open(OutFilename, OutFlags, ProtFlags)) < 0)
-    {
-    error = 4;
-    break;
-    } /* if open fail */
-   // AF: old: if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
-   // AF, 20.Mar23 writes the Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
- //  printf("\nALEXANDER: OutputDataSize=%ld, OUTVALUE_FORMAT=%ld, OUTVALUE_SIZE=%d\n",OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE);
-   printf("\nALEXANDER: OutputDataSize=%ld, OUTVALUE_FORMAT=%s, OUTVALUE_SIZE=%s\n",OutputDataSize,VALUE_FORMAT_Strings[OUTVALUE_FORMAT],VALUE_Bytes[OUTVALUE_SIZE]);
-   printf("\nALEXANDER: INVALUE_FORMAT=%s, INVALUE_SIZE=%s\n",VALUE_FORMAT_Strings[INVALUE_FORMAT],VALUE_Bytes[INVALUE_SIZE]);
-   if((writeDemArray_BE(fOutput,OutputData,OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != OutputDataSize)
-    {
-    error = 5;
-    close(fOutput);
-    goto Cleanup;
-    } /* if write fail */
-   close(fOutput);
-   break;
-   } /* array */
-  case DEM_DATA_OUTPUT_ASCII: // AF, HGW 12.Sep.2023
-  {
-  FILE *OutFile;
-  if ((OutFile = fopen(OutFilename, "w")) == NULL)
-   {
-   error = 5; // Error Writing Destination File
-   break;
-   }
-   // OUTVALUE_FORMAT is always DEM_DATA_FORMAT_FLOAT
-   // OUTVALUE_SIZE is always DEM_DATA_VALSIZE_LONG (4 Bytes)
-  printf("ALEXANDER: calling writeDemArray_ASCII(). OUTVALUE_FORMAT=%d, OUTVALUE_SIZE=%d\n",OUTVALUE_FORMAT,OUTVALUE_SIZE);
-  if((writeDemArray_ASCII(OutFile,OutputData,cols,rows)) != cols*rows)
-   {
-   error = 5; // Error Writing Destination File
-   fclose(OutFile);
-   goto Cleanup;
-   } /* if write fail */
-  fclose(OutFile);
-  break;
-  } /* ASCII array */
-  case DEM_DATA_OUTPUT_ZBUF:
-   {
-   SaveZBuf(0, 0, OutputDataSize / sizeof (float), NULL,
-	(float *)OutputData, OutFilename, rows, cols);
-   break;
-   } /* Z Buffer */
-  } /* switch output file format */
+			strcpy(ILBMname, OutFilename);
+			if ((RowZip = (long *)get_Memory(rows * sizeof (long), MEMF_ANY)))
+			{
+				for (row=0; row<rows; row++)
+					RowZip[row] = row * cols;
+				if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_GRAYIFF)
+				{
+					saveILBM(8, 0, NULL, (UBYTE **)&OutputData, RowZip, 0, 1, 0, cols, rows);
+					//	BitMap[0] = OutputData;
+					//	saveILBM(8, 0, NULL, BitMap, RowZip, 0, 1, 0, cols, rows);
+				}
+				else
+				{
+					BitMap[0] = BitMap[1] = BitMap[2] = OutputData;
+					saveILBM(24, 0, NULL, BitMap, RowZip, 0, 1, 0, cols, rows);
+				}
+				free_Memory(RowZip, rows * sizeof (long));
+			} /* if */
+			else
+				error = 1;
+			break;
+		} /* iff */
+		case DEM_DATA_OUTPUT_ARRAY:
+		{
+			if ((fOutput = open(OutFilename, OutFlags, ProtFlags)) < 0)
+			{
+				error = 4;
+				break;
+			} /* if open fail */
+			// AF: old: if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
+			// AF, 20.Mar23 writes the Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
+			//  printf("\nALEXANDER: OutputDataSize=%ld, OUTVALUE_FORMAT=%ld, OUTVALUE_SIZE=%d\n",OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE);
+			printf("\nALEXANDER: OutputDataSize=%ld, OUTVALUE_FORMAT=%s, OUTVALUE_SIZE=%s\n",OutputDataSize,VALUE_FORMAT_Strings[OUTVALUE_FORMAT],VALUE_Bytes[OUTVALUE_SIZE]);
+			printf("\nALEXANDER: INVALUE_FORMAT=%s, INVALUE_SIZE=%s\n",VALUE_FORMAT_Strings[INVALUE_FORMAT],VALUE_Bytes[INVALUE_SIZE]);
 
-Cleanup:
+			if(INPUT_FORMAT==DEM_DATA_INPUT_ARRAY)  // special handling Array -> Array.
+			{
+				// Test LONG Array -> SHORT ARRAY
 
- return (error);
+				const int ValBytes[]=
+				{
+						1,   // DEM_DATA_VALSIZE_BYTE
+						2,   // DEM_DATA_VALSIZE_SHORT
+						4,   // DEM_DATA_VALSIZE_LONG
+						8    // DEM_DATA_VALSIZE_DOUBLE
+				};
+
+				void* tmpBuf=malloc(cols*ValBytes[OUTVALUE_SIZE]);
+
+				if(!tmpBuf)
+				{
+					error=1;   // OUT of Memory
+					close(fOutput);
+					goto Cleanup;
+				}
+
+				unsigned int x,y;
+				for (y=0;y<rows;y++)
+				{
+					for(x=0;x<cols;x++)
+					{
+						switch(INVALUE_FORMAT)
+						{
+							case DEM_DATA_FORMAT_SIGNEDINT:
+							{
+								switch(INVALUE_SIZE)
+								{
+									case DEM_DATA_VALSIZE_BYTE:
+									{
+										switch (OUTVALUE_FORMAT)
+										{
+											case DEM_DATA_FORMAT_SIGNEDINT:
+											{
+												switch(OUTVALUE_SIZE)
+												{
+													case DEM_DATA_VALSIZE_BYTE:
+														((char*)tmpBuf)[x]=((char*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_SHORT:
+														((short*)tmpBuf)[x]=((char*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_LONG:
+														((LONG*)tmpBuf)[x]=((char*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_DOUBLE:
+														// 8 bytes signed int not supported, wie error-Message angeben?
+														break;
+													default:
+														;  // illegal Size
+												}
+												break;
+											}  // case DEM_DATA_FORMAT_SIGNEDINT:
+
+											case DEM_DATA_FORMAT_UNSIGNEDINT:
+											{
+												switch(OUTVALUE_SIZE)
+												{
+													case DEM_DATA_VALSIZE_BYTE:
+														((unsigned char*)tmpBuf)[x]= ((char*)OutputData)[y*cols+x] < 0 ? 0: ((char*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_SHORT:
+														((unsigned short*)tmpBuf)[x]= ((char*)OutputData)[y*cols+x] < 0 ? 0: ((char*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_LONG:
+														((ULONG*)tmpBuf)[x]= ((char*)OutputData)[y*cols+x] < 0 ? 0: ((char*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_DOUBLE:
+														// 8 bytes signed int not supported, wie error-Message angeben?
+														break;
+													default:
+														;  // illegal Size
+												}
+												break;
+											}  // case DEM_DATA_FORMAT_UNSIGNEDINT:
+
+											case DEM_DATA_FORMAT_FLOAT:
+											{
+												switch(OUTVALUE_SIZE)
+												{
+													case DEM_DATA_VALSIZE_BYTE:
+														// 1 Bytes FLOAT not supported, wie error-Message angeben?
+														break;
+													case DEM_DATA_VALSIZE_SHORT:
+														// 2 Bytes FLOAT not supported, wie error-Message angeben?
+														break;
+													case DEM_DATA_VALSIZE_LONG:
+														((FLOAT*)tmpBuf)[x]= ((char*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_DOUBLE:
+														((DOUBLE*)tmpBuf)[x]= ((char*)OutputData)[y*cols+x];
+														break;
+													default:
+														;  // illegal Size
+												}
+												break;
+											}  // case DEM_DATA_FORMAT_FLOAT:
+										} // switch (OUTVALUE_FORMAT)
+										break;
+									} // case DEM_DATA_VALSIZE_BYTE:
+								} // switch(INVALUE_SIZE)
+							} // case DEM_DATA_FORMAT_SIGNEDINT:
+						}  //switch(INVALUE_FORMAT)
+					} // for x
+					unsigned int Linesize=ValBytes[OUTVALUE_SIZE]*cols;
+					//printf("LineSize=%u\n",Linesize);
+					if((writeDemArray_BE(fOutput,tmpBuf,Linesize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != Linesize)
+					{
+						error = 5;
+						close(fOutput);
+						goto Cleanup;
+					}
+				} // for y
+				free(tmpBuf);
+			}  // if Bin-Array -> Bin-Array
+			else
+			{
+					if((writeDemArray_BE(fOutput,OutputData,OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != OutputDataSize)
+					{
+						error = 5;
+						close(fOutput);
+						goto Cleanup;
+					}
+			}
+			close(fOutput);
+			break;
+		} /* case DEM_DATA_OUTPUT_ARRAY: */
+		case DEM_DATA_OUTPUT_COLORMAP:
+		{
+			if ((fOutput = open(OutFilename, OutFlags, ProtFlags)) < 0)
+			{
+				error = 4;
+				break;
+			} /* if open fail */
+			// AF: old: if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
+			// AF, 20.Mar23 writes the Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
+			if((writeDemArray_BE(fOutput,OutputData,OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != OutputDataSize)
+			{
+				error = 5;
+				close(fOutput);
+				goto Cleanup;
+			} /* if write fail */
+			close(fOutput);
+			break;
+		} /* DEM_DATA_OUTPUT_COLORMAP */
+		case DEM_DATA_OUTPUT_ASCII: // AF, HGW 12.Sep.2023
+		{
+			FILE *OutFile;
+			if ((OutFile = fopen(OutFilename, "w")) == NULL)
+			{
+				error = 5; // Error Writing Destination File
+				break;
+			}
+			// OUTVALUE_FORMAT is always DEM_DATA_FORMAT_FLOAT
+			// OUTVALUE_SIZE is always DEM_DATA_VALSIZE_LONG (4 Bytes)
+			printf("ALEXANDER: calling writeDemArray_ASCII(). OUTVALUE_FORMAT=%d, OUTVALUE_SIZE=%d\n",OUTVALUE_FORMAT,OUTVALUE_SIZE);
+			if((writeDemArray_ASCII(OutFile,OutputData,cols,rows)) != cols*rows)
+			{
+				error = 5; // Error Writing Destination File
+				fclose(OutFile);
+				goto Cleanup;
+			} /* if write fail */
+			fclose(OutFile);
+			break;
+		} /* ASCII array */
+		case DEM_DATA_OUTPUT_ZBUF:
+		{
+			SaveZBuf(0, 0, OutputDataSize / sizeof (float), NULL,
+					(float *)OutputData, OutFilename, rows, cols);
+			break;
+		} /* Z Buffer */
+	} /* switch output file format */
+
+	Cleanup:
+
+	return (error);
 
 } /* SaveConvertOutput() */
