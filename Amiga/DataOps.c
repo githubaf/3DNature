@@ -3619,6 +3619,78 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 										} // switch (OUTVALUE_FORMAT)
 										break;
 									} // case DEM_DATA_VALSIZE_BYTE:
+									case DEM_DATA_VALSIZE_SHORT:
+									{
+										switch (OUTVALUE_FORMAT)
+										{
+											case DEM_DATA_FORMAT_SIGNEDINT:
+											{
+												switch(OUTVALUE_SIZE)
+												{
+													case DEM_DATA_VALSIZE_BYTE:
+														((char*)tmpBuf)[x]=((short*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_SHORT:
+														((short*)tmpBuf)[x]=((short*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_LONG:
+														((LONG*)tmpBuf)[x]=((short*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_DOUBLE:
+														// 8 bytes signed int not supported, wie error-Message angeben?
+														break;
+													default:
+														;  // illegal Size
+												}
+												break;
+											}  // case DEM_DATA_FORMAT_SIGNEDINT:
+
+											case DEM_DATA_FORMAT_UNSIGNEDINT:
+											{
+												switch(OUTVALUE_SIZE)
+												{
+													case DEM_DATA_VALSIZE_BYTE:
+														((unsigned char*)tmpBuf)[x]= ((short*)OutputData)[y*cols+x] < 0 ? 0: ((short*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_SHORT:
+														((unsigned short*)tmpBuf)[x]= ((short*)OutputData)[y*cols+x] < 0 ? 0: ((short*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_LONG:
+														((ULONG*)tmpBuf)[x]= ((short*)OutputData)[y*cols+x] < 0 ? 0: ((short*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_DOUBLE:
+														// 8 bytes signed int not supported, wie error-Message angeben?
+														break;
+													default:
+														;  // illegal Size
+												}
+												break;
+											}  // case DEM_DATA_FORMAT_UNSIGNEDINT:
+
+											case DEM_DATA_FORMAT_FLOAT:
+											{
+												switch(OUTVALUE_SIZE)
+												{
+													case DEM_DATA_VALSIZE_BYTE:
+														// 1 Bytes FLOAT not supported, wie error-Message angeben?
+														break;
+													case DEM_DATA_VALSIZE_SHORT:
+														// 2 Bytes FLOAT not supported, wie error-Message angeben?
+														break;
+													case DEM_DATA_VALSIZE_LONG:
+														((FLOAT*)tmpBuf)[x]= ((short*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_DOUBLE:
+														((DOUBLE*)tmpBuf)[x]= ((short*)OutputData)[y*cols+x];
+														break;
+													default:
+														;  // illegal Size
+												}
+												break;
+											}  // case DEM_DATA_FORMAT_FLOAT:
+										} // switch (OUTVALUE_FORMAT)
+										break;
+									} // case DEM_DATA_VALSIZE_SHORT:
 								} // switch(INVALUE_SIZE)
 							} // case DEM_DATA_FORMAT_SIGNEDINT:
 						}  //switch(INVALUE_FORMAT)
