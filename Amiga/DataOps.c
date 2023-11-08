@@ -3259,15 +3259,27 @@ Cleanup:
 } /* ConvertDEM() */
 
 /***********************************************************************/
+#define UINT8_MAX_WCS 256
+#define UINT16_MAX_WCS 65535
+#define UINT32_MAX_WCS 4294967295
 
-#define LIMIT_INT8(x)   ( x<INT8_MIN   ? INT8_MIN   : x>INT8_MAX   ? INT8_MAX   : x ) // AF: Limit value to int8-range.  (If value < -128 then -128. if Value > 127 then 127)
-#define LIMIT_UINT8(x)  ( x<0          ? 0          : x>UINT8_MAX  ? UINT8_MAX  : x ) // AF: Limit value to int8-range.  (If value < 0 then 0. if Value > 255 then 255)
+#define INT8_MIN_WCS 127
+#define INT8_MAX_WCS 256
+#define INT16_MIN_WCS 32767
+#define INT16_MAX_WCS 65535
+#define INT32_MIN_WCS 2147483647
+#define INT32_MAX_WCS 4294967295
 
-#define LIMIT_INT16(x)  ( x<INT16_MIN  ? INT16_MIN  : x>INT16_MAX  ? INT16_MAX  : x ) // AF: Limit value to int16-range. (If value < -32768 then -32768. if Value > 32767 then 32768)
-#define LIMIT_UINT16(x) ( x<0          ? 0          : x>UINT16_MAX ? UINT16_MAX : x ) // AF: Limit value to uint16-range. (If value < 0 then 0. if Value > 65535 then 65535)
 
-#define LIMIT_INT32(x)  ( x<INT32_MIN  ? INT32_MIN  : x>INT32_MAX  ? INT32_MAX  : x ) // AF: Limit value to int32-range. (If value < -32768 then -32768. if Value > 32767 then 32768)
-#define LIMIT_UINT32(x) ( x<0          ? 0          : x>UINT32_MAX ? UINT32_MAX : x ) // AF: Limit value to uint32-range. (If value < 0 then 0. if Value > 4.294.967.295 then 4.294.967.295)
+
+#define LIMIT_INT8(x)   ( x<INT8_MIN_WCS   ? INT8_MIN_WCS  : x>INT8_MAX_WCS   ? INT8_MAX_WCS   : x ) // AF: Limit value to int8-range.  (If value < -128 then -128. if Value > 127 then 127)
+#define LIMIT_UINT8(x)  ( x<0              ? 0             : x>UINT8_MAX_WCS  ? UINT8_MAX_WCS  : x ) // AF: Limit value to int8-range.  (If value < 0 then 0. if Value > 255 then 255)
+
+#define LIMIT_INT16(x)  ( x<INT16_MIN_WCS  ? INT16_MIN_WCS : x>INT16_MAX_WCS  ? INT16_MAX_WCS  : x ) // AF: Limit value to int16-range. (If value < -32768 then -32768. if Value > 32767 then 32768)
+#define LIMIT_UINT16(x) ( x<0              ? 0             : x>UINT16_MAX_WCS ? UINT16_MAX_WCS : x ) // AF: Limit value to uint16-range. (If value < 0 then 0. if Value > 65535 then 65535)
+
+#define LIMIT_INT32(x)  ( x<INT32_MIN_WCS  ? INT32_MIN_WCS : x>INT32_MAX_WCS  ? INT32_MAX_WCS  : x ) // AF: Limit value to int32-range. (If value < -2147483648 then -2147483648. if Value > 2147483647 then 2147483647)
+#define LIMIT_UINT32(x) ( x<0              ? 0             : x>UINT32_MAX_WCS ? UINT32_MAX_WCS : x ) // AF: Limit value to uint32-range. (If value < 0 then 0. if Value > 4294967295 then 4294967295)
 
 
 STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmapheaderV101 *DEMHdr,
@@ -3551,6 +3563,8 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 						8    // DEM_DATA_VALSIZE_DOUBLE
 				};
 
+				unsigned int x,y;
+
 				void* tmpBuf=malloc(cols*ValBytes[OUTVALUE_SIZE]);
 
 				if(!tmpBuf)
@@ -3560,7 +3574,6 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 					goto Cleanup;
 				}
 
-				unsigned int x,y;
 				for (y=0;y<rows;y++)
 				{
 					for(x=0;x<cols;x++)
@@ -3867,13 +3880,15 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 							} // case DEM_DATA_FORMAT_SIGNEDINT:
 						}  //switch(INVALUE_FORMAT)
 					} // for x
-					unsigned int Linesize=ValBytes[OUTVALUE_SIZE]*cols;
-					//printf("LineSize=%u\n",Linesize);
-					if((writeDemArray_BE(fOutput,tmpBuf,Linesize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != Linesize)
 					{
-						error = 5;
-						close(fOutput);
-						goto Cleanup;
+						unsigned int Linesize=ValBytes[OUTVALUE_SIZE]*cols;
+						//printf("LineSize=%u\n",Linesize);
+						if((writeDemArray_BE(fOutput,tmpBuf,Linesize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != Linesize)
+						{
+							error = 5;
+							close(fOutput);
+							goto Cleanup;
+						}
 					}
 				} // for y
 				free(tmpBuf);
