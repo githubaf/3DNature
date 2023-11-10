@@ -103,7 +103,11 @@ Version 2.031 (Emerald-Berta)
         *BugFix: Convert ASCII-Arry to Colormap: Resulting file has 1 Byte per
                  pixel Unsigned int now. In original WCS 2.04 that depended on 
                  source format
-
+        *BugFix: Convert Bin DEM to Bin DEM was completly wrong in WCS 2.04.
+                 Fixed now. Values will always be limited to the valid targed 
+                 format range, e.g. an elevation of -156 will be set to -128
+                 if target format is signed int 8 bit automatically. No need
+                 to set Floor and Ceiling values manualy for this purpose.
                  
 
 

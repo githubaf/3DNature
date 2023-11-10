@@ -3100,3 +3100,14 @@ Das kaputte Testfile test_files/source/BSurDEMGray.iff korrigiert. Demtsprechend
 -----------
 Test-Referenzfiles fuer ASCII -> Colormap korrigiert.WCS 2.04 liefert hier falsche Ergebnisse. (Colormap haengt da von SOURCE an (unint, int, float, 1,2,3,4,8 Bytes), soll aler aber im Ergebnis immer Unsigned int 1 Byte sein.
 
+19.Nov.2023
+-----------
+Conv Bin Array -> Bin Array:
+Source Singed Int -> other bin Array OK
+Source Unsinged Int -> other bin Array OK
+Source Float -> other bin Array OK
+Source Double -> other bin Array  -- todo
+
+- Es wird immer automatische auf die Grenzen abgeschnitten, also bei Ziel = signed int 8 werden Werte <-128 vorher auf -28 gesetz und Werte groesser 127 werden auf 127 gesetzt. Dadurch gibt es keine Interger-Ueberlaeufe ud man muss nich manuell Floor und Ceiling setzen.
+
+
