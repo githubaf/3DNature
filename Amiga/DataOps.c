@@ -4190,196 +4190,22 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 							{
 								switch(INVALUE_SIZE)
 								{
-//									case DEM_DATA_VALSIZE_BYTE:
+									case DEM_DATA_VALSIZE_BYTE:
 									{
-										switch (OUTVALUE_FORMAT)
-										{
-											case DEM_DATA_FORMAT_SIGNEDINT:
-											{
-												switch(OUTVALUE_SIZE)
-												{
-													case DEM_DATA_VALSIZE_BYTE:
-														((char*)tmpBuf)[x]=LIMIT_U2S8(((unsigned char*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_SHORT:
-														((short*)tmpBuf)[x]=LIMIT_U2S16(((unsigned char*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_LONG:
-														((LONG*)tmpBuf)[x]=LIMIT_U2S32(((unsigned char*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_DOUBLE:
-														// 8 bytes signed int not supported
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-													default:
-														// illegal target size
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-												}
-												break;
-											}  // case DEM_DATA_FORMAT_SIGNEDINT:
-											case DEM_DATA_FORMAT_UNSIGNEDINT:
-											{
-												switch(OUTVALUE_SIZE)
-												{
-													case DEM_DATA_VALSIZE_BYTE:
-														((unsigned char*)tmpBuf)[x]= LIMIT_U2U8(((unsigned char*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_SHORT:
-														((unsigned short*)tmpBuf)[x]= LIMIT_U2U16(((unsigned char*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_LONG:
-														((ULONG*)tmpBuf)[x]= LIMIT_U2U32(((unsigned char*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_DOUBLE:
-														// 8 bytes signed int not supported
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-													default:
-														// illegal target size
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-												}
-												break;
-											}  // case DEM_DATA_FORMAT_UNSIGNEDINT:
-											case DEM_DATA_FORMAT_FLOAT:
-											{
-												switch(OUTVALUE_SIZE)
-												{
-													case DEM_DATA_VALSIZE_BYTE:
-														// 1 Bytes FLOAT not supported
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-													case DEM_DATA_VALSIZE_SHORT:
-														// 2 Bytes FLOAT not supported
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-													case DEM_DATA_VALSIZE_LONG:
-														((FLOAT*)tmpBuf)[x]= ((unsigned char*)OutputData)[y*cols+x];
-														break;
-													case DEM_DATA_VALSIZE_DOUBLE:
-														((DOUBLE*)tmpBuf)[x]= ((unsigned char*)OutputData)[y*cols+x];
-														break;
-													default:
-														// illegal target size
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-												}
-												break;
-											}  // case DEM_DATA_FORMAT_FLOAT:
-										} // switch (OUTVALUE_FORMAT)
+										// illegal source size
+										error=16;  // illegal source format/size combination
+										close(fOutput);
+										goto Cleanup;
 										break;
-									} // case DEM_DATA_VALSIZE_BYTE:
-//									case DEM_DATA_VALSIZE_SHORT:
+									}
+									case DEM_DATA_VALSIZE_SHORT:
 									{
-										switch (OUTVALUE_FORMAT)
-										{
-											case DEM_DATA_FORMAT_SIGNEDINT:
-											{
-												switch(OUTVALUE_SIZE)
-												{
-													case DEM_DATA_VALSIZE_BYTE:
-														((char*)tmpBuf)[x] = LIMIT_U2S8(((unsigned short*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_SHORT:
-														((short*)tmpBuf)[x]=LIMIT_U2S16(((unsigned short*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_LONG:
-														((LONG*)tmpBuf)[x]=LIMIT_U2S32(((unsigned short*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_DOUBLE:
-														// 8 bytes signed int not supported
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-													default:
-														// illegal target size
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-												}
-												break;
-											}  // case DEM_DATA_FORMAT_SIGNEDINT:
-
-											case DEM_DATA_FORMAT_UNSIGNEDINT:
-											{
-												switch(OUTVALUE_SIZE)
-												{
-													case DEM_DATA_VALSIZE_BYTE:
-														((unsigned char*)tmpBuf)[x]= LIMIT_U2U8(((unsigned short*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_SHORT:
-														((unsigned short*)tmpBuf)[x]= LIMIT_U2U16(((unsigned short*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_LONG:
-														((ULONG*)tmpBuf)[x]= LIMIT_U2U32(((unsigned short*)OutputData)[y*cols+x]);
-														break;
-													case DEM_DATA_VALSIZE_DOUBLE:
-														// 8 bytes unsigned int not supported
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-													default:
-														// illegal target size
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-												}
-												break;
-											}  // case DEM_DATA_FORMAT_UNSIGNEDINT:
-
-											case DEM_DATA_FORMAT_FLOAT:
-											{
-												switch(OUTVALUE_SIZE)
-												{
-													case DEM_DATA_VALSIZE_BYTE:
-														// 1 Bytes FLOAT not supported
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-													case DEM_DATA_VALSIZE_SHORT:
-														// 2 Bytes FLOAT not supported
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-													case DEM_DATA_VALSIZE_LONG:
-														((FLOAT*)tmpBuf)[x]= ((unsigned short*)OutputData)[y*cols+x];
-														break;
-													case DEM_DATA_VALSIZE_DOUBLE:
-														((DOUBLE*)tmpBuf)[x]= ((unsigned short*)OutputData)[y*cols+x];
-														break;
-													default:
-														// illegal target size
-														error=17;  // illegal target format/size combination
-														close(fOutput);
-														goto Cleanup;
-														break;
-												}
-												break;
-											}  // case DEM_DATA_FORMAT_FLOAT:
-										} // switch (OUTVALUE_FORMAT)
+										// illegal source size
+										error=16;  // illegal source format/size combination
+										close(fOutput);
+										goto Cleanup;
 										break;
-									} // case DEM_DATA_VALSIZE_SHORT:
+									}
 									case DEM_DATA_VALSIZE_LONG:
 									{
 										switch (OUTVALUE_FORMAT)
@@ -4475,11 +4301,96 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 									} // case DEM_DATA_VALSIZE_LONG:
 									case DEM_DATA_VALSIZE_DOUBLE:
 									{
-										error=16;  // Illegal Source Format/Size combination
-										close(fOutput);
-										goto Cleanup;
+										switch (OUTVALUE_FORMAT)
+										{
+											case DEM_DATA_FORMAT_SIGNEDINT:
+											{
+												switch(OUTVALUE_SIZE)
+												{
+													case DEM_DATA_VALSIZE_BYTE:
+														((char*)tmpBuf)[x]=LIMIT_U2S8(((double*)OutputData)[y*cols+x]);
+														break;
+													case DEM_DATA_VALSIZE_SHORT:
+														((short*)tmpBuf)[x]=LIMIT_U2S16(((double*)OutputData)[y*cols+x]);
+														break;
+													case DEM_DATA_VALSIZE_LONG:
+														((LONG*)tmpBuf)[x]=LIMIT_U2S32(((double*)OutputData)[y*cols+x]);
+														break;
+													case DEM_DATA_VALSIZE_DOUBLE:
+														error=17;  // 8 Bytes int not supported
+														close(fOutput);
+														goto Cleanup;
+														break;
+													default:
+														// illegal target size
+														error=17;  // illegal target format/size combination
+														close(fOutput);
+														goto Cleanup;
+														break;
+												}
+												break;
+											}  // case DEM_DATA_FORMAT_SIGNEDINT:
+											case DEM_DATA_FORMAT_UNSIGNEDINT:
+										{
+											switch(OUTVALUE_SIZE)
+											{
+												case DEM_DATA_VALSIZE_BYTE:
+													((unsigned char*)tmpBuf)[x]= LIMIT_U2U8(((double*)OutputData)[y*cols+x]);
+													break;
+												case DEM_DATA_VALSIZE_SHORT:
+													((unsigned short*)tmpBuf)[x]= LIMIT_U2U16(((double*)OutputData)[y*cols+x]);
+													break;
+												case DEM_DATA_VALSIZE_LONG:
+													((ULONG*)tmpBuf)[x]= LIMIT_U2U32(((double*)OutputData)[y*cols+x]);
+													break;
+												case DEM_DATA_VALSIZE_DOUBLE:
+													error=17;  // 8 Bytes int not supported
+													close(fOutput);
+													goto Cleanup;
+													break;
+												default:
+													// illegal target size
+													error=17;  // illegal target format/size combination
+													close(fOutput);
+													goto Cleanup;
+													break;
+											}
+											break;
+										}  // case DEM_DATA_FORMAT_UNSIGNEDINT:
+											case DEM_DATA_FORMAT_FLOAT:
+											{
+												switch(OUTVALUE_SIZE)
+												{
+													case DEM_DATA_VALSIZE_BYTE:
+														// 1 Bytes FLOAT not supported
+														error=17;  // illegal target format/size combination
+														close(fOutput);
+														goto Cleanup;
+														break;
+													case DEM_DATA_VALSIZE_SHORT:
+														// 2 Bytes FLOAT not supported
+														error=17;  // illegal target format/size combination
+														close(fOutput);
+														goto Cleanup;
+														break;
+													case DEM_DATA_VALSIZE_LONG:
+														((FLOAT*)tmpBuf)[x]= ((double*)OutputData)[y*cols+x];
+														break;
+													case DEM_DATA_VALSIZE_DOUBLE:
+														((DOUBLE*)tmpBuf)[x]= ((double*)OutputData)[y*cols+x];
+														break;
+													default:
+														// illegal target size
+														error=17;  // illegal target format/size combination
+														close(fOutput);
+														goto Cleanup;
+														break;
+												}
+												break;
+											}  // case DEM_DATA_FORMAT_FLOAT:
+										} // switch (OUTVALUE_FORMAT)
 										break;
-									}
+									} // case DEM_DATA_VALSIZE_DOUBLE:
 								} // switch(INVALUE_SIZE)
 								break;
 							} // case DEM_DATA_FORMAT_FLOAT:
