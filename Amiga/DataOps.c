@@ -3270,25 +3270,56 @@ Cleanup:
 #define INT32_MIN_WCS -2147483648
 #define INT32_MAX_WCS  2147483647
 
+//#define AUTO_RANGE_LIMITATION  // AF, HGW, 13.Nov.23 automatically limit values to valid range of targed format in DEM conversion to binary array
+#ifdef AUTO_RANGE_LIMITATION
+ // signed to signed limitation
+ #define LIMIT_S2S8(x)   ( x< INT8_MIN_WCS  ? INT8_MIN_WCS  : x> INT8_MAX_WCS   ? INT8_MAX_WCS  : x ) // AF: Limit value to int8-range.  (If value < -128 then -128. if Value > 127 then 127)
+ #define LIMIT_S2S16(x)  ( x<INT16_MIN_WCS  ? INT16_MIN_WCS : x>INT16_MAX_WCS   ? INT16_MAX_WCS : x ) // AF: Limit value to int8-range.  (If value < -32768 then -32768. if Value > 32767 then 32767)
+ #define LIMIT_S2S32(x)  ( x)
+
+ // unsigned to unsigned limitation
+ #define LIMIT_U2U8(x)   (  x>UINT8_MAX_WCS  ?  UINT8_MAX_WCS   : x )  // AF: Limit value to uint16-range. (If value >255 then 255)
+ #define LIMIT_U2U16(x)  (  x>UINT16_MAX_WCS ?  UINT16_MAX_WCS  : x )  // AF: Limit value to int8-range.  ((If value >65535 then 65535)
+ #define LIMIT_U2U32(x)  (x)
+
+ // signed tp unsigned limitation
+ #define LIMIT_S2U8(x)   ( x< 0  ? 0  : x>  UINT8_MAX_WCS   ? UINT8_MAX_WCS  : x ) // AF: Limit value to uint8-range.  (If value < 0 then 0. if Value > 255 then 255)
+ #define LIMIT_S2U16(x)  ( x< 0  ? 0  : x> UINT16_MAX_WCS   ? UINT16_MAX_WCS  : x ) // AF: Limit value to uint8-range.  (If value < 0 then 0. if Value > 65535 then 65535)
+ #define LIMIT_S2U32(x)  ( x< 0  ? 0  : x ) // AF: Limit value to uint32-range. // AF: Limit value to uint32-range.  (If value < 0 then 0.)
+
+ // unsigned to signed limitation
+ #define LIMIT_U2S8(x)   ( x>INT8_MAX_WCS   ? INT8_MAX_WCS   : x ) // AF: Limit value to int8-range.  (If value > 127 then 127, no gegative values to consider)
+ #define LIMIT_U2S16(x)  ( x>INT16_MAX_WCS  ? INT16_MAX_WCS  : x ) // AF: Limit value to int16-range. (If value  > 32767 then 32768, no gegative values to consider)
+ #define LIMIT_U2S32(x)  ( x>INT32_MAX_WCS  ? INT32_MAX_WCS  : x ) // AF: Limit value to int16-range. (If value  > 2147483647 then 2147483647, no gegative values to consider)
+
+#else  // Now automatic range limitation, user needs to set floor and ceiling values to achieve that
+
 // signed to signed limitation
-#define LIMIT_S2S8(x)   ( x< INT8_MIN_WCS  ? INT8_MIN_WCS  : x> INT8_MAX_WCS   ? INT8_MAX_WCS  : x ) // AF: Limit value to int8-range.  (If value < -128 then -128. if Value > 127 then 127)
-#define LIMIT_S2S16(x)  ( x<INT16_MIN_WCS  ? INT16_MIN_WCS : x>INT16_MAX_WCS   ? INT16_MAX_WCS : x ) // AF: Limit value to int8-range.  (If value < -32768 then -32768. if Value > 32767 then 32767)
-#define LIMIT_S2S32(x)  ( x)
+#define LIMIT_S2S8(x)  x
+#define LIMIT_S2S16(x) x
+#define LIMIT_S2S32(x) x
 
 // unsigned to unsigned limitation
-#define LIMIT_U2U8(x)   (  x>UINT8_MAX_WCS  ?  UINT8_MAX_WCS   : x )  // AF: Limit value to uint16-range. (If value >255 then 255)
-#define LIMIT_U2U16(x)  (  x>UINT16_MAX_WCS ?  UINT16_MAX_WCS  : x )  // AF: Limit value to int8-range.  ((If value >65535 then 65535)
-#define LIMIT_U2U32(x)  (x)
+#define LIMIT_U2U8(x)  x
+#define LIMIT_U2U16(x) x
+#define LIMIT_U2U32(x) x
 
 // signed tp unsigned limitation
-#define LIMIT_S2U8(x)   ( x< 0  ? 0  : x>  UINT8_MAX_WCS   ? UINT8_MAX_WCS  : x ) // AF: Limit value to uint8-range.  (If value < 0 then 0. if Value > 255 then 255)
-#define LIMIT_S2U16(x)  ( x< 0  ? 0  : x> UINT16_MAX_WCS   ? UINT16_MAX_WCS  : x ) // AF: Limit value to uint8-range.  (If value < 0 then 0. if Value > 65535 then 65535)
-#define LIMIT_S2U32(x)  ( x< 0  ? 0  : x ) // AF: Limit value to uint32-range. // AF: Limit value to uint32-range.  (If value < 0 then 0.)
+#define LIMIT_S2U8(x)  x
+#define LIMIT_S2U16(x) x
+#define LIMIT_S2U32(x) x
 
 // unsigned to signed limitation
-#define LIMIT_U2S8(x)   ( x>INT8_MAX_WCS   ? INT8_MAX_WCS   : x ) // AF: Limit value to int8-range.  (If value > 127 then 127, no gegative values to consider)
-#define LIMIT_U2S16(x)  ( x>INT16_MAX_WCS  ? INT16_MAX_WCS  : x ) // AF: Limit value to int16-range. (If value  > 32767 then 32768, no gegative values to consider)
-#define LIMIT_U2S32(x)  ( x>INT32_MAX_WCS  ? INT32_MAX_WCS  : x ) // AF: Limit value to int16-range. (If value  > 2147483647 then 2147483647, no gegative values to consider)
+#define LIMIT_U2S8(x)  x
+#define LIMIT_U2S16(x) x
+#define LIMIT_U2S32(x) x
+#endif
+
+
+
+
+
+
 
 
 
