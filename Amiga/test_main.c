@@ -508,6 +508,117 @@ Cleanup:
 	return Error;
 }
 
+// compares two ASCI-Array files, (human readable numbers files. a small delta in values is accepted (rounding differences)
+// AF, 21.Nov.23
+int CompareAsciiFileDelta(char *FileName1, char *FileName2, unsigned int delta)
+{
+		FILE *File1=NULL;
+		FILE *File2=NULL;
+		long Size1=0;
+		long Size2=0;
+		char *p1=NULL;
+		char *p2=NULL;
+
+		int Error=0;
+
+		File1=fopen(FileName1,"rb");
+		if(!File1)
+		{
+			Error=OPEN_FILE1_ERROR;
+			printf("Failed to open %s\n",FileName1);
+			goto Cleanup;
+		}
+		File2=fopen(FileName2,"rb");
+		if(!File2)
+		{
+			printf("Failed to open %s\n",FileName2);
+			Error=OPEN_FILE2_ERROR;
+			goto Cleanup;
+		}
+
+		Size1=GetFileSize(File1);
+		if(Size1<0)
+		{
+			Error=FILESIZE1_ERROR;
+			goto Cleanup;
+		}
+
+		Size2=GetFileSize(File2);
+		if(Size2<0)
+		{
+			Error=FILESIZE2_ERROR;
+			goto Cleanup;
+		}
+
+		if(Size1!=Size2)
+		{
+			Error=SIZE_DIFFERENT_ERROR;
+			goto Cleanup;
+		}
+
+		p1=malloc(Size1);
+		if(!p1)
+		{
+			Error=ALLOC1_ERROR;
+			goto Cleanup;
+		}
+
+		p2=malloc(Size2);
+		if(!p1)
+		{
+			Error=ALLOC2_ERROR;
+			goto Cleanup;
+		}
+
+		if(fread(p1,Size1,1,File1)!=1)
+		{
+			Error=FREAD1_ERROR;
+			goto Cleanup;
+		}
+
+		if(fread(p2,Size2,1,File2)!=1)
+		{
+			Error=FREAD2_ERROR;
+			goto Cleanup;
+		}
+
+//		if(memcmp(p1,p2,Size1))
+//		{
+//			Error=MEMCMP_ERROR;
+//			goto Cleanup;
+//		}
+
+		// read and compare the the ascii numbers. Accept tolerance.
+		char *token1, *token2;
+		char delimiter[] = " \n\r\t";
+		char *saveptr1, *saveptr2;
+		token1 = strtok_r( p1, delimiter,&saveptr1 );
+		token2 = strtok_r( p2, delimiter,&saveptr2 );
+		while( token1 && token2)
+		{
+			//printf("Token: %s\n", token1);
+			token1 = strtok_r( NULL, delimiter,&saveptr1 );
+			token2 = strtok_r( NULL, delimiter,&saveptr2 );
+			if( abs(strtol(token1,NULL,10) - strtol(token2,NULL,10)) > delta)
+			{
+				Error=MEMCMP_ERROR;
+				goto Cleanup;
+			}
+		}
+
+
+Cleanup:
+	if(File1) { fclose(File1); }
+	if(File2) { fclose(File2); }
+	if(p1)    { free(p1); }
+	if(p2)    { free(p2); }
+
+	if(Error) {printf("%s() Error=%d\n",__func__,Error); }
+	return Error;
+}
+
+
+
 // --- for CmpObjFiles -----------------
 
 int fpcmp(double val1, double val2)
@@ -1744,10 +1855,14 @@ __stdargs int main(int argc, char **argv)   // I compile with -mregparm. Then __
     	Errors+=Test_ConvertDem("*");
     }
 
+    printf("ASCII-Compare=%d\n",CompareAsciiFileDelta("Ram:WCS_Test/tst_Rug500x1000IFF.asc", "test_files/reference/ref_RuegenIFF_500x1000.asc", 0));
+
+
 	if(Errors!=0)
 	{
 		PrintErrorLines();
 		printf("\n\7%2d test failed!!!\n",Errors);
+		return 3;  // return error
 	}
 	else
 	{
