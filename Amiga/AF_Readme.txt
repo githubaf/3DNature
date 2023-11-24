@@ -3111,6 +3111,10 @@ Source Double -> other bin Array  -- todo
 - Es wird immer automatische auf die Grenzen abgeschnitten, also bei Ziel = signed int 8 werden Werte <-128 vorher auf -28 gesetz und Werte groesser 127 werden auf 127 gesetzt. Dadurch gibt es keine Interger-Ueberlaeufe ud man muss nich manuell Floor und Ceiling setzen.
 
 13.Nov. 2023
------------
-* Automatischees Abschneiden wieder entfernt (per ifdef in DataOps.c) Limit soll mit Floor und Ceiling eingestellt werden, dann ist die Bdienung auch wieder konsistent zu den anderen Konvertierungen.
+------------
+* Automatisches Abschneiden wieder entfernt (per ifdef in DataOps.c) Limit soll mit Floor und Ceiling eingestellt werden, dann ist die Bdienung auch wieder konsistent zu den anderen Konvertierungen.
 * Alle Bin-Array Konvertierungen fertig.
+
+24.Nov. 2023
+------------
+*Conv-Test jetzt gleich auf Amiga und i386 AROS. (ein Colormap-Test schlaegt fehl)

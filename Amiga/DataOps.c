@@ -155,8 +155,6 @@ long writeDemArray_ASCII(FILE *OutFile, float *OutputData,long cols, long rows)
 	unsigned long x,y;
 	unsigned long ValsPrinted=0;
 
-	printf("ALEXANDER: %s() Line %d: OutputDataSize=%ld\n",__func__,__LINE__,cols*rows);
-
 	for (y=0; y<rows; y++)
 	{
 		for (x=0;x<cols;x++)
