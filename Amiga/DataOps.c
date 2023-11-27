@@ -3645,12 +3645,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 8 bytes signed int not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -3673,12 +3675,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 8 bytes signed int not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -3692,12 +3696,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 1 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_SHORT:
 														// 2 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_LONG:
@@ -3710,6 +3716,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -3739,12 +3746,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 8 bytes signed int not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -3768,6 +3777,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 8 bytes unsigned int not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 														break;
@@ -3775,6 +3785,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -3789,6 +3800,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 1 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_SHORT:
@@ -3796,6 +3808,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														error=17;  // illegal target format/size combination
 														close(fOutput);
 														goto Cleanup;
+														free(tmpBuf);
 														break;
 													case DEM_DATA_VALSIZE_LONG:
 														((FLOAT*)tmpBuf)[x]= ((short*)OutputData)[y*cols+x];
@@ -3807,6 +3820,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -3835,12 +3849,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 													case DEM_DATA_VALSIZE_DOUBLE:
 														error=17;  // 8 Bytes int not supported
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -3862,12 +3878,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 													case DEM_DATA_VALSIZE_DOUBLE:
 														error=17;  // 8 Bytes int not supported
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -3882,12 +3900,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 1 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_SHORT:
 														// 2 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_LONG:
@@ -3900,6 +3920,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -3912,6 +3933,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 									{
 										error=16;  // Illegal Source Format/Size combination
 										close(fOutput);
+										free(tmpBuf);
 										goto Cleanup;
 										break;
 									}
@@ -3943,12 +3965,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 8 bytes signed int not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -3971,12 +3995,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 8 bytes signed int not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -3990,12 +4016,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 1 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_SHORT:
 														// 2 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_LONG:
@@ -4008,6 +4036,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -4037,12 +4066,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 8 bytes signed int not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -4066,12 +4097,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 8 bytes unsigned int not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -4086,12 +4119,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 1 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_SHORT:
 														// 2 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_LONG:
@@ -4104,6 +4139,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -4133,12 +4169,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 													case DEM_DATA_VALSIZE_DOUBLE:
 														error=17;  // 8 Bytes int not supported
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -4160,12 +4198,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 												case DEM_DATA_VALSIZE_DOUBLE:
 													error=17;  // 8 Bytes int not supported
 													close(fOutput);
+													free(tmpBuf);
 													goto Cleanup;
 													break;
 												default:
 													// illegal target size
 													error=17;  // illegal target format/size combination
 													close(fOutput);
+													free(tmpBuf);
 													goto Cleanup;
 													break;
 											}
@@ -4179,12 +4219,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 1 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_SHORT:
 														// 2 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_LONG:
@@ -4197,6 +4239,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -4209,6 +4252,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 									{
 										error=16;  // Illegal Source Format/Size combination
 										close(fOutput);
+										free(tmpBuf);
 										goto Cleanup;
 										break;
 									}
@@ -4224,6 +4268,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 										// illegal source size
 										error=16;  // illegal source format/size combination
 										close(fOutput);
+										free(tmpBuf);
 										goto Cleanup;
 										break;
 									}
@@ -4232,6 +4277,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 										// illegal source size
 										error=16;  // illegal source format/size combination
 										close(fOutput);
+										free(tmpBuf);
 										goto Cleanup;
 										break;
 									}
@@ -4256,12 +4302,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 													case DEM_DATA_VALSIZE_DOUBLE:
 														error=17;  // 8 Bytes int not supported
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -4283,12 +4331,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 												case DEM_DATA_VALSIZE_DOUBLE:
 													error=17;  // 8 Bytes int not supported
 													close(fOutput);
+													free(tmpBuf);
 													goto Cleanup;
 													break;
 												default:
 													// illegal target size
 													error=17;  // illegal target format/size combination
 													close(fOutput);
+													free(tmpBuf);
 													goto Cleanup;
 													break;
 											}
@@ -4302,12 +4352,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 1 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_SHORT:
 														// 2 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_LONG:
@@ -4320,6 +4372,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -4348,12 +4401,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 													case DEM_DATA_VALSIZE_DOUBLE:
 														error=17;  // 8 Bytes int not supported
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													default:
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -4375,12 +4430,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 												case DEM_DATA_VALSIZE_DOUBLE:
 													error=17;  // 8 Bytes int not supported
 													close(fOutput);
+													free(tmpBuf);
 													goto Cleanup;
 													break;
 												default:
 													// illegal target size
 													error=17;  // illegal target format/size combination
 													close(fOutput);
+													free(tmpBuf);
 													goto Cleanup;
 													break;
 											}
@@ -4394,12 +4451,14 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 1 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_SHORT:
 														// 2 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_LONG:
@@ -4412,6 +4471,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// illegal target size
 														error=17;  // illegal target format/size combination
 														close(fOutput);
+														free(tmpBuf);
 														goto Cleanup;
 														break;
 												}
@@ -4433,6 +4493,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 						{
 							error = 5;
 							close(fOutput);
+							free(tmpBuf);
 							goto Cleanup;
 						}
 					}
@@ -4453,20 +4514,41 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 		} /* case DEM_DATA_OUTPUT_ARRAY: */
 		case DEM_DATA_OUTPUT_COLORMAP:
 		{
+			unsigned char* tmpBuf=(unsigned char*)malloc(rows*cols);  // rows*cols, 1 byte per value
+			unsigned int x,y;
+
+			if(!tmpBuf)
+			{
+				error=1;   // OUT of Memory
+				close(fOutput);
+				goto Cleanup;
+			}
+
+			for(x=0;x<cols;x++)
+			{
+				for(y=0;y<rows;y++)
+				{
+					tmpBuf[y*cols+x]= ((SHORT*)OutputData)[y*cols+x];
+				}
+			}
+
 			if ((fOutput = open(OutFilename, OutFlags, ProtFlags)) < 0)
 			{
 				error = 4;
+				free(tmpBuf);
 				break;
 			} /* if open fail */
 			// AF: old: if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
 			// AF, 20.Mar23 writes the Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
-			if((writeDemArray_BE(fOutput,OutputData,OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != OutputDataSize)
+			if((writeDemArray_BE(fOutput,tmpBuf,rows*cols,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != rows*cols)
 			{
 				error = 5;
 				close(fOutput);
+				free(tmpBuf);
 				goto Cleanup;
 			} /* if write fail */
 			close(fOutput);
+			free(tmpBuf);
 			break;
 		} /* DEM_DATA_OUTPUT_COLORMAP */
 		case DEM_DATA_OUTPUT_ASCII: // AF, HGW 12.Sep.2023

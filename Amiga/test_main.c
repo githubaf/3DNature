@@ -1900,9 +1900,6 @@ __stdargs int main(int argc, char **argv)   // I compile with -mregparm. Then __
     	Errors+=Test_ConvertDem("*");
     }
 
-    printf("ASCII-Compare=%d\n",CompareAsciiFileDelta("Ram:WCS_Test/tst_Rug500x1000IFF.asc", "test_files/reference/ref_RuegenIFF_500x1000.asc", 0));
-
-
 	if(Errors!=0)
 	{
 		PrintErrorLines();

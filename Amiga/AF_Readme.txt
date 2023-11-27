@@ -3118,3 +3118,8 @@ Source Double -> other bin Array  -- todo
 24.Nov. 2023
 ------------
 *Conv-Test jetzt gleich auf Amiga und i386 AROS. (ein Colormap-Test schlaegt fehl)
+
+27.Nov.2023
+-----------
+*VistaDEM -> Colormap funktioniert jetzt im Pronzip. Aber warum hat das im originalen WCS 1.25 und 2.04 funktioniert? (Richtig auf unsigned char begrenzt) Bei mir fehlt jetzt Die Wertebereichsbegrenzung!?
+*Auch Arrays noceinmal mit den originalen WCS-Versionen 1.25 und 2.04 ueberpruefen!
