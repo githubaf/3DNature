@@ -3814,8 +3814,8 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 														// 2 Bytes FLOAT not supported
 														error=17;  // illegal target format/size combination
 														close(fOutput);
-														goto Cleanup;
 														free(tmpBuf);
+														goto Cleanup;
 														break;
 													case DEM_DATA_VALSIZE_LONG:
 														((FLOAT*)tmpBuf)[x]= ((short*)OutputData)[y*cols+x];
