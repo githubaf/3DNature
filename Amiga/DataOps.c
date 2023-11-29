@@ -2553,14 +2553,21 @@ EndLoad:
 ** If no scaling required and only one map for output - as in resampling only -
 **  and same input/output formats, simply save the current array.
 */
- if (INPUT_FORMAT == OUTPUT_FORMAT && NoScaling
-	 && OUTPUT_ROWMAPS == 1 && OUTPUT_COLMAPS == 1
-	 && INPUT_ROWS == ORows && INPUT_COLS == OCols)
-  {
-  SaveConvertOutput(data, DEMHdr, InputData, InputDataSize, 0, 0,
-	OUTPUT_ROWS, OUTPUT_COLS, OUTPUT_ROWS, OUTPUT_COLS, RGBComponent);
-  goto Cleanup;
-  }
+ if (//INPUT_FORMAT == OUTPUT_FORMAT  // AF: 29.Nov.23 The enums are not identical! (e.g. DEM_DATA_OUTPUT_COLORMAP=4 and DEM_DATA_INPUT_VISTA is also 4!)
+		 (
+				 (INPUT_FORMAT == DEM_DATA_INPUT_ARRAY  && OUTPUT_FORMAT ==  DEM_DATA_OUTPUT_ARRAY)  ||    // 0
+				 (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM && OUTPUT_FORMAT ==  DEM_DATA_OUTPUT_WCSDEM) ||    // 1
+				 (INPUT_FORMAT == DEM_DATA_INPUT_ZBUF   && OUTPUT_FORMAT ==  DEM_DATA_OUTPUT_ZBUF)   ||    // 2
+				 (INPUT_FORMAT == DEM_DATA_INPUT_ASCII  && OUTPUT_FORMAT ==  DEM_DATA_OUTPUT_ASCII)        // 3
+		 )
+                 && NoScaling
+		 && OUTPUT_ROWMAPS == 1 && OUTPUT_COLMAPS == 1
+		 && INPUT_ROWS == ORows && INPUT_COLS == OCols)
+ {
+	 SaveConvertOutput(data, DEMHdr, InputData, InputDataSize, 0, 0,
+			 OUTPUT_ROWS, OUTPUT_COLS, OUTPUT_ROWS, OUTPUT_COLS, RGBComponent);
+	 goto Cleanup;
+ }
 
 
 /*
@@ -4514,41 +4521,20 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 		} /* case DEM_DATA_OUTPUT_ARRAY: */
 		case DEM_DATA_OUTPUT_COLORMAP:
 		{
-			unsigned char* tmpBuf=(unsigned char*)malloc(rows*cols);  // rows*cols, 1 byte per value
-			unsigned int x,y;
-
-			if(!tmpBuf)
-			{
-				error=1;   // OUT of Memory
-				close(fOutput);
-				goto Cleanup;
-			}
-
-			for(x=0;x<cols;x++)
-			{
-				for(y=0;y<rows;y++)
-				{
-					tmpBuf[y*cols+x]= ((SHORT*)OutputData)[y*cols+x];
-				}
-			}
-
 			if ((fOutput = open(OutFilename, OutFlags, ProtFlags)) < 0)
 			{
 				error = 4;
-				free(tmpBuf);
 				break;
 			} /* if open fail */
 			// AF: old: if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
 			// AF, 20.Mar23 writes the Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
-			if((writeDemArray_BE(fOutput,tmpBuf,rows*cols,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != rows*cols)
+			if((writeDemArray_BE(fOutput,OutputData,OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE)) != OutputDataSize)
 			{
 				error = 5;
 				close(fOutput);
-				free(tmpBuf);
 				goto Cleanup;
 			} /* if write fail */
 			close(fOutput);
-			free(tmpBuf);
 			break;
 		} /* DEM_DATA_OUTPUT_COLORMAP */
 		case DEM_DATA_OUTPUT_ASCII: // AF, HGW 12.Sep.2023

@@ -3071,6 +3071,9 @@ Fixed conversion to GrayIFF.
 
 AROS starten und Test ausführen
 -------------------------------
+
+i386
+----
 cd ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS
 Arch/linux/AROSBootstrap &
 
@@ -3079,9 +3082,21 @@ make clean && make all
 rm -rf ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox
 cp -r ~/Desktop/SelcoGit/3DNature/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox
 
+x86-64
+------
+cd core-linux-x86_64-d/bin/linux-x86_64/AROS
+boot/linux/AROSBootstrap &
+
+cd ~/Desktop/SelcoGit/3DNature/Amiga/test_x86_64-aros
+make clean && make all
+rm -rf ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox
+cp -r ~/Desktop/SelcoGit/3DNature/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox
+
+
 # in AROS
 cd System:VBox/Amiga
 test_i386-aros/WCS_test_i386-aros
+test_x86_64-aros/WCS_test_x86_64-aros
 
 15.Oktober 2023
 ---------------
@@ -3121,5 +3136,40 @@ Source Double -> other bin Array  -- todo
 
 27.Nov.2023
 -----------
-*VistaDEM -> Colormap funktioniert jetzt im Pronzip. Aber warum hat das im originalen WCS 1.25 und 2.04 funktioniert? (Richtig auf unsigned char begrenzt) Bei mir fehlt jetzt Die Wertebereichsbegrenzung!?
+*VistaDEM -> Colormap funktioniert jetzt im Prinzip. Aber warum hat das im originalen WCS 1.25 und 2.04 funktioniert? (Richtig auf unsigned char begrenzt) Bei mir fehlt jetzt Die Wertebereichsbegrenzung!?
 *Auch Arrays noceinmal mit den originalen WCS-Versionen 1.25 und 2.04 ueberpruefen!
+
+28.Nov. 2023
+------------
+* Die Begrenzung auf unsigned/singed Wertebereich erfolgt doch automatisch mit DataOps.c bei "switch (OUTVALUE_SIZE)" ca Zeile 2927.
+* Bin-Array wird dort nicht behandelt.
+* Vista-DEM -> Colormap funktioniert nicht, weil es einen Vergleich gibt
+
+ if (INPUT_FORMAT == OUTPUT_FORMAT && NoScaling
+         && OUTPUT_ROWMAPS == 1 && OUTPUT_COLMAPS == 1
+         && INPUT_ROWS == ORows && INPUT_COLS == OCols)
+  {
+  SaveConvertOutput(data, DEMHdr, InputData, InputDataSize, 0, 0,
+        OUTPUT_ROWS, OUTPUT_COLS, OUTPUT_ROWS, OUTPUT_COLS, RGBComponent);
+  goto Cleanup;
+  }
+
+INPUT_FORMAT == OUTPUT_FORMAT ist falsch, weil die Enums verschiedene Werte haben. (DEM_DATA_INPUT_VISTA ist 4, DEM_DATA_OUTPUT_COLORMAP auch) Damit die ganze Konvertierung in dem Fall uebersprungen. Hier muss also genau verglichen werden.
+
+ if (//INPUT_FORMAT == OUTPUT_FORMAT  // AF: 29.Nov.23 The enums are not identical! (e.g. DEM_DATA_OUTPUT_COLORMAP=4 and DEM_DATA_INPUT_VISTA is also 4!)
+		 (
+				 (INPUT_FORMAT == DEM_DATA_INPUT_ARRAY  && OUTPUT_FORMAT ==  DEM_DATA_OUTPUT_ARRAY)  ||    // 0
+				 (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM && OUTPUT_FORMAT ==  DEM_DATA_OUTPUT_WCSDEM) ||    // 1
+				 (INPUT_FORMAT == DEM_DATA_INPUT_ZBUF   && OUTPUT_FORMAT ==  DEM_DATA_OUTPUT_ZBUF)   ||    // 2
+				 (INPUT_FORMAT == DEM_DATA_INPUT_ASCII  && OUTPUT_FORMAT ==  DEM_DATA_OUTPUT_ASCII)        // 3
+		 )
+                 && NoScaling
+                 ...
+
+DEM_DATA_INPUT_COLORMAP und DEM_DATA_OUTPUT_VISTA gibt es nicht.
+
+Alle 233 Tests funktionieren jetzt mit 68k, i386-aros und x86-aros.
+
+Für AROS siehe: "24.Oktober 2023"
+
+
