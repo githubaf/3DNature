@@ -3172,4 +3172,6 @@ Alle 233 Tests funktionieren jetzt mit 68k, i386-aros und x86-aros.
 
 Für AROS siehe: "24.Oktober 2023"
 
-
+30.Nov.2023
+-----------
+neues Script "gc-sections/show_unused_code_data.sh" zeigt an, welche Funktionen/Daten bei --gcsections entfernt wurden und um wieviele Bytes es sich jeweils handelt.
