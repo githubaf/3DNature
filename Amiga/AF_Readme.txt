@@ -3175,3 +3175,13 @@ Für AROS siehe: "24.Oktober 2023"
 30.Nov.2023
 -----------
 neues Script "gc-sections/show_unused_code_data.sh" zeigt an, welche Funktionen/Daten bei --gcsections entfernt wurden und um wieviele Bytes es sich jeweils handelt.
+
+1.Dec.2023
+----------
+Fuer die Build Configuration "gc_sections" am Anfang vom Post-Build-Step folgendes eingefügt:
+cp ${WorkspaceDirPath}/.metadata/.plugins/org.eclipse.cdt.ui/${ProjName}.build.log buildlog-${current_date}.txt;    
+Damit werden die Ausgaben des Compilers/Linkers im aktuellen Verzeichnis buildlog-${current_date}.txt gespeichert.
+Dann Am Ende des Post-Build-Steps 
+&& show_unused_code_data.sh buildlog-${current_date}.txt
+angefuegt. (Das Script akzeptirt jetzt eine Textdatei als Parameter) Dann sieht man die überflüssigen Bytes in der Eclipse-Console.
+

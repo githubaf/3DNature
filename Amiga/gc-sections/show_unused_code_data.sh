@@ -7,10 +7,23 @@
 
 set -e # exit on error
 
+if [[ $# -ge 1 ]]; then   # at least 1 parameter
+   if  [ -f "$1" ]; then     # if Parameter (gcc-Linker output file) exists
+       BUILD="cat $1"
+   else
+       printf "File '$1' not found!\n"
+       exit 1
+   fi
+else
+   BUILD='make all'       # otherwise call make all
+fi
 
-# Size is firszt xex number of objdump-output
+# Size is first hex number of objdump-output
 
-make all 2>&1 | grep "removing unused section" | awk '
+printf "BUILD ist $BUILD\n"
+
+
+$BUILD 2>&1 | grep "removing unused section" | awk '
 //{
     File=$8; 
     RemovedElement=$5;
