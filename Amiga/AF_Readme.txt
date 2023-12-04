@@ -3185,3 +3185,6 @@ Dann Am Ende des Post-Build-Steps
 && show_unused_code_data.sh buildlog-${current_date}.txt
 angefuegt. (Das Script akzeptirt jetzt eine Textdatei als Parameter) Dann sieht man die überflüssigen Bytes in der Eclipse-Console.
 
+4.Dec.2023
+----------
+*Konvertierung DTED -> irgendwas schlaegt fehlt, nur DTED -> WCS-DEM funktioniert.
