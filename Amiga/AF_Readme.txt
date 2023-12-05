@@ -3185,3 +3185,16 @@ angefuegt. (Das Script akzeptirt jetzt eine Textdatei als Parameter) Dann sieht 
 5.Dec.2023
 ----------
 *Convertierung quadratischer DTEDS funktioniert. (Teneriffa in Test aufgenommen)
+*Coverage in test_68020 eingebaut
+
+ev. gcda und html-Files vor dem Lauf löschen...
+
+#Amiga
+cd 3DNature/Amiga
+test_68020/WCS_test_68020  ; braucht ca 22k Stack
+
+#Linux:
+cd test_68020
+gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=. -r .. --html --html-details -o coverage.html && firefox coverage.html&
+
+
