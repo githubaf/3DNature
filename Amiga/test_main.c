@@ -1044,11 +1044,11 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 /* Copied from DataOps.c */
 #define DEM_DATA_INPUT_ARRAY		0
 #define DEM_DATA_INPUT_WCSDEM		1
-#define DEM_DATA_INPUT_ZBUF		2
+#define DEM_DATA_INPUT_ZBUF			2
 #define DEM_DATA_INPUT_ASCII		3
 #define DEM_DATA_INPUT_VISTA		4
-#define DEM_DATA_INPUT_IFF		5
-#define DEM_DATA_INPUT_DTED		6
+#define DEM_DATA_INPUT_IFF			5
+#define DEM_DATA_INPUT_DTED			6
 #define DEM_DATA_OUTPUT_ARRAY		0
 #define DEM_DATA_OUTPUT_WCSDEM		1
 #define DEM_DATA_OUTPUT_ZBUF		2
@@ -1449,9 +1449,13 @@ struct ConvertDemTestStruct ConverDemTestData[]=
 //   { "DTED 601x1201 -> Array Float 4", "test_files/source/n54_e013_3arc_v2.dt1",      DEM_DATA_INPUT_DTED,     DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0,  258, 258, NULL,NULL,    0, 1122, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ARRAY, CmpBinaryExactly, 0,   DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_LONG,     258, 258,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_BSurDTF4",        "test_files/reference/ref_BSurDTF4",__LINE__       },
 //   { "DTED 601x1201 -> Array Float 8", "test_files/source/n54_e013_3arc_v2.dt1",      DEM_DATA_INPUT_DTED,     DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   0, 1201, 601, NULL,NULL,  -18,  173, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ARRAY, CmpBinaryExactly, 0,  DEM_DATA_FORMAT_FLOAT,       DEM_DATA_VALSIZE_DOUBLE,   601,1201,0, 0,        0,          0,          0,        "Ram:WCS_Test/", "tst_Rug601x1201DTF8", "test_files/reference/ref_Rug601x1201DTF8",__LINE__       },  // FALSCH !!! display -endian MSB -depth 64 -size 601x1201 -define quantum:format=floating-point -define quantum:scale=8e+03 gray:
 
-   //                                          SourceFileName,                                 InFormat,              InValueFormat,              InValueSize,         HeaderBytes, Rows,Cols, MinEl,MaxEl,                              OutFormat,          OutValueFormat,           OutValueSize,           OutRows, OutCols, Spline Constraint,  Hi_Lat,        Lo_Lat,       Hi_Long,      Lo_Long,            outDir,        outNameBase,               refFileName
+   // square DTED works (Tenerife)
+   { "DTED 1201x1201 -> Array 301x301 Int 2 Floor 0 SplConst","test_files/source/n28_w017_3arc_v2.dt1",     DEM_DATA_INPUT_DTED,     DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,    0,        1201,1201,"0" ,NULL,   0, 3629, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_ARRAY,   CmpBinaryExactly,0,DEM_DATA_FORMAT_SIGNEDINT,DEM_DATA_VALSIZE_SHORT,        301,  301,          1,          29.000000,    28.000000,     17.000000,    16.000000,        "Ram:WCS_Test/", "tst_ten_301x301FlSCS2","test_files/reference/ref_Ten301x301_FlSpl.binS2",__LINE__},           //display -depth 16 -size 301x301 -define endian=MSB -normalize gray:ref_Ten301x301_FlSpl.binS2
+
+   //                                          SourceFileName,                                 InFormat,              InValueFormat,              InValueSize,         HeaderBytes, Rows,Cols, MinEl,MaxEl,                              OutFormat,          OutValueFormat,                                       OutValueSize,           OutRows, OutCols, Spline Constraint,  Hi_Lat,        Lo_Lat,       Hi_Long,      Lo_Long,            outDir,        outNameBase,               refFileName
      { "DTED 601x1201 -> WCSDEM 601x1201", "test_files/source/n54_e013_3arc_v2.dt1",     DEM_DATA_INPUT_DTED,     DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,    0,        1201,601, NULL,NULL, -18,  173, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_WCSDEM,  CmpBinaryExactly,0,DEM_DATA_FORMAT_UNKNOWN,  DEM_DATA_VALSIZE_UNKNOWN,     1201,  601,          0,          55.000000,    54.000000,    -13.000000,   -14.000000,        "Ram:WCS_Test/", "tst_RuegDT",          "test_files/reference/ref_RuegenDT",__LINE__         },
-     // Scaling
+
+// Scaling
 	 { "DTED 601x1201 -> WCSDEM 301x601", "test_files/source/n54_e013_3arc_v2.dt1",      DEM_DATA_INPUT_DTED,     DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,    0,        1201,601, NULL,NULL, -12,  170, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_WCSDEM,  CmpBinaryExactly,0,DEM_DATA_FORMAT_UNKNOWN,  DEM_DATA_VALSIZE_UNKNOWN,      601,  301,          0,          55.000000,    54.000000,    -13.000000,   -14.000000,        "Ram:WCS_Test/", "tst_RuegSc",          "test_files/reference/ref_RuegenDTScale",__LINE__    },
      // other Scaling (Scaling x!=y) + Spline Constraint
 	 { "DTED 601x1201 -> WCSDEM 301x301 Spline Constraint", "test_files/source/n54_e013_3arc_v2.dt1",      DEM_DATA_INPUT_DTED,     DEM_DATA_FORMAT_SIGNEDINT,   DEM_DATA_VALSIZE_SHORT,    0,        1201,601, NULL,NULL, -12,  170, DEM_DATA_UNITS_METERS, DEM_DATA_OUTPUT_WCSDEM,  CmpBinaryExactly,0,DEM_DATA_FORMAT_UNKNOWN,  DEM_DATA_VALSIZE_UNKNOWN,      301,  301,          1,          55.000000,    54.000000,    -13.000000,   -14.000000,        "Ram:WCS_Test/", "tst_RuegSS",          "test_files/reference/ref_RuegenDTScaleSplineConstr",__LINE__         },

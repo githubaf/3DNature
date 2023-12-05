@@ -1,11 +1,4 @@
-cd vlg
-smake COPTIONS="MATH=68881"
-copy libvgl.a /
-cd /
-setenv BUILDID=AF_BuildID
-copy env:BUILDID envarc:   ; envarc:BUILDID is needed during smake. What is its purpose?
 
-; fix WCSObjs.lnk
 ; this text file ends with many 0x00-Bytes which confise slink
 ; remove them (I used vim)
 
@@ -3188,3 +3181,7 @@ angefuegt. (Das Script akzeptirt jetzt eine Textdatei als Parameter) Dann sieht 
 4.Dec.2023
 ----------
 *Konvertierung DTED -> irgendwas schlaegt fehlt, nur DTED -> WCS-DEM funktioniert.
+
+5.Dec.2023
+----------
+*Convertierung quadratischer DTEDS funktioniert. (Teneriffa in Test aufgenommen)
