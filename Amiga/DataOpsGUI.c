@@ -1187,10 +1187,12 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
    lseek(fh, StartPt + 441, 0);
    read(fh, test, 4);
    test[4] = 0;
-   set(DC_Win->FormatIntStr[1], MUIA_String_Contents, (IPTR)test);
+   set(DC_Win->FormatIntStr[2], MUIA_String_Contents, (IPTR)test); // Input Cols
+   printf("Alexander: Line %d test=%s\n",__LINE__,test);
 
    read(fh, test, 4);
-   set(DC_Win->FormatIntStr[2], MUIA_String_Contents, (IPTR)test);
+   set(DC_Win->FormatIntStr[1], MUIA_String_Contents, (IPTR)test);
+   printf("Alexander: Line %d test=%s\n",__LINE__,test); // Input Rows
    
    set(DC_Win->Cycle[3], MUIA_Cycle_Active, 1); /* value size */
    set(DC_Win->Cycle[2], MUIA_Cycle_Active, 0); /* value format */

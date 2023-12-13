@@ -3197,4 +3197,31 @@ test_68020/WCS_test_68020  ; braucht ca 22k Stack
 cd test_68020
 gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=. -r .. --html --html-details -o coverage.html && firefox coverage.html&
 
+13.Dex.2023
+-----------
+Die WCS-DEM-Files enthlten die Pixels um 90 Grad im Uhrzeigersinn gedreht.
+Anzeige:
+tail --bytes $((601*1201*2)) ref_RuegenIFF_601x1201.elev | display -endian MSB -depth 16 -size 1201x601 -normalize gray:
 
+Anzeige des dt1-Daten-Puffers:
+habe ich einfach mit fwrite in ein File geschrieben.
+display -depth  16 -size 1201x601  -define endian=MSB -normalize  gray:dt1_dump.bin  # funktioniert nicht richtig. Irgendwie ist der Wertebereich falsch? Liegt ev. an den negativen Werten?
+imagej zeigt den Puffer richtig an.  (File, import, raw, 16bit signed, width 1201, height 601, Big Endian) -> Bild ist auch um 90 Grad im Uhzeigersinn gedreht, genauso wie WCS-DEM.
+
+* Wenn ein Rügen WS-DEM File im Konverter geladen wird, ist die Anzeige Cols 1201, Rows 601
+* Wenn ein Rügen DT1    File im Konverter geladen wird, ist die Anzeige  Cols 601, Rows 1201 also anders rum. Das ist auch bei WCS 2.04 so.
+
+cols 1201, rows 601, Test in 2.04 und mit meiner aktuellen Version
+ref_RuegenDT.elev -> Conv WCS-DEM (also 1:1) -> ok
+ref_RuegenDT.elev -> Conv ColorIFF ok
+ref_RuegenDT.elev -> Conv GrayIFF ok
+
+Da DT1 auch so organisiert ist (90 Grad im Uhrzeigersinnn gedreht), muesste es doch genau so funktionieren!?
+
+Auch den Puffer nach dem WCS-DEM (elev) Laden ausgegeben. Der ist identisch zum Puffer vom DT1-Laden! Also sollten beide genauso funktionieren.
+-Allerdings sind cols und rows andersrum!
+
+Beim Laden von dt1 wird jetzt Zeile und Spalte getauscht. Damit ist die Anzeige jetzt bei wcsdem und dted identisch.
+
+
+* Rueg 602x1201 elev und dt1 lassen sich nach WCS-DEM(elev) konvertieren, aber nicht in der Groesse aendern. ( dann ist das Bild falsch/verzerrt, die Koordinaten stimmen aber in der Mapview noch)
