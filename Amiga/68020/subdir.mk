@@ -85,13 +85,6 @@ O_SRCS += \
 ../BitMaps.o \
 ../Cloud.o \
 ../CloudGUI.o \
-../ColorBlends.o \
-../Commands.o \
-../DEM.o \
-../DEMGUI.o \
-../DEMObject.o \
-../DLG.o \
-../DataBase.o \
 ../WCS.o 
 
 C_DEPS += \

@@ -2259,6 +2259,17 @@ EndLoad:
    if (BWDC)
     BusyWin_Update(BWDC, i + 1);
    } /* for i=0... */
+
+  // Fertig mit resample. Erst mal Puffer ausgeben zu Kontrolle:
+	  {
+      // ALEXANDER
+  	  FILE *File=fopen("VBox:SelcoGit/3DNature/Amiga/test_files/source/resample_dump.bin","wb");
+  	  if(File) {fwrite(OutputData,OutputDataSize,1,File);fclose(File);}      // <<<--- falsch beim Verkleinern. DTEC 601x1201 -> WCS 301->601
+  	  else {printf("Kann resample_dump.bin nicht oeffnen!\n");}
+	  }
+
+
+
   if (BWDC) BusyWin_Del(BWDC);
   if (error)
    goto Cleanup;
@@ -2849,7 +2860,7 @@ EndLoad:
      if (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM
 	|| INPUT_FORMAT == DEM_DATA_INPUT_DTED)
       {
-/*      datazip = BaseOff + colctr * INPUT_ROWS;*/
+/*      datazip = BaseOff + colctr * INPUT_ROWS; */
       datazip = BaseOff + colctr * INPUT_COLS;
       outzip = colctr * rows;
       } /* if WCS DEM input */

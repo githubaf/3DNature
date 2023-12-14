@@ -3197,7 +3197,7 @@ test_68020/WCS_test_68020  ; braucht ca 22k Stack
 cd test_68020
 gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=. -r .. --html --html-details -o coverage.html && firefox coverage.html&
 
-13.Dex.2023
+13.Dez.2023
 -----------
 Die WCS-DEM-Files enthlten die Pixels um 90 Grad im Uhrzeigersinn gedreht.
 Anzeige:
@@ -3225,3 +3225,7 @@ Beim Laden von dt1 wird jetzt Zeile und Spalte getauscht. Damit ist die Anzeige 
 
 
 * Rueg 602x1201 elev und dt1 lassen sich nach WCS-DEM(elev) konvertieren, aber nicht in der Groesse aendern. ( dann ist das Bild falsch/verzerrt, die Koordinaten stimmen aber in der Mapview noch)
+
+14.Dez.2023
+-----------
+Testprogramm zum Anzeigen des Inhaltes/Unterschiede von elev-Files.
