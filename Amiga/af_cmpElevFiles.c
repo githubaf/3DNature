@@ -295,7 +295,7 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 	{
 		Error=SIZE_DIFFERENT_ERROR;
 		printf("File size differs!\n");
-		goto Cleanup;
+		//goto Cleanup;
 	}
 
 

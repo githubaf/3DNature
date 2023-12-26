@@ -585,15 +585,6 @@ RepeatRGB:
  if (INPUT_FORMAT == DEM_DATA_INPUT_DTED)
   {
   error = LoadDTED(filename, (short *)InputData, InputDataSize);
-  	  {
-	      // ALEXANDER
-	      FILE *File;
-	      printf("ALEXANDER: cols=%d, rows=%d\n",INPUT_ROWS,INPUT_COLS);
-	      printf("ALEXANDER: InputDataSize=%ld\n",InputDataSize);
-	  	  File=fopen("VBox:SelcoGit/3DNature/Amiga/test_files/source/dt1_dump.bin","wb");
-	  	  if(File) {fwrite(InputData,InputDataSize,1,File);fclose(File);}
-	  	  else {printf("Kann dt1_dump.bin nicht oeffnen!\n");}
-  	  }
   goto EndLoad;
   } /* if DTED */
 
@@ -831,7 +822,6 @@ RepeatRGB:
     break;
     } /* if read fail */
    InputData = InputData2S = DEMHdr->map;
-
    if (InputDataSize != DEMHdr->size)
     {
     InputDataSize = DEMHdr->size;
@@ -841,18 +831,6 @@ RepeatRGB:
    InputDataSize = DEMHdr->size;
    INPUT_ROWS = DEMHdr->rows + 1;
    INPUT_COLS = DEMHdr->columns;
-
-	  {
-	      // ALEXANDER
-	      FILE *File;
-	      printf("ALEXANDER: cols=%d, rows=%d\n",INPUT_ROWS,INPUT_COLS);
-	      printf("ALEXANDER: InputDataSize=%ld\n",InputDataSize);
-	  	  File=fopen("VBox:SelcoGit/3DNature/Amiga/test_files/source/wcsdem_dump.bin","wb");
-	  	  if(File) {fwrite(InputData,InputDataSize,1,File);fclose(File);}
-	  	  else {printf("Kann wcsdem_dump.bin nicht oeffnen!\n");}
-	  }
-
-
    if (OUTPUT_LOLAT == OUTPUT_HILAT || OUTPUT_HILON == OUTPUT_LOLON)
     {
     OUTPUT_LOLAT = DEMHdr->lolat;
@@ -2259,17 +2237,6 @@ EndLoad:
    if (BWDC)
     BusyWin_Update(BWDC, i + 1);
    } /* for i=0... */
-
-  // Fertig mit resample. Erst mal Puffer ausgeben zu Kontrolle:
-	  {
-      // ALEXANDER
-  	  FILE *File=fopen("VBox:SelcoGit/3DNature/Amiga/test_files/source/resample_dump.bin","wb");
-  	  if(File) {fwrite(OutputData,OutputDataSize,1,File);fclose(File);}      // <<<--- falsch beim Verkleinern. DTEC 601x1201 -> WCS 301->601
-  	  else {printf("Kann resample_dump.bin nicht oeffnen!\n");}
-	  }
-
-
-
   if (BWDC) BusyWin_Del(BWDC);
   if (error)
    goto Cleanup;
@@ -2597,10 +2564,6 @@ EndLoad:
 		 && OUTPUT_ROWMAPS == 1 && OUTPUT_COLMAPS == 1
 		 && INPUT_ROWS == ORows && INPUT_COLS == OCols)
  {
-	 // WCS -> WCS : kommt hier vorbei, auch wenn neue Abmessungen fuer das Ziel????
-	 printf("Alexander: Line %d, NoScaling=%d\n",__LINE__,NoScaling);
-	 printf("Alexander: INPUT_ROWS =%d, ORows=%ld, INPUT_COLS=%d, OCols=%ld\n",INPUT_ROWS,ORows,INPUT_COLS,OCols);   // <<---- falsch, wenn WCS->WCS 1201x601 -> 601->301 steht da bei beiden 301x601
-
 	 SaveConvertOutput(data, DEMHdr, InputData, InputDataSize, 0, 0,
 			 OUTPUT_ROWS, OUTPUT_COLS, OUTPUT_ROWS, OUTPUT_COLS, RGBComponent);
 	 goto Cleanup;
@@ -2860,7 +2823,7 @@ EndLoad:
      if (INPUT_FORMAT == DEM_DATA_INPUT_WCSDEM
 	|| INPUT_FORMAT == DEM_DATA_INPUT_DTED)
       {
-/*      datazip = BaseOff + colctr * INPUT_ROWS; */
+/*      datazip = BaseOff + colctr * INPUT_ROWS;*/
       datazip = BaseOff + colctr * INPUT_COLS;
       outzip = colctr * rows;
       } /* if WCS DEM input */
@@ -3113,20 +3076,13 @@ EndLoad:
 //   printf("%s Line %d, rows=%ld, Cols=%ld\n",__FILE__,__LINE__,rows,cols);
 //   printf("%s Line %d, OutputRows=%ld, OutputCols=%ld\n",__FILE__,__LINE__,OutputRows,OutputCols);
 //   printf("%s Line %d, DEMHdr rows=%d, Cols=%d\n",__FILE__,__LINE__,DEMHdr->rows,DEMHdr->columns);
-//if(INPUT_FORMAT == DEM_DATA_INPUT_DTED)  // exchange cols and rows for DTED. The Ruegen.dt1 (601x1201) can be converted.
-//{
-//   error = SaveConvertOutput(data, DEMHdr, OutputData, OutputDataSize, i, j,
-//	cols, rows, OutputRows, OutputCols, RGBComponent);
-//}
-//else
+if(INPUT_FORMAT == DEM_DATA_INPUT_DTED)  // exchange cols and rows for DTED. The Ruegen.dt1 (601x1201) can be converted.
 {
-	  	  {
-		      // ALEXANDER
-		  	  FILE *File=fopen("VBox:SelcoGit/3DNature/Amiga/test_files/source/scale_move_dump.bin","wb");
-		  	  if(File) {fwrite(OutputData,OutputDataSize,1,File);fclose(File);}
-		  	  else {printf("Kann scale_move_dump.bin nicht oeffnen!\n");}
-	  	  }
-
+   error = SaveConvertOutput(data, DEMHdr, OutputData, OutputDataSize, i, j,
+	cols, rows, OutputRows, OutputCols, RGBComponent);
+}
+else
+{
    error = SaveConvertOutput(data, DEMHdr, OutputData, OutputDataSize, i, j,
 	rows, cols, OutputRows, OutputCols, RGBComponent);
 }
