@@ -3422,8 +3422,17 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 			} /* if open fail */
 			DEMHdr->rows	 = cols - 1;
 			DEMHdr->columns	 = rows;
-			DEMHdr->steplat	 = (OUTPUT_HILAT - OUTPUT_LOLAT) / (OUTPUT_ROWS - 1);
-			DEMHdr->steplong	 = (OUTPUT_HILON - OUTPUT_LOLON) / (OUTPUT_COLS - 1);
+			if(INPUT_FORMAT==DEM_DATA_INPUT_DTED)
+			{
+			DEMHdr->steplat	 = (OUTPUT_HILAT - OUTPUT_LOLAT) / (OUTPUT_COLS - 1);   // AF: 27.Dec.23  ROWS and COLS exchanged id source is dted
+			DEMHdr->steplong	 = (OUTPUT_HILON - OUTPUT_LOLON) / (OUTPUT_ROWS - 1);
+			}
+			else                                                                    // original code
+			{
+				DEMHdr->steplat	 = (OUTPUT_HILAT - OUTPUT_LOLAT) / (OUTPUT_ROWS - 1);
+				DEMHdr->steplong	 = (OUTPUT_HILON - OUTPUT_LOLON) / (OUTPUT_COLS - 1);
+			}
+
 			DEMHdr->lolat	 =
 					OUTPUT_LOLAT + j * (OutputRows - DUPROW) * DEMHdr->steplat ;
 			DEMHdr->lolong	 =

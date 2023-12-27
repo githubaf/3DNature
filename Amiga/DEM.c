@@ -512,12 +512,12 @@ short InterpDEM(struct DEMInterpolateData *DEMInterp)
  char append, rootfile[32], newrootfile[32], extension[32],
 	filename[256], elevfile[32];
  short filelen, i, j, k, error = 0, newrows, newcols, Lr, Lc, OBNexists, Elev[6];
- short *arrayptr, *mapptr, *dataptr;
+ short *arrayptr=NULL, *mapptr, *dataptr;
  long fhelev, arraysize, maprowbytes,
 	 protflags = FIBB_OTR_READ | FIBB_OTR_WRITE | FIBB_OTR_DELETE;
  float Version = DEM_CURRENT_VERSION;
  double lolat, lolong, Lon[6], Lat[6];
- struct elmapheaderV101 map;
+ struct elmapheaderV101 map={0};
  struct BusyWindow *BWFI;
 
  BWFI = BusyWin_New("Files", DEMInterp->FrFile->rf_NumArgs, 0, MakeID('B','W','F','I'));

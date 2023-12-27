@@ -3229,3 +3229,18 @@ Beim Laden von dt1 wird jetzt Zeile und Spalte getauscht. Damit ist die Anzeige 
 14.Dez.2023
 -----------
 Testprogramm zum Anzeigen des Inhaltes/Unterschiede von elev-Files.
+
+27.Dez.2023
+-----------
+#cppcheck fuer alle C-Files. Nur die "errors:" anzeigen.
+time find . -name "*.c" -exec cppcheck --force --enable=all 2>&1 {} \; | grep "error:"
+
+#Es gibt anscheinend immer noch uninitialisierte Variablen:
+MapUtil.c:669:17: error: Uninitialized variable: ls->lastx [uninitvar]
+Map.c:2504:2: error: Uninitialized variable: angle [uninitvar]
+DataOpsGUI.c:868:13: error: Uninitialized struct member: ZBHdr.VarType [uninitStructMember]
+EdMoGUI.c:1894:11: error: Uninitialized variable: Reposition [uninitvar]
+EdMoGUI.c:1894:11: error: Uninitialized variable: Reposition [uninitvar]
+ColorBlends.c:246:28: error: Uninitialized variable: WhiteCap [uninitvar]
+EditGui.c:1277:13: error: Using argument Pal that points at uninitialized variable Pal [ctuuninitvar]
+
