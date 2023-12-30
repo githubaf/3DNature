@@ -3244,3 +3244,9 @@ EdMoGUI.c:1894:11: error: Uninitialized variable: Reposition [uninitvar]
 ColorBlends.c:246:28: error: Uninitialized variable: WhiteCap [uninitvar]
 EditGui.c:1277:13: error: Using argument Pal that points at uninitialized variable Pal [ctuuninitvar]
 
+
+29.Dez.2023
+---------
+Test auf i386-AROS und x86_64-AROS geprueft. Alle z.Z. ausgefuehrten Tests (234) OK.
+
+
