@@ -742,8 +742,11 @@ void Make_ES_Window(void)
 /* STRING1 */
   for (i=0; i<23; i++)
    {
-   DoMethod(ES_Win->IntStr[i], MUIM_Notify, MUIA_String_Contents, MUIV_EveryTime,
-	app, 2, MUIM_Application_ReturnID, ID_ES_INTSTR(i));
+	  if(ES_Win->IntStr[i])
+	  {
+		  DoMethod(ES_Win->IntStr[i], MUIM_Notify, MUIA_String_Contents, MUIV_EveryTime,
+				  app, 2, MUIM_Application_ReturnID, ID_ES_INTSTR(i));
+	  }
    } /* for i=0... */
 /* ARROW1 */
   for (i=0; i<23; i++)
@@ -770,8 +773,11 @@ void Make_ES_Window(void)
 /* CYCLE1 */
   for (i=0; i<51; i++)
    {
-   DoMethod(ES_Win->Cycle[i], MUIM_Notify, MUIA_Cycle_Active, MUIV_EveryTime,
-	app, 2, MUIM_Application_ReturnID, ID_ES_CYCLE(i));
+	  if(ES_Win->Cycle[i])
+	  {
+		  DoMethod(ES_Win->Cycle[i], MUIM_Notify, MUIA_Cycle_Active, MUIV_EveryTime,
+				  app, 2, MUIM_Application_ReturnID, ID_ES_CYCLE(i));
+	  }
    } /* for i=0... */
 
 /* BUTTONS2 */
@@ -781,8 +787,11 @@ void Make_ES_Window(void)
 /* STRING3 */
   for (i=0; i<15; i++)
    {
-   DoMethod(ES_Win->Str[i], MUIM_Notify, MUIA_String_Contents, MUIV_EveryTime,
-	app, 2, MUIM_Application_ReturnID, ID_ES_PATHSTR(i));
+	  if(ES_Win->Str[i])
+	  {
+		  DoMethod(ES_Win->Str[i], MUIM_Notify, MUIA_String_Contents, MUIV_EveryTime,
+				  app, 2, MUIM_Application_ReturnID, ID_ES_PATHSTR(i));
+	  }
    } /* for i=0... */
 
 /* set tab cycle chain */
@@ -972,10 +981,16 @@ void Make_ES_Window(void)
    ES_Win->SettingsWin, 3, MUIM_Set, MUIA_Window_ActiveObject, ES_Win->FloatStr[7]);
   DoMethod(ES_Win->FloatStr[7], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
    ES_Win->SettingsWin, 3, MUIM_Set, MUIA_Window_ActiveObject, ES_Win->IntStr[15]);
-  DoMethod(ES_Win->IntStr[15], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
-   ES_Win->SettingsWin, 3, MUIM_Set, MUIA_Window_ActiveObject, ES_Win->IntStr[16]);
-  DoMethod(ES_Win->IntStr[16], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
-   ES_Win->SettingsWin, 3, MUIM_Set, MUIA_Window_ActiveObject, ES_Win->IntStr[14]);
+  if(ES_Win->IntStr[15])
+  {
+	  DoMethod(ES_Win->IntStr[15], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
+			  ES_Win->SettingsWin, 3, MUIM_Set, MUIA_Window_ActiveObject, ES_Win->IntStr[16]);
+  }
+  if(ES_Win->IntStr[15])
+  {
+	  DoMethod(ES_Win->IntStr[16], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
+			  ES_Win->SettingsWin, 3, MUIM_Set, MUIA_Window_ActiveObject, ES_Win->IntStr[14]);
+  }
 
 #ifdef USE_WCS_HELP
 #ifdef USE_SETTINGS_HELP
