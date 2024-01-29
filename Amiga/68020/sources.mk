@@ -15,6 +15,4 @@ OBJS :=
 SUBDIRS := \
 . \
 vgl \
-x86_64-aros \
-x86_64-aros/vgl \
 

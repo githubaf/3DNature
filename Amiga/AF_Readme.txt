@@ -3249,4 +3249,21 @@ EditGui.c:1277:13: error: Using argument Pal that points at uninitialized variab
 ---------
 Test auf i386-AROS und x86_64-AROS geprueft. Alle z.Z. ausgefuehrten Tests (234) OK.
 
+29.Jan.2024
+-----------
+* Einige elev-Files waren bei AROS ploetzlich little endian!? Deshalb ist das abgesturzt. Sollte robuster gemacht werden.
+* WCS: in MapTopeObject.c 
+   sprintf(str, "WCS:Tools/Fract%ld", MaxFract); 
+  eingefuegt. Sonst stuerzt WCS ab, wenn es nich aus dem WCS-Ordner gestartet wird und dedhalb Tools/... nicht findet. Muss ueberarbeitet werden. (Robustness)
+* Die 3 WCS-Demos funktionieren mit i386 und x86-AROS.
+* Alle gegenwaertigen Tests sind auf i386-AROS, x86-64-AROS und Amiga OK.
+* i386-AROS:   ABI_V0  About AROS: Git ID: 461cfc0dc7 (https://github.com/deadw00d/AROS)
+* x86-64-AROS: ABI_V11 About AROS: Git ID: af1cd9a749 (https://github.com/deadw00d/AROS)
+
+AROS
+# fuer Release- und Testversion
+
+make all && rm -rf ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox && cp -r ~/Desktop/SelcoGit/3DNature/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox
+
+make all && rm -rf ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox && cp -r ~/Desktop/SelcoGit/3DNature/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox
 

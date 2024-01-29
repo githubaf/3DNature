@@ -2298,7 +2298,7 @@ if (MaxFract == 0)		/* don't need an index */
     return (1);
 }
 
- sprintf(str, "Tools/Fract%ld", MaxFract);
+ sprintf(str, "WCS:Tools/Fract%ld", MaxFract);
  if ((fVtx = fopen(str, "rb")))
   {
   fread((char *)Title, 16, 1, fVtx);
