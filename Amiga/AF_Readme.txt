@@ -3267,3 +3267,10 @@ make all && rm -rf ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS
 
 make all && rm -rf ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox && cp -r ~/Desktop/SelcoGit/3DNature/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox
 
+30.Jan.2024
+-----------
+Toolchain-Version fuer die AROS-Versionen richtig gemacht. Vorher wurde die Amiga-GCC-Toolchain Version genommen.
+
+Anzeige mit (mit "dd bs=6 skip=1" wird ein 6-Bytes-Block 1x uebersprungen (das "$TLCN:"))
+i386-aros-strings   WCS | grep \$TLCN | dd bs=6 skip=1 | tr '!-~' 'P-~!-O' | sed 's/[[:space:]]/\n/g'
+x86_64-aros-strings WCS | grep \$TLCN | dd bs=6 skip=1 | tr '!-~' 'P-~!-O' | sed 's/[[:space:]]/\n/g'

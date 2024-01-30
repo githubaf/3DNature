@@ -42,7 +42,7 @@ main-build: WCS
 WCS: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
-	x86_64-aros-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -fomit-frame-pointer -lm -lmui  -g -ldebug  -Wl,-Map=WCS_x86_64-aros.map && ../check_wcs_aros_x86_64.sh WCS
+	i386-aros-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -fomit-frame-pointer -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_x86_64-aros.map && ../check_wcs_aros_i386.sh WCS
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -52,11 +52,11 @@ clean:
 	-@echo ' '
 
 pre-build:
-	-realpath $$(which x86_64-aros-gcc) &&   rm -fv Version.o; rm -fv WCS_x86_64-aros*
+	-realpath $$(which i386-aros-gcc) &&   rm -fv Version.o; rm -fv WCS_x86_64-aros*
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS_x86_64-aros && cp WCS_x86_64-aros WCS_x86_64-aros.unstripped && x86_64-aros-strip --strip-unneeded -R.comment WCS_x86_64-aros && ls -la WCS_x86_64-aros && x86_64-aros-size WCS_x86_64-aros && cp  ../WCS.info WCS_x86_64-aros.info && ../check_pre-commit-hook
+	-cp WCS WCS_x86_64-aros && cp WCS_x86_64-aros WCS_x86_64-aros.unstripped && i386-aros-strip --strip-unneeded -R.comment WCS_x86_64-aros && ls -la WCS_x86_64-aros && i386-aros-size WCS_x86_64-aros && cp  ../WCS.info WCS_x86_64-aros.info && ../check_pre-commit-hook
 	-@echo ' '
 
 .PHONY: all clean dependents main-build pre-build post-build
