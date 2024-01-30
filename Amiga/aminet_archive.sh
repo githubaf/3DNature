@@ -14,7 +14,7 @@ function green_msg() {
 
 rm -rf temp temp_aminet_upload;
 mkdir temp temp_aminet_upload;
-for CPU in 68020 68020-60 68040 68060; do 
+for CPU in 68020 68020-60 68040 68060 i386-aros x86_64-aros; do 
    cp -f $CPU/WCS_$CPU $CPU/WCS_$CPU.info temp/; 
 done;
 cp wcs.readme temp/
@@ -30,7 +30,7 @@ for FILE in $(find temp -type f -name "WCS_680*"); do
 done
 
 #Testen, dass readme-Zeilenlaenge nicht ueberschritten wird
-awk 'BEGIN{ret=0} END{exit ret} {if(length > 78){ret=1; printf("%s  --> (%u Zeichen)\n",$0,length)}}' wcs.readme \
+LANG=de_DE.ISO-8859-1 awk 'BEGIN{ret=0} END{exit ret} {if(length > 78){ret=1; printf("Line %d: %s  --> (%u Zeichen)\n",FNR,$0,length)}}' wcs.readme \
 && green_msg "\nwcs.readme line length OK\n" || red_msg "\nERROR: Lines too long\n"
 
 #Test auf Zeilenende-Zeichen:

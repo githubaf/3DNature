@@ -71,8 +71,10 @@ Version 2.031 (Emerald-Anton)
 Version 2.031 (Emerald-Berta)
         *BugFix: Image saved as "Raw intrlvd RGB" were damaged. 
                  (This bug existed already in last original version 2.04)
-        *AROS i386 version.
-                 Some features untested.
+        *Feature:AROS i386 version.
+                 Expect some incompatibilities. (Please report!)
+        *Feature:AROS x86_64 version.
+                 Expect some incompatibilities. (Please report!)
         *Feature:Export LigthWave shows better error messages
                  exporting colodemo "Scene" and "Scene + DEMs" did not
                  show relevant information in error messages. 
@@ -101,14 +103,15 @@ Version 2.031 (Emerald-Berta)
         *BugFix: Convert to Gray IFF fixed. Resulting files contained garbage.
                  (This bug existed already in last original version 2.04)
         *BugFix: Convert ASCII-Arry to Colormap: Resulting file has 1 Byte per
-                 pixel Unsigned int now. In original WCS 2.04 that depended on 
+                 pixel Unsigned int now. In original WCS 2.04 that depended on
                  source format
         *BugFix: Convert Bin DEM to Bin DEM was completly wrong in WCS 2.04.
                  Fixed now. Do not forget to set Floor and Ceiling correctly
                  when converting to a format with a more limited value range!
                  (i.e. set Floor to 0 if converting from signed to unsigned,
-                  set Ceiling to 255 when converting from a format to
-                  one byte unsigned values etc.)
+                 set Ceiling to 255 when converting from a format to
+                 one byte unsigned values etc.)
+        *Credits:Thank you Amiwell79 for multiple nice donations!
                  
 
 
