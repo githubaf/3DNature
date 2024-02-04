@@ -3274,3 +3274,16 @@ Toolchain-Version fuer die AROS-Versionen richtig gemacht. Vorher wurde die Amig
 Anzeige mit (mit "dd bs=6 skip=1" wird ein 6-Bytes-Block 1x uebersprungen (das "$TLCN:"))
 i386-aros-strings   WCS | grep \$TLCN | dd bs=6 skip=1 | tr '!-~' 'P-~!-O' | sed 's/[[:space:]]/\n/g'
 x86_64-aros-strings WCS | grep \$TLCN | dd bs=6 skip=1 | tr '!-~' 'P-~!-O' | sed 's/[[:space:]]/\n/g'
+
+4.Feb.2024
+----------
+* ./libnix/sources/nix/stdio/remove.c enthaelt ein puts(), welches immer zu zwei Printausgaben fuehrt. Die Funktion deshalb tempraer in wcs.c
+ueberschrieben, bis es eine neue Libnix-Version gibt.
+* Fertig zu Relase von Emerald-Berta!
+
+Zeitvergleich der 68040er Version auf C=A4000T 68040/25, 16Meg Ram. OS 3.14 (?)
+Canyon_Sunset 1/4 Size
+2.04  Orginial (Ruby)          05:07:44
+2.031          (Emerald-Anton) 03:45:49
+2.031          (Emerald-Berta) 03:42:28, wiedeholt  03:48:16, also keine Aenderung gegenueber Emerald-Anton.
+

@@ -454,3 +454,29 @@ void SimpleEndianFlip16U(unsigned short int Source16, unsigned short int *Dest16
 void SimpleEndianFlip16S(  signed short int Source16, signed short int   *Dest16) {(*Dest16) = (  signed short int)( ((Source16 & 0x00ff) << 8) | ((Source16 & 0xff00) >> 8) );}
 
 
+// AF, 4.Feb.2024: currently remove() contains an unwanted puts() (leftiver from libnix debugging?) So we overwrite is here without this puts()
+// copied from ./libnix/sources/nix/stdio/remove.c to overwrite the libnix-remove() function.
+// delete as soon as libnix has been fixed.
+#if defined  __GNUC__ && !defined __AROS__
+#include <errno.h>
+#include <proto/dos.h>
+#include "stdio.h"
+
+extern void __seterrno(void);
+
+asm("_rmdir: .global _rmdir");
+asm("_unlink: .global _unlink");
+extern __stdargs int remove(const char *filename)
+{
+#ifdef IXPATHS
+        extern char *__amigapath(const char *path);
+  if((filename=__amigapath(filename))==NULL)
+    return -1;
+#endif
+//puts(filename);    // <--- here is the unwanted puts()
+  if(DeleteFile((CONST_STRPTR)filename))
+    return 0;
+  else
+  { __seterrno(); return -1; }
+}
+#endif
