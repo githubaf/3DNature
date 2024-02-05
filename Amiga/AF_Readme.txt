@@ -1676,6 +1676,7 @@ jlha a ../temp_aminet_upload/$ARCHIVE *;
 cd ..; 
 cp CanyonSet000.jpg wcs.readme temp_aminet_upload
 
+cd temp_aminet_upload/
 ftp -p   # -p passive mode, falls ftp durch NAT
 open main.aminet.net
 Name (main.aminet.net:developer): anonymous
@@ -1711,7 +1712,7 @@ cat -v wcs.readme | grep "\^M"; if [ $? -eq 0 ]; then red_msg "0a gefunden"; fal
 Sichern des Aminet-Uploads:
 
 cd ~/Desktop/SelcoGit/wcs_aminet_upoloads/Emerald-Anton   # Git-Verzeichnis
-for DIR in $(find /home/developer/Desktop/SelcoGit/3DNature/Amiga -type d -name "680*"); do 
+for DIR in $(find /home/developer/Desktop/SelcoGit/3DNature/Amiga -type d -name "680*" -o -name "i386*" -o -name "x86_64*"); do
    FILEBASE=WCS_$(basename $DIR); 
    cp -v $DIR/$FILEBASE .; 
    cp -v $DIR/$FILEBASE.info .; 
@@ -3286,4 +3287,11 @@ Canyon_Sunset 1/4 Size
 2.04  Orginial (Ruby)          05:07:44
 2.031          (Emerald-Anton) 03:45:49
 2.031          (Emerald-Berta) 03:42:28, wiedeholt  03:48:16, also keine Aenderung gegenueber Emerald-Anton.
+
+5.Feb.2024
+----------
+* Emerald-Berta ins Aminet hochgeladen. a3fd537cb73b3fec5f940ddc2621bc3731b0d8ce
+
+
+
 
