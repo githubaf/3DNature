@@ -3292,6 +3292,8 @@ Canyon_Sunset 1/4 Size
 ----------
 * Emerald-Berta ins Aminet hochgeladen. a3fd537cb73b3fec5f940ddc2621bc3731b0d8ce
 
+--> Arg, im wcs.readme stand noch "Emerald-Anton" bei der Version. Geaenderte lha und wcs.readme neu hochgeladen.
+
 
 
 
