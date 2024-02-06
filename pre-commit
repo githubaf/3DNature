@@ -5,7 +5,7 @@
 FILE_LIST="$(git diff --cached --name-only)"
 
 for FILE in $FILE_LIST; do
-    if [ $(file "$FILE" | grep -c "UTF-8 Unicode text") -ne 0 ]; then
+    if [ $(file "$FILE" | grep -c "UTF-8") -ne 0 ]; then
         echo "Local pre-commit hook"
         echo "Error: File $FILE is UTF-8 encoded. Change that to ISO 8859-1 for Amiga and try again!"
         echo "Commit refused."

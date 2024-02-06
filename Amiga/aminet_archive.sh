@@ -29,7 +29,7 @@ for FILE in $(find temp -type f -name "WCS_680*"); do
    fi
 done
 
-#Testen, dass der Short: Text nicht lÃ¤nger als 40 Zeichen ist.
+#Testen, dass der Short: Text nicht länger als 40 Zeichen ist.
 LANG=de_DE.ISO-8859-1 awk 'BEGIN{ret=0} /^Short:/{gsub(/Short:[[:space:]]*/,""); if(length >40){printf("Short-Text \"%s\" longer than 40 characters!!!",$0); ret=1;}} END{exit (ret);}' wcs.readme \
 && green_msg "\nwcs.readme Short: text length OK\n" || red_msg "\nERROR: Short: text to long\n"
 
