@@ -7,9 +7,9 @@
 #define _VERSION_H_
 
 #define APP_VERS    "2"
-#define APP_REV    "031"
-//#define APP_REV    "00 beta"  // Beta timeout (see BETA_DAYS) applies if the word "beta" is found here. See WCS.c AF, 23.Jan.23
-#define APP_FLAVOR "(Emerald-Berta)"
+//#define APP_REV    "031"
+#define APP_REV    "00 beta"  // Beta timeout (see BETA_DAYS) applies if the word "beta" is found here. See WCS.c AF, 23.Jan.23
+#define APP_FLAVOR "(Emerald-Caesar)"
 #define APP_TLA    "WCS"
 #define APP_TITLE      "World Construction Set"
 #define APP_AUTHOR    "Gary R. Huber and Chris \"Xenon\" Hanson"

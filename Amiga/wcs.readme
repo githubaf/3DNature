@@ -1,9 +1,10 @@
-Short:        recompiled version of World Construction Set
+Short:        recompiled World Construction Set
+recompiled World Construction Set
 Author:       selco@t-online.de (Alexander Fritsch)
 Uploader:     selco@t-online.de (Alexander Fritsch)
 Type:         gfx/3d
-Version:      2.031 (Emerald-Berta)
-Architecture: m68k-amigaos
+Version:      2.031 (Emerald-Caesar)
+Architecture: m68k-amigaos; i386-aros; x86_64-aros  
 Distribution: Aminet
 
 
@@ -94,10 +95,11 @@ Version 2.031 (Emerald-Berta)
                  used. Also scaling of these DTEDs is now possible.
                  (That did not work in last original version 2.04)
                  This is very importand for DTED files above 50° north 
-                 and below 50° aquired from https://earthexplorer.usgs.gov
+                 and below 50° south aquired
+                 from https://earthexplorer.usgs.gov
         *BugFix: Convert DEM: Target format Color Map lost filename
                  (only extension left) if no database was loaded.
-        *Feature:Convert DEM to ASCII-Buffer (new targed format)
+        *Feature:Convert DEM to ASCII-Buffer (new target format)
         *Feature:Convert DEM Replace Elevation value. Useful for changing
                  elevation zero to something below sea level
         *BugFix: Convert to Gray IFF fixed. Resulting files contained garbage.

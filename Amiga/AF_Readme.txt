@@ -3295,5 +3295,9 @@ Canyon_Sunset 1/4 Size
 --> Arg, im wcs.readme stand noch "Emerald-Anton" bei der Version. Geaenderte lha und wcs.readme neu hochgeladen.
 
 
-
+6.Feb.2024
+----------
+* Fixed wcs.readme. Short: darf nur 40 Zeichen lang sein.
+* Test auf 40 Zeichen in der Short: Zeile in aminet_archive.sh eingebaut.
+* Version auf Emerald-Caesar geaendert. Wieder Beta-Version. 
 
