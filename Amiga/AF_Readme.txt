@@ -3301,3 +3301,39 @@ Canyon_Sunset 1/4 Size
 * Test auf 40 Zeichen in der Short: Zeile in aminet_archive.sh eingebaut.
 * Version auf Emerald-Caesar geaendert. Wieder Beta-Version. 
 
+* neuer Bebbo-gcc vom 26Jan24
+* --> Der Test auf vorhandene FPU 68881 funktioniert nicht mehr???
+* toolchain vom 23.Jan24 funktioniert noch. (aber nicht bei 68060)
+* remove() ueberfluessiges puts() pullrequest geoeffnet.
+
+9.Feb2024
+---------
+Locale-Support:
+Simplecat V3.24 auf dem Amiga zum Editieren. Alles ist in WCS.cs gespeichert.
+Create Targets zum bauen des(der) calalog-Files und des passenden Header-Files.
+assign LOCALE: VBox:SelcoGit/3DNature/Amiga add
+avail flush ; wenn ein neuer Katalog erzeugt wurde!
+
+WCS_locale.c/h und WCS_strings.h werden gebraucht. Vom Simplecat erzeugt. WCS_Strings.h wird neu erzeugt, wenn Ubersetzung erweitert wird.
+Neue Strings aus den WCS-Quellen mit Extras/Localization-Wizzard rausziehen. Auf passende Vorsilbe achten (Mit Fester- oder Menu-Namen). Strings in cs uebernehmen. cs abspeichern.
+
+- keine Aenderung in WCS_locale.h  -> Wenn String leer ist (noch nicht uebersetzt, dann englischen Originalstring ausgeben
+Todo: Nur Leerzeichen dabei auch ignorieren.
+
+ fuer Amiga SAS/C die assigns nicht vergessen:
+assign include: MUI:Developer/c/include add
+assign include: Work:SDI/includes add
+
+Für Amiga-Compilieren muss Build_ID muss gesetzt sein
+1.VBox:SelcoGit/3DNature/Amiga> setenv BuildID "WCS_SASC" 
+1.VBox:SelcoGit/3DNature/Amiga> copy env:BUILDID ENVARC: 
+
+smake WCS
+
+* libvgl muss separat compiliert werden. Fehlt noch, auch fuer vamos-compilieren!
+
+# der /home/developer/opt/m68k-amigaos_23Jan24/bin/m68k-amigaos-gcc hat beim 68060 auch keinen FPU-Test mehr... Ältere Toolchain nehmen.
+
+16Dec23 -> 68060 FPU check missing
+15Dec23 -> OK                             <------- Wir bleiben erst mal bei dieser toolchain-Version
+

@@ -8,6 +8,13 @@
 ** 23 Mar 1994 by CXH.
 */
 
+#define CATCOMP_NUMBERS 1
+//#define CATCOMP_STRINGS
+//#define CATCOMP_BLOCK
+//#define CATCOMP_CODE
+#include "WCS_locale.h" // prototypes Locale_Open(), Locale_Close() and GetString()
+
+
 #define MAIN
 
 #include "WCS.h"
@@ -19,6 +26,7 @@
 
 #define MIN_LIBRARY_REV 37
 #define DITHER_TABLE_SIZE 4096
+
 
 /*
  * AF: We use only Mui 3.8 stuff but bebbo's gcc 6 has MUI-5 SDK. So it sets MUIMASTER_VMIN=20 while 19 would be enough.
@@ -119,6 +127,57 @@ int main(void)
         printf("Please set Stack to %lu Bytes!\n",(unsigned long)MinStack);
         return 20;
     }
+
+    Locale_Open("WCS.catalog",1,1);  // Version, revision  - Simplecat Doc says: There is no need to check any result.
+    // set correct locale strings to the menu
+	WCSNewMenus[ 0].nm_Label= GetString(MSG_MENU_PROJECT);
+	WCSNewMenus[ 1].nm_Label= GetString(MSG_MENU_PR_NEW);
+	WCSNewMenus[ 2].nm_Label= GetString(MSG_MENU_PR_EDIT);
+	WCSNewMenus[ 3].nm_Label= GetString(MSG_MENU_PR_OPEN);
+	WCSNewMenus[ 4].nm_Label= GetString(MSG_MENU_PR_SAVE);
+	WCSNewMenus[ 5].nm_Label= GetString(MSG_MENU_PR_SAVEAS);
+	WCSNewMenus[ 6].nm_Label= GetString(MSG_MENU_PR_LOADCONFIG);
+	WCSNewMenus[ 7].nm_Label= GetString(MSG_MENU_PR_SAVECONFIG);
+	WCSNewMenus[ 8].nm_Label= GetString(MSG_MENU_PR_SAVESCREEN);
+//	WCSNewMenus[ 9].nm_Label= NM_BARLABEL,	 0 , 0, 0, 0 };
+	WCSNewMenus[10].nm_Label= GetString(MSG_MENU_PR_INFO);
+	WCSNewMenus[11].nm_Label= GetString(MSG_MENU_PR_VERSION);
+	WCSNewMenus[12].nm_Label= GetString(MSG_MENU_PR_CREDITS);
+	WCSNewMenus[13].nm_Label= GetString(MSG_MENU_PR_LOG);
+//	WCSNewMenus[14].nm_Label= NM_BARLABEL,	 0 , 0, 0, 0 },
+	WCSNewMenus[15].nm_Label= GetString(MSG_MENU_PR_QUIT);
+	WCSNewMenus[16].nm_Label= GetString(MSG_MENU_PR_ICONIFY);
+
+	WCSNewMenus[17].nm_Label= GetString(MSG_MENU_MODULES);
+	WCSNewMenus[18].nm_Label= GetString(MSG_MENU_MOD_DATABASE);
+	WCSNewMenus[19].nm_Label= GetString(MSG_MENU_MOD_DATAOPS);
+	WCSNewMenus[20].nm_Label= GetString(MSG_MENU_MOD_MAPVIEW);
+	WCSNewMenus[21].nm_Label= GetString(MSG_MENU_MOD_PARAMETERS);
+	WCSNewMenus[22].nm_Label= GetString(MSG_MENU_MOD_RENDER);
+//	WCSNewMenus[23].nm_Label= NM_BARLABEL,	 0 , 0, 0, 0 },
+	WCSNewMenus[24].nm_Label= GetString(MSG_MENU_MOD_MOTIONEDITOR);
+	WCSNewMenus[25].nm_Label= GetString(MSG_MENU_MOD_COLOREDITOR);
+	WCSNewMenus[26].nm_Label= GetString(MSG_MENU_MOD_ECOSYSEDITOR);
+
+	WCSNewMenus[27].nm_Label= GetString(MSG_MENU_PREFS);
+	WCSNewMenus[28].nm_Label= GetString(MSG_MENU_PREF_PREFERENCES);
+	WCSNewMenus[29].nm_Label= GetString(MSG_MENU_PREF_SCREENMODE);
+
+	WCSNewMenus[30].nm_Label= GetString(MSG_MENU_PARAMETERS);
+	WCSNewMenus[31].nm_Label= GetString(MSG_MENU_PAR_LOADALL);
+	WCSNewMenus[32].nm_Label= GetString(MSG_MENU_PAR_SAVEALL);
+	WCSNewMenus[33].nm_Label= GetString(MSG_MENU_PAR_FREEZE);
+	WCSNewMenus[34].nm_Label= GetString(MSG_MENU_PAR_RESTORE);
+
+//    WCSNewMenus[35].nm_Label=	NULL,		 0 , 0, 0, 0 },
+//	WCSNewMenus[36].nm_Label= 	NULL,		(STRPTR)"[", 0, 0, 0 },
+//	WCSNewMenus[37].nm_Label=	NULL,		(STRPTR)"]", 0, 0, 0 },
+//	WCSNewMenus[38].nm_Label= (STRPTR)"Load Active...";
+//	WCSNewMenus[39].nm_Label= (STRPTR)"Save Active...";
+
+//    WCSNewMenus[40].nm_Label= 	NULL,		 0 , 0,	0, 0 },
+
+
 
 // AF: 9.Dec.22 Change the images to little Endian in case of i386-aros
 #ifdef __AROS__
@@ -391,6 +450,8 @@ else
   paramsloaded = 0;
   goto ResetScreenMode;
   } /* if user wishes to reset screen mode */
+
+ Locale_Close();
 
  return 0;
 

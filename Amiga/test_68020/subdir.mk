@@ -10,6 +10,7 @@ C_SRCS += \
 ../DataOps.c \
 ../MapSupport.c \
 ../Memory.c \
+../WCS_locale.c \
 ../sasc_functions.c \
 ../test_main.c 
 
@@ -79,6 +80,7 @@ O_SRCS += \
 ../Version.o \
 ../VocabTable.o \
 ../WCS.o \
+../WCS_locale.o \
 ../Wave.o \
 ../WaveGUI.o \
 ../nncrunch.o \
@@ -92,6 +94,7 @@ C_DEPS += \
 ./DataOps.d \
 ./MapSupport.d \
 ./Memory.d \
+./WCS_locale.d \
 ./sasc_functions.d \
 ./test_main.d 
 
@@ -102,6 +105,7 @@ OBJS += \
 ./DataOps.o \
 ./MapSupport.o \
 ./Memory.o \
+./WCS_locale.o \
 ./sasc_functions.o \
 ./test_main.o 
 
@@ -118,7 +122,7 @@ OBJS += \
 clean: clean--2e-
 
 clean--2e-:
-	-$(RM) ./BigEndianReadWrite.d ./BigEndianReadWrite.o ./BitMaps.d ./BitMaps.o ./DEM.d ./DEM.o ./DataOps.d ./DataOps.o ./MapSupport.d ./MapSupport.o ./Memory.d ./Memory.o ./sasc_functions.d ./sasc_functions.o ./test_main.d ./test_main.o
+	-$(RM) ./BigEndianReadWrite.d ./BigEndianReadWrite.o ./BitMaps.d ./BitMaps.o ./DEM.d ./DEM.o ./DataOps.d ./DataOps.o ./MapSupport.d ./MapSupport.o ./Memory.d ./Memory.o ./WCS_locale.d ./WCS_locale.o ./sasc_functions.d ./sasc_functions.o ./test_main.d ./test_main.o
 
 .PHONY: clean--2e-
 

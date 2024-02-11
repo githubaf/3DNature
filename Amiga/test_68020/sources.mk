@@ -14,6 +14,4 @@ OBJS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 . \
-x86_64-aros \
-x86_64-aros/vgl \
 

@@ -74,6 +74,7 @@ C_SRCS += \
 ../Version.c \
 ../VocabTable.c \
 ../WCS.c \
+../WCS_locale.c \
 ../Wave.c \
 ../WaveGUI.c \
 ../nncrunch.c \
@@ -220,6 +221,7 @@ C_DEPS += \
 ./Version.d \
 ./VocabTable.d \
 ./WCS.d \
+./WCS_locale.d \
 ./Wave.d \
 ./WaveGUI.d \
 ./nncrunch.d \
@@ -295,6 +297,7 @@ OBJS += \
 ./Version.o \
 ./VocabTable.o \
 ./WCS.o \
+./WCS_locale.o \
 ./Wave.o \
 ./WaveGUI.o \
 ./nncrunch.o \
@@ -496,7 +499,7 @@ WaveGUI.o: ../WaveGUI.c subdir.mk
 clean: clean--2e-
 
 clean--2e-:
-	-$(RM) ./AGUI.d ./AGUI.o ./BigEndianReadWrite.d ./BigEndianReadWrite.o ./BitMaps.d ./BitMaps.o ./Cloud.d ./Cloud.o ./CloudGUI.d ./CloudGUI.o ./ColorBlends.d ./ColorBlends.o ./Commands.d ./Commands.o ./DEM.d ./DEM.o ./DEMGUI.d ./DEMGUI.o ./DEMObject.d ./DEMObject.o ./DLG.d ./DLG.o ./DataBase.d ./DataBase.o ./DataOps.d ./DataOps.o ./DataOpsGUI.d ./DataOpsGUI.o ./DefaultParams.d ./DefaultParams.o ./DiagnosticGUI.d ./DiagnosticGUI.o ./DispatchGUI.d ./DispatchGUI.o ./EdDBaseGUI.d ./EdDBaseGUI.o ./EdEcoGUI.d ./EdEcoGUI.o ./EdMoGUI.d ./EdMoGUI.o ./EdPar.d ./EdPar.o ./EdSetExtrasGUI.d ./EdSetExtrasGUI.o ./EdSetGUI.d ./EdSetGUI.o ./EditGui.d ./EditGui.o ./EvenMoreGUI.d ./EvenMoreGUI.o ./Foliage.d ./Foliage.o ./FoliageGUI.d ./FoliageGUI.o ./Fractal.d ./Fractal.o ./GenericParams.d ./GenericParams.o ./GenericTLGUI.d ./GenericTLGUI.o ./GlobeMap.d ./GlobeMap.o ./GlobeMapSupport.d ./GlobeMapSupport.o ./GrammarTable.d ./GrammarTable.o ./HelpGUI.d ./HelpGUI.o ./HyperKhorner4M-1_gcc.o ./Images.d ./Images.o ./InteractiveDraw.d ./InteractiveDraw.o ./InteractiveUtils.d ./InteractiveUtils.o ./InteractiveView.d ./InteractiveView.o ./LWSupport.d ./LWSupport.o ./LineSupport.d ./LineSupport.o ./MUIFloatInt.d ./MUIFloatInt.o ./MakeFaces.d ./MakeFaces.o ./Map.d ./Map.o ./MapExtra.d ./MapExtra.o ./MapGUI.d ./MapGUI.o ./MapLineObject.d ./MapLineObject.o ./MapSupport.d ./MapSupport.o ./MapTopo.d ./MapTopo.o ./MapTopoObject.d ./MapTopoObject.o ./MapUtil.d ./MapUtil.o ./Memory.d ./Memory.o ./Menu.d ./Menu.o ./MoreGUI.d ./MoreGUI.o ./Params.d ./Params.o ./ParamsGUI.d ./ParamsGUI.o ./PlotGUI.d ./PlotGUI.o ./RequesterGUI.d ./RequesterGUI.o ./RexxSupport.d ./RexxSupport.o ./ScratchPad.d ./ScratchPad.o ./ScreenModeGUI.d ./ScreenModeGUI.o ./Support.d ./Support.o ./TLSupportGUI.d ./TLSupportGUI.o ./TimeLinesGUI.d ./TimeLinesGUI.o ./Tree.d ./Tree.o ./Version.d ./Version.o ./VocabTable.d ./VocabTable.o ./WCS.d ./WCS.o ./Wave.d ./Wave.o ./WaveGUI.d ./WaveGUI.o ./nncrunch.d ./nncrunch.o ./nngridr.d ./nngridr.o ./sasc_functions.d ./sasc_functions.o
+	-$(RM) ./AGUI.d ./AGUI.o ./BigEndianReadWrite.d ./BigEndianReadWrite.o ./BitMaps.d ./BitMaps.o ./Cloud.d ./Cloud.o ./CloudGUI.d ./CloudGUI.o ./ColorBlends.d ./ColorBlends.o ./Commands.d ./Commands.o ./DEM.d ./DEM.o ./DEMGUI.d ./DEMGUI.o ./DEMObject.d ./DEMObject.o ./DLG.d ./DLG.o ./DataBase.d ./DataBase.o ./DataOps.d ./DataOps.o ./DataOpsGUI.d ./DataOpsGUI.o ./DefaultParams.d ./DefaultParams.o ./DiagnosticGUI.d ./DiagnosticGUI.o ./DispatchGUI.d ./DispatchGUI.o ./EdDBaseGUI.d ./EdDBaseGUI.o ./EdEcoGUI.d ./EdEcoGUI.o ./EdMoGUI.d ./EdMoGUI.o ./EdPar.d ./EdPar.o ./EdSetExtrasGUI.d ./EdSetExtrasGUI.o ./EdSetGUI.d ./EdSetGUI.o ./EditGui.d ./EditGui.o ./EvenMoreGUI.d ./EvenMoreGUI.o ./Foliage.d ./Foliage.o ./FoliageGUI.d ./FoliageGUI.o ./Fractal.d ./Fractal.o ./GenericParams.d ./GenericParams.o ./GenericTLGUI.d ./GenericTLGUI.o ./GlobeMap.d ./GlobeMap.o ./GlobeMapSupport.d ./GlobeMapSupport.o ./GrammarTable.d ./GrammarTable.o ./HelpGUI.d ./HelpGUI.o ./HyperKhorner4M-1_gcc.o ./Images.d ./Images.o ./InteractiveDraw.d ./InteractiveDraw.o ./InteractiveUtils.d ./InteractiveUtils.o ./InteractiveView.d ./InteractiveView.o ./LWSupport.d ./LWSupport.o ./LineSupport.d ./LineSupport.o ./MUIFloatInt.d ./MUIFloatInt.o ./MakeFaces.d ./MakeFaces.o ./Map.d ./Map.o ./MapExtra.d ./MapExtra.o ./MapGUI.d ./MapGUI.o ./MapLineObject.d ./MapLineObject.o ./MapSupport.d ./MapSupport.o ./MapTopo.d ./MapTopo.o ./MapTopoObject.d ./MapTopoObject.o ./MapUtil.d ./MapUtil.o ./Memory.d ./Memory.o ./Menu.d ./Menu.o ./MoreGUI.d ./MoreGUI.o ./Params.d ./Params.o ./ParamsGUI.d ./ParamsGUI.o ./PlotGUI.d ./PlotGUI.o ./RequesterGUI.d ./RequesterGUI.o ./RexxSupport.d ./RexxSupport.o ./ScratchPad.d ./ScratchPad.o ./ScreenModeGUI.d ./ScreenModeGUI.o ./Support.d ./Support.o ./TLSupportGUI.d ./TLSupportGUI.o ./TimeLinesGUI.d ./TimeLinesGUI.o ./Tree.d ./Tree.o ./Version.d ./Version.o ./VocabTable.d ./VocabTable.o ./WCS.d ./WCS.o ./WCS_locale.d ./WCS_locale.o ./Wave.d ./Wave.o ./WaveGUI.d ./WaveGUI.o ./nncrunch.d ./nncrunch.o ./nngridr.d ./nngridr.o ./sasc_functions.d ./sasc_functions.o
 
 .PHONY: clean--2e-
 

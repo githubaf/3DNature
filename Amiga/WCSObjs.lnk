@@ -12,3 +12,4 @@ FROM
  ScratchPad.o ScreenModeGUI.o HyperKhorner4M-1.o
  Version.o Commands.o VocabTable.o GrammarTable.o
  BigEndianReadWrite.o sasc_functions.o
+ WCS_locale.o

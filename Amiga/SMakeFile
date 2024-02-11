@@ -28,7 +28,7 @@ MAINOBJS = AGUI.o BitMaps.o ColorBlends.o Cloud.o DataBase.o DataOps.o DefaultPa
 GUIHEADERS = GUIDefines.h GUIExtras.h
 GUIOBJS = CloudGUI.o DataOpsGUI.o DEMGUI.o DiagnosticGUI.o DispatchGUI.o EditGUI.o EdMoGUI.o EdDBaseGUI.o EdEcoGUI.o\
  EdSetGUI.o EdSetExtrasGUI.o EvenMoreGUI.o FoliageGUI.o GenericTLGUI.o MapGUI.o MoreGUI.o ParamsGUI.o PlotGUI.o TimeLinesGUI.o TLSupportGUI.o \
- ScratchPad.o RequesterGUI.o ScreenModeGUI.o WaveGUI.o HyperKhorner4M-1.o\
+ ScratchPad.o RequesterGUI.o ScreenModeGUI.o WaveGUI.o HyperKhorner4M-1.o WCS_locale.o\
  libvgl.a
 #GUIOBJS = CloudGUI.o DataOpsGUI.o DEMGUI.o DiagnosticGUI.o DispatchGUI.o EditGUI.o EdMoGUI.o EdDBaseGUI.o EdEcoGUI.o\
 # EdSetGUI.o EdSetExtrasGUI.o EvenMoreGUI.o FoliageGUI.o GenericTLGUI.o MapGUI.o MoreGUI.o ParamsGUI.o PlotGUI.o TimeLinesGUI.o TLSupportGUI.o GUI.o\
@@ -116,11 +116,14 @@ setnooptimize:
    @setenv SCOPTOPTS NOOPTIMIZE
 
 WCS.o: WCS.c $(ALLHEADERS)
-   $(C) MAKEGST=WCSGST WCS.c $(OPTIONS)
+   $(C) MAKEGST=WCSGST WCS.c $(OPTIONS) DEFINE=CATCOMP_NUMBERS=1
    $(C) NOGST WCS.c $(OPTIONS)
 
 AGUI.o: AGUI.c Version.h $(ALLHEADERS)
    $(C) AGUI.c $(OPTIONS)
+
+WCS_locale.o: WCS_locale.c $(ALLHEADERS)
+   $(C) NOGST WCS_locale.c $(OPTIONS)
 
 # $(MAINOBJS): $(MAINHEADERS)
 # $(GUIOBJS): $(GUIHEADERS) 

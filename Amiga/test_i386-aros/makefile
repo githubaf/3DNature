@@ -51,7 +51,7 @@ clean:
 	-@echo ' '
 
 pre-build:
-	-realpath $$(which m68k-amigaos-gcc) &&   rm -fv Version.o; rm -fv WCS_test_i386-aros*
+	-realpath $$(which i386-aros-gcc) &&   rm -fv Version.o; rm -fv WCS_test_i386-aros*
 	-@echo ' '
 
 post-build:

@@ -104,7 +104,7 @@ Version 2.031 (Emerald-Berta)
                  elevation zero to something below sea level
         *BugFix: Convert to Gray IFF fixed. Resulting files contained garbage.
                  (This bug existed already in last original version 2.04)
-        *BugFix: Convert ASCII-Arry to Colormap: Resulting file has 1 Byte per
+        *BugFix: Convert ASCII-Array to Colormap: Resulting file has 1 Byte per
                  pixel Unsigned int now. In original WCS 2.04 that depended on
                  source format
         *BugFix: Convert Bin DEM to Bin DEM was completly wrong in WCS 2.04.

@@ -45,7 +45,7 @@
             printf("%s %s() Line %d: %s %02x %02x %02x %02x %02x %02x %02x %02x\n",        __FILE__,__func__,__LINE__,s,u.bytes[0],u.bytes[1],u.bytes[2],u.bytes[3],u.bytes[4],u.bytes[5],u.bytes[6],u.bytes[7]); \
         }}
 
-
+#include <WCS_locale.h>
 
 #ifndef GIS_GIS_H
 #define GIS_GIS_H
