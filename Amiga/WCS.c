@@ -177,7 +177,101 @@ int main(void)
 
 //    WCSNewMenus[40].nm_Label= 	NULL,		 0 , 0,	0, 0 },
 
+	// Ecosystem Editor -> Class
+	typename[0]=  (char*)GetString( MSG_TYPENAME_WATER );
+	typename[1]=  (char*)GetString( MSG_TYPENAME_SNOW );
+	typename[2]=  (char*)GetString( MSG_TYPENAME_ROCK );
+	typename[3]=  (char*)GetString( MSG_TYPENAME_GROUND );
 
+	typename[4]=  (char*)GetString( MSG_TYPENAME_CONIFER );
+	typename[5]=  (char*)GetString( MSG_TYPENAME_DECID );
+	typename[6]=  (char*)GetString( MSG_TYPENAME_LOWVEG );
+	typename[7]=  (char*)GetString( MSG_TYPENAME_SNAG );
+	typename[8]=  (char*)GetString( MSG_TYPENAME_STUMP );
+
+	varname[ 0]=   (char*)GetString( MSG_VARNAME_CAMERAALTITUDE );
+	varname[ 1]=   (char*)GetString( MSG_VARNAME_CAMERALATITUDE );
+	varname[ 2]=   (char*)GetString( MSG_VARNAME_CAMERALONGITUDE );
+	varname[ 3]=   (char*)GetString( MSG_VARNAME_FOCUSALTITUDE );
+	varname[ 4]=   (char*)GetString( MSG_VARNAME_FOCUSLATITUDE );
+	varname[ 5]=   (char*)GetString( MSG_VARNAME_FOCUSLONGITUDE );
+	varname[ 6]=   (char*)GetString( MSG_VARNAME_CENTERX );
+	varname[ 7]=   (char*)GetString( MSG_VARNAME_CENTERY );
+	varname[ 8]=   (char*)GetString( MSG_VARNAME_BANK );
+	varname[ 9]=   (char*)GetString( MSG_VARNAME_EARTHROTATION );
+	varname[10]=   (char*)GetString( MSG_VARNAME_SCALE );
+	varname[11]=   (char*)GetString( MSG_VARNAME_VIEWARC );
+	varname[12]=   (char*)GetString( MSG_VARNAME_FLATTENING );
+	varname[13]=   (char*)GetString( MSG_VARNAME_DATUM );
+	varname[14]=   (char*)GetString( MSG_VARNAME_VERTICALEXAG );
+	varname[15]=   (char*)GetString( MSG_VARNAME_SUNLIGHTLAT );
+	varname[16]=   (char*)GetString( MSG_VARNAME_SUNLIGHTLON );
+	varname[17]=   (char*)GetString( MSG_VARNAME_HORIZONLINE );
+	varname[18]=   (char*)GetString( MSG_VARNAME_HORIZONPOINT );
+	varname[19]=   (char*)GetString( MSG_VARNAME_HORIZONSTRETCH );
+	varname[20]=   (char*)GetString( MSG_VARNAME_HAZESTART);
+	varname[21]=   (char*)GetString( MSG_VARNAME_HAZERANGE );
+	varname[22]=   (char*)GetString( MSG_VARNAME_SHADEFACTOR );
+	varname[23]=   (char*)GetString( MSG_VARNAME_FOGNONE );
+	varname[24]=   (char*)GetString( MSG_VARNAME_FOGFULL );
+	varname[25]=   (char*)GetString( MSG_VARNAME_ZMINIMUM);
+	varname[26]=   (char*)GetString( MSG_VARNAME_SUNLAT );
+	varname[27]=   (char*)GetString( MSG_VARNAME_SUNLON );
+	varname[28]=   (char*)GetString( MSG_VARNAME_SUNSIZE );
+	varname[29]=   (char*)GetString( MSG_VARNAME_MOONLAT );
+	varname[30]=   (char*)GetString( MSG_VARNAME_MOONLON );
+	varname[31]=   (char*)GetString( MSG_VARNAME_MOONSIZE );
+	varname[32]=   (char*)GetString( MSG_VARNAME_REFLECTION );
+
+
+	StdMesg[ 0]=   (char*)GetString( MSG_STDMESG_OUTOFMEMORY );
+	StdMesg[ 1]=   (char*)GetString( MSG_STDMESG_OPENFILEFAILED );
+	StdMesg[ 2]=   (char*)GetString( MSG_STDMESG_READFILEFAILED );
+	StdMesg[ 3]=   (char*)GetString( MSG_STDMESG_WRITINGTOFILEFAILED );
+	StdMesg[ 4]=   (char*)GetString( MSG_STDMESG_WRONGFILETYPE );
+	StdMesg[ 5]=   (char*)GetString( MSG_STDMESG_ILLEGALINSTRUCTION );
+	StdMesg[ 6]=   (char*)GetString( MSG_STDMESG_ILLEGALVALUE );
+	StdMesg[ 7]=   (char*)GetString( MSG_STDMESG_FILENOTLOADED );
+	StdMesg[ 8]=   (char*)GetString( MSG_STDMESG_OPENFILEFAILED );
+	StdMesg[ 9]=   (char*)GetString( MSG_STDMESG_READFILEFAILED );
+	StdMesg[10]=   (char*)GetString( MSG_STDMESG_WRONGFILETYPE );
+	StdMesg[11]=   (char*)GetString( MSG_STDMESG_ILLEGALINSTRUCTION );
+	StdMesg[12]=   (char*)GetString( MSG_STDMESG_ILLEGALVALUE );
+	StdMesg[13]=   (char*)GetString( MSG_STDMESG_MODULENOTIMPLEMENTED );
+	StdMesg[14]=   (char*)GetString( MSG_STDMESG_GUINOTIMPLEMENTED );
+	StdMesg[15]=   (char*)GetString( MSG_STDMESG_PARAMETERFILELOADED );
+	StdMesg[16]=   (char*)GetString( MSG_STDMESG_PARAMETERFILESAVED );
+	StdMesg[17]=   (char*)GetString( MSG_STDMESG_DATABASEFILELOADED );
+	StdMesg[18]=   (char*)GetString( MSG_STDMESG_DATABASEFILESAVED );
+	StdMesg[19]=   (char*)GetString( MSG_STDMESG_DEMFILELOADED );
+	StdMesg[20]=   (char*)GetString( MSG_STDMESG_DEMFILESAVED );
+	StdMesg[21]=   (char*)GetString( MSG_STDMESG_VECTORFILELOADED );
+	StdMesg[22]=   (char*)GetString( MSG_STDMESG_VECTORFILESAVED );
+	StdMesg[23]=   (char*)GetString( MSG_STDMESG_IMAGEFILELOADED );
+	StdMesg[24]=   (char*)GetString( MSG_STDMESG_IMAGEFILESAVED );
+	StdMesg[25]=   (char*)GetString( MSG_STDMESG_COLORMAPFILELOADED );
+	StdMesg[26]=   (char*)GetString( MSG_STDMESG_COLORMAPFILESAVED );
+	StdMesg[27]=   (char*)GetString( MSG_STDMESG_FILENOTLOADED );
+	StdMesg[28]=   (char*)GetString( MSG_STDMESG_ENABLE_SOFT_OUTLINE_STYLE );
+	StdMesg[29]=   (char*)GetString( MSG_STDMESG_MAPPINGMODULE );
+	StdMesg[30]=   (char*)GetString( MSG_STDMESG_DIRECTORYNOTFOUND );
+	StdMesg[31]=   (char*)GetString( MSG_STDMESG_OPENWINDOWFAILED );
+	StdMesg[32]=   (char*)GetString( MSG_STDMESG_EMPTY );
+	StdMesg[33]=   (char*)GetString( MSG_STDMESG_EMPTY );
+	StdMesg[34]=   (char*)GetString( MSG_STDMESG_INCORRECTFILESIZE );
+	StdMesg[35]=   (char*)GetString( MSG_STDMESG_OPENWINDOWFAILED );
+	StdMesg[36]=   (char*)GetString( MSG_STDMESG_INCORRECTFILESIZE );
+	StdMesg[37]=   (char*)GetString( MSG_STDMESG_INCORRECTFILEVERSION );
+	StdMesg[38]=   (char*)GetString( MSG_STDMESG_RELATIVEELEVATIONFILESAVED );
+	StdMesg[39]=   (char*)GetString( MSG_STDMESG_EMPTY );
+	StdMesg[40]=   (char*)GetString( MSG_STDMESG_VECTOROBJECTSLOADED );
+	StdMesg[41]=   (char*)GetString( MSG_STDMESG_PROJECTFILELOADED );
+	StdMesg[42]=   (char*)GetString( MSG_STDMESG_PROJECTFILESAVED );
+	StdMesg[43]=   (char*)GetString( MSG_STDMESG_DIRECTORYLISTLOADED );
+	StdMesg[44]=   (char*)GetString( MSG_STDMESG_INCORRECTFILEVERSION );
+	StdMesg[45]=   (char*)GetString( MSG_STDMESG_RENDERTIMEFORFRAME );
+	StdMesg[46]=   (char*)GetString( MSG_STDMESG_RENDERTIMEFORANIM );
+	StdMesg[47]=   (char*)GetString( MSG_STDMESG_EMPTY );
 
 // AF: 9.Dec.22 Change the images to little Endian in case of i386-aros
 #ifdef __AROS__

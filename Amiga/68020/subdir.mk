@@ -147,6 +147,7 @@ O_SRCS += \
 ../Version.o \
 ../VocabTable.o \
 ../WCS.o \
+../WCS_locale.o \
 ../Wave.o \
 ../WaveGUI.o \
 ../nncrunch.o \

@@ -1373,51 +1373,61 @@ EXTERN USHORT AltColors[16]
 // #endif /* MAIN */
 // ;
 
-
+// Ecosystem Editor -> Class
 EXTERN __far char *typename[]
 #ifdef MAIN
-= {"Water", "Snow", "Rock",/* "Strata",*/ "Ground","Conifer",
-		"Decid", "Low Veg", "Snag", "Stump", NULL}
+= {
+		"ChangeMe", //  "Water",
+		"ChangeMe", //  "Snow",
+		"ChangeMe", //  "Rock",
+		// "ChangeMe", //  /* "Strata",*/
+		"ChangeMe", //  "Ground",
+		"ChangeMe", //  "Conifer",
+		"ChangeMe", //  "Decid",
+		"ChangeMe", //  "Low Veg",
+		"ChangeMe", //  "Snag",
+		"ChangeMe", //  "Stump",
+		NULL}
 #endif /* MAIN */
 ;
 
 EXTERN __far char *varname[]
 #ifdef MAIN
 = { 
- "Camera Altitude",
- "Camera Latitude",
- "Camera Longitude",
- "Focus Altitude",
- "Focus Latitude",
- "Focus Longitude",
- "Center X",
- "Center Y",
- "Bank",
- "Earth Rotation",
- "Scale",
- "View Arc",
- "Flattening",
- "Datum",
- "Vertical Exag",
- "Sun Light Lat",
- "Sun Light Lon",
- "Horizon Line",
- "Horizon Point",
- "Horizon Stretch",
- "Haze Start",
- "Haze Range",
- "Shade Factor",
- "Fog None",
- "Fog Full",
- "Z Minimum",
- "Sun Lat",
- "Sun Lon",
- "Sun Size",
- "Moon Lat",
- "Moon Lon",
- "Moon Size",
- "Reflection %",
- NULL
+		"ChangeMe", // "Camera Altitude",
+		"ChangeMe", // "Camera Latitude",
+		"ChangeMe", // "Camera Longitude",
+		"ChangeMe", // "Focus Altitude",
+		"ChangeMe", // "Focus Latitude",
+		"ChangeMe", // "Focus Longitude",
+		"ChangeMe", // "Center X",
+		"ChangeMe", // "Center Y",
+		"ChangeMe", // "Bank",
+		"ChangeMe", // "Earth Rotation",
+		"ChangeMe", // "Scale",
+		"ChangeMe", // "View Arc",
+		"ChangeMe", // "Flattening",
+		"ChangeMe", // "Datum",
+		"ChangeMe", // "Vertical Exag",
+		"ChangeMe", // "Sun Light Lat",
+		"ChangeMe", // "Sun Light Lon",
+		"ChangeMe", // "Horizon Line",
+		"ChangeMe", // "Horizon Point",
+		"ChangeMe", // "Horizon Stretch",
+		"ChangeMe", // "Haze Start",
+		"ChangeMe", // "Haze Range",
+		"ChangeMe", // "Shade Factor",
+		"ChangeMe", // "Fog None",
+		"ChangeMe", // "Fog Full",
+		"ChangeMe", // "Z Minimum",
+		"ChangeMe", // "Sun Lat",
+		"ChangeMe", // "Sun Lon",
+		"ChangeMe", // "Sun Size",
+		"ChangeMe", // "Moon Lat",
+		"ChangeMe", // "Moon Lon",
+		"ChangeMe", // "Moon Size",
+		"ChangeMe", // "Reflection %",
+NULL
 }
 #endif /* MAIN */
 ;
@@ -1425,54 +1435,54 @@ EXTERN __far char *varname[]
 EXTERN __far char *StdMesg[]
 #ifdef MAIN
 = {
- " Out of memory!",
- " Open file failed!",
- " Read file failed!",
- " Writing to file failed!",
- " Wrong file type!",
- " Illegal instruction!",
- " Illegal value!",
- " File not loaded!",
- " Open file failed.",
- " Read file failed.",
- " Wrong file type.",
- " Illegal instruction.",
- " Illegal value.",
- " Module not implemented.",
- " GUI not implemented.",
- " Parameter file loaded.",
- " Parameter file saved.",
- " Database file loaded.",
- " Database file saved.",
- " DEM file loaded.",
- " DEM file saved.",
- " Vector file loaded.",
- " Vector file saved.",
- " Image file loaded.",
- " Image file saved.",
- " Color Map file loaded.",
- " Color Map file saved.",
- " File not loaded.",
- "\33t",
- " Mapping Module.",
- " Directory not found!",
- " Open window failed!",
- "",
- "",
- " Incorrect file size!",
- " Open window failed.",
- " Incorrect file size!",
- " Incorrect file version!",
- " Relative Elevation File Saved.",
- "",
- " Vector objects loaded.",
- " Project file loaded.",
- " Project file saved.",
- " Directory List loaded",
- " Incorrect file version!",
- " Render time for frame",
- " Render time for anim,",
- ""
+	 "ChangeMe", //" Out of memory!",
+	 "ChangeMe", //" Open file failed!",
+	 "ChangeMe", //" Read file failed!",
+	 "ChangeMe", //" Writing to file failed!",
+	 "ChangeMe", //" Wrong file type!",
+	 "ChangeMe", //" Illegal instruction!",
+	 "ChangeMe", //" Illegal value!",
+	 "ChangeMe", //" File not loaded!",
+	 "ChangeMe", //" Open file failed.",
+	 "ChangeMe", //" Read file failed.",
+	 "ChangeMe", //" Wrong file type.",
+	 "ChangeMe", //" Illegal instruction.",
+	 "ChangeMe", //" Illegal value.",
+	 "ChangeMe", //" Module not implemented.",
+	 "ChangeMe", //" GUI not implemented.",
+	 "ChangeMe", //" Parameter file loaded.",
+	 "ChangeMe", //" Parameter file saved.",
+	 "ChangeMe", //" Database file loaded.",
+	 "ChangeMe", //" Database file saved.",
+	 "ChangeMe", //" DEM file loaded.",
+	 "ChangeMe", //" DEM file saved.",
+	 "ChangeMe", //" Vector file loaded.",
+	 "ChangeMe", //" Vector file saved.",
+	 "ChangeMe", //" Image file loaded.",
+	 "ChangeMe", //" Image file saved.",
+	 "ChangeMe", //" Color Map file loaded.",
+	 "ChangeMe", //" Color Map file saved.",
+	 "ChangeMe", //" File not loaded.",
+	 "ChangeMe", //"\33t",
+	 "ChangeMe", //" Mapping Module.",
+	 "ChangeMe", //" Directory not found!",
+	 "ChangeMe", //" Open window failed!",
+	 "ChangeMe", //"",
+	 "ChangeMe", //"",
+	 "ChangeMe", //" Incorrect file size!",
+	 "ChangeMe", //" Open window failed.",
+	 "ChangeMe", //" Incorrect file size!",
+	 "ChangeMe", //" Incorrect file version!",
+	 "ChangeMe", //" Relative Elevation File Saved.",
+	 "ChangeMe", //"",
+	 "ChangeMe", //" Vector objects loaded.",
+	 "ChangeMe", //" Project file loaded.",
+	 "ChangeMe", //" Project file saved.",
+	 "ChangeMe", //" Directory List loaded",
+	 "ChangeMe", //" Incorrect file version!",
+	 "ChangeMe", //" Render time for frame",
+	 "ChangeMe", //" Render time for anim,",
+	 "ChangeMe"  //""
 }
 #endif
 ;
@@ -3173,52 +3183,52 @@ EXTERN struct NewMenu WCSNewMenus[]
 #ifdef MAIN
  =
 	{
-		{ NM_TITLE, (STRPTR)"Project",		 0 , 0, 0, 0 },
-		{  NM_ITEM, (STRPTR)"New...",		 (STRPTR)"N", 0, 0, (APTR)(ID_PN_WINDOW) },
-		{  NM_ITEM, (STRPTR)"Edit...",		 (STRPTR)"E", 0, 0, (APTR)(ID_PJ_WINDOW) },
-		{  NM_ITEM, (STRPTR)"Open...",		 (STRPTR)"O", 0, 0, (APTR)(ID_LOADPROJ) },
-		{  NM_ITEM, (STRPTR)"Save",		 (STRPTR)"S", 0, 0, (APTR)(ID_SAVEPROJ) },
-		{  NM_ITEM, (STRPTR)"Save As...",	 (STRPTR)"A", 0, 0, (APTR)(ID_SAVEPROJNEW) },
-		{  NM_ITEM, (STRPTR)"Load Config",	 (STRPTR)"G", 0, 0, (APTR)(ID_DB_LOADCONFIG) },
-		{  NM_ITEM, (STRPTR)"Save Config",	 (STRPTR)"C", 0, 0, (APTR)(ID_DB_SAVECONFIG) },
-		{  NM_ITEM, (STRPTR)"Save Screen...",	 (STRPTR)"$", 0, 0, (APTR)(ID_SCREENSAVE) },
-		{  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-		{  NM_ITEM, (STRPTR)"Info...",		 (STRPTR)"/", CHECKIT | MENUTOGGLE, 0, (APTR)(ID_INFO) },
-		{  NM_ITEM, (STRPTR)"Version...",	 (STRPTR)"?", CHECKIT | MENUTOGGLE, 0, (APTR)(ID_VERSION) },
-		{  NM_ITEM, (STRPTR)"Credits...",	 (STRPTR)".", CHECKIT | MENUTOGGLE, 0, (APTR)(ID_CREDITS) },
-		{  NM_ITEM, (STRPTR)"Log...",		 (STRPTR)"L", CHECKIT | MENUTOGGLE, 0, (APTR)(ID_LOG) },
-		{  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-		{  NM_ITEM, (STRPTR)"Quit...",		 (STRPTR)"Q", 0, 0, (APTR)(MO_EXIT) },
-		{  NM_ITEM, (STRPTR)"Iconify...",	 (STRPTR)"I", NM_ITEMDISABLED, 0, (APTR)(ID_ICONIFY) },
+		{ NM_TITLE, (STRPTR)"ChangeMe",		 0 , 0, 0, 0 },                                                                // "Project"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"N", 0, 0, (APTR)(ID_PN_WINDOW) },                                    // "New..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"E", 0, 0, (APTR)(ID_PJ_WINDOW) },                                    // "Edit..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"O", 0, 0, (APTR)(ID_LOADPROJ) },                                     // "Open..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"S", 0, 0, (APTR)(ID_SAVEPROJ) },                                     // "Save"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"A", 0, 0, (APTR)(ID_SAVEPROJNEW) },                                  // "Save As..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"G", 0, 0, (APTR)(ID_DB_LOADCONFIG) },                                // "Load Config"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"C", 0, 0, (APTR)(ID_DB_SAVECONFIG) },                                // "Save Config"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"$", 0, 0, (APTR)(ID_SCREENSAVE) },                                   // "Save Screen..."
+		{  NM_ITEM, NM_BARLABEL,			 0 , 0, 0, 0 },
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"/", CHECKIT | MENUTOGGLE, 0, (APTR)(ID_INFO) },                      // "Info..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"?", CHECKIT | MENUTOGGLE, 0, (APTR)(ID_VERSION) },                   // "Version..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)".", CHECKIT | MENUTOGGLE, 0, (APTR)(ID_CREDITS) },                   // "Credits..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"L", CHECKIT | MENUTOGGLE, 0, (APTR)(ID_LOG) },                       // "Log..."
+		{  NM_ITEM, NM_BARLABEL,			 0 , 0, 0, 0 },
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"Q", 0, 0, (APTR)(MO_EXIT) },                                         // "Quit..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"I", NM_ITEMDISABLED, 0, (APTR)(ID_ICONIFY) },                        // "Iconify..."
 
-		{ NM_TITLE, (STRPTR)"Modules",		 0 , 0, 0, 0 },
-		{  NM_ITEM, (STRPTR)"DataBase",		 (STRPTR)"1", CHECKIT | MENUTOGGLE, 0, (APTR)((GA_GADNUM(1) | MO_DATABASE)) },
-		{  NM_ITEM, (STRPTR)"Data Ops",		 (STRPTR)"2", CHECKIT | MENUTOGGLE, 0, (APTR)((GA_GADNUM(1) | MO_DATAOPS)) },
-		{  NM_ITEM, (STRPTR)"Map View",		 (STRPTR)"3", CHECKIT | MENUTOGGLE, 0, (APTR)((GA_GADNUM(1) | MO_MAPPING)) },
-		{  NM_ITEM, (STRPTR)"Parameters",	 (STRPTR)"4", CHECKIT | MENUTOGGLE, 0, (APTR)((GA_GADNUM(1) | MO_EDITING)) },
-		{  NM_ITEM, (STRPTR)"Render",		 (STRPTR)"5", 0, 0, (APTR)(ID_ES_WINDOW) },
-		{  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-		{  NM_ITEM, (STRPTR)"Motion Editor",	 (STRPTR)"6", 0, 0, (APTR)(ID_EM_WINDOW) },
-		{  NM_ITEM, (STRPTR)"Color Editor",	 (STRPTR)"7", 0, 0, (APTR)(ID_EC_WINDOW) },
-		{  NM_ITEM, (STRPTR)"Ecosys Editor",	 (STRPTR)"8", 0, 0, (APTR)(ID_EE_WINDOW) },
+		{ NM_TITLE, (STRPTR)"ChangeMe",		 0 , 0, 0, 0 },                                                                // "Modules"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"1", CHECKIT | MENUTOGGLE, 0, (APTR)((GA_GADNUM(1) | MO_DATABASE)) }, // "DataBase"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"2", CHECKIT | MENUTOGGLE, 0, (APTR)((GA_GADNUM(1) | MO_DATAOPS)) },  // "Data Ops"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"3", CHECKIT | MENUTOGGLE, 0, (APTR)((GA_GADNUM(1) | MO_MAPPING)) },  // "Map View",
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"4", CHECKIT | MENUTOGGLE, 0, (APTR)((GA_GADNUM(1) | MO_EDITING)) },  // "Parameters",
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"5", 0, 0, (APTR)(ID_ES_WINDOW) },                                    // "Render",
+		{  NM_ITEM, NM_BARLABEL,	 		 0 , 0, 0, 0 },
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"6", 0, 0, (APTR)(ID_EM_WINDOW) },                                    // "Motion Editor"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"7", 0, 0, (APTR)(ID_EC_WINDOW) },                                    // "Color Editor"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"8", 0, 0, (APTR)(ID_EE_WINDOW) },                                    // "Ecosys Editor"
 
-		{ NM_TITLE, (STRPTR)"Prefs",		 0 , 0, 0, 0 },
-		{  NM_ITEM, (STRPTR)"Preferences...",	 (STRPTR)"P", 0, 0, (APTR)(ID_PR_WINDOW) },
-		{  NM_ITEM, (STRPTR)"Screen Mode...",	 (STRPTR)"M", 0, 0, (APTR)(ID_SCRNRESET) },
+		{ NM_TITLE, (STRPTR)"ChangeMe",		 0 , 0, 0, 0 },                                                                // "Prefs"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"P", 0, 0, (APTR)(ID_PR_WINDOW) },                                    // "Preferences..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"M", 0, 0, (APTR)(ID_SCRNRESET) },                                    // "Screen Mode..."
 
-		{ NM_TITLE, (STRPTR)"Parameters",	 0 , 0, 0, 0 },
-		{  NM_ITEM, (STRPTR)"Load All...",	 (STRPTR)"(", 0, 0, (APTR)(ID_EP_LOAD) },
-		{  NM_ITEM, (STRPTR)"Save All...",	 (STRPTR)")", 0, 0, (APTR)(ID_EP_SAVE) },
-		{  NM_ITEM, (STRPTR)"Freeze",		 (STRPTR)"F", 0, 0, (APTR)(ID_EP_FIX) },
-		{  NM_ITEM, (STRPTR)"Restore",		 (STRPTR)"R", 0, 0, (APTR)(ID_EP_UNDO) },
+		{ NM_TITLE, (STRPTR)"ChangeMe",	 	 0 , 0, 0, 0 },                                                                // "Parameters"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"(", 0, 0, (APTR)(ID_EP_LOAD) },                                      // "Load All..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)")", 0, 0, (APTR)(ID_EP_SAVE) },                                      // "Save All..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"F", 0, 0, (APTR)(ID_EP_FIX) },                                       // "Freeze"
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"R", 0, 0, (APTR)(ID_EP_UNDO) },                                      // "Restore"
 
-		{ NM_END,	NULL,		 0 , 0, 0, 0 },
-		{  NM_ITEM, 	NULL,		(STRPTR)"[", 0, 0, 0 },
-		{  NM_ITEM,	NULL,		(STRPTR)"]", 0, 0, 0 },
-		{  NM_ITEM, (STRPTR)"Load Active...",	 (STRPTR)"{", 0, 0, 0 },
-		{  NM_ITEM, (STRPTR)"Save Active...",	 (STRPTR)"}", 0, 0, 0 },
+		{ NM_END,	NULL,		 			 0 , 0, 0, 0 },
+		{  NM_ITEM, NULL,					 (STRPTR)"[", 0, 0, 0 },
+		{  NM_ITEM,	NULL,					 (STRPTR)"]", 0, 0, 0 },
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"{", 0, 0, 0 },                                                       // "Load Active..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"}", 0, 0, 0 },                                                       // "Save Active..."
 
-		{ NM_END,	NULL,		 0 , 0,	0, 0 },
+		{ NM_END,	NULL,		 			 0 , 0,	0, 0 },
 	}
 #endif
 ; /* WCSNewMenus */

@@ -4,8 +4,12 @@
 ** by Chris "Xenon" Hanson
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
+
 
 struct WCSScreenMode *ModeList_New(void)
 {
@@ -105,7 +109,15 @@ return(ModeList);
 struct WCSScreenMode *ModeList_Choose(struct WCSScreenMode *This,
  struct WCSScreenData *ScrnData)
 {
-static const char *Cycle_OSCAN[] = {"None", "Text", "Standard", "Max", "Video", NULL};
+static const char *Cycle_OSCAN[6];
+Cycle_OSCAN[0]= (const char*)GetString( MSG_SCNRMODGUI_NONE );
+Cycle_OSCAN[1]= (const char*)GetString( MSG_SCNRMODGUI_TEXT );
+Cycle_OSCAN[2]= (const char*)GetString( MSG_SCNRMODGUI_STANDARD );
+Cycle_OSCAN[3]= (const char*)GetString( MSG_SCNRMODGUI_MAX );
+Cycle_OSCAN[4]= (const char*)GetString( MSG_SCNRMODGUI_VIDEO );
+Cycle_OSCAN[5]=NULL;
+
+
 struct WCSScreenMode *Scan, *Selected;
 APTR ModeSelWin, SM_Save, SM_Use, SM_Exit, SM_Width, SM_Height, SM_List, SM_Text, SM_OSCAN;
 ULONG Signalz, Finished, ReturnID;
@@ -113,32 +125,32 @@ int CheckVal, Update;
 char *ModeText, ModeInfo[255];
 
 ModeSelWin = WindowObject,
- MUIA_Window_Title, "World Construction Set Screenmode",
+ MUIA_Window_Title,  GetString( MSG_SCNRMODGUI_WORLDCONSTRUCTIONSETSCREENMODE ) ,
  MUIA_Window_ID, "SCRN",
  MUIA_Window_SizeGadget, TRUE,
  WindowContents, VGroup,
   Child, ColGroup(2), MUIA_Group_SameWidth, TRUE,
     MUIA_Group_HorizSpacing, 4, MUIA_Group_VertSpacing, 3,
    Child, VGroup, /* MUIA_HorizWeight, 150, */
-    Child, TextObject, MUIA_Text_Contents, "\33cDisplay Mode", End,
+    Child, TextObject, MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_DISPLAYMODE ) , End,
     Child, SM_List = ListviewObject,
      MUIA_Listview_Input, TRUE,
      MUIA_Listview_List, ListObject, ReadListFrame, End,
      End,
     End,
    Child, VGroup,
-    Child, TextObject, MUIA_Text_Contents, "\33cMode Information", End,
+    Child, TextObject, MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_MODEINFORMATION ) , End,
     Child, SM_Text = FloattextObject, ReadListFrame,
-     MUIA_Floattext_Text, "Mode:           \nRes :                      \nAuto:            \nScan:                   \n\nAttributes\n\n\n", End,
+     MUIA_Floattext_Text,  GetString( MSG_SCNRMODGUI_MODEESUTOCANNATTRIBUTESN ) , End,
     End,
    Child, HGroup,
-    Child, Label2("Overscan: "),
+    Child, Label2( GetString( MSG_SCNRMODGUI_OVERSCAN ) ),
     Child, SM_OSCAN = CycleObject, MUIA_Cycle_Entries, Cycle_OSCAN, End,
     End,
    Child, HGroup,
     Child, RectangleObject, End,
     Child, HGroup, MUIA_Group_HorizSpacing, 0,
-     Child, Label2("Width "), /* No End (in sight) */
+     Child, Label2( GetString( MSG_SCNRMODGUI_WIDTH ) ), /* No End (in sight) */
      Child, SM_Width = StringObject, StringFrame,
       MUIA_String_Integer, 0,
       MUIA_String_Accept, "0123456789",
@@ -147,7 +159,7 @@ ModeSelWin = WindowObject,
      End,
     Child, RectangleObject, End,
     Child, HGroup, MUIA_Group_HorizSpacing, 0,
-     Child, Label2("Height "), /* No End (in sight) */
+     Child, Label2( GetString( MSG_SCNRMODGUI_HEIGHT ) ), /* No End (in sight) */
      Child, SM_Height = StringObject, StringFrame,
       MUIA_String_Integer, 0,
       MUIA_String_Accept, "0123456789",
@@ -161,11 +173,11 @@ ModeSelWin = WindowObject,
   Child, HGroup, MUIA_HorizWeight, 1,
    /* Button button button. Who's got the button? */
    MUIA_Group_SameSize, TRUE,
-   Child, SM_Save = KeyButtonObject('s'), MUIA_Text_Contents, "\33cSave", MUIA_HorizWeight, 200, End,
+   Child, SM_Save = KeyButtonObject('s'), MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_SAVE ) , MUIA_HorizWeight, 200, End,
    Child, RectangleObject, MUIA_HorizWeight, 1, End,
-   Child, SM_Use  = KeyButtonObject('u'), MUIA_Text_Contents, "\33cUse", MUIA_HorizWeight, 200, End,
+   Child, SM_Use  = KeyButtonObject('u'), MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_USE ) , MUIA_HorizWeight, 200, End,
    Child, RectangleObject, MUIA_HorizWeight, 1, End,
-   Child, SM_Exit = KeyButtonObject('e'), MUIA_Text_Contents, "\33cExit", MUIA_HorizWeight, 200, End,
+   Child, SM_Exit = KeyButtonObject('e'), MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_EXIT ) , MUIA_HorizWeight, 200, End,
    End,
   End,
  End;
@@ -259,12 +271,12 @@ for(Finished = 0; !Finished;)
      Selected->UY = Selected->OY;
      } /* if */
 
-    sprintf(ModeInfo, "Mode: 0x%08lx\nRes : %dx%d - %dx%d\nAuto: %dx%d\nScan: %dns\n\nAttributes\n",
+    sprintf(ModeInfo,  GetString( MSG_SCNRMODGUI_MODE0XESXXUTOXCANNSNATTRIBUTES ) ,
      Selected->ModeID, Selected->X, Selected->Y, Selected->OX, Selected->OY,
      Selected->MaxX, Selected->MaxY, Selected->PixelSpeed);
     
     if(Selected->PropertyFlags & DIPF_IS_LACE)
-     strcat(ModeInfo,"Laced ");
+     strcat(ModeInfo, GetString( MSG_SCNRMODGUI_LACED ) );
     if(Selected->PropertyFlags & DIPF_IS_HAM)
      strcat(ModeInfo,"HAM ");
     if(Selected->PropertyFlags & DIPF_IS_ECS)
@@ -274,9 +286,9 @@ for(Finished = 0; !Finished;)
     if(Selected->PropertyFlags & DIPF_IS_PAL)
      strcat(ModeInfo,"PAL ");
     if(Selected->PropertyFlags & DIPF_IS_GENLOCK)
-     strcat(ModeInfo,"Genlockable ");
+     strcat(ModeInfo, GetString( MSG_SCNRMODGUI_GENLOCKABLE ) );
     if(Selected->PropertyFlags & DIPF_IS_DRAGGABLE)
-     strcat(ModeInfo,"Draggable ");
+     strcat(ModeInfo, GetString( MSG_SCNRMODGUI_DRAGGABLE ) );
     if(Selected->PropertyFlags & DIPF_IS_PANELLED)
      strcat(ModeInfo,"Panelled ");
     if(Selected->PropertyFlags & DIPF_IS_EXTRAHALFBRITE)
@@ -406,7 +418,7 @@ for(Scan = This; Scan; Scan = Scan->Next)
  printf("%ld x %ld - %ld x %ld.\n", Scan->X, Scan->Y, Scan->OX, Scan->OY);
  printf("%dns ", Scan->PixelSpeed);
  if(Scan->PropertyFlags & DIPF_IS_LACE)
-  printf("Laced ");
+  printf( GetString( MSG_SCNRMODGUI_LACED ) );
  if(Scan->PropertyFlags & DIPF_IS_HAM)
   printf("HAM ");
  if(Scan->PropertyFlags & DIPF_IS_ECS)
@@ -416,9 +428,9 @@ for(Scan = This; Scan; Scan = Scan->Next)
  if(Scan->PropertyFlags & DIPF_IS_PAL)
   printf("PAL ");
  if(Scan->PropertyFlags & DIPF_IS_GENLOCK)
-  printf("Genlockable ");
+  printf( GetString( MSG_SCNRMODGUI_GENLOCKABLE ) );
  if(Scan->PropertyFlags & DIPF_IS_DRAGGABLE)
-  printf("Draggable ");
+  printf( GetString( MSG_SCNRMODGUI_DRAGGABLE ) );
  if(Scan->PropertyFlags & DIPF_IS_PANELLED)
   printf("Panelled ");
  if(Scan->PropertyFlags & DIPF_IS_EXTRAHALFBRITE)
