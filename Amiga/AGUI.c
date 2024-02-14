@@ -2,6 +2,9 @@
 ** World Construction Set GUI.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include <time.h>
 #include "GUIDefines.h"
 #include "WCS.h"
@@ -38,7 +41,10 @@ STATIC_FCN void Make_Log_Window(int Severity); // used locally only -> static, A
 void Make_EP_Window(short hor_win)
 {
  long open;
- static const char *LayoutCycle[] = {"Stand Up", "Lay Down", NULL};
+ static const char *LayoutCycle[3];
+ LayoutCycle[0]= GetString( MSG_AGUI_STANDUP );  // "Stand Up"
+ LayoutCycle[1]= GetString( MSG_AGUI_LAYDOWN );  // "Lay Down"
+ LayoutCycle[2]= NULL;
 
  if (EP_Win)
   {
@@ -56,7 +62,7 @@ void Make_EP_Window(short hor_win)
  Set_Param_Menu(10);
 
       EP_Win->EditWindow = WindowObject,
-      MUIA_Window_Title		, "Parameter Module",  /* "End" == "TAG_DONE)" */
+      MUIA_Window_Title		,  GetString( MSG_AGUI_PARAMETERMODULE ) ,  /* "End" == "TAG_DONE)" */  // "Parameter Module"
       MUIA_Window_ID		, (hor_win ? MakeID('E','P','A','H'): MakeID('E','P','A','V')),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_LeftEdge	, MUIV_Window_LeftEdge_Moused,
@@ -65,12 +71,12 @@ void Make_EP_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, EP_Win->CY_Layout = CycleObject,
         MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, EP_Win->BT_EdMoPar = KeyButtonFunc('m',    "\33l Motion     "),
-        Child, EP_Win->BT_EdCoPar = KeyButtonFunc('c',    "\33l Color      "),
-        Child, EP_Win->BT_EdEcoPar = KeyButtonFunc('e',   "\33l Ecosystem  "),
-        Child, EP_Win->BT_EdClouds = KeyButtonFunc('l',   "\33l Clouds     "),
-        Child, EP_Win->BT_EdWaves  = KeyButtonFunc('w',   "\33l Waves      "),
-        Child, EP_Win->BT_Defaults = KeyButtonFunc('d',   "\33l Defaults   "),
+        Child, EP_Win->BT_EdMoPar = KeyButtonFunc('m',    GetString( MSG_AGUI_MOTION ) ),       // "\33l Motion     "
+        Child, EP_Win->BT_EdCoPar = KeyButtonFunc('c',    GetString( MSG_AGUI_COLOR ) ),        // "\33l Color      "
+        Child, EP_Win->BT_EdEcoPar = KeyButtonFunc('e',   GetString( MSG_AGUI_ECOSYSTEM ) ),    // "\33l Ecosystem  "
+        Child, EP_Win->BT_EdClouds = KeyButtonFunc('l',   GetString( MSG_AGUI_CLOUDS ) ),       // "\33l Clouds     "
+        Child, EP_Win->BT_EdWaves  = KeyButtonFunc('w',   GetString( MSG_AGUI_WAVES ) ),        // "\33l Waves      "
+        Child, EP_Win->BT_Defaults = KeyButtonFunc('d',   GetString( MSG_AGUI_DEFAULTS ) ),     // "\33l Defaults   "
 /*        Child, EP_Win->BT_ExportMo = KeyButtonFunc('i',   "\33l Motion I/O "),*/
         End, /* VGroup */
       End; /* EP_win->EditWindow */
@@ -78,7 +84,7 @@ void Make_EP_Window(short hor_win)
   if (! EP_Win->EditWindow)
    {
    Close_EP_Window();
-   User_Message((CONST_STRPTR)"Parameters Module", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERSMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "Parameters Module", "Out of memory!", "OK", 
    return;
    } /* out of memory */
 
@@ -234,8 +240,8 @@ STATIC_FCN void Handle_EP_Window(ULONG WCS_ID) // used locally only -> static, A
         {
         if (dbaseloaded)
          {
-         sprintf(str, "Create Default Parameters for Database %s? All current Parameters will be overwritten.", dbasename);
-         if (User_Message_Def((CONST_STRPTR)"Parameter Editing: Defaults", (CONST_STRPTR)str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+         sprintf(str,  GetString( MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS ) , dbasename);  // "Create Default Parameters for Database %s? All current Parameters will be overwritten."
+         if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) , (CONST_STRPTR)str, (CONST_STRPTR) GetString( MSG_AGUI_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "Parameter Editing: Defaults", str, "OK|Cancel"
           {
           paramsloaded = DefaultParams();
           if (paramsloaded)
@@ -279,8 +285,8 @@ STATIC_FCN void Handle_EP_Window(ULONG WCS_ID) // used locally only -> static, A
 	 } /* if database loaded */
         else
          {
-         User_Message((CONST_STRPTR)"Parameter Editing: Defaults",
-        		 (CONST_STRPTR)"You must first load a Database before Default Parameters can be computed.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+         User_Message((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,  // "Parameter Editing: Defaults"
+        		 (CONST_STRPTR) GetString( MSG_AGUI_YOUMUSTFIRSTLOADADATABASEBEFOREDEFAULTPARAMETERSCANBEC ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "You must first load a Database before Default Parameters can be computed.", "OK"
 	 } /* else */
         break;
 	} /* create default parameters */
@@ -497,7 +503,10 @@ STATIC_FCN void Handle_EP_Window(ULONG WCS_ID) // used locally only -> static, A
 void Make_DB_Window(short hor_win)
 {
  long open;
- static const char *LayoutCycle[] = {"Stand Up", "Lay Down", NULL};
+ static const char *LayoutCycle[3];
+ LayoutCycle[0]= GetString( MSG_AGUI_STANDUP );  // "Stand Up"
+ LayoutCycle[1]= GetString( MSG_AGUI_LAYDOWN );  // "Lay Down"
+ LayoutCycle[2]= NULL;
 
  if (DB_Win)
   {
@@ -515,7 +524,7 @@ void Make_DB_Window(short hor_win)
  Set_Param_Menu(10);
 
      DB_Win->DatabaseWindow = WindowObject,
-      MUIA_Window_Title		, "Database Module",
+      MUIA_Window_Title		,  GetString( MSG_AGUI_DATABASEMODULE ) ,  // "Database Module"
       MUIA_Window_ID		, (hor_win ? MakeID('D','B','A','H'): MakeID('D','B','A','V')),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_LeftEdge	, MUIV_Window_LeftEdge_Moused,
@@ -524,12 +533,12 @@ void Make_DB_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, DB_Win->CY_Layout = CycleObject,
 		 MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, DB_Win->BT_Load = KeyButtonFunc('l',    "\33l Load     "),
-        Child, DB_Win->BT_Append = KeyButtonFunc('a',  "\33l Append   "),
-        Child, DB_Win->BT_Create = KeyButtonFunc('c',  "\33l Create   "),
-        Child, DB_Win->BT_Edit = KeyButtonFunc('e',    "\33l Edit     "),
-        Child, DB_Win->BT_SaveAs = KeyButtonFunc('s',  "\33l Save     "),
-        Child, DB_Win->BT_DirList = KeyButtonFunc('d', "\33l Dir List "),
+        Child, DB_Win->BT_Load = KeyButtonFunc('l',    GetString( MSG_AGUI_LOAD ) ),    // "\33l Load     "
+        Child, DB_Win->BT_Append = KeyButtonFunc('a',  GetString( MSG_AGUI_APPEND ) ),  // "\33l Append   "
+        Child, DB_Win->BT_Create = KeyButtonFunc('c',  GetString( MSG_AGUI_CREATE ) ),  // "\33l Create   "
+        Child, DB_Win->BT_Edit = KeyButtonFunc('e',    GetString( MSG_AGUI_EDIT ) ),    // "\33l Edit     "
+        Child, DB_Win->BT_SaveAs = KeyButtonFunc('s',  GetString( MSG_AGUI_SAVE ) ),    // "\33l Save     "
+        Child, DB_Win->BT_DirList = KeyButtonFunc('d', GetString( MSG_AGUI_DIRLIST ) ), // "\33l Dir List "
         Child, RectangleObject, MUIA_FixHeight, 0, End,
         End, /* VGroup */
       End; /* DB_win->EditWindow */
@@ -537,7 +546,7 @@ void Make_DB_Window(short hor_win)
   if (! DB_Win->DatabaseWindow)
    {
    Close_DB_Window();
-   User_Message((CONST_STRPTR)"Database Module", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "Database Module", "Out of memory!", "OK"
    return;
    } /* out of memory */
 
@@ -696,7 +705,7 @@ STATIC_FCN void Handle_DB_Window(ULONG WCS_ID) // used locally only -> static, A
          {
          Database_LoadDisp(NoOfObjects, 1, NULL, 1);
 	 } /* if database loaded */
-        else NoLoad_Message((CONST_STRPTR)"Database Module: Append", (CONST_STRPTR)"a Database");
+        else NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULEAPPEND ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Database Module: Append", "a Database"
         break;
         } /* Append database */
        case ID_DB_CREATE:
@@ -707,13 +716,13 @@ STATIC_FCN void Handle_DB_Window(ULONG WCS_ID) // used locally only -> static, A
        case ID_DB_SAVE:
         {
         if (dbaseloaded) savedbase(1);
-         else NoLoad_Message((CONST_STRPTR)"Database Module: Save", (CONST_STRPTR)"a Database");
+         else NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULESAVE ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Database Module: Save", "a Database"
         break;
         } /* SaveAs database */
        case ID_DB_SAVECUR:
         {
         if (dbaseloaded) savedbase(0);
-         else NoLoad_Message((CONST_STRPTR)"Database Module: Save", (CONST_STRPTR)"a Database");
+         else NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULESAVE ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Database Module: Save", "a Database"
         break;
         } /* Save database */
        case ID_DB_LOADCONFIG:
@@ -760,7 +769,10 @@ STATIC_FCN void Handle_DB_Window(ULONG WCS_ID) // used locally only -> static, A
 void Make_DO_Window(short hor_win)
 {
  long open;
- static const char *LayoutCycle[] = {"Stand Up", "Lay Down", NULL};
+ static const char *LayoutCycle[3];
+ LayoutCycle[0]= GetString( MSG_AGUI_STANDUP );  // "Stand Up"
+ LayoutCycle[1]= GetString( MSG_AGUI_LAYDOWN );  // "Lay Down"
+ LayoutCycle[2]= NULL;
 
  if (DO_Win)
   {
@@ -778,7 +790,7 @@ void Make_DO_Window(short hor_win)
  Set_Param_Menu(10);
 
      DO_Win->DataOpsWindow = WindowObject,
-      MUIA_Window_Title		, "DataOps Module",
+      MUIA_Window_Title		,  GetString( MSG_AGUI_DATAOPSMODULE ) ,  // "DataOps Module"
       MUIA_Window_ID		, (hor_win ? MakeID('D','O','A','H'): MakeID('D','O','A','V')),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_LeftEdge	, MUIV_Window_LeftEdge_Moused,
@@ -787,13 +799,13 @@ void Make_DO_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, DO_Win->CY_Layout = CycleObject,
 		 MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, DO_Win->BT_Extract = KeyButtonFunc('e',   "\33l Extract DEM "),
-        Child, DO_Win->BT_Convert = KeyButtonFunc('c',   "\33l Convert DEM "),
-        Child, DO_Win->BT_InterpMap = KeyButtonFunc('p', "\33l Interp DEM  "),
-        Child, DO_Win->BT_ImportDLG = KeyButtonFunc('i', "\33l Import DLG  "),
-        Child, DO_Win->BT_ImportDXF = KeyButtonFunc('x', "\33l Import DXF  "),
-        Child, DO_Win->BT_ImportWDB = KeyButtonFunc('w', "\33l Import WDB  "),
-        Child, DO_Win->BT_ExportLWOB = KeyButtonFunc('l', "\33l Export LW   "),
+        Child, DO_Win->BT_Extract = KeyButtonFunc('e',   GetString( MSG_AGUI_EXTRACTDEM ) ),  // "\33l Extract DEM "
+        Child, DO_Win->BT_Convert = KeyButtonFunc('c',   GetString( MSG_AGUI_CONVERTDEM ) ),  // "\33l Convert DEM "
+        Child, DO_Win->BT_InterpMap = KeyButtonFunc('p', GetString( MSG_AGUI_INTERPDEM ) ),   // "\33l Interp DEM  "
+        Child, DO_Win->BT_ImportDLG = KeyButtonFunc('i', GetString( MSG_AGUI_IMPORTDLG ) ),   // "\33l Import DLG  "
+        Child, DO_Win->BT_ImportDXF = KeyButtonFunc('x', GetString( MSG_AGUI_IMPORTDXF ) ),   // "\33l Import DXF  "
+        Child, DO_Win->BT_ImportWDB = KeyButtonFunc('w', GetString( MSG_AGUI_IMPORTWDB ) ),   // "\33l Import WDB  "
+        Child, DO_Win->BT_ExportLWOB = KeyButtonFunc('l', GetString( MSG_AGUI_EXPORTLW ) ),   // "\33l Export LW   "
 	Child, RectangleObject, End,
         End, /* VGroup */
       End; /* DO_win->EditWindow */
@@ -801,7 +813,7 @@ void Make_DO_Window(short hor_win)
   if (! DO_Win->DataOpsWindow)
    {
    Close_DO_Window();
-   User_Message((CONST_STRPTR)"DataOps Module", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "DataOps Module", "Out of memory!", "OK"
    return;
    } /* out of memory */
 
@@ -949,7 +961,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
        case ID_DO_IMPORTDLG:
         {
         if (! dbaseloaded)
-         NoLoad_Message((CONST_STRPTR)"Data Ops: Import DLG", (CONST_STRPTR)"a Database");
+         NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSIMPORTDLG ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Data Ops: Import DLG", "a Database"
         else
          ImportDLG();
         break;
@@ -957,7 +969,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
        case ID_DO_IMPORTDXF:
         {
         if (! dbaseloaded)
-         NoLoad_Message((CONST_STRPTR)"Data Ops: Import DXF", (CONST_STRPTR)"a Database");
+         NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSIMPORTDXF ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Data Ops: Import DXF", "a Database"
         else
          ImportDXF();
         break;
@@ -971,7 +983,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
 /*        StrataConvert(); See ColorBlends.c for converting gray-scale image into a strata texture array */
 
         if (! dbaseloaded)
-         NoLoad_Message((CONST_STRPTR)"Data Ops: Import WDB", (CONST_STRPTR)"a Database");
+         NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSIMPORTWDB ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Data Ops: Import WDB", "a Database"
         else
          ImportWDB();
 
@@ -999,7 +1011,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
    case WI_WINDOW3:
     {
     if (! dbaseloaded)
-     NoLoad_Message((CONST_STRPTR)"Data Ops Module: Interp DEM", (CONST_STRPTR)"a Database");
+     NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSMODULEINTERPDEM ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Data Ops Module: Interp DEM", "a Database"
     else
      Handle_DI_Window(WCS_ID);
     break;
@@ -1007,7 +1019,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
    case WI_WINDOW4:
     {
     if (! dbaseloaded)
-     NoLoad_Message((CONST_STRPTR)"Data Ops Module: Extract DEM", (CONST_STRPTR)"a Database");
+     NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSMODULEEXTRACTDEM ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Data Ops Module: Extract DEM", "a Database"
     else
      Handle_DM_Window(WCS_ID);
     break;
@@ -1038,7 +1050,7 @@ if (dbaseloaded && paramsloaded)
  globemap();
  } /* if dbaseloaded and paramsloaded */
 else
- NoLoad_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"a Database and Parameter file");
+ NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_RENDERMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASEANDPARAMETERFILE ) );  // "Render Module", "a Database and Parameter file"
 
 } /* Handle_RN_Window() */
 
@@ -1096,7 +1108,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
  APTR BT_AboutOK;
 
  ModControlWin = WindowObject,
-      MUIA_Window_Title      , "Module Control Panel",
+      MUIA_Window_Title      , GetString( MSG_AGUI_MODULECONTROLPANEL ) ,  // "Module Control Panel",
       MUIA_Window_ID         , MakeID('W','C','S','M'),
       MUIA_Window_SizeGadget , FALSE,
       MUIA_Window_Screen     , WCSScrn,
@@ -1123,7 +1135,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
   /* Don't think we need MUI2_MenuCheck_Hack() here */
  
   AboutWin =  WindowObject,
-      MUIA_Window_Title      , "Version",
+      MUIA_Window_Title      ,  GetString( MSG_AGUI_VERSION ) ,  // "Version"
       MUIA_Window_ID         , MakeID('A','B','U','T'),
       MUIA_Window_SizeGadget  , FALSE,
       MUIA_Window_Screen    , WCSScrn,
@@ -1149,7 +1161,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
         Child, TextObject, MUIA_Text_Contents,
 		 "\33cby Questar Productions", End,
         Child, VSpace(5),
-        Child, BT_AboutOK = KeyButtonFunc('o', "\33cOkay"),
+        Child, BT_AboutOK = KeyButtonFunc('o', GetString( MSG_AGUI_OKAY ) ),  // "\33cOkay"
         End, /* VGroup */
       End; /* SubWindow AboutWin */
  
@@ -1354,7 +1366,7 @@ short WCS_App_EventLoop(struct WCSApp *This)
       } /* Render module */
      case MO_EXTRAS:
       {
-      NoMod_Message((STRPTR)"Extras Module");
+      NoMod_Message(GetString( MSG_AGUI_EXTRASMODULE ) );  // "Extras Module"
       break;
       } /* Extras module */
      case MO_DUMMYMENU:
@@ -1380,8 +1392,8 @@ short WCS_App_EventLoop(struct WCSApp *This)
       	while(! ReadyToClose)
       		{
       		if ((ans = User_Message_Def((CONST_STRPTR)"World Construction Set",
-      				(CONST_STRPTR)"Public Screen still has visitors. Try closing again?",
-					(CONST_STRPTR)"Close|Warn|Cancel", (CONST_STRPTR)"owc", 2)) > 0)
+      				(CONST_STRPTR) GetString( MSG_AGUI_PUBLICSCREENSTILLHASVISITORSTRYCLOSINGAGAIN ) ,  // "Public Screen still has visitors. Try closing again?"
+					(CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ) , (CONST_STRPTR)"owc", 2)) > 0)  // "Close|Warn|Cancel"
 			ReadyToClose = PubScreenStatus(WCSScrn, PSNF_PRIVATE);
 		else
 			break; /* I hope this punches far enough out. */
@@ -1396,8 +1408,8 @@ short WCS_App_EventLoop(struct WCSApp *This)
       else
       	{
 	if ((ans = User_Message_Def((CONST_STRPTR)"World Construction Set",
-			(CONST_STRPTR)"Quit Program\nAre you sure?",
-			(CONST_STRPTR)"Close|Warn|Cancel", (CONST_STRPTR)"owc", 2)) > 0)
+			(CONST_STRPTR) GetString( MSG_AGUI_QUITPROGRAMREYOUSURE ) ,  // )"Quit Program\nAre you sure?"
+			(CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ) , (CONST_STRPTR)"owc", 2)) > 0)  // "Close|Warn|Cancel"
 		{
 		running = FALSE;
 		if (ans == 2)
@@ -1460,16 +1472,16 @@ short i;
 
  if (Proj_Mod && Mod_Warn)
 	{
-        if (User_Message_Def((CONST_STRPTR)"WCS Project",
-        		(CONST_STRPTR)"Project paths have been modified. Save them before closing?",
-				(CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+        if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_WCSPROJECT ) ,  // "WCS Project"
+        		(CONST_STRPTR) GetString( MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Project paths have been modified. Save them before closing?"
+				(CONST_STRPTR) GetString( MSG_AGUI_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
          SaveProject(-1, NULL, NULL);
 	} /* if project modified */
  if (Par_Mod && Mod_Warn)
 	{
-        if (User_Message_Def((CONST_STRPTR)"Parameter Module",
-        		(CONST_STRPTR)"Parameters have been modified. Save them before closing?",
-				(CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+        if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERMODULE ) ,  // "Parameter Module"
+        		(CONST_STRPTR) GetString( MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Parameters have been modified. Save them before closing?"
+				(CONST_STRPTR) GetString( MSG_AGUI_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
          saveparams(0x1111, -1, 0);
 	} /* if parameters modified */
 
@@ -1552,9 +1564,9 @@ short i;
 	} /* if */
  if (DB_Mod && Mod_Warn)
 	{
-        if (User_Message_Def((CONST_STRPTR)"Database Module",
-        		(CONST_STRPTR)"Database has been modified. Save it before closing?",
-				(CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+        if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) ,  // "Database Module"
+        		(CONST_STRPTR) GetString( MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING ) ,  // "Database has been modified. Save it before closing?"
+				(CONST_STRPTR) GetString( MSG_AGUI_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
          savedbase(1);
 	} /* if database modified */
  if (DBase)
@@ -1720,7 +1732,7 @@ USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STR
  if(Default > numbuttons) Default = 0;
 
      UM_Win = WindowObject,
-      MUIA_Window_Title		, "Message",
+      MUIA_Window_Title		, GetString( MSG_AGUI_MESSAGE ) ,  // "Message",
       MUIA_Window_ID		, MakeID('U','M','E','S'),
       MUIA_Window_Screen	, WCSScrn,
 
@@ -1841,7 +1853,7 @@ USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STR
 STATIC_FCN void NoMod_Message(STRPTR mod) // used locally only -> static, AF 25.7.2021
 {
 
-  User_Message(mod, (CONST_STRPTR)"Not yet implemented.\nStay Tuned!", (CONST_STRPTR)"OK",(CONST_STRPTR)"o");
+  User_Message(mod, (CONST_STRPTR) GetString( MSG_AGUI_NOTYETIMPLEMENTEDTAYTUNED ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) ,(CONST_STRPTR)"o");  // "Not yet implemented.\nStay Tuned!", "OK"
 
   Log(MSG_NO_MOD, mod);
 
@@ -1852,7 +1864,7 @@ STATIC_FCN void NoMod_Message(STRPTR mod) // used locally only -> static, AF 25.
 USHORT CloseWindow_Query(STRPTR win)
 {
 
- return (User_Message_Def(win, (CONST_STRPTR)"Keep changes?", (CONST_STRPTR)"Keep|Cancel", (CONST_STRPTR)"kc", 1));
+ return (User_Message_Def(win, (CONST_STRPTR) GetString( MSG_AGUI_KEEPCHANGES ) , (CONST_STRPTR) GetString( MSG_AGUI_KEEPCANCEL ) , (CONST_STRPTR)"kc", 1));  // "Keep changes?", "Keep|Cancel"
 
 } /* CloseWindow_Query() */
 
@@ -1863,9 +1875,9 @@ void NoLoad_Message(CONST_STRPTR mod, CONST_STRPTR loaditem)
  char loadmesg[255];
 
   sprintf(loadmesg, 
-	"Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature.", loaditem);
+	 GetString( MSG_AGUI_SORRYOUMUSTFIRSTLOAD338NBEFOREUSINGTHISFEATURE ) , loaditem);  // "Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature."
 
-  User_Message(mod, (CONST_STRPTR)loadmesg, (CONST_STRPTR)"OK",(CONST_STRPTR)"o");
+  User_Message(mod, (CONST_STRPTR)loadmesg, (CONST_STRPTR) GetString( MSG_AGUI_OK ) ,(CONST_STRPTR)"o");  // "OK"
 
   Log(ERR_NO_LOAD, loaditem);
 
@@ -1876,8 +1888,8 @@ void NoLoad_Message(CONST_STRPTR mod, CONST_STRPTR loaditem)
 USHORT FileExists_Message(STRPTR existsfile)
 {
 
-  return(User_Message_Def(existsfile, "File already exists.\nDo you wish to overwrite it?",
-	"OK|CANCEL", "oc", 1));
+  return(User_Message_Def(existsfile,  GetString( MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT ) ,  // "File already exists.\nDo you wish to overwrite it?"
+	 GetString( MSG_AGUI_OKCANCEL ) , "oc", 1));  // "OK|CANCEL"
 
 } /* FileExists_Message() */
 #endif
@@ -1893,7 +1905,7 @@ short GetInputString(char *message, char *reject, char *string)
  Set_Param_Menu(10);
 
      IS_Win = WindowObject,
-      MUIA_Window_Title		, "Input Request",
+      MUIA_Window_Title		, GetString( MSG_AGUI_INPUTREQUEST ) ,  // "Input Request",
       MUIA_Window_ID		, MakeID('I','S','R','Q'),
       MUIA_Window_Screen	, WCSScrn,
 
@@ -1908,8 +1920,8 @@ short GetInputString(char *message, char *reject, char *string)
 		MUIA_String_BufferPos, strlen(string), End,
 
 	Child, HGroup,
-	  Child, BT_OK = KeyButtonFunc('o', "\33cOK"),
-	  Child, BT_Cancel = KeyButtonFunc('c', "\33cCancel"),
+	  Child, BT_OK = KeyButtonFunc('o', GetString( MSG_AGUI_OK ) ),  // "\33cOK"
+	  Child, BT_Cancel = KeyButtonFunc('c', GetString( MSG_AGUI_CANCEL ) ),  // "\33cCancel"
 	  End, /* HGroup */
         End, /* VGroup */
       End; /* IS_Win */
@@ -2003,8 +2015,8 @@ STATIC_FCN void Status_Log(STRPTR logtext, int Severity) // used locally only ->
   Make_Log_Window(Severity);
   if (! Log_Win)
    {
-   User_Message((CONST_STRPTR)"Log Status Module", (CONST_STRPTR)"Can't Open Log Status Window!",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR) GetString( MSG_AGUI_LOGSTATUSMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_CANTOPENLOGSTATUSWINDOW ) ,  // "Log Status Module", "Can't Open Log Status Window!"
+		   (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "OK"
    return;
    } /* if no window */
 
@@ -2067,9 +2079,9 @@ STATIC_FCN void Make_Log_Window(int Severity) // used locally only -> static, AF
           MUIA_Listview_List, ListObject, ReadListFrame, End,
           End, /* ListviewObject */
         Child, HGroup, MUIA_Group_SameSize, TRUE,
-          Child, Log_Win->BT_Clear = KeyButtonFunc('c', "\33cClear"),
-          Child, Log_Win->BT_Hide = KeyButtonFunc('h', "\33cHide"),
-          Child, Log_Win->BT_Quit = KeyButtonFunc('l', "\33cClose"),
+          Child, Log_Win->BT_Clear = KeyButtonFunc('c', GetString( MSG_AGUI_CLEAR ) ),  // "\33cClear"
+          Child, Log_Win->BT_Hide = KeyButtonFunc('h', GetString( MSG_AGUI_HIDE ) ),    // "\33cHide"
+          Child, Log_Win->BT_Quit = KeyButtonFunc('l', GetString( MSG_AGUI_CLOSE ) ),   // "\33cClose"
           End, /* HGroup */
         End, /* VGroup */
       End; /* Log_Win */
@@ -2077,7 +2089,7 @@ STATIC_FCN void Make_Log_Window(int Severity) // used locally only -> static, AF
   if (! Log_Win->LogWindow)
    {
    Close_Log_Window(2);
-   User_Message((CONST_STRPTR)"Log Window", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR) GetString( MSG_AGUI_LOGWINDOW ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "Log Window", "Out of memory!", "OK"
    return;
    } /* out of memory */
 
@@ -2208,7 +2220,7 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
           } /* if window already exists */
         else
           { /* need to create log window */
-          Log(32, (CONST_STRPTR)"Log window opened.");
+          Log(32, (CONST_STRPTR)GetString( MSG_AGUI_LOGWINDOWOPENED ) );  // "Log window opened."
           } /* else */
         get(Log_Win->LogWindow, MUIA_Window_Open, &Open);
         DoMethod(app, MUIM_Application_SetMenuCheck, ID_LOG, Open);
@@ -2246,7 +2258,7 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
           Set_Param_Menu(10);
 
           InfoWin = WindowObject,
-            MUIA_Window_Title		, "Info",
+            MUIA_Window_Title		, GetString( MSG_AGUI_INFO ),  // "Info"
             MUIA_Window_ID		, MakeID('I','N','F','O'),
             MUIA_Window_Screen	, WCSScrn,
             MUIA_Window_SizeGadget  , FALSE,
@@ -2254,27 +2266,27 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
             WindowContents, VGroup,
               Child, ColGroup(2),
                Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                TRUE, MUIA_Text_Contents, "\33rTime ", End,
+                TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_TIME ) , End,  // "\33rTime "
                Child, InfoTime = TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_Text_PreParse, "\33c", End,
 
                Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                TRUE, MUIA_Text_Contents, "\33rDate ", End,
+                TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_DATE ) , End,  // "\33rDate "
                Child, InfoDate = TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_Text_PreParse, "\33c", End,
-               
+
                Child, VGroup,
                 Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                 TRUE, MUIA_Text_Contents, "\33rMemory:", End,
+                 TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_MEMORY ) , End,  // "\33rMemory:"
                 Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                 TRUE, MUIA_Text_Contents, "\33rAvailable ", End,
+                 TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_AVAILABLE ) , End,  // "\33rAvailable "
                 Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                 TRUE, MUIA_Text_Contents, "\33rLargest ", End,
+                 TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_LARGEST ) , End,  // "\33rLargest "
                 End,
                Child, VGroup,
                 Child, HGroup, MUIA_Group_SameWidth, TRUE,
                  Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                  TRUE, MUIA_Text_Contents, "\33cChip", End,
+                  TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_CHIP ) , End,  // "\33cChip"
                  Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                  TRUE, MUIA_Text_Contents, "\33cFast", End,
+                  TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_FAST ) , End,  // "\33cFast"
                  End,
                 Child, ColGroup(3), MUIA_Frame, MUIV_Frame_Group,
                  MUIA_InnerRight, 0, MUIA_InnerLeft, 0, MUIA_InnerTop, 0, MUIA_InnerBottom, 0,
@@ -2298,14 +2310,14 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
                Child, VGroup,
                 Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz, TRUE, End,
                 Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                 TRUE, MUIA_Text_Contents, "\33rTopo Maps ", End,
+                 TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_TOPOMAPS ) , End,  // "\33rTopo Maps "
                 End,
                Child, VGroup,
                 Child, HGroup, MUIA_Group_SameWidth, TRUE,
                  Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                  TRUE, MUIA_Text_Contents, "\33cInter", End,
+                  TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_INTER ) , End,  // "\33cInter"
                  Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                  TRUE, MUIA_Text_Contents, "\33cMap", End,
+                  TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_MAP ) , End,  // "\33cMap"
                  End,
                 Child, HGroup, MUIA_Frame, MUIV_Frame_Group,
                  MUIA_InnerRight, 0, MUIA_InnerLeft, 0, MUIA_InnerTop, 0, MUIA_InnerBottom, 0,
@@ -2319,30 +2331,30 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
                 End,
 
                Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                TRUE, MUIA_Text_Contents, "\33rARexx Port ", End,
+                TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_AREXXPORT ) , End,  // "\33rARexx Port "
                Child, InfoARexx = TextObject, MUIA_Frame, MUIV_Frame_Text,
                 MUIA_Text_PreParse, "\33c", End,
 
                Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                TRUE, MUIA_Text_Contents, "\33rDatabase ", End,
+                TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_DATABASE ) , End,  // "\33rDatabase "
                Child, InfoDataBase = TextObject, MUIA_Frame, MUIV_Frame_Text,
                 MUIA_Text_PreParse, "\33c", End,
 
                Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                TRUE, MUIA_Text_Contents, "\33rPar File ", End,
+                TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_PARFILE ) , End,  // "\33rPar File "
                Child, InfoPar = TextObject, MUIA_Frame, MUIV_Frame_Text,
                 MUIA_Text_PreParse, "\33c", End,
 
                Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
-                TRUE, MUIA_Text_Contents, "\33rScreenMode ", End,
+                TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_SCREENMODE ) , End,  // "\33rScreenMode "
                Child, InfoScreenMode = TextObject, MUIA_Frame, MUIV_Frame_Text,
                 MUIA_Text_PreParse, "\33c", End,
 
                
                End,
-              Child, InfoWinFlush = KeyButtonFunc('F', "\33cFlush"),
+              Child, InfoWinFlush = KeyButtonFunc('F',  GetString( MSG_AGUI_FLUSH ) ),  // "\33cFlush"
 #ifdef XENON_DOESNT_LIKE_THIS
-              Child, InfoWinOK = KeyButtonObject('O'), MUIA_Text_Contents, "\33cOkay",
+              Child, InfoWinOK = KeyButtonObject('O'), MUIA_Text_Contents,  GetString( MSG_AGUI_OKAY ) ,  // "\33cOkay"
                End,
 #endif /* XENON_DOESNT_LIKE_THIS */
               End,
@@ -2464,7 +2476,7 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
                 End,
                End,
 #ifdef XENON_DOESNT_LIKE_THIS
-              Child, CreditWinOK = KeyButtonObject('O'), MUIA_Text_Contents, "\33cOkay",
+              Child, CreditWinOK = KeyButtonObject('O'), MUIA_Text_Contents, GetString( MSG_AGUI_OKAY ) ,  // "\33cOkay"
                End,
 #endif /* XENON_DOESNT_LIKE_THIS */
               End,
@@ -2522,7 +2534,7 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
 	} /* save screen shot */
        case ID_SCRNRESET:
         {
-        ResetScrn = User_Message((CONST_STRPTR)"WCS: Screen Mode",
+        ResetScrn = User_Message((CONST_STRPTR) GetString( MSG_AGUI_WCSSCREENMODE ) ,  // "WCS: Screen Mode"
         		(CONST_STRPTR)"In order to reset the screen mode WCS will have to close and re-open.\
  Any work in progress should be saved before invoking this command.\n\
  Do you wish to proceed now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc");

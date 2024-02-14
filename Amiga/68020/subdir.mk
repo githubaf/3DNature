@@ -83,7 +83,6 @@ C_SRCS += \
 
 O_SRCS += \
 ../AGUI.o \
-../BigEndianReadWrite.o \
 ../BitMaps.o \
 ../Cloud.o \
 ../CloudGUI.o \
@@ -139,20 +138,7 @@ O_SRCS += \
 ../RequesterGUI.o \
 ../RexxSupport.o \
 ../ScratchPad.o \
-../ScreenModeGUI.o \
-../Support.o \
-../TLSupportGUI.o \
-../TimeLinesGUI.o \
-../Tree.o \
-../Version.o \
-../VocabTable.o \
-../WCS.o \
-../WCS_locale.o \
-../Wave.o \
-../WaveGUI.o \
-../nncrunch.o \
-../nngridr.o \
-../sasc_functions.o 
+../WCS.o 
 
 C_DEPS += \
 ./AGUI.d \

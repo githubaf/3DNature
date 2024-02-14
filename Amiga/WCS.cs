@@ -5,6 +5,7 @@
 ## SimpleCatConfig CharsPerLine 200
 ## Header WCS_STRINGS_H
 ## TARGET CATALOG deutsch "VBox:SelcoGit/3DNature/Amiga/Catalogs/deutsch"
+## TARGET C english "VBox:SelcoGit/3DNature/Amiga/WCS_strings.h" NoCode NoArray NoBlockStatic
 ;
 ; -------- WCS.h ----------
 ;
@@ -529,3 +530,341 @@ Breite\x20
 MSG_SCNRMODGUI_HEIGHT
 Height\x20
 Höhe\x20
+; ------- AGUI.c ----------
+;
+MSG_AGUI_PARAMETERMODULE
+Parameter Module
+Parameter Modul
+;
+MSG_AGUI_MOTION
+\33l Motion\x20
+
+;
+MSG_AGUI_COLOR
+\33l Color\x20
+
+;
+MSG_AGUI_ECOSYSTEM
+\33l Ecosystem\x20
+
+;
+MSG_AGUI_CLOUDS
+\33l Clouds\x20
+\33l Wolken\x20
+;
+MSG_AGUI_WAVES
+\33l Waves\x20
+
+;
+MSG_AGUI_DEFAULTS
+\33l Defaults\x20
+
+;
+MSG_AGUI_PARAMETERSMODULE
+Parameters Module
+Parameter Modul
+;
+MSG_AGUI_OUTOFMEMORY
+Out of Memory!
+
+;
+MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS
+Create Default Parameters for Database %s? All current Parameters will be overwritten.
+
+;
+MSG_AGUI_PARAMETEREDITINGDEFAULTS
+Parameter Editing: Defaults
+
+;
+MSG_AGUI_OKCANCEL
+OK|Cancel
+
+;
+MSG_AGUI_YOUMUSTFIRSTLOADADATABASEBEFOREDEFAULTPARAMETERSCANBEC
+You must first load a Database before Default Parameters can be computed.
+
+;
+MSG_AGUI_OK
+OK
+
+;
+MSG_AGUI_STANDUP
+Stand Up
+Hochkant
+;
+MSG_AGUI_LAYDOWN
+Lay Down
+Quer
+;
+MSG_AGUI_LOAD
+\33l Load\x20
+\33l Laden\x20
+;
+MSG_AGUI_APPEND
+\33l Append\x20
+\33l Anhängen\x20
+;
+MSG_AGUI_CREATE
+\33l Create\x20
+\33l Erzeugen\x20
+;
+MSG_AGUI_EDIT
+\33l Edit\x20
+\33l Bearbeiten\x20
+;
+MSG_AGUI_SAVE
+\33l Save\x20
+\33l Speichern\x20
+;
+MSG_AGUI_DIRLIST
+\33l Dir List\x20
+\33l Ordnerliste\x20
+;
+MSG_AGUI_DATAOPSIMPORTDLG
+Data Ops: Import DLG
+Data Ops: Importiere DLG
+;
+MSG_AGUI_DATAOPSIMPORTDXF
+Data Ops: Import DXF
+
+;
+MSG_AGUI_DATAOPSIMPORTWDB
+Data Ops: Import WDB
+
+;
+MSG_AGUI_DATAOPSMODULEINTERPDEM
+Data Ops Module: Interp DEM
+
+;
+MSG_AGUI_DATAOPSMODULEEXTRACTDEM
+Data Ops Module: Extract DEM
+
+;
+MSG_AGUI_RENDERMODULE
+Render Module
+Render Modul
+;
+MSG_AGUI_ADATABASEANDPARAMETERFILE
+a Database and Parameter file
+
+;
+MSG_AGUI_MODULECONTROLPANEL
+Module Control Panel
+
+;
+MSG_AGUI_VERSION
+Version
+
+;
+MSG_AGUI_OKAY
+\33cOkay
+
+;
+MSG_AGUI_EXTRASMODULE
+Extras Module
+Extras Modul
+;
+MSG_AGUI_PUBLICSCREENSTILLHASVISITORSTRYCLOSINGAGAIN
+Public Screen still has visitors. Try closing again?
+
+;
+MSG_AGUI_CLOSEWARNCANCEL
+Close|Warn|Cancel
+
+;
+MSG_AGUI_QUITPROGRAMREYOUSURE
+Quit Program\nAre you sure?
+Programm beenden\nSind Sie sicher?
+;
+MSG_AGUI_WCSPROJECT
+WCS Project
+WCS Projekt
+;
+MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
+Project paths have been modified. Save them before closing?
+
+;
+MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
+Parameters have been modified. Save them before closing?
+
+;
+MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING
+Database has been modified. Save it before closing?
+
+;
+MSG_AGUI_MESSAGE
+Message
+
+;
+MSG_AGUI_NOTYETIMPLEMENTEDTAYTUNED
+Not yet implemented.\nStay Tuned!
+
+;
+MSG_AGUI_KEEPCHANGES
+Keep changes?
+Änderungen Behalten?
+;
+MSG_AGUI_KEEPCANCEL
+Keep|Cancel
+Behalten|Abbrechen
+;
+MSG_AGUI_SORRYOUMUSTFIRSTLOAD338NBEFOREUSINGTHISFEATURE
+Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature.
+
+;
+MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT
+File already exists.\nDo you wish to overwrite it?
+
+;
+MSG_AGUI_INPUTREQUEST
+Input Request
+
+;
+MSG_AGUI_CANCEL
+\33cCancel
+
+;
+MSG_AGUI_LOGSTATUSMODULE
+Log Status Module
+
+;
+MSG_AGUI_CANTOPENLOGSTATUSWINDOW
+Can't Open Log Status Window!
+
+;
+MSG_AGUI_CLEAR
+\33cClear
+
+;
+MSG_AGUI_HIDE
+\33cHide
+\33cVerstecken
+;
+MSG_AGUI_CLOSE
+\33cClose
+\33lSchließen
+;
+MSG_AGUI_LOGWINDOW
+Log Window
+
+;
+MSG_AGUI_LOGWINDOWOPENED
+Log window opened.
+
+;
+; - Info Window -
+MSG_AGUI_INFO
+Info
+
+;
+MSG_AGUI_TIME
+\33rTime\x20
+\33rUhrzeit\x20
+;
+MSG_AGUI_DATE
+\33rDate\x20
+\33rDatum\x20
+;
+MSG_AGUI_MEMORY
+\33rMemory:
+\33rSpeicher:
+;
+MSG_AGUI_AVAILABLE
+\33rAvailable\x20
+\33rVerfügbar\x20
+;
+MSG_AGUI_LARGEST
+\33rLargest\x20
+\33rGrößter\x20
+;
+MSG_AGUI_CHIP
+\33cChip
+
+;
+MSG_AGUI_FAST
+\33cFast
+
+;
+MSG_AGUI_TOPOMAPS
+\33rTopo Maps\x20
+
+;
+MSG_AGUI_INTER
+\33cInter
+
+;
+MSG_AGUI_MAP
+\33cMap
+
+;
+MSG_AGUI_AREXXPORT
+\33rARexx Port\x20
+
+;
+MSG_AGUI_DATABASE
+\33rDatabase\x20
+\33rDatenbank\x20
+;
+MSG_AGUI_PARFILE
+\33rPar File\x20
+
+;
+MSG_AGUI_SCREENMODE
+\33rScreenMode\x20
+
+;
+MSG_AGUI_FLUSH
+\33cFlush
+
+;
+MSG_AGUI_WCSSCREENMODE
+WCS: Screen Mode
+
+MSG_AGUI_DATABASEMODULE
+Database Module
+Datenbank Modul
+;
+MSG_AGUI_DATABASEMODULEAPPEND
+Database Moldule: Append
+Datenbank Modul: Anhängen
+;
+MSG_AGUI_ADATABASE
+a Database
+eine Datenbank
+;
+MSG_AGUI_DATABASEMODULESAVE
+Database Module: Save
+Datenbank Modul: Speichern
+;
+MSG_AGUI_DATAOPSMODULE
+DataOps Module
+DataOps Modul
+;
+MSG_AGUI_EXTRACTDEM
+\33l Extract DEM\x20
+\33l Extrahiere DEM\x20
+;
+MSG_AGUI_CONVERTDEM
+\33l Convert DEM\x20
+\33l Konvertiere DEM\x20
+;
+MSG_AGUI_INTERPDEM
+\33l Interp DEM\x20
+\33l Interpoliere DEM\x20
+;
+MSG_AGUI_IMPORTDLG
+\33l Import DLG\x20
+\33l Importiere DLG\x20
+;
+MSG_AGUI_IMPORTDXF
+\33l Import DXF
+\33l Importiere DXF\x20
+;
+MSG_AGUI_IMPORTWDB
+\33l Import WDB\x20
+\33l Importiere WDB\x20
+;
+MSG_AGUI_EXPORTLW
+\33l Export LW\x20
+\33l Exportiere LW\x20
+;
