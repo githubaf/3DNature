@@ -251,8 +251,30 @@
 #define MSG_AGUI_IMPORTDXF 210
 #define MSG_AGUI_IMPORTWDB 211
 #define MSG_AGUI_EXPORTLW 212
+#define MSG_AGUI_MOTIONIO 213
+#define MSG_AGUI_STATUSLOG 214
+#define MSG_AGUI_ERR 215
+#define MSG_AGUI_WNG 216
+#define MSG_AGUI_MSG 217
+#define MSG_AGUI_DTA 218
+#define MSG_AGUI_PREV 219
+#define MSG_AGUI_NEXT 220
+#define MSG_AGUI_ALL 221
+#define MSG_AGUI_KEYSEXIST 222
+#define MSG_AGUI_ALL0 223
+#define MSG_AGUI_NOOTHERKEYS 224
+#define MSG_AGUI_NONE 225
+#define MSG_AGUI_USE 226
+#define MSG_AGUI_LOADMOTION 227
+#define MSG_AGUI_SAVEMOTION 228
+#define MSG_AGUI_LOADCOLOR 229
+#define MSG_AGUI_SAVECOLOR 230
+#define MSG_AGUI_LOADECO 231
+#define MSG_AGUI_SAVEECO 232
+#define MSG_AGUI_LOADSETTINGS 233
+#define MSG_AGUI_SAVESETTINGS 234
 
-#define CATCOMP_LASTID 212
+#define CATCOMP_LASTID 234
 
 #endif /* CATCOMP_NUMBERS */
 
@@ -475,6 +497,28 @@
 #define MSG_AGUI_IMPORTDXF_STR "\33l Import DXF"
 #define MSG_AGUI_IMPORTWDB_STR "\33l Import WDB\x20"
 #define MSG_AGUI_EXPORTLW_STR "\33l Export LW\x20"
+#define MSG_AGUI_MOTIONIO_STR "\33l Motion I/O\x20"
+#define MSG_AGUI_STATUSLOG_STR "Status Log"
+#define MSG_AGUI_ERR_STR "ERR:"
+#define MSG_AGUI_WNG_STR "WNG:"
+#define MSG_AGUI_MSG_STR "MSG:"
+#define MSG_AGUI_DTA_STR "DTA:"
+#define MSG_AGUI_PREV_STR "\33cPrev"
+#define MSG_AGUI_NEXT_STR "\33cNext"
+#define MSG_AGUI_ALL_STR "All (%d)"
+#define MSG_AGUI_KEYSEXIST_STR "Keys Exist (%d)"
+#define MSG_AGUI_ALL0_STR "\33cAll (0)"
+#define MSG_AGUI_NOOTHERKEYS_STR "No Other Keys"
+#define MSG_AGUI_NONE_STR " -none-\x20"
+#define MSG_AGUI_USE_STR "Use"
+#define MSG_AGUI_LOADMOTION_STR "Load Motion..."
+#define MSG_AGUI_SAVEMOTION_STR "Save Motion..."
+#define MSG_AGUI_LOADCOLOR_STR "Load Color..."
+#define MSG_AGUI_SAVECOLOR_STR "Save Color..."
+#define MSG_AGUI_LOADECO_STR "Load Eco..."
+#define MSG_AGUI_SAVEECO_STR "Save Eco..."
+#define MSG_AGUI_LOADSETTINGS_STR "Load Settings..."
+#define MSG_AGUI_SAVESETTINGS_STR "Save Settings..."
 
 #endif /* CATCOMP_STRINGS */
 
@@ -912,6 +956,50 @@ const char CatCompBlock[] =
     MSG_AGUI_IMPORTWDB_STR "\x00\x00"
     "\x00\x00\x00\xD4\x00\x0E"
     MSG_AGUI_EXPORTLW_STR "\x00"
+    "\x00\x00\x00\xD5\x00\x10"
+    MSG_AGUI_MOTIONIO_STR "\x00\x00"
+    "\x00\x00\x00\xD6\x00\x0C"
+    MSG_AGUI_STATUSLOG_STR "\x00\x00"
+    "\x00\x00\x00\xD7\x00\x06"
+    MSG_AGUI_ERR_STR "\x00\x00"
+    "\x00\x00\x00\xD8\x00\x06"
+    MSG_AGUI_WNG_STR "\x00\x00"
+    "\x00\x00\x00\xD9\x00\x06"
+    MSG_AGUI_MSG_STR "\x00\x00"
+    "\x00\x00\x00\xDA\x00\x06"
+    MSG_AGUI_DTA_STR "\x00\x00"
+    "\x00\x00\x00\xDB\x00\x08"
+    MSG_AGUI_PREV_STR "\x00\x00"
+    "\x00\x00\x00\xDC\x00\x08"
+    MSG_AGUI_NEXT_STR "\x00\x00"
+    "\x00\x00\x00\xDD\x00\x0A"
+    MSG_AGUI_ALL_STR "\x00\x00"
+    "\x00\x00\x00\xDE\x00\x10"
+    MSG_AGUI_KEYSEXIST_STR "\x00"
+    "\x00\x00\x00\xDF\x00\x0A"
+    MSG_AGUI_ALL0_STR "\x00"
+    "\x00\x00\x00\xE0\x00\x0E"
+    MSG_AGUI_NOOTHERKEYS_STR "\x00"
+    "\x00\x00\x00\xE1\x00\x0A"
+    MSG_AGUI_NONE_STR "\x00\x00"
+    "\x00\x00\x00\xE2\x00\x04"
+    MSG_AGUI_USE_STR "\x00"
+    "\x00\x00\x00\xE3\x00\x10"
+    MSG_AGUI_LOADMOTION_STR "\x00\x00"
+    "\x00\x00\x00\xE4\x00\x10"
+    MSG_AGUI_SAVEMOTION_STR "\x00\x00"
+    "\x00\x00\x00\xE5\x00\x0E"
+    MSG_AGUI_LOADCOLOR_STR "\x00"
+    "\x00\x00\x00\xE6\x00\x0E"
+    MSG_AGUI_SAVECOLOR_STR "\x00"
+    "\x00\x00\x00\xE7\x00\x0C"
+    MSG_AGUI_LOADECO_STR "\x00"
+    "\x00\x00\x00\xE8\x00\x0C"
+    MSG_AGUI_SAVEECO_STR "\x00"
+    "\x00\x00\x00\xE9\x00\x12"
+    MSG_AGUI_LOADSETTINGS_STR "\x00\x00"
+    "\x00\x00\x00\xEA\x00\x12"
+    MSG_AGUI_SAVESETTINGS_STR "\x00\x00"
 };
 
 #endif /* CATCOMP_BLOCK */

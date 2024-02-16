@@ -3337,3 +3337,4 @@ smake WCS
 16Dec23 -> 68060 FPU check missing
 15Dec23 -> OK                             <------- Wir bleiben erst mal bei dieser toolchain-Version
 
+# Der Server pre-receive hook muss noch eingecheckt werden.

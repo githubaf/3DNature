@@ -702,7 +702,7 @@ Not yet implemented.\nStay Tuned!
 ;
 MSG_AGUI_KEEPCHANGES
 Keep changes?
-Änderungen Behalten?
+Änderungen behalten?
 ;
 MSG_AGUI_KEEPCANCEL
 Keep|Cancel
@@ -738,7 +738,7 @@ MSG_AGUI_CLEAR
 ;
 MSG_AGUI_HIDE
 \33cHide
-\33cVerstecken
+\33cVerbergen
 ;
 MSG_AGUI_CLOSE
 \33cClose
@@ -867,4 +867,92 @@ MSG_AGUI_IMPORTWDB
 MSG_AGUI_EXPORTLW
 \33l Export LW\x20
 \33l Exportiere LW\x20
+;
+MSG_AGUI_MOTIONIO
+\33l Motion I/O\x20
+
+;
+MSG_AGUI_STATUSLOG
+Status Log
+
+;
+MSG_AGUI_ERR
+ERR:
+
+;
+MSG_AGUI_WNG
+WNG:
+
+;
+MSG_AGUI_MSG
+MSG:
+
+;
+MSG_AGUI_DTA
+DTA:
+
+;
+MSG_AGUI_PREV
+\33cPrev
+\33cVorheriger
+;
+MSG_AGUI_NEXT
+\33cNext
+\33cNächster
+;
+MSG_AGUI_ALL
+All (%d)
+Alle (%d)
+;
+MSG_AGUI_KEYSEXIST
+Keys Exist (%d)
+Key (%d) existiert
+;
+MSG_AGUI_ALL0
+\33cAll (0)
+Alle (0)
+;
+MSG_AGUI_NOOTHERKEYS
+No Other Keys
+Keines weiteren Keys
+;
+MSG_AGUI_NONE
+ -none-\x20
+-leer-
+;
+MSG_AGUI_USE
+Use
+Benutzen
+;
+MSG_AGUI_LOADMOTION
+Load Motion...
+Lade Motion...
+;
+MSG_AGUI_SAVEMOTION
+Save Motion...
+Speichere Motion...
+;
+MSG_AGUI_LOADCOLOR
+Load Color...
+Lade Farben...
+;
+MSG_AGUI_SAVECOLOR
+Save Color...
+Speichere Farben...
+;
+MSG_AGUI_LOADECO
+Load Eco...
+Lade Öko...
+;
+MSG_AGUI_SAVEECO
+Save Eco...
+Speichere Öko...
+;
+MSG_AGUI_LOADSETTINGS
+Load Settings...
+Einstellungen laden...
+;
+MSG_AGUI_SAVESETTINGS
+Save Settings...
+Einstellingen speichern...
 ;

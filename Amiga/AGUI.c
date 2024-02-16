@@ -2585,25 +2585,25 @@ char *Prefix;
     {
     if (! ReportMesg[0])
      return;
-    Prefix = "ERR:";
+    Prefix = GetString( MSG_AGUI_ERR );  // "ERR:"
     }
   else if(ErrMagnitude[StdMesgNum] >= 128)
     {
     if (! ReportMesg[1])
      return;
-    Prefix = "WNG:";
+    Prefix = GetString( MSG_AGUI_WNG );  // "WNG:"
     }
   else if(ErrMagnitude[StdMesgNum] >= 100)
     {
     if (! ReportMesg[2])
      return;
-    Prefix = "MSG:";
+    Prefix = GetString( MSG_AGUI_MSG );  // "MSG:"
     }
   else if(ErrMagnitude[StdMesgNum] >= 50)
     {
     if (! ReportMesg[3])
      return;
-    Prefix = "DTA:";
+    Prefix = GetString( MSG_AGUI_DTA );  // "DTA:"
     }
   else
     {
@@ -2653,11 +2653,11 @@ void DisableKeyButtons(short group)
    else
     {
     set(EM_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-    set(EM_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
+    set(EM_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_PREV ));  // "\33cPrev"
     if (EMTL_Win)
      {
      set(EMTL_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-     set(EMTL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
+     set(EMTL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_PREV ));  // "\33cPrev"
      } /* if motion time line window open */
     if (EMIA_Win)
      {
@@ -2686,11 +2686,11 @@ void DisableKeyButtons(short group)
    else
     {
     set(EM_Win->BT_NextKey, MUIA_Disabled, TRUE);
-    set(EM_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
+    set(EM_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_NEXT ));  // "\33cNext"
     if (EMTL_Win)
      {
      set(EMTL_Win->BT_NextKey, MUIA_Disabled, TRUE);
-     set(EMTL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
+     set(EMTL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_NEXT ));  // "\33cNext"
      set(EMTL_Win->TxtArrow[0], MUIA_Disabled, TRUE);
      set(EMTL_Win->TxtArrow[1], MUIA_Disabled, TRUE);
      set(EMTL_Win->TxtArrowLg[0], MUIA_Disabled, TRUE);
@@ -2704,21 +2704,21 @@ void DisableKeyButtons(short group)
    if (EM_Win->KeysExist)
     {
     set(EM_Win->BT_UpdateKeys, MUIA_Disabled, FALSE);
-    sprintf(str, "All (%d)", EM_Win->KeysExist);
+    sprintf(str, GetString( MSG_AGUI_ALL ), EM_Win->KeysExist);  // "All (%d)"
     set(EM_Win->BT_AllKeys, MUIA_Text_Contents, (IPTR)str);
     if (EMTL_Win)
      {
-     sprintf(str, "Keys Exist (%d)", EM_Win->KeysExist);
+     sprintf(str, GetString( MSG_AGUI_KEYSEXIST ), EM_Win->KeysExist);  // "Keys Exist (%d)"
      set(EMTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)str);
      } /* if motion time line window open */
     }
    else
     {
     set(EM_Win->BT_UpdateKeys, MUIA_Disabled, TRUE);
-    set(EM_Win->BT_AllKeys, MUIA_Text_Contents, (IPTR)"\33cAll (0)");
+    set(EM_Win->BT_AllKeys, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_ALL0 ));  // "\33cAll (0)"
     if (EMTL_Win)
      {
-     set(EMTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)"No Other Keys");
+     set(EMTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_NOOTHERKEYS ));  // "No Other Keys"
      } /* if motion time line window open */
     }
    if (EM_Win->ItemKeys > 1)
@@ -2778,11 +2778,11 @@ void DisableKeyButtons(short group)
    else
     {
     set(EC_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-    set(EC_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
+    set(EC_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_PREV ));  // "\33cPrev"
     if (ECTL_Win)
      {
      set(ECTL_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-     set(ECTL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
+     set(ECTL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_PREV ));  // "\33cPrev"
      } /* if color time line window open */
     }
    if (EC_Win->NextKey >= 0)
@@ -2803,11 +2803,11 @@ void DisableKeyButtons(short group)
    else
     {
     set(EC_Win->BT_NextKey, MUIA_Disabled, TRUE);
-    set(EC_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
+    set(EC_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_NEXT ));  // "\33cNext"
     if (ECTL_Win)
      {
      set(ECTL_Win->BT_NextKey, MUIA_Disabled, TRUE);
-     set(ECTL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
+     set(ECTL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_NEXT ));  // "\33cNext"
      set(ECTL_Win->TxtArrow[0], MUIA_Disabled, TRUE);
      set(ECTL_Win->TxtArrow[1], MUIA_Disabled, TRUE);
      set(ECTL_Win->TxtArrowLg[0], MUIA_Disabled, TRUE);
@@ -2817,21 +2817,21 @@ void DisableKeyButtons(short group)
    if (EC_Win->KeysExist)
     {
     set(EC_Win->BT_UpdateKeys, MUIA_Disabled, FALSE);
-    sprintf(str, "All (%d)", EC_Win->KeysExist);
+    sprintf(str, GetString( MSG_AGUI_ALL ) , EC_Win->KeysExist);  // "All (%d)"
     set(EC_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)str);
     if (ECTL_Win)
      {
-     sprintf(str, "Keys Exist (%d)", EC_Win->KeysExist);
+     sprintf(str, GetString( MSG_AGUI_KEYSEXIST ), EC_Win->KeysExist);  // "Keys Exist (%d)"
      set(ECTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)str);
      } /* if color time line window open */
     }
    else
     {
     set(EC_Win->BT_UpdateKeys, MUIA_Disabled, TRUE);
-    set(EC_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)"\33cAll (0)");
+    set(EC_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_ALL0 ));  // "\33cAll (0)"
     if (ECTL_Win)
      {
-     set(ECTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)"No Other Keys");
+     set(ECTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_NOOTHERKEYS ));  // "No Other Keys"
      } /* if color time line window open */
     }
    if (EC_Win->ItemKeys > 1)
@@ -2918,7 +2918,7 @@ void DisableKeyButtons(short group)
    else
     {
     set(EE_Win->BT_NextKey, MUIA_Disabled, TRUE);
-    set(EE_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
+    set(EE_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_NEXT ));  // "\33cNext"
     if (EETL_Win)
      {
      set(EETL_Win->BT_NextKey, MUIA_Disabled, TRUE);
@@ -2932,11 +2932,11 @@ void DisableKeyButtons(short group)
    if (EE_Win->KeysExist)
     {
     set(EE_Win->BT_UpdateKeys, MUIA_Disabled, FALSE);
-    sprintf(str, "All (%d)", EE_Win->KeysExist);
+    sprintf(str, GetString( MSG_AGUI_ALL ), EE_Win->KeysExist);  // "All (%d)"
     set(EE_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)str);
     if (EETL_Win)
      {
-     sprintf(str, "Keys Exist (%d)", EE_Win->KeysExist);
+     sprintf(str, GetString( MSG_AGUI_KEYSEXIST ), EE_Win->KeysExist);  // "Keys Exist (%d)"
      set(EETL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)str);
      } /* if ecosystem time line window open */
     }
@@ -3080,12 +3080,12 @@ set(InfoARexx, MUIA_Text_Contents, (IPTR)AppRexxName);
 if(dbaseloaded)
   set(InfoDataBase, MUIA_Text_Contents, (IPTR)dbasename);
 else
-  set(InfoDataBase, MUIA_Text_Contents, (IPTR)" -none- ");
+  set(InfoDataBase, MUIA_Text_Contents, (IPTR) GetString( MSG_AGUI_NONE ));  // " -none- "
 
 if(paramsloaded)
   set(InfoPar, MUIA_Text_Contents, (IPTR)paramfile);
 else
-  set(InfoPar, MUIA_Text_Contents, (IPTR)" -none- ");
+  set(InfoPar, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_NONE ));  // " -none- "
 
 InfoData[0] = 0;
 if(GetDisplayInfoData(NULL, (UBYTE *)&ModeName, sizeof(ModeName), DTAG_NAME, WCSScrn->ViewPort.ColorMap->VPModeID/*ScrnData.ModeID*/)) // ScrnData.ModeID is always 0 if "Save"-Button in World Construction Set ScreenMode-Window was not pressed, i.e. if uer pressed "Use" instead))
@@ -3109,8 +3109,8 @@ void Set_Param_Menu(short Group)
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_ITEM;    
    WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)NM_BARLABEL;    
-   WCSNewMenus[MENU_STOP + 1].nm_Label =  (STRPTR)"Load Motion..."; 
-   WCSNewMenus[MENU_STOP + 2].nm_Label =  (STRPTR)"Save Motion..."; 
+   WCSNewMenus[MENU_STOP + 1].nm_Label =  GetString( MSG_AGUI_LOADMOTION );  // "Load Motion...";
+   WCSNewMenus[MENU_STOP + 2].nm_Label =  GetString( MSG_AGUI_SAVEMOTION );  // "Save Motion...";
    WCSNewMenus[MENU_STOP + 1].nm_UserData = (APTR)(ID_EM_LOADALL);
    WCSNewMenus[MENU_STOP + 2].nm_UserData = (APTR)(ID_EM_SAVEALL);
    WCSNewMenus[MENU_STOP + 3].nm_Type = NM_ITEM;
@@ -3122,8 +3122,8 @@ void Set_Param_Menu(short Group)
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_ITEM;    
    WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)NM_BARLABEL;    
-   WCSNewMenus[MENU_STOP + 1].nm_Label =  (STRPTR)"Load Color..."; 
-   WCSNewMenus[MENU_STOP + 2].nm_Label =  (STRPTR)"Save Color..."; 
+   WCSNewMenus[MENU_STOP + 1].nm_Label =  GetString( MSG_AGUI_LOADCOLOR );  // "Load Color...";
+   WCSNewMenus[MENU_STOP + 2].nm_Label =  GetString( MSG_AGUI_SAVECOLOR );  // "Save Color...";
    WCSNewMenus[MENU_STOP + 1].nm_UserData = (APTR)(ID_EC_LOADALL);
    WCSNewMenus[MENU_STOP + 2].nm_UserData = (APTR)(ID_EC_SAVEALL);
    WCSNewMenus[MENU_STOP + 3].nm_Type = NM_ITEM;
@@ -3135,8 +3135,8 @@ void Set_Param_Menu(short Group)
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_ITEM;    
    WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)NM_BARLABEL;    
-   WCSNewMenus[MENU_STOP + 1].nm_Label =  (STRPTR)"Load Eco..."; 
-   WCSNewMenus[MENU_STOP + 2].nm_Label =  (STRPTR)"Save Eco..."; 
+   WCSNewMenus[MENU_STOP + 1].nm_Label =  GetString( MSG_AGUI_LOADECO );  // "Load Eco...";
+   WCSNewMenus[MENU_STOP + 2].nm_Label =  GetString( MSG_AGUI_SAVEECO );  // "Save Eco...";
    WCSNewMenus[MENU_STOP + 1].nm_UserData = (APTR)(ID_EE_LOADALL);
    WCSNewMenus[MENU_STOP + 2].nm_UserData = (APTR)(ID_EE_SAVEALL);
    WCSNewMenus[MENU_STOP + 3].nm_Type = NM_ITEM;
@@ -3148,8 +3148,8 @@ void Set_Param_Menu(short Group)
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_ITEM;    
    WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)NM_BARLABEL;    
-   WCSNewMenus[MENU_STOP + 1].nm_Label =  (STRPTR)"Load Settings..."; 
-   WCSNewMenus[MENU_STOP + 2].nm_Label =  (STRPTR)"Save Settings..."; 
+   WCSNewMenus[MENU_STOP + 1].nm_Label =  GetString( MSG_AGUI_LOADSETTINGS );  // "Load Settings...";
+   WCSNewMenus[MENU_STOP + 2].nm_Label =  GetString( MSG_AGUI_SAVESETTINGS );  // "Save Settings...";
    WCSNewMenus[MENU_STOP + 1].nm_UserData = (APTR)(ID_ES_LOAD);
    WCSNewMenus[MENU_STOP + 2].nm_UserData = (APTR)(ID_ES_SAVE);
    WCSNewMenus[MENU_STOP + 3].nm_Type = NM_END;
