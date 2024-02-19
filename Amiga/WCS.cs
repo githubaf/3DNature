@@ -1069,3 +1069,55 @@ Fehler beim Lesen der Hintergrunddatei!\nBMHD Chunk fehlt.\nVorgang abgebrochen.
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOMPRESSIONERRORPERATIONTE
 Error reading Background file!\nCompression error.\nOperation terminated.
 Fehler beim Lesen der Hintergrund-Datei!\nKompressionsfehler.\nVorgang abgebrochen.
+;
+MSG_CLOUD_CLOUDEDITORSETBOUNDS
+Cloud Editor:Set Bounds
+Cloud Editor:Grenzen festlegen
+;
+MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN
+Map View Module must be open in order to use this function. Would you like to open it now?
+Das Map View Modul muss geöfffnet sein, um die Funktion nutzen zu können. Soll es jetzt geöffnet werden?
+;
+MSG_CLOUD_OKCANCEL
+OK|Cancel
+
+;
+MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
+\0338Set northwest corner with mouse.
+\0338Nord-West Ecke mit der Maus festlegen.
+;
+MSG_CLOUD_SETNORTHWESTCORNER
+Set northwest corner
+Nord-West Ecke festlegen
+;
+MSG_CLOUD_ETSOUTHEASTCORNERESCABORT
+\0338Set southeast corner. ESC=abort
+\0338Süd-Ost Ecke festlegen. ESC=Abbruch
+;
+MSG_CLOUD_SETSOUTHEASTCORNER
+Set southeast corner
+Süd-Ost Ecke festlegen
+;
+MSG_CLOUD_MAPPINGMODULEALIGN
+Mapping Module: Align
+Mapping Modul: Ausrichten
+;
+MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET
+Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
+Ungültige Werte!\nDer Pixeloffset auif beiden Achsen muss mindestens 1 betragen.\nNoch einmal versuchen?
+;
+MSG_CLOUD_MAPVIEW
+Map View
+
+;
+MSG_CLOUD_ENTERFRAMENUMBER
+Enter Frame Number.
+Bildnummer einegeben.
+;
+MSG_CLOUD_COMPUTING
+Computing...
+Berechne...
+;
+MSG_CLOUD_DRAWING
+Drawing...
+Zeichne...

@@ -3352,7 +3352,7 @@ Done	WCS.h
 Done	AGUI.c
 Noting	BigEndianReadWrite.c
 Done	BitMaps.c
-Cloud.c
+Done	Cloud.c
 CloudGUI.c
 ColorBlends.c
 Commands.c

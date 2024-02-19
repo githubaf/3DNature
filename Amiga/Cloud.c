@@ -2,6 +2,8 @@
 ** Cloud generation and manipulation functions for WCS.
 ** Written by Gary R. Huber, Jan 1995.
 */
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
 
 #include "WCS.h"
 #include "GenericParams.h"
@@ -422,8 +424,10 @@ struct Box Bx;
 
 if (! MapWind0)
   {
-  if (User_Message_Def((CONST_STRPTR)"Cloud Editor:Set Bounds", (CONST_STRPTR)"Map View Module must be open in order\
- to use this funcion. Would you like to open it now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc",1))
+  if (User_Message_Def((CONST_STRPTR) GetString( MSG_CLOUD_CLOUDEDITORSETBOUNDS ) ,     // "Cloud Editor:Set Bounds"
+		               (CONST_STRPTR) GetString( MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN ) ,  // "Map View Module must be open in order to use this function. Would you like to open it now?"
+					   (CONST_STRPTR) GetString( MSG_CLOUD_OKCANCEL ) ,                 // "OK|Cancel"
+					   (CONST_STRPTR)"oc",1))
    {
    map();
 
@@ -436,8 +440,8 @@ if (! MapWind0)
   } /* if */
 
 StartAlign:
- MapGUI_Message(0, "\0338Set northwest corner with mouse.");
- SetWindowTitles(MapWind0, (STRPTR) (CONST_STRPTR)"Set northwest corner", (UBYTE *)-1);
+ MapGUI_Message(0, (char*)GetString( MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE ));        // "\0338Set northwest corner with mouse."
+ SetWindowTitles(MapWind0, GetString( MSG_CLOUD_SETNORTHWESTCORNER ), (UBYTE *)-1);  // "Set northwest corner"
 
  if (! MousePtSet(&Bx.Low, NULL, 0))
   {
@@ -445,8 +449,8 @@ StartAlign:
   goto EndAlign;
   } /* if aborted */
 
- MapGUI_Message(0, "\0338Set southeast corner. ESC=abort");
- SetWindowTitles(MapWind0, (STRPTR) (CONST_STRPTR)"Set southeast corner", (UBYTE *)-1);
+ MapGUI_Message(0, (char*)GetString( MSG_CLOUD_ETSOUTHEASTCORNERESCABORT ));         // "\0338Set southeast corner. ESC=abort"
+ SetWindowTitles(MapWind0, GetString( MSG_CLOUD_SETSOUTHEASTCORNER ), (UBYTE *)-1);  // "Set southeast corner"
 
  if (! MousePtSet(&Bx.High, &Bx.Low, 2))
   {
@@ -456,9 +460,10 @@ StartAlign:
 
  if (Bx.Low.X == Bx.High.X || Bx.Low.Y == Bx.High.Y)
   {
-  if (User_Message_Def((CONST_STRPTR)"Mapping Module: Align",
-          (CONST_STRPTR)"Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?",
-          (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+  if (User_Message_Def(GetString( MSG_CLOUD_MAPPINGMODULEALIGN ),               // "Mapping Module: Align"
+          GetString( MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
+          GetString( MSG_CLOUD_OKCANCEL ),                                      // "OK|Cancel"
+		  (CONST_STRPTR)"oc", 1))
    {
    goto StartAlign;
    } /* if try again */
@@ -481,7 +486,7 @@ StartAlign:
 EndAlign:
  MapGUI_Message(0, " ");
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, (STRPTR) (CONST_STRPTR)"Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, GetString( MSG_CLOUD_MAPVIEW ), (UBYTE *)-1);  // "Map View"
  if (error)
   return (0);
 
@@ -551,7 +556,7 @@ struct Wave *WV;
  if (Frame < 0.0)
   {
   strcpy(str, "");
-  GetInputString("Enter Frame Number.", 
+  GetInputString(GetString( MSG_CLOUD_ENTERFRAMENUMBER ),  // "Enter Frame Number."
 	 ",abcdefghijklmnopqrstuvwxyz", str);
   Frame = atof(str);
   } /* if no frame number supplied */
@@ -559,7 +564,7 @@ struct Wave *WV;
  LatStep = 8.0 * (CD->Lat[1] - CD->Lat[0]) / (CD->Rows - 1);
  LonStep = 8.0 * (CD->Lon[1] - CD->Lon[0]) / (CD->Cols - 1);
 
- BWMD = BusyWin_New("Computing...", CD->Rows, 0, MakeID('B','W','M','D'));
+ BWMD = BusyWin_New(GetString( MSG_CLOUD_COMPUTING ), CD->Rows, 0, MakeID('B','W','M','D'));  // "Computing..."
 
  zip = 0;
  for (y=0, ptlat=CD->Lat[0] + CD->LatOff; y<=CD->Rows; y+=8, ptlat+=LatStep)
@@ -650,7 +655,7 @@ struct clipbounds cb;
 
 /* plot color in Map View, brighter indicates higher wave amplitude */
 
- BWMD = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));
+ BWMD = BusyWin_New(GetString( MSG_CLOUD_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));  // "Drawing..."
 
  Density = CD->Density / 100.0;
 
