@@ -3,6 +3,9 @@
 ** Original code by Gary R. Huber
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "Proto.h"
 #include "BigEndianReadWrite.h"  // ALEXANDER
@@ -512,7 +515,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   {
   if (AskFile)
    {
-   if (! getfilename(1, "IFF File Path/Name", graphpath, graphname))
+   if (! getfilename(1,  (char*)GetString( MSG_BITMAPS_IFFFILEPATHNAME ) , graphpath, graphname))  // "IFF File Path/Name"
     return (1);
    }
   strmfp(filename, graphpath, graphname);
@@ -523,7 +526,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
     {
     close(fHandle);
     if (! User_Message((CONST_STRPTR)graphname,
-            (CONST_STRPTR)"File already exists!\nOverwrite it?", (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc"))
+            GetString( MSG_BITMAPS_FILEALREADYEXISTSVERWRITEIT ) , GetString( MSG_BITMAPS_OKCANCEL ) , (CONST_STRPTR)"oc"))  // "File already exists!\nOverwrite it?" "OK|CANCEL"
      return(1);
     } /* if open succeeds */
    } /* if not ask name */
@@ -538,7 +541,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   if ((fHandle = open(filename, O_RDWR, 0)) == -1)
    {
    User_Message((CONST_STRPTR)filename,
-           (CONST_STRPTR)"Can't open image file for output!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+           GetString( MSG_BITMAPS_CANTOPENIMAGEFILEFOROUTPUTPERATIONTERMINATED ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Can't open image file for output!\nOperation terminated.", "OK"
    error=1;
    goto Scleanup;
    } /* if open fail */
@@ -601,7 +604,7 @@ short saveILBM(short saveRGB, short AskFile, struct RastPort *RPort,
   if ((fHandle = open(filename, O_CREAT | O_TRUNC | O_RDWR, protflags)) == -1)
    {
    User_Message((CONST_STRPTR)filename,
-           (CONST_STRPTR)"Can't open image file for output!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+           GetString( MSG_BITMAPS_CANTOPENIMAGEFILEFOROUTPUTPERATIONTERMINATED ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Can't open image file for output!\nOperation terminated." "OK"
    error=1;
    goto Scleanup;
    } /* if open fail */
@@ -772,7 +775,7 @@ RepeatMemGrab:
   CD.fHandle = fHandle;
   } /* if compression */
 
- BWIM = BusyWin_New("Saving Image", WriteHeight, 0, MakeID('B','W','I','M'));
+ BWIM = BusyWin_New((char*)GetString( MSG_BITMAPS_SAVINGIMAGE ), WriteHeight, 0, MakeID('B','W','I','M'));  // "Saving Image"
 
  if (saveRGB)
   {
@@ -1089,7 +1092,7 @@ Scleanup:
  if (error)
   {
   if (AskFile)
-   User_Message((CONST_STRPTR)filename, (CONST_STRPTR)"Error saving image!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)filename, GetString( MSG_BITMAPS_ERRORSAVINGIMAGEPERATIONTERMINATED ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error saving image!\nOperation terminated." "OK"
   Log(ERR_WRITE_FAIL, (CONST_STRPTR)filename);
   } /* if error */
 
@@ -1453,7 +1456,7 @@ RepeatOpen:
     for (color=0; color<BMHdr.Planes/8; color++)
      memset(bitmap[color], 0, Width * Height);
 
-   BWIM = BusyWin_New("Loading Image", Height, 0, MakeID('B','W','I','M'));
+   BWIM = BusyWin_New((char*)GetString( MSG_BITMAPS_LOADINGIMAGE ), Height, 0, MakeID('B','W','I','M'));  // "Loading Image"
 
 /* read the data */
     InputDataPtr = InputData;
@@ -1533,7 +1536,7 @@ RepeatOpen:
 
  else
   { /* not IFF file */
-  BWIM = BusyWin_New("Loading Image", Height, 0, MakeID('B','W','I','M'));
+  BWIM = BusyWin_New((char*)GetString( MSG_BITMAPS_LOADINGIMAGE ), Height, 0, MakeID('B','W','I','M'));  // "Loading Image"
 
   InputDataSize = Width * Height;
   if (lseek(fh, 0L, 2) != InputDataSize)
@@ -1629,12 +1632,12 @@ Cleanup:
    }
   case 3:
    {
-   Log(ERR_READ_FAIL, (CONST_STRPTR)"Wrong image size");
+   Log(ERR_READ_FAIL, (CONST_STRPTR)GetString( MSG_BITMAPS_WRONGIMAGESIZE ));  // "Wrong image size"
    break;
    }
   case 4:
    {
-   Log(ERR_READ_FAIL, (CONST_STRPTR)"Wrong image depth");
+   Log(ERR_READ_FAIL, (CONST_STRPTR)GetString( MSG_BITMAPS_WRONGIMAGEDEPTH ));  // "Wrong image depth"
    break;
    }
   case 5:
@@ -1794,7 +1797,7 @@ short MergeZBufBack(short renderseg, short Width, short Height, struct Window *w
  BkGrndSize = Width * Height;
  ZBufSize = BkGrndSize * sizeof (float);
 
- BWDE = BusyWin_New("Background", Height, 0, MakeID('B','W','D','E'));
+ BWDE = BusyWin_New((char*)GetString( MSG_BITMAPS_BACKGROUND ), Height, 0, MakeID('B','W','D','E'));  // "Background"
 
  if (settings.zbuffer)
   {
@@ -2150,86 +2153,86 @@ EndMerge:
   {
   case 1:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error loading Z Buffer!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+          GetString( MSG_BITMAPS_ERRORLOADINGZBUFFERPERATIONTERMINATED ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error loading Z Buffer!\nOperation terminated." "OK"
    break;
    }
   case 2:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Out of memory merging Z Buffer!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_OUTOFMEMORYMERGINGZBUFFERPERATIONTERMINATED ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Out of memory merging Z Buffer!\nOperation terminated." "OK"
    break;
    }
   case 3:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error opening Z Buffer file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_ERROROPENINGZBUFFERFILEFORINPUTPERATIONTERMINATED ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error opening Z Buffer file for input!\nOperation terminated." "OK"
    break;
    }
   case 4:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_ERRORREADINGZBUFFERFILEOTSINGLEPRECISIONFLOATINGPOI ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated." "OK"
    break;
    }
   case 5:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBODCHUNKPERATIONTERMINATED ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated." "OK"
    break;
    }
   case 6:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBUFCHUNKPERATIONTERMINATED ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated." "OK"
    break;
    }
   case 7:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error reading Z Buffer file!\nWrong Size.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_ERRORREADINGZBUFFERFILERONGSIZEPERATIONTERMINATED ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error reading Z Buffer file!\nWrong Size.\nOperation terminated." "OK"
    break;
    }
   case 8:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error loading background image!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_ERRORLOADINGBACKGROUNDIMAGEPERATIONTERMINATED ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error loading background image!\nOperation terminated." "OK"
    break;
    }
   case 9:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Out of memory merging background!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_OUTOFMEMORYMERGINGBACKGROUNDPERATIONTERMINATED ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Out of memory merging background!\nOperation terminated." "OK"
    break;
    }
   case 10:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error opening Background file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_ERROROPENINGBACKGROUNDFILEFORINPUTPERATIONTERMINATE ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error opening Background file for input!\nOperation terminated." "OK"
    break;
    }
   case 11:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error reading Background file!\nWrong Size.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_ERRORREADINGBACKGROUNDFILERONGSIZEPERATIONTERMINATE ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error reading Background file!\nWrong Size.\nOperation terminated." "OK"
    break;
    }
   case 12:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error reading Background file!\nNo BODY Chunk.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBODYCHUNKPERATIONTERMINA ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error reading Background file!\nNo BODY Chunk.\nOperation terminated." "OK"
    break;
    }
   case 13:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error reading Background file!\nNo BMHD Chunk.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBMHDCHUNKPERATIONTERMINA ) , GetString( MSG_BITMAPS_OK ) , (CONST_STRPTR)"o");  // "Error reading Background file!\nNo BMHD Chunk.\nOperation terminated." "OK"
    break;
    }
   case 14:
    {
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error reading Background file!\nCompression error.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)GetString( MSG_BITMAPS_RENDERMODULE ),  // "Render Module"
+           GetString( MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOMPRESSIONERRORPERATIONTE ) , GetString( MSG_BITMAPS_OK ), (CONST_STRPTR)"o");  // "Error reading Background file!\nCompression error.\nOperation terminated." "OK"
    break;
    }
   } /* switch */

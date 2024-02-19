@@ -956,3 +956,116 @@ MSG_AGUI_SAVESETTINGS
 Save Settings...
 Einstellingen speichern...
 ;
+;
+; ----- BitMaps.c ---------
+MSG_BITMAPS_IFFFILEPATHNAME
+IFF File Path/Name
+
+;
+MSG_BITMAPS_FILEALREADYEXISTSVERWRITEIT
+File already exists!\nOverwrite it?
+Datei bereits vorhanden!\nÜberschreiben?
+;
+MSG_BITMAPS_OKCANCEL
+OK|CANCEL
+
+;
+MSG_BITMAPS_CANTOPENIMAGEFILEFOROUTPUTPERATIONTERMINATED
+Can't open image file for output!\nOperation terminated.
+Datei kann nicht zum Schreiben geöffnet werden!\nVorgang abgebrochen.
+;
+MSG_BITMAPS_OK
+OK
+
+;
+MSG_BITMAPS_SAVINGIMAGE
+Saving Image
+Speichern des Bildes
+;
+MSG_BITMAPS_YES
+YES
+Ja
+;
+MSG_BITMAPS_NO
+NO
+Nein
+;
+MSG_BITMAPS_ERRORSAVINGIMAGEPERATIONTERMINATED
+Error saving image!\nOperation terminated.
+Fehler beim Speichern des Bildes!\nVorgang abgebrochen.
+;
+MSG_BITMAPS_LOADINGIMAGE
+Loading Image
+Laden des Bildes
+;
+MSG_BITMAPS_WRONGIMAGESIZE
+Wrong image size
+Falsche Bildgröße
+;
+MSG_BITMAPS_WRONGIMAGEDEPTH
+Wrong image depth
+Falsche Farbtiefe des Bildes
+;
+MSG_BITMAPS_BACKGROUND
+Background
+Hintergrund
+;
+MSG_BITMAPS_RENDERMODULE
+Render Module
+Render Modul
+;
+MSG_BITMAPS_ERRORLOADINGZBUFFERPERATIONTERMINATED
+Error loading Z Buffer!\nOperation terminated.
+Fehler beim Loaden des Z-Puffers!\nVorgang abgebrochen.
+;
+MSG_BITMAPS_OUTOFMEMORYMERGINGZBUFFERPERATIONTERMINATED
+Out of memory merging Z Buffer!\nOperation terminated.
+Nicht genügend Speichern zum Mergen des Z-Puffers!\nVorgang abgebrochen.
+;
+MSG_BITMAPS_ERROROPENINGZBUFFERFILEFORINPUTPERATIONTERMINATED
+Error opening Z Buffer file for input!\nOperation terminated.
+Fehler beim Öffnen der Z-Puffer-Datei zum Lesen!\nVorgang abgebrochen.
+;
+MSG_BITMAPS_ERRORREADINGZBUFFERFILEOTSINGLEPRECISIONFLOATINGPOI
+Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated.
+Fehler beim Lesen der Z-Puffer-Datei!\nFormat ist nicht Fließkomma mit einfacher Genauigkeit.\nVorgang abgebrochen.
+;
+MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBODCHUNKPERATIONTERMINATED
+Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated.
+Fehler beim Lesen der Z-Puffer-Datei!\nZBOD Chunk fehlt.\nVorgang abgebrochen.
+;
+MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBUFCHUNKPERATIONTERMINATED
+Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated.
+Fehler beim Lesen der Z-Puffer-Datei!\nZBUF Chunk fehlt.\nVorgang abgebrochen.
+;
+MSG_BITMAPS_ERRORREADINGZBUFFERFILERONGSIZEPERATIONTERMINATED
+Error reading Z Buffer file!\nWrong Size.\nOperation terminated.
+Fehler beim Lesen der Z-Puffer-Datei!\nFoalsche Größe.\nVorgang abgebrochen.
+;
+MSG_BITMAPS_ERRORLOADINGBACKGROUNDIMAGEPERATIONTERMINATED
+Error loading background image!\nOperation terminated.
+Fehler beim Laden des Hintergrundbildes!\nVorgang abgebrochen.
+;
+MSG_BITMAPS_OUTOFMEMORYMERGINGBACKGROUNDPERATIONTERMINATED
+Out of memory merging background!\nOperation terminated.
+Nicht genügend Speicher zum Mergen des Hintergrundes!\nVorgang abgebrochen.
+;
+MSG_BITMAPS_ERROROPENINGBACKGROUNDFILEFORINPUTPERATIONTERMINATE
+Error opening Background file for input!\nOperation terminated.
+Fehler beim Öffnen der Hintergrunddatei zum Lesen!\nVorgang abgebrochen.
+;
+MSG_BITMAPS_ERRORREADINGBACKGROUNDFILERONGSIZEPERATIONTERMINATE
+Error reading Background file!\nWrong Size.\nOperation terminated.
+Fehler beim Lesen der Hintergrunddatei!\nFalsche Größe.\nVorgang abgebrochen.
+;
+MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBODYCHUNKPERATIONTERMINA
+Error reading Background file!\nNo BODY Chunk.\nOperation terminated.
+Fehler beim Lesen der Hinmtergrunddatei!\nBODY Chunk fehlt.\nVorgang abgebrochen.
+;
+MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBMHDCHUNKPERATIONTERMINA
+Error reading Background file!\nNo BMHD Chunk.\nOperation terminated.
+Fehler beim Lesen der Hintergrunddatei!\nBMHD Chunk fehlt.\nVorgang abgebrochen.
+;
+MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOMPRESSIONERRORPERATIONTE
+Error reading Background file!\nCompression error.\nOperation terminated.
+Fehler beim Lesen der Hintergrund-Datei!\nKompressionsfehler.\nVorgang abgebrochen.

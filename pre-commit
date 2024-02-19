@@ -14,7 +14,7 @@ for FILE in $FILE_LIST; do
 done
 
 # check WCS.cs (SimpleCat) is ISO-8859
-if [ $(file /home/developer/Desktop/SelcoGit/3DNature/Amiga/WCS.cs | grep "ISO-8859") -ne 0 ] then
+if [ $(file /home/developer/Desktop/SelcoGit/3DNature/Amiga/WCS.cs | grep "ISO-8859") -ne 0 ]; then
    echo "Local pre-commit hook"
    echo "Error: File $FILE is not ISO-8859 encoded. Change that to ISO 8859-1 for Amiga and try again!"
    echo "Commit refused."
