@@ -1121,3 +1121,246 @@ Berechne...
 MSG_CLOUD_DRAWING
 Drawing...
 Zeichne...
+;
+; ------ CloudGUI.c -------
+;
+MSG_CLOUDGUI_CIRRUS
+Cirrus
+Schleierwolken
+;
+MSG_CLOUDGUI_STRATUS
+Stratus
+Schichtwolken
+;
+MSG_CLOUDGUI_NIMBUS
+Nimbus
+Regenwolken
+;
+MSG_CLOUDGUI_CUMULUS
+Cumulus
+Haufenwolken
+;
+MSG_CLOUDGUI_CLOUDEDITOR
+Cloud Editor
+
+;
+MSG_CLOUDGUI_OPTIONS
+Options
+
+;
+MSG_CLOUDGUI_CLOUDS
+\33cClouds
+\33cWolken
+;
+MSG_CLOUDGUI_CLOUDSHADOWS
+\33cCloud Shadows
+\33cWolkenschatten
+;
+MSG_CLOUDGUI_CLOUDTYPE
+Cloud Type
+Wokentyp
+;
+MSG_CLOUDGUI_SEED
+Seed
+
+;
+MSG_CLOUDGUI_CLOUDWAVES
+\33c\0334Cloud Waves
+
+;
+MSG_CLOUDGUI_WAVES
+Waves
+
+;
+MSG_CLOUDGUI_MAPADD
+\33cMap Add...
+
+;
+MSG_CLOUDGUI_EDIT
+\33cEdit...
+\33cBearbeiten...
+;
+MSG_CLOUDGUI_ANIMATE
+Animate
+
+;
+MSG_CLOUDGUI_LOUDMAPSIZERANGE
+\33c\0334Cloud Map Size & Range
+
+;
+MSG_CLOUDGUI_ROWS
+Rows
+
+;
+MSG_CLOUDGUI_COLS
+Cols
+
+;
+MSG_CLOUDGUI_LATMAX
+Lat Max
+
+;
+MSG_CLOUDGUI_MIN
+Min
+
+;
+MSG_CLOUDGUI_LONMAX
+Lon Max
+
+;
+MSG_CLOUDGUI_ANIMATION
+\33c\0334Animation
+
+;
+MSG_CLOUDGUI_COVERAGE
+Coverage
+Bedeckung
+;
+MSG_CLOUDGUI_DENSITY
+Density
+
+;
+MSG_CLOUDGUI_ROUGHNESS
+Roughness
+
+;
+MSG_CLOUDGUI_FRACTDIM
+Fract Dim
+
+;
+MSG_CLOUDGUI_MOVELAT
+Move Lat
+
+;
+MSG_CLOUDGUI_LON
+Lon
+
+;
+MSG_CLOUDGUI_ALTITUDE
+Altitude
+Höhe
+;
+MSG_CLOUDGUI_EYFRAMES
+\33c\0334Key Frames
+
+;
+MSG_CLOUDGUI_PREV
+\33cPrev
+
+;
+MSG_CLOUDGUI_FRAME
+Frame
+
+;
+MSG_CLOUDGUI_NEXT
+\33cNext
+
+;
+MSG_CLOUDGUI_MAKEKEY
+\33cMake Key
+
+;
+MSG_CLOUDGUI_UPDATE
+\33cUpdate
+
+;
+MSG_CLOUDGUI_DELETE
+\33c\33uDel\33nete
+\33cLöschen
+;
+MSG_CLOUDGUI_DELETEALL
+\33cDelete All
+\33cAlles Löschen
+;
+MSG_CLOUDGUI_TIMELINES
+\33cTime Lines\x20
+
+;
+MSG_CLOUDGUI_SCALEKEYS
+\33cScale Keys\x20
+
+;
+MSG_CLOUDGUI_DRAWCLOUD
+\33cDraw Cloud
+\33cZeichne Wolke
+;
+MSG_CLOUDGUI_SETBOUNDS
+\33cSet Bounds
+\33cGrenzen festlegen
+;
+MSG_CLOUDGUI_SAVE
+\33cSave
+\33cSpeichern
+;
+MSG_CLOUDGUI_LOAD
+\33cLoad
+\33cLaden
+;
+MSG_CLOUDGUI_MAPVIEWCLOUDS
+Map View: Clouds
+Map View: Wolken
+;
+MSG_CLOUDGUI_OUTOFMEMORY
+Out of memory!
+Nicht genügend Speicher!
+;
+MSG_CLOUDGUI_OK
+OK
+
+;
+MSG_CLOUDGUI_PARAMETERSMODULEMODEL
+Parameters Module: Model
+Parameter Modul: Modell
+;
+MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE
+The current Cloud Model has been modified. Do you wish to save it before closing? Soll es vor dem Schließen gespeichert werden?
+Das aktuelle Wolkenmodell wurde geändert. Soll es vor dem Schließen gespeichert werden?
+;
+MSG_CLOUDGUI_YESNO
+Yes|No
+
+;
+MSG_CLOUDGUI_CLOUDPATHFILE
+Cloud Path/File
+Wolke PFad/Datei
+;
+MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE
+Make this file the Project Cloud File?
+
+;
+MSG_CLOUDGUI_CLOUDWAVEEDITOR
+Cloud Wave Editor
+
+;
+MSG_CLOUDGUI_ENTERFRAMETOMAKEKEYFOR
+Enter frame to make key for.
+
+;
+MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES
+Delete all cloud key frames?
+
+;
+MSG_CLOUDGUI_OKCANCEL
+OK|Cancel
+
+;
+MSG_CLOUDGUI_FRACTALDIMENSION
+Fractal Dimension
+
+;
+MSG_CLOUDGUI_MOVELATITUDE
+Move Latitude
+
+;
+MSG_CLOUDGUI_MOVELONGITUDE
+Move Longitude
+
+;
+MSG_CLOUDGUI_CLOUDTIMELINES
+Cloud Time Lines
+
+;
+MSG_CLOUDGUI_CLOUDFILE
+Cloud File
+Wolkendatei
+;

@@ -3352,8 +3352,8 @@ Done	WCS.h
 Done	AGUI.c
 Noting	BigEndianReadWrite.c
 Done	BitMaps.c
-Done	Cloud.c
-CloudGUI.c
+Done	Cloud.c    19.Feb
+Done	CloudGUI.c 20.Feb
 ColorBlends.c
 Commands.c
 DEM.c

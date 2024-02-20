@@ -3,6 +3,10 @@
 ** Copyright 1995 by Gary R. Huber and Chris Eric Hanson.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "Wave.h"
@@ -19,7 +23,17 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 {
  char filename[256];
  long i, open;
- static const char *CL_CloudTypes[] = {"Cirrus", "Stratus", "Nimbus", "Cumulus", NULL};
+ static const char *CL_CloudTypes[5];
+ static int Init=1;  // necessary only once
+ if(Init)
+ {
+	 Init=0;
+	 CL_CloudTypes[0] = (const char*)GetString( MSG_CLOUDGUI_CIRRUS );   // "Cirrus"
+	 CL_CloudTypes[1] = (const char*)GetString( MSG_CLOUDGUI_STRATUS );  // "Stratus"
+	 CL_CloudTypes[2] = (const char*)GetString( MSG_CLOUDGUI_NIMBUS );   // "Nimbus"
+	 CL_CloudTypes[3] = (const char*)GetString( MSG_CLOUDGUI_CUMULUS );  // "Cumulus"
+	 CL_CloudTypes[4] = NULL;
+ }
 
  if (CL_Win)
   {
@@ -46,39 +60,39 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
  CL_Win->WKS.Precision = WCS_KFPRECISION_FLOAT;
 
      CL_Win->CloudWin = WindowObject,
-      MUIA_Window_Title		, "Cloud Editor",
+      MUIA_Window_Title		, GetString( MSG_CLOUDGUI_CLOUDEDITOR ),  // "Cloud Editor"
       MUIA_Window_ID		, MakeID('C','L','O','D'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
 	Child, HGroup,
-	  Child, Label2("Options"),
-          Child, CL_Win->BT_Settings[0] = KeyButtonFunc('1', "\33cClouds"), 
-          Child, CL_Win->BT_Settings[1] = KeyButtonFunc('2', "\33cCloud Shadows"), 
+	  Child, Label2(GetString( MSG_CLOUDGUI_OPTIONS )),                                                      // "Options"
+          Child, CL_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_CLOUDGUI_CLOUDS )),       // "\33cClouds"
+          Child, CL_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_CLOUDGUI_CLOUDSHADOWS )), // "\33cCloud Shadows"
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label2("Cloud Type"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_CLOUDTYPE )),  // "Cloud Type"
 	  Child, CL_Win->Cycle = CycleObject,
 		MUIA_Cycle_Entries, CL_CloudTypes,
 		MUIA_Cycle_Active, 0, End,
-	  Child, Label2("Seed"),
+	  Child, Label2( GetString( MSG_CLOUDGUI_SEED )) , // "Seed"
 	  Child, CL_Win->IntStr[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "01234",
 		MUIA_String_Accept, "0123456789", End,
 	  End, /* HGroup */
-	Child, Label("\33c\0334Cloud Waves"),
+	Child, Label(GetString( MSG_CLOUDGUI_CLOUDWAVES )),  // "\33c\0334Cloud Waves"
 	Child, HGroup,
-	  Child, Label2("Waves"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_WAVES )),  // "Waves"
 	  Child, CL_Win->Text = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123", End,
-	  Child, CL_Win->BT_AddWave = KeyButtonFunc('a', "\33cMap Add..."),
-	  Child, CL_Win->BT_EditWave = KeyButtonFunc('e', "\33cEdit..."),
+	  Child, CL_Win->BT_AddWave = KeyButtonFunc('a', (char*)GetString( MSG_CLOUDGUI_MAPADD )),  // "\33cMap Add..."
+	  Child, CL_Win->BT_EditWave = KeyButtonFunc('e', (char*)GetString( MSG_CLOUDGUI_EDIT )),   // "\33cEdit..."
 	  Child, Label2("Animate"),
 	  Child, CL_Win->Check = CheckMark(0),
 	  End, /* HGroup */
-	Child, Label("\33c\0334Cloud Map Size & Range"),
+	Child, Label(GetString( MSG_CLOUDGUI_LOUDMAPSIZERANGE )),  // "\33c\0334Cloud Map Size & Range"
 	Child, ColGroup(4),
-	  Child, Label2("Rows"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_ROWS )),  // "Rows"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->CloudStr[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -86,7 +100,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    Child, CL_Win->CloudArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
 	    Child, CL_Win->CloudArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	    End, /* HGroup */
-	  Child, Label2("Cols"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_COLS ) ),  // "Cols"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->CloudStr[1] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -94,7 +108,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    Child, CL_Win->CloudArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
 	    Child, CL_Win->CloudArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
 	    End, /* HGroup */
-	  Child, Label2("Lat Max"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_LATMAX ) ),  // "Lat Max"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->CloudStr[2] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -102,7 +116,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    Child, CL_Win->CloudArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
 	    Child, CL_Win->CloudArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
 	    End, /* HGroup */
-	  Child, Label2("Min"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_MIN ) ),  // "Min"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->CloudStr[3] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -110,7 +124,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    Child, CL_Win->CloudArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
 	    Child, CL_Win->CloudArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 	    End, /* HGroup */
-	  Child, Label2("Lon Max"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_LONMAX ) ),  // "Lon Max"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->CloudStr[4] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -118,7 +132,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    Child, CL_Win->CloudArrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
 	    Child, CL_Win->CloudArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
 	    End, /* HGroup */
-	  Child, Label2("Min"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_MIN ) ),  // "Min"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->CloudStr[5] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -127,9 +141,9 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    Child, CL_Win->CloudArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
 	    End, /* HGroup */
 	  End, /* ColGroup */
-	Child, Label("\33c\0334Animation"),
+	Child, Label(GetString( MSG_CLOUDGUI_ANIMATION ) ),  // "\33c\0334Animation"
 	Child, ColGroup(4),
-	  Child, Label2("Coverage"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_COVERAGE ) ),  // "Coverage"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->FloatStr[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -137,7 +151,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    Child, CL_Win->FloatArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
 	    Child, CL_Win->FloatArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	    End, /* HGroup */
-	  Child, Label2("Density"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_DENSITY ) ),  // "Density"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->FloatStr[1] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -145,7 +159,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    Child, CL_Win->FloatArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
 	    Child, CL_Win->FloatArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
 	    End, /* HGroup */
-	  Child, Label2("Roughness"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_ROUGHNESS ) ),  // "Roughness"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->FloatStr[2] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -153,7 +167,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    Child, CL_Win->FloatArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
 	    Child, CL_Win->FloatArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
 	    End, /* HGroup */
-	  Child, Label2("Fract Dim"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_FRACTDIM ) ),  // "Fract Dim"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->FloatStr[3] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -161,7 +175,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    Child, CL_Win->FloatArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
 	    Child, CL_Win->FloatArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 	    End, /* HGroup */
-	  Child, Label2("Move Lat"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_MOVELAT ) ),  // "Move Lat"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->FloatStr[5] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -169,7 +183,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    Child, CL_Win->FloatArrow[5][0] = ImageButtonWCS(MUII_ArrowLeft),
 	    Child, CL_Win->FloatArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
 	    End, /* HGroup */
-	  Child, Label2("Lon"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_LON ) ),  // "Lon"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->FloatStr[6] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -179,7 +193,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 	    End, /* HGroup */
 	  End, /* ColGroup */
 	Child, HGroup,
-	  Child, Label2("Altitude"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_ALTITUDE ) ),  // "Altitude"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->FloatStr[4] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
@@ -193,10 +207,10 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 
 /* Frame stuff */
         Child, VGroup,
-	  Child, TextObject, MUIA_Text_Contents, "\33c\0334Key Frames", End,
+	  Child, TextObject, MUIA_Text_Contents, GetString( MSG_CLOUDGUI_EYFRAMES ), End,  // "\33c\0334Key Frames"
           Child, HGroup,
-            Child, CL_Win->GKS.BT_PrevKey = KeyButtonFunc('v', "\33cPrev"), 
-            Child, Label2("Frame"),
+            Child, CL_Win->GKS.BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_CLOUDGUI_PREV ) ),  // "\33cPrev"
+            Child, Label2(GetString( MSG_CLOUDGUI_FRAME ) ),  // "Frame"
             Child, HGroup, MUIA_Group_HorizSpacing, 0,
               Child, CL_Win->GKS.Str[0] = StringObject, StringFrame,
 			MUIA_String_Integer, 0,
@@ -205,35 +219,35 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
               Child, CL_Win->GKS.StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
               Child, CL_Win->GKS.StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
               End, /* HGroup */
-            Child, CL_Win->GKS.BT_NextKey = KeyButtonFunc('x', "\33cNext"), 
+            Child, CL_Win->GKS.BT_NextKey = KeyButtonFunc('x', (char*)GetString( MSG_CLOUDGUI_NEXT ) ),  // "\33cNext"
             End, /* HGroup */
 
 	  Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
-            Child, CL_Win->GKS.BT_MakeKey = KeyButtonFunc('m', "\33cMake Key"), 
-            Child, CL_Win->GKS.BT_UpdateKeys = KeyButtonFunc('u', "\33cUpdate"),
+            Child, CL_Win->GKS.BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_CLOUDGUI_MAKEKEY ) ),    // "\33cMake Key"
+            Child, CL_Win->GKS.BT_UpdateKeys = KeyButtonFunc('u', (char*)GetString( MSG_CLOUDGUI_UPDATE ) ),  // "\33cUpdate"
 	    End, /* HGroup */
           Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
-            Child, CL_Win->GKS.BT_DeleteKey = KeyButtonFunc(127, "\33c\33uDel\33nete"),
-            Child, CL_Win->GKS.BT_DeleteAll = KeyButtonFunc('d', "\33cDelete All"), 
+            Child, CL_Win->GKS.BT_DeleteKey = KeyButtonFunc(127, (char*)GetString( MSG_CLOUDGUI_DELETE ) ),     // "\33c\33uDel\33nete"
+            Child, CL_Win->GKS.BT_DeleteAll = KeyButtonFunc('d', (char*)GetString( MSG_CLOUDGUI_DELETEALL ) ),  // "\33cDelete All"
 	    End, /* HGroup */
 
 	  Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
 	    Child, CL_Win->GKS.FramePages = VGroup,
-              Child, CL_Win->GKS.BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines "), 
+              Child, CL_Win->GKS.BT_TimeLines = KeyButtonFunc('t', (char*)GetString( MSG_CLOUDGUI_TIMELINES ) ),  // "\33cTime Lines "
 	      End, /* VGroup */
-            Child, CL_Win->GKS.BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys "), 
+            Child, CL_Win->GKS.BT_KeyScale = KeyButtonFunc('s', (char*)GetString( MSG_CLOUDGUI_SCALEKEYS ) ),     // "\33cScale Keys "
 	    End, /* HGroup */
 	  End, /* VGroup */
 
 	Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
 
 	Child, HGroup,
-	    Child, CL_Win->BT_DrawCloud = KeyButtonFunc('r', "\33cDraw Cloud"),
-	    Child, CL_Win->BT_SetBounds = KeyButtonFunc('b', "\33cSet Bounds"),
+	    Child, CL_Win->BT_DrawCloud = KeyButtonFunc('r', (char*)GetString( MSG_CLOUDGUI_DRAWCLOUD ) ),  // "\33cDraw Cloud"
+	    Child, CL_Win->BT_SetBounds = KeyButtonFunc('b', (char*)GetString( MSG_CLOUDGUI_SETBOUNDS ) ),  // "\33cSet Bounds"
 	    End, /* HGroup */
 	Child, HGroup,
-	    Child, CL_Win->BT_Save = KeyButtonFunc('s', "\33cSave"),
-	    Child, CL_Win->BT_Load = KeyButtonFunc('l', "\33cLoad"),
+	    Child, CL_Win->BT_Save = KeyButtonFunc('s', (char*)GetString( MSG_CLOUDGUI_SAVE ) ),  // "\33cSave"
+	    Child, CL_Win->BT_Load = KeyButtonFunc('l', (char*)GetString( MSG_CLOUDGUI_LOAD ) ),  // "\33cLoad"
 	    End, /* HGroup */
 
 	End, /* VGroup */
@@ -242,7 +256,10 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
   if (! CL_Win->CloudWin)
    {
    Close_CL_Window();
-   User_Message((CONST_STRPTR)"Map View: Clouds", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR) GetString( MSG_CLOUDGUI_MAPVIEWCLOUDS ) ,  // "Map View: Clouds"
+                (CONST_STRPTR) GetString( MSG_CLOUDGUI_OUTOFMEMORY ) ,    // "Out of memory!" 
+                (CONST_STRPTR) GetString( MSG_CLOUDGUI_OK ) ,             // "OK"
+                (CONST_STRPTR)"o");  
    return;
    } /* out of memory */
 
@@ -417,21 +434,24 @@ void Close_CL_Window(void)
    {
    if (CL_Win->Mod)
     {
-    if (User_Message_Def((CONST_STRPTR)"Parameters Module: Model",
-    		(CONST_STRPTR)"The current Cloud Model has been modified. Do you wish to save it before closing?",
-			(CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+    if (User_Message_Def(GetString( MSG_CLOUDGUI_PARAMETERSMODULEMODEL ) ,  // "Parameters Module: Model"
+    		         GetString( MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE ) ,  // "The current Cloud Model has been modified. Do you wish to save it before closing?"
+		         GetString( MSG_CLOUDGUI_YESNO ) ,  // "Yes|No"
+                         (CONST_STRPTR)"yn", 1))
      {
      char filename[256];
 
-     if (getfilename(1, "Cloud Path/File", CL_Win->CloudDir, CL_Win->CloudFile))
+     if (getfilename(1, (char*)GetString( MSG_CLOUDGUI_CLOUDPATHFILE ), CL_Win->CloudDir, CL_Win->CloudFile))  // "Cloud Path/File"
       {
       strmfp(filename, CL_Win->CloudDir, CL_Win->CloudFile);
       if (Cloud_Save(filename, CL_Win->CD))
        {
        if (strcmp(cloudpath, CL_Win->CloudDir) || strcmp(cloudfile, CL_Win->CloudFile))
         {
-        if (User_Message_Def((CONST_STRPTR)"Cloud Editor",
-        		(CONST_STRPTR)"Make this file the Project Cloud File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+        if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,               // "Cloud Editor"
+        		GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ), // "Make this file the Project Cloud File?" 
+                        GetString( MSG_CLOUDGUI_YESNO ),                           // "Yes|No"
+                        (CONST_STRPTR)"yn", 1))
          {
          strcpy(cloudpath, CL_Win->CloudDir);
          strcpy(cloudfile, CL_Win->CloudFile);
@@ -512,7 +532,7 @@ double FloatVal;
       }
      case ID_CL_WAVEEDIT:
       {
-      Make_WV_Window(1, "Cloud Wave Editor");
+      Make_WV_Window(1, (char*)GetString( MSG_CLOUDGUI_CLOUDWAVEEDITOR ) );  // "Cloud Wave Editor"
       break;
       }
      case ID_CL_DRAW:
@@ -552,8 +572,8 @@ double FloatVal;
       char FrameStr[32];
 
       sprintf(FrameStr, "%d", CL_Win->WKS.Frame);
-      if (! GetInputString("Enter frame to make key for.",
-	 "abcdefghijklmnopqrstuvwxyz", FrameStr))
+      if (! GetInputString((char*)GetString( MSG_CLOUDGUI_ENTERFRAMETOMAKEKEYFOR ) ,  // "Enter frame to make key for."
+    		  (char*)"abcdefghijklmnopqrstuvwxyz", FrameStr))
        break;
 
       KeyFrame = atoi(FrameStr);
@@ -586,8 +606,10 @@ double FloatVal;
       }
      case ID_CL_DELKEYS:
       {
-      if (User_Message_Def((CONST_STRPTR)"Cloud Editor",
-    		  (CONST_STRPTR)"Delete all cloud key frames?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+      if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,     // "Cloud Editor"
+    		  GetString( MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES ) ,  // "Delete all cloud key frames?"
+                  GetString( MSG_CLOUDGUI_OKCANCEL ) ,                 // "OK|Cancel"
+                  (CONST_STRPTR)"oc", 1))
        {
        CL_Win->CD->NumKeys = 0;
        memset(CL_Win->CD->CloudKey, 0, CL_Win->CD->KFSize);
@@ -640,7 +662,7 @@ double FloatVal;
       char filename[256], *Ptrn = "#?.cld";
 
       if (getfilenameptrn
-	(0, "Cloud Path/File", CL_Win->CloudDir, CL_Win->CloudFile, Ptrn))
+	(0, (char*)GetString( MSG_CLOUDGUI_CLOUDPATHFILE ) , CL_Win->CloudDir, CL_Win->CloudFile, Ptrn))  // "Cloud Path/File"
        {
        strmfp(filename, CL_Win->CloudDir, CL_Win->CloudFile);
        if (Cloud_Load(filename, &CL_Win->CD))
@@ -654,8 +676,10 @@ double FloatVal;
         GUIDisableKeyButtons(&CL_Win->GKS, CL_Win->TL, &CL_Win->WKS);
         if (strcmp(cloudpath, CL_Win->CloudDir) || strcmp(cloudfile, CL_Win->CloudFile))
          {
-         if (User_Message_Def((CONST_STRPTR)"Cloud Editor",
-        		 (CONST_STRPTR)"Make this file the Project Cloud File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+         if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
+        		 GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
+                         GetString( MSG_CLOUDGUI_YESNO ),                             // "Yes|No"
+                         (CONST_STRPTR)"yn", 1))
           {
           strcpy(cloudpath, CL_Win->CloudDir);
           strcpy(cloudfile, CL_Win->CloudFile);
@@ -673,7 +697,7 @@ double FloatVal;
       char filename[256], *Ptrn = "#?.cld";
 
       if (getfilenameptrn
-	(1, "Cloud Path/File", CL_Win->CloudDir, CL_Win->CloudFile, Ptrn))
+	(1, (char*)GetString( MSG_CLOUDGUI_CLOUDPATHFILE ), CL_Win->CloudDir, CL_Win->CloudFile, Ptrn))  // "Cloud Path/File"
        {
        if (strcmp(&CL_Win->CloudFile[strlen(CL_Win->CloudFile) - 4], ".cld"))
         strcat(CL_Win->CloudFile, ".cld");
@@ -682,8 +706,10 @@ double FloatVal;
         {
         if (strcmp(cloudpath, CL_Win->CloudDir) || strcmp(cloudfile, CL_Win->CloudFile))
          {
-         if (User_Message_Def((CONST_STRPTR)"Cloud Editor",
-        		 (CONST_STRPTR)"Make this file the Project Cloud File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+         if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
+        		 GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
+                         GetString( MSG_CLOUDGUI_YESNO ) ,                            // "Yes|No", 
+                         (CONST_STRPTR)"yn", 1))
           {
           strcpy(cloudpath, CL_Win->CloudDir);
           strcpy(cloudfile, CL_Win->CloudFile);
@@ -697,10 +723,21 @@ double FloatVal;
       }
      case ID_CL_TIMELINES:
       {
-      static const char *Titles[] = {"Coverage", "Density",
-	"Roughness", "Fractal Dimension", "Altitude", "Move Latitude", "Move Longitude", NULL};
-
-      Make_TL_Window("Cloud Time Lines", (char **)Titles, &CL_Win->TL,
+      static const char *Titles[8];
+      static int Init=1;
+      if(Init)  // Only once necessary
+      {
+       Init=0; 
+       Titles[0] = (const char*)GetString( MSG_CLOUDGUI_COVERAGE );          // "Coverage"
+       Titles[1] = (const char*)GetString( MSG_CLOUDGUI_DENSITY );           // "Density"
+       Titles[2] = (const char*)GetString( MSG_CLOUDGUI_ROUGHNESS );         // "Roughness"
+       Titles[3] = (const char*)GetString( MSG_CLOUDGUI_FRACTALDIMENSION );  // "Fractal Dimension"
+       Titles[4] = (const char*)GetString( MSG_CLOUDGUI_ALTITUDE );          // "Altitude"
+       Titles[5] = (const char*)GetString( MSG_CLOUDGUI_MOVELATITUDE );      // "Move Latitude"
+       Titles[6] = (const char*)GetString( MSG_CLOUDGUI_MOVELONGITUDE );     // "Move Longitude"
+       Titles[7] = NULL;
+      }
+      Make_TL_Window((char*)GetString( MSG_CLOUDGUI_CLOUDTIMELINES ), (char **)Titles, &CL_Win->TL,  // "Cloud Time Lines"
 	CL_Win->FloatStr, &CL_Win->WKS, &CL_Win->GKS, &CL_Win->CD->CloudKey,
 	&CL_Win->CD->KFSize, &CL_Win->CD->NumKeys, &CL_Win->CD->Coverage,
 	NULL, NULL);
@@ -1261,20 +1298,20 @@ union KeyFrame *KFPtr;
     } /* if CD */
    else
     {
-    Log(ERR_MEM_FAIL, (CONST_STRPTR)"Cloud File");
+    Log(ERR_MEM_FAIL, GetString( MSG_CLOUDGUI_CLOUDFILE ));  // "Cloud File"
     success = 0;
     }
    } /* if correct file type */
   else
    {
-   Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Cloud File");
+   Log(ERR_WRONG_TYPE, GetString( MSG_CLOUDGUI_CLOUDFILE ));  // "Cloud File"
    success = 0;
    } /* else */
   fclose(fCloud);
   } /* if file opened */
  else
   {
-  Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Cloud File");
+  Log(ERR_OPEN_FAIL, GetString( MSG_CLOUDGUI_CLOUDFILE ));  // "Cloud File"
   success = 0;
   } /* else no file */
 
@@ -1408,7 +1445,7 @@ union KeyFrame *KFPtr;
   } /* if file opened */
  else
   {
-  Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Cloud File");
+  Log(ERR_OPEN_FAIL, GetString( MSG_CLOUDGUI_CLOUDFILE ));  // "Cloud File"
   return (0);
   } /* else no file */
 
@@ -1479,8 +1516,8 @@ union KeyFrame *KF;
 /* get frame number for new key */
 
  sprintf(str, "%d", 0);
- if (! GetInputString("Enter frame to make key for.",
-	 "abcdefghijklmnopqrstuvwxyz", str))
+ if (! GetInputString((char*)GetString( MSG_CLOUDGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
+		 (char*)"abcdefghijklmnopqrstuvwxyz", str))
   return (0);
 
  KeyFrame = atoi(str);
