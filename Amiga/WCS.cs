@@ -1364,3 +1364,188 @@ MSG_CLOUDGUI_CLOUDFILE
 Cloud File
 Wolkendatei
 ;
+;
+MSG_DEM_CREATINGRELATIVEELEVATIONMODEL
+Creating Relative Elevation Model
+
+;
+MSG_DEM_RELATIVEELEVATION
+Relative elevation
+
+;
+MSG_DEM_COMPUTING
+Computing
+
+;
+MSG_DEM_FILES
+Files
+
+;
+MSG_DEM_DATAOPSDEMINTERPOLATE
+Data Ops: DEM Interpolate
+
+;
+MSG_DEM_NOFILESSELECTED
+No file(s) selected!
+
+;
+MSG_DEM_OK
+OK
+
+;
+MSG_DEM_ERROROPENINGFILEFORINTERPOLATIONILENOTDEMORREMONTINUE
+Error opening file for interpolation!\nFile not DEM or REM\nContinue?
+
+;
+MSG_DEM_OKCANCEL
+OK|CANCEL
+
+;
+MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER
+DEM name is too long to add an extra character to. Do you wish to enter a new base name for the DEM or abort the interpolation?
+
+;
+MSG_DEM_NEWNAMEABORT
+New Name|Abort
+
+;
+MSG_DEM_ENTERNEWOBJECTNAME
+Enter new object name.
+
+;
+MSG_DEM_DATAOPSINTERPOLATEDEM
+Data Ops: Interpolate DEM
+
+;
+MSG_DEM_ERRORREADINGELEVATIONFILEONTINUE
+Error reading elevation file!\nContinue?
+
+;
+MSG_DEM_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+Nicht genügend Speicher!\nVorgang abgebrochen.
+;
+MSG_DEM_ERROROPENINGDEMFILEFOROUTPUTPERATIONTERMINATED
+Error opening DEM file for output!\nOperation terminated.
+
+;
+MSG_DEM_ERRORWRITINGDEMFILEPERATIONTERMINATED
+Error writing DEM file!\nOperation terminated.
+
+;
+MSG_DEM_DATABASEMODULE
+Database Module
+Datenbank Modul
+;
+MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
+Out of memory expanding database!\nOperation terminated.
+
+;
+MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTPERATIONTERMINATE
+Out of memory expanding Database Editor List!\nOperation terminated.
+
+;
+MSG_DEM_ERROROPENINGOBJECTFILEFOROUTPUTPERATIONTERMINATED
+Error opening Object file for output!\nOperation terminated.
+
+;
+MSG_DEM_DATAOPSDEMEXTRACT
+Data Ops: DEM Extract
+
+;
+MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED
+Out of memory allocating DEM Info Header!\nOperation terminated.
+
+;
+MSG_DEM_75MINUTEDEMSDONOTALLLIEWITHINSAMEUTMZONEPERATIONTERMINA
+7.5 Minute DEMs do not all lie within same UTM Zone!\nOperation terminated.
+
+;
+MSG_DEM_OUTOFMEMORYALLOCATINGDEMARRAYSPERATIONTERMINATED
+Out of memory allocating DEM Arrays!\nOperation terminated.
+
+;
+MSG_DEM_75MINUTE
+7.5 Minute
+
+;
+MSG_DEM_READING
+Reading
+Lese
+;
+MSG_DEM_CANTREADDEMPROFILEHEADERPERATIONTERMINATED
+Can't read DEM profile header!\nOperation terminated.
+
+;
+MSG_DEM_ERRORREADINGDEMPROFILEHEADERPERATIONTERMINATED
+Error reading DEM profile header!\nOperation terminated.
+Fehler beim Lesen des DEM Profil-Headers!\nVorgang abgebrochen.
+;
+MSG_DEM_BLANKPATCH
+Blank Patch
+
+;
+MSG_DEM_RESAMPLE
+Resample
+
+;
+MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT
+Enter a name for the 30 meter DEM object.
+
+;
+MSG_DEM_ONEDEGREE
+One Degree
+
+;
+MSG_DEM_OUTOFMEMORYALLOCATINGTEMPORARYBUFFERPERATIONTERMINATED
+Out of memory allocating temporary buffer!\nOperation terminated.
+Nicht genügend Speicher zum Allockieren des Temp-Puffers!\nVorgang abgebrochen.
+;
+MSG_DEM_ERRORREADINGDEMPROFILEPERATIONTERMINATED
+Error reading DEM profile!\nOperation terminated.
+Fehler beim Lesen des DEM Profils!\nVorgang abgebrochen.
+;
+MSG_DEM_IMPROPERDEMPROFILELENGTHPERATIONTERMINATED
+Improper DEM profile length!\nOperation terminated.
+Ungültige Länge des DEM Profils!\nVorgang abgebrochen.
+;
+MSG_DEM_OUTOFMEMORYALLOCATINGMAPBUFFERPERATIONTERMINATED
+Out of memory allocating map buffer!\nOperation terminated.
+
+;
+MSG_DEM_ERRORCREATINGOUTPUTFILEPERATIONTERMINATED
+Error creating output file!\nOperation terminated.
+Fehler beim Erzeugen der Ausgabedatei!\nVorgang abgebrochen.
+;
+MSG_DEM_CANTOPENDEMFILEFORINPUTPERATIONTERMINATED
+Can't open DEM file for input!\nOperation terminated.
+Die DEM Datei konne nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
+;
+MSG_DEM_CANTREADDEMFILEHEADERPERATIONTERMINATED
+Can't read DEM file header!\nOperation terminated.
+ler beim Lesen des DEM File-Headers!\nVorgang abgebrochen.
+;
+MSG_DEM_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
+Error opening output file!\nOperation terminated.
+
+;
+MSG_DEM_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED
+Error writing to output file!\nOperation terminated.
+
+;
+MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLIST
+Out of memory expanding Database Editor List!
+
+;
+MSG_DEM_MAPPINGMODULEFIXFLATS
+Mapping Module: Fix Flats
+
+;
+MSG_DEM_BADARRAYDIMENSIONSSOMETHINGDOESNTCOMPUTEPERATIONTERMINA
+Bad array dimensions! Something doesn't compute.\nOperation terminated.
+
+;
+MSG_DEM_NOFLATSPOTSTOOPERATEONPERATIONTERMINATED
+No flat spots to operate on!\nOperation terminated.
+
+;

@@ -3347,16 +3347,16 @@ Locale BitMaps.c done
 
 locale-Bearbeitung:
 
-Done	WCS.h
+Done		WCS.h
 
-Done	AGUI.c
-Noting	BigEndianReadWrite.c
-Done	BitMaps.c
-Done	Cloud.c    19.Feb
-Done	CloudGUI.c 20.Feb
-ColorBlends.c
-Commands.c
-DEM.c
+Done		AGUI.c
+Noting		BigEndianReadWrite.c
+Done		BitMaps.c
+Done		Cloud.c    19.Feb
+Done		CloudGUI.c 20.Feb
+Nothing		ColorBlends.c
+???		Commands.c
+Done		DEM.c
 DEMGUI.c
 DEMObject.c
 DLG.c
