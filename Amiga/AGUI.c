@@ -42,8 +42,8 @@ void Make_EP_Window(short hor_win)
 {
  long open;
  static const char *LayoutCycle[3];
- LayoutCycle[0]= GetString( MSG_AGUI_STANDUP );  // "Stand Up"
- LayoutCycle[1]= GetString( MSG_AGUI_LAYDOWN );  // "Lay Down"
+ LayoutCycle[0]= (char*)GetString( MSG_AGUI_STANDUP );  // "Stand Up"
+ LayoutCycle[1]= (char*)GetString( MSG_AGUI_LAYDOWN );  // "Lay Down"
  LayoutCycle[2]= NULL;
 
  if (EP_Win)
@@ -71,12 +71,12 @@ void Make_EP_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, EP_Win->CY_Layout = CycleObject,
         MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, EP_Win->BT_EdMoPar = KeyButtonFunc('m',    GetString( MSG_AGUI_MOTION ) ),       // "\33l Motion     "
-        Child, EP_Win->BT_EdCoPar = KeyButtonFunc('c',    GetString( MSG_AGUI_COLOR ) ),        // "\33l Color      "
-        Child, EP_Win->BT_EdEcoPar = KeyButtonFunc('e',   GetString( MSG_AGUI_ECOSYSTEM ) ),    // "\33l Ecosystem  "
-        Child, EP_Win->BT_EdClouds = KeyButtonFunc('l',   GetString( MSG_AGUI_CLOUDS ) ),       // "\33l Clouds     "
-        Child, EP_Win->BT_EdWaves  = KeyButtonFunc('w',   GetString( MSG_AGUI_WAVES ) ),        // "\33l Waves      "
-        Child, EP_Win->BT_Defaults = KeyButtonFunc('d',   GetString( MSG_AGUI_DEFAULTS ) ),     // "\33l Defaults   "
+        Child, EP_Win->BT_EdMoPar = KeyButtonFunc('m',    (char*)GetString( MSG_AGUI_MOTION ) ),       // "\33l Motion     "
+        Child, EP_Win->BT_EdCoPar = KeyButtonFunc('c',    (char*)GetString( MSG_AGUI_COLOR ) ),        // "\33l Color      "
+        Child, EP_Win->BT_EdEcoPar = KeyButtonFunc('e',   (char*)GetString( MSG_AGUI_ECOSYSTEM ) ),    // "\33l Ecosystem  "
+        Child, EP_Win->BT_EdClouds = KeyButtonFunc('l',   (char*)GetString( MSG_AGUI_CLOUDS ) ),       // "\33l Clouds     "
+        Child, EP_Win->BT_EdWaves  = KeyButtonFunc('w',   (char*)GetString( MSG_AGUI_WAVES ) ),        // "\33l Waves      "
+        Child, EP_Win->BT_Defaults = KeyButtonFunc('d',   (char*)GetString( MSG_AGUI_DEFAULTS ) ),     // "\33l Defaults   "
 /*        Child, EP_Win->BT_ExportMo = KeyButtonFunc('i',   "\33l Motion I/O "),*/
         End, /* VGroup */
       End; /* EP_win->EditWindow */
@@ -240,7 +240,7 @@ STATIC_FCN void Handle_EP_Window(ULONG WCS_ID) // used locally only -> static, A
         {
         if (dbaseloaded)
          {
-         sprintf(str,  GetString( MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS ) , dbasename);  // "Create Default Parameters for Database %s? All current Parameters will be overwritten."
+         sprintf(str, (char*)GetString( MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS ) , dbasename);  // "Create Default Parameters for Database %s? All current Parameters will be overwritten."
          if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) , (CONST_STRPTR)str, (CONST_STRPTR) GetString( MSG_AGUI_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "Parameter Editing: Defaults", str, "OK|Cancel"
           {
           paramsloaded = DefaultParams();
@@ -504,9 +504,15 @@ void Make_DB_Window(short hor_win)
 {
  long open;
  static const char *LayoutCycle[3];
- LayoutCycle[0]= GetString( MSG_AGUI_STANDUP );  // "Stand Up"
- LayoutCycle[1]= GetString( MSG_AGUI_LAYDOWN );  // "Lay Down"
- LayoutCycle[2]= NULL;
+ static int Init = 1;
+
+ if(Init)
+ {
+	 Init = 0;
+	 LayoutCycle[0]= (char*)GetString( MSG_AGUI_STANDUP );  // "Stand Up"
+	 LayoutCycle[1]= (char*)GetString( MSG_AGUI_LAYDOWN );  // "Lay Down"
+	 LayoutCycle[2]= NULL;
+ }
 
  if (DB_Win)
   {
@@ -533,12 +539,12 @@ void Make_DB_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, DB_Win->CY_Layout = CycleObject,
 		 MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, DB_Win->BT_Load = KeyButtonFunc('l',    GetString( MSG_AGUI_LOAD ) ),    // "\33l Load     "
-        Child, DB_Win->BT_Append = KeyButtonFunc('a',  GetString( MSG_AGUI_APPEND ) ),  // "\33l Append   "
-        Child, DB_Win->BT_Create = KeyButtonFunc('c',  GetString( MSG_AGUI_CREATE ) ),  // "\33l Create   "
-        Child, DB_Win->BT_Edit = KeyButtonFunc('e',    GetString( MSG_AGUI_EDIT ) ),    // "\33l Edit     "
-        Child, DB_Win->BT_SaveAs = KeyButtonFunc('s',  GetString( MSG_AGUI_SAVE ) ),    // "\33l Save     "
-        Child, DB_Win->BT_DirList = KeyButtonFunc('d', GetString( MSG_AGUI_DIRLIST ) ), // "\33l Dir List "
+        Child, DB_Win->BT_Load = KeyButtonFunc('l',    (char*)GetString( MSG_AGUI_LOAD ) ),    // "\33l Load     "
+        Child, DB_Win->BT_Append = KeyButtonFunc('a',  (char*)GetString( MSG_AGUI_APPEND ) ),  // "\33l Append   "
+        Child, DB_Win->BT_Create = KeyButtonFunc('c',  (char*)GetString( MSG_AGUI_CREATE ) ),  // "\33l Create   "
+        Child, DB_Win->BT_Edit = KeyButtonFunc('e',    (char*)GetString( MSG_AGUI_EDIT ) ),    // "\33l Edit     "
+        Child, DB_Win->BT_SaveAs = KeyButtonFunc('s',  (char*)GetString( MSG_AGUI_SAVE ) ),    // "\33l Save     "
+        Child, DB_Win->BT_DirList = KeyButtonFunc('d', (char*)GetString( MSG_AGUI_DIRLIST ) ), // "\33l Dir List "
         Child, RectangleObject, MUIA_FixHeight, 0, End,
         End, /* VGroup */
       End; /* DB_win->EditWindow */
@@ -770,9 +776,14 @@ void Make_DO_Window(short hor_win)
 {
  long open;
  static const char *LayoutCycle[3];
- LayoutCycle[0]= GetString( MSG_AGUI_STANDUP );  // "Stand Up"
- LayoutCycle[1]= GetString( MSG_AGUI_LAYDOWN );  // "Lay Down"
- LayoutCycle[2]= NULL;
+ static int Init = 1;
+ if (Init)
+ {
+	 Init = 0;
+	 LayoutCycle[0]= (char*)GetString( MSG_AGUI_STANDUP );  // "Stand Up"
+	 LayoutCycle[1]= (char*)GetString( MSG_AGUI_LAYDOWN );  // "Lay Down"
+	 LayoutCycle[2]= NULL;
+ }
 
  if (DO_Win)
   {
@@ -799,13 +810,13 @@ void Make_DO_Window(short hor_win)
       WindowContents, ColGroup(hor_win * 3 + 1),
 	Child, DO_Win->CY_Layout = CycleObject,
 		 MUIA_Cycle_Entries, LayoutCycle, End,
-        Child, DO_Win->BT_Extract = KeyButtonFunc('e',   GetString( MSG_AGUI_EXTRACTDEM ) ),  // "\33l Extract DEM "
-        Child, DO_Win->BT_Convert = KeyButtonFunc('c',   GetString( MSG_AGUI_CONVERTDEM ) ),  // "\33l Convert DEM "
-        Child, DO_Win->BT_InterpMap = KeyButtonFunc('p', GetString( MSG_AGUI_INTERPDEM ) ),   // "\33l Interp DEM  "
-        Child, DO_Win->BT_ImportDLG = KeyButtonFunc('i', GetString( MSG_AGUI_IMPORTDLG ) ),   // "\33l Import DLG  "
-        Child, DO_Win->BT_ImportDXF = KeyButtonFunc('x', GetString( MSG_AGUI_IMPORTDXF ) ),   // "\33l Import DXF  "
-        Child, DO_Win->BT_ImportWDB = KeyButtonFunc('w', GetString( MSG_AGUI_IMPORTWDB ) ),   // "\33l Import WDB  "
-        Child, DO_Win->BT_ExportLWOB = KeyButtonFunc('l', GetString( MSG_AGUI_EXPORTLW ) ),   // "\33l Export LW   "
+        Child, DO_Win->BT_Extract = KeyButtonFunc('e',   (char*)GetString( MSG_AGUI_EXTRACTDEM ) ),  // "\33l Extract DEM "
+        Child, DO_Win->BT_Convert = KeyButtonFunc('c',   (char*)GetString( MSG_AGUI_CONVERTDEM ) ),  // "\33l Convert DEM "
+        Child, DO_Win->BT_InterpMap = KeyButtonFunc('p', (char*)GetString( MSG_AGUI_INTERPDEM ) ),   // "\33l Interp DEM  "
+        Child, DO_Win->BT_ImportDLG = KeyButtonFunc('i', (char*)GetString( MSG_AGUI_IMPORTDLG ) ),   // "\33l Import DLG  "
+        Child, DO_Win->BT_ImportDXF = KeyButtonFunc('x', (char*)GetString( MSG_AGUI_IMPORTDXF ) ),   // "\33l Import DXF  "
+        Child, DO_Win->BT_ImportWDB = KeyButtonFunc('w', (char*)GetString( MSG_AGUI_IMPORTWDB ) ),   // "\33l Import WDB  "
+        Child, DO_Win->BT_ExportLWOB = KeyButtonFunc('l',(char*)GetString( MSG_AGUI_EXPORTLW ) ),    // "\33l Export LW   "
 	Child, RectangleObject, End,
         End, /* VGroup */
       End; /* DO_win->EditWindow */
@@ -1161,7 +1172,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
         Child, TextObject, MUIA_Text_Contents,
 		 "\33cby Questar Productions", End,
         Child, VSpace(5),
-        Child, BT_AboutOK = KeyButtonFunc('o', GetString( MSG_AGUI_OKAY ) ),  // "\33cOkay"
+        Child, BT_AboutOK = KeyButtonFunc('o', (char*)GetString( MSG_AGUI_OKAY ) ),  // "\33cOkay"
         End, /* VGroup */
       End; /* SubWindow AboutWin */
  
@@ -1875,7 +1886,7 @@ void NoLoad_Message(CONST_STRPTR mod, CONST_STRPTR loaditem)
  char loadmesg[255];
 
   sprintf(loadmesg, 
-	 GetString( MSG_AGUI_SORRYOUMUSTFIRSTLOAD338NBEFOREUSINGTHISFEATURE ) , loaditem);  // "Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature."
+		  (char*)GetString( MSG_AGUI_SORRYOUMUSTFIRSTLOAD338NBEFOREUSINGTHISFEATURE ) , loaditem);  // "Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature."
 
   User_Message(mod, (CONST_STRPTR)loadmesg, (CONST_STRPTR) GetString( MSG_AGUI_OK ) ,(CONST_STRPTR)"o");  // "OK"
 
@@ -1920,8 +1931,8 @@ short GetInputString(char *message, char *reject, char *string)
 		MUIA_String_BufferPos, strlen(string), End,
 
 	Child, HGroup,
-	  Child, BT_OK = KeyButtonFunc('o', GetString( MSG_AGUI_OK ) ),  // "\33cOK"
-	  Child, BT_Cancel = KeyButtonFunc('c', GetString( MSG_AGUI_CANCEL ) ),  // "\33cCancel"
+	  Child, BT_OK = KeyButtonFunc('o', (char*)GetString( MSG_AGUI_OK ) ),          // "\33cOK"
+	  Child, BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_AGUI_CANCEL ) ),  // "\33cCancel"
 	  End, /* HGroup */
         End, /* VGroup */
       End; /* IS_Win */
@@ -2079,9 +2090,9 @@ STATIC_FCN void Make_Log_Window(int Severity) // used locally only -> static, AF
           MUIA_Listview_List, ListObject, ReadListFrame, End,
           End, /* ListviewObject */
         Child, HGroup, MUIA_Group_SameSize, TRUE,
-          Child, Log_Win->BT_Clear = KeyButtonFunc('c', GetString( MSG_AGUI_CLEAR ) ),  // "\33cClear"
-          Child, Log_Win->BT_Hide = KeyButtonFunc('h', GetString( MSG_AGUI_HIDE ) ),    // "\33cHide"
-          Child, Log_Win->BT_Quit = KeyButtonFunc('l', GetString( MSG_AGUI_CLOSE ) ),   // "\33cClose"
+          Child, Log_Win->BT_Clear = KeyButtonFunc('c', (char*)GetString( MSG_AGUI_CLEAR ) ),   // "\33cClear"
+          Child, Log_Win->BT_Hide = KeyButtonFunc('h',  (char*)GetString( MSG_AGUI_HIDE ) ),    // "\33cHide"
+          Child, Log_Win->BT_Quit = KeyButtonFunc('l',  (char*)GetString( MSG_AGUI_CLOSE ) ),   // "\33cClose"
           End, /* HGroup */
         End, /* VGroup */
       End; /* Log_Win */
@@ -2352,9 +2363,9 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
 
                
                End,
-              Child, InfoWinFlush = KeyButtonFunc('F',  GetString( MSG_AGUI_FLUSH ) ),  // "\33cFlush"
+              Child, InfoWinFlush = KeyButtonFunc('F',  (char*)GetString( MSG_AGUI_FLUSH ) ),  // "\33cFlush"
 #ifdef XENON_DOESNT_LIKE_THIS
-              Child, InfoWinOK = KeyButtonObject('O'), MUIA_Text_Contents,  GetString( MSG_AGUI_OKAY ) ,  // "\33cOkay"
+              Child, InfoWinOK = KeyButtonObject('O'), MUIA_Text_Contents,  (char*)GetString( MSG_AGUI_OKAY ) ,  // "\33cOkay"
                End,
 #endif /* XENON_DOESNT_LIKE_THIS */
               End,
@@ -2585,25 +2596,25 @@ char *Prefix;
     {
     if (! ReportMesg[0])
      return;
-    Prefix = GetString( MSG_AGUI_ERR );  // "ERR:"
+    Prefix = (char*)GetString( MSG_AGUI_ERR );  // "ERR:"
     }
   else if(ErrMagnitude[StdMesgNum] >= 128)
     {
     if (! ReportMesg[1])
      return;
-    Prefix = GetString( MSG_AGUI_WNG );  // "WNG:"
+    Prefix = (char*)GetString( MSG_AGUI_WNG );  // "WNG:"
     }
   else if(ErrMagnitude[StdMesgNum] >= 100)
     {
     if (! ReportMesg[2])
      return;
-    Prefix = GetString( MSG_AGUI_MSG );  // "MSG:"
+    Prefix = (char*)GetString( MSG_AGUI_MSG );  // "MSG:"
     }
   else if(ErrMagnitude[StdMesgNum] >= 50)
     {
     if (! ReportMesg[3])
      return;
-    Prefix = GetString( MSG_AGUI_DTA );  // "DTA:"
+    Prefix = (char*)GetString( MSG_AGUI_DTA );  // "DTA:"
     }
   else
     {
@@ -2704,11 +2715,11 @@ void DisableKeyButtons(short group)
    if (EM_Win->KeysExist)
     {
     set(EM_Win->BT_UpdateKeys, MUIA_Disabled, FALSE);
-    sprintf(str, GetString( MSG_AGUI_ALL ), EM_Win->KeysExist);  // "All (%d)"
+    sprintf(str, (char*)GetString( MSG_AGUI_ALL ), EM_Win->KeysExist);  // "All (%d)"
     set(EM_Win->BT_AllKeys, MUIA_Text_Contents, (IPTR)str);
     if (EMTL_Win)
      {
-     sprintf(str, GetString( MSG_AGUI_KEYSEXIST ), EM_Win->KeysExist);  // "Keys Exist (%d)"
+     sprintf(str, (char*)GetString( MSG_AGUI_KEYSEXIST ), EM_Win->KeysExist);  // "Keys Exist (%d)"
      set(EMTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)str);
      } /* if motion time line window open */
     }
@@ -2817,11 +2828,11 @@ void DisableKeyButtons(short group)
    if (EC_Win->KeysExist)
     {
     set(EC_Win->BT_UpdateKeys, MUIA_Disabled, FALSE);
-    sprintf(str, GetString( MSG_AGUI_ALL ) , EC_Win->KeysExist);  // "All (%d)"
+    sprintf(str, (char*)GetString( MSG_AGUI_ALL ) , EC_Win->KeysExist);  // "All (%d)"
     set(EC_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)str);
     if (ECTL_Win)
      {
-     sprintf(str, GetString( MSG_AGUI_KEYSEXIST ), EC_Win->KeysExist);  // "Keys Exist (%d)"
+     sprintf(str, (char*)GetString( MSG_AGUI_KEYSEXIST ), EC_Win->KeysExist);  // "Keys Exist (%d)"
      set(ECTL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)str);
      } /* if color time line window open */
     }
@@ -2932,11 +2943,11 @@ void DisableKeyButtons(short group)
    if (EE_Win->KeysExist)
     {
     set(EE_Win->BT_UpdateKeys, MUIA_Disabled, FALSE);
-    sprintf(str, GetString( MSG_AGUI_ALL ), EE_Win->KeysExist);  // "All (%d)"
+    sprintf(str, (char*)GetString( MSG_AGUI_ALL ), EE_Win->KeysExist);  // "All (%d)"
     set(EE_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)str);
     if (EETL_Win)
      {
-     sprintf(str, GetString( MSG_AGUI_KEYSEXIST ), EE_Win->KeysExist);  // "Keys Exist (%d)"
+     sprintf(str, (char*)GetString( MSG_AGUI_KEYSEXIST ), EE_Win->KeysExist);  // "Keys Exist (%d)"
      set(EETL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)str);
      } /* if ecosystem time line window open */
     }

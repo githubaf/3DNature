@@ -530,6 +530,7 @@ Breite\x20
 MSG_SCNRMODGUI_HEIGHT
 Height\x20
 Höhe\x20
+;
 ; ------- AGUI.c ----------
 ;
 MSG_AGUI_PARAMETERMODULE
@@ -956,7 +957,6 @@ MSG_AGUI_SAVESETTINGS
 Save Settings...
 Einstellingen speichern...
 ;
-;
 ; ----- BitMaps.c ---------
 MSG_BITMAPS_IFFFILEPATHNAME
 IFF File Path/Name
@@ -1364,6 +1364,7 @@ MSG_CLOUDGUI_CLOUDFILE
 Cloud File
 Wolkendatei
 ;
+; ------- DEMI.c ----------
 ;
 MSG_DEM_CREATINGRELATIVEELEVATIONMODEL
 Creating Relative Elevation Model
@@ -1448,6 +1449,8 @@ Out of memory expanding Database Editor List!\nOperation terminated.
 MSG_DEM_ERROROPENINGOBJECTFILEFOROUTPUTPERATIONTERMINATED
 Error opening Object file for output!\nOperation terminated.
 
+;
+; ------ DEMGUI.c ---------
 ;
 MSG_DEM_DATAOPSDEMEXTRACT
 Data Ops: DEM Extract
@@ -1549,3 +1552,419 @@ MSG_DEM_NOFLATSPOTSTOOPERATEONPERATIONTERMINATED
 No flat spots to operate on!\nOperation terminated.
 
 ;
+; ------ DEMGUI.c ---------
+;
+MSG_DEMGUI_DBASEOBJECTS
+D'base Objects
+Datenbank Objekte
+;
+MSG_DEMGUI_XYZLATLON
+XYZ Lat/Lon
+
+;
+MSG_DEMGUI_XYZUTM
+XYZ UTM
+
+;
+MSG_DEMGUI_DXFLATLON
+DXF Lat/Lon
+
+;
+MSG_DEMGUI_DXFUTM
+DXF UTM
+
+;
+MSG_DEMGUI_SLIDER
+Slider
+
+;
+MSG_DEMGUI_ENDPOINTS
+End Points
+
+;
+MSG_DEMGUI_DEM
+DEM
+
+;
+MSG_DEMGUI_NUMERIC
+Numeric
+
+;
+MSG_DEMGUI_ISOLINE
+Isoline
+
+;
+MSG_DEMGUI_GRADIENT
+Gradient
+
+;
+MSG_DEMGUI_CONCAVE
+Concave
+konkav
+;
+MSG_DEMGUI_CONVEX
+Convex
+Konvex
+;
+MSG_DEMGUI_NONE
+None
+
+;
+MSG_DEMGUI_LINESPOINTS
+Lines/Points
+
+;
+MSG_DEMGUI_LINESONLY
+Lines Only
+
+;
+MSG_DEMGUI_POINTSONLY
+Points Only
+
+;
+MSG_DEMGUI_KILOMETERS
+Kilometers
+Kilometer
+;
+MSG_DEMGUI_METERS
+Meters
+Meter
+;
+MSG_DEMGUI_CENTIMETERS
+Centimeters
+Zentimeter
+;
+MSG_DEMGUI_MILES
+Miles
+Meilen
+;
+MSG_DEMGUI_FEET
+Feet
+Fuß
+;
+MSG_DEMGUI_INCHES
+Inches
+Zoll
+;
+MSG_DEMGUI_DEMDESIGNER
+DEM Designer
+
+;
+MSG_DEMGUI_CONTROLPTS
+Control Pts
+
+;
+MSG_DEMGUI_MAP
+\33cMap
+
+;
+MSG_DEMGUI_ADD
+\33cAdd
+
+;
+MSG_DEMGUI_MOVE
+\33cMove
+
+;
+MSG_DEMGUI_DEL
+\33cDel
+\33cLöschen
+;
+MSG_DEMGUI_PTINFO
+\33cPt Info
+
+;
+MSG_DEMGUI_SETEL
+\33cSet El
+
+;
+MSG_DEMGUI_ELEVSOURCE
+Elev Source
+
+;
+MSG_DEMGUI_ELEVUNITS
+ Elev Units
+ Höhen Einheiten
+;
+MSG_DEMGUI_DISPLACE
+   Displace
+
+;
+MSG_DEMGUI_DRAWMODE
+  Draw Mode
+Zeichenmodus
+;
+MSG_DEMGUI_NOGRADIENTREVERSAL
+\33cNo Gradient Reversal
+
+;
+MSG_DEMGUI_MINIMUMSPACING
+Minimum Spacing \x20
+
+;
+MSG_DEMGUI_STDDEVIATION
+  Std Deviation\x20
+
+;
+MSG_DEMGUI_NONLINEARITY
+  Non-linearity\x20
+
+;
+MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU
+This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?
+
+;
+MSG_DEMGUI_OKCANCEL
+OK|Cancel
+OK|Abrechen
+;
+MSG_DEMGUI_DEMBUILDER
+DEM Builder
+
+;
+MSG_DEMGUI_ELEVATIONMODELGRID
+\33c\0334Elevation Model Grid
+
+;
+MSG_DEMGUI_OPTIONS
+\33c\0334Options
+\33c\0334Optionen
+;
+MSG_DEMGUI_GRADIENTS
+Gradients\x20\x20
+
+;
+MSG_DEMGUI_CHOROPLETH
+Choropleth\x20
+
+;
+MSG_DEMGUI_DENSITY
+Density\x20\x20\x20\x40
+
+;
+MSG_DEMGUI_EXTRAPOLATE
+Extrapolate
+Extrapolieren
+;
+MSG_DEMGUI_SOUTHHEMI
+South Hemi.
+
+;
+MSG_DEMGUI_BOUNDARIES
+\33c\0334Boundaries
+
+;
+MSG_DEMGUI_NORTH
+North
+Nord
+;
+MSG_DEMGUI_SOUTH
+South
+Süd
+;
+MSG_DEMGUI_EAST
+East
+Ost
+;
+MSG_DEMGUI_WEST
+West
+West
+;
+MSG_DEMGUI_ELLOVERLAP
+\33c\0334Cell Overlap
+
+;
+MSG_DEMGUI_HORIZ
+Horiz
+
+;
+MSG_DEMGUI_VERT
+Vert
+
+;
+MSG_DEMGUI_SURFACETAUTNESS
+\33c\0334Surface Tautness
+\33c\033fOberflächenspannung
+;
+MSG_DEMGUI_SCALE
+\33c\0334Scale
+
+;
+MSG_DEMGUI_NULL
+Null
+
+;
+MSG_DEMGUI_DELTA
+Delta
+
+;
+MSG_DEMGUI_GRID
+\33cGrid
+\33cGitter
+;
+MSG_DEMGUI_NOISE
+\33cNoise
+
+;
+MSG_DEMGUI_DRAW
+\33cDraw
+\33cZeichnen
+;
+MSG_DEMGUI_SAVE
+\33cSave
+\33cSpeichern
+;
+MSG_DEMGUI_MAPVIEWDEMGRIDDER
+Map View: DEM Gridder
+
+;
+MSG_DEMGUI_OUTOFMEMORY
+Out of memory!
+Nicht genügend Speicher!
+;
+MSG_DEMGUI_NEWDEM
+NewDEM
+
+;
+MSG_DEMGUI_IMPORT
+\33cImport
+
+;
+MSG_DEMGUI_SAVEPTS
+\33cSave Pts
+
+;
+MSG_DEMGUI_BUILD
+\33cBuild...
+
+;
+MSG_DEMGUI_DRAWPTS
+\33cDraw Pts
+
+;
+MSG_DEMGUI_CLEARPTS
+\33cClear Pts
+
+;
+MSG_DEMGUI_NONNEG
+Non-Neg\x20\x20\x20\x20
+
+;
+MSG_DEMGUI_OUTPUT
+\33c\0334Output
+
+;
+MSG_DEMGUI_COLS
+Cols
+
+;
+MSG_DEMGUI_ROWS
+Rows
+
+;
+MSG_DEMGUI_OPTIONALNOISEMAP
+\33c\0334Optional Noise Map
+
+;
+MSG_DEMGUI_SEED
+Seed
+Startwert
+;
+MSG_DEMGUI_FRACT
+Fract
+
+;
+MSG_DEMGUI_OFFSETX
+Offset X
+
+;
+MSG_DEMGUI_SCOPE
+Scope
+
+;
+MSG_DEMGUI_APPLYNOISEMAP
+\33cApply Noise Map
+
+;
+MSG_DEMGUI_OUTPUTDEMNAME
+Output DEM Name\x20
+
+;
+MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT
+Select contour objects to import and reselect "Import" when done.
+
+MSG_DEMGUI_OK
+OK
+
+;
+MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED
+Can't open Database Editor window!\nOperation terminated.
+
+;
+MSG_DEMGUI_MAPVIEWEXPORTCONTOURS
+Map View: Export Contours
+
+;
+MSG_DEMGUI_NAMELABELEMBEDDED
+Name|Label|Embedded
+
+;
+MSG_DEMGUI_ERRORIMPORTINGCONTOURDATAPERATIONTERMINATED
+Error importing contour data!\nOperation terminated.
+
+;
+MSG_DEMGUI_ATLEASTONEOBJECTFAILEDTOLOADANDCOULDNOTBEIMPORTED
+At least one Object failed to load and could not be imported.
+
+;
+MSG_DEMGUI_MAPVIEWIMPORTCONTOURS
+Map View: Import Contours
+
+;
+MSG_DEMGUI_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+
+;
+MSG_DEMGUI_XYZPATHFILE
+XYZ Path/File
+
+;
+MSG_DEMGUI_YOUDIDNOTSELECTAFILETOIMPORTPERATIONTERMINATED
+You did not select a file to import!\nOperation terminated.
+
+;
+MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR
+Enter the UTM zone number (0-60) for the data you are about to import.
+
+;
+MSG_DEMGUI_MAPVIEWBUILDDEM
+Map View: Build DEM
+
+;
+MSG_DEMGUI_UTMZONESMAYBEFROM0TO60THESELECTEDZONEISOUTOFRANGEPER
+UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated.
+
+;
+MSG_DEMGUI_ERROROPENINGXYZFILETOIMPORTPERATIONTERMINATED
+Error opening XYZ file to import!\nOperation terminated.
+
+;
+MSG_DEMGUI_MAPVIEWXYZEXPORT
+Map View: XYZ Export
+
+;
+MSG_DEMGUI_ERRORWRITINGTOXYZFILEPARTIALFILEWRITTENPERATIONTERMI
+Error writing to XYZ file! Partial file written.\nOperation terminated.
+
+;
+MSG_DEMGUI_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
+You must specify an output file name!\nOperation terminated.
+
+;
+MSG_DEMGUI_UNABLETOOPENXYZFILEFOREXPORTPERATIONTERMINATED
+Unable to open XYZ file for export!\nOperation terminated.
+
+;
+MSG_DEMGUI_DRAWING
+Drawing...
+

@@ -3,6 +3,9 @@
 ** Code written 1995 by Gary R. Huber helpful suggestions from Chris Hanson.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
 
@@ -44,14 +47,50 @@ EXTERN struct NNGridWindow {
 void Make_MD_Window(void)
 {
 long open, i;
-static const char *MD_FileTypes[] = {"D'base Objects", "XYZ Lat/Lon", "XYZ UTM", "DXF Lat/Lon",
- "DXF UTM", NULL};
-static const char *MD_ElevSource[] = {"Slider", "End Points", "DEM", "Numeric", NULL};
-static const char *MD_DrawMode[] = {"Isoline", "Gradient", "Concave", "Convex", NULL};
-static const char *MD_Displace[] = {"None", "Lines/Points", "Lines Only",
-	"Points Only", NULL};
-static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
-	"Miles", "Feet", "Inches", NULL};
+static const char *MD_FileTypes[6]  = {NULL};
+static const char *MD_ElevSource[5] = {NULL};
+static const char *MD_DrawMode[5]   = {NULL};
+static const char *MD_Displace[5]   = {NULL};
+static const char *MD_ElevUnits[7]  = {NULL};
+static int Init=1;
+
+if(Init)
+{
+	Init=0;
+
+	MD_FileTypes[0] = (char*)GetString( MSG_DEMGUI_DBASEOBJECTS );  // "D'base Objects"
+	MD_FileTypes[1] = (char*)GetString( MSG_DEMGUI_XYZLATLON );     // "XYZ Lat/Lon"
+	MD_FileTypes[2] = (char*)GetString( MSG_DEMGUI_XYZUTM );        // "XYZ UTM"
+	MD_FileTypes[3] = (char*)GetString( MSG_DEMGUI_DXFLATLON );     // "DXF Lat/Lon"
+	MD_FileTypes[4] = (char*)GetString( MSG_DEMGUI_DXFUTM );        // "DXF UTM"
+	MD_FileTypes[5] = NULL;
+
+	MD_ElevSource[0] =  (char*)GetString( MSG_DEMGUI_SLIDER );     // "Slider"
+	MD_ElevSource[1] =  (char*)GetString( MSG_DEMGUI_ENDPOINTS );  // "End Points"
+	MD_ElevSource[2] =  (char*)GetString( MSG_DEMGUI_DEM );        // "DEM"
+	MD_ElevSource[3] =  (char*)GetString( MSG_DEMGUI_NUMERIC );    // "Numeric"
+	MD_ElevSource[4] =  NULL;
+
+	MD_DrawMode[0] = (char*)GetString( MSG_DEMGUI_ISOLINE );   // "Isoline"
+	MD_DrawMode[1] = (char*)GetString( MSG_DEMGUI_GRADIENT );  // "Gradient"
+	MD_DrawMode[2] = (char*)GetString( MSG_DEMGUI_CONCAVE );   // "Concave"
+	MD_DrawMode[3] = (char*)GetString( MSG_DEMGUI_CONVEX );    // "Convex"
+	MD_DrawMode[4] = NULL;
+
+	MD_Displace[0] = (char*)GetString( MSG_DEMGUI_NONE );         // "None",
+	MD_Displace[1] = (char*)GetString( MSG_DEMGUI_LINESPOINTS );  // "Lines/Points",
+	MD_Displace[2] = (char*)GetString( MSG_DEMGUI_LINESONLY );    // "Lines Only",
+	MD_Displace[3] = (char*)GetString( MSG_DEMGUI_POINTSONLY );   // "Points Only",
+	MD_Displace[4] = NULL;
+
+	MD_ElevUnits[0] = (char*)GetString( MSG_DEMGUI_KILOMETERS );   // "Kilometers",
+	MD_ElevUnits[1] = (char*)GetString( MSG_DEMGUI_METERS );       // "Meters",
+	MD_ElevUnits[2] = (char*)GetString( MSG_DEMGUI_CENTIMETERS );  // "Centimeters",
+	MD_ElevUnits[3] = (char*)GetString( MSG_DEMGUI_MILES );        // "Miles",
+	MD_ElevUnits[4] = (char*)GetString( MSG_DEMGUI_FEET );         // "Feet",
+	MD_ElevUnits[5] = (char*)GetString( MSG_DEMGUI_INCHES );       // "Inches",
+	MD_ElevUnits[6] = NULL;
+}
 
  if (MD_Win)
   {
@@ -75,7 +114,7 @@ static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
   Set_Param_Menu(10);
 
      MD_Win->MakeDEMWin = WindowObject,
-      MUIA_Window_Title		, "DEM Designer",
+      MUIA_Window_Title		, GetString( MSG_DEMGUI_DEMDESIGNER ) ,  // "DEM Designer"
       MUIA_Window_ID		, MakeID('D','E','M','B'),
       MUIA_Window_Screen	, WCSScrn,
 
@@ -83,7 +122,7 @@ static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
 	  Child, HGroup,
 	    Child, VGroup,
 	      Child, HGroup,
-	        Child, Label1("Control Pts"),
+	        Child, Label1(GetString( MSG_DEMGUI_CONTROLPTS ) ),  // "Control Pts"
 	        Child, MD_Win->Text = TextObject, TextFrame,
 			MUIA_Text_Contents, "0", End,
 		End, /* HGroup */
@@ -91,54 +130,54 @@ static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
 		Child, MD_Win->ModeButton[0] = KeyButtonObject('m'),
 			 MUIA_Selected, TRUE,
 			 MUIA_InputMode, MUIV_InputMode_Toggle,
-			 MUIA_Text_Contents, "\33cMap", End, 
+			 MUIA_Text_Contents, GetString( MSG_DEMGUI_MAP ), End,  // "\33cMap" 
 		Child, MD_Win->ModeButton[1] = KeyButtonObject('a'),
 			 MUIA_InputMode, MUIV_InputMode_Toggle,
-			 MUIA_Text_Contents, "\33cAdd", End, 
+			 MUIA_Text_Contents, GetString( MSG_DEMGUI_ADD ), End,  // "\33cAdd"
 		Child, MD_Win->ModeButton[2] = KeyButtonObject('v'),
 			 MUIA_InputMode, MUIV_InputMode_Toggle,
-			 MUIA_Text_Contents, "\33cMove", End, 
+			 MUIA_Text_Contents, GetString( MSG_DEMGUI_MOVE ), End,  // "\33cMove"
 		Child, MD_Win->ModeButton[3] = KeyButtonObject('d'),
 			 MUIA_InputMode, MUIV_InputMode_Toggle,
-			 MUIA_Text_Contents, "\33cDel", End, 
+			 MUIA_Text_Contents, GetString( MSG_DEMGUI_DEL ), End,  // "\33cDel"
 		End, /* HGroup */
 	      Child, HGroup, MUIA_Group_SameWidth, TRUE,
 		Child, MD_Win->ModeButton[4] = KeyButtonObject('i'),
 			 MUIA_InputMode, MUIV_InputMode_Toggle,
-			 MUIA_Text_Contents, "\33cPt Info", End, 
+			 MUIA_Text_Contents, GetString( MSG_DEMGUI_PTINFO ) , End,  // "\33cPt Info"
 		Child, MD_Win->ModeButton[5] = KeyButtonObject('t'),
 			 MUIA_InputMode, MUIV_InputMode_Toggle,
-			 MUIA_Text_Contents, "\33cSet El", End, 
+			 MUIA_Text_Contents, GetString( MSG_DEMGUI_SETEL ), End,  // "\33cSet El"
 		End, /* HGroup */
 	      Child, HGroup,
-		Child, Label2("Elev Source"),
+		Child, Label2(GetString( MSG_DEMGUI_ELEVSOURCE ) ),  // "Elev Source"
 		Child, MD_Win->Cycle[0] = CycleObject,
 			MUIA_Cycle_Entries, MD_ElevSource,
 			MUIA_Cycle_Active, MD_Win->ElSource, End,
 		End, /* HGroup */
 	      Child, HGroup,
-		Child, Label2(" Elev Units"),
+		Child, Label2(GetString( MSG_DEMGUI_ELEVUNITS ) ),  // " Elev Units"
 		Child, MD_Win->Cycle[1] = CycleObject,
 			MUIA_Cycle_Entries, MD_ElevUnits,
 			MUIA_Cycle_Active, MD_Win->Units, End,
 		End, /* HGroup */
 	      Child, HGroup,
-		Child, Label2("   Displace"),
+		Child, Label2(GetString( MSG_DEMGUI_DISPLACE ) ),  // "   Displace"
 		Child, MD_Win->Cycle[2] = CycleObject,
 			MUIA_Cycle_Entries, MD_Displace,
 			MUIA_Cycle_Active, MD_Win->Displace, End,
 		End, /* HGroup */
 	      Child, HGroup,
-		Child, Label2("  Draw Mode"),
+		Child, Label2(GetString( MSG_DEMGUI_DRAWMODE ) ),  // "  Draw Mode"
 		Child, MD_Win->Cycle[3] = CycleObject,
 			MUIA_Cycle_Entries, MD_DrawMode,
 			MUIA_Cycle_Active, MD_Win->DMode, End,
 		End, /* HGroup */
 	      Child, MD_Win->ReverseButton = KeyButtonObject('n'),
 			 MUIA_InputMode, MUIV_InputMode_Toggle,
-			 MUIA_Text_Contents, "\33cNo Gradient Reversal", End, 
+			 MUIA_Text_Contents, GetString( MSG_DEMGUI_NOGRADIENTREVERSAL ), End,  // "\33cNo Gradient Reversal"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Minimum Spacing "),
+                Child, Label2(GetString( MSG_DEMGUI_MINIMUMSPACING ) ),  // "Minimum Spacing "
 	        Child, MD_Win->FloatStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -146,7 +185,7 @@ static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
                 Child, MD_Win->ArrowRight[0] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("  Std Deviation "),
+                Child, Label2(GetString( MSG_DEMGUI_STDDEVIATION ) ),  // "  Std Deviation "
 	        Child, MD_Win->FloatStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, ".0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -154,7 +193,7 @@ static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
                 Child, MD_Win->ArrowRight[1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("  Non-linearity "),
+                Child, Label2(GetString( MSG_DEMGUI_NONLINEARITY ) ),  // "  Non-linearity "
 	        Child, MD_Win->FloatStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, ".0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -162,7 +201,7 @@ static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
                 Child, MD_Win->ArrowRight[2] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup,
-		Child, MD_Win->Button[0] = KeyButtonFunc('i', "\33cImport"), 
+		Child, MD_Win->Button[0] = KeyButtonFunc('i', (char*)GetString( MSG_DEMGUI_IMPORT )),  // "\33cImport"
 		Child, MD_Win->Cycle[4]= CycleObject,
 			MUIA_Cycle_Entries, MD_FileTypes,
 			MUIA_Cycle_Active, MD_Win->FileType, End,
@@ -192,10 +231,10 @@ static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
 	      End, /* HGroup */
 	    End, /* HGroup */
 	  Child, HGroup, MUIA_Group_SameWidth, TRUE,
-	    Child, MD_Win->Button[1] = KeyButtonFunc('s', "\33cSave Pts"), 
-	    Child, MD_Win->Button[2] = KeyButtonFunc('g', "\33cBuild..."), 
-	    Child, MD_Win->Button[4] = KeyButtonFunc('d', "\33cDraw Pts"), 
-	    Child, MD_Win->Button[3] = KeyButtonFunc('c', "\33cClear Pts"), 
+	    Child, MD_Win->Button[1] = KeyButtonFunc('s', (char*)GetString( MSG_DEMGUI_SAVEPTS ) ),   // "\33cSave Pts"
+	    Child, MD_Win->Button[2] = KeyButtonFunc('g', (char*)GetString( MSG_DEMGUI_BUILD ) ),     // "\33cBuild..."
+	    Child, MD_Win->Button[4] = KeyButtonFunc('d', (char*)GetString( MSG_DEMGUI_DRAWPTS ) ),   // "\33cDraw Pts"
+	    Child, MD_Win->Button[3] = KeyButtonFunc('c', (char*)GetString( MSG_DEMGUI_CLEARPTS ) ),  // "\33cClear Pts"
 	    End, /* HGroup */
 	  End, /* VGroup */
 	End; /* Window object */
@@ -203,7 +242,10 @@ static const char *MD_ElevUnits[] = {"Kilometers", "Meters", "Centimeters",
   if (! MD_Win->MakeDEMWin)
    {
    Close_MD_Window();
-   User_Message((CONST_STRPTR)"Map View: Build DEM", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),  // "Map View: Build DEM"
+                GetString( MSG_DEMGUI_OUTOFMEMORY ),      // "Out of memory!"
+                GetString( MSG_DEMGUI_OK ),               // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -352,9 +394,10 @@ long i, data;
       {
       if (GR_Win)
        {
-       if (! User_Message((CONST_STRPTR)"Map View: Build DEM",
-    		   (CONST_STRPTR)"This window must remain open while the DEM Gridder is open!\n\
-Do you wish to close them both?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
+       if (! User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                       // "Map View: Build DEM"
+                          GetString( MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU ),  // "This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?"
+                          GetString( MSG_DEMGUI_OKCANCEL ),                                              // "OK|Cancel"
+                          (CONST_STRPTR)"oc"))
         break;
        Close_GR_Window();
        } /* if DEM Gridder window is open */
@@ -699,77 +742,77 @@ long open;
   Set_Param_Menu(10);
 
      GR_Win->NNGridWin = WindowObject,
-      MUIA_Window_Title		, "DEM Builder",
+      MUIA_Window_Title		, GetString( MSG_DEMGUI_DEMBUILDER ) ,  // "DEM Builder"
       MUIA_Window_ID		, MakeID('N','N','G','R'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
-	Child, Label("\33c\0334Elevation Model Grid"),
+	Child, Label(GetString( MSG_DEMGUI_ELEVATIONMODELGRID ) ),  // "\33c\0334Elevation Model Grid"
 	Child, HGroup,
 	  Child, VGroup,
-	    Child, Label("\33c\0334Options"),
+	    Child, Label(GetString( MSG_DEMGUI_OPTIONS ) ),  // "\33c\0334Options"
 	    Child, HGroup,
 	      Child, GR_Win->Check[0] = CheckMark(1),
-	      Child, Label1("Gradients  "),
+	      Child, Label1(GetString( MSG_DEMGUI_GRADIENTS ) ),  // "Gradients  "
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, GR_Win->Check[1] = CheckMark(0),
-	      Child, Label1("Non-Neg    "),
+	      Child, Label1(GetString( MSG_DEMGUI_NONNEG ) ),  // "Non-Neg    "
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, GR_Win->Check[2] = CheckMark(0),
-	      Child, Label1("Choropleth "),
+	      Child, Label1(GetString( MSG_DEMGUI_CHOROPLETH ) ),  // "Choropleth "
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, GR_Win->Check[3] = CheckMark(0),
-	      Child, Label1("Density    "),
+	      Child, Label1(GetString( MSG_DEMGUI_DENSITY ) ),  // "Density    "
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, GR_Win->Check[4] = CheckMark(1),
-	      Child, Label1("Extrapolate"),
+	      Child, Label1(GetString( MSG_DEMGUI_EXTRAPOLATE ) ),  // "Extrapolate"
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, GR_Win->Check[5] = CheckMark(0),
-	      Child, Label1("South Hemi."),
+	      Child, Label1(GetString( MSG_DEMGUI_SOUTHHEMI ) ),  // "South Hemi."
 	      End, /* HGroup */
 	    End, /* VGroup */
 	  Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
 	  Child, VGroup,
-	    Child, Label("\33c\0334Boundaries"),
+	    Child, Label(GetString( MSG_DEMGUI_BOUNDARIES ) ),  // "\33c\0334Boundaries"),
 	    Child, ColGroup(4),
-	      Child, Label2("North"),
+	      Child, Label2(GetString( MSG_DEMGUI_NORTH ) ),  // "North"
 	      Child, GR_Win->FloatStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End,
 
-	      Child, Label2("South"),
+	      Child, Label2(GetString( MSG_DEMGUI_SOUTH ) ),  // "South"
 	      Child, GR_Win->FloatStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End,
 
-	      Child, Label2("East"),
+	      Child, Label2(GetString( MSG_DEMGUI_EAST ) ),  // "East"
 	      Child, GR_Win->FloatStr[2] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End,
 
-	      Child, Label2("West"),
+	      Child, Label2(GetString( MSG_DEMGUI_WEST ) ),  // "West"
 	      Child, GR_Win->FloatStr[3] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End, 
 	      End, /* ColGroup */
-	    Child, Label("\33c\0334Cell Overlap"),
+	    Child, Label(GetString( MSG_DEMGUI_ELLOVERLAP ) ),  // "\33c\0334Cell Overlap"
 	    Child, ColGroup(4),
-	      Child, Label2("Horiz"),
+	      Child, Label2(GetString( MSG_DEMGUI_HORIZ ) ),  // "Horiz"
 	      Child, GR_Win->FloatStr[4] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "-.0123456789", End,
 
-	      Child, Label2("Vert"),
+	      Child, Label2(GetString( MSG_DEMGUI_VERT ) ),  // "Vert"
 	      Child, GR_Win->FloatStr[5] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "-.0123456789", End,
 	      End, /* ColGroup */
-	    Child, Label("\33c\0334Surface Tautness"),
+	    Child, Label(GetString( MSG_DEMGUI_SURFACETAUTNESS ) ),  // "\33c\0334Surface Tautness"
 	    Child, ColGroup(4),
 	      Child, Label2("1"),
 	      Child, GR_Win->FloatStr[6] = StringObject, StringFrame,
@@ -784,7 +827,7 @@ long open;
 	    End, /* VGroup */
 	  End, /* HGroup */
 	Child, VGroup,
-	  Child, Label("\33c\0334Scale"),
+	  Child, Label(GetString( MSG_DEMGUI_SCALE ) ),  // "\33c\0334Scale"
 	  Child, HGroup,
 	    Child, Label2("X"),
 	    Child, GR_Win->FloatStr[9] = StringObject, StringFrame,
@@ -799,40 +842,40 @@ long open;
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, ".0123456789", End,
 	    End, /* HGroup */
-	  Child, Label("\33c\0334Output"),
+	  Child, Label(GetString( MSG_DEMGUI_OUTPUT ) ),  // "\33c\0334Output"
 	  Child, HGroup,
-	    Child, Label2("Cols"),
+	    Child, Label2(GetString( MSG_DEMGUI_COLS ) ),  // "Cols"
 	    Child, GR_Win->IntStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "0123456789", End,
-	    Child, Label2("Rows"),
+	    Child, Label2(GetString( MSG_DEMGUI_ROWS ) ),  // "Rows"
 	    Child, GR_Win->IntStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "0123456789", End,
-	    Child, Label2("Null"),
+	    Child, Label2(GetString( MSG_DEMGUI_NULL ) ),  // "Null"
 	    Child, GR_Win->FloatStr[8] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, ".0123456789", End,
 	    End, /* HGroup */
 
 	  Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-	  Child, Label("\33c\0334Optional Noise Map"),
+	  Child, Label(GetString( MSG_DEMGUI_OPTIONALNOISEMAP ) ),  // "\33c\0334Optional Noise Map"
 	  Child, HGroup,
-	    Child, Label2("Seed"),
+	    Child, Label2(GetString( MSG_DEMGUI_SEED ) ),  // "Seed"
 	    Child, GR_Win->IntStr[2] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "0123456789", End,
-	    Child, Label2("Delta"),
+	    Child, Label2(GetString( MSG_DEMGUI_DELTA ) ),  // "Delta"
 	    Child, GR_Win->FloatStr[12] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, ".0123456789", End,
-	    Child, Label2("Fract"),
+	    Child, Label2(GetString( MSG_DEMGUI_FRACT ) ),  // "Fract"
 	    Child, GR_Win->FloatStr[13] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, ".0123456789", End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Offset X"),
+	    Child, Label2(GetString( MSG_DEMGUI_OFFSETX ) ),  // "Offset X"
 	    Child, GR_Win->IntStr[3] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "0123456789", End,
@@ -840,7 +883,7 @@ long open;
 	    Child, GR_Win->IntStr[4] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "0123456789", End,
-	    Child, Label1("Scope"),
+	    Child, Label1(GetString( MSG_DEMGUI_SCOPE ) ),  // "Scope"
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, GR_Win->Text = TextObject, TextFrame, End,
               Child, GR_Win->Arrow[0] = ImageButtonWCS(MUII_ArrowLeft),
@@ -849,19 +892,19 @@ long open;
 	    End, /* HGroup */
 	  Child, GR_Win->ApplyButton = KeyButtonObject('a'),
 			MUIA_InputMode, MUIV_InputMode_Toggle,
-			MUIA_Text_Contents, "\33cApply Noise Map", End, 
+			MUIA_Text_Contents, GetString( MSG_DEMGUI_APPLYNOISEMAP ), End,  // "\33cApply Noise Map"
 	  Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, Label2("Output DEM Name "),
+	    Child, Label2(GetString( MSG_DEMGUI_OUTPUTDEMNAME )),  // "Output DEM Name "
 	    Child, GR_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "01234567890123456789012345", End,
 	    End, /* HGroup */
 	  End, /* VGroup */
 	Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	  Child, GR_Win->Button[0] = KeyButtonFunc('g', "\33cGrid"),
-	  Child, GR_Win->Button[1] = KeyButtonFunc('n', "\33cNoise"),
-	  Child, GR_Win->Button[2] = KeyButtonFunc('d', "\33cDraw"),
-	  Child, GR_Win->Button[3] = KeyButtonFunc('s', "\33cSave"),
+	  Child, GR_Win->Button[0] = KeyButtonFunc('g', (char*)GetString( MSG_DEMGUI_GRID ) ),   // "\33cGrid"
+	  Child, GR_Win->Button[1] = KeyButtonFunc('n', (char*)GetString( MSG_DEMGUI_NOISE ) ),  // "\33cNoise"
+	  Child, GR_Win->Button[2] = KeyButtonFunc('d', (char*)GetString( MSG_DEMGUI_DRAW ) ),   // "\33cDraw"
+	  Child, GR_Win->Button[3] = KeyButtonFunc('s', (char*)GetString( MSG_DEMGUI_SAVE ) ),   // "\33cSave"
 	  End, /* HGroup */
 	End, /* VGroup */
       End; /* WindowObject */
@@ -869,7 +912,10 @@ long open;
   if (! GR_Win->NNGridWin)
    {
    Close_GR_Window();
-   User_Message((CONST_STRPTR)"Map View: DEM Gridder", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DEMGUI_MAPVIEWDEMGRIDDER ),  // "Map View: DEM Gridder"
+                GetString( MSG_DEMGUI_OUTOFMEMORY ),        // "Out of memory!"
+                GetString( MSG_DEMGUI_OK ),                 // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1156,7 +1202,7 @@ struct datum *DT;
  setfloat(GR_Win->FloatStr[12], 10.0);	/* delta */
  setfloat(GR_Win->FloatStr[13], .5);	/* fractal dimension */
 
- set(GR_Win->Str[0], MUIA_String_Contents, (IPTR)"NewDEM");
+ set(GR_Win->Str[0], MUIA_String_Contents, (IPTR)GetString( MSG_DEMGUI_NEWDEM ));  // "NewDEM"
 
  set(GR_Win->Text, MUIA_Text_Contents, (IPTR)"3");
 
@@ -1214,20 +1260,23 @@ float El;
   {
   Make_DE_Window();
   if (DE_Win)
-   User_Message((CONST_STRPTR)"Map View: Build DEM",
-		   (CONST_STRPTR)"Select contour objects to import and reselect \"Import\" when done.",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ) ,                            // "Map View: Build DEM"
+		   GetString( MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT ),  // "Select contour objects to import and reselect \"Import\" when done."
+		   GetString( MSG_DEMGUI_OK ),                                       // "OK"
+                   (CONST_STRPTR)"o");
   else
-   User_Message((CONST_STRPTR)"Map View: Export Contours",
-		   (CONST_STRPTR)"Can't open Database Editor window!\nOperation terminated.",(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DEMGUI_MAPVIEWEXPORTCONTOURS ) ,                             // "Map View: Export Contours",
+		   GetString( MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED ),  // "Can't open Database Editor window!\nOperation terminated."
+                   GetString( MSG_DEMGUI_OK ) ,                                             // "OK", 
+                   (CONST_STRPTR)"o");
   return (0);
   } /* if Database Editor not open */
 
 
- ElSource = User_Message((CONST_STRPTR)"Map View: Export Contours",
-         (CONST_STRPTR)"Extract elevation values from Object Names, Label fields\
- or use the values embedded in the Objects themselves?",
- (CONST_STRPTR)"Name|Label|Embedded", (CONST_STRPTR)"nle");
+ ElSource = User_Message(GetString( MSG_DEMGUI_MAPVIEWEXPORTCONTOURS ) ,  // "Map View: Export Contours"
+         (CONST_STRPTR)"Extract elevation values from Object Names, Label fields or use the values embedded in the Objects themselves?",
+                         GetString( MSG_DEMGUI_NAMELABELEMBEDDED ),  // "Name|Label|Embedded"
+                         (CONST_STRPTR)"nle");
 
  get(DE_Win->LS_List, MUIA_List_Active, &ActiveItem);
  for (j=0; j<NoOfObjects; j++)
@@ -1259,8 +1308,10 @@ float El;
    if (! Object_ImportXYZ(DBase[j].Points, DBase[j].Lat,
 		DBase[j].Lon, ElevPtr, El, MD_Win->CurDat))
     {
-    User_Message((CONST_STRPTR)"Map View: Build DEM",
-    		(CONST_STRPTR)"Error importing contour data!\nOperation terminated.",(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ) ,  // "Map View: Build DEM"
+    		GetString( MSG_DEMGUI_ERRORIMPORTINGCONTOURDATAPERATIONTERMINATED ) ,  // "Error importing contour data!\nOperation terminated."
+                GetString( MSG_DEMGUI_OK ) ,  // "OK",
+                (CONST_STRPTR)"o");
     success = 0;
     break;
     } /* if error */
@@ -1268,8 +1319,10 @@ float El;
   } /* for j=0... */
 
  if (Warn)
-  User_Message((CONST_STRPTR)"Map View: Build DEM",
-		  (CONST_STRPTR)"At least one Object failed to load and could not be imported.",(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                       // "Map View: Build DEM"
+		  GetString( MSG_DEMGUI_ATLEASTONEOBJECTFAILEDTOLOADANDCOULDNOTBEIMPORTED ),  // "At least one Object failed to load and could not be imported."
+                  GetString( MSG_DEMGUI_OK ),                                                 // "OK"
+                  (CONST_STRPTR)"o");
 
  return (success);
 
@@ -1312,8 +1365,10 @@ long X, Y;
    else
     {
     success = 0;
-    User_Message((CONST_STRPTR)"Map View: Import Contours",
-    		(CONST_STRPTR)"Out of memory!\nOperation terminated.",(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DEMGUI_MAPVIEWIMPORTCONTOURS ),         // "Map View: Import Contours"
+    		GetString( MSG_DEMGUI_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                GetString( MSG_DEMGUI_OK ),                             // "OK",
+                (CONST_STRPTR)"o");
     break;
     } /* else */
    } /* for pt=1... */
@@ -1345,12 +1400,14 @@ struct UTMLatLonCoords UTM;
   strcpy(XYZPath, dirname);
   XYZFile[0] = 0;
   } /* else */
- if (! getfilename(0, "XYZ Path/File", XYZPath, XYZFile))
+ if (! getfilename(0, (char*)GetString( MSG_DEMGUI_XYZPATHFILE ), XYZPath, XYZFile))  // "XYZ Path/File"
   return (0);
  if (XYZFile[0] == 0)
   {
-  User_Message((CONST_STRPTR)"Map View: Build DEM",
-		  (CONST_STRPTR)"You did not select a file to import!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                 // "Map View: Build DEM"
+	       GetString( MSG_DEMGUI_YOUDIDNOTSELECTAFILETOIMPORTPERATIONTERMINATED ),  // "You did not select a file to import!\nOperation terminated."
+               GetString( MSG_DEMGUI_OK ),                                              // "OK",
+               (CONST_STRPTR)"o");
   return (0);
   } /* if */
  strmfp(filename, XYZPath, XYZFile);
@@ -1362,14 +1419,16 @@ struct UTMLatLonCoords UTM;
 
  if (CoordSys == 1)
   {
-  if (GetInputString("Enter the UTM zone number (0-60) for the data you are about to import.",
+  if (GetInputString((char*)GetString( MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR ),  // "Enter the UTM zone number (0-60) for the data you are about to import."
 	"abcdefghijklmnopqrstuvwxyz.:;*/?`#%", str))
    {
    Zone = atoi(str);
    if (Zone < 0 || Zone > 60)
     {
-    User_Message((CONST_STRPTR)"Map View: Build DEM",
-    		(CONST_STRPTR)"UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                      // "Map View: Build DEM"
+    		GetString( MSG_DEMGUI_UTMZONESMAYBEFROM0TO60THESELECTEDZONEISOUTOFRANGEPER ),  // "UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated."
+                GetString( MSG_DEMGUI_OK ),                                                    //  "OK"
+                (CONST_STRPTR)"o");
     return (0);
     } /* if zone out of range */
    UTMLatLonCoords_Init(&UTM, Zone);
@@ -1418,8 +1477,10 @@ struct UTMLatLonCoords UTM;
    else
     {
     success = 0;
-    User_Message((CONST_STRPTR)"Map View: Build DEM",
-    		(CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),  // "Map View: Build DEM"
+    		GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),   // "Out of memory!\nOperation terminated."
+                GetString( MSG_DEMGUI_OK ),                // "OK"
+                (CONST_STRPTR)"o");
     break;
     } /* else out of memory */
    } /* while */
@@ -1428,8 +1489,10 @@ struct UTMLatLonCoords UTM;
  else
   {
   Log(ERR_OPEN_FAIL, (CONST_STRPTR)XYZFile);
-  User_Message((CONST_STRPTR)"Map View: Build DEM",
-		  (CONST_STRPTR)"Error opening XYZ file to import!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ) ,                               // "Map View: Build DEM"
+	       GetString( MSG_DEMGUI_ERROROPENINGXYZFILETOIMPORTPERATIONTERMINATED ),  // "Error opening XYZ file to import!\nOperation terminated."
+               GetString( MSG_DEMGUI_OK ),                                             // "OK"
+               (CONST_STRPTR)"o");
   success = 0;
   } /* else open file failed */
 
@@ -1465,12 +1528,14 @@ FILE *fXYZ;
   strcpy(XYZPath, dirname);
   XYZFile[0] = 0;
   } /* else */
- if (! getfilename(1, "XYZ Path/File", XYZPath, XYZFile))
+ if (! getfilename(1, (char*)GetString( MSG_DEMGUI_XYZPATHFILE ), XYZPath, XYZFile))  // "XYZ Path/File"
   return (0);
  if (! XYZFile[0])
   {
-  User_Message((CONST_STRPTR)"Map View: XYZ Export",
-		  (CONST_STRPTR)"You must specify an output file name!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DEMGUI_MAPVIEWXYZEXPORT ) ,                                 // "Map View: XYZ Export"
+	       GetString( MSG_DEMGUI_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED ),  // "You must specify an output file name!\nOperation terminated."
+               GetString( MSG_DEMGUI_OK ),                                                // "OK"
+               (CONST_STRPTR)"o");
   return (0);
   } /* if no file name */
  strmfp(filename, XYZPath, XYZFile);
@@ -1487,8 +1552,10 @@ FILE *fXYZ;
    if ((fprintf(fXYZ, "%13.8f  %13.8f  %13.8f\n", DT->values[0],
 	DT->values[1], DT->values[2])) < 0)
     {
-    User_Message((CONST_STRPTR)"Map View: XYZ Export",
-    		(CONST_STRPTR)"Error writing to XYZ file! Partial file written.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DEMGUI_MAPVIEWXYZEXPORT ),                                     // "Map View: XYZ Export"
+    		GetString( MSG_DEMGUI_ERRORWRITINGTOXYZFILEPARTIALFILEWRITTENPERATIONTERMI ),  // "Error writing to XYZ file! Partial file written.\nOperation terminated."
+                GetString( MSG_DEMGUI_OK ),                                                    // "OK"
+                (CONST_STRPTR)"o");
     Log(ERR_WRITE_FAIL, (CONST_STRPTR)XYZFile);
     success = 0;
     break;
@@ -1499,8 +1566,10 @@ FILE *fXYZ;
   } /* if file opened */
  else
   {
-  User_Message((CONST_STRPTR)"Map View: XYZ Export",
-		  (CONST_STRPTR)"Unable to open XYZ file for export!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message( GetString( MSG_DEMGUI_MAPVIEWXYZEXPORT ),                                // "Map View: XYZ Export"
+		GetString( MSG_DEMGUI_UNABLETOOPENXYZFILEFOREXPORTPERATIONTERMINATED ),  // "Unable to open XYZ file for export!\nOperation terminated."
+                GetString( MSG_DEMGUI_OK ),                                              // "OK",
+                (CONST_STRPTR)"o");
   Log(ERR_OPEN_FAIL, (CONST_STRPTR)XYZFile);
   success = 0;
   } /* else */
@@ -1653,7 +1722,7 @@ struct clipbounds cb;
 
 /* plot color in Map View, brighter indicates higher amplitude */
 
-  BWGR = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, MakeID('B','W','G','R'));
+  BWGR = BusyWin_New((char*)GetString( MSG_DEMGUI_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','G','R'));  // "Drawing..."
 
   DataRow = 0.0;
   for (y=Low_Y, k=0; y<=High_Y; y++, DataRow+=LatStep, k++)

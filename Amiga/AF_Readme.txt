@@ -3357,7 +3357,7 @@ Done		CloudGUI.c 20.Feb
 Nothing		ColorBlends.c
 ???		Commands.c
 Done		DEM.c
-DEMGUI.c
+Done            DEMGUI.c 22.Feb
 DEMObject.c
 DLG.c
 DataBase.c
@@ -3441,5 +3441,13 @@ sasc_functions.c
 test_main.c
 version_test.c
 
+22.Feb24
+--------
+Habe ich catalog-Defines, die nicht im C-File verwendet werden?
+
+# Liste der Defines fuer ein bestimmtes C-File
+cat WCS_strings.h | awk '/#define MSG_DEMGUI.*_STR/{next}  /#define MSG_DEMGUI/{print $2}' >af_DEMGUI_defs.txt
+# Suchen und Anzeigen der MSG-Defines, die nicht benutzt werden. Ev. mit find in allen c/h Files.
+for DEFINE in $(cat af_DEMGUI_defs.txt); do grep $DEFINE DEMGUI.c >/dev/null || echo $DEFINE; done
 
 

@@ -26,8 +26,9 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.780058229" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.default" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.2055786871" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
-									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
+									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.827159394" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WCS}&quot;"/>
@@ -91,6 +92,7 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.1924900787" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.415541506" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
 									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 								</option>
@@ -308,6 +310,7 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.1911918094" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.1138970085" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
 									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 								</option>
@@ -525,6 +528,7 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.1800293491" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.1146650242" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
 									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 								</option>
@@ -742,8 +746,9 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.1702842016" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.default" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.1649105025" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
-									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
+									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.253725198" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WCS}&quot;"/>
@@ -807,6 +812,7 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.1036798945" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.2146290494" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
 									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 								</option>
@@ -1024,6 +1030,7 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.427504287" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.1195084239" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
 									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 								</option>
@@ -1241,16 +1248,9 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.702841750" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.1364351386" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
-									<listOptionValue builtIn="false" value="__far="/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
-									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
-									<listOptionValue builtIn="false" value="USHORT=UWORD"/>
-									<listOptionValue builtIn="false" value="SHORT=int16_t"/>
-									<listOptionValue builtIn="false" value="__stdargs="/>
-									<listOptionValue builtIn="false" value="__chip="/>
-									<listOptionValue builtIn="false" value="__saveds="/>
-									<listOptionValue builtIn="false" value="STACKED="/>
-									<listOptionValue builtIn="false" value="MUI_OBSOLETE"/>
+									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.1447403290" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WCS}&quot;"/>
@@ -1466,6 +1466,7 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.66017107" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.383722551" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
 									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 								</option>
@@ -1683,16 +1684,9 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.1505644335" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.1558958315" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
 									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
-									<listOptionValue builtIn="false" value="USHORT=UWORD"/>
-									<listOptionValue builtIn="false" value="SHORT=int16_t"/>
-									<listOptionValue builtIn="false" value="__stdargs="/>
-									<listOptionValue builtIn="false" value="__chip="/>
-									<listOptionValue builtIn="false" value="__far="/>
-									<listOptionValue builtIn="false" value="__saveds="/>
-									<listOptionValue builtIn="false" value="STACKED="/>
-									<listOptionValue builtIn="false" value="MUI_OBSOLETE="/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.1675780923" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WCS}&quot;"/>
@@ -1908,16 +1902,9 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.83618669" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.399438039" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
 									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
-									<listOptionValue builtIn="false" value="USHORT=UWORD"/>
-									<listOptionValue builtIn="false" value="SHORT=int16_t"/>
-									<listOptionValue builtIn="false" value="__stdargs="/>
-									<listOptionValue builtIn="false" value="__chip="/>
-									<listOptionValue builtIn="false" value="__far="/>
-									<listOptionValue builtIn="false" value="__saveds="/>
-									<listOptionValue builtIn="false" value="STACKED="/>
-									<listOptionValue builtIn="false" value="MUI_OBSOLETE="/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.1481663955" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WCS}&quot;"/>
@@ -2133,16 +2120,9 @@
 								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.403814260" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.438106689" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
-									<listOptionValue builtIn="false" value="__far="/>
+									<listOptionValue builtIn="false" value="STATIC_FCN=static"/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
-									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
-									<listOptionValue builtIn="false" value="USHORT=UWORD"/>
-									<listOptionValue builtIn="false" value="SHORT=int16_t"/>
-									<listOptionValue builtIn="false" value="__stdargs="/>
-									<listOptionValue builtIn="false" value="__chip="/>
-									<listOptionValue builtIn="false" value="__saveds="/>
-									<listOptionValue builtIn="false" value="STACKED="/>
-									<listOptionValue builtIn="false" value="MUI_OBSOLETE"/>
+									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.1276185195" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WCS}&quot;"/>
@@ -2337,21 +2317,6 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="WCS.cdt.managedbuild.target.gnu.cross.exe.93764662" name="Executable" projectType="cdt.managedbuild.target.gnu.cross.exe"/>
 	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.1373992871;cdt.managedbuild.config.gnu.cross.exe.debug.1373992871.;cdt.managedbuild.tool.gnu.cross.c.compiler.321480172;cdt.managedbuild.tool.gnu.c.compiler.input.658638150">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.470170803;cdt.managedbuild.config.gnu.cross.exe.release.470170803.;cdt.managedbuild.tool.gnu.cross.c.compiler.654106173;cdt.managedbuild.tool.gnu.c.compiler.input.722568666">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.448244191;cdt.managedbuild.config.gnu.cross.exe.release.448244191.;cdt.managedbuild.tool.gnu.cross.c.compiler.735409684;cdt.managedbuild.tool.gnu.c.compiler.input.326027155">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.887330398;cdt.managedbuild.config.gnu.cross.exe.debug.887330398.;cdt.managedbuild.tool.gnu.cross.c.compiler.1936062485;cdt.managedbuild.tool.gnu.c.compiler.input.987726110">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
 		<configuration configurationName="test_x86_64-aros"/>
@@ -2400,5 +2365,23 @@
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
 		<buildTargets/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.887330398;cdt.managedbuild.config.gnu.cross.exe.debug.887330398.;cdt.managedbuild.tool.gnu.cross.c.compiler.1936062485;cdt.managedbuild.tool.gnu.c.compiler.input.987726110">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.1373992871;cdt.managedbuild.config.gnu.cross.exe.debug.1373992871.;cdt.managedbuild.tool.gnu.cross.c.compiler.321480172;cdt.managedbuild.tool.gnu.c.compiler.input.658638150">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.470170803;cdt.managedbuild.config.gnu.cross.exe.release.470170803.;cdt.managedbuild.tool.gnu.cross.c.compiler.654106173;cdt.managedbuild.tool.gnu.c.compiler.input.722568666">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.448244191;cdt.managedbuild.config.gnu.cross.exe.release.448244191.;cdt.managedbuild.tool.gnu.cross.c.compiler.735409684;cdt.managedbuild.tool.gnu.c.compiler.input.326027155">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972;cdt.managedbuild.config.gnu.cross.exe.release.448244191.2062837896.1872509965.750679149.2058787431.1989690972.;cdt.managedbuild.tool.gnu.cross.c.compiler.443381441;cdt.managedbuild.tool.gnu.c.compiler.input.1361845450">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
 	</storageModule>
 </cproject>
