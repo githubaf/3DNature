@@ -1600,7 +1600,7 @@ Gradient
 ;
 MSG_DEMGUI_CONCAVE
 Concave
-konkav
+Konkav
 ;
 MSG_DEMGUI_CONVEX
 Convex
@@ -1684,7 +1684,7 @@ Elev Source
 ;
 MSG_DEMGUI_ELEVUNITS
  Elev Units
- Höhen Einheiten
+ Höhen Einheit
 ;
 MSG_DEMGUI_DISPLACE
    Displace
@@ -1968,3 +1968,134 @@ Unable to open XYZ file for export!\nOperation terminated.
 MSG_DEMGUI_DRAWING
 Drawing...
 
+;
+; -------- DLG.c ----------
+;
+MSG_DLG_DATAOPSMODULEIMPORTDLG
+Data Ops Module: Import DLG
+
+;
+MSG_DLG_OUTOFMEMORYALLOCATINGTEMPORARYARRAYSPERATIONTERMINATED
+Out of memory allocating temporary arrays!\nOperation terminated.
+
+;
+MSG_DLG_OK
+OK
+
+;
+MSG_DLG_DLGFILE
+DLG File
+DLG Datei
+;
+MSG_DLG_NOFILESSELECTED
+No file(s) selected!
+
+;
+MSG_DLG_CANTOPENDLGFILEFORINPUTPERATIONTERMINATED
+Can't open DLG file for input!\nOperation terminated.
+
+;
+MSG_DLG_FILENOTAUSGSOPTIONALDLGPERATIONTERMINATED
+File not a USGS Optional DLG!\nOperation terminated.
+
+;
+MSG_DLG_INAPPROPRIATEUTMZONEPERATIONTERMINATED
+Inappropriate UTM Zone!\nOperation terminated.
+
+;
+MSG_DLG_THISFILECONTAINSDATAINANUNSUPPORTEDREFERENCESYSTEMPERAT
+This file contains data in an unsupported Reference System!\nOperation terminated.
+
+;
+MSG_DLG_READING
+Reading
+Lese
+;
+MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE
+Enter up to 3 characters as a prefix for this DLG set if you desire.
+
+;
+MSG_DLG_DATABASEMODULE
+Database Module
+Datenbank Modul
+;
+MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
+Out of memory expanding database!\nOperation terminated.
+
+;
+MSG_DLG_ERRORSAVINGOBJECTFILEPERATIONTERMINATED
+Error saving object file!\nOperation terminated
+
+;
+MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTPERATIONTERMINATE
+Out of memory expanding Database Editor List!\nOperation terminated.
+
+;
+MSG_DLG_DATAOPSMODULEIMPORTDXF
+Data Ops Module: Import DXF
+
+;
+MSG_DLG_DXFFILE
+DXF File
+DXF Datei
+;
+MSG_DLG_CANTOPENDXFFILEFORINPUTPERATIONTERMINATED
+Can't open DXF file for input!\nOperation terminated.
+
+;
+MSG_DLG_IMPROPERCODEVALUEFOUNDPERATIONTERMINATEDPREMATURELY
+Improper Code value found!\nOperation terminated prematurely.
+
+;
+MSG_DLG_ERRORSAVINGOBJECTPERATIONTERMINATED
+Error saving object!\nOperation terminated.
+
+;
+MSG_DLG_ANENTITYHASBEENFOUNDWITHNONAMEIDENTIFIERPLEASEENTERADEF
+An entity has been found with no name identifier. Please enter a default name.
+
+;
+MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTASTITEMDOESNOTAPP
+Out of memory expanding Database Editor List!\nLast item does not appear in list view.
+
+;
+MSG_DLG_ERRORSAVINGLASTOBJECTPERATIONTERMINATED
+Error saving last object!\nOperation terminated.
+
+;
+MSG_DLG_DATAOPSMODULEIMPORTWDB
+Data Ops Module: Import WDB
+
+;
+MSG_DLG_WDBFILE
+WDB File
+WDB Datei
+;
+MSG_DLG_CANTOPENWDBFILEFORINPUTPERATIONTERMINATED
+Can't open WDB file for input!\nOperation terminated.
+
+;
+MSG_DLG_DATAOPSIMPORTWDB
+Data Ops: Import WDB
+
+;
+MSG_DLG_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+Nicht genügend Speicher!\nVorgang abgebrochen.
+;
+MSG_DLG_ERROROPENINGSOURCEFILEPERATIONTERMINATED
+Error opening source file!\nOperation terminated.
+
+;
+MSG_DLG_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
+Error opening output file!\nOperation terminated.
+
+;
+MSG_DLG_UNSUPPORTEDATTRIBUTECODEPERATIONTERMINATED
+Unsupported attribute code!\nOperation terminated.
+
+;
+MSG_DLG_OBJECTCONTAINSTOOMANYPOINTSPERATIONTERMINATED
+Object contains too many points!\nOperation terminated.
+
+;

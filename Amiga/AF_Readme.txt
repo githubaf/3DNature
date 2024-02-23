@@ -3358,8 +3358,8 @@ Nothing		ColorBlends.c
 ???		Commands.c
 Done		DEM.c
 Done            DEMGUI.c 22.Feb
-DEMObject.c
-DLG.c
+Nothinhg        DEMObject.c
+Done		DLG.c
 DataBase.c
 DataOps.c
 DataOpsGUI.c

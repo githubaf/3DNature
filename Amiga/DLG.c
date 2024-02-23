@@ -3,6 +3,9 @@
 ** Original code written by Gary R. Huber, Jamuary, 1994.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
 
@@ -33,20 +36,23 @@ struct BusyWindow *BWDL;
 
  if (! TempLon || ! TempLat || ! TempElev || ! Coords)
   {
-  User_Message((CONST_STRPTR)"Data Ops Module: Import DLG",
-          (CONST_STRPTR)"Out of memory allocating temporary arrays!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDLG ),                                  // "Data Ops Module: Import DLG"
+               GetString( MSG_DLG_OUTOFMEMORYALLOCATINGTEMPORARYARRAYSPERATIONTERMINATED ),  // "Out of memory allocating temporary arrays!\nOperation terminated."
+               GetString( MSG_DLG_OK ),                                                      // "OK",
+               (CONST_STRPTR)"o");
   goto Cleanup;
   } /* if no database loaded */
 
  strcpy(DLGpath, dirname);
  DLGfile[0] = 0;
- if (! getfilename(0, "DLG File", DLGpath, DLGfile)) goto Cleanup;
+ if (! getfilename(0, (char*)GetString( MSG_DLG_DLGFILE ) ,DLGpath, DLGfile)) goto Cleanup;  // "DLG File"
 
  if (DLGfile[0] == 0)
   {
-  User_Message((CONST_STRPTR)"Data Ops Module: Import DLG",
-          (CONST_STRPTR)"No file(s) selected!",	(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDLG ),  // "Data Ops Module: Import DLG"
+               GetString( MSG_DLG_NOFILESSELECTED ),         // "No file(s) selected!"
+               GetString( MSG_DLG_OK ),                      // "OK",
+               (CONST_STRPTR)"o");
   goto Cleanup;
   } /* if no file */
 
@@ -54,8 +60,10 @@ struct BusyWindow *BWDL;
 
  if ((fDLG = fopen(filename, "r")) == NULL)
   {
-  User_Message((CONST_STRPTR)"Data Ops Module: Import DLG",
-          (CONST_STRPTR)"Can't open DLG file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDLG ),                     // "Data Ops Module: Import DLG"
+               GetString( MSG_DLG_CANTOPENDLGFILEFORINPUTPERATIONTERMINATED ),  // "Can't open DLG file for input!\nOperation terminated."
+               GetString( MSG_DLG_OK ),                                         // "OK"
+               (CONST_STRPTR)"o");
   Log(ERR_OPEN_FAIL, (CONST_STRPTR)DLGfile);
   goto Cleanup;
   } /* if file open failed */
@@ -74,8 +82,10 @@ struct BusyWindow *BWDL;
  if (i >= 3)
   {
   Log(ERR_WRONG_TYPE, (CONST_STRPTR)DLGfile);
-  User_Message((CONST_STRPTR)"Data Ops Module: Import DLG",
-          (CONST_STRPTR)"File not a USGS Optional DLG!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDLG ),                     // "Data Ops Module: Import DLG"
+               GetString( MSG_DLG_FILENOTAUSGSOPTIONALDLGPERATIONTERMINATED ),  // "File not a USGS Optional DLG!\nOperation terminated."
+               GetString( MSG_DLG_OK ),                                         // "OK"
+               (CONST_STRPTR)"o");
   goto Cleanup;
   }
  fscanf(fDLG, "%6hd", &RefSys);
@@ -84,8 +94,10 @@ struct BusyWindow *BWDL;
 
  if ((UTMZone < 0 || UTMZone > 60) && UTMZone != 9999)
   {
-  User_Message((CONST_STRPTR)"Data Ops Module: Import DLG",
-          (CONST_STRPTR)"Inappropriate UTM Zone!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDLG ),                  // "Data Ops Module: Import DLG"
+               GetString( MSG_DLG_INAPPROPRIATEUTMZONEPERATIONTERMINATED ),  // "Inappropriate UTM Zone!\nOperation terminated."
+               GetString( MSG_DLG_OK ),                                      // "OK"
+               (CONST_STRPTR)"o");
   Log(ERR_WRONG_TYPE, (CONST_STRPTR)DLGfile);
   goto Cleanup;
   } /* if zone out of range */
@@ -105,8 +117,10 @@ struct BusyWindow *BWDL;
  else
   {
   Log(ERR_WRONG_TYPE, (CONST_STRPTR)DLGfile);
-  User_Message((CONST_STRPTR)"Data Ops Module: Import DLG",
-          (CONST_STRPTR)"This file contains data in an unsupported Reference System!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDLG ),                                   // "Data Ops Module: Import DLG"
+               GetString( MSG_DLG_THISFILECONTAINSDATAINANUNSUPPORTEDREFERENCESYSTEMPERAT ),  // "This file contains data in an unsupported Reference System!\nOperation terminated."
+               GetString( MSG_DLG_OK ),                                                       // "OK"
+               (CONST_STRPTR)"o");
   goto Cleanup;
   }
 
@@ -118,10 +132,10 @@ struct BusyWindow *BWDL;
   } /* for i=0... */
 
  fseek(fDLG, 0L, SEEK_END);
- BWDL = BusyWin_New("Reading", ftell(fDLG), 0, MakeID('B','W','D','L'));
+ BWDL = BusyWin_New((char*)GetString( MSG_DLG_READING ), ftell(fDLG), 0, MakeID('B','W','D','L'));  // "Reading"
 
  str[0] = 0;
- if (GetInputString("Enter up to 3 characters as a prefix for this DLG set if you desire.", ":;*/?`#%", str))
+ if (GetInputString((char*)GetString( MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE ), ":;*/?`#%", str))  // ,"Enter up to 3 characters as a prefix for this DLG set if you desire."
   {
   strncpy(UserPrefix, str, 3);
   UserPrefix[3] = 0;
@@ -231,8 +245,10 @@ RepeatReadAttrs:
     if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 100)) == NULL)
      {
-     User_Message((CONST_STRPTR)"Database Module",
-             (CONST_STRPTR)"Out of memory expanding database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+     User_Message(GetString( MSG_DLG_DATABASEMODULE ),                             // "Database Module",
+             GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+             GetString( MSG_DLG_OK ),                                              // "OK"
+             (CONST_STRPTR)"o");
      break;
      } /* if new database allocation fails */
     else
@@ -249,8 +265,10 @@ RepeatReadAttrs:
 
    if (saveobject(OBN, filename, &TempLon[0], &TempLat[0], &TempElev[0]))
     {
-    User_Message((CONST_STRPTR)"Data Ops Module: Import DLG",
-            (CONST_STRPTR)"Error saving object file!\nOperation terminated", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDLG ),  // "Data Ops Module: Import DLG"
+                 GetString( MSG_DLG_ERRORSAVINGOBJECTFILEPERATIONTERMINATED ),  // "Error saving object file!\nOperation terminated"
+                 GetString( MSG_DLG_OK ),                                       // "OK"
+                 (CONST_STRPTR)"o");
     break;
     } /* if save fail */
 
@@ -258,8 +276,10 @@ RepeatReadAttrs:
     {
     if (! Add_DE_NewItem())
      {
-     User_Message((CONST_STRPTR)"Database Module",
-             (CONST_STRPTR)"Out of memory expanding Database Editor List!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+     User_Message(GetString( MSG_DLG_DATABASEMODULE ),  // "Database Module"
+                  GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTPERATIONTERMINATE ) ,  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                  GetString( MSG_DLG_OK ),                                                        // "OK"
+                  (CONST_STRPTR)"o");
      break;
      } /* if new list fails */
     } /* if database editor open */
@@ -316,20 +336,23 @@ struct BusyWindow *BWDL;
  
  if (! TempLon || ! TempLat || ! TempElev)
   {
-  User_Message((CONST_STRPTR)"Data Ops Module: Import DXF",
-          (CONST_STRPTR)"Out of memory allocating temporary arrays!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDXF ),                                  // "Data Ops Module: Import DXF"
+               GetString( MSG_DLG_OUTOFMEMORYALLOCATINGTEMPORARYARRAYSPERATIONTERMINATED ),  // "Out of memory allocating temporary arrays!\nOperation terminated."
+               GetString( MSG_DLG_OK ),                                                      // "OK"
+               (CONST_STRPTR)"o");
   goto Cleanup;
   } /* if no database loaded */
 
  strcpy(DXFpath, dirname);
  DXFfile[0] = 0;
- if (! getfilename(0, "DXF File", DXFpath, DXFfile)) goto Cleanup;
+ if (! getfilename(0,  (char*)GetString( MSG_DLG_DXFFILE ), DXFpath, DXFfile)) goto Cleanup;  // "DXF File"
 
  if (DXFfile[0] == 0)
   {
-  User_Message((CONST_STRPTR)"Data Ops Module: Import DXF",
-          (CONST_STRPTR)"No file(s) selected!",	(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDXF ),  // "Data Ops Module: Import DXF"
+               GetString( MSG_DLG_DATAOPSMODULEIMPORTDXF ),  // "No file(s) selected!"
+               GetString( MSG_DLG_OK ),                      // "OK"
+               (CONST_STRPTR)"o");
   goto Cleanup;
   } /* if no file */
 
@@ -337,8 +360,10 @@ struct BusyWindow *BWDL;
 
  if ((fDXF = fopen(filename, "r")) == NULL)
   {
-  User_Message((CONST_STRPTR)"Data Ops Module: Import DXF",
-          (CONST_STRPTR)"Can't open DXF file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDXF ),                     // "Data Ops Module: Import DXF"
+               GetString( MSG_DLG_CANTOPENDXFFILEFORINPUTPERATIONTERMINATED ),  // "Can't open DXF file for input!\nOperation terminated."
+               GetString( MSG_DLG_OK ),                                         // "OK"
+               (CONST_STRPTR)"o");
   Log(ERR_OPEN_FAIL, (CONST_STRPTR)DXFfile);
   goto Cleanup;
   } /* if file open failed */
@@ -347,7 +372,7 @@ struct BusyWindow *BWDL;
  DefaultName[0] = 0;
 
  fseek(fDXF, 0L, SEEK_END);
- BWDL = BusyWin_New("Reading", ftell(fDXF), 0, MakeID('B','W','D','L'));
+ BWDL = BusyWin_New((char*)GetString( MSG_DLG_READING ), ftell(fDXF), 0, MakeID('B','W','D','L'));  // "Reading"
  fseek(fDXF, 0L, SEEK_SET);
 
  while (done != EOF)
@@ -376,8 +401,10 @@ struct BusyWindow *BWDL;
    }
   else
    {
-   User_Message((CONST_STRPTR)"Data Ops Module: Import DXF",
-           (CONST_STRPTR)"Improper Code value found!\nOperation terminated prematurely.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message( GetString( MSG_DLG_DATAOPSMODULEIMPORTDXF ),                               // "Data Ops Module: Import DXF"
+                 GetString( MSG_DLG_IMPROPERCODEVALUEFOUNDPERATIONTERMINATEDPREMATURELY ),  // "Improper Code value found!\nOperation terminated prematurely."
+                 GetString( MSG_DLG_OK ),                                                   // "OK"
+                 (CONST_STRPTR)"o");
    break;
    }
 
@@ -385,7 +412,7 @@ struct BusyWindow *BWDL;
    {
    case 0:
     {
-    if (! strcmp(str, "POLYLINE"))
+    if (! strcmp(str, "POLYLINE" ))
      {
      if (ReadyToSave)
       {
@@ -397,8 +424,10 @@ struct BusyWindow *BWDL;
        if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 100)) == NULL)
         {
-        User_Message((CONST_STRPTR)"Database Module",
-                (CONST_STRPTR)"Out of memory expanding database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+        User_Message(GetString( MSG_DLG_DATABASEMODULE ),                                  // "Database Module"
+                     GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+                     GetString( MSG_DLG_OK ),                                              // "OK"
+                     (CONST_STRPTR)"o");
         done = 1;
         break;
         } /* if new database allocation fails */
@@ -417,8 +446,10 @@ struct BusyWindow *BWDL;
        {
        if (! Add_DE_NewItem())
         {
-        User_Message((CONST_STRPTR)"Database Module",
-                (CONST_STRPTR)"Out of memory expanding Database Editor List!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+        User_Message(GetString( MSG_DLG_DATABASEMODULE ) ,                                          // "Database Module"
+                     GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                     GetString( MSG_DLG_OK ),                                                       // "OK
+                     (CONST_STRPTR)"o");
         done = 1;
         break;
 	} /* if error adding item */
@@ -429,8 +460,10 @@ struct BusyWindow *BWDL;
 
       if (saveobject(OBN, filename, &TempLon[0], &TempLat[0], &TempElev[0]))
        {
-       User_Message((CONST_STRPTR)"Data Ops Module: Import DXF",
-               (CONST_STRPTR)"Error saving object!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+       User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDXF ),               // "Data Ops Module: Import DXF"
+                    GetString( MSG_DLG_ERRORSAVINGOBJECTPERATIONTERMINATED ),  // "Error saving object!\nOperation terminated."
+                    GetString( MSG_DLG_OK ),                                   // "OK"
+                    (CONST_STRPTR)"o");
        done = 1;
        break;
        } /* if save error */
@@ -474,7 +507,7 @@ struct BusyWindow *BWDL;
        {
        if (! DefaultName[0])
         {
-        if (! GetInputString("An entity has been found with no name identifier. Please enter a default name.",
+        if (! GetInputString((char*)GetString( MSG_DLG_ANENTITYHASBEENFOUNDWITHNONAMEIDENTIFIERPLEASEENTERADEF ) ,  // "An entity has been found with no name identifier. Please enter a default name."
 		":;*/?`#%", DefaultName))
          {
          abort = 1;
@@ -562,15 +595,19 @@ struct BusyWindow *BWDL;
    {
    if (! Add_DE_NewItem())
     User_Message((CONST_STRPTR)"Database Module",
-            (CONST_STRPTR)"Out of memory expanding Database Editor List!\nLast item does not appear in list view.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+            GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTASTITEMDOESNOTAPP ),  // "Out of memory expanding Database Editor List!\nLast item does not appear in list view."
+            GetString( MSG_DLG_OK ),                                                       // "OK", 
+            (CONST_STRPTR)"o");
    } /* if database editor open */
 
   strmfp(filename, dirname, ObjName);
   strcat(filename, ".Obj");
   if (saveobject(OBN, filename, &TempLon[0], &TempLat[0], &TempElev[0]))
    {
-   User_Message((CONST_STRPTR)"Data Ops Module: Import DXF",
-           (CONST_STRPTR)"Error saving last object!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTDXF ),              // "Data Ops Module: Import DXF"
+           GetString( MSG_DLG_ERRORSAVINGLASTOBJECTPERATIONTERMINATED ),  // "Error saving last object!\nOperation terminated."
+           GetString( MSG_DLG_OK ),                                       // "OK"
+           (CONST_STRPTR)"o");
    } /* if save error */
   } /* if object output file open (not yet written) */
 
@@ -1890,21 +1927,24 @@ struct BusyWindow *BWDL = NULL;
  
  if (! TempLon || ! TempLat || ! TempElev)
   {
-  User_Message((CONST_STRPTR)"Data Ops Module: Import WDB",
-          (CONST_STRPTR)"Out of memory allocating temporary arrays!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTWDB ),                                  // "Data Ops Module: Import WDB"
+               GetString( MSG_DLG_OUTOFMEMORYALLOCATINGTEMPORARYARRAYSPERATIONTERMINATED ),  // "Out of memory allocating temporary arrays!\nOperation terminated."
+          GetString( MSG_DLG_OK ),
+          (CONST_STRPTR)"o");
   error = 1;
   goto Cleanup;
   } /* if no database loaded */
 
  strcpy(WDBpath, dirname);
  WDBfile[0] = 0;
- if (! getfilename(0, "WDB File", WDBpath, WDBfile)) goto Cleanup;
+ if (! getfilename(0, (char*)GetString( MSG_DLG_WDBFILE ), WDBpath, WDBfile)) goto Cleanup;  // "WDB File"
 
  if (WDBfile[0] == 0)
   {
-  User_Message((CONST_STRPTR)"Data Ops Module: Import WDB",
-          (CONST_STRPTR)"No file(s) selected!",	(CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTWDB ),  // "Data Ops Module: Import WDB"
+          GetString( MSG_DLG_NOFILESSELECTED ),              // "No file(s) selected!"
+          GetString( MSG_DLG_OK ),                           // "OK"
+          (CONST_STRPTR)"o");
   goto Cleanup;
   } /* if no file */
 
@@ -1912,8 +1952,10 @@ struct BusyWindow *BWDL = NULL;
 
  if ((fWDB = fopen(filename, "rb")) == NULL)
   {
-  User_Message((CONST_STRPTR)"Data Ops Module: Import WDB",
-          (CONST_STRPTR)"Can't open WDB file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DLG_DATAOPSMODULEIMPORTWDB ),                     // "Data Ops Module: Import WDB"
+               GetString( MSG_DLG_CANTOPENWDBFILEFORINPUTPERATIONTERMINATED ),  // "Can't open WDB file for input!\nOperation terminated."
+               GetString( MSG_DLG_OK ),                                         // "OK"
+               (CONST_STRPTR)"o");
   Log(ERR_OPEN_FAIL, (CONST_STRPTR)WDBfile);
   error = 2;
   goto Cleanup;
@@ -1922,7 +1964,7 @@ struct BusyWindow *BWDL = NULL;
  DLG.Pairs = 0;
 
  fseek(fWDB, 0L, SEEK_END);
- BWDL = BusyWin_New("Reading", ftell(fWDB), 0, MakeID('B','W','D','L'));
+ BWDL = BusyWin_New((char*)GetString( MSG_DLG_READING ), ftell(fWDB), 0, MakeID('B','W','D','L'));  // "Reading"
  fseek(fWDB, 0L, SEEK_SET);
 
  while (1)
@@ -1951,8 +1993,10 @@ struct BusyWindow *BWDL = NULL;
      {
      if (! Add_DE_NewItem())
       {
-      User_Message((CONST_STRPTR)"Database Module",
-              (CONST_STRPTR)"Out of memory expanding Database Editor List!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+      User_Message(GetString( MSG_DLG_DATABASEMODULE ),  // "Database Module"
+                   GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                   GetString( MSG_DLG_OK ),                                                       // "OK"
+                   (CONST_STRPTR)"o");
       break;
       } /* if new list fails */
      } /* if database editor open */
@@ -2074,8 +2118,10 @@ struct BusyWindow *BWDL = NULL;
       {
       if (! Add_DE_NewItem())
        {
-       User_Message((CONST_STRPTR)"Database Module",
-               (CONST_STRPTR)"Out of memory expanding Database Editor List!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+       User_Message(GetString( MSG_DLG_DATABASEMODULE ),                                                      // "Database Module"
+                               GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                               GetString( MSG_DLG_OK ),                                                       // "OK"
+                               (CONST_STRPTR)"o");
        break;
        } /* if new list fails */
       } /* if database editor open */
@@ -2141,8 +2187,10 @@ struct BusyWindow *BWDL = NULL;
    {
    if (! Add_DE_NewItem())
     {
-    User_Message((CONST_STRPTR)"Database Module",
-            (CONST_STRPTR)"Out of memory expanding Database Editor List!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DLG_DATABASEMODULE ),                                           // "Database Module"
+                 GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                 GetString( MSG_DLG_OK ),                                                       // "OK"
+                 (CONST_STRPTR)"o");
     } /* if new list fails */
    } /* if database editor open */
   } /* if readt to save open */
@@ -2160,43 +2208,57 @@ Cleanup:
   {
   case 1:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Import WDB",
-           (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DLG_DATAOPSIMPORTWDB ),                // "Data Ops: Import WDB"
+                GetString( MSG_DLG_OUTOFMEMORYPERATIONTERMINATED ) ,  // "Out of memory!\nOperation terminated."
+                GetString( MSG_DLG_OK ),                              // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /* memory */
   case 2:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Import WDB",
-           (CONST_STRPTR)"Error opening source file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DLG_DATAOPSIMPORTWDB ),                          // "Data Ops: Import WDB"
+                GetString( MSG_DLG_ERROROPENINGSOURCEFILEPERATIONTERMINATED ),  // "Error opening source file!\nOperation terminated."
+                GetString( MSG_DLG_OK ),                                        // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /* source file open */
   case 3:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Import WDB",
-           (CONST_STRPTR)"Error opening output file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DLG_DATAOPSIMPORTWDB ),                     // "Data Ops: Import WDB"
+           GetString( MSG_DLG_ERROROPENINGOUTPUTFILEPERATIONTERMINATED ),  // "Error opening output file!\nOperation terminated."
+           GetString( MSG_DLG_OK ),                                        // "OK"
+           (CONST_STRPTR)"o");
    break;
    } /* out file open */
   case 4:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Import WDB",
-           (CONST_STRPTR)"Error saving object file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DLG_DATAOPSIMPORTWDB ),                         // "Data Ops: Import WDB"
+                GetString( MSG_DLG_ERRORSAVINGOBJECTFILEPERATIONTERMINATED ),  // "Error saving object file!\nOperation terminated."
+                GetString( MSG_DLG_OK ),                                       // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /*  out file write */
   case 5:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Import WDB",
-           (CONST_STRPTR)"Unsupported attribute code!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DLG_DATAOPSIMPORTWDB ),                            // "Data Ops: Import WDB"
+                GetString( MSG_DLG_UNSUPPORTEDATTRIBUTECODEPERATIONTERMINATED ),  // "Unsupported attribute code!\nOperation terminated."
+                GetString( MSG_DLG_OK ),                                          // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /*  unsupported code */
   case 6:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Import WDB",
-           (CONST_STRPTR)"Object contains too many points!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DLG_DATAOPSIMPORTWDB ),                               // "Data Ops: Import WDB"
+                GetString( MSG_DLG_OBJECTCONTAINSTOOMANYPOINTSPERATIONTERMINATED ),  // "Object contains too many points!\nOperation terminated."
+                GetString( MSG_DLG_OK ),                                             // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /*  too many points */
   case 7:   {
-   User_Message((CONST_STRPTR)"Data Ops: Import WDB",
-           (CONST_STRPTR)"Out of memory expanding database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DLG_DATAOPSIMPORTWDB ),                                // "Data Ops: Import WDB"
+                GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+                GetString( MSG_DLG_OK ),                                              // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /*  database memory */
   } /* switch */
