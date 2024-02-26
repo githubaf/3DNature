@@ -2099,3 +2099,180 @@ MSG_DLG_OBJECTCONTAINSTOOMANYPOINTSPERATIONTERMINATED
 Object contains too many points!\nOperation terminated.
 
 ;
+;
+MSG_DB_NEWDATABASECREATED
+New database created: %s
+
+;
+MSG_DB_ERRORSAVINGDATABASEELECTANEWDIRECTORY
+Error saving database!\nSelect a new directory?
+
+;
+MSG_DB_OKCANCEL
+OK|Canel
+
+;
+MSG_DB_DATABASE
+Database
+
+;
+MSG_DB_NUMBEROFOBJECTS
+Number of objects = %d
+
+;
+MSG_DB_DIRECTORYCREATED
+Directory Created: %s
+
+;
+MSG_DB_NEWDIRECTORYCREATEDMAKEITTHEDEFAULTDIRECTORY
+New directory created: %s. Make it the default directory?
+
+;
+MSG_DB_DATABASEMODULESAVE
+Database Module: Save
+
+;
+MSG_DB_DATABASEMODULE
+Database Module
+
+;
+MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA
+Illegal number of database records: less than one!\nOperation terminated.
+
+;
+MSG_DB_OK
+OK
+
+;
+MSG_DB_OUTOFMEMORYANTUPDATEDATABASELIST
+Out of memory!\nCan't update database list.
+
+;
+MSG_DB_VECTORLOAD
+Vector Load
+
+;
+MSG_DB_OBJECTS
+%d objects
+
+;
+MSG_DB_ATLEASTONEVECTORFILEWASFOUNDTOCONTAINANUMBEROFPOINTSDIFF
+At least one vector file was found to contain a number of points different from that in its Database record!\nThe record has been updated.\nDatabase should be re-saved.
+
+;
+MSG_DB_MAPVIEWLOAD
+Map View: Load
+
+;
+MSG_DB_ERRORREADINGELEVATIONSOBJECTNOTLOADED
+Error reading elevations! Object not loaded.
+
+;
+MSG_DB_ERRORREADINGLATITUDESOBJECTNOTLOADED
+Error reading latitudes! Object not loaded.
+
+;
+MSG_DB_ERRORREADINGLONGITUDESOBJECTNOTLOADED
+Error reading longitudes! Object not loaded.
+
+;
+MSG_DB_OUTOFMEMORYOBJECTNOTLOADED
+Out of memory! Object not loaded.
+
+;
+MSG_DB_ERRORREADINGHEADEROBJECTNOTLOADED
+Error reading header! Object not loaded.
+
+;
+MSG_DB_UNSUPPORTEDFILEVERSIONOBJECTNOTLOADED
+Unsupported file version! Object not loaded.
+
+;
+MSG_DB_OBJECTDIRECTORY
+Object Directory
+
+;
+MSG_DB_ENTERNEWOBJECTNAME
+Enter new object name.
+
+;
+MSG_DB_DATABASEMODULENAME
+Database Module: Name
+
+;
+MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME
+Vector name already present in database!\nTry a new name?
+
+;
+MSG_DB_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
+Out of memory expanding database!\nOperation terminated.
+
+;
+MSG_DB_DATABASEMODULEEDITOR
+Database Module: Editor
+
+;
+MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN
+No memory for vector coordinates!\nNew object has been created but can not be edited until memory is available.
+
+;
+MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE
+Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.
+
+;
+MSG_DB_ADDOBJECT
+Add Object
+
+;
+MSG_DB_DATABASEADDOBJECT
+Database: Add Object
+
+;
+MSG_DB_NOFILESSELECTED
+No file(s) selected!
+
+;
+MSG_DB_OBJECTMUSTENDINSUFFIXOBJ
+Object must end in suffix "Obj"!
+
+;
+MSG_DB_OBJECTNAMEALREADYPRESENTINDATABASEUPLICATEITEMSWILLBESKI
+Object name already present in database!\nDuplicate items will be skipped.
+
+;
+MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENADD
+Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.
+
+;
+MSG_DB_ERRORLOADINGTHISOBJECTPERATIONTERMINATED
+Error loading this Object!\nOperation terminated.
+
+;
+MSG_DB_MAPVIEWSAVEALL
+Map View: Save All
+
+;
+MSG_DB_ERRORWRITINGMASTEROBJECTFILEPERATIONTERMINATED
+Error writing Master Object file!\nOperation terminated.
+
+;
+MSG_DB_WCSMASTEROBJECT
+WCSMasterObject
+
+;
+MSG_DB_OUTOFMEMORYLOADINGMASTEROBJECTFILENABLEDOBJECTSWILLBELOA
+Out of memory loading Master Object File!\nEnabled Objects will be loaded individually.
+
+;
+MSG_DB_ERRORREADINGMASTEROBJECTFILEPERATIONTERMINATED
+Error reading Master Object file!\nOperation terminated.
+
+;
+MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
+Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
+
+;
+MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
+.MDB is not a WCS Master Object file!
+
+;
