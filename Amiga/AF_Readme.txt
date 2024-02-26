@@ -3361,7 +3361,7 @@ Done            DEMGUI.c 22.Feb
 Nothinhg        DEMObject.c
 Done		DLG.c
 Done		DataBase.c 26.Feb
-DataOps.c
+Done		DataOps.c 26.Feb
 DataOpsGUI.c
 DefaultParams.c
 DiagnosticGUI.c

@@ -2276,3 +2276,163 @@ MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 .MDB is not a WCS Master Object file!
 
 ;
+;
+MSG_DATAOPS_DATAOPSCONVERTDEM
+Data Ops: Convert DEM
+
+;
+MSG_DATAOPS_YOUMUSTSPECIFYAFILETOCONVERTPERATIONTERMINATED
+You must specify a file to convert!\nOperation terminated.
+
+;
+MSG_DATAOPS_OK
+OK
+
+;
+MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
+You must specify an output file name!\nOperation terminated.
+
+;
+MSG_DATAOPS_YOUMUSTSPECIFYINPUTROWSANDCOLUMNSPERATIONTERMINATED
+You must specify input rows and columns!\nOperation terminated.
+
+;
+MSG_DATAOPS_THEREISNODATABASETODIRECTOUTPUTENTITIESTOPERATIONTE
+There is no Database to direct output entities to!\nOperation terminated.
+
+;
+MSG_DATAOPS_INPUTDATACANNOTBEEQUALLYDIVIDEDAMONGOUTPUTMAPSASTCO
+Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows.
+
+;
+MSG_DATAOPS_CONTINUETRUNCATECANCEL
+Continue|Truncate|Cancel
+
+;
+MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTRO
+Incorrect file size for specified header, width and height!\nProceed anyway?.
+
+;
+MSG_DATAOPS_OKCANCEL
+OK|Cancel
+
+;
+MSG_DATAOPS_INVERTDATAORDER
+Invert Data order?
+
+;
+MSG_DATAOPS_YESNO
+Yes|No
+
+;
+MSG_DATAOPS_INVERTING
+Inverting
+
+;
+MSG_DATAOPS_FLOOR
+Floor
+
+;
+MSG_DATAOPS_CEILING
+Ceiling
+
+;
+MSG_DATAOPS_REPLACE
+Replace
+
+;
+MSG_DATAOPS_RESAMPLE
+Resample
+
+;
+MSG_DATAOPS_EXTREMA
+Extrema
+
+;
+MSG_DATAOPS_CONVERT
+Convert
+
+;
+MSG_DATAOPS_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+
+;
+MSG_DATAOPS_UNABLETOOPENFILEFORINPUTPERATIONTERMINATED
+Unable to open file for input!\nOperation terminated.
+
+;
+MSG_DATAOPS_CONVERTDEMSOURCEFILE
+Convert DEM source file
+
+;
+MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTPE
+Incorrect file size for specified header, width and height!\nOperation terminated.
+
+;
+MSG_DATAOPS_UNABLETOOPENFILEFOROUTPUTPERATIONTERMINATED
+Unable to open file for output!\nOperation terminated.
+
+;
+MSG_DATAOPS_CONVERTDEMDESTINATIONFILE
+Convert DEM destination file
+
+;
+MSG_DATAOPS_ERRORWRITINGDESTINATIONFILEPERATIONTERMINATED
+Error writing destination file!\nOperation terminated.
+
+;
+MSG_DATAOPS_ERRORREADINGSOURCEFILEPERATIONTERMINATED
+Error reading source file!\nOperation terminated.
+
+;
+MSG_DATAOPS_NOTACOMPRESSEDFILEPERATIONTERMINATED
+Not a compressed file!\nOperation terminated.
+
+;
+MSG_DATAOPS_EXTENDEDHEADERPERATIONTERMINATED
+Extended header!\nOperation terminated.
+
+;
+MSG_DATAOPS_INPUTFILECONFIGURATIONNOTYETSUPPORTEDPERATIONTERMIN
+Input file configuration not yet supported!\nOperation terminated.
+
+;
+MSG_DATAOPS_CONVERTDEMSOURCETYPE
+Convert DEM source type
+
+;
+MSG_DATAOPS_INPUTDATAFORMATNOTSUPPORTEDHECKYOURSETTINGSPERATION
+Input data format not supported!\nCheck your settings.\nOperation terminated.
+
+;
+MSG_DATAOPS_DATABASEMODULE
+Database Module
+
+;
+MSG_DATAOPS_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
+Out of memory expanding database!\nOperation terminated.
+
+;
+MSG_DATAOPS_ERRORSAVINGOBJFILEOPERATIONTERMOINATED
+Error saving ".Obj" file!\nOperation terminated.
+
+;
+MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED
+Input file not recognized as a DTED file!\nOperation terminated.
+
+;
+MSG_DATAOPS_DTED
+DTED
+
+;
+MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI
+!\nIllegal source value format/size combination!\nOperation terminated.
+
+;
+MSG_DATAOPS_BINARRAY
+Bin Array
+
+;
+MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
+!\nIllegal target value format/size combination!\nOperation terminated.
+

@@ -3,6 +3,9 @@
 ** Original code written by Gary R. Huber, March 1994.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
 #include "BigEndianReadWrite.h"
@@ -266,29 +269,36 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
 
  if (! filename || ! filename[0])
   {
-  User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-          (CONST_STRPTR)"You must specify a file to convert!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ) ,                              // "Data Ops: Convert DEM"
+               GetString( MSG_DATAOPS_YOUMUSTSPECIFYAFILETOCONVERTPERATIONTERMINATED ),  // "You must specify a file to convert!\nOperation terminated."
+               GetString( MSG_DATAOPS_OK ),                                              // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no row/col sizes */
  if (! OUTPUT_NAMEBASE || ! data->NameBase[0])
   {
-  User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-          (CONST_STRPTR)"You must specify an output file name!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ) ,                                // "Data Ops: Convert DEM"
+               GetString( MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED ),  // "You must specify an output file name!\nOperation terminated."
+               GetString( MSG_DATAOPS_OK ),                                                // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no row/col sizes */
  if (INPUT_ROWS == 0 || INPUT_COLS == 0)
   {
-  User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-          (CONST_STRPTR)"You must specify input rows and columns!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ) ,                                    // "Data Ops: Convert DEM"
+               GetString( MSG_DATAOPS_YOUMUSTSPECIFYINPUTROWSANDCOLUMNSPERATIONTERMINATED ),   // "You must specify input rows and columns!\nOperation terminated."
+               GetString( MSG_DATAOPS_OK ),                                                    // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no row/col sizes */
  if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM)
   {
   if (! dbaseloaded)
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"There is no Database to direct output entities to!\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ) ,                                   // "Data Ops: Convert DEM"
+               GetString( MSG_DATAOPS_THEREISNODATABASETODIRECTOUTPUTENTITIESTOPERATIONTE ),  // "There is no Database to direct output entities to!\nOperation terminated."
+               GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+               (CONST_STRPTR)"o");
    return;
    } /* if no database */
   } /* if output DEM to database */
@@ -354,10 +364,11 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
 
   LastOutputRows = OutputRows - DupRow + OUTPUT_ROWS - (OutputRows - DupRow) * OUTPUT_COLMAPS;
   LastOutputCols = OutputCols - DupRow + OUTPUT_COLS - (OutputCols - DupRow) * OUTPUT_ROWMAPS;
-  sprintf(str, "Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows.",
+  sprintf(str, (char*)GetString( MSG_DATAOPS_INPUTDATACANNOTBEEQUALLYDIVIDEDAMONGOUTPUTMAPSASTCO ),  // "Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows."
 	LastOutputCols, LastOutputRows);
   if ((ans = User_Message_Def((CONST_STRPTR)"Data Ops: Convert DEM", (CONST_STRPTR)str,
-          (CONST_STRPTR)"Continue|Truncate|Cancel", (CONST_STRPTR)"ntc", 1)) == 0)
+                              GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ),   // "Continue|Truncate|Cancel"
+                              (CONST_STRPTR)"ntc", 1)) == 0)
    {
    return;
    } /* if cancel */
@@ -712,8 +723,10 @@ RepeatRGB:
    if ((! INPUT_WRAP && FileSize > INPUT_HEADER + INPUT_ROWS * INPUT_COLS * InValSize)
 	|| (INPUT_WRAP && FileSize > INPUT_HEADER + INPUT_ROWS * (INPUT_COLS - 1) * InValSize))
     {
-    if (! User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-            (CONST_STRPTR)"Incorrect file size for specified header, width and height!\nProceed anyway?.", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
+    if (! User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
+                       GetString( MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTRO ),  // "Incorrect file size for specified header, width and height!\nProceed anyway?."
+                       GetString( MSG_DATAOPS_OKCANCEL ) ,                                            // "OK|Cancel",
+                       (CONST_STRPTR)"oc"))
      {
      error = 13;
      } /* if cancel operation */
@@ -980,7 +993,10 @@ ReadMore:
     } /* if wrap longitude */
 
 /* invert file if it is stored SE corner to NW */
-   if (User_Message((CONST_STRPTR)"Data Ops: Convert DEM", (CONST_STRPTR)"Invert Data order?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn"))
+   if (User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),  // "Data Ops: Convert DEM"
+                    GetString( MSG_DATAOPS_INVERTDATAORDER ),    // "Invert Data order?"
+                    GetString( MSG_DATAOPS_YESNO ),              // "Yes|No"
+                    (CONST_STRPTR)"yn"))
     {
     long DataPts, ct;
     char *LowPtr, *HighPtr;
@@ -1012,7 +1028,7 @@ EndLoad:
  if (INBYTE_ORDER == DEM_DATA_BYTEORDER_LOHI
 	 && INVALUE_SIZE != DEM_DATA_VALSIZE_BYTE)
   {
-  BWDC = BusyWin_New("Inverting", INPUT_ROWS, 0, MakeID('B','W','D','C'));
+  BWDC = BusyWin_New((char*)GetString( MSG_DATAOPS_INVERTING ), INPUT_ROWS, 0, MakeID('B','W','D','C'));  // "Inverting"
   datazip = 0;
   for (i=0; i<INPUT_ROWS; i++)
    {
@@ -1061,7 +1077,7 @@ EndLoad:
 */
  if (ACTIVE_FLOOR)
   {
-  BWDC = BusyWin_New("Floor", INPUT_ROWS, 0, MakeID('B','W','D','C'));
+  BWDC = BusyWin_New((char*)GetString( MSG_DATAOPS_FLOOR ), INPUT_ROWS, 0, MakeID('B','W','D','C'));  // "Floor"
   datazip = 0;
   for (i=0; i<INPUT_ROWS; i++)
    {
@@ -1156,7 +1172,7 @@ EndLoad:
 
  if (ACTIVE_CEILING)
   {
-  BWDC = BusyWin_New("Ceiling", INPUT_ROWS, 0, MakeID('B','W','D','C'));
+  BWDC = BusyWin_New((char*)GetString( MSG_DATAOPS_CEILING ), INPUT_ROWS, 0, MakeID('B','W','D','C'));  // "Ceiling"
   datazip = 0;
   for (i=0; i<INPUT_ROWS; i++)
    {
@@ -1252,7 +1268,7 @@ EndLoad:
 // AF: 18.Sep.2023 BEGIN Replace
  if (ACTIVE_REPLACE)
  {
- BWDC = BusyWin_New("Replace", INPUT_ROWS, 0, MakeID('B','W','D','C'));
+ BWDC = BusyWin_New((char*)GetString( MSG_DATAOPS_REPLACE ), INPUT_ROWS, 0, MakeID('B','W','D','C'));  // "Replace"
  datazip = 0;
  for (i=0; i<INPUT_ROWS; i++)
   {
@@ -1542,7 +1558,7 @@ EndLoad:
   // printf("Resample line %d\n",__LINE__);
 
 
-  BWDC = BusyWin_New("Resample", ORows, 0, MakeID('B','W','D','C'));
+  BWDC = BusyWin_New((char*)GetString( MSG_DATAOPS_RESAMPLE ), ORows, 0, MakeID('B','W','D','C'));  // "Resample"
   for (i=0; i<OUTPUT_ROWS; i++)  // AF: OCols  ???  mit 1201 geht das ILBM??? Was ist der Unterschied ORows und OUTPUT_ROWS? Mit OUTPUT_ROWS geht das ILBM-File!
    {
    if (i == LastOutRow)
@@ -2348,7 +2364,7 @@ EndLoad:
   long BottomEdge = INPUT_ROWS - CROP_BOTTOM;
 
   datazip = 0;
-  BWDC = BusyWin_New("Extrema", BottomEdge, 0, MakeID('B','W','D','C'));
+  BWDC = BusyWin_New((char*)GetString( MSG_DATAOPS_EXTREMA ), BottomEdge, 0, MakeID('B','W','D','C'));  // "Extrema"
   for (i=0; i<BottomEdge; i++)
    {
    if (i < CROP_TOP)
@@ -2813,7 +2829,7 @@ EndLoad:
 
    outzip = 0;
 
-   BWDC = BusyWin_New("Convert", cols, 0, MakeID('B','W','D','C'));
+   BWDC = BusyWin_New((char*)GetString( MSG_DATAOPS_CONVERT ), cols, 0, MakeID('B','W','D','C'));  // "Convert"
    for (colctr=0; colctr<cols; colctr++)
     {
     if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM
@@ -3105,109 +3121,139 @@ Cleanup:
   {
   case 1:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),              // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                             // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /* out of memory */
   case 2:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Unable to open file for input!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Convert DEM source file");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                           // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_UNABLETOOPENFILEFORINPUTPERATIONTERMINATED ),  // "Unable to open file for input!\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                                          // "OK"
+                (CONST_STRPTR)"o");
+   Log(ERR_OPEN_FAIL, GetString( MSG_DATAOPS_CONVERTDEMSOURCEFILE ) );  // "Convert DEM source file"
    break;
    } /* file open fail */
   case 3:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Incorrect file size for specified header, width and height!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTPE ),  // "Incorrect file size for specified header, width and height!\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+                (CONST_STRPTR)"o");
+   Log(ERR_WRONG_SIZE, GetString( MSG_DATAOPS_CONVERTDEMSOURCEFILE ));  // "Convert DEM source file"
    break;
    } /* file size fail */
   case 4:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Unable to open file for output!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Convert DEM destination file");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                            // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_UNABLETOOPENFILEFOROUTPUTPERATIONTERMINATED ),  // "Unable to open file for output!\nOperation terminated.",
+                GetString( MSG_DATAOPS_OK ),                                           // "OK"
+                (CONST_STRPTR)"o");
+   Log(ERR_OPEN_FAIL, GetString( MSG_DATAOPS_CONVERTDEMDESTINATIONFILE ) );  // "Convert DEM destination file"
    break;
    } /* file open fail */
   case 5:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Error writing destination file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRITE_FAIL, (CONST_STRPTR)"Convert DEM destination file");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                              // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_ERRORWRITINGDESTINATIONFILEPERATIONTERMINATED ),  // "Error writing destination file!\nOperation terminated.",
+                GetString( MSG_DATAOPS_OK ),                                             // "OK"
+                (CONST_STRPTR)"o");
+   Log(ERR_WRITE_FAIL, GetString( MSG_DATAOPS_CONVERTDEMDESTINATIONFILE ) );  // "Convert DEM destination file"
    break;
    } /* file open fail */
   case 6:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Error reading source file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                         // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_ERRORREADINGSOURCEFILEPERATIONTERMINATED ),  // "Error reading source file!\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                                        // "OK"
+                (CONST_STRPTR)"o");
    Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
    break;
    } /* file open fail */
   case 7:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Not a compressed file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                     // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_NOTACOMPRESSEDFILEPERATIONTERMINATED ),  // "Not a compressed file!\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                                    // "OK"
+                (CONST_STRPTR)"o");
+   Log(ERR_WRONG_SIZE, GetString( MSG_DATAOPS_CONVERTDEMSOURCEFILE ) );  // "Convert DEM source file"
    break;
    } /* file open fail */
   case 8:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Extended header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),              // "Data Ops: Convert DEM"
+                (CONST_STRPTR)"Extended header!\nOperation terminated.",
+                GetString( MSG_DATAOPS_OK ),                             // "OK",
+                (CONST_STRPTR)"o");
+   Log(ERR_WRONG_SIZE, GetString( MSG_DATAOPS_CONVERTDEMSOURCEFILE ) );  // "Convert DEM source file"
    break;
    } /* file open fail */
   case 10:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Input file configuration not yet supported!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_READ_FAIL, (CONST_STRPTR)"Convert DEM source type");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_INPUTFILECONFIGURATIONNOTYETSUPPORTEDPERATIONTERMIN ),  // "Input file configuration not yet supported!\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+                (CONST_STRPTR)"o");
+   Log(ERR_READ_FAIL, GetString( MSG_DATAOPS_CONVERTDEMSOURCETYPE ) );  // "Convert DEM source type"
    break;
    } /* file type fail */
   case 11:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Input data format not supported!\nCheck your settings.\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_READ_FAIL, (CONST_STRPTR)"Convert DEM source type");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_INPUTDATAFORMATNOTSUPPORTEDHECKYOURSETTINGSPERATION ),  // "Input data format not supported!\nCheck your settings.\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                                                   // "OK",
+                (CONST_STRPTR)"o");
+   Log(ERR_READ_FAIL, GetString( MSG_DATAOPS_CONVERTDEMSOURCETYPE ) );  // "Convert DEM source type"
    break;
    } /* file type fail */
   case 12:
    {
-   User_Message((CONST_STRPTR)"Database Module",
-           (CONST_STRPTR)"Out of memory expanding database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DATAOPS_DATABASEMODULE ),                                  // "Database Module"
+                GetString( MSG_DATAOPS_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                                              // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /* out of memory for database expansion */
   case 13:
    {
-   Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
+   Log(ERR_WRONG_SIZE, GetString( MSG_DATAOPS_CONVERTDEMSOURCEFILE ) );  // "Convert DEM source file"
    break;
    } /* file open fail */
   case 14:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Error saving \".Obj\" file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                       // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_ERRORSAVINGOBJFILEOPERATIONTERMOINATED ),  // "Error saving \".Obj\" file!\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                                      // "OK"
+                (CONST_STRPTR)"o");
    break;
    }
   case 15:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"Input file not recognized as a DTED file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRONG_TYPE, (CONST_STRPTR)"DTED");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED ),  // "Input file not recognized as a DTED file!\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+                (CONST_STRPTR)"o");
+   Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPS_DTED ));  // "DTED"
    break;
    }
   case 16:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"!\nIllegal source value format/size combination!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Bin Array");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI ),  // "!\nIllegal source value format/size combination!\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+                (CONST_STRPTR)"o");
+   Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPS_BINARRAY ) );  // "Bin Array"
    break;
    }
   case 17:
    {
-   User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-           (CONST_STRPTR)"!\nIllegal target value format/size combination!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-   Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Bin Array");
+   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
+                GetString( MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI ),  // "!\nIllegal target value format/size combination!\nOperation terminated."
+                GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+                (CONST_STRPTR)"o");
+   Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPS_BINARRAY ) );  // "Bin Array"
    break;
    }
   case 50:
