@@ -4,6 +4,9 @@
 ** Incorporated into GIS on 27 July, 1993 by Gary R. Huber.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 
 STATIC_FCN void SetParEco(short Eco, char *Name, short Line, short Skew, short SkewAz,
@@ -124,51 +127,51 @@ short DefaultParams(void)
 /* colors */
 
  memset(&CoPar, 0, sizeof (CoPar));
- SetParColor(0,  "Sun",		128, 128, 128);
- SetParColor(1,  "Ambient",	0,   0,   10);
- SetParColor(2,  "Haze",	218, 218, 251);
- SetParColor(3,  "Horizon",	255, 255, 255);
- SetParColor(4,  "Zenith",	80,  130, 255);
- SetParColor(5,  "Surface Grid",0,   0,   0);
- SetParColor(6,  "Surface 1",	240, 100, 81);
- SetParColor(7,  "Surface 2",	130, 219, 95);
- SetParColor(8,  "Surface 3",	136, 154, 255);
- SetParColor(9,  "Surface 4",	255, 255, 255);
- SetParColor(10, "Water",	104, 141, 173);
- SetParColor(11, "Snow",	229, 229, 229);
- SetParColor(24, "Tundra",	113, 155, 100);
- SetParColor(25, "Wetland",	130, 155, 90);
- SetParColor(26, "Grass",	93,  163, 114);
- SetParColor(27, "Deciduous",	81,  155, 100);
- SetParColor(28, "Conifer",	49,  111, 72);
- SetParColor(29, "Granite",	173, 145, 139);
- SetParColor(30, "Ground",	175, 167, 137);
+ SetParColor(0,  (char*)GetString( MSG_DEFPARM_SUN ),          128, 128, 128);  // "Sun"
+ SetParColor(1,  (char*)GetString( MSG_DEFPARM_AMBIENT ),        0,   0,  10);  // "Ambient"
+ SetParColor(2,  (char*)GetString( MSG_DEFPARM_HAZE ),         218, 218, 251);  // "Haze"
+ SetParColor(3,  (char*)GetString( MSG_DEFPARM_HORIZON ),      255, 255, 255);  // "Horizon"
+ SetParColor(4,  (char*)GetString( MSG_DEFPARM_ZENITH ),        80, 130, 255);  // "Zenith"
+ SetParColor(5,  (char*)GetString( MSG_DEFPARM_SURFACEGRID ),    0,   0,   0);  // "Surface Grid"
+ SetParColor(6,  (char*)GetString( MSG_DEFPARM_SURFACE1 ),     240, 100,  81);  // "Surface 1"
+ SetParColor(7,  (char*)GetString( MSG_DEFPARM_SURFACE2 ),     130, 219,  95);  // "Surface 2"
+ SetParColor(8,  (char*)GetString( MSG_DEFPARM_SURFACE3 ),     136, 154, 255);  // "Surface 3"
+ SetParColor(9,  (char*)GetString( MSG_DEFPARM_SURFACE4 ),     255, 255, 255);  // "Surface 4"
+ SetParColor(10, (char*)GetString( MSG_DEFPARM_WATER ),        104, 141, 173);  // "Water"
+ SetParColor(11, (char*)GetString( MSG_DEFPARM_SNOW ) ,        229, 229, 229);  // "Snow"
+ SetParColor(24, (char*)GetString( MSG_DEFPARM_TUNDRA ) ,      113, 155, 100);  // "Tundra"
+ SetParColor(25, (char*)GetString( MSG_DEFPARM_WETLAND ) ,     130, 155,  90);  // "Wetland"
+ SetParColor(26, (char*)GetString( MSG_DEFPARM_GRASS ) ,        93, 163, 114);  // "Grass"
+ SetParColor(27, (char*)GetString( MSG_DEFPARM_DECIDUOUS ),     81, 155, 100);  // "Deciduous"
+ SetParColor(28, (char*)GetString( MSG_DEFPARM_CONIFER ),       49, 111,  72);  // "Conifer"
+ SetParColor(29, (char*)GetString( MSG_DEFPARM_GRANITE ),      173, 145, 139);  // "Granite"
+ SetParColor(30, (char*)GetString( MSG_DEFPARM_GROUND ),       175, 167, 137);  // "Ground"
 
 /* ecosystems */
 
  for (i=0; i<ECOPARAMS; i++)
   setecodefault(i);
 
- SetParEco(0, "Water", 0,
+ SetParEco( 0, (char*)GetString( MSG_DEFPARM_WATER ), 0,                                                  // "Water"
 	5000,   0,   0,  1000, -1000, 90,  0, 10, 0, 0, 0, 0, 0,   0,  0);
- SetParEco(1, "Snow", settings.surfel[2],
+ SetParEco( 1, (char*)GetString( MSG_DEFPARM_SNOW ), settings.surfel[2],                                  // "Snow"
 	200,  -55,   5,  1000, -1000, 35,  0, 11, 1, 0, 0, 0, 1,   0,  0);
- SetParEco(12, "Wetland", 32000,
-	0,      0,   0,   -80, -1000, 15,  0, 25, 12, 0, 0, 0, 6, 100,  1);
- SetParEco(13, "Riparian", settings.surfel[2],
+ SetParEco(12, (char*)GetString( MSG_DEFPARM_WETLAND ), 32000,                                            // "Wetland"
+	0,      0,   0,   -80, -1000, 15,  0, 25, 12, 0, 0, 0, 6, 100,  1),
+ SetParEco(13, (char*)GetString( MSG_DEFPARM_RIPARIAN ), settings.surfel[2],                              // "Riparian"
 	200,   45,  -5,   -20, -1000, 30,  0, 27, 14, 0, 0, 0, 5,  30, 20);
- SetParEco(14, "Grass", (settings.surfel[0] + settings.surfel[1]) / 2,
+ SetParEco(14, (char*)GetString( MSG_DEFPARM_GRASS ), (settings.surfel[0] + settings.surfel[1]) / 2,      // "Grass"
 	-1000, 45,  -2,  1000, -1000, 30,  0, 26, 14, 0, 0, 0, 6, 100,  1);
 
- SetParEco(15, "Deciduous", (settings.surfel[1] + settings.surfel[2]) / 2,
+ SetParEco(15, (char*)GetString( MSG_DEFPARM_DECIDUOUS ), (settings.surfel[1] + settings.surfel[2]) / 2,  // "Deciduous"
 	400,    0,   1,  1000, -1000, 30,  0, 27, 14, 0, 0, 0, 5,  50, 20);
- SetParEco(16, "Conifer", settings.surfel[2],
+ SetParEco(16, (char*)GetString( MSG_DEFPARM_CONIFER ), settings.surfel[2],                               // "Conifer"
 	-250,  75,  -1,  1000, -1000, 30,  0, 28, 19, 0, 0, 0, 4,  75, 25);
- SetParEco(17, "Tundra", (settings.surfel[2] + settings.surfel[3]) / 2,
+ SetParEco(17, (char*)GetString( MSG_DEFPARM_TUNDRA ), (settings.surfel[2] + settings.surfel[3]) / 2,     // "Tundra"
 	200,   45,  -1,  1000, -1000, 35,  0, 24, 17, 0, 0, 0, 6, 100, 1);
- SetParEco(18, "Rock", 32000,
+ SetParEco(18, (char*)GetString( MSG_DEFPARM_ROCK ), 32000,                                               // "Rock"
 	0,      0,   0,  1000, -1000, 90, 35, 29, 18, 0, 0, 0, 2, 100, 0);
- SetParEco(19, "Bare Ground", 32000,
+ SetParEco(19, (char*)GetString( MSG_DEFPARM_BAREGROUND ), 32000,                                         // "Bare Ground"
 	0,      0,   0,  1000, -1000, 90,  0, 30, 19, 0, 0, 0, 3, 100, 0);
 
  strcpy(ParHdr.FType, "%WCSPAR");
@@ -209,20 +212,26 @@ EndDefault:
   {
   case 1:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Defaults",
-           (CONST_STRPTR)"Please enable at least one topo DEM and try again.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DEFPARM_PARAMETERSMODULEDEFAULTS ),                  // "Parameters Module: Defaults"
+                GetString( MSG_DEFPARM_PLEASEENABLEATLEASTONETOPODEMANDTRYAGAIN ),  // "Please enable at least one topo DEM and try again."
+                GetString( MSG_DEFPARM_OK ),                                        // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /* no topos */
   case 2:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Defaults",
-           (CONST_STRPTR)"Please close all Time Lines windows and try again.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DEFPARM_PARAMETERSMODULEDEFAULTS ),                   // "Parameters Module: Defaults"
+                GetString( MSG_DEFPARM_PLEASECLOSEALLTIMELINESWINDOWSANDTRYAGAIN ),  // "Please close all Time Lines windows and try again."
+                GetString( MSG_DEFPARM_OK ),                                         // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /* no topos */
   case 3:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Defaults",
-           (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DEFPARM_PARAMETERSMODULEDEFAULTS ),  // "Parameters Module: Defaults"
+                GetString( MSG_DEFPARM_OUTOFMEMORY ),               // "Out of memory!"
+                GetString( MSG_DEFPARM_OK ),                        // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /* no topos */
   } /* switch */

@@ -2880,3 +2880,112 @@ MSG_DATAOPSGUI_INTERPOLATE
 MSG_DATAOPSGUI_DEMFILES
 DEM Files
 
+;
+MSG_DEFPARM_AMBIENT
+Ambient
+Umgebungslicht
+;
+MSG_DEFPARM_SUN
+Sun
+Sonne
+;
+MSG_DEFPARM_HAZE
+Haze
+Dunst
+;
+MSG_DEFPARM_HORIZON
+Horizon
+Horizont
+;
+MSG_DEFPARM_ZENITH
+Zenith
+Zenit
+;
+MSG_DEFPARM_SURFACEGRID
+Surface Grid
+Oberflächengitter
+;
+MSG_DEFPARM_SURFACE1
+Surface 1
+Oberfläche 1
+;
+MSG_DEFPARM_SURFACE2
+Surface 3
+Oberfläche 2
+;
+MSG_DEFPARM_SURFACE3
+Surface 3
+Oberfläche 3
+;
+MSG_DEFPARM_SURFACE4
+Surface 4
+Oberfläche4
+;
+MSG_DEFPARM_WATER
+Water
+Wasser
+;
+MSG_DEFPARM_SNOW
+Snow
+Schnee
+;
+MSG_DEFPARM_TUNDRA
+Tundra
+Tundra
+;
+MSG_DEFPARM_WETLAND
+Wetland
+Feuchtgebiete
+;
+MSG_DEFPARM_GRASS
+Grass
+Gras
+;
+MSG_DEFPARM_DECIDUOUS
+Deciduous
+Laubbäume
+;
+MSG_DEFPARM_CONIFER
+Conifer
+Nadelbäume
+;
+MSG_DEFPARM_GRANITE
+Granite
+Granit
+;
+MSG_DEFPARM_GROUND
+Ground
+Boden
+;
+MSG_DEFPARM_RIPARIAN
+Riparian
+Uferzone
+;
+MSG_DEFPARM_ROCK
+Rock
+Fels
+;
+MSG_DEFPARM_BAREGROUND
+Bare Ground
+Nackter Boden
+;
+MSG_DEFPARM_PARAMETERSMODULEDEFAULTS
+Parameters Module: Defaults
+Parameter Modul: Voreinstellungen
+;
+MSG_DEFPARM_PLEASEENABLEATLEASTONETOPODEMANDTRYAGAIN
+Please enable at least one topo DEM and try again.
+
+;
+MSG_DEFPARM_OK
+OK
+
+;
+MSG_DEFPARM_PLEASECLOSEALLTIMELINESWINDOWSANDTRYAGAIN
+Please close all Time Lines windows and try again.
+Bitte schließen Sie alle Time line Fenster und versuchen Sie es erneut.
+;
+MSG_DEFPARM_OUTOFMEMORY
+Out of memory!
+Nicht genügend Speicher!
+;
