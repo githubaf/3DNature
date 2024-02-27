@@ -3364,8 +3364,8 @@ Done		DataBase.c 26.Feb
 Done		DataOps.c 26.Feb
 Done		DataOpsGUI.c 26.Feb
 Done		DefaultParams.c 27.Feb
-DiagnosticGUI.c
-DispatchGUI.c
+Done		DiagnosticGUI.c 27.Feb
+Done		DispatchGUI.c 27.Feb
 EdDBaseGUI.c
 EdEcoGUI.c
 EdMoGUI.c

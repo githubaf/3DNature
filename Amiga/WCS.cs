@@ -3066,3 +3066,44 @@ MSG_DIAG_NONE
 None
 
 ;
+;
+MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY
+Make this the default object directory?
+
+;
+MSG_DISPGUI_OKCANCEL
+OK|Cancel
+
+;
+MSG_DISPGUI_DATABASELOAD
+Database: Load
+Datenbank: Laden
+;
+MSG_DISPGUI_ERROROPENINGDATABASEFILEPERATIONTERMINATED
+Error opening Database file!\nOperation terminated.
+Fehler beim Öffnen der Datenbank-Datei!\nVorgang abgebrochen.
+;
+MSG_DISPGUI_OK
+OK
+
+;
+MSG_DISPGUI_UNSUPPORTEDDATABASEFILEFORMAT
+Unsupported Database file format.
+Nicht unterstütztes Datenbank-Dateiformat.
+;
+MSG_DISPGUI_NOTAWCSDATABASEFILEPERATIONTERMINATED
+Not a WCS Database file!\nOperation terminated.
+Keine Datenbank-Datei!\nVorgang abgebrochen.
+;
+MSG_DISPGUI_ERRORREADINGDATABASEFILEPERATIONTERMINATED
+Error reading Database file!\nOperation terminated.
+Fehler beim Lesen der Datenbank-Datei!\nVorgang abgebrochen.
+;
+MSG_DISPGUI_DATABASEMODULELOAD
+Database Module: Load
+Datenbank Modul: Laden
+;
+MSG_DISPGUI_OUTOFMEMORYALLOCATINGDATABASEPERATIONTERMINATED
+Out of memory allocating Database!\nOperation terminated.
+
+;

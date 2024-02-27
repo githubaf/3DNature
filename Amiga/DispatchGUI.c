@@ -5,6 +5,9 @@
 ** Copyright 1995 by Questar Productions
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIExtras.h"
 
@@ -49,7 +52,9 @@ short error = 0, i, SetDefault = 0;
     if (strcmp(str, dirname))
      {
      SetDefault = User_Message_Def((CONST_STRPTR)str,
-    		 (CONST_STRPTR)"Make this the default object directory?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1);
+                                   GetString( MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY ),  // "Make this the default object directory?"
+                                   GetString( MSG_DISPGUI_OKCANCEL ),                           // "OK|Cancel"
+                                   (CONST_STRPTR)"oc", 1);
      Proj_Mod = 1;
      } /* if not already default directory */
     } /* if AskName */
@@ -72,31 +77,39 @@ short error = 0, i, SetDefault = 0;
    {
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)dbasename);
    if (! FileName)
-    User_Message((CONST_STRPTR)"Database: Load",
-    		(CONST_STRPTR)"Error opening Database file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DISPGUI_DATABASELOAD ),                                // "Database: Load"
+                 GetString( MSG_DISPGUI_ERROROPENINGDATABASEFILEPERATIONTERMINATED ),  // "Error opening Database file!\nOperation terminated."
+                 GetString( MSG_DISPGUI_OK ),                                          // "OK"
+                 (CONST_STRPTR)"o");
    break;
    } /* no file */
   case 2:
    {
-   Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Unsupported Database file format.");
+   Log(ERR_WRONG_TYPE, GetString( MSG_DISPGUI_UNSUPPORTEDDATABASEFILEFORMAT ));  // "Unsupported Database file format."
    if (! FileName)
-    User_Message((CONST_STRPTR)"Database: Load",
-    		(CONST_STRPTR)"Not a WCS Database file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DISPGUI_DATABASELOAD ),                           // "Database: Load"
+                 GetString( MSG_DISPGUI_NOTAWCSDATABASEFILEPERATIONTERMINATED ),  // "Not a WCS Database file!\nOperation terminated."
+                 GetString( MSG_DISPGUI_OK ),                                     // "OK"
+                 (CONST_STRPTR)"o");
    break;
    } /* wrong type file */
   case 3:
    {
    Log(ERR_READ_FAIL, (CONST_STRPTR)dbasename);
    if (! FileName)
-    User_Message((CONST_STRPTR)"Database: Load",
-    		(CONST_STRPTR)"Error reading Database file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DISPGUI_DATABASELOAD ),                                // "Database: Load"
+                 GetString( MSG_DISPGUI_ERRORREADINGDATABASEFILEPERATIONTERMINATED ),  // "Error reading Database file!\nOperation terminated."
+                 GetString( MSG_DISPGUI_OK ),                                          // "OK"
+                 (CONST_STRPTR)"o");
    break;
    } /* read error */
   case 4:
    {
    if (! FileName)
-    User_Message((CONST_STRPTR)"Database Module: Load",
-    		(CONST_STRPTR)"Out of memory allocating Database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DISPGUI_DATABASEMODULELOAD ),                               // "Database Module: Load"
+    		 GetString( MSG_DISPGUI_OUTOFMEMORYALLOCATINGDATABASEPERATIONTERMINATED ),  // "Out of memory allocating Database!\nOperation terminated."
+                 GetString( MSG_DISPGUI_OK ),                                               // "OK"
+                 (CONST_STRPTR)"o");
    break;
    } /* memory bust */
   } /* switch */
