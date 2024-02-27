@@ -3,6 +3,9 @@
 ** By Gary R. Huber and Chris Hanson, 1993, 1994.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -18,7 +21,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
   Set_Param_Menu(10);
 
      DIAG_Win->DiagnosticWin = WindowObject,
-      MUIA_Window_Title		, "Diagnostic Data",
+      MUIA_Window_Title		, GetString( MSG_DIAG_DIAGNOSTICDATA ),  // "Diagnostic Data"
       MUIA_Window_ID		, MakeID('D','I','A','G'),
       MUIA_Window_Screen	, WCSScrn,
 
@@ -26,59 +29,59 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 	Child, DIAG_Win->TitleText = TextObject, TextFrame,
 		MUIA_Text_Contents, WinTitle, End,
         Child, HGroup,
-	  Child, Label1("  Distance"),
+	  Child, Label1(GetString( MSG_DIAG_DISTANCE )),  // "  Distance"
 	  Child, DIAG_Win->Txt[0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(" Elevation"),
+	  Child, Label1(GetString( MSG_DIAG_ELEVATION )),  // " Elevation"
 	  Child, DIAG_Win->Txt[1] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(" Overstory"),
+	  Child, Label1(GetString( MSG_DIAG_OVERSTORY )),  // " Overstory"
 	  Child, DIAG_Win->Txt[2] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1("Understory"),
+	  Child, Label1(GetString( MSG_DIAG_UNDERSTORY )),  // "Understory"
 	  Child, DIAG_Win->Txt[3] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1("    Rel El"),
+	  Child, Label1(GetString( MSG_DIAG_RELEL )),  // "    Rel El"
 	  Child, DIAG_Win->Txt[4] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1("    Aspect"),
+	  Child, Label1(GetString( MSG_DIAG_ASPECT )),  // "    Aspect"
 	  Child, DIAG_Win->Txt[5] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1("     Slope"),
+	  Child, Label1(GetString( MSG_DIAG_SLOPE )),  // "     Slope"
 	  Child, DIAG_Win->Txt[6] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(" Sun Angle"),
+	  Child, Label1(GetString( MSG_DIAG_SUNANGLE )),  // " Sun Angle"
 	  Child, DIAG_Win->Txt[7] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1("  Latitude"),
+	  Child, Label1(GetString( MSG_DIAG_LATITUDE )),  // "  Latitude"
 	  Child, DIAG_Win->Txt[8] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(" Longitude"),
+	  Child, Label1(GetString( MSG_DIAG_LONGITUDE )),  // " Longitude"
 	  Child, DIAG_Win->Txt[9] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 
 	Child, HGroup,
-          Child, DIAG_Win->BT_Database = KeyButtonFunc('b', "\33cDatabase"), 
-          Child, DIAG_Win->BT_Digitize = KeyButtonFunc('d', "\33cDigitize"), 
+          Child, DIAG_Win->BT_Database = KeyButtonFunc('b', (char*)GetString( MSG_DIAG_DATABASE )),  // "\33cDatabase"
+          Child, DIAG_Win->BT_Digitize = KeyButtonFunc('d', (char*)GetString( MSG_DIAG_DIGITIZE )),  // "\33cDigitize"
 	  End, /* HGroup */
 	End, /* VGroup */
       End; /* WindowObject */
@@ -86,7 +89,10 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
   if (! DIAG_Win->DiagnosticWin)
    {
    Close_Diagnostic_Window();
-   User_Message((CONST_STRPTR)"Render Data", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DIAG_RENDERDATA ),   // "Render Data",
+                GetString( MSG_DIAG_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_DIAG_OK ),           // "OK",
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -175,14 +181,14 @@ void Handle_Diagnostic_Window(ULONG WCS_ID)
        {
        QuitDigPerspective();
        IA->Digitizing = 0;
-       set(DIAG_Win->BT_Digitize, MUIA_Text_Contents, (IPTR)"\33cDigitize");
+       set(DIAG_Win->BT_Digitize, MUIA_Text_Contents, (IPTR)GetString( MSG_DIAG_DIGITIZE ));  // "\33cDigitize"
        } /* if digitizing */
       else
        {
        if (allocvecarray(OBN, MAXOBJPTS, 0))
 		IA->Digitizing = InitDigPerspective();
        if (IA->Digitizing)
-        set(DIAG_Win->BT_Digitize, MUIA_Text_Contents, (IPTR)"\33cQuit Dig");
+        set(DIAG_Win->BT_Digitize, MUIA_Text_Contents, (IPTR)GetString( MSG_DIAG_QUITDIG ));  // "\33cQuit Dig"
        } /* else */
       break;
       } /* digitize vector */
@@ -222,10 +228,10 @@ void Set_Diagnostic_Point(LONG zip)
   if (remainder < ECOPARAMS)
    sprintf(str, "%-2s", PAR_NAME_ECO(remainder));
   else
-   sprintf(str, "%-2s", "Surface");
+   sprintf(str, "%-2s", GetString( MSG_DIAG_SURFACE ));  // "Surface"
   } /* if a z value */
  else
-  sprintf(str, "%-2s", "None");
+  sprintf(str, "%-2s", GetString( MSG_DIAG_NONE ));  // "None"
  set(DIAG_Win->Txt[2], MUIA_Text_Contents, (IPTR)str);
 
  compval -= remainder * 256;
@@ -234,10 +240,10 @@ void Set_Diagnostic_Point(LONG zip)
   if (compval < ECOPARAMS)
    sprintf(str, "%-2s", PAR_NAME_ECO(compval));
   else
-   sprintf(str, "%-2s", "Surface");
+   sprintf(str, "%-2s", GetString( MSG_DIAG_SURFACE ));  // "Surface"
   } /* if a z value */
  else
-  sprintf(str, "%-2s", "None");
+  sprintf(str, "%-2s", GetString( MSG_DIAG_NONE ));  // "None"
  set(DIAG_Win->Txt[3], MUIA_Text_Contents, (IPTR)str);
 
  compval = *(QCmap[1] + zip);

@@ -2989,3 +2989,80 @@ MSG_DEFPARM_OUTOFMEMORY
 Out of memory!
 Nicht genügend Speicher!
 ;
+;
+MSG_DIAG_DIAGNOSTICDATA
+Diagnostic Data
+
+;
+MSG_DIAG_DISTANCE
+  Distance
+
+;
+MSG_DIAG_ELEVATION
+ Elevation
+
+;
+MSG_DIAG_OVERSTORY
+ Overstory
+
+;
+MSG_DIAG_UNDERSTORY
+Understory
+
+;
+MSG_DIAG_RELEL
+    Rel El
+
+;
+MSG_DIAG_ASPECT
+    Aspect
+
+;
+MSG_DIAG_SLOPE
+     Slope
+
+;
+MSG_DIAG_SUNANGLE
+ Sun Angle
+
+;
+MSG_DIAG_LATITUDE
+  Latitude
+
+;
+MSG_DIAG_LONGITUDE
+ Longitude
+
+;
+MSG_DIAG_DATABASE
+\33cDatabase
+
+;
+MSG_DIAG_DIGITIZE
+\33cDigitize
+
+;
+MSG_DIAG_RENDERDATA
+Render Data
+
+;
+MSG_DIAG_OUTOFMEMORY
+Out of memory!
+Nicht genügend Speicher!
+;
+MSG_DIAG_OK
+OK
+
+;
+MSG_DIAG_QUITDIG
+\33cQuit Dig
+
+;
+MSG_DIAG_SURFACE
+Surface
+
+;
+MSG_DIAG_NONE
+None
+
+;
