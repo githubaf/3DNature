@@ -3,6 +3,9 @@
 ** Copyright 1994 by Gary R. Huber and Chris Eric Hanson.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -63,25 +66,90 @@ void Make_DC_Window(void)
 {
  short i;
  long open=FALSE;
- static const char *InputCycle[] =
-	 {"Binary Array", "WCS DEM", "Z Buffer", "Ascii Array", "Vista DEM",
-	"IFF", "DTED", NULL};
- static const char *OutputCycle[] =
-	 {"Bin Array", "WCS DEM", "Z Buffer", "Ascii Array", "Color Map", "Gray IFF", "Color IFF", NULL};
- static const char *FormatCycle[] =
-	 {"Signed Int", "Unsigned Int", "Floating Pt",/* "Unknown",*/ NULL};
- static const char *ValSizeCycle[] =
-	 {"One", "Two", "Four", "Eight",/* "Unknown",*/ NULL};
- static const char *ByteOrderCycle[] = {"High-Low", "Low-High",/* "Unknown",*/ NULL};
- static const char *ReadOrderCycle[] = {"By Row", "By Column", NULL};
- static const char *RowCycle[] = {"Latitude", "Longitude", NULL};
- static const char *UnitCycle[] = {"Kilometers", "Meters", "Centimeters",
-	"Miles", "Feet", "Inches", "Other", NULL};
- static const char *ScalePages[] = {"\0334Two Value Equivalence",
-			 "\0334One Value Equivalence", "\0334Max-Min Stretch", NULL};
- static const char *ScaleCycle[] = {"Max Out", "Min Out", "I/O Scale", NULL};
- static const char *ProcessPages[] = {"\0334DEM Registration", "\0334Value Format & Sampling", NULL};
- static const char *InputPages[] = {"\0334Value Format", "\0334Pre-Process", NULL};
+ int Init=TRUE;
+ static const char *InputCycle[8]     = {NULL};
+ static const char *OutputCycle[7]    = {NULL};
+ static const char *FormatCycle[4]    = {NULL};
+ static const char *ValSizeCycle[5]   = {NULL};
+ static const char *ByteOrderCycle[3] = {NULL};
+ static const char *ReadOrderCycle[3] = {NULL};
+ static const char *RowCycle[3]       = {NULL};
+ static const char *UnitCycle[8]      = {NULL};
+ static const char *ScalePages[4]     = {NULL};
+ static const char *ScaleCycle[4]     = {NULL};
+ static const char *ProcessPages[3]   = {NULL};
+ static const char *InputPages[3]     = {NULL};
+
+ if (Init)
+ {
+	 Init = FALSE;
+	 InputCycle[0]=(char*)GetString( MSG_DATAOPSGUI_BINARYARRAY );  // "Binary Array"
+	 InputCycle[1]=(char*)GetString( MSG_DATAOPSGUI_WCSDEM );       // "WCS DEM"
+	 InputCycle[2]=(char*)GetString( MSG_DATAOPSGUI_ZBUFFER );      // "Z Buffer"
+	 InputCycle[3]=(char*)GetString( MSG_DATAOPSGUI_ASCIIARRAY );   // "Ascii Array"
+	 InputCycle[4]=(char*)GetString( MSG_DATAOPSGUI_VISTADEM );     // "Vista DEM"
+	 InputCycle[5]=(char*)GetString( MSG_DATAOPSGUI_IFF );          // "IFF"
+	 InputCycle[6]=(char*)GetString( MSG_DATAOPSGUI_DTED );         // "DTED"
+	 InputCycle[7]=NULL;
+
+	 OutputCycle[0]=(char*)GetString( MSG_DATAOPSGUI_BINARRAY );    // "Bin Array"
+	 OutputCycle[1]=(char*)GetString( MSG_DATAOPSGUI_WCSDEM );      // "WCS DEM"
+	 OutputCycle[2]=(char*)GetString( MSG_DATAOPSGUI_ZBUFFER );     // "Z Buffer"
+	 OutputCycle[3]=(char*)GetString( MSG_DATAOPSGUI_ASCIIARRAY );  // "Ascii Array"
+	 OutputCycle[4]=(char*)GetString( MSG_DATAOPSGUI_GRAYIFF );     // "Gray IFF"
+	 OutputCycle[5]=(char*)GetString( MSG_DATAOPSGUI_COLORIFF );    // "Color Map"
+	 OutputCycle[6]=NULL;
+
+	 FormatCycle[0]=(char*)GetString( MSG_DATAOPSGUI_SIGNEDINT );    // "Signed Int"
+	 FormatCycle[1]=(char*)GetString( MSG_DATAOPSGUI_UNSIGNEDINT );  // "Unsigned Int"
+	 FormatCycle[2]=(char*)GetString( MSG_DATAOPSGUI_FLOATINGPT );   // "Floating Pt"
+	 FormatCycle[3]=NULL;
+
+	 ValSizeCycle[0]=(char*)GetString( MSG_DATAOPSGUI_ONE );    // "One"
+	 ValSizeCycle[1]=(char*)GetString( MSG_DATAOPSGUI_TWO );    // "Two"
+	 ValSizeCycle[2]=(char*)GetString( MSG_DATAOPSGUI_FOUR );   // "Four"
+	 ValSizeCycle[3]=(char*)GetString( MSG_DATAOPSGUI_EIGHT );  // "Eight"
+	 ValSizeCycle[4]=NULL;
+
+	 ByteOrderCycle[0]=(char*)GetString( MSG_DATAOPSGUI_HIGHLOW );  // "High-Low"
+	 ByteOrderCycle[1]=(char*)GetString( MSG_DATAOPSGUI_LOWHIGH );  // "Low-High"
+	 ByteOrderCycle[2]=NULL;
+
+	 ReadOrderCycle[0]=(char*)GetString( MSG_DATAOPSGUI_BYROW );     // "By Row"
+	 ReadOrderCycle[1]=(char*)GetString( MSG_DATAOPSGUI_BYCOLUMN );  // "By Column"
+	 ReadOrderCycle[2]=NULL;
+
+	 RowCycle[0]=(char*)GetString( MSG_DATAOPSGUI_LATITUDE );      // "Latitude"
+	 RowCycle[1]=(char*)GetString( MSG_DATAOPSGUI_LONGITUDE );     // "Longitude"
+	 RowCycle[2]=NULL;
+
+	 UnitCycle[0]=(char*)GetString( MSG_DATAOPSGUI_KILOMETERS );   // "Kilometers"
+	 UnitCycle[1]=(char*)GetString( MSG_DATAOPSGUI_METERS );       // "Meters"
+	 UnitCycle[2]=(char*)GetString( MSG_DATAOPSGUI_CENTIMETERS );  // "Centimeters"
+	 UnitCycle[3]=(char*)GetString( MSG_DATAOPSGUI_MILES );        // "Miles"
+	 UnitCycle[4]=(char*)GetString( MSG_DATAOPSGUI_FEET );         // "Feet"
+	 UnitCycle[5]=(char*)GetString( MSG_DATAOPSGUI_INCHES );       // "Inches"
+	 UnitCycle[6]=(char*)GetString( MSG_DATAOPSGUI_OTHER );        // "Other"
+	 UnitCycle[7]=NULL;
+
+	 ScalePages[0]=(char*)GetString( MSG_DATAOPSGUI_TWOVALUEEQUIVALENCE );  // "\0334Two Value Equivalence"
+	 ScalePages[1]=(char*)GetString( MSG_DATAOPSGUI_ONEVALUEEQUIVALENCE );  // "\0334One Value Equivalence"
+	 ScalePages[2]=(char*)GetString( MSG_DATAOPSGUI_MAXMINSTRETCH );        // "\0334Max-Min Stretch"
+	 ScalePages[3]=(char*)NULL;
+
+	 ScaleCycle[0]=(char*)GetString( MSG_DATAOPSGUI_MAXOUT );   // "Max Out"
+	 ScaleCycle[1]=(char*)GetString( MSG_DATAOPSGUI_MINOUT );   // "Min Out"
+	 ScaleCycle[2]=(char*)GetString( MSG_DATAOPSGUI_IOSCALE );  // "I/O Scale"
+	 ScaleCycle[3]=(char*)NULL;
+
+	 ProcessPages[0]=(char*)GetString( MSG_DATAOPSGUI_DEMREGISTRATION );      // "\0334DEM Registration"
+	 ProcessPages[1]=(char*)GetString( MSG_DATAOPSGUI_VALUEFORMATSAMPLING );  // "\0334Value Format & Sampling",
+	 ProcessPages[2]=(char*)NULL;
+
+	 InputPages[0]=(char*)GetString( MSG_DATAOPSGUI_VALUEFORMATCOLORED );  // "\0334Value Format"  // there is also a define "MSG_DATAOPSGUI_VALUEFORMAT", identical, but without the "\0334"
+	 InputPages[1]=(char*)GetString( MSG_DATAOPSGUI_PREPROCESS );          // "\0334Pre-Process"
+	 InputPages[2]=(char*)NULL;
+ }
 
  if (DC_Win)
   {
@@ -103,7 +171,7 @@ void Make_DC_Window(void)
   Set_Param_Menu(10);
 
      DC_Win->ConvertWin = WindowObject,
-      MUIA_Window_Title		, "DEM Converter",
+      MUIA_Window_Title		, GetString( MSG_DATAOPSGUI_DEMCONVERTER ),  // "DEM Converter"
       MUIA_Window_ID		, MakeID('D','O','C','V'),
       MUIA_Window_Screen	, WCSScrn,
 
@@ -112,7 +180,7 @@ void Make_DC_Window(void)
 /* Input */
 	  Child, VGroup,
 	    Child, HGroup,
-	      Child, Label1(" Input Format"),
+	      Child, Label1(GetString( MSG_DATAOPSGUI_INPUTFORMAT )),  // " Input Format"
 	      Child, DC_Win->Cycle[0] = CycleObject,
 		 MUIA_Cycle_Entries, InputCycle, End,
 	      End, /* HGroup */
@@ -121,43 +189,43 @@ void Make_DC_Window(void)
 	      Child, DC_Win->FileNameStr = StringObject, StringFrame, End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label1("Input File Size"),
+	      Child, Label1(GetString( MSG_DATAOPSGUI_INPUTFILESIZE ) ),  // "Input File Size"
 	      Child, DC_Win->FileSizeTxt = TextObject, TextFrame, End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label1("Header Bytes"),
+	      Child, Label1(GetString( MSG_DATAOPSGUI_HEADERBYTES ) ),  // "Header Bytes"
 	      Child, DC_Win->FormatIntStr[0] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789", End,
 	      End, /* HGroup */
 	    Child, RegisterGroup(InputPages),
 	      Child, VGroup,
 	        Child, HGroup,
-	          Child, Label1("Value Format"),
+	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEFORMAT ) ),  // "Value Format"
 	          Child, DC_Win->Cycle[2] = CycleObject,
 		 	MUIA_Cycle_Entries, FormatCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1(" Value Bytes"),
+	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEBYTES ) ),  // " Value Bytes"
 	          Child, DC_Win->Cycle[3] = CycleObject,
 		 	MUIA_Cycle_Entries, ValSizeCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1("  Byte Order"),
+	          Child, Label1(GetString( MSG_DATAOPSGUI_BYTEORDER ) ),  // "  Byte Order"
 	          Child, DC_Win->Cycle[4] = CycleObject,
 		 	MUIA_Cycle_Entries, ByteOrderCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1("  Read Order"),
+	          Child, Label1(GetString( MSG_DATAOPSGUI_READORDER ) ),  // "  Read Order"
 	          Child, DC_Win->Cycle[5] = CycleObject,
 		 	MUIA_Cycle_Entries, ReadOrderCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1("  Rows Equal"),
+	          Child, Label1(GetString( MSG_DATAOPSGUI_ROWSEQUAL ) ),  // "  Rows Equal
 	          Child, DC_Win->Cycle[6] = CycleObject,
 		 	MUIA_Cycle_Entries, RowCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1("  Data Units"),
+	          Child, Label1(GetString( MSG_DATAOPSGUI_DATAUNITS ) ),  // "  Data Units"
 	          Child, DC_Win->Cycle[7] = CycleObject,
 			MUIA_Cycle_Active, 1,
 		 	MUIA_Cycle_Entries, UnitCycle, End,
@@ -165,14 +233,14 @@ void Make_DC_Window(void)
 		End, /*VGroup */
 	      Child, VGroup,
 		Child, HGroup,
-	          Child, Label2("  Floor"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_FLOOR ) ),  // "  Floor"
 	          Child, DC_Win->FloorCeilingCheck[0] = CheckMark(0),
 	          Child, DC_Win->FloatStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567890",
 			MUIA_String_Accept, "+-.0123456789", End,
 	          End, /* HGroup */
 		Child, HGroup,
-	          Child, Label2("Ceiling"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_CEILING ) ),  // "Ceiling"
 	          Child, DC_Win->FloorCeilingCheck[1] = CheckMark(0),
 	          Child, DC_Win->FloatStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567890",
@@ -180,13 +248,13 @@ void Make_DC_Window(void)
 	          End, /* HGroup */
 
 			  Child, HGroup,   // AF: 18Sep23 new hgroup to specify elevation value replacement
-	            Child, Label2(" Replace"),
+	            Child, Label2(GetString( MSG_DATAOPSGUI_REPLACE ) ),  // " Replace"
 				Child, DC_Win->ReplaceCheck[0] = CheckMark(0),
 	            Child, DC_Win->ReplaceStr[0] = StringObject, StringFrame,
 			      MUIA_FixWidthTxt, "012345",
 			      MUIA_String_Accept, "-0123456789",
 				  MUIA_String_Contents,"0", End,
-				Child, Label2("by"),
+				Child, Label2(GetString( MSG_DATAOPSGUI_BY ) ),  // "by"
 	            Child, DC_Win->ReplaceStr[1] = StringObject, StringFrame,
 				  MUIA_FixWidthTxt, "012345",
 				  MUIA_String_Accept, "-0123456789",
@@ -194,22 +262,22 @@ void Make_DC_Window(void)
 			  End,
 
 		Child, RowGroup(4),
-	          Child, Label2("Crop Left"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_CROPLEFT ) ),  // "Crop Left"
 	          Child, DC_Win->CropStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "0123456789", End,
 
-	          Child, Label2("    Right"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_RIGHT ) ),  // "    Right"
 	          Child, DC_Win->CropStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "0123456789", End,
 
-	          Child, Label2(" Crop Top"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_CROPTOP ) ),  // " Crop Top"),
 	          Child, DC_Win->CropStr[2] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "0123456789", End,
 
-	          Child, Label2("   Bottom"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_BOTTOM ) ),  // "   Bottom"
 	          Child, DC_Win->CropStr[3] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "0123456789", End,
@@ -219,27 +287,27 @@ void Make_DC_Window(void)
 	      End, /* RegisterGroup */
 
 	    Child, HGroup,
-	      Child, Label2("Input Cols"),
+	      Child, Label2(GetString( MSG_DATAOPSGUI_INPUTCOLS ) ),  // "Input Cols"
 	      Child, DC_Win->FormatIntStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "0123456", End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label2("Input Rows"),
+	      Child, Label2(GetString( MSG_DATAOPSGUI_INPUTROWS ) ),  // "Input Rows"
 	      Child, DC_Win->FormatIntStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "0123456", End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label2("Wrap Longitude"),
+	      Child, Label2(GetString( MSG_DATAOPSGUI_WRAPLONGITUDE ) ),  // "Wrap Longitude"
 	      Child, DC_Win->WrapCheck = CheckMark(0),
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, DC_Win->BT_Test = KeyButtonFunc('T', "\33cTest"),
-	      Child, Label2("Min"),
+	      Child, DC_Win->BT_Test = KeyButtonFunc('T', (char*)GetString( MSG_DATAOPSGUI_TEST ) ),  // "\33cTest")
+	      Child, Label2(GetString( MSG_DATAOPSGUI_MIN ) ),  // "Min"
 	      Child, DC_Win->MinValTxt = TextObject, TextFrame,
 			MUIA_FixWidthTxt, "01234567", End,
-	      Child, Label2("Max"),
+	      Child, Label2(GetString( MSG_DATAOPSGUI_MAX ) ),  // "Max"
 	      Child, DC_Win->MaxValTxt = TextObject, TextFrame,
 			MUIA_FixWidthTxt, "01234567", End,
 	      End, /* HGroup */
@@ -250,26 +318,26 @@ void Make_DC_Window(void)
 /* Output */
 	  Child, VGroup,
 	    Child, HGroup,
-	      Child, Label1("Output Format"),
+	      Child, Label1(GetString( MSG_DATAOPSGUI_OUTPUTFORMAT ) ),  // "Output Format"
 	      Child, DC_Win->Cycle[1] = CycleObject,
 		 	MUIA_Cycle_Entries, OutputCycle,
 			MUIA_Cycle_Active, 1, End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label2("Out Dir"),
+	      Child, Label2(GetString( MSG_DATAOPSGUI_OUTDIR ) ),  // "Out Dir"
 	      Child, DC_Win->OutDirStr = StringObject, StringFrame,
 			MUIA_String_Contents, dirname, End,
 	      Child, DC_Win->BT_GetOutDir = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup,
 /*	      Child, DC_Win->OutputDBaseCheck = CheckMark(0),*/
-	      Child, Label2("Name"),
+	      Child, Label2(GetString( MSG_DATAOPSGUI_NAME ) ),  // "Name"
 	      Child, DC_Win->DBaseNameStr = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567890",
 			MUIA_String_Reject, ":/*#`%?", End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label2("DEMs Row-Wise E/W"),
+	      Child, Label2(GetString( MSG_DATAOPSGUI_DEMSROWWISEEW ) ),  // "DEMs Row-Wise E/W"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, DC_Win->OutputMapStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789", End,
@@ -278,7 +346,7 @@ void Make_DC_Window(void)
 	        End, /* HGroup */
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label2("  Column-Wise N/S"),
+	      Child, Label2(GetString( MSG_DATAOPSGUI_COLUMNWISENS ) ),  // "  Column-Wise N/S"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, DC_Win->OutputMapStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789", End,
@@ -290,25 +358,25 @@ void Make_DC_Window(void)
 	    Child, RegisterGroup(ProcessPages),
 	      Child, VGroup,
 	        Child, HGroup,
-	          Child, Label2("High Lat"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_HIGHLAT ) ),  // "High Lat"
 	          Child, DC_Win->LatScaleStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "0000.000000", End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label2(" Low Lat"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_LOWLAT ) ),  // " Low Lat"
 	          Child, DC_Win->LatScaleStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "0000.000000", End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label2("High Lon"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_HIGHLON ) ),  // "High Lon"
 	          Child, DC_Win->LatScaleStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "0000.000000", End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label2(" Low Lon"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_LOWLON ) ),  // " Low Lon"
 	          Child, DC_Win->LatScaleStr[3] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "0000.000000", End,
@@ -317,29 +385,29 @@ void Make_DC_Window(void)
 
 	      Child, VGroup,
 	        Child, HGroup,
-	          Child, Label1("Value Format"),
+	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEFORMAT ) ),  // "Value Format"
 	          Child, DC_Win->Cycle[8] = CycleObject,
 			MUIA_Cycle_Entries, FormatCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1(" Value Bytes"),
+	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEBYTES ) ),  // " Value Bytes"
 	          Child, DC_Win->Cycle[9] = CycleObject,
 	 		MUIA_Cycle_Entries, ValSizeCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label2(" Output Cols"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_OUTPUTCOLS ) ),  // " Output Cols"
 	          Child, DC_Win->FormatIntStr[4] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "0123456", End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label2(" Output Rows"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_OUTPUTROWS ) ),  //" Output Rows"),
 	          Child, DC_Win->FormatIntStr[3] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "0123456", End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label2("Spline Constraint"),
+	          Child, Label2(GetString( MSG_DATAOPSGUI_SPLINECONSTRAINT ) ),  // "Spline Constraint"
 	          Child, DC_Win->ConstraintCheck = CheckMark(0),
 		  End, /* HGroup */
 	        End, /* VGroup */
@@ -349,10 +417,10 @@ void Make_DC_Window(void)
 	    Child, DC_Win->VSRegister = RegisterGroup(ScalePages),
 	      Child, RowGroup(3),
 		Child, RectangleObject, End,
-		Child, TextObject, MUIA_Text_Contents, "\0334  Input  ", End,
-		Child, TextObject, MUIA_Text_Contents, "\0334  Output ", End,
+		Child, TextObject, MUIA_Text_Contents, GetString( MSG_DATAOPSGUI_INPUT ), End,   // "\0334  Input  "
+		Child, TextObject, MUIA_Text_Contents, GetString( MSG_DATAOPSGUI_OUTPUT ), End,  // "\0334  Output "
 
-		Child, Label2("Value 1"),
+		Child, Label2(GetString( MSG_DATAOPSGUI_VALUE1 ) ),  // "Value 1"
 		Child, DC_Win->VertScaleStr[5] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01235.01", End,
@@ -360,7 +428,7 @@ void Make_DC_Window(void)
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01235.01", End,
 
-		Child, Label2("Value 2"),
+		Child, Label2(GetString( MSG_DATAOPSGUI_VALUE2 ) ),  // "Value 2"
 		Child, DC_Win->VertScaleStr[7] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01235.01", End,
@@ -375,7 +443,7 @@ void Make_DC_Window(void)
 		  Child, TextObject, MUIA_Text_Contents, "\0334  Input  ", End,
 		  Child, TextObject, MUIA_Text_Contents, "\0334  Output ", End,
 
-		  Child, Label2("Value 1"),
+		  Child, Label2(GetString( MSG_DATAOPSGUI_VALUE1 ) ),  // "Value 1"
 		  Child, DC_Win->VertScaleStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01235.01", End,
@@ -395,13 +463,13 @@ void Make_DC_Window(void)
 
 	      Child, VGroup,
 		Child, HGroup,
-		  Child, Label2("Max Out Val"),
+		  Child, Label2(GetString( MSG_DATAOPSGUI_MAXOUTVAL ) ),  // "Max Out Val"
 		  Child, DC_Win->VertScaleStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01235.012", End,
 		  End, /* HGroup */
 		Child, HGroup,
-		  Child, Label2("Min Out Val"),
+		  Child, Label2(GetString( MSG_DATAOPSGUI_MINOUTVAL ) ),  // "Min Out Val"
 		  Child, DC_Win->VertScaleStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01235.012", End,
@@ -416,7 +484,7 @@ void Make_DC_Window(void)
 
         Child, HGroup,
 	  Child, RectangleObject, End,
-          Child, DC_Win->BT_Convert = KeyButtonFunc('v', "\33cConvert"), 
+          Child, DC_Win->BT_Convert = KeyButtonFunc('v', (char*)GetString( MSG_DATAOPSGUI_CONVERT ) ),  // "\33cConvert"
 	  Child, RectangleObject, End,
           End, /* HGroup */
 	End, /* VGroup */
@@ -425,7 +493,10 @@ void Make_DC_Window(void)
   if (! DC_Win->ConvertWin)
    {
    Close_DC_Window();
-   User_Message((CONST_STRPTR)"DEM Converter", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DATAOPSGUI_DEMCONVERTER ),  // "DEM Converter"
+                GetString( MSG_DATAOPSGUI_OUTOFMEMORY ),   // "Out of memory!"
+                GetString( MSG_DATAOPSGUI_OK ),            // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -634,7 +705,7 @@ void Handle_DC_Window(ULONG WCS_ID)
       strcpy(dirpath, CurStr);
       get(DC_Win->DBaseNameStr, MUIA_String_Contents, &CurStr);
       strcpy(filename, CurStr);
-      getfilename(1, "Output Directory", dirpath, filename);
+      getfilename(1, (char*)GetString( MSG_DATAOPSGUI_OUTPUTDIRECTORY ), dirpath, filename);  // "Output Directory"
       set(DC_Win->OutDirStr, MUIA_String_Contents, (IPTR)dirpath);
       set(DC_Win->DBaseNameStr, MUIA_String_Contents, (IPTR)filename);
       break;
@@ -721,14 +792,16 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
  char filename[255];
  long filesize, fh, data=0, headersize;
 
- if (! getfilename(0, "File to Convert", DC_Win->InPath, DC_Win->InFile))
+ if (! getfilename(0, (char*)GetString( MSG_DATAOPSGUI_FILETOCONVERT ), DC_Win->InPath, DC_Win->InFile))  // "File to Convert"
   return;
 
  strmfp(filename, DC_Win->InPath, DC_Win->InFile);
  if ((fh = open(filename, O_RDONLY)) < 0)
   {
   User_Message((CONST_STRPTR)DC_Win->InFile,
-		  (CONST_STRPTR)"Unable to open file for input!\n", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+               GetString( MSG_DATAOPSGUI_UNABLETOOPENFILEFORINPUT ),  // "Unable to open file for input!\n"
+               GetString( MSG_DATAOPSGUI_OK ),                        // "OK"
+               (CONST_STRPTR)"o");
   Log(WNG_OPEN_FAIL, (CONST_STRPTR)DC_Win->InFile);
   return;
   } /* if open error */
@@ -736,7 +809,9 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
  if ((filesize = lseek(fh, 0L, 2)) < 0)
   {
   User_Message((CONST_STRPTR)DC_Win->InFile,
-		  (CONST_STRPTR)"Unable to read file size!\n", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+               GetString( MSG_DATAOPSGUI_UNABLETOREADFILESIZE ),  // "Unable to read file size!\n"
+               GetString( MSG_DATAOPSGUI_OK ),                    // "OK"
+               (CONST_STRPTR)"o");
   Log(WNG_READ_FAIL, (CONST_STRPTR)DC_Win->InFile);
   goto EndCheck;
   } /* if file size read fail */
@@ -834,8 +909,10 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     } /* if old file version with padding */
    if (filesize != headersize + (Hdr.rows + 1) * Hdr.columns * sizeof (short))
     {
-    User_Message((CONST_STRPTR)"Data Ops: Convert",
-    		(CONST_STRPTR)"Warning!\nFile is not a WCS DEM file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERT ) ,            // "Data Ops: Convert"
+    		GetString( MSG_DATAOPSGUI_WARNINGILEISNOTAWCSDEMFILE ),  // "Warning!\nFile is not a WCS DEM file."
+                GetString( MSG_DATAOPSGUI_OK ),                          // "OK"
+                (CONST_STRPTR)"o");
     } /* if not WCS DEM */
    break;
    } /* if possibly WCS DEM */
@@ -991,8 +1068,10 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     }
    else
     {
-    User_Message((CONST_STRPTR)"Data Ops: Convert",
-    		(CONST_STRPTR)"Warning!\nFile is not an IFF Z Buffer file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERT ),                   // "Data Ops: Convert"
+                 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTANIFFZBUFFERFILE ),  // "Warning!\nFile is not an IFF Z Buffer file."
+                 GetString( MSG_DATAOPSGUI_OK ),                               // "OK"
+                 (CONST_STRPTR)"o");
     }
    break;
    } /* if possibly an  IFF Z Buffer file */
@@ -1004,10 +1083,12 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
 
    read(fh, id, 32);
    id[31] = 0;
-   if (strcmp(id, "Vista DEM File"))
+   if (strcmp(id, "Vista DEM File" ))   // "Vista DEM File"
     {
-    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-    		(CONST_STRPTR)"Warning\nFile is not a Vista DEM file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),             // "Data Ops: Convert DEM"
+                 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTAVISTADEMFILE ),  // "Warning\nFile is not a Vista DEM file."
+                 GetString( MSG_DATAOPSGUI_OK ),                            // "OK"
+                 (CONST_STRPTR)"o");
     break;
     } /* if no file id match */
    read(fh, name, 32);
@@ -1018,13 +1099,15 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
    if (! Compression)
     {
     User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-    		(CONST_STRPTR)"Warning\nFile is not a compressed Vista file and cannot be imported.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+                 (CONST_STRPTR)"Warning\nFile is not a compressed Vista file and cannot be imported.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
     break;
     }
    if (HeaderType)
     {
-    HeaderType = User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-    		(CONST_STRPTR)"Is this a Small, Large or Huge Vista file?", (CONST_STRPTR)"Small|Large|Huge", (CONST_STRPTR)"slh");
+    HeaderType = User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),                 // "Data Ops: Convert DEM"
+                              GetString( MSG_DATAOPSGUI_ISTHISASMALLLARGEORHUGEVISTAFILE ),  // "Is this a Small, Large or Huge Vista file?"
+                              GetString( MSG_DATAOPSGUI_SMALLLARGEHUGE ),                    // "Small|Large|Huge"
+                              (CONST_STRPTR)"slh");
     }
    else
     HeaderType = 1;
@@ -1068,21 +1151,27 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
 
    if (! CheckIFF(fh, &Hdr))
     {
-    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-    		(CONST_STRPTR)"Warning\nFile is not an IFF file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),         // "Data Ops: Convert DEM"
+    		 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTANIFFFILE ),  // "Warning\nFile is not an IFF file."
+                 GetString( MSG_DATAOPSGUI_OK ),                        // "OK"
+                 (CONST_STRPTR)"o");
     break;
     } /* not IFF file */
    if (! FindIFFChunk(fh, &Hdr, "BMHD"))
     {
-    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-    		(CONST_STRPTR)"Warning\nFile is not an IFF image file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),              // "Data Ops: Convert DEM"
+    		 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTANIFFIMAGEFILE ),  // "Warning\nFile is not an IFF image file."
+                 GetString( MSG_DATAOPSGUI_OK ),                             // "OK"
+                 (CONST_STRPTR)"o");
     break;
     } /* not IFF image file */
    if ((read(fh, (char *)&BMHdr, sizeof (struct WcsBitMapHeader))) !=
 	 sizeof (struct WcsBitMapHeader))
     {
-    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-    		(CONST_STRPTR)"Error reading bitmap header.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ) ,        // "Data Ops: Convert DEM"
+    		 GetString( MSG_DATAOPSGUI_ERRORREADINGBITMAPHEADER ),  // "Error reading bitmap header."
+                 GetString( MSG_DATAOPSGUI_OK ),                        // "OK"
+                 (CONST_STRPTR)"o");
     break;
     } /* read error */
    set(DC_Win->FormatIntStr[0], MUIA_String_Integer, 0);
@@ -1137,8 +1226,10 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     } /* if */
    if (StartPt <= -30000)
     {
-    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-    		(CONST_STRPTR)"Warning\nFile is not recognized as a DTED file.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),                     // "Data Ops: Convert DEM"
+    		 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTRECOGNIZEDASADTEDFILE ),  // "Warning\nFile is not recognized as a DTED file."
+                 GetString( MSG_DATAOPSGUI_OK ),                                    // "OK"
+                 (CONST_STRPTR)"o");
     break;
     } /* if */
 
@@ -1309,7 +1400,8 @@ void Make_DI_Window(void)
 
  if (! dbaseloaded)
   {
-  NoLoad_Message((CONST_STRPTR)"Data Ops: Interp DEM", (CONST_STRPTR)"a Database");
+  NoLoad_Message(GetString( MSG_DATAOPSGUI_DATAOPSINTERPDEM ),  // "Data Ops: Interp DEM"
+                 GetString( MSG_DATAOPSGUI_ADATABASE ) );       // "a Database"
   return;
   }
 
@@ -1326,21 +1418,21 @@ void Make_DI_Window(void)
   Set_Param_Menu(10);
 
      DI_Win->InterpWin = WindowObject,
-      MUIA_Window_Title		, "DEM Interpolate",
+      MUIA_Window_Title		, GetString( MSG_DATAOPSGUI_DEMINTERPOLATE ) ,  // "DEM Interpolate"
       MUIA_Window_ID		, MakeID('D','O','I','N'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
 	Child, DI_Win->DirTxt = TextObject, TextFrame, End,
 	Child, HGroup,
-	  Child, DI_Win->BT_GetFiles = KeyButtonFunc('S', "\33cSelect Files"),
-	  Child, Label2(" Selected"),
+	  Child, DI_Win->BT_GetFiles = KeyButtonFunc('S', (char*)GetString( MSG_DATAOPSGUI_SELECTFILES ) ),  // "\33cSelect Files"
+	  Child, Label2(GetString( MSG_DATAOPSGUI_SELECTED ) ),                                       // " Selected"
 	  Child, DI_Win->SumFilesTxt = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "01234", End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("Elevation Var %"),
+	  Child, Label2(GetString( MSG_DATAOPSGUI_ELEVATIONVAR ) ),  // "Elevation Var %"
 	  Child, DI_Win->ElVarStr = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
 		MUIA_String_Contents, "2.0",
@@ -1349,7 +1441,7 @@ void Make_DI_Window(void)
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("   Max Flat Var"),
+	  Child, Label2(GetString( MSG_DATAOPSGUI_MAXFLATVAR ) ),  // "   Max Flat Var"
 	  Child, DI_Win->FlatMaxStr = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
 		MUIA_String_Contents, "2.0",
@@ -1358,7 +1450,7 @@ void Make_DI_Window(void)
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, DI_Win->BT_Interpolate = KeyButtonFunc('I', "\33cInterpolate"),
+	  Child, DI_Win->BT_Interpolate = KeyButtonFunc('I', (char*)GetString( MSG_DATAOPSGUI_INTERPOLATE ) ),  // "\33cInterpolate"
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
         End, /* VGroup */
@@ -1367,7 +1459,10 @@ void Make_DI_Window(void)
   if (! DI_Win->InterpWin)
    {
    Close_DI_Window();
-   User_Message((CONST_STRPTR)"DEM Interpolate", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DATAOPSGUI_DEMINTERPOLATE ),  // "DEM Interpolate"
+                GetString( MSG_DATAOPSGUI_OUTOFMEMORY ),     // "Out of memory!"
+                GetString( MSG_DATAOPSGUI_OK ),              // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1485,7 +1580,7 @@ void Handle_DI_Window(ULONG WCS_ID)
         freemultifilename(DI_Win->DEMInterp->FrFile);
         DI_Win->DEMInterp->FrFile = NULL;
         } /* if */
-      if(!(DI_Win->DEMInterp->FrFile = getmultifilename("DEM Files", DI_Win->DEMInterp->elevpath, DI_Win->DEMInterp->elevfile, DI_Win->DEMInterp->pattern)))
+      if(!(DI_Win->DEMInterp->FrFile = getmultifilename((char*)GetString( MSG_DATAOPSGUI_DEMFILES ), DI_Win->DEMInterp->elevpath, DI_Win->DEMInterp->elevfile, DI_Win->DEMInterp->pattern)))  // "DEM Files"
        {
        set(DI_Win->SumFilesTxt, MUIA_Text_Contents, (IPTR)"0");
        set(DI_Win->BT_Interpolate, MUIA_Disabled, TRUE);

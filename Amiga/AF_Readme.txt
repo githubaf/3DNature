@@ -3362,7 +3362,7 @@ Nothinhg        DEMObject.c
 Done		DLG.c
 Done		DataBase.c 26.Feb
 Done		DataOps.c 26.Feb
-DataOpsGUI.c
+Done		DataOpsGUI.c 26.Feb
 DefaultParams.c
 DiagnosticGUI.c
 DispatchGUI.c
