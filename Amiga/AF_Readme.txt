@@ -3367,7 +3367,7 @@ Done		DefaultParams.c 27.Feb
 Done		DiagnosticGUI.c 27.Feb
 Done		DispatchGUI.c 27.Feb
 Done		EdDBaseGUI.c  28.Feb
-EdEcoGUI.c
+Done		EdEcoGUI.c 28.Feb
 EdMoGUI.c
 EdPar.c
 EdSetExtrasGUI.c

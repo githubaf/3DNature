@@ -2,6 +2,9 @@
 ** World Construction Set GUI for Ecosystem Editing module.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -15,7 +18,18 @@ void Make_EE_Window(void)
 {
  short i;
  long open;
- static const char *TexClass[] = {"Brush Stamp", "Scaled Images", "Procedural", "None", NULL};
+ static const char *TexClass[5]={NULL};
+ static int Init=TRUE;
+
+ if(Init)
+ {
+	 Init=FALSE;
+	 TexClass[0]=(char*)GetString( MSG_EDECOGUI_BRUSHSTAMP );    // "Brush Stamp"
+	 TexClass[1]=(char*)GetString( MSG_EDECOGUI_SCALEDIMAGES );  // "Scaled Images"
+	 TexClass[2]=(char*)GetString( MSG_EDECOGUI_PROCEDURAL );    // "Procedural"
+	 TexClass[3]=(char*)GetString( MSG_EDECOGUI_NONE );          // "None"
+	 TexClass[4]=(char*)NULL;
+ }
 
  if (EE_Win)
   {
@@ -27,8 +41,10 @@ void Make_EE_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message((CONST_STRPTR)"Ecosystem Editor",
-		  (CONST_STRPTR)"You must first load or create a parameter file before opening the Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_EDECOGUI_ECOSYSTEMEDITOR ),                                     // "Ecosystem Editor"
+               GetString( MSG_EDECOGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENIN ),  // "You must first load or create a parameter file before opening the Editor.",
+               GetString( MSG_EDECOGUI_OK ),                                                  // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -56,30 +72,32 @@ void Make_EE_Window(void)
 
  if (! EE_Win->EEList || ! EE_Win->ECList)
   {
-  User_Message((CONST_STRPTR)"Parameters Module: Ecosystem",
-		  (CONST_STRPTR)"Out of memory!\nCan't open Ecosystem Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),          // "Parameters Module: Ecosystem"
+	       GetString( MSG_EDECOGUI_OUTOFMEMORYANTOPENECOSYSTEMEDITOR ),  // "Out of memory!\nCan't open Ecosystem Editor."
+               GetString( MSG_EDECOGUI_OK ),                                 // "OK"
+                (CONST_STRPTR)"o");
   Close_EE_Window(1);
   return;
   } /* if out of memory */
 
- Set_PS_List(EE_Win->EEList, NULL, 2, 0, "Unused");
- Set_PS_List(EE_Win->ECList, NULL, 1, 0, "Unused");
+ Set_PS_List(EE_Win->EEList, NULL, 2, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ));  //  "Unused"
+ Set_PS_List(EE_Win->ECList, NULL, 1, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ));  // "Unused"
 
      EE_Win->EcosystemWin = WindowObject,
-      MUIA_Window_Title		, "Ecosystem Editor",
+      MUIA_Window_Title		, GetString( MSG_EDECOGUI_ECOSYSTEMEDITOR ),  // "Ecosystem Editor"
       MUIA_Window_ID		, MakeID('E','D','E','C'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
       WindowContents, VGroup,
 	Child, HGroup,
-	  Child, Label2("Options"),
-          Child, EE_Win->BT_Settings[0] = KeyButtonFunc('1', "\33cCMaps"), 
-          Child, EE_Win->BT_Settings[1] = KeyButtonFunc('2', "\33cSurface"), 
-          Child, EE_Win->BT_Settings[2] = KeyButtonFunc('3', "\33cFractals"), 
-          Child, EE_Win->BT_Settings[3] = KeyButtonFunc('4', "\33cEcosystems"), 
-          Child, EE_Win->BT_Settings[4] = KeyButtonFunc('5', "\33cStrata"), 
-          Child, EE_Win->BT_Settings[5] = KeyButtonFunc('6', "\33cTides"), 
+	  Child, Label2(GetString( MSG_EDECOGUI_OPTIONS )),                                          // "Options"
+          Child, EE_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDECOGUI_CMAPS )),       // "\33cCMaps"
+          Child, EE_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDECOGUI_SURFACE )),     // "\33cSurface"
+          Child, EE_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDECOGUI_FRACTALS )),    // "\33cFractals"
+          Child, EE_Win->BT_Settings[3] = KeyButtonFunc('4', (char*)GetString( MSG_EDECOGUI_ECOSYSTEMS )),  // "\33cEcosystems"
+          Child, EE_Win->BT_Settings[4] = KeyButtonFunc('5', (char*)GetString( MSG_EDECOGUI_STRATA )),      // "\33cStrata"
+          Child, EE_Win->BT_Settings[5] = KeyButtonFunc('6', (char*)GetString( MSG_EDECOGUI_TIDES )),       // "\33cTides"
 	  End, /* HGroup */
         Child, HGroup,
 /* group on the left */
@@ -87,7 +105,7 @@ void Make_EE_Window(void)
 	    Child, HGroup,
 	      Child, VGroup,
 		Child, HGroup,
-	          Child, Label2("Name"),
+	          Child, Label2(GetString( MSG_EDECOGUI_NAME )),  // "Name"
 	          Child, EE_Win->NameStr = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456789012", End,
 		  End, /* HGroup */
@@ -97,56 +115,56 @@ void Make_EE_Window(void)
                   End, /* ListviewObject */
 		End, /* VGroup */
 	      Child, VGroup,
-	        Child, Label("\33c\0334Texture"),
+	        Child, Label(GetString( MSG_EDECOGUI_EXTURE )),  // "\33c\0334Texture"
 	        Child, EE_Win->TexClassCycle = CycleObject,
 			MUIA_Cycle_Entries, TexClass, End,
 /* begin Texture class page group */
 		Child, EE_Win->TexPageGrp = GroupObject, MUIA_Group_PageMode, TRUE,
 		  Child, VGroup,
 		    Child, HGroup,
-	              Child, Label("Class"),
+	              Child, Label(GetString( MSG_EDECOGUI_CLASS )),  // "Class"
 	              Child, EE_Win->ClassCycle = CycleObject,
 			MUIA_Cycle_Entries, typename, End,
 		      End, /* HGroup */
-	            Child, Label2("\33cDetail Model"),
+	            Child, Label2(GetString( MSG_EDECOGUI_DETAILMODEL )),  // "\33cDetail Model"
 	            Child, EE_Win->ModelStr = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345678901",
 			MUIA_String_Reject, ":;*/?`#%", End,
-	            Child, EE_Win->BT_MakeModel = KeyButtonFunc('g', "\33cDesign..."), 
+	            Child, EE_Win->BT_MakeModel = KeyButtonFunc('g', (char*)GetString( MSG_EDECOGUI_DESIGN )),  // "\33cDesign..."
 		    End, /* VGroup - Page 0 */
 		  Child, VGroup,
 		    Child, ColGroup(2),
-	              Child, Label("Images"),
+	              Child, Label(GetString( MSG_EDECOGUI_IMAGES )),  // "Images"
 	              Child, EE_Win->TextureText[0] = TextObject, TextFrame,
 			MUIA_FixWidthTxt, "01234", End,
-	              Child, Label("Max Ht %"),
+	              Child, Label(GetString( MSG_EDECOGUI_MAXHT )),  // "Max Ht %"
 	              Child, EE_Win->TextureText[1] = TextObject, TextFrame,
 			MUIA_FixWidthTxt, "01234", End,
-	              Child, Label("Max Img Ht"),
+	              Child, Label(GetString( MSG_EDECOGUI_MAXIMGHT )),  // "Max Img Ht"
 	              Child, EE_Win->TextureText[2] = TextObject, TextFrame,
 			MUIA_FixWidthTxt, "01234", End,
 		      End, /* ColGroup */
-	            Child, EE_Win->BT_Edit[0] = KeyButtonFunc('a', "\33cEdit Images..."),
+	            Child, EE_Win->BT_Edit[0] = KeyButtonFunc('a', (char*)GetString( MSG_EDECOGUI_EDITIMAGES )),  // "\33cEdit Images..."
 		    End, /* VGroup - Page 1 */
 		  Child, VGroup,
 		    Child, HGroup,
 	              Child, EE_Win->ProcCheck[0] = CheckMark(0),
-		      Child, Label2("Strata"),
+		      Child, Label2(GetString( MSG_EDECOGUI_STRATA )),  // "Strata"
 		      Child, RectangleObject, End,
 		      End, /* HGroup */
 		    Child, HGroup,
 	              Child, EE_Win->ProcCheck[1] = CheckMark(0),
-		      Child, Label2("Strata Colors"),
+		      Child, Label2(GetString( MSG_EDECOGUI_STRATACOLORS )),  // "Strata Colors"
 		      Child, RectangleObject, End,
 		      End, /* HGroup */
 		    Child, HGroup,
 	              Child, EE_Win->ProcCheck[2] = CheckMark(0),
-		      Child, Label2("Fractures"),
+		      Child, Label2(GetString( MSG_EDECOGUI_FRACTURES )),  // "Fractures"
 		      Child, RectangleObject, End,
 		      End, /* HGroup */
 		    Child, HGroup,
 	              Child, EE_Win->ProcCheck[3] = CheckMark(0),
-		      Child, Label2("Mud Cracks"),
+		      Child, Label2(GetString( MSG_EDECOGUI_MUDCRACKS )),  // "Mud Cracks"
 		      Child, RectangleObject, End,
 		      End, /* HGroup */
 		    End, /* VGroup - Page 2 */
@@ -156,23 +174,23 @@ void Make_EE_Window(void)
 		  End, /* PageGroup */
 /* end page group */
 	        Child, VGroup,
-		  Child, Label("\33c\0334Color Map"),
+		  Child, Label(GetString( MSG_EDECOGUI_OLORMAP )),  // "\33c\0334Color Map"
 	          Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	            Child, Label2(" Match Red "),		/* Match Red */
+	            Child, Label2(GetString( MSG_EDECOGUI_MATCHRED )),  // " Match Red "		/* Match Red */
 	            Child, EE_Win->IntStr[12] = StringObject, StringFrame,
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "0123", End,
 	            End, /* HGroup */
 	          Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	            Child, Label2(" Match Grn "),		/* Match Green */
+	            Child, Label2(GetString( MSG_EDECOGUI_MATCHGRN )),  // " Match Grn "		/* Match Green */
 	            Child, EE_Win->IntStr[13] = StringObject, StringFrame,
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "0123", End,
 	            End, /* HGroup */
 	          Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	            Child, Label2(" Match Blu "),		/* Match Blue */
+	            Child, Label2(GetString( MSG_EDECOGUI_MATCHBLU )),  // " Match Blu "		/* Match Blue */
 	            Child, EE_Win->IntStr[14] = StringObject, StringFrame,
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
@@ -186,10 +204,10 @@ void Make_EE_Window(void)
 
 /* Frame stuff */
             Child, VGroup,
-	      Child, TextObject, MUIA_Text_Contents, "\33c\0334Key Frames", End,
+	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDECOGUI_EYFRAMES ), End,    // "\33c\0334Key Frames"
               Child, HGroup,
-                Child, EE_Win->BT_PrevKey = KeyButtonFunc('v', "\33cPrev"), 
-                Child, Label2("Frame"),
+                Child, EE_Win->BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_EDECOGUI_PREV )),  // "\33cPrev"
+                Child, Label2(GetString( MSG_EDECOGUI_FRAME )),                                  // "Frame"
                 Child, HGroup, MUIA_Group_HorizSpacing, 0,
                   Child, EE_Win->Str[0] = StringObject, StringFrame,
 			MUIA_String_Integer, 0,
@@ -198,26 +216,26 @@ void Make_EE_Window(void)
                   Child, EE_Win->StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
                   Child, EE_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
                   End, /* HGroup */
-                Child, EE_Win->BT_NextKey = KeyButtonFunc('x', "\33cNext"), 
+                Child, EE_Win->BT_NextKey = KeyButtonFunc('x', (char*)GetString( MSG_EDECOGUI_NEXT )),  // "\33cNext"
                 End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, EE_Win->BT_MakeKey = KeyButtonFunc('m', "\33cMake Key"), 
-                Child, EE_Win->BT_UpdateKeys = KeyButtonFunc('u', "\33cUpdate"),
+                Child, EE_Win->BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_EDECOGUI_MAKEKEY )),    // "\33cMake Key"
+                Child, EE_Win->BT_UpdateKeys = KeyButtonFunc('u', (char*)GetString( MSG_EDECOGUI_UPDATE )),  // "\33cUpdate"
                 Child, EE_Win->BT_UpdateAll = KeyButtonObject('('),
 			MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, "\33cAll (0)", End,
+		 	MUIA_Text_Contents, (char*)GetString( MSG_EDECOGUI_ALL0 ), End,  // "\33cAll (0)"
 		End, /* HGroup */
               Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, EE_Win->BT_DeleteKey = KeyButtonFunc(127, "\33c\33uDel\33nete"),
-                Child, EE_Win->BT_DeleteAll = KeyButtonFunc('d', "\33cDelete All"), 
+                Child, EE_Win->BT_DeleteKey = KeyButtonFunc(127, (char*)GetString( MSG_EDECOGUI_DELETE )),     // "\33c\33uDel\33nete"
+                Child, EE_Win->BT_DeleteAll = KeyButtonFunc('d', (char*)GetString( MSG_EDECOGUI_DELETEALL )),  // "\33cDelete All"
 	        End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, EE_Win->FramePages = VGroup,
-                  Child, EE_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines "), 
+                  Child, EE_Win->BT_TimeLines = KeyButtonFunc('t', (char*)GetString( MSG_EDECOGUI_TIMELINES )),  // "\33cTime Lines "
 	          End, /* VGroup */
-                Child, EE_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys "), 
+                Child, EE_Win->BT_KeyScale = KeyButtonFunc('s', (char*)GetString( MSG_EDECOGUI_SCALEKEYS )),     // "\33cScale Keys "
 		End, /* HGroup */
 	      End, /* VGroup */
 
@@ -238,15 +256,15 @@ void Make_EE_Window(void)
 /* Buttons at bottom */
         Child, VGroup,
           Child, HGroup, MUIA_Group_SameWidth, TRUE,
-            Child, EE_Win->BT_Copy = KeyButtonFunc('o', "\33cCopy"), 
-            Child, EE_Win->BT_Swap = KeyButtonFunc('w', "\33cSwap"), 
-            Child, EE_Win->BT_Insert = KeyButtonFunc('i', "\33cInsert"), 
-            Child, EE_Win->BT_Remove = KeyButtonFunc('r', "\33cRemove"), 
-            Child, EE_Win->BT_Sort = KeyButtonFunc('l', "\33cSort List"), 
+            Child, EE_Win->BT_Copy = KeyButtonFunc('o', (char*)GetString( MSG_EDECOGUI_COPY )),      // "\33cCopy"
+            Child, EE_Win->BT_Swap = KeyButtonFunc('w', (char*)GetString( MSG_EDECOGUI_SWAP )),      // "\33cSwap"
+            Child, EE_Win->BT_Insert = KeyButtonFunc('i', (char*)GetString( MSG_EDECOGUI_INSERT )),  // "\33cInsert"
+            Child, EE_Win->BT_Remove = KeyButtonFunc('r', (char*)GetString( MSG_EDECOGUI_REMOVE )),  // "\33cRemove"
+            Child, EE_Win->BT_Sort = KeyButtonFunc('l', (char*)GetString( MSG_EDECOGUI_SORTLIST )),  // "\33cSort List"
             End, /* HGroup */
           Child, HGroup, MUIA_Group_SameWidth, TRUE,
-            Child, EE_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
-            Child, EE_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
+            Child, EE_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDECOGUI_KEEP )),     // "\33cKeep"
+            Child, EE_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EDECOGUI_CANCEL )),  // "\33cCancel"
             End, /* HGroup */
           End, /* VGroup */
         End, /* VGroup */
@@ -255,7 +273,10 @@ void Make_EE_Window(void)
   if (! EE_Win->EcosystemWin)
    {
    Close_EE_Window(1);
-   User_Message((CONST_STRPTR)"Ecosystem Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EDECOGUI_ECOSYSTEMEDITOR ),  // "Ecosystem Editor"
+                GetString( MSG_EDECOGUI_OUTOFMEMORY ),      // "Out of memory!"
+                GetString( MSG_EDECOGUI_OK ),               // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -291,7 +312,7 @@ void Make_EE_Window(void)
 
 /* set LW style enter command for making key */
   DoMethod(EE_Win->EcosystemWin, MUIM_Notify, MUIA_Window_InputEvent,
-	"numericpad enter", app, 2, MUIM_Application_ReturnID, ID_EE_MAKEKEY);
+	GetString( MSG_EDECOGUI_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EE_MAKEKEY);  // "numericpad enter"
 
 /* Link arrow buttons to application */
   MUI_DoNotiPresFal(app, EE_Win->StrArrow[0], ID_EE_SARROWLEFT,
@@ -438,31 +459,36 @@ STATIC_FCN APTR Make_EE_Group(void) // used locally only -> static, AF 26.7.2021
 {
   APTR obj, morestuff;
   short i, error = 0;
-  char *LabelText[] = {
- 	" Elev Line ",
- 	" Elev Skew ",
- 	"El Skew Az ",
- 	"Rel El Eff ",
- 	"Max Rel El ",
- 	"Min Rel El ",
- 	" Max Slope ",
- 	" Min Slope ",
-	"   Density ",
-	"    Height "
+  static char *LabelText[10] = {NULL};
+  static int Init=TRUE;
+
+  if(Init)
+  {
+ 	Init=FALSE;
+ 	LabelText[0]=(char*)GetString( MSG_EDECOGUI_ELEVLINE );  // " Elev Line ",
+ 	LabelText[1]=(char*)GetString( MSG_EDECOGUI_ELEVSKEW );  // " Elev Skew ",
+ 	LabelText[2]=(char*)GetString( MSG_EDECOGUI_ELSKEWAZ );  // "El Skew Az ",
+ 	LabelText[3]=(char*)GetString( MSG_EDECOGUI_RELELEFF );  // "Rel El Eff ",
+ 	LabelText[4]=(char*)GetString( MSG_EDECOGUI_MAXRELEL );  // "Max Rel El ",
+ 	LabelText[5]=(char*)GetString( MSG_EDECOGUI_MINRELEL );  // "Min Rel El ",
+ 	LabelText[6]=(char*)GetString( MSG_EDECOGUI_MAXSLOPE );  // " Max Slope ",
+ 	LabelText[7]=(char*)GetString( MSG_EDECOGUI_MINSLOPE );  // " Min Slope ",
+	LabelText[8]=(char*)GetString( MSG_EDECOGUI_DENSITY );   // "   Density ",
+	LabelText[9]=(char*)GetString( MSG_EDECOGUI_HEIGHT );    // "    Height "
  	};
 
   obj = VGroup, End;
   if (! obj) return (NULL);
 
   morestuff = VGroup,
-    Child, Label2("\33c\0334Ecosystem Color"),		/* Overstory Palette */
+    Child, Label2(GetString( MSG_EDECOGUI_ECOSYSTEMCOLOR )),  // "\33c\0334Ecosystem Color"		/* Overstory Palette */
     Child, HGroup, MUIA_Group_HorizSpacing, 0,
       Child, SmallImageDisplay(&EC_Button8),
       Child, EE_Win->ColorCy[0] = CycleObject,
 	MUIA_Cycle_Entries, EE_Win->ECList, End,
       End, /* HGroup */
 
-    Child, Label2("\33c\0334Understory Ecosystem"),	/* Understory Eco */
+    Child, Label2(GetString( MSG_EDECOGUI_UNDERSTORYECOSYSTEM )),  // "\33c\0334Understory Ecosystem"	/* Understory Eco */
     Child, HGroup, MUIA_Group_HorizSpacing, 0,
       Child, SmallImageDisplay(&EC_Button9),
       Child, EE_Win->ColorCy[1] = CycleObject,
@@ -607,7 +633,7 @@ void Handle_EE_Window(ULONG WCS_ID)
       long FrameKey;
 
       sprintf(str, "%d", EE_Win->Frame);
-      if (! GetInputString("Enter frame to make key for.",
+      if (! GetInputString((char*)GetString( MSG_EDECOGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
 	 "abcdefghijklmnopqrstuvwxyz", str))
        break;
       FrameKey = atoi(str);
@@ -659,7 +685,7 @@ void Handle_EE_Window(ULONG WCS_ID)
        if (DeleteAll)
         {
         Set_EE_List(1);
-        Set_PS_List(EE_Win->EEList, NULL, 2, 0, "Unused");
+        Set_PS_List(EE_Win->EEList, NULL, 2, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ));  // "Unused"
 	} /* if multiple keys deleted */
        else
         {
@@ -678,8 +704,11 @@ void Handle_EE_Window(ULONG WCS_ID)
       } /* delete key */
      case ID_EE_DELETEALL:
       {
-      sprintf(str, "Delete all %s Key Frames?", PAR_NAME_ECO(EE_Win->EcoItem));
-      if (User_Message_Def((CONST_STRPTR)"Parameters Module: Ecosystem", (CONST_STRPTR)str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+      sprintf(str, (char*)GetString( MSG_EDECOGUI_DELETEALLKEYFRAMES ), PAR_NAME_ECO(EE_Win->EcoItem));  // "Delete all %s Key Frames?"
+      if (User_Message_Def(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                          // "Parameters Module: Ecosystem"
+                           (CONST_STRPTR)str,
+                           GetString( MSG_EDECOGUI_OKCANCEL ),                                           // "OK|Cancel",
+                           (CONST_STRPTR)"oc", 1))
        {
        for (i=ParHdr.KeyFrames-1; i>=0; i--)
         {
@@ -712,7 +741,7 @@ void Handle_EE_Window(ULONG WCS_ID)
 	 &EcoPar.en[EE_Win->EcoItem].Line, sizeof (struct Ecosystem) - 24);
        EE_Win->EcoItem = CopyItem;
        Set_EE_List(1);
-       Set_PS_List(EE_Win->EEList, NULL, 2, 0, "Unused");
+       Set_PS_List(EE_Win->EEList, NULL, 2, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ));  // "Unused"
        Set_EE_Item(EE_Win->EcoItem);
        Par_Mod |= 0x0100;
        } /* if ecosystem item selected */
@@ -730,8 +759,10 @@ void Handle_EE_Window(ULONG WCS_ID)
        get(EE_Win->LS_List, MUIA_List_Active, &SwapItem);
        if (SwapItem < 12)
         {
-        User_Message((CONST_STRPTR)"Ecosystem Parameters: Swap",
-        		(CONST_STRPTR)"Can't swap with first 12 ecosystems!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"oc");
+        User_Message(GetString( MSG_EDECOGUI_ECOSYSTEMPARAMETERSSWAP ) ,                         // "Ecosystem Parameters: Swap"
+                     GetString( MSG_EDECOGUI_CANTSWAPWITHFIRST12ECOSYSTEMSPERATIONTERMINATED ),  // "Can't swap with first 12 ecosystems!\nOperation terminated."
+                     GetString( MSG_EDECOGUI_OK ),                                               // "OK"
+                     (CONST_STRPTR)"oc");
         set(EE_Win->LS_List, MUIA_List_Active, EE_Win->EcoItem);
 	}
        else
@@ -750,7 +781,7 @@ void Handle_EE_Window(ULONG WCS_ID)
         Update_EcoLegend(EE_Win->EcoItem, SwapItem, 2);
         EE_Win->EcoItem = SwapItem;
         Set_EE_List(1);
-        Set_PS_List(EE_Win->EEList, NULL, 2, 0, "Unused");
+        Set_PS_List(EE_Win->EEList, NULL, 2, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ) );  // "Unused"
         Set_EE_Item(EE_Win->EcoItem);
         Par_Mod |= 0x0100;
 	} /* else not water or snow */
@@ -766,7 +797,7 @@ void Handle_EE_Window(ULONG WCS_ID)
 	(ECOPARAMS - 1 - EE_Win->EcoItem) * sizeof (struct EcosystemShift));
       setecodefault(EE_Win->EcoItem);
       Set_EE_List(1);
-      Set_PS_List(EE_Win->EEList, NULL, 2, 0, "Unused");
+      Set_PS_List(EE_Win->EEList, NULL, 2, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ) );  // "Unused"
       for (i=0; i<ECOPARAMS; i++)
        {
        if (PAR_UNDER_ECO(i) >= EE_Win->EcoItem && PAR_UNDER_ECO(i) < ECOPARAMS - 1)
@@ -785,7 +816,7 @@ void Handle_EE_Window(ULONG WCS_ID)
 	(ECOPARAMS - 1 - EE_Win->EcoItem) * sizeof (struct EcosystemShift));
       setecodefault(ECOPARAMS - 1);
       Set_EE_List(1);
-      Set_PS_List(EE_Win->EEList, NULL, 2, 0, "Unused");
+      Set_PS_List(EE_Win->EEList, NULL, 2, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ) );  // "Unused"
       for (i=0; i<ECOPARAMS; i++)
        {
        if (PAR_UNDER_ECO(i) > EE_Win->EcoItem)
@@ -800,7 +831,7 @@ void Handle_EE_Window(ULONG WCS_ID)
       {
       Sort_Eco_Params();
       Set_EE_List(1);
-      Set_PS_List(EE_Win->EEList, NULL, 2, 0, "Unused");
+      Set_PS_List(EE_Win->EEList, NULL, 2, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ) );  // "Unused"
       Set_EE_Item(EE_Win->EcoItem);
       set(EE_Win->LS_List, MUIA_List_Active, EE_Win->EcoItem);
       break;
@@ -829,7 +860,7 @@ void Handle_EE_Window(ULONG WCS_ID)
       UnsetKeyFrame(EE_Win->Frame, 2, EE_Win->EcoItem, 0);
       GetKeyTableValues(2, EE_Win->EcoItem, 1);
       Set_EE_List(1);
-      Set_PS_List(EE_Win->EEList, NULL, 2, 0, "Unused");
+      Set_PS_List(EE_Win->EEList, NULL, 2, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ) );  // "Unused"
       Set_EE_Item(EE_Win->EcoItem);
       ResetTimeLines(-1);
       DisableKeyButtons(2);
@@ -841,7 +872,7 @@ void Handle_EE_Window(ULONG WCS_ID)
       UnsetKeyFrame(EE_Win->Frame, 2, EE_Win->EcoItem, 0);
       GetKeyTableValues(2, EE_Win->EcoItem, 1);
       Set_EE_List(1);
-      Set_PS_List(EE_Win->EEList, NULL, 2, 0, "Unused");
+      Set_PS_List(EE_Win->EEList, NULL, 2, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ) );  // "Unused"
       Set_EE_Item(EE_Win->EcoItem);
       ResetTimeLines(-1);
       DisableKeyButtons(2);
@@ -861,7 +892,7 @@ void Handle_EE_Window(ULONG WCS_ID)
       {
       if (KFsize != EE_Win->AltKFsize || memcmp(KF, EE_Win->AltKF, KFsize)
 		|| memcmp(&EcoPar, &UndoEcoPar[0], sizeof (EcoPar)))
-       Close_EE_Window(CloseWindow_Query((STRPTR)"Ecosystem Editor"));
+       Close_EE_Window(CloseWindow_Query((STRPTR)GetString( MSG_EDECOGUI_ECOSYSTEMEDITOR ) ));  // "Ecosystem Editor"
       else
        Close_EE_Window(1);
       break;
@@ -910,7 +941,7 @@ void Handle_EE_Window(ULONG WCS_ID)
      {
      sprintf(EE_Win->Econame[EE_Win->EcoItem], "\33n%s", PAR_NAME_ECO(EE_Win->EcoItem));
      }
-    Set_PS_List(EE_Win->EEList, NULL, 2, 0, "Unused");
+    Set_PS_List(EE_Win->EEList, NULL, 2, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ) );  // "Unused"
     DoMethod(EE_Win->LS_List, MUIM_List_Redraw, EE_Win->EcoItem);
     break;
     } /* Ecosystem name string */
@@ -1200,15 +1231,15 @@ void Set_EE_Item(short item)
   }
  if (item == 0)
   {
-  set(EE_Win->Label[0], MUIA_Text_Contents, (IPTR)" Sea Level ");
-  set(EE_Win->Label[1], MUIA_Text_Contents, (IPTR)" Sea Depth ");
-  set(EE_Win->Label[2], MUIA_Text_Contents, (IPTR)"   Wind Az ");
+  set(EE_Win->Label[0], MUIA_Text_Contents, (IPTR)GetString( MSG_EDECOGUI_SEALEVEL ) );  // " Sea Level "
+  set(EE_Win->Label[1], MUIA_Text_Contents, (IPTR)GetString( MSG_EDECOGUI_SEADEPTH ) );  // " Sea Depth "
+  set(EE_Win->Label[2], MUIA_Text_Contents, (IPTR)GetString( MSG_EDECOGUI_WINDAZ ) );    // "   Wind Az "
   }
  else
   {
-  set(EE_Win->Label[0], MUIA_Text_Contents, (IPTR)" Elev Line ");
-  set(EE_Win->Label[1], MUIA_Text_Contents, (IPTR)" Elev Skew ");
-  set(EE_Win->Label[2], MUIA_Text_Contents, (IPTR)"El Skew Az ");
+  set(EE_Win->Label[0], MUIA_Text_Contents, (IPTR)GetString( MSG_EDECOGUI_ELEVLINE ) );  // " Elev Line "
+  set(EE_Win->Label[1], MUIA_Text_Contents, (IPTR)GetString( MSG_EDECOGUI_ELEVSKEW ) );  // " Elev Skew "
+  set(EE_Win->Label[2], MUIA_Text_Contents, (IPTR)GetString( MSG_EDECOGUI_ELSKEWAZ ) );  // "El Skew Az "
   }
 
 } /* Set_EE_Item() */
