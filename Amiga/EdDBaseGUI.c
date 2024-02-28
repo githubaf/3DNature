@@ -2,6 +2,9 @@
 ** World Construction Set GUI for Database Editing module.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -14,14 +17,35 @@ void Make_DE_Window(void)
 {
  short i;
  long open;
- static const char *DE_LineCycle[] = {"Point", "Circle", "Square", "Cross",
-	"Solid", "Dotted", "Dashed", "Broken", NULL};
- static const char *DE_SpecCycle[] = {"Topo", "Surface", "Vector", "Illum Vec",
-	"Segment V", "Illum Seg",
+ static const char *DE_LineCycle[9];
+ static const char *DE_SpecCycle[7];
+ int Init=TRUE;
+
+ if(Init)
+ {
+	Init=FALSE;
+	DE_LineCycle[0]=(char*)GetString( MSG_EDDB_POINT );   // "Point"
+	DE_LineCycle[1]=(char*)GetString( MSG_EDDB_CIRCLE );  // "Circle"
+	DE_LineCycle[2]=(char*)GetString( MSG_EDDB_SQUARE );  // "Square"
+	DE_LineCycle[3]=(char*)GetString( MSG_EDDB_CROSS );   // "Cross"
+	DE_LineCycle[4]=(char*)GetString( MSG_EDDB_SOLID );   // "Solid"
+	DE_LineCycle[5]=(char*)GetString( MSG_EDDB_DOTTED );  // "Dotted"
+	DE_LineCycle[6]=(char*)GetString( MSG_EDDB_DASHED );  // "Dashed"
+	DE_LineCycle[7]=(char*)GetString( MSG_EDDB_BROKEN );  // "Broken"
+	DE_LineCycle[8]=(char*)NULL;
+
+	DE_SpecCycle[0]=(char*)GetString( MSG_EDDB_TOPO );     // "Topo"
+	DE_SpecCycle[1]=(char*)GetString( MSG_EDDB_SURFACE );  // "Surface"
+	DE_SpecCycle[2]=(char*)GetString( MSG_EDDB_VECTOR );   // "Vector"
+	DE_SpecCycle[3]=(char*)GetString( MSG_EDDB_ILLUMVEC ); // "Illum Vec"
+	DE_SpecCycle[4]=(char*)GetString( MSG_EDDB_SEGMENTV ); // "Segment V"
+	DE_SpecCycle[5]=(char*)GetString( MSG_EDDB_ILLUMSEG );     // "Illum Seg"
 #ifdef ENABLE_VECTOR_PATHS
-	 "Cam Path", "Foc Path",
+			 "Cam Path",
+			 "Foc Path",
 #endif /* ENABLE_VECTOR_PATHS */
-	 NULL};
+	DE_SpecCycle[5]=NULL;
+ }
 
  if (DE_Win)
   {
@@ -40,8 +64,10 @@ void Make_DE_Window(void)
 
  if (! dbaseloaded)
   {
-  User_Message((CONST_STRPTR)"Database Editor",
-		  (CONST_STRPTR)"You must first load or create a database before opening the editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_EDDB_DATABASEEDITOR ),                                         // "Database Editor"
+	       GetString( MSG_EDDB_YOUMUSTFIRSTLOADORCREATEADATABASEBEFOREOPENINGTHEEDITO ), // "You must first load or create a database before opening the editor."
+               GetString( MSG_EDDB_OK ),                                                     // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no database */
 
@@ -51,8 +77,10 @@ void Make_DE_Window(void)
 
  if (! DBList_New(NoOfObjects + 20))
   {
-  User_Message((CONST_STRPTR)"Database Module",
-		  (CONST_STRPTR)"Out of memory!\nCan't open database window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                    // "Database Module"
+               GetString( MSG_EDDB_OUTOFMEMORYANTOPENDATABASEWINDOW ),  // "Out of memory!\nCan't open database window.",
+               GetString( MSG_EDDB_OK ),                                // "OK"
+               (CONST_STRPTR)"o");
   Close_DE_Window();
   return;
   } /* if out of memory */
@@ -60,16 +88,16 @@ void Make_DE_Window(void)
   Set_Param_Menu(10);
 
      DE_Win->DatabaseEditWin = WindowObject,
-      MUIA_Window_Title		, "Database Editor",
+      MUIA_Window_Title		, GetString( MSG_EDDB_DATABASEEDITOR ),  // "Database Editor"
       MUIA_Window_ID		, MakeID('D','B','E','D'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
 	Child, HGroup,
-	  Child, Label2("Options"),
-          Child, DE_Win->BT_Settings[0] = KeyButtonFunc('1', "\33cVectors"), 
-          Child, DE_Win->BT_Settings[1] = KeyButtonFunc('2', "\33cSurfaces"),
-          Child, DE_Win->BT_Settings[2] = KeyButtonFunc('3', "\33cFractals"), 
+	  Child, Label2(GetString( MSG_EDDB_OPTIONS ) ),                                                  // "Options"
+          Child, DE_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDDB_VECTORS )),   // "\33cVectors"
+          Child, DE_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDDB_SURFACES )),  // "\33cSurfaces"
+          Child, DE_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDDB_FRACTALS )),  // "\33cFractals"
 	  End, /* HGroup */
         Child, HGroup,
 /* group on the left */
@@ -90,37 +118,37 @@ void Make_DE_Window(void)
 #endif
 	/* object name */
 	    Child, HGroup,
-	      Child, DE_Win->BT_Name = KeyButtonFunc('n', "\33cName"),
+	      Child, DE_Win->BT_Name = KeyButtonFunc('n', (char*)GetString( MSG_EDDB_NAME ) ),  // "\33cName"
 	      Child, DE_Win->Str[0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "01234567890", End,
 	      Child, DE_Win->Check = CheckMark(0),
-	      Child, Label2("Enabled"),
+	      Child, Label2(GetString( MSG_EDDB_ENABLED ) ),  // "Enabled"
 	      End, /* HGroup */
 	/* vector points */
 	    Child, HGroup,
-	      Child, Label2("Points"),
+	      Child, Label2(GetString( MSG_EDDB_POINTS ) ),  // "Points"
 	      Child, DE_Win->PointTxt = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123", End,
-	      Child, Label2("Class"),
+	      Child, Label2(GetString( MSG_EDDB_CLASS ) ),  // "Class"
 	      Child, DE_Win->CY_Spec = Cycle(DE_SpecCycle),
 	      End, /* HGroup */
 	/* layer 1 */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Layer 1 "),
+	      Child, Label2(GetString( MSG_EDDB_LAYER1 ) ),  // "Layer 1 "
               Child, DE_Win->Str[1] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123", End,
-	      Child, DE_Win->BT_LayerSel[0] = SimpleButton("Sel"),
-	      Child, DE_Win->BT_LayerOn[0] = SimpleButton("On"),
-	      Child, DE_Win->BT_LayerOff[0] = SimpleButton("Off"),
+	      Child, DE_Win->BT_LayerSel[0] = SimpleButton(GetString( MSG_EDDB_SEL )),  // "Sel"
+	      Child, DE_Win->BT_LayerOn[0] = SimpleButton(GetString( MSG_EDDB_ON )),    // "On"
+	      Child, DE_Win->BT_LayerOff[0] = SimpleButton(GetString( MSG_EDDB_OFF )),  // "Off"
 	      End, /* HGroup */
 	/* layer 2 */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Layer 2 "),
+	      Child, Label2(GetString( MSG_EDDB_LAYER2 ) ),  // "Layer 2 "
               Child, DE_Win->Str[2] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123", End,
-	      Child, DE_Win->BT_LayerSel[1] = SimpleButton("Sel"),
-	      Child, DE_Win->BT_LayerOn[1] = SimpleButton("On"),
-	      Child, DE_Win->BT_LayerOff[1] = SimpleButton("Off"),
+	      Child, DE_Win->BT_LayerSel[1] = SimpleButton(GetString( MSG_EDDB_SEL )),  // "Sel"
+	      Child, DE_Win->BT_LayerOn[1] = SimpleButton(GetString( MSG_EDDB_ON )),    // "On"
+	      Child, DE_Win->BT_LayerOff[1] = SimpleButton(GetString( MSG_EDDB_OFF )),  // "Off"
 	      End, /* HGroup */
 	/* object label */
 	    Child, HGroup,
@@ -131,7 +159,7 @@ void Make_DE_Window(void)
 	/* maximum fractal depth for topos */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, RectangleObject, End,
-	      Child, Label2("DEM Max Fractal "),
+	      Child, Label2(GetString( MSG_EDDB_DEMMAXFRACTAL ) ),  // "DEM Max Fractal "
 	      Child, DE_Win->IntStr[6] = StringObject, StringFrame,
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
@@ -142,13 +170,13 @@ void Make_DE_Window(void)
 	/* line type */
 	    Child, HGroup,
 	      Child, RectangleObject, End,
-	      Child, Label2("Line Style"),
+	      Child, Label2(GetString( MSG_EDDB_LINESTYLE ) ),  // "Line Style"
 	      Child, DE_Win->CY_Line = Cycle(DE_LineCycle),
 	      End, /* HGroup */
 	/* line width */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, RectangleObject, End,
-	      Child, Label2("Line Weight "),
+	      Child, Label2(GetString( MSG_EDDB_LINEWEIGHT ) ),  // "Line Weight "
 	      Child, DE_Win->IntStr[1] = StringObject, StringFrame,
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
@@ -159,7 +187,7 @@ void Make_DE_Window(void)
 	/* draw pen */
 	    Child, HGroup,
 	      Child, RectangleObject, End,
-	      Child, Label2("Draw Pen "),
+	      Child, Label2(GetString( MSG_EDDB_DRAWPEN ) ),  // "Draw Pen "
 	      Child, SmallImageDisplay(&EC_Button8),
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, DE_Win->IntStr[2] = StringObject, StringFrame,
@@ -172,7 +200,7 @@ void Make_DE_Window(void)
 	      End, /* HGroup */
 	/* RGB render values */
 	    Child, HGroup,
-	      Child, Label2("RGB"),
+	      Child, Label2(GetString( MSG_EDDB_RGB ) ),  // "RGB"
 	      Child, SmallImageDisplay(&EC_Button9),
 	      Child, VGroup,
 		Child, HGroup,
@@ -185,7 +213,7 @@ void Make_DE_Window(void)
 			MUIA_Prop_Entries, 260,
 			MUIA_Prop_Visible, 5,
 			MUIA_Prop_First, 0, End,
-                  Child, TextObject, MUIA_Text_Contents, "R",
+                  Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDDB_R ) ,  // "R"
 			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
 		  End, /* HGroup */
 		Child, HGroup,
@@ -198,7 +226,7 @@ void Make_DE_Window(void)
 			MUIA_Prop_Entries, 260,
 			MUIA_Prop_Visible, 5,
 			MUIA_Prop_First, 0, End,
-                  Child, TextObject, MUIA_Text_Contents, "G",
+                  Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDDB_G ) ,  // "G"
 			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
 		  End, /* HGroup */
 		Child, HGroup,
@@ -211,7 +239,7 @@ void Make_DE_Window(void)
 			MUIA_Prop_Entries, 260,
 			MUIA_Prop_Visible, 5,
 			MUIA_Prop_First, 0, End,
-                  Child, TextObject, MUIA_Text_Contents, "B",
+                  Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDDB_B ) ,  // "B"
 			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
 		  End, /* HGroup */
 
@@ -228,18 +256,18 @@ void Make_DE_Window(void)
 	  End, /* HGroup */
 /* Buttons at bottom */
         Child, HGroup, MUIA_Group_SameWidth, TRUE,
-          Child, DE_Win->BT_New = KeyButtonFunc('o',    "\33cNew Obj"), 
-          Child, DE_Win->BT_Add = KeyButtonFunc('d',    "\33cAdd Obj"), 
-          Child, DE_Win->BT_Remove = KeyButtonFunc('m', "\33cRemove "), 
-          Child, DE_Win->BT_Search = KeyButtonFunc('h', "\33cSearch "), 
-          Child, DE_Win->BT_Sort = KeyButtonFunc('r',   "\33cSort"), 
+          Child, DE_Win->BT_New = KeyButtonFunc('o',    (char*)GetString( MSG_EDDB_NEWOBJ )),  // "\33cNew Obj"
+          Child, DE_Win->BT_Add = KeyButtonFunc('d',    (char*)GetString( MSG_EDDB_ADDOBJ )),  // "\33cAdd Obj"
+          Child, DE_Win->BT_Remove = KeyButtonFunc('m', (char*)GetString( MSG_EDDB_REMOVE )),  // "\33cRemove "
+          Child, DE_Win->BT_Search = KeyButtonFunc('h', (char*)GetString( MSG_EDDB_SEARCH )),  // "\33cSearch "
+          Child, DE_Win->BT_Sort = KeyButtonFunc('r',   (char*)GetString( MSG_EDDB_SORT )),    // "\33cSort"
           End, /* HGroup */
 
         Child, HGroup, MUIA_Group_SameWidth, TRUE,
-          Child, DE_Win->BT_Save = KeyButtonFunc('s',   "\33cSave "), 
-          Child, DE_Win->BT_Load = KeyButtonFunc('l',   "\33cLoad "), 
-          Child, DE_Win->BT_Append = KeyButtonFunc('a', "\33cAppend "), 
-          Child, DE_Win->BT_Create = KeyButtonFunc('t', "\33cCreate "), 
+          Child, DE_Win->BT_Save = KeyButtonFunc('s',   (char*)GetString( MSG_EDDB_SAVE ) ),    // "\33cSave "
+          Child, DE_Win->BT_Load = KeyButtonFunc('l',   (char*)GetString( MSG_EDDB_LOAD ) ),    // "\33cLoad "
+          Child, DE_Win->BT_Append = KeyButtonFunc('a', (char*)GetString( MSG_EDDB_APPEND ) ),  // "\33cAppend "
+          Child, DE_Win->BT_Create = KeyButtonFunc('t', (char*)GetString( MSG_EDDB_CREATE ) ),  // "\33cCreate "
           End, /* HGroup */
 
         End, /* VGroup */
@@ -248,7 +276,10 @@ void Make_DE_Window(void)
   if (! DE_Win->DatabaseEditWin)
    {
    Close_DE_Window();
-   User_Message((CONST_STRPTR)"Database Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EDDB_DATABASEEDITOR ),  // "Database Editor"
+                GetString( MSG_EDDB_OUTOFMEMORY ),     // "Out of memory!"
+                GetString( MSG_EDDB_OK ),              // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -468,7 +499,7 @@ void Handle_DE_Window(ULONG WCS_ID)
       strcpy(str, DBase[OBN].Name);
 NewName:
       found = 0;
-      if (! GetInputString("Enter new object name.", ":;*/?`#%", str))
+      if (! GetInputString((char*)GetString( MSG_EDDB_ENTERNEWOBJECTNAME ), ":;*/?`#%", str))  // "Enter new object name."
        break;
       while (strlen(str) < length[0])
        strcat(str, " ");
@@ -483,9 +514,10 @@ NewName:
        } /* for i=0... */
       if (found)
        {
-       if (! User_Message_Def((CONST_STRPTR)"Database Module: Name",
-    		   (CONST_STRPTR)"Object name already present in database!\nTry a new name?",
-			   (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+       if (! User_Message_Def(GetString( MSG_EDDB_DATABASEMODULENAME ),                             // "Database Module: Name"
+                              GetString( MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME ) ,  // "Object name already present in database!\nTry a new name?"
+			      GetString( MSG_EDDB_OKCANCEL ),                                       // "OK|Cancel"
+                              (CONST_STRPTR)"oc", 1))
         break;
        goto NewName;
        }
@@ -552,7 +584,7 @@ NewName:
       short StrLength;
 
       str[0] = 0;
-      if (! GetInputString("Enter search string.", ":;*/?`#%", str))
+      if (! GetInputString((char*)GetString( MSG_EDDB_ENTERSEARCHSTRING ), ":;*/?`#%", str))  // "Enter search string."
        break;
       StrLength = strlen(str);
       if (StrLength == 0)
@@ -576,7 +608,7 @@ NewName:
       short Change = 1;
       struct BusyWindow *BWDB;
 
-      BWDB = BusyWin_New("Sorting", NoOfObjects, 0, MakeID('B','W','D','B'));
+      BWDB = BusyWin_New((char*)GetString( MSG_EDDB_SORTING ), NoOfObjects, 0, MakeID('B','W','D','B'));  // "Sorting"
       while (Change)
        {
        Change = 0;
@@ -603,10 +635,10 @@ NewName:
       short Remove;
       long ActiveItem;
 
-      if ((Remove = User_Message_Def((CONST_STRPTR)"Database Module: Remove Item",
-    		  (CONST_STRPTR)"Delete object, elevation and relative elevation files from disk as\
- well as remove their names from the Database?",
- (CONST_STRPTR)"From Disk|Database Only|Cancel", (CONST_STRPTR)"fdc", 1)) == 0)
+      if ((Remove = User_Message_Def(GetString( MSG_EDDB_DATABASEMODULEREMOVEITEM ),                                          // "Database Module: Remove Item 
+                                     GetString( MSG_EDDB_DELETEOBJECTELEVATIONANDRELATIVEELEVATIONFILESFROMDISKASWELL ),      // "Delete object, elevation and relative elevation files from disk as well as remove their names from the Database?"
+                                     GetString( MSG_EDDB_FROMDISKDATABASEONLYCANCEL ),                                        // "From Disk|Database Only|Cancel",
+                                     (CONST_STRPTR)"fdc", 1)) == 0)
 	break;
       SetPointer(DE_Win->Win, WaitPointer, 16, 16, -6, 0);
       get(DE_Win->LS_List, MUIA_List_Active, &ActiveItem);
@@ -1452,8 +1484,10 @@ void Set_DE_List(short update)
   {
   if (! DBList_New(NoOfObjects + 20))
    {
-   User_Message((CONST_STRPTR)"Database Module",
-		   (CONST_STRPTR)"Out of memory!\nCan't open database list.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                  // "Database Module"
+                GetString( MSG_EDDB_OUTOFMEMORYANTOPENDATABASELIST ),  // "Out of memory!\nCan't open database list."
+                GetString( MSG_EDDB_OK ),                              // "OK"
+                (CONST_STRPTR)"o");
    } /* if out of memory */
   } /* if need more list space */
 
@@ -1628,16 +1662,20 @@ void Make_DL_Window(void)
  DL_Win->DLNameSize = DL_Win->MaxDLItems * (sizeof (char *));
  if ((DL_Win->DLName = (char **)get_Memory(DL_Win->DLNameSize, MEMF_CLEAR)) == NULL)
   {
-  User_Message((CONST_STRPTR)"Database Module",
-		  (CONST_STRPTR)"Out of memory!\nCan't open directory list window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                         // "Database Module"
+               GetString( MSG_EDDB_OUTOFMEMORYANTOPENDIRECTORYLISTWINDOW ),  // "Out of memory!\nCan't open directory list window."
+               GetString( MSG_EDDB_OK ),                                     // "OK"
+               (CONST_STRPTR)"o");
   Close_DL_Window(NULL);
   return;
   } /* if out of memory */
 
  if ((DL_Win->DLCopy = DirList_Copy(DL)) == NULL)
   {
-  User_Message((CONST_STRPTR)"Database Module",
-		  (CONST_STRPTR)"Out of memory!\nCan't open directory list window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                         // "Database Module"
+               GetString( MSG_EDDB_OUTOFMEMORYANTOPENDIRECTORYLISTWINDOW ),  // "Out of memory!\nCan't open directory list window."
+               GetString( MSG_EDDB_OK ),                                     // "OK"
+               (CONST_STRPTR)"o");
   Close_DL_Window(NULL);
   return;
   } /* if out of memory */
@@ -1646,7 +1684,7 @@ void Make_DL_Window(void)
   Set_Param_Menu(10);
 
      DL_Win->DirListWin = WindowObject,
-      MUIA_Window_Title		, "Directory List Editor",
+      MUIA_Window_Title		, GetString( MSG_EDDB_DIRECTORYLISTEDITOR ),  // "Directory List Editor"
       MUIA_Window_ID		, MakeID('D','L','E','D'),
       MUIA_Window_Screen	, WCSScrn,
 
@@ -1658,22 +1696,22 @@ void Make_DL_Window(void)
 
         Child, DL_Win->DefaultTxt = TextObject, TextFrame,
 		 MUIA_Text_Contents, dirname, End, 
-        Child, DL_Win->BT_Default = KeyButtonFunc('f', "\33cDefault Directory"), 
+        Child, DL_Win->BT_Default = KeyButtonFunc('f', (char*)GetString( MSG_EDDB_DEFAULTDIRECTORY )),  // "\33cDefault Directory"
 
         Child, HGroup,
-          Child, DL_Win->BT_Add = KeyButtonFunc('d', "\33cAdd..."), 
-          Child, DL_Win->BT_Swap = KeyButtonFunc('s', "\33cSwap..."), 
-          Child, DL_Win->BT_Move = KeyButtonFunc('m', "\33cMove..."), 
-          Child, DL_Win->BT_Remove = KeyButtonFunc('r', "\33cRemove"), 
+          Child, DL_Win->BT_Add =    KeyButtonFunc('d', (char*)GetString( MSG_EDDB_ADD )),     // "\33cAdd..."
+          Child, DL_Win->BT_Swap =   KeyButtonFunc('s', (char*)GetString( MSG_EDDB_SWAP )),    // "\33cSwap..."
+          Child, DL_Win->BT_Move =   KeyButtonFunc('m', (char*)GetString( MSG_EDDB_MOVE )),    // "\33cMove..."
+          Child, DL_Win->BT_Remove = KeyButtonFunc('r', (char*)GetString( MSG_EDDB_REMOVE )),  // "\33cRemove"
           Child, DL_Win->BT_ReadOnly = KeyButtonObject('*'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33c*Read Only", End, 
+		 MUIA_Text_Contents, GetString( MSG_EDDB_READONLY ), End,  // "\33c*Read Only"
           End, /* HGroup */
 
         Child, HGroup,
-          Child, DL_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
-          Child, DL_Win->BT_Load = KeyButtonFunc('l', "\33cLoad"), 
-          Child, DL_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
+          Child, DL_Win->BT_Apply =  KeyButtonFunc('k', (char*)GetString( MSG_EDDB_KEEP )),  // "\33cKeep"
+          Child, DL_Win->BT_Load =   KeyButtonFunc('l', (char*)GetString( MSG_EDDB_LOAD )),  // "\33cLoad"
+          Child, DL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EDDB_CANCEL)), // "\33cCancel"
           End, /* HGroup */
 
         End, /* VGroup */
@@ -1682,7 +1720,10 @@ void Make_DL_Window(void)
   if (! DL_Win->DirListWin)
    {
    Close_DL_Window(DL_Win->DLCopy);
-   User_Message((CONST_STRPTR)"Directory List", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EDDB_DIRECTORYLIST ),  // "Directory List"
+                GetString( MSG_EDDB_OUTOFMEMORY ),    // "Out of memory!"
+                GetString( MSG_EDDB_OK ),             // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1900,7 +1941,7 @@ void Handle_DL_Window(ULONG WCS_ID)
       }
      case ID_DL_CLOSEQUERY:
       {
-      if (! CloseWindow_Query((STRPTR)"Directory List"))
+      if (! CloseWindow_Query(GetString( MSG_EDDB_DIRECTORYLIST ) ))  // "Directory List"
        {
        strcpy(dirname, DL_Win->Dirname);
        swmem(DL, DL_Win->DLCopy, sizeof (struct DirList *));
@@ -1978,8 +2019,10 @@ short Add_DE_NewItem(void)
   {
   if (! DBList_New(NoOfObjects + 20))
    {
-   User_Message((CONST_STRPTR)"Database Module",
-		   (CONST_STRPTR)"Out of memory expanding database!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                                  // "Database Module"
+                GetString( MSG_EDDB_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+                GetString( MSG_EDDB_OK ),                                              // "OK"
+                (CONST_STRPTR)"o");
    return (0);
    } /* if new list fails */
   } /* if need bigger list */

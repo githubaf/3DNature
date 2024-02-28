@@ -3107,3 +3107,312 @@ MSG_DISPGUI_OUTOFMEMORYALLOCATINGDATABASEPERATIONTERMINATED
 Out of memory allocating Database!\nOperation terminated.
 
 ;
+;
+MSG_EDDB_POINT
+Point
+
+;
+MSG_EDDB_CIRCLE
+Circle
+
+;
+MSG_EDDB_SQUARE
+Square
+
+;
+MSG_EDDB_CROSS
+Cross
+
+;
+MSG_EDDB_SOLID
+Solid
+
+;
+MSG_EDDB_DOTTED
+Dotted
+
+;
+MSG_EDDB_DASHED
+Dashed
+
+;
+MSG_EDDB_BROKEN
+Broken
+
+;
+MSG_EDDB_TOPO
+Topo
+
+;
+MSG_EDDB_SURFACE
+Surface
+
+;
+MSG_EDDB_VECTOR
+Vector
+
+;
+MSG_EDDB_ILLUMVEC
+Illum Vec
+
+;
+MSG_EDDB_SEGMENTV
+Segment V
+
+;
+MSG_EDDB_ILLUMSEG
+Illum Seg
+
+;
+MSG_EDDB_DATABASEEDITOR
+Database Editor
+
+;
+MSG_EDDB_YOUMUSTFIRSTLOADORCREATEADATABASEBEFOREOPENINGTHEEDITO
+You must first load or create a database before opening the editor.
+
+;
+MSG_EDDB_OK
+OK
+
+;
+MSG_EDDB_DATABASEMODULE
+Database Module
+
+;
+MSG_EDDB_OUTOFMEMORYANTOPENDATABASEWINDOW
+Out of memory!\nCan't open database window.
+
+;
+MSG_EDDB_OPTIONS
+Options
+
+;
+MSG_EDDB_VECTORS
+\33cVectors
+
+;
+MSG_EDDB_SURFACES
+\33cSurfaces
+
+;
+MSG_EDDB_FRACTALS
+\33cFractals
+
+;
+MSG_EDDB_NAME
+\33cName
+
+;
+MSG_EDDB_ENABLED
+Enabled
+
+;
+MSG_EDDB_POINTS
+Points
+
+;
+MSG_EDDB_CLASS
+Class
+
+;
+MSG_EDDB_LAYER1
+Layer 1\x20
+
+;
+MSG_EDDB_SEL
+Sel
+
+;
+MSG_EDDB_ON
+On
+
+;
+MSG_EDDB_OFF
+Off
+
+;
+MSG_EDDB_LAYER2
+Layer 2\x20
+
+;
+MSG_EDDB_LABEL
+\33cLabel
+
+;
+MSG_EDDB_DEMMAXFRACTAL
+DEM Max Fractal\x20
+
+;
+MSG_EDDB_LINESTYLE
+Line Style
+
+;
+MSG_EDDB_LINEWEIGHT
+Line Weight\x20
+
+;
+MSG_EDDB_DRAWPEN
+Draw Pen\x20
+
+;
+MSG_EDDB_RGB
+RGB
+
+;
+MSG_EDDB_R
+R
+
+;
+MSG_EDDB_G
+G
+
+;
+MSG_EDDB_B
+B
+
+;
+MSG_EDDB_NEWOBJ
+\33cNew Obj
+
+;
+MSG_EDDB_ADDOBJ
+\33cAdd Obj
+
+;
+MSG_EDDB_REMOVE
+\33cRemove 
+
+;
+MSG_EDDB_SEARCH
+\33cSearch\x20
+
+;
+MSG_EDDB_SORT
+\33cSort
+
+;
+MSG_EDDB_SAVE
+\33cSave\x20
+
+;
+MSG_EDDB_LOAD_SAPCE
+\33cLoad\x20
+
+;
+MSG_EDDB_APPEND
+\33cAppend\x20
+
+;
+MSG_EDDB_CREATE
+\33cCreate\x20
+
+;
+MSG_EDDB_OUTOFMEMORY
+Out of memory!
+
+;
+MSG_EDDB_ENTERNEWOBJECTNAME
+Enter new object name.
+
+;
+MSG_EDDB_DATABASEMODULENAME
+Database Module: Name
+
+;
+MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME
+Object name already present in database!\nTry a new name?
+
+;
+MSG_EDDB_OKCANCEL
+OK|Cancel
+
+;
+MSG_EDDB_ENTERSEARCHSTRING
+Enter search string.
+
+;
+MSG_EDDB_SORTING
+Sorting
+
+;
+MSG_EDDB_DATABASEMODULEREMOVEITEM
+Database Module: Remove Item
+
+;
+MSG_EDDB_FROMDISKDATABASEONLYCANCEL
+From Disk|Database Only|Cancel
+
+;
+MSG_EDDB_OUTOFMEMORYANTOPENDATABASELIST
+Out of memory!\nCan't open database list.
+
+;
+MSG_EDDB_OUTOFMEMORYANTOPENDIRECTORYLISTWINDOW
+Out of memory!\nCan't open directory list window.
+
+;
+MSG_EDDB_OUTOFMEMORYANTOPENDIRECTORYLISTWINDOW
+Out of memory!\nCan't open directory list window.
+
+;
+MSG_EDDB_DIRECTORYLISTEDITOR
+Directory List Editor
+
+;
+MSG_EDDB_DEFAULTDIRECTORY
+\33cDefault Directory
+
+;
+MSG_EDDB_ADD
+\33cAdd...
+
+;
+MSG_EDDB_SWAP
+\33cSwap...
+
+;
+MSG_EDDB_MOVE
+\33cMove...
+
+;
+MSG_EDDB_REMOVE
+\33cRemove
+
+;
+MSG_EDDB_READONLY
+\33c*Read Only
+
+;
+MSG_EDDB_KEEP
+\33cKeep
+
+;
+MSG_EDDB_LOAD
+\33cLoad
+
+;
+MSG_EDDB_CANCEL
+\33cCancel
+
+;
+MSG_EDDB_DIRECTORYLIST
+Directory List
+
+;
+MSG_EDDB_OUTOFMEMORY
+Out of memory!
+
+;
+MSG_EDDB_DIRECTORYLIST
+Directory List
+
+;
+MSG_EDDB_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
+Out of memory expanding database!\nOperation terminated.
+
+;
+;
+MSG_EDDB_DELETEOBJECTELEVATIONANDRELATIVEELEVATIONFILESFROMDISKASWELL
+Delete object, elevation and relative elevation files from disk as well as remove their names from the Database?
+
