@@ -2,6 +2,9 @@
 ** World Construction Set GUI for Motion Editing module.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -23,8 +26,10 @@ void Make_EM_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message((CONST_STRPTR)"Motion Editor",
-		  (CONST_STRPTR)"You must first load or create a parameter file before opening the Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_EDMOGUI_MOTIONEDITOR ),                                        // "Motion Editor"
+               GetString( MSG_EDMOGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING ),  // "You must first load or create a parameter file before opening the Editor."
+               GetString( MSG_EDMOGUI_OK ),                                                   // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -45,25 +50,25 @@ void Make_EM_Window(void)
   Set_Param_Menu(0);
 
      EM_Win->MotionWin = WindowObject,
-      MUIA_Window_Title		, "Motion Editor",
+      MUIA_Window_Title		, GetString( MSG_EDMOGUI_MOTIONEDITOR ),  // "Motion Editor"
       MUIA_Window_ID		, MakeID('E','D','M','O'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
       WindowContents, VGroup,
 	Child, HGroup,
-	  Child, Label2("Options"),
-          Child, EM_Win->BT_Settings[0] = KeyButtonFunc('1', "\33cPaths"), 
-          Child, EM_Win->BT_Settings[1] = KeyButtonFunc('2', "\33cFractal"), 
-          Child, EM_Win->BT_Settings[2] = KeyButtonFunc('3', "\33cHorizon"), 
-          Child, EM_Win->BT_Settings[3] = KeyButtonFunc('4', "\33cCelestial"), 
-          Child, EM_Win->BT_Settings[4] = KeyButtonFunc('5', "\33cReflection"), 
+	  Child, Label2(GetString( MSG_EDMOGUI_OPTIONS ) ),                                                    // "Options"
+          Child, EM_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDMOGUI_FRACTAL )),     // "\33cPaths"
+          Child, EM_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDMOGUI_HORIZON )),     // "\33cFractal"
+          Child, EM_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDMOGUI_CELESTIAL )),   // "\33cHorizon"
+          Child, EM_Win->BT_Settings[3] = KeyButtonFunc('4', (char*)GetString( MSG_EDMOGUI_CELESTIAL )),   // "\33cCelestial"
+          Child, EM_Win->BT_Settings[4] = KeyButtonFunc('5', (char*)GetString( MSG_EDMOGUI_REFLECTION )),  // "\33cReflection"
 	  End, /* HGroup */
 	Child, HGroup,
 /* Editing panel */
 	  Child, VGroup,
 /* Motion list */
-	    Child, Label("\33c\0334Parameter List"),
+	    Child, Label((char*)GetString( MSG_EDMOGUI_PARAMETERLIST ) ),  // "\33c\0334Parameter List"
 	    Child, EM_Win->LS_List = ListviewObject, 
 	        MUIA_Listview_Input, TRUE,
               MUIA_Listview_List, ListObject, ReadListFrame, End,
@@ -73,7 +78,7 @@ void Make_EM_Window(void)
  	  Child, VGroup,
 /* Interactive group */
 	    Child, VGroup,
-	      Child, TextObject, MUIA_Text_Contents, "\33c\0334Interactive Group", End,
+	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDMOGUI_INTERACTIVEGROUP ), End,  // "\33c\0334Interactive Group"
 	      Child, HGroup,
                 Child, Label2("X"), 
                 Child, EM_Win->ParTxt[0] = TextObject, TextFrame,
@@ -113,7 +118,7 @@ void Make_EM_Window(void)
                 Child, Label2("A"),
 */
                 Child, TextObject, TextFrame,
-			  MUIA_Text_Contents, "Focal Azimuth",
+			  MUIA_Text_Contents, GetString( MSG_EDMOGUI_FOCALAZIMUTH ),  // "Focal Azimuth"
 			  MUIA_FixWidthTxt, "0123456789012345", End,
                 Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		    Child, EM_Win->ValTxt[3] = StringObject, StringFrame,
@@ -127,7 +132,7 @@ void Make_EM_Window(void)
                 Child, Label2("Q"),
 */
                 Child, TextObject, TextFrame,
-			MUIA_Text_Contents, "Focal Distance",
+			MUIA_Text_Contents, GetString( MSG_EDMOGUI_FOCALDISTANCE ),  // "Focal Distance"
 			MUIA_FixWidthTxt, "0123456789012345", End,
                 Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		  Child, EM_Win->ValTxt[4] = StringObject, StringFrame,
@@ -138,7 +143,7 @@ void Make_EM_Window(void)
                 End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Sensitivity "),
+                Child, Label2(GetString( MSG_EDMOGUI_SENSITIVITY )),  // "Sensitivity "
                 Child, EM_Win->IA_SensStr = StringObject, StringFrame,
 			MUIA_String_Integer, IA_Sensitivity,
 			MUIA_String_Accept, "0123456789",
@@ -146,9 +151,9 @@ void Make_EM_Window(void)
                 Child, EM_Win->IA_L_SensArrow = ImageButtonWCS(MUII_ArrowLeft),
                 Child, EM_Win->IA_R_SensArrow = ImageButtonWCS(MUII_ArrowRight),
 
-		Child, EM_Win->BT_Sens[0] = KeyButtonFunc('l', "\33cLow"),
-		Child, EM_Win->BT_Sens[1] = KeyButtonFunc('e', "\33cMed"),
-		Child, EM_Win->BT_Sens[2] = KeyButtonFunc('h', "\33cHigh"),
+		Child, EM_Win->BT_Sens[0] = KeyButtonFunc('l', (char*)GetString( MSG_EDMOGUI_LOW )),   // "\33cLow"
+		Child, EM_Win->BT_Sens[1] = KeyButtonFunc('e', (char*)GetString( MSG_EDMOGUI_MED )),   // "\33cMed"
+		Child, EM_Win->BT_Sens[2] = KeyButtonFunc('h', (char*)GetString( MSG_EDMOGUI_HIGH )),  // "\33cHigh"
 	        End, /* HGroup */
 	      End, /* VGroup */
 
@@ -156,9 +161,9 @@ void Make_EM_Window(void)
 
 /* Frame stuff */
             Child, VGroup,
-	      Child, TextObject, MUIA_Text_Contents, "\33c\0334Key Frames", End,
+	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDMOGUI_KEYFRAMES ), End,     // "\33c\0334Key Frames"
               Child, HGroup,
-                Child, EM_Win->BT_PrevKey = KeyButtonFunc('v', "\33cPrev"), 
+                Child, EM_Win->BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_EDMOGUI_PREV ) ),  // "\33cPrev"
                 Child, Label2("Frame"),
                 Child, HGroup, MUIA_Group_HorizSpacing, 0,
                   Child, EM_Win->Str[0] = StringObject, StringFrame,
@@ -168,32 +173,32 @@ void Make_EM_Window(void)
                   Child, EM_Win->StrArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
                   Child, EM_Win->StrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
                   End, /* HGroup */
-                Child, EM_Win->BT_NextKey = KeyButtonFunc('x', "\33cNext"), 
+                Child, EM_Win->BT_NextKey = KeyButtonFunc('x', (char*)GetString( MSG_EDMOGUI_NEXT )),       // "\33cNext"
                 End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, EM_Win->BT_MakeKey = KeyButtonFunc('m', "\33cMake Key"), 
+                Child, EM_Win->BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_EDMOGUI_MAKEKEY )),    // "\33cMake Key"
                 Child, EM_Win->BT_GroupKey = KeyButtonObject('g'),
 			MUIA_InputMode, MUIV_InputMode_Toggle,
 			MUIA_Selected, TRUE,
-		 	MUIA_Text_Contents, "\33cGroup", End, 
-                Child, EM_Win->BT_UpdateKeys = KeyButtonFunc('u', "\33cUpdate"),
+		 	MUIA_Text_Contents, GetString( MSG_EDMOGUI_GROUP ), End,                     // "\33cGroup"
+                Child, EM_Win->BT_UpdateKeys = KeyButtonFunc('u', (char*)GetString( MSG_EDMOGUI_UPDATE )),  // "\33cUpdate"
                 Child, EM_Win->BT_AllKeys = KeyButtonObject('('),
 			MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, "\33cAll (0)", End,
+		 	MUIA_Text_Contents, GetString( MSG_EDMOGUI_ALL0 ), End,  // "\33cAll (0)"
 		End, /* HGroup */
               Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, EM_Win->BT_DeleteKey = KeyButtonFunc(127, "\33c\33uDel\33nete"),
-                Child, EM_Win->BT_DeleteAll = KeyButtonFunc('d', "\33cDelete All"), 
+                Child, EM_Win->BT_DeleteKey = KeyButtonFunc(127, (char*)GetString( MSG_EDMOGUI_DELETE )),     // "\33c\33uDel\33nete"
+                Child, EM_Win->BT_DeleteAll = KeyButtonFunc('d', (char*)GetString( MSG_EDMOGUI_DELETEALL )),  // "\33cDelete All"
 	        End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, EM_Win->FramePages = VGroup,
-                  Child, EM_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines "), 
+                  Child, EM_Win->BT_TimeLines = KeyButtonFunc('t', (char*)GetString( MSG_EDMOGUI_TIMELINES )),  // "\33cTime Lines "
 	          End, /* VGroup */
-                Child, EM_Win->BT_BankKeys = KeyButtonFunc('b', "\33cBank "), 
-                Child, EM_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale "), 
-                Child, EM_Win->BT_SunSet = KeyButtonFunc('n', "\33cSun "), 
+                Child, EM_Win->BT_BankKeys = KeyButtonFunc('b', (char*)GetString( MSG_EDMOGUI_BANK )),   // "\33cBank "
+                Child, EM_Win->BT_KeyScale = KeyButtonFunc('s', (char*)GetString( MSG_EDMOGUI_SCALE )),  // "\33cScale "
+                Child, EM_Win->BT_SunSet = KeyButtonFunc('n', (char*)GetString( MSG_EDMOGUI_SUN )),      // "\33cSun "
 		End, /* HGroup */
 	      End, /* VGroup */
 
@@ -204,10 +209,10 @@ void Make_EM_Window(void)
 
 /* Buttons at bottom */
         Child, HGroup, MUIA_Group_SameWidth, TRUE,
-          Child, EM_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
-          Child, EM_Win->BT_WinSize = KeyButtonFunc('w', "\33cList Win "),
-          Child, EM_Win->BT_Interactive = KeyButtonFunc('i', "\33cCam View "),
-          Child, EM_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
+          Child, EM_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDMOGUI_KEEP )),           // "\33cKeep"
+          Child, EM_Win->BT_WinSize = KeyButtonFunc('w', (char*)GetString( MSG_EDMOGUI_LISTWIN )),      // "\33cList Win "
+          Child, EM_Win->BT_Interactive = KeyButtonFunc('i', (char*)GetString( MSG_EDMOGUI_CAMVIEW )),  // "\33cCam View "
+          Child, EM_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EDMOGUI_CANCEL )),        // "\33cCancel"
           End, /* HGroup */
 
         End, /* VGroup */
@@ -216,7 +221,10 @@ void Make_EM_Window(void)
   if (! EM_Win->MotionWin)
    {
    Close_EM_Window(1);
-   User_Message((CONST_STRPTR)"Motion Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EDMOGUI_MOTIONEDITOR ),  // "Motion Editor"
+                GetString( MSG_EDMOGUI_OUTOFMEMORY ),   // "Out of memory!"
+                GetString( MSG_EDMOGUI_OK ),            // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -250,7 +258,7 @@ void Make_EM_Window(void)
 
 /* set LW style enter command for making key */
   DoMethod(EM_Win->MotionWin, MUIM_Notify, MUIA_Window_InputEvent,
-	"numericpad enter", app, 2, MUIM_Application_ReturnID, ID_EM_MAKEKEY);
+	GetString( MSG_EDMOGUI_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EM_MAKEKEY);  // "numericpad enter"
 
 /* Link arrow buttons to application */
   MUI_DoNotiPresFal(app,
@@ -458,8 +466,10 @@ void Handle_EM_Window(ULONG WCS_ID)
        } /* if interactive open */
       else
        {
-       User_Message((CONST_STRPTR)"Motion Editor: Auto Center",
-    		   (CONST_STRPTR)"Interactive module must be open before auto centering!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+       User_Message(GetString( MSG_EDMOGUI_MOTIONEDITORAUTOCENTER ),                          // "Motion Editor: Auto Center"
+    		    GetString( MSG_EDMOGUI_INTERACTIVEMODULEMUSTBEOPENBEFOREAUTOCENTERING ),  // "Interactive module must be open before auto centering!"
+                    GetString( MSG_EDMOGUI_OK ),                                              // "OK"
+                    (CONST_STRPTR)"o");
        } /* else */
       break;
      case ID_EM_MAKEKEY:
@@ -575,8 +585,11 @@ void Handle_EM_Window(ULONG WCS_ID)
       {
       struct clipbounds cb;
 
-      sprintf(str, "Delete all %s Key Frames?", varname[EM_Win->MoItem]);
-      if (User_Message_Def((CONST_STRPTR)"Parameters Module: Motion", (CONST_STRPTR)str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+      sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), varname[EM_Win->MoItem]);  // "Delete all %s Key Frames?"
+      if (User_Message_Def(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                       // "Parameters Module: Motion"
+                           (CONST_STRPTR)str, 
+                           GetString( MSG_EDMOGUI_OKCANCEL ),                                     // "OK|Cancel"
+                           (CONST_STRPTR)"oc", 1))
        {
        if (MP && MP->ptsdrawn)
         {
@@ -699,7 +712,7 @@ void Handle_EM_Window(ULONG WCS_ID)
       {
       if (KFsize != EM_Win->AltKFsize || memcmp(KF, EM_Win->AltKF, KFsize)
 		|| memcmp(&MoPar, &UndoMoPar[0], sizeof (MoPar)))
-       Close_EM_Window(CloseWindow_Query((STRPTR)"Motion Editor"));
+       Close_EM_Window(CloseWindow_Query(GetString( MSG_EDMOGUI_MOTIONEDITOR ) ));  // "Motion Editor"
       else
        Close_EM_Window(1);
       break;
@@ -1268,7 +1281,7 @@ struct clipbounds cb;
   MoItem = 0;
   SetIncrements(0);
   } /* else */
- if (! GetInputString("Enter frame to make key for.",
+ if (! GetInputString((char*)GetString( MSG_EDMOGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
 	 "abcdefghijklmnopqrstuvwxyz", str))
   return;
  FrameKey = atoi(str);
@@ -1286,15 +1299,18 @@ struct clipbounds cb;
     {
     if (item[0] < 3)
      {
-     strcpy(str, "Make key frames for Focus Parameters also?");
+     strcpy(str, (char*)GetString( MSG_EDMOGUI_MAKEKEYFRAMESFORFOCUSPARAMETERSALSO ) );   // "Make key frames for Focus Parameters also?"
      i = 3;
      } /* if camera group */
     else
      {
-     strcpy(str, "Make key frames for Camera Parameters also?");
+     strcpy(str, (char*)GetString( MSG_EDMOGUI_MAKEKEYFRAMESFORCAMERAPARAMETERSALSO ) );  // "Make key frames for Camera Parameters also?"
      i = 0;
      } /* else focus group */
-    if (User_Message_Def((CONST_STRPTR)"Parameters Module: Make Key", (CONST_STRPTR)str, (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+    if (User_Message_Def(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),  // "Parameters Module: Make Key"
+                         (CONST_STRPTR)str,
+                         GetString( MSG_EDMOGUI_YESNO ),                    // "Yes|No"
+                         (CONST_STRPTR)"yn", 1))
      {
      MakeKeyFrame((short)FrameKey, 0, i    );
      MakeKeyFrame((short)FrameKey, 0, i + 1);
@@ -1342,9 +1358,29 @@ void Make_EMIA_Window(void)
 {
  short i;
  IPTR open;
- static const char *EMIA_Cycle_Page[] = {"\0334Draw", "\0334Bounds", NULL};
- static const char *EMIA_Cycle_Move[] = {"Radial", "Rectang", NULL};
- static const char *EMIA_Cycle_Grid[] = {"Solid", "Wire", NULL};
+ static const char *EMIA_Cycle_Page[]={NULL};
+ static const char *EMIA_Cycle_Move[]={NULL};
+ static const char *EMIA_Cycle_Grid[]={NULL};
+ static int Init = TRUE;
+
+ if (Init)
+ {
+	 Init = FALSE;
+
+	 EMIA_Cycle_Page[0] = (char*) GetString(MSG_EDMOGUI_DRAW);       // "\0334Draw"
+	 EMIA_Cycle_Page[1] = (char*) GetString(MSG_EDMOGUI_BOUNDS);     // "\0334Bounds"
+	 EMIA_Cycle_Page[2] = NULL;
+
+	 EMIA_Cycle_Move[0] = (char*) GetString( MSG_EDMOGUI_RADIAL);   // "Radial"
+	 EMIA_Cycle_Move[1] = (char*) GetString( MSG_EDMOGUI_RECTANG);  // "Rectang"
+	 EMIA_Cycle_Move[2] = NULL;
+
+	 EMIA_Cycle_Grid[0] = (char*) GetString( MSG_EDMOGUI_SOLID);    // "Solid"
+	 EMIA_Cycle_Grid[1] = (char*) GetString( MSG_EDMOGUI_WIRE);     // "Wire"
+	 EMIA_Cycle_Grid[2] = NULL;
+ } /* if */
+
+
 
  if (EMIA_Win)
   {
@@ -1372,7 +1408,7 @@ void Make_EMIA_Window(void)
   Set_Param_Menu(0);
 
      EMIA_Win->IAMotionWin = WindowObject,
-      MUIA_Window_Title		, "Cam VC",
+      MUIA_Window_Title		, (char*)GetString( MSG_EDMOGUI_CAMVC ) ,  // "Cam VC"
       MUIA_Window_ID		, MakeID('E','D','I','A'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
@@ -1381,13 +1417,13 @@ void Make_EMIA_Window(void)
 	Child, RegisterGroup(EMIA_Cycle_Page),
 	  Child, VGroup, 
 /*	    Child, TextObject, MUIA_Text_Contents, "\33cDraw", End,*/
-            Child, EMIA_Win->BT_Grid = KeyButtonFunc('t', "\33cTerrain"), 
-            Child, EMIA_Win->BT_ElShade = KeyButtonFunc('h', "\33cElShade"), 
-            Child, EMIA_Win->BT_SunShade = KeyButtonFunc('s', "\33cSunShade"), 
-            Child, EMIA_Win->BT_EcoRender = KeyButtonFunc('e', "\33cEcoSys "), 
-            Child, EMIA_Win->BT_DiagRender = KeyButtonFunc('d', "\33cDiag "), 
-            Child, EMIA_Win->BT_Vector = KeyButtonFunc('v', "\33cVectors"), 
-            Child, EMIA_Win->BT_Anim = KeyButtonFunc('a', "\33cAnim "), 
+            Child, EMIA_Win->BT_Grid = KeyButtonFunc('t', (char*)GetString( MSG_EDMOGUI_TERRAIN )),       // "\33cTerrain"
+            Child, EMIA_Win->BT_ElShade = KeyButtonFunc('h', (char*)GetString( MSG_EDMOGUI_ELSHADE )),    // "\33cElShade"
+            Child, EMIA_Win->BT_SunShade = KeyButtonFunc('s', (char*)GetString( MSG_EDMOGUI_SUNSHADE )),  // "\33cSunShade"
+            Child, EMIA_Win->BT_EcoRender = KeyButtonFunc('e', (char*)GetString( MSG_EDMOGUI_ECOSYS )),   // "\33cEcoSys "
+            Child, EMIA_Win->BT_DiagRender = KeyButtonFunc('d', (char*)GetString( MSG_EDMOGUI_DIAG )),    // "\33cDiag "
+            Child, EMIA_Win->BT_Vector = KeyButtonFunc('v', (char*)GetString( MSG_EDMOGUI_VECTORS )),     // "\33cVectors"
+            Child, EMIA_Win->BT_Anim = KeyButtonFunc('a', (char*)GetString( MSG_EDMOGUI_ANIM )),          // "\33cAnim "
 	    End, /* VGroup */
 
 	  Child, VGroup,
@@ -1395,20 +1431,20 @@ void Make_EMIA_Window(void)
 	    Child, TextObject, MUIA_Text_Contents, "\33cBounds", End,*/
             Child, EMIA_Win->BT_CompassBounds = KeyButtonObject('o'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cCompass", End, 
+		 MUIA_Text_Contents, GetString( MSG_EDMOGUI_COMPASS ), End,                // "\33cCompass"
             Child, EMIA_Win->BT_LandBounds = KeyButtonObject('l'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cLand", End, 
+		 MUIA_Text_Contents, GetString( MSG_EDMOGUI_LAND ), End,                   // "\33cLand"
             Child, EMIA_Win->BT_ProfileBounds = KeyButtonObject('g'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cTarget", End, 
+		 MUIA_Text_Contents, GetString( MSG_EDMOGUI_TARGET ), End,                 // "\33cTarget"
             Child, EMIA_Win->BT_BoxBounds = KeyButtonObject('b'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cBox", End, 
+		 MUIA_Text_Contents, GetString( MSG_EDMOGUI_BOX ), End,                    // "\33cBox"
             Child, EMIA_Win->BT_GridBounds = KeyButtonObject('p'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cProfile", End,
-	    Child, TextObject, MUIA_Text_Contents, "\33c\0334Prof Dens", End,
+		 MUIA_Text_Contents, GetString( MSG_EDMOGUI_PROFILE ), End,                // "\33cProfile"
+	    Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDMOGUI_PROFDENS ), End,  // "\33c\0334Prof Dens"
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
               Child, EMIA_Win->BT_GBDens[0] = KeyButtonObject('1'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
@@ -1422,13 +1458,13 @@ void Make_EMIA_Window(void)
 	      End, /* HGroup */ 
             Child, EMIA_Win->BT_AutoDraw = KeyButtonObject('w'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cAuto Draw", End, 
+		 MUIA_Text_Contents, GetString( MSG_EDMOGUI_AUTODRAW ), End,  // "\33cAuto Draw"
 	    Child, RectangleObject, End,
 	    End, /* VGroup */
 	  End, /* RegisterGroup */
 	Child, VGroup,
 	  Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-	  Child, TextObject, MUIA_Text_Contents, "\33c\0334Grid", End,
+	  Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDMOGUI_GRID ), End,  // "\33c\0334Grid"
           Child, HGroup, MUIA_Group_HorizSpacing, 0, 
             Child, EMIA_Win->Str[0] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
@@ -1450,7 +1486,7 @@ void Make_EMIA_Window(void)
 
 	Child, VGroup,
 	  Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-	  Child, TextObject, MUIA_Text_Contents, "\33c\0334Movement", End,
+	  Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDMOGUI_MOVEMENT ), End,  // "\33c\0334Movement"
 	  Child, HGroup,
             Child, EMIA_Win->BT_MoveX = KeyButtonObject('x'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
@@ -1468,7 +1504,7 @@ void Make_EMIA_Window(void)
 
 	Child, VGroup,
 	  Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-	  Child, TextObject, MUIA_Text_Contents, "\33c\0334Frame", End,
+	  Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDMOGUI_FRAME_COLOR ), End,  // "\33c\0334Frame"
           Child, HGroup, MUIA_Group_HorizSpacing, 0,
             Child, EMIA_Win->Str[1] = StringObject, StringFrame,
 		MUIA_String_Integer, EM_Win->Frame,
@@ -1479,23 +1515,26 @@ void Make_EMIA_Window(void)
             Child, EMIA_Win->StrArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
             Child, EMIA_Win->StrArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
             End, /* HGroup */
-          Child, EMIA_Win->BT_MakeKey = KeyButtonFunc('m', "\33cMake Key"),
+          Child, EMIA_Win->BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_EDMOGUI_MAKEKEY )),     // "\33cMake Key"
 	  End, /* VGroup */
 
 	Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-        Child, EMIA_Win->BT_AutoCenter = KeyButtonFunc('n', "CenterFoc"),
-        Child, EMIA_Win->BT_Aspect = KeyButtonFunc('i', "Img Aspect"),
+        Child, EMIA_Win->BT_AutoCenter = KeyButtonFunc('n', (char*)GetString( MSG_EDMOGUI_CENTERFOC )),  // "CenterFoc"
+        Child, EMIA_Win->BT_Aspect = KeyButtonFunc('i', (char*)GetString( MSG_EDMOGUI_IMGASPECT )),      // "Img Aspect"
 
 	Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-        Child, EMIA_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
-        Child, EMIA_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
+        Child, EMIA_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDMOGUI_KEEP )),            // "\33cKeep"
+        Child, EMIA_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EDMOGUI_CANCEL )),         // "\33cCancel"
 	End, /* VGroup */
       End; /* WindowObject */
 
   if (! EMIA_Win->IAMotionWin)
    {
    Close_EMIA_Window(-1);
-   User_Message((CONST_STRPTR)"Camera View", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),   // "Camera View"
+                GetString( MSG_EDMOGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_EDMOGUI_OK ),           // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1591,7 +1630,7 @@ void Make_EMIA_Window(void)
 
 /* set LW style enter command for making key */
   DoMethod(EMIA_Win->IAMotionWin, MUIM_Notify, MUIA_Window_InputEvent,
-	"numericpad enter", app, 2, MUIM_Application_ReturnID, ID_EM_MAKEKEY);
+	GetString( MSG_EDMOGUI_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EM_MAKEKEY);  // "numericpad enter"
 
 /* tab cycle stuff */
 
@@ -1875,9 +1914,10 @@ void Handle_EMIA_Window(ULONG WCS_ID)
 
       if (Height > WCSScrn->Height)
        {
-       if (User_Message((CONST_STRPTR)"Camera View: Aspect",
-    		   (CONST_STRPTR)"Computed height is larger than the current screen height.\
- Do you wish to use the screen height?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
+       if (User_Message(GetString( MSG_EDMOGUI_CAMERAVIEWASPECT ),                                     // "Camera View: Aspect"
+                        GetString( MSG_EDMOGUI_COMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREENHEIGHTDOY ),  // "Computed height is larger than the current screen height. Do you wish to use the screen height?"
+                        GetString( MSG_EDMOGUI_OKCANCEL),                                              // "OK|Cancel"
+                        (CONST_STRPTR)"oc"))
         {
         Height = WCSScrn->Height;
         } /* if */
@@ -1914,7 +1954,7 @@ void Handle_EMIA_Window(ULONG WCS_ID)
       {
       if (KFsize != EM_Win->AltKFsize || memcmp(KF, EM_Win->AltKF, KFsize)
 		|| memcmp(&MoPar, &UndoMoPar[0], sizeof (MoPar)))
-       Close_EMIA_Window(CloseWindow_Query((STRPTR)"Interactive Motion"));
+       Close_EMIA_Window(CloseWindow_Query(GetString( MSG_EDMOGUI_INTERACTIVEMOTION ) ));  // "Interactive Motion"
       else
        Close_EMIA_Window(1);
       break;
@@ -2048,7 +2088,7 @@ void Make_EMPL_Window(void)
    return;
 
      EMPL_Win->ParListWin = WindowObject,
-      MUIA_Window_Title		, "Motion Param List",
+      MUIA_Window_Title		, GetString( MSG_EDMOGUI_MOTIONPARAMLIST ),  // "Motion Param List"
       MUIA_Window_ID		, MakeID('E','D','P','L'),
       MUIA_Window_Screen	, WCSScrn,
 
@@ -2066,7 +2106,10 @@ void Make_EMPL_Window(void)
   if (! EMPL_Win->ParListWin)
    {
    Close_EMPL_Window();
-   User_Message((CONST_STRPTR)"Motion Param List", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EDMOGUI_MOTIONPARAMLIST ),  // "Motion Param List"
+                GetString( MSG_EDMOGUI_OUTOFMEMORY ),      // "Out of memory!"
+                GetString( MSG_EDMOGUI_OK ),               // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
