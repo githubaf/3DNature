@@ -3369,7 +3369,7 @@ Done		DispatchGUI.c 27.Feb
 Done		EdDBaseGUI.c  28.Feb
 Done		EdEcoGUI.c 28.Feb
 Done		EdMoGUI.c 29.Feb
-EdPar.c
+Done		EdPar.c 1.Mar
 EdSetExtrasGUI.c
 EdSetGUI.c
 EditGui.c

@@ -4014,3 +4014,216 @@ MSG_EDMOGUI_COMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREENHEIGHTDOY
 Computed height is larger than the current screen height. Do you wish to use the screen height?
 
 ;
+;
+MSG_EDPAR_PARAMETERSMODULEBANKKEYS
+Parameters Module: Bank Keys
+
+;
+MSG_EDPAR_KEYFRAMESEXISTFORTHEBANKPARAMETEROVERWRITETHEM
+Key Frames exist for the "Bank" Parameter. Overwrite them?
+
+;
+MSG_EDPAR_OKCANCEL
+OK|Cancel
+
+;
+MSG_EDPAR_ENTERKEYFRAMEINTERVALORKFORCURRENTKEYFRAMES
+Enter Key Frame interval or 'K' for current Key Frames.
+
+;
+MSG_EDPAR_PARAMETERSMODULEEXPORT
+Parameters Module: Export
+
+;
+MSG_EDPAR_ERRORCREATINGKEYFRAMEPERATIONTERMINATED
+Error creating Key Frame!\nOperation terminated.
+
+;
+MSG_EDPAR_OK
+OK
+
+;
+MSG_EDPAR_NOCAMERAPATHLATLONKEYFRAMESPERATIONTERMINATED
+No Camera Path Lat/Lon Key Frames!\nOperation terminated.
+
+;
+MSG_EDPAR_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+
+;
+MSG_EDPAR_UNUSED
+Unused
+
+;
+MSG_EDPAR_LOADPARAMETERFILE
+Load Parameter File
+
+;
+MSG_EDPAR_VERSION10
+Version < 1.0
+
+;
+MSG_EDPAR_PARAMETERMODULELOAD
+Parameter Module: Load
+
+;
+MSG_EDPAR_UNSUPPORTEDPARAMETERFILETYPEORVERSIONPERATIONTERMINAT
+Unsupported Parameter file type or version!\nOperation terminated.
+
+;
+MSG_EDPAR_THISISANOLDV1FORMATFILEWOULDYOULIKETORESAVEITINTHENEW
+This is an old V1 format file! Would you like to re-save it in the new format now?
+
+;
+MSG_EDPAR_THEPARAMETERFILEFORMATHASBEENCHANGEDSLIGHTLYSINCETHIS
+The Parameter File format has been changed slightly since this file was saved. Would you like to re-save it in the new format now?
+
+;
+MSG_EDPAR_LOADALLKEYFRAMES
+Load all key frames?
+
+;
+MSG_EDPAR_YESNO
+Yes|No
+
+;
+MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED
+Color item %s not found in this file!\nOperation terminated.
+
+;
+MSG_EDPAR_COLOREDITORLOADCURRENT
+Color Editor: Load Current
+
+;
+MSG_EDPAR_ECOSYSTEMITEMNOTFOUNDINTHISFILEPERATIONTERMINATED
+Ecosystem item %s not found in this file!\nOperation terminated.
+
+;
+MSG_EDPAR_ECOSYSTEMEDITORLOADCURRENT
+Ecosystem Editor: Load Current
+
+;
+MSG_EDPAR_MOTIONVERF
+%s motion, Ver %f
+
+;
+MSG_EDPAR_COLORSVERF
+%s colors, Ver %f
+
+;
+MSG_EDPAR_ECOSYSTEMSVERF
+%s ecosystems, Ver %f
+
+;
+MSG_EDPAR_SETTINGSVERF
+%s settings, Ver %f
+
+;
+MSG_EDPAR_ALLVERF
+%s all, Ver %f
+
+;
+MSG_EDPAR_WATERFOAM
+Water Foam
+
+;
+MSG_EDPAR_BEACHSAND
+Beach Sand
+
+;
+MSG_EDPAR_BEACHROCK
+Beach Rock
+
+;
+MSG_EDPAR_STRATA1
+Strata 1
+
+;
+MSG_EDPAR_STRATA2
+Strata 2
+
+;
+MSG_EDPAR_STRATA3
+Strata 3
+
+;
+MSG_EDPAR_STRATA4
+Strata 4
+
+;
+MSG_EDPAR_SUN
+Sun
+
+;
+MSG_EDPAR_MOON
+Moon
+
+;
+MSG_EDPAR_CLOUDS
+Clouds
+
+;
+MSG_EDPAR_SAVEPARAMETERFILE
+Save Parameter File
+
+;
+MSG_EDPAR_PARAMFILE
+paramfile
+
+;
+MSG_EDPAR_ERROROPENINGFILEFOROUTPUTRYAGAIN
+Error opening file for output!\nTry again?
+
+;
+MSG_EDPAR_VERSION20
+Version < 2.0
+
+;
+MSG_EDPAR_PARAMETEREDITINGMODULE
+Parameter Editing Module
+
+;
+MSG_EDPAR_PARTIALFILESMAYNOTBEWRITTENTOOLDFILEVERSIONSDOYOUWISH
+Partial files may not be written to old file versions!\n\Do you wish to save the entire parameter file?
+
+;
+MSG_EDPAR_COLOREDITORSAVECURRENT
+Color Editor: Save Current
+
+;
+MSG_EDPAR_ECOSYSTEMEDITORSAVECURRENT
+Ecosystem Editor: Save Current
+
+;
+MSG_EDPAR_PARAMETERMODULESAVE
+Parameter Module: Save
+
+;
+MSG_EDPAR_SAVEALLKEYFRAMESASWELL
+Save all key frames as well?
+
+;
+MSG_EDPAR_MOTION
+%s motion
+
+;
+MSG_EDPAR_COLORS
+%s colors
+
+;
+MSG_EDPAR_ECOSYSTEMS
+%s ecosystems
+
+;
+MSG_EDPAR_SETTINGS
+%s settings
+
+;
+MSG_EDPAR_ALL
+%s all
+
+;
+MSG_EDPAR_ERRORWRITINGTOPARAMETERFILETHEOUTPUTFILEHASBEENMODIFI
+Error writing to Parameter file!\n\The output file has been modified and may no longer be valid. Try resaving to a different device or freeing some disk space and saving again.
+
+;
