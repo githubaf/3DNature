@@ -1358,9 +1358,9 @@ void Make_EMIA_Window(void)
 {
  short i;
  IPTR open;
- static const char *EMIA_Cycle_Page[]={NULL};
- static const char *EMIA_Cycle_Move[]={NULL};
- static const char *EMIA_Cycle_Grid[]={NULL};
+ static const char *EMIA_Cycle_Page[3]={NULL};
+ static const char *EMIA_Cycle_Move[3]={NULL};
+ static const char *EMIA_Cycle_Grid[3]={NULL};
  static int Init = TRUE;
 
  if (Init)
