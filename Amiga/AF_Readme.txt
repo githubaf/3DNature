@@ -3370,8 +3370,8 @@ Done		EdDBaseGUI.c  28.Feb
 Done		EdEcoGUI.c 28.Feb
 Done		EdMoGUI.c 29.Feb
 Done		EdPar.c 1.Mar
-EdSetExtrasGUI.c
-EdSetGUI.c
+Nothing		EdSetExtrasGUI.c
+Done		EdSetGUI.c 5.Mar
 EditGui.c
 EvenMoreGUI.c
 Foliage.c

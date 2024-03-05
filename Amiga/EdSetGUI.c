@@ -2,6 +2,9 @@
 ** World Construction Set GUI for Settings Editing module.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -12,67 +15,277 @@ void Make_ES_Window(void)
 {
  short i;
  long open;
- static const char *ES_PageCycle[] = {"\0334Render & Size", "\0334Image Save",
-	"\0334Motion Paths & Vectors", "\0334Color Maps", "\0334Surfaces",
-	"\0334Fractals", "\0334Ecosystems & Strata", "\0334Miscellaneous", "\0334Processing",
-#ifdef ENABLE_SCALING
-	"\0334Post-Process",
-#endif /* ENABLE_SCALING */
-	NULL};
 
- static const char *ES_Cycle_RGB[] = {"No RGB", "\338RGB", NULL};
- static const char *ES_Cycle_Screen[] = {"No Screen", "\338Screen", NULL};
- static const char *ES_Cycle_Data[] = {"No Data", "\338Data", NULL};
- static const char *ES_Cycle_SaveFormat[] = {"Sculpt RGB", "Raw intrlvd RGB", "\338IFF ILBM", NULL};
- static const char *ES_Cycle_Concat[] = {"No Conctatenate", "\338Concatenate", NULL};
- static const char *ES_Cycle_BankTurn[] = {"No Bank Turns", "\338Bank Turns", NULL};
- static const char *ES_Cycle_VecRender[] = {"\338Rndr To File", "\338Rndr To Bitmap", "No Vectors", NULL};
- static const char *ES_Cycle_VecHaze[] = {"No Haze Eff", "\338Haze Effect", NULL};
- static const char *ES_Cycle_FixFract[] = {"Variable Fractal Depth", "\338Constant Fractal Depth", "\338Fractal Depth Maps", NULL};
- static const char *ES_Cycle_ColorMap[] = {"No Color Maps", "\338Color Maps", NULL};
- static const char *ES_Cycle_BorderRand[] = {"No CMap Random Borders", "\338CMap Random Borders", NULL};
- static const char *ES_Cycle_CMapTrees[] = {"No CMap Textures", "\338CMap Textures", NULL};
- static const char *ES_Cycle_ColorMatch[] = {"No CMap Color Match", "\338CMap Color Match", NULL};
- static const char *ES_Cycle_Grid[] = {"No Surface Grid", "\338Surface Grid", NULL};
- static const char *ES_Cycle_HorizonFix[] = {"No Fixed Horizon", "\338Fixed Horizon", NULL};
- static const char *ES_Cycle_AltQ[] = {"No Alt Z Reference", "\338Alt Z Reference", NULL};
- static const char *ES_Cycle_CloudShadows[] = {"No Cloud Shadows", "\338Cloud Shadows", NULL};
- static const char *ES_Cycle_Background[] = {"No Background", "\338Background", NULL};
- static const char *ES_Cycle_ZBuffer[] = {"No Z Buffer", "\338Z Buffer", NULL};
- static const char *ES_Cycle_Blur[] = {"No Blur", "\338Blur", NULL};
- static const char *ES_Cycle_ZBufBlur[] = {"No Z Buffered Blur", "\338Z Buffered Blur", NULL};
+ static const char *ES_PageCycle[10]={NULL};
+ static const char *ES_Cycle_RGB[3]={NULL};
+ static const char *ES_Cycle_Screen[3]={NULL};
+ static const char *ES_Cycle_Data[3]={NULL};
+ static const char *ES_Cycle_SaveFormat[4]={NULL};
+ static const char *ES_Cycle_Concat[3]={NULL};
+ static const char *ES_Cycle_BankTurn[3]={NULL};
+ static const char *ES_Cycle_VecRender[4]={NULL};
+ static const char *ES_Cycle_VecHaze[3]={NULL};
+ static const char *ES_Cycle_FixFract[4]={NULL};
+ static const char *ES_Cycle_ColorMap[3]={NULL};
+ static const char *ES_Cycle_BorderRand[3]={NULL};
+ static const char *ES_Cycle_CMapTrees[3]={NULL};
+ static const char *ES_Cycle_ColorMatch[3]={NULL};
+ static const char *ES_Cycle_Grid[3]={NULL};
+ static const char *ES_Cycle_HorizonFix[3]={NULL};
+ static const char *ES_Cycle_AltQ[3]={NULL};
+ static const char *ES_Cycle_CloudShadows[3]={NULL};
+ static const char *ES_Cycle_Background[3]={NULL};
+ static const char *ES_Cycle_ZBuffer[3]={NULL};
+ static const char *ES_Cycle_Blur[3]={NULL};
+ static const char *ES_Cycle_ZBufBlur[3]={NULL};
 #ifdef ENABLE_SCALING
- static const char *ES_Cycle_Scaling[] = {"No Scaling", "\338Scaling", NULL};
+ static const char *ES_Cycle_Scaling[3]={NULL};
 #endif /* ENABLE_SCALING */
- static const char *ES_Cycle_MapAsSfc[] = {"No Topos As Surfaces", "\338Topos As Surfaces", NULL};
- static const char *ES_Cycle_ExportZ[] = {"No Export Z Buffer", "\338Export Z Buffer", NULL};
- static const char *ES_Cycle_ZFormat[] = {"\338Z As Floating Pt IFF",
-	 "Z As Gray Scale IFF", "\338Z As Floating Pt Array",
-	 "Z As Gray Scale Array", NULL};
- static const char *ES_Cycle_FieldRender[] = {"No Field Rendering", "\338Field Rendering", NULL};
- static const char *ES_Cycle_GlobalGradients[] = {"No Global Gradients", "\338Global Gradients", NULL};
- static const char *ES_Cycle_FlattenEco[] = {"No Ecosystem Flattening", "\338Ecosystem Flattening", NULL};
- static const char *ES_Cycle_LookAhead[] = {"No Look Ahead", "\338Look Ahead", NULL};
- static const char *ES_Cycle_VelocDist[] = {"No Velocity Distribution", "\338Velocity Distribution", NULL};
- static const char *ES_Cycle_RenderTrees[] = {"No Trees or Textures", "\338Trees and Textures", NULL};
- static const char *ES_Cycle_HorizonMax[] = {"No Render Beyond Horizon", "\338Render Beyond Horizon", NULL};
- static const char *ES_Cycle_Luminous[] = {"No CMap Luminous Colors", "\338CMap Luminous Colors", NULL};
- static const char *ES_Cycle_RenderStyle[] = {"Normal Shading", "\338Polygon Smoothing", "\338Fractal Displacement", NULL};
- static const char *ES_Cycle_MasterCMap[] = {"Individual Color Maps", "\338Master Color Map", NULL};
- static const char *ES_Cycle_CMapOrient[] = {"Master CMap DEM Oriented", "\338Master CMap Image Oriented", NULL};
- static const char *ES_Cycle_FieldDomin[] = {"Field Dominance Normal", "\338Field Dominance Reverse", NULL};
- static const char *ES_Cycle_RealClouds[] = {"No 3D Clouds", "\3383D Clouds", NULL};
- static const char *ES_Cycle_Perturb[] = {"No Perturbance", "\338Perturbance", NULL};
- static const char *ES_Cycle_Waves[] = {"No Waves", "\338Waves", NULL};
- static const char *ES_Cycle_Reflections[] = {"No Reflections", "\338Reflections", NULL};
- static const char *ES_Cycle_DeformationMap[] = {"No Strata Deformation Map", "\338Strata Deformation Map", NULL};
- static const char *ES_Cycle_SurfaceCMaps[] = {"No Surface Color Maps", "\338Surface Color Maps", NULL};
- static const char *ES_Cycle_Sun[] = {"No Sun", "\338Sun", NULL};
- static const char *ES_Cycle_Moon[] = {"No Moon", "\338Moon", NULL};
- static const char *ES_Cycle_Tides[] = {"No Tides", "\338Tides", NULL};
- static const char *ES_Cycle_SunHalo[] = {"No Sun Halo", "\338Sun Halo", NULL};
- static const char *ES_Cycle_MoonHalo[] = {"No Moon Halo", "\338Moon Halo", NULL};
- 
+ static const char *ES_Cycle_MapAsSfc[3]={NULL};
+ static const char *ES_Cycle_ExportZ[3]={NULL};
+ static const char *ES_Cycle_ZFormat[5]={NULL};
+ static const char *ES_Cycle_FieldRender[3]={NULL};
+ static const char *ES_Cycle_GlobalGradients[3]={NULL};
+ static const char *ES_Cycle_FlattenEco[3]={NULL};
+ static const char *ES_Cycle_LookAhead[3]={NULL};
+ static const char *ES_Cycle_VelocDist[3]={NULL};
+ static const char *ES_Cycle_RenderTrees[3]={NULL};
+ static const char *ES_Cycle_HorizonMax[3]={NULL};
+ static const char *ES_Cycle_Luminous[3]={NULL};
+ static const char *ES_Cycle_RenderStyle[4]={NULL};
+ static const char *ES_Cycle_MasterCMap[3]={NULL};
+ static const char *ES_Cycle_CMapOrient[3]={NULL};
+ static const char *ES_Cycle_FieldDomin[3]={NULL};
+ static const char *ES_Cycle_RealClouds[3]={NULL};
+ static const char *ES_Cycle_Perturb[3]={NULL};
+ static const char *ES_Cycle_Waves[3]={NULL};
+ static const char *ES_Cycle_Reflections[3]={NULL};
+ static const char *ES_Cycle_DeformationMap[3]={NULL};
+ static const char *ES_Cycle_SurfaceCMaps[3]={NULL};
+ static const char *ES_Cycle_Sun[3]={NULL};
+ static const char *ES_Cycle_Moon[3]={NULL};
+ static const char *ES_Cycle_Tides[3]={NULL};
+ static const char *ES_Cycle_SunHalo[3]={NULL};
+ static const char *ES_Cycle_MoonHalo[3]={NULL};
+ static int Init = TRUE;
+
+if(Init)
+{
+ Init = FALSE;
+ES_PageCycle[0]=(char*)GetString( MSG_EDSETGUI_ENDERSIZE ),           // "\0334Render & Size"
+ES_PageCycle[1]=(char*)GetString( MSG_EDSETGUI_MAGESAVE ),            // "\0334Image Save"
+ES_PageCycle[2]=(char*)GetString( MSG_EDSETGUI_MOTIONPATHSVECTORS ),  // "\0334Motion Paths & Vectors"
+ES_PageCycle[3]=(char*)GetString( MSG_EDSETGUI_COLORMAPS ),           // "\0334Color Maps"
+ES_PageCycle[4]=(char*)GetString( MSG_EDSETGUI_SURFACES ),            // "\0334Surfaces"
+ES_PageCycle[5]=(char*)GetString( MSG_EDSETGUI_FRACTALS ),            // "\0334Fractals"
+ES_PageCycle[6]=(char*)GetString( MSG_EDSETGUI_ECOSYSTEMSSTRATA ),    // "\0334Ecosystems & Strata"
+ES_PageCycle[7]=(char*)GetString( MSG_EDSETGUI_MISCELLANEOUS ),       // "\0334Miscellaneous"
+ES_PageCycle[8]=(char*)GetString( MSG_EDSETGUI_PROCESSING ),          // "\0334Processing"
+#ifdef ENABLE_SCALING
+	GetString( MSG_EDSETGUI_POSTPROCESS ),  // "\0334Post-Process"
+#endif /* ENABLE_SCALING */
+ES_PageCycle[8]=NULL;
+
+ES_Cycle_RGB[0]=(char*)GetString( MSG_EDSETGUI_NORGB ); // "No RGB"
+ES_Cycle_RGB[1]=(char*)GetString( MSG_EDSETGUI_RGB );   //"\338RGB"
+ES_Cycle_RGB[2]=NULL;
+
+ES_Cycle_Screen[0]=(char*)GetString( MSG_EDSETGUI_NOSCREEN );  // "No Screen"
+ES_Cycle_Screen[1]=(char*)GetString( MSG_EDSETGUI_SCREEN );    // "\338Screen"
+ES_Cycle_Screen[2]=NULL;
+
+ES_Cycle_Data[0]=(char*)GetString( MSG_EDSETGUI_NODATA );  // "No Data"
+ES_Cycle_Data[1]=(char*)GetString( MSG_EDSETGUI_DATA );    // "\338Data"
+ES_Cycle_Data[2]=NULL;
+
+ ES_Cycle_SaveFormat[0] = (char*)GetString( MSG_EDSETGUI_SCULPTRGB ) ;    // "Sculpt RGB"
+ ES_Cycle_SaveFormat[1] = (char*)GetString( MSG_EDSETGUI_RAWINTRLVDRGB ); // "Raw intrlvd RGB"
+ ES_Cycle_SaveFormat[2] = (char*)GetString( MSG_EDSETGUI_IFFILBM );       // "\338IFF ILBM"
+ ES_Cycle_SaveFormat[3] = NULL;
+
+ ES_Cycle_Concat[0] = (char*)GetString( MSG_EDSETGUI_NOCONCTATENATE );  // "No Conctatenate"
+ ES_Cycle_Concat[1] = (char*)GetString( MSG_EDSETGUI_CONCATENATE );     // "\338Concatenate"
+ ES_Cycle_Concat[2] = NULL;
+
+ ES_Cycle_BankTurn[0] = (char*)GetString( MSG_EDSETGUI_NOBANKTURNS );  // "No Bank Turns"
+ ES_Cycle_BankTurn[1] = (char*)GetString( MSG_EDSETGUI_BANKTURNS );    // "\338Bank Turns"
+ ES_Cycle_BankTurn[2] = NULL;
+
+ ES_Cycle_VecRender[0] = (char*)GetString( MSG_EDSETGUI_RNDRTOFILE );    // "\338Rndr To File"
+ ES_Cycle_VecRender[1] = (char*)GetString( MSG_EDSETGUI_RNDRTOBITMAP );  // "\338Rndr To Bitmap"
+ ES_Cycle_VecRender[2] = (char*)GetString( MSG_EDSETGUI_NOVECTORS );     // "No Vectors"
+ ES_Cycle_VecRender[3] = NULL;
+
+ ES_Cycle_VecHaze[0] = (char*)GetString( MSG_EDSETGUI_NOHAZEEFF );   // "No Haze Eff"
+ ES_Cycle_VecHaze[1] = (char*)GetString( MSG_EDSETGUI_HAZEEFFECT );  // "\338Haze Effect"
+ ES_Cycle_VecHaze[2] = NULL;
+
+ ES_Cycle_FixFract[0] = (char*)GetString( MSG_EDSETGUI_VARIABLEFRACTALDEPTH );  // "Variable Fractal Depth"
+ ES_Cycle_FixFract[1] = (char*)GetString( MSG_EDSETGUI_CONSTANTFRACTALDEPTH );  // "\338Constant Fractal Depth"
+ ES_Cycle_FixFract[2] = (char*)GetString( MSG_EDSETGUI_FRACTALDEPTHMAPS );      // "\338Fractal Depth Maps"
+ ES_Cycle_FixFract[3] = NULL;
+
+ ES_Cycle_ColorMap[0] = (char*)GetString( MSG_EDSETGUI_NOCOLORMAPS );  // "No Color Maps"
+ ES_Cycle_ColorMap[1] = (char*)GetString( MSG_EDSETGUI_COLORMAPS );    // "\338Color Maps"
+ ES_Cycle_ColorMap[2] = NULL;
+
+ ES_Cycle_BorderRand[0] = (char*)GetString( MSG_EDSETGUI_NOCMAPRANDOMBORDERS );  // "No CMap Random Borders"
+ ES_Cycle_BorderRand[1] = (char*)GetString( MSG_EDSETGUI_CMAPRANDOMBORDERS );    // "\338CMap Random Borders"
+ ES_Cycle_BorderRand[2] = NULL;
+
+ ES_Cycle_CMapTrees[0] = (char*)GetString( MSG_EDSETGUI_NOCMAPTEXTURES );  // "No CMap Textures"
+ ES_Cycle_CMapTrees[1] = (char*)GetString( MSG_EDSETGUI_CMAPTEXTURES );    // "\338CMap Textures"
+ ES_Cycle_CMapTrees[2] = NULL;
+
+ ES_Cycle_ColorMatch[0] = (char*)GetString( MSG_EDSETGUI_NOCMAPCOLORMATCH );  // "No CMap Color Match"
+ ES_Cycle_ColorMatch[1] = (char*)GetString( MSG_EDSETGUI_CMAPCOLORMATCH );    // "\338CMap Color Match"
+ ES_Cycle_ColorMatch[2] = NULL;
+
+ ES_Cycle_Grid[0] = (char*)GetString( MSG_EDSETGUI_NOSURFACEGRID );  // "No Surface Grid"
+ ES_Cycle_Grid[1] = (char*)GetString( MSG_EDSETGUI_SURFACEGRID );    // "\338Surface Grid"
+ ES_Cycle_Grid[2] = NULL;
+
+ ES_Cycle_HorizonFix[0] = (char*)GetString( MSG_EDSETGUI_NOFIXEDHORIZON );  // "No Fixed Horizon"
+ ES_Cycle_HorizonFix[1] = (char*)GetString( MSG_EDSETGUI_FIXEDHORIZON );    // "\338Fixed Horizon"
+ ES_Cycle_HorizonFix[2] = NULL;
+
+ ES_Cycle_AltQ[0] = (char*)GetString( MSG_EDSETGUI_NOALTZREFERENCE );  // "No Alt Z Reference"
+ ES_Cycle_AltQ[1] = (char*)GetString( MSG_EDSETGUI_ALTZREFERENCE );    // "\338Alt Z Reference"
+ ES_Cycle_AltQ[2] = NULL;
+
+ ES_Cycle_CloudShadows[0] = (char*)GetString( MSG_EDSETGUI_NOCLOUDSHADOWS );  // "No Cloud Shadows"
+ ES_Cycle_CloudShadows[1] = (char*)GetString( MSG_EDSETGUI_CLOUDSHADOWS );    // "\338Cloud Shadows"
+ ES_Cycle_CloudShadows[2] = NULL;
+
+ ES_Cycle_Background[0] = (char*)GetString( MSG_EDSETGUI_NOBACKGROUND );    // "No Background"
+ ES_Cycle_Background[1] = (char*)GetString( MSG_EDSETGUI_BACKGROUND );      // "\338Background"
+ ES_Cycle_Background[2] = NULL;
+
+ ES_Cycle_ZBuffer[0] = (char*)GetString( MSG_EDSETGUI_NOZBUFFER );  // "No Z Buffer"
+ ES_Cycle_ZBuffer[1] = (char*)GetString( MSG_EDSETGUI_ZBUFFER );    // "\338Z Buffer"
+ ES_Cycle_ZBuffer[2] = NULL;
+
+ ES_Cycle_Blur[0] = (char*)GetString( MSG_EDSETGUI_NOBLUR );  // "No Blur"
+ ES_Cycle_Blur[1] = (char*)GetString( MSG_EDSETGUI_BLUR );    // "\338Blur"
+ ES_Cycle_Blur[2] = NULL;
+
+ ES_Cycle_ZBufBlur[0] = (char*)GetString( MSG_EDSETGUI_NOZBUFFEREDBLUR );  // "No Z Buffered Blur"
+ ES_Cycle_ZBufBlur[1] = (char*)GetString( MSG_EDSETGUI_ZBUFFEREDBLUR );    // "\338Z Buffered Blur"
+ ES_Cycle_ZBufBlur[2] = NULL;
+
+#ifdef ENABLE_SCALING
+ static const char *ES_Cycle_Scaling[] = (char*)GetString( MSG_EDSETGUI_NOSCALING ) , (char*)GetString( MSG_EDSETGUI_SCALING ) , NULL};                                                                             //  {"No Scaling", "\338Scaling", NULL};
+
+#endif /* ENABLE_SCALING */
+
+ ES_Cycle_MapAsSfc[0] = (char*)GetString( MSG_EDSETGUI_NOTOPOSASSURFACES );  // "No Topos As Surfaces"
+ ES_Cycle_MapAsSfc[1] = (char*)GetString( MSG_EDSETGUI_TOPOSASSURFACES );    // "\338Topos As Surfaces"
+ ES_Cycle_MapAsSfc[2] = NULL;
+
+ ES_Cycle_ExportZ[0] = (char*)GetString( MSG_EDSETGUI_NOEXPORTZBUFFER );  // "No Export Z Buffer"
+ ES_Cycle_ExportZ[1] = (char*)GetString( MSG_EDSETGUI_EXPORTZBUFFER );    // "\338Export Z Buffer"
+ ES_Cycle_ExportZ[2] = NULL;
+
+ ES_Cycle_ZFormat[0] = (char*)GetString( MSG_EDSETGUI_ZASFLOATINGPTIFF );    // "\338Z As Floating Pt IFF"
+ ES_Cycle_ZFormat[1] = (char*)GetString( MSG_EDSETGUI_ZASGRAYSCALEIFF );     // "Z As Gray Scale IFF"
+ ES_Cycle_ZFormat[2] = (char*)GetString( MSG_EDSETGUI_ZASFLOATINGPTARRAY );  // "\338Z As Floating Pt Array"
+ ES_Cycle_ZFormat[3] = (char*)GetString( MSG_EDSETGUI_ZASGRAYSCALEARRAY );   // "Z As Gray Scale Array"
+ ES_Cycle_ZFormat[4] = NULL;
+
+ ES_Cycle_FieldRender[0] = (char*)GetString( MSG_EDSETGUI_NOFIELDRENDERING );  // "No Field Rendering"
+ ES_Cycle_FieldRender[1] = (char*)GetString( MSG_EDSETGUI_FIELDRENDERING );    // "\338Field Rendering"
+ ES_Cycle_FieldRender[2] = NULL;
+
+ ES_Cycle_GlobalGradients[0] = (char*)GetString( MSG_EDSETGUI_NOGLOBALGRADIENTS );  // "No Global Gradients"
+ ES_Cycle_GlobalGradients[1] = (char*)GetString( MSG_EDSETGUI_GLOBALGRADIENTS );    // "\338Global Gradients"
+ ES_Cycle_GlobalGradients[2] = NULL;
+
+ ES_Cycle_FlattenEco[0] = (char*)GetString( MSG_EDSETGUI_NOECOSYSTEMFLATTENING );  // "No Ecosystem Flattening"
+ ES_Cycle_FlattenEco[1] = (char*)GetString( MSG_EDSETGUI_ECOSYSTEMFLATTENING );    // "\338Ecosystem Flattening"
+ ES_Cycle_FlattenEco[2] = NULL;
+
+ ES_Cycle_LookAhead[0] = (char*)GetString( MSG_EDSETGUI_NOLOOKAHEAD );  // "No Look Ahead"
+ ES_Cycle_LookAhead[1] = (char*)GetString( MSG_EDSETGUI_LOOKAHEAD );    // "\338Look Ahead"
+ ES_Cycle_LookAhead[2] = NULL;
+
+ ES_Cycle_VelocDist[0] = (char*)GetString( MSG_EDSETGUI_NOVELOCITYDISTRIBUTION );  // "No Velocity Distribution"
+ ES_Cycle_VelocDist[1] = (char*)GetString( MSG_EDSETGUI_VELOCITYDISTRIBUTION );    // "\338Velocity Distribution"
+ ES_Cycle_VelocDist[2] = NULL;
+
+ ES_Cycle_RenderTrees[0] = (char*)GetString( MSG_EDSETGUI_NOTREESORTEXTURES );  // "No Trees or Textures"
+ ES_Cycle_RenderTrees[1] = (char*)GetString( MSG_EDSETGUI_TREESANDTEXTURES );   // "\338Trees and Textures"
+ ES_Cycle_RenderTrees[2] = NULL;
+
+ ES_Cycle_HorizonMax[0] = (char*)GetString( MSG_EDSETGUI_NORENDERBEYONDHORIZON );  // "No Render Beyond Horizon"
+ ES_Cycle_HorizonMax[1] = (char*)GetString( MSG_EDSETGUI_RENDERBEYONDHORIZON );    // "\338Render Beyond Horizon"
+ ES_Cycle_HorizonMax[2] = NULL;
+
+ ES_Cycle_Luminous[0] = (char*)GetString( MSG_EDSETGUI_NOCMAPLUMINOUSCOLORS );  // "No CMap Luminous Colors"
+ ES_Cycle_Luminous[1] = (char*)GetString( MSG_EDSETGUI_CMAPLUMINOUSCOLORS );    // "\338CMap Luminous Colors"
+ ES_Cycle_Luminous[2] = NULL;
+
+ ES_Cycle_RenderStyle[0] = (char*)GetString( MSG_EDSETGUI_NORMALSHADING );        // "Normal Shading"
+ ES_Cycle_RenderStyle[1] = (char*)GetString( MSG_EDSETGUI_POLYGONSMOOTHING );     // "\338Polygon Smoothing"
+ ES_Cycle_RenderStyle[2] = (char*)GetString( MSG_EDSETGUI_FRACTALDISPLACEMENT );  // "\338Fractal Displacement"
+ ES_Cycle_RenderStyle[3] = NULL;
+
+ ES_Cycle_MasterCMap[0] = (char*)GetString( MSG_EDSETGUI_INDIVIDUALCOLORMAPS );  // "Individual Color Maps"
+ ES_Cycle_MasterCMap[1] = (char*)GetString( MSG_EDSETGUI_MASTERCOLORMAP );       // "\338Master Color Map"
+ ES_Cycle_MasterCMap[2] = NULL;
+
+ ES_Cycle_CMapOrient[0] = (char*)GetString( MSG_EDSETGUI_MASTERCMAPDEMORIENTED );    // "Master CMap DEM Oriented"
+ ES_Cycle_CMapOrient[1] = (char*)GetString( MSG_EDSETGUI_MASTERCMAPIMAGEORIENTED );  // "\338Master CMap Image Oriented"
+ ES_Cycle_CMapOrient[2] = NULL;
+
+ ES_Cycle_FieldDomin[0] = (char*)GetString( MSG_EDSETGUI_FIELDDOMINANCENORMAL );   // "Field Dominance Normal"
+ ES_Cycle_FieldDomin[1] = (char*)GetString( MSG_EDSETGUI_FIELDDOMINANCEREVERSE );  // "\338Field Dominance Reverse"
+ ES_Cycle_FieldDomin[2] = NULL;
+
+ ES_Cycle_RealClouds[0] = (char*)GetString( MSG_EDSETGUI_NO3DCLOUDS );  // "No 3D Clouds"
+ ES_Cycle_RealClouds[1] = (char*)GetString( MSG_EDSETGUI_3DCLOUDS );    // "\3383D Clouds"
+ ES_Cycle_RealClouds[2] = NULL;
+
+ ES_Cycle_Perturb[0] = (char*)GetString( MSG_EDSETGUI_NOPERTURBANCE );  // "No Perturbance"
+ ES_Cycle_Perturb[1] = (char*)GetString( MSG_EDSETGUI_PERTURBANCE );    // "\338Perturbance"
+ ES_Cycle_Perturb[2] = NULL;
+
+ ES_Cycle_Waves[0] = (char*)GetString( MSG_EDSETGUI_NOWAVES );  // "No Waves"
+ ES_Cycle_Waves[1] = (char*)GetString( MSG_EDSETGUI_WAVES );    // "\338Waves"
+ ES_Cycle_Waves[2] = NULL;
+
+ ES_Cycle_Reflections[0] = (char*)GetString( MSG_EDSETGUI_NOREFLECTIONS );  // "No Reflections"
+ ES_Cycle_Reflections[1] = (char*)GetString( MSG_EDSETGUI_REFLECTIONS );    // "\338Reflections"
+ ES_Cycle_Reflections[2] = NULL;
+
+ ES_Cycle_DeformationMap[0] = (char*)GetString( MSG_EDSETGUI_NOSTRATADEFORMATIONMAP );  // "No Strata Deformation Map"
+ ES_Cycle_DeformationMap[1] = (char*)GetString( MSG_EDSETGUI_STRATADEFORMATIONMAP );    // "\338Strata Deformation Map"
+ ES_Cycle_DeformationMap[2] = NULL;
+
+ ES_Cycle_SurfaceCMaps[0] = (char*)GetString( MSG_EDSETGUI_NOSURFACECOLORMAPS );  // "No Surface Color Maps"
+ ES_Cycle_SurfaceCMaps[1] = (char*)GetString( MSG_EDSETGUI_SURFACECOLORMAPS );    // "\338Surface Color Maps"
+ ES_Cycle_SurfaceCMaps[2] = NULL;
+
+ ES_Cycle_Sun[0] = (char*)GetString( MSG_EDSETGUI_NOSUN );  // "No Sun"
+ ES_Cycle_Sun[1] = (char*)GetString( MSG_EDSETGUI_SUN );    // "\338Sun"
+ ES_Cycle_Sun[2] = NULL;
+
+ ES_Cycle_Moon[0] = (char*)GetString( MSG_EDSETGUI_NOMOON );  // "No Moon"
+ ES_Cycle_Moon[1] = (char*)GetString( MSG_EDSETGUI_MOON );    // "\338Moon"
+ ES_Cycle_Moon[2] = NULL;
+
+ ES_Cycle_Tides[0] = (char*)GetString( MSG_EDSETGUI_NOTIDES );  // "No Tides"
+ ES_Cycle_Tides[1] = (char*)GetString( MSG_EDSETGUI_TIDES );    // "\338Tides"
+ ES_Cycle_Tides[2] = NULL;
+
+ ES_Cycle_SunHalo[0] = (char*)GetString( MSG_EDSETGUI_NOSUNHALO );  // "No Sun Halo"
+ ES_Cycle_SunHalo[1] = (char*)GetString( MSG_EDSETGUI_SUNHALO );    // "\338Sun Halo"
+ ES_Cycle_SunHalo[2] = NULL;
+
+ ES_Cycle_MoonHalo[0] = (char*)GetString( MSG_EDSETGUI_NOMOONHALO );  // "No Moon Halo"
+ ES_Cycle_MoonHalo[1] = (char*)GetString( MSG_EDSETGUI_MOONHALO );    // "\338Moon Halo"
+ ES_Cycle_MoonHalo[2] = NULL;
+}
+
  if (ES_Win)
   {
   DoMethod(ES_Win->SettingsWin, MUIM_Window_ToFront);
@@ -82,8 +295,10 @@ void Make_ES_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message((CONST_STRPTR)"Render Module",
-		  (CONST_STRPTR)"You must first load or create a parameter file before opening the Render Module.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_EDSETGUI_RENDERMODULE ),  // "Render Module"
+	       GetString( MSG_EDSETGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENIN ),  // "You must first load or create a parameter file before opening the Render Module."
+               GetString( MSG_EDSETGUI_OK ),                                                  // "OK",
+               (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -94,7 +309,7 @@ void Make_ES_Window(void)
   Set_Param_Menu(3);
 
      ES_Win->SettingsWin = WindowObject,
-      MUIA_Window_Title		, "Render Settings Editor",
+      MUIA_Window_Title		,  GetString( MSG_EDSETGUI_RENDERSETTINGSEDITOR ) ,  // "Render Settings Editor"
       MUIA_Window_ID		, MakeID('E','D','S','T'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
@@ -106,7 +321,7 @@ void Make_ES_Window(void)
 	    Child, RectangleObject, End,
 	    Child, HGroup,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Width "),
+                Child, Label2(GetString( MSG_EDSETGUI_WIDTH ) ),  // "Width "
 	        Child, ES_Win->IntStr[4] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -114,7 +329,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->IntStrArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Height "),
+                Child, Label2(GetString( MSG_EDSETGUI_HEIGHT ) ),  // "Height "
 	        Child, ES_Win->IntStr[5] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 		 	MUIA_FixWidthTxt, "01234", End,
@@ -124,7 +339,7 @@ void Make_ES_Window(void)
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Aspct "),
+                Child, Label2(GetString( MSG_EDSETGUI_ASPCT ) ),  // "Aspct "
 	        Child, ES_Win->FloatStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -132,7 +347,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->FloatStrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("V Oscn "),
+                Child, Label2(GetString( MSG_EDSETGUI_VOSCN ) ),  // "V Oscn "
 	        Child, ES_Win->IntStr[6] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -140,13 +355,13 @@ void Make_ES_Window(void)
                 Child, ES_Win->IntStrArrow[6][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      End, /* HGroup */
-            Child, ES_Win->BT_ChangeScale = KeyButtonFunc('i', "\33cChange Image Size"), 
+            Child, ES_Win->BT_ChangeScale = KeyButtonFunc('i', (char*)GetString( MSG_EDSETGUI_CHANGEIMAGESIZE ) ),  // "\33cChange Image Size"
 
 	    Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
 
 	    Child, ColGroup(2),
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(" Start "),
+                Child, Label2(GetString( MSG_EDSETGUI_START ) ),  // " Start "
 	        Child, ES_Win->IntStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -154,7 +369,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->IntStrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("    End "),
+                Child, Label2(GetString( MSG_EDSETGUI_END ) ),  // "    End "
 	        Child, ES_Win->IntStr[22] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -163,7 +378,7 @@ void Make_ES_Window(void)
 	        End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("  Step "),
+                Child, Label2(GetString( MSG_EDSETGUI_STEP ) ),  // "  Step "
 	        Child, ES_Win->IntStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, "-0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -171,7 +386,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->IntStrArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(" Frames "),
+                Child, Label2(GetString( MSG_EDSETGUI_FRAMES ) ),  // " Frames "
 	        Child, ES_Win->IntStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -180,7 +395,7 @@ void Make_ES_Window(void)
 	        End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Segmnt "),
+                Child, Label2(GetString( MSG_EDSETGUI_SEGMNT ) ),  // "Segmnt "
 	        Child, ES_Win->IntStr[3] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -188,7 +403,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->IntStrArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("1st Seg "),
+                Child, Label2(GetString( MSG_EDSETGUI_1STSEG ) ),  // "1st Seg "
 	        Child, ES_Win->IntStr[21] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -213,18 +428,18 @@ void Make_ES_Window(void)
 /* Image Save */
 	  Child, VGroup, GroupFrame,
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Save Path "),
+	      Child, Label2(GetString( MSG_EDSETGUI_SAVEPATH ) ),  // "Save Path "
 	      Child, ES_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      Child, ES_Win->BT_Get[0] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Save File "),
+	      Child, Label2(GetString( MSG_EDSETGUI_SAVEFILE ) ),  // "Save File "
 	      Child, ES_Win->Str[8] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Temp Path "),
+	      Child, Label2(GetString( MSG_EDSETGUI_TEMPPATH ) ),  // "Temp Path "
 	      Child, ES_Win->Str[7] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      Child, ES_Win->BT_Get[5] = ImageButtonWCS(MUII_Disk),
@@ -252,7 +467,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->IntStrArrow[18][0] = ImageButtonWCS(MUII_ArrowLeft),
                 Child, ES_Win->IntStrArrow[18][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
-              Child, Label2("Frames"),
+              Child, Label2(GetString( MSG_EDSETGUI_FRAMES ) ),  // "Frames"
 	      End, /* HGroup */
 	    Child, HGroup, 
 	      Child, ES_Win->Cycle[8] = CycleObject,
@@ -264,13 +479,13 @@ void Make_ES_Window(void)
                 Child, ES_Win->FloatStrArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
                 Child, ES_Win->FloatStrArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
-              Child, Label2("Banking"),
+              Child, Label2(GetString( MSG_EDSETGUI_BANKING ) ),  // "Banking"
 	      End, /* HGroup */
 	    Child, ES_Win->Cycle[32] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_VelocDist, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Ease In "),
+                Child, Label2(GetString( MSG_EDSETGUI_EASEIN ) ),  // "Ease In "
 	        Child, ES_Win->IntStr[19] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -278,7 +493,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->IntStrArrow[19][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(" Out "),
+                Child, Label2(GetString( MSG_EDSETGUI_OUT ) ),  // " Out "
 	        Child, ES_Win->IntStr[20] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -295,19 +510,19 @@ void Make_ES_Window(void)
 		MUIA_Cycle_Entries, ES_Cycle_VecHaze, End, 
 	      End, /* HGroup */ 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Vector Path "),
+	      Child, Label2(GetString( MSG_EDSETGUI_VECTORPATH ) ),  // "Vector Path "
 	      Child, ES_Win->Str[1] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      Child, ES_Win->BT_Get[1] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Vector File "),
+	      Child, Label2(GetString( MSG_EDSETGUI_VECTORFILE ) ),  // "Vector File "
 	      Child, ES_Win->Str[10] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Z Offset "),
+                Child, Label2(GetString( MSG_EDSETGUI_ZOFFSET ) ),  // "Z Offset "
 	        Child, ES_Win->FloatStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -315,7 +530,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->FloatStrArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(" Segs "),
+                Child, Label2(GetString( MSG_EDSETGUI_SEGS ) ),  // " Segs "
 	        Child, ES_Win->IntStr[17] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -343,20 +558,20 @@ void Make_ES_Window(void)
 	    Child, ES_Win->Cycle[15] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_CMapTrees, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Default Eco "),
+	      Child, Label2(GetString( MSG_EDSETGUI_DEFAULTECO ) ), // "Default Eco "
 	      Child, ES_Win->Txt[0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789", End,
               Child, ES_Win->TxtArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
               Child, ES_Win->TxtArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("CMap Path "),
+	      Child, Label2(GetString( MSG_EDSETGUI_CMAPPATH ) ),  // "CMap Path "
 	      Child, ES_Win->Str[4] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "01234567890123456", End,
 	      Child, ES_Win->BT_Get[4] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("CMap File "),
+	      Child, Label2(GetString( MSG_EDSETGUI_CMAPFILE ) ),  // "CMap File "
 	      Child, ES_Win->Str[12] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      End, /* HGroup */
@@ -367,7 +582,7 @@ void Make_ES_Window(void)
 	    Child, ES_Win->Cycle[19] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_Grid, End,
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Spacing "),
+              Child, Label2(GetString( MSG_EDSETGUI_SPACING ) ),  // "Spacing "
 	      Child, ES_Win->IntStr[8] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -380,7 +595,7 @@ void Make_ES_Window(void)
 		MUIA_Disabled, TRUE,
 		MUIA_Cycle_Entries, ES_Cycle_SurfaceCMaps, End,
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Surface El 1 "),
+              Child, Label2(GetString( MSG_EDSETGUI_SURFACEEL1 ) ),  // "Surface El 1 "
 	      Child, ES_Win->IntStr[9] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -388,7 +603,7 @@ void Make_ES_Window(void)
               Child, ES_Win->IntStrArrow[9][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Surface El 2 "),
+              Child, Label2(GetString( MSG_EDSETGUI_SURFACEEL2 ) ),  // "Surface El 2 "
 	      Child, ES_Win->IntStr[10] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -396,7 +611,7 @@ void Make_ES_Window(void)
               Child, ES_Win->IntStrArrow[10][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Surface El 3 "),
+              Child, Label2(GetString( MSG_EDSETGUI_SURFACEEL3 ) ),  // "Surface El 3 "
 	      Child, ES_Win->IntStr[11] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -404,7 +619,7 @@ void Make_ES_Window(void)
               Child, ES_Win->IntStrArrow[11][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Surface El 4 "),
+              Child, Label2(GetString( MSG_EDSETGUI_SURFACEEL4 ) ),  // "Surface El 4 "
 	      Child, ES_Win->IntStr[12] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -416,7 +631,7 @@ void Make_ES_Window(void)
 /* Fractals */
 	  Child, VGroup, GroupFrame,
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Fractal Depth "),
+              Child, Label2(GetString( MSG_EDSETGUI_FRACTALDEPTH ) ),  // "Fractal Depth "
 	      Child, ES_Win->IntStr[7] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "01", End,
@@ -437,7 +652,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->FloatStrArrow[11][0] = ImageButtonWCS(MUII_ArrowLeft),
                 Child, ES_Win->FloatStrArrow[11][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
-              Child, Label2("Displacement"),
+              Child, Label2(GetString( MSG_EDSETGUI_DISPLACEMENT ) ),  // "Displacement"
 	      End, /* HGroup */
 	    Child, HGroup, 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
@@ -447,9 +662,9 @@ void Make_ES_Window(void)
                 Child, ES_Win->FloatStrArrow[12][0] = ImageButtonWCS(MUII_ArrowLeft),
                 Child, ES_Win->FloatStrArrow[12][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
-              Child, Label2("Slope Factor"),
+              Child, Label2(GetString( MSG_EDSETGUI_SLOPEFACTOR ) ),  // "Slope Factor"
 	      End, /* HGroup */
-            Child, ES_Win->BT_FractalSet = KeyButtonFunc('f', "\33cCreate Fractal Maps"), 
+            Child, ES_Win->BT_FractalSet = KeyButtonFunc('f', (char*)GetString( MSG_EDSETGUI_CREATEFRACTALMAPS ) ),  // "\33cCreate Fractal Maps"
 	    Child, VGroup,
               Child, ES_Win->SpeedGauge = GaugeObject, GaugeFrame, 
 		   MUIA_Background, MUII_BACKGROUND,
@@ -459,14 +674,14 @@ void Make_ES_Window(void)
 		   MUIA_FixHeight, 20,
 		   End,
 	      Child, HGroup,
-                Child, Label("Short"),
+                Child, Label(GetString( MSG_EDSETGUI_SHORT ) ),  // "Short"
 	        Child, RectangleObject, End,
-                Child, Label("Long"),
+                Child, Label(GetString( MSG_EDSETGUI_LONG ) ),  // "Long"
 		End, /* HGroup */
 	      End, /* VGroup */
 	    Child, HGroup,
 	      Child, RectangleObject, End,
-              Child, Label("Relative Render Time"),
+              Child, Label(GetString( MSG_EDSETGUI_RELATIVERENDERTIME ) ),  // "Relative Render Time"
 	      Child, RectangleObject, End,
 	      End, /* HGroup */
 	    End, /* VGroup Fractals */
@@ -481,7 +696,7 @@ void Make_ES_Window(void)
 		MUIA_Cycle_Entries, ES_Cycle_GlobalGradients, End,
 	    Child, HGroup, 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Eco m/"),
+                Child, Label2(GetString( MSG_EDSETGUI_ECOM ) ),  // "Eco m/"
 	        Child, ES_Win->FloatStr[8] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -489,7 +704,7 @@ void Make_ES_Window(void)
                 Child, ES_Win->FloatStrArrow[8][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2("Snow m/"),
+                Child, Label2(GetString( MSG_EDSETGUI_SNOWM ) ),  // "Snow m/"
 	        Child, ES_Win->FloatStr[9] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -498,7 +713,7 @@ void Make_ES_Window(void)
 	        End, /* HGroup */
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Ref Latitude "),
+              Child, Label2(GetString( MSG_EDSETGUI_REFLATITUDE ) ),  // "Ref Latitude "
 	      Child, ES_Win->FloatStr[10] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -506,7 +721,7 @@ void Make_ES_Window(void)
               Child, ES_Win->FloatStrArrow[10][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Tree Ht Fact "),
+              Child, Label2(GetString( MSG_EDSETGUI_TREEHTFACT ) ),  // "Tree Ht Fact "
 	      Child, ES_Win->FloatStr[4] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -514,7 +729,7 @@ void Make_ES_Window(void)
               Child, ES_Win->FloatStrArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Model Path "),
+	      Child, Label2(GetString( MSG_EDSETGUI_MODELPATH ) ),  // "Model Path "
 	      Child, ES_Win->Str[11] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "01234567890123456", End,
 	      Child, ES_Win->BT_Get[6] = ImageButtonWCS(MUII_Disk),
@@ -525,18 +740,18 @@ void Make_ES_Window(void)
 	    Child, ES_Win->Cycle[43] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_DeformationMap, End,
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Def Map Path "),
+	      Child, Label2(GetString( MSG_EDSETGUI_DEFMAPPATH ) ),  // "Def Map Path "
 	      Child, ES_Win->Str[13] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      Child, ES_Win->BT_Get[7] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Def Map File "),
+	      Child, Label2(GetString( MSG_EDSETGUI_DEFMAPFILE ) ),  // "Def Map File "
 	      Child, ES_Win->Str[14] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("   Strata Dip "),
+              Child, Label2(GetString( MSG_EDSETGUI_STRATADIP ) ),  // "   Strata Dip "
 	      Child, ES_Win->FloatStr[13] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -552,7 +767,7 @@ void Make_ES_Window(void)
               Child, ES_Win->FloatStrArrow[14][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("  Deformation "),
+              Child, Label2(GetString( MSG_EDSETGUI_DEFORMATION ) ),  // "  Deformation "
 	      Child, ES_Win->FloatStr[15] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -569,7 +784,7 @@ void Make_ES_Window(void)
 	    Child, ES_Win->Cycle[20] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_HorizonFix, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("   Zenith Alt "),
+              Child, Label2(GetString( MSG_EDSETGUI_ZENITHALT ) ),  // "   Zenith Alt "
 	      Child, ES_Win->FloatStr[3] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -577,7 +792,7 @@ void Make_ES_Window(void)
               Child, ES_Win->FloatStrArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Sky Dither "),
+              Child, Label2(GetString( MSG_EDSETGUI_SKYDITHER ) ),  // "Sky Dither "
 	      Child, ES_Win->IntStr[13] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -587,7 +802,7 @@ void Make_ES_Window(void)
 	    Child, ES_Win->Cycle[21] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_AltQ, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2(" Ref Latitude "),
+              Child, Label2(GetString( MSG_EDSETGUI_REFLATITUDE ) ),  // " Ref Latitude "
 	      Child, ES_Win->FloatStr[5] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -595,7 +810,7 @@ void Make_ES_Window(void)
               Child, ES_Win->FloatStrArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Ref Longitude "),
+              Child, Label2(GetString( MSG_EDSETGUI_REFLONGITUDE ) ),  // "Ref Longitude "
 	      Child, ES_Win->FloatStr[6] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -627,33 +842,33 @@ void Make_ES_Window(void)
 	    Child, ES_Win->Cycle[25] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_Background, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("   BG Path "),
+	      Child, Label2(GetString( MSG_EDSETGUI_BGPATH ) ),  // "   BG Path "
 	      Child, ES_Win->Str[2] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      Child, ES_Win->BT_Get[2] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("   BG File "),
+	      Child, Label2(GetString( MSG_EDSETGUI_BGFILE ) ),  // "   BG File "
 	      Child, ES_Win->Str[5] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      End, /* HGroup */
 	    Child, ES_Win->Cycle[26] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_ZBuffer, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Z Buf Path "),
+	      Child, Label2(GetString( MSG_EDSETGUI_ZBUFPATH ) ),  // "Z Buf Path "
 	      Child, ES_Win->Str[3] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      Child, ES_Win->BT_Get[3] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Z Buf File "),
+	      Child, Label2(GetString( MSG_EDSETGUI_ZBUFFILE ) ),  // "Z Buf File "
 	      Child, ES_Win->Str[6] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      End, /* HGroup */
 	    Child, ES_Win->Cycle[27] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_Blur, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Blur Factor "),
+              Child, Label2(GetString( MSG_EDSETGUI_BLURFACTOR ) ),  // "Blur Factor "
 	      Child, ES_Win->IntStr[14] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -663,7 +878,7 @@ void Make_ES_Window(void)
 	    Child, ES_Win->Cycle[28] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_ZBufBlur, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Max Blur Offset "),
+              Child, Label2(GetString( MSG_EDSETGUI_MAXBLUROFFSET ) ),  // "Max Blur Offset "
 	      Child, ES_Win->FloatStr[7] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -679,7 +894,7 @@ void Make_ES_Window(void)
 		MUIA_Disabled, TRUE,
 		MUIA_Cycle_Entries, ES_Cycle_Scaling, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("   Final Width "),
+              Child, Label2(GetString( MSG_EDSETGUI_FINALWIDTH ) ),  // "   Final Width "
 	      Child, ES_Win->IntStr[15] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -687,7 +902,7 @@ void Make_ES_Window(void)
               Child, ES_Win->IntStrArrow[15][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("  Final Height "),
+              Child, Label2(GetString( MSG_EDSETGUI_FINALHEIGHT ) ),  // "  Final Height "
 	      Child, ES_Win->IntStr[16] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -699,14 +914,14 @@ void Make_ES_Window(void)
 	  End, /* PageGroup */
 
 	Child, HGroup,
-	  Child, Label2("Render Memory"),
+	  Child, Label2(GetString( MSG_EDSETGUI_RENDERMEMORY ) ),  // "Render Memory"
 	  Child, ES_Win->UseTxt = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012", End,
 	  End, /* HGroup */
         Child, HGroup,
-          Child, ES_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
-          Child, ES_Win->BT_Render = KeyButtonFunc('r', "\33cRender"), 
-          Child, ES_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
+          Child, ES_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDSETGUI_KEEP ) ),     // "\33cKeep"
+          Child, ES_Win->BT_Render = KeyButtonFunc('r', (char*)GetString( MSG_EDSETGUI_RENDER ) ),  // "\33cRender"
+          Child, ES_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EDSETGUI_CANCEL ) ),  // "\33cCancel"
           End, /* HGroup */
 
 	End, /* VGroup Window Contents */
@@ -715,7 +930,10 @@ void Make_ES_Window(void)
   if (! ES_Win->SettingsWin)
    {
    Close_ES_Window(1);
-   User_Message((CONST_STRPTR)"Render Settings Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EDSETGUI_RENDERSETTINGSEDITOR ),  // "Render Settings Editor"
+                GetString( MSG_EDSETGUI_OUTOFMEMORY ),           // "Out of memory!"
+                GetString( MSG_EDSETGUI_OK ),                    // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -995,7 +1213,7 @@ void Make_ES_Window(void)
 #ifdef USE_WCS_HELP
 #ifdef USE_SETTINGS_HELP
   DoMethod(ES_Win->SettingsWin, MUIM_Notify,
-	 MUIA_Window_InputEvent, "help",/*"rcommand h",*/
+	 MUIA_Window_InputEvent, GetString( MSG_EDSETGUI_HELP ),  /*"rcommand h",*/  // "help"
 	app, 2, MUIM_Application_ReturnID, ID_ES_HELP);
 #endif /* USE_SETTINGS_HELP */
 #endif /* USE_WCS_HELP */
@@ -1152,7 +1370,7 @@ void Handle_ES_Window(ULONG WCS_ID)
       if (memcmp(&settings, &UndoSetPar[0], sizeof (settings)))
        {
        Par_Mod |= 0x1000;
-       Close_ES_Window(CloseWindow_Query((STRPTR)"Settings Editor"));
+       Close_ES_Window(CloseWindow_Query(GetString( MSG_EDSETGUI_SETTINGSEDITOR )));  // "Settings Editor")
        }
       else
        Close_ES_Window(1);
@@ -1172,21 +1390,21 @@ void Handle_ES_Window(ULONG WCS_ID)
      {
      case 0:
       {
-      getfilename(1, "Frame Path/Name", framepath, framefile);
+      getfilename(1, (char*)GetString( MSG_EDSETGUI_FRAMEPATHNAME ), framepath, framefile);  // "Frame Path/Name"
       set(ES_Win->Str[0], MUIA_String_Contents, (IPTR)framepath);
       set(ES_Win->Str[8], MUIA_String_Contents, (IPTR)framefile);
       break;
       } /* framepath */
      case 1:
       {
-      getfilename(1, "Vector File Path/Name", linepath, linefile);
+      getfilename(1, (char*)GetString( MSG_EDSETGUI_VECTORFILEPATHNAME ), linepath, linefile);  // "Vector File Path/Name"
       set(ES_Win->Str[1], MUIA_String_Contents, (IPTR)linepath);
       set(ES_Win->Str[10], MUIA_String_Contents, (IPTR)linefile);
       break;
       } /* linepath */
      case 2:
       {
-      getfilename(0, "Background File Path/Name",
+      getfilename(0, (char*)GetString( MSG_EDSETGUI_BACKGROUNDFILEPATHNAME ),  // "Background File Path/Name"
 	 backgroundpath, backgroundfile);
       set(ES_Win->Str[2], MUIA_String_Contents, (IPTR)backgroundpath);
       set(ES_Win->Str[5], MUIA_String_Contents, (IPTR)backgroundfile);
@@ -1194,7 +1412,7 @@ void Handle_ES_Window(ULONG WCS_ID)
       } /* backgroundpath */
      case 3:
       {
-      getfilename(0, "Z Buffer File Path/Name",
+      getfilename(0, (char*)GetString( MSG_EDSETGUI_ZBUFFERFILEPATHNAME ) ,  // "Z Buffer File Path/Name"
 	 zbufferpath, zbufferfile);
       set(ES_Win->Str[3], MUIA_String_Contents, (IPTR)zbufferpath);
       set(ES_Win->Str[6], MUIA_String_Contents, (IPTR)zbufferfile);
@@ -1202,7 +1420,7 @@ void Handle_ES_Window(ULONG WCS_ID)
       } /* zbufferpath */
      case 4:
       {
-      getfilename(0, "Color Map File Path",
+      getfilename(0, (char*)GetString( MSG_EDSETGUI_COLORMAPFILEPATH ) ,  // "Color Map File Path"
 	 colormappath, colormapfile);
       set(ES_Win->Str[4], MUIA_String_Contents, (IPTR)colormappath);
       set(ES_Win->Str[12], MUIA_String_Contents, (IPTR)colormapfile);
@@ -1212,20 +1430,20 @@ void Handle_ES_Window(ULONG WCS_ID)
       {
       strcpy(tempfile, framefile);
       strcat(tempfile, ".temp");
-      getfilename(1, "Temporary File Path/Name", temppath, tempfile);
+      getfilename(1, (char*)GetString( MSG_EDSETGUI_TEMPORARYFILEPATHNAME ), temppath, tempfile);  // "Temporary File Path/Name"
       set(ES_Win->Str[7], MUIA_String_Contents, (IPTR)temppath);
 /*      set(ES_Win->Str[9], MUIA_String_Contents, tempfile);*/
       break;
       } /* temppath */
      case 6:
       {
-      getfilename(1, "Ecosystem Model Path", modelpath, dummyfile);
+      getfilename(1, (char*)GetString( MSG_EDSETGUI_ECOSYSTEMMODELPATH ), modelpath, dummyfile);  // "Ecosystem Model Path"
       set(ES_Win->Str[11], MUIA_String_Contents, (IPTR)modelpath);
       break;
       } /* temppath */
      case 7:
       {
-      getfilename(1, "Deformation Map Path", deformpath, deformfile);
+      getfilename(1, (char*)GetString( MSG_EDSETGUI_DEFORMATIONMAPPATH ), deformpath, deformfile);  // "Deformation Map Path"
       set(ES_Win->Str[13], MUIA_String_Contents, (IPTR)deformpath);
       set(ES_Win->Str[14], MUIA_String_Contents, (IPTR)deformfile);
       break;
