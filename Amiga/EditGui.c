@@ -2,6 +2,9 @@
 ** World Construction Set GUI for Editing module.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -34,8 +37,10 @@ void Make_EC_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message((CONST_STRPTR)"Color Editor",
-		  (CONST_STRPTR)"You must first load or create a parameter file before opening the Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_EDITGUI_COLOREDITOR ),                                      // "Color Editor"
+	       GetString( MSG_EDITGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING ),  // "You must first load or create a parameter file before opening the Editor."
+               GetString( MSG_EDITGUI_OK ),                                               // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -56,17 +61,17 @@ void Make_EC_Window(void)
   Set_Param_Menu(1);
 
      EC_Win->EcoPalWin = WindowObject,
-      MUIA_Window_Title		, "Color Editor",
+      MUIA_Window_Title		, GetString( MSG_EDITGUI_COLOREDITOR ),  // "Color Editor"
       MUIA_Window_ID		, MakeID('E','D','C','O'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
       WindowContents, VGroup,
 	Child, HGroup,
-	  Child, Label2("Options"),
-          Child, EC_Win->BT_Settings[0] = KeyButtonFunc('1', "\33cSurfaces"), 
-          Child, EC_Win->BT_Settings[1] = KeyButtonFunc('2', "\33cStrata"), 
-          Child, EC_Win->BT_Settings[2] = KeyButtonFunc('3', "\33cCelestial"), 
+	  Child, Label2(GetString( MSG_EDITGUI_OPTIONS ) ),  // "Options"
+          Child, EC_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDITGUI_SURFACES ) ),   // "\33cSurfaces"
+          Child, EC_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDITGUI_STRATA ) ),     // "\33cStrata"
+          Child, EC_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDITGUI_CELESTIAL ) ),  // "\33cCelestial"
 	  End, /* HGroup */
         Child, HGroup,
 /* group on the left */
@@ -195,11 +200,11 @@ void Make_EC_Window(void)
 
 /* Frame stuff */
             Child, VGroup,
-	      Child, TextObject, MUIA_Text_Contents, "\33c\0334Key Frames", End,
+	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDITGUI_EYFRAMES ), End,    // "\33c\0334Key Frames"
               Child, HGroup,
-                Child, EC_Win->BT_PrevKey = KeyButtonFunc('v', "\33cPrev"), 
-                Child, Label2("Frame"),
-                Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, EC_Win->BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_EDITGUI_PREV )),  // "\33cPrev"
+                Child, Label2(GetString( MSG_EDITGUI_FRAME ) ),(char*)                                 // "Frame"
+                Child, HGroup, MUIA_Group_HorizSpacing, 0,     (char*)
                   Child, EC_Win->Str[0] = StringObject, StringFrame,
 			MUIA_String_Integer, 0,
 			MUIA_String_Accept, "0123456789",
@@ -207,26 +212,26 @@ void Make_EC_Window(void)
                   Child, EC_Win->StrArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
                   Child, EC_Win->StrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
                   End, /* HGroup */
-                Child, EC_Win->BT_NextKey = KeyButtonFunc('x', "\33cNext"), 
+                Child, EC_Win->BT_NextKey = KeyButtonFunc('x', (char*)GetString( MSG_EDITGUI_NEXT )),  // "\33cNext"
                 End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, EC_Win->BT_MakeKey = KeyButtonFunc('m', "\33cMake Key"), 
-                Child, EC_Win->BT_UpdateKeys = KeyButtonFunc('u', "\33cUpdate"),
+                Child, EC_Win->BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_EDITGUI_MAKEKEY )),    // "\33cMake Key"
+                Child, EC_Win->BT_UpdateKeys = KeyButtonFunc('u', (char*)GetString( MSG_EDITGUI_UPDATE )),  // "\33cUpdate"
                 Child, EC_Win->BT_UpdateAll = KeyButtonObject('('),
 			MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, "\33cAll (0)", End,
+		 	MUIA_Text_Contents, GetString( MSG_EDITGUI_ALL0 ), End,  // "\33cAll (0)"
 		End, /* HGroup */
               Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, EC_Win->BT_DeleteKey = KeyButtonFunc(127, "\33c\33uDel\33nete"),
-                Child, EC_Win->BT_DeleteAll = KeyButtonFunc('d', "\33cDelete All"), 
+                Child, EC_Win->BT_DeleteKey = KeyButtonFunc(127, (char*)GetString( MSG_EDITGUI_DELETE ) ),    // "\33c\33uDel\33nete"
+                Child, EC_Win->BT_DeleteAll = KeyButtonFunc('d', (char*)GetString( MSG_EDITGUI_DELETEALL )),  // "\33cDelete All"
 	        End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, EC_Win->FramePages = VGroup,
-                  Child, EC_Win->BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines "), 
+                  Child, EC_Win->BT_TimeLines = KeyButtonFunc('t', (char*)GetString( MSG_EDITGUI_TIMELINES ) ),  // "\33cTime Lines "
 	          End, /* VGroup */
-                Child, EC_Win->BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys "), 
+                Child, EC_Win->BT_KeyScale = KeyButtonFunc('s', (char*)GetString( MSG_EDITGUI_SCALEKEYS ) ),  // "\33cScale Keys "
 		End, /* HGroup */
 	      End, /* VGroup */
 
@@ -236,14 +241,14 @@ void Make_EC_Window(void)
         Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, MUIA_VertWeight, 0, End,
         Child, VGroup,
           Child, HGroup,
-            Child, EC_Win->BT_Copy = KeyButtonFunc('o', "\33cCopy"), 
-            Child, EC_Win->BT_Swap = KeyButtonFunc('w', "\33cSwap"), 
-            Child, EC_Win->BT_Insert = KeyButtonFunc('i', "\33cInsert"), 
-            Child, EC_Win->BT_Remove = KeyButtonFunc('r', "\33cRemove"), 
+            Child, EC_Win->BT_Copy = KeyButtonFunc('o',  (char*)GetString( MSG_EDITGUI_COPY ) ),     // "\33cCopy"
+            Child, EC_Win->BT_Swap = KeyButtonFunc('w', (char*)GetString( MSG_EDITGUI_SWAP ) ),      // "\33cSwap"
+            Child, EC_Win->BT_Insert = KeyButtonFunc('i', (char*)GetString( MSG_EDITGUI_INSERT ) ),  // "\33cInsert"
+            Child, EC_Win->BT_Remove = KeyButtonFunc('r', (char*)GetString( MSG_EDITGUI_REMOVE ) ),  // "\33cRemove"
             End, /* HGroup */
           Child, HGroup, MUIA_Group_SameWidth, TRUE,
-            Child, EC_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
-            Child, EC_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
+            Child, EC_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDITGUI_KEEP ) ),      // "\33cKeep"
+            Child, EC_Win->BT_Cancel = KeyButtonFunc('c',  (char*)GetString( MSG_EDITGUI_CANCEL ) ),  // "\33cCancel"
             End, /* HGroup */
           End, /* VGroup */
         End, /* VGroup */
@@ -252,7 +257,10 @@ void Make_EC_Window(void)
   if (! EC_Win->EcoPalWin)
    {
    Close_EC_Window(1);
-   User_Message((CONST_STRPTR)"Color Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EDITGUI_COLOREDITOR ),  // "Color Editor"
+                GetString( MSG_EDITGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_EDITGUI_OK ),           // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -284,7 +292,7 @@ void Make_EC_Window(void)
 
 /* set LW style enter command for making key */
   DoMethod(EC_Win->EcoPalWin, MUIM_Notify, MUIA_Window_InputEvent,
-	"numericpad enter", app, 2, MUIM_Application_ReturnID, ID_EC_MAKEKEY);
+	GetString( MSG_EDITGUI_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EC_MAKEKEY);  // "numericpad enter"
 
 /* Link arrow buttons to application */
   for (i=0; i<6; i++)
@@ -564,7 +572,7 @@ void Handle_EC_Window(ULONG WCS_ID)
       long FrameKey;
 
       sprintf(str, "%d", EC_Win->Frame);
-      if (! GetInputString("Enter frame to make key for.",
+      if (! GetInputString((char*)GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ) ,  // "Enter frame to make key for."
 	 "abcdefghijklmnopqrstuvwxyz", str))
        break;
       FrameKey = atoi(str);
@@ -617,7 +625,7 @@ void Handle_EC_Window(ULONG WCS_ID)
         {
         Set_EC_List(1);
         if (EE_Win)
-         Set_PS_List(EE_Win->ECList, NULL, 1, 0, "Unused");
+         Set_PS_List(EE_Win->ECList, NULL, 1, 0, (char*)GetString( MSG_EDITGUI_UNUSED ) );  // "Unused"
 	} /* if multiple keys deleted */
        else
         {
@@ -636,8 +644,11 @@ void Handle_EC_Window(ULONG WCS_ID)
       } /* delete key */
      case ID_EC_DELETEALL:
       {
-      sprintf(str, "Delete all %s Key Frames?", PAR_NAME_COLOR(EC_Win->PalItem));
-      if (User_Message_Def((CONST_STRPTR)"Parameters Module: Color", (CONST_STRPTR)str, (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+      sprintf(str, (char*)GetString( MSG_EDITGUI_DELETEALLKEYFRAMES ), PAR_NAME_COLOR(EC_Win->PalItem));  // "Delete all %s Key Frames?"
+      if (User_Message_Def(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
+                           (CONST_STRPTR)str,
+                           GetString( MSG_EDITGUI_OKCANCEL ),               // "OK|Cancel"
+                           (CONST_STRPTR)"oc", 1))
        {
        for (i=ParHdr.KeyFrames-1; i>=0; i--)
         {
@@ -670,8 +681,10 @@ void Handle_EC_Window(ULONG WCS_ID)
        CoPar.cn[CopyItem].Value[2] = CoPar.cn[EC_Win->PalItem].Value[2];
        if (CountKeyFrames(1, EC_Win->PalItem))
         {
-        if (User_Message_Def((CONST_STRPTR)"Color Editor: Copy",
-        		(CONST_STRPTR)"Copy Key Frames too?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+        if (User_Message_Def(GetString( MSG_EDITGUI_COLOREDITORCOPY ) ,  // "Color Editor: Copy"
+        		    GetString( MSG_EDITGUI_COPYKEYFRAMESTOO ),   // "Copy Key Frames too?" 
+                            GetString( MSG_EDITGUI_YESNO ),              // "Yes|No"
+                            (CONST_STRPTR)"yn", 1))
          {
          for (i=ParHdr.KeyFrames-1; i>=0; i--)
           {
@@ -692,7 +705,7 @@ void Handle_EC_Window(ULONG WCS_ID)
        EC_Win->PalItem = CopyItem;
        Set_EC_List(1);
        if (EE_Win)
-        Set_PS_List(EE_Win->ECList, NULL, 1, 0, "Unused");
+        Set_PS_List(EE_Win->ECList, NULL, 1, 0, (char*)GetString( MSG_EDITGUI_UNUSED ));  // "Unused"
        SetColorRequester(0);
        Set_EC_Item(EC_Win->PalItem);
        Par_Mod |= 0x0010;
@@ -711,8 +724,10 @@ void Handle_EC_Window(ULONG WCS_ID)
        get(EC_Win->LS_List, MUIA_List_Active, &SwapItem);
        if (SwapItem < 24)
         {
-        User_Message((CONST_STRPTR)"Color Parameters: Swap",
-        		(CONST_STRPTR)"Can't swap with first 24 colors!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"oc");
+        User_Message(GetString( MSG_EDITGUI_COLORPARAMETERSSWAP ),                          // "Color Parameters: Swap"
+                     GetString( MSG_EDITGUI_CANTSWAPWITHFIRST24COLORSPERATIONTERMINATED ),  // "Can't swap with first 24 colors!\nOperation terminated."
+                     GetString( MSG_EDITGUI_OK ) ,                                          // "OK"
+                     (CONST_STRPTR)"oc");
         set(EC_Win->LS_List, MUIA_List_Active, EC_Win->PalItem);
 	} /* if */
        else
@@ -734,7 +749,7 @@ void Handle_EC_Window(ULONG WCS_ID)
         EC_Win->PalItem = SwapItem;
         Set_EC_List(1);
         if (EE_Win)
-         Set_PS_List(EE_Win->ECList, NULL, 1, 0, "Unused");
+         Set_PS_List(EE_Win->ECList, NULL, 1, 0, (char*)GetString( MSG_EDITGUI_UNUSED ));  // "Unused"
         SetColorRequester(0);
         Set_EC_Item(EC_Win->PalItem);
         Par_Mod |= 0x0110;
@@ -764,7 +779,7 @@ void Handle_EC_Window(ULONG WCS_ID)
       UnsetKeyFrame(EC_Win->Frame, 1, EC_Win->PalItem, 0);
       Set_EC_List(1);
       if (EE_Win)
-       Set_PS_List(EE_Win->ECList, NULL, 1, 0, "Unused");
+       Set_PS_List(EE_Win->ECList, NULL, 1, 0, (char*)GetString( MSG_EDITGUI_UNUSED ));  // "Unused"
       SetColorRequester(0);
       Set_EC_Item(EC_Win->PalItem);
       AdjustEcosystemColors(WCS_ECOCOLOR_INCREMENT, EC_Win->PalItem, 1);
@@ -777,7 +792,9 @@ void Handle_EC_Window(ULONG WCS_ID)
       if ((Eco = SearchEcosystemColorMatch(EC_Win->PalItem)) > -1)
        {
        Remove = User_Message_Def((CONST_STRPTR)PAR_NAME_ECO(Eco),
-    		   (CONST_STRPTR)"The current color is being used. Remove it anyway?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 0);
+    		                 GetString( MSG_EDITGUI_THECURRENTCOLORISBEINGUSEDREMOVEITANYWAY ),  // "The current color is being used. Remove it anyway?"
+                                 GetString( MSG_EDITGUI_OKCANCEL ),                                  // "OK|Cancel"
+                                 (CONST_STRPTR)"oc", 0);
        } /* if in use */
       if (Remove)
        {
@@ -797,7 +814,7 @@ void Handle_EC_Window(ULONG WCS_ID)
        UnsetKeyFrame(EC_Win->Frame, 1, EC_Win->PalItem, 0);
        Set_EC_List(1);
        if (EE_Win)
-        Set_PS_List(EE_Win->ECList, NULL, 1, 0, "Unused");
+        Set_PS_List(EE_Win->ECList, NULL, 1, 0, (char*)GetString( MSG_EDITGUI_UNUSED ));  // "Unused"
        SetColorRequester(0);
        Set_EC_Item(EC_Win->PalItem);
        AdjustEcosystemColors(WCS_ECOCOLOR_DECREMENT, EC_Win->PalItem + 1, -1);
@@ -827,7 +844,7 @@ void Handle_EC_Window(ULONG WCS_ID)
       GetKeyTableValues(1, EC_Win->PalItem, 1);
       Set_EC_List(1);
       if (EE_Win)
-       Set_PS_List(EE_Win->ECList, NULL, 1, 0, "Unused");
+       Set_PS_List(EE_Win->ECList, NULL, 1, 0, (char*)GetString( MSG_EDITGUI_UNUSED ));  // "Unused"
       SetAllColorRequester();
       Set_EC_Item(EC_Win->PalItem);
       ResetTimeLines(-1);
@@ -841,7 +858,7 @@ void Handle_EC_Window(ULONG WCS_ID)
       GetKeyTableValues(1, EC_Win->PalItem, 1);
       Set_EC_List(1);
       if (EE_Win)
-       Set_PS_List(EE_Win->ECList, NULL, 1, 0, "Unused");
+       Set_PS_List(EE_Win->ECList, NULL, 1, 0, (char*)GetString( MSG_EDITGUI_UNUSED ));  // "Unused"
       SetColorRequester(0);
       Set_EC_Item(EC_Win->PalItem);
       ResetTimeLines(-1);
@@ -862,7 +879,7 @@ void Handle_EC_Window(ULONG WCS_ID)
       {
       if (KFsize != EC_Win->AltKFsize || memcmp(KF, EC_Win->AltKF, KFsize)
 		|| memcmp(&CoPar, &UndoCoPar[0], sizeof (CoPar)))
-       Close_EC_Window(CloseWindow_Query((STRPTR)"Color Editor"));
+       Close_EC_Window(CloseWindow_Query(GetString( MSG_EDITGUI_COLOREDITOR )));  // "Color Editor"
       else
        Close_EC_Window(1);
       break;
@@ -978,7 +995,7 @@ void Handle_EC_Window(ULONG WCS_ID)
      sprintf(EC_Win->Colorname[EC_Win->PalItem], "\33n%s", PAR_NAME_COLOR(EC_Win->PalItem));
      }
     if (EE_Win)
-     Set_PS_List(EE_Win->ECList, NULL, 1, 0, "Unused");
+     Set_PS_List(EE_Win->ECList, NULL, 1, 0, (char*)GetString( MSG_EDITGUI_UNUSED ));  // "Unused"
     DoMethod(EC_Win->LS_List, MUIM_List_Redraw, EC_Win->PalItem);
     break;
     } /* Color name string */

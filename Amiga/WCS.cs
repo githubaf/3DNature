@@ -4987,3 +4987,152 @@ Ecosystem Model Path
 MSG_EDSETGUI_DEFORMATIONMAPPATH
 Deformation Map Path
 
+;
+MSG_EDITGUI_COLOREDITOR
+Color Editor
+
+;
+MSG_EDITGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING
+You must first load or create a parameter file before opening the Editor.
+
+;
+MSG_EDITGUI_OK
+OK
+
+;
+MSG_EDITGUI_OPTIONS
+Options
+
+;
+MSG_EDITGUI_SURFACES
+\33cSurfaces
+
+;
+MSG_EDITGUI_STRATA
+\33cStrata
+
+;
+MSG_EDITGUI_CELESTIAL
+\33cCelestial
+
+;
+MSG_EDITGUI_EYFRAMES
+\33c\0334Key Frames
+
+;
+MSG_EDITGUI_PREV
+\33cPrev
+
+;
+MSG_EDITGUI_FRAME
+Frame
+
+;
+MSG_EDITGUI_NEXT
+\33cNext
+
+;
+MSG_EDITGUI_MAKEKEY
+\33cMake Key
+
+;
+MSG_EDITGUI_UPDATE
+\33cUpdate
+
+;
+MSG_EDITGUI_ALL0
+\33cAll (0)
+
+;
+MSG_EDITGUI_DELETE
+\33c\33uDel\33nete
+
+;
+MSG_EDITGUI_DELETEALL
+\33cDelete All
+
+;
+MSG_EDITGUI_TIMELINES
+\33cTime Lines\x20
+
+;
+MSG_EDITGUI_SCALEKEYS
+\33cScale Keys\x20
+
+;
+MSG_EDITGUI_COPY
+\33cCopy
+
+;
+MSG_EDITGUI_SWAP
+\33cSwap
+
+;
+MSG_EDITGUI_INSERT
+\33cInsert
+
+;
+MSG_EDITGUI_REMOVE
+\33cRemove
+
+;
+MSG_EDITGUI_KEEP
+\33cKeep
+
+;
+MSG_EDITGUI_CANCEL
+\33cCancel
+
+;
+MSG_EDITGUI_OUTOFMEMORY
+Out of memory!
+
+;
+MSG_EDITGUI_NUMERICPADENTER
+numericpad enter
+
+;
+MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR
+Enter frame to make key for.
+
+;
+MSG_EDITGUI_UNUSED
+Unused
+
+;
+MSG_EDITGUI_DELETEALLKEYFRAMES
+Delete all %s Key Frames?
+
+;
+MSG_EDITGUI_PARAMETERSMODULECOLOR
+Parameters Module: Color
+
+;
+MSG_EDITGUI_OKCANCEL
+OK|Cancel
+
+;
+MSG_EDITGUI_COLOREDITORCOPY
+Color Editor: Copy
+
+;
+MSG_EDITGUI_COPYKEYFRAMESTOO
+Copy Key Frames too?
+
+;
+MSG_EDITGUI_YESNO
+Yes|No
+
+;
+MSG_EDITGUI_COLORPARAMETERSSWAP
+Color Parameters: Swap
+
+;
+MSG_EDITGUI_CANTSWAPWITHFIRST24COLORSPERATIONTERMINATED
+Can't swap with first 24 colors!\nOperation terminated.
+
+;
+MSG_EDITGUI_THECURRENTCOLORISBEINGUSEDREMOVEITANYWAY
+The current color is being used. Remove it anyway?
+
+;
