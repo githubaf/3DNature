@@ -3373,7 +3373,7 @@ Done		EdPar.c 1.Mar
 Nothing		EdSetExtrasGUI.c
 Done		EdSetGUI.c 5.Mar
 Done		EditGui.c 6.Mar
-EvenMoreGUI.c
+Done		EvenMoreGUI.c 7.Mar
 Foliage.c
 FoliageGUI.c
 Fractal.c

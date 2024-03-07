@@ -2,6 +2,8 @@
 ** World Construction Set GUI for Data Operations module.
 ** Copyright 1994 by Gary R. Huber and Chris Eric Hanson.
 */
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
 
 #include "GUIDefines.h"
 #include "WCS.h"
@@ -18,9 +20,32 @@ STATIC_FCN short CreateNewProject(char *NewProjName, char *CloneProjName); // us
 void Make_TS_Window(void)
 {
  long open;
- static const char *TS_Cycle_AMPM[] = {"AM", "PM", NULL};
- static const char *TS_Cycle_Month[] = {"Jan", "Feb", "Mar", "Apr", "May",
-	 "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", NULL};
+ static const char *TS_Cycle_AMPM[3]={NULL};
+ static const char *TS_Cycle_Month[13]={NULL};
+ static int Init=TRUE;
+
+ if(Init)
+ {
+ Init=FALSE;
+
+ TS_Cycle_AMPM[0] = (char*)GetString( MSG_EVMORGUI_AM );  // "AM"
+ TS_Cycle_AMPM[1] = (char*)GetString( MSG_EVMORGUI_PM );  // "PM"
+ TS_Cycle_AMPM[2] = NULL;
+
+ TS_Cycle_Month[ 0] = (char*)GetString( MSG_EVMORGUI_JAN );  // "Jan",
+ TS_Cycle_Month[ 1] = (char*)GetString( MSG_EVMORGUI_FEB );  // "Feb",
+ TS_Cycle_Month[ 2] = (char*)GetString( MSG_EVMORGUI_MAR );  // "Mar",
+ TS_Cycle_Month[ 3] = (char*)GetString( MSG_EVMORGUI_APR );  // "Apr",
+ TS_Cycle_Month[ 4] = (char*)GetString( MSG_EVMORGUI_MAY );  // "May",
+ TS_Cycle_Month[ 5] = (char*)GetString( MSG_EVMORGUI_JUN );  // "Jun",
+ TS_Cycle_Month[ 6] = (char*)GetString( MSG_EVMORGUI_JUL );  // "Jul",
+ TS_Cycle_Month[ 7] = (char*)GetString( MSG_EVMORGUI_AUG );  // "Aug",
+ TS_Cycle_Month[ 8] = (char*)GetString( MSG_EVMORGUI_SEP );  // "Sep",
+ TS_Cycle_Month[ 9] = (char*)GetString( MSG_EVMORGUI_OCT );  // "Oct",
+ TS_Cycle_Month[10] = (char*)GetString( MSG_EVMORGUI_NOV );  // "Nov",
+ TS_Cycle_Month[11] = (char*)GetString( MSG_EVMORGUI_DEC );  // "Dec",
+ TS_Cycle_Month[12] = NULL;
+ }
  static const char *TS_Cycle_Date[] = {"1", "2", "3", "4", "5", "6", "7", "8",
 	 "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 	 "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", NULL};
@@ -51,21 +76,21 @@ void Make_TS_Window(void)
   Set_Param_Menu(0);
 
      TS_Win->TimeSetWin = WindowObject,
-      MUIA_Window_Title		, "Sun Time",
+      MUIA_Window_Title		, GetString( MSG_EVMORGUI_SUNTIME ),  // "Sun Time"
       MUIA_Window_ID		, MakeID('E','P','T','S'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
       WindowContents, VGroup,
 	Child, HGroup,
-	  Child, Label2("Ref Lon"),
+	  Child, Label2(GetString( MSG_EVMORGUI_REFLON )),  // "Ref Lon"
 	  Child, TS_Win->LonStr = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "01234567890",
 		MUIA_String_Accept, "-.0123456789", End,
 	  End, /* HGroup */
 
 	Child, HGroup,
-	  Child, Label2("Date"),
+	  Child, Label2(GetString( MSG_EVMORGUI_DATE )),  // "Date"
 	  Child, TS_Win->MonthCycle = CycleObject,
 		MUIA_Cycle_Entries, TS_Cycle_Month, End,
 	  Child, TS_Win->DateCycle = CycleObject,
@@ -73,7 +98,7 @@ void Make_TS_Window(void)
 	  End, /* HGroup */
 
 	Child, HGroup,
-	  Child, Label2("Time"),
+	  Child, Label2(GetString( MSG_EVMORGUI_TIME )),  // "Time"
 	  Child, TS_Win->TimeStr = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345",
 		MUIA_String_Accept, ":.0123456789", End,
@@ -82,13 +107,13 @@ void Make_TS_Window(void)
 	  End, /* HGroup */
 
 	Child, HGroup,
-	  Child, Label2("Sun Lon"),
+	  Child, Label2(GetString( MSG_EVMORGUI_SUNLON )),  // "Sun Lon"
 	  Child, TS_Win->SunLonStr = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "01234567890",
 		MUIA_String_Accept, "-.0123456789", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label2("Sun Lat"),
+	  Child, Label2(GetString( MSG_EVMORGUI_SUNLAT )),  // "Sun Lat"
 	  Child, TS_Win->SunLatStr = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "01234567890",
 		MUIA_String_Accept, "-.0123456789", End,
@@ -106,7 +131,10 @@ void Make_TS_Window(void)
   if (! TS_Win->TimeSetWin)
    {
    Close_TS_Window(0);
-   User_Message((CONST_STRPTR)"Sun Time Window", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EVMORGUI_SUNTIMEWINDOW ) ,  // "Sun Time Window"
+                GetString( MSG_EVMORGUI_OUTOFMEMORY ),     // "Out of memory!"
+                GetString( MSG_EVMORGUI_OK ),              // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -263,7 +291,7 @@ void Handle_TS_Window(ULONG WCS_ID)
      case ID_TS_CLOSEQUERY:
       {
       if (TS_Win->Mod)
-       Close_TS_Window(CloseWindow_Query((STRPTR)"Sun Time Window"));
+       Close_TS_Window(CloseWindow_Query(GetString( MSG_EVMORGUI_SUNTIMEWINDOW )));  // "Sun Time Window"
       else
        Close_TS_Window(1);
       break;
@@ -575,20 +603,20 @@ STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.202
  Set_Param_Menu(10);
 
      PN_Win->NewProjWin = WindowObject,
-      MUIA_Window_Title		, "New Project",
+      MUIA_Window_Title		, GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
       MUIA_Window_ID		, MakeID('P','R','O','N'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
 	  Child, HGroup,
-	    Child, Label2("New Project"),
+	    Child, Label2(GetString( MSG_EVMORGUI_NEWPROJECT )),  // "New Project"
 	    Child, PN_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234567890",
 		MUIA_String_Contents, "WCSProjects:", End,
 	    Child, PN_Win->BT_Get[0] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Clone Project"),
+	    Child, Label2(GetString( MSG_EVMORGUI_CLONEPROJECT )),  // "Clone Project"
 	    Child, PN_Win->Str[1] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234567890",
 		MUIA_String_Contents, "WCSProjects:", End,
@@ -596,8 +624,8 @@ STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.202
 	    End, /* HGroup */
 	  Child, HGroup,
 	    Child, RectangleObject, End,
-            Child, PN_Win->BT_Save = KeyButtonFunc('s', "\33cSave"), 
-            Child, PN_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
+            Child, PN_Win->BT_Save = KeyButtonFunc('s', (char*)GetString( MSG_EVMORGUI_SAVE )),       // "\33cSave"
+            Child, PN_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EVMORGUI_CANCEL ) ),  // "\33cCancel"
 	    Child, RectangleObject, End,
             End, /* HGroup */
 	  End, /* VGroup */
@@ -606,7 +634,10 @@ STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.202
   if (! PN_Win->NewProjWin)
    {
    Close_PN_Window(0);
-   User_Message((CONST_STRPTR)"Project: New/Edit", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_EVMORGUI_PROJECTNEWEDIT ),  // "Project: New/Edit"
+                GetString( MSG_EVMORGUI_OUTOFMEMORY ),     // "Out of memory!"
+                GetString( MSG_EVMORGUI_OK ),              // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -754,7 +785,7 @@ void Handle_PN_Window(ULONG WCS_ID)
        strcat(dummyfile, ".");
        strcat(dummyfile, dummyext);
        }
-      getfilenameptrn(1, "New Project Path/Name", filename, dummyfile, Ptrn);
+      getfilenameptrn(1, (char*)GetString( MSG_EVMORGUI_NEWPROJECTPATHNAME ), filename, dummyfile, Ptrn);  // "New Project Path/Name"
       strmfp(filename, filename, dummyfile);
       set(PN_Win->Str[0], MUIA_String_Contents, (IPTR)filename);
       break;
@@ -770,7 +801,7 @@ void Handle_PN_Window(ULONG WCS_ID)
        strcat(dummyfile, ".");
        strcat(dummyfile, dummyext);
        }
-      getfilenameptrn(0, "Clone Project", filename, dummyfile, Ptrn);
+      getfilenameptrn(0, (char*)GetString( MSG_EVMORGUI_CLONEPROJECT ), filename, dummyfile, Ptrn);  // "Clone Project"
       strmfp(filename, filename, dummyfile);
       set(PN_Win->Str[1], MUIA_String_Contents, (IPTR)filename);
       break;
@@ -967,22 +998,22 @@ EndNewProj:
    {
    case 1:
     {
-    strcpy(str, "You must supply a new project name.");
+    strcpy(str, (char*)GetString( MSG_EVMORGUI_YOUMUSTSUPPLYANEWPROJECTNAME ));  // "You must supply a new project name."
     break;
     } /* no new name */
    case 2:
     {
-    strcpy(str, "Error loading Project file to clone.");
+    strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORLOADINGPROJECTFILETOCLONE ) );  // "Error loading Project file to clone."
     break;
     } /* loading clone project */
    case 3:
     {
-    strcpy(str, "Error loading Wave file to clone.");
+    strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORLOADINGWAVEFILETOCLONE ) );  // "Error loading Wave file to clone."
     break;
     } /* loading wave */
    case 4:
     {
-    strcpy(str, "Error loading Cloud file to clone.");
+    strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORLOADINGCLOUDFILETOCLONE ) );  // "Error loading Cloud file to clone."
     break;
     } /* loading cloud */
    case 5:
@@ -1005,26 +1036,29 @@ EndNewProj:
     } /* creating default directory */
    case 8:
     {
-    strcpy(str, "Error saving the new Project file.");
+    strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORSAVINGTHENEWPROJECTFILE ) );  // "Error saving the new Project file."
     break;
     } /* saving project */
    case 9:
     {
-    strcpy(str, "Error saving the cloned Wave file.");
+    strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORSAVINGTHECLONEDWAVEFILE ) );  // "Error saving the cloned Wave file."
     break;
     } /* saving wave */
    case 10:
     {
-    strcpy(str, "Error saving the cloned Cloud file.");
+    strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORSAVINGTHECLONEDCLOUDFILE ) );  // "Error saving the cloned Cloud file."
     break;
     } /* saving cloud */
    case 20:
     {
-    strcpy(str, "Out of memory.");
+    strcpy(str, (char*)GetString( MSG_EVMORGUI_OUTOFMEMORY_PERIOD ) );  // "Out of memory."
     break;
     } /* allocating char array */
    } /* switch error */
-  User_Message_Def((CONST_STRPTR)"New Project", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+  User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                   (CONST_STRPTR)str,
+                   GetString( MSG_EVMORGUI_OK ),          // "OK"
+                   (CONST_STRPTR)"o", 0);
   return (0);
   } /* if an error occurred */
 
