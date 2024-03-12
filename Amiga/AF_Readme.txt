@@ -266,7 +266,7 @@ Compiler-Optionen ueberpruefen. Ist LTO vielleicht doch schaedlich? --> Wohl nic
 --> Auf dem Amiga muss das noch ausprobiert werden.
 
 Der Profiler zeigt, dass meine swmem()-Funktion  extrem oft aufgerufen wird und 8% der Zeit braucht. Kann man die inline machen?
---> erst mal libnix mit -pg bauen. Dann ist der Profiler hoffentlich aussagekräftiger.
+--> erst mal libnix mit -pg bauen. Dann ist der Profiler hoffentlich aussagekrftiger.
 
 22.July2021
 -----------
@@ -361,14 +361,14 @@ Der Profiler-Aufruf zeigt swmem() als einen Zeitfresser an! 8% nur fuer diese Fu
 PATH=$PATH:~/opt/m68k-amigaos_26Jul21/bin/ m68k-amigaos-gprof  WCS.unstripped | gprof2dot -n0 -e0 --leaf=swmem | dot -Tsvg -o output.svg && mirage output.svg
 
 --> OK. Aufruf von 
-FractPoint_Sort() macht 5,8% aus, hier könnte man optimieren?
+FractPoint_Sort() macht 5,8% aus, hier knnte man optimieren?
 
 Diesen Profiler-Lauf mal mit Amiga oder cycle-exact laufen lassen...
 
 10.August 2021
 --------------
 WCS 2.04 auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
-Canyon Sunset, Pal-Hires, Groeße/4 05:08:28
+Canyon Sunset, Pal-Hires, Groee/4 05:08:28
 
 Profiling-Lauf:
 --> Der Speicher reicht nicht, um die Wolken zu berechnen!
@@ -384,19 +384,19 @@ damit die Unterverzeichnisse da sind. Nach Programmende dann das Verzeichnis RAM
 ----------
 Alter Lauf:
 WCS 2.04 auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
-Canyon Sunset, Pal-Hires, Groeße/4 05:08:28
+Canyon Sunset, Pal-Hires, Groee/4 05:08:28
 
 Neu mit gcc:
 WCS_gcc_Release_Static 68020/68881 auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
-Canyon Sunset, Pal-Hires, Groeße/4 07:36:02    !!! Warum so langsam? Trotz static  
+Canyon Sunset, Pal-Hires, Groee/4 07:36:02    !!! Warum so langsam? Trotz static  
 
 Statt -m68020 -m66881 jetzt nur -m68040
 WCS_gcc_Release_Static_68040 auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
-Canyon Sunset, Pal-Hires, Groeße/4 10:29:07   !!!!!!!!!
+Canyon Sunset, Pal-Hires, Groee/4 10:29:07   !!!!!!!!!
 
 
 WCS_gcc_Release_Static_68040_mhard-float auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
-Canyon Sunset, Pal-Hires, Groeße/4 7:35:17, also auch nicht viel besser als 68020/68881
+Canyon Sunset, Pal-Hires, Groee/4 7:35:17, also auch nicht viel besser als 68020/68881
 
 
 Auf dem Amiga muss zum SAS/C compilieren noch http://aminet.net/dev/c/SDI_headers.lha installiert werden und http://aminet.net/dev/mui/mui38dev.lha
@@ -404,17 +404,17 @@ Auf dem Amiga muss zum SAS/C compilieren noch http://aminet.net/dev/c/SDI_header
 Compilieren auf dem C=A4000T mit Smbfs 2.2 ist extrem langsam, geht aber. -> Besser unter WinUAE machen.
 
 WCS_smake_optimize auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
-Canyon Sunset, Pal-Hires, Groeße/4 4:53:40    --> bisher schnellste Variante
+Canyon Sunset, Pal-Hires, Groee/4 4:53:40    --> bisher schnellste Variante
 
 (15.Sep.21)
 WCS_GCC_baserel_O2Os (1048264 Bytes) auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
 GUI-Files mit -Os, die anderen mit -O2 
-Canyon Sunset, Pal-Hires, Groeße/4 7:24:29. In WinUAE braucht es 1:04 statt 1:30, auf dem Amiga aber keine wesentliche Verbesserung!
+Canyon Sunset, Pal-Hires, Groee/4 7:24:29. In WinUAE braucht es 1:04 statt 1:30, auf dem Amiga aber keine wesentliche Verbesserung!
 
 
 26.8.2021
 ---------
-mit -mfast-math übersetzt -> 7:31:54, also praktisch keine Verbesserung.
+mit -mfast-math bersetzt -> 7:31:54, also praktisch keine Verbesserung.
 
 
 // https://stackoverflow.com/questions/24348227/how-to-disable-double-precision-math-while-compiling-with-gcc-or-and-iar
@@ -432,18 +432,18 @@ float f(int int_var, float float_var_2) {
 Coverage:
 gcovr --object-directory=. -r . --html --html-details -o coverage.html
 
--> Beim Compilieren UND linken -noixemul nicht vergessen. Stack erhöhen!
+-> Beim Compilieren UND linken -noixemul nicht vergessen. Stack erhhen!
 
 
 19.9.2021
 ---------
 Jetzt mit -m68020 -m68881 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -fbaserel -flto -D__inline="inline static" compiliert. (Direkte fpu-Instructions durch math-68881.h)
 WCS_gcc_Rel_Stat_br68881 auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
-Canyon Sunset, Pal-Hires, Groeße/4  7:24:17  also trotz durchgehend fpu-Instructions nicht schneller!!!
+Canyon Sunset, Pal-Hires, Groee/4  7:24:17  also trotz durchgehend fpu-Instructions nicht schneller!!!
 
 - Mit -m68040 compiliert und gelinkt.( -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -fbaserel -flto -D__inline="inline static")
 WCS_gcc_Rel_Stat_br68881 auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
-Canyon Sunset, Pal-Hires, Groeße/4  4:49:14, schnellstes Ergebnis!
+Canyon Sunset, Pal-Hires, Groee/4  4:49:14, schnellstes Ergebnis!
 
 24.Sep.21
 ---------
@@ -471,7 +471,7 @@ Was ist bei -m68040 anders als bei -m68020 -m68881?
 Nochmal Speed-Test. Roadshow und smbfs2.2 waren aktiv, aber Netzwerkkabel gezogen, um konstante Bedingungnen zu erzeugen.
 Mit -m68040 compiliert und gelinkt.( -g -O2 -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -fbaserel -flto -D__inline="inline static")
 WCS_040_basrel_lto auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
-Canyon Sunset, Pal-Hires, Groeße/4  4:42:22, schnellstes Ergebnis!
+Canyon Sunset, Pal-Hires, Groee/4  4:42:22, schnellstes Ergebnis!
 
 29.9.2021
 ---------
@@ -516,7 +516,7 @@ und weiter
 
 - Mit -m68040 und -mregparm compiliert und gelinkt.( -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -fbaserel -flto -mregparm -D__inline="inline static")
 WCS_040_basr_mregparm_lto auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
-Canyon Sunset, Pal-Hires, Groeße/4  4:35:17, schnellstes Ergebnis!
+Canyon Sunset, Pal-Hires, Groee/4  4:35:17, schnellstes Ergebnis!
 
 8.Oktober 2021
 --------------
@@ -524,14 +524,14 @@ Canyon Sunset, Pal-Hires, Groeße/4  4:35:17, schnellstes Ergebnis!
 
 Die Variante mit -fbaserel (-m68040 -ffast-math -mreparm -fbaserel -flto) ist 120k kleiner als die ohne -fbaserel.
 
-Weiter (STRPTR) eingefügt:
+Weiter (STRPTR) eingefgt:
 find . -name "*.[c\|h]" -exec  sed -i "s/\(nm_Label *= *\)\(".*"\)/\1 (STRPTR)\2/g" {} \;
 
 886 Warnings
 
 - Mit -m68040 und -mregparm ohne -fbaserel compiliert und gelinkt.( -m68040 -noixemul  -fomit-frame-pointer -DSTATIC_FCN=static -flto -mregparm -D__inline="inline static")
 WCS_040_basr_mregparm_lto auf dem C=A4000T (040/25) 2MBytes Chip, 16Meg Fast)
-Canyon Sunset, Pal-Hires, Groeße/4  4:35:56, minimal langsamer, 10% groesser
+Canyon Sunset, Pal-Hires, Groee/4  4:35:56, minimal langsamer, 10% groesser
 
 11.Oktober 2021
 ---------------
@@ -722,7 +722,7 @@ swmem(4)    =        2 ( 0.0%)
 swmem(8)    = 28966002 (76.6%)
 swmem(other)=        0 ( 0.0%)
 
-Etwa 190 Stellen, an den swmem aufegrufen wird. Scheinen ALLE eine Konstante für die Anzahl zu haben.
+Etwa 190 Stellen, an den swmem aufegrufen wird. Scheinen ALLE eine Konstante fr die Anzahl zu haben.
 inline mit Compiletime-Macro machen!
 
 
@@ -1032,13 +1032,13 @@ A--> Geht es jetzt wieder? Fehler in der ersten Haelfte usw.
 
 Die Groesse von Mond und Sonne muesste wohl in STATIC_FCN void ApplyImageScale(void) in MoreGui.c angepasst werden. ??
 Im MotionEditor gibt es Sun Size und Moon Size.
-Die lassen sich nicht ändern!? Mit den kleinen Pfeilen kommt Blödsinn raus und manuell wird es nicht übernommen? (Ist beim nächsten Öffnen des Fensters wieder auf dem alten Wert.)
+Die lassen sich nicht ndern!? Mit den kleinen Pfeilen kommt Bldsinn raus und manuell wird es nicht bernommen? (Ist beim nchsten ffnen des Fensters wieder auf dem alten Wert.)
 -> Mit den Pfeilen wird +- 1000 gemacht, das ist bei der Sonne und dem Mond viel zu viel.
--> Um die Werte zu übernehmen, muss man nach einer Änderung *jeweils* einen KeyFrame erzeugen, dann das Fenster mit Keep schließen.
-Wenn man Sonne und Mond auf 1/4 der Zahl setzt, stimmt die Größe wieder.
--> Es gibt bei Motion einen Punk Scale. Der ändert sichm wenn man die Größe des Bilder mit Halv oder double andert.
--> Anscheinend ändert der sich falschrum. Also bei Halve wird Scale verdoppelt, wahrscheinlich wäre halbieren richtig. Nein. Zumindest bei der Landschaft ist Scale richtig rum
-   Wenn man den Manuell ändert, ändert sich Größe der Berge richtig rum. Vielleicht nur Mond und Sonne falsch rum?
+-> Um die Werte zu bernehmen, muss man nach einer nderung *jeweils* einen KeyFrame erzeugen, dann das Fenster mit Keep schlieen.
+Wenn man Sonne und Mond auf 1/4 der Zahl setzt, stimmt die Gre wieder.
+-> Es gibt bei Motion einen Punk Scale. Der ndert sichm wenn man die Gre des Bilder mit Halv oder double andert.
+-> Anscheinend ndert der sich falschrum. Also bei Halve wird Scale verdoppelt, wahrscheinlich wre halbieren richtig. Nein. Zumindest bei der Landschaft ist Scale richtig rum
+   Wenn man den Manuell ndert, ndert sich Gre der Berge richtig rum. Vielleicht nur Mond und Sonne falsch rum?
 -> Meine WCS-Varianten stuerzen ab, wenn im Database-Editor auf Edit gedrueckt wird. -> Liegt an MUI. Wenn mui38usr.lha (muimaster.library 19) installiert ist, geht es. Ich erfordere im Moment muimaster.library 10 wie das originale WCS.
 
 29.11.21
@@ -1050,24 +1050,24 @@ Neuere Compiler vom 27.11.21 -> 24 und 26 funktionieren jetzt.
 Version 26_2 ist die schnellste bisher. Komisch, auf meinem C=A4000T mit 68040 ist die 68020-60 schneller als die 68040 Version? Mehrfach nachtesten!
 
 - Test Canyon Original-Groesse:
-Bisher imer mit 2x Halbe Größe wegen zuwenig Ram. Jetzt in Startup-Sequence das ... raugenommen. Dann habe ich nur den PAL-Bildschirmmodus, dafür aber etwas mehr RAM. (14 MBytes Fast) Damit kann ich das Canyon Sunset-Bild in Originalgröße berechnen.
+Bisher imer mit 2x Halbe Gre wegen zuwenig Ram. Jetzt in Startup-Sequence das ... raugenommen. Dann habe ich nur den PAL-Bildschirmmodus, dafr aber etwas mehr RAM. (14 MBytes Fast) Damit kann ich das Canyon Sunset-Bild in Originalgre berechnen.
 
-26_2, Canyon Sunset Originalgröße 02:59:36 !!! Viel Schneller als 2x Halbe Größe (04:28:27) !!!
---> Buttons werden falsch angezeigt (Grafikmüll) WCS funktioniert aber. (Die Original-Versionen von WCS zeigen alles richtig an) Evtl.Grafik im Fast-Ram???
+26_2, Canyon Sunset Originalgre 02:59:36 !!! Viel Schneller als 2x Halbe Gre (04:28:27) !!!
+--> Buttons werden falsch angezeigt (Grafikmll) WCS funktioniert aber. (Die Original-Versionen von WCS zeigen alles richtig an) Evtl.Grafik im Fast-Ram???
 
  G) Github: Version 2.031 (Emerald)                                03:46:44
  0) original WCS binary from orginal Discs,  Version 2.04 (Ruby)   03:47:23
 
-26_2 mit 1/4 Groesse über Prferences                               01:16:12 
-G mit 1/4 Groesse über Prferences                                  01:33:20
-0 mit 1/4 Groesse über Prferences                                  01:31:06
+26_2 mit 1/4 Groesse ber Prferences                               01:16:12 
+G mit 1/4 Groesse ber Prferences                                  01:33:20
+0 mit 1/4 Groesse ber Prferences                                  01:31:06
 
 7.Dez.2021
 ----------
 Ich erfordere jetzt "F:ORCE_MUIMASTER_VMIN=19" in den Eclipse/settings, also dem Makefile. Das ist MUI 3.8. Mit Version10 (also MUI 2.3) stuerzt das Editor-Window ab. (Siehe 26.11.21)
 * Zum schnellen Vorschau-Berechnen Preferences 1/4 Size nehmen. Nicht die Groesse im Render-Dialog veraendern, sonst stimmt die Groesse von Sonne und Mond nicht und es dauert viel laenger als bei voller Groesse.
 
-* Parameter Module -> Motion -> Cam View stürzt in meinen Versionen immer ab.
+* Parameter Module -> Motion -> Cam View strzt in meinen Versionen immer ab.
  
 8.Dez.2021
 ----------
@@ -1079,7 +1079,7 @@ Neuer gcc von Bebbo. __chip funktioniert jetzt, damit sind die Bilder und Button
 Text Bebbo:
 "der Switch -m68881 wird ignoriert, wenn -m68040 oder -m68060 (oder -m68080) verwendet wird, das beinhaltet -m68881.
 
-Der 68040 und der 68060 haben ja keine vollwertige FPU, sondern emulieren einige Befehle mittels F-Line Exception (oder so), was Zeit kostet. Deswegen war -ffast-math für diese Targets nicht so toll, denn da wurden die Befehle, wie fsin, fcos usw. verwendet. Nun erzeugt -ffast-math für m68040/60 direkte MathIeee Aufrufe: https://franke.ms/cex/z/75YoWe
+Der 68040 und der 68060 haben ja keine vollwertige FPU, sondern emulieren einige Befehle mittels F-Line Exception (oder so), was Zeit kostet. Deswegen war -ffast-math fr diese Targets nicht so toll, denn da wurden die Befehle, wie fsin, fcos usw. verwendet. Nun erzeugt -ffast-math fr m68040/60 direkte MathIeee Aufrufe: https://franke.ms/cex/z/75YoWe
 "
 
 17.05.2022
@@ -1164,7 +1164,7 @@ Rx "ADDRESS WCS.1 status notifyme"
 Die Befehle sind nicht im Quelltext! Die stecken in zwei automatische generierten Tabellen. VocabTable.c und GrammarTable.c. Diese wurden aus Markow.c generiert.
 Das Source-File ist wohl info/Grammartest.
 
-Ein kleiner (Original-)Test ist wcstest.rexx. Ich habe da Nummern ringeschrieben, um zu sehen, welche Ausgabe wozu gehört.
+Ein kleiner (Original-)Test ist wcstest.rexx. Ich habe da Nummern ringeschrieben, um zu sehen, welche Ausgabe wozu gehrt.
 
 
 22.Juni 2022
@@ -1224,7 +1224,7 @@ for BILD in $(find ~/Desktop/WCSFrames/ -type f | grep -v "\.info" | sort); do
 done
 
 
-Das gcc-WCS erzeugt anscheinend andere Bilder als das original WCS. Der sichtbare Ausschnitt stimmt nicht ganz überein, Wolken sind anders und einige Schaumkoepfe auf dem Wasser???
+Das gcc-WCS erzeugt anscheinend andere Bilder als das original WCS. Der sichtbare Ausschnitt stimmt nicht ganz berein, Wolken sind anders und einige Schaumkoepfe auf dem Wasser???
 
 compare -compose src CanyonSet000 ~/Desktop/CanyonSet000_WCS204 DiffImage
 display DiffImage
@@ -1419,7 +1419,7 @@ Reworked build-targets. New Targets are 68040, 68020-60, Coverage, Profiling.
 Latest toolchain version. (31.Juli 2022) -> Profiling does not work, no gmon.out file produced.
 Makefiles need to be added to git. A simple "make all" should build the targets from the command line.
 --> in den Buildverzeichnissen (68040, 68020-60, Coverage etc)
-alles loeschen. Ueberflüssige Verzeichnisse und Dateien Loeschen. Mit Eclipse "Clean Project", dann "Build Project" um die Makefiles neu zu erzeugen. 
+alles loeschen. Ueberflssige Verzeichnisse und Dateien Loeschen. Mit Eclipse "Clean Project", dann "Build Project" um die Makefiles neu zu erzeugen. 
 Makefiles einchecken:
 git add -f makefile sources.mk objects.mk subdir.mk vgl/subdir.mk
 
@@ -1564,7 +1564,7 @@ Mit frischem Archiv:
 
 Nochmal nur _floatundidf.o ersetzen:
 m68k-amigaos-ar rv /home/developer/opt/m68k-amigaos_31Jul22/lib/gcc/m68k-amigaos/6.5.0b/libb/libm020/libm881/libgcc.a _floatundidf.o
-->Jetzt hängt er wieder.
+->Jetzt hngt er wieder.
 
 OK, also mehr ersetzen: ???
 
@@ -1639,7 +1639,7 @@ schnellste Variante ist 68020-60 und CPU auf 68020 stellen
 ----------
 CPU/FPU-Check in Bebbos Toolchain:
 
-Prio 79 und 80 tauschen. cpucheck soll hoechste Priorität haben. Pullrequest am 31.Aug22 gestellt.
+Prio 79 und 80 tauschen. cpucheck soll hoechste Prioritt haben. Pullrequest am 31.Aug22 gestellt.
 sources/nix/misc/__cpucheck.c
 sources/nix/misc/__initlibraries.c
 
@@ -1647,7 +1647,7 @@ CPU-Checkcode fehlt, wenn mit -m68060 copiliert wird.
 
 sources/nix/misc/__cpucheck.c
 #if defined(mc68020) || defined(mc68030) || defined(mc68040) || defined(mc68060) || defined(mc68080)
-Das Define mc68020 ist NICHT gesetzt, wenn fuer eine hoehere CPU comüpiliert wird. Deshalb || defined(mc68030) || defined(mc68040) || defined(mc68060) || defined(mc68080)
+Das Define mc68020 ist NICHT gesetzt, wenn fuer eine hoehere CPU compiliert wird. Deshalb || defined(mc68030) || defined(mc68040) || defined(mc68060) || defined(mc68080)
 Pullrequest am 17.Oct22 gestellt.
 
 cd ~/amiga-gcc
@@ -1688,7 +1688,7 @@ put wcs.readme    # keine Verzeichnisse! also nicht z.B. amiga/espeak.readme!
 put CanyonSet000.jpg
 quit
 
-Anzeige der max Zeilenlänge für Aminet-readme-File in vim (78 Zeichen/Zeile erlaubt):
+Anzeige der max Zeilenlnge fr Aminet-readme-File in vim (78 Zeichen/Zeile erlaubt):
 :set colorcolumn=79
 
 Kontrolle:
@@ -1857,13 +1857,13 @@ von einem nicht-24bit Bildschirm aus. Auf dem Amiga nachtesten! -> crashed dirt 
 
 21.Dec.2022
 -----------
-Die Fenster haben alle einen weißen oder hellgrauen Hintergrund. Damit sie die gleiche Farbe haben wie die Amiga-Version, muss unter
+Die Fenster haben alle einen weien oder hellgrauen Hintergrund. Damit sie die gleiche Farbe haben wie die Amiga-Version, muss unter
       WindowContents, VGroup,
 ein
       MUIA_Background, MUII_BACKGROUND,  //ALEXANDER
-eingefügt werden.
+eingefgt werden.
 
-Dann sind die Buttons immer noch weiß.
+Dann sind die Buttons immer noch wei.
 In RequesterGUI.c
 
 APTR KeyButtonFunc(char ControlChar, char *Contents)
@@ -2127,7 +2127,7 @@ exec /home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/toolchain-alt-abiv0-i3
 #Wrapper fuer AROS-gcc, damit man nicht manuell sysroot uebergeben muss
 exec /home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/toolchain-alt-abiv0-i386/i386-aros-gcc --sysroot=/home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/Development -I/home/developer/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/gen/include/SDI "$@"
 
-* Laut Deadwood muss Strip für AROS muss Strip extra Parameter bekommen.
+* Laut Deadwood muss Strip fr AROS muss Strip extra Parameter bekommen.
 Krzysztof Smiechowicz <deadwood@onet.pl> schrieb mir am Mo 06.02.2023 19:44
 AROS executables are not full executables in ELF sense, they are more relocable objects. Due to this, default use of strip strips too much. Here is the command line which should be ok:
 
@@ -2477,17 +2477,17 @@ Das kann man dann in MapView auch anschauen.
 -------------
 Falsche Hintergrund in der Zune-GUI:
 Da werden die Zune(MUI) Prefs genommen. Ist beim Amiga auch so. Bei dem Deadw00d (?) AROS sind die Prefs aber "verstellt".
-* Es sieht ziemlich so aus wie auf dem Amiga, wenn man die Prefs-Datei einfach löscht.
+* Es sieht ziemlich so aus wie auf dem Amiga, wenn man die Prefs-Datei einfach lscht.
 delete ENVARC:Zune/global.prefs
 
 *Wiederherstellen der AROS Zune-Prefs-Datei:
 cp /home/developer/Desktop/SelcoGit/aros_deadw00d/AROS/workbench/prefs/env-archive/default/Zune/global.prefs ~/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/Prefs/Env-Archive/Zune/
 
-(Es gibt dort Prefs für classic, default und showcase) (classic hat auch flasche Hintergundfarben)
+(Es gibt dort Prefs fr classic, default und showcase) (classic hat auch flasche Hintergundfarben)
 
--> Lösung:
+-> Lsung:
 In der Shell
-zune WCS.1  ; öffnet den Zune(MUI) Prefs Editor. Da alles wie gewünscht einstellen (sieht man aber nicht leider nicht sofort) und dann speichern. Wird in ENVARC: und ENV: gespeichert.
+zune WCS.1  ; ffnet den Zune(MUI) Prefs Editor. Da alles wie gewnscht einstellen (sieht man aber nicht leider nicht sofort) und dann speichern. Wird in ENVARC: und ENV: gespeichert.
             ; Bei Start wird dann nach "WCS.1.prefs" gesucht.
 
 
@@ -2510,9 +2510,9 @@ AROS 64bit
 ---------
 Convert Ascii -> WCS DEM
 * Auf dem Amiga ein float-Bin 4 Bytes erzeugen aus dem Vista Alps.dem. Als AF_ALPS_flt4Bin speichern und auf den Linux-Rechner bringen
-* od ist ein Standard-Tool zum ausgeben von Hex-Files in allen möglichen Formaten
+* od ist ein Standard-Tool zum ausgeben von Hex-Files in allen mglichen Formaten
 COLS=258; MYPATH=~/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS/WCSProjects; od --format=fF --width=$(( $COLS*4 )) --endian=big --address-radix=none --output-duplicates "$MYPATH/AF_ALPS_flt4Bin" > "$MYPATH/AF_ALPS_Float.txt";
-* Jetzt haben wir ein ASCII Array mit 258x258 Einträgen. 
+* Jetzt haben wir ein ASCII Array mit 258x258 Eintrgen. 
 
 *Min und Max aus dem ASCII-File kann man mit datamash (installieren) anzeigen/kontrollieren:
 * Dab bestimmt min und max pro Spalte(!) und gibt als Ergebnis eine Zeile mit 258 Minima und Maxima aus. Mit transform machen wir daraus eine(!) Spalte und suchen darin dann nochmal nach min und max
@@ -2534,12 +2534,12 @@ COLUMNS=258; datamash --whitespace min 1-$COLUMNS max 1-$COLUMNS < ~/Desktop/Sel
 Motion-Window Cam-View funktioniert nicht richtig in der 64 Bit-Version. In der 32Bit-Version ost alles OK.
 -> 64Bit Problem. "unsigned long" Pointer to BitmapData. Muss fuer Ptr++ aber auf 32Bit Werte zeigen, also ULONG  Korrigiert in dump.c
 -> Motion-Window Cam-View geht jetzt auch unter AROS 64Bit.
-Das DIAG-Fenster crashed beim Schließen.
+Das DIAG-Fenster crashed beim Schlieen.
 
 4.April23
 ---------
 Es gibt eine Variable "scrnrowzip[2000];" Was ist da auf 2000 beschraenkt?
-QCmap[] typ auf von long auf LONG geaendert. Das DIAG Window stuerzt jetzt beim Schließen nicht mehr ab.
+QCmap[] typ auf von long auf LONG geaendert. Das DIAG Window stuerzt jetzt beim Schlieen nicht mehr ab.
 
 4.April23
 ---------
@@ -2592,9 +2592,9 @@ COLS=258; MYPATH=~/Desktop/SelcoGit/3DNature/Amiga/test_files/source; od --forma
 --------
 Fixed Data-Units and one reference file for test. Now only one failed test left. (SumElDifSq wrong. Bug on Amiga?)
 
-- Wenn das Source-Format IFF ist, dann gibt es nur 256 Höhenwerte. 8Bit-IFF Bilder = 256 Werte. 24Bit IFF Bilder werden intern (Rot + Grün + Blau ) /3 gerechnet.
+- Wenn das Source-Format IFF ist, dann gibt es nur 256 Hhenwerte. 8Bit-IFF Bilder = 256 Werte. 24Bit IFF Bilder werden intern (Rot + Grn + Blau ) /3 gerechnet.
 - Wahrscheinlich kann man mir Floor und Ceiling den Wertebereich runterskalieren.
-- Ich nehme zum Test einfach BigSur.DEM als Input je einmal Grayiff und einmal ColorIFF als Output. Die Sind dann Source für die IFF-Tests.A
+- Ich nehme zum Test einfach BigSur.DEM als Input je einmal Grayiff und einmal ColorIFF als Output. Die Sind dann Source fr die IFF-Tests.A
 
 6.Mai.23
 --------
@@ -2604,23 +2604,23 @@ IFF Tests fertig. insgesamt 182 Tests, 2 Fehler (SumElDifSq)
 24.Mai 2023
 -----------
 DTED-Files:
-Rügen von Earthexplorer.usgs.gov/ geladen. (Account erforderlich).
+Rgen von Earthexplorer.usgs.gov/ geladen. (Account erforderlich).
 File: n54_e013_3arc_v2.dt1
 
 Koordinaten:
 
 Resolution 	3-ARC
 Date Updated 	2013-04-17 12:17:06-05
-NW Corner Lat 	55°00'00"N
-NW Corner Long 	13°00'00"E
-NE Corner Lat 	55°00'00"N
-NE Corner Long 	14°00'00"E
-SE Corner Lat 	54°00'00"N
-SE Corner Long 	14°00'00"E
-SW Corner Lat 	54°00'00"N
-SW Corner Long 	13°00'00"E
+NW Corner Lat 	5500'00"N
+NW Corner Long 	1300'00"E
+NE Corner Lat 	5500'00"N
+NE Corner Long 	1400'00"E
+SE Corner Lat 	5400'00"N
+SE Corner Long 	1400'00"E
+SW Corner Lat 	5400'00"N
+SW Corner Long 	1300'00"E
 
-Die Datei kann mit WCS convertiert werden. Allerdings ist in der Mapansicht nur Unfug zu sehen und das Programm stürzt dann auch später ab.
+Die Datei kann mit WCS convertiert werden. Allerdings ist in der Mapansicht nur Unfug zu sehen und das Programm strzt dann auch spter ab.
 
 Das Format ist 1201x601 Pixel. Kann WCS das? Mal als iff oder ASCII-Array convertieren.
 
@@ -2638,7 +2638,7 @@ display n54_e013_3arc_v2.ilbm
 Man kann auch ein ASCII-Array erzeugen:
 gdal_translate -of AAIGrid /tmp/n54_e013_3arc_v2.dt1 /tmp/n54_e013_3arc_v2.asc
 
-Von dem n54_e013_3arc_v2.asc müssen dann die ersten Zeilen entfernt werden, sie sind Beschreibung.
+Von dem n54_e013_3arc_v2.asc mssen dann die ersten Zeilen entfernt werden, sie sind Beschreibung.
 tail -n +8 n54_e013_3arc_v2.asc > n54_e013_3arc_v2.ascarr
 
 Kann konvertiert werden. Bei Value-Bytes 2 oder 4 einstellen, sonst wird bei 8Bit abgeschnitten!
@@ -2654,10 +2654,10 @@ identify n54_e013_3arc_v2_small.ilbm
 
 5.Juni.2023
 ----------
-DTED File Rügen (601x1201) ist total verzerrt.
+DTED File Rgen (601x1201) ist total verzerrt.
 DTED-File Teneriffa (1201x1201) is ok!
 -> Problem scheint zu sein, wenn DTED-File nicht quadratisch ist.
-Die DTED-Lesefunktion LoadDTED() ist ok. Der Fehler muss später sein.
+Die DTED-Lesefunktion LoadDTED() ist ok. Der Fehler muss spter sein.
 
 9.Juni2023
 ----------
@@ -2665,7 +2665,7 @@ Wenn in Convert DEM ein WCS-DEM File geladen wird, werden jetzt im DEM Registrat
 
 13.6.2023
 ---------
-Die Targets Profiling und Coveriage ließen sich nicht mehr linken. Lag ev. am neuem Eclipse? -lm, -lmui tauchte in der Linker-Zeile ganz am Ende auf, also hinter dem Test-Script, nicht am Ende des Linker-Aufrufes. -> Korrigiert.
+Die Targets Profiling und Coveriage lieen sich nicht mehr linken. Lag ev. am neuem Eclipse? -lm, -lmui tauchte in der Linker-Zeile ganz am Ende auf, also hinter dem Test-Script, nicht am Ende des Linker-Aufrufes. -> Korrigiert.
 
 Coverage:
 Auf dem Amiga in der Linux-Verzeichnis gehen, wo WCS_Coverage liegt. WCS_Coverage starten.
@@ -2739,7 +2739,7 @@ ASCII-ARRAY 601x1201 -> WCSDEM
 Am Anfang von SaveConvertOutput() haben wir einen Buffer "OutputData", in dem die Hoehenwerte liegen. Der Puffer ist 1201x601, also um 90 Grad im Uhrzeigersinn gedreht. WCSDEM hat die Daten also genauso wie DTED spaltenweise von Sued nach Nord.
 
 Bei ARRAY->WCSDEM muss also irgendwo gedreht worden sein, denn das ARRAY ist 601x1201 und Zeilenweise.
-Das Drehen anschauen, sowas brauchen wir dann sicher auch für DTED -> IFF.
+Das Drehen anschauen, sowas brauchen wir dann sicher auch fr DTED -> IFF.
 
 DTED 601x1201 -> color IFF
 
@@ -2747,7 +2747,7 @@ ASCIIArray 601x1201 -> Color IFF
 Am Anfang von SaveConvertOutput() haben wir einen Buffer "OutputData", in dem die Hoehenwerte liegen. Der Puffer ist 601x1201, also nicht gedreht und zeilenweise.
 
 Die Daten scheinen in InputData zu liegen und werden von dort nach Output-Data kopiert, zeilen- oder Spaltenweise und 1,2,4 Bytes pro Wert.
-Das müsste man wohl rein.
+Das msste man wohl rein.
 
 Emerald Anton (Aminet)
 WCSDEM 601x1201 Ruegen -> WCSDEM     Mapview falsch
@@ -2758,7 +2758,7 @@ DTED 601x1201 Ruegen   -> WCSDEM     Mapview falsch wie bei WCSDEM
 
 12.7.23
 -------
-Aktueller Stand eingecheckt. Ich werde wohl einige Aenderungen anschließend wie rueckgaengig machen. Convert ist immer noch eine grosse Baustelle. Ich brauche noch mehr Tests, vor Allem fuer nicht quadratische Files.
+Aktueller Stand eingecheckt. Ich werde wohl einige Aenderungen anschlieend wie rueckgaengig machen. Convert ist immer noch eine grosse Baustelle. Ich brauche noch mehr Tests, vor Allem fuer nicht quadratische Files.
 
 Aufgeraeumt. DETD->IFF von Ruegen als Quellfile.
 
@@ -2910,13 +2910,13 @@ Vista-Dem -> Colormap                   FALSCH (90 Grad)    display -depth 8 -si
 
 2.9.2023
 --------
-ColorMap war *IMMER* um 90 Grad gedreht? Überprüfen!
+ColorMap war *IMMER* um 90 Grad gedreht? berprfen!
 - AN 3 Stellen wird auf    
 if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM
 //	|| OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP <--- Das gier ist aber falsch!
 getestet. Auskommentiert, VistaDEM->Color Map ist jetzt nicht mehr gedreht. 
-Dafür müssen aber meine bisherigen Tests mit Ziel=Color Map angefasst werden, weil die ja einfach mit dem Ergebnis von WCS 2.04 verglichen haben, und da war es auch schon gedreht. 
-Und drehen ist falsch. (Mit Adpro Sculpt-Loader überprüft)
+Dafr mssen aber meine bisherigen Tests mit Ziel=Color Map angefasst werden, weil die ja einfach mit dem Ergebnis von WCS 2.04 verglichen haben, und da war es auch schon gedreht. 
+Und drehen ist falsch. (Mit Adpro Sculpt-Loader berprft)
 
 4.9.2023
 --------
@@ -2924,13 +2924,13 @@ Ueberarbeitung der Tests: Durc das "nicht mehr 90 Grad Drehen" muessen die Ref-F
 tst_BSurAS.red  tst_BSurGr.red  sehen komisch/falsch aus!
 
 IFF-Gray scheint falsch zu sein.
-ASCII Array überprüfen!
+ASCII Array berprfen!
 
 5.9.2023
 --------
 Anzeige der ASCII-Buffer-Bilder:
 Mit "imagej". Starten, File -> Import -> Text Image
-Größe oder Format müssen nicht angegeben werden. n54_e013_3arc_v2.ascarr hat 1201 Text-Zeile. Daher weiß er das wohl. n54_e013_3arc_v2.ascarr ist korrekt.
+Gre oder Format mssen nicht angegeben werden. n54_e013_3arc_v2.ascarr hat 1201 Text-Zeile. Daher wei er das wohl. n54_e013_3arc_v2.ascarr ist korrekt.
 "imagej" kann auch 2 Bilder synchronisiert anzeigen. Dann Bewegt sich der Curso in beiden Bildern synchron und vom aktiven Cursor wird der Hoehenwert angezeigt (Im Status vom Hauptmenu)
 Dazu unter Analyze -> Tools ->Synchronize Windows auswaehlen.
 
@@ -2940,19 +2940,19 @@ Convert n54_e013_3arc_v2.ascarr -> Color IFF, 1 Byte signed
 display RuegAS.iff  -> Bild ist OK, aber Jasmund ist fast schwarz. Werte ueber 127 haben Uberlauf. (Hoehe dort ist um die 150) OK, muss so
 
 Convert n54_e013_3arc_v2.ascarr -> Color IFF, 1 Byte unsigned
-display RuegAS.iff  -> Bild ist OK, aber Ruegen hat viele weiße Stellen. Die Werte dort sind kleiner als 0 (z.B. -3m) Damit werden die negativen werte zu großen positiven Zahlen. OK, muss so.
+display RuegAS.iff  -> Bild ist OK, aber Ruegen hat viele weie Stellen. Die Werte dort sind kleiner als 0 (z.B. -3m) Damit werden die negativen werte zu groen positiven Zahlen. OK, muss so.
 
 Convert n54_e013_3arc_v2.ascarr -> Color IFF, 2 Byte signed
 display RuegAS.iff  -> Bild ist OK
 
 Convert n54_e013_3arc_v2.ascarr -> Color IFF, 2 Byte unsigned
-display RuegAS.iff  -> Bild ist OK, aber Ruegen hat viele weiße Stellen. Die Werte dort sind kleiner als 0 (z.B. -3m) Damit werden die negativen werte zu großen positiven Zahlen. OK, muss so.
+display RuegAS.iff  -> Bild ist OK, aber Ruegen hat viele weie Stellen. Die Werte dort sind kleiner als 0 (z.B. -3m) Damit werden die negativen werte zu groen positiven Zahlen. OK, muss so.
 
 Convert n54_e013_3arc_v2.ascarr -> Color IFF, 4 Byte signed
 display RuegAS.iff  -> Bild ist OK
 
 Convert n54_e013_3arc_v2.ascarr -> Color IFF, 4 Byte unsigned
-display RuegAS.iff  -> Bild ist OK, aber Ruegen hat viele weiße Stellen. Die Werte dort sind kleiner als 0 (z.B. -3m) Damit werden die negativen werte zu großen positiven Zahlen. OK, muss so.
+display RuegAS.iff  -> Bild ist OK, aber Ruegen hat viele weie Stellen. Die Werte dort sind kleiner als 0 (z.B. -3m) Damit werden die negativen werte zu groen positiven Zahlen. OK, muss so.
 
 Convert n54_e013_3arc_v2.ascarr -> Color IFF, 4 Byte Floating Point
 display RuegAS.iff  -> Bild ist OK
@@ -2963,7 +2963,7 @@ display RuegAS.iff  -> Bild ist OK
 ---> ASCII-Buffer nach Color IFF ist also komplett OK!
 
 ASCII-Buffer nach Color Map ist nicht richtig! Sollte ja genau so funktionieren wie Color IFF...
-ASCII -> signed/unsigned 1 byte -> mit weißen Stellen.
+ASCII -> signed/unsigned 1 byte -> mit weien Stellen.
 
 8.9.2023
 --------
@@ -2974,7 +2974,7 @@ Was wird a eigentlich bereichnet?
 MaxMinScale
 -----------
 VertScale = (SCALE_MAXEL - SCALE_MINEL) / (DataMaxEl - DataMinEl);
--> Faktor=  (Max Out Val - Min Out Val) / Größter Wert aus File - Kleinster wert aus File)
+-> Faktor=  (Max Out Val - Min Out Val) / Grter Wert aus File - Kleinster wert aus File)
 DataRef = DataMinEl;
 OutRef = SCALE_MINEL;
 
@@ -3015,7 +3015,7 @@ Replace in Gui eingebaut in Convert DEM -> Pre-Process. (noch keine Funktion)
 
 21.Sep.2023
 -----------
-*In den Eclipse-Configurationen wird getestet, ob der pre-commit hook installiert ist. Sonst sollte man den manuell von 3DNature/Amiga nach 3DNature/.git(hooks kopieren, damit vor einem Commit bestimmte Tests durchgeführt werden.
+*In den Eclipse-Configurationen wird getestet, ob der pre-commit hook installiert ist. Sonst sollte man den manuell von 3DNature/Amiga nach 3DNature/.git(hooks kopieren, damit vor einem Commit bestimmte Tests durchgefhrt werden.
 *Alle Eclipse-Buildconfiguratonen lassen sich compilieren.
 *Alle Eclipse-Buildconfigurationen werden testweise beim Commit neu gebaut.
 
@@ -3036,7 +3036,7 @@ Test zeigt jetzt noch eine Zusammenfassung der Fehler am Ende an
 ---------------
 test_files/reference/ref_BSurS2S1 scheint falsch zu sein! Anzeige funktioniert mit 16 Bit???
 display -depth 16 -size 258x258 gray:/home/developer/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/test_files/reference/ref_BSurS2S1
-* Datei ist doppelt so groß wie sie sein müste!? (258x258x2)
+* Datei ist doppelt so gro wie sie sein mste!? (258x258x2)
 * Also ist der Fehler aohl auch im original-WCS 2.04 
 * DTED-Errors korrigiert. Der Test zeigt jetzt bei AROS 32 Bit noch 52 Errors statt 61.
 
@@ -3063,7 +3063,7 @@ bei A68k OK --> Line 1387 (IFF 601x1201 -> Ascii Buffer 500x1000 Spline Contrain
 Fixed conversion to GrayIFF.
 -> Test sagt 3 Errors Amiga, 51 Errors on AROS32
 
-AROS starten und Test ausführen
+AROS starten und Test ausfhren
 -------------------------------
 
 i386
@@ -3164,7 +3164,7 @@ DEM_DATA_INPUT_COLORMAP und DEM_DATA_OUTPUT_VISTA gibt es nicht.
 
 Alle 233 Tests funktionieren jetzt mit 68k, i386-aros und x86-aros.
 
-Für AROS siehe: "24.Oktober 2023"
+Fr AROS siehe: "24.Oktober 2023"
 
 30.Nov.2023
 -----------
@@ -3172,12 +3172,12 @@ neues Script "gc-sections/show_unused_code_data.sh" zeigt an, welche Funktionen/
 
 1.Dec.2023
 ----------
-Fuer die Build Configuration "gc_sections" am Anfang vom Post-Build-Step folgendes eingefügt:
+Fuer die Build Configuration "gc_sections" am Anfang vom Post-Build-Step folgendes eingefgt:
 cp ${WorkspaceDirPath}/.metadata/.plugins/org.eclipse.cdt.ui/${ProjName}.build.log buildlog-${current_date}.txt;    
 Damit werden die Ausgaben des Compilers/Linkers im aktuellen Verzeichnis buildlog-${current_date}.txt gespeichert.
 Dann Am Ende des Post-Build-Steps 
 && show_unused_code_data.sh buildlog-${current_date}.txt
-angefuegt. (Das Script akzeptirt jetzt eine Textdatei als Parameter) Dann sieht man die überflüssigen Bytes in der Eclipse-Console.
+angefuegt. (Das Script akzeptirt jetzt eine Textdatei als Parameter) Dann sieht man die berflssigen Bytes in der Eclipse-Console.
 
 4.Dec.2023
 ----------
@@ -3188,7 +3188,7 @@ angefuegt. (Das Script akzeptirt jetzt eine Textdatei als Parameter) Dann sieht 
 *Convertierung quadratischer DTEDS funktioniert. (Teneriffa in Test aufgenommen)
 *Coverage in test_68020 eingebaut
 
-ev. gcda und html-Files vor dem Lauf löschen...
+ev. gcda und html-Files vor dem Lauf lschen...
 
 #Amiga
 cd 3DNature/Amiga
@@ -3209,8 +3209,8 @@ habe ich einfach mit fwrite in ein File geschrieben.
 display -depth  16 -size 1201x601  -define endian=MSB -normalize  gray:dt1_dump.bin  # funktioniert nicht richtig. Irgendwie ist der Wertebereich falsch? Liegt ev. an den negativen Werten?
 imagej zeigt den Puffer richtig an.  (File, import, raw, 16bit signed, width 1201, height 601, Big Endian) -> Bild ist auch um 90 Grad im Uhzeigersinn gedreht, genauso wie WCS-DEM.
 
-* Wenn ein Rügen WS-DEM File im Konverter geladen wird, ist die Anzeige Cols 1201, Rows 601
-* Wenn ein Rügen DT1    File im Konverter geladen wird, ist die Anzeige  Cols 601, Rows 1201 also anders rum. Das ist auch bei WCS 2.04 so.
+* Wenn ein Rgen WS-DEM File im Konverter geladen wird, ist die Anzeige Cols 1201, Rows 601
+* Wenn ein Rgen DT1    File im Konverter geladen wird, ist die Anzeige  Cols 601, Rows 1201 also anders rum. Das ist auch bei WCS 2.04 so.
 
 cols 1201, rows 601, Test in 2.04 und mit meiner aktuellen Version
 ref_RuegenDT.elev -> Conv WCS-DEM (also 1:1) -> ok
@@ -3315,16 +3315,16 @@ assign LOCALE: VBox:SelcoGit/3DNature/Amiga add
 avail flush ; wenn ein neuer Katalog erzeugt wurde!
 
 WCS_locale.c/h und WCS_strings.h werden gebraucht. Vom Simplecat erzeugt. WCS_Strings.h wird neu erzeugt, wenn Ubersetzung erweitert wird.
-Neue Strings aus den WCS-Quellen mit Extras/Localization-Wizzard rausziehen. Auf passende Vorsilbe achten (Mit Fester- oder Menu-Namen). Strings in cs uebernehmen. cs abspeichern.
+Neue Strings aus den WCS-Quellen mit Extras/Localization-Wizzard rausziehen. Auf passende Vorsilbe achten (Mit Fenster- oder Menu-Namen). Strings in cs uebernehmen. cs abspeichern.
 
-- keine Aenderung in WCS_locale.h  -> Wenn String leer ist (noch nicht uebersetzt, dann englischen Originalstring ausgeben
+- kleine Aenderung in WCS_locale.h  -> Wenn String leer ist (noch nicht uebersetzt, dann englischen Originalstring ausgeben
 Todo: Nur Leerzeichen dabei auch ignorieren.
 
  fuer Amiga SAS/C die assigns nicht vergessen:
 assign include: MUI:Developer/c/include add
 assign include: Work:SDI/includes add
 
-Für Amiga-Compilieren muss Build_ID muss gesetzt sein
+Fr Amiga-Compilieren muss Build_ID muss gesetzt sein
 1.VBox:SelcoGit/3DNature/Amiga> setenv BuildID "WCS_SASC" 
 1.VBox:SelcoGit/3DNature/Amiga> copy env:BUILDID ENVARC: 
 
@@ -3332,7 +3332,7 @@ smake WCS
 
 * libvgl muss separat compiliert werden. Fehlt noch, auch fuer vamos-compilieren!
 
-# der /home/developer/opt/m68k-amigaos_23Jan24/bin/m68k-amigaos-gcc hat beim 68060 auch keinen FPU-Test mehr... Ältere Toolchain nehmen.
+# der /home/developer/opt/m68k-amigaos_23Jan24/bin/m68k-amigaos-gcc hat beim 68060 auch keinen FPU-Test mehr... ltere Toolchain nehmen.
 
 16Dec23 -> 68060 FPU check missing
 15Dec23 -> OK                             <------- Wir bleiben erst mal bei dieser toolchain-Version
@@ -3347,99 +3347,85 @@ Locale BitMaps.c done
 
 locale-Bearbeitung:
 
+------------------------------
 Done		WCS.h
 
-Done		AGUI.c
-Noting		BigEndianReadWrite.c
-Done		BitMaps.c
-Done		Cloud.c    19.Feb
-Done		CloudGUI.c 20.Feb
-Nothing		ColorBlends.c
-???		Commands.c
-Done		DEM.c
-Done            DEMGUI.c 22.Feb
-Nothinhg        DEMObject.c
-Done		DLG.c
-Done		DataBase.c 26.Feb
-Done		DataOps.c 26.Feb
-Done		DataOpsGUI.c 26.Feb
-Done		DefaultParams.c 27.Feb
-Done		DiagnosticGUI.c 27.Feb
-Done		DispatchGUI.c 27.Feb
-Done		EdDBaseGUI.c  28.Feb
-Done		EdEcoGUI.c 28.Feb
-Done		EdMoGUI.c 29.Feb
-Done		EdPar.c 1.Mar
-Nothing		EdSetExtrasGUI.c
-Done		EdSetGUI.c 5.Mar
-Done		EditGui.c 6.Mar
-Done		EvenMoreGUI.c 7.Mar
-Done		Foliage.c 7.Mar
-Done		FoliageGUI.c 12.Mar
-Fractal.c
-GUI.c
-GenericParams.c
-GenericTLGUI.c
-GlobeMap.c
-GlobeMapSupport.c
-GrammarTable.c
-HelpGUI.c
-HyperKhorner4M-1.c
-Images.c
-InteractiveDraw.c
-InteractiveUtils.c
-InteractiveView.c
-LWSupport.c
-LineSupport.c
-MUIFloatInt.c
-MakeFaces.c
-Map.c
-MapExtra.c
-MapGUI.c
-MapLineObject.c
-MapSfc.c
-MapSupport.c
-MapTopo.c
-MapTopoObject.c
-MapUtil.c
-MapWorld.c
-MarkovTable.c
-Memory.c
-Menu.c
-MoreGUI.c
-OldMapTopo.c
-Params.c
-ParamsGUI.c
-PlotGUI.c
-RequesterGUI.c
-RexxSupport.c
-ScratchPad.c
-ScreenModeGUI.c
-Support.c
-TLSupportGUI.c
-TimeLinesGUI.c
-Tree.c
-USDEMExtract.c
-Version.c
-VocabTable.c
-Done	WCS.c
-WCS_locale.c
-Wave.c
-WaveGUI.c
-af_cmpElevFiles.c
-af_cmpObjFiles.c
-af_drand48.c
-af_drand48_test.c
-af_drand48_test2.c
-af_fast_math_test.c
-deleteme_drand48_test.c
-frank.c
-nncrunch.c
-nngridr.c
-nngridrextra.c
-sasc_functions.c
-test_main.c
-version_test.c
+Done		AGUI.o
+Nothing		BigEndianReadWrite.o
+Done		BitMaps.o
+Done		Cloud.o	19.Feb
+Done		CloudGUI.o 20.Feb
+Nothing		ColorBlends.o
+??? 		Commands.o
+Done		DEM.o
+Done		DEMGUI.o 22.Feb
+Nothing		DEMObject.o
+Done		DLG.o
+Done		DataBase.o 26.Feb
+Done		DataOps.o 26.Feb
+Done		DataOpsGUI.o 26.Feb
+Done		DefaultParams.o 27.Feb
+Done		DiagnosticGUI.o 27.Feb
+Done		DispatchGUI.o 27.Feb
+Done		EdDBaseGUI.o  28.Feb
+Done		EdEcoGUI.o 28.Feb
+Done		EdMoGUI.o 29.Feb
+Done		EdPar.o 1.Mar
+Nothing		EdSetExtrasGUI.o
+Done		EdSetGUI.o 5.Mar
+Done		EditGui.o 6.Mar
+Done		EvenMoreGUI.o 7.Mar
+Done		Foliage.o 7.Mar
+Done		FoliageGUI.o 12.Mar
+Nothing		Fractal.o
+Done		GenericParams.o 12.Mar
+Done		GenericTLGUI.o 12.Mar
+GlobeMap.o
+GlobeMapSupport.o
+GrammarTable.o
+HelpGUI.o
+HyperKhorner4M-1_gcc.o
+Images.o
+InteractiveDraw.o
+InteractiveUtils.o
+InteractiveView.o
+LWSupport.o
+LineSupport.o
+MUIFloatInt.o
+MakeFaces.o
+Map.o
+MapExtra.o
+MapGUI.o
+MapLineObject.o
+MapSupport.o
+MapTopo.o
+MapTopoObject.o
+MapUtil.o
+Memory.o
+Menu.o
+MoreGUI.o
+Params.o
+ParamsGUI.o
+PlotGUI.o
+RequesterGUI.o
+RexxSupport.o
+ScratchPad.o
+ScreenModeGUI.o
+Support.o
+TLSupportGUI.o
+TimeLinesGUI.o
+Tree.o
+Version.o
+VocabTable.o
+WCS.o
+WCS_locale.o
+Wave.o
+WaveGUI.o
+frank.o
+nncrunch.o
+nngridr.o
+sasc_functions.o
+
 
 22.Feb24
 --------

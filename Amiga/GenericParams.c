@@ -5,6 +5,9 @@
 ** Copyright 1995 by Questar Productions.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
 #include "GUIExtras.h"
@@ -159,8 +162,10 @@ STATIC_FCN short AllocNewGenericKeyArray(union KeyFrame **KF, long *KFsize) // u
  NewKFsize = *KFsize + 20 * sizeof (union KeyFrame);
  if ((NewKF = (union KeyFrame *)get_Memory(NewKFsize, MEMF_CLEAR)) == NULL)
   {
-  User_Message((CONST_STRPTR)"Key Frame Module",
-          (CONST_STRPTR)"Out of memory allocating new key frame!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_GENPAR_KEYFRAMEMODULE ),                                      // "Key Frame Module"
+               GetString( MSG_GENPAR_OUTOFMEMORYALLOCATINGNEWKEYFRAMEPERATIONTERMINATED ),  // "Out of memory allocating new key frame!\nOperation terminated."
+              GetString( MSG_GENPAR_OK ),                                                   // "OK"
+              (CONST_STRPTR)"o");
   return (0);
   } /* if memory bust */
 

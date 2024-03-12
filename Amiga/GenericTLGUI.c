@@ -3,6 +3,9 @@
 ** By Gary R. Huber, 1994.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -344,7 +347,17 @@ void Make_TL_Window(char *NameStr, char **Titles,
  struct TimeLineWindow *TL_Win = NULL;
  short i, WinNum = -1;
  long open;
- static const char *TL_Cycle_TCB[] = {"Tens", "Cont", "Bias", NULL};
+ static const char *TL_Cycle_TCB[4];
+ static int Init = TRUE;
+
+ if(Init)
+ {
+	 Init = FALSE;
+	 TL_Cycle_TCB[0] = (char*) GetString( MSG_GENTLGUI_TENS);  // "Tens"
+	 TL_Cycle_TCB[1] = (char*) GetString( MSG_GENTLGUI_CONT);  // "Cont"
+	 TL_Cycle_TCB[2] = (char*) GetString( MSG_GENTLGUI_BIAS);  // "Bias"
+	 TL_Cycle_TCB[3] = NULL;
+ }
 
  for (i=0; i<WCS_MAX_TLWINDOWS; i++)
   {
@@ -365,10 +378,10 @@ void Make_TL_Window(char *NameStr, char **Titles,
 
  if (WKS->NumValues > WCS_MAX_TLVALUES)
   {
-  User_Message((CONST_STRPTR)"Time Lines",
-		  (CONST_STRPTR)"OK, Gary! You know you can't have more than ten values per Time Line.\
- Maybe now you will concede the value of dynamic allocation.",
- (CONST_STRPTR)"Sure, anything you say!", (CONST_STRPTR)"s");
+  User_Message(GetString( MSG_GENTLGUI_TIMELINES ),                                           // "Time Lines"
+	       GetString( MSG_GENTLGUI_OKGARYYOUKNOWYOUCANTHAVEMORETHANTENVALUESPERTIMELI ),  // "OK, Gary! You know you can't have more than ten values per Time Line. Maybe now you will concede the value of dynamic allocation."
+               GetString( MSG_GENTLGUI_SUREANYTHINGYOUSAY ),                                  // "Sure, anything you say!"
+               (CONST_STRPTR)"s");
   return;
   } /* if no windows left */
 
@@ -383,9 +396,10 @@ void Make_TL_Window(char *NameStr, char **Titles,
 
  if (WinNum < 0)
   {
-  User_Message((CONST_STRPTR)"Time Lines",
-		  (CONST_STRPTR)"You've reached the limit of open Time Line windows. Please close one and try again.",
-		  (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_GENTLGUI_TIMELINES ),                                              // "Time Lines"
+	       GetString( MSG_GENTLGUI_YOUVEREACHEDTHELIMITOFOPENTIMELINEWINDOWSPLEASECLO ),  // "You've reached the limit of open Time Line windows. Please close one and try again."
+	       GetString( MSG_GENTLGUI_OK ),                                                  // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no windows left */
 
@@ -458,7 +472,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, VGroup,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1("  Pan "),
+	        Child, Label1(GetString( MSG_GENTLGUI_PAN )),  // "  Pan "
                 Child, TL_Win->Prop[0] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -467,7 +481,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
 			MUIA_Prop_Visible, 100, End,
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1(" Zoom "),
+	        Child, Label1(GetString( MSG_GENTLGUI_ZOOM )),  // " Zoom "
                 Child, TL_Win->Prop[1] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -476,7 +490,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
 			MUIA_Prop_Visible, 2, End,
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1("Frame "),
+	        Child, Label1(GetString( MSG_GENTLGUI_FRAME )),  // "Frame "
                 Child, TL_Win->Prop[2] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -491,15 +505,15 @@ void Make_TL_Window(char *NameStr, char **Titles,
 		MUIA_Group_SameWidth, TRUE,
 	      Child, TL_Win->BT_PrevKey = KeyButtonObject('v'),
 		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, "\33cPrev", End, 
+		MUIA_Text_Contents, GetString( MSG_GENTLGUI_PREV ), End,  // "\33cPrev"
 	      Child, TL_Win->BT_NextKey = KeyButtonObject('x'),
 		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, "\33cNext", End, 
+		MUIA_Text_Contents, GetString( MSG_GENTLGUI_NEXT ), End,  // "\33cNext"
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		MUIA_Group_SameWidth, TRUE,
-	      Child, TL_Win->BT_AddKey = KeyButtonFunc('a', "\33cAdd Key"), 
-	      Child, TL_Win->BT_DelKey = KeyButtonFunc(127, "\33c\33uDel\33n Key"), 
+	      Child, TL_Win->BT_AddKey = KeyButtonFunc('a', (char*)GetString( MSG_GENTLGUI_ADDKEY )),  // "\33cAdd Key"
+	      Child, TL_Win->BT_DelKey = KeyButtonFunc(127, (char*)GetString( MSG_GENTLGUI_DELKEY )),  // "\33c\33uDel\33n Key"
 	      End, /* HGroup */
 	    Child, TL_Win->KeysExistTxt = TextObject, TextFrame, End,
 	    End, /* VGroup */
@@ -508,7 +522,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
 	Child, HGroup,
 	  Child, TL_Win->BT_Linear = KeyButtonObject('l'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cLinear", End,
+		 MUIA_Text_Contents, GetString( MSG_GENTLGUI_LINEAR ), End,  // "\33cLinear"
 	  Child, TL_Win->TCB_Cycle = Cycle(TL_Cycle_TCB),
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, TL_Win->CycleStr = StringObject, StringFrame,
@@ -517,7 +531,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
             Child, TL_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
             End, /* HGroup */
 	  Child, RectangleObject, End,
-	  Child, TL_Win->FrameTxtLbl = Label1("Frame"),
+	  Child, TL_Win->FrameTxtLbl = Label1(GetString( MSG_GENTLGUI_FRAME )),  // "Frame"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, TL_Win->FrameTxt = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "01234", End,
@@ -528,12 +542,12 @@ void Make_TL_Window(char *NameStr, char **Titles,
             End, /* HGroup */
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, TL_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"),
+	  Child, TL_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_GENTLGUI_KEEP )),  // "\33cKeep"
 	  Child, TL_Win->BT_Grid = KeyButtonObject('g'),
 	 	 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Selected, TRUE,
-	 	 MUIA_Text_Contents, "\33cGrid", End,
-	  Child, TL_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"),
+	 	 MUIA_Text_Contents, GetString( MSG_GENTLGUI_GRID ), End,  // "\33cGrid"
+	  Child, TL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GENTLGUI_CANCEL )),  // "\33cCancel"
 	  End, /* HGroup */ 
 	End, /* VGroup */
       End; /* WindowObject TL_Win->TimeLineWin */
@@ -541,7 +555,10 @@ void Make_TL_Window(char *NameStr, char **Titles,
   if (! TL_Win->TimeLineWin)
    {
    Close_TL_Window(&TLWin[WinNum], 1);
-   User_Message((CONST_STRPTR)"Time Line", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_GENTLGUI_TIMELINE ),     // "Time Line"
+                GetString( MSG_GENTLGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_GENTLGUI_OK ),           // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -582,9 +599,10 @@ void Make_TL_Window(char *NameStr, char **Titles,
   if (! Set_TL_Item(TL_Win, WKS->Item))
    {
    Close_TL_Window(&TLWin[WinNum], 1);
-   User_Message((CONST_STRPTR)"Time Lines",
-		   (CONST_STRPTR)"At least two key frames for this parameter must be created prior to opening the time line window",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_GENTLGUI_TIMELINES ),                                              // "Time Lines"
+		GetString( MSG_GENTLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
+		GetString( MSG_GENTLGUI_OK ),                                                  // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */
   for (i=0; i<WKS->NumValues; i++)
@@ -837,7 +855,7 @@ void Handle_TL_Window(ULONG WCS_ID)
       {
       if (*TL_Win->KFSizePtr != TL_Win->AltKFsize
 	 || memcmp(*TL_Win->KFPtr, TL_Win->AltKF, *TL_Win->KFSizePtr))
-       Close_TL_Window(&TLWin[WinNum], CloseWindow_Query((STRPTR)"Time Lines"));
+       Close_TL_Window(&TLWin[WinNum], CloseWindow_Query(GetString( MSG_GENTLGUI_TIMELINES )));  // "Time Lines"
       else
        Close_TL_Window(&TLWin[WinNum], 1);
       break;

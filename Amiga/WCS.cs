@@ -4184,7 +4184,7 @@ Parameter Editing Module
 
 ;
 MSG_EDPAR_PARTIALFILESMAYNOTBEWRITTENTOOLDFILEVERSIONSDOYOUWISH
-Partial files may not be written to old file versions!\n\Do you wish to save the entire parameter file?
+Partial files may not be written to old file versions!\nDo you wish to save the entire parameter file?
 
 ;
 MSG_EDPAR_COLOREDITORSAVECURRENT
@@ -5493,5 +5493,110 @@ Foliage Editor: Save Ecotype
 ;
 MSG_FOLIGUI_ERRORSAVINGECOTYPEFILEPERATIONTERMINATED
 Error saving Ecotype file!\nOperation terminated.
+
+;
+;
+MSG_GENPAR_KEYFRAMEMODULE
+Key Frame Module
+
+;
+MSG_GENPAR_OUTOFMEMORYALLOCATINGNEWKEYFRAMEPERATIONTERMINATED
+Out of memory allocating new key frame!\nOperation terminated.
+
+;
+MSG_GENPAR_OK
+OK
+
+;
+MSG_GENTLGUI_TENS
+Tens
+
+;
+MSG_GENTLGUI_CONT
+Cont
+
+;
+MSG_GENTLGUI_BIAS
+Bias
+
+;
+MSG_GENTLGUI_TIMELINES
+Time Lines
+
+;
+MSG_GENTLGUI_OKGARYYOUKNOWYOUCANTHAVEMORETHANTENVALUESPERTIMELI
+OK, Gary! You know you can't have more than ten values per Time Line. Maybe now you will concede the value of dynamic allocation.
+
+;
+MSG_GENTLGUI_SUREANYTHINGYOUSAY
+Sure, anything you say!
+
+;
+MSG_GENTLGUI_YOUVEREACHEDTHELIMITOFOPENTIMELINEWINDOWSPLEASECLO
+You've reached the limit of open Time Line windows. Please close one and try again.
+
+;
+MSG_GENTLGUI_OK
+OK
+
+;
+MSG_GENTLGUI_PAN
+  Pan\x20
+
+;
+MSG_GENTLGUI_ZOOM
+ Zoom\x20
+
+;
+MSG_GENTLGUI_FRAME_Space
+Frame\x20
+
+;
+MSG_GENTLGUI_PREV
+\33cPrev
+
+;
+MSG_GENTLGUI_NEXT
+\33cNext
+
+;
+MSG_GENTLGUI_ADDKEY
+\33cAdd Key
+
+;
+MSG_GENTLGUI_DELKEY
+\33c\33uDel\33n Key
+
+;
+MSG_GENTLGUI_LINEAR
+\33cLinear
+
+;
+MSG_GENTLGUI_FRAME
+Frame
+
+;
+MSG_GENTLGUI_KEEP
+\33cKeep
+
+;
+MSG_GENTLGUI_GRID
+\33cGrid
+
+;
+MSG_GENTLGUI_CANCEL
+\33cCancel
+
+;
+MSG_GENTLGUI_TIMELINE
+Time Line
+
+;
+MSG_GENTLGUI_OUTOFMEMORY
+Out of memory!
+
+;
+MSG_GENTLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPR
+At least two key frames for this parameter must be created prior to opening the time line window
 
 ;
