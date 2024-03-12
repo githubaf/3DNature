@@ -3374,8 +3374,8 @@ Nothing		EdSetExtrasGUI.c
 Done		EdSetGUI.c 5.Mar
 Done		EditGui.c 6.Mar
 Done		EvenMoreGUI.c 7.Mar
-Foliage.c
-FoliageGUI.c
+Done		Foliage.c 7.Mar
+Done		FoliageGUI.c 12.Mar
 Fractal.c
 GUI.c
 GenericParams.c

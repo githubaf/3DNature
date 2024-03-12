@@ -4,6 +4,9 @@
 ** Copyright 1995 Questar Productions.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -65,13 +68,15 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 
  if (! FE_Win->ECList)
   {
-  User_Message((CONST_STRPTR)"Parameters Module: Foliage",
-		  (CONST_STRPTR)"Out of memory!\nCan't open Foliage Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_FOLIGUI_PARAMETERSMODULEFOLIAGE ),         // "Parameters Module: Foliage"
+	       GetString( MSG_FOLIGUI_OUTOFMEMORYANTOPENFOLIAGEEDITOR ), // "Out of memory!\nCan't open Foliage Editor."
+               GetString( MSG_FOLIGUI_OK ),                              // "OK"
+               (CONST_STRPTR)"o");
   Close_FE_Window(1);
   return;
   } /* if out of memory */
 
- Set_PS_List(FE_Win->ECList, NULL, 1, 0, "Unused");
+ Set_PS_List(FE_Win->ECList, NULL, 1, 0, (char*)GetString( MSG_FOLIGUI_UNUSED ));  // "Unused"
 
  FE_Win->FolEco = EE_Win->EcoItem;
 
@@ -79,8 +84,10 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
   {
   if ((FE_Win->Backup = Ecotype_Copy(EcoShift[FE_Win->FolEco].Ecotype)) == NULL)
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Foliage",
-		   (CONST_STRPTR)"Out of memory!\nCan't open Foliage Editor.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_FOLIGUI_PARAMETERSMODULEFOLIAGE ),          // "Parameters Module: Foliage"
+                GetString( MSG_FOLIGUI_OUTOFMEMORYANTOPENFOLIAGEEDITOR ),  // b"Out of memory!\nCan't open Foliage Editor."
+                GetString( MSG_FOLIGUI_OK ),                               // "OK"
+                (CONST_STRPTR)"o");
    Close_FE_Window(1);
    return;
    } /* if out of memory */
@@ -88,28 +95,28 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
   
 
      FE_Win->FoliageWin = WindowObject,
-      MUIA_Window_Title		, "Foliage Editor",
+      MUIA_Window_Title		, GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
       MUIA_Window_ID		, MakeID('E','D','F','O'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
 
       WindowContents, VGroup,
 	Child, HGroup,
-	  Child, Label1("Ecosystem"),
+	  Child, Label1(GetString( MSG_FOLIGUI_ECOSYSTEM )),  // "Ecosystem"
 	  Child, FE_Win->EcosysText = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345",
 		MUIA_Text_Contents, PAR_NAME_ECO(FE_Win->FolEco), End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, VGroup,
-	    Child, Label("\33c\0334Group"),
+	    Child, Label(GetString( MSG_FOLIGUI_GROUP )),  // "\33c\0334Group"
             Child, FE_Win->LS_GroupList = ListviewObject,
 		MUIA_Listview_Input, TRUE,
                	MUIA_Listview_List, ListObject, ReadListFrame, End,
               End, /* ListviewObject */
-	    Child, FE_Win->BT_Suggest = KeyButtonFunc('s', "\33cSuggest..."),
+	    Child, FE_Win->BT_Suggest = KeyButtonFunc('s', (char*)GetString( MSG_FOLIGUI_SUGGEST )),  // "\33cSuggest..."
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Max Pic Ht "),
+	      Child, Label2(GetString( MSG_FOLIGUI_MAXPICHT )),  // "Max Pic Ht "
 	      Child, FE_Win->FloatStr[4] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -117,7 +124,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 	      Child, FE_Win->Arrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(" Density % "),
+	      Child, Label2(GetString( MSG_FOLIGUI_DENSITY )),  // " Density % "
 	      Child, FE_Win->FloatStr[0] = StringObject, StringFrame,
 		MUIA_String_Accept, ".0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -125,7 +132,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 	      Child, FE_Win->Arrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("  Height % "),
+	      Child, Label2(GetString( MSG_FOLIGUI_HEIGHT )),  // "  Height % "
 	      Child, FE_Win->FloatStr[1] = StringObject, StringFrame,
 		MUIA_String_Accept, ".0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -133,7 +140,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 	      Child, FE_Win->Arrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label2("Use Image Colors"),
+	      Child, Label2(GetString( MSG_FOLIGUI_USEIMAGECOLORS )),   // "Use Image Colors"
 	      Child, FE_Win->Check[0] = CheckMark(0),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
@@ -142,31 +149,31 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 			MUIA_Cycle_Entries, FE_Win->ECList, End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, FE_Win->BT_AddGroup = KeyButtonFunc('a', "\33cAdd..."),
-	      Child, FE_Win->BT_RemoveGroup = KeyButtonFunc('v', "\33cRemove"),
-	      Child, FE_Win->BT_NewGroup = KeyButtonFunc('n', "\33cNew..."),
+	      Child, FE_Win->BT_AddGroup    = KeyButtonFunc('a', (char*)GetString( MSG_FOLIGUI_ADD )),     // "\33cAdd..."
+	      Child, FE_Win->BT_RemoveGroup = KeyButtonFunc('v', (char*)GetString( MSG_FOLIGUI_REMOVE )),  // "\33cRemove"
+	      Child, FE_Win->BT_NewGroup    = KeyButtonFunc('n', (char*)GetString( MSG_FOLIGUI_NEW )),     // "\33cNew..."
 	      End, /* HGroup */
-	    Child, FE_Win->BT_Export = KeyButtonFunc('e', "\33cExport..."),
+	    Child, FE_Win->BT_Export = KeyButtonFunc('e', (char*)GetString( MSG_FOLIGUI_EXPORT )),  // "\33cExport..."
 	    End, /* VGroup */
 
 	  Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
 
 	  Child, VGroup,
-	    Child, Label("\33c\0334Images"),
+	    Child, Label(GetString( MSG_FOLIGUI_MAGES )),  // "\33c\0334Images"
             Child, FE_Win->LS_ImageList = ListviewObject,
 		MUIA_Listview_Input, TRUE,
                	MUIA_Listview_List, ListObject, ReadListFrame, End,
               End, /* ListviewObject */
 	    Child, HGroup,
-	      Child, Label1("Width"),
+	      Child, Label1(GetString( MSG_FOLIGUI_WIDTH )),  // "Width"
 	      Child, FE_Win->WidthText = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123", End,
-	      Child, Label1("Ht"),
+	      Child, Label1(GetString( MSG_FOLIGUI_HT )),  // "Ht"
 	      Child, FE_Win->HeightText = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123", End,
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Max Pic Ht "),
+	      Child, Label2(GetString( MSG_FOLIGUI_MAXPICHT )),   // "Max Pic Ht "
 	      Child, FE_Win->FloatStr[5] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -174,7 +181,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 	      Child, FE_Win->Arrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(" Density % "),
+	      Child, Label2(GetString( MSG_FOLIGUI_DENSITY )),  // " Density % "
 	      Child, FE_Win->FloatStr[2] = StringObject, StringFrame,
 		MUIA_String_Accept, ".0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -182,7 +189,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 	      Child, FE_Win->Arrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("  Height % "),
+	      Child, Label2(GetString( MSG_FOLIGUI_HEIGHT )),  // "  Height % "
 	      Child, FE_Win->FloatStr[3] = StringObject, StringFrame,
 		MUIA_String_Accept, ".0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -190,7 +197,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 	      Child, FE_Win->Arrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label2("Use Image Colors"),
+	      Child, Label2(GetString( MSG_FOLIGUI_USEIMAGECOLORS )),  // "Use Image Colors"
 	      Child, FE_Win->Check[1] = CheckMark(0),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
@@ -199,14 +206,14 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 			MUIA_Cycle_Entries, FE_Win->ECList, End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, FE_Win->BT_AddImage = KeyButtonFunc('d', "\33cAdd..."),
-	      Child, FE_Win->BT_RemoveImage = KeyButtonFunc('r', "\33cRemove"),
+	      Child, FE_Win->BT_AddImage    = KeyButtonFunc('d', (char*)GetString( MSG_FOLIGUI_ADD )),     // "\33cAdd..."
+	      Child, FE_Win->BT_RemoveImage = KeyButtonFunc('r', (char*)GetString( MSG_FOLIGUI_REMOVE )),  // "\33cRemove"
 	      End, /* HGroup */
-	    Child, FE_Win->BT_ViewImage = KeyButtonFunc('v', "\33cView..."),
+	    Child, FE_Win->BT_ViewImage = KeyButtonFunc('v', (char*)GetString( MSG_FOLIGUI_VIEW )),  // "\33cView..."
 	    End, /* VGroup */
 	  End, /* HGroup */
 	Child, HGroup, MUIA_Group_SameWidth, TRUE,
-	  Child, FE_Win->BT_Keep = KeyButtonFunc('k', "\33cKeep"),
+	  Child, FE_Win->BT_Keep = KeyButtonFunc('k',   "\33cKeep"),
 	  Child, FE_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"),
 	  End, /* HGroup */
 	End, /* VGroup */
@@ -215,7 +222,10 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
   if (! FE_Win->FoliageWin)
    {
    Close_FE_Window(1);
-   User_Message((CONST_STRPTR)"Foliage Editor", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
+                GetString( MSG_FOLIGUI_OUTOFMEMORY ),    // "Out of memory!"
+                GetString( MSG_FOLIGUI_OK ),             // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -240,9 +250,9 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
    FE_Win->BT_ViewImage, ID_FE_VIEWIMAGE, NULL);
 
   DoMethod(FE_Win->FoliageWin, MUIM_Notify, MUIA_Window_InputEvent,
-	"numericpad enter", app, 2, MUIM_Application_ReturnID, ID_FE_EXPORTECO);
+	GetString( MSG_FOLIGUI_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_FE_EXPORTECO);  // "numericpad enter"
   DoMethod(FE_Win->FoliageWin, MUIM_Notify, MUIA_Window_InputEvent,
-	"help", app, 2, MUIM_Application_ReturnID, ID_FE_IMAGEPATH);
+	GetString( MSG_FOLIGUI_HELP ), app, 2, MUIM_Application_ReturnID, ID_FE_IMAGEPATH);  // "help"
 
 /* Link arrow buttons to application */
   for (i=0; i<6; i++)
@@ -380,7 +390,10 @@ double FloatVal;
       {
       short apply;
 
-      apply = FE_Win->Mod && User_Message_Def((CONST_STRPTR)"Foliage Editor", (CONST_STRPTR)"Keep changes?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1);
+      apply = FE_Win->Mod && User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
+                                              GetString( MSG_FOLIGUI_KEEPCHANGES ),    // "Keep changes?"
+                                              GetString( MSG_FOLIGUI_YESNO ),          // "Yes|No"
+                                              (CONST_STRPTR)"yn", 1);
       Close_FE_Window(apply);
       break;
       } /* Close window */
@@ -433,8 +446,10 @@ double FloatVal;
        GUIFoliage_View(FE_Win->CurImg, Bitmap);
        } /* if image loaded */
       else
-       User_Message_Def((CONST_STRPTR)"Foliage Editor: View Image",
-    		   (CONST_STRPTR)"Unable to load image file for viewing!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+       User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
+    		        GetString( MSG_FOLIGUI_UNABLETOLOADIMAGEFILEFORVIEWINGPERATIONTERMINATED ),   // "Unable to load image file for viewing!\nOperation terminated.",
+                        GetString( MSG_FOLIGUI_OK ),                                                  // "OK"
+                        (CONST_STRPTR)"o", 0);
       if (Bitmap[0])
        free_Memory(Bitmap[0], Width * Height);
       if (Bitmap[1])
@@ -739,7 +754,7 @@ short success = 0;
  strcpy(Path, imagepath);
  Name[0] = 0;
  strcpy(Ptrn, "#?.etp");
- if (getfilenameptrn(0, "Select an Ecotype", Path, Name, Ptrn))
+ if (getfilenameptrn(0, (char*)GetString( MSG_FOLIGUI_SELECTANECOTYPE ), Path, Name, Ptrn))  // "Select an Ecotype"
   {
   strmfp(filename, Path, Name);
   if ((ffile = fopen(filename, "rb")))
@@ -757,8 +772,10 @@ short success = 0;
     success = 1;
     }
    else
-    User_Message_Def((CONST_STRPTR)"Foliage Editor: Load Ecotype", (CONST_STRPTR)"Error loading Ecotype file!\nOperation terminated.",
-    		(CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+    User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE ),                   // "Foliage Editor: Load Ecotype"
+                     GetString( MSG_FOLIGUI_ERRORLOADINGECOTYPEFILEPERATIONTERMINATED ),  // "Error loading Ecotype file!\nOperation terminated."
+    		     GetString( MSG_FOLIGUI_OK ),                                         // "OK"
+                     (CONST_STRPTR)"o", 0);
    fclose(ffile);
    FE_Win->Mod = 1;
    } /* if file opened */
@@ -780,7 +797,7 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
  strcpy(Path, imagepath);
  Name[0] = 0;
  strcpy(Ptrn, "#?.fgp");
- if (getfilenameptrn(0, "Select a Foliage Group", Path, Name, Ptrn))
+ if (getfilenameptrn(0, (char*)GetString( MSG_FOLIGUI_SELECTAFOLIAGEGROUP ), Path, Name, Ptrn))  // "Select a Foliage Group"
   {
   strmfp(filename, Path, Name);
   if ((ffile = fopen(filename, "rb")))
@@ -789,8 +806,10 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
     {
     if ((EcoShift[FE_Win->FolEco].Ecotype = Ecotype_New()) == NULL)
      {
-     User_Message_Def((CONST_STRPTR)"Foliage Editor: Add Group",
-    		 (CONST_STRPTR)"Out of memory allocating new group!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+     User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                            // "Foliage Editor: Add Group"
+                      GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
+                      GetString( MSG_FOLIGUI_OK ),                                               // "OK"
+                      (CONST_STRPTR)"o", 0);
      fclose(ffile);
      return (0);
      } /* if no memory */
@@ -825,8 +844,10 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
     FE_Win->Mod = 1;
     } /* if new group created */
    else
-    User_Message_Def((CONST_STRPTR)"Foliage Editor: Add Group", (CONST_STRPTR)"Error loading Foliage Group file!\nOperation terminated.",
-    		(CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+    User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                           // "Foliage Editor: Add Group"
+                     GetString( MSG_FOLIGUI_ERRORLOADINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error loading Foliage Group file!\nOperation terminated."
+    		     GetString( MSG_FOLIGUI_OK ),                                              // "OK"
+                     (CONST_STRPTR)"o", 0);
    fclose(ffile);
    } /* if file opened */
   } /* if file name */
@@ -844,15 +865,17 @@ struct Ecotype *Prototype;
 struct FoliageGroup **NewGroupAddr, *NewGroup;
 
  Name[0] = 0;
- if (! GetInputString("Enter new group name.", ":;*/?`#%", Name))
+ if (! GetInputString((char*)GetString( MSG_FOLIGUI_ENTERNEWGROUPNAME ), ":;*/?`#%", Name))  // "Enter new group name."
   return (0);
 
  if (! EcoShift[FE_Win->FolEco].Ecotype)
   {
   if ((EcoShift[FE_Win->FolEco].Ecotype = Ecotype_New()) == NULL)
    {
-   User_Message_Def((CONST_STRPTR)"Foliage Editor: New Group",
-		   (CONST_STRPTR)"Out of memory allocating new group!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+   User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
+                    GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
+                    GetString( MSG_FOLIGUI_OK ),                                               // "OK"
+                    (CONST_STRPTR)"o", 0);
    return (0);
    } /* if no memory */
   Ecotype_SetDefaults(EcoShift[FE_Win->FolEco].Ecotype, &EcoPar.en[FE_Win->FolEco]);
@@ -891,8 +914,10 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
   return (1);
   } /* if new group created */
  else
-  User_Message_Def((CONST_STRPTR)"Foliage Editor: New Group",
-		  (CONST_STRPTR)"Out of memory allocating new group!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+  User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
+		   GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
+                   GetString( MSG_FOLIGUI_OK ) ,                                              // "OK"
+                   (CONST_STRPTR)"o", 0);
 
  return (0);
 
@@ -911,7 +936,7 @@ short success = 0;
   strcpy(Path, imagepath);
   Name[0] = 0;
   strcpy(Ptrn, "#?.fgp");
-  if (getfilenameptrn(1, "Ecotype Save Path/File", Path, Name, Ptrn))
+  if (getfilenameptrn(1, (char*)GetString( MSG_FOLIGUI_ECOTYPESAVEPATHFILE ) , Path, Name, Ptrn))  // "Ecotype Save Path/File"
    {
    if (strcmp(&Name[strlen(Name) - 4], ".fgp"))
     strcat(Name, ".fgp");
@@ -921,8 +946,10 @@ short success = 0;
     if (FoliageGroup_Save(FE_Win->CurGrp, ffile))
      success = 1;
     else
-     User_Message_Def((CONST_STRPTR)"Foliage Editor: Save Group", (CONST_STRPTR)"Error saving Foliage Group file!\nOperation terminated.",
-    		 (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+     User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP ),                         // "Foliage Editor: Save Group"
+                      GetString( MSG_FOLIGUI_ERRORSAVINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error saving Foliage Group file!\nOperation terminated."
+    		      GetString( MSG_FOLIGUI_OK ),                                             // "OK"
+                      (CONST_STRPTR)"o", 0);
     fclose(ffile);
     } /* if file opened */
    } /* if file name */
@@ -946,7 +973,7 @@ UBYTE *Bitmap[3];
 
  strcpy(Path, imagepath);
  Name[0] = 0;
- if (getfilename(0, "Image Path/File", Path, Name))
+ if (getfilename(0, (char*)GetString( MSG_FOLIGUI_IMAGEPATHFILE ), Path, Name))  // "Image Path/File"
   {
   Bitmap[0] = Bitmap[1] = Bitmap[2] = NULL;
   strmfp(filename, Path, Name);
@@ -982,12 +1009,16 @@ UBYTE *Bitmap[3];
     success= 1;
     } /* if new image created */
    else
-    User_Message_Def((CONST_STRPTR)"Foliage Editor: Add Image",
-    		(CONST_STRPTR)"Out of memory allocating new group!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+    User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                             // "Foliage Editor: Add Image"
+    		     GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ) ,  // "Out of memory allocating new group!\nOperation terminated."
+                     GetString( MSG_FOLIGUI_OK ),                                                // "OK"
+                     (CONST_STRPTR)"o", 0);
    } /* if image loaded */
   else
-   User_Message_Def((CONST_STRPTR)"Foliage Editor: Add Image",
-		   (CONST_STRPTR)"Error loading image file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+   User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                    // "Foliage Editor: Add Image"
+		    GetString( MSG_FOLIGUI_ERRORLOADINGIMAGEFILEPERATIONTERMINATED ),  // "Error loading image file!\nOperation terminated."
+                    GetString( MSG_FOLIGUI_OK ),                                       // "OK"
+                    (CONST_STRPTR)"o", 0);
   if (Bitmap[0])
    free_Memory(Bitmap[0], Width * Height);
   if (Bitmap[1])
@@ -1011,7 +1042,7 @@ char NewPath[256];
   {
   strcpy(NewPath, Rootstock_GetName(&Fol->Root));
 
-  if (GetInputString("Enter new image path and name.",
+  if (GetInputString((char*)GetString( MSG_FOLIGUI_ENTERNEWIMAGEPATHANDNAME ),  // "Enter new image path and name."
 	 "!@#$%&*()=", NewPath))
    {
    Rootstock_SetName(&Fol->Root, NewPath);
@@ -1099,9 +1130,9 @@ struct FoliageGroup *FolGp, *FolGpPrev = NULL;
 STATIC_FCN short GUIFoliage_View(struct Foliage *Fol, UBYTE **Bitmap) // used locally only -> static, AF 19.7.2021
 {
 
- User_Message_Def((CONST_STRPTR)"Foliage Editor: View Image",
-		 (CONST_STRPTR)"The image loaded properly. Maybe some day there will even be a way for you to see it!\n",
-		 (CONST_STRPTR)"That would be nice", (CONST_STRPTR)"t", 0);
+ User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
+		 GetString( MSG_FOLIGUI_THEIMAGELOADEDPROPERLYMAYBESOMEDAYTHEREWILLEVENBEAW ),  // "The image loaded properly. Maybe some day there will even be a way for you to see it!\n"
+		 GetString( MSG_FOLIGUI_THATWOULDBENICE ), (CONST_STRPTR)"t", 0);               // "That would be nice"
 
  return (0);
 
@@ -1429,7 +1460,7 @@ short success = 0;
   strcpy(Path, imagepath);
   Name[0] = 0;
   strcpy(Ptrn, "#?.etp");
-  if (getfilenameptrn(1, "Ecotype Save Path/File", Path, Name, Ptrn))
+  if (getfilenameptrn(1, (char*)GetString( MSG_FOLIGUI_ECOTYPESAVEPATHFILE ), Path, Name, Ptrn))  // "Ecotype Save Path/File"
    {
    if (strcmp(&Name[strlen(Name) - 4], ".etp"))
     strcat(Name, ".etp");
@@ -1439,8 +1470,10 @@ short success = 0;
     if (Ecotype_Save(EcoShift[FE_Win->FolEco].Ecotype, ffile))
      success = 1;
     else
-     User_Message_Def((CONST_STRPTR)"Foliage Editor: Save Ecotype", (CONST_STRPTR)"Error saving Ecotype file!\nOperation terminated.",
-             (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+     User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEECOTYPE ),                  // "Foliage Editor: Save Ecotype"
+                      GetString( MSG_FOLIGUI_ERRORSAVINGECOTYPEFILEPERATIONTERMINATED ),  // "Error saving Ecotype file!\nOperation terminated."
+                      GetString( MSG_FOLIGUI_OK ),                                        // "OK"
+                      (CONST_STRPTR)"o", 0);
     fclose(ffile);
     } /* if file opened */
    } /* if file name */

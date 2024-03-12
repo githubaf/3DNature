@@ -4224,7 +4224,7 @@ MSG_EDPAR_ALL
 
 ;
 MSG_EDPAR_ERRORWRITINGTOPARAMETERFILETHEOUTPUTFILEHASBEENMODIFI
-Error writing to Parameter file!\n\The output file has been modified and may no longer be valid. Try resaving to a different device or freeing some disk space and saving again.
+Error writing to Parameter file!\nThe output file has been modified and may no longer be valid. Try resaving to a different device or freeing some disk space and saving again.
 
 ;
 ;
@@ -5291,5 +5291,207 @@ Error saving the cloned Cloud file.
 ;
 MSG_EVMORGUI_OUTOFMEMORY
 Out of memory.
+
+;
+;
+MSG_FOLI_INVALIDFLAGSUIN
+Invalid Flags %lu in %s %d\n
+
+;
+;
+MSG_FOLIGUI_PARAMETERSMODULEFOLIAGE
+Parameters Module: Foliage
+Parameter Modul: Laub
+;
+MSG_FOLIGUI_OUTOFMEMORYANTOPENFOLIAGEEDITOR
+Out of memory!\nCan't open Foliage Editor.
+Nicht genügend Speicher!\nDer Laubwerkseditor konnte nicht geöffnet werden.
+;
+MSG_FOLIGUI_OK
+OK
+
+;
+MSG_FOLIGUI_UNUSED
+Unused
+
+;
+MSG_FOLIGUI_FOLIAGEEDITOR
+Foliage Editor
+Laubwerkseditor
+;
+MSG_FOLIGUI_ECOSYSTEM
+Ecosystem
+Ökosystem
+;
+MSG_FOLIGUI_GROUP
+\33c\0334Group
+\33c\0334Gruppe
+;
+MSG_FOLIGUI_SUGGEST
+\33cSuggest...
+
+;
+MSG_FOLIGUI_MAXPICHT
+Max Pic Ht\x20
+
+;
+MSG_FOLIGUI_DENSITY
+ Density %\x20
+ Dichte %\x20
+;
+MSG_FOLIGUI_HEIGHT
+  Height %\x20
+  Höhe %\x20
+;
+MSG_FOLIGUI_USEIMAGECOLORS
+Use Image Colors
+Bildfarben verwenden
+;
+MSG_FOLIGUI_ADD
+\33cAdd...
+\33cHinzufügen...
+;
+MSG_FOLIGUI_REMOVE
+\33cRemove
+\33cEntfernen
+;
+MSG_FOLIGUI_NEW
+\33cNew...
+\33cNeu...
+;
+MSG_FOLIGUI_EXPORT
+\33cExport...
+\33cExportieren...
+;
+MSG_FOLIGUI_MAGES
+\33c\0334Images
+\33c\0334Bilder
+;
+MSG_FOLIGUI_WIDTH
+Width
+Breite
+;
+MSG_FOLIGUI_HT
+Ht
+
+;
+MSG_FOLIGUI_VIEW
+\33cView...
+\33cAnsicht...
+;
+MSG_FOLIGUI_KEEP
+\33cKeep
+\33cBehalten
+;
+MSG_FOLIGUI_CANCEL
+\33cCancel
+\33cAbbrechen
+;
+MSG_FOLIGUI_OUTOFMEMORY
+Out of memory!
+Nicht genügend Speicher!
+;
+MSG_FOLIGUI_NUMERICPADENTER
+numericpad enter
+Ziffernblock Eingabe
+;
+MSG_FOLIGUI_HELP
+help
+Hilfe
+;
+MSG_FOLIGUI_KEEPCHANGES
+Keep changes?
+Änderungen behalten?
+;
+MSG_FOLIGUI_YESNO
+Yes|No
+Ja|Nein
+;
+MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE
+Foliage Editor: View Image
+Laubwerkseditor: Bild anzeigen
+;
+MSG_FOLIGUI_UNABLETOLOADIMAGEFILEFORVIEWINGPERATIONTERMINATED
+Unable to load image file for viewing!\nOperation terminated.
+Das Bild konnte nicht für die Anzeige geladen werden!\nVorgang abgebrochen.
+;
+MSG_FOLIGUI_SELECTANECOTYPE
+Select an Ecotype
+
+;
+MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE
+Foliage Editor: Load Ecotype
+
+;
+MSG_FOLIGUI_ERRORLOADINGECOTYPEFILEPERATIONTERMINATED
+Error loading Ecotype file!\nOperation terminated.
+
+;
+MSG_FOLIGUI_SELECTAFOLIAGEGROUP
+Select a Foliage Group
+
+;
+MSG_FOLIGUI_FOLIAGEEDITORADDGROUP
+Foliage Editor: Add Group
+Laubwerkseditor: Gruppe hinzufügen
+;
+MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED
+Out of memory allocating new group!\nOperation terminated.
+Nicht genügend Speicher zum Anlegen einer neuen Gruppe!\nVorgang abgebrochen.
+;
+MSG_FOLIGUI_ERRORLOADINGFOLIAGEGROUPFILEPERATIONTERMINATED
+Error loading Foliage Group file!\nOperation terminated.
+Fehler beim Laden der Laubwerksgruppendatei!\nVorgang abgebrochen.
+;
+MSG_FOLIGUI_ENTERNEWGROUPNAME
+Enter new group name.
+Neuen Gruppennamen eingeben.
+;
+MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP
+Foliage Editor: New Group
+Laubwerkseditor: Neue Gruppe
+;
+MSG_FOLIGUI_ECOTYPESAVEPATHFILE
+Ecotype Save Path/File
+
+;
+MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP
+Foliage Editor: Save Group
+Laubwerkseditor: Gruppe speichern
+;
+MSG_FOLIGUI_ERRORSAVINGFOLIAGEGROUPFILEPERATIONTERMINATED
+Error saving Foliage Group file!\nOperation terminated.
+Fehler beim Speichern der Laubwerksgruppendatei!\nVorgang abgebrochen.
+;
+MSG_FOLIGUI_IMAGEPATHFILE
+Image Path/File
+Bild Pfad/Name
+;
+MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE
+Foliage Editor: Add Image
+Laubwerkseditor: Bild hinzufügen
+;
+MSG_FOLIGUI_ERRORLOADINGIMAGEFILEPERATIONTERMINATED
+Error loading image file!\nOperation terminated.
+Fehler beim Laden des Bildes!\nVorgang abgebrochen.
+;
+MSG_FOLIGUI_ENTERNEWIMAGEPATHANDNAME
+Enter new image path and name.
+Nauen Bild Pfad und Namen eingeben.
+;
+MSG_FOLIGUI_THEIMAGELOADEDPROPERLYMAYBESOMEDAYTHEREWILLEVENBEAW
+The image loaded properly. Maybe some day there will even be a way for you to see it!\n
+Das Bild wurde erfolgreich geladen. Vielleicht gibt es in der Zukunft eine Möglichkeit, es auch anzuzeigen!\n
+;
+MSG_FOLIGUI_THATWOULDBENICE
+That would be nice
+Das wäre schön
+;
+MSG_FOLIGUI_FOLIAGEEDITORSAVEECOTYPE
+Foliage Editor: Save Ecotype
+
+;
+MSG_FOLIGUI_ERRORSAVINGECOTYPEFILEPERATIONTERMINATED
+Error saving Ecotype file!\nOperation terminated.
 
 ;

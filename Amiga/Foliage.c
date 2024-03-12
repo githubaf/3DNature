@@ -4,6 +4,9 @@
 ** Copyright Questar Productions.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "Foliage.h"
 #include "BigEndianReadWrite.h"
@@ -269,7 +272,7 @@ float Rootstock_GetFloatValue(struct Rootstock *This, ULONG Flags)
 			}
 		default:
 		    {
-		    printf("Invalid Flags %lu in %s %d\n",Flags,__FILE__,__LINE__);
+		    printf((char*)GetString( MSG_FOLI_INVALIDFLAGSUIN ),Flags,__FILE__,__LINE__);  // "Invalid Flags %lu in %s %d\n"
 		    return 0;
 		    }
 		} /* switch */
@@ -300,7 +303,7 @@ short Rootstock_GetShortValue(struct Rootstock *This, ULONG Flags)
 			}
         default:
             {
-            printf("Invalid Flags %lu in %s %d\n",Flags,__FILE__,__LINE__);
+            printf((char*)GetString( MSG_FOLI_INVALIDFLAGSUIN ),Flags,__FILE__,__LINE__);  // "Invalid Flags %lu in %s %d\n"
             return 0;
             }
 
@@ -375,7 +378,7 @@ short Foliage_GetImgSize(struct Foliage *This, ULONG Flags)
 			}
         default:
             {
-            printf("Invalid Flags %lu in %s %d\n",Flags,__FILE__,__LINE__);
+            printf((char*)GetString( MSG_FOLI_INVALIDFLAGSUIN ),Flags,__FILE__,__LINE__);  // "Invalid Flags %lu in %s %d\n"
             return 0;
             }
 

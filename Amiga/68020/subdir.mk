@@ -106,39 +106,6 @@ O_SRCS += \
 ../EdSetExtrasGUI.o \
 ../EdSetGUI.o \
 ../EditGui.o \
-../EvenMoreGUI.o \
-../Foliage.o \
-../FoliageGUI.o \
-../Fractal.o \
-../GenericParams.o \
-../GenericTLGUI.o \
-../GlobeMap.o \
-../GlobeMapSupport.o \
-../GrammarTable.o \
-../HyperKhorner4M-1.o \
-../Images.o \
-../InteractiveDraw.o \
-../InteractiveUtils.o \
-../InteractiveView.o \
-../LWSupport.o \
-../LineSupport.o \
-../MakeFaces.o \
-../Map.o \
-../MapExtra.o \
-../MapGUI.o \
-../MapLineObject.o \
-../MapSupport.o \
-../MapTopo.o \
-../MapTopoObject.o \
-../MapUtil.o \
-../Memory.o \
-../MoreGUI.o \
-../Params.o \
-../ParamsGUI.o \
-../PlotGUI.o \
-../RequesterGUI.o \
-../RexxSupport.o \
-../ScratchPad.o \
 ../WCS.o 
 
 C_DEPS += \
