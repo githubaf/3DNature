@@ -19,7 +19,7 @@ void Make_DE_Window(void)
  long open;
  static const char *DE_LineCycle[9];
  static const char *DE_SpecCycle[7];
- int Init=TRUE;
+ static int Init=TRUE;
 
  if(Init)
  {

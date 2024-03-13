@@ -66,7 +66,7 @@ void Make_DC_Window(void)
 {
  short i;
  long open=FALSE;
- int Init=TRUE;
+ static int Init=TRUE;
  static const char *InputCycle[8]     = {NULL};
  static const char *OutputCycle[7]    = {NULL};
  static const char *FormatCycle[4]    = {NULL};

@@ -52,11 +52,11 @@ static const char *MD_ElevSource[5] = {NULL};
 static const char *MD_DrawMode[5]   = {NULL};
 static const char *MD_Displace[5]   = {NULL};
 static const char *MD_ElevUnits[7]  = {NULL};
-static int Init=1;
+static int Init=TRUE;
 
 if(Init)
 {
-	Init=0;
+	Init=FALSE;
 
 	MD_FileTypes[0] = (char*)GetString( MSG_DEMGUI_DBASEOBJECTS );  // "D'base Objects"
 	MD_FileTypes[1] = (char*)GetString( MSG_DEMGUI_XYZLATLON );     // "XYZ Lat/Lon"

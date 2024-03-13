@@ -24,10 +24,10 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
  char filename[256];
  long i, open;
  static const char *CL_CloudTypes[5];
- static int Init=1;  // necessary only once
+ static int Init=TRUE;  // necessary only once
  if(Init)
  {
-	 Init=0;
+	 Init=FALSE;
 	 CL_CloudTypes[0] = (const char*)GetString( MSG_CLOUDGUI_CIRRUS );   // "Cirrus"
 	 CL_CloudTypes[1] = (const char*)GetString( MSG_CLOUDGUI_STRATUS );  // "Stratus"
 	 CL_CloudTypes[2] = (const char*)GetString( MSG_CLOUDGUI_NIMBUS );   // "Nimbus"
@@ -724,10 +724,10 @@ double FloatVal;
      case ID_CL_TIMELINES:
       {
       static const char *Titles[8];
-      static int Init=1;
+      static int Init=TRUE;
       if(Init)  // Only once necessary
       {
-       Init=0; 
+       Init=FALSE;
        Titles[0] = (const char*)GetString( MSG_CLOUDGUI_COVERAGE );          // "Coverage"
        Titles[1] = (const char*)GetString( MSG_CLOUDGUI_DENSITY );           // "Density"
        Titles[2] = (const char*)GetString( MSG_CLOUDGUI_ROUGHNESS );         // "Roughness"

@@ -504,11 +504,11 @@ void Make_DB_Window(short hor_win)
 {
  long open;
  static const char *LayoutCycle[3];
- static int Init = 1;
+ static int Init = TRUE;
 
  if(Init)
  {
-	 Init = 0;
+	 Init = FALSE;
 	 LayoutCycle[0]= (char*)GetString( MSG_AGUI_STANDUP );  // "Stand Up"
 	 LayoutCycle[1]= (char*)GetString( MSG_AGUI_LAYDOWN );  // "Lay Down"
 	 LayoutCycle[2]= NULL;
