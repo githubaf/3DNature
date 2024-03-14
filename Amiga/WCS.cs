@@ -5600,3 +5600,248 @@ MSG_GENTLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPR
 At least two key frames for this parameter must be created prior to opening the time line window
 
 ;
+;
+MSG_GLMP_RENDERMODULE
+Render Module
+Render Modul
+;
+MSG_GLMP_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+
+;
+MSG_GLMP_OK
+OK
+
+;
+MSG_GLMP_RENDERINITIALIZATIONCOMPLETE
+Render initialization complete.
+
+;
+MSG_GLMP_WCSRENDERWINDOW
+WCS Render Window
+
+;
+MSG_GLMP_RENDERWINDOW_PERIOD
+Render window.
+
+;
+MSG_GLMP_ERROROPENINGRENDERWINDOWPERATIONTERMINATED
+Error opening render window!\nOperation terminated.
+
+;
+MSG_GLMP_LARGESTAVAILABLEMEMORYBLOCKU
+Largest available memory block = %lu
+
+;
+MSG_GLMP_FASTMEMORYAVAILABLEU
+Fast memory available = %lu
+
+;
+MSG_GLMP_OUTOFMEMORYOPENINGZBUFFERPERATIONTERMINATED
+Out of memory opening Z buffer!\nOperation terminated.
+
+;
+MSG_GLMP_OUTOFMEMORYOPENINGBITMAPSPERATIONTERMINATED
+Out of memory opening bitmaps!\nOperation terminated.
+
+;
+MSG_GLMP_OUTOFMEMORYOPENINGANTIALIASBUFFERPERATIONTERMINATED
+Out of memory opening anti-alias buffer!\nOperation terminated.
+
+;
+MSG_GLMP_OUTOFMEMORYALLOCATINGREFLECTIONBUFFERCONTINUEWITHOUTRE
+Out of memory allocating Reflection buffer!\n\Continue without Reflections?
+
+;
+MSG_GLMP_CONTINUECANCEL
+Continue|Cancel
+
+;
+MSG_GLMP_DIAGNOSTICBUFFERSCANTBEGENERATEDFORMULTIPLESEGMENTORMU
+Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?
+
+;
+MSG_GLMP_OKCANCEL
+OK|CANCEL
+
+;
+MSG_GLMP_OUTOFMEMORYOPENINGDIAGNOSTICBUFFERSPROCEEDRENDERINGWIT
+Out of memory opening Diagnostic buffers! Proceed rendering without them?
+
+;
+MSG_GLMP_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED
+Out of memory opening key frame table!\nOperation terminated.
+
+;
+MSG_GLMP_ERRORLOADINGWAVEFILECONSTSTRPTRCONTINUEWITHOUTWAVES
+Error loading Wave File!\n\(CONST_STRPTR)Continue without Waves?
+
+;
+MSG_GLMP_RENDERMODULECLOUDS
+Render Module: Clouds
+
+;
+MSG_GLMP_ERRORLOADINGCLOUDMAPFILEONTINUEWITHOUTCLOUDSHADOWS
+Error loading Cloud Map file!\nContinue without cloud shadows?
+
+;
+MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAPONTINUEWITHOUTCLOUDSHADOWS
+Out of memory creating Cloud Map!\nContinue without cloud shadows?
+
+;
+MSG_GLMP_MASTERCMAPHEADERFILE
+Master CMap Header File
+
+;
+MSG_GLMP_ERRORLOADINGMASTERCOLORMAPSEESTATUSLOGFORMOREINFORMATI
+Error loading Master Color Map! See Status Log for more information.\n\Continue rendering without Color Map?
+
+;
+MSG_GLMP_ERRORLOADINGSTRATADEFORMATIONMAPCONTINUERENDERINGWITHO
+Error loading Strata Deformation Map!\n\Continue rendering without Deformation Map?
+
+;
+MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX
+Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?
+
+;
+MSG_GLMP_RENDERMEMORYALLOCATED
+Render memory allocated.
+
+;
+MSG_GLMP_ANIMATION
+Animation
+
+;
+MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED
+Error creating Cloud Map! Either out of memory or user aborted.
+
+;
+MSG_GLMP_RETRYCANCEL
+Retry|Cancel
+
+;
+MSG_GLMP_SEGMENT
+Segment %d
+
+;
+MSG_GLMP_CANTOPENVECTORFILEFOROUTPUTONTINUERENDERINGWITHOUTVECT
+Can't open vector file for output!\nContinue rendering without vectors?
+
+;
+MSG_GLMP_FRACTALS
+Fractals:
+
+;
+MSG_GLMP_LEVEL
+Level %ld = %ld
+
+;
+MSG_GLMP_ECOSYSTEMS
+Ecosystems:
+
+;
+MSG_GLMP_ERRORINTERLACINGFIELDSPERATIONTERMINATED
+Error interlacing fields!\nOperation terminated.
+
+;
+MSG_GLMP_RENDERMODULESAVE
+Render Module: Save
+
+;
+MSG_GLMP_ERRORSAVINGBITMAPPEDIMAGETRYANOTHERDEVICE
+Error saving bitmapped image! Try another device?
+
+;
+MSG_GLMP_NEWFRAMESAVEPATH
+New Frame Save Path
+
+;
+MSG_GLMP_OUTOFMEMORYSAVINGZBUFFER
+Out of memory saving Z Buffer!\n
+
+;
+MSG_GLMP_ERRORSAVINGZBUFFERTRYANOTHERDEVICE
+Error saving Z Buffer! Try another device?
+
+;
+MSG_GLMP_ZBUFFERSAVEPATH
+Z Buffer Save Path
+
+;
+MSG_GLMP_RENDERWINDOW
+Render Window
+
+;
+MSG_GLMP_COLORMAPDIRECTORYNOTFOUND
+Color map directory not found.
+
+;
+MSG_GLMP_POLYGONS
+Polygons:
+
+;
+MSG_GLMP_FRAME_D
+Frame %d
+
+;
+MSG_GLMP_FRAME_DD
+Frame %d/%d
+
+;
+MSG_GLMP_OUTOFMEMORYREADINGMAP
+Out of memory reading map %s!
+
+;
+MSG_GLMP_RENDERMODULETOPO
+Render Module: Topo
+
+;
+MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY
+Out of memory allocating Smoothing Index array!
+
+;
+MSG_GLMP_OUTOFMEMORYALLOCATINGFRACTALMAPARRAYCONTINUEWITHOUTFRA
+Out of memory allocating Fractal Map array!\n\Continue without Fractal Maps or retry?
+
+;
+MSG_GLMP_CONTINUERETRYCANCEL
+Continue|Retry|Cancel
+
+;
+MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASBUFFERPERATIONTERMINATED
+Out of memory allocating antialias buffer!\nOperation terminated.
+
+;
+MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIONTE
+Out of memory allocating antialias and edge buffers!\nOperation terminated.
+
+;
+MSG_GLMP_VECTORS
+Vectors
+
+;
+MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS
+Out of memory allocating polygon edge buffers!
+
+;
+MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAP
+Out of memory creating Cloud Map!
+
+;
+MSG_GLMP_OUTOFMEMORYALLOCATINGCLOUDKEYFRAMESPERATIONTERMINATED
+Out of memory allocating Cloud Key Frames!\nOperation terminated
+
+;
+MSG_GLMP_ERRORREADINGPAGEDOUTFILECANTRESTOREREFLECTIONBUFFERSOP
+Error reading paged-out file! Can't restore Reflection buffers. Operation terminated.
+
+;
+MSG_GLMP_ERRORALLOCATINGMEMORYFORPAGEDOUTFILECANTRESTOREREFLECT
+Error allocating memory for paged-out file! Can't restore Reflection buffers. Operation terminated.
+
+;
+MSG_GLMP_ERROROPENINGPAGEDOUTFILECANTRESTOREREFLECTIONBUFFERSOP
+Error opening paged-out file! Can't restore Reflection buffers. Operation terminated.
+
+;

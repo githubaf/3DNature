@@ -4,6 +4,9 @@
 ** Original code and subsequent modifications by Gary R. Huber, 1992 & 1993.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
 #include <time.h>
@@ -63,7 +66,10 @@ void globemap(void)
   strcat(tempfile, ".temp");
   if ((AltKF = (union KeyFrame *)get_Memory(KFsize, MEMF_ANY)) == NULL)
    {
-   User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_GLMP_RENDERMODULE ),                   // "Render Module"
+                GetString( MSG_GLMP_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                GetString( MSG_GLMP_OK ),                             // "OK"
+                (CONST_STRPTR)"o");
    goto Cleanup2;
    } /* if out of memory */
   memcpy(AltKF, KF, KFsize);
@@ -121,7 +127,7 @@ void globemap(void)
  initpar();
  frame = settings.startframe;
 
- Log(MSG_NULL, (CONST_STRPTR)"Render initialization complete."); 
+ Log(MSG_NULL, GetString( MSG_GLMP_RENDERINITIALIZATIONCOMPLETE ));  // "Render initialization complete."
 
 #ifdef AMIGA_GUI
  if (render & 0x10)
@@ -139,12 +145,15 @@ void globemap(void)
   if(WinHeight > WCSScrn->Height)
    WinHeight = WCSScrn->Height;
   RenderWind0 = (struct Window *)
-	make_window(0, 0, WinWidth, WinHeight, "WCS Render Window",
+	make_window(0, 0, WinWidth, WinHeight, (char*)GetString( MSG_GLMP_WCSRENDERWINDOW ),  // "WCS Render Window"
 	flags, iflags, c0, c1, WCSScrn);
   if (!RenderWind0)
    {
-   Log(ERR_WIN_FAIL, (CONST_STRPTR)"Render window.");
-   User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Error opening render window!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   Log(ERR_WIN_FAIL, GetString( MSG_GLMP_RENDERWINDOW ));                          // "Render window."
+   User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                // "Render Module"
+                GetString( MSG_GLMP_ERROROPENINGRENDERWINDOWPERATIONTERMINATED ),  // "Error opening render window!\nOperation terminated."
+                GetString( MSG_GLMP_OK ),                                          // "OK"
+                (CONST_STRPTR)"o");
    goto Cleanup2;
    }
   LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
@@ -171,10 +180,10 @@ void globemap(void)
 
 #ifdef AMIGA_GUI
  lmemblock = AvailMem(MEMF_FAST | MEMF_LARGEST);
- sprintf(str, "Largest available memory block = %lu", lmemblock); 
+ sprintf(str, (char*)GetString( MSG_GLMP_LARGESTAVAILABLEMEMORYBLOCKU ), lmemblock);  // "Largest available memory block = %lu"
  Log(MSG_NULL, (CONST_STRPTR)str);
  lmemblock = AvailMem(MEMF_FAST);
- sprintf(str, "Fast memory available = %lu", lmemblock);
+ sprintf(str, (char*)GetString( MSG_GLMP_FASTMEMORYAVAILABLEU ), lmemblock);  // "Fast memory available = %lu"
  Log(MSG_NULL, (CONST_STRPTR)str);
 #endif
 
@@ -184,16 +193,20 @@ void globemap(void)
  QCmapsize = bmapsize * 4;
  if ((zbuf = (float *)get_Memory(zbufsize, MEMF_ANY)) == NULL)
   {
-  User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory opening Z buffer!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                 // "Render Module"
+               GetString( MSG_GLMP_OUTOFMEMORYOPENINGZBUFFERPERATIONTERMINATED ),  // "Out of memory opening Z buffer!\nOperation terminated."
+               GetString( MSG_GLMP_OK ),                                           // "OK",
+               (CONST_STRPTR)"o");
   goto Cleanup2;
   } /* if */
  if (render & 0x01)
   {
   if ((error = openbitmaps(bitmap, bmapsize)) == 1)
    {
-   User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory opening bitmaps!\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                  // "Render Module"
+                GetString( MSG_GLMP_OUTOFMEMORYOPENINGBITMAPSPERATIONTERMINATED ),   // "Out of memory opening bitmaps!\nOperation terminated."
+                GetString( MSG_GLMP_OK ),                                            // "OK"
+                (CONST_STRPTR)"o");
    goto Cleanup2;
    } /* if */
   savebmapsize = settings.scrnwidth * 
@@ -201,8 +214,10 @@ void globemap(void)
   } /* if render to RGB buffer */
  if ((bytemap = (USHORT *)get_Memory(bmapsize * 2, MEMF_CLEAR)) == NULL)
   {
-  User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory opening anti-alias buffer!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                         // "Render Module"
+               GetString( MSG_GLMP_OUTOFMEMORYOPENINGANTIALIASBUFFERPERATIONTERMINATED ),  // "Out of memory opening anti-alias buffer!\nOperation terminated."
+               GetString( MSG_GLMP_OK ),                                                   //"OK"
+               (CONST_STRPTR)"o");
   goto Cleanup2;
   } /* if */
  if (settings.reflections)
@@ -212,8 +227,10 @@ void globemap(void)
   if ((ReflectionMap = (UBYTE *)get_Memory(bmapsize, MEMF_ANY)) == NULL
 	|| ! ElevationMap || ! SlopeMap)
    {
-   if (User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory allocating Reflection buffer!\n\
-Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc"))
+   if (User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+                    GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGREFLECTIONBUFFERCONTINUEWITHOUTRE ),  // "Out of memory allocating Reflection buffer!\n\Continue without Reflections?"
+                    GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
+                    (CONST_STRPTR)"oc"))
     settings.reflections = 0;
    else
     {
@@ -227,9 +244,10 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
   {
   if (settings.rendersegs > 1 || settings.maxframes > 1)
    {
-   if (! User_Message_Def((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?",
-           (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc", 1))
+   if (! User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module
+                          GetString( MSG_GLMP_DIAGNOSTICBUFFERSCANTBEGENERATEDFORMULTIPLESEGMENTORMU ),  // "Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?"
+                          GetString( MSG_GLMP_OKCANCEL ),                                                // "OK|CANCEL"
+                          (CONST_STRPTR)"oc", 1))
     goto Cleanup2;
    render ^= 0x100;
    } /* if */
@@ -238,9 +256,10 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
    allocQCmaps();
    if (! (render & 0x100))
     {
-    if (! User_Message_Def((CONST_STRPTR)"Render Module",
-            (CONST_STRPTR)"Out of memory opening Diagnostic buffers! Proceed rendering without them?",
-            (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc", 1))
+    if (! User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+                           GetString( MSG_GLMP_OUTOFMEMORYOPENINGDIAGNOSTICBUFFERSPROCEEDRENDERINGWIT ),  // "Out of memory opening Diagnostic buffers! Proceed rendering without them?"
+                           GetString( MSG_GLMP_OKCANCEL ),                                                // "OK|CANCEL"
+                           (CONST_STRPTR)"oc", 1))
      goto Cleanup2;
     } /* out of memory */
    } /* else */
@@ -248,9 +267,10 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
 
  if (! BuildKeyTable())
   {
-  User_Message((CONST_STRPTR)"Render Module",
-          (CONST_STRPTR)"Out of memory opening key frame table!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_GLMP_RENDERMODULE ) ,                                       // "Render Module"
+               GetString( MSG_GLMP_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),   // "Out of memory opening key frame table!\nOperation terminated."
+               GetString( MSG_GLMP_OK ),                                                  // "OK"
+               (CONST_STRPTR)"o");
   goto Cleanup2;
   } /* if no key table */
 
@@ -269,8 +289,10 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
   strmfp(filename, wavepath, wavefile);
   if (! Wave_Load(filename, &Tsunami))
    {
-   if (User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Error loading Wave File!\n\
-(CONST_STRPTR)Continue without Waves?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc"))
+   if (User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                          // "Render Module"
+                    GetString( MSG_GLMP_ERRORLOADINGWAVEFILECONSTSTRPTRCONTINUEWITHOUTWAVES ),   // "Error loading Wave File!\n\Continue without Waves?"
+                    GetString( MSG_GLMP_CONTINUECANCEL ),                                        // "Continue|Cancel"
+                    (CONST_STRPTR)"oc"))
     settings.waves = 0;
    else
     {
@@ -302,9 +324,10 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
    strmfp(filename, cloudpath, cloudfile);
    if (! Cloud_Load(filename, &CD))
     {
-    if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
-            (CONST_STRPTR)"Error loading Cloud Map file!\nContinue without cloud shadows?",
-            (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc", 1))
+    if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                  // "Render Module: Clouds"
+                         GetString( MSG_GLMP_ERRORLOADINGCLOUDMAPFILEONTINUEWITHOUTCLOUDSHADOWS ),  // "Error loading Cloud Map file!\nContinue without cloud shadows?"
+                         GetString( MSG_GLMP_CONTINUECANCEL ),                                      // "Continue|Cancel"
+                         (CONST_STRPTR)"oc", 1))
      {
      CloudData_Del(CD);
      settings.clouds = 0;
@@ -331,9 +354,10 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
    } /* if Cloud Data allocated */
   else
    {
-   if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
-           (CONST_STRPTR)"Out of memory creating Cloud Map!\nContinue without cloud shadows?",
-           (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc", 1))
+   if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                      // "Render Module: Clouds"
+                        GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAPONTINUEWITHOUTCLOUDSHADOWS ),   // "Out of memory creating Cloud Map!\nContinue without cloud shadows?"
+                        GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
+                        (CONST_STRPTR)"oc", 1))
     {
     settings.clouds = 0;
     } /* if */
@@ -414,7 +438,7 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
     } /* if hdr open */
    else
     {
-    Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Master CMap Header File");
+    Log(ERR_OPEN_FAIL, GetString( MSG_GLMP_MASTERCMAPHEADERFILE ));  // "Master CMap Header File"
     ReadError = 1;
     } /* else no header file */
 
@@ -476,10 +500,10 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
    colmap[0] = colmap[1] = colmap[2] = NULL;
    if (CMap)	    free_Memory(CMap, sizeof (struct Color_Map));
    CMap = NULL;
-   if (! User_Message_Def((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error loading Master Color Map! See Status Log for more information.\n\
- Continue rendering without Color Map?",
- (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc", 1))
+   if (! User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+                          GetString( MSG_GLMP_ERRORLOADINGMASTERCOLORMAPSEESTATUSLOGFORMOREINFORMATI ),  // "Error loading Master Color Map! See Status Log for more information.\n\Continue rendering without Color Map?"
+                          GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
+                          (CONST_STRPTR)"oc", 1))
     goto Cleanup2;
    } /* if error loading color map */
   } /* open color map */
@@ -489,10 +513,10 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
   strmfp(filename, deformpath, deformfile);
   if (readDEM(filename, &DeformMap) != 0)
    {
-   if (! User_Message_Def((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error loading Strata Deformation Map!\n\
- Continue rendering without Deformation Map?",
- (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc", 1))
+   if (! User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+                          GetString( MSG_GLMP_ERRORLOADINGSTRATADEFORMATIONMAPCONTINUERENDERINGWITHO ),  // "Error loading Strata Deformation Map!\n\Continue rendering without Deformation Map?"
+                          GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
+                          (CONST_STRPTR)"oc", 1))
     goto Cleanup2;
    settings.deformationmap = 0;
    } /* if */
@@ -519,22 +543,22 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
   }
  else
   {
-  if (! User_Message_Def((CONST_STRPTR)"Render Module",
-          (CONST_STRPTR)"Out of memory creating Noise Map!\n\
- Continue rendering without Texture Noise?",
- (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc", 1))
+  if (! User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+                         GetString( MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX ),  // "Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?"
+                         GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
+                         (CONST_STRPTR)"oc", 1))
    goto Cleanup2;
   } /* else */
 
  BuildTrigTables();
 
 #ifdef AMIGA_GUI
- Log(MSG_NULL, (CONST_STRPTR)"Render memory allocated.");
+ Log(MSG_NULL, GetString( MSG_GLMP_RENDERMEMORYALLOCATED ));  // "Render memory allocated."
  lmemblock = AvailMem(MEMF_FAST | MEMF_LARGEST);
- sprintf(str, "Largest available memory block = %lu", lmemblock); 
+ sprintf(str, (char*)GetString( MSG_GLMP_LARGESTAVAILABLEMEMORYBLOCKU ), lmemblock);  // "Largest available memory block = %lu"
  Log(MSG_NULL, (CONST_STRPTR)str);
  lmemblock = AvailMem(MEMF_FAST);
- sprintf(str, "Fast memory available = %lu", lmemblock);
+ sprintf(str, (char*)GetString( MSG_GLMP_FASTMEMORYAVAILABLEU ), lmemblock);  // "Fast memory available = %lu"
  Log(MSG_NULL, (CONST_STRPTR)str);
 #endif
 
@@ -545,7 +569,7 @@ Continue without Reflections?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"
 
  if (settings.maxframes > 1)
   {
-  BWAN = BusyWin_New("Animation", settings.maxframes, 1, MakeID('B','W','A','N'));
+  BWAN = BusyWin_New((char*)GetString( MSG_GLMP_ANIMATION ), settings.maxframes, 1, MakeID('B','W','A','N'));  // "Animation"
   } /* if rendering more than one frame */
   
  time((time_t *)&FirstSecs);
@@ -592,8 +616,10 @@ RepeatAlloc2:
      }
     else
      {
-     if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
-             (CONST_STRPTR)"Error creating Cloud Map! Either out of memory or user aborted.", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
+     if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+                          GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
+                          GetString( MSG_GLMP_RETRYCANCEL ),                                          // "Retry|Cancel"
+                          (CONST_STRPTR)"rc", 1))
       {
       goto RepeatAlloc2;
       } /* if try again */
@@ -602,8 +628,10 @@ RepeatAlloc2:
     } /* if Cloud Map generated OK */
    else
     {
-    if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
-            (CONST_STRPTR)"Error creating Cloud Map! Either out of memory or user aborted.", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
+    if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+                         GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
+                         GetString( MSG_GLMP_RETRYCANCEL ),                                          // "Retry|Cancel"
+                         (CONST_STRPTR)"rc", 1))
      {
      goto RepeatAlloc1;
      } /* if try again */
@@ -619,7 +647,7 @@ RepeatAlloc2:
    {
    if (settings.rendersegs > 1)
     {
-    sprintf(str, "Segment %d", renderseg);
+    sprintf(str, (char*)GetString( MSG_GLMP_SEGMENT ), renderseg);  // "Segment %d"
     Log(MSG_NULL, (CONST_STRPTR)str);
     } /* if */
 
@@ -664,8 +692,9 @@ RepeatAlloc2:
      {
      Log(ERR_OPEN_FAIL, (CONST_STRPTR)linefile);
      if (! User_Message((CONST_STRPTR)linefile,
-             (CONST_STRPTR)"Can't open vector file for output!\nContinue rendering without vectors?",
-             (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc"))
+                        GetString( MSG_GLMP_CANTOPENVECTORFILEFOROUTPUTONTINUERENDERINGWITHOUTVECT ),  // "Can't open vector file for output!\nContinue rendering without vectors?"
+                        GetString( MSG_GLMP_OKCANCEL ),                                                // "OK|CANCEL"
+                        (CONST_STRPTR)"oc"))
       {
       error = 1;
       break;
@@ -686,18 +715,18 @@ RepeatAlloc2:
    if (! settings.linetoscreen) fclose(fvector);
    if (error) break;
 
-   Log(DTA_NULL, (CONST_STRPTR)"Fractals:");
+   Log(DTA_NULL, GetString( MSG_GLMP_FRACTALS ));  // "Fractals:"
    for (ct=0; ct<=settings.fractal; ct++)
     {
     if (fracount[ct])
      {
-     sprintf(str, "Level %ld = %ld", ct, fracount[ct]);
+     sprintf(str, (char*)GetString( MSG_GLMP_LEVEL ), ct, fracount[ct]);  // "Level %ld = %ld"
      Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
      fracount[ct] = 0;
      } /* if fracount */
     } /* for ct=0... */
 
-   Log(DTA_NULL, (CONST_STRPTR)"Ecosystems:");
+   Log(DTA_NULL, GetString( MSG_GLMP_ECOSYSTEMS ));  // "Ecosystems:"
    for (ct=0; ct<ECOPARAMS; ct++)
     {
     if (ecocount[ct])
@@ -791,8 +820,10 @@ RepeatAlloc2:
 	settings.fielddominance);
      if (error)
       {
-      User_Message((CONST_STRPTR)"Render Module",
-              (CONST_STRPTR)"Error interlacing fields!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+      User_Message(GetString( MSG_GLMP_RENDERMODULE ),                               // "Render Module"
+                   GetString( MSG_GLMP_ERRORINTERLACINGFIELDSPERATIONTERMINATED ) ,  // "Error interlacing fields!\nOperation terminated."
+                   GetString( MSG_GLMP_OK ),                                         // "OK"
+                   (CONST_STRPTR)"o");
       break;
       } /* if interlace error */
      } /* if field render and even field */
@@ -843,10 +874,12 @@ SaveRepeat:
 
     if (error)
      {
-     if (User_Message_Def((CONST_STRPTR)"Render Module: Save",
-             (CONST_STRPTR)"Error saving bitmapped image! Try another device?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+     if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULESAVE ),                           // "Render Module: Save"
+                          GetString( MSG_GLMP_ERRORSAVINGBITMAPPEDIMAGETRYANOTHERDEVICE ),  // "Error saving bitmapped image! Try another device?"
+                          GetString( MSG_GLMP_OKCANCEL ),                                   // "OK|Cancel"
+                          (CONST_STRPTR)"oc", 1))
       {
-      if (getfilename(1, "New Frame Save Path", framepath, framefile))
+      if (getfilename(1,  (char*)GetString( MSG_GLMP_NEWFRAMESAVEPATH ), framepath, framefile))  // "New Frame Save Path"
        {
        Proj_Mod = 1;
        goto SaveRepeat;
@@ -864,8 +897,10 @@ RepeatSaveZBuf:
 	zbuf, ILBMname, 0, 0);
     if (error == 2)
      {
-     if (User_Message_Def((CONST_STRPTR)"Render Module",
-             (CONST_STRPTR)"Out of memory saving Z Buffer!\n", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
+     if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),              // "Render Module"
+                          GetString( MSG_GLMP_OUTOFMEMORYSAVINGZBUFFER ),  // "Out of memory saving Z Buffer!\n"
+                          GetString( MSG_GLMP_RETRYCANCEL ),               // "Retry|Cancel"
+                          (CONST_STRPTR)"rc", 1))
       {
       goto RepeatSaveZBuf;
       } /* if user wants to try again */
@@ -873,12 +908,14 @@ RepeatSaveZBuf:
      } /* memory failed */
     else if (error == 1)
      {
-     if (User_Message_Def((CONST_STRPTR)"Render Module: Save",
-             (CONST_STRPTR)"Error saving Z Buffer! Try another device?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+     if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULESAVE ),                    // "Render Module: Save"
+                          GetString( MSG_GLMP_ERRORSAVINGZBUFFERTRYANOTHERDEVICE ),  // "Error saving Z Buffer! Try another device?"
+                          GetString( MSG_GLMP_OKCANCEL ),                            // "OK|Cancel"
+                          (CONST_STRPTR)"oc", 1))
       {
       char tempzfile[32] = {0};
 
-      if (getfilename(1, "Z Buffer Save Path", framepath, tempzfile))
+      if (getfilename(1, (char*)GetString( MSG_GLMP_ZBUFFERSAVEPATH ), framepath, tempzfile))  // "Z Buffer Save Path"
        {
        strmfp(ILBMname, framepath, framefile);
        strcat(ILBMname, ILBMnum);
@@ -945,7 +982,7 @@ RepeatSaveZBuf:
 
  if (! error && ((render & 0x100) && (render & 0x10)))
   {
-  Open_Diagnostic_Window(RenderWind0, "Render Window");
+  Open_Diagnostic_Window(RenderWind0, (char*)GetString( MSG_GLMP_RENDERWINDOW ));  // "Render Window"
   } /* if render to QC buffer */
 
 Cleanup2:
@@ -1106,13 +1143,13 @@ STATIC_FCN short InitDEMMap(struct Window *win, struct CloudData *CD) // used lo
    if (i == 10)
     {
     CMapEnabled = 0;
-    Log(WNG_NULL, (CONST_STRPTR)"Color map directory not found.");
+    Log(WNG_NULL, GetString( MSG_GLMP_COLORMAPDIRECTORYNOTFOUND ));  // "Color map directory not found."
     } /* directory not found by appending frame # */
    } /* if directory not found as entered by user */
   chdir(path);
   } /* if use color maps */
  OrigOBN = OBN;
- Log(DTA_NULL, (CONST_STRPTR)"Polygons:");
+ Log(DTA_NULL, GetString( MSG_GLMP_POLYGONS ));  // "Polygons:"
  objectlimit = RenderObjects;
 
  if (settings.fieldrender)
@@ -1126,7 +1163,7 @@ STATIC_FCN short InitDEMMap(struct Window *win, struct CloudData *CD) // used lo
   strcat(FrameStr, str);
   } /* if */
  else
-  sprintf(FrameStr, "Frame %d/%d", frame, settings.maxframes);
+  sprintf(FrameStr, (char*)GetString( MSG_GLMP_FRAME_DD ), frame, settings.maxframes);  // "Frame %d/%d"
  BWIM = BusyWin_New(FrameStr, objectlimit, 1, MakeID('B','W','I','M'));
 
  for (objectcount=0; objectcount<objectlimit; objectcount++)
@@ -1165,14 +1202,17 @@ RepeatLoad:
     } /* if file not found */
 
    FacePoints = 6 * map.columns;
-   map.lmap = (long *)get_Memory (map.size * 2, MEMF_ANY);
+   map.lmap = (LONG *)get_Memory (map.size * 2, MEMF_ANY);
    map.scrnptrx = (float *)get_Memory (map.scrnptrsize, MEMF_ANY);
    map.scrnptry = (float *)get_Memory (map.scrnptrsize, MEMF_ANY);
    map.scrnptrq = (float *)get_Memory (map.scrnptrsize, MEMF_ANY);
    if (! map.lmap || ! map.scrnptrx || ! map.scrnptry || ! map.scrnptrq)
     {
-    sprintf(str, "Out of memory reading map %s!", DBase[OBN].Name);
-    if (User_Message_Def((CONST_STRPTR)"Render Module: Topo", (CONST_STRPTR)str, (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
+    sprintf(str, (char*)GetString( MSG_GLMP_OUTOFMEMORYREADINGMAP ), DBase[OBN].Name);  // "Out of memory reading map %s!"
+    if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULETOPO ),                 // "Render Module: Topo"
+                         (CONST_STRPTR)str,
+                         GetString( MSG_GLMP_RETRYCANCEL ) ,                     // "Retry|Cancel"
+                         (CONST_STRPTR)"rc", 1))
      {
      error = -1;
      goto MapCleanup;
@@ -1188,9 +1228,10 @@ RetrySmooth:
     if ((map.face = (struct faces *)get_Memory
 	(FacePoints * sizeof (struct faces), MEMF_ANY)) == NULL)
      {
-     if (User_Message_Def((CONST_STRPTR)"Render Module",
-             (CONST_STRPTR)"Out of memory allocating Smoothing Index array!",
-             (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
+     if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                              // "Render Module"
+                          GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
+                          GetString( MSG_GLMP_RETRYCANCEL ),                               // "Retry|Cancel"
+                          (CONST_STRPTR)"rc", 1))
       goto RetrySmooth;
      else
       {
@@ -1226,8 +1267,10 @@ RetryFractal:
      } /* if memory allocated */
     else
      {
-     if ((Ans = User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory allocating Fractal Map array!\n\
-Continue without Fractal Maps or retry?", (CONST_STRPTR)"Continue|Retry|Cancel", (CONST_STRPTR)"orc")) == 1)
+     if ((Ans = User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+                             GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGFRACTALMAPARRAYCONTINUEWITHOUTFRA ),  // "Out of memory allocating Fractal Map array!\n\Continue without Fractal Maps or retry?"
+                             GetString( MSG_GLMP_CONTINUERETRYCANCEL ),                                     // "Continue|Retry|Cancel"
+                             (CONST_STRPTR)"orc")) == 1)
       settings.fractalmap = 0;
      else if (Ans == 2)
       goto RetryFractal;
@@ -1322,8 +1365,10 @@ Continue without Fractal Maps or retry?", (CONST_STRPTR)"Continue|Retry|Cancel",
     TreePixArraySize = 10000;
     if ((TreePix = get_Memory(TreePixArraySize, MEMF_CLEAR)) == NULL)
      {
-     User_Message((CONST_STRPTR)"Render Module",
-             (CONST_STRPTR)"Out of memory allocating antialias buffer!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+     User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+                  GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASBUFFERPERATIONTERMINATED ),  // "Out of memory allocating antialias buffer!\nOperation terminated."
+                  GetString( MSG_GLMP_OK ),                                                      // "OK"
+                  (CONST_STRPTR)"o");
      error = 1;
      goto MapCleanup;
      } /* if memory fail */
@@ -1339,8 +1384,10 @@ Continue without Fractal Maps or retry?", (CONST_STRPTR)"Continue|Retry|Cancel",
    Edge2 = (short *)get_Memory(EdgeSize, MEMF_CLEAR);
    if (! Edge1 || ! Edge2 || ! SubPix)
     {
-    User_Message((CONST_STRPTR)"Render Module",
-            (CONST_STRPTR)"Out of memory allocating antialias and edge buffers!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+                 GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
+                 GetString( MSG_GLMP_OK ),                                                      // "OK"
+                 (CONST_STRPTR)"o");
     error = 1;
     goto MapCleanup;
     } /* if memory fail */
@@ -1370,7 +1417,7 @@ Continue without Fractal Maps or retry?", (CONST_STRPTR)"Continue|Retry|Cancel",
    if (map.face)     free_Memory(map.face, FacePoints * sizeof (struct faces));
    if (map.fractal) free_Memory(map.fractal, map.fractalsize);
    map.map = relelev.map = (short *)NULL;
-   map.lmap = (long *)NULL;
+   map.lmap = (LONG *)NULL;
    map.scrnptrx = map.scrnptry = (float *)NULL;
    map.scrnptrq = (float *)NULL;
    map.face = NULL;
@@ -1418,7 +1465,7 @@ short InitVectorMap(struct Window *win, short zbufplot, short override)
   return(0);
   } /* if no vectors */
 
- BWVC = BusyWin_New("Vectors", NoOfObjects, 1, MakeID('B','W','V','C'));
+ BWVC = BusyWin_New((char*)GetString( MSG_GLMP_VECTORS ), NoOfObjects, 1, MakeID('B','W','V','C'));  // "Vectors"
 
 /* try opening master Object file */
  strmfp(filename, dbasepath, dbasename);
@@ -1539,7 +1586,7 @@ short InitVectorMap(struct Window *win, short zbufplot, short override)
    map.size = 2 * (DBase[OBN].Points + 1);
    map.scrnptrsize = 2 * map.size;
    map.map = (short *)DBase[OBN].Elev;
-   map.lmap = (long *)get_Memory(map.size * 2, MEMF_CLEAR);
+   map.lmap = (LONG *)get_Memory(map.size * 2, MEMF_CLEAR);
    map.scrnptrx = (float *)get_Memory(map.scrnptrsize, MEMF_ANY);
    map.scrnptry = (float *)get_Memory(map.scrnptrsize, MEMF_ANY);
    map.scrnptrq = (float *)get_Memory(map.scrnptrsize, MEMF_ANY);
@@ -1562,7 +1609,7 @@ LineCleanup:
    if (map.scrnptry) free_Memory(map.scrnptry, map.scrnptrsize);
    if (map.scrnptrq) free_Memory(map.scrnptrq, map.scrnptrsize);
    map.map = (short *)NULL;
-   map.lmap = (long *)NULL;
+   map.lmap = (LONG *)NULL;
    map.scrnptrx = map.scrnptry = (float *)NULL;
    map.scrnptrq = (float *)NULL;
    if (error) break;
@@ -1640,9 +1687,10 @@ RepeatAlloc4:
  Edge2 = (short *)get_Memory(EdgeSize, MEMF_CLEAR);
  if (! Edge1 || ! Edge2)
   {
-  if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
-          (CONST_STRPTR)"Out of memory allocating polygon edge buffers!",
-          (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
+  if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                       // "Render Module: Clouds"
+                       GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS ),  // "Out of memory allocating polygon edge buffers!",
+                       GetString( MSG_GLMP_RETRYCANCEL ),                              // "Retry|Cancel"
+                       (CONST_STRPTR)"rc", 1))
    {
    error = -1;
    goto MapCleanup3;
@@ -1660,8 +1708,10 @@ RepeatAlloc3:
   CD->Map.scrnptrq = (float *)get_Memory (CD->Map.scrnptrsize, MEMF_ANY);
   if (! CD->Map.scrnptrx || ! CD->Map.scrnptry || ! CD->Map.scrnptrq)
    {
-   if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
-           (CONST_STRPTR)"Out of memory creating Cloud Map!", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
+   if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+                        GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAP ),  // "Out of memory creating Cloud Map!"
+                        GetString( MSG_GLMP_RETRYCANCEL ),                  // "Retry|Cancel"
+                        (CONST_STRPTR)"rc", 1))
     {
     error = -1;
     goto MapCleanup2;
@@ -1714,8 +1764,10 @@ RepeatAlloc2:
       CD->Map.scrnptrq = (float *)get_Memory (CD->Map.scrnptrsize, MEMF_ANY);
       if (! CD->Map.map || ! CD->Map.scrnptrx || ! CD->Map.scrnptry || ! CD->Map.scrnptrq)
        {
-       if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
-               (CONST_STRPTR)"Out of memory creating Cloud Map!", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
+       if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+                            GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAP ),  // "Out of memory creating Cloud Map!"
+                            GetString( MSG_GLMP_RETRYCANCEL ),                  // "Retry|Cancel"
+                            (CONST_STRPTR)"rc", 1))
         {
         error = -1;
         goto MapCleanup;
@@ -1742,8 +1794,10 @@ MapCleanup:
       } /* if Cloud Map generated OK */
      else
       {
-      if (User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
-              (CONST_STRPTR)"Error creating Cloud Map! Either out of memory or user aborted.", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
+      if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+                           GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
+                           GetString( MSG_GLMP_RETRYCANCEL ),                                          // "Retry|Cancel"
+                           (CONST_STRPTR)"rc", 1))
        {
        goto RepeatAlloc1;
        } /* if try again */
@@ -1753,8 +1807,10 @@ MapCleanup:
      }
     else
      {
-     User_Message_Def((CONST_STRPTR)"Render Module: Clouds",
-             (CONST_STRPTR)"Out of memory allocating Cloud Key Frames!\nOperation terminated", (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+     User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                     // "Render Module: Clouds"
+                      GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGCLOUDKEYFRAMESPERATIONTERMINATED ),  // "Out of memory allocating Cloud Key Frames!\nOperation terminated"
+                      GetString( MSG_GLMP_OK ),                                                     // "OK"
+                      (CONST_STRPTR)"o", 0);
      error = 1;
      } /* else */
     } /* if Cloud Data read */
@@ -1870,23 +1926,26 @@ TryAgain2:
    case 1:
     {
     strcpy(ErrStr, 
- "Error reading paged-out file! Can't restore Reflection buffers. Operation terminated.");
+    		(char*)GetString( MSG_GLMP_ERRORREADINGPAGEDOUTFILECANTRESTOREREFLECTIONBUFFERSOP ));  // "Error reading paged-out file! Can't restore Reflection buffers. Operation terminated."
     break;
     }
    case 2:
     {
     strcpy(ErrStr,
- "Error allocating memory for paged-out file! Can't restore Reflection buffers. Operation terminated.");
+    		(char*)GetString( MSG_GLMP_ERRORALLOCATINGMEMORYFORPAGEDOUTFILECANTRESTOREREFLECT ));  // "Error allocating memory for paged-out file! Can't restore Reflection buffers. Operation terminated."
     break;
     }
    case 3:
     {
     strcpy(ErrStr,
- "Error opening paged-out file! Can't restore Reflection buffers. Operation terminated.");
+    		(char*)GetString( MSG_GLMP_ERROROPENINGPAGEDOUTFILECANTRESTOREREFLECTIONBUFFERSOP ));  // "Error opening paged-out file! Can't restore Reflection buffers. Operation terminated."
     break;
     }
    } /* switch */
-  User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)ErrStr, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_GLMP_RENDERMODULE ),  // "Render Module"
+               (CONST_STRPTR)ErrStr,
+               GetString( MSG_GLMP_OK ),            // "OK"
+               (CONST_STRPTR)"o");
   } /* if */
 
  return (error);
