@@ -4,6 +4,9 @@
 ** Original code by Gary R. Huber.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include <math.h>
 
@@ -220,7 +223,7 @@ void setview(void)
  RotatePoint(&SNB, NoBankMatx);
  NegateVector(&SNB);
 
- sprintf(str, "Frame %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n",
+ sprintf(str, (char*)GetString( MSG_GLMPSPRT_FRAMEDVPLATFVPLONFVPALTF ),  // "Frame %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n"
 		frame, VP.lat * PiUnder180, VP.lon * PiUnder180, VP.alt);
  Log(DTA_NULL, (CONST_STRPTR)str);
  sprintf(str, "FP.lat=%f, FP.lon=%f, FP.alt=%f\n",
@@ -232,7 +235,7 @@ void setview(void)
  sprintf(str, "Y rot=%f, X rot=%f, Z rot=%f\n",
 		yrot * PiUnder180, xrot * PiUnder180, zrot * PiUnder180);
  Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
- sprintf(str, "Q max=%f, Q focus=%f, Banking=%f\n",
+ sprintf(str, (char*)GetString( MSG_GLMPSPRT_QMAXFQFOCUSFBANKINGF ),  //"Q max=%f, Q focus=%f, Banking=%f\n",  // "Q max=%f, Q focus=%f, Banking=%f\n"
 		qmax, FP.q, PARC_RNDR_MOTION(8));
  Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
 
@@ -506,7 +509,7 @@ short makesky(short renderseg, struct Window *win)
  double angle, xxx, yyy, halfsky, skyfact, maxskyfact, lonscale;
  struct BusyWindow *BWDE;
 
- BWDE = BusyWin_New("Sky", settings.scrnheight, 0, MakeID('B','W','D','E'));
+ BWDE = BusyWin_New((char*)GetString( MSG_GLMPSPRT_SKY ), settings.scrnheight, 0, MakeID('B','W','D','E'));  // "Sky"
 
  if (! settings.horfix)
   {
@@ -533,7 +536,7 @@ short makesky(short renderseg, struct Window *win)
   zenithline = PARC_RNDR_MOTION(7) - (DP.y * PROJPLANE / DP.z) / vertscale;
   } /* if ! horfix, horizon and zenith computed at qmax from viewer */
 
- sprintf(str, "horline=%d, zenithline=%d\n",horline,zenithline);
+ sprintf(str, (char*)GetString( MSG_GLMPSPRT_HORLINEZENITHLINE ),horline,zenithline);  // "horline=%d, zenithline=%d\n"
  Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
  zenithline = horline - zenithline;
 
@@ -740,7 +743,7 @@ struct BusyWindow *BWDE;
  if (! ReflectionMap || ! ElevationMap || ! bitmap[0] || ! bitmap[1] || ! bitmap[2])
   return (0);
  
- BWDE = BusyWin_New("Reflections", settings.scrnheight, 0, MakeID('B','W','D','E'));
+ BWDE = BusyWin_New((char*)GetString( MSG_GLMPSPRT_REFLECTIONS ), settings.scrnheight, 0, MakeID('B','W','D','E'));  // "Reflections"
 
  HalfWidth = wide / 2.0;
 
@@ -1068,18 +1071,20 @@ struct ColorComponents CC;
    {
    if (! (error = Image_Composite(Bitmap, Image, Width, Height,
 	Sw, Sh, Dr, (double)fDx, (double)fDy, (double)fDq,
-	&Visible, &Luminosity, &CC, "Sun", win)))
+	&Visible, &Luminosity, &CC, (char*)GetString( MSG_GLMPSPRT_SUN ), win)))  // "Sun"
     {
     if (settings.sunhalo)
      error = HaloEffect(Bitmap, Width, Height, Dr * 10.0, (double)fDx, (double)fDy,
-	Luminosity * Visible, (double)fDq, &CC, "Sun Halo", win);
+	Luminosity * Visible, (double)fDq, &CC, (char*)GetString( MSG_GLMPSPRT_SUNHALO ), win);  // "Sun Halo"
     } /* if */
    } /* if image loaded */
   else
    {
    error = 1;
-   User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Error loading Sun Image!\n\
-Operation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_GLMPSPRT_RENDERMODULE ),                            // "Render Module"
+                GetString( MSG_GLMPSPRT_ERRORLOADINGSUNIMAGEPERATIONTERMINATED ),  // "Error loading Sun Image!\nOperation terminated."
+                GetString( MSG_GLMPSPRT_OK ),                                      // "OK"
+                (CONST_STRPTR)"o");
    } /* else */
   if (Image[0])
    free_Memory(Image[0], Sw * Sh);
@@ -1113,18 +1118,20 @@ Operation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
    {
    if (! (error = Image_Composite(Bitmap, Image, Width, Height,
 	Sw, Sh, Dr, (double)fDx, (double)fDy, (double)fDq,
-	&Visible, &Luminosity, &CC, "Moon", win)))
+	&Visible, &Luminosity, &CC, (char*)GetString( MSG_GLMPSPRT_MOON ), win)))  // "Moon"
     {
     if (settings.moonhalo)
      error = HaloEffect(Bitmap, Width, Height, Dr * 3.0, (double)fDx, (double)fDy,
-	Luminosity * Visible, (double)fDq, &CC, "Moon Halo", win);
+	Luminosity * Visible, (double)fDq, &CC, (char*)GetString( MSG_GLMPSPRT_MOONHALO ), win);  // "Moon Halo"
     } /* if */
    } /* if image loaded */
   else
    {
    error = 1;
-   User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Error loading Moon Image!\n\
-Operation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_GLMPSPRT_RENDERMODULE ),                             // "Render Module"
+                GetString( MSG_GLMPSPRT_ERRORLOADINGMOONIMAGEPERATIONTERMINATED ),  // "Error loading Moon Image!\nOperation terminated."
+                GetString( MSG_GLMPSPRT_OK ),                                       // "OK"
+                (CONST_STRPTR)"o");
    } /* else */
   if (Image[0])
    free_Memory(Image[0], Sw * Sh);
@@ -1317,3 +1324,4 @@ struct BusyWindow *BWDE;
  return (error);
 
 } /* Image_Composite() */
+

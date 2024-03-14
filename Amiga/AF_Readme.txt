@@ -3380,9 +3380,9 @@ Done		FoliageGUI.o 12.Mar
 Nothing		Fractal.o
 Done		GenericParams.o 12.Mar
 Done		GenericTLGUI.o 12.Mar
-Done		GlobeMap.o  14.Mar
-GlobeMapSupport.o
-GrammarTable.o
+Done		GlobeMap.o 14.Mar
+Done		GlobeMapSupport.o 14.Mar
+Nothing		GrammarTable.o
 HelpGUI.o
 HyperKhorner4M-1_gcc.o
 Images.o

@@ -5650,7 +5650,7 @@ Out of memory opening anti-alias buffer!\nOperation terminated.
 
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGREFLECTIONBUFFERCONTINUEWITHOUTRE
-Out of memory allocating Reflection buffer!\n\Continue without Reflections?
+Out of memory allocating Reflection buffer!\nContinue without Reflections?
 
 ;
 MSG_GLMP_CONTINUECANCEL
@@ -5674,7 +5674,7 @@ Out of memory opening key frame table!\nOperation terminated.
 
 ;
 MSG_GLMP_ERRORLOADINGWAVEFILECONSTSTRPTRCONTINUEWITHOUTWAVES
-Error loading Wave File!\n\(CONST_STRPTR)Continue without Waves?
+Error loading Wave File!\nContinue without Waves?
 
 ;
 MSG_GLMP_RENDERMODULECLOUDS
@@ -5694,15 +5694,15 @@ Master CMap Header File
 
 ;
 MSG_GLMP_ERRORLOADINGMASTERCOLORMAPSEESTATUSLOGFORMOREINFORMATI
-Error loading Master Color Map! See Status Log for more information.\n\Continue rendering without Color Map?
+Error loading Master Color Map! See Status Log for more information.\nContinue rendering without Color Map?
 
 ;
 MSG_GLMP_ERRORLOADINGSTRATADEFORMATIONMAPCONTINUERENDERINGWITHO
-Error loading Strata Deformation Map!\n\Continue rendering without Deformation Map?
+Error loading Strata Deformation Map!\nContinue rendering without Deformation Map?
 
 ;
 MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX
-Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?
+Out of memory creating Noise Map!\nContinue rendering without Texture Noise?
 
 ;
 MSG_GLMP_RENDERMEMORYALLOCATED
@@ -5802,7 +5802,7 @@ Out of memory allocating Smoothing Index array!
 
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGFRACTALMAPARRAYCONTINUEWITHOUTFRA
-Out of memory allocating Fractal Map array!\n\Continue without Fractal Maps or retry?
+Out of memory allocating Fractal Map array!\nContinue without Fractal Maps or retry?
 
 ;
 MSG_GLMP_CONTINUERETRYCANCEL
@@ -5844,4 +5844,57 @@ Error allocating memory for paged-out file! Can't restore Reflection buffers. Op
 MSG_GLMP_ERROROPENINGPAGEDOUTFILECANTRESTOREREFLECTIONBUFFERSOP
 Error opening paged-out file! Can't restore Reflection buffers. Operation terminated.
 
+;
+;
+MSG_GLMPSPRT_FRAMEDVPLATFVPLONFVPALTF
+Frame %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
+
+;
+MSG_GLMPSPRT_QMAXFQFOCUSFBANKINGF
+Q max=%f, Q focus=%f, Banking=%f\n
+
+;
+MSG_GLMPSPRT_SKY
+Sky
+Himmel
+;
+MSG_GLMPSPRT_HORLINEZENITHLINE
+horline=%d, zenithline=%d\n
+Horizontlinie=%d, Zenitlinie=%d\n
+;
+MSG_GLMPSPRT_REFLECTIONS
+Reflections
+Reflektionen
+;
+MSG_GLMPSPRT_SUN
+Sun
+Sonne
+;
+MSG_GLMPSPRT_SUNHALO
+Sun Halo
+Sonnen-Halo
+;
+MSG_GLMPSPRT_RENDERMODULE
+Render Module
+
+;
+MSG_GLMPSPRT_ERRORLOADINGSUNIMAGEPERATIONTERMINATED
+Error loading Sun Image!\nOperation terminated.
+Fehler beim Laden des Sonnenbildes!\nVorgang abgebrochen.
+;
+MSG_GLMPSPRT_OK
+OK
+
+;
+MSG_GLMPSPRT_MOON
+Moon
+Mond
+;
+MSG_GLMPSPRT_MOONHALO
+Moon Halo
+Mondhof
+;
+MSG_GLMPSPRT_ERRORLOADINGMOONIMAGEPERATIONTERMINATED
+Error loading Moon Image!\nOperation terminated.
+Fehler beim Laden des Mondbildes!\nVorgang abgebrochen.
 ;
