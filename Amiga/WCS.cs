@@ -5898,3 +5898,39 @@ MSG_GLMPSPRT_ERRORLOADINGMOONIMAGEPERATIONTERMINATED
 Error loading Moon Image!\nOperation terminated.
 Fehler beim Laden des Mondbildes!\nVorgang abgebrochen.
 ;
+;
+MSG_INTDRW_DRAWING
+Drawing...
+
+;
+MSG_INTDRW_INTERACTIVEMOTIONMODULE
+Interactive Motion Module
+
+;
+MSG_INTDRW_OUTOFMEMORYIDDENLINEREMOVALNOTAVAILABLE
+Out of memory!\nHidden line removal not available.
+
+;
+MSG_INTDRW_OK
+OK
+
+;
+MSG_INTDRW_COMPASS
+Compass
+
+;
+MSG_INTDRW_PARAMETERSMODULEPATH
+Parameters Module: Path
+
+;
+MSG_INTDRW_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED
+Out of memory opening key frame table!\nOperation terminated.
+
+;
+MSG_INTDRW_ANIM
+Anim
+
+;
+MSG_INTDRW_FRAME
+Frame %d/%d
+

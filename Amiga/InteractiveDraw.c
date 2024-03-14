@@ -3,6 +3,9 @@
 ** Written by Gary R. Huber and Chris "Xenon" Hanson, 8/93.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
 #include <time.h>
@@ -47,7 +50,7 @@ float fDx, fDy, fDq;
   SetPointer(InterWind0, WaitPointer, 16, 16, -6, 0);
   if (EMIA_Win) SetPointer(EMIA_Win->Win, WaitPointer, 16, 16, -6, 0);
   if (EM_Win) SetPointer(EM_Win->Win, WaitPointer, 16, 16, -6, 0);
-  BW = BusyWin_New("Drawing...", NoOfElMaps * 2, 1, MakeID('B','W','I','D'));
+  BW = BusyWin_New((char*)GetString( MSG_INTDRW_DRAWING ), NoOfElMaps * 2, 1, MakeID('B','W','I','D'));  // "Drawing..."
   constructview();
   if (! computeview(NULL))
    {
@@ -465,8 +468,10 @@ if (! IA_GridStyle) /* If hidden-line-removed */
   RasHeight = InterWind0->Height;
   if ((TempRastPtr = AllocRaster(RasWidth, RasHeight)) == NULL)
    {
-   User_Message((CONST_STRPTR)"Interactive Motion Module",
-           (CONST_STRPTR)"Out of memory!\nHidden line removal not available.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_INTDRW_INTERACTIVEMOTIONMODULE ),                  // "Interactive Motion Module"
+                GetString( MSG_INTDRW_OUTOFMEMORYIDDENLINEREMOVALNOTAVAILABLE ),  // "Out of memory!\nHidden line removal not available."
+                GetString( MSG_INTDRW_OK ),                                       // "OK"
+                (CONST_STRPTR)"o");
    return (1);
    } /* if out of memory initializing TmpRas */
   DrawRast->AreaInfo = &AreaInfo;
@@ -1186,7 +1191,7 @@ short make_compass(void)
 
  InterWind2 = (struct Window *)
      make_window(IA_CompLeft, IA_CompTop, IA_CompWidth, IA_CompHeight,
-	"Compass", flags, (IPTR)NULL, c0, c1, WCSScrn);
+	(char*)GetString( MSG_INTDRW_COMPASS ), flags, (IPTR)NULL, c0, c1, WCSScrn);  // "Compass"
  if (! InterWind2) {
   return 1;
  } /* if */
@@ -1521,9 +1526,10 @@ void Play_Motion(struct RenderAnim *RA)
 
  if (! BuildKeyTable())
   {
-  User_Message((CONST_STRPTR)"Parameters Module: Path",
-          (CONST_STRPTR)"Out of memory opening key frame table!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_INTDRW_PARAMETERSMODULEPATH ),                               // "Parameters Module: Path"
+               GetString( MSG_INTDRW_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening key frame table!\nOperation terminated."
+               GetString( MSG_INTDRW_OK ),                                                 // "OK"
+               (CONST_STRPTR)"o");
   goto EndPlay;
   } /* if no key table */
 
@@ -1541,7 +1547,7 @@ void Play_Motion(struct RenderAnim *RA)
   else
    EndFrame = KT_MaxFrames;
   FrameStep = RA->FrameStep;
-  BWAN = BusyWin_New("Anim", EndFrame - StartFrame, 1, MakeID('B','W','A','N'));
+  BWAN = BusyWin_New((char*)GetString( MSG_INTDRW_ANIM ), EndFrame - StartFrame, 1, MakeID('B','W','A','N'));  // "Anim"
   } /* if more than one DEM */
  else
   {
@@ -1584,7 +1590,7 @@ void Play_Motion(struct RenderAnim *RA)
      else sprintf(graphname, "%s00%d", basename, frame);
      } /* if bitmap file output */
     IA->recompute = 1;
-    sprintf(FrameStr, "Frame %d/%d", frame - StartFrame + 1, EndFrame - StartFrame + 1);
+    sprintf(FrameStr, (char*)GetString( MSG_INTDRW_FRAME ), frame - StartFrame + 1, EndFrame - StartFrame + 1);  // "Frame %d/%d"
     BW = BusyWin_New(FrameStr, NoOfElMaps * 2, 1, MakeID('B','W','I','D'));
 
     if (! computeview(NULL))

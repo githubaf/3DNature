@@ -3383,10 +3383,10 @@ Done		GenericTLGUI.o 12.Mar
 Done		GlobeMap.o 14.Mar
 Done		GlobeMapSupport.o 14.Mar
 Nothing		GrammarTable.o
-HelpGUI.o
-HyperKhorner4M-1_gcc.o
-Images.o
-InteractiveDraw.o
+Nothing		HelpGUI.o
+Notthing	HyperKhorner4M-1_gcc.o
+Nothing		Images.o
+Done		InteractiveDraw.o 14.Mar
 InteractiveUtils.o
 InteractiveView.o
 LWSupport.o
