@@ -5934,3 +5934,135 @@ Anim
 MSG_INTDRW_FRAME
 Frame %d/%d
 
+;
+MSG_INTUTIL_AUTOCENTEREDALTFLATFLONF
+Auto-centered: alt = %f  lat = %f  lon = %f\n
+Auto-zentriert: Höhe = %f  Breite = %f  Länge  = %f\n
+;
+MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW
+Parameters Module: Camera View
+
+;
+MSG_INTVIEW_YOUMUSTFIRSTLOADACOMPLETEPARAMETERFILE
+You must first load a complete Parameter file!
+
+;
+MSG_INTVIEW_OK
+OK
+
+;
+MSG_INTVIEW_COMPLETEPARAMETERFILE
+Complete parameter file
+
+;
+MSG_INTVIEW_THEREARENOOBJECTSINTHISDATABASEPERATIONTERMINATED
+There are no objects in this Database!\nOperation terminated
+
+;
+MSG_INTVIEW_NOOBJECTSINDATABASE
+No objects in Database
+
+;
+MSG_INTVIEW_EDITINGMODULEINTERACTIVE
+Editing Module: Interactive
+
+;
+MSG_INTVIEW_CAMERAVIEWFAILEDTOOPENPERATIONTERMINATED
+Camera View failed to open!\nOperation terminated.
+
+;
+MSG_INTVIEW_CAMERAVIEW
+Camera View
+
+;
+MSG_INTVIEW_OUTOFMEMORYOPENINGCAMERAVIEWPERATIONTERMINATED
+Out of memory opening Camera View!\nOperation terminated.
+
+;
+MSG_INTVIEW_OUTOFMEMORYLOADINGDEMSNCREASEGRIDSIZE
+Out of memory loading DEMs!\nIncrease grid size?
+
+;
+MSG_INTVIEW_OKCANCEL
+OK|Cancel
+
+;
+MSG_INTVIEW_NODEMOBJECTSACTIVEPERATIONTERMINATED
+No DEM objects active!\nOperation terminated.
+
+;
+MSG_INTVIEW_ELEVATIONMAPSLOADED
+Elevation maps loaded = %d.\n
+
+;
+MSG_INTVIEW_OUTOFMEMORYOPENINGZBUFFERPERATIONTERMINATED
+Out of memory opening Z buffer!\nOperation terminated.
+
+;
+MSG_INTVIEW_OUTOFMEMORYOPENINGANTIALIASBUFFERPERATIONTERMINATED
+Out of memory opening Antialias buffer!\nOperation terminated.
+
+;
+MSG_INTVIEW_IMAGE
+Image
+
+;
+MSG_INTVIEW_OUTOFMEMORYALLOCATINGDEMARRAY
+Out of memory allocating DEM array!\n
+
+;
+MSG_INTVIEW_RETRYCANCEL
+Retry|Cancel
+
+;
+MSG_INTVIEW_RENDERMODULE
+Render Module
+
+;
+MSG_INTVIEW_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIO
+Out of memory allocating antialias and edge buffers!\nOperation terminated.
+
+;
+MSG_INTVIEW_GRIDMUSTBEPRESENTPLEASEREDRAWANDTRYAGAIN
+Grid must be present, please redraw and try again.
+
+;
+MSG_INTVIEW_SELECTPREVIEWREGIONWITHTWOCLICKS
+Select preview region with two clicks
+
+;
+MSG_INTVIEW_ERROROPENINGSMALLRENDERINGWINDOWPERATIONTERMINATED
+Error opening Small Rendering Window!\nOperation terminated.
+
+;
+MSG_INTVIEW_SMALLRENDERINGWINDOW
+Small rendering window.
+
+;
+MSG_INTVIEW_ERROROPENINGDEMFILEFORINPUTPERATIONTERMINATED
+Error opening DEM file for input!\nOperation terminated.
+
+;
+MSG_INTVIEW_OUTOFMEMORYTRYASMALLERPREVIEWSIZEPERATIONTERMINATED
+Out of memory! Try a smaller preview size.\nOperation terminated.
+
+;
+MSG_INTVIEW_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+
+;
+MSG_INTVIEW_ECOSYSTEMS
+Ecosystems:
+
+;
+MSG_INTVIEW_PARAMETERSMODULEPREVIEW
+Parameters Module: Preview
+
+;
+MSG_INTVIEW_RESTORETHEPARAMETERSUSEDTOCREATETHISPREVIEW
+Restore the Parameters used to create this preview?
+
+;
+MSG_INTVIEW_INTERACTIVEMOTION
+Interactive Motion
+

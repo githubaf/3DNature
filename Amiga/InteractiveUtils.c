@@ -3,6 +3,9 @@
 ** Written by Gary R. Huber and Chris "Xenon" Hanson, 8/93.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 
 STATIC_FCN void DisableBoundsButtons(void); // used locally only -> static, AF 26.7.2021
@@ -207,7 +210,7 @@ void autocenter(void)
 
  IA->recompute = 1;
 
- sprintf(str, "Auto-centered: alt = %f  lat = %f  lon = %f\n",
+ sprintf(str, (char*)GetString( MSG_INTUTIL_AUTOCENTEREDALTFLATFLONF ),  // "Auto-centered: alt = %f  lat = %f  lon = %f\n"
 		PAR_FIRST_MOTION(3),
 		PAR_FIRST_MOTION(4), PAR_FIRST_MOTION(5));
  Log(MSG_NULL, (CONST_STRPTR)str);
