@@ -6066,3 +6066,8 @@ Restore the Parameters used to create this preview?
 MSG_INTVIEW_INTERACTIVEMOTION
 Interactive Motion
 
+;
+MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI
+Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?
+
+;

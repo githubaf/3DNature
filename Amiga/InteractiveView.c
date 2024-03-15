@@ -619,10 +619,10 @@ RepeatAllocate:
    NumPoints = 6 * elmap[i].columns;
    if ((elmap[i].face = (struct faces *)get_Memory(NumPoints * sizeof (struct faces) , MEMF_ANY)) == NULL)
     {
-    if (User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),  // "Camera View"
-                     (CONST_STRPTR)"Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?",
-					 (CONST_STRPTR)"OK|Cancel",
-					 (CONST_STRPTR)"oc"))
+    if (User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                           // "Camera View"
+                     GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
+                     GetString( MSG_INTVIEW_OKCANCEL ),                                             // "OK|Cancel"
+                    (CONST_STRPTR)"oc"))
      {
      settings.smoothfaces = 0;
      } /* if out of memory, try again */
@@ -1168,10 +1168,10 @@ void smallwindow(short diagnostics)
    if ((SmWin[WindowNumber]->elmap.face = (struct faces *)
 	get_Memory(NumPoints * sizeof (struct faces), MEMF_ANY)) == NULL)
     {
-    if (User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),  // "Camera View"
-                    (CONST_STRPTR)"Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?",
-			        (CONST_STRPTR)"OK|Cancel",
-					(CONST_STRPTR)"oc"))
+    if (User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                           // "Camera View"
+                     GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
+                     GetString( MSG_INTVIEW_OKCANCEL ),                                             // "OK|Cancel"
+                     (CONST_STRPTR)"oc"))
      {
      settings.smoothfaces = 0;
      SmWin[WindowNumber]->elmap.face = NULL;
