@@ -4,6 +4,9 @@
 ** Motion import and export functions formerly in EdPar.c, written 1994.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 /*
 struct LightWaveMotion {
@@ -69,7 +72,7 @@ short ExportWave(struct LightWaveInfo *LWInfo, FILE *Supplied)
   strcpy(LWInfo->Name, projectname);
   LWInfo->Name[strlen(LWInfo->Name) - 4] = 0;
   strcat(LWInfo->Name, "LWM");
-  if (! getfilename(1, "Export Motion Path/File", LWInfo->Path, LWInfo->Name))
+  if (! getfilename(1, (char*)GetString( MSG_LWSPRT_EXPORTMOTIONPATHFILE ), LWInfo->Path, LWInfo->Name))  // "Export Motion Path/File"
   {
    return (0);
   }
@@ -174,27 +177,35 @@ EndWave:
    {
    case 2:
     {
-    User_Message((CONST_STRPTR)"LightWave Motion: Export",
-            (CONST_STRPTR)"No Key Frames to export!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT ),                  // "LightWave Motion: Export"
+                 GetString( MSG_LWSPRT_NOKEYFRAMESTOEXPORTPERATIONTERMINATED ),  // "No Key Frames to export!\nOperation terminated."
+                 GetString( MSG_LWSPRT_OK ),                                     // "OK"
+                 (CONST_STRPTR)"o");
     break;
     } /* no key frames */
    case 3:
     {
-    User_Message((CONST_STRPTR)"LightWave Motion: Export",
-            (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT ),          // "LightWave Motion: Export"
+                 GetString( MSG_LWSPRT_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                 GetString( MSG_LWSPRT_OK ),                             // "OK"
+                 (CONST_STRPTR)"o");
     break;
     } /* file write fail */
    case 4:
     {
-    User_Message((CONST_STRPTR)"LightWave Motion: Export",
-            (CONST_STRPTR)"Error opening file for output!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT ),                        // "LightWave Motion: Export"
+                 GetString( MSG_LWSPRT_ERROROPENINGFILEFOROUTPUTPERATIONTERMINATED ),  // "Error opening file for output!\nOperation terminated."
+                 GetString( MSG_LWSPRT_OK ),                                           // "OK"
+                 (CONST_STRPTR)"o");
     Log(ERR_OPEN_FAIL, (CONST_STRPTR)LWInfo->Name);
     break;
     } /* no memory */
    case 5:
     {
-    User_Message((CONST_STRPTR)"LightWave Motion: Export",
-            (CONST_STRPTR)"Error writing to file!\nOperation terminated prematurely.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT ),                            // "LightWave Motion: Export"
+                 GetString( MSG_LWSPRT_ERRORWRITINGTOFILEPERATIONTERMINATEDPREMATURELY ),  // "Error writing to file!\nOperation terminated prematurely."
+                 GetString( MSG_LWSPRT_OK ),                                               // "OK"
+                 (CONST_STRPTR)"o");
     Log(ERR_WRITE_FAIL, (CONST_STRPTR)LWInfo->Name);
     break;
     } /* file open fail */
@@ -360,7 +371,7 @@ struct coords DP;
   strcpy(Ptrn, "#?.elev");
   strcpy(DEMPath, dirname);
   DEMName[0] = 0;
-  if (! getfilenameptrn(0, "DEM file to export", DEMPath, DEMName, Ptrn))
+  if (! getfilenameptrn(0, (char*)GetString( MSG_LWSPRT_DEMFILETOEXPORT ), DEMPath, DEMName, Ptrn))  // "DEM file to export"
    {
    return (0);
    } /* if */
@@ -368,8 +379,9 @@ struct coords DP;
   if (readDEM(filename, &map))
    {
    User_Message_Def((CONST_STRPTR)DEMName,
-           (CONST_STRPTR)"Error loading DEM Object!\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+                    GetString( MSG_LWSPRT_ERRORLOADINGDEMOBJECTPERATIONTERMINATED ),  // "Error loading DEM Object!\nOperation terminated."
+                    GetString( MSG_LWSPRT_OK ),                                       // "OK"
+                    (CONST_STRPTR)"o", 0);
    goto EndExport;
    } /* if error reading DEM */
   } /* if no object name supplied */
@@ -398,8 +410,10 @@ struct coords DP;
    {
    Log(WNG_OPEN_FAIL, (CONST_STRPTR)DEMName);
    User_Message_Def((CONST_STRPTR)DEMName,
-           (CONST_STRPTR)"Error loading DEM Object!\nObject not saved.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+                    GetString( MSG_LWSPRT_ERRORLOADINGDEMOBJECTBJECTNOTSAVED ),  // "Error loading DEM Object!\nObject not saved."
+                    GetString( MSG_LWSPRT_OK ),                                  // "OK"
+                    (CONST_STRPTR)"o",
+                    0);
    goto EndExport;
    } /* if */
   } /* else find the object and read it */
@@ -445,8 +459,10 @@ struct coords DP;
 
  if (! VertexData || ! PolyData)
   {
-  User_Message_Def((CONST_STRPTR)"LW Object Export", (CONST_STRPTR)"Out of memory!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+  User_Message_Def(GetString( MSG_LWSPRT_LWOBJECTEXPORT ),                 // "LW Object Export"
+                   GetString( MSG_LWSPRT_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                   GetString( MSG_LWSPRT_OK ),                             // "OK"
+                   (CONST_STRPTR)"o", 0);
   goto EndExport;
   } /* if */
 
@@ -541,7 +557,7 @@ struct coords DP;
   strcat(DEMName, ".LWO");
   if (altobjectpath[0] == 0)
    strcpy(altobjectpath, "WCSProjects:");
-  if (! getfilename(1, "LW Object path/file", altobjectpath, DEMName))
+  if (! getfilename(1, (char*)GetString( MSG_LWSPRT_LWOBJECTPATHFILE ), altobjectpath, DEMName))  // "LW Object path/file"
    {
    goto EndExport;
    } /* if */
@@ -630,7 +646,7 @@ struct coords PP;
  if (! strcmp(&SceneFile[strlen(SceneFile) - 5], ".proj"))
   SceneFile[strlen(SceneFile) - 5] = 0;
  strcat(SceneFile, ".LWS");
- if (! getfilename(1, "Scene Path/File", ScenePath, SceneFile))
+ if (! getfilename(1, (char*)GetString( MSG_LWSPRT_SCENEPATHFILE ), ScenePath, SceneFile))  // "Scene Path/File"
   {
   return;
   } /* if */
@@ -659,17 +675,17 @@ struct coords PP;
 /* dem path */
  strcpy(DEMPath, ScenePath);
  if(strlen(DEMPath)==0){
-     printf("strlen von DEMPath ist 0!\n");
+     printf((char*)GetString( MSG_LWSPRT_STRLENOFDEMPATHIS0 ));  // "strlen of DEMPath is 0!\n"
      return;
  }
  if(DEMPath[strlen(DEMPath)-1]!=':')
  {
-     strcat(DEMPath, "/");     // AF: only a / of path does not end with : (Drive-Name)
+     strcat(DEMPath, "/");     // AF: only a / if path does not end with : (Drive-Name)
  }
  strcat(DEMPath, "Objects");
 
  DEMName[0] = 0;
- if (! getfilename(1, "LW DEM Object Path", DEMPath, DEMName))
+ if (! getfilename(1, (char*)GetString( MSG_LWSPRT_LWDEMOBJECTPATH ), DEMPath, DEMName))  // "LW DEM Object Path"
   {
   return;
   } /* if */
@@ -1118,15 +1134,16 @@ EndExport:
   } /* if file opened */
 
  if (error)
-  User_Message_Def((CONST_STRPTR)"LW Scene Export", (CONST_STRPTR)"A problem occurred saving the LW scene.\n\
-If a file was created it will not be complete and may not load properly into LightWave.",
-(CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+  User_Message_Def(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+                   GetString( MSG_LWSPRT_APROBLEMOCCURREDSAVINGTHELWSCENEFAFILEWASCREATEDITWILLNOTBE ),  // "A problem occurred saving the LW scene.\nIf a file was created it will not be complete and may not load properly into LightWave."
+                   GetString( MSG_LWSPRT_OK ),                                                           // "OK"
+                   (CONST_STRPTR)"o", 0);
 
  if (NotFound)
-  User_Message_Def((CONST_STRPTR)"LW Scene Export", (CONST_STRPTR)"The output image size is not a standard\
- LightWave image size. The zoom factor and image dimensions may not be\
- portrayed correctly in the scene file just created.",
- (CONST_STRPTR)"OK", (CONST_STRPTR)"o", 0);
+  User_Message_Def(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+                   GetString( MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA ),  // "The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created."
+                   GetString( MSG_LWSPRT_OK ),                                                           // "OK"
+                   (CONST_STRPTR)"o", 0);
 
 } /* LWScene_Export() */
 

@@ -6071,3 +6071,76 @@ MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI
 Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?
 
 ;
+;
+MSG_LWSPRT_EXPORTMOTIONPATHFILE
+Export Motion Path/File
+
+;
+MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT
+LightWave Motion: Export
+
+;
+MSG_LWSPRT_NOKEYFRAMESTOEXPORTPERATIONTERMINATED
+No Key Frames to export!\nOperation terminated.
+
+;
+MSG_LWSPRT_OK
+OK
+
+;
+MSG_LWSPRT_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+
+;
+MSG_LWSPRT_ERROROPENINGFILEFOROUTPUTPERATIONTERMINATED
+Error opening file for output!\nOperation terminated.
+
+;
+MSG_LWSPRT_ERRORWRITINGTOFILEPERATIONTERMINATEDPREMATURELY
+Error writing to file!\nOperation terminated prematurely.
+
+;
+MSG_LWSPRT_DEMFILETOEXPORT
+DEM file to export
+
+;
+MSG_LWSPRT_ERRORLOADINGDEMOBJECTPERATIONTERMINATED
+Error loading DEM Object!\nOperation terminated.
+
+;
+MSG_LWSPRT_ERRORLOADINGDEMOBJECTBJECTNOTSAVED
+Error loading DEM Object!\nObject not saved.
+
+;
+MSG_LWSPRT_LWOBJECTEXPORT
+LW Object Export
+LW Objekt Export
+;
+MSG_LWSPRT_LWOBJECTPATHFILE
+LW Object path/file
+LW Objekt Pfad/Dateiname
+;
+MSG_LWSPRT_SCENEPATHFILE
+Scene Path/File
+Szene Pfad/Dateiname
+;
+MSG_LWSPRT_STRLENOFDEMPATHIS0
+strlen of DEMPath is 0!\n
+strlen von DEMPath ist 0!\n
+;
+MSG_LWSPRT_LWDEMOBJECTPATH
+LW DEM Object Path
+LW DEM Objekt Pfad
+;
+MSG_LWSPRT_LWSCENEEXPORT
+LW Scene Export
+LW Szene Export
+;
+MSG_LWSPRT_APROBLEMOCCURREDSAVINGTHELWSCENEFAFILEWASCREATEDITWILLNOTBE
+A problem occurred saving the LW scene.\nIf a file was created it will not be complete and may not load properly into LightWave.
+
+;
+MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA
+The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created.
+
+;

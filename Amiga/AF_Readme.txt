@@ -3389,7 +3389,7 @@ Nothing		Images.o
 Done		InteractiveDraw.o 14.Mar
 Done		InteractiveUtils.o 15.Mar
 Done		InteractiveView.o 15.Mar
-LWSupport.o
+Done		LWSupport.o 19.Mar
 LineSupport.o
 MUIFloatInt.o
 MakeFaces.o
@@ -3436,4 +3436,10 @@ cat WCS_strings.h | awk '/#define MSG_DEMGUI.*_STR/{next}  /#define MSG_DEMGUI/{
 # Suchen und Anzeigen der MSG-Defines, die nicht benutzt werden. Ev. mit find in allen c/h Files.
 for DEFINE in $(cat af_DEMGUI_defs.txt); do grep $DEFINE DEMGUI.c >/dev/null || echo $DEFINE; done
 
+15.Mar2024
+----------
+Bei der Localisierung stören Multiline-Strings, die einen Backslash am Ende einer Zeile haben. Damit kommt SimpleCat nicht richtig klar.
+Also diese zunächst zu einer Zeile zusammenfügen. Um sie erst einmal vorab zu finden:
+
+egrep -nH "\".*\\\\$" LWSupport.c
 
