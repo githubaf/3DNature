@@ -6144,3 +6144,128 @@ MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA
 The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created.
 
 ;
+;
+MSG_LINESPRT_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCREATEA
+Digitize new points for the active vector object or create a new object?
+
+;
+MSG_LINESPRT_ACTIVENEWCANCEL
+Active|New|Cancel
+
+;
+MSG_LINESPRT_DIAGNOSTICDIGITIZE
+Diagnostic: Digitize
+
+;
+MSG_LINESPRT_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIONTERM
+Active object is a DEM and may not be digitized!\nOperation terminated.
+
+;
+MSG_LINESPRT_OK
+OK
+
+;
+MSG_LINESPRT_INTERACTIVEMODULEADDPOINTS
+Interactive Module: Add Points
+
+;
+MSG_LINESPRT_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+
+;
+MSG_LINESPRT_SAVEOBJECTPOINTS
+Save object points?
+
+;
+MSG_LINESPRT_MAPPINGMODULEPATH
+Mapping Module: Path
+
+;
+MSG_LINESPRT_ADATABASE
+a Database
+
+;
+MSG_LINESPRT_APARAMETERFILE
+a Parameter file
+
+;
+MSG_LINESPRT_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED
+Error loading vector object!\nOperation terminated.
+
+;
+MSG_LINESPRT_CAMERAKEYFRAMESEXISTPROCEEDINGWILLDELETECURRENTVAL
+Camera Key Frames exist. Proceeding will delete current values!
+
+;
+MSG_LINESPRT_PROCEEDCANCEL
+Proceed|Cancel
+
+;
+MSG_LINESPRT_FOCUSKEYFRAMESEXISTPROCEEDINGWILLDELETECURRENTVALU
+Focus Key Frames exist. Proceeding will delete current values!
+
+;
+MSG_LINESPRT_ENTERFRAMEINTERVALTOREPRESENTEACHVECTORSEGMENT
+Enter frame interval to represent each vector segment.
+
+;
+MSG_LINESPRT_USEELEVATIONDATA
+Use elevation data?
+
+;
+MSG_LINESPRT_YESNO
+Yes|No
+Ja|Nein
+;
+MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC
+Modify altitudes with current flattening, datum and vertical exaggeration?
+
+;
+MSG_LINESPRT_OUTOFMEMORYCREATINGKEYFRAMESPERATIONTERMINATED
+Out of memory creating Key Frames!\nOperation terminated.
+
+;
+MSG_LINESPRT_USEALLSPLINEDPOINTSORONLYKEYFRAMES
+Use all splined points or only Key Frames?
+
+;
+MSG_LINESPRT_ALLSPLINEDKEYFRAMES
+All Splined|Key Frames
+
+;
+MSG_LINESPRT_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED
+Out of memory opening Key Frame table!\nOperation terminated.
+
+;
+MSG_LINESPRT_THEREAREMOREFRAMESTHANALLOWABLEVECTORPOINTSPATHWIL
+There are more frames than allowable vector points! Path will be truncated.
+
+;
+MSG_LINESPRT_OKCANCEL
+OK|Cancel
+
+;
+MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED
+Enter name of vector to be created.
+
+;
+MSG_LINESPRT_DATABASEMODULE
+Database Module
+
+;
+MSG_LINESPRT_VECTORNAMEALREADYPRESENTINDATABASEVERWRITEITORTRYA
+Vector name already present in Database!\nOverwrite it or try a new name?
+
+;
+MSG_LINESPRT_OVERWRITENEWCANCEL
+Overwrite|New|Cancel
+
+;
+MSG_LINESPRT_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
+Out of memory expanding Database!\nOperation terminated.
+
+;
+MSG_LINESPRT_OUTOFMEMORYCREATINGNEWVECTOROBJECTPERATIONTERMINAT
+Out of memory creating new vector object!\nOperation terminated.
+
+;

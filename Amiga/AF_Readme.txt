@@ -3390,7 +3390,7 @@ Done		InteractiveDraw.o 14.Mar
 Done		InteractiveUtils.o 15.Mar
 Done		InteractiveView.o 15.Mar
 Done		LWSupport.o 19.Mar
-LineSupport.o
+Done		LineSupport.o 19.Mar
 MUIFloatInt.o
 MakeFaces.o
 Map.o
