@@ -2,10 +2,13 @@
 # rejects commits of UTF-8 text files. 
 # copy this file to .git/hooks
 
+set -e  # Abort on Errors
+set -x  # show commands
+
 FILE_LIST="$(git diff --cached --name-only)"
 
 for FILE in $FILE_LIST; do
-    if [ $(file "$FILE" | grep -c "UTF-8") -ne 0 ]; then
+    if [ $(file "$FILE" | grep -c "UTF-8") -ne "0" ]; then
         echo "Local pre-commit hook"
         echo "Error: File $FILE is UTF-8 encoded. Change that to ISO 8859-1 for Amiga and try again!"
         echo "Commit refused."
@@ -14,7 +17,8 @@ for FILE in $FILE_LIST; do
 done
 
 # check WCS.cs (SimpleCat) is ISO-8859
-if [ $(file /home/developer/Desktop/SelcoGit/3DNature/Amiga/WCS.cs | grep "ISO-8859") -ne 0 ]; then
+file /home/developer/Desktop/SelcoGit/3DNature/Amiga/WCS.cs | grep "ISO-8859"
+if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
    echo "Error: File $FILE is not ISO-8859 encoded. Change that to ISO 8859-1 for Amiga and try again!"
    echo "Commit refused."

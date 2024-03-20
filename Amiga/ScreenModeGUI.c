@@ -110,19 +110,19 @@ struct WCSScreenMode *ModeList_Choose(struct WCSScreenMode *This,
  struct WCSScreenData *ScrnData)
 {
 static const char *Cycle_OSCAN[6];
-Cycle_OSCAN[0]= (const char*)GetString( MSG_SCNRMODGUI_NONE );
-Cycle_OSCAN[1]= (const char*)GetString( MSG_SCNRMODGUI_TEXT );
-Cycle_OSCAN[2]= (const char*)GetString( MSG_SCNRMODGUI_STANDARD );
-Cycle_OSCAN[3]= (const char*)GetString( MSG_SCNRMODGUI_MAX );
-Cycle_OSCAN[4]= (const char*)GetString( MSG_SCNRMODGUI_VIDEO );
-Cycle_OSCAN[5]=NULL;
-
 
 struct WCSScreenMode *Scan, *Selected;
 APTR ModeSelWin, SM_Save, SM_Use, SM_Exit, SM_Width, SM_Height, SM_List, SM_Text, SM_OSCAN;
 ULONG Signalz, Finished, ReturnID;
 int CheckVal, Update;
 char *ModeText, ModeInfo[255];
+
+Cycle_OSCAN[0]= (const char*)GetString( MSG_SCNRMODGUI_NONE );
+Cycle_OSCAN[1]= (const char*)GetString( MSG_SCNRMODGUI_TEXT );
+Cycle_OSCAN[2]= (const char*)GetString( MSG_SCNRMODGUI_STANDARD );
+Cycle_OSCAN[3]= (const char*)GetString( MSG_SCNRMODGUI_MAX );
+Cycle_OSCAN[4]= (const char*)GetString( MSG_SCNRMODGUI_VIDEO );
+Cycle_OSCAN[5]=NULL;
 
 ModeSelWin = WindowObject,
  MUIA_Window_Title,  GetString( MSG_SCNRMODGUI_WORLDCONSTRUCTIONSETSCREENMODE ) ,

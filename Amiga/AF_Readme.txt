@@ -3438,8 +3438,8 @@ for DEFINE in $(cat af_DEMGUI_defs.txt); do grep $DEFINE DEMGUI.c >/dev/null || 
 
 15.Mar2024
 ----------
-Bei der Localisierung stören Multiline-Strings, die einen Backslash am Ende einer Zeile haben. Damit kommt SimpleCat nicht richtig klar.
-Also diese zunächst zu einer Zeile zusammenfügen. Um sie erst einmal vorab zu finden:
+Bei der Lokalisierung stoeren Multiline-Strings, die einen Backslash am Ende einer Zeile haben. Damit kommt SimpleCat nicht richtig klar.
+Also diese zunaechst zu einer Zeile zusammenfuegen. Um sie erst einmal vorab zu finden:
 
 egrep -nH "\".*\\\\$" LWSupport.c
-
+--- 

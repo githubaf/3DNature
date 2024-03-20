@@ -22,6 +22,10 @@ void Make_TS_Window(void)
  long open;
  static const char *TS_Cycle_AMPM[3]={NULL};
  static const char *TS_Cycle_Month[13]={NULL};
+ static const char *TS_Cycle_Date[] = {"1", "2", "3", "4", "5", "6", "7", "8",
+ 	 "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+ 	 "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", NULL};
+
  static int Init=TRUE;
 
  if(Init)
@@ -46,9 +50,6 @@ void Make_TS_Window(void)
  TS_Cycle_Month[11] = (char*)GetString( MSG_EVMORGUI_DEC );  // "Dec",
  TS_Cycle_Month[12] = NULL;
  }
- static const char *TS_Cycle_Date[] = {"1", "2", "3", "4", "5", "6", "7", "8",
-	 "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-	 "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", NULL};
 
  if (TS_Win)
   {
