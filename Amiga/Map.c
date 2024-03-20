@@ -5,6 +5,9 @@
 ** Rewrote makemap on 11 Jan 1995 -CXH
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
 
@@ -57,15 +60,16 @@ void alignmap(struct Box *Bx)
  else if (mapscale <= 0.0) error = 1;
  if (error)
   {
-  User_Message((CONST_STRPTR)"Mapping Module: Align",
-          (CONST_STRPTR)"First set of alignment lat/lon coordinates must be larger than second and map scale must be greater than zero!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAP_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
+               GetString( MSG_MAP_FIRSTSETOFALIGNMENTLATLONCOORDINATESMUSTBELAR ),  // "First set of alignment lat/lon coordinates must be larger than second and map scale must be greater than zero!\nOperation terminated."
+               GetString( MSG_MAP_OK ),                                             // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if */
 
 StartAlign:
- MapGUI_Message(0, "\0338Set northwest reference point with mouse.");
- SetWindowTitles(MapWind0, (STRPTR) "Set northwest reference point", (UBYTE *)-1);
+ MapGUI_Message(0, (char*)GetString( MSG_MAP_SETNORTHWESTREFERENCEPOINTWITHMOUSE ));       // "\0338Set northwest reference point with mouse."
+ SetWindowTitles(MapWind0, GetString( MSG_MAP_SETNORTHWESTREFERENCEPOINT ), (UBYTE *)-1);  // "Set northwest reference point"
 
  if (! MousePtSet(&Bx->Low, NULL, 0))
   {
@@ -73,8 +77,8 @@ StartAlign:
   goto EndAlign;
   } /* if aborted */
 
- MapGUI_Message(0, "\0338Set southeast reference point. ESC=abort");
- SetWindowTitles(MapWind0, (STRPTR) "Set southeast reference point", (UBYTE *)-1);
+ MapGUI_Message(0, (char*)GetString( MSG_MAP_SETSOUTHEASTREFERENCEPOINTESCABORT ));        // "\0338Set southeast reference point. ESC=abort"
+ SetWindowTitles(MapWind0, GetString( MSG_MAP_SETSOUTHEASTREFERENCEPOINT ), (UBYTE *)-1);  // "Set southeast reference point"
 
  if (! MousePtSet(&Bx->High, &Bx->Low, 2))
   {
@@ -84,9 +88,10 @@ StartAlign:
 
  if (Bx->Low.X == Bx->High.X || Bx->Low.Y == Bx->High.Y)
   {
-  if (User_Message_Def((CONST_STRPTR)"Mapping Module: Align",
-          (CONST_STRPTR)"Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?",
-          (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+  if (User_Message_Def(GetString( MSG_MAP_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
+                       GetString( MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
+                       GetString( MSG_MAP_OKCANCEL ),                                       // "OK|Cancel"
+                       (CONST_STRPTR)"oc", 1))
    {
    goto StartAlign;
    } /* if try again */
@@ -109,7 +114,7 @@ StartAlign:
 EndAlign:
  MapGUI_Message(0, " ");
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
 } /* alignmap() */
 
@@ -169,9 +174,10 @@ else
 
 if (EcoEnabled && !paramsloaded)
  { /* <<<>>> Maybe we should make this have three choices: Cancel, Load, Default */
- User_Message((CONST_STRPTR)"Map View: Ecosystems",
-         (CONST_STRPTR)"There are no Parameters loaded! Ecosystem mapping is not available until you \
-load a Parameter file or create Default Parameters.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+ User_Message(GetString( MSG_MAP_MAPVIEWECOSYSTEMS ),                              // "Map View: Ecosystems"
+              GetString( MSG_MAP_THEREARENOPARAMETERSLOADEDECOSYSTEMMAPPINGISN ),  // "There are no Parameters loaded! Ecosystem mapping is not available until you load a Parameter file or create Default Parameters."
+              GetString( MSG_MAP_OK ),                                             // "OK"
+              (CONST_STRPTR)"o");
  set(MP->MapEco, MUIA_Selected, FALSE);
  EcoEnabled = 0;
  } /* if no parameter file */
@@ -191,7 +197,7 @@ if(vectorenabled)
  {
  DrawSteps += NoOfObjects;
  } /* if */
-BusyWin = BusyWin_New("Map Draw", DrawSteps, 0, MakeID('M','A','P','D'));
+BusyWin = BusyWin_New((char*)GetString( MSG_MAP_MAPDRAW ), DrawSteps, 0, MakeID('M','A','P','D'));  // "Map Draw"
 DMod = UserAbort = DrawSteps = 0;
 
 if(TopoEnabled || EcoEnabled)
@@ -641,8 +647,10 @@ if(TopoEnabled || EcoEnabled)
        } /* if ArraysGood */
       else
        {
-       UserAbort += (!User_Message_Def((CONST_STRPTR)"Map View: Topo Draw",
-               (CONST_STRPTR)"Memory allocation failure, cannot draw topo. Continue?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1));
+       UserAbort += (!User_Message_Def(GetString( MSG_MAP_MAPVIEWTOPODRAW ),                                // "Map View: Topo Draw"
+                                       GetString( MSG_MAP_MEMORYALLOCATIONFAILURECANNOTDRAWTOPOCONTINUE ),  // "Memory allocation failure, cannot draw topo. Continue?"
+                                       GetString( MSG_MAP_OKCANCEL ),                                       // "OK|Cancel"
+                                       (CONST_STRPTR)"oc", 1));
        } /* else */
        if(mapelmap[MapInc].lmap) /* Even if Eco isn't enabled */
        { /* unload the relel file */
@@ -802,7 +810,7 @@ FILE *felev;
 
  if(mapelmap[MapNum].lmap == NULL)
   {
-  if((mapelmap[MapNum].lmap = (long *)get_Memory(mapelmap[MapNum].size * 2, MEMF_ANY)))
+  if((mapelmap[MapNum].lmap = (LONG *)get_Memory(mapelmap[MapNum].size * 2, MEMF_ANY)))
    {
    ct = 0;
    for(Row = 0; Row <= mapelmap[MapNum].rows; Row++)
@@ -818,9 +826,10 @@ FILE *felev;
    } /* if lmap allocated */
   else
    {
-   return (User_Message((CONST_STRPTR)"Map View: Ecosystems",
-           (CONST_STRPTR)"Out of memory loading Relative Elevation file. Ecosystem mapping not available?",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o"));
+   return (User_Message(GetString( MSG_MAP_MAPVIEWECOSYSTEMS ),                              // "Map View: Ecosystems"
+                        GetString( MSG_MAP_OUTOFMEMORYLOADINGRELATIVEELEVATIONFILEECOSYS ),  // "Out of memory loading Relative Elevation file. Ecosystem mapping not available?"
+                        GetString( MSG_MAP_OK ),                                             // "OK"
+                        (CONST_STRPTR)"o"));
    } /* else no memory for lmap */
   } /* if lmap not already allocated, Don't know why it already would be but... */
 
@@ -881,7 +890,7 @@ FILE *felev;
 
 /* couldn't make a relel file either */
 
- Log(WNG_OPEN_FAIL, (CONST_STRPTR)"Relative elevation file");
+ Log(WNG_OPEN_FAIL, GetString( MSG_MAP_RELATIVEELEVATIONFILE ));  // "Relative elevation file"
  free_Memory(mapelmap[MapNum].lmap, mapelmap[MapNum].size * 2);
  This->map = NULL;
  mapelmap[MapNum].lmap = NULL;
@@ -1051,13 +1060,13 @@ short shiftmap(int OnePoint, int XCen, int YCen)
   {
   if(OnePoint)
  	 {
- 	 MapGUI_Message(0, "\0338Set center point.");
-	 SetWindowTitles(MapWind0, (STRPTR) "Set center point", (UBYTE *)-1);
+ 	 MapGUI_Message(0, (char*)GetString( MSG_MAP_SETCENTERPOINT ));                // "\0338Set center point."
+	 SetWindowTitles(MapWind0, GetString( MSG_MAP_SETCENTERPOINT ), (UBYTE *)-1);  // "Set center point"
  	 } /* if */
   else
  	 {
-	 MapGUI_Message(0, "\0338Set origin point.");
-	 SetWindowTitles(MapWind0, (STRPTR) "Set origin point", (UBYTE *)-1);
+	 MapGUI_Message(0, (char*)GetString( MSG_MAP_SETORIGINPOINT ));                // "\0338Set origin point."
+	 SetWindowTitles(MapWind0, GetString( MSG_MAP_SETORIGINPOINT ), (UBYTE *)-1);  // "Set origin point"
 	 } /* else */
   } /* != 2 */
  else
@@ -1081,8 +1090,8 @@ short shiftmap(int OnePoint, int XCen, int YCen)
  	} /* if */
  else
  	{
-	MapGUI_Message(0, "\0338Set destination point. ESC=abort");
-	SetWindowTitles(MapWind0, (STRPTR) "Set destination point", (UBYTE *)-1);
+	MapGUI_Message(0, (char*)GetString( MSG_MAP_SETDESTINATIONPOINTESCABORT ));        // "\0338Set destination point. ESC=abort"
+	SetWindowTitles(MapWind0, GetString( MSG_MAP_SETDESTINATIONPOINT ), (UBYTE *)-1);  // "Set destination point"
 	
 	if (! (success = MousePtSet(&Bx.High, &Bx.Low, 1)))
 	 goto EndShift;
@@ -1099,7 +1108,7 @@ short shiftmap(int OnePoint, int XCen, int YCen)
 EndShift:
  MapIDCMP_Restore(MapWind0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
  return (success);
 
@@ -1185,8 +1194,8 @@ short findmouse(short X, short Y, short IdentifyOnly)
  setclipbounds(MapWind0, &cb);
  if (! X && ! Y)
   {
-  MapGUI_Message(0, "\0338Select object. ESC=abort");
-  SetWindowTitles(MapWind0, (STRPTR) "Select object", (UBYTE *)-1);
+  MapGUI_Message(0, (char*)GetString( MSG_MAP_SELECTOBJECTESCABORT ));        // "\0338Select object. ESC=abort"
+  SetWindowTitles(MapWind0, GetString( MSG_MAP_SELECTOBJECT ), (UBYTE *)-1);  // "Select object"
   ModifyIDCMP(MapWind0, IDCMP_MOUSEBUTTONS | IDCMP_VANILLAKEY);
   while (! done)
    {
@@ -1202,7 +1211,7 @@ short findmouse(short X, short Y, short IdentifyOnly)
 
   MapIDCMP_Restore(MapWind0);
   MapGUI_Message(0, " ");
-  SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
   if (abortitem)
    {
    return (0);
@@ -1236,8 +1245,10 @@ short findmouse(short X, short Y, short IdentifyOnly)
    if (DBase[i].Color == 2) outline(MapWind0, i, 7, &cb);
    else outline(MapWind0, i, 2, &cb);
 
-   if (User_Message_Def((CONST_STRPTR)DBase[i].Name, (CONST_STRPTR)"Is this the correct object?", (CONST_STRPTR)"YES|NO",
-           (CONST_STRPTR)"yn", 1))
+   if (User_Message_Def((CONST_STRPTR)DBase[i].Name, 
+                        GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),  // "Is this the correct object?"
+                        GetString( MSG_MAP_YESNO ),                   // "YES|NO"
+                        (CONST_STRPTR)"yn", 1))
     {
     done = 1;
     OBN = i;
@@ -1275,8 +1286,9 @@ short findmouse(short X, short Y, short IdentifyOnly)
     if (DBase[i].Color == 2) outline(MapWind0, i, 7, &cb);
     else outline(MapWind0, i, 2, &cb);
 
-    if (User_Message_Def((CONST_STRPTR)DBase[i].Name, (CONST_STRPTR)"Is this the correct object?", (CONST_STRPTR)"YES|NO",
-            (CONST_STRPTR)"yn", 1))
+    if (User_Message_Def((CONST_STRPTR)DBase[i].Name, GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),   // "Is this the correct object?"
+                         GetString( MSG_MAP_YESNO ),                                                 // "YES|NO"
+                         (CONST_STRPTR)"yn", 1))
      {
      done = 1;
      OBN = i;
@@ -1302,7 +1314,10 @@ short findmouse(short X, short Y, short IdentifyOnly)
 
  if (! done)
   {
-  User_Message((CONST_STRPTR)"Mapping Module", (CONST_STRPTR)"Object not found!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAP_MAPPINGMODULE ),   // "Mapping Module"
+               GetString( MSG_MAP_OBJECTNOTFOUND ),  // "Object not found!"
+               GetString( MSG_MAP_OK ),              // "OK"
+               (CONST_STRPTR)"o");
   if (DBase[OBN].Color == 2) outline(MapWind0, OBN, 7, &cb);
   else outline(MapWind0, OBN, 2, &cb);
   return (-1);
@@ -1328,8 +1343,10 @@ short findmulti(void)
    return (-1);
   } /* if no database editor */
 
- SelState = User_Message_Def((CONST_STRPTR)"Map View: Multi-Select",
-         (CONST_STRPTR)"Select or de-select items?", (CONST_STRPTR)"Select|De-select|Cancel", (CONST_STRPTR)"sdc", 1);
+ SelState = User_Message_Def(GetString( MSG_MAP_MAPVIEWMULTISELECT ),     // "Map View: Multi-Select"
+                             GetString( MSG_MAP_SELECTORDESELECTITEMS ),  // "Select or de-select items?"
+                             GetString( MSG_MAP_SELECTDESELECTCANCEL ),   // "Select|De-select|Cancel"
+                             (CONST_STRPTR)"sdc", 1);
  if (SelState == 0)
   return (-1);
  if (SelState == 1)
@@ -1337,30 +1354,30 @@ short findmulti(void)
  else
   SelState = MUIV_List_Select_Off;
 
- MapGUI_Message(0, "\0338Set first corner point with mouse.");
- SetWindowTitles(MapWind0, (STRPTR) "Set first corner point with mouse", (UBYTE *)-1);
+ MapGUI_Message(0, (char*)GetString( MSG_MAP_SETFIRSTCORNERPOINTWITHMOUSE ));                // "\0338Set first corner point with mouse."
+ SetWindowTitles(MapWind0, GetString( MSG_MAP_SETFIRSTCORNERPOINTWITHMOUSE ), (UBYTE *)-1);  // "Set first corner point with mouse"
 
  if (! MousePtSet(&Bx.Low, NULL, 0))
   {
   MapIDCMP_Restore(MapWind0);
   MapGUI_Message(0, " ");
-  SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
   return (-1);
   } /* if aborted */
 
- MapGUI_Message(0, "Set second corner point. ESC=abort");
- SetWindowTitles(MapWind0, (STRPTR) "Set second corner point", (UBYTE *)-1);
+ MapGUI_Message(0, (char*)GetString( MSG_MAP_SETSECONDCORNERPOINTESCABORT ));        // "Set second corner point. ESC=abort"
+ SetWindowTitles(MapWind0, GetString( MSG_MAP_SETSECONDCORNERPOINT ), (UBYTE *)-1);  // "Set second corner point"
 
  if (! MousePtSet(&Bx.High, &Bx.Low, 2))
   {
   MapIDCMP_Restore(MapWind0);
   MapGUI_Message(0, " ");
-  SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
   return (-1);
   } /* if aborted */
  MapIDCMP_Restore(MapWind0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
  if (Bx.Low.X > Bx.High.X)
   swmem(&Bx.Low.X, &Bx.High.X, sizeof (short));
@@ -1413,8 +1430,8 @@ void addpoints(long lowj, long insert)
  struct Vertex Low, High;
 
  if ((newobj = User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
-         (CONST_STRPTR)"Digitize new points for the active vector object or create a new object?",
-         (CONST_STRPTR)"Active|New|Cancel", (CONST_STRPTR)"anc", 1)) == 0)
+         GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),   // "Digitize new points for the active vector object or create a new object?"
+         GetString( MSG_MAP_ACTIVENEWCANCEL ), (CONST_STRPTR)"anc", 1)) == 0)  // "Active|New|Cancel"
   return;
  if (newobj == 2)
   DBaseObject_New();
@@ -1422,9 +1439,10 @@ void addpoints(long lowj, long insert)
  if (! strcmp(DBase[OBN].Special, "TOP") || 
  	! strcmp(DBase[OBN].Special, "SFC"))
   {
-  User_Message((CONST_STRPTR)"Map View: Digitize",
-          (CONST_STRPTR)"Active object is a DEM and may not be digitized!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAP_MAPVIEWDIGITIZE ),                                // "Map View: Digitize"
+               GetString( MSG_MAP_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIO ),  // "Active object is a DEM and may not be digitized!\nOperation terminated."
+               GetString( MSG_MAP_OK ),                                             // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if DEM */ 
 
@@ -1460,8 +1478,10 @@ void addpoints(long lowj, long insert)
   if (InputTabletPoints(lowj, MP_DigMode))
    {
    outline(MapWind0, OBN, 2, &cb);
-   if (User_Message_Def((CONST_STRPTR)"Mapping Module: Digitize",
-           (CONST_STRPTR)"Accept new points?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+   if (User_Message_Def(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
+                        GetString( MSG_MAP_ACCEPTNEWPOINTS ),         // "Accept new points?"
+                        GetString( MSG_MAP_OKCANCEL ),                // "OK|Cancel"
+                        (CONST_STRPTR)"oc", 1))
     DBase[OBN].Flags |= 1;
    else
     {
@@ -1493,13 +1513,16 @@ EndDig:
     free_Memory(TempElev, TempSize / 4);
    } /* else */
   if (error == 1)
-   User_Message((CONST_STRPTR)"Mapping Module: Digitize",
-           (CONST_STRPTR)"Out of memory allocating new vector array!\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),                           // "Mapping Module: Digitize"
+                GetString( MSG_MAP_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTE ),   // "Out of memory allocating new vector array!\nOperation terminated."
+                GetString( MSG_MAP_OK ),                                              // "OK"
+                (CONST_STRPTR)"o");
   if (! error)
    {
-   if (User_Message_Def((CONST_STRPTR)"Mapping Module: Digitize",
-           (CONST_STRPTR)"Conform vector to terrain now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+   if (User_Message_Def(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+                        GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
+                        GetString( MSG_MAP_OKCANCEL ),                   // "OK|Cancel"
+                        (CONST_STRPTR)"oc", 1))
     {
     if (! topoload)
      error = loadtopo();
@@ -1507,7 +1530,7 @@ EndDig:
      {
      if (! maptotopo(OBN))
       {
-      sprintf (str, "Vector %s conformed to topography.", DBase[OBN].Name);
+      sprintf (str, (char*)GetString( MSG_MAP_VECTORCONFORMEDTOTOPOGRAPHY ), DBase[OBN].Name);  // "Vector %s conformed to topography."
       Log(MSG_NULL, (CONST_STRPTR)str);
       } /* if conform to terrain */
      } /* if topos loaded */
@@ -1537,8 +1560,8 @@ EndDig:
  while (! done)
   {
 
-  if (! j) strcpy(str, "\0338Set Label Point.  RETURN=interpolate C=close Q=quit");
-  else sprintf(str, "\0338Set Point: %d.  RETURN=interpolate C=close Q=quit", j);
+  if (! j) strcpy(str, (char*)GetString( MSG_MAP_SETLABELPOINTRETURNINTERPOLATECCLOSEQQUIT ));  // "\0338Set Label Point.  RETURN=interpolate C=close Q=quit"
+  else sprintf(str,  (char*)GetString( MSG_MAP_SETPOINTRETURNINTERPOLATECCLOSEQQUIT ), j);      // "\0338Set Point: %d.  RETURN=interpolate C=close Q=quit"
   MapGUI_Message(0, str);
 
   FetchEvent(MapWind0, &Event);
@@ -1638,7 +1661,7 @@ EndDig:
    } /* switch Event.Class */
   } /* while ! done */
 
- MapGUI_Message(0, "\0338RETURN to accept, ESC to cancel");
+ MapGUI_Message(0, (char*)GetString( MSG_MAP_RETURNTOACCEPTESCTOCANCEL ));  // "\0338RETURN to accept, ESC to cancel"
  done = 0;
  ModifyIDCMP(MapWind0, IDCMP_VANILLAKEY);
  while (! done)
@@ -1652,8 +1675,10 @@ EndDig:
      {
      if (! allocvecarray(OBN, DBase[OBN].Points + j - lowj, 0))
       {
-      User_Message((CONST_STRPTR)"Mapping Module: Insert Points",
-              (CONST_STRPTR)"Out of memory! Operation failed.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+      User_Message(GetString( MSG_MAP_MAPPINGMODULEINSERTPOINTS ),   // "Mapping Module: Insert Points"
+                   GetString( MSG_MAP_OUTOFMEMORYOPERATIONFAILED ),  // "Out of memory! Operation failed."
+                   GetString( MSG_MAP_OK ),                          // "OK"
+                   (CONST_STRPTR)"o");
       } /* if out of memory */
      else
       {
@@ -1681,8 +1706,10 @@ EndDig:
     done = 1;
     outline(MapWind0, OBN, 2, &cb);
     DBase[OBN].Flags |= 1;
-    if (User_Message_Def((CONST_STRPTR)"Mapping Module: Digitize",
-            (CONST_STRPTR)"Conform vector to terrain now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+    if (User_Message_Def(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+                         GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
+                         GetString( MSG_MAP_OKCANCEL ),                   // "OK|Cancel"
+                         (CONST_STRPTR)"oc", 1))
      {
      if (! topoload)
       error = loadtopo();
@@ -1690,7 +1717,7 @@ EndDig:
       {
       if (! maptotopo(OBN))
        {
-       sprintf (str, "Vector %s conformed to topography.", DBase[OBN].Name);
+       sprintf (str, (char*)GetString( MSG_MAP_VECTORCONFORMEDTOTOPOGRAPHY ), DBase[OBN].Name);  // "Vector %s conformed to topography."
        Log(MSG_NULL, (CONST_STRPTR)str);
        } /* if conform to terrain */
       } /* if topos loaded */
@@ -1775,15 +1802,19 @@ void Viewshed_Map(long OBN)
  struct BusyWindow *BWVS;
  
  if (! User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
-         (CONST_STRPTR)"Create Visual Sensitivity map for this object?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+                        GetString( MSG_MAP_CREATEVISUALSENSITIVITYMAPFORTHISOBJECT ),  // "Create Visual Sensitivity map for this object?"
+                        GetString( MSG_MAP_OKCANCEL ),                                 // "OK|Cancel"
+                        (CONST_STRPTR)"oc", 1))
   return;
 
  if (! DBase[OBN].Lat)
   {
   if (Load_Object(OBN, NULL) > 0)
    {
-   User_Message((CONST_STRPTR)"DBase[OBN].Name",
-           (CONST_STRPTR)"Error loading vector object!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_MAP_DBASEOBNNAME ),                                // "DBase[OBN].Name"
+                GetString( MSG_MAP_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED ),  // "Error loading vector object!\nOperation terminated."
+                GetString( MSG_MAP_OK ),                                          // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* if load fail */
   } /* if not loaded */
@@ -1816,15 +1847,17 @@ void Viewshed_Map(long OBN)
 	WA_MaxWidth,	WCSScrn->Width,
 	WA_MaxHeight,	WCSScrn->Height,
 	WA_IDCMP,	IDCMP_CLOSEWINDOW,
-	WA_Title,	(IPTR)"Visual Sensitivity",
+	WA_Title,	(IPTR)GetString( MSG_MAP_VISUALSENSITIVITY ),  // "Visual Sensitivity"
 	WA_CustomScreen,(IPTR)WCSScrn,
 	TAG_DONE);
 
  if (! MapWind3)
   {
-  User_Message((CONST_STRPTR)"Mapping Module",
-          (CONST_STRPTR)"Error opening viewshed window!\nExecution terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-  Log(ERR_WIN_FAIL, (CONST_STRPTR)"Mapping module");
+  User_Message(GetString( MSG_MAP_MAPPINGMODULE ),                                 // "Mapping Module"
+               GetString( MSG_MAP_ERROROPENINGVIEWSHEDWINDOWXECUTIONTERMINATED ),  // "Error opening viewshed window!\nExecution terminated."
+               GetString( MSG_MAP_OK ),                                            // "OK"
+               (CONST_STRPTR)"o");
+  Log(ERR_WIN_FAIL, GetString( MSG_MAP_MAPPINGMODULE ));  // "Mapping module"
   return;
   }
 
@@ -1835,8 +1868,10 @@ void Viewshed_Map(long OBN)
  if ((VS = (struct Viewshed *)get_Memory(sizeof (struct Viewshed), MEMF_CLEAR))
 	== NULL)
   {
-  User_Message((CONST_STRPTR)"Mapping Module: Viewshed",
-          (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),          // "Mapping Module: Viewshed"
+               GetString( MSG_MAP_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+               GetString( MSG_MAP_OK ),                             // "OK"
+               (CONST_STRPTR)"o");
   Close_Viewshed_Window();
   } /* if memory bust */
 
@@ -1853,8 +1888,10 @@ void Viewshed_Map(long OBN)
 
  if (VS->Map == NULL || VS->View == NULL)
   {
-  User_Message((CONST_STRPTR)"Mapping Module: Viewshed",
-          (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),          // "Mapping Module: Viewshed"
+               GetString( MSG_MAP_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+               GetString( MSG_MAP_OK ),                             // "OK"
+               (CONST_STRPTR)"o");
   Close_Viewshed_Window();
   } /* if memory bust */
 
@@ -1862,16 +1899,20 @@ void Viewshed_Map(long OBN)
  error = (topoload==0) ? loadtopo():0;
  if (error)
   {
-  User_Message((CONST_STRPTR)"Mapping Module: Viewshed",
-          (CONST_STRPTR)"Error reading topo maps!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),                   // "Mapping Module: Viewshed"
+               GetString( MSG_MAP_ERRORREADINGTOPOMAPSPERATIONTERMINATED ),  // "Error reading topo maps!\nOperation terminated."
+               GetString( MSG_MAP_OK ),                                      // "OK"
+               (CONST_STRPTR)"o");
   Close_Viewshed_Window();
   return;
   }
 
- SmoothMap = User_Message((CONST_STRPTR)"Mapping Module: Viewshed",
-         (CONST_STRPTR)"Smooth the map before computing viewshed?", (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc");
+ SmoothMap = User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),                // "Mapping Module: Viewshed"
+                          GetString( MSG_MAP_SMOOTHTHEMAPBEFORECOMPUTINGVIEWSHED ),  // "Smooth the map before computing viewshed?"
+                          GetString( MSG_MAP_OKCANCEL ),                             // "OK|CANCEL"
+                          (CONST_STRPTR)"oc");
  sprintf(str, "%d", 5);
- if (! GetInputString("Enter vertical offset in meters.",
+ if (! GetInputString((char*)GetString( MSG_MAP_ENTERVERTICALOFFSETINMETERS ),  // "Enter vertical offset in meters."
 	 "+.,abcdefghijklmnopqrstuvwxyz", str))
   {
   Close_Viewshed_Window();
@@ -1907,7 +1948,7 @@ void Viewshed_Map(long OBN)
   short l;
   long sum;
 
-  BWVS = BusyWin_New("Smoothing...", VS->Width, 0, (IPTR)"BWVS");
+  BWVS = BusyWin_New((char*)GetString( MSG_MAP_SMOOTHING ), VS->Width, 0, (IPTR)"BWVS");  // "Smoothing..."s
 
   memcpy(VS->View, VS->Map, VS->Mapsize);
 
@@ -1958,7 +1999,7 @@ void Viewshed_Map(long OBN)
 **	of distance from path to focus * elevation difference.
 */
 
- BWVS = BusyWin_New("Path Point", DBase[OBN].Points, 0, (IPTR)"BWVS");
+ BWVS = BusyWin_New((char*)GetString( MSG_MAP_PATHPOINT ), DBase[OBN].Points, 0, (IPTR)"BWVS");  // "Path Point"
 
  for (i=1; i<=DBase[OBN].Points; i++)
   {
@@ -2007,8 +2048,10 @@ void Viewshed_Map(long OBN)
   } /* for i=0... each path point */
  if (BWVS) BusyWin_Del(BWVS);
 
- if (User_Message((CONST_STRPTR)"Mapping Module: Viewshed",
-         (CONST_STRPTR)"Draw vectors on viewshed rendering?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn"))
+ if (User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),           // "Mapping Module: Viewshed"
+                  GetString( MSG_MAP_DRAWVECTORSONVIEWSHEDRENDERING ),  // "Draw vectors on viewshed rendering?"
+                  GetString( MSG_MAP_YESNO ),                           // "Yes|No"
+                  (CONST_STRPTR)"yn"))
   makemap(MapWind3, VS->cb.lowx, VS->cb.lowy, VS->cb.highx, VS->cb.highy, (IPTR)NULL);
 
 } /* Viewshed() */
@@ -2262,8 +2305,10 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
    if (OpenDevice((STRPTR)SERIALNAME, 0, (struct IORequest *)SerialIO, 0))
     {
     error = 1;
-    User_Message((CONST_STRPTR)"Mapping Module: Digitize",
-            (CONST_STRPTR)"Can't open serial device!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+                 GetString( MSG_MAP_CANTOPENSERIALDEVICEPERATIONTERMINATED ),  // "Can't open serial device!\nOperation terminated."
+                 GetString( MSG_MAP_OK ),                                      // "OK"
+                 (CONST_STRPTR)"o");
     } /* if open serial device failed */
    else
     {
@@ -2288,8 +2333,10 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
     WaitIO((struct IORequest *)SerialIO);
 
     
-    if (User_Message((CONST_STRPTR)"Mapping Module: Digitize",
-            (CONST_STRPTR)"Digitize new registration points?", (CONST_STRPTR)"YES|NO", (CONST_STRPTR)"yn"))
+    if (User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
+                     GetString( MSG_MAP_DIGITIZENEWREGISTRATIONPOINTS ),  // "Digitize new registration points?"
+                     GetString( MSG_MAP_YESNO ),                          // "YES|NO"
+                     (CONST_STRPTR)"yn"))
      {
      MP_Nlat = rlat[0];
      Slat = rlat[1];
@@ -2301,11 +2348,11 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
      for (i=0; i<3; i++)
       {
       if (i == 0)
-       MapGUI_Message(0, "\0338Set NW registration point. Button 3=abort");
+       MapGUI_Message(0, (char*)GetString( MSG_MAP_SETNWREGISTRATIONPOINTBUTTON3ABORT ));  // "\0338Set NW registration point. Button 3=abort"
       else if (i == 1)
-       MapGUI_Message(0, "\0338Set NE registration point. Button 3=abort");
+       MapGUI_Message(0, (char*)GetString( MSG_MAP_SETNEREGISTRATIONPOINTBUTTON3ABORT ));  // "\0338Set NE registration point. Button 3=abort"
       else
-       MapGUI_Message(0, "\0338Set SE registration point. Button 3=abort");
+       MapGUI_Message(0, (char*)GetString( MSG_MAP_SETSEREGISTRATIONPOINTBUTTON3ABORT ));  // "\0338Set SE registration point. Button 3=abort"
       SerialIO->IOSer.io_Length  = ReadSize;
       SerialIO->IOSer.io_Data    = (APTR)&SerialReadBuffer[0];
       SerialIO->IOSer.io_Command = CMD_READ;
@@ -2342,7 +2389,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
      lengthX = Rx[1] - Rx[0];
      lengthY = Ry[1] - Ry[0];
      length = sqrt(lengthX * lengthX + lengthY * lengthY);
-     sprintf(str, "length %f %f %f\n",lengthX, lengthY, length);
+     sprintf(str, (char*)GetString( MSG_MAP_LENGTHFFF ),lengthX, lengthY, length);  // "length %f %f %f\n"
      Log(DTA_NULL, (CONST_STRPTR)str);
      if (Ry[1] == Ry[0])
       {
@@ -2350,10 +2397,11 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
       else if (Rx[0] > Rx[1]) MP_Rotate = Pi;
       else
        {
-       User_Message((CONST_STRPTR)"Mapping Module: Digitize",
-               (CONST_STRPTR)"Illegal value!\nTwo registration points may not be coincident.\nOperation terminated.",
-               (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
-       Log(WNG_ILL_VAL, (CONST_STRPTR)"Registration points coincident");
+       User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),                          // "Mapping Module: Digitize"
+                    GetString( MSG_MAP_ILLEGALVALUEWOREGISTRATIONPOINTSMAYNOTBECOINC ),  // "Illegal value!\nTwo registration points may not be coincident.\nOperation terminated."
+                    GetString( MSG_MAP_OK ),                                             // "OK
+                    (CONST_STRPTR)"o");
+       Log(WNG_ILL_VAL, GetString( MSG_MAP_REGISTRATIONPOINTSCOINCIDENT ));  // "Registration points coincident"
        error = 1;
        goto EndCheck;
        } /* else two points identical */
@@ -2369,17 +2417,17 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
       if (lengthX < 0.0) MP_Rotate += Pi;
       } /* else */
 
-     sprintf(str, "Map rotation = %f\n", MP_Rotate * PiUnder180);
+     sprintf(str, (char*)GetString( MSG_MAP_MAPROTATIONF ), MP_Rotate * PiUnder180);  // "Map rotation = %f\n"
      Log(DTA_NULL, (CONST_STRPTR)str);
 
      MP_DigLonScale = (Elon - MP_Wlon) / length;
-     sprintf(str, "Longitude scale = %f /point", MP_DigLonScale);
+     sprintf(str, (char*)GetString( MSG_MAP_LONGITUDESCALEFPOINT ), MP_DigLonScale);  // "Longitude scale = %f /point"
      Log(DTA_NULL, (CONST_STRPTR)str);
 
      RotatePt(-MP_Rotate, &Rx[0], &Ry[0], &Rx[2], &Ry[2]);
 
      MP_DigLatScale = (Slat - MP_Nlat) / (Ry[2] - Ry[0]);
-     sprintf(str, "Latitude scale = %f /point", MP_DigLatScale);
+     sprintf(str, (char*)GetString( MSG_MAP_LATITUDESCALEFPOINT ), MP_DigLatScale);  // "Latitude scale = %f /point"
      Log(DTA_NULL, (CONST_STRPTR)str);
      MP_ORy = Ry[0];
      MP_ORx = Rx[0];
@@ -2392,7 +2440,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
 
     for (i=lowj; i<MAXOBJPTS; i++)
      {
-     sprintf(str, "Set point %d. Button 2=close, 3=abort, 4=done", i);
+     sprintf(str, (char*)GetString( MSG_MAP_SETPOINTBUTTON2CLOSE3ABORT4DONE ), i);  // "Set point %d. Button 2=close, 3=abort, 4=done"
      MapGUI_Message(0, str);
      SerialIO->IOSer.io_Length  = ReadSize;
      SerialIO->IOSer.io_Data    = (APTR)&SerialReadBuffer[0];
@@ -2432,7 +2480,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
 
        DBase[OBN].Lat[i] = MP_Nlat + MP_DigLatScale * (Ry[2] - Ry[0]);
        DBase[OBN].Lon[i] = MP_Wlon + MP_DigLonScale * (Rx[2] - Rx[0]);
-       sprintf(str, "Pt %d  Lat=%f  Lon=%f", i, DBase[OBN].Lat[i], DBase[OBN].Lon[i]);
+       sprintf(str, (char*)GetString( MSG_MAP_PTLATFLONF ), i, DBase[OBN].Lat[i], DBase[OBN].Lon[i]);  // "Pt %d  Lat=%f  Lon=%f"
        MapGUI_Message(1, str);
        break;
        } /* if Serial input */
@@ -2455,16 +2503,20 @@ EndCheck:
   else
    {
    error = 1;
-   User_Message((CONST_STRPTR)"Mapping Module: Digitize",
-           (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
+                GetString( MSG_MAP_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                GetString( MSG_MAP_OK ),                             // "OK"
+                (CONST_STRPTR)"o");
    } /* else IORequest not created */
   DeleteMsgPort(SerialMP);
   } /* if Message Port created */
  else
   {
   error = 1;
-  User_Message((CONST_STRPTR)"Mapping Module: Digitize",
-          (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
+               GetString( MSG_MAP_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+               GetString( MSG_MAP_OK ),                             // "OK"
+               (CONST_STRPTR)"o");
   } /* else Message Port not created */
 
  MapGUI_Message(0, " ");
@@ -2647,7 +2699,7 @@ STATIC_FCN short Set_Eco_Color(long Lra, long Lca, short i, short *RelEl) // use
 
    if (eco >= ECOPARAMS)
     {
-    Log(WNG_ILL_VAL, (CONST_STRPTR)"Ecosystem out of range.");
+    Log(WNG_ILL_VAL, GetString( MSG_MAP_ECOSYSTEMOUTOFRANGE ));  // "Ecosystem out of range."
     eco = ECOPARAMS - 1;
     } /* if */
 

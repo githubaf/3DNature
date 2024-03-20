@@ -3391,9 +3391,9 @@ Done		InteractiveUtils.o 15.Mar
 Done		InteractiveView.o 15.Mar
 Done		LWSupport.o 19.Mar
 Done		LineSupport.o 19.Mar
-MUIFloatInt.o
-MakeFaces.o
-Map.o
+Nothing		MUIFloatInt.o
+Nothing		MakeFaces.o
+Done		Map.o  20.Mar
 MapExtra.o
 MapGUI.o
 MapLineObject.o

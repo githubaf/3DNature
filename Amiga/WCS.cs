@@ -6269,3 +6269,311 @@ MSG_LINESPRT_OUTOFMEMORYCREATINGNEWVECTOROBJECTPERATIONTERMINAT
 Out of memory creating new vector object!\nOperation terminated.
 
 ;
+;
+MSG_MAP_FIRSTSETOFALIGNMENTLATLONCOORDINATESMUSTBELAR
+First set of alignment lat/lon coordinates must be larger than second and map scale must be greater than zero!\nOperation terminated.
+
+;
+MSG_MAP_OK
+OK
+
+;
+MSG_MAP_SETNORTHWESTREFERENCEPOINTWITHMOUSE
+\0338Set northwest reference point with mouse.
+
+;
+MSG_MAP_SETNORTHWESTREFERENCEPOINT
+Set northwest reference point
+
+;
+MSG_MAP_SETSOUTHEASTREFERENCEPOINTESCABORT
+\0338Set southeast reference point. ESC=abort
+
+;
+MSG_MAP_SETSOUTHEASTREFERENCEPOINT
+Set southeast reference point
+
+;
+MSG_MAP_MAPPINGMODULEALIGN
+Mapping Module: Align
+
+;
+MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO
+Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
+
+;
+MSG_MAP_OKCANCEL
+OK|Cancel
+
+;
+MSG_MAP_MAPVIEW
+Map View
+
+;
+MSG_MAP_MAPVIEWECOSYSTEMS
+Map View: Ecosystems
+
+;
+MSG_MAP_THEREARENOPARAMETERSLOADEDECOSYSTEMMAPPINGISN
+There are no Parameters loaded! Ecosystem mapping is not available until you load a Parameter file or create Default Parameters.
+
+;
+MSG_MAP_MAPDRAW
+Map Draw
+
+;
+MSG_MAP_MAPVIEWTOPODRAW
+Map View: Topo Draw
+
+;
+MSG_MAP_MEMORYALLOCATIONFAILURECANNOTDRAWTOPOCONTINUE
+Memory allocation failure, cannot draw topo. Continue?
+
+;
+MSG_MAP_OUTOFMEMORYLOADINGRELATIVEELEVATIONFILEECOSYS
+Out of memory loading Relative Elevation file. Ecosystem mapping not available?
+
+;
+MSG_MAP_RELATIVEELEVATIONFILE
+Relative elevation file
+
+;
+MSG_MAP_338SETCENTERPOINT
+\0338Set center point.
+
+;
+MSG_MAP_SETCENTERPOINT
+Set center point
+
+;
+MSG_MAP_338SETORIGINPOINT
+\0338Set origin point.
+
+;
+MSG_MAP_SETORIGINPOINT
+Set origin point
+
+;
+MSG_MAP_SETDESTINATIONPOINTESCABORT
+\0338Set destination point. ESC=abort
+
+;
+MSG_MAP_SETDESTINATIONPOINT
+Set destination point
+
+;
+MSG_MAP_SELECTOBJECTESCABORT
+\0338Select object. ESC=abort
+
+;
+MSG_MAP_SELECTOBJECT
+Select object
+
+;
+MSG_MAP_ISTHISTHECORRECTOBJECT
+Is this the correct object?
+
+;
+MSG_MAP_YESNO
+Yes|No
+Ja|Nein
+;
+MSG_MAP_MAPPINGMODULE
+Mapping Module
+
+;
+MSG_MAP_OBJECTNOTFOUND
+Object not found!
+
+;
+MSG_MAP_MAPVIEWMULTISELECT
+Map View: Multi-Select
+
+;
+MSG_MAP_SELECTORDESELECTITEMS
+Select or de-select items?
+
+;
+MSG_MAP_SELECTDESELECTCANCEL
+Select|De-select|Cancel
+
+;
+MSG_MAP_SETFIRSTCORNERPOINTWITHMOUSE
+\0338Set first corner point with mouse.
+
+;
+MSG_MAP_338SETFIRSTCORNERPOINTWITHMOUSE
+Set first corner point with mouse
+
+;
+MSG_MAP_SETSECONDCORNERPOINTESCABORT
+Set second corner point. ESC=abort
+
+;
+MSG_MAP_SETSECONDCORNERPOINT
+Set second corner point
+
+;
+MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR
+Digitize new points for the active vector object or create a new object?
+
+;
+MSG_MAP_ACTIVENEWCANCEL
+Active|New|Cancel
+
+;
+MSG_MAP_MAPVIEWDIGITIZE
+Map View: Digitize
+
+;
+MSG_MAP_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIO
+Active object is a DEM and may not be digitized!\nOperation terminated.
+
+;
+MSG_MAP_MAPPINGMODULEDIGITIZE
+Mapping Module: Digitize
+
+;
+MSG_MAP_ACCEPTNEWPOINTS
+Accept new points?
+
+;
+MSG_MAP_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTE
+Out of memory allocating new vector array!\nOperation terminated.
+
+;
+MSG_MAP_CONFORMVECTORTOTERRAINNOW
+Conform vector to terrain now?
+
+;
+MSG_MAP_VECTORCONFORMEDTOTOPOGRAPHY
+Vector %s conformed to topography.
+
+;
+MSG_MAP_SETLABELPOINTRETURNINTERPOLATECCLOSEQQUIT
+\0338Set Label Point.  RETURN=interpolate C=close Q=quit
+
+;
+MSG_MAP_SETPOINTRETURNINTERPOLATECCLOSEQQUIT
+\0338Set Point: %d.  RETURN=interpolate C=close Q=quit
+
+;
+MSG_MAP_RETURNTOACCEPTESCTOCANCEL
+\0338RETURN to accept, ESC to cancel
+
+;
+MSG_MAP_MAPPINGMODULEINSERTPOINTS
+Mapping Module: Insert Points
+
+;
+MSG_MAP_OUTOFMEMORYOPERATIONFAILED
+Out of memory! Operation failed.
+
+;
+MSG_MAP_CREATEVISUALSENSITIVITYMAPFORTHISOBJECT
+Create Visual Sensitivity map for this object?
+
+;
+MSG_MAP_DBASEOBNNAME
+DBase[OBN].Name
+
+;
+MSG_MAP_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED
+Error loading vector object!\nOperation terminated.
+
+;
+MSG_MAP_VISUALSENSITIVITY
+Visual Sensitivity
+
+;
+MSG_MAP_ERROROPENINGVIEWSHEDWINDOWXECUTIONTERMINATED
+Error opening viewshed window!\nExecution terminated.
+
+;
+MSG_MAP_MAPPINGMODULEVIEWSHED
+Mapping Module: Viewshed
+
+;
+MSG_MAP_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+
+;
+MSG_MAP_ERRORREADINGTOPOMAPSPERATIONTERMINATED
+Error reading topo maps!\nOperation terminated.
+
+;
+MSG_MAP_SMOOTHTHEMAPBEFORECOMPUTINGVIEWSHED
+Smooth the map before computing viewshed?
+
+;
+MSG_MAP_ENTERVERTICALOFFSETINMETERS
+Enter vertical offset in meters.
+
+;
+MSG_MAP_SMOOTHING
+Smoothing...
+Glätten...
+;
+MSG_MAP_PATHPOINT
+Path Point
+
+;
+MSG_MAP_DRAWVECTORSONVIEWSHEDRENDERING
+Draw vectors on viewshed rendering?
+
+;
+MSG_MAP_CANTOPENSERIALDEVICEPERATIONTERMINATED
+Can't open serial device!\nOperation terminated.
+
+;
+MSG_MAP_DIGITIZENEWREGISTRATIONPOINTS
+Digitize new registration points?
+
+;
+MSG_MAP_SETNWREGISTRATIONPOINTBUTTON3ABORT
+\0338Set NW registration point. Button 3=abort
+
+;
+MSG_MAP_SETNEREGISTRATIONPOINTBUTTON3ABORT
+\0338Set NE registration point. Button 3=abort
+
+;
+MSG_MAP_SETSEREGISTRATIONPOINTBUTTON3ABORT
+\0338Set SE registration point. Button 3=abort
+
+;
+MSG_MAP_LENGTHFFF
+length %f %f %f\n
+
+;
+MSG_MAP_ILLEGALVALUEWOREGISTRATIONPOINTSMAYNOTBECOINC
+Illegal value!\nTwo registration points may not be coincident.\nOperation terminated.
+
+;
+MSG_MAP_REGISTRATIONPOINTSCOINCIDENT
+Registration points coincident
+
+;
+MSG_MAP_MAPROTATIONF
+Map rotation = %f\n
+
+;
+MSG_MAP_LONGITUDESCALEFPOINT
+Longitude scale = %f /point
+
+;
+MSG_MAP_LATITUDESCALEFPOINT
+Latitude scale = %f /point
+
+;
+MSG_MAP_SETPOINTBUTTON2CLOSE3ABORT4DONE
+Set point %d. Button 2=close, 3=abort, 4=done
+
+;
+MSG_MAP_PTLATFLONF
+Pt %d  Lat=%f  Lon=%f
+
+;
+MSG_MAP_ECOSYSTEMOUTOFRANGE
+Ecosystem out of range.
+
