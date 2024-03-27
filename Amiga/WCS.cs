@@ -6577,3 +6577,268 @@ Pt %d  Lat=%f  Lon=%f
 MSG_MAP_ECOSYSTEMOUTOFRANGE
 Ecosystem out of range.
 
+;
+MSG_MAPEXTRA_NOTCLOSED
+[Not closed]
+
+;
+MSG_MAPEXTRA_SETORIGINPOINT_COLOUR
+\0338Set origin point.
+
+;
+MSG_MAPEXTRA_SETORIGINPOINT
+Set origin point
+
+;
+MSG_MAPEXTRA_SETDESTINATIONPOINTESCABORT
+\0338Set destination point. ESC=abort
+
+;
+MSG_MAPEXTRA_SETDESTINATIONPOINT
+Set destination point
+
+;
+MSG_MAPEXTRA_LENGTHFKM
+Length: %f km
+
+;
+MSG_MAPEXTRA_MAPVIEW
+Map View
+
+;
+MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX
+Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?
+
+;
+MSG_MAPEXTRA_OKCANCEL
+OK|Cancel
+
+;
+MSG_MAPEXTRA_SELECTNEWORIGINQDONEUUUPDDDOWNESCABORT
+\0338Select new origin. Q=done, Uu=up, Dd=down, ESC=abort
+
+;
+MSG_MAPEXTRA_SELECTNEWORIGIN
+Select new origin
+
+;
+MSG_MAPEXTRA_RESETVECTORORIGIN
+Reset vector origin: %s.\n
+
+;
+MSG_MAPEXTRA_MAPPINGMODULEDIGITIZE
+Mapping Module: Digitize
+
+;
+MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW
+Conform vector to terrain and save Object now?
+
+;
+MSG_MAPEXTRA_VECTORCONFORMEDTOTOPOGRAPHY
+Vector %s conformed to topography.
+
+;
+MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
+\0338Select first source vertex. Q=done Uu=up Dd=down ESC=abort
+
+;
+MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEX
+Select first source vertex
+
+;
+MSG_MAPEXTRA_SELECTLASTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
+\0338Select last source vertex. Q=done Uu=up Dd=down ESC=abort
+
+;
+MSG_MAPEXTRA_SELECTLASTSOURCEVERTEX
+Select last source vertex
+
+;
+MSG_MAPEXTRA_SELECTFIRSTDESTNVERTEXQDONEUUUPDDDOWNESCABORT
+\0338Select first dest'n vertex. Q=done Uu=up Dd=down ESC=abort
+
+;
+MSG_MAPEXTRA_SELECTFIRSTDESTINATIONVERTEX
+Select first destination vertex
+
+;
+MSG_MAPEXTRA_SELECTLASTDESTNVERTEXQDONEUUUPDDDOWNESCABORT
+\0338Select last dest'n vertex. Q=done Uu=up Dd=down ESC=abort
+
+;
+MSG_MAPEXTRA_SETLASTDESTINATIONVERTEX
+Set last destination vertex
+
+;
+MSG_MAPEXTRA_OBJECTRESULTINGFROMTHISMATCHWOULDBELARGERTHANTHEMA
+Object resulting from this match would be larger than the maximum of MAXOBJPTS !\nOperation terminated.
+
+;
+MSG_MAPEXTRA_OK
+OK
+
+;
+MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH
+Mapping Module: Point Match
+
+;
+MSG_MAPEXTRA_ILLEGALNUMBEROFPOINTSFFIRSTANDLASTDESTINATIONPOINT
+Illegal number of points!\nIf first and last destination points are the same, source points must be larger than zero.\nOperation terminated.
+
+;
+MSG_MAPEXTRA_PROCEEDWITHRELOCATION
+Proceed with relocation?
+
+;
+MSG_MAPEXTRA_OUTOFMEMORYOTENOUGHFORNEWPOINTSPERATIONFAILED
+Out of memory!\nNot enough for new points.\nOperation failed.
+
+;
+MSG_MAPEXTRA_MATCHEDVECTORTO
+Matched vector %s to %s.\n
+
+;
+MSG_MAPEXTRA_VERTEXLATITUDEFLONGITUDEF
+Vertex %d  Latitude %f  Longitude %f
+
+;
+MSG_MAPEXTRA_DUPLICATETHISOBJECT
+Duplicate this object?
+
+;
+MSG_MAPEXTRA_SELECTSTREAMSTARTPOINTESCABORT
+\0338Select stream start point. ESC=abort
+
+;
+MSG_MAPEXTRA_SELECTSTREAMSTARTPOINT
+Select stream start point
+
+;
+MSG_MAPEXTRA_SELECTAPPROXIMATESTREAMENDPOINTESCABORT
+\0338Select approximate stream end point. ESC=abort
+
+;
+MSG_MAPEXTRA_SELECTAPPROXIMATESTREAMENDPOINT
+Select approximate stream end point
+
+;
+MSG_MAPEXTRA_MAKINGSTREAMCLICKONSTREAMENDPOINTESCABORT
+Making Stream: click on stream end point. ESC=abort
+
+;
+MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM
+Mapping Module: Follow Stream
+
+;
+MSG_MAPEXTRA_POINTMAXIMUMHASBEENREACHEDAPPINGTERMINATED
+Point maximum has been reached!\nMapping terminated
+
+;
+MSG_MAPEXTRA_REACHEDEDGEOFCURRENTMAPOINTSONTINUETONEXTMAP
+Reached edge of current map!\nPoints = %d\nContinue to next map?
+
+;
+MSG_MAPEXTRA_INITIALPOINTNOTWITHINCURRENTLYLOADEDTOPOBOUNDARIES
+Initial point not within currently loaded topo boundaries!\nObject points reduced to 1.
+
+;
+MSG_MAPEXTRA_SAVEVECTOROBJECTNOW
+Save vector object now?
+
+;
+MSG_MAPEXTRA_ENTERNUMBEROFOUTPUTVERTICES
+Enter number of output vertices.
+
+;
+MSG_MAPEXTRA_SPLINELENGTHFKILOMETERSNTERVALFKMSEGMENT
+Spline length = %f kilometers\nInterval = %f km/segment
+
+;
+MSG_MAPEXTRA_MAPPINGMODULESPLINE
+Mapping Module: Spline
+
+;
+MSG_MAPEXTRA_OKRESETCANCEL
+OK|Reset|Cancel
+
+;
+MSG_MAPEXTRA_MAPVIEWMODULEINTERPOLATE
+Map View Module: Interpolate
+
+;
+MSG_MAPEXTRA_OUTOFMEMORYCANTALLOCATENEWVECTORPERATIONTERMINATED
+Out of memory! Can't allocate new vector.\nOperation terminated.
+
+;
+MSG_MAPEXTRA_SELECTSURFACEUELEVATIONESCABORT
+\0338Select Surface %lu Elevation. ESC=Abort
+
+;
+MSG_MAPEXTRA_SELECTSURFACEUELEVATION
+Select Surface %lu Elevation
+
+;
+MSG_MAPEXTRA_ENTERMINIMUMMATCHINGPOINTS
+Enter minimum matching points.
+
+;
+MSG_MAPEXTRA_ENTERELEVATIONTOLERANCE
+Enter elevation tolerance.
+
+;
+MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS
+Mapping Module: Fix Flats
+
+;
+MSG_MAPEXTRA_PROCEEDORRESETPOINTS
+Proceed or reset points?
+
+;
+MSG_MAPEXTRA_PROCEEDRESETCANCEL
+Proceed|Reset|Cancel
+
+;
+MSG_MAPEXTRA_KEEPORSAVEDEMORRESETPARAMETERS
+Keep or save DEM or reset parameters?
+
+;
+MSG_MAPEXTRA_KEEPSAVERESETCANCEL
+Keep|Save|Reset|Cancel
+
+;
+MSG_MAPEXTRA_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+
+;
+MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINTOPOMAPBOUNDARIESPERATI
+All corner points must be within topo map boundaries!\nOperation terminated.
+
+;
+MSG_MAPEXTRA_ILLEGALDIMENSIONSTRYMAKINGTHERECTANGLELARGERPERATI
+Illegal dimensions! Try making the rectangle larger.\nOperation terminated.
+
+;
+MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINSAMEDEMPERATIONTERMINAT
+All corner points must be within same DEM!\nOperation terminated.
+
+;
+MSG_MAPEXTRA_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
+Error opening output file!\nOperation terminated.
+
+;
+MSG_MAPEXTRA_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED
+Error writing to output file!\nOperation terminated.
+
+;
+MSG_MAPEXTRA_COMPUTING
+Computing...
+
+;
+MSG_MAPEXTRA_DRAWING
+Drawing...
+
+;
+MSG_MAPEXTRA_OUTOFMEMORYOTENOUGHFORTEMPORARYTOPOARRAYPERATIONFAIL
+Out of memory!\nNot enough for temporary topo array.\nOperation failed.
+
+;

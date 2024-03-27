@@ -3394,7 +3394,7 @@ Done		LineSupport.o 19.Mar
 Nothing		MUIFloatInt.o
 Nothing		MakeFaces.o
 Done		Map.o  20.Mar
-MapExtra.o
+Done		MapExtra.o 29.Mar.24
 MapGUI.o
 MapLineObject.o
 MapSupport.o
@@ -3443,3 +3443,9 @@ Also diese zunaechst zu einer Zeile zusammenfuegen. Um sie erst einmal vorab zu 
 
 egrep -nH "\".*\\\\$" LWSupport.c
 --- 
+
+29.Mar.2024
+-----------
+SC sturzt beim Compilieren von WCS_locale.c ab. CatCompBufer ist zu groß. Bis 32720 Bytes funktioniert sc, bei 32721 Byte stürzt er ab. Signed 16Bit-Ueberlauf?
+Kann duerch mehrere kleinere CatCompBuffer umgangen werden. -> Im Moment kein Test-Compilieren von WCS_locale.c und kein Linken.
+Siehe build_wcs_sasc.sh

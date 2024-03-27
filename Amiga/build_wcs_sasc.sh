@@ -92,8 +92,13 @@ vamos -q sc NOOPT NODEBUG nncrunch.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=S
 vamos -q sc NOOPT NODEBUG nngridr.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
 vamos -q sc NOOPT NODEBUG BigEndianReadWrite.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
 vamos -q sc NOOPT NODEBUG sasc_functions.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
-vamos -q sc NOOPT NODEBUG NOGST WCS_locale.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
+
+# sc currently crashes when comiling the big CatComb buffer. Can be solved by solitting the buffer into two smaller buffers and adapting GetString() accordingly.
+# So temporarily disabled! 29.Mar.24m AF
+echo
+echo "ALEXANDER: Warning! SC crashes when compiling WCS_locale.c  Compiling and linking temporarily disabled." 
+#vamos -q sc NOOPT NODEBUG NOGST WCS_locale.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
 
 # und linken
-vamos -q slink LIB:c.o WCS.o WITH WCSObjs.lnk lib:utillib.with LIB LIB:scm881.lib libvgl.a LIB:sc.lib LIB:amiga.lib TO WCS ND
+#vamos -q slink LIB:c.o WCS.o WITH WCSObjs.lnk lib:utillib.with LIB LIB:scm881.lib libvgl.a LIB:sc.lib LIB:amiga.lib TO WCS ND
 
