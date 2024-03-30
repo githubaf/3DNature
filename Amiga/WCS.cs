@@ -7,7 +7,6 @@
 ## TARGET CATALOG deutsch "VBox:SelcoGit/3DNature/Amiga/Catalogs/deutsch"
 ## TARGET C english "VBox:SelcoGit/3DNature/Amiga/WCS_strings.h" NoCode NoArray NoBlockStatic
 ;
-; -------- WCS.h ----------
 ;
 MSG_MENU_PROJECT
 Project
@@ -6840,5 +6839,547 @@ Drawing...
 ;
 MSG_MAPEXTRA_OUTOFMEMORYOTENOUGHFORTEMPORARYTOPOARRAYPERATIONFAIL
 Out of memory!\nNot enough for temporary topo array.\nOperation failed.
+
+;
+;
+MSG_MAPGUI_DATABASE
+Database
+Datenbank
+;
+MSG_MAPGUI_LOADOBJECTS
+Load Objects
+
+;
+MSG_MAPGUI_ALL
+All
+
+;
+MSG_MAPGUI_ACTIVE
+Active
+
+;
+MSG_MAPGUI_LOADTOPOS
+Load Topos
+
+;
+MSG_MAPGUI_SAVEOBJECTS
+Save Objects
+
+;
+MSG_MAPGUI_CLEARWINDOW
+Clear Window
+
+;
+MSG_MAPGUI_PRINT
+Print
+
+;
+MSG_MAPGUI_CLOSEMAP
+Close Map
+
+;
+MSG_MAPGUI_VIEW
+View
+
+;
+MSG_MAPGUI_CONTROLS
+Controls
+
+;
+MSG_MAPGUI_ECOLEGEND
+Eco Legend
+
+;
+MSG_MAPGUI_ALIGNMAP
+Align Map
+
+;
+MSG_MAPGUI_CENTER
+Center
+
+;
+MSG_MAPGUI_AUTOCENTER
+Auto Center
+
+;
+MSG_MAPGUI_ZOOM
+Zoom
+
+;
+MSG_MAPGUI_PAN
+Pan
+
+;
+MSG_MAPGUI_MOVE
+Move
+
+;
+MSG_MAPGUI_IN
+In
+
+;
+MSG_MAPGUI_OUT
+Out
+
+;
+MSG_MAPGUI_LEFT
+Left
+
+;
+MSG_MAPGUI_RIGHT
+Right
+
+;
+MSG_MAPGUI_UP
+Up
+
+;
+MSG_MAPGUI_DOWN
+Down
+
+;
+MSG_MAPGUI_DRAW
+Draw
+
+;
+MSG_MAPGUI_DRAWMAP
+Draw Map
+
+;
+MSG_MAPGUI_NORMAL
+Normal
+
+;
+MSG_MAPGUI_REFINE
+Refine
+
+;
+MSG_MAPGUI_FRACTALMAP
+Fractal Map
+
+;
+MSG_MAPGUI_COLORMAP
+Color Map
+
+;
+MSG_MAPGUI_FIXFLATS
+Fix Flats
+
+;
+MSG_MAPGUI_FINDDISTANCE
+Find Distance
+
+;
+MSG_MAPGUI_OBJECT
+Object
+
+;
+MSG_MAPGUI_NEWOBJECT
+New Object
+
+;
+MSG_MAPGUI_FINDOBJECT
+Find Object
+
+;
+MSG_MAPGUI_SINGLE
+Single
+
+;
+MSG_MAPGUI_MULTI
+Multi
+
+;
+MSG_MAPGUI_HIGHLIGHT
+Highlight
+
+;
+MSG_MAPGUI_ADDPOINTS
+Add Points
+
+;
+MSG_MAPGUI_NEW
+New
+
+;
+MSG_MAPGUI_APPEND
+Append
+
+;
+MSG_MAPGUI_INSERT
+Insert
+
+;
+MSG_MAPGUI_CREATESTREAM
+Create Stream
+
+;
+MSG_MAPGUI_MODIFYPOINTS
+Modify Points
+
+;
+MSG_MAPGUI_INPUTSOURCE
+Input Source
+
+;
+MSG_MAPGUI_CONFORMTOPO
+Conform Topo
+
+;
+MSG_MAPGUI_MATCHPOINTS
+Match Points
+
+;
+MSG_MAPGUI_MOVEORIGIN
+Move Origin
+
+;
+MSG_MAPGUI_DUPLICATE
+Duplicate
+
+;
+MSG_MAPGUI_MOTION
+Motion
+
+;
+MSG_MAPGUI_SETCAMERA
+Set Camera
+
+;
+MSG_MAPGUI_SETFOCUS
+Set Focus
+
+;
+MSG_MAPGUI_PATH
+Path
+
+;
+MSG_MAPGUI_INTERPOLATE
+Interpolate
+
+;
+MSG_MAPGUI_VECTCAMERA
+Vect-Camera
+
+;
+MSG_MAPGUI_VECTFOCUS
+Vect-Focus
+
+;
+MSG_MAPGUI_CAMERAVECT
+Camera-Vect
+
+;
+MSG_MAPGUI_FOCUSVECT
+Focus-Vect
+
+;
+MSG_MAPGUI_SURFACEEL
+Surface El
+
+;
+MSG_MAPGUI_ONE
+One
+
+;
+MSG_MAPGUI_TWO
+Two
+
+;
+MSG_MAPGUI_THREE
+Three
+
+;
+MSG_MAPGUI_FOUR
+Four
+
+;
+MSG_MAPGUI_WINDOWS
+Windows
+
+;
+MSG_MAPGUI_DEMDESIGNER
+DEM Designer
+
+;
+MSG_MAPGUI_CLOUDEDITOR
+Cloud Editor
+
+;
+MSG_MAPGUI_WAVEEDITOR
+Wave Editor
+
+;
+MSG_MAPGUI_VIEWSHED
+Viewshed
+
+;
+MSG_MAPGUI_SURFACE
+Surface
+
+;
+MSG_MAPGUI_EMBOSS
+Emboss
+
+;
+MSG_MAPGUI_SLOPE
+Slope
+
+;
+MSG_MAPGUI_CONTOUR
+Contour
+
+;
+MSG_MAPGUI_GREY
+Grey
+
+;
+MSG_MAPGUI_LIGHTGREY
+Light Grey
+
+;
+MSG_MAPGUI_COLOR
+Color
+
+;
+MSG_MAPGUI_MAPVIEWCONTROL
+Map View Control
+
+;
+MSG_MAPGUI_SCALE
+Scale\x20
+
+;
+MSG_MAPGUI_33CZOOM
+\33cZoom
+
+;
+MSG_MAPGUI_33CPAN
+\33cPan
+
+;
+MSG_MAPGUI_LONX20
+Lon\x20
+
+;
+MSG_MAPGUI_AUTO
+\33cAuto
+
+;
+MSG_MAPGUI_33CCENTER
+\33cCenter
+
+;
+MSG_MAPGUI_EXAG
+ Exag\x20
+
+;
+MSG_MAPGUI_33CDATABASE
+\33c Database\x20
+
+;
+MSG_MAPGUI_TOPO
+Topo
+
+;
+MSG_MAPGUI_VEC
+Vec
+
+;
+MSG_MAPGUI_ECO
+\33cEco\x20
+
+;
+MSG_MAPGUI_INTER
+Inter
+
+;
+MSG_MAPGUI_STYLE
+Style:
+
+;
+MSG_MAPGUI_DITHER
+Dither
+
+;
+MSG_MAPGUI_ALIGN
+\33cAlign\x20
+
+;
+MSG_MAPGUI_CLEAR
+\33cClear
+
+;
+MSG_MAPGUI_33CDRAW
+\33cDraw
+
+;
+MSG_MAPGUI_33CREFINE
+\33cRefine
+
+;
+MSG_MAPGUI_MAPALIGNMENT
+Map Alignment
+
+;
+MSG_MAPGUI_EOGRAPHICCOORDS
+\33c\0334Geographic Coords
+
+;
+MSG_MAPGUI_NWLAT
+NW Lat
+
+;
+MSG_MAPGUI_LON
+ Lon
+
+;
+MSG_MAPGUI_SELAT
+SE Lat
+
+;
+MSG_MAPGUI_CREENCOORDS
+\33c\0334Screen Coords
+
+;
+MSG_MAPGUI_UPPERLEFTX
+ Upper Left X
+
+;
+MSG_MAPGUI_LOWERRIGHTX
+Lower Right X
+
+;
+MSG_MAPGUI_SETREGISTRATION
+\33cSet Registration
+
+;
+MSG_MAPGUI_MAPCONTROLWINDOWNOTICE
+Map Control Window Notice
+
+;
+MSG_MAPGUI_THISAREAISNDERCONSTRUCTIONARDHATREQUIRED
+\33cThis area is\nUnder Construction.\nHard hat required.
+
+;
+MSG_MAPGUI_OKAY
+\33cOkay
+
+;
+MSG_MAPGUI_MAPVIEW
+Map View
+
+;
+MSG_MAPGUI_MAPPINGMODULE
+Mapping module
+
+;
+MSG_MAPGUI_OUTOFMEMORYANTINITIALIZEMAPWINDOWPERATIONTERMINATED
+Out of memory!\nCan't initialize map window!\nOperation terminated.
+
+;
+MSG_MAPGUI_OK
+OK
+
+;
+MSG_MAPGUI_MAPPINGMODULEALIGN
+Mapping Module: Align
+
+;
+MSG_MAPGUI_ILLEGALREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUA
+Illegal registration values! High and low X or Y values are equal.
+
+;
+MSG_MAPGUI_SETVERTEXTOINSERTAFTERQDONEUUUPDDDOWNESCABORT
+Set vertex to insert after. Q=done Uu=up Dd=down ESC=abort
+
+;
+MSG_MAPGUI_QDONEUUUPDDDOWNDELETE
+Q=done Uu=up Dd=down -=delete
+
+;
+MSG_MAPGUI_VECTORCONFORMEDTOTOPOGRAPHY
+Vector %s conformed to topography.
+
+;
+MSG_MAPGUI_VECTORTOPOCONFORMATIONABORTED
+Vector topo conformation aborted.
+
+;
+MSG_MAPGUI_CONFORM
+Conform
+
+;
+MSG_MAPGUI_ALLENABLEDVECTORSCONFORMEDTOTOPOGRAPHY
+All enabled vectors conformed to topography.
+
+;
+MSG_MAPGUI_VECTORTOPOCONFORMATIONABORTEDOBJECTSCOMPLETED
+Vector topo conformation aborted! %d objects completed.
+
+;
+MSG_MAPGUI_MAPPINGMODULEDIGITIZE
+Mapping Module: Digitize
+
+;
+MSG_MAPGUI_SETDIGITIZINGINPUTSOURCE
+Set digitizing input source.
+
+;
+MSG_MAPGUI_BITPADSUMMAGRIDMOUSE
+Bitpad|Summagrid|Mouse
+
+;
+MSG_MAPGUI_MAPVIEWBUILDDEM
+Map View: Build DEM
+
+;
+MSG_MAPGUI_DEMCTRLPTLATFLONFELEV2F
+DEM Ctrl Pt: Lat %f Lon %f Elev %.2f
+
+;
+MSG_MAPGUI_DATABASESAVE
+Database: Save
+
+;
+MSG_MAPGUI_DBASEOBJECTBOTHNEITHER
+D'base|Object|Both|Neither
+
+;
+MSG_MAPGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENINGT
+You must first load or create a parameter file before opening the Legend.
+
+;
+MSG_MAPGUI_MAPVIEWECOSYSTEMLEGEND
+Map View: Ecosystem Legend
+
+;
+MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND
+Out of memory!\nCan't open Ecosystem Legend.
+
+;
+MSG_MAPGUI_ECOSYSTEMLEGEND
+Ecosystem Legend
+
+;
+MSG_MAPGUI_OUTOFMEMORY
+Out of memory!
+
+;
+;
+MSG_MAPGUI_ATLEASTONEENDCONTROLPOINTFORTHELINESEGMENTJUSTDRAWNC
+At least one end control point for the line segment just drawn could not be found!\nDo you wish to use the current and minimum slider elevations for this segment or abort the operation?
+
+;
+MSG_MAPGUI_SLIDERABORT
+Slider|Abort
+
+;
+MSG_MAPGUI_ENTERELEVATIONVALUEFORNEWCONTROLPOINT
+Enter elevation value for new control point.
+
+;
+MSG_MAPGUI_THEDATABASEHASBEENMODIFIEDSINCEITWASLOADEDOYOUWISHTO
+The Database has been modified since it was loaded.\nDo you wish to save it or a Master Object file now?
 
 ;

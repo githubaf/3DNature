@@ -6,6 +6,9 @@
 ** Copyright 1994 by Questar
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "Defines.h"
 #include "WCS.h"
 #include "GUIDefines.h"
@@ -112,70 +115,70 @@ extern void ParticleTree(void);
 
 STATIC_FCN struct NewMenu MapNewMenus[] =
 	{
-	{ NM_TITLE, (STRPTR)"Database",		 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"Load Objects",	 0 , 0, 0, 0 },
-	{   NM_SUB, (STRPTR)"All",		 (STRPTR)"L", 0, 0, (APTR)(ID_MC_LOADALL) },
-	{   NM_SUB, (STRPTR)"Active",		 (STRPTR)"K", 0, 0, (APTR)(ID_MC_LOADACTIVE) },
-	{  NM_ITEM, (STRPTR)"Load Topos",	 (STRPTR)"J", 0, 0, (APTR)(ID_MC_LOADTOPOS) },
-	{  NM_ITEM, (STRPTR)"Save Objects",	 0,  0, 0, 0 },
-	{   NM_SUB, (STRPTR)"All",		 (STRPTR)"S", 0, 0, (APTR)(ID_MC_SAVEALL) },
-	{   NM_SUB, (STRPTR)"Active",		 (STRPTR)"W", 0, 0, (APTR)(ID_MC_SAVEACTIVE) },
+	{ NM_TITLE, (CONST_STRPTR)"empty", 	 0 , 0, 0, 0 },                                  // "Database"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 0 , 0, 0, 0 },                                  // "Load Objects"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"L", 0, 0, (APTR)(ID_MC_LOADALL) },      // "All"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"K", 0, 0, (APTR)(ID_MC_LOADACTIVE) },   // "Active"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)"J", 0, 0, (APTR)(ID_MC_LOADTOPOS) },    // "Load Topos"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 0,  0, 0, 0 },                                  // "Save Objects"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"S", 0, 0, (APTR)(ID_MC_SAVEALL) },      // "All"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"W", 0, 0, (APTR)(ID_MC_SAVEACTIVE) },   // "Active"
 	{  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"Database",		 (STRPTR)"B", 0, 0, (APTR)(ID_DE_WINDOW) },
-	{  NM_ITEM, (STRPTR)"Clear Window",	 (STRPTR)"C", 0, 0, (APTR)(ID_MC_CLEAR) },
-	{  NM_ITEM, (STRPTR)"Print",		 (STRPTR)"/", 0, 0, (APTR)(ID_MC_PRINT) },
-	{  NM_ITEM, (STRPTR)"Close Map",	 (STRPTR)"Q", 0, 0, (APTR)(ID_MC_QUIT) },
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 (STRPTR)"B", 0, 0, (APTR)(ID_DE_WINDOW) },      // "Database"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 (STRPTR)"C", 0, 0, (APTR)(ID_MC_CLEAR) },       // "Clear Window"
+	{  NM_ITEM, (CONST_STRPTR)"empty", (STRPTR)"/", 0, 0, (APTR)(ID_MC_PRINT) },         // "Print"
+	{  NM_ITEM, (CONST_STRPTR)"empty", (STRPTR)"Q", 0, 0, (APTR)(ID_MC_QUIT) },          // "Close Map"
 
-	{ NM_TITLE, (STRPTR)"View",		 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"Controls",		 (STRPTR)"H", 0, 0, (APTR)(ID_MC_CTRLTOFR) },
-	{  NM_ITEM, (STRPTR)"Eco Legend",	 (STRPTR)",", 0, 0, (APTR)(ID_EL_WINDOW) },
-	{  NM_ITEM, (STRPTR)"Align Map",	 (STRPTR)"G", 0, 0, (APTR)(ID_MC_ALIGN) },
-	{  NM_ITEM, (STRPTR)"Center",		 (STRPTR)"E", 0, 0, (APTR)(ID_MC_CENTER) },
-	{  NM_ITEM, (STRPTR)"Auto Center",	 (STRPTR)"A", 0, 0, (APTR)(ID_MC_AUTO) },
-	{  NM_ITEM, (STRPTR)"Zoom",		 (STRPTR)"Z", 0, 0, (APTR)(ID_MC_ZOOM) },
-	{  NM_ITEM, (STRPTR)"Pan",		 (STRPTR)"P", 0, 0, (APTR)(ID_MC_PAN) },
-	{  NM_ITEM, (STRPTR)"Move",		 0 , 0, 0, 0 },
-	{   NM_SUB, (STRPTR)"In",		 (STRPTR)"+", 0, 0, (APTR)(ID_MC_ZOOMIN) },
-	{   NM_SUB, (STRPTR)"Out",		 (STRPTR)"-", 0, 0, (APTR)(ID_MC_ZOOMOUT) },
-	{   NM_SUB, (STRPTR)"Left",		 0 , 0, 0, (APTR)(ID_MC_MOVELEFT) },
-	{   NM_SUB, (STRPTR)"Right",		 0 , 0, 0, (APTR)(ID_MC_MOVERIGHT) },
-	{   NM_SUB, (STRPTR)"Up",		 0 , 0, 0, (APTR)(ID_MC_MOVEUP) },
-	{   NM_SUB, (STRPTR)"Down",		 0 , 0, 0, (APTR)(ID_MC_MOVEDOWN) },
+	{ NM_TITLE, (CONST_STRPTR)"empty",  0 , 0, 0, 0 },                                   // "View"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 (STRPTR)"H", 0, 0, (APTR)(ID_MC_CTRLTOFR) },// "Controls"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)",", 0, 0, (APTR)(ID_EL_WINDOW) },       // "Eco Legend"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)"G", 0, 0, (APTR)(ID_MC_ALIGN) },        // "Align Map"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)"E", 0, 0, (APTR)(ID_MC_CENTER) },       // "Center"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)"A", 0, 0, (APTR)(ID_MC_AUTO) },         // "Auto Center"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)"Z", 0, 0, (APTR)(ID_MC_ZOOM) },         // "Zoom"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)"P", 0, 0, (APTR)(ID_MC_PAN) },          // "Pan"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  0 , 0, 0, 0 },                                   // "Move"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"+", 0, 0, (APTR)(ID_MC_ZOOMIN) },       // "In"
+	{   NM_SUB, (CONST_STRPTR)"empty", 	 (STRPTR)"-", 0, 0, (APTR)(ID_MC_ZOOMOUT) },     // "Out"
+	{   NM_SUB, (CONST_STRPTR)"empty", 	 0 , 0, 0, (APTR)(ID_MC_MOVELEFT) },             // "Left"
+	{   NM_SUB, (CONST_STRPTR)"empty", 	 0 , 0, 0, (APTR)(ID_MC_MOVERIGHT) },            // "Right"
+	{   NM_SUB, (CONST_STRPTR)"empty",  0 , 0, 0, (APTR)(ID_MC_MOVEUP) },                // "Up"
+	{   NM_SUB, (CONST_STRPTR)"empty", 	 0 , 0, 0, (APTR)(ID_MC_MOVEDOWN) },             // "Down"
 
-	{ NM_TITLE, (STRPTR)"Draw",		 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"Draw Map",		 0,  0, 0, 0 },
-	{   NM_SUB, (STRPTR)"Normal",		 (STRPTR)"D", 0, 0, (APTR)(ID_MC_DRAW) },
-	{   NM_SUB, (STRPTR)"Refine",		 (STRPTR)"R", 0, 0, (APTR)(ID_MC_REFINE) },
-	{  NM_ITEM, (STRPTR)"Fractal Map",	 0 , 0, 0, (APTR)(ID_MC_FRACTALMAP) },
+	{ NM_TITLE, (CONST_STRPTR)"empty", 	 0 , 0, 0, 0 },                                  // "Draw"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 		 0,  0, 0, 0 },                              // "Draw Map"
+	{   NM_SUB, (CONST_STRPTR)"empty", 	 (STRPTR)"D", 0, 0, (APTR)(ID_MC_DRAW) },        // "Normal"
+	{   NM_SUB, (CONST_STRPTR)"empty", 	 (STRPTR)"R", 0, 0, (APTR)(ID_MC_REFINE) },      // "Refine"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 0 , 0, 0, (APTR)(ID_MC_FRACTALMAP) },           // "Fractal Map"
 	{  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"Color Map",	 (STRPTR)"M", 0, 0, (APTR)(ID_MC_COLORMAP) },
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 (STRPTR)"M", 0, 0, (APTR)(ID_MC_COLORMAP) },    // "Color Map"
 	{  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"Fix Flats",	 (STRPTR)"_", 0, 0, (APTR)(ID_MC_FIXFLATS) },
-	{  NM_ITEM, (STRPTR)"Find Distance",	 0 , 0, 0, (APTR)(ID_MC_FINDDIST) },
+	{  NM_ITEM, (CONST_STRPTR)"empty", (STRPTR)"_", 0, 0, (APTR)(ID_MC_FIXFLATS) },      // "Fix Flats"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 0 , 0, 0, (APTR)(ID_MC_FINDDIST) },             // "Find Distance"
 
-	{ NM_TITLE, (STRPTR)"Object",		 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"New Object",	 (STRPTR)"N", 0, 0, (APTR)(ID_MC_NEWOBJECT) },
-	{  NM_ITEM, (STRPTR)"Find Object",	 0 , 0, 0, 0 },
-	{   NM_SUB, (STRPTR)"Single",		 (STRPTR)"F", 0, 0, (APTR)(ID_MC_FINDMOUSE) },
-	{   NM_SUB, (STRPTR)"Multi",		 (STRPTR)"U", 0, 0, (APTR)(ID_MC_FINDMULTI) },
-	{  NM_ITEM, (STRPTR)"Highlight",	 (STRPTR)"?", 0, 0, (APTR)(ID_MC_OUTLINE) },
+	{ NM_TITLE, (CONST_STRPTR)"empty",  0 , 0, 0, 0 },                                   // "Object"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)"N", 0, 0, (APTR)(ID_MC_NEWOBJECT) },    // "New Object"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  0 , 0, 0, 0 },                                   // "Find Object"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"F", 0, 0, (APTR)(ID_MC_FINDMOUSE) },    // "Single"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"U", 0, 0, (APTR)(ID_MC_FINDMULTI) },    // "Multi"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)"?", 0, 0, (APTR)(ID_MC_OUTLINE) },      // "Highlight"
 	{  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"Add Points",	 0,  0, 0, 0 },
-	{   NM_SUB, (STRPTR)"New",		 (STRPTR)"X", 0, 0, (APTR)(ID_MC_ADDPTSNEW) },
-	{   NM_SUB, (STRPTR)"Append",		 (STRPTR)"Y", 0, 0, (APTR)(ID_MC_ADDPTSAPPEND) },
-	{   NM_SUB, (STRPTR)"Insert",		 (STRPTR)"I", 0, 0, (APTR)(ID_MC_ADDPTSINSERT) },
-	{  NM_ITEM, (STRPTR)"Create Stream",	 0,  0, 0, 0 },
-	{   NM_SUB, (STRPTR)"New",		 (STRPTR)"~", 0, 0, (APTR)(ID_MC_STREAMNEW) },
-	{   NM_SUB, (STRPTR)"Append",		 (STRPTR)"`", 0, 0, (APTR)(ID_MC_STREAMAPPEND) },
-	{  NM_ITEM, (STRPTR)"Modify Points",	 (STRPTR)".", 0, 0, (APTR)(ID_MC_MODPTS) },
-	{  NM_ITEM, (STRPTR)"Input Source",	 (STRPTR)"#", 0, 0, (APTR)(ID_MC_INPUT) },
+	{  NM_ITEM, (CONST_STRPTR)"empty",  0,  0, 0, 0 },                                   // "Add Points"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"X", 0, 0, (APTR)(ID_MC_ADDPTSNEW) },    // "New"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"Y", 0, 0, (APTR)(ID_MC_ADDPTSAPPEND) }, // "Append"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"I", 0, 0, (APTR)(ID_MC_ADDPTSINSERT) }, // "Insert"
+	{  NM_ITEM, (CONST_STRPTR)"empty",	 0,  0, 0, 0 },                                  // "Create Stream"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"~", 0, 0, (APTR)(ID_MC_STREAMNEW) },    // "New"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"`", 0, 0, (APTR)(ID_MC_STREAMAPPEND) }, // "Append"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)".", 0, 0, (APTR)(ID_MC_MODPTS) },       // "Modify Points"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 (STRPTR)"#", 0, 0, (APTR)(ID_MC_INPUT) },       // "Input Source"
 	{  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"Conform Topo",	 0,  0, 0, 0 },
-	{   NM_SUB, (STRPTR)"All",		 (STRPTR)"!", 0, 0, (APTR)(ID_MC_CONFORMALL) },
-	{   NM_SUB, (STRPTR)"Active",		 (STRPTR)"T", 0, 0, (APTR)(ID_MC_CONFORMACT) },
-	{  NM_ITEM, (STRPTR)"Match Points",	 (STRPTR)"=", 0, 0, (APTR)(ID_MC_MATCHPTS) },
-	{  NM_ITEM, (STRPTR)"Move Origin",	 (STRPTR)"O", 0, 0, (APTR)(ID_MC_MOVEORIG) },
-	{  NM_ITEM, (STRPTR)"Duplicate",	 (STRPTR)"&", 0, 0, (APTR)(ID_MC_DUPLICATE) },
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 0,  0, 0, 0 },                                  // "Conform Topo"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"!", 0, 0, (APTR)(ID_MC_CONFORMALL) },   // "All"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"T", 0, 0, (APTR)(ID_MC_CONFORMACT) },   // "Active"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 (STRPTR)"=", 0, 0, (APTR)(ID_MC_MATCHPTS) },    // "Match Points"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)"O", 0, 0, (APTR)(ID_MC_MOVEORIG) },     // "Move Origin"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)"&", 0, 0, (APTR)(ID_MC_DUPLICATE) },    // "Duplicate"
 #ifdef ENABLE_STATISTICS
 	{ NM_TITLE, (STRPTR)"Graph",		 0 , 0, 0, 0 },
 	{  NM_ITEM, (STRPTR)"Load Stats",	 (STRPTR)"$", 0, 0, (APTR)(ID_MC_LOADSTATS) },
@@ -184,32 +187,134 @@ STATIC_FCN struct NewMenu MapNewMenus[] =
 	{  NM_ITEM, (STRPTR)"Draw Graph",	 0,  0, 0, (APTR)(ID_MC_GRAPH) },
 	{  NM_ITEM, (STRPTR)"Erase",		 (STRPTR)"*", 0, 0, (APTR)(ID_MC_ERASE) },
 #endif /* ENABLE_STATISTICS */
-	{ NM_TITLE, (STRPTR)"Motion",		 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"Set Camera",	 (STRPTR)">", 0, 0, (APTR)(ID_MC_SETCAM) },
-	{  NM_ITEM, (STRPTR)"Set Focus",	 (STRPTR)"<", 0, 0, (APTR)(ID_MC_SETFOC) },
-	{  NM_ITEM, (STRPTR)"Path",		 0,  0, 0, 0 },
-	{   NM_SUB, (STRPTR)"Interpolate",	 (STRPTR)"5", 0, 0, (APTR)(ID_MC_INTERP) },
-	{   NM_SUB, (STRPTR)"Vect-Camera",	 (STRPTR)"6", 0, 0, (APTR)(ID_MC_VECCAM) },
-	{   NM_SUB, (STRPTR)"Vect-Focus",	 (STRPTR)"7", 0, 0, (APTR)(ID_MC_VECFOC) },
-	{   NM_SUB, (STRPTR)"Camera-Vect",	 (STRPTR)"8", 0, 0, (APTR)(ID_MC_CAMVEC) },
-	{   NM_SUB, (STRPTR)"Focus-Vect",	 (STRPTR)"9", 0, 0, (APTR)(ID_MC_FOCVEC) },
+	{ NM_TITLE, (CONST_STRPTR)"empty",  0 , 0, 0, 0 },  // "Motion"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)">", 0, 0, (APTR)(ID_MC_SETCAM) },       // "Set Camera"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  (STRPTR)"<", 0, 0, (APTR)(ID_MC_SETFOC) },       // "Set Focus"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  0,  0, 0, 0 },                                   // "Path"
+	{   NM_SUB, (CONST_STRPTR)"empty", 	 (STRPTR)"5", 0, 0, (APTR)(ID_MC_INTERP) },      // "Interpolate"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"6", 0, 0, (APTR)(ID_MC_VECCAM) },       // "Vect-Camera"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"7", 0, 0, (APTR)(ID_MC_VECFOC) },       // "Vect-Focus"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"8", 0, 0, (APTR)(ID_MC_CAMVEC) },       // "Camera-Vect"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"9", 0, 0, (APTR)(ID_MC_FOCVEC) },       // "Focus-Vect"
 	{  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"Surface El",	 0,  0, 0, 0 },
-	{   NM_SUB, (STRPTR)"One",		 (STRPTR)"1", 0, 0, (APTR)(ID_MC_SURFONE) },
-	{   NM_SUB, (STRPTR)"Two",		 (STRPTR)"2", 0, 0, (APTR)(ID_MC_SURFTWO) },
-	{   NM_SUB, (STRPTR)"Three",		 (STRPTR)"3", 0, 0, (APTR)(ID_MC_SURFTHREE) },
-	{   NM_SUB, (STRPTR)"Four",		 (STRPTR)"4", 0, 0, (APTR)(ID_MC_SURFFOUR) },
+	{  NM_ITEM, (CONST_STRPTR)"empty",  0,  0, 0, 0 },                                   // "Surface El"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"1", 0, 0, (APTR)(ID_MC_SURFONE) },      // "One"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"2", 0, 0, (APTR)(ID_MC_SURFTWO) },      // "Two"
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"3", 0, 0, (APTR)(ID_MC_SURFTHREE) },    // "Three",
+	{   NM_SUB, (CONST_STRPTR)"empty",  (STRPTR)"4", 0, 0, (APTR)(ID_MC_SURFFOUR) },     // "Four"
 
-	{ NM_TITLE, (STRPTR)"Windows",		 0 , 0, 0, 0 },
-	{  NM_ITEM, (STRPTR)"DEM Designer",	 0 , 0, 0, (APTR)(ID_MC_BUILDDEM) },
-	{  NM_ITEM, (STRPTR)"Cloud Editor",	 0 , 0, 0, (APTR)(ID_CL_WINDOW) },
-	{  NM_ITEM, (STRPTR)"Wave Editor",	 0 , 0, 0, (APTR)(ID_WV_WINDOW(0)) },
-	{  NM_ITEM, (STRPTR)"Viewshed",		 (STRPTR)"V", 0, 0, (APTR)(ID_MC_VIEWSHED) },
+	{ NM_TITLE, (CONST_STRPTR)"empty", 	 0 , 0, 0, 0 },                                  // "Windows"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 0 , 0, 0, (APTR)(ID_MC_BUILDDEM) },             // "DEM Designer"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 0 , 0, 0, (APTR)(ID_CL_WINDOW) },               // "Cloud Editor"
+	{  NM_ITEM, (CONST_STRPTR)"empty",  0 , 0, 0, (APTR)(ID_WV_WINDOW(0)) },             // "Wave Editor"
+	{  NM_ITEM, (CONST_STRPTR)"empty", 	 (STRPTR)"V", 0, 0, (APTR)(ID_MC_VIEWSHED) },    // "Viewshed"
 /*
 	{  NM_ITEM, (STRPTR)"Particle Tree",	 0 , 0, 0, (APTR)(ID_MC_PARTICLETREE) },
 */
 	{ NM_END,   NULL,		 0,  0, 0, 0 }
 	};
+
+void test()
+{
+	unsigned int i=0;
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_DATABASE );     // "Database"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_LOADOBJECTS );  // "Load Objects"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ALL );          // "All"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ACTIVE );       // "Active"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_LOADTOPOS );    // "Load Topos"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_SAVEOBJECTS );  // "Save Objects"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ALL );          // "All"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ACTIVE );       // "Active"
+i++;   // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_DATABASE );     // "Database"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CLEARWINDOW );  // "Clear Window"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_PRINT );        // "Print"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CLOSEMAP );     // "Close Map"
+
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_VIEW );         // "View"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CONTROLS );     // "Controls"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ECOLEGEND );    // GetString( MSG_MAPGUI_ECOLEGEND )
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ALIGNMAP );     // "Align Map"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CENTER );       // "Center"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_AUTOCENTER );   // "Auto Center"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ZOOM );         // "Zoom"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_PAN );          // "Pan"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_MOVE );         // "Move"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_IN );           // "In"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_OUT );          // "Out"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_LEFT );         // "Left"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_RIGHT );        // "Right"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_UP );           // "Up"
+MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_DOWN );         // "Down"
+
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DRAW );        // "Draw"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DRAWMAP );     // "Draw Map"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NORMAL );      // "Normal"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_REFINE );      // "Refine"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FRACTALMAP );  // "Fractal Map"
+i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_COLORMAP );    // "Color Map"
+i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FIXFLATS );    // "Fix Flats"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FINDDISTANCE );// "Find Distance"
+
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_OBJECT );      // "Object"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NEWOBJECT );   // "New Object"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FINDOBJECT );  // "Find Object"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SINGLE );      // "Single"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MULTI );       // "Multi"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_HIGHLIGHT );   // "Highlight"
+i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ADDPOINTS );   // "Add Points"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NEW );         // "New"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_APPEND );      // "Append"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_INSERT );      // "Insert"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CREATESTREAM );// "Create Stream"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NEW );         // "New"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_APPEND );      // "Append"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MODIFYPOINTS );// "Modify Points"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_INPUTSOURCE ); // "Input Source"
+i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CONFORMTOPO ); // "Conform Topo"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ALL );         // "All"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ACTIVE );      // "Active"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MATCHPOINTS ); // "Match Points"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MOVEORIGIN );  // "Move Origin"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DUPLICATE );   // "Duplicate"
+#ifdef ENABLE_STATISTICS
+MapNewMenus[i++].nm_Label=  { NM_TITLE, (STRPTR)"Graph",		 0 , 0, 0, 0 },
+MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Load Stats",	 (STRPTR)"$", 0, 0, (APTR)(ID_MC_LOADSTATS) },
+MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Normalize",	 (STRPTR)"%", 0, 0, (APTR)(ID_MC_NORMALIZE) },
+MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Graph Style",	 (STRPTR)"^", 0, 0, (APTR)(ID_MC_GRAPHSTYLE) },
+MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Draw Graph",	 0,  0, 0, (APTR)(ID_MC_GRAPH) },
+MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Erase",		 (STRPTR)"*", 0, 0, (APTR)(ID_MC_ERASE) },
+#endif /* ENABLE_STATISTICS */
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MOTION );      // "Motion"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SETCAMERA );   // "Set Camera"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SETFOCUS );    // "Set Focus"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_PATH );        // "Path"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_INTERPOLATE ); // "Interpolate"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_VECTCAMERA );  // "Vect-Camera"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_VECTFOCUS );   // "Vect-Focus"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CAMERAVECT );  // "Camera-Vect"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FOCUSVECT );   // "Focus-Vect"
+i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SURFACEEL );   // "Surface El"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ONE );         // "One"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_TWO );         // "Two"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_THREE );       // "Three",
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FOUR );        // "Four"
+
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_WINDOWS );     // "Windows"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DEMDESIGNER ); // "DEM Designer"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CLOUDEDITOR ); // "Cloud Editor"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_WAVEEDITOR );  // "Wave Editor"
+MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_VIEWSHED );    // "Viewshed"
+/*
+MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Particle Tree",	 0 , 0, 0, (APTR)(ID_MC_PARTICLETREE) },
+*/
+}
+
 
 /***********************************************************************/
 
@@ -255,13 +360,43 @@ void MapIDCMP_Restore(struct Window *win)
 STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF 20.7.2021
 {
  long open;
- static const char *StyleCycle[] = {"Single", "Multi", "Surface", "Emboss", "Slope", "Contour", NULL};
- static const char *ColorCycle[] = {"Grey", "Light Grey", "Color", NULL};
+ static const char *StyleCycle[7]={NULL};// = {GetString( MSG_MAPGUI_SINGLE ),   // "Single"
+                                         //  GetString( MSG_MAPGUI_MULTI ),    // "Multi"
+                                         //  GetString( MSG_MAPGUI_SURFACE ),  // "Surface"
+                                         //  GetString( MSG_MAPGUI_EMBOSS ),   // "Emboss"
+                                         //  GetString( MSG_MAPGUI_SLOPE ),    // "Slope"
+                                         //  GetString( MSG_MAPGUI_CONTOUR ),  // "Contour"
+                                         //  NULL};
+ static const char *ColorCycle[4]={NULL};// = {GetString( MSG_MAPGUI_GREY ),       // "Grey"
+                                         //  GetString( MSG_MAPGUI_LIGHTGREY ),  // "Light Grey"
+                                         //  GetString( MSG_MAPGUI_COLOR ),      // "Color"
+                                         //   NULL};
+
+static int Init=TRUE;
+
+if(Init)
+{
+	unsigned int i=0;
+	Init=FALSE;
+	StyleCycle[i++] = (char*)GetString( MSG_MAPGUI_SINGLE );   // "Single"
+	StyleCycle[i++] = (char*)GetString( MSG_MAPGUI_MULTI );    // "Multi"
+	StyleCycle[i++] = (char*)GetString( MSG_MAPGUI_SURFACE );  // "Surface"
+	StyleCycle[i++] = (char*)GetString( MSG_MAPGUI_EMBOSS );   // "Emboss"
+	StyleCycle[i++] = (char*)GetString( MSG_MAPGUI_SLOPE );    // "Slope"
+	StyleCycle[i++] = (char*)GetString( MSG_MAPGUI_CONTOUR );  // "Contour"
+	StyleCycle[i++] = NULL;
+
+	i=0;
+	ColorCycle[i++] = (char*)GetString( MSG_MAPGUI_GREY );       // "Grey"
+	ColorCycle[i++] = (char*)GetString( MSG_MAPGUI_LIGHTGREY );  // "Light Grey"
+	ColorCycle[i++] = (char*)GetString( MSG_MAPGUI_COLOR );      // "Color"
+	ColorCycle[i++] = NULL;
+}
 
  Set_Param_Menu(10);
 
  MP->MAPC = WindowObject,
-   MUIA_Window_Title      , "Map View Control",
+   MUIA_Window_Title      , GetString( MSG_MAPGUI_MAPVIEWCONTROL ),  // "Map View Control"
    MUIA_Window_ID         , MakeID('M','A','P','C'),
    MUIA_Window_Screen    , WCSScrn,
 
@@ -271,14 +406,14 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
              Child, MP->ScaleStuff = ColGroup(5), MUIA_VertWeight, 0, MUIA_Group_HorizSpacing, 0,
 
        /* Row 1 */
-               Child, Label2("Scale "),
+               Child, Label2(GetString( MSG_MAPGUI_SCALE )),  // "Scale "
                Child, MP->Scale = StringObject, StringFrame,
 		MUIA_String_Contents, "       ",
         	MUIA_String_Accept, " 0123456789.",
 		MUIA_FixWidthTxt, "012345", End,
                Child, MP->ScaleLess = ImageButtonWCS(MUII_ArrowLeft),
                Child, MP->ScaleMore = ImageButtonWCS(MUII_ArrowRight),
-               Child, MP->MapZoom   = KeyButtonObject('z'), MUIA_Text_Contents, "\33cZoom",
+               Child, MP->MapZoom   = KeyButtonObject('z'), MUIA_Text_Contents, GetString( MSG_MAPGUI_33CZOOM ),  // "\33cZoom"
          	MUIA_HorizWeight, 0, End,
 
        /* Row 2 */
@@ -289,11 +424,11 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
 		MUIA_FixWidthTxt, "012345", End,
                Child, MP->LatLess = ImageButtonWCS(MUII_ArrowLeft),
                Child, MP->LatMore = ImageButtonWCS(MUII_ArrowRight),
-               Child, MP->MapPan    = KeyButtonObject('p'), MUIA_Text_Contents, "\33cPan",
+               Child, MP->MapPan    = KeyButtonObject('p'), MUIA_Text_Contents, GetString( MSG_MAPGUI_33CPAN ),  // "\33cPan"
         	MUIA_HorizWeight, 0, End,
 
        /* Row 3 */
-               Child, Label2("Lon "),
+               Child, Label2(GetString( MSG_MAPGUI_LON )),  // "Lon "
                Child, MP->Lon = StringObject, StringFrame,
         	MUIA_String_Contents, "       ",
          	MUIA_String_Accept, " -0123456789.",
@@ -301,15 +436,15 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
                Child, MP->LonLess = ImageButtonWCS(MUII_ArrowLeft),
                Child, MP->LonMore = ImageButtonWCS(MUII_ArrowRight),
                Child, HGroup, MUIA_Group_HorizSpacing, 0, MUIA_HorizWeight, 0,
-                 Child, MP->MapAuto   = KeyButtonFunc('a', "\33cAuto"),
-                 Child, MP->MapCenter = KeyButtonFunc('e', "\33cCenter"),
+                 Child, MP->MapAuto   = KeyButtonFunc('a', (char*)GetString( MSG_MAPGUI_AUTO ) ),      // "\33cAuto"
+                 Child, MP->MapCenter = KeyButtonFunc('e', (char*)GetString( MSG_MAPGUI_33CCENTER )),  // "\33cCenter"
                  End, /* HGroup */
 
                End, /* ColGroup */
 
        /* Row 4 */
              Child, ColGroup(5), MUIA_VertWeight, 0, MUIA_Group_HorizSpacing, 0,
-               Child, Label2(" Exag "),
+               Child, Label2(GetString( MSG_MAPGUI_EXAG )),  // " Exag "
                Child, MP->Exag = StringObject, StringFrame,
         	MUIA_String_Contents, "       ",
         	MUIA_String_Accept, " 0123456789.",
@@ -317,7 +452,7 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
                Child, MP->ExagLess = ImageButtonWCS(MUII_ArrowLeft),
                Child, MP->ExagMore = ImageButtonWCS(MUII_ArrowRight),
                Child, MP->MapObject = KeyButtonObject('b'),
-			MUIA_Text_Contents, "\33c Database ",
+			MUIA_Text_Contents, GetString( MSG_MAPGUI_33CDATABASE ),  // "\33c Database "
         		MUIA_HorizWeight, 0, End,
                End, /* ColGroup */
 	     End, /* VGroup */
@@ -327,28 +462,28 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
              Child, HGroup, MUIA_VertWeight, 0,
                Child, HGroup,
                  Child, MP->MapTopo = CheckMark(0),
-                 Child, Label1("Topo"),
+                 Child, Label1(GetString( MSG_MAPGUI_TOPO )),  // "Topo"
                  End, /* HGroup */
                Child, RectangleObject, End,
                Child, HGroup,
                  Child, MP->MapVec = CheckMark(0),
-                 Child, Label1("Vec"),
+                 Child, Label1(GetString( MSG_MAPGUI_VEC )),  // "Vec"
                  End, /* HGroup */
                Child, RectangleObject, End,
                Child, HGroup, MUIA_Group_HorizSpacing, 0,
                  Child, MP->MapEco = CheckMark(0),
-                 Child, MP->BT_EcoLegend = KeyButtonFunc(',', "\33cEco "),
+                 Child, MP->BT_EcoLegend = KeyButtonFunc(',', (char*)GetString( MSG_MAPGUI_ECO )),  // "\33cEco "
                  End, /* HGroup */
                Child, RectangleObject, End,
                Child, HGroup,
                  Child, MP->MapInter = CheckMark(0),
-                 Child, Label1("Inter"),
+                 Child, Label1(GetString( MSG_MAPGUI_INTER )),  // "Inter"
                  End, /* HGroup */
                End, /* HGroup */
 
              Child, HGroup, MUIA_VertWeight, 0,
                Child, HGroup,
-                 Child, Label2("Style:"),
+                 Child, Label2(GetString( MSG_MAPGUI_STYLE )),  // "Style:"
                  Child, MP->MapStyle = CycleObject, MUIA_Cycle_Entries, StyleCycle, End,
                  End, /* HGroup */
                Child, RectangleObject, End,
@@ -361,7 +496,7 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
              Child, HGroup, MUIA_VertWeight, 0,
 	       Child, HGroup, MUIA_Group_HorizSpacing, 0,
                  Child, MP->AlignCheck = CheckMark(align),
-                 Child, MP->MapAlign  = KeyButtonFunc('g', "\33cAlign "),
+                 Child, MP->MapAlign  = KeyButtonFunc('g', (char*)GetString( MSG_MAPGUI_ALIGN )),  // "\33cAlign "
 	         End, /* HGroup */
                Child, MP->MapColor = CycleObject, MUIA_Cycle_Entries, ColorCycle, End,
                End, /* HGroup */
@@ -369,10 +504,10 @@ STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF
              Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_VertWeight, 0,
                Child, MP->ClearFrame = HGroup, MUIA_Group_HorizSpacing, 0, /* Checkmark and Button */
                  Child, MP->MapAutoClear = CheckMark(0),
-                 Child, MP->MapClr    = KeyButtonFunc('c', "\33cClear"),
+                 Child, MP->MapClr    = KeyButtonFunc('c', (char*)GetString( MSG_MAPGUI_CLEAR )),  // "\33cClear"
                  End, /* HGroup */
-               Child, MP->MapDraw   = KeyButtonFunc('d', "\33cDraw"),
-               Child, MP->MapRefine = KeyButtonFunc('r', "\33cRefine"),
+               Child, MP->MapDraw   = KeyButtonFunc('d', (char*)GetString( MSG_MAPGUI_33CDRAW )),  // "\33cDraw"
+               Child, MP->MapRefine = KeyButtonFunc('r', (char*)GetString( MSG_MAPGUI_33CREFINE )),   // "\33cRefine"
                End, /* HGroup */
              End, /* VGroup */
            End, /* HGroup */
@@ -582,20 +717,20 @@ short Make_MA_Window(struct MapData *MP)
  Set_Param_Menu(10);
 
  MP->AlignWin = WindowObject,
-   MUIA_Window_Title      , "Map Alignment",
+   MUIA_Window_Title      , GetString( MSG_MAPGUI_MAPALIGNMENT ),  // "Map Alignment"
    MUIA_Window_ID         , MakeID('M','A','A','L'),
    MUIA_Window_Screen    , WCSScrn,
    MUIA_Window_Menu	, MapNewMenus,
 
    WindowContents, VGroup,
-	 Child, TextObject, MUIA_Text_Contents, "\33c\0334Geographic Coords", End,
+	 Child, TextObject, MUIA_Text_Contents, GetString( MSG_MAPGUI_EOGRAPHICCOORDS ), End,  // "\33c\0334Geographic Coords"
          Child, HGroup,
 
-           Child, Label2("NW Lat"),
+           Child, Label2(GetString( MSG_MAPGUI_NWLAT )),  // "NW Lat"
            Child, MP->FloatStr[0] = StringObject, StringFrame,
         	MUIA_String_Accept, "-.0123456789",
 		MUIA_FixWidthTxt, "012345789012", End,
-           Child, Label2(" Lon"),
+           Child, Label2(GetString( MSG_MAPGUI_LON )),  // " Lon"
            Child, MP->FloatStr[1] = StringObject, StringFrame,
         	MUIA_String_Accept, "-.0123456789",
 		MUIA_FixWidthTxt, "012345789012", End,
@@ -603,11 +738,11 @@ short Make_MA_Window(struct MapData *MP)
 
          Child, HGroup,
 
-           Child, Label2("SE Lat"),
+           Child, Label2(GetString( MSG_MAPGUI_SELAT )),  // "SE Lat"
            Child, MP->FloatStr[2] = StringObject, StringFrame,
         	MUIA_String_Accept, "-.0123456789",
 		MUIA_FixWidthTxt, "012345789012", End,
-           Child, Label2(" Lon"),
+           Child, Label2(GetString( MSG_MAPGUI_LON )),  // " Lon"
            Child, MP->FloatStr[3] = StringObject, StringFrame,
         	MUIA_String_Accept, "-.0123456789",
 		MUIA_FixWidthTxt, "012345789012", End,
@@ -615,10 +750,10 @@ short Make_MA_Window(struct MapData *MP)
 
 	 Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
 
-	 Child, TextObject, MUIA_Text_Contents, "\33c\0334Screen Coords", End,
+	 Child, TextObject, MUIA_Text_Contents, GetString( MSG_MAPGUI_CREENCOORDS ), End,  // "\33c\0334Screen Coords"
          Child, HGroup,
 
-           Child, Label2(" Upper Left X"),
+           Child, Label2(GetString( MSG_MAPGUI_UPPERLEFTX )),  // " Upper Left X"
            Child, MP->IntStr[0] = StringObject, StringFrame,
         	MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -630,7 +765,7 @@ short Make_MA_Window(struct MapData *MP)
 
          Child, HGroup,
 
-           Child, Label2("Lower Right X"),
+           Child, Label2(GetString( MSG_MAPGUI_LOWERRIGHTX )),  // "Lower Right X"
            Child, MP->IntStr[2] = StringObject, StringFrame,
         	MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "012345", End,
@@ -640,7 +775,7 @@ short Make_MA_Window(struct MapData *MP)
 		MUIA_FixWidthTxt, "012345", End,
            End, /* HGroup */
 
-         Child, MP->Register = KeyButtonFunc('r', "\33cSet Registration"), 
+         Child, MP->Register = KeyButtonFunc('r', (char*)GetString( MSG_MAPGUI_SETREGISTRATION )),  // "\33cSet Registration"
 
      End, /* VGroup */
    End; /* Window object */
@@ -778,7 +913,7 @@ void UnderConst_New(void)
 if(!UnderConst)
 	{
 	UnderConst = WindowObject,
-   MUIA_Window_Title      , "Map Control Window Notice",
+   MUIA_Window_Title      , GetString( MSG_MAPGUI_MAPCONTROLWINDOWNOTICE ),  // "Map Control Window Notice"
    MUIA_Window_ID         , MakeID('N','O','T','C'),
 /*   MUIA_Window_SizeGadget  , FALSE, */
    MUIA_Window_Screen    , WCSScrn,
@@ -788,9 +923,9 @@ if(!UnderConst)
 	  MUIA_InnerRight, 0, MUIA_InnerLeft, 0,
 	  MUIA_InnerTop, 0, MUIA_InnerBottom, 0, End,
 	 Child, RectangleObject, End,
-	 Child, TextObject, MUIA_Text_Contents, "\33cThis area is\nUnder Construction.\nHard hat required.", End,
+	 Child, TextObject, MUIA_Text_Contents, GetString( MSG_MAPGUI_THISAREAISNDERCONSTRUCTIONARDHATREQUIRED ), End,  // "\33cThis area is\nUnder Construction.\nHard hat required."
 	 Child, RectangleObject, End,
-	 Child, UnderConstOK = KeyButtonFunc('o', "\33cOkay"),
+	 Child, UnderConstOK = KeyButtonFunc('o', (char*)GetString( MSG_MAPGUI_OKAY )),  // "\33cOkay"
     End,
    End;
    
@@ -901,13 +1036,13 @@ short map(void)
 	WA_MaxWidth,	(~0),
 	WA_MaxHeight,	(~0),
 	WA_IDCMP,	iflags,
-	WA_Title,	(IPTR)"Map View",
+	WA_Title,	(IPTR)GetString( MSG_MAPGUI_MAPVIEW ),  // "Map View"
 	WA_CustomScreen,(IPTR)WCSScrn,
 	TAG_DONE);
 
  if (! MapWind0)
   {
-  Log(ERR_WIN_FAIL, (CONST_STRPTR)"Mapping module");
+  Log(ERR_WIN_FAIL, GetString( MSG_MAPGUI_MAPPINGMODULE ));  // "Mapping module"
   return (0);
   }
 
@@ -923,9 +1058,9 @@ short map(void)
  if ((MP = (struct MapData *)
 	get_Memory(sizeof (struct MapData), MEMF_CLEAR)) == NULL)
   {
-  User_Message((CONST_STRPTR)"Mapping Module",
-		  (CONST_STRPTR)"Out of memory!\nCan't initialize map window!\nOperation terminated.",
-		  (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULE ),                                           // "Mapping Module"
+		  GetString( MSG_MAPGUI_OUTOFMEMORYANTINITIALIZEMAPWINDOWPERATIONTERMINATED ),  // "Out of memory!\nCan't initialize map window!\nOperation terminated."
+		  GetString( MSG_MAPGUI_OK ), (CONST_STRPTR)"o");                               // "OK"
   Close_Map_Window(1);
   return(0);
   }
@@ -1380,9 +1515,9 @@ if(WCS_ID)
          if  ((AlignBox.High.Y != AlignBox.Low.Y) && (AlignBox.High.X - AlignBox.Low.Y))
           valuesetalign();
          else
-          User_Message((CONST_STRPTR)"Mapping Module: Align",
-        		  (CONST_STRPTR)"Illegal registration values! High and low X or Y values are equal.",
-				  (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+          User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),  // "Mapping Module: Align"
+                       GetString( MSG_MAPGUI_ILLEGALREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUA ),  // "Illegal registration values! High and low X or Y values are equal."
+                       GetString( MSG_MAPGUI_OK ), (CONST_STRPTR)"o");  // "OK"
          } /* if align */
 	if(AutoClear)
 		{
@@ -1807,7 +1942,7 @@ HandleEvent:
       {
       short selectpoint;
 
-      MapGUI_Message(0, "Set vertex to insert after. Q=done Uu=up Dd=down ESC=abort");
+      MapGUI_Message(0, (char*)GetString( MSG_MAPGUI_SETVERTEXTOINSERTAFTERQDONEUUUPDDDOWNESCABORT ));  // "Set vertex to insert after. Q=done Uu=up Dd=down ESC=abort"
       selectpoint = modpoints(0);
       MapGUI_Message(0, " ");
       if (selectpoint)
@@ -1826,7 +1961,7 @@ HandleEvent:
       } /*  */
      case ID_MC_MODPTS:
       {
-      MapGUI_Message(0, "Q=done Uu=up Dd=down -=delete");
+      MapGUI_Message(0, (char*)GetString( MSG_MAPGUI_QDONEUUUPDDDOWNDELETE ));  // "Q=done Uu=up Dd=down -=delete"
       modpoints(1);
       MapGUI_Message(0, " ");
       break;
@@ -1842,11 +1977,11 @@ HandleEvent:
         error = maptotopo(OBN);
         if (! error)
          {
-         sprintf (str, "Vector %s conformed to topography.", DBase[OBN].Name);
+         sprintf (str, (char*)GetString( MSG_MAPGUI_VECTORCONFORMEDTOTOPOGRAPHY ), DBase[OBN].Name);  // "Vector %s conformed to topography."
          Log(MSG_NULL, (CONST_STRPTR)str);
 	 }
         else
-         Log(MSG_NULL, (CONST_STRPTR)"Vector topo conformation aborted.");
+         Log(MSG_NULL, GetString( MSG_MAPGUI_VECTORTOPOCONFORMATIONABORTED ));  // "Vector topo conformation aborted."
         }
        }
       break;
@@ -1858,7 +1993,7 @@ HandleEvent:
        short i;
        struct BusyWindow *BWMT;
 
-       BWMT = BusyWin_New("Conform", NoOfObjects, 1, MakeID('B','W','M','T'));
+       BWMT = BusyWin_New((char*)GetString( MSG_MAPGUI_CONFORM ), NoOfObjects, 1, MakeID('B','W','M','T'));  // "Conform"
        for (i=0; i<NoOfObjects; i++)
         {
         if ((DBase[i].Flags & 2) && DBase[i].Special[0] == 'V')
@@ -1878,11 +2013,11 @@ HandleEvent:
         BusyWin_Del(BWMT);
        if (! error)
         {
-        Log(MSG_NULL, (CONST_STRPTR)"All enabled vectors conformed to topography.");
+        Log(MSG_NULL, GetString( MSG_MAPGUI_ALLENABLEDVECTORSCONFORMEDTOTOPOGRAPHY ));  // "All enabled vectors conformed to topography."
         } /* if ! error */
        else
         {
-        sprintf(str, "Vector topo conformation aborted! %d objects completed.",i);
+        sprintf(str, (char*)GetString( MSG_MAPGUI_VECTORTOPOCONFORMATIONABORTEDOBJECTSCOMPLETED ),i);  // "Vector topo conformation aborted! %d objects completed."
         Log(MSG_NULL, (CONST_STRPTR)str);
         } /* else aborted */
        } /* if topos loaded OK */
@@ -1900,8 +2035,10 @@ HandleEvent:
       } /*  */
      case ID_MC_INPUT:
       {
-      MP_DigMode = User_Message((CONST_STRPTR)"Mapping Module: Digitize",
-    		  (CONST_STRPTR)"Set digitizing input source.", (CONST_STRPTR)"Bitpad|Summagrid|Mouse", (CONST_STRPTR)"bsm");
+      MP_DigMode = User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),     // "Mapping Module: Digitize"
+                                GetString( MSG_MAPGUI_SETDIGITIZINGINPUTSOURCE ),  // "Set digitizing input source."
+                                GetString( MSG_MAPGUI_BITPADSUMMAGRIDMOUSE ),      // "Bitpad|Summagrid|Mouse"
+                                (CONST_STRPTR)"bsm");
       break;
       } /*  */
      case ID_MC_DUPLICATE:
@@ -2175,10 +2312,10 @@ HandleEvent:
 /* if end points not found warn and undraw points if user wishes */
            if (NotFound)
             {
-            if (User_Message((CONST_STRPTR)"Map View: Build DEM",
-            		(CONST_STRPTR)"At least one end control point for the line segment just drawn could not be\
- found!\nDo you wish to use the current and minimum slider elevations for this\
- segment or abort the operation?", (CONST_STRPTR)"Slider|Abort", (CONST_STRPTR)"sa"))
+            if (User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                                                      // "Map View: Build DEM"
+                             (CONST_STRPTR) GetString( MSG_MAPGUI_ATLEASTONEENDCONTROLPOINTFORTHELINESEGMENTJUSTDRAWNC ),  // "At least one end control point for the line segment just drawn could not be found!\nDo you wish to use the current and minimum slider elevations for this segment or abort the operation?",
+                             GetString( MSG_MAPGUI_SLIDERABORT ),                                                          // "Slider|Abort"
+                             (CONST_STRPTR)"sa"))
              {
              if (NotFound >= 2)
               Y1 = MD_Win->CurEl;
@@ -2266,7 +2403,7 @@ HandleEvent:
 	    }
            else					/* numeric input */
             {
-            if (! GetInputString("Enter elevation value for new control point.",
+            if (! GetInputString((char*)GetString( MSG_MAPGUI_ENTERELEVATIONVALUEFORNEWCONTROLPOINT ),  // "Enter elevation value for new control point."
 		    "abcdefghijklmnopqrstuvwxyz", str))
              {
              MD_Win->CurDat = NT;
@@ -2363,7 +2500,7 @@ HandleEvent:
          {
          if ((DT = Datum_MVFind(MD_Win->TC, NULL, PtCoord, 0)))
           {
-          sprintf(str, "DEM Ctrl Pt: Lat %f Lon %f Elev %.2f", DT->values[1],
+          sprintf(str, (char*)GetString( MSG_MAPGUI_DEMCTRLPTLATFLONFELEV2F ), DT->values[1],  // "DEM Ctrl Pt: Lat %f Lon %f Elev %.2f"
 		DT->values[0], DT->values[2]);
           MapGUI_Message(0, str);
 	  } /* if datum found */
@@ -2504,9 +2641,10 @@ HandleEvent:
          if  ((AlignBox.High.Y != AlignBox.Low.Y) && (AlignBox.High.X - AlignBox.Low.Y))
           valuesetalign();
          else
-          User_Message((CONST_STRPTR)"Mapping Module: Align",
-        		  (CONST_STRPTR)"Illegal registration values! High and low X or Y values are equal.",
-				  (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+          User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                                    // "Mapping Module: Align"
+                       GetString( MSG_MAPGUI_ILLEGALREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUA ),  // "Illegal registration values! High and low X or Y values are equal.
+                       GetString( MSG_MAPGUI_OK ),                                                    // "OK"
+                     (CONST_STRPTR)"o");
          } /* if align */
 	if(AutoClear)
 		{
@@ -2555,10 +2693,10 @@ void Close_Map_Window(short ExitWCS)
 
  if (DB_Mod)
   {
-  SaveIt = User_Message((CONST_STRPTR)"Database: Save",
-		  (CONST_STRPTR)"The Database has been modified since it was loaded.\n\
-Do you wish to save it or a Master Object file now?",
-(CONST_STRPTR)"D'base|Object|Both|Neither", (CONST_STRPTR)"dmbn");
+  SaveIt = User_Message(GetString( MSG_MAPGUI_DATABASESAVE ),                                          // "Database: Save"
+                        GetString( MSG_MAPGUI_THEDATABASEHASBEENMODIFIEDSINCEITWASLOADEDOYOUWISHTO ),  // "The Database has been modified since it was loaded.\nDo you wish to save it or a Master Object file now?",
+                        GetString( MSG_MAPGUI_DBASEOBJECTBOTHNEITHER ),                                // "D'base|Object|Both|Neither"
+                        (CONST_STRPTR)"dmbn");
   if (SaveIt == 1 || SaveIt == 3)
    savedbase(1);
   if (SaveIt == 2 || SaveIt == 3)
@@ -2668,8 +2806,10 @@ void Make_EL_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message((CONST_STRPTR)"Ecosystem Legend",
-		  (CONST_STRPTR)"You must first load or create a parameter file before opening the Legend.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAPGUI_ECOSYSTEMLEGEND ),  // "Ecosystem Legend"
+               GetString( MSG_MAPGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENINGT ),  // "You must first load or create a parameter file before opening the Legend."
+               GetString( MSG_MAPGUI_OK ),                                                    // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -2685,8 +2825,10 @@ void Make_EL_Window(void)
 
  if (! EL_Win->EEList)
   {
-  User_Message((CONST_STRPTR)"Map View: Ecosystem Legend",
-		  (CONST_STRPTR)"Out of memory!\nCan't open Ecosystem Legend.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAPGUI_MAPVIEWECOSYSTEMLEGEND ),              // "Map View: Ecosystem Legend"
+		GetString( MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND ),  // "Out of memory!\nCan't open Ecosystem Legend."
+                GetString( MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND ),  // "OK"
+                (CONST_STRPTR)"o");
   Close_EL_Window();
   return;
   } /* if out of memory */
@@ -2742,7 +2884,10 @@ void Make_EL_Window(void)
   if (! EL_Win->EcoLegendWin)
    {
    Close_EL_Window();
-   User_Message((CONST_STRPTR)"Ecosystem Legend", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_MAPGUI_ECOSYSTEMLEGEND ),  // "Ecosystem Legend"
+                GetString( MSG_MAPGUI_OUTOFMEMORY ),      // "Out of memory!"
+                GetString( MSG_MAPGUI_OK ),               // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
