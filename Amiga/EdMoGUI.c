@@ -58,9 +58,9 @@ void Make_EM_Window(void)
       WindowContents, VGroup,
 	Child, HGroup,
 	  Child, Label2(GetString( MSG_EDMOGUI_OPTIONS ) ),                                                    // "Options"
-          Child, EM_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDMOGUI_FRACTAL )),     // "\33cPaths"
-          Child, EM_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDMOGUI_HORIZON )),     // "\33cFractal"
-          Child, EM_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDMOGUI_CELESTIAL )),   // "\33cHorizon"
+          Child, EM_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDMOGUI_PATHS )),       // "\33cPaths"
+          Child, EM_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDMOGUI_FRACTAL )),     // "\33cFractal"
+          Child, EM_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDMOGUI_HORIZON )),     // "\33cHorizon"
           Child, EM_Win->BT_Settings[3] = KeyButtonFunc('4', (char*)GetString( MSG_EDMOGUI_CELESTIAL )),   // "\33cCelestial"
           Child, EM_Win->BT_Settings[4] = KeyButtonFunc('5', (char*)GetString( MSG_EDMOGUI_REFLECTION )),  // "\33cReflection"
 	  End, /* HGroup */

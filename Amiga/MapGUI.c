@@ -214,105 +214,113 @@ STATIC_FCN struct NewMenu MapNewMenus[] =
 	{ NM_END,   NULL,		 0,  0, 0, 0 }
 	};
 
-void test()
+/* Fills the MapNewMenus structure with the real locale strings */
+/* AF, HGW, 30.Mar.2024                                         */
+/* ------------------------------------------------------------ */
+STATIC_FCN void InitMapNewMenus(void)
 {
 	unsigned int i=0;
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_DATABASE );     // "Database"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_LOADOBJECTS );  // "Load Objects"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ALL );          // "All"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ACTIVE );       // "Active"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_LOADTOPOS );    // "Load Topos"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_SAVEOBJECTS );  // "Save Objects"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ALL );          // "All"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ACTIVE );       // "Active"
-i++;   // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_DATABASE );     // "Database"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CLEARWINDOW );  // "Clear Window"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_PRINT );        // "Print"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CLOSEMAP );     // "Close Map"
+	static int Init=TRUE;
+	if(Init)
+	{
+		Init=FALSE;
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_DATABASE );     // "Database"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_LOADOBJECTS );  // "Load Objects"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ALL );          // "All"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ACTIVE );       // "Active"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_LOADTOPOS );    // "Load Topos"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_SAVEOBJECTS );  // "Save Objects"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ALL );          // "All"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ACTIVE );       // "Active"
+		i++;   // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_DATABASE );     // "Database"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CLEARWINDOW );  // "Clear Window"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_PRINT );        // "Print"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CLOSEMAP );     // "Close Map"
 
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_VIEW );         // "View"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CONTROLS );     // "Controls"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ECOLEGEND );    // GetString( MSG_MAPGUI_ECOLEGEND )
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ALIGNMAP );     // "Align Map"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CENTER );       // "Center"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_AUTOCENTER );   // "Auto Center"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ZOOM );         // "Zoom"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_PAN );          // "Pan"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_MOVE );         // "Move"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_IN );           // "In"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_OUT );          // "Out"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_LEFT );         // "Left"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_RIGHT );        // "Right"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_UP );           // "Up"
-MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_DOWN );         // "Down"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_VIEW );         // "View"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CONTROLS );     // "Controls"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ECOLEGEND );    // GetString( MSG_MAPGUI_ECOLEGEND )
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ALIGNMAP );     // "Align Map"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CENTER );       // "Center"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_AUTOCENTER );   // "Auto Center"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ZOOM );         // "Zoom"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_PAN );          // "Pan"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_MOVE );         // "Move"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_IN );           // "In"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_OUT );          // "Out"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_LEFT );         // "Left"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_RIGHT );        // "Right"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_UP );           // "Up"
+		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_DOWN );         // "Down"
 
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DRAW );        // "Draw"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DRAWMAP );     // "Draw Map"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NORMAL );      // "Normal"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_REFINE );      // "Refine"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FRACTALMAP );  // "Fractal Map"
-i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_COLORMAP );    // "Color Map"
-i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FIXFLATS );    // "Fix Flats"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FINDDISTANCE );// "Find Distance"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DRAW );        // "Draw"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DRAWMAP );     // "Draw Map"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NORMAL );      // "Normal"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_REFINE );      // "Refine"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FRACTALMAP );  // "Fractal Map"
+		i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_COLORMAP );    // "Color Map"
+		i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FIXFLATS );    // "Fix Flats"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FINDDISTANCE );// "Find Distance"
 
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_OBJECT );      // "Object"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NEWOBJECT );   // "New Object"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FINDOBJECT );  // "Find Object"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SINGLE );      // "Single"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MULTI );       // "Multi"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_HIGHLIGHT );   // "Highlight"
-i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ADDPOINTS );   // "Add Points"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NEW );         // "New"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_APPEND );      // "Append"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_INSERT );      // "Insert"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CREATESTREAM );// "Create Stream"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NEW );         // "New"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_APPEND );      // "Append"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MODIFYPOINTS );// "Modify Points"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_INPUTSOURCE ); // "Input Source"
-i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CONFORMTOPO ); // "Conform Topo"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ALL );         // "All"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ACTIVE );      // "Active"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MATCHPOINTS ); // "Match Points"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MOVEORIGIN );  // "Move Origin"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DUPLICATE );   // "Duplicate"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_OBJECT );      // "Object"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NEWOBJECT );   // "New Object"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FINDOBJECT );  // "Find Object"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SINGLE );      // "Single"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MULTI );       // "Multi"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_HIGHLIGHT );   // "Highlight"
+		i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ADDPOINTS );   // "Add Points"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NEW );         // "New"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_APPEND );      // "Append"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_INSERT );      // "Insert"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CREATESTREAM );// "Create Stream"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_NEW );         // "New"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_APPEND );      // "Append"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MODIFYPOINTS );// "Modify Points"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_INPUTSOURCE ); // "Input Source"
+		i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CONFORMTOPO ); // "Conform Topo"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ALL );         // "All"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ACTIVE );      // "Active"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MATCHPOINTS ); // "Match Points"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MOVEORIGIN );  // "Move Origin"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DUPLICATE );   // "Duplicate"
 #ifdef ENABLE_STATISTICS
-MapNewMenus[i++].nm_Label=  { NM_TITLE, (STRPTR)"Graph",		 0 , 0, 0, 0 },
-MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Load Stats",	 (STRPTR)"$", 0, 0, (APTR)(ID_MC_LOADSTATS) },
-MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Normalize",	 (STRPTR)"%", 0, 0, (APTR)(ID_MC_NORMALIZE) },
-MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Graph Style",	 (STRPTR)"^", 0, 0, (APTR)(ID_MC_GRAPHSTYLE) },
-MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Draw Graph",	 0,  0, 0, (APTR)(ID_MC_GRAPH) },
-MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Erase",		 (STRPTR)"*", 0, 0, (APTR)(ID_MC_ERASE) },
+		MapNewMenus[i++].nm_Label=  { NM_TITLE, (STRPTR)"Graph",		 0 , 0, 0, 0 },
+		MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Load Stats",	 (STRPTR)"$", 0, 0, (APTR)(ID_MC_LOADSTATS) },
+		MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Normalize",	 (STRPTR)"%", 0, 0, (APTR)(ID_MC_NORMALIZE) },
+		MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Graph Style",	 (STRPTR)"^", 0, 0, (APTR)(ID_MC_GRAPHSTYLE) },
+		MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Draw Graph",	 0,  0, 0, (APTR)(ID_MC_GRAPH) },
+		MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Erase",		 (STRPTR)"*", 0, 0, (APTR)(ID_MC_ERASE) },
 #endif /* ENABLE_STATISTICS */
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MOTION );      // "Motion"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SETCAMERA );   // "Set Camera"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SETFOCUS );    // "Set Focus"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_PATH );        // "Path"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_INTERPOLATE ); // "Interpolate"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_VECTCAMERA );  // "Vect-Camera"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_VECTFOCUS );   // "Vect-Focus"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CAMERAVECT );  // "Camera-Vect"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FOCUSVECT );   // "Focus-Vect"
-i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SURFACEEL );   // "Surface El"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ONE );         // "One"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_TWO );         // "Two"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_THREE );       // "Three",
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FOUR );        // "Four"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_MOTION );      // "Motion"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SETCAMERA );   // "Set Camera"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SETFOCUS );    // "Set Focus"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_PATH );        // "Path"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_INTERPOLATE ); // "Interpolate"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_VECTCAMERA );  // "Vect-Camera"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_VECTFOCUS );   // "Vect-Focus"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CAMERAVECT );  // "Camera-Vect"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FOCUSVECT );   // "Focus-Vect"
+		i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SURFACEEL );   // "Surface El"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ONE );         // "One"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_TWO );         // "Two"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_THREE );       // "Three",
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FOUR );        // "Four"
 
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_WINDOWS );     // "Windows"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DEMDESIGNER ); // "DEM Designer"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CLOUDEDITOR ); // "Cloud Editor"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_WAVEEDITOR );  // "Wave Editor"
-MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_VIEWSHED );    // "Viewshed"
-/*
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_WINDOWS );     // "Windows"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DEMDESIGNER ); // "DEM Designer"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CLOUDEDITOR ); // "Cloud Editor"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_WAVEEDITOR );  // "Wave Editor"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_VIEWSHED );    // "Viewshed"
+		/*
 MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Particle Tree",	 0 , 0, 0, (APTR)(ID_MC_PARTICLETREE) },
-*/
+		 */
+	}
 }
 
 
@@ -321,6 +329,8 @@ MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Particle Tree",	 0 , 0, 0, (APT
 STATIC_FCN short Make_Map_Menu(void) // used locally only -> static, AF 20.7.2021
 {
  short OpenOK = 0;
+
+ InitMapNewMenus(); // Fills the MapNewMenus structure with the real locale strings
 
  if ((MP->VisualInfo = GetVisualInfo(MapWind0->WScreen, TAG_END)) != NULL)
   {

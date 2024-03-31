@@ -3449,3 +3449,9 @@ egrep -nH "\".*\\\\$" LWSupport.c
 SC stuerzt beim Compilieren von WCS_locale.c ab. CatCompBufer ist zu groß. Bis 32720 Bytes funktioniert sc, bei 32721 Byte stürzt er ab. Signed 16Bit-Ueberlauf?
 Kann duerch mehrere kleinere CatCompBuffer umgangen werden. -> Im Moment kein Test-Compilieren von WCS_locale.c und kein Linken.
 Siehe build_wcs_sasc.sh
+
+30.Mar.2024
+-----------
+Wo findet man den Foliage-Editor?
+- EcoSystem Editor -> Pflanzen auswaehlen -> Edit Images -> Foliage Editor
+

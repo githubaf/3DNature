@@ -742,7 +742,7 @@ MSG_AGUI_HIDE
 ;
 MSG_AGUI_CLOSE
 \33cClose
-\33lSchließen
+\33cSchließen
 ;
 MSG_AGUI_LOGWINDOW
 Log Window
@@ -6279,19 +6279,19 @@ OK
 ;
 MSG_MAP_SETNORTHWESTREFERENCEPOINTWITHMOUSE
 \0338Set northwest reference point with mouse.
-
+\0338Nord-West Referenzpunkt mit der Maus festlegen.
 ;
 MSG_MAP_SETNORTHWESTREFERENCEPOINT
 Set northwest reference point
-
+Nord-West Referenzpunkt festlegen
 ;
 MSG_MAP_SETSOUTHEASTREFERENCEPOINTESCABORT
 \0338Set southeast reference point. ESC=abort
-
+\0338Süd-Ost Referenzpunkt festlegen. ESC=Abbruch
 ;
 MSG_MAP_SETSOUTHEASTREFERENCEPOINT
 Set southeast reference point
-
+Süd-Ost Referenzpunkt festlegen
 ;
 MSG_MAP_MAPPINGMODULEALIGN
 Mapping Module: Align
@@ -6339,11 +6339,11 @@ Relative elevation file
 ;
 MSG_MAP_338SETCENTERPOINT
 \0338Set center point.
-
+\0338Mittelpunkt festlegen.
 ;
 MSG_MAP_SETCENTERPOINT
 Set center point
-
+Mittelpunkt festlegen
 ;
 MSG_MAP_338SETORIGINPOINT
 \0338Set origin point.
@@ -6363,15 +6363,15 @@ Set destination point
 ;
 MSG_MAP_SELECTOBJECTESCABORT
 \0338Select object. ESC=abort
-
+\0338Objekt auswählen. ESC=Abbrechen
 ;
 MSG_MAP_SELECTOBJECT
 Select object
-
+Objekt auswählen
 ;
 MSG_MAP_ISTHISTHECORRECTOBJECT
 Is this the correct object?
-
+Ist dies das richtige Objekt?
 ;
 MSG_MAP_YESNO
 Yes|No
@@ -6383,7 +6383,7 @@ Mapping Module
 ;
 MSG_MAP_OBJECTNOTFOUND
 Object not found!
-
+Objekt nicht gefunden!
 ;
 MSG_MAP_MAPVIEWMULTISELECT
 Map View: Multi-Select
@@ -6399,19 +6399,19 @@ Select|De-select|Cancel
 ;
 MSG_MAP_SETFIRSTCORNERPOINTWITHMOUSE
 \0338Set first corner point with mouse.
-
+\0338Ersten Eckpunkt mit der Maus festlegen.
 ;
 MSG_MAP_338SETFIRSTCORNERPOINTWITHMOUSE
 Set first corner point with mouse
-
+Ersten Eckpunkt mit der Maus festlegen
 ;
 MSG_MAP_SETSECONDCORNERPOINTESCABORT
 Set second corner point. ESC=abort
-
+Zweiten Eckpunkt festlegen. ESC=Abbruch
 ;
 MSG_MAP_SETSECONDCORNERPOINT
 Set second corner point
-
+Zweiten Eckpunkt festlegen
 ;
 MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR
 Digitize new points for the active vector object or create a new object?
@@ -6543,7 +6543,7 @@ MSG_MAP_SETSEREGISTRATIONPOINTBUTTON3ABORT
 ;
 MSG_MAP_LENGTHFFF
 length %f %f %f\n
-
+Länge %f %f %f\n
 ;
 MSG_MAP_ILLEGALVALUEWOREGISTRATIONPOINTSMAYNOTBECOINC
 Illegal value!\nTwo registration points may not be coincident.\nOperation terminated.
@@ -6599,7 +6599,7 @@ Set destination point
 ;
 MSG_MAPEXTRA_LENGTHFKM
 Length: %f km
-
+Länge: %f km
 ;
 MSG_MAPEXTRA_MAPVIEW
 Map View
@@ -6872,15 +6872,15 @@ Clear Window
 ;
 MSG_MAPGUI_PRINT
 Print
-
+Drucken
 ;
 MSG_MAPGUI_CLOSEMAP
 Close Map
-
+Karte schließen
 ;
 MSG_MAPGUI_VIEW
 View
-
+Ansicht
 ;
 MSG_MAPGUI_CONTROLS
 Controls
@@ -6892,19 +6892,19 @@ Eco Legend
 ;
 MSG_MAPGUI_ALIGNMAP
 Align Map
-
+Ausrichtung
 ;
 MSG_MAPGUI_CENTER
 Center
-
+Zentrieren
 ;
 MSG_MAPGUI_AUTOCENTER
 Auto Center
-
+autom. Zentrieren
 ;
 MSG_MAPGUI_ZOOM
 Zoom
-
+Vergrößern
 ;
 MSG_MAPGUI_PAN
 Pan
@@ -6924,23 +6924,23 @@ Out
 ;
 MSG_MAPGUI_LEFT
 Left
-
+Links
 ;
 MSG_MAPGUI_RIGHT
 Right
-
+Rechts
 ;
 MSG_MAPGUI_UP
 Up
-
+Hoch
 ;
 MSG_MAPGUI_DOWN
 Down
-
+Runter
 ;
 MSG_MAPGUI_DRAW
 Draw
-
+Zeichnen
 ;
 MSG_MAPGUI_DRAWMAP
 Draw Map
@@ -6972,11 +6972,11 @@ Find Distance
 ;
 MSG_MAPGUI_OBJECT
 Object
-
+Objekt
 ;
 MSG_MAPGUI_NEWOBJECT
 New Object
-
+Neues Objekt
 ;
 MSG_MAPGUI_FINDOBJECT
 Find Object
@@ -6992,23 +6992,23 @@ Multi
 ;
 MSG_MAPGUI_HIGHLIGHT
 Highlight
-
+Markieren
 ;
 MSG_MAPGUI_ADDPOINTS
 Add Points
-
+Punkte hinzufügen
 ;
 MSG_MAPGUI_NEW
 New
-
+Neu
 ;
 MSG_MAPGUI_APPEND
 Append
-
+Anhängen
 ;
 MSG_MAPGUI_INSERT
 Insert
-
+Einfügen
 ;
 MSG_MAPGUI_CREATESTREAM
 Create Stream
@@ -7016,7 +7016,7 @@ Create Stream
 ;
 MSG_MAPGUI_MODIFYPOINTS
 Modify Points
-
+Punkte ändern
 ;
 MSG_MAPGUI_INPUTSOURCE
 Input Source
@@ -7052,11 +7052,11 @@ Set Focus
 ;
 MSG_MAPGUI_PATH
 Path
-
+Pfad
 ;
 MSG_MAPGUI_INTERPOLATE
 Interpolate
-
+Interpolieren
 ;
 MSG_MAPGUI_VECTCAMERA
 Vect-Camera
@@ -7080,23 +7080,23 @@ Surface El
 ;
 MSG_MAPGUI_ONE
 One
-
+Eins
 ;
 MSG_MAPGUI_TWO
 Two
-
+Zwei
 ;
 MSG_MAPGUI_THREE
 Three
-
+Drei
 ;
 MSG_MAPGUI_FOUR
 Four
-
+Vier
 ;
 MSG_MAPGUI_WINDOWS
 Windows
-
+Fenster
 ;
 MSG_MAPGUI_DEMDESIGNER
 DEM Designer
@@ -7116,7 +7116,7 @@ Viewshed
 ;
 MSG_MAPGUI_SURFACE
 Surface
-
+Oberfläche
 ;
 MSG_MAPGUI_EMBOSS
 Emboss
@@ -7132,15 +7132,15 @@ Contour
 ;
 MSG_MAPGUI_GREY
 Grey
-
+Grau
 ;
 MSG_MAPGUI_LIGHTGREY
 Light Grey
-
+Hellgrau
 ;
 MSG_MAPGUI_COLOR
 Color
-
+Farbig
 ;
 MSG_MAPGUI_MAPVIEWCONTROL
 Map View Control
@@ -7196,7 +7196,7 @@ Inter
 ;
 MSG_MAPGUI_STYLE
 Style:
-
+Stil:
 ;
 MSG_MAPGUI_DITHER
 Dither
@@ -7204,15 +7204,15 @@ Dither
 ;
 MSG_MAPGUI_ALIGN
 \33cAlign\x20
-
+\33cAusrichten\x20
 ;
 MSG_MAPGUI_CLEAR
 \33cClear
-
+\33cLöschen
 ;
 MSG_MAPGUI_33CDRAW
 \33cDraw
-
+\33cZeichnen
 ;
 MSG_MAPGUI_33CREFINE
 \33cRefine
@@ -7224,31 +7224,31 @@ Map Alignment
 ;
 MSG_MAPGUI_EOGRAPHICCOORDS
 \33c\0334Geographic Coords
-
+\33c\0334Geo-Koordinaten
 ;
 MSG_MAPGUI_NWLAT
 NW Lat
-
+NW Breite
 ;
 MSG_MAPGUI_LON
  Lon
-
+ Länge
 ;
 MSG_MAPGUI_SELAT
 SE Lat
-
+SE Länge
 ;
 MSG_MAPGUI_CREENCOORDS
 \33c\0334Screen Coords
-
+\33c\0334Bildschirm Koordinaten
 ;
 MSG_MAPGUI_UPPERLEFTX
  Upper Left X
-
+ Oben Links X
 ;
 MSG_MAPGUI_LOWERRIGHTX
 Lower Right X
-
+Unten Rechts X
 ;
 MSG_MAPGUI_SETREGISTRATION
 \33cSet Registration
@@ -7260,7 +7260,7 @@ Map Control Window Notice
 ;
 MSG_MAPGUI_THISAREAISNDERCONSTRUCTIONARDHATREQUIRED
 \33cThis area is\nUnder Construction.\nHard hat required.
-
+\33cAchtung!\nBaustelle\nEs besteht Helmpflicht.
 ;
 MSG_MAPGUI_OKAY
 \33cOkay
@@ -7340,7 +7340,7 @@ DEM Ctrl Pt: Lat %f Lon %f Elev %.2f
 ;
 MSG_MAPGUI_DATABASESAVE
 Database: Save
-
+Datenbank: Speichern
 ;
 MSG_MAPGUI_DBASEOBJECTBOTHNEITHER
 D'base|Object|Both|Neither
@@ -7364,7 +7364,7 @@ Ecosystem Legend
 ;
 MSG_MAPGUI_OUTOFMEMORY
 Out of memory!
-
+Nicht genügend Speicher!
 ;
 ;
 MSG_MAPGUI_ATLEASTONEENDCONTROLPOINTFORTHELINESEGMENTJUSTDRAWNC
