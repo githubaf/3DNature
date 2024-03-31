@@ -3395,8 +3395,8 @@ Nothing		MUIFloatInt.o
 Nothing		MakeFaces.o
 Done		Map.o  20.Mar
 Done		MapExtra.o 29.Mar.24
-MapGUI.o
-MapLineObject.o
+Done		MapGUI.o 31.Mar.24
+Done		MapLineObject.o 31.Mar.24
 MapSupport.o
 MapTopo.o
 MapTopoObject.o

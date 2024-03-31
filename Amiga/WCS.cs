@@ -7383,3 +7383,27 @@ MSG_MAPGUI_THEDATABASEHASBEENMODIFIEDSINCEITWASLOADEDOYOUWISHTO
 The Database has been modified since it was loaded.\nDo you wish to save it or a Master Object file now?
 
 ;
+;
+MSG_MAPLINO_RENDERMODULE
+Render Module
+
+;
+MSG_MAPLINO_ERRORSAVINGLINEVERTICESTOFILEELECTNEWPATH
+Error saving line vertices to file!\nSelect new path.
+
+;
+MSG_MAPLINO_OK
+OK
+
+;
+MSG_MAPLINO_NEWLINESAVEPATH
+New Line Save Path
+
+;
+MSG_MAPLINO_ERROROPENINGLINESAVEFILEELECTNEWPATH
+Error opening line save file!\nSelect new path?
+
+;
+MSG_MAPLINO_OKCANCEL
+OK|Cancel
+

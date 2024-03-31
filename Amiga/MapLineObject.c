@@ -4,6 +4,9 @@
 ** Original code by Gary R. Huber
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 
 short maplineobject(struct elmapheaderV101 *map, struct Window *win,
@@ -36,10 +39,12 @@ SaveRepeat:
    {
    fclose(fvector);
    Log(ERR_WRITE_FAIL, (CONST_STRPTR)linefile);
-   User_Message((CONST_STRPTR)"Render Module",
-           (CONST_STRPTR)"Error saving line vertices to file!\nSelect new path.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_MAPLINO_RENDERMODULE ),                               // "Render Module"
+                GetString( MSG_MAPLINO_ERRORSAVINGLINEVERTICESTOFILEELECTNEWPATH ),  // "Error saving line vertices to file!\nSelect new path."
+                GetString( MSG_MAPLINO_OK ),                                         // "OK"
+                (CONST_STRPTR)"o");
 NewFileRequest:
-   if (getfilename(1,"New Line Save Path", linepath, linefile))
+   if (getfilename(1,(char*)GetString( MSG_MAPLINO_NEWLINESAVEPATH ), linepath, linefile))  // "New Line Save Path"
     {
     char filename[255];
 
@@ -48,8 +53,10 @@ NewFileRequest:
     if ((fvector = fopen(filename, "w")) == NULL)
      {
      Log(ERR_OPEN_FAIL, (CONST_STRPTR)linefile);
-     if (User_Message_Def((CONST_STRPTR)"Render Module",
-             (CONST_STRPTR)"Error opening line save file!\nSelect new path?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+     if (User_Message_Def(GetString( MSG_MAPLINO_RENDERMODULE ),                          // "Render Module"
+                          GetString( MSG_MAPLINO_ERROROPENINGLINESAVEFILEELECTNEWPATH ),  // "Error opening line save file!\nSelect new path?"
+                          GetString( MSG_MAPLINO_OKCANCEL ),                              // "OK|Cancel"
+                          (CONST_STRPTR)"oc", 1))
       goto NewFileRequest;
      } /* if open fail */
     else goto SaveRepeat;
