@@ -4,6 +4,9 @@
 ** Original code by Gary R. Huber.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #define ZBLEND
 
@@ -184,7 +187,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 
 /* We'll add some randomness to our colors for other than snow.
 ** Since "random" varies from -.1 to +.1, this will give us a variation of
-** ±20 */
+** 20 */
 
  switch (dir)
   {
@@ -261,7 +264,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 
  if (eco >= ECOPARAMS)
   {
-  Log(WNG_ILL_VAL, (CONST_STRPTR)"Ecosystem out of range.");
+  Log(WNG_ILL_VAL, GetString( MSG_MAPTOPO_ECOSYSTEMOUTOFRANGE ));  // "Ecosystem out of range."
   eco = settings.defaulteco;
   understory = ecoset(eco, notsnow, CC);
   } /* if */
@@ -1371,7 +1374,7 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
 
     if (eco >= ECOPARAMS)
      {
-     Log(WNG_ILL_VAL, (CONST_STRPTR)"Ecosystem out of range.");
+     Log(WNG_ILL_VAL, GetString( MSG_MAPTOPO_ECOSYSTEMOUTOFRANGE ));  // "Ecosystem out of range."
      eco = settings.defaulteco;
      } /* if */
 

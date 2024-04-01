@@ -7563,3 +7563,8 @@ Yes|No
 MSG_MAPSUPRT_SAVECOLORMAPAS
 Save Color Map As:
 
+;
+MSG_MAPTOPO_ECOSYSTEMOUTOFRANGE
+Ecosystem out of range.
+
+;
