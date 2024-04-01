@@ -7407,3 +7407,159 @@ Error opening line save file!\nSelect new path?
 MSG_MAPLINO_OKCANCEL
 OK|Cancel
 
+;
+MSG_MAPSUPRT_CANTOPENOBJECTFILEBJECTNOTSAVED
+Can't open object file!\nObject not saved.
+
+;
+MSG_MAPSUPRT_OK
+OK
+
+;
+MSG_MAPSUPRT_VECTORSAVEDPOINTS
+%s vector saved. %d points
+
+;
+MSG_MAPSUPRT_ERRORSAVINGOBJECTFILEBJECTNOTSAVED
+Error saving object file!\nObject not saved.
+
+;
+MSG_MAPSUPRT_MAPPINGMODULETOPOMAPPING
+Mapping Module: Topo Mapping
+
+;
+MSG_MAPSUPRT_NOTOPOMAPSFOUNDHECKOBJECTENABLEDSTATUSANDCLASSINDA
+No topo maps found!\nCheck object Enabled Status and Class in database.
+
+;
+MSG_MAPSUPRT_MAPVIEWLOADTOPOS
+Map View: Load Topos
+
+;
+MSG_MAPSUPRT_OUTOFMEMORYPERATIONTERMINATED
+Out of memory!\nOperation terminated.
+
+;
+MSG_MAPSUPRT_TOPOLOAD
+Topo Load
+
+;
+MSG_MAPSUPRT_ERRORLOADINGTOPOMAPCHECKSTATUSLOGTOSEEIFOUTOFMEMOR
+Error loading topo map! Check Status Log to see if out of memory.\nOperation terminated.
+
+;
+MSG_MAPSUPRT_ERRORLOADINGDEMSNONELOADED
+Error loading DEMs! None loaded.
+
+;
+MSG_MAPSUPRT_SETUPPERLEFTCORNER
+Set upper left corner
+
+;
+MSG_MAPSUPRT_0338SETUPPERLEFTCORNER
+\0338Set upper left corner.
+
+;
+MSG_MAPSUPRT_0338SETLOWERRIGHTCORNERESCABORT
+\0338Set lower right corner. ESC=abort
+
+;
+MSG_MAPSUPRT_SETLOWERRIGHTCORNER
+Set lower right corner
+
+;
+MSG_MAPSUPRT_MAPVIEW
+Map View
+
+;
+MSG_MAPSUPRT_SLATFLONF
+%s, LAT: %f, LON: %f
+
+;
+MSG_MAPSUPRT_LATFLONF
+LAT: %f, LON: %f
+
+;
+MSG_MAPSUPRT_MAPPINGMODULE
+Mapping Module
+
+;
+MSG_MAPSUPRT_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTERMINA
+Out of memory allocating new vector array!\nOperation terminated.
+
+;
+MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING
+Vector object has been modified!\nSave it before closing?
+
+;
+MSG_MAPSUPRT_SAVECANCEL
+SAVE|CANCEL
+
+;
+MSG_MAPSUPRT_0338SELECTCAMERAPOINT
+\0338Select Camera Point
+
+;
+MSG_MAPSUPRT_SELECTCAMERAPOINT
+Select Camera Point
+
+;
+MSG_MAPSUPRT_0338SELECTFOCUSPOINT
+\0338Select Focus Point
+
+;
+MSG_MAPSUPRT_SELECTFOCUSPOINT
+Select Focus Point
+
+;
+MSG_MAPSUPRT_INTERACTIVECAMERAPOINT
+Interactive Camera Point
+
+;
+MSG_MAPSUPRT_INTERACTIVEFOCUSPOINT
+Interactive Focus Point
+
+;
+MSG_MAPSUPRT_INTERACTIVESUNPOSITION
+Interactive Sun Position
+
+;
+MSG_MAPSUPRT_INTERACTIVESTARTHAZE
+Interactive Start Haze
+
+;
+MSG_MAPSUPRT_INTERACTIVEFULLHAZE
+Interactive Full Haze
+
+;
+MSG_MAPSUPRT_MAPVIEWCOLORMAP
+Map View: Color Map
+
+;
+MSG_MAPSUPRT_SELECTEDOBJECTMUSTBEATOPODEMEECLASSFIELDINDATABASE
+Selected object must be a Topo DEM!\nSee Class field in Database Editor.\nOperation terminated.
+
+;
+MSG_MAPSUPRT_SELECTEDMAPISNOTCURRENTLYLOADEDOYOUWISHTOLOADTOPOM
+Selected map is not currently loaded!\nDo you wish to load topo maps?
+
+;
+MSG_MAPSUPRT_OKCANCEL
+OK|CANCEL
+
+;
+MSG_MAPSUPRT_OUTOFMEMORYCREATINGBITMAPSPERATIONTERMINATED
+Out of memory creating bitmaps!\nOperation terminated.
+
+;
+MSG_MAPSUPRT_INCLUDEDEMELEVATIONDATAINCOLORMAP
+Include DEM elevation data in Color Map?
+
+;
+MSG_MAPSUPRT_YESNO
+Yes|No
+
+;
+MSG_MAPSUPRT_SAVECOLORMAPAS
+Save Color Map As:
+

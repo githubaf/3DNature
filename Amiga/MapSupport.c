@@ -3,6 +3,9 @@
 ** Code by Gary R. Huber, 1992 - 1993.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
 #include "BigEndianReadWrite.h"
@@ -333,8 +336,9 @@ short saveobject(long OBN, char *fname, double *Lon, double *Lat, short *Elev)
    if ((fobject = fopen(filename, "wb")) == NULL)
     {
     Log(ERR_OPEN_FAIL, (CONST_STRPTR)DBase[OBN].Name);
-    User_Message((CONST_STRPTR)DBase[OBN].Name, (CONST_STRPTR)"Can't open object file!\nObject not saved.",
-            (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message((CONST_STRPTR)DBase[OBN].Name, GetString( MSG_MAPSUPRT_CANTOPENOBJECTFILEBJECTNOTSAVED ),  // "Can't open object file!\nObject not saved."
+                 GetString( MSG_MAPSUPRT_OK ),                                                              // "OK"
+                 (CONST_STRPTR)"o");
     return(1);
     } /* if open fail */
    } /* if pre-existing file not found */
@@ -388,14 +392,15 @@ short saveobject(long OBN, char *fname, double *Lon, double *Lat, short *Elev)
  if (WriteOK)
   {
   DBase[OBN].Flags &= (255 ^ 1);
-  sprintf(str, "%s vector saved. %d points", DBase[OBN].Name, DBase[OBN].Points);
+  sprintf(str, (char*)GetString( MSG_MAPSUPRT_VECTORSAVEDPOINTS ), DBase[OBN].Name, DBase[OBN].Points);  // "%s vector saved. %d points"
   Log(MSG_NULL, (CONST_STRPTR)str);
   DB_Mod = 1;
   }
  else
   {
-  User_Message((CONST_STRPTR)DBase[OBN].Name, (CONST_STRPTR)"Error saving object file!\nObject not saved.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message((CONST_STRPTR)DBase[OBN].Name, GetString( MSG_MAPSUPRT_ERRORSAVINGOBJECTFILEBJECTNOTSAVED ),  // "Error saving object file!\nObject not saved."
+               GetString( MSG_MAPSUPRT_ERRORSAVINGOBJECTFILEBJECTNOTSAVED ),                                 // "OK"
+               (CONST_STRPTR)"o");
   Log(ERR_WRITE_FAIL, (CONST_STRPTR)DBase[OBN].Name);
   return (1);
   }
@@ -446,8 +451,10 @@ short loadtopo(void)
 
  if (topomaps <= 0)
   {
-  User_Message((CONST_STRPTR)"Mapping Module: Topo Mapping",
-          (CONST_STRPTR)"No topo maps found!\nCheck object Enabled Status and Class in database.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAPSUPRT_MAPPINGMODULETOPOMAPPING ),                            // "Mapping Module: Topo Mapping"
+               GetString( MSG_MAPSUPRT_NOTOPOMAPSFOUNDHECKOBJECTENABLEDSTATUSANDCLASSINDA ),  // "No topo maps found!\nCheck object Enabled Status and Class in database."
+               GetString( MSG_MAPSUPRT_OK ),                                                  // "OK"
+               (CONST_STRPTR)"o");
   return (1);
   } /* if */
 
@@ -461,12 +468,14 @@ short loadtopo(void)
 	== NULL) ||
 	((TopoOBN = (short *)get_Memory(TopoOBNSize, MEMF_CLEAR)) == NULL))
   {
-  User_Message((CONST_STRPTR)"Map View: Load Topos",
-          (CONST_STRPTR)"Out of memory!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAPSUPRT_MAPVIEWLOADTOPOS ),               // "Map View: Load Topos"
+               GetString( MSG_MAPSUPRT_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+               GetString( MSG_MAPSUPRT_OK ),                             // "OK"
+               (CONST_STRPTR)"o");
   return (1);
   } /* if memory fail */
 
- BusyLoad = BusyWin_New("Topo Load", topomaps, 0, MakeID('M','T','L','D'));
+ BusyLoad = BusyWin_New((char*)GetString( MSG_MAPSUPRT_TOPOLOAD ), topomaps, 0, MakeID('M','T','L','D'));  // "Topo Load"
  topomaps = 0;
 
  for (i=0; i<NoOfObjects; i++)
@@ -498,8 +507,9 @@ short loadtopo(void)
    error = 1;
    sprintf(str, "%s.elev", DBase[i].Name);
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)str);
-   User_Message((CONST_STRPTR)str, (CONST_STRPTR)"Error loading topo map! Check Status Log to see if out of memory.\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message((CONST_STRPTR)str, GetString( MSG_MAPSUPRT_ERRORLOADINGTOPOMAPCHECKSTATUSLOGTOSEEIFOUTOFMEMOR ),  // "Error loading topo map! Check Status Log to see if out of memory.\nOperation terminated."
+                GetString( MSG_MAPSUPRT_OK ),                                                                     // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /* if file not found */
 
@@ -587,8 +597,10 @@ if(BusyLoad)
 
  if (! topoct)
   {
-  User_Message((CONST_STRPTR)"Map View: Load Topos",
-          (CONST_STRPTR)"Error loading DEMs! None loaded.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAPSUPRT_MAPVIEWLOADTOPOS ),            // "Map View: Load Topos"
+               GetString( MSG_MAPSUPRT_ERRORLOADINGDEMSNONELOADED ),  // "Error loading DEMs! None loaded."
+               GetString( MSG_MAPSUPRT_OK ),                          // "OK"
+               (CONST_STRPTR)"o");
   return (1);
   } /* if */
 
@@ -607,21 +619,21 @@ short GetBounds(struct Box *Bx)
 {
  short success;
 
- MapGUI_Message(0, "\0338Set upper left corner.");
- SetWindowTitles(MapWind0, (STRPTR) "Set upper left corner", (UBYTE *)-1);
+ MapGUI_Message(0, (char*)GetString( MSG_MAPSUPRT_0338SETUPPERLEFTCORNER ));            // "\0338Set upper left corner."
+ SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_SETUPPERLEFTCORNER ), (UBYTE *)-1);  // "Set upper left corner"
 
  if (! (success = MousePtSet(&Bx->Low, NULL, 0)))
   goto EndGet;
 
- MapGUI_Message(0, "\0338Set lower right corner. ESC=abort");
- SetWindowTitles(MapWind0, (STRPTR) "Set lower right corner", (UBYTE *)-1);
+ MapGUI_Message(0, (char*)GetString( MSG_MAPSUPRT_0338SETLOWERRIGHTCORNERESCABORT ));    // "\0338Set lower right corner. ESC=abort"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_SETLOWERRIGHTCORNER ), (UBYTE *)-1);  // "Set lower right corner"
 
  success = MousePtSet(&Bx->High, &Bx->Low, 2);
 
 EndGet:
  MapGUI_Message(0, " ");
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
  return (success);
 
@@ -817,9 +829,9 @@ long LatLonElevScan(struct IntuiMessage *Event, char *MsgSupplement,
    } /* if */
 
   if (MsgSupplement)
-   sprintf(ReadOut, "%s, LAT: %f, LON: %f", MsgSupplement, TempLat, TempLon);
+   sprintf(ReadOut, (char*)GetString( MSG_MAPSUPRT_SLATFLONF ), MsgSupplement, TempLat, TempLon);  // "%s, LAT: %f, LON: %f"
   else
-   sprintf(ReadOut, "LAT: %f, LON: %f", TempLat, TempLon);
+   sprintf(ReadOut, (char*)GetString( MSG_MAPSUPRT_LATFLONF ), TempLat, TempLon);                  // "LAT: %f, LON: %f"
     
   if(i < topomaps)
    { /* Look up elevation */
@@ -856,9 +868,10 @@ short XY_latlon(long i, long lowj, long highj)
   {
   if (! allocvecarray(i, highj, NewArray))
    {
-   User_Message((CONST_STRPTR)"Mapping Module",
-           (CONST_STRPTR)"Out of memory allocating new vector array!\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_MAPSUPRT_MAPPINGMODULE ),                                       // "Mapping Module"
+                GetString( MSG_MAPSUPRT_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTERMINA ),  // "Out of memory allocating new vector array!\nOperation terminated."
+                GetString( MSG_MAPSUPRT_OK ),                                                  // "OK"
+                (CONST_STRPTR)"o");
    return (0);
    } /* if not enough memory */
   } /* if array size too small */
@@ -1147,8 +1160,9 @@ short FreeAllVectors(void)
   if (DBase[i].Flags & 1)
    {
    if (User_Message_Def((CONST_STRPTR)DBase[i].Name,
-           (CONST_STRPTR)"Vector object has been modified!\nSave it before closing?",
-           (CONST_STRPTR)"SAVE|CANCEL", (CONST_STRPTR)"sc", 1))
+                        GetString( MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING ),  // "Vector object has been modified!\nSave it before closing?"
+                        GetString( MSG_MAPSUPRT_SAVECANCEL ),                                     // "SAVE|CANCEL"
+                        (CONST_STRPTR)"sc", 1))
     {
     if (! saveobject(i, NULL, DBase[i].Lon, DBase[i].Lat, DBase[i].Elev))
      ObjectSaved ++;
@@ -1227,14 +1241,14 @@ void SetView_Map(short camera)
 
  if (camera)
   {
-  MapGUI_Message(0, "\0338Select Camera Point");
-  SetWindowTitles(MapWind0, (STRPTR) "Select Camera Point", (UBYTE *)-1);
+  MapGUI_Message(0, (char*)GetString( MSG_MAPSUPRT_0338SELECTCAMERAPOINT ));            // "\0338Select Camera Point"
+  SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_SELECTCAMERAPOINT ), (UBYTE *)-1);  // "Select Camera Point"
   i = 1;
   } /* if camera point */
  else
   {
-  MapGUI_Message(0, "\0338Select Focus Point");
-  SetWindowTitles(MapWind0, (STRPTR) "Select Focus Point", (UBYTE *)-1);
+  MapGUI_Message(0, (char*)GetString( MSG_MAPSUPRT_0338SELECTFOCUSPOINT ));            // "\0338Select Focus Point"
+  SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_SELECTFOCUSPOINT ), (UBYTE *)-1);  // "Select Focus Point"
   i = 4;
   } /* else focus point */
 
@@ -1244,7 +1258,7 @@ void SetView_Map(short camera)
 
  MapIDCMP_Restore(MapWind0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_MAPVIEW ), (UBYTE *)-1);  // "Map View"
  if (abort) return;
 
  PAR_FIRST_MOTION(i + 1) = X_Lon_Convert((long)Vtx.X);
@@ -1340,7 +1354,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
   modval = 1;
   PAR_FIRST_MOTION(2) = X_Lon_Convert((long)startX);
   PAR_FIRST_MOTION(1) = Y_Lat_Convert((long)startY);
-  SetWindowTitles(MapWind0, (STRPTR) "Interactive Camera Point", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_INTERACTIVECAMERAPOINT ), (UBYTE *)-1);  // "Interactive Camera Point"
   i = 1;
   } /* if camera motion */
  else if (abs(startX - MP->focctrx) < 6 && abs(startY - MP->focctry) < 6)
@@ -1348,7 +1362,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
   modval = 2;
   PAR_FIRST_MOTION(5) = X_Lon_Convert((long)startX);
   PAR_FIRST_MOTION(4) = Y_Lat_Convert((long)startY);
-  SetWindowTitles(MapWind0, (STRPTR) "Interactive Focus Point", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_INTERACTIVEFOCUSPOINT ), (UBYTE *)-1);  // "Interactive Focus Point"
   i = 4;
   } /* else if focus motion */
  else if (abs(startX - MP->sunctrx) < 6 && abs(startY - MP->sunctry) < 6)
@@ -1356,7 +1370,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
   modval = 7;
   PAR_FIRST_MOTION(16) = X_Lon_Convert((long)startX);
   PAR_FIRST_MOTION(15) = Y_Lat_Convert((long)startY);
-  SetWindowTitles(MapWind0, (STRPTR) "Interactive Sun Position", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_INTERACTIVESUNPOSITION ), (UBYTE *)-1);  // "Interactive Sun Position"
   }
  else
   {
@@ -1369,13 +1383,13 @@ short SetIAView_Map(struct IntuiMessage *Event)
    {
    modval = 3;
    startX = ptrad;
-   SetWindowTitles(MapWind0, (STRPTR) "Interactive Start Haze", (UBYTE *)-1);
+   SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_INTERACTIVESTARTHAZE ), (UBYTE *)-1);  // "Interactive Start Haze"
    } /* if modify haze start */
   else if (abs(ptrad - MP->hazerad[1]) < 5)
    {
    modval = 4;
    startX = ptrad;
-   SetWindowTitles(MapWind0, (STRPTR) "Interactive Full Haze", (UBYTE *)-1);
+   SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_INTERACTIVEFULLHAZE ), (UBYTE *)-1);  // "Interactive Full Haze"
    } /* if modify haze end (range) */
 /*
   else
@@ -1595,7 +1609,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
  SetWrMsk(MapWind0->RPort, 0x0f);
 
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, (STRPTR) "Map View", (UBYTE *)-1);
+ SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
  if (EMIA_Win && IA_AutoDraw && modval != 7)
   {
@@ -1950,9 +1964,10 @@ void MakeColorMap(void)
 
  if (strcmp(DBase[OBN].Special, "TOP"))
   {
-  User_Message((CONST_STRPTR)"Map View: Color Map",
-          (CONST_STRPTR)"Selected object must be a Topo DEM!\nSee Class field in Database Editor.\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
+               GetString( MSG_MAPSUPRT_SELECTEDOBJECTMUSTBEATOPODEMEECLASSFIELDINDATABASE ),  // "Selected object must be a Topo DEM!\nSee Class field in Database Editor.\nOperation terminated."
+               GetString( MSG_MAPSUPRT_OK ),                                                  // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* object not topo map */
 
@@ -1965,9 +1980,10 @@ RepeatCheck:
 
  if (topomap == topomaps)
   {
-  if (User_Message_Def((CONST_STRPTR)"Map View: Color Map",
-          (CONST_STRPTR)"Selected map is not currently loaded!\nDo you wish to load topo maps?",
-          (CONST_STRPTR)"OK|CANCEL", (CONST_STRPTR)"oc", 1))
+  if (User_Message_Def(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
+                       GetString( MSG_MAPSUPRT_SELECTEDMAPISNOTCURRENTLYLOADEDOYOUWISHTOLOADTOPOM ),  // "Selected map is not currently loaded!\nDo you wish to load topo maps?",
+                       GetString( MSG_MAPSUPRT_OKCANCEL ),                                            // "OK|CANCEL"
+                       (CONST_STRPTR)"oc", 1))
    {
    loadtopo();
    if (topoload) goto RepeatCheck;
@@ -1986,8 +2002,10 @@ RepeatCheck:
  scrnrowzip = (long *)get_Memory((high + 1) * 4, MEMF_CLEAR);
  if (! bitmap[0] || ! bitmap[1] || ! bitmap[2] || ! scrnrowzip)
   {
-  User_Message((CONST_STRPTR)"Map View: Color Map",
-          (CONST_STRPTR)"Out of memory creating bitmaps!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                               // "Map View: Color Map"
+               GetString( MSG_MAPSUPRT_OUTOFMEMORYCREATINGBITMAPSPERATIONTERMINATED ),  // "Out of memory creating bitmaps!\nOperation terminated."
+               GetString( MSG_MAPSUPRT_OK ),                                            // "OK"
+               (CONST_STRPTR)"o");
   goto Cleanup;
   } /* if out of memory */
 
@@ -2000,8 +2018,10 @@ RepeatCheck:
   } /* set scrnrowzip values */
 
 /* topo drawing */
- if (User_Message_Def((CONST_STRPTR)"Map View: Color Map",
-         (CONST_STRPTR)"Include DEM elevation data in Color Map?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+ if (User_Message_Def(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                    // "Map View: Color Map"
+                      GetString( MSG_MAPSUPRT_INCLUDEDEMELEVATIONDATAINCOLORMAP ),  // "Include DEM elevation data in Color Map?"
+                      GetString( MSG_MAPSUPRT_YESNO ),                              // "Yes|No"
+                      (CONST_STRPTR)"yn", 1))
   {
   SetPointer(MapWind0, WaitPointer, 16, 16, -6, 0);
 
@@ -2308,7 +2328,7 @@ RepeatCheck:
  strcpy(CmapName, DBase[OBN].Name);
  while (CmapName[strlen(CmapName) - 1] == ' ')
   CmapName[strlen(CmapName) - 1] = '\0';
- if (! getfilename(1, "Save Color Map As:", CmapPath, CmapName))
+ if (! getfilename(1, (char*)GetString( MSG_MAPSUPRT_SAVECOLORMAPAS ), CmapPath, CmapName))  // "Save Color Map As:"
   {
   goto Cleanup;
   } /* if cancel selected */
