@@ -7568,3 +7568,84 @@ MSG_MAPTOPO_ECOSYSTEMOUTOFRANGE
 Ecosystem out of range.
 
 ;
+;
+MSG_MAPTOPOOB_RENDERMODULE
+Render Module
+
+;
+MSG_MAPTOPOOB_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY
+Out of memory allocating Smoothing Index array!
+
+;
+MSG_MAPTOPOOB_RETRYCANCEL
+Retry|Cancel
+
+;
+MSG_MAPTOPOOB_ERRORALLOCATINGORREADINGFRACTALINDEXARRAYSCONTINU
+Error allocating or reading Fractal Index arrays!\nContinue without Fractal Displacement Mapping?
+
+;
+MSG_MAPTOPOOB_OKCANCEL
+OK|Cancel
+
+;
+MSG_MAPTOPOOB_ERRORSAVINGVECTORVERTICESTOFILE
+Error saving vector vertices to file!
+
+;
+MSG_MAPTOPOOB_OK
+OK
+
+;
+MSG_MAPTOPOOB_NEWLINESAVEPATH
+New Line Save Path
+
+;
+MSG_MAPTOPOOB_CANTOPENVECTORFILEFOROUTPUT
+Can't open vector file for output!
+
+;
+MSG_MAPTOPOOB_CLOUDS
+Clouds
+
+;
+MSG_MAPTOPOOB_CLOUD
+Cloud %d
+
+;
+MSG_MAPTOPOOB_ENTERTHEMAXIMUMPIXELSIZEFORAPOLYGONTHESMALLERTHEN
+Enter the maximum pixel size for a polygon. The smaller the number the longer image rendering will take!
+
+;
+MSG_MAPTOPOOB_ENTERTHEFIRSTFRAMETOSCAN
+Enter the first frame to scan.
+
+;
+MSG_MAPTOPOOB_ENTERTHELASTFRAMETOSCAN
+Enter the last frame to scan.
+
+;
+MSG_MAPTOPOOB_ENTERTHEFRAMEINTERVALTOSCANTHESMALLERTHENUMBERTHE
+Enter the frame interval to scan. The smaller the number the longer this process will take!
+
+;
+MSG_MAPTOPOOB_ANIMATION
+Animation
+
+;
+MSG_MAPTOPOOB_FRAME
+Frame %d/%d
+
+;
+MSG_MAPTOPOOB_OUTOFMEMORYREADINGMAP
+Out of memory reading map %s!
+
+;
+MSG_MAPTOPOOB_RENDERMODULETOPO
+Render Module: Topo
+
+;
+MSG_MAPTOPOOB_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED
+Out of memory opening key frame table!\nOperation terminated.
+
+;

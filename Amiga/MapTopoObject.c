@@ -7,6 +7,9 @@
 ** Original masterpiece the loving work of Gary R. Huber, 1992-93.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
 #include "BigEndianReadWrite.h"
@@ -69,8 +72,10 @@ StudyVertex = 0;
 RetrySmooth:
   if ((FaceIndex = (struct faces **)get_Memory(16 * sizeof (struct faces *), MEMF_ANY)) == NULL)
    {
-   if (User_Message_Def((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Out of memory allocating\
- Smoothing Index array!", (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
+   if (User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                              // "Render Module"
+                        GetString( MSG_MAPTOPOOB_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
+                        GetString( MSG_MAPTOPOOB_RETRYCANCEL ),                               // "Retry|Cancel"
+                        (CONST_STRPTR)"rc", 1))
     goto RetrySmooth;
    else
     return (1);
@@ -91,8 +96,10 @@ RetrySmooth:
    {
    if (! VertexIndex_New(&Vtx[j], (long)j))
     {
-    if (User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Error allocating or reading Fractal Index arrays!\n\
-Continue without Fractal Displacement Mapping?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
+    if (User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                                       // "Render Module"
+                     GetString( MSG_MAPTOPOOB_ERRORALLOCATINGORREADINGFRACTALINDEXARRAYSCONTINU ),  // "Error allocating or reading Fractal Index arrays!\nContinue without Fractal Displacement Mapping?"
+                     GetString( MSG_MAPTOPOOB_OKCANCEL ),                                           // "OK|Cancel"
+                     (CONST_STRPTR)"oc"))
      {
      settings.displace = 0;
      for (k=1; k<=j; k++)
@@ -708,10 +715,12 @@ SaveRepeat:
    if (error)
     {
     fclose(fvector);
-    User_Message((CONST_STRPTR)"Render Module",
-            (CONST_STRPTR)"Error saving vector vertices to file!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                     // "Render Module"
+                 GetString( MSG_MAPTOPOOB_ERRORSAVINGVECTORVERTICESTOFILE ),  // "Error saving vector vertices to file!"
+                 GetString( MSG_MAPTOPOOB_OK ),                               // "OK"
+                 (CONST_STRPTR)"o");
 NewFileRequest:
-    if (getfilename(1, "New Line Save Path", linepath, linefile))
+    if (getfilename(1, (char*)GetString( MSG_MAPTOPOOB_NEWLINESAVEPATH ), linepath, linefile))  // "New Line Save Path"
      {
      char filename[255];
 
@@ -719,7 +728,10 @@ NewFileRequest:
      sprintf(filename, "%s%d", str, frame);
      if ((fvector = fopen(filename, "w")) == NULL)
       {
-      User_Message((CONST_STRPTR)"Render Module", (CONST_STRPTR)"Can't open vector file for output!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+      User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                 // "Render Module"
+                   GetString( MSG_MAPTOPOOB_CANTOPENVECTORFILEFOROUTPUT ),  // "Can't open vector file for output!"
+                   GetString( MSG_MAPTOPOOB_OK ),                           // "OK"
+                   (CONST_STRPTR)"o");
       goto NewFileRequest;
       } /* if */
      else goto SaveRepeat;
@@ -1597,7 +1609,7 @@ short MapCloudObject(struct elmapheaderV101 *map, struct CloudData *CD,
 */
  CL = CD->Layer;
 
- BWCL = BusyWin_New("Clouds", CD->NumLayers, 1, MakeID('B','W','C','L'));
+ BWCL = BusyWin_New((char*)GetString( MSG_MAPTOPOOB_CLOUDS ), CD->NumLayers, 1, MakeID('B','W','C','L'));  // "Clouds"
 
 /* find ampl. range */
 
@@ -1702,7 +1714,7 @@ UBYTE *CldPtr;
 short Diff, NewDiff, FirstDiff, Sign;
 double h, d, sunshade, Azim, Dip;
 */
- sprintf(BusyWinStr, "Cloud %d", j);
+ sprintf(BusyWinStr, (char*)GetString( MSG_MAPTOPOOB_CLOUD ), j);  // "Cloud %d"
  BWDE = BusyWin_New(BusyWinStr, (map->rows + 1) * 2, 0, MakeID('B','W','D','E'));
 
  CC.Red = PARC_RNDR_COLOR(21, 0) * CL->Illum;
@@ -2461,25 +2473,25 @@ FILE *fFrd;
 /* determine frame interval from user */
 
   sprintf(str, "%d", 1);
-  if (GetInputString("Enter the maximum pixel size for a polygon. The smaller the number the longer image rendering will take!",
+  if (GetInputString((char*)GetString( MSG_MAPTOPOOB_ENTERTHEMAXIMUMPIXELSIZEFORAPOLYGONTHESMALLERTHEN ),  // "Enter the maximum pixel size for a polygon. The smaller the number the longer image rendering will take!"
  	"abcdefghijklmnopqrstuvwxyz-:;*/?`#%", str))
    {
    MaxSize = 2.0 * atof(str);
 
    sprintf(str, "%d", FirstFrame);
-   if (GetInputString("Enter the first frame to scan.",
+   if (GetInputString((char*)GetString( MSG_MAPTOPOOB_ENTERTHEFIRSTFRAMETOSCAN ),  // "Enter the first frame to scan."
  	"abcdefghijklmnopqrstuvwxyz-:;*/?`#%", str))
     {
     FirstFrame = atoi(str);
 
     sprintf(str, "%d", LastFrame);
-    if (GetInputString("Enter the last frame to scan.",
+    if (GetInputString((char*)(char*)GetString( MSG_MAPTOPOOB_ENTERTHELASTFRAMETOSCAN ),  // "Enter the last frame to scan."
  	"abcdefghijklmnopqrstuvwxyz-:;*/?`#%", str))
      {
      LastFrame = atoi(str);
 
      sprintf(str, "%d", 5);
-     if (GetInputString("Enter the frame interval to scan. The smaller the number the longer this process will take!",
+     if (GetInputString((char*)GetString( MSG_MAPTOPOOB_ENTERTHEFRAMEINTERVALTOSCANTHESMALLERTHENUMBERTHE ),  // "Enter the frame interval to scan. The smaller the number the longer this process will take!"
  	"abcdefghijklmnopqrstuvwxyz-:;*/?`#%", str))
       {
       FrameInt = atoi(str);
@@ -2509,7 +2521,7 @@ FILE *fFrd;
 	} /* if */
        } /* for OBN=0... */
 
-      if ((BWAN = BusyWin_New("Animation", LastFrame-FirstFrame+FrameInt, 1, MakeID('B','W','A','N'))))
+      if ((BWAN = BusyWin_New((char*)GetString( MSG_MAPTOPOOB_ANIMATION ), LastFrame-FirstFrame+FrameInt, 1, MakeID('B','W','A','N'))))  // "Animation"
        {
        for (frame=FirstFrame; frame<=LastFrame; frame+=FrameInt)
         {
@@ -2526,7 +2538,7 @@ FILE *fFrd;
         autoactivate();
         objectlimit = RenderObjects;
 
-        sprintf(FrameStr, "Frame %d/%d", frame, LastFrame);
+        sprintf(FrameStr, (char*)GetString( MSG_MAPTOPOOB_FRAME ), frame, LastFrame);  // "Frame %d/%d"
         if ((BWIM = BusyWin_New(FrameStr, objectlimit, 1, MakeID('B','W','I','M'))))
          {
          for (objectcount=0; objectcount<objectlimit; objectcount++)
@@ -2573,8 +2585,11 @@ RepeatLoad:
            map.scrnptrq = (float *)get_Memory (map.scrnptrsize, MEMF_ANY);
            if (! map.scrnptrx || ! map.scrnptry || ! map.scrnptrq || ! FractalMap)
             {
-            sprintf(str, "Out of memory reading map %s!", DBase[OBN].Name);
-            if (User_Message_Def((CONST_STRPTR)"Render Module: Topo", (CONST_STRPTR)str, (CONST_STRPTR)"Retry|Cancel", (CONST_STRPTR)"rc", 1))
+            sprintf(str, (char*)GetString( MSG_MAPTOPOOB_OUTOFMEMORYREADINGMAP ), DBase[OBN].Name);  // "Out of memory reading map %s!"
+            if (User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                        // "Render Module: Topo"
+                                 (CONST_STRPTR)str,
+                                 GetString( MSG_MAPTOPOOB_RETRYCANCEL ),                             //"Retry|Cancel",
+                                 (CONST_STRPTR)"rc", 1))
              {
              error = -1;
              goto MapCleanup;
@@ -2781,9 +2796,10 @@ MapCleanup:
   } /* if key table built */
  else
   {
-  User_Message((CONST_STRPTR)"Render Module",
-          (CONST_STRPTR)"Out of memory opening key frame table!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                                       // "Render Module"
+               GetString( MSG_MAPTOPOOB_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening key frame table!\nOperation terminated."
+               GetString( MSG_MAPTOPOOB_OK ),                                                 // "OK"
+               (CONST_STRPTR)"o");
   success = 0;
   } /* else */
 
