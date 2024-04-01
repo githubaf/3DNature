@@ -3400,7 +3400,7 @@ Done		MapLineObject.o 31.Mar.24
 Done		MapSupport.o 1.Apr.24
 Done		MapTopo.o 1.Apr.24
 Done		MapTopoObject.o 1.Apr.24
-MapUtil.o
+Done		MapUtil.o 1.Apr.24
 Memory.o
 Menu.o
 MoreGUI.o

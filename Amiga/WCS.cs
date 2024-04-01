@@ -7649,3 +7649,28 @@ MSG_MAPTOPOOB_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED
 Out of memory opening key frame table!\nOperation terminated.
 
 ;
+;
+MSG_MAPUTIL_RENDERLISTNOMAPSFOUND
+Render List: No maps found
+
+;
+MSG_MAPUTIL_RENDERLIST
+Render List:
+
+;
+MSG_MAPUTIL_DDIR
+%hd. %s Dir=%s
+%hd. %s Richtung=%s
+;
+MSG_MAPUTIL_EW
+E-W
+O-W
+;
+MSG_MAPUTIL_WE
+W-E
+W-O
+;
+MSG_MAPUTIL_NORENDERLIST
+No render list!
+
+;

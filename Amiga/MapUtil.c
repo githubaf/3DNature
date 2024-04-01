@@ -6,6 +6,9 @@
 
 //PrintIt = 1;
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 
 STATIC_FCN void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // used locally only -> static, AF 23.7.2021
@@ -488,7 +491,7 @@ short autoactivate(void)
   } /* if out of memory */
  else if (result == 2)
   {
-  Log(MSG_NULL, (CONST_STRPTR)"Render List: No maps found");
+  Log(MSG_NULL, GetString( MSG_MAPUTIL_RENDERLISTNOMAPSFOUND ));  // "Render List: No maps found"
   error = 1;
   RenderObjects = 0;
   goto Cleanup;
@@ -516,11 +519,12 @@ Cleanup:
  ElmapSize = OldElmapSize;
  BBoxSize = OldBBoxSize;
 
- Log(DTA_NULL, (CONST_STRPTR)"Render List:");
+ Log(DTA_NULL, GetString( MSG_MAPUTIL_RENDERLIST ));  // "Render List:"
  for (i=0; i<RenderObjects; i++)
   {
-  sprintf(str, "%hd. %s Dir=%s", i, DBase[RenderList[i][0]].Name,
-	RenderList[i][1] ? "E-W": "W-E");
+  sprintf(str, (char*)GetString( MSG_MAPUTIL_DDIR ), i, DBase[RenderList[i][0]].Name,  // "%hd. %s Dir=%s"
+               RenderList[i][1] ?
+               GetString( MSG_MAPUTIL_EW ) : GetString( MSG_MAPUTIL_WE ));             // "E-W": "W-E"
   Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
   } /* for i=0... */
 
@@ -539,7 +543,7 @@ STATIC_FCN void sortrenderlist(void) // used locally only -> static, AF 24.7.202
  Qsize = 4 * RenderObjects;
  if ((Qavg = (float *)get_Memory(Qsize, MEMF_CLEAR)) == NULL)
   {
-  Log(ERR_MEM_FAIL, (CONST_STRPTR)"No render list!");
+  Log(ERR_MEM_FAIL, GetString( MSG_MAPUTIL_NORENDERLIST ));  // "No render list!"
   return;
   } /* if */
  for (i=0; i<RenderObjects; i++)
@@ -579,7 +583,7 @@ void SortAltRenderList(void)
  Qsize = 4 * NoOfElMaps;
  if ((Qavg = (float *)get_Memory(Qsize, MEMF_CLEAR)) == NULL)
   {
-  Log(ERR_MEM_FAIL, (CONST_STRPTR)"No render list!");
+  Log(ERR_MEM_FAIL, GetString( MSG_MAPUTIL_NORENDERLIST ));  // "No render list!"
   return;
   } /* if get memory failed */
 
