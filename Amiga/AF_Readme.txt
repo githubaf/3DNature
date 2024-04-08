@@ -3403,7 +3403,7 @@ Done		MapTopoObject.o 1.Apr.24
 Done		MapUtil.o 1.Apr.24
 Memory.o
 Menu.o
-MoreGUI.o
+Done		MoreGUI.o 8.Apr.24
 Params.o
 ParamsGUI.o
 PlotGUI.o
@@ -3454,3 +3454,12 @@ Siehe build_wcs_sasc.sh
 Wo findet man den Foliage-Editor?
 - EcoSystem Editor -> Pflanzen auswaehlen -> Edit Images -> Foliage Editor
 
+5.Apr.2024
+----------
+MoreGUI.c
+Data Ops Module -> Extract DEM
+Menu -> Project -> Edit   ab Zeile 615
+
+8.Apr.2024
+----------
+MoreGUI.c fertig lokalisiert. Kommentare im WCS.cs noch einfuegen. (Hinweis: Auf Ausrichtung mit Leerzeichen achten)

@@ -3,6 +3,12 @@
 ** Copyright 1994 by Gary R. Huber and Chris Eric Hanson.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -26,7 +32,7 @@ void Make_DM_Window(void)
 
  if (! dbaseloaded)
   {
-  NoLoad_Message((CONST_STRPTR)"Data Ops: Extract DEM", (CONST_STRPTR)"a Database");
+  NoLoad_Message(GetString( MSG_MOREGUI_ADATABASE ), (CONST_STRPTR)"a Database");  // "Data Ops: Extract DEM"
   return;
   }
 
@@ -43,26 +49,26 @@ void Make_DM_Window(void)
   Set_Param_Menu(10);
 
      DM_Win->ExtractWin = WindowObject,
-      MUIA_Window_Title		, "DEM Extract",
+      MUIA_Window_Title		, GetString( MSG_MOREGUI_DEMEXTRACT ),  // "DEM Extract"
       MUIA_Window_ID		, MakeID('D','O','E','X'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
 	Child, HGroup,
-	  Child, DM_Win->BT_GetFiles = KeyButtonFunc('S', "\33cSelect Files"),
+	  Child, DM_Win->BT_GetFiles = KeyButtonFunc('S', (char*)GetString( MSG_MOREGUI_SELECTFILES )),  // "\33cSelect Files"
 	  Child, DM_Win->DirTxt = TextObject, TextFrame,
 		MUIA_HorizWeight, 300, End,
-	  Child, Label2(" Selected"),
+	  Child, Label2(GetString( MSG_MOREGUI_SELECTED )),  // " Selected"
 	  Child, DM_Win->SumFilesTxt = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "01234", End,
 	  End, /* HGroup */
 
 	Child, HGroup,
-	  Child, Label2(" SE Latitude"),
+	  Child, Label2(GetString( MSG_MOREGUI_SELATITUDE )),  // " SE Latitude"
 	  Child, DM_Win->LatStr = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "01234567890",
 		MUIA_String_Accept, "-.0123456789", End,
-	  Child, Label2(" SE Longitude"),
+	  Child, Label2(GetString( MSG_MOREGUI_SELONGITUDE )),  // " SE Longitude"
 	  Child, DM_Win->LonStr = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "01234567890",
 		MUIA_String_Accept, "-.0123456789", End,
@@ -70,7 +76,7 @@ void Make_DM_Window(void)
 
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("DEM Name"),
+	  Child, Label2(GetString( MSG_MOREGUI_DEMNAME )),  // "DEM Name"
 	  Child, DM_Win->Txt[0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt,
 		"012345678901234567890123456789012345678901234", End,
@@ -78,23 +84,23 @@ void Make_DM_Window(void)
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("Level"),
+	  Child, Label2(GetString( MSG_MOREGUI_LEVEL )),  // "Level"
 	  Child, DM_Win->Txt[1] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
-	  Child, Label2(" Elev Ptrn"),
+	  Child, Label2(GetString( MSG_MOREGUI_ELEVPTRN )),  // " Elev Ptrn"
 	  Child, DM_Win->Txt[2] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
-	  Child, Label2(" Ref Sys"),
+	  Child, Label2(GetString( MSG_MOREGUI_REFSYS )),  // " Ref Sys"
 	  Child, DM_Win->Txt[3] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
 	  Child, RectangleObject, End,
-	  Child, Label2(" Zone"),
+	  Child, Label2(GetString( MSG_MOREGUI_ZONE )),  // " Zone"
 	  Child, DM_Win->Txt[4] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label("\0334Projection Parameters"),
+	  Child, Label(GetString( MSG_MOREGUI_ROJECTIONPARAMETERS )),  // "\0334Projection Parameters"
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
@@ -149,29 +155,29 @@ void Make_DM_Window(void)
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("Ground Units"),
+	  Child, Label2(GetString( MSG_MOREGUI_GROUNDUNITS )),  // "Ground Units"
 	  Child, DM_Win->Txt[5] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
-	  Child, Label2(" Elev Units"),
+	  Child, Label2(GetString( MSG_MOREGUI_ELEVUNITS )),  // " Elev Units"
 	  Child, DM_Win->Txt[6] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
-	  Child, Label2(" Poly Sides"),
+	  Child, Label2(GetString( MSG_MOREGUI_POLYSIDES )),  // " Poly Sides"
 	  Child, DM_Win->Txt[7] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label("\0334Coordinate Pairs"),
+	  Child, Label(GetString( MSG_MOREGUI_COORDINATEPAIRS )),  // "\0334Coordinate Pairs"
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
 	  Child, RectangleObject, End,
-	  Child, Label2("SW E"),
+	  Child, Label2(GetString( MSG_MOREGUI_SWE )),  // "SW E"
 	  Child, DM_Win->CoordTxt[0][0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
-	  Child, Label2(" N"),
+	  Child, Label2(GetString( MSG_MOREGUI_N )),  // " N"
 	  Child, DM_Win->CoordTxt[0][1] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
 	  Child, RectangleObject, End,
@@ -179,57 +185,57 @@ void Make_DM_Window(void)
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("NW E"),
+	  Child, Label2(GetString( MSG_MOREGUI_NWE )),  // "NW E"
 	  Child, DM_Win->CoordTxt[1][0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
-	  Child, Label2(" N"),
+	  Child, Label2(GetString( MSG_MOREGUI_N )),  // " N"
 	  Child, DM_Win->CoordTxt[1][1] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("NE E"),
+	  Child, Label2(GetString( MSG_MOREGUI_NEE )),  // "NE E"
 	  Child, DM_Win->CoordTxt[2][0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
-	  Child, Label2(" N"),
+	  Child, Label2(GetString( MSG_MOREGUI_N )),  // " N"
 	  Child, DM_Win->CoordTxt[2][1] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("SE E"),
+	  Child, Label2(GetString( MSG_MOREGUI_SEE )),  // "SE E"
 	  Child, DM_Win->CoordTxt[3][0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
-	  Child, Label2(" N"),
+	  Child, Label2(GetString( MSG_MOREGUI_N )),  // " N"
 	  Child, DM_Win->CoordTxt[3][1] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("Elev Min"),
+	  Child, Label2(GetString( MSG_MOREGUI_ELEVMIN )),  // "Elev Min"
 	  Child, DM_Win->Txt[8] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
-	  Child, Label2(" Elev Max"),
+	  Child, Label2(GetString( MSG_MOREGUI_ELEVMAX )),  // " Elev Max"
 	  Child, DM_Win->Txt[9] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("Axis Rotation"),
+	  Child, Label2(GetString( MSG_MOREGUI_AXISROTATION )),  // "Axis Rotation"
 	  Child, DM_Win->Txt[10] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
-	  Child, Label2(" Accuracy"),
+	  Child, Label2(GetString( MSG_MOREGUI_ACCURACY )),  // " Accuracy"
 	  Child, DM_Win->Txt[11] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label("Resolution X"),
+	  Child, Label(GetString( MSG_MOREGUI_RESOLUTIONX )),  // "Resolution X"
 	  Child, DM_Win->ResTxt[0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012", End,
 	  Child, Label2(" Y"),
@@ -242,10 +248,10 @@ void Make_DM_Window(void)
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("Rows"),
+	  Child, Label2(GetString( MSG_MOREGUI_ROWS )),  // "Rows"
 	  Child, DM_Win->Txt[12] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
-	  Child, Label2(" Columns"),
+	  Child, Label2(GetString( MSG_MOREGUI_COLUMNS )),  // " Columns"
 	  Child, DM_Win->Txt[13] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
 	  Child, RectangleObject, End,
@@ -253,48 +259,48 @@ void Make_DM_Window(void)
 
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label("\0334Profile Data"),
+	  Child, Label(GetString( MSG_MOREGUI_PROFILEDATA )),  // "\0334Profile Data"
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("Row"),
+	  Child, Label2(GetString( MSG_MOREGUI_ROW )),  // "Row"
 	  Child, DM_Win->ProfTxt[0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
-	  Child, Label2(" Column"),
+	  Child, Label2(GetString( MSG_MOREGUI_COLUMN )),  // " Column"
 	  Child, DM_Win->ProfTxt[1] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
-	  Child, Label2(" Prof Rows"),
+	  Child, Label2(GetString( MSG_MOREGUI_PROFROWS )),  // " Prof Rows"
 	  Child, DM_Win->ProfTxt[2] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
-	  Child, Label2(" Prof Cols"),
+	  Child, Label2(GetString( MSG_MOREGUI_PROFCOLS )),  // " Prof Cols"
 	  Child, DM_Win->ProfTxt[3] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456", End,
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("Coords E"),
+	  Child, Label2(GetString( MSG_MOREGUI_COORDSE )),  // "Coords E"
 	  Child, DM_Win->ProfCoordTxt[0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
-	  Child, Label2(" N"),
+	  Child, Label2(GetString( MSG_MOREGUI_N )),  // " N"
 	  Child, DM_Win->ProfCoordTxt[1] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("Elevation Datum"),
+	  Child, Label2(GetString( MSG_MOREGUI_ELEVATIONDATUM )),  // "Elevation Datum"
 	  Child, DM_Win->ProfTxt[4] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, Label2("Elev Min"),
+	  Child, Label2(GetString( MSG_MOREGUI_ELEVMIN )),  //  "Elev Min"
 	  Child, DM_Win->ProfTxt[5] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
-	  Child, Label2("Elev Max"),
+	  Child, Label2(GetString( MSG_MOREGUI_ELEVMAX )),  // "Elev Max"
 	  Child, DM_Win->ProfTxt[6] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "0123456789012345678901234", End,
 	  Child, RectangleObject, End,
@@ -302,7 +308,7 @@ void Make_DM_Window(void)
 
 	Child, HGroup,
 	  Child, RectangleObject, End,
-	  Child, DM_Win->BT_Extract = KeyButtonFunc('E', "\33cExtract"),
+	  Child, DM_Win->BT_Extract = KeyButtonFunc('E', (char*)GetString( MSG_MOREGUI_EXTRACT )),  // "\33cExtract"
 	  Child, RectangleObject, End,
 	  End, /* HGroup */
         End, /* VGroup */
@@ -311,7 +317,10 @@ void Make_DM_Window(void)
   if (! DM_Win->ExtractWin)
    {
    Close_DM_Window();
-   User_Message((CONST_STRPTR)"DEM Extract", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_MOREGUI_DEMEXTRACT ),   // "DEM Extract"
+                GetString( MSG_MOREGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_MOREGUI_OK ),           // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -429,7 +438,7 @@ void Handle_DM_Window(ULONG WCS_ID)
         freemultifilename(DM_Win->DEMExtract->FrFile);
         DM_Win->DEMExtract->FrFile = NULL;
         } /* if */
-      if(!(DM_Win->DEMExtract->FrFile = getmultifilename("USGS DEM Files",
+      if(!(DM_Win->DEMExtract->FrFile = getmultifilename((char*)GetString( MSG_MOREGUI_USGSDEMFILES ),  // "USGS DEM Files"
        DM_Win->DEMExtract->elevpath, DM_Win->DEMExtract->elevfile,
        DM_Win->DEMExtract->pattern)))
         {
@@ -474,10 +483,9 @@ short Set_DM_Data(struct DEMExtractData *DEMExtract)
  short Proceed;
 
 /* ask for lat/lon values to use */
- Proceed = User_Message((CONST_STRPTR)"Data Ops Module: DEM Extract",
-		 (CONST_STRPTR)"Please enter the latitude and longitude values for the southeast \
-corner of the current DEM in the string gadgets near the top of the DEM \
-Extract Window.", (CONST_STRPTR)"Proceed|Cancel", (CONST_STRPTR)"pc");
+ Proceed = User_Message(GetString( MSG_MOREGUI_DATAOPSMODULEDEMEXTRACT ),                       // "Data Ops Module: DEM Extract"
+		 GetString( MSG_MOREGUI_PLEASEENTERTHELATITUDEANDLONGITUDEVALUESFORTHESOUTH ),  // "Please enter the latitude and longitude values for the southeast corner of the current DEM in the string gadgets near the top of the DEM Extract Window."
+		 GetString( MSG_MOREGUI_PROCEEDCANCEL ), (CONST_STRPTR)"pc");                   // "Proceed|Cancel"
 
 /* get values from string gadgets */
  get(DM_Win->LatStr, MUIA_String_Contents, &floatstr);
@@ -616,7 +624,17 @@ EXTERN struct USGS_DEMProfileHeader {
 void Make_PJ_Window(void)
 {
  long open, i;
- static const char *PageNames[] = {"First Page", "Second Page", NULL};
+
+ static int Init=TRUE;
+ static const char *PageNames[3]={NULL};
+
+ if(Init)
+ {
+	 Init=FALSE;
+	 PageNames[0] = (char*)GetString( MSG_MOREGUI_FIRSTPAGE ),   // "First Page"
+	 PageNames[1] = (char*)GetString( MSG_MOREGUI_SECONDPAGE ),  //"Second Page",
+	 PageNames[2] = NULL;
+ }
 
  if (PJ_Win)
   {
@@ -632,7 +650,7 @@ void Make_PJ_Window(void)
  Set_Param_Menu(10);
 
      PJ_Win->ProjWin = WindowObject,
-      MUIA_Window_Title		, "Project Editor",
+      MUIA_Window_Title		, GetString( MSG_MOREGUI_PROJECTEDITOR ),  // "Project Editor"
       MUIA_Window_ID		, MakeID('P','R','O','J'),
       MUIA_Window_Screen	, WCSScrn,
 
@@ -640,98 +658,98 @@ void Make_PJ_Window(void)
 	Child, RegisterGroup(PageNames),
 	  Child, VGroup,
 	  Child, HGroup,
-	    Child, Label2("Project Path        "),
+	    Child, Label2(GetString( MSG_MOREGUI_PROJECTPATH_SPACES )),  // "Project Path        "
 	    Child, PJ_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, projectpath, End,
 	    Child, PJ_Win->BT_Get[0] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Project Name        "),
+	    Child, Label2(GetString( MSG_MOREGUI_PROJECTNAME_SPACES )),  // "Project Name        "
 	    Child, PJ_Win->Str[1] = StringObject, StringFrame,
 		MUIA_String_Contents, projectname, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Database Path       "),
+	    Child, Label2(GetString( MSG_MOREGUI_DATABASEPATH_SPACES )),  // "Database Path       "
 	    Child, PJ_Win->Str[2] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, dbasepath, End,
 	    Child, PJ_Win->BT_Get[1] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Database Name       "),
+	    Child, Label2(GetString( MSG_MOREGUI_DATABASENAME_SPACES )),  // "Database Name       "
 	    Child, PJ_Win->Str[3] = StringObject, StringFrame,
 		MUIA_String_Contents, dbasename, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Parameter Path      "),
+	    Child, Label2(GetString( MSG_MOREGUI_PARAMETERPATH_SPACES )),  // "Parameter Path      "
 	    Child, PJ_Win->Str[4] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, parampath, End,
 	    Child, PJ_Win->BT_Get[2] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Parameter Name      "),
+	    Child, Label2(GetString( MSG_MOREGUI_PARAMETERNAME_SPACES )),  // "Parameter Name      "
 	    Child, PJ_Win->Str[5] = StringObject, StringFrame,
 		MUIA_String_Contents, paramfile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Frame Save Path     "),
+	    Child, Label2(GetString( MSG_MOREGUI_FRAMESAVEPATH_SPACES )),  // "Frame Save Path     "
 	    Child, PJ_Win->Str[6] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, framepath, End,
 	    Child, PJ_Win->BT_Get[3] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Frame Save Name     "),
+	    Child, Label2(GetString( MSG_MOREGUI_FRAMESAVENAME_SPACES )),  // "Frame Save Name     "
 	    Child, PJ_Win->Str[7] = StringObject, StringFrame,
 		MUIA_String_Contents, framefile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Temp Frame Path     "),
+	    Child, Label2(GetString( MSG_MOREGUI_TEMPFRAMEPATH_SPACES )),  // "Temp Frame Path     "
 	    Child, PJ_Win->Str[8] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, temppath, End,
 	    Child, PJ_Win->BT_Get[4] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Vector Save Path    "),
+	    Child, Label2(GetString( MSG_MOREGUI_VECTORSAVEPATH_SPACES )),  // "Vector Save Path    "
 	    Child, PJ_Win->Str[10] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, linepath, End,
 	    Child, PJ_Win->BT_Get[5] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Vector Save Name    "),
+	    Child, Label2(GetString( MSG_MOREGUI_VECTORSAVENAME_SPACES )),  // "Vector Save Name    "
 	    Child, PJ_Win->Str[11] = StringObject, StringFrame,
 		MUIA_String_Contents, linefile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Z Buffer Path       "),
+	    Child, Label2(GetString( MSG_MOREGUI_ZBUFFERPATH_SPACES )),  // "Z Buffer Path       "
 	    Child, PJ_Win->Str[12] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, zbufferpath, End,
 	    Child, PJ_Win->BT_Get[6] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Z Buffer Name       "),
+	    Child, Label2(GetString( MSG_MOREGUI_ZBUFFERNAME_SPACES )),  // "Z Buffer Name       "
 	    Child, PJ_Win->Str[13] = StringObject, StringFrame,
 		MUIA_String_Contents, zbufferfile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Background Path     "),
+	    Child, Label2(GetString( MSG_MOREGUI_BACKGROUNDPATH_SPACES )),  // "Background Path     "
 	    Child, PJ_Win->Str[14] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, backgroundpath, End,
 	    Child, PJ_Win->BT_Get[7] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Background Name     "),
+	    Child, Label2(GetString( MSG_MOREGUI_BACKGROUNDNAME_SPACES )),  // "Background Name     "
 	    Child, PJ_Win->Str[15] = StringObject, StringFrame,
 		MUIA_String_Contents, backgroundfile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Default Directory   "),
+	    Child, Label2(GetString( MSG_MOREGUI_DEFAULTDIRECTORY_SPACES )),  // "Default Directory   "
 	    Child, PJ_Win->Str[20] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, dirname, End,
@@ -741,70 +759,70 @@ void Make_PJ_Window(void)
 
 	  Child, VGroup,
 	  Child, HGroup,
-	    Child, Label2("Graphic Save Path   "),
+	    Child, Label2(GetString( MSG_MOREGUI_GRAPHICSAVEPATH_SPACES )),  // "Graphic Save Path   "
 	    Child, PJ_Win->Str[16] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, graphpath, End,
 	    Child, PJ_Win->BT_Get[8] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Graphic Save Name   "),
+	    Child, Label2(GetString( MSG_MOREGUI_GRAPHICSAVENAME_SPACES )),  // "Graphic Save Name   "
 	    Child, PJ_Win->Str[17] = StringObject, StringFrame,
 		MUIA_String_Contents, graphname, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Color Map Path      "),
+	    Child, Label2(GetString( MSG_MOREGUI_COLORMAPPATH_SPACES )),  // "Color Map Path      "
 	    Child, PJ_Win->Str[18] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, colormappath, End,
 	    Child, PJ_Win->BT_Get[9] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Color Map Name      "),
+	    Child, Label2(GetString( MSG_MOREGUI_COLORMAPNAME_SPACES )),  // "Color Map Name      ")
 	    Child, PJ_Win->Str[9] = StringObject, StringFrame,
 		MUIA_String_Contents, colormapfile, End,
 	    End, /* HGroup */
 
 	  Child, HGroup,
-	    Child, Label2("Cloud Map Path      "),
+	    Child, Label2(GetString( MSG_MOREGUI_CLOUDMAPPATH_SPACES )),  // "Cloud Map Path      "
 	    Child, PJ_Win->Str[21] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, cloudpath, End,
 	    Child, PJ_Win->BT_Get[12] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Cloud Map Name      "),
+	    Child, Label2(GetString( MSG_MOREGUI_CLOUDMAPNAME_SPACES )),  // "Cloud Map Name      "
 	    Child, PJ_Win->Str[22] = StringObject, StringFrame,
 		MUIA_String_Contents, cloudfile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Wave File Path      "),
+	    Child, Label2(GetString( MSG_MOREGUI_WAVEFILEPATH_SPACES )),  // "Wave File Path      "
 	    Child, PJ_Win->Str[23] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, wavepath, End,
 	    Child, PJ_Win->BT_Get[13] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Wave File Name      "),
+	    Child, Label2(GetString( MSG_MOREGUI_WAVEFILENAME_SPACES )),  // "Wave File Name      "
 	    Child, PJ_Win->Str[24] = StringObject, StringFrame,
 		MUIA_String_Contents, wavefile, End,
 	    End, /* HGroup */
 
 	  Child, HGroup,
-	    Child, Label2("Deformation Map Path"),
+	    Child, Label2(GetString( MSG_MOREGUI_DEFORMATIONMAPPATH_SPACES )),  // "Deformation Map Path"
 	    Child, PJ_Win->Str[25] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, deformpath, End,
 	    Child, PJ_Win->BT_Get[14] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Deformation Map Name"),
+	    Child, Label2(GetString( MSG_MOREGUI_DEFORMATIONMAPNAME_SPACES )),  // "Deformation Map Name"
 	    Child, PJ_Win->Str[26] = StringObject, StringFrame,
 		MUIA_String_Contents, deformfile, End,
 	    End, /* HGroup */
 
 	  Child, HGroup,
-	    Child, Label2("Ecosystem Model Path"),
+	    Child, Label2(GetString( MSG_MOREGUI_ECOSYSTEMMODELPATH_SPACES )),  // "Ecosystem Model Path"
 	    Child, PJ_Win->Str[19] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, modelpath, End,
@@ -812,7 +830,7 @@ void Make_PJ_Window(void)
 	    End, /* HGroup */
 
 	  Child, HGroup,
-	    Child, Label2("Image Path          "),
+	    Child, Label2(GetString( MSG_MOREGUI_IMAGEPATH_SPACES )),  // "Image Path          "
 	    Child, PJ_Win->Str[27] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, imagepath, End,
@@ -826,7 +844,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->BT_Get[16] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Moon Image File     "),
+	    Child, Label2(GetString( MSG_MOREGUI_MOONIMAGEFILE_SPACES )),  // "Moon Image File     "
 	    Child, PJ_Win->Str[29] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, moonfile, End,
@@ -834,14 +852,14 @@ void Make_PJ_Window(void)
 	    End, /* HGroup */
 
 	  Child, HGroup,
-	    Child, Label2("PC Project Directory"),
+	    Child, Label2(GetString( MSG_MOREGUI_PCPROJECTDIRECTORY_SPACES )),  // "PC Project Directory"
 	    Child, PJ_Win->Str[30] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, pcprojectpath, End,
 	    Child, PJ_Win->BT_Get[18] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("PC Frames Directory "),
+	    Child, Label2(GetString( MSG_MOREGUI_PCFRAMESDIRECTORY_SPACES )),  // "PC Frames Directory "
 	    Child, PJ_Win->Str[31] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, pcframespath, End,
@@ -852,8 +870,8 @@ void Make_PJ_Window(void)
 
 	  Child, HGroup,
 	    Child, RectangleObject, End,
-            Child, PJ_Win->BT_DirList = KeyButtonFunc('d', "\33cDirectory List"), 
-            Child, PJ_Win->BT_Save = KeyButtonFunc('s', "\33cSave"), 
+            Child, PJ_Win->BT_DirList = KeyButtonFunc('d', (char*)GetString( MSG_MOREGUI_DIRECTORYLIST )),  // "\33cDirectory List"
+            Child, PJ_Win->BT_Save = KeyButtonFunc('s', (char*)GetString( MSG_MOREGUI_SAVE )),              // "\33cSave"
 	    Child, RectangleObject, End,
             End, /* HGroup */
 /*
@@ -870,7 +888,10 @@ void Make_PJ_Window(void)
   if (! PJ_Win->ProjWin)
    {
    Close_PJ_Window(1);
-   User_Message((CONST_STRPTR)"Project: New/Edit", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_MOREGUI_PROJECTNEWEDIT ),  // "Project: New/Edit"
+                GetString( MSG_MOREGUI_OUTOFMEMORY ),     // "Out of memory!"
+                GetString( MSG_MOREGUI_OK ),              //"OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1090,28 +1111,28 @@ void Handle_PJ_Window(ULONG WCS_ID)
      {
      case 0:
       {
-      getfilename(0, "Project Path/Name", projectpath, projectname);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_PROJECTPATHNAME ), projectpath, projectname);  // "Project Path/Name"
       set(PJ_Win->Str[0], MUIA_String_Contents, (IPTR)projectpath);
       set(PJ_Win->Str[1], MUIA_String_Contents, (IPTR)projectname);
       break;
       } /* framepath */
      case 1:
       {
-      getfilename(0, "Database Path/Name", dbasepath, dbasename);
+      getfilename(0,(char*)GetString( MSG_MOREGUI_DATABASEPATHNAME ), dbasepath, dbasename);  // "Database Path/Name"
       set(PJ_Win->Str[2], MUIA_String_Contents, (IPTR)dbasepath);
       set(PJ_Win->Str[3], MUIA_String_Contents, (IPTR)dbasename);
       break;
       } /* framepath */
      case 2:
       {
-      getfilename(0, "Parameter Path/Name", parampath, paramfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_PARAMETERPATHNAME ), parampath, paramfile);  // GetString( MSG_MOREGUI_PARAMETERPATHNAME )
       set(PJ_Win->Str[4], MUIA_String_Contents, (IPTR)parampath);
       set(PJ_Win->Str[5], MUIA_String_Contents, (IPTR)paramfile);
       break;
       } /* framepath */
      case 3:
       {
-      getfilename(0, "Frame Save Path/Name", framepath, framefile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_FRAMESAVEPATHNAME ), framepath, framefile);  // "Frame Save Path/Name"
       set(PJ_Win->Str[6], MUIA_String_Contents, (IPTR)framepath);
       set(PJ_Win->Str[7], MUIA_String_Contents, (IPTR)framefile);
       break;
@@ -1120,108 +1141,108 @@ void Handle_PJ_Window(ULONG WCS_ID)
       {
       strcpy(tempfile, framefile);
       strcat(tempfile, ".temp");
-      getfilename(1, "Temp Frame Path/Name", temppath, tempfile);
+      getfilename(1, (char*)GetString( MSG_MOREGUI_TEMPFRAMEPATHNAME ), temppath, tempfile);  // "Temp Frame Path/Name"
       set(PJ_Win->Str[8], MUIA_String_Contents, (IPTR)temppath);
 /*      set(PJ_Win->Str[9], MUIA_String_Contents, tempfile);*/
       break;
       } /* temppath */
      case 5:
       {
-      getfilename(1, "Vector Save Path/Name", linepath, linefile);
+      getfilename(1, (char*)GetString( MSG_MOREGUI_VECTORSAVEPATHNAME ), linepath, linefile);  // "Vector Save Path/Name"
       set(PJ_Win->Str[10], MUIA_String_Contents, (IPTR)linepath);
       set(PJ_Win->Str[11], MUIA_String_Contents, (IPTR)linefile);
       break;
       } /* linepath */
      case 6:
       {
-      getfilename(0, "Z Buffer Path/Name", zbufferpath, zbufferfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_ZBUFFERPATHNAME ), zbufferpath, zbufferfile);  // "Z Buffer Path/Name"
       set(PJ_Win->Str[12], MUIA_String_Contents, (IPTR)zbufferpath);
       set(PJ_Win->Str[13], MUIA_String_Contents, (IPTR)zbufferfile);
       break;
       } /* zbufferpath */
      case 7:
       {
-      getfilename(0, "Background Path/Name", backgroundpath, backgroundfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_BACKGROUNDPATHNAME ), backgroundpath, backgroundfile);  // "Background Path/Name"
       set(PJ_Win->Str[14], MUIA_String_Contents, (IPTR)backgroundpath);
       set(PJ_Win->Str[15], MUIA_String_Contents, (IPTR)backgroundfile);
       break;
       } /* backgroundpath */
      case 8:
       {
-      getfilename(0, "Graphic Save Path/Name", graphpath, graphname);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_GRAPHICSAVEPATHNAME ), graphpath, graphname);  // "Graphic Save Path/Name"
       set(PJ_Win->Str[16], MUIA_String_Contents, (IPTR)graphpath);
       set(PJ_Win->Str[17], MUIA_String_Contents, (IPTR)graphname);
       break;
       } /* graphpath */
      case 9:
       {
-      getfilename(0, "Color Map File Path", colormappath, colormapfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_COLORMAPFILEPATH ), colormappath, colormapfile);  // "Color Map File Path"
       set(PJ_Win->Str[18], MUIA_String_Contents, (IPTR)colormappath);
       set(PJ_Win->Str[9], MUIA_String_Contents, (IPTR)colormapfile);
       break;
       } /* colormappath */
      case 10:
       {
-      getfilename(0, "Ecosystem Model Path", modelpath, dummyfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_ECOSYSTEMMODELPATH ), modelpath, dummyfile);  // "Ecosystem Model Path"
       set(PJ_Win->Str[19], MUIA_String_Contents, (IPTR)modelpath);
       break;
       } /* modelpath */
      case 11:
       {
-      getfilename(0, "Default Directory", dirname, dummyfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_DEFAULTDIRECTORY ), dirname, dummyfile);  // "Default Directory"
       set(PJ_Win->Str[20], MUIA_String_Contents, (IPTR)dirname);
       break;
       } /* dirname */
      case 12:
       {
-      getfilename(0, "Cloud Map Path", cloudpath, cloudfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_CLOUDMAPPATH ), cloudpath, cloudfile);  // "Cloud Map Path"
       set(PJ_Win->Str[21], MUIA_String_Contents, (IPTR)cloudpath);
       set(PJ_Win->Str[22], MUIA_String_Contents, (IPTR)cloudfile);
       break;
       } /* dirname */
      case 13:
       {
-      getfilename(0, "Wave Path", wavepath, wavefile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_WAVEPATH ), wavepath, wavefile);  // "Wave Path"
       set(PJ_Win->Str[23], MUIA_String_Contents, (IPTR)wavepath);
       set(PJ_Win->Str[24], MUIA_String_Contents, (IPTR)wavefile);
       break;
       } /* dirname */
      case 14:
       {
-      getfilename(0, "Wave Path", deformpath, deformfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_WAVEPATH ), deformpath, deformfile);  // "Deformation Path"
       set(PJ_Win->Str[25], MUIA_String_Contents, (IPTR)deformpath);
       set(PJ_Win->Str[26], MUIA_String_Contents, (IPTR)deformfile);
       break;
       } /* dirname */
      case 15:
       {
-      getfilename(0, "Image Path", imagepath, dummyfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_IMAGEPATH ), imagepath, dummyfile);  // "Image Path"
       set(PJ_Win->Str[27], MUIA_String_Contents, (IPTR)imagepath);
       break;
       } /* dirname */
      case 16:
       {
-      getfilename(0, "Sun Image File", imagepath, sunfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_SUNIMAGEFILE ), imagepath, sunfile);  // "Sun Image File"
       set(PJ_Win->Str[27], MUIA_String_Contents, (IPTR)imagepath);
       set(PJ_Win->Str[28], MUIA_String_Contents, (IPTR)sunfile);
       break;
       } /* dirname */
      case 17:
       {
-      getfilename(0, "Moon Image File", imagepath, moonfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_MOONIMAGEFILE ), imagepath, moonfile);  // "Moon Image File"
       set(PJ_Win->Str[27], MUIA_String_Contents, (IPTR)imagepath);
       set(PJ_Win->Str[29], MUIA_String_Contents, (IPTR)moonfile);
       break;
       } /* dirname */
      case 18:
       {
-      getfilename(0, "PC Project Path", pcprojectpath, dummyfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_PCPROJECTPATH ), pcprojectpath, dummyfile);  // "PC Project Path"
       set(PJ_Win->Str[30], MUIA_String_Contents, (IPTR)pcprojectpath);
       break;
       } /* dirname */
      case 19:
       {
-      getfilename(0, "PC Frames Path", pcframespath, dummyfile);
+      getfilename(0, (char*)GetString( MSG_MOREGUI_PCFRAMESPATH ), pcframespath, dummyfile);  // "PC Frames Path"
       set(PJ_Win->Str[31], MUIA_String_Contents, (IPTR)pcframespath);
       break;
       } /* dirname */
@@ -1428,25 +1449,25 @@ void Make_SC_Window(void)
  Set_Param_Menu(10);
 
      SC_Win->ScaleWin = WindowObject,
-      MUIA_Window_Title		, "Image Scale",
+      MUIA_Window_Title		, GetString( MSG_MOREGUI_IMAGESCALE ),  // "Image Scale"
       MUIA_Window_ID		, MakeID('I','M','S','C'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
 	  Child, HGroup,
-	    Child, Label2(" Width"),
+	    Child, Label2(GetString( MSG_MOREGUI_WIDTH )),  // " Width"
 	    Child, SC_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
 		MUIA_String_Accept, "0123456789",
 		MUIA_String_Integer, settings.scrnwidth, End,
-	    Child, Label2("Height"),
+	    Child, Label2(GetString( MSG_MOREGUI_HEIGHT )),  // "Height"
 	    Child, SC_Win->Str[1] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456",
 		MUIA_String_Accept, "0123456789",
 		MUIA_String_Integer, settings.scrnheight, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Pixel Aspect"),
+	    Child, Label2(GetString( MSG_MOREGUI_PIXELASPECT )),  // "Pixel Aspect"
 	    Child, SC_Win->Str[2] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456", End,
 		MUIA_String_Accept, ".0123456789",
@@ -1454,15 +1475,15 @@ void Make_SC_Window(void)
 
 	  Child, HGroup, MUIA_Group_SameWidth, TRUE,
 	    Child, RectangleObject, End,
-            Child, SC_Win->BT_Halve = KeyButtonFunc('h', "\33cHalve"), 
-            Child, SC_Win->BT_Double = KeyButtonFunc('d', "\33cDouble"), 
+            Child, SC_Win->BT_Halve = KeyButtonFunc('h', (char*)GetString( MSG_MOREGUI_HALVE )),     // "\33cHalve"
+            Child, SC_Win->BT_Double = KeyButtonFunc('d',  (char*)GetString( MSG_MOREGUI_DOUBLE )),  // "\33cDouble"
 	    Child, RectangleObject, End,
             End, /* HGroup */
 
 	  Child, HGroup,
 	    Child, RectangleObject, End,
-            Child, SC_Win->BT_Apply = KeyButtonFunc('a', "\33cApply"), 
-            Child, SC_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
+            Child, SC_Win->BT_Apply = KeyButtonFunc('a', (char*)GetString( MSG_MOREGUI_APPLY )),    // "\33cApply"
+            Child, SC_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_MOREGUI_CANCEL )),  // "\33cCancel"),
 	    Child, RectangleObject, End,
             End, /* HGroup */
 
@@ -1472,7 +1493,10 @@ void Make_SC_Window(void)
   if (! SC_Win->ScaleWin)
    {
    Close_SC_Window();
-   User_Message((CONST_STRPTR)"Parameters: Image Scale", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_MOREGUI_PARAMETERSIMAGESCALE ),  // "Parameters: Image Scale"
+                GetString( MSG_MOREGUI_OUTOFMEMORY ),           // "Out of memory!"
+                GetString( MSG_MOREGUI_OK ),                    // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1613,8 +1637,10 @@ void Handle_SC_Window(ULONG WCS_ID)
       }
      case ID_SC_CLOSEQUERY:
       {
-      if (User_Message((CONST_STRPTR)"Parameters: Image Scale",
-    		  (CONST_STRPTR)"Apply changes?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
+      if (User_Message(GetString( MSG_MOREGUI_PARAMETERSIMAGESCALE ),  // "Parameters: Image Scale"
+                       GetString( MSG_MOREGUI_APPLYCHANGES ),          // "Apply changes?"
+                       GetString( MSG_MOREGUI_OKCANCEL ),              // "OK|Cancel"
+                       (CONST_STRPTR)"oc"))
        ApplyImageScale();
       Close_SC_Window();
       break;
@@ -1696,25 +1722,25 @@ void Make_PR_Window(void)
  Set_Param_Menu(10);
 
      PR_Win->PrefsWin = WindowObject,
-      MUIA_Window_Title		, "Preferences",
+      MUIA_Window_Title		, GetString( MSG_MOREGUI_PREFERENCES ),  // "Preferences"
       MUIA_Window_ID		, MakeID('P','R','E','F'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
-	  Child, Label("\33c\0334Render Task Priority"),
+	  Child, Label(GetString( MSG_MOREGUI_RENDERTASKPRIORITY )),  // "\33c\0334Render Task Priority"
 	  Child, HGroup, MUIA_Group_SameWidth, TRUE,
             Child, PR_Win->BT_LoPri = KeyButtonObject('l'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cLow", End,
+		 MUIA_Text_Contents, GetString( MSG_MOREGUI_LOW ), End,  // "\33cLow"
             Child, PR_Win->BT_NorPri = KeyButtonObject('n'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cNormal", End,
+		 MUIA_Text_Contents, GetString( MSG_MOREGUI_NORMAL ), End,  // "\33cNormal"
             Child, PR_Win->BT_HiPri = KeyButtonObject('h'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cHigh", End,
+		 MUIA_Text_Contents, GetString( MSG_MOREGUI_HIGH ), End,  // "\33cHigh"
 	    End, /* HGroup */
 	  Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-	  Child, Label("\33c\0334Render Size"),
+	  Child, Label(GetString( MSG_MOREGUI_RENDERSIZE )),  // "\33c\0334Render Size"
 	  Child, HGroup, MUIA_Group_SameWidth, TRUE,
             Child, PR_Win->BT_RenderQuarter = KeyButtonObject('4'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
@@ -1727,37 +1753,37 @@ void Make_PR_Window(void)
 		 MUIA_Text_Contents, "\33c1/1", End,
 	    End, /* HGroup */
 	  Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-	  Child, Label("\33c\0334Status Log Messages"),
+	  Child, Label(GetString( MSG_MOREGUI_STATUSLOGMESSAGES )),  // "\33c\0334Status Log Messages"
 	  Child, HGroup, MUIA_Group_SameWidth, TRUE,
             Child, PR_Win->BT_ERR[0] = KeyButtonObject('e'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Selected, ReportMesg[0],
-		 MUIA_Text_Contents, "\33cERR", End,
+		 MUIA_Text_Contents, GetString( MSG_MOREGUI_ERR ), End,  // "\33cERR"
             Child, PR_Win->BT_ERR[1] = KeyButtonObject('w'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Selected, ReportMesg[1],
-		 MUIA_Text_Contents, "\33cWNG", End,
+		 MUIA_Text_Contents,  GetString( MSG_MOREGUI_WNG ), End,  // "\33cWNG"
             Child, PR_Win->BT_ERR[2] = KeyButtonObject('m'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Selected, ReportMesg[2],
-		 MUIA_Text_Contents, "\33cMSG", End,
+		 MUIA_Text_Contents, GetString( MSG_MOREGUI_MSG ), End,  // "\33cMSG"
             Child, PR_Win->BT_ERR[3] = KeyButtonObject('d'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Selected, ReportMesg[3],
-		 MUIA_Text_Contents, "\33cDTA", End,
+		 MUIA_Text_Contents, GetString( MSG_MOREGUI_DTA ), End,  // "\33cDTA"
 	    End, /* HGroup */
 
 	  Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-	  Child, Label("\33c\0334Param File Save Format"),
+	  Child, Label(GetString( MSG_MOREGUI_PARAMFILESAVEFORMAT )),  // "\33c\0334Param File Save Format"
 	  Child, HGroup, MUIA_Group_SameWidth, TRUE,
             Child, PR_Win->BT_SaveBin = KeyButtonObject('b'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Disabled, TRUE,
-		 MUIA_Text_Contents, "\33cBinary", End,
+		 MUIA_Text_Contents, GetString( MSG_MOREGUI_BINARY ), End,  // "\33cBinary"
             Child, PR_Win->BT_SaveAsc = KeyButtonObject('a'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Disabled, TRUE,
-		 MUIA_Text_Contents, "\33cAscii", End,
+		 MUIA_Text_Contents, GetString( MSG_MOREGUI_ASCII ), End,  // "\33cAscii"
 	    End, /* HGroup */
 	  End, /* VGroup */
 	End; /* Window object */
@@ -1765,7 +1791,10 @@ void Make_PR_Window(void)
   if (! PR_Win->PrefsWin)
    {
    Close_PR_Window();
-   User_Message((CONST_STRPTR)"Preferences", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_MOREGUI_PREFERENCES ),  // "Preferences"
+                GetString( MSG_MOREGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_MOREGUI_OK ),           // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
