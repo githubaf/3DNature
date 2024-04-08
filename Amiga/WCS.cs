@@ -7851,35 +7851,35 @@ Proceed|Cancel
 ; --- Check Menu:Project/Edit for correct alignement done by trailing spaces ---
 MSG_MOREGUI_FIRSTPAGE
 First Page
-
+Erste Seite
 ;
 MSG_MOREGUI_SECONDPAGE
 Second Page
-
+Zweite Seite
 ;
 MSG_MOREGUI_PROJECTEDITOR
 Project Editor
-
+Projekt Editor
 ;
 MSG_MOREGUI_PROJECTPATH_SPACES
 Project Path\x20\x20\x20\x20\x20\x20\x20\x20
-
+Projekt Pfad\x20\x20\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_PROJECTNAME_SPACES
 Project Name\x20\x20\x20\x20\x20\x20\x20\x20
-
+Projekt Name\x20\x20\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_DATABASEPATH_SPACES
 Database Path\x20\x20\x20\x20\x20\x20\x20
-
+Datenbank Pfad\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_DATABASENAME_SPACES
 Database Name\x20\x20\x20\x20\x20\x20\x20
-
+Datenbank Name\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_PARAMETERPATH_SPACES
 Parameter Path\x20\x20\x20\x20\x20\x20
-
+Parameter Pfad\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_PARAMETERNAME_SPACES
 Parameter Name\x20\x20\x20\x20\x20\x20
@@ -7991,11 +7991,11 @@ MSG_MOREGUI_DIRECTORYLIST
 ;
 MSG_MOREGUI_SAVE
 \33cSave
-
+\33cSpeichern
 ;
 MSG_MOREGUI_PROJECTNEWEDIT
 Project: New/Edit
-
+Projekt: Neu/Bearbeiten
 ;
 MSG_MOREGUI_PROJECTPATHNAME
 Project Path/Name
@@ -8079,35 +8079,35 @@ PC Frames Path
 ;
 MSG_MOREGUI_IMAGESCALE
 Image Scale
-
+Bildgröße ändern
 ;
 MSG_MOREGUI_WIDTH
  Width
-
+Breite
 ;
 MSG_MOREGUI_HEIGHT
 Height
-
+Höhe
 ;
 MSG_MOREGUI_PIXELASPECT
 Pixel Aspect
-
+Pixel Aspekt
 ;
 MSG_MOREGUI_HALVE
 \33cHalve
-
+Halbieren
 ;
 MSG_MOREGUI_DOUBLE
 \33cDouble
-
+Verdoppeln
 ;
 MSG_MOREGUI_APPLY
 \33cApply
-
+\33cAnwenden
 ;
 MSG_MOREGUI_CANCEL
 \33cCancel
-
+Abbrechen
 ;
 MSG_MOREGUI_PARAMETERSIMAGESCALE
 Parameters: Image Scale
@@ -8115,7 +8115,7 @@ Parameters: Image Scale
 ;
 MSG_MOREGUI_APPLYCHANGES
 Apply changes?
-
+Änderungen anwenden?
 ;
 MSG_MOREGUI_OKCANCEL
 OK|Cancel
@@ -8123,7 +8123,7 @@ OK|Cancel
 ;
 MSG_MOREGUI_PREFERENCES
 Preferences
-
+Einstellungen
 ;
 MSG_MOREGUI_RENDERTASKPRIORITY
 \33c\0334Render Task Priority
@@ -8131,15 +8131,15 @@ MSG_MOREGUI_RENDERTASKPRIORITY
 ;
 MSG_MOREGUI_LOW
 \33cLow
-
+\x33cNiedrig
 ;
 MSG_MOREGUI_NORMAL
 \33cNormal
-
+\33cMittel
 ;
 MSG_MOREGUI_HIGH
 \33cHigh
-
+\33cHoch
 ;
 MSG_MOREGUI_RENDERSIZE
 \33c\0334Render Size
@@ -8177,3 +8177,47 @@ MSG_MOREGUI_ASCII
 \33cAscii
 
 ;
+;
+MSG_PARAMS_MOTION
+motion
+
+;
+MSG_PARAMS_COLOR
+color
+
+;
+MSG_PARAMS_ECOSYSTEM
+ecosystem
+
+;
+MSG_PARAMS_OUTOFMEMORYRESTORINGOLDKEYFRAMESOMEKEYSMAYBELOST
+Out of memory restoring old key frames!\nSome %s keys may be lost.
+
+;
+MSG_PARAMS_KEYFRAMECANCEL
+Key Frame: Cancel
+
+;
+MSG_PARAMS_OK
+OK
+
+;
+MSG_PARAMS_KEYFRAMEMODULE
+Key Frame Module
+
+;
+MSG_PARAMS_OUTOFMEMORYALLOCATINGNEWKEYFRAMEPERATIONTERMINATED
+Out of memory allocating new key frame!\nOperation terminated.
+
+;
+MSG_PARAMS_PARAMETERSMODULEVELOCITYDISTRIBUTION
+Parameters Module: Velocity Distribution
+
+;
+MSG_PARAMS_EASEINPLUSEASEOUTFRAMEVALUESEXCEEDTOTALNUMBEROFANIMA
+"Ease In" plus "Ease Out" frame values exceed total number of animated frames.\nThis is illegal! Do you wish to continue without Velocity Distribution?
+
+;
+MSG_PARAMS_OKCANCEL
+OK|Cancel
+

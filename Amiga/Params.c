@@ -4,10 +4,12 @@
 ** Original code by the incomparable Gary R. Huber.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
 #include "GUIExtras.h"
-
 
 STATIC_FCN void UnsetKeyItem(union KeyFrame *Key); // used locally only -> static, AF 24.7.2021
 STATIC_FCN void SetKeyFrame(short i, short frame, short group, short item); // used locally only -> static, AF 24.7.2021
@@ -44,13 +46,16 @@ void MergeKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFrame **OF,
      {
      char *groupname;
 
-     if (group == 0) groupname = "motion";
-     else if (group == 1) groupname = "color";
-     else groupname = "ecosystem";
+     if (group == 0) groupname = (char*)GetString( MSG_PARAMS_MOTION );      // "motion"
+     else if (group == 1) groupname = (char*)GetString( MSG_PARAMS_COLOR );  // "color"
+     else groupname = (char*)GetString( MSG_PARAMS_ECOSYSTEM );              // "ecosystem"
      sprintf(str,
-	 "Out of memory restoring old key frames!\nSome %s keys may be lost.",
+    		 (char*)GetString( MSG_PARAMS_OUTOFMEMORYRESTORINGOLDKEYFRAMESOMEKEYSMAYBELOST ),  // "Out of memory restoring old key frames!\nSome %s keys may be lost."
 	 groupname);
-     User_Message((CONST_STRPTR)"Key Frame: Cancel", (CONST_STRPTR)str, (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+     User_Message(GetString( MSG_PARAMS_KEYFRAMECANCEL ),  // "Key Frame: Cancel"
+                  (CONST_STRPTR)str,
+                  GetString( MSG_PARAMS_OK ),               // "OK"
+                  (CONST_STRPTR)"o");
      break;
      }
     OFptr = *OF;
@@ -128,8 +133,10 @@ STATIC_FCN short AllocNewKeyArray(union KeyFrame **KF, long *KFsize) // used loc
  NewKFsize = *KFsize + 20 * sizeof (union KeyFrame);
  if ((NewKF = (union KeyFrame *)get_Memory(NewKFsize, MEMF_CLEAR)) == NULL)
   {
-  User_Message((CONST_STRPTR)"Key Frame Module",
-          (CONST_STRPTR)"Out of memory allocating new key frame!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_PARAMS_KEYFRAMEMODULE ) ,                                     // "Key Frame Module"
+               GetString( MSG_PARAMS_OUTOFMEMORYALLOCATINGNEWKEYFRAMEPERATIONTERMINATED ),  // "Out of memory allocating new key frame!\nOperation terminated."
+               GetString( MSG_PARAMS_OK ),                                                  // "OK"
+               (CONST_STRPTR)"o");
   return (0);
   } /* if memory bust */
 
@@ -1753,10 +1760,10 @@ if (item == 0)
   Vel.Base = 0;
   if (Vel.EaseIn + Vel.EaseOut > KT_MaxFrames)
    {
-   if (! User_Message((CONST_STRPTR)"Parameters Module: Velocity Distribution",
-           (CONST_STRPTR)"\"Ease In\" plus \"Ease Out\" frame values exceed total number of animated frames.\n\
-This is illegal! Do you wish to continue without Velocity Distribution?",
-(CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
+   if (! User_Message(GetString( MSG_PARAMS_PARAMETERSMODULEVELOCITYDISTRIBUTION ),                 // "Parameters Module: Velocity Distribution"
+                      GetString( MSG_PARAMS_EASEINPLUSEASEOUTFRAMEVALUESEXCEEDTOTALNUMBEROFANIMA ),  // "\"Ease In\" plus \"Ease Out\" frame values exceed total number of animated frames.\nThis is illegal! Do you wish to continue without Velocity Distribution?"
+                      GetString( MSG_PARAMS_OKCANCEL ),                                              // "OK|Cancel"
+                      (CONST_STRPTR)"oc"))
     return (0);
    else
     return (1);
