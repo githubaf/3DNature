@@ -956,7 +956,7 @@ MSG_AGUI_SAVESETTINGS
 Save Settings...
 Einstellingen speichern...
 ;
-; ----- BitMaps.c ---------
+; ----- BitMaps.c --------
 MSG_BITMAPS_IFFFILEPATHNAME
 IFF File Path/Name
 
@@ -7679,6 +7679,7 @@ MSG_MOREGUI_ADATABASE
 a Database
 
 ;
+; --- Check Menu:Module/Data Ops -> Extract DEM ---
 MSG_MOREGUI_DEMEXTRACT
 DEM Extract
 
@@ -7847,6 +7848,7 @@ MSG_MOREGUI_PROCEEDCANCEL
 Proceed|Cancel
 
 ;
+; --- Check Menu:Project/Edit for correct alignement done by trailing spaces ---
 MSG_MOREGUI_FIRSTPAGE
 First Page
 
