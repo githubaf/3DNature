@@ -3,6 +3,9 @@
 ** By Gary R. Huber, 1994.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -72,31 +75,39 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
 
  if ((PS_Win->PSList = (char **)get_Memory(PS_Win->PSListSize, MEMF_CLEAR)) == NULL)
   {
-  User_Message((CONST_STRPTR)"Parameters Module: Scale",
-		  (CONST_STRPTR)"Out of memory!\nCan't open Scale window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),          // "Parameters Module: Scale"
+               GetString( MSG_PARGUI_OUTOFMEMORYANTOPENSCALEWINDOW ),  // "Out of memory!\nCan't open Scale window."
+               GetString( MSG_PARGUI_OK ),                             // "OK"
+               (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
   } /* if out of memory */
  if ((PS_Win->PSListID = (short *)get_Memory(PS_Win->PSListIDSize, MEMF_CLEAR)) == NULL)
   {
-  User_Message((CONST_STRPTR)"Parameters Module: Scale",
-		  (CONST_STRPTR)"Out of memory!\nCan't open Scale window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),          // "Parameters Module: Scale"
+               GetString( MSG_PARGUI_OUTOFMEMORYANTOPENSCALEWINDOW ),  // "Out of memory!\nCan't open Scale window."
+               GetString( MSG_PARGUI_OK ),                             // "OK"
+               (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
   } /* if out of memory */
 
  if (! Set_PS_List(PS_Win->PSList, PS_Win->PSListID, PS_Win->Group, 1, NULL))
   {
-  User_Message((CONST_STRPTR)"Parameters Module: Scale",
-		  (CONST_STRPTR)"No key frames to scale!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),  // "Parameters Module: Scale"
+               GetString( MSG_PARGUI_NOKEYFRAMESTOSCALE ),     // "No key frames to scale!"
+               GetString( MSG_PARGUI_OK ),                     // "OK"
+               (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
   } /* if out of memory */
 
  if ((PS_Win->AltKF = (union KeyFrame *)get_Memory(KFsize, MEMF_ANY)) == NULL)
   {
-  User_Message((CONST_STRPTR)"Parameters Module: Scale",
-		  (CONST_STRPTR)"Out of memory!\nCan't open Scale window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),          // "Parameters Module: Scale"
+               GetString( MSG_PARGUI_OUTOFMEMORYANTOPENSCALEWINDOW ),  // "Out of memory!\nCan't open Scale window."
+               GetString( MSG_PARGUI_OK ),                             // "OK"
+               (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
   } /* if out of memory */
@@ -107,15 +118,15 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
   Set_Param_Menu(10);
 
      PS_Win->ScaleWin = WindowObject,
-      MUIA_Window_Title		, "Scale Keys",
+      MUIA_Window_Title		, GetString( MSG_PARGUI_SCALEKEYS ),  // "Scale Keys"
       MUIA_Window_ID		, MakeID('P','S','S','C'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
 	  Child, HGroup,
-	    Child, Label2("Param"),
+	    Child, Label2(GetString( MSG_PARGUI_PARAM )),  // "Param"
 	    Child, PS_Win->ItemCycle = Cycle(PS_Win->PSList),
-	    Child, Label2("Frame"),
+	    Child, Label2(GetString( MSG_PARGUI_FRAME )),  // "Frame"
 	    Child, PS_Win->IntStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "0123456789",
@@ -124,31 +135,31 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
 	  Child, HGroup, MUIA_Group_SameWidth, TRUE,
             Child, PS_Win->BT_Group[0] = KeyButtonObject('i'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cMotion", End, 
+		 MUIA_Text_Contents, GetString( MSG_PARGUI_MOTION ), End,  // "\33cMotion"
             Child, PS_Win->BT_Group[1] = KeyButtonObject('l'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cColor", End, 
+		 MUIA_Text_Contents, GetString( MSG_PARGUI_COLOR ), End,  // "\33cColor"
             Child, PS_Win->BT_Group[2] = KeyButtonObject('e'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cEcosystem", End, 
+		 MUIA_Text_Contents, GetString( MSG_PARGUI_ECOSYSTEM ), End,  // "\33cEcosystem"
 	    End, /* HGroup */
 	  Child, HGroup, 
             Child, PS_Win->BT_AllFrames = KeyButtonObject('f'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Selected, TRUE,
-		 MUIA_Text_Contents, "\33cAll Frames", End, 
+		 MUIA_Text_Contents, GetString( MSG_PARGUI_ALLFRAMES ), End,  // "\33cAll Frames"
             Child, PS_Win->BT_OneFrame = KeyButtonObject('t'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cThis Frame", End, 
+		 MUIA_Text_Contents, GetString( MSG_PARGUI_THISFRAME ), End,  // "\33cThis Frame"
 	    End, /* HGroup */
 	  Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
 	  Child, HGroup,
 	    Child, VGroup,
-	      Child, TextObject, MUIA_Text_Contents, "\33c\0334Scale", End,
+	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_PARGUI_CALE ), End,  // "\33c\0334Scale"
 	      Child, HGroup,
                 Child, PS_Win->BT_FrameScale = KeyButtonObject('r'),
 		 	MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, "\33cFrame(s)", End,
+		 	MUIA_Text_Contents, GetString( MSG_PARGUI_FRAMES ), End,  // "\33cFrame(s)"
 		Child, Label2("x"),
 	        Child, PS_Win->FloatStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
@@ -158,7 +169,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
 	      Child, HGroup,
                 Child, PS_Win->BT_ValueScale = KeyButtonObject('v'),
 		 	MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, "\33cValue(s)", End,
+		 	MUIA_Text_Contents, GetString( MSG_PARGUI_VALUES ), End,  // "\33cValue(s)"
 		Child, Label2("x"),
 	        Child, PS_Win->FloatStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
@@ -168,11 +179,11 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
 	      End, /* VGroup */
 	    Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
 	    Child, VGroup,
-	      Child, TextObject, MUIA_Text_Contents, "\33c\0334Shift", End,
+	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_PARGUI_HIFT ), End,  // "\33c\0334Shift"
 	      Child, HGroup,
                 Child, PS_Win->BT_FrameShift = KeyButtonObject('m'),
 		 	MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, "\33cFrame(s)", End,
+		 	MUIA_Text_Contents, GetString( MSG_PARGUI_FRAMES ), End,  // "\33cFrame(s)"
 		Child, Label2("+"),
 	        Child, PS_Win->IntStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
@@ -182,7 +193,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
 	      Child, HGroup,
                 Child, PS_Win->BT_ValueShift = KeyButtonObject('u'),
 		 	MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, "\33cValue(s)", End,
+		 	MUIA_Text_Contents, GetString( MSG_PARGUI_VALUES ), End,  // "\33cValue(s)"
 		Child, Label2("+"),
 	        Child, PS_Win->FloatStr[2] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
@@ -192,9 +203,9 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
 	      End, /* VGroup */
 	    End, /* HGroup */
 	  Child, HGroup,
-            Child, PS_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
-            Child, PS_Win->BT_Operate = KeyButtonFunc('o', "\33cOperate"), 
-            Child, PS_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"), 
+            Child, PS_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_PARGUI_KEEP )),       // "\33cKeep"
+            Child, PS_Win->BT_Operate = KeyButtonFunc('o', (char*)GetString( MSG_PARGUI_OPERATE )),  // "\33cOperate"
+            Child, PS_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_PARGUI_CANCEL )),    // "\33cCancel"
             End, /* HGroup */
 	  End, /* VGroup */
 
@@ -203,7 +214,10 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
   if (! PS_Win->ScaleWin)
    {
    Close_PS_Window(1);
-   User_Message((CONST_STRPTR)"Scale Keys", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_SCALEKEYS ),    // "Scale Keys"
+                GetString( MSG_PARGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_PARGUI_OK ),           // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -418,7 +432,7 @@ void Handle_PS_Window(ULONG WCS_ID)
      case ID_PS_CLOSEQUERY:
       {
       if (KFsize != PS_Win->AltKFsize || memcmp(KF, PS_Win->AltKF, KFsize))
-       Close_PS_Window(CloseWindow_Query((STRPTR)"Scale Keys"));
+       Close_PS_Window(CloseWindow_Query(GetString( MSG_PARGUI_SCALEKEYS )));  // "Scale Keys"
       else
        Close_PS_Window(1);
       break;
@@ -553,7 +567,18 @@ void Make_LW_Window(void)
 {
  short i;
  long open;
- static const char *LW_ExportItems[] = {"Scene", "Scene + DEMs", "DEM Only", "Motion Only", NULL};
+ static const char *LW_ExportItems[5]={NULL};
+ static int Init=TRUE;
+
+ if(Init)
+ {
+     Init=FALSE;
+     LW_ExportItems[0] = (char*)GetString( MSG_PARGUI_SCENE );       // "Scene"
+     LW_ExportItems[1] = (char*)GetString( MSG_PARGUI_SCENEDEMS );   // "Scene + DEMs"
+     LW_ExportItems[2] = (char*)GetString( MSG_PARGUI_DEMONLY );     // "DEM Only"
+     LW_ExportItems[3] = (char*)GetString( MSG_PARGUI_MOTIONONLY );  // "Motion Only"
+     LW_ExportItems[4] = NULL;
+ }
 
  if (LW_Win)
   {
@@ -564,8 +589,10 @@ void Make_LW_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message((CONST_STRPTR)"LightWave Motion I/O",
-		  (CONST_STRPTR)"You must first load or create a parameter file before using this feature.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_PARGUI_LIGHTWAVEMOTIONIO ),                                     // "LightWave Motion I/O"
+               GetString( MSG_PARGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREUSINGTHI ),  // "You must first load or create a parameter file before using this feature."
+               GetString( MSG_PARGUI_OK ),                                                    // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no params */
 
@@ -578,8 +605,10 @@ void Make_LW_Window(void)
  if (! BuildKeyTable())
   {
   Close_LW_Window();
-  User_Message((CONST_STRPTR)"LightWave Motion I/O", (CONST_STRPTR)"Error building motion value table\nOperation terminated",
-		  (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_PARGUI_LIGHTWAVEMOTIONIO ),                                // "LightWave Motion I/O"
+               GetString( MSG_PARGUI_ERRORBUILDINGMOTIONVALUETABLEPERATIONTERMINATED ),  // "Error building motion value table\nOperation terminated",
+               GetString( MSG_PARGUI_OK ),                                               // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no key table = out of memory */
 
@@ -639,42 +668,42 @@ void Make_LW_Window(void)
   Set_Param_Menu(10);
 
      LW_Win->IOWin = WindowObject,
-      MUIA_Window_Title		, "LightWave Export",
+      MUIA_Window_Title		, GetString( MSG_PARGUI_LIGHTWAVEEXPORT ),  // "LightWave Export"
       MUIA_Window_ID		, MakeID('L','W','M','O'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
 	  Child, HGroup,
 	    Child, VGroup,
-	      Child, Label("\33c\0334Export Entity"),
+	      Child, Label(GetString( MSG_PARGUI_XPORTENTITY )),  // "\33c\0334Export Entity"
 	      Child, LW_Win->ExportItem = RadioObject,
 		MUIA_Radio_Entries, LW_ExportItems, End,
 	      End, /* VGroup */
 	    Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
 	    Child, VGroup,
 	      Child, HGroup,
-	        Child, Label2("Max Polygons"),
+	        Child, Label2(GetString( MSG_PARGUI_MAXPOLYGONS )),  // "Max Polygons"
 	        Child, LW_Win->IntStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "0123456789", End,
 		End, /* HGroup */
 	      Child, HGroup,
-	        Child, Label2("Max Vertices"),
+	        Child, Label2(GetString(MSG_PARGUI_MAXVERTICES )),  // "Max Vertices"
 	        Child, LW_Win->IntStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "0123456789", End,
 		End, /* HGroup */
               Child, LW_Win->BT_Bathymetry = KeyButtonObject('b'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cBathymetry", End, 
+		 MUIA_Text_Contents, GetString( MSG_PARGUI_BATHYMETRY ), End,  // "\33cBathymetry"
 	      End, /* VGroup */
 	    End, /* HGroup */
 	  Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
 	  Child, HGroup,
-	    Child, Label2("Ref Lat"),
+	    Child, Label2(GetString( MSG_PARGUI_REFLAT )),  // "Ref Lat"
 	    Child, LW_Win->FloatStr[0] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789", End,
-	    Child, Label2("Lon"),
+	    Child, Label2(GetString( MSG_PARGUI_LON )),  // "Lon"
 	    Child, LW_Win->FloatStr[1] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789", End,
 	    End, /* HGroup */
@@ -682,10 +711,10 @@ void Make_LW_Window(void)
 	    Child, RectangleObject, End,
             Child, LW_Win->BT_RotateHorizontal = KeyButtonObject('h'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cRotate to Horizontal", End, 
+		 MUIA_Text_Contents, GetString( MSG_PARGUI_ROTATETOHORIZONTAL ), End,  // "\33cRotate to Horizontal"
 	    Child, RectangleObject, End,
 	    End, /* HGroup */
-          Child, LW_Win->BT_Export = KeyButtonFunc('e', "\33cExport"), 
+          Child, LW_Win->BT_Export = KeyButtonFunc('e', (char*)GetString( MSG_PARGUI_EXPORT )),  // "\33cExport"
 	  End, /* VGroup */
 
       End; /* WindowObject LW_Win->IOWin */
@@ -693,7 +722,10 @@ void Make_LW_Window(void)
   if (! LW_Win->IOWin)
    {
    Close_LW_Window();
-   User_Message((CONST_STRPTR)"LightWave I/O", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_LIGHTWAVEIO ),  // "LightWave I/O"
+                GetString( MSG_PARGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_PARGUI_OK ),           // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -894,8 +926,10 @@ void Make_FM_Window(void)
  FM_Win->ItemListSize = FM_Win->MaxItems * (sizeof (char *));
  if ((FM_Win->Item = (char **)get_Memory(FM_Win->ItemListSize, MEMF_CLEAR)) == NULL)
   {
-  User_Message((CONST_STRPTR)"Parameters Module: Model",
-		  (CONST_STRPTR)"Out of memory!\nCan't open model design window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                // "Parameters Module: Model"
+               GetString( MSG_PARGUI_OUTOFMEMORYANTOPENMODELDESIGNWINDOW ),  // "Out of memory!\nCan't open model design window."
+               GetString( MSG_PARGUI_OK ),                                   // "OK"
+               (CONST_STRPTR)"o");
   Close_FM_Window();
   return;
   } /* if out of memory */
@@ -904,48 +938,48 @@ void Make_FM_Window(void)
   Set_Param_Menu(10);
 
      FM_Win->ModelWin = WindowObject,
-      MUIA_Window_Title		, "Ecosystem Model Editor",
+      MUIA_Window_Title		, GetString( MSG_PARGUI_ECOSYSTEMMODELEDITOR ),  // "Ecosystem Model Editor"
       MUIA_Window_ID		, MakeID('F','O','M','O'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
 	  Child, HGroup,
-	    Child, Label2("Name "),
+	    Child, Label2(GetString( MSG_PARGUI_NAME_SPACE )),  // "Name "
 	    Child, FM_Win->NameStr = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012", End,
-            Child, FM_Win->BT_Add = KeyButtonFunc('a', "\33cAdd"), 
-            Child, FM_Win->BT_Remove = KeyButtonFunc('r', "\33cRemove"), 
-            Child, FM_Win->BT_Load = KeyButtonFunc('l', "\33cLoad"), 
-            Child, FM_Win->BT_Save = KeyButtonFunc('s', "\33cSave"), 
+            Child, FM_Win->BT_Add = KeyButtonFunc('a', (char*)GetString( MSG_PARGUI_ADD )),        // "\33cAdd"
+            Child, FM_Win->BT_Remove = KeyButtonFunc('r', (char*)GetString( MSG_PARGUI_REMOVE )),  // "\33cRemove"
+            Child, FM_Win->BT_Load = KeyButtonFunc('l', (char*)GetString( MSG_PARGUI_LOAD )),      // "\33cLoad"
+            Child, FM_Win->BT_Save = KeyButtonFunc('s', (char*)GetString( MSG_PARGUI_SAVE )),      // "\33cSave"
 	    End, /* HGroup */
 	  Child, FM_Win->LS_List = ListviewObject,
 	      MUIA_Listview_Input, TRUE,
               MUIA_Listview_List, ListObject, ReadListFrame, End,
 	    End,
 	  Child, HGroup,
-	    Child, Label2("Ht (m)"),
+	    Child, Label2(GetString( MSG_PARGUI_HTM )),  // "Ht (m)"
 	    Child, FM_Win->IntStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123",
 			MUIA_String_Accept, "0123456789", End,
-	    Child, Label2("Items"),
+	    Child, Label2(GetString( MSG_PARGUI_ITEMS )),  // "Items"
 	    Child, FM_Win->IntStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "0123456789", End,
-	    Child, Label2("Class"),
+	    Child, Label2(GetString( MSG_PARGUI_CLASS )),  // "Class"
 	    Child, FM_Win->ClassCycle = CycleObject,
 			MUIA_Cycle_Entries, typename,
 			MUIA_Cycle_Active, 4, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Red"),
+	    Child, Label2(GetString( MSG_PARGUI_RED )),  // "Red"
 	    Child, FM_Win->IntStr[2] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123",
 			MUIA_String_Accept, "0123456789", End,
-	    Child, Label2("Grn"),
+	    Child, Label2(GetString( MSG_PARGUI_GRN )),  // "Grn"
 	    Child, FM_Win->IntStr[3] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123",
 			MUIA_String_Accept, "0123456789", End,
-	    Child, Label2("Blu"),
+	    Child, Label2(GetString( MSG_PARGUI_BLU )),  // "Blu"
 	    Child, FM_Win->IntStr[4] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123",
 			MUIA_String_Accept, "0123456789", End,
@@ -956,7 +990,10 @@ void Make_FM_Window(void)
   if (! FM_Win->ModelWin)
    {
    Close_FM_Window();
-   User_Message((CONST_STRPTR)"Parameters Module: Model", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),  // "Parameters Module: Model"
+                GetString( MSG_PARGUI_OUTOFMEMORY ),            // "Out of memory!"
+                GetString( MSG_PARGUI_OK ),                     // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1010,7 +1047,7 @@ void Make_FM_Window(void)
 
 /* Create directory list */
   strcpy(&FM_Win->ItemStr[0][0],
-	 "\0338    Ht Items Class   Red   Grn   Blu");
+         (char*)GetString( MSG_PARGUI_HTITEMSCLASSREDGRNBLU ));  // "\0338    Ht Items Class   Red   Grn   Blu"
   FM_Win->ItemNum = 1;
   Set_FM_List(0, 0);
 
@@ -1048,9 +1085,10 @@ short SaveOld;
    {
    if (FM_Win->Mod)
     {
-    if ((SaveOld = User_Message_Def((CONST_STRPTR)"Parameters Module: Model",
-    		(CONST_STRPTR)"The current Ecosystem Model has been modified. Do you wish to save it before closing?",
-			(CONST_STRPTR)"Yes|No|Cancel", (CONST_STRPTR)"ync", 1)) == 0)
+    if ((SaveOld = User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+                                    GetString( MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_1 ),  // "The current Ecosystem Model has been modified. Do you wish to save it before closing?"
+                                    GetString( MSG_PARGUI_YESNOCANCEL ),                                           // "Yes|No|Cancel"
+                                    (CONST_STRPTR)"ync", 1)) == 0)
      return;
     else if (SaveOld == 1)
      Save_FM_Win();
@@ -1214,47 +1252,47 @@ STATIC_FCN short Add_FM_Item(void)  // used locally only -> static, AF 19.7.2021
   {
   case 0:
    {
-   strcpy(str, " Water");
+   strcpy(str, (char*)GetString( MSG_PARGUI_WATER ));  // " Water"
    break;
    }
   case 1:
    {
-   strcpy(str, "  Snow");
+   strcpy(str, (char*)GetString( MSG_PARGUI_SNOW ));  // "  Snow"
    break;
    }
   case 2:
    {
-   strcpy(str, "  Rock");
+   strcpy(str, (char*)GetString( MSG_PARGUI_ROCK ));  // "  Rock"
    break;
    }
   case 3:
    {
-   strcpy(str, "  Bare");
+   strcpy(str, (char*)GetString( MSG_PARGUI_BARE ));  // "  Bare"
    break;
    }
   case 4:
    {
-   strcpy(str, " Conif");
+   strcpy(str, (char*)GetString( MSG_PARGUI_CONIF ));  // " Conif"
    break;
    }
   case 5:
    {
-   strcpy(str, " Decid");
+   strcpy(str, (char*)GetString( MSG_PARGUI_DECID ));  // " Decid"
    break;
    }
   case 6:
    {
-   strcpy(str, " LowVg");
+   strcpy(str, (char*)GetString( MSG_PARGUI_LOWVG ));  // " LowVg"
    break;
    }
   case 7:
    {
-   strcpy(str, "  Snag");
+   strcpy(str, (char*)GetString( MSG_PARGUI_SNAG ));  // "  Snag"
    break;
    }
   case 8:
    {
-   strcpy(str, " Stump");
+   strcpy(str, (char*)GetString( MSG_PARGUI_STUMP ));  // " Stump"
    break;
    }
 
@@ -1300,23 +1338,23 @@ STATIC_FCN void Unset_FM_Item(long item) // used locally only -> static, AF 24.7
  Ht = atoi(&FM_Win->ItemStr[item][0]);
  Stems = atoi(&FM_Win->ItemStr[item][6]);
 
- if (! strncmp(&FM_Win->ItemStr[item][12], " Water", 6))
+ if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_WATER ), 6))      // " Water"
   Class = 0;
- else if (! strncmp(&FM_Win->ItemStr[item][12], "  Snow", 6))
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_SNOW ), 6))  // "  Snow"
   Class = 1;
- else if (! strncmp(&FM_Win->ItemStr[item][12], "  Rock", 6))
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_ROCK ), 6))  // "  Rock"
   Class = 2;
- else if (! strncmp(&FM_Win->ItemStr[item][12], " Strat", 6))
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_STRAT ), 6))  // " Strat"
   Class = 2;	/* probably not used anywhere since this was only briefly an option */
- else if (! strncmp(&FM_Win->ItemStr[item][12], "  Bare", 6))
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_BARE ), 6))  // "  Bare"
   Class = 4;
- else if (! strncmp(&FM_Win->ItemStr[item][12], " Conif", 6))
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_CONIF ), 6))  // " Conif"
   Class = 5;
- else if (! strncmp(&FM_Win->ItemStr[item][12], " Decid", 6))
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_DECID ), 6))  // " Decid"
   Class = 6;
- else if (! strncmp(&FM_Win->ItemStr[item][12], " LowVg", 6))
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_LOWVG ), 6))  // " LowVg"
   Class = 7;
- else if (! strncmp(&FM_Win->ItemStr[item][12], "  Snag", 6))
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_SNAG ), 6))  // "  Snag"
   Class = 8;
  else
   Class = 9;
@@ -1345,9 +1383,10 @@ STATIC_FCN short Load_FM_Win(void) // used locally only -> static, AF 24.7.2021
 
  if (FM_Win->Mod)
   {
-  if ((SaveOld = User_Message_Def((CONST_STRPTR)"Parameters Module: Model",
-		  (CONST_STRPTR)"The current Ecosystem Model has been modified. Do you wish to save it before proceeding?",
-		  (CONST_STRPTR)"Yes|No|Cancel", (CONST_STRPTR)"ync", 1)) == 0)
+  if ((SaveOld = User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+                                  GetString( MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2 ),  //" The current Ecosystem Model has been modified. Do you wish to save it before proceeding?"
+                                  GetString( MSG_PARGUI_YESNOCANCEL ),                                           // "Yes|No|Cancel"
+                                  (CONST_STRPTR)"ync", 1)) == 0)
    return (0);
   else if (SaveOld == 1)
    Save_FM_Win();
@@ -1356,7 +1395,7 @@ STATIC_FCN short Load_FM_Win(void) // used locally only -> static, AF 24.7.2021
  get(FM_Win->NameStr, MUIA_String_Contents, &nameptr);
  strcpy(name, nameptr);
 
- if (! getfilename(0, "Load Model Path/Name", modelpath, name))
+ if (! getfilename(0, (char*)GetString( MSG_PARGUI_LOADMODELPATHNAME ), modelpath, name))  // "Load Model Path/Name"
   return (0);
 
  if (! name[0])
@@ -1397,25 +1436,25 @@ STATIC_FCN short Load_FM_Win(void) // used locally only -> static, AF 24.7.2021
    } /* if write error */
 
   if (! strcmp(Class, "Water"))
-   strcpy(str, " Water");
+   strcpy(str, (char*)GetString( MSG_PARGUI_WATER ));  // " Water"
   else if (! strcmp(Class, "Snow"))
-   strcpy(str, "  Snow");
+   strcpy(str, (char*)GetString( MSG_PARGUI_SNOW ));   // "  Snow"
   else if (! strcmp(Class, "Rock"))
-   strcpy(str, "  Rock");
+   strcpy(str, (char*)GetString( MSG_PARGUI_ROCK ));   // "  Rock"
   else if (! strcmp(Class, "Strat"))
-   strcpy(str, " Strat");
+   strcpy(str, (char*)GetString( MSG_PARGUI_STRAT ));  // " Strat"
   else if (! strcmp(Class, "Bare"))
-   strcpy(str, "  Bare");
+   strcpy(str, (char*)GetString( MSG_PARGUI_BARE ));   // "  Bare"
   else if (! strcmp(Class, "Conif"))
-   strcpy(str, " Conif");
+   strcpy(str, (char*)GetString( MSG_PARGUI_CONIF ));  // " Conif"
   else if (! strcmp(Class, "Decid"))
-   strcpy(str, " Decid");
+   strcpy(str, (char*)GetString( MSG_PARGUI_DECID ));  // " Decid"
   else if (! strcmp(Class, "LowVg"))
-   strcpy(str, " LowVg");
+   strcpy(str, (char*)GetString( MSG_PARGUI_LOWVG ));  // " LowVg"
   else if (! strcmp(Class, "Snag"))
-   strcpy(str, "  Snag");
+   strcpy(str, (char*)GetString( MSG_PARGUI_SNAG ));   // "  Snag"
   else
-   strcpy(str, " Stump");
+   strcpy(str, (char*)GetString( MSG_PARGUI_STUMP ));  // " Stump"
   
   sprintf(&FM_Win->ItemStr[FM_Win->ItemNum][0],
 	 "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, str, Red, Grn, Blu);
@@ -1436,41 +1475,46 @@ EndLoad:
   {
   case 1:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-		   (CONST_STRPTR)"Error opening Ecosystem Model file for output!\nOperation terminated.",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+                GetString( MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFOROUTPUTPERATIONTERMI ),  // "Error opening Ecosystem Model file for output!\nOperation terminated."
+                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)name);
    break;
    } /* open fail */
   case 2:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-		   (CONST_STRPTR)"Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+                GetString( MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR ),  // "Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
+                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                (CONST_STRPTR)"o");
    Log(ERR_WRITE_FAIL, (CONST_STRPTR)name);
    break;
    } /* write fail */
   case 3:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-		   (CONST_STRPTR)"Not a WCS Ecosystem Model file!\nOperation terminated.",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
+                GetString( MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED ),  // "Not a WCS Ecosystem Model file!\nOperation terminated."
+                GetString( MSG_PARGUI_OK ),                                           // "OK"
+                (CONST_STRPTR)"o");
    Log(ERR_WRONG_TYPE, (CONST_STRPTR)name);
    break;
    } /* wrong type */
   case 4:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-		   (CONST_STRPTR)"Unsupported WCS Ecosystem Model file version!\nOperation terminated.",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+                GetString( MSG_PARGUI_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMI ),  // "Unsupported WCS Ecosystem Model file version!\nOperation terminated.",
+                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                (CONST_STRPTR)"o");
    Log(ERR_WRONG_VER, (CONST_STRPTR)name);
    break;
    } /* wrong version */
   case 5:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-		   (CONST_STRPTR)"You have not selected a file name for input!\nOperation terminated.",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),  // "Parameters Module: Model"
+                GetString( MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFORINPUTPERATIONTERMINATE ),  // "You have not selected a file name for input!\nOperation terminated."
+                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /* no name */
   } /* switch */
@@ -1491,7 +1535,7 @@ STATIC_FCN short Save_FM_Win(void) // used locally only -> static, AF 24.7.2021
  get(FM_Win->NameStr, MUIA_String_Contents, &nameptr);
  strcpy(name, nameptr);
 
- if (! getfilename(1, "Save Model Path/Name", modelpath, name))
+ if (! getfilename(1, (char*)GetString( MSG_PARGUI_SAVEMODELPATHNAME ), modelpath, name))  // "Save Model Path/Name"
   return (0);
 
  if (! name[0])
@@ -1528,25 +1572,28 @@ EndSave:
   {
   case 1:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-		   (CONST_STRPTR)"Error opening Ecosystem Model file for output!\nOperation terminated.",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+                GetString( MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFOROUTPUTPERATIONTERMI ),  // "Error opening Ecosystem Model file for output!\nOperation terminated."
+                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)name);
    break;
    } /* open fail */
   case 2:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-		   (CONST_STRPTR)"Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                  // "Parameters Module: Model"
+                GetString( MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR ),   // "Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
+                GetString( MSG_PARGUI_OK ),                                                     // "OK"
+                (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, (CONST_STRPTR)name);
    break;
    } /* read fail */
   case 5:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-		   (CONST_STRPTR)"You have not selected a file name for output!\nOperation terminated.",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+                GetString( MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT ),  // "You have not selected a file name for output!\nOperation terminated."
+                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /* no name */
   } /* switch */
@@ -1581,14 +1628,14 @@ void Make_AN_Window(void)
  Set_Param_Menu(10);
 
      AN_Win->AnimWin = WindowObject,
-      MUIA_Window_Title		, "Anim Control Window",
+      MUIA_Window_Title		, GetString( MSG_PARGUI_ANIMCONTROLWINDOW ),  // "Anim Control Window"
       MUIA_Window_ID		, MakeID('A','N','I','M'),
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
 /* save path and disk icon */
 	  Child, HGroup,
-	    Child, Label2("Anim Path"),
+	    Child, Label2(GetString( MSG_PARGUI_ANIMPATH )),  // "Anim Path"
 	    Child, AN_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345",
 		MUIA_String_Contents, graphpath, End,
@@ -1596,24 +1643,24 @@ void Make_AN_Window(void)
 	    End, /* HGroup */
 /* save name */
 	  Child, HGroup,
-	    Child, Label2("Anim Name"),
+	    Child, Label2(GetString( MSG_PARGUI_ANIMNAME )),  // "Anim Name"
 	    Child, AN_Win->Str[1] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345",
 		MUIA_String_Contents, graphname, End,
 	    End, /* HGroup */
 /* frame start, end strings */
 	  Child, HGroup,
-	    Child, Label2("Frame"),
+	    Child, Label2(GetString( MSG_PARGUI_FRAME )),  // "Frame"
 	    Child, AN_Win->IntStr[0] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_String_Integer, IA_AnimStart,
 		MUIA_FixWidthTxt, "01234", End,
-	    Child, Label2("To"),
+	    Child, Label2(GetString( MSG_PARGUI_TO )),  // "To"
 	    Child, AN_Win->IntStr[1] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_String_Integer, (IA_AnimEnd ? IA_AnimEnd: KT_MaxFrames),
 		MUIA_FixWidthTxt, "01234", End,
-	    Child, Label2("By"),
+	    Child, Label2(GetString( MSG_PARGUI_BY )),  // "By"
 	    Child, AN_Win->IntStr[4] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_String_Integer, IA_AnimStep ? IA_AnimStep: abs(settings.stepframes),
@@ -1621,12 +1668,12 @@ void Make_AN_Window(void)
 	    End, /* HGroup */
 /* window width, height strings */
 	  Child, HGroup,
-	    Child, Label2("Window Width"),
+	    Child, Label2(GetString( MSG_PARGUI_WINDOWWIDTH )),  // "Window Width"
 	    Child, AN_Win->IntStr[2] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "01234",
 		MUIA_String_Integer, InterWind0->Width, End,
-	    Child, Label2(" Height"),
+	    Child, Label2(GetString( MSG_PARGUI_HEIGHT )),  // " Height"
 	    Child, AN_Win->IntStr[3] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789",
 		MUIA_FixWidthTxt, "01234",
@@ -1635,12 +1682,12 @@ void Make_AN_Window(void)
 /* aspect check box */
 	  Child, HGroup,
 	    Child, AN_Win->AspectCheck = CheckMark(FALSE),
-	    Child, Label2("Use Render Image Aspect"),
+	    Child, Label2(GetString( MSG_PARGUI_USERENDERIMAGEASPECT )),  // "Use Render Image Aspect"
 	    End, /* HGroup */
 /* render only, render & save */
 	  Child, HGroup,
-	    Child, AN_Win->BT_Render = KeyButtonFunc('r', "\33cRender Only"), 
-	    Child, AN_Win->BT_Save   = KeyButtonFunc('s', "\33cRender & Save"), 
+	    Child, AN_Win->BT_Render = KeyButtonFunc('r', (char*)GetString( MSG_PARGUI_RENDERONLY )),  // "\33cRender Only"
+	    Child, AN_Win->BT_Save   = KeyButtonFunc('s', (char*)GetString( MSG_PARGUI_RENDERSAVE )),  // "\33cRender & Save"
 	    End, /* HGroup */
 	  End, /* VGroup */
 	End; /* Window object */
@@ -1648,7 +1695,10 @@ void Make_AN_Window(void)
   if (! AN_Win->AnimWin)
    {
    Close_AN_Window();
-   User_Message((CONST_STRPTR)"Parameters Module: Anim", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEANIM ),  // "Parameters Module: Anim"
+                GetString( MSG_PARGUI_OUTOFMEMORY ),           // "Out of memory!"
+                GetString( MSG_PARGUI_OK ),                    // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1763,7 +1813,7 @@ void Handle_AN_Window(ULONG WCS_ID)
      {
      case ID_AN_GETPATH:
       {
-      if (getfilename(1, "Anim Frames Path/Name", graphpath, graphname))
+      if (getfilename(1, (char*)GetString( MSG_PARGUI_ANIMFRAMESPATHNAME ), graphpath, graphname))  // "Anim Frames Path/Name"
        {
        set(AN_Win->Str[0], MUIA_String_Contents, (IPTR)graphpath);
        set(AN_Win->Str[1], MUIA_String_Contents, (IPTR)graphname);
@@ -1819,9 +1869,10 @@ void Init_Anim(short SaveAnim)
 /* check to see that width specified does not exceed screen width */
  if (RA.Width > WCSScrn->Width)
   {
-  if (User_Message((CONST_STRPTR)"Parameters Module: Anim",
-		  (CONST_STRPTR)"Specified width is larger than the current screen width.\
- Do you wish to use the screen width?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
+  if (User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEANIM ),                                 // "Parameters Module: Anim"
+                  GetString( MSG_PARGUI_SPECIFIEDWIDTHISLARGERTHANTHECURRENTSCREENWIDTHDOYOU ),  // "Specified width is larger than the current screen width. Do you wish to use the screen width?"
+                  GetString( MSG_PARGUI_OKCANCEL ),                                              // "OK|Cancel"
+                  (CONST_STRPTR)"oc"))
    {
    RA.Width = WCSScrn->Width;
    set(AN_Win->IntStr[2], MUIA_String_Integer, RA.Width);
@@ -1838,9 +1889,10 @@ void Init_Anim(short SaveAnim)
 
  if (RA.Height > WCSScrn->Height)
   {
-  if (User_Message((CONST_STRPTR)"Parameters Module: Anim",
-		  (CONST_STRPTR)"Specified or computed height is larger than the current screen height.\
- Do you wish to use the screen height?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
+  if (User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEANIM ),                                  // "Parameters Module: Anim"
+                   GetString( MSG_PARGUI_SPECIFIEDORCOMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREE ),  // "Specified or computed height is larger than the current screen height. Do you wish to use the screen height?
+                   GetString( MSG_PARGUI_OKCANCEL ),                                              // "OK|Cancel"
+                   (CONST_STRPTR)"oc"))
    {
    RA.Height = WCSScrn->Height;
    set(AN_Win->IntStr[3], MUIA_String_Integer, RA.Height);

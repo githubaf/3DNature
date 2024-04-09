@@ -3405,7 +3405,7 @@ Memory.o
 Menu.o
 Done		MoreGUI.o 8.Apr.24
 Done		Params.o  8.Apr.24
-ParamsGUI.o
+Done		ParamsGUI.o 9.Apr.24
 PlotGUI.o
 RequesterGUI.o
 RexxSupport.o

@@ -8221,3 +8221,356 @@ MSG_PARAMS_EASEINPLUSEASEOUTFRAMEVALUESEXCEEDTOTALNUMBEROFANIMA
 MSG_PARAMS_OKCANCEL
 OK|Cancel
 
+;
+MSG_PARGUI_PARAMETERSMODULESCALE
+Parameters Module: Scale
+
+;
+MSG_PARGUI_OUTOFMEMORYANTOPENSCALEWINDOW
+Out of memory!\nCan't open Scale window.
+
+;
+MSG_PARGUI_OK
+OK
+
+;
+MSG_PARGUI_NOKEYFRAMESTOSCALE
+No key frames to scale!
+
+;
+MSG_PARGUI_SCALEKEYS
+Scale Keys
+
+;
+MSG_PARGUI_PARAM
+Param
+
+;
+MSG_PARGUI_FRAME
+Frame
+
+;
+MSG_PARGUI_MOTION
+\33cMotion
+
+;
+MSG_PARGUI_COLOR
+\33cColor
+
+;
+MSG_PARGUI_ECOSYSTEM
+\33cEcosystem
+
+;
+MSG_PARGUI_ALLFRAMES
+\33cAll Frames
+
+;
+MSG_PARGUI_THISFRAME
+\33cThis Frame
+
+;
+MSG_PARGUI_CALE
+\33c\0334Scale
+
+;
+MSG_PARGUI_FRAMES
+\33cFrame(s)
+
+;
+MSG_PARGUI_VALUES
+\33cValue(s)
+
+;
+MSG_PARGUI_HIFT
+\33c\0334Shift
+
+;
+MSG_PARGUI_KEEP
+\33cKeep
+
+;
+MSG_PARGUI_OPERATE
+\33cOperate
+
+;
+MSG_PARGUI_CANCEL
+\33cCancel
+
+;
+MSG_PARGUI_OUTOFMEMORY
+Out of memory!
+
+;
+MSG_PARGUI_SCENE
+Scene
+
+;
+MSG_PARGUI_SCENEDEMS
+Scene + DEMs
+
+;
+MSG_PARGUI_DEMONLY
+DEM Only
+
+;
+MSG_PARGUI_MOTIONONLY
+Motion Only
+
+;
+MSG_PARGUI_LIGHTWAVEMOTIONIO
+LightWave Motion I/O
+
+;
+MSG_PARGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREUSINGTHI
+You must first load or create a parameter file before using this feature.
+
+;
+MSG_PARGUI_ERRORBUILDINGMOTIONVALUETABLEPERATIONTERMINATED
+Error building motion value table\nOperation terminated
+
+;
+MSG_PARGUI_LIGHTWAVEEXPORT
+LightWave Export
+
+;
+MSG_PARGUI_XPORTENTITY
+\33c\0334Export Entity
+
+;
+MSG_PARGUI_MAXPOLYGONS
+Max Polygons
+
+;
+MSG_PARGUI_MAXVERTICES
+Max Vertices
+
+;
+MSG_PARGUI_BATHYMETRY
+\33cBathymetry
+
+;
+MSG_PARGUI_REFLAT
+Ref Lat
+
+;
+MSG_PARGUI_LON
+Lon
+
+;
+MSG_PARGUI_ROTATETOHORIZONTAL
+\33cRotate to Horizontal
+
+;
+MSG_PARGUI_EXPORT
+\33cExport
+
+;
+MSG_PARGUI_LIGHTWAVEIO
+LightWave I/O
+
+;
+MSG_PARGUI_PARAMETERSMODULEMODEL
+Parameters Module: Model
+
+;
+MSG_PARGUI_OUTOFMEMORYANTOPENMODELDESIGNWINDOW
+Out of memory!\nCan't open model design window.
+
+;
+MSG_PARGUI_ECOSYSTEMMODELEDITOR
+Ecosystem Model Editor
+
+;
+MSG_PARGUI_NAME_SPACE
+Name\x20
+
+;
+MSG_PARGUI_ADD
+\33cAdd
+
+;
+MSG_PARGUI_REMOVE
+\33cRemove
+
+;
+MSG_PARGUI_LOAD
+\33cLoad
+
+;
+MSG_PARGUI_SAVE
+\33cSave
+
+;
+MSG_PARGUI_HTM
+Ht (m)
+
+;
+MSG_PARGUI_ITEMS
+Items
+
+;
+MSG_PARGUI_CLASS
+Class
+
+;
+MSG_PARGUI_RED
+Red
+
+;
+MSG_PARGUI_GRN
+Grn
+
+;
+MSG_PARGUI_BLU
+Blu
+
+;
+MSG_PARGUI_HTITEMSCLASSREDGRNBLU
+\0338    Ht Items Class   Red   Grn   Blu
+
+;
+MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_1
+The current Ecosystem Model has been modified. Do you wish to save it before closing?
+
+;
+MSG_PARGUI_YESNOCANCEL
+Yes|No|Cancel
+
+;
+MSG_PARGUI_WATER
+ Water
+
+;
+MSG_PARGUI_SNOW
+  Snow
+
+;
+MSG_PARGUI_ROCK
+  Rock
+
+;
+MSG_PARGUI_BARE
+  Bare
+
+;
+MSG_PARGUI_CONIF
+ Conif
+
+;
+MSG_PARGUI_DECID
+ Decid
+
+;
+MSG_PARGUI_LOWVG
+ LowVg
+
+;
+MSG_PARGUI_SNAG
+  Snag
+
+;
+MSG_PARGUI_STUMP
+ Stump
+
+;
+MSG_PARGUI_STRAT
+ Strat
+
+;
+MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2
+The current Ecosystem Model has been modified. Do you wish to save it before proceeding?
+
+;
+MSG_PARGUI_LOADMODELPATHNAME
+Load Model Path/Name
+
+;
+MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR
+Error writing to Ecosystem Model file!\nOperation terminated prematurely.
+
+;
+MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED
+Not a WCS Ecosystem Model file!\nOperation terminated.
+
+;
+MSG_PARGUI_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMI
+Unsupported WCS Ecosystem Model file version!\nOperation terminated.
+
+;
+MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFORINPUTPERATIONTERMINATE
+You have not selected a file name for input!\nOperation terminated.
+
+;
+MSG_PARGUI_SAVEMODELPATHNAME
+Save Model Path/Name
+
+;
+MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFOROUTPUTPERATIONTERMI
+Error opening Ecosystem Model file for output!\nOperation terminated.
+
+;
+MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT
+You have not selected a file name for output!\nOperation terminated.
+
+;
+MSG_PARGUI_ANIMCONTROLWINDOW
+Anim Control Window
+
+;
+MSG_PARGUI_ANIMPATH
+Anim Path
+
+;
+MSG_PARGUI_ANIMNAME
+Anim Name
+
+;
+MSG_PARGUI_TO
+To
+
+;
+MSG_PARGUI_BY
+By
+
+;
+MSG_PARGUI_WINDOWWIDTH
+Window Width
+
+;
+MSG_PARGUI_HEIGHT
+ Height
+
+;
+MSG_PARGUI_USERENDERIMAGEASPECT
+Use Render Image Aspect
+
+;
+MSG_PARGUI_RENDERONLY
+\33cRender Only
+
+;
+MSG_PARGUI_RENDERSAVE
+\33cRender & Save
+
+;
+MSG_PARGUI_PARAMETERSMODULEANIM
+Parameters Module: Anim
+
+;
+MSG_PARGUI_ANIMFRAMESPATHNAME
+Anim Frames Path/Name
+
+;
+MSG_PARGUI_SPECIFIEDWIDTHISLARGERTHANTHECURRENTSCREENWIDTHDOYOU
+Specified width is larger than the current screen width. Do you wish to use the screen width?
+
+;
+MSG_PARGUI_OKCANCEL
+OK|Cancel
+
+;
+MSG_PARGUI_SPECIFIEDORCOMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREE
+Specified or computed height is larger than the current screen height. Do you wish to use the screen height?
+
+;
