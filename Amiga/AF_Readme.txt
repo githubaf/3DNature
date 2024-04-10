@@ -3463,3 +3463,9 @@ Menu -> Project -> Edit   ab Zeile 615
 8.Apr.2024
 ----------
 MoreGUI.c fertig lokalisiert. Kommentare im WCS.cs noch einfuegen. (Hinweis: Auf Ausrichtung mit Leerzeichen achten)
+
+10.Apr.24
+---------
+ParamsGUI.c weiter bearbeitet. Laden/Specichern soll im englischen Original erfolgen, auch wenn die Strings uebersetzt wurden.
+Noch ausprobieren!
+Im Oekosystem Editor muss doe Laenge von Class noch angepasst werden, damit die oberste Tabellenzeile mit den uebersetzten Klassen zusammenpasst.

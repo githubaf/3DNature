@@ -8378,33 +8378,34 @@ MSG_PARGUI_OUTOFMEMORYANTOPENMODELDESIGNWINDOW
 Out of memory!\nCan't open model design window.
 
 ;
+; --- Check Menu: Modules/Parameters->Ecosystem Design (middle of Ecosystem Editor Window), now "Ecosystem Model Editor" opens
 MSG_PARGUI_ECOSYSTEMMODELEDITOR
 Ecosystem Model Editor
 
 ;
 MSG_PARGUI_NAME_SPACE
 Name\x20
-
+Name\x20
 ;
 MSG_PARGUI_ADD
 \33cAdd
-
+\33cHinzufügen
 ;
 MSG_PARGUI_REMOVE
 \33cRemove
-
+\33cLöschen
 ;
 MSG_PARGUI_LOAD
 \33cLoad
-
+\33cLaden
 ;
 MSG_PARGUI_SAVE
 \33cSave
-
+\33cSpeichern
 ;
 MSG_PARGUI_HTM
 Ht (m)
-
+Höhe (m)
 ;
 MSG_PARGUI_ITEMS
 Items
@@ -8412,19 +8413,19 @@ Items
 ;
 MSG_PARGUI_CLASS
 Class
-
+Klasse
 ;
 MSG_PARGUI_RED
 Red
-
+Rot
 ;
 MSG_PARGUI_GRN
 Grn
-
+Grün
 ;
 MSG_PARGUI_BLU
 Blu
-
+Blau
 ;
 MSG_PARGUI_HTITEMSCLASSREDGRNBLU
 \0338    Ht Items Class   Red   Grn   Blu
@@ -8438,43 +8439,44 @@ MSG_PARGUI_YESNOCANCEL
 Yes|No|Cancel
 
 ;
-MSG_PARGUI_WATER
+; --- Check Menu:Modules/Parameters->Ecosystem->Class (upper middle of Ecosystem Editor Window)
+MSG_PARGUI_WATER (//31)
  Water
-
+ Wassser
 ;
-MSG_PARGUI_SNOW
+MSG_PARGUI_SNOW (//31)
   Snow
-
+  Schnee
 ;
-MSG_PARGUI_ROCK
+MSG_PARGUI_ROCK (//31)
   Rock
-
+  Fels
 ;
-MSG_PARGUI_BARE
+MSG_PARGUI_BARE (//31)
   Bare
-
+  Kahl
 ;
-MSG_PARGUI_CONIF
+MSG_PARGUI_CONIF (//31)
  Conif
-
+ Nadelbaum
 ;
-MSG_PARGUI_DECID
+MSG_PARGUI_DECID (//31)
  Decid
-
+Laubbaum
 ;
-MSG_PARGUI_LOWVG
+MSG_PARGUI_LOWVG (//31)
  LowVg
 
 ;
-MSG_PARGUI_SNAG
+MSG_PARGUI_SNAG (//31)
   Snag
-
+  Abgestorbener Baum
 ;
-MSG_PARGUI_STUMP
+MSG_PARGUI_STUMP (//31)
  Stump
-
+ Baumstumpf
 ;
-MSG_PARGUI_STRAT
+MSG_PARGUI_STRAT (//31)
  Strat
 
 ;

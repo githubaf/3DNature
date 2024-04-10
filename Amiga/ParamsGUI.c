@@ -1455,7 +1455,7 @@ STATIC_FCN short Load_FM_Win(void) // used locally only -> static, AF 24.7.2021
    strcpy(str, (char*)GetString( MSG_PARGUI_SNAG ));   // "  Snag"
   else
    strcpy(str, (char*)GetString( MSG_PARGUI_STUMP ));  // " Stump"
-  
+
   sprintf(&FM_Win->ItemStr[FM_Win->ItemNum][0],
 	 "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, str, Red, Grn, Blu);
 
@@ -1554,7 +1554,36 @@ STATIC_FCN short Save_FM_Win(void) // used locally only -> static, AF 24.7.2021
  fprintf(fModel, "%1d\n", FM_Win->ItemNum - 1);
  for (i=1; i<FM_Win->ItemNum; i++)
   {
-  if (fprintf(fModel, "%s\n", &FM_Win->ItemStr[i][0]) < 0)
+     // ALEXANDER: The string FM_Win->ItemStr[FM_Win->ItemNum] contains now the localized Class, for instances " Wasser" (German) instead of " Water".
+     // The saved file must remain untouched however, i.e. English!
+	 long Ht, Stems, Red, Grn, Blu;
+	 static char Class[32];
+	 sscanf(&FM_Win->ItemStr[FM_Win->ItemNum][0],
+	 	 "%6ld%6ld%31s%6ld%6ld%6ld", &Ht, &Stems, Class, &Red, &Grn, &Blu); // the localized Class should not be longer than 31 chars + the final \0
+	                                                                        // The actual lengt (limited to 63 due to scanf %31s) will be used for strncmp()
+
+	 if      (! strncmp(Class, (char*)GetString( MSG_PARGUI_WATER ),strlen(Class)))
+		 sprintf(str, "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, "Water", Red, Grn, Blu);
+	 else if (! strncmp(Class, (char*)GetString( MSG_PARGUI_SNOW ),strlen(Class)))
+		 sprintf(str, "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, "Snow", Red, Grn, Blu);
+	 else if (! strncmp(Class, (char*)GetString( MSG_PARGUI_ROCK ),strlen(Class)))
+		 sprintf(str, "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, "Rock", Red, Grn, Blu);
+	 else if (! strncmp(Class, (char*)GetString( MSG_PARGUI_STRAT ),strlen(Class)))
+		 sprintf(str, "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, "Strat", Red, Grn, Blu);
+	 else if (! strncmp(Class, (char*)GetString( MSG_PARGUI_BARE ),strlen(Class)))
+		 sprintf(str, "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, "Bare", Red, Grn, Blu);
+	 else if (! strncmp(Class, (char*)GetString( MSG_PARGUI_CONIF ),strlen(Class)))
+		 sprintf(str, "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, "Conif", Red, Grn, Blu);
+	 else if (! strncmp(Class, (char*)GetString( MSG_PARGUI_DECID ),strlen(Class)))
+		 sprintf(str, "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, "Decid", Red, Grn, Blu);
+	 else if (! strncmp(Class, (char*)GetString( MSG_PARGUI_LOWVG ),strlen(Class)))
+		 sprintf(str, "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, "LowVg", Red, Grn, Blu);
+	 else if (! strncmp(Class, (char*)GetString( MSG_PARGUI_SNAG ),strlen(Class)))
+		 sprintf(str, "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, "Snag", Red, Grn, Blu);
+	 else
+		 sprintf(str, "%6ld%6ld%s%6ld%6ld%6ld", Ht, Stems, "Stump", Red, Grn, Blu);
+
+   if (fprintf(fModel, "%s\n", str) < 0)
    {
    error = 2;
    break;
