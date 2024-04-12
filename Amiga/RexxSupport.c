@@ -3,6 +3,9 @@
 ** Copyright 1995 by Questar Productions
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include	<exec/types.h>
 #include	<exec/nodes.h>
 #include	<exec/lists.h>
@@ -240,7 +243,7 @@ if (This)
 			if(rmsg != REXX_RETURN_ERROR)
 				{
 				/* Any messages that come now are blown away... */
-				Rexx_SetLastError(This, rmsg, "WCS is shutting down.");
+				Rexx_SetLastError(This, rmsg, (char*)GetString( MSG_REXSPT_WCSISSHUTTINGDOWN ));  // "WCS is shutting down."
 				Rexx_ReplyMsg(rmsg, NULL, 100);
 				} /* if */
 			} /* while */
@@ -253,7 +256,7 @@ if (This)
 			{
 			/* Any messages that still are coming in are "dead". We just set
 			** the LASTERROR and reply an error of 100... */
-			Rexx_SetLastError(This, rmsg, "WCS is shutting down.");
+			Rexx_SetLastError(This, rmsg, (char*)GetString( MSG_REXSPT_WCSISSHUTTINGDOWN ));  // "WCS is shutting down."
 			Rexx_ReplyMsg(rmsg, NULL, 100);
 			} /* while */
 		DeletePort(This->ARexxPort);
@@ -422,7 +425,7 @@ while(1) /* we'll return from somewhere else... */
 		{
 		if(Words == 10)
 			{
-			Rexx_SetLastError(Rexx, CmdMsg, "WCS currently does not support commands longer than 10 words.");
+			Rexx_SetLastError(Rexx, CmdMsg, (char*)GetString( MSG_REXSPT_WCSCURRENTLYDOESNOTSUPPORTCOMMANDSLONGERTHAN10WORDS ));  // "WCS currently does not support commands longer than 10 words."
 			Rexx_ReplyMsg(CmdMsg, "", 20);
 			return(0);
 			} /* if */
@@ -433,7 +436,7 @@ while(1) /* we'll return from somewhere else... */
 			CallFrame.LastToken = ResolvedWord;
 			if((Found = Cmd_SearchMe(Descent, ResolvedWord)) == NULL)
 				{
-				Rexx_SetLastError(Rexx, CmdMsg, "WCS did not recognise the commands in the order supplied.");
+				Rexx_SetLastError(Rexx, CmdMsg, (char*)GetString( MSG_REXSPT_WCSDIDNOTRECOGNISETHECOMMANDSINTHEORDERSUPPLIED ));  // "WCS did not recognise the commands in the order supplied."
 				Rexx_ReplyMsg(CmdMsg, "", 20);
 				return(0);
 				} /* if */
@@ -454,7 +457,7 @@ while(1) /* we'll return from somewhere else... */
 			} /* if */
 		else
 			{
-			Rexx_SetLastError(Rexx, CmdMsg, "WCS did not recognise one of the command words.");
+			Rexx_SetLastError(Rexx, CmdMsg, (char*)GetString( MSG_REXSPT_WCSDIDNOTRECOGNISEONEOFTHECOMMANDWORDS ));  // "WCS did not recognise one of the command words."
 			Rexx_ReplyMsg(CmdMsg, "", 20);
 			return(0);
 			} /* else */
@@ -489,7 +492,7 @@ while(1) /* we'll return from somewhere else... */
 				} /* if */
 			else
 				{
-				Rexx_SetLastError(Rexx, CmdMsg, "WCS recognised a partial but incomplete command.");
+				Rexx_SetLastError(Rexx, CmdMsg, (char*)GetString( MSG_REXSPT_WCSRECOGNISEDAPARTIALBUTINCOMPLETECOMMAND ));  // "WCS recognised a partial but incomplete command."
 				Rexx_ReplyMsg(CmdMsg, "", 20);
 				return(0);
 				} /* else */
@@ -555,14 +558,14 @@ for(Index = WordSize = 0; WordSize < (WBufSize - 1); Index++)
 						return(Source); /* this'll be clever */
 						} /* if */
 					} /* if */
-				Log(ERR_NULL, (CONST_STRPTR)"Non-alphabetic character found in command word."); /* <<<>>> */
+				Log(ERR_NULL, GetString( MSG_REXSPT_NONALPHABETICCHARACTERFOUNDINCOMMANDWORD )); /* <<<>>> */  // "Non-alphabetic character found in command word."
 				return(0);
 				} /* else */
 			} /* default */
 		} /* switch */
 	} /* for */
 
-Log(ERR_NULL, (CONST_STRPTR)"Command word size exceeded."); /* <<<>>> */
+Log(ERR_NULL, GetString( MSG_REXSPT_COMMANDWORDSIZEEXCEEDED )); /* <<<>>> */  // "Command word size exceeded."
 return(0);
 
 } /* Cmd_PullWord */
@@ -777,7 +780,7 @@ for(Quoted = Index = WordSize = 0; WordSize < (ArgSize - 1); Index++)
 		} /* switch */
 	} /* for */
 
-Log(ERR_NULL, (CONST_STRPTR)"Inline Arg size exceeded.");
+Log(ERR_NULL, GetString( MSG_REXSPT_INLINEARGSIZEEXCEEDED ));  // "Inline Arg size exceeded."
 return(0);
 
 } /* Cmd_FetchInlineArg() */

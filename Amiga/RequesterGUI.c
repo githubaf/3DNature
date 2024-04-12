@@ -4,6 +4,9 @@
 ** implementation (a la Chris Hanson) in July 1993.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -38,12 +41,12 @@ get(ModControlWin, MUIA_Window_Window, &MCPWin);
      ASLFR_InitialTopEdge, 150,
      ASLFR_Window, (IPTR)MCPWin,
      TAG_DONE)) == NULL) {
-  printf("Can't initialize file requester!\n");
+  printf((char*)GetString( MSG_REQGUI_CANTINITIALIZEFILEREQUESTER ));  // "Can't initialize file requester!\n"
   return 0;
  }
  if (mode) {
   if ((AslRequestTags(frbase,
-      ASL_Hail, (IPTR)"DataBase File Saver",
+      ASL_Hail, (IPTR)GetString( MSG_REQGUI_DATABASEFILESAVER ),  // "DataBase File Saver"
       ASL_FuncFlags, FILF_PATGAD | FILF_SAVE | FILF_NEWIDCMP,
       TAG_DONE)) == 0) {
    FreeAslRequest(frbase);
@@ -52,7 +55,7 @@ get(ModControlWin, MUIA_Window_Window, &MCPWin);
  }
  else {
   if ((AslRequestTags(frbase,
-      ASL_Hail,(IPTR)"DataBase File Loader",
+      ASL_Hail,(IPTR)GetString( MSG_REQGUI_DATABASEFILELOADER ),  // "DataBase File Loader"
       ASL_FuncFlags,FILF_PATGAD | FILF_NEWIDCMP,
       TAG_DONE))==0) {
    FreeAslRequest(frbase);
@@ -88,7 +91,7 @@ get(ModControlWin, MUIA_Window_Window, &MCPWin);
      ASLFR_InitialTopEdge, 150,
      ASLFR_Window, MCPWin,
      TAG_DONE)) == NULL) {
-  printf("Can't initialize file requester!\n");
+  printf(GetString( MSG_CANTINITIALIZEFILEREQUESTER ));  // "Can't initialize file requester!\n"
   return 0;
  }
 
@@ -142,7 +145,7 @@ short getfilename(long mode, char *requestname, char *pathname,
      ASLFR_InitialTopEdge, 150,
      ASLFR_Window, (IPTR)MCPWin,
      TAG_DONE)) == NULL) {
-  printf("Can't initialize file requester!\n");
+  printf((char*)GetString( MSG_REQGUI_CANTINITIALIZEFILEREQUESTER ));  // "Can't initialize file requester!\n"
   return 0;
  }
  if (mode) {
@@ -194,7 +197,7 @@ short getfilenameptrn(long mode, char *requestname, char *pathname,
      ASLFR_InitialTopEdge, 150,
      ASLFR_Window, (IPTR)MCPWin,
      TAG_DONE)) == NULL) {
-  printf("Can't initialize file requester!\n");
+  printf((char*)GetString( MSG_REQGUI_CANTINITIALIZEFILEREQUESTER ));  // "Can't initialize file requester!\n"
   return 0;
  }
  if (mode) {
@@ -249,7 +252,7 @@ struct FileRequester *getmultifilename(char *requestname, char *pathname,
      ASLFR_InitialTopEdge, 150,
      ASLFR_Window, (IPTR)MCPWin,
      TAG_DONE)) == NULL) {
-  printf("Can't initialize file requester!\n");
+  printf((char*)GetString( MSG_REQGUI_CANTINITIALIZEFILEREQUESTER ));  // "Can't initialize file requester!\n"
   return (0);
  }
  if ((AslRequestTags(frfile,
@@ -265,7 +268,7 @@ struct FileRequester *getmultifilename(char *requestname, char *pathname,
   if (frfile->rf_File[0])
    {
    strcpy(SingleFileName, (char*)frfile->rf_File);
-   SingleFile.wa_Name = (BYTE*)SingleFileName;
+   SingleFile.wa_Name = (STRPTR)SingleFileName;
    frfile->rf_ArgList = &SingleFile; /* <<<>>> May be a no-no */
    frfile->rf_NumArgs = 1; /* <<<>>> May be a no-no */
    }
@@ -338,7 +341,7 @@ if ((This = (struct BusyWindow *)get_Memory(sizeof(struct BusyWindow), MEMF_CLEA
 	   End,
 	  Child, HGroup,
 	   Child, RectangleObject, End,
-	   Child, This->BW_Cancel = KeyButtonFunc('c', "\33cCancel"),
+	   Child, This->BW_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_REQGUI_CANCEL )),  // "\33cCancel"
 	   Child, RectangleObject, End,
 	   End,
 	  End,
@@ -495,7 +498,7 @@ if(StartSecs)
 	ElapMin = (Elapsed / 60) % 60;
 	ElapHrs = Elapsed / 3600;
 
-	sprintf(str, "\0334%s frames:  %02d:%02d:%02d", TotalFrames, ElapHrs, ElapMin, ElapSec);
+	sprintf(str, (char*)GetString( MSG_REQGUI_SFRAMES ), TotalFrames, ElapHrs, ElapMin, ElapSec);  // "\0334%s frames:  %02d:%02d:%02d"
 	Log(MSG_TOTAL_ELAPS, (CONST_STRPTR)str);
 	} /* if */
 

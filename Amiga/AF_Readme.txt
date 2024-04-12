@@ -3406,9 +3406,9 @@ Menu.o
 Done		MoreGUI.o 8.Apr.24
 Done		Params.o  8.Apr.24
 Done		ParamsGUI.o 9.Apr.24
-PlotGUI.o
-RequesterGUI.o
-RexxSupport.o
+Nothing		PlotGUI.o
+Done		RequesterGUI.o 12.Apr.24
+Done		RexxSupport.o 12.Apr.24
 ScratchPad.o
 ScreenModeGUI.o
 Support.o
@@ -3469,3 +3469,7 @@ MoreGUI.c fertig lokalisiert. Kommentare im WCS.cs noch einfuegen. (Hinweis: Auf
 ParamsGUI.c weiter bearbeitet. Laden/Specichern soll im englischen Original erfolgen, auch wenn die Strings uebersetzt wurden.
 Noch ausprobieren!
 Im Oekosystem Editor muss doe Laenge von Class noch angepasst werden, damit die oberste Tabellenzeile mit den uebersetzten Klassen zusammenpasst.
+
+12.April 24
+-----------
+Die Mitten-Ausrichtung von "Water", "Snow", "Rock" ... im ParamsGUI.c ist hart kodiert mit. Das Passt dann nach dem Lokalisieren nicht mehr richtig. Hier muss noch nachgearbeitet werden! Die Ubersetzungen in der Tabelle muessen die gleicheh sein wie bei dem Schalter "Class" daneben. Das sind im Moment 2x aehnliche Strings. Nur einen Satz Strings nehemen!

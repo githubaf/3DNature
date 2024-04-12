@@ -8440,45 +8440,48 @@ Yes|No|Cancel
 
 ;
 ; --- Check Menu:Modules/Parameters->Ecosystem->Class (upper middle of Ecosystem Editor Window)
+; For pretty table view strings for Water, Snow, Rock, Bare, Conif, Decid, LowVg, Snag, Stump, Start should all habe same length, adjusted by spaces
+; Start with at least one Space!
+; the stringlength of the first string will be used for table-headline
 MSG_PARGUI_WATER (//31)
  Water
- Wassser
+      Wassser
 ;
 MSG_PARGUI_SNOW (//31)
   Snow
-  Schnee
+      Schnee
 ;
 MSG_PARGUI_ROCK (//31)
   Rock
-  Fels
+       Fels
 ;
 MSG_PARGUI_BARE (//31)
   Bare
-  Kahl
+       Kahl
 ;
 MSG_PARGUI_CONIF (//31)
  Conif
- Nadelbaum
+     Nadelbaum
 ;
 MSG_PARGUI_DECID (//31)
  Decid
-Laubbaum
+      Laubbaum
 ;
 MSG_PARGUI_LOWVG (//31)
  LowVg
-
+      LowVg
 ;
 MSG_PARGUI_SNAG (//31)
   Snag
-  Abgestorbener Baum
+ Abgestorbener Baum
 ;
 MSG_PARGUI_STUMP (//31)
  Stump
- Baumstumpf
+     Baumstumpf
 ;
 MSG_PARGUI_STRAT (//31)
  Strat
-
+        Strat
 ;
 MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2
 The current Ecosystem Model has been modified. Do you wish to save it before proceeding?
@@ -8576,3 +8579,55 @@ MSG_PARGUI_SPECIFIEDORCOMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREE
 Specified or computed height is larger than the current screen height. Do you wish to use the screen height?
 
 ;
+;
+MSG_REQGUI_CANTINITIALIZEFILEREQUESTER
+Can't initialize file requester!\n
+
+;
+MSG_REQGUI_DATABASEFILESAVER
+DataBase File Saver
+
+;
+MSG_REQGUI_DATABASEFILELOADER
+DataBase File Loader
+
+;
+MSG_REQGUI_CANCEL
+\33cCancel
+
+;
+MSG_REQGUI_SFRAMES
+\0334%s frames:  %02d:%02d:%02d
+
+;
+MSG_REXSPT_WCSISSHUTTINGDOWN
+WCS is shutting down.
+
+;
+MSG_REXSPT_WCSCURRENTLYDOESNOTSUPPORTCOMMANDSLONGERTHAN10WORDS
+WCS currently does not support commands longer than 10 words.
+
+;
+MSG_REXSPT_WCSDIDNOTRECOGNISETHECOMMANDSINTHEORDERSUPPLIED
+WCS did not recognise the commands in the order supplied.
+
+;
+MSG_REXSPT_WCSDIDNOTRECOGNISEONEOFTHECOMMANDWORDS
+WCS did not recognise one of the command words.
+
+;
+MSG_REXSPT_WCSRECOGNISEDAPARTIALBUTINCOMPLETECOMMAND
+WCS recognised a partial but incomplete command.
+
+;
+MSG_REXSPT_NONALPHABETICCHARACTERFOUNDINCOMMANDWORD
+Non-alphabetic character found in command word.
+
+;
+MSG_REXSPT_COMMANDWORDSIZEEXCEEDED
+Command word size exceeded.
+
+;
+MSG_REXSPT_INLINEARGSIZEEXCEEDED
+Inline Arg size exceeded.
+
