@@ -8131,7 +8131,7 @@ MSG_MOREGUI_RENDERTASKPRIORITY
 ;
 MSG_MOREGUI_LOW
 \33cLow
-\x33cNiedrig
+\33cNiedrig
 ;
 MSG_MOREGUI_NORMAL
 \33cNormal
@@ -8631,3 +8631,75 @@ Command word size exceeded.
 MSG_REXSPT_INLINEARGSIZEEXCEEDED
 Inline Arg size exceeded.
 
+;
+MSG_SUPPORT_WCSCONFIGURATIONSAVE
+WCS Configuration: Save
+WCS Konfiguration: Speichern
+;
+MSG_SUPPORT_CANTOPENCONFIGURATIONFILEPERATIONTERMINATED
+Can't open configuration file!\nOperation terminated.
+Die Konfigurationsdatei konnte nicht geöffnet werden!\nVorgang abgebrochen.
+;
+MSG_SUPPORT_OK
+OK
+
+;
+MSG_SUPPORT_WCSCONFIGURATIONLOAD
+WCS Configuration: Load
+WCS Konfiguration: Laden
+;
+MSG_SUPPORT_PROJECTPATHNAME
+Project Path/Name
+Projekt Pfad/Name
+;
+MSG_SUPPORT_WCSPROJECTSAVE
+WCS Project: Save
+WCS Projekt: Speichern
+;
+MSG_SUPPORT_CANTOPENPROJECTFILEPERATIONTERMINATED
+Can't open project file!\nOperation terminated.
+Die Projektdatei konnen nicht geöffnet werden!\nVorgang abgebrochen.
+;
+MSG_SUPPORT_PROJECTSAVE
+Project: Save
+Projekt: Speichern
+;
+MSG_SUPPORT_SAVEDATABASEANDPARAMETERFILESASWELL
+Save Database and Parameter files as well?
+Datenbank- und Parameterdateien ebenfalls speichern?
+;
+MSG_SUPPORT_BOTHDBASEPARAMSNO
+Both|D'base|Params|No
+Beide|Datenbank|Parameter|Keine
+;
+MSG_SUPPORT_WCSPROJECTLOAD
+WCS Project: Load
+WCS Projekt: Laden
+;
+MSG_SUPPORT_PROJECTLOAD
+Project: Load
+Projekt: Laden
+;
+MSG_SUPPORT_NOTAWCSPROJECTFILEPERATIONTERMINATED
+Not a WCS Project file!\nOperation terminated.
+Keine WCS Projektatei!\nVorgang abgebrochen.
+;
+MSG_SUPPORT_MAPPINGMODULEALIGN
+Mapping Module: Align
+
+;
+MSG_SUPPORT_ILLEGALMAPREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUAL
+Illegal map registration values! High and low X or Y values are equal.
+
+;
+MSG_SUPPORT_DIRECTORYLIST
+Directory List
+Verzeichnisliste
+;
+MSG_SUPPORT_DIRECTORYLISTLOAD
+Directory List: Load
+Verzeichnisliste: Laden
+;
+MSG_SUPPORT_PRINTING
+Printing...
+Drucken...

@@ -3409,9 +3409,9 @@ Done		ParamsGUI.o 9.Apr.24
 Nothing		PlotGUI.o
 Done		RequesterGUI.o 12.Apr.24
 Done		RexxSupport.o 12.Apr.24
-ScratchPad.o
-ScreenModeGUI.o
-Support.o
+Nothing		ScratchPad.o
+Done 		ScreenModeGUI.o
+Done		Support.o
 TLSupportGUI.o
 TimeLinesGUI.o
 Tree.o
@@ -3473,3 +3473,8 @@ Im Oekosystem Editor muss doe Laenge von Class noch angepasst werden, damit die 
 12.April 24
 -----------
 Die Mitten-Ausrichtung von "Water", "Snow", "Rock" ... im ParamsGUI.c ist hart kodiert mit. Das Passt dann nach dem Lokalisieren nicht mehr richtig. Hier muss noch nachgearbeitet werden! Die Ubersetzungen in der Tabelle muessen die gleicheh sein wie bei dem Schalter "Class" daneben. Das sind im Moment 2x aehnliche Strings. Nur einen Satz Strings nehemen!
+
+15.April 24
+-----------
+Bei Menu Project->Save/Load Config speichert und laedt die offenen Fenster und der Position.
+

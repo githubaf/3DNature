@@ -4,6 +4,9 @@
 ** Original code and many more happy changes by Gary R. Huber.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "GUIDefines.h"
 #include <stdarg.h>
@@ -200,8 +203,10 @@ void SaveConfig(void)
 
  if (! (fconfig = fopen("ENVARC:WCS/WCS.config", "w")))
   {
-  User_Message((CONST_STRPTR)"WCS Configuration: Save",
-          (CONST_STRPTR)"Can't open configuration file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_SUPPORT_WCSCONFIGURATIONSAVE ),                         // "WCS Configuration: Save"
+               GetString( MSG_SUPPORT_CANTOPENCONFIGURATIONFILEPERATIONTERMINATED ),  // "Can't open configuration file!\nOperation terminated."
+               GetString( MSG_SUPPORT_OK ),                                           // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if, presumably, no ENVARC: */
 
@@ -286,8 +291,10 @@ void LoadConfig(void)
 
  if (! (fconfig = fopen("ENVARC:WCS/WCS.config", "r")))
   {
-  User_Message((CONST_STRPTR)"WCS Configuration: Load",
-          (CONST_STRPTR)"Can't open configuration file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_SUPPORT_WCSCONFIGURATIONLOAD ),                         // "WCS Configuration: Load"
+               GetString( MSG_SUPPORT_CANTOPENCONFIGURATIONFILEPERATIONTERMINATED ),  // "Can't open configuration file!\nOperation terminated."
+               GetString( MSG_SUPPORT_OK ),                                           // "OK"
+               (CONST_STRPTR)"o");
   return;
   } /* if no configuration file */
 
@@ -304,7 +311,7 @@ void LoadConfig(void)
 
  for (; ;)
   {
-  if (fscanf(fconfig, "%ld", &item) == EOF) break;
+  if (fscanf(fconfig, "%d", &item) == EOF) break;
 
   switch (item)
    {
@@ -632,7 +639,7 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
  else if ((NewName && NewName != 2) || ! projectpath[0] || ! projectname[0])
   {
   strcpy(Ptrn, "#?.proj");
-  if (! getfilenameptrn(1, "Project Path/Name", projectpath, projectname, Ptrn))
+  if (! getfilenameptrn(1, (char*)GetString( MSG_SUPPORT_PROJECTPATHNAME ), projectpath, projectname, Ptrn))  // "Project Path/Name"
    return (0);
   strmfp(filename, projectpath, projectname);
   } /* if new name */
@@ -644,8 +651,10 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
  if ((fproject = fopen(filename, "w")) == NULL)
   {
   if (! SaveName)
-   User_Message((CONST_STRPTR)"WCS Project: Save",
-           (CONST_STRPTR)"Can't open project file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_SUPPORT_WCSPROJECTSAVE ),                         // "WCS Project: Save"
+                GetString( MSG_SUPPORT_CANTOPENPROJECTFILEPERATIONTERMINATED ),  // "Can't open project file!\nOperation terminated."
+                GetString( MSG_SUPPORT_OK ),                                     // "OK"
+                (CONST_STRPTR)"o");
   return (0);
   } /* if open fail */
 
@@ -905,19 +914,19 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
  if (ScrnData)
   {
   fprintf(fproject, "%d\n", PROJECT_SM_MODEID);
-  fprintf(fproject, "%lu\n", ScrnData->ModeID);
+  fprintf(fproject, "%u\n", ScrnData->ModeID);
   fprintf(fproject, "%d\n", PROJECT_SM_WIDTH);
   fprintf(fproject, "%ld\n", ScrnData->Width);
   fprintf(fproject, "%d\n", PROJECT_SM_HEIGHT);
   fprintf(fproject, "%ld\n", ScrnData->Height);
   fprintf(fproject, "%d\n", PROJECT_SM_OTAG);
-  fprintf(fproject, "%lu\n", ScrnData->OTag);
+  fprintf(fproject, "%u\n", ScrnData->OTag);
   fprintf(fproject, "%d\n", PROJECT_SM_OVAL);
-  fprintf(fproject, "%lu\n", ScrnData->OVal);
+  fprintf(fproject, "%u\n", ScrnData->OVal);
   fprintf(fproject, "%d\n", PROJECT_SM_AUTOTAG);
-  fprintf(fproject, "%lu\n", ScrnData->AutoTag);
+  fprintf(fproject, "%u\n", ScrnData->AutoTag);
   fprintf(fproject, "%d\n", PROJECT_SM_AUTOVAL);
-  fprintf(fproject, "%lu\n", ScrnData->AutoVal);
+  fprintf(fproject, "%u\n", ScrnData->AutoVal);
   } /* if ScrnData */
 
  fclose(fproject);
@@ -932,9 +941,10 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
   if (NewName == 2)
    SaveParts = 1;
   else
-   SaveParts = User_Message_Def((CONST_STRPTR)"Project: Save",
-           (CONST_STRPTR)"Save Database and Parameter files as well?", (CONST_STRPTR)"Both|D'base|Params|No",
-           (CONST_STRPTR)"bdpn", 1);
+   SaveParts = User_Message_Def(GetString( MSG_SUPPORT_PROJECTSAVE ),                          // "Project: Save"
+                                GetString( MSG_SUPPORT_SAVEDATABASEANDPARAMETERFILESASWELL ),  // "Save Database and Parameter files as well?"
+								GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ),                    // "Both|D'base|Params|No",
+                                (CONST_STRPTR)"bdpn", 1);
   if (SaveParts > 0)
    {
    if (dbaseloaded && (SaveParts == 1 || SaveParts == 2))
@@ -973,8 +983,10 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
  if ((fproject = fopen(filename, "r")) == NULL)
   {
   if (! LoadName)
-   User_Message((CONST_STRPTR)"WCS Project: Load",
-           (CONST_STRPTR)"Can't open project file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_SUPPORT_WCSPROJECTLOAD ),                         // "WCS Project: Load"
+                GetString( MSG_SUPPORT_CANTOPENPROJECTFILEPERATIONTERMINATED ),  // "Can't open project file!\nOperation terminated."
+                GetString( MSG_SUPPORT_OK ),                                     // "OK"
+                (CONST_STRPTR)"o");
   return (0);
   } /* if open fail */
 
@@ -984,8 +996,10 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
   {
   fclose(fproject);
   if (! LoadName)
-   User_Message((CONST_STRPTR)"Project: Load", (CONST_STRPTR)"Not a WCS Project file!\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_SUPPORT_PROJECTLOAD ),                           // "Project: Load"
+                GetString( MSG_SUPPORT_NOTAWCSPROJECTFILEPERATIONTERMINATED ),  // "Not a WCS Project file!\nOperation terminated.",
+                GetString( MSG_SUPPORT_OK ),                                    // "OK"
+                (CONST_STRPTR)"o");
   return (0);
   } /* if not WCS Project */
  for (; ;)
@@ -1328,7 +1342,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
 /* Screen mode info */
    case PROJECT_SM_MODEID:
     {
-    if (ScrnData) fscanf(fproject, "%lu", &ScrnData->ModeID);
+    if (ScrnData) fscanf(fproject, "%u", &ScrnData->ModeID);
     break;
     } /*  */
    case PROJECT_SM_WIDTH:
@@ -1343,22 +1357,22 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     } /*  */
    case PROJECT_SM_OTAG:
     {
-    if (ScrnData) fscanf(fproject, "%lu", &ScrnData->OTag);
+    if (ScrnData) fscanf(fproject, "%u", &ScrnData->OTag);
     break;
     } /*  */
    case PROJECT_SM_OVAL:
     {
-    if (ScrnData) fscanf(fproject, "%lu", &ScrnData->OVal);
+    if (ScrnData) fscanf(fproject, "%u", &ScrnData->OVal);
     break;
     } /*  */
    case PROJECT_SM_AUTOTAG:
     {
-    if (ScrnData) fscanf(fproject, "%lu", &ScrnData->AutoTag);
+    if (ScrnData) fscanf(fproject, "%u", &ScrnData->AutoTag);
     break;
     } /*  */
    case PROJECT_SM_AUTOVAL:
     {
-    if (ScrnData) fscanf(fproject, "%lu", &ScrnData->AutoVal);
+    if (ScrnData) fscanf(fproject, "%u", &ScrnData->AutoVal);
     break;
     } /*  */
 
@@ -1424,9 +1438,10 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     if  ((AlignBox.High.Y != AlignBox.Low.Y) && (AlignBox.High.X - AlignBox.Low.Y))
      valuesetalign();
     else
-     User_Message((CONST_STRPTR)"Mapping Module: Align",
-             (CONST_STRPTR)"Illegal map registration values! High and low X or Y values are equal.",
-             (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+     User_Message(GetString( MSG_SUPPORT_MAPPINGMODULEALIGN ),                                        // "Mapping Module: Align"
+                  GetString( MSG_SUPPORT_ILLEGALMAPREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUAL ),  // "Illegal map registration values! High and low X or Y values are equal."
+                  GetString( MSG_SUPPORT_OK ),                                                        // "OK"
+                  (CONST_STRPTR)"o");
     } /* if align */
    if(AutoClear)
     {
@@ -1464,14 +1479,16 @@ short LoadDirList(void)
  strcpy(name, projectname);
  strcpy(Ptrn, "#?.proj");
 
- if (! getfilenameptrn(0, "Directory List", path, name, Ptrn))
+ if (! getfilenameptrn(0, (char*)GetString( MSG_SUPPORT_DIRECTORYLIST ), path, name, Ptrn))  // "Directory List"
   return (0);
 
  strmfp(filename, path, name);
  if ((fproject = fopen(filename, "r")) == NULL)
   {
-  User_Message((CONST_STRPTR)"Directory List: Load",
-          (CONST_STRPTR)"Can't open project file!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_SUPPORT_DIRECTORYLISTLOAD ),                      // "Directory List: Load"
+               GetString( MSG_SUPPORT_CANTOPENPROJECTFILEPERATIONTERMINATED ),  // "Can't open project file!\nOperation terminated."
+               GetString( MSG_SUPPORT_OK ),                                     // "OK"
+               (CONST_STRPTR)"o");
   return (0);
   } /* if open fail */
 
@@ -1480,8 +1497,10 @@ short LoadDirList(void)
  if (strcmp(filename, "WCSProject"))
   {
   fclose(fproject);
-  User_Message((CONST_STRPTR)"Directory List: Load", (CONST_STRPTR)"Not a WCS Project file!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_SUPPORT_DIRECTORYLISTLOAD ),                     // "Directory List: Load"
+               GetString( MSG_SUPPORT_NOTAWCSPROJECTFILEPERATIONTERMINATED ),  // "Not a WCS Project file!\nOperation terminated.",
+               GetString( MSG_SUPPORT_OK ),                                    // "OK"
+               (CONST_STRPTR)"o");
   return (0);
   } /* if not WCS Project */
 
@@ -1664,7 +1683,7 @@ long PrintScreen(struct Screen *scr, UWORD srcx, UWORD srcy,
 /*    iodrp->io_DestRows = 0;*/
     iodrp->io_Special = iospecial;
 
-    BWPR = BusyWin_New("Printing...", 1, 0, MakeID('B','W','P','R'));
+    BWPR = BusyWin_New((char*)GetString( MSG_SUPPORT_PRINTING ), 1, 0, MakeID('B','W','P','R'));  // "Printing..."
 
     Delay(250);
 
