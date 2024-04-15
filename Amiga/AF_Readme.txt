@@ -3445,7 +3445,7 @@ egrep -nH "\".*\\\\$" LWSupport.c
 
 29.Mar.2024
 -----------
-SC stuerzt beim Compilieren von WCS_locale.c ab. CatCompBufer ist zu groß. Bis 32720 Bytes funktioniert sc, bei 32721 Byte stuerzt er ab. Signed 16Bit-Ueberlauf?
+SC stuerzt beim Compilieren von WCS_locale.c ab. CatCompBufer ist zu gross. Bis 32720 Bytes funktioniert sc, bei 32721 Byte stuerzt er ab. Signed 16Bit-Ueberlauf?
 Kann duerch mehrere kleinere CatCompBuffer umgangen werden. -> Im Moment kein Test-Compilieren von WCS_locale.c und kein Linken.
 Siehe build_wcs_sasc.sh
 
