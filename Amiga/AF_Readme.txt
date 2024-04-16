@@ -3480,4 +3480,4 @@ Bei Menu Project->Save/Load Config speichert und laedt die offenen Fenster und d
 
 16.April 24
 -----------
-In Menu:Parameters/Motion -> Time Lines gibt es einen Schieberegler(?) "Pan". Was soll der bewirken? Der ist immer ganz ausgefüllt.
+In Menu:Parameters/Motion -> Time Lines gibt es einen Schieberegler(?) "Pan". Was soll der bewirken? Der ist immer ganz ausgefuellt.
