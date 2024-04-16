@@ -8703,3 +8703,181 @@ Verzeichnisliste: Laden
 MSG_SUPPORT_PRINTING
 Printing...
 Drucken...
+;
+; --- Check Menu:Modules/Parameters->Motion->Time Lines 
+;
+MSG_TLGUI_TENS
+Tens
+
+;
+MSG_TLGUI_CONT
+Cont
+
+;
+MSG_TLGUI_BIAS
+Bias
+
+;
+MSG_TLGUI_PARAMETERSTIMELINE
+Parameters: Time Line
+Parameter: Zeitleiste
+;
+MSG_TLGUI_OUTOFMEMORYANTOPENTIMELINEWINDOW
+Out of memory!\nCan't open Time Line window.
+Nicht genügend Speicher!\nDas Zeitleistenfenster konnte nicht geöffnet werden.
+;
+MSG_TLGUI_OK
+OK
+
+;
+MSG_TLGUI_NOMOTIONPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONTERM
+No Motion Parameters with more than one Key Frame!\nOperation terminated.
+
+;
+MSG_TLGUI_MOTIONTIMELINE
+Motion Time Line
+
+;
+MSG_TLGUI_PAN
+  Pan\x20
+Horiz. Schwenken\x20
+;
+MSG_TLGUI_ZOOM
+ Zoom\x20
+ Vergrößern\x20
+;
+MSG_TLGUI_FRAME_PACE__
+Frame\x20
+Bild\x20
+;
+MSG_TLGUI_PREV
+\33cPrev
+\33cVoriges
+;
+MSG_TLGUI_NEXT
+\33cNext
+\33cNächstes
+;
+MSG_TLGUI_ADDKEY
+\33cAdd Key
+\33cSchlüsselbild Hinzufügen
+;
+MSG_TLGUI_DELKEY
+\33c\33uDel\33n Key
+\33cSchlüsselbild Löschen\33n
+;
+MSG_TLGUI_LINEAR
+\33cLinear
+\33cLinear
+;
+MSG_TLGUI_FRAME
+Frame
+Bild
+;
+MSG_TLGUI_KEEP
+\33cKeep
+\33cBehalten
+;
+MSG_TLGUI_GRID
+\33cGrid
+\33dRaster
+;
+MSG_TLGUI_PLAY
+\33cPlay
+\33cWiedergabe
+;
+MSG_TLGUI_CANCEL
+\33cCancel
+\33cAbbrechen
+;
+MSG_TLGUI_OUTOFMEMORY
+Out of memory!
+Nicht genügend Speicher!
+;
+MSG_TLGUI_MOTIONEDITORTIMELINES
+Motion Editor: Time Lines
+
+;
+MSG_TLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPRIOR
+At least two key frames for this parameter must be created prior to opening the time line window.
+Für diesen Parameter müssen mindestens zwei Schlüsselbilder erzeugt werden, bevor das Zeitleistenfenster geöffnet werden kann.
+;
+MSG_TLGUI_MOTIONTIMELINES
+Motion Time Lines
+
+;
+MSG_TLGUI_NOCOLORPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONTERMI
+No Color Parameters with more than one Key Frame!\nOperation terminated.
+Keine Farbparameter mit mehr als einem Schlüsselbild!\nVorgang abgebrochen.
+;
+MSG_TLGUI_COLORTIMELINE
+Color Time Line
+Faben Zeitleiste
+;
+MSG_TLGUI_FRAME_SPACE
+Frame\x20
+Bild\x20
+;
+MSG_TLGUI_COLOREDITORTIMELINES
+Color Editor: Time Lines
+Farbeinstellungen: Zeitleisten
+;
+MSG_TLGUI_COLORTIMELINES
+Color Time Lines
+Farben Zeitleisten
+;
+MSG_TLGUI_ELEVATIONLINE
+\0334Elevation Line
+\0334Höhenlinie
+;
+MSG_TLGUI_SKEW
+\0334Skew
+
+;
+MSG_TLGUI_AZIMUTH
+\0334Azimuth
+\0334Azimut
+;
+MSG_TLGUI_RELATIVEELEVATIONEFFECT
+\0334Relative Elevation Effect
+
+;
+MSG_TLGUI_MXRELATIVEELEVATION
+\0334Mx Relative Elevation
+\0334max relative Höhe
+;
+MSG_TLGUI_MNRELATIVEELEVATION
+\0334Mn Relative Elevation
+\0334min relative Höhe
+;
+MSG_TLGUI_MXSLOPE
+\0334Mx Slope
+\0334max Steigung
+;
+MSG_TLGUI_MNSLOPE
+\0334Mn Slope
+\0334min Steigung
+;
+MSG_TLGUI_DENSITY
+\0334Density
+\0334Dichte
+;
+MSG_TLGUI_HEIGHT
+\0334Height
+\0334Höhe
+;
+MSG_TLGUI_NOECOSYSTEMPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONT
+No Ecosystem Parameters with more than one Key Frame!\nOperation terminated.
+Keine Ökosystemparameter mit mehr als einem Schlüsselbild!\nVorgang abgebrochen.
+;
+MSG_TLGUI_ECOSYSTEMTIMELINE
+Ecosystem Time Line
+Ökosystem Zeitleiste
+;
+MSG_TLGUI_ECOSYSTEMEDITORTIMELINES
+Ecosystem Editor: Time Lines
+Ökosystem Einstellungen: Zeitleisten
+;
+MSG_TLGUI_ECOSYSTEMTIMELINES
+Ecosystem Time Lines
+Ökosystem Zeitleisten

@@ -3412,7 +3412,7 @@ Done		RexxSupport.o 12.Apr.24
 Nothing		ScratchPad.o
 Done 		ScreenModeGUI.o
 Done		Support.o
-TLSupportGUI.o
+Nothing		TLSupportGUI.o
 TimeLinesGUI.o
 Tree.o
 Version.o
@@ -3478,3 +3478,6 @@ Die Mitten-Ausrichtung von "Water", "Snow", "Rock" ... im ParamsGUI.c ist hart k
 -----------
 Bei Menu Project->Save/Load Config speichert und laedt die offenen Fenster und der Position.
 
+16.April 24
+-----------
+In Menu:Parameters/Motion -> Time Lines gibt es einen Schieberegler(?) "Pan". Was soll der bewirken? Der ist immer ganz ausgefüllt.

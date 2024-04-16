@@ -3,6 +3,9 @@
 ** By Gary R. Huber, 1994.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -14,7 +17,16 @@
 void Make_EMTL_Window(void)
 {
  long open;
- static const char *EMTL_Cycle_TCB[] = {"Tens", "Cont", "Bias", NULL};
+ static const char *EMTL_Cycle_TCB[4] = {NULL};
+ static int Init=TRUE;
+
+ if(Init)
+ {
+	 Init=FALSE;
+	 EMTL_Cycle_TCB[0] = (char*)GetString( MSG_TLGUI_TENS );  // "Tens"
+	 EMTL_Cycle_TCB[1] = (char*)GetString( MSG_TLGUI_CONT );  // "Cont"
+	 EMTL_Cycle_TCB[2] = (char*)GetString( MSG_TLGUI_BIAS );  // "Bias"
+ }
 
  if (EMTL_Win)
   {
@@ -59,16 +71,20 @@ void Make_EMTL_Window(void)
  if (((EMTL_Win->List = (char **)get_Memory(EMTL_Win->ListSize, MEMF_CLEAR)) == NULL)
 	|| ((EMTL_Win->ListID = (short *)get_Memory(EMTL_Win->ListIDSize, MEMF_CLEAR)) == NULL))
   {
-  User_Message((CONST_STRPTR)"Parameters: Time Line",
-		  (CONST_STRPTR)"Out of memory!\nCan't open Time Line window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                // "Parameters: Time Line"
+               GetString( MSG_TLGUI_OUTOFMEMORYANTOPENTIMELINEWINDOW ),  // "Out of memory!\nCan't open Time Line window."
+               GetString( MSG_TLGUI_OK ),                                // "OK"
+               (CONST_STRPTR)"o");
   Close_EMTL_Window(1);
   return;
   } /* if out of memory */
 
  if (! Set_PS_List(EMTL_Win->List, EMTL_Win->ListID, 0, 2, NULL))
   {
-  User_Message((CONST_STRPTR)"Parameters: Time Line",
-		  (CONST_STRPTR)"No Motion Parameters with more than one Key Frame!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                                     // "Parameters: Time Line"
+               GetString( MSG_TLGUI_NOMOTIONPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONTERM ),  // "No Motion Parameters with more than one Key Frame!\nOperation terminated."
+               GetString( MSG_TLGUI_OK ),                                                     // "OK"
+               (CONST_STRPTR)"o");
   Close_EMTL_Window(1);
   return;
   } /* if out of memory */
@@ -81,7 +97,7 @@ void Make_EMTL_Window(void)
   Set_Param_Menu(0);
 
      EMTL_Win->TimeLineWin = WindowObject,
-      MUIA_Window_Title		, "Motion Time Line",
+      MUIA_Window_Title		, GetString( MSG_TLGUI_MOTIONTIMELINE ),  // "Motion Time Line"
       MUIA_Window_ID		, MakeID('E','M','T','L'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
@@ -104,7 +120,7 @@ void Make_EMTL_Window(void)
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, VGroup,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1("  Pan "),
+	        Child, Label1(GetString( MSG_TLGUI_PAN )),  // "  Pan "
                 Child, EMTL_Win->Prop[0] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -113,7 +129,7 @@ void Make_EMTL_Window(void)
 			MUIA_Prop_Visible, 100, End,
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1(" Zoom "),
+	        Child, Label1(GetString( MSG_TLGUI_ZOOM )),  // " Zoom "
                 Child, EMTL_Win->Prop[1] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -122,7 +138,7 @@ void Make_EMTL_Window(void)
 			MUIA_Prop_Visible, 2, End,
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1("Frame "),
+	        Child, Label1(GetString( MSG_TLGUI_FRAME_SPACE )),  // "Frame "
                 Child, EMTL_Win->Prop[2] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -137,15 +153,15 @@ void Make_EMTL_Window(void)
 		MUIA_Group_SameWidth, TRUE,
 	      Child, EMTL_Win->BT_PrevKey = KeyButtonObject('v'),
 		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, "\33cPrev", End, 
+		MUIA_Text_Contents, GetString( MSG_TLGUI_PREV ), End,  // "\33cPrev"
 	      Child, EMTL_Win->BT_NextKey = KeyButtonObject('x'),
 		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, "\33cNext", End, 
+		MUIA_Text_Contents, GetString( MSG_TLGUI_NEXT ), End,  // "\33cNext"
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		MUIA_Group_SameWidth, TRUE,
-	      Child, EMTL_Win->BT_AddKey = KeyButtonFunc('a', "\33cAdd Key"), 
-	      Child, EMTL_Win->BT_DelKey = KeyButtonFunc(127, "\33c\33uDel\33n Key"), 
+	      Child, EMTL_Win->BT_AddKey = KeyButtonFunc('a', (char*)GetString( MSG_TLGUI_ADDKEY )),  // "\33cAdd Key"
+	      Child, EMTL_Win->BT_DelKey = KeyButtonFunc(127, (char*)GetString( MSG_TLGUI_DELKEY )),  // "\33c\33uDel\33n Key"
 	      End, /* HGroup */
 	    Child, EMTL_Win->KeysExistTxt = TextObject, TextFrame, End,
 	    End, /* VGroup */
@@ -154,7 +170,7 @@ void Make_EMTL_Window(void)
 	Child, HGroup,
 	  Child, EMTL_Win->BT_Linear = KeyButtonObject('l'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cLinear", End,
+		 MUIA_Text_Contents, GetString( MSG_TLGUI_LINEAR ), End,  // "\33cLinear"
 	  Child, EMTL_Win->TCB_Cycle = Cycle(EMTL_Cycle_TCB),
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, EMTL_Win->CycleStr = StringObject, StringFrame,
@@ -163,7 +179,7 @@ void Make_EMTL_Window(void)
             Child, EMTL_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
             End, /* HGroup */
 	  Child, RectangleObject, End,
-	  Child, EMTL_Win->FrameTxtLbl = Label1("Frame"),
+	  Child, EMTL_Win->FrameTxtLbl = Label1(GetString( MSG_TLGUI_FRAME )),  // "Frame"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, EMTL_Win->FrameTxt = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "01234", End,
@@ -174,15 +190,15 @@ void Make_EMTL_Window(void)
             End, /* HGroup */
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, EMTL_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
+	  Child, EMTL_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_TLGUI_KEEP )),  // "\33cKeep"
 	  Child, EMTL_Win->BT_Grid = KeyButtonObject('g'),
 	 	 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Selected, TRUE,
-		 MUIA_Text_Contents, "\33cGrid", End,
+		 MUIA_Text_Contents, GetString( MSG_TLGUI_GRID ), End,  // "\33cGrid"
 	  Child, EMTL_Win->BT_Play = KeyButtonObject('p'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cPlay", End,
-	  Child, EMTL_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"),
+		 MUIA_Text_Contents, GetString( MSG_TLGUI_PLAY ), End,  // "\33cPlay"
+	  Child, EMTL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_TLGUI_CANCEL )),  // "\33cCancel"
 	  End, /* HGroup */ 
 	End, /* VGroup */
       End; /* WindowObject EMTL_Win->TimeLineWin */
@@ -190,7 +206,10 @@ void Make_EMTL_Window(void)
   if (! EMTL_Win->TimeLineWin)
    {
    Close_EMTL_Window(1);
-   User_Message((CONST_STRPTR)"Motion Time Line", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TLGUI_MOTIONTIMELINE ),  // "Motion Time Line"
+                GetString( MSG_TLGUI_OUTOFMEMORY ),     // "Out of memory!"
+                GetString( MSG_TLGUI_OK ),              // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -227,9 +246,10 @@ void Make_EMTL_Window(void)
   if (! Set_EMTL_Item(EM_Win->MoItem))
    {
    Close_EMTL_Window(1);
-   User_Message((CONST_STRPTR)"Motion Editor: Time Lines",
-		   (CONST_STRPTR)"At least two key frames for this parameter must be created prior to opening the time line window",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TLGUI_MOTIONEDITORTIMELINES ),                                  // "Motion Editor: Time Lines"
+                GetString( MSG_TLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPRIOR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
+                GetString( MSG_TLGUI_OK ),                                                     // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */
   Set_EMTL_Data();
@@ -452,7 +472,7 @@ void Handle_EMTL_Window(ULONG WCS_ID)
      case ID_EMTL_CLOSEQUERY:
       {
       if (KFsize != EMTL_Win->AltKFsize || memcmp(KF, EMTL_Win->AltKF, KFsize))
-       Close_EMTL_Window(CloseWindow_Query((STRPTR)"Motion Time Lines"));
+       Close_EMTL_Window(CloseWindow_Query(GetString( MSG_TLGUI_MOTIONTIMELINES )));  // "Motion Time Lines"
       else
        Close_EMTL_Window(1);
       break;
@@ -884,7 +904,16 @@ void Make_ECTL_Window(void)
 {
  short i;
  long open;
- static const char *ECTL_Cycle_TCB[] = {"Tens", "Cont", "Bias", NULL};
+ static const char *ECTL_Cycle_TCB[4] = {NULL};
+ static int Init=TRUE;
+
+ if(Init)
+ {
+     Init=FALSE;
+     ECTL_Cycle_TCB[0] = (char*)GetString( MSG_TLGUI_TENS );  // "Tens"
+     ECTL_Cycle_TCB[1] = (char*)GetString( MSG_TLGUI_CONT );  // "Cont"
+     ECTL_Cycle_TCB[2] = (char*)GetString( MSG_TLGUI_BIAS );  // "Bias"
+ }
 
  if (ECTL_Win)
   {
@@ -929,16 +958,20 @@ void Make_ECTL_Window(void)
  if (((ECTL_Win->List = (char **)get_Memory(ECTL_Win->ListSize, MEMF_CLEAR)) == NULL)
 	|| ((ECTL_Win->ListID = (short *)get_Memory(ECTL_Win->ListIDSize, MEMF_CLEAR)) == NULL))
   {
-  User_Message((CONST_STRPTR)"Parameters: Time Line",
-		  (CONST_STRPTR)"Out of memory!\nCan't open Time Line window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                // "Parameters: Time Line"
+               GetString( MSG_TLGUI_OUTOFMEMORYANTOPENTIMELINEWINDOW ),  // "Out of memory!\nCan't open Time Line window."
+               GetString( MSG_TLGUI_OK ),                                // "OK"
+               (CONST_STRPTR)"o");
   Close_ECTL_Window(1);
   return;
   } /* if out of memory */
 
  if (! Set_PS_List(ECTL_Win->List, ECTL_Win->ListID, 1, 2, NULL))
   {
-  User_Message((CONST_STRPTR)"Parameters: Time Line",
-		  (CONST_STRPTR)"No Color Parameters with more than one Key Frame!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                                     // "Parameters: Time Line"
+               GetString( MSG_TLGUI_NOCOLORPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONTERMI ),  // "No Color Parameters with more than one Key Frame!\nOperation terminated."
+               GetString( MSG_TLGUI_OK ),                                                     // "OK"
+               (CONST_STRPTR)"o");
   Close_ECTL_Window(1);
   return;
   } /* if out of memory */
@@ -951,7 +984,7 @@ void Make_ECTL_Window(void)
   Set_Param_Menu(1);
 
      ECTL_Win->TimeLineWin = WindowObject,
-      MUIA_Window_Title		, "Color Time Line",
+      MUIA_Window_Title		, GetString( MSG_TLGUI_COLORTIMELINE ),  // "Color Time Line"
       MUIA_Window_ID		, MakeID('E','C','T','L'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
@@ -984,7 +1017,7 @@ void Make_ECTL_Window(void)
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, VGroup,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1("  Pan "),
+	        Child, Label1(GetString( MSG_TLGUI_PAN )),  // "  Pan "
                 Child, ECTL_Win->Prop[0] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -993,7 +1026,7 @@ void Make_ECTL_Window(void)
 			MUIA_Prop_Visible, 100, End,
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1(" Zoom "),
+	        Child, Label1(GetString( MSG_TLGUI_ZOOM )),  // " Zoom "
                 Child, ECTL_Win->Prop[1] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -1002,7 +1035,7 @@ void Make_ECTL_Window(void)
 			MUIA_Prop_Visible, 2, End,
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1("Frame "),
+	        Child, Label1(GetString( MSG_TLGUI_FRAME_SPACE )),  // "Frame "
                 Child, ECTL_Win->Prop[2] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -1017,15 +1050,15 @@ void Make_ECTL_Window(void)
 		MUIA_Group_SameWidth, TRUE,
 	      Child, ECTL_Win->BT_PrevKey = KeyButtonObject('v'),
 		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, "\33cPrev", End, 
+		MUIA_Text_Contents, GetString( MSG_TLGUI_PREV ), End,  // "\33cPrev"
 	      Child, ECTL_Win->BT_NextKey = KeyButtonObject('x'),
 		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, "\33cNext", End, 
+		MUIA_Text_Contents, GetString( MSG_TLGUI_NEXT ), End,  // "\33cNext"
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		MUIA_Group_SameWidth, TRUE,
-	      Child, ECTL_Win->BT_AddKey = KeyButtonFunc('a', "\33cAdd Key"), 
-	      Child, ECTL_Win->BT_DelKey = KeyButtonFunc(127, "\33c\33uDel\33n Key"), 
+	      Child, ECTL_Win->BT_AddKey = KeyButtonFunc('a', (char*)GetString( MSG_TLGUI_ADDKEY )),  // "\33cAdd Key"
+	      Child, ECTL_Win->BT_DelKey = KeyButtonFunc(127, (char*)GetString( MSG_TLGUI_DELKEY )),  // "\33c\33uDel\33n Key"
 	      End, /* HGroup */
 	    Child, ECTL_Win->KeysExistTxt = TextObject, TextFrame, End,
 	    End, /* VGroup */
@@ -1034,7 +1067,7 @@ void Make_ECTL_Window(void)
 	Child, HGroup,
 	  Child, ECTL_Win->BT_Linear = KeyButtonObject('l'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cLinear", End,
+		 MUIA_Text_Contents, GetString( MSG_TLGUI_LINEAR ), End,  // "\33cLinear"
 	  Child, ECTL_Win->TCB_Cycle = Cycle(ECTL_Cycle_TCB),
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, ECTL_Win->CycleStr = StringObject, StringFrame,
@@ -1043,7 +1076,7 @@ void Make_ECTL_Window(void)
             Child, ECTL_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
             End, /* HGroup */
 	  Child, RectangleObject, End,
-	  Child, ECTL_Win->FrameTxtLbl = Label1("Frame"),
+	  Child, ECTL_Win->FrameTxtLbl = Label1(GetString( MSG_TLGUI_FRAME )),  // "Frame"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, ECTL_Win->FrameTxt = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "01234", End,
@@ -1054,15 +1087,15 @@ void Make_ECTL_Window(void)
             End, /* HGroup */
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, ECTL_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"), 
+	  Child, ECTL_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_TLGUI_KEEP )),  // "\33cKeep"
 	  Child, ECTL_Win->BT_Grid = KeyButtonObject('g'),
 	 	 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Selected, TRUE,
-	 	 MUIA_Text_Contents, "\33cGrid", End,
+	 	 MUIA_Text_Contents, GetString( MSG_TLGUI_GRID ), End,  // "\33cGrid"
 	  Child, ECTL_Win->BT_Play = KeyButtonObject('p'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cPlay", End, 
-	  Child, ECTL_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"),
+		 MUIA_Text_Contents, GetString( MSG_TLGUI_PLAY ), End,  // "\33cPlay"
+	  Child, ECTL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_TLGUI_CANCEL )),  // "\33cCancel"
 	  End, /* HGroup */ 
 	End, /* VGroup */
       End; /* WindowObject ECTL_Win->TimeLineWin */
@@ -1070,7 +1103,10 @@ void Make_ECTL_Window(void)
   if (! ECTL_Win->TimeLineWin)
    {
    Close_ECTL_Window(1);
-   User_Message((CONST_STRPTR)"Color Time Line", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TLGUI_COLORTIMELINE ),  // "Color Time Line"
+                GetString( MSG_TLGUI_OUTOFMEMORY ),    // "Out of memory!"
+                GetString( MSG_TLGUI_OK ),             // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1107,9 +1143,10 @@ void Make_ECTL_Window(void)
   if (! Set_ECTL_Item(EC_Win->PalItem))
    {
    Close_ECTL_Window(1);
-   User_Message((CONST_STRPTR)"Color Editor: Time Lines",
-		   (CONST_STRPTR)"At least two key frames for this parameter must be created prior to opening the time line window",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TLGUI_COLOREDITORTIMELINES ),                                   // "Color Editor: Time Lines"
+                GetString( MSG_TLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPRIOR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
+                GetString( MSG_TLGUI_OK ),                                                     // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */
   Set_ECTL_Data(0);
@@ -1297,7 +1334,7 @@ void Handle_ECTL_Window(ULONG WCS_ID)
      case ID_ECTL_CLOSEQUERY:
       {
       if (KFsize != ECTL_Win->AltKFsize || memcmp(KF, ECTL_Win->AltKF, KFsize))
-       Close_ECTL_Window(CloseWindow_Query((STRPTR)"Color Time Lines"));
+       Close_ECTL_Window(CloseWindow_Query(GetString( MSG_TLGUI_COLORTIMELINES )));  // "Color Time Lines"
       else
        Close_ECTL_Window(1);
       break;
@@ -1612,10 +1649,31 @@ void Make_EETL_Window(void)
 {
  short i;
  long open;
- static const char *EETL_Cycle_TCB[] = {"Tens", "Cont", "Bias", NULL};
- static const char *EETL_TimeLines[] = {"\0334Elevation Line", "\0334Skew", "\0334Azimuth",
-	"\0334Relative Elevation Effect", "\0334Mx Relative Elevation", "\0334Mn Relative Elevation",
-	"\0334Mx Slope", "\0334Mn Slope", "\0334Density", "\0334Height", NULL};
+ static const char *EETL_Cycle_TCB[3] = {NULL};
+
+ static const char *EETL_TimeLines[11] = {NULL};
+
+ static int Init=TRUE;
+
+ if(Init)
+ {
+	 Init=FALSE;
+
+	 EETL_Cycle_TCB[0] = (char*)GetString( MSG_TLGUI_TENS );  // "Tens"
+	 EETL_Cycle_TCB[1] = (char*)GetString( MSG_TLGUI_CONT );  // "Cont"
+	 EETL_Cycle_TCB[2] = (char*)GetString( MSG_TLGUI_BIAS );  // "Bias"
+
+	 EETL_TimeLines[0] = (char*)GetString( MSG_TLGUI_ELEVATIONLINE );            // "\0334Elevation Line"
+	 EETL_TimeLines[1] = (char*)GetString( MSG_TLGUI_SKEW );                     // "\0334Skew"
+	 EETL_TimeLines[2] = (char*)GetString( MSG_TLGUI_AZIMUTH );                  // "\0334Azimuth"
+	 EETL_TimeLines[3] = (char*)GetString( MSG_TLGUI_RELATIVEELEVATIONEFFECT );  // "\0334Relative Elevation Effect"
+	 EETL_TimeLines[4] = (char*)GetString( MSG_TLGUI_MXRELATIVEELEVATION );      // "\0334Mx Relative Elevation"
+	 EETL_TimeLines[5] = (char*)GetString( MSG_TLGUI_MNRELATIVEELEVATION );      // "\0334Mn Relative Elevation"
+	 EETL_TimeLines[6] = (char*)GetString( MSG_TLGUI_MXSLOPE );                  // "\0334Mx Slope"
+	 EETL_TimeLines[7] = (char*)GetString( MSG_TLGUI_MNSLOPE );                  // "\0334Mn Slope"
+	 EETL_TimeLines[8] = (char*)GetString( MSG_TLGUI_DENSITY );                  // "\0334Density"
+	 EETL_TimeLines[9] = (char*)GetString( MSG_TLGUI_HEIGHT );                   // "\0334Height"
+ }
 
  if (EETL_Win)
   {
@@ -1660,16 +1718,20 @@ void Make_EETL_Window(void)
  if (((EETL_Win->List = (char **)get_Memory(EETL_Win->ListSize, MEMF_CLEAR)) == NULL)
 	|| ((EETL_Win->ListID = (short *)get_Memory(EETL_Win->ListIDSize, MEMF_CLEAR)) == NULL))
   {
-  User_Message((CONST_STRPTR)"Parameters: Time Line",
-		  (CONST_STRPTR)"Out of memory!\nCan't open Time Line window.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                // "Parameters: Time Line"
+               GetString( MSG_TLGUI_OUTOFMEMORYANTOPENTIMELINEWINDOW ),  // "Out of memory!\nCan't open Time Line window."
+               GetString( MSG_TLGUI_OK ),                                // "OK"
+               (CONST_STRPTR)"o");
   Close_EETL_Window(1);
   return;
   } /* if out of memory */
 
  if (! Set_PS_List(EETL_Win->List, EETL_Win->ListID, 2, 2, NULL))
   {
-  User_Message((CONST_STRPTR)"Parameters: Time Line",
-		  (CONST_STRPTR)"No Ecosystem Parameters with more than one Key Frame!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                                     // "Parameters: Time Line"
+               GetString( MSG_TLGUI_NOECOSYSTEMPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONT ),  // "No Ecosystem Parameters with more than one Key Frame!\nOperation terminated."
+               GetString( MSG_TLGUI_OK ),                                                     // "OK"
+               (CONST_STRPTR)"o");
   Close_EETL_Window(1);
   return;
   } /* if out of memory */
@@ -1682,7 +1744,7 @@ void Make_EETL_Window(void)
   Set_Param_Menu(2);
 
      EETL_Win->TimeLineWin = WindowObject,
-      MUIA_Window_Title		, "Ecosystem Time Line",
+      MUIA_Window_Title		, GetString( MSG_TLGUI_ECOSYSTEMTIMELINE ),  // "Ecosystem Time Line"
       MUIA_Window_ID		, MakeID('E','E','T','L'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,
@@ -1744,7 +1806,7 @@ void Make_EETL_Window(void)
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, VGroup,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1("  Pan "),
+	        Child, Label1(GetString( MSG_TLGUI_PAN )),  // "  Pan "
                 Child, EETL_Win->Prop[0] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -1753,7 +1815,7 @@ void Make_EETL_Window(void)
 			MUIA_Prop_Visible, 100, End,
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1(" Zoom "),
+	        Child, Label1(GetString( MSG_TLGUI_ZOOM )),  // " Zoom "
                 Child, EETL_Win->Prop[1] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -1762,7 +1824,7 @@ void Make_EETL_Window(void)
 			MUIA_Prop_Visible, 2, End,
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1("Frame "),
+	        Child, Label1(GetString( MSG_TLGUI_FRAME_SPACE )),  // "Frame "
                 Child, EETL_Win->Prop[2] = PropObject, PropFrame,
 			MUIA_HorizWeight, 400,
 			MUIA_Prop_Horiz, TRUE,
@@ -1777,15 +1839,15 @@ void Make_EETL_Window(void)
 		MUIA_Group_SameWidth, TRUE,
 	      Child, EETL_Win->BT_PrevKey = KeyButtonObject('v'),
 		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, "\33cPrev", End, 
+		MUIA_Text_Contents, GetString( MSG_TLGUI_PREV ), End,  // "\33cPrev"
 	      Child, EETL_Win->BT_NextKey = KeyButtonObject('x'),
 		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, "\33cNext", End, 
+		MUIA_Text_Contents, GetString( MSG_TLGUI_NEXT ), End,  // "\33cNext"
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		MUIA_Group_SameWidth, TRUE,
-	      Child, EETL_Win->BT_AddKey = KeyButtonFunc('a', "\33cAdd Key"), 
-	      Child, EETL_Win->BT_DelKey = KeyButtonFunc(127, "\33c\33uDel\33n Key"), 
+	      Child, EETL_Win->BT_AddKey = KeyButtonFunc('a', (char*)GetString( MSG_TLGUI_ADDKEY )),  // "\33cAdd Key"
+	      Child, EETL_Win->BT_DelKey = KeyButtonFunc(127, (char*)GetString( MSG_TLGUI_DELKEY )),  // "\33c\33uDel\33n Key"
 	      End, /* HGroup */
 	    Child, EETL_Win->KeysExistTxt = TextObject, TextFrame, End,
 	    End, /* VGroup */
@@ -1794,7 +1856,7 @@ void Make_EETL_Window(void)
 	Child, HGroup,
 	  Child, EETL_Win->BT_Linear = KeyButtonObject('l'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, "\33cLinear", End,
+		 MUIA_Text_Contents, GetString( MSG_TLGUI_LINEAR ), End,  // "\33cLinear"
 	  Child, EETL_Win->TCB_Cycle = Cycle(EETL_Cycle_TCB),
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, EETL_Win->CycleStr = StringObject, StringFrame,
@@ -1803,7 +1865,7 @@ void Make_EETL_Window(void)
             Child, EETL_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
             End, /* HGroup */
 	  Child, RectangleObject, End,
-	  Child, EETL_Win->FrameTxtLbl = Label1("Frame"),
+	  Child, EETL_Win->FrameTxtLbl = Label1(GetString( MSG_TLGUI_FRAME )),  // "Frame"
 	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	    Child, EETL_Win->FrameTxt = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "01234", End,
@@ -1814,16 +1876,16 @@ void Make_EETL_Window(void)
             End, /* HGroup */
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, EETL_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"),
+	  Child, EETL_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_TLGUI_KEEP )),  // "\33cKeep"
 	  Child, EETL_Win->BT_Grid = KeyButtonObject('g'),
 	 	 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Selected, TRUE,
-	 	 MUIA_Text_Contents, "\33cGrid", End,
+	 	 MUIA_Text_Contents, GetString( MSG_TLGUI_GRID ), End,  // "\33cGrid"
 /* No way to play yet devised but we'll find one!!
 	  Child, EETL_Win->BT_Play = KeyButtonObject('p'),
 		 MUIA_Text_Contents, "\33cPlay", End, 
 */
-	  Child, EETL_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"),
+	  Child, EETL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_TLGUI_CANCEL )),  // "\33cCancel"
 	  End, /* HGroup */ 
 	End, /* VGroup */
       End; /* WindowObject EETL_Win->TimeLineWin */
@@ -1831,7 +1893,10 @@ void Make_EETL_Window(void)
   if (! EETL_Win->TimeLineWin)
    {
    Close_EETL_Window(1);
-   User_Message((CONST_STRPTR)"Ecosystem Time Line", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TLGUI_ECOSYSTEMTIMELINE ),  // "Ecosystem Time Line"
+                GetString( MSG_TLGUI_OUTOFMEMORY ),        // "Out of memory!"
+                GetString( MSG_TLGUI_OK ),                 // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -1876,9 +1941,10 @@ void Make_EETL_Window(void)
   if (! Set_EETL_Item(EE_Win->EcoItem))
    {
    Close_EETL_Window(1);
-   User_Message((CONST_STRPTR)"Ecosystem Editor: Time Lines",
-		   (CONST_STRPTR)"At least two key frames for this parameter must be created prior to opening the time line window",
-		   (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TLGUI_ECOSYSTEMEDITORTIMELINES ),                               // "Ecosystem Editor: Time Lines"
+                GetString( MSG_TLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPRIOR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
+                GetString( MSG_TLGUI_OK ),                                                     // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */
   for (i=0; i<10; i++)
@@ -2075,7 +2141,7 @@ void Handle_EETL_Window(ULONG WCS_ID)
      case ID_EETL_CLOSEQUERY:
       {
       if (KFsize != EETL_Win->AltKFsize || memcmp(KF, EETL_Win->AltKF, KFsize))
-       Close_EETL_Window(CloseWindow_Query((STRPTR)"Ecosystem Time Lines"));
+       Close_EETL_Window(CloseWindow_Query(GetString( MSG_TLGUI_ECOSYSTEMTIMELINES )));  // "Ecosystem Time Lines"
       else
        Close_EETL_Window(1);
       break;
