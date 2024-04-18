@@ -3413,8 +3413,8 @@ Nothing		ScratchPad.o
 Done 		ScreenModeGUI.o
 Done		Support.o
 Nothing		TLSupportGUI.o
-TimeLinesGUI.o
-Tree.o
+Done		TimeLinesGUI.o
+Done		Tree.o
 Version.o
 VocabTable.o
 WCS.o
@@ -3423,7 +3423,7 @@ Wave.o
 WaveGUI.o
 nncrunch.o
 nngridr.o
-sasc_functions.o
+Nothing		sasc_functions.o
 
 
 22.Feb24

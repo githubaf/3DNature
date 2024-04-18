@@ -4,6 +4,9 @@
 ** Original code by Gary R. the Huber.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "Foliage.h"
 #include "BigEndianReadWrite.h"
@@ -864,48 +867,54 @@ short LoadForestModels(void)
   {
   case 1:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-           (CONST_STRPTR)"Error opening Ecosystem Model file for input!\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+                GetString( MSG_TREE_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMINAT ),  // "Error opening Ecosystem Model file for input!\nOperation terminated."
+                GetString( MSG_TREE_OK ),                                                      // "OK",
+                (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)name);
    break;
    } /* open fail */
   case 2:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-           (CONST_STRPTR)"Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+                GetString( MSG_TREE_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPREM ),  // "Error writing to Ecosystem Model file!\nOperation terminated prematurely."
+                GetString( MSG_TREE_OK ),                                                      // "OK"
+                (CONST_STRPTR)"o");
    Log(ERR_WRITE_FAIL, (CONST_STRPTR)name);
    break;
    } /* write fail */
   case 3:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-           (CONST_STRPTR)"Not a WCS Ecosystem Model file!\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
+                GetString( MSG_TREE_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED ),  // "Not a WCS Ecosystem Model file!\nOperation terminated."
+                GetString( MSG_TREE_OK ),                                           // "OK"
+                (CONST_STRPTR)"o");
    Log(ERR_WRONG_TYPE, (CONST_STRPTR)name);
    break;
    } /* wrong type */
   case 4:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-           (CONST_STRPTR)"Unsupported WCS Ecosystem Model file version!\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+                GetString( MSG_TREE_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMINA ),  // "Unsupported WCS Ecosystem Model file version!\nOperation terminated."
+                GetString( MSG_TREE_OK ),                                                      // "OK"
+                (CONST_STRPTR)"o");
    Log(ERR_WRONG_VER, (CONST_STRPTR)name);
    break;
    } /* wrong version */
   case 5:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-           (CONST_STRPTR)"Out of memory allocating Ecosystem Models!\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+                GetString( MSG_TREE_OUTOFMEMORYALLOCATINGECOSYSTEMMODELSPERATIONTERMINATED ),  // "Out of memory allocating Ecosystem Models!\nOperation terminated."
+                GetString( MSG_TREE_OK ),                                                      // "OK"
+                (CONST_STRPTR)"o");
    break;
    } /* out of memory */
   case 6:
    {
-   User_Message((CONST_STRPTR)"Parameters Module: Model",
-           (CONST_STRPTR)"No data in WCS Ecosystem Model!\nOperation terminated.",
-           (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
+                GetString( MSG_TREE_NODATAINWCSECOSYSTEMMODELPERATIONTERMINATED ),  // "No data in WCS Ecosystem Model!\nOperation terminated."
+                GetString( MSG_TREE_OK ),                                           // "OK"
+                (CONST_STRPTR)"o");
    Log(ERR_ILL_VAL, (CONST_STRPTR)name);
    break;
    } /* no data */
@@ -1182,9 +1191,9 @@ struct WcsBitMapHeader BMHdr;
     } /* if */
    if (EcoShift[i].BitmapImages <= 0 || error)
     {
-    if (! User_Message((CONST_STRPTR)PAR_NAME_ECO(i), (CONST_STRPTR)"A problem occurred loading at least one image\
- for this ecosystem!\n\
-Continue without it or them?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc"))
+    if (! User_Message((CONST_STRPTR)PAR_NAME_ECO(i), GetString( MSG_TREE_APROBLEMOCCURREDLOADINGATLEASTONEIMAGEFORTHISECOSYSTEM ),  // "A problem occurred loading at least one image for this ecosystem!\nContinue without it or them?"
+                       GetString( MSG_TREE_OKCANCEL ),   // "OK|Cancel"
+                       (CONST_STRPTR)"oc"))
      success = 0;
     } /* if no images found and loaded */
    } /* if image ecosystem */

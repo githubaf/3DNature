@@ -8881,3 +8881,43 @@ Ecosystem Editor: Time Lines
 MSG_TLGUI_ECOSYSTEMTIMELINES
 Ecosystem Time Lines
 Ökosystem Zeitleisten
+;
+MSG_TREE_PARAMETERSMODULEMODEL
+Parameters Module: Model
+Parameter Modul: Modell
+;
+MSG_TREE_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMINAT
+Error opening Ecosystem Model file for input!\nOperation terminated.
+Die Ökosystem-Modelldatei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
+;
+MSG_TREE_OK
+OK
+
+;
+MSG_TREE_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPREM
+Error writing to Ecosystem Model file!\nOperation terminated prematurely.
+Fehler beim Schreiben der Ökosystem-Modelldatei!\nVorgang abgebrochen.
+;
+MSG_TREE_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED
+Not a WCS Ecosystem Model file!\nOperation terminated.
+Keine Ökosystem-Modelldatei!\nVorgang abgebrochen.
+;
+MSG_TREE_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMINA
+Unsupported WCS Ecosystem Model file version!\nOperation terminated.
+Nicht unterstützte Ökosystemm-Modelldateiversion!\nVorgang abgebrochen.
+;
+MSG_TREE_OUTOFMEMORYALLOCATINGECOSYSTEMMODELSPERATIONTERMINATED
+Out of memory allocating Ecosystem Models!\nOperation terminated.
+Nicht genügend Speicher für die Ökosystem-Modelle!\nVorgang abgebrochen.
+;
+MSG_TREE_NODATAINWCSECOSYSTEMMODELPERATIONTERMINATED
+No data in WCS Ecosystem Model!\nOperation terminated.
+Keine Daten im Ökosystem-Modell!\nVorgang abgebrochen.
+;
+MSG_TREE_APROBLEMOCCURREDLOADINGATLEASTONEIMAGEFORTHISECOSYSTEM
+A problem occurred loading at least one image for this ecosystem!\nContinue without it or them?
+Beim Laden von mindestens einem Bild dieses Ökosystems traten Probleme auf!\nOhne diese Bilder fortfahren?
+;
+MSG_TREE_OKCANCEL
+OK|Cancel
+
