@@ -3,6 +3,9 @@
 ** Written by Gary R. Huber, Jan 1995.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 #include "Wave.h"
 #include "GenericParams.h"
@@ -112,7 +115,7 @@ double Wave_Get(struct Wave *WV, ULONG Item)
    }
   default:
   {
-      printf("Invalid Item %lu in %s %d",Item,__FILE__,__LINE__);
+      printf(GetString( MSG_WAV_INVALIDITEMUIN ),Item,__FILE__,__LINE__);  // "Invalid Item %lu in %s %d"
       return 0;
   }
   } /* switch */
@@ -135,12 +138,20 @@ short Focus, Speed, Direction;
   } /* if a pattern exists */
  else
   {
-  Focus = User_Message_Def((CONST_STRPTR)"Wave: Set Defaults",
-          (CONST_STRPTR)"Select general wave center.", (CONST_STRPTR)"Focus Point|Camera Point", (CONST_STRPTR)"fc", 0);
-  Speed = User_Message_Def((CONST_STRPTR)"Wave: Set Defaults",
-          (CONST_STRPTR)"Select wave speed.", (CONST_STRPTR)"Fast|Very Fast|Slow", (CONST_STRPTR)"fvs", 1);
-  Direction = User_Message_Def((CONST_STRPTR)"Wave: Set Defaults",
-          (CONST_STRPTR)"Select wave direction.", (CONST_STRPTR)"Spreading|Converging", (CONST_STRPTR)"sc", 1) * 2 - 1;
+  Focus = User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),          // "Wave: Set Defaults"
+                           GetString( MSG_WAV_SELECTGENERALWAVECENTER ),  // "Select general wave center."
+                           GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ),    // "Focus Point|Camera Point"
+                           (CONST_STRPTR)"fc", 0);
+
+  Speed = User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Wave: Set Defaults"
+                           GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Select wave speed."
+                           GetString( MSG_WAV_FASTVERYFASTSLOW ),  //"Fast|Very Fast|Slow"
+                           (CONST_STRPTR)"fvs", 1);
+
+  Direction = User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Wave: Set Defaults"
+                               GetString( MSG_WAV_SELECTWAVEDIRECTION ),  // "Select wave direction."
+                               GetString( MSG_WAV_SPREADINGCONVERGING ),  // "Spreading|Converging"
+                               (CONST_STRPTR)"sc", 1) * 2 - 1;
   NewWave->Amp = 2.0;
   NewWave->Length = .1;
   NewWave->Velocity = Direction * (5.0 + Speed * 100);
@@ -239,7 +250,7 @@ double WaveData_Get(struct WaveData *WD, ULONG Item)
    }
   default:
   {
-      printf("Invalid Item %lu in %s %d",Item,__FILE__,__LINE__);
+      printf(GetString( MSG_WAV_INVALIDITEMUIN ),Item,__FILE__,__LINE__);  // "Invalid Item %lu in %s %d"
       return 0;
   }
 

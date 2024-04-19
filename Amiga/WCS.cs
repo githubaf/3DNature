@@ -8921,3 +8921,300 @@ Beim Laden von mindestens einem Bild dieses Ökosystems traten Probleme auf!\nOhn
 MSG_TREE_OKCANCEL
 OK|Cancel
 
+;
+MSG_WAV_INVALIDITEMUIN
+Invalid Item %lu in %s %d
+
+;
+MSG_WAV_WAVESETDEFAULTS
+Wave: Set Defaults
+
+;
+MSG_WAV_SELECTGENERALWAVECENTER
+Select general wave center.
+
+;
+MSG_WAV_FOCUSPOINTCAMERAPOINT
+Focus Point|Camera Point
+
+;
+MSG_WAV_SELECTWAVESPEED
+Select wave speed.
+
+;
+MSG_WAV_FASTVERYFASTSLOW
+Fast|Very Fast|Slow
+schnell|sehr schnell|langsam
+;
+MSG_WAV_SELECTWAVEDIRECTION
+Select wave direction.
+
+;
+MSG_WAV_SPREADINGCONVERGING
+Spreading|Converging
+
+;
+;
+MSG_WAVGUI_33C0334CWAVES
+\33c\0334Waves
+
+;
+MSG_WAVGUI_ACTIVEWAVE
+\33c\0334Active Wave
+
+;
+MSG_WAVGUI_LATITUDE
+Latitude
+
+;
+MSG_WAVGUI_LONGITUDE
+Longitude
+
+;
+MSG_WAVGUI_AMPLITUDEM
+Amplitude (m)
+
+;
+MSG_WAVGUI_WAVELENGTHKM
+Wave Length (km)
+
+;
+MSG_WAVGUI_VELOCITYKMHR
+Velocity (km/hr)
+
+;
+MSG_WAVGUI_ADD
+\33cAdd...
+
+;
+MSG_WAVGUI_MAPADD
+\33cMap Add...
+
+;
+MSG_WAVGUI_REMOVE
+\33cRemove
+
+;
+MSG_WAVGUI_LOAD
+\33cLoad
+
+;
+MSG_WAVGUI_SAVE
+\33cSave
+
+;
+MSG_WAVGUI_MAPVIEWWAVES
+Map View: Waves
+
+;
+MSG_WAVGUI_OUTOFMEMORY
+Out of memory!
+
+;
+MSG_WAVGUI_OK
+OK
+
+;
+MSG_WAVGUI_OPTIONS
+Options
+
+;
+MSG_WAVGUI_WAVES
+\33cWaves
+
+;
+MSG_WAVGUI_TIDES
+\33cTides
+
+;
+MSG_WAVGUI_REFLECT
+\33cReflect
+
+;
+MSG_WAVGUI_FRACTAL
+\33cFractal
+
+;
+MSG_WAVGUI_ANIMATION
+\33c\0334Animation
+
+;
+MSG_WAVGUI_MOVELATITUDE
+Move Latitude
+
+;
+MSG_WAVGUI_MOVELONGITUDE
+Move Longitude
+
+;
+MSG_WAVGUI_AMPLITUDEFACT
+Amplitude Fact
+
+;
+MSG_WAVGUI_WHITECAPHTM
+WhiteCap Ht (m)
+
+;
+MSG_WAVGUI_DRAWWAVES
+\33cDraw Waves
+
+;
+MSG_WAVGUI_DRAWDETAIL
+\33cDraw Detail
+
+;
+MSG_WAVGUI_KEYFRAMES
+\33c\0334Key Frames
+
+;
+MSG_WAVGUI_PREV
+\33cPrev
+
+;
+MSG_WAVGUI_FRAME
+Frame
+
+;
+MSG_WAVGUI_NEXT
+\33cNext
+
+;
+MSG_WAVGUI_MAKEKEY
+\33cMake Key
+
+;
+MSG_WAVGUI_UPDATE
+\33cUpdate
+
+;
+MSG_WAVGUI_DELETE
+\33c\33uDel\33nete
+
+;
+MSG_WAVGUI_DELETEALL
+\33cDelete All
+
+;
+MSG_WAVGUI_TIMELINES
+\33cTime Lines\x20
+
+;
+MSG_WAVGUI_SCALEKEYS
+\33cScale Keys\x20
+
+;
+MSG_WAVGUI_WAVEEDITOR
+Wave Editor
+
+;
+MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB
+The current Wave Model has been modified. Do you wish to save it before closing?
+
+;
+MSG_WAVGUI_YESNO
+Yes|No
+
+;
+MSG_WAVGUI_WAVEPATHFILE
+Wave Path/File
+
+;
+MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE
+Make this file the Project Wave File?
+
+;
+MSG_WAVGUI_CLOUDWAVEEDITOR
+Cloud Wave Editor
+
+;
+MSG_WAVGUI_ENTERFRAMETOMAKEKEYFOR
+Enter frame to make key for.
+
+;
+MSG_WAVGUI_DELETEALLWAVEKEYFRAMES
+Delete all wave key frames?
+
+;
+MSG_WAVGUI_OKCANCEL
+OK|Cancel
+
+;
+MSG_WAVGUI_AMPLITUDE
+Amplitude
+
+;
+MSG_WAVGUI_WHITECAPHEIGHT
+WhiteCap Height
+
+;
+MSG_WAVGUI_WAVETIMELINES
+Wave Time Lines
+
+;
+MSG_WAVGUI_CLOUDWAVETIMELINES
+Cloud Wave Time Lines
+
+;
+MSG_WAVGUI_WAVEFILE
+Wave File
+
+;
+MSG_WAVGUI_ADDWAVE
+Add Wave
+
+;
+MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY
+Map View Module must be open in order\ to use this function. Would you like to open it now?
+
+;
+MSG_WAVGUI_MAPVIEWWAVEADD
+Map View: Wave Add
+
+;
+MSG_WAVGUI_REMOVEALLCURRENTLYDEFINEDWAVESBEFOREADDINGNEWONES
+Remove all currently defined waves before adding new ones?
+
+;
+MSG_WAVGUI_0338SETCLOUDWAVESOURCEPOINT
+\0338Set Cloud Wave Source Point %d
+
+;
+MSG_WAVGUI_SETCLOUDWAVESOURCEPOINT
+Set Cloud Wave Source Point %d
+
+;
+MSG_WAVGUI_MAPVIEW
+Map View
+
+;
+MSG_WAVGUI_ENTERWAVEAMPLITUDE
+Enter Wave Amplitude.
+
+;
+MSG_WAVGUI_ENTERWAVELENGTHKM
+Enter Wave Length (km).
+
+;
+MSG_WAVGUI_ENTERWAVEVELOCITYKMHR
+Enter Wave Velocity (km/hr).
+
+;
+MSG_WAVGUI_DRAWING
+Drawing...
+Zeichnen...
+;
+MSG_WAVGUI_ALL
+All (%d)
+
+;
+MSG_WAVGUI_KEYSEXIST
+Keys Exist (%d)
+
+;
+MSG_WAVGUI_ALL0
+\33cAll (0)
+
+;
+MSG_WAVGUI_NOOTHERKEYS
+No Other Keys
+

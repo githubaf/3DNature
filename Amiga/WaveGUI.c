@@ -3,6 +3,9 @@
 ** Copyright 1995 by Gary R. Huber and Chris Eric Hanson.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "GUIDefines.h"
 #include "WCS.h"
 #include "GUIExtras.h"
@@ -101,16 +104,16 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
 	Child, Make_WVOption_Group(WV_Win, WinNum),
 	Child, HGroup,
 	  Child, VGroup,
-	    Child, Label("\33c\0334Waves"),
+	    Child, Label(GetString( MSG_WAVGUI_33C0334CWAVES )),  // "\33c\0334Waves"
             Child, WV_Win->LS_WaveList = ListviewObject,
 		MUIA_Listview_Input, TRUE,
                	MUIA_Listview_List, ListObject, ReadListFrame, End,
               End, /* ListviewObject */
 	    End, /* VGroup */
 	  Child, VGroup,
-	    Child, Label("\33c\0334Active Wave"),
+	    Child, Label(GetString( MSG_WAVGUI_ACTIVEWAVE )),  // "\33c\0334Active Wave"
 	    Child, ColGroup(2),
-	      Child, Label2("Latitude"),
+	      Child, Label2(GetString( MSG_WAVGUI_LATITUDE )),  // "Latitude"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		Child, WV_Win->WaveStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567",
@@ -118,7 +121,7 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
 		Child, WV_Win->WaveArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
 		Child, WV_Win->WaveArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
-	      Child, Label2("Longitude"),
+	      Child, Label2(GetString( MSG_WAVGUI_LONGITUDE )),  // "Longitude"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		Child, WV_Win->WaveStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567",
@@ -126,7 +129,7 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
 		Child, WV_Win->WaveArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
 		Child, WV_Win->WaveArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
-	      Child, Label2("Amplitude (m)"),
+	      Child, Label2(GetString( MSG_WAVGUI_AMPLITUDEM )),  // "Amplitude (m)"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		Child, WV_Win->WaveStr[2] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567",
@@ -134,7 +137,7 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
 		Child, WV_Win->WaveArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
 		Child, WV_Win->WaveArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
-	      Child, Label2("Wave Length (km)"),
+	      Child, Label2(GetString( MSG_WAVGUI_WAVELENGTHKM )),  // "Wave Length (km)"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		Child, WV_Win->WaveStr[3] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567",
@@ -142,7 +145,7 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
 		Child, WV_Win->WaveArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
 		Child, WV_Win->WaveArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
-	      Child, Label2("Velocity (km/hr)"),
+	      Child, Label2(GetString( MSG_WAVGUI_VELOCITYKMHR )),  // "Velocity (km/hr)"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		Child, WV_Win->WaveStr[4] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567",
@@ -152,9 +155,9 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
 		End, /* HGroup */
 	      End, /* ColGroup */
 	    Child, HGroup,
-	      Child, WV_Win->BT_AddWave = KeyButtonFunc('a', "\33cAdd..."),
-	      Child, WV_Win->BT_MapAddWave = KeyButtonFunc('p', "\33cMap Add..."),
-	      Child, WV_Win->BT_RemoveWave = KeyButtonFunc('r', "\33cRemove"),
+	      Child, WV_Win->BT_AddWave    = KeyButtonFunc('a', (char*)GetString( MSG_WAVGUI_ADD )),     // "\33cAdd..."
+	      Child, WV_Win->BT_MapAddWave = KeyButtonFunc('p', (char*)GetString( MSG_WAVGUI_MAPADD )),  // "\33cMap Add..."
+	      Child, WV_Win->BT_RemoveWave = KeyButtonFunc('r', (char*)GetString( MSG_WAVGUI_REMOVE )),  // "\33cRemove"
 	      End, /* HGroup */
 
 	    Child, Make_WVAnim_Group(WV_Win, WinNum),
@@ -165,8 +168,8 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
 	Child, Make_WVTL_Group(WV_Win, WinNum),
 
 	Child, HGroup, MUIA_Group_SameWidth, TRUE,
-	      Child, WV_Win->BT_Load = KeyButtonFunc('l', "\33cLoad"),
-	      Child, WV_Win->BT_Save = KeyButtonFunc('e', "\33cSave"),
+	      Child, WV_Win->BT_Load = KeyButtonFunc('l', (char*)GetString( MSG_WAVGUI_LOAD )),  // "\33cLoad"
+	      Child, WV_Win->BT_Save = KeyButtonFunc('e', (char*)GetString( MSG_WAVGUI_SAVE )),  // "\33cSave"
 	      End, /* HGroup */
 
 	End, /* VGroup */    
@@ -175,7 +178,10 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
   if (! WV_Win->WaveWin)
    {
    Close_WV_Window(&WVWin[WinNum]);
-   User_Message((CONST_STRPTR)"Map View: Waves", (CONST_STRPTR)"Out of memory!", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_WAVGUI_MAPVIEWWAVES ),  // "Map View: Waves"
+                GetString( MSG_WAVGUI_OUTOFMEMORY ),   // "Out of memory!"
+                GetString( MSG_WAVGUI_OK ),            // "OK"
+                (CONST_STRPTR)"o");
    return;
    } /* out of memory */
 
@@ -351,11 +357,11 @@ APTR Obj;
  if (WinNum == 0)
   {
   Obj = HGroup,
-	  Child, Label2("Options"),
-          Child, WV_Win->BT_Settings[0] = KeyButtonFunc('1', "\33cWaves"), 
-          Child, WV_Win->BT_Settings[1] = KeyButtonFunc('2', "\33cTides"), 
-          Child, WV_Win->BT_Settings[2] = KeyButtonFunc('3', "\33cReflect"), 
-          Child, WV_Win->BT_Settings[3] = KeyButtonFunc('4', "\33cFractal"), 
+	  Child, Label2(GetString( MSG_WAVGUI_OPTIONS )),  // "Options"
+          Child, WV_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_WAVGUI_WAVES ) ),   // "\33cWaves"
+          Child, WV_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_WAVGUI_TIDES )),    // "\33cTides"
+          Child, WV_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_WAVGUI_REFLECT )),  // "\33cReflect"
+          Child, WV_Win->BT_Settings[3] = KeyButtonFunc('4', (char*)GetString( MSG_WAVGUI_FRACTAL )),  // "\33cFractal"
 	  End;
   } /* if waves */
  else
@@ -378,9 +384,9 @@ APTR Obj;
   Obj = VGroup,
 	    Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
 
-	    Child, Label("\33c\0334Animation"),
+	    Child, Label(GetString( MSG_WAVGUI_ANIMATION )),  // "\33c\0334Animation"
 	    Child, ColGroup(2),
-	      Child, Label2("Move Latitude"),
+	      Child, Label2(GetString( MSG_WAVGUI_MOVELATITUDE )),  // "Move Latitude"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		Child, WV_Win->FloatStr[2] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567",
@@ -388,7 +394,7 @@ APTR Obj;
 		Child, WV_Win->FloatArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
 		Child, WV_Win->FloatArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
-	      Child, Label2("Move Longitude"),
+	      Child, Label2(GetString( MSG_WAVGUI_MOVELONGITUDE )),  // "Move Longitude"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		Child, WV_Win->FloatStr[3] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567",
@@ -396,7 +402,7 @@ APTR Obj;
 		Child, WV_Win->FloatArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
 		Child, WV_Win->FloatArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
-	      Child, Label2("Amplitude Fact"),
+	      Child, Label2(GetString( MSG_WAVGUI_AMPLITUDEFACT )),  // "Amplitude Fact"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		Child, WV_Win->FloatStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567",
@@ -404,7 +410,7 @@ APTR Obj;
 		Child, WV_Win->FloatArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
 		Child, WV_Win->FloatArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
-	      Child, Label2("WhiteCap Ht (m)"),
+	      Child, Label2(GetString( MSG_WAVGUI_WHITECAPHTM )),  // "WhiteCap Ht (m)"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 		Child, WV_Win->FloatStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567",
@@ -417,8 +423,8 @@ APTR Obj;
 	Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
 
 	Child, HGroup, MUIA_Group_SameWidth, TRUE,
-	      Child, WV_Win->BT_DrawWaves = KeyButtonFunc('w', "\33cDraw Waves"),
-	      Child, WV_Win->BT_DrawDetail = KeyButtonFunc('i', "\33cDraw Detail"),
+	      Child, WV_Win->BT_DrawWaves = KeyButtonFunc('w', (char*)GetString( MSG_WAVGUI_DRAWWAVES )),    // "\33cDraw Waves"
+	      Child, WV_Win->BT_DrawDetail = KeyButtonFunc('i', (char*)GetString( MSG_WAVGUI_DRAWDETAIL )),  // "\33cDraw Detail"
 	      End, /* HGroup */
 
     End; /* VGroup */
@@ -445,10 +451,10 @@ APTR Obj;
 
 /* Frame stuff */
             Child, VGroup,
-	      Child, TextObject, MUIA_Text_Contents, "\33c\0334Key Frames", End,
+	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_WAVGUI_KEYFRAMES ), End,  // "\33c\0334Key Frames"
               Child, HGroup,
-                Child, WV_Win->GKS.BT_PrevKey = KeyButtonFunc('v', "\33cPrev"), 
-                Child, Label2("Frame"),
+                Child, WV_Win->GKS.BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_WAVGUI_PREV )),  // "\33cPrev"
+                Child, Label2(GetString( MSG_WAVGUI_FRAME )),  // "Frame"
                 Child, HGroup, MUIA_Group_HorizSpacing, 0,
                   Child, WV_Win->GKS.Str[0] = StringObject, StringFrame,
 			MUIA_String_Integer, 0,
@@ -457,23 +463,23 @@ APTR Obj;
                   Child, WV_Win->GKS.StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
                   Child, WV_Win->GKS.StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
                   End, /* HGroup */
-                Child, WV_Win->GKS.BT_NextKey = KeyButtonFunc('x', "\33cNext"), 
+                Child, WV_Win->GKS.BT_NextKey = KeyButtonFunc('x', (char*)GetString( MSG_WAVGUI_NEXT )),  // "\33cNext"
                 End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
-                Child, WV_Win->GKS.BT_MakeKey = KeyButtonFunc('m', "\33cMake Key"), 
-                Child, WV_Win->GKS.BT_UpdateKeys = KeyButtonFunc('u', "\33cUpdate"),
+                Child, WV_Win->GKS.BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_WAVGUI_MAKEKEY )),    // "\33cMake Key"
+                Child, WV_Win->GKS.BT_UpdateKeys = KeyButtonFunc('u', (char*)GetString( MSG_WAVGUI_UPDATE )),  // "\33cUpdate"
 		End, /* HGroup */
               Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
-                Child, WV_Win->GKS.BT_DeleteKey = KeyButtonFunc(127, "\33c\33uDel\33nete"),
-                Child, WV_Win->GKS.BT_DeleteAll = KeyButtonFunc('d', "\33cDelete All"), 
+                Child, WV_Win->GKS.BT_DeleteKey = KeyButtonFunc(127, (char*)GetString( MSG_WAVGUI_DELETE )),     // "\33c\33uDel\33nete"
+                Child, WV_Win->GKS.BT_DeleteAll = KeyButtonFunc('d', (char*)GetString( MSG_WAVGUI_DELETEALL )),  // "\33cDelete All"
 	        End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
 	        Child, WV_Win->GKS.FramePages = VGroup,
-                  Child, WV_Win->GKS.BT_TimeLines = KeyButtonFunc('t', "\33cTime Lines "), 
+                  Child, WV_Win->GKS.BT_TimeLines = KeyButtonFunc('t', (char*)GetString( MSG_WAVGUI_TIMELINES )),  // "\33cTime Lines "
 	          End, /* VGroup */
-                Child, WV_Win->GKS.BT_KeyScale = KeyButtonFunc('s', "\33cScale Keys "), 
+                Child, WV_Win->GKS.BT_KeyScale = KeyButtonFunc('s', (char*)GetString( MSG_WAVGUI_SCALEKEYS )),  // "\33cScale Keys "
 		End, /* HGroup */
 	      End, /* VGroup */
 
@@ -507,21 +513,24 @@ short WinNum = 0;
    {
    if (WV_Win->Mod && WinNum == 0)
     {
-    if (User_Message_Def((CONST_STRPTR)"Wave Editor",
-            (CONST_STRPTR)"The current Wave Model has been modified. Do you wish to save it before closing?",
-            (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+    if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),  // "Wave Editor"
+                         GetString( MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB ),  // "The current Wave Model has been modified. Do you wish to save it before closing?"
+                         GetString( MSG_WAVGUI_YESNO ),  // "Yes|No"
+                         (CONST_STRPTR)"yn", 1))
      {
      char filename[256];
 
-     if (getfilename(1, "Wave Path/File", WV_Win->WaveDir, WV_Win->WaveFile))
+     if (getfilename(1, (char*)GetString( MSG_WAVGUI_WAVEPATHFILE ), WV_Win->WaveDir, WV_Win->WaveFile))  // "Wave Path/File"
       {
       strmfp(filename, WV_Win->WaveDir, WV_Win->WaveFile);
       if (Wave_Save(filename, WV_Win->WD))
        {
        if (strcmp(wavepath, WV_Win->WaveDir) || strcmp(wavefile, WV_Win->WaveFile))
         {
-        if (User_Message_Def((CONST_STRPTR)"Wave Editor",
-                (CONST_STRPTR)"Make this file the Project Wave File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+        if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                             GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
+                             GetString( MSG_WAVGUI_YESNO ),                           // "Yes|No"
+                             (CONST_STRPTR)"yn", 1))
          {
          strcpy(wavepath, WV_Win->WaveDir);
          strcpy(wavefile, WV_Win->WaveFile);
@@ -569,9 +578,9 @@ struct WaveWindow *WV_Win;
   if ((WCS_ID & 0x0000ff00) == GP_OPEN_WINDOW)
    {
    if (WinNum == 0)
-    Make_WV_Window(WinNum, "Wave Editor");
+    Make_WV_Window(WinNum, (char*)GetString( MSG_WAVGUI_WAVEEDITOR ));  // "Wave Editor"
    else
-    Make_WV_Window(WinNum, "Cloud Wave Editor");
+    Make_WV_Window(WinNum, (char*)GetString( MSG_WAVGUI_CLOUDWAVEEDITOR ));  // "Cloud Wave Editor"
    return;
    } /* Open Wave Editor Window */
 
@@ -655,7 +664,7 @@ struct WaveWindow *WV_Win;
       char FrameStr[32];
 
       sprintf(FrameStr, "%d", WV_Win->WKS.Frame);
-      if (! GetInputString("Enter frame to make key for.",
+      if (! GetInputString((char*)GetString( MSG_WAVGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
 	 "abcdefghijklmnopqrstuvwxyz", FrameStr))
        break;
 
@@ -689,8 +698,10 @@ struct WaveWindow *WV_Win;
       }
      case 7:					/* ID_WV_DELKEYS(WinNum): */
       {
-      if (User_Message_Def((CONST_STRPTR)"Wave Editor",
-              (CONST_STRPTR)"Delete all wave key frames?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc", 1))
+      if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
+                           GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
+                           GetString( MSG_WAVGUI_OKCANCEL ),                // "OK|Cancel"
+                           (CONST_STRPTR)"oc", 1))
        {
        WV_Win->WD->NumKeys = 0;
        memset(WV_Win->WD->WaveKey, 0, WV_Win->WD->KFSize);
@@ -743,7 +754,7 @@ struct WaveWindow *WV_Win;
       char filename[256], *Ptrn = "#?.wve";
 
       if (getfilenameptrn
-	(0, "Wave Path/File", WV_Win->WaveDir, WV_Win->WaveFile, Ptrn))
+	(0, (char*)GetString( MSG_WAVGUI_WAVEPATHFILE ), WV_Win->WaveDir, WV_Win->WaveFile, Ptrn))  // "Wave Path/File"
        {
        strmfp(filename, WV_Win->WaveDir, WV_Win->WaveFile);
        if (Wave_Load(filename, &WV_Win->WD))
@@ -761,8 +772,10 @@ struct WaveWindow *WV_Win;
         GUIWave_SetGads(WV_Win, WV_Win->CurWave);
         if ((WinNum == 0 && strcmp(wavepath, WV_Win->WaveDir)) || strcmp(wavefile, WV_Win->WaveFile))
          {
-         if (User_Message_Def((CONST_STRPTR)"Wave Editor",
-                 (CONST_STRPTR)"Make this file the Project Wave File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+         if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                              GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
+                              GetString( MSG_WAVGUI_YESNO ),                           // "Yes|No"
+                              (CONST_STRPTR)"yn", 1))
           {
           strcpy(wavepath, WV_Win->WaveDir);
           strcpy(wavefile, WV_Win->WaveFile);
@@ -780,7 +793,7 @@ struct WaveWindow *WV_Win;
       char filename[256], *Ptrn = "#?.wve";
 
       if (getfilenameptrn
-	(1, "Wave Path/File", WV_Win->WaveDir, WV_Win->WaveFile, Ptrn))
+	(1, (char*)GetString( MSG_WAVGUI_WAVEPATHFILE ), WV_Win->WaveDir, WV_Win->WaveFile, Ptrn))  // "Wave Path/File"
        {
        if (stricmp(&WV_Win->WaveFile[strlen(WV_Win->WaveFile) - 4], ".wve"))
         strcat(WV_Win->WaveFile, ".wav");
@@ -789,8 +802,10 @@ struct WaveWindow *WV_Win;
         {
         if ((WinNum == 0 && strcmp(wavepath, WV_Win->WaveDir)) || strcmp(wavefile, WV_Win->WaveFile))
          {
-         if (User_Message_Def((CONST_STRPTR)"Wave Editor",
-                 (CONST_STRPTR)"Make this file the Project Wave File?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn", 1))
+         if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                              GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
+                              GetString( MSG_WAVGUI_YESNO ),                           // "Yes|No"
+                              (CONST_STRPTR)"yn", 1))
           {
           strcpy(wavepath, WV_Win->WaveDir);
           strcpy(wavefile, WV_Win->WaveFile);
@@ -805,13 +820,22 @@ struct WaveWindow *WV_Win;
      case 14:					/* ID_WV_TIMELINES(WinNum): */
       {
       char *WindowTitle;
-      static const char *Titles[] = {"Amplitude", "WhiteCap Height",
-	"Move Latitude", "Move Longitude", NULL};
+      static const char *Titles[5] = {NULL};
+      static int Init=TRUE;
+
+      if(Init)
+      {
+    	  Init=FALSE;
+          Titles[0] = (char*)GetString( MSG_WAVGUI_AMPLITUDE );       // "Amplitude"
+          Titles[1] = (char*)GetString( MSG_WAVGUI_WHITECAPHEIGHT );  // "WhiteCap Height"
+          Titles[2] = (char*)GetString( MSG_WAVGUI_MOVELATITUDE );    // "Move Latitude"
+          Titles[3] = (char*)GetString( MSG_WAVGUI_MOVELONGITUDE );   // "Move Longitude"
+      }
 
       if (WinNum == 0)
-       WindowTitle = "Wave Time Lines";
+       WindowTitle = (char*)GetString( MSG_WAVGUI_WAVETIMELINES );       // "Wave Time Lines"
       else
-       WindowTitle = "Cloud Wave Time Lines";
+       WindowTitle = (char*)GetString( MSG_WAVGUI_CLOUDWAVETIMELINES );  // "Cloud Wave Time Lines"
 
       Make_TL_Window(WindowTitle, (char **)Titles, &WV_Win->TL,
 	WV_Win->FloatStr, &WV_Win->WKS, &WV_Win->GKS, &WV_Win->WD->WaveKey,
@@ -1201,20 +1225,20 @@ union KeyFrame *KFPtr;
     } /* if WV */
    else
     {
-    Log(ERR_MEM_FAIL, (CONST_STRPTR)"Wave File");
+    Log(ERR_MEM_FAIL, GetString( MSG_WAVGUI_WAVEFILE ));  // "Wave File"
     success = 0;
     }
    } /* if correct file type */
   else
    {
-   Log(ERR_WRONG_TYPE, (CONST_STRPTR)"Wave File");
+   Log(ERR_WRONG_TYPE, GetString( MSG_WAVGUI_WAVEFILE ));  // "Wave File"
    success = 0;
    } /* else */
   fclose(fWave);
   } /* if file opened */
  else
   {
-  Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Wave File");
+  Log(ERR_OPEN_FAIL, GetString( MSG_WAVGUI_WAVEFILE ));  // "Wave File"
   success = 0;
   } /* else no file */
 
@@ -1301,7 +1325,7 @@ union KeyFrame *KFPtr;
   } /* if file opened */
  else
   {
-  Log(ERR_OPEN_FAIL, (CONST_STRPTR)"Wave File");
+  Log(ERR_OPEN_FAIL, GetString( MSG_WAVGUI_WAVEFILE ));  // "Wave File"
   return (0);
   } /* else no file */
 
@@ -1356,8 +1380,10 @@ struct Wave *WV;
 
  if (! MapWind0)
   {
-  if (User_Message_Def((CONST_STRPTR)"Add Wave", (CONST_STRPTR)"Map View Module must be open in order\
- to use this function. Would you like to open it now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc",1))
+  if (User_Message_Def(GetString( MSG_WAVGUI_ADDWAVE ),                                               // "Add Wave"
+                       GetString( MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY ),  // "Map View Module must be open in order\ to use this function. Would you like to open it now?"
+                       GetString( MSG_WAVGUI_OKCANCEL ),                                              // "OK|Cancel"
+                       (CONST_STRPTR)"oc",1))
    {
    map();
 
@@ -1373,8 +1399,10 @@ struct Wave *WV;
 
  if (*Wave)
   {
-  if (User_Message((CONST_STRPTR)"Map View: Wave Add",
-          (CONST_STRPTR)"Remove all currently defined waves before adding new ones?", (CONST_STRPTR)"Yes|No", (CONST_STRPTR)"yn"))
+  if (User_Message(GetString( MSG_WAVGUI_MAPVIEWWAVEADD ),                                     // "Map View: Wave Add"
+                   GetString( MSG_WAVGUI_REMOVEALLCURRENTLYDEFINEDWAVESBEFOREADDINGNEWONES ),  // "Remove all currently defined waves before adding new ones?"
+                   GetString( MSG_WAVGUI_YESNO ),                                              // "Yes|No"
+                   (CONST_STRPTR)"yn"))
    {
    Wave_DelAll(*Wave);
    *Wave = NULL;
@@ -1396,9 +1424,9 @@ struct Wave *WV;
  SetAPen(MapWind0->RPort, 7);
  while (! done)
   {
-  sprintf(str, "\0338Set Cloud Wave Source Point %d", WaveNum);
+  sprintf(str, (char*)GetString( MSG_WAVGUI_0338SETCLOUDWAVESOURCEPOINT ), WaveNum);  // "\0338Set Cloud Wave Source Point %d"
   MapGUI_Message(0, str);
-  sprintf(str, "Set Cloud Wave Source Point %d", WaveNum);
+  sprintf(str, (char*)GetString( MSG_WAVGUI_SETCLOUDWAVESOURCEPOINT ), WaveNum);      // "Set Cloud Wave Source Point %d"
   SetWindowTitles(MapWind0, (STRPTR) (CONST_STRPTR)str, (UBYTE *)-1);
 
   if (! MousePtSet(&Bx.Low, NULL, 0))
@@ -1408,7 +1436,7 @@ struct Wave *WV;
 
   MapGUI_Message(0, " ");
   MapIDCMP_Restore(MapWind0);
-  SetWindowTitles(MapWind0, (STRPTR) (CONST_STRPTR)"Map View", (UBYTE *)-1);
+  SetWindowTitles(MapWind0, GetString( MSG_WAVGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
   if (done)
    break;
 
@@ -1431,7 +1459,7 @@ struct Wave *WV;
   Wave_Set(WV, WCS_WAVE_LAT, Y_Lat_Convert((long)Bx.Low.Y));
 
   strcpy(str, "");
-  if (! GetInputString("Enter Wave Amplitude.", 
+  if (! GetInputString((char*)GetString( MSG_WAVGUI_ENTERWAVEAMPLITUDE ),  // "Enter Wave Amplitude."
 	 ",abcdefghijklmnopqrstuvwxyz", str))
    {
    break;
@@ -1439,7 +1467,7 @@ struct Wave *WV;
   Wave_Set(WV, WCS_WAVE_AMP, atof(str));
 
   strcpy(str, "");
-  GetInputString("Enter Wave Length (km).", 
+  GetInputString((char*)GetString( MSG_WAVGUI_ENTERWAVELENGTHKM ),  // "Enter Wave Length (km)."
 	 ",abcdefghijklmnopqrstuvwxyz", str);
   if (atof(str) > 0.0)
    Wave_Set(WV, WCS_WAVE_LENGTH, atof(str));
@@ -1447,7 +1475,7 @@ struct Wave *WV;
    Wave_Set(WV, WCS_WAVE_LENGTH, 1.0);
 
   strcpy(str, "");
-  GetInputString("Enter Wave Velocity (km/hr).", 
+  GetInputString((char*)GetString( MSG_WAVGUI_ENTERWAVEVELOCITYKMHR ),  // "Enter Wave Velocity (km/hr)."
 	 ",abcdefghijklmnopqrstuvwxyz", str);
   Wave_Set(WV, WCS_WAVE_VELOCITY, atof(str));
 
@@ -1640,7 +1668,7 @@ struct clipbounds cb;
  if (MaxAmp == 0.0)
   MaxAmp = 1.0;
 
- BWMD = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));
+ BWMD = BusyWin_New((char*)GetString( MSG_WAVGUI_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));  // "Drawing..."
 
  for (row=0, y=Low_Y, ptlat=HighLat; y<=High_Y; y++, row++, ptlat+=LatStep)
   {
@@ -1726,11 +1754,11 @@ void GUIDisableKeyButtons(struct GUIKeyStuff *GKS, struct TimeLineWindow *TL,
   else
    {
    set(GKS->BT_PrevKey, MUIA_Disabled, TRUE);
-   set(GKS->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
+   set(GKS->BT_PrevKey, MUIA_Text_Contents, (IPTR)GetString( MSG_WAVGUI_PREV ));  // "\33cPrev"
    if (TL)
     {
     set(TL->BT_PrevKey, MUIA_Disabled, TRUE);
-    set(TL->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
+    set(TL->BT_PrevKey, MUIA_Text_Contents, (IPTR)GetString( MSG_WAVGUI_PREV ));  // "\33cPrev"
     } /* if motion time line window open */
    } /* else */
   if (WKS->NextKey >= 0)
@@ -1751,11 +1779,11 @@ void GUIDisableKeyButtons(struct GUIKeyStuff *GKS, struct TimeLineWindow *TL,
   else
    {
    set(GKS->BT_NextKey, MUIA_Disabled, TRUE);
-   set(GKS->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
+   set(GKS->BT_NextKey, MUIA_Text_Contents, (IPTR)GetString( MSG_WAVGUI_NEXT ));  // "\33cNext"
    if (TL)
     {
     set(TL->BT_NextKey, MUIA_Disabled, TRUE);
-    set(TL->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
+    set(TL->BT_NextKey, MUIA_Text_Contents, (IPTR)GetString( MSG_WAVGUI_NEXT ));  // "\33cNext"
     set(TL->TxtArrow[0], MUIA_Disabled, TRUE);
     set(TL->TxtArrow[1], MUIA_Disabled, TRUE);
     set(TL->TxtArrowLg[0], MUIA_Disabled, TRUE);
@@ -1767,12 +1795,12 @@ void GUIDisableKeyButtons(struct GUIKeyStuff *GKS, struct TimeLineWindow *TL,
    set(GKS->BT_UpdateKeys, MUIA_Disabled, FALSE);
    if (GKS->BT_AllKeys)
     {
-    sprintf(str, "All (%d)", WKS->KeysExist);
+    sprintf(str, (char*)GetString( MSG_WAVGUI_ALL ), WKS->KeysExist);  // "All (%d)"
     set(GKS->BT_AllKeys, MUIA_Text_Contents, (IPTR)str);
     } /* if */
    if (TL)
     {
-    sprintf(str, "Keys Exist (%d)", WKS->KeysExist);
+    sprintf(str, (char*)GetString( MSG_WAVGUI_KEYSEXIST ), WKS->KeysExist);  // "Keys Exist (%d)"
     set(TL->KeysExistTxt, MUIA_Text_Contents, (IPTR)str);
     } /* if motion time line window open */
    } /* if keys exist */
@@ -1780,10 +1808,10 @@ void GUIDisableKeyButtons(struct GUIKeyStuff *GKS, struct TimeLineWindow *TL,
    {
    set(GKS->BT_UpdateKeys, MUIA_Disabled, TRUE);
    if (GKS->BT_AllKeys)
-    set(GKS->BT_AllKeys, MUIA_Text_Contents, (IPTR)"\33cAll (0)");
+    set(GKS->BT_AllKeys, MUIA_Text_Contents, (IPTR)GetString( MSG_WAVGUI_ALL0 ));  // "\33cAll (0)"
    if (TL)
     {
-    set(TL->KeysExistTxt, MUIA_Text_Contents, (IPTR)"No Other Keys");
+    set(TL->KeysExistTxt, MUIA_Text_Contents, (IPTR)GetString( MSG_WAVGUI_NOOTHERKEYS ));  // "No Other Keys"
     } /* if motion time line window open */
    } /* else */
   if (WKS->ItemKeys > 1)

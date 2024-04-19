@@ -3419,8 +3419,8 @@ Version.o
 VocabTable.o
 WCS.o
 WCS_locale.o
-Wave.o
-WaveGUI.o
+Done		Wave.o 18.Apr.24
+DOne		WaveGUI.o 19.Apr. 24
 nncrunch.o
 nngridr.o
 Nothing		sasc_functions.o
