@@ -3417,7 +3417,7 @@ Done		TimeLinesGUI.o
 Done		Tree.o
 Version.o
 VocabTable.o
-WCS.o
+Done		WCS.o 22.Apr.24
 WCS_locale.o
 Done		Wave.o 18.Apr.24
 DOne		WaveGUI.o 19.Apr. 24

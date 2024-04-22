@@ -123,8 +123,8 @@ int main(void)
     //printf("Stack ist %lu Bytes\n",stack);
     if(stack < MinStack)
     {
-        printf("Stack to small! (%lu) Bytes\n",(unsigned long)stack);
-        printf("Please set Stack to %lu Bytes!\n",(unsigned long)MinStack);
+        printf((char*)GetString( MSG_WCS_STACKTOSMALLUBYTES ),(unsigned long)stack);         // "Stack to small! (%lu Bytes)\n"
+        printf((char*)GetString( MSG_WCS_PLEASESETSTACKTOUBYTES ),(unsigned long)MinStack);  // "Please set Stack to %lu Bytes!\n"
         return 20;
     }
 
@@ -371,7 +371,9 @@ if ((IntuitionBase = (struct IntuitionBase *)
       {
 
           User_Message((CONST_STRPTR)"World Construction set",
-                  (CONST_STRPTR)"Beta period expired...", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+                       GetString( MSG_WCS_BETAPERIODEXPIRED ),     // "Beta period expired..."
+                       GetString( MSG_WCS_OK ),                    // "OK"
+                       (CONST_STRPTR)"o");
       }
       else
       {
@@ -479,7 +481,12 @@ if ((IntuitionBase = (struct IntuitionBase *)
      } // AROS muimaster.library > 19.67
 	else
 	{
-		MUI_RequestA(NULL, NULL, 0, (CONST_STRPTR)"Error", (CONST_STRPTR)"Cancel", (CONST_STRPTR)"For WCS AROS\nmuimaster.library revision 19.67\nor higher required.",0);
+	      sprintf(str,(char*)GetString( MSG_WCS_FORWCSAROSUIMASTERLIBRARYREVISION1967RHIGHERREQUIRED ),19,67);
+	      MUI_RequestA(NULL, NULL, 0,
+	      GetString( MSG_WCS_ERROR ),  // "Error",
+	      GetString( MSG_WCS_CANCEL ), // "Cancel",
+	      (CONST_STRPTR)str,  // "For WCS AROS\nmuimaster.library revision 19.67\nor higher required."
+	      0);
 
 	} /* else */
 #endif
@@ -491,35 +498,35 @@ if ((IntuitionBase = (struct IntuitionBase *)
 
     else
      {
-     printf("FATAL ERROR: MUIMaster.Library revision %d required. Aborting.\n", MUIMASTER_VMIN);
+     printf((char*)GetString( MSG_WCS_FATALERRORMUIMASTERLIBRARYREVISIONREQUIREDABORTING ), MUIMASTER_VMIN);  // "FATAL ERROR: MUIMaster.Library revision %d required. Aborting.\n"
      } /* else */
     CloseLibrary(GadToolsBase);
     GadToolsBase = NULL;
     }
    else
     {
-    printf("FATAL ERROR: GadTools.Library revision %d required. Aborting.\n", MIN_LIBRARY_REV);  // AF: was incorrectly MUIMASTER_VMIN
+    printf((char*)GetString( MSG_WCS_FATALERRORGADTOOLSLIBRARYREVISIONREQUIREDABORTING ), MIN_LIBRARY_REV);  // "FATAL ERROR: GadTools.Library revision %d required. Aborting.\n"  // AF: was incorrectly MUIMASTER_VMIN
     } /* else */
    CloseLibrary(AslBase);
    AslBase = NULL;
    } /* if */
   else
    {
-   printf("FATAL ERROR: ASL.Library revision %d required. Aborting.\n", MIN_LIBRARY_REV);
+   printf((char*)GetString( MSG_WCS_FATALERRORASLLIBRARYREVISIONREQUIREDABORTING ), MIN_LIBRARY_REV);  // "FATAL ERROR: ASL.Library revision %d required. Aborting.\n"
    } /* else */
   CloseLibrary((struct Library*)GfxBase);
   GfxBase = NULL;
   } /* if */
  else
   {
-  printf("FATAL ERROR: Graphics.Library revision %d required. Aborting.\n", MIN_LIBRARY_REV);
+  printf((char*)GetString( MSG_WCS_FATALERRORGRAPHICSLIBRARYREVISIONREQUIREDABORTING ), MIN_LIBRARY_REV);  // "FATAL ERROR: Graphics.Library revision %d required. Aborting.\n"
   } /* else */
  CloseLibrary((struct Library *)IntuitionBase);
  IntuitionBase = NULL;
  } /* if */
 else
  {
- printf("FATAL ERROR: Intuition.library revision %d required. Aborting.\n", MIN_LIBRARY_REV);
+ printf((char*)GetString( MSG_WCS_FATALERRORINTUITIONLIBRARYREVISIONREQUIREDABORTING ), MIN_LIBRARY_REV);  // "FATAL ERROR: Intuition.library revision %d required. Aborting.\n"
  } /* else */
 
 

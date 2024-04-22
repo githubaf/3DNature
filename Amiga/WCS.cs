@@ -9164,7 +9164,7 @@ Add Wave
 
 ;
 MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY
-Map View Module must be open in order\ to use this function. Would you like to open it now?
+Map View Module must be open in order\nto use this function. Would you like to open it now?
 
 ;
 MSG_WAVGUI_MAPVIEWWAVEADD
@@ -9218,3 +9218,51 @@ MSG_WAVGUI_ALL0
 MSG_WAVGUI_NOOTHERKEYS
 No Other Keys
 
+;
+MSG_WCS_STACKTOSMALLUBYTES
+Stack to small! (%lu Bytes)\n
+
+;
+MSG_WCS_PLEASESETSTACKTOUBYTES
+Please set Stack to %lu Bytes!\n
+Bitte Stack auf %lu Bytes erhöhen!\n
+;
+MSG_WCS_BETAPERIODEXPIRED
+Beta period expired...
+Beta-Testzeit abgelaufen...
+;
+MSG_WCS_OK
+OK
+
+;
+MSG_WCS_FORWCSAROSUIMASTERLIBRARYREVISION1967RHIGHERREQUIRED
+For WCS AROS\nmuimaster.library revision %d.%d\nor higher required.
+Für WCS AROS\nmuimaster.library revision %d.%d\noder höher erforderlich.
+;
+MSG_WCS_ERROR
+Error
+Fehler
+;
+MSG_WCS_CANCEL
+Cancel
+Abbrechen
+;
+MSG_WCS_FATALERRORMUIMASTERLIBRARYREVISIONREQUIREDABORTING
+FATAL ERROR: MUIMaster.Library revision %d required. Aborting.\n
+Schwerer Fehler: MuiMaster.library revision %d erforderlich. Abbruch.\n
+;
+MSG_WCS_FATALERRORGADTOOLSLIBRARYREVISIONREQUIREDABORTING
+FATAL ERROR: GadTools.Library revision %d required. Aborting.\n
+Schwerer Fehler: GadTools.Library revision %d erforderlich. Abbruch.\n
+;
+MSG_WCS_FATALERRORASLLIBRARYREVISIONREQUIREDABORTING
+FATAL ERROR: ASL.Library revision %d required. Aborting.\n
+Schwerer Fehler: ASL.Library revision %d erforderlich. Abbruch.\n
+;
+MSG_WCS_FATALERRORGRAPHICSLIBRARYREVISIONREQUIREDABORTING
+FATAL ERROR: Graphics.Library revision %d required. Aborting.\n
+Schwerer Fehler: Graphics.Library revidion %d erforderlich. Abbruch.\n
+;
+MSG_WCS_FATALERRORINTUITIONLIBRARYREVISIONREQUIREDABORTING
+FATAL ERROR: Intuition.library revision %d required. Aborting.\n
+Schwerer Fehler: Intuition.Library revision %d erforderlich. Abbruch.\n
