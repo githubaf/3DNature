@@ -3420,8 +3420,8 @@ VocabTable.o
 Done		WCS.o 22.Apr.24
 WCS_locale.o
 Done		Wave.o 18.Apr.24
-DOne		WaveGUI.o 19.Apr. 24
-nncrunch.o
+Done		WaveGUI.o 19.Apr.24
+Done		nncrunch.o 22.Apr.24
 nngridr.o
 Nothing		sasc_functions.o
 

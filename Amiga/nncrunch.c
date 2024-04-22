@@ -1,4 +1,8 @@
 /*----------------------- nncrunch.c ----------------------------*/
+
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 
 /* ReadData opens an XY or XYZ file. If rootdat is 0 (which it always
@@ -248,9 +252,10 @@ struct datum *DT;
    else
     {
     success = 0;
-    User_Message((CONST_STRPTR)"Map View: Build DEM",
-            (CONST_STRPTR)"Insufficient data in gridded region to triangulate!\
- Increase the size of the gridded region or add more control points.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_NNCRUNCH_MAPVIEWBUILDDEM ),                                     // "Map View: Build DEM"
+                 GetString( MSG_NNCRUNCH_INSUFFICIENTDATAINGRIDDEDREGIONTOTRIANGULATEINCREA ),  // "Insufficient data in gridded region to triangulate! Increase the size of the gridded region or add more control points."
+                 GetString( MSG_NNCRUNCH_OK ),                                                  // "OK"
+                 (CONST_STRPTR)"o");
     goto EndRead;
     } /* else insufficient data */
 
@@ -531,7 +536,7 @@ int i0, i1;
 double cmax[2][2];
 struct BusyWindow *BWGR;
 
-   BWGR = BusyWin_New("ChoroPleth", NNG->datcnt, 0, MakeID('B','W','G','R'));
+   BWGR = BusyWin_New((char*)GetString( MSG_NNCRUNCH_CHOROPLETH ), NNG->datcnt, 0, MakeID('B','W','G','R'));  // "ChoroPleth"
 
    NNG->maxxy[0][2] = -BIGNUM;
    NNG->maxxy[1][2] = BIGNUM;
@@ -664,7 +669,7 @@ int i0, i1, i2, i3;
 double u2, wxd, wyd, wxde, wydn, xc, xe, xn;
 struct BusyWindow *BWGR;
 
-   BWGR = BusyWin_New("Gradient", NNG->datcnt, 0, MakeID('B','W','G','R'));
+   BWGR = BusyWin_New((char*)GetString( MSG_NNCRUNCH_GRADIENT ), NNG->datcnt, 0, MakeID('B','W','G','R'));  // "Gradient"
 
    for (i0=0; i0<NNG->datcnt; i0++)
    {
@@ -1331,7 +1336,7 @@ struct elmapheaderV101 Hdr;
     wyd = NNG->ystart * NNG->magy - y_increm;   /* add scale factor 24/4/95 */
     if (NNG->arriba < 0)
      wyd = NNG->yterm * NNG->magy + y_increm;   /* add scale factor 24/4/95 */
-    BWGR = BusyWin_New("Gridding", NNG->y_nodes, 0, MakeID('B','W','G','R'));
+    BWGR = BusyWin_New((char*)GetString( MSG_NNCRUNCH_GRIDDING ), NNG->y_nodes, 0, MakeID('B','W','G','R'));  // "Gridding"
     for (y=0; y<NNG->y_nodes; y++) 
      {
      wyd += y_increm * NNG->arriba;
@@ -1406,7 +1411,7 @@ struct elmapheaderV101 Hdr;
 
 /* plot color in Map View, brighter indicates higher amplitude */
 
-     BWGR = BusyWin_New("Drawing...", High_Y - Low_Y + 1, 0, MakeID('B','W','G','R'));
+     BWGR = BusyWin_New((char*)GetString( MSG_NNCRUNCH_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','G','R'));  // "Drawing..."
 
      DataRow = 0.0;
      for (y=Low_Y, k=0; y<=High_Y; y++, DataRow+=LatStep, k++)
@@ -1673,10 +1678,10 @@ double rS, rT, rB, bD, bB, hP;
 STATIC_FCN short TooSteep(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 
-   if (User_Message((CONST_STRPTR)"Map View: Grid DEM",
-           (CONST_STRPTR)"The ratio of vertical to horizontal map dimensions is too large for\
- gradient estimation. Scale the data if gradients are required.\nDo you wish to\
- continue without gradient estimation?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc"))
+   if (User_Message(GetString( MSG_NNCRUNCH_MAPVIEWGRIDDEM ),                                      // "Map View: Grid DEM"
+                    GetString( MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOLA ),  // "The ratio of vertical to horizontal map dimensions is too large for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?"
+                    GetString( MSG_NNCRUNCH_CONTINUECANCEL ),                                      // "Continue|Cancel"
+                    (CONST_STRPTR)"oc"))
     {
     NNG->igrad = 0;
     return (1);
@@ -1690,10 +1695,10 @@ STATIC_FCN short TooSteep(struct NNGrid *NNG) // used locally only -> static, AF
 STATIC_FCN short TooShallow(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 
-   if (User_Message((CONST_STRPTR)"Map View: Grid DEM",
-           (CONST_STRPTR)"The ratio of vertical to horizontal map dimensions is too small for\
- gradient estimation. Scale the data if gradients are required.\nDo you wish to\
- continue without gradient estimation?", (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc"))
+   if (User_Message(GetString( MSG_NNCRUNCH_MAPVIEWGRIDDEM ) ,                                     // "Map View: Grid DEM"
+                    GetString( MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM ),  // "The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?"
+                    GetString( MSG_NNCRUNCH_CONTINUECANCEL ),                                      // "Continue|Cancel"
+                    (CONST_STRPTR)"oc"))
     {
     NNG->igrad = 0;
     return (1);
@@ -1707,12 +1712,10 @@ STATIC_FCN short TooShallow(struct NNGrid *NNG) // used locally only -> static, 
 STATIC_FCN short TooNarrow(struct NNGrid *NNG) // used locally only -> static, AF 26.7.2021
 {
 
-   if (User_Message((CONST_STRPTR)"Map View: Grid DEM",
-           (CONST_STRPTR)"The ratio of width to length of this gridded region may be too extreme for\
- good interpolation.\nChanging the block proportions, or rescaling the\
- x or y coordinate may be a good idea.\nContinue now with the present\
- dimensions?",
- (CONST_STRPTR)"Continue|Cancel", (CONST_STRPTR)"oc"))
+   if (User_Message(GetString( MSG_NNCRUNCH_MAPVIEWGRIDDEM ),                                      // "Map View: Grid DEM"
+                    GetString( MSG_NNCRUNCH_THERATIOOFWIDTHTOLENGTHOFTHISGRIDDEDREGIONMAYBETOO ),  // "The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now with the present dimensions?"
+                    GetString( MSG_NNCRUNCH_CONTINUECANCEL ),                                      // "Continue|Cancel"
+                    (CONST_STRPTR)"oc"))
     {
     return (1);
     }
@@ -1751,16 +1754,20 @@ double **matptr;
  if ((matptr = (double **) 
       get_Memory(nrows * sizeof(double *), MEMF_ANY)) EQ NULL)
   {
-  User_Message((CONST_STRPTR)"Map View: Build DEM",
-          (CONST_STRPTR)"Out of memory Double Matrix!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_NNCRUNCH_MAPVIEWBUILDDEM ),                            // "Map View: Build DEM",
+               GetString( MSG_NNCRUNCH_OUTOFMEMORYDOUBLEMATRIXPERATIONTERMINATED ),  // "Out of memory Double Matrix!\nOperation terminated."
+               GetString( MSG_NNCRUNCH_OK ),                                         // "OK"
+               (CONST_STRPTR)"o");
   } /* if */
  else
   {
   if ((matptr[0] = (double *) 
           get_Memory(nrows * ncols * sizeof(double), MEMF_ANY)) EQ NULL)
    {
-   User_Message((CONST_STRPTR)"Map View: Build DEM",
-           (CONST_STRPTR)"Out of memory allocating Double Matrix!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_NNCRUNCH_MAPVIEWBUILDDEM ),                                     // "Map View: Build DEM"
+                GetString( MSG_NNCRUNCH_OUTOFMEMORYALLOCATINGDOUBLEMATRIXPERATIONTERMINATE ),  // "Out of memory allocating Double Matrix!\nOperation terminated."
+                GetString( MSG_NNCRUNCH_OK ),                                                  // "OK"
+                (CONST_STRPTR)"o");
    } /* if */
   else
    {

@@ -9266,3 +9266,61 @@ Schwerer Fehler: Graphics.Library revidion %d erforderlich. Abbruch.\n
 MSG_WCS_FATALERRORINTUITIONLIBRARYREVISIONREQUIREDABORTING
 FATAL ERROR: Intuition.library revision %d required. Aborting.\n
 Schwerer Fehler: Intuition.Library revision %d erforderlich. Abbruch.\n
+;
+MSG_NNCRUNCH_MAPVIEWBUILDDEM
+Map View: Build DEM
+
+;
+MSG_NNCRUNCH_INSUFFICIENTDATAINGRIDDEDREGIONTOTRIANGULATEINCREA
+Insufficient data in gridded region to triangulate! Increase the size of the gridded region or add more control points.
+
+;
+MSG_NNCRUNCH_OK
+OK
+
+;
+MSG_NNCRUNCH_CHOROPLETH
+ChoroPleth
+
+;
+MSG_NNCRUNCH_GRADIENT
+Gradient
+
+;
+MSG_NNCRUNCH_GRIDDING
+Gridding
+
+;
+MSG_NNCRUNCH_DRAWING
+Drawing...
+
+;
+MSG_NNCRUNCH_MAPVIEWGRIDDEM
+Map View: Grid DEM
+
+;
+MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOLA
+The ratio of vertical to horizontal map dimensions is too large for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
+
+;
+MSG_NNCRUNCH_CONTINUECANCEL
+Continue|Cancel
+Weiter|Abbrechen
+;
+MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM
+The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
+
+;
+MSG_NNCRUNCH_THERATIOOFWIDTHTOLENGTHOFTHISGRIDDEDREGIONMAYBETOO
+The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now \
+with the present dimensions?
+
+;
+MSG_NNCRUNCH_OUTOFMEMORYDOUBLEMATRIXPERATIONTERMINATED
+Out of memory Double Matrix!\nOperation terminated.
+
+;
+MSG_NNCRUNCH_OUTOFMEMORYALLOCATINGDOUBLEMATRIXPERATIONTERMINATE
+Out of memory allocating Double Matrix!\nOperation terminated.
+
+;
