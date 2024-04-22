@@ -3422,7 +3422,7 @@ WCS_locale.o
 Done		Wave.o 18.Apr.24
 Done		WaveGUI.o 19.Apr.24
 Done		nncrunch.o 22.Apr.24
-nngridr.o
+Done		nngridr.o 22.Apr.24
 Nothing		sasc_functions.o
 
 

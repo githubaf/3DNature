@@ -4,6 +4,9 @@
 ** by permission of the author.
 */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
 
 /* The DEM creation and gridding process
@@ -206,8 +209,10 @@ EndGrid:
    NNGrid_Del(NNG);
   } /* if NNGrid structure allocated */
  else
-  User_Message((CONST_STRPTR)"Map View: Grid DEM", (CONST_STRPTR)"Out of memory!\nOperation terminated.",
-          (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+  User_Message(GetString( MSG_NNGRIDR_MAPVIEWGRIDDEM ),                // "Map View: Grid DEM"
+               GetString( MSG_NNGRIDR_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+               GetString( MSG_NNGRIDR_OK ),                             // "OK"
+               (CONST_STRPTR)"o");
 
  return (success);
 
