@@ -837,7 +837,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->BT_Get[15] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2("Sun Image File      "),
+	    Child, Label2(GetString( MSG_MOREGUI_SUNIMAGEFILE_SPACES )),  // "Sun Image File      "
 	    Child, PJ_Win->Str[28] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, sunfile, End,

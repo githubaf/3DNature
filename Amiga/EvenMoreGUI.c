@@ -120,11 +120,11 @@ void Make_TS_Window(void)
 		MUIA_String_Accept, "-.0123456789", End,
 	  End, /* HGroup */
 
-	Child, TS_Win->BT_Reverse = KeyButtonFunc('r', "\33cReverse Seasons"),
+	Child, TS_Win->BT_Reverse = KeyButtonFunc('r', GetString( MSG_EVMORGUI_REVERSESEASONS )),  // "\33cReverse Seasons"
 
 	Child, HGroup, MUIA_Group_SameWidth, TRUE,
-	  Child, TS_Win->BT_Apply = KeyButtonFunc('k', "\33cKeep"),
-	  Child, TS_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"),
+	  Child, TS_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EVMORGUI_KEEP )),     // "\33cKeep"
+	  Child, TS_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EVMORGUI_CANCEL )),  // "\33cCancel"
 	  End, /* HGroup */
         End, /* VGroup */
       End; /* WindowObject */

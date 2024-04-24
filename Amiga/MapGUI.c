@@ -427,7 +427,7 @@ if(Init)
          	MUIA_HorizWeight, 0, End,
 
        /* Row 2 */
-               Child, Label2("Lat "),
+               Child, Label2(GetString( MSG_MAPGUI_LAT)),  // "Lat "
                Child, MP->Lat = StringObject, StringFrame,
         	MUIA_String_Contents, "      ",
         	MUIA_String_Accept, " -0123456789.",
@@ -499,7 +499,7 @@ if(Init)
                Child, RectangleObject, End,
                Child, HGroup,
                  Child, MP->MapDither = CheckMark(0),
-                 Child, Label2("Dither"),
+                 Child, Label2(GetString(MSG_MAPGUI_DITHER)),  // "Dither"
                  End, /* HGroup */
                End, /* HGroup */
 
@@ -2846,7 +2846,7 @@ void Make_EL_Window(void)
  Set_PS_List(EL_Win->EEList, NULL, 2, 0, NULL);
 
      EL_Win->EcoLegendWin = WindowObject,
-      MUIA_Window_Title		, "Ecosystem Legend",
+      MUIA_Window_Title		, GetString( MSG_MAPGUI_ECOSYSTEMLEGEND ),  // "Ecosystem Legend"
       MUIA_Window_ID		, MakeID('E','L','E','G'),
       MUIA_Window_Screen	, WCSScrn,
       MUIA_Window_Menu		, WCSNewMenus,

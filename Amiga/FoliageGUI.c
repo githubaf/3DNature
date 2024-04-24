@@ -213,8 +213,8 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
 	    End, /* VGroup */
 	  End, /* HGroup */
 	Child, HGroup, MUIA_Group_SameWidth, TRUE,
-	  Child, FE_Win->BT_Keep = KeyButtonFunc('k',   "\33cKeep"),
-	  Child, FE_Win->BT_Cancel = KeyButtonFunc('c', "\33cCancel"),
+	  Child, FE_Win->BT_Keep = KeyButtonFunc('k',   (char*)GetString(MSG_FOLIGUI_KEEP)),    // "\33cKeep"
+	  Child, FE_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString(MSG_FOLIGUI_CANCEL)),  // "\33cCancel"
 	  End, /* HGroup */
 	End, /* VGroup */
       End; /* WindowObject FE_Win->FoliageWin */

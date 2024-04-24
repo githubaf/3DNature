@@ -3401,8 +3401,8 @@ Done		MapSupport.o 1.Apr.24
 Done		MapTopo.o 1.Apr.24
 Done		MapTopoObject.o 1.Apr.24
 Done		MapUtil.o 1.Apr.24
-Memory.o
-Menu.o
+Nothing		Memory.o
+Nothing		Menu.o
 Done		MoreGUI.o 8.Apr.24
 Done		Params.o  8.Apr.24
 Done		ParamsGUI.o 9.Apr.24
@@ -3416,9 +3416,9 @@ Nothing		TLSupportGUI.o
 Done		TimeLinesGUI.o
 Done		Tree.o
 Version.o
-VocabTable.o
+Nothing		VocabTable.o
 Done		WCS.o 22.Apr.24
-WCS_locale.o
+Nothing		WCS_locale.o
 Done		Wave.o 18.Apr.24
 Done		WaveGUI.o 19.Apr.24
 Done		nncrunch.o 22.Apr.24
@@ -3481,3 +3481,26 @@ Bei Menu Project->Save/Load Config speichert und laedt die offenen Fenster und d
 16.April 24
 -----------
 In Menu:Parameters/Motion -> Time Lines gibt es einen Schieberegler(?) "Pan". Was soll der bewirken? Der ist immer ganz ausgefuellt.
+
+23.April 24
+-----------
+Suche nach vergessenen Strings:
+- Ich manipuliere WCS_strings.h, so dass alle dort definieren Strings z.B. "NIX" sind.
+- WCS compilieren.
+- Dann Executable mit m68k-amiga-os-string anschauen. Außer der Copyright-Meldung sollte nicht viel drinstehen.
+-Beispiel:
+echo '#define MSG_CLOUDGUI_CLOUDS_STR "\33cClouds"' | sed -E 's/(#define MSG_.*_STR )(.*$)/\1 \"NIX\"/'
+-ok, also WCS_strings.h mit folgendem Kommando manipulieren:
+sed -i -E 's/(#define MSG_.*_STR )(.*$)/\1\"NIX\"/' WCS_strings.h
+
+24.April 24
+-----------
+Vergessene Strings...
+
+Zeige alle Strings ausser denen, die nach einem // Kommentar kommen
+STRING="Error creating new Project Directory"; find . -name "*.c" -exec grep -nHs "$STRING" {} \; | grep -v //.*"$STRING"
+
+Suche generell nach Strings:
+
+cd 68020
+for FILE in $(ls *.o | sed -E "s/(.*)\.o/..\/\1.c/"); do echo; echo  "********** $FILE **********"; echo;  cat $FILE | grep -nHs "\".*\"" | grep -E -v "//.*\"" | grep -v "fprintf.*" | grep -v -E "fscanf.*" | grep -v -E "\".{0,2}\"" | grep -v -E "\"[\.0-9]+\"" | grep -v "#include"; done
