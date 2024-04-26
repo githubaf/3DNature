@@ -300,7 +300,7 @@ short Database_Load(short lowi, char *filename)
      NoOfObjects = i;
      OBN = 0;
      Log(MSG_DBS_LOAD, (CONST_STRPTR)dbasename);
-     sprintf(str, "Records = %d, Marked = %d", NoOfRecords, j);
+     sprintf(str, (char*)GetString( MSG_DB_RECORDSMARKED ), NoOfRecords, j);  // "Records = %d, Marked = %d"
      Log(MSG_UTIL_TAB, (CONST_STRPTR)str);
      } /* if no memory error */
     }

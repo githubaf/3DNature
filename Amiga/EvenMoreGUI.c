@@ -1019,20 +1019,17 @@ EndNewProj:
     } /* loading cloud */
    case 5:
     {
-    sprintf(Str, "Error creating new Project Directory: %s.\
- It may already exist or there may be a file with that name.", filename);
+    sprintf(Str, (char*)GetString ( MSG_EVMORGUI_ERRORCREATINGNEWPROJECTDIRECTORYITMAYALREADYEXISTO ), filename);  // "Error creating new Project Directory: %s. It may already exist or there may be a file with that name."
     break;
     } /* creating project directory */
    case 6:
     {
-    sprintf(Str, "Error creating new Database Directory: %s.\
- It may already exist or there may be a file with that name.", filename);
+    sprintf(Str, (char*)GetString( MSG_EVMORGUI_ERRORCREATINGNEWDATABASEDIRECTORYITMAYALREADYEXIST ), filename);  // "Error creating new Database Directory: %s. It may already exist or there may be a file with that name."
     break;
     } /* creating database directory */
    case 7:
     {
-    sprintf(Str, "Error creating new Default Directory: %s.\
- It may already exist or there may be a file with that name.", filename);
+    sprintf(Str, (char*)GetString( MSG_EVMORGUI_ERRORCREATINGNEWDEFAULTDIRECTORYITMAYALREADYEXISTO ), filename);  // "Error creating new Default Directory: %s. It may already exist or there may be a file with that name."
     break;
     } /* creating default directory */
    case 8:

@@ -284,7 +284,7 @@ short makerelelfile(char *elevpath, char *elevfile)
  write (fhelev, (char *)&map, ELEVHDRLENV101);
  if (write (fhelev, (char *)map.map, map.size) != map.size)
   {
-  Log(ERR_WRITE_FAIL, (CONST_STRPTR)"Relative elevation");
+  Log(ERR_WRITE_FAIL, GetString( MSG_DEM_RELATIVEELEVATION ));  // "Relative elevation"
   close (fhelev);
   error = 1;
   goto EndMap;
@@ -1216,7 +1216,9 @@ printf("URI %f UCI %f LRI %f LCI %f\n", DEMExtract->UTMRowInt, DEMExtract->UTMCo
     if (atoi(DEMExtract->ProfHdr.Column) != i + 1)
      {
      User_Message((CONST_STRPTR)MsgHdr,
-             (CONST_STRPTR)"Error reading DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+                  GetString( MSG_DEM_ERRORREADINGDEMPROFILEHEADERPERATIONTERMINATED ),  // "Error reading DEM profile header!\nOperation terminated."
+                  GetString( MSG_DEM_OK ),                                              // "OK"
+                  (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL,(CONST_STRPTR) DEMExtract->elevfile);
      break;
      } /* if read header failed */
@@ -1231,7 +1233,9 @@ printf("URI %f UCI %f LRI %f LCI %f\n", DEMExtract->UTMRowInt, DEMExtract->UTMCo
     if (Row < 0 || Col < 0)
      {
      User_Message((CONST_STRPTR)MsgHdr,
-             (CONST_STRPTR)"Error reading DEM profile header!\nOperation terminated.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+                  GetString( MSG_DEM_ERRORREADINGDEMPROFILEHEADERPERATIONTERMINATED ),  // "Error reading DEM profile header!\nOperation terminated."
+                  GetString( MSG_DEM_OK ),                                              // "OK"
+                  (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
      break;
      }
@@ -2657,6 +2661,7 @@ EndSpline:
            GetString( MSG_DEM_BADARRAYDIMENSIONSSOMETHINGDOESNTCOMPUTEPERATIONTERMINA ),  // "Bad array dimensions! Something doesn't compute.\nOperation terminated."
            GetString( MSG_DEM_OK ),                                                       // "OK"
            (CONST_STRPTR)"o");
+   break;
    }
   case 2:
    {
@@ -2664,6 +2669,7 @@ EndSpline:
            GetString( MSG_DEM_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
            GetString( MSG_DEM_OK ),                             // "OK"
            (CONST_STRPTR)"o");
+   break;
    }
   case 3:
    {
@@ -2671,6 +2677,7 @@ EndSpline:
            GetString( MSG_DEM_NOFLATSPOTSTOOPERATEONPERATIONTERMINATED ),  // "No flat spots to operate on!\nOperation terminated.",
            GetString( MSG_DEM_OK ),                                        // "OK"
            (CONST_STRPTR)"o");
+   break;
    }
   } /* switch */
 

@@ -3355,26 +3355,26 @@ VERIFIED	Nothing		BigEndianReadWrite.o
 VERIFIED	Done		BitMaps.o
 VERIFIED	Done		Cloud.o	19.Feb
 VERIFIED	Done		CloudGUI.o 20.Feb
-Nothing		ColorBlends.o
-??? 		Commands.o
-Done		DEM.o
-Done		DEMGUI.o 22.Feb
-Nothing		DEMObject.o
-Done		DLG.o
-Done		DataBase.o 26.Feb
-Done		DataOps.o 26.Feb
-Done		DataOpsGUI.o 26.Feb
-Done		DefaultParams.o 27.Feb
-Done		DiagnosticGUI.o 27.Feb
-Done		DispatchGUI.o 27.Feb
-Done		EdDBaseGUI.o  28.Feb
-Done		EdEcoGUI.o 28.Feb
-Done		EdMoGUI.o 29.Feb
-Done		EdPar.o 1.Mar
-Nothing		EdSetExtrasGUI.o
-Done		EdSetGUI.o 5.Mar
-Done		EditGui.o 6.Mar
-Done		EvenMoreGUI.o 7.Mar
+VERIFIED	Nothing		ColorBlends.o
+??? uncomplete AREX-Implementation? 		Commands.o
+VERIFIED	Done		DEM.o
+VERIFIED	Done		DEMGUI.o 22.Feb
+VERIFIED	Nothing		DEMObject.o
+VERIFIED, only trings in File?	Done		DLG.o
+VERIFIED	Done		DataBase.o 26.Feb
+VERIFIED	Done		DataOps.o 26.Feb
+VERIFIED	Done		DataOpsGUI.o 26.Feb
+VERIFIED	Done		DefaultParams.o 27.Feb
+VERIFIED	Done		DiagnosticGUI.o 27.Feb
+VERIFIED	Done		DispatchGUI.o 27.Feb
+VERIFIED	Done		EdDBaseGUI.o  28.Feb
+VERIFIED	Done		EdEcoGUI.o 28.Feb
+VERIFIED	Done		EdMoGUI.o 29.Feb
+VERIFIED	Done		EdPar.o 1.Mar
+VERIFIED	Nothing		EdSetExtrasGUI.o
+VERFIFIED	Done		EdSetGUI.o 5.Mar
+VERIFIED	Done		EditGui.o 6.Mar
+VERIFIED	Done		EvenMoreGUI.o 7.Mar
 Done		Foliage.o 7.Mar
 Done		FoliageGUI.o 12.Mar
 Nothing		Fractal.o
@@ -3445,7 +3445,7 @@ egrep -nH "\".*\\\\$" LWSupport.c
 
 29.Mar.2024
 -----------
-SC stuerzt beim Compilieren von WCS_locale.c ab. CatCompBufer ist zu gross. Bis 32720 Bytes funktioniert sc, bei 32721 Byte stuerzt er ab. Signed 16Bit-Ueberlauf?
+SC stuerzt beim Compilieren von WCS_locale.c ab. CatCompBuffer ist zu gross. Bis 32720 Bytes funktioniert sc, bei 32721 Byte stuerzt er ab. Signed 16Bit-Ueberlauf?
 Kann duerch mehrere kleinere CatCompBuffer umgangen werden. -> Im Moment kein Test-Compilieren von WCS_locale.c und kein Linken.
 Siehe build_wcs_sasc.sh
 
@@ -3472,7 +3472,7 @@ Im Oekosystem Editor muss doe Laenge von Class noch angepasst werden, damit die 
 
 12.April 24
 -----------
-Die Mitten-Ausrichtung von "Water", "Snow", "Rock" ... im ParamsGUI.c ist hart kodiert mit. Das Passt dann nach dem Lokalisieren nicht mehr richtig. Hier muss noch nachgearbeitet werden! Die Ubersetzungen in der Tabelle muessen die gleicheh sein wie bei dem Schalter "Class" daneben. Das sind im Moment 2x aehnliche Strings. Nur einen Satz Strings nehemen!
+Die Mitten-Ausrichtung von "Water", "Snow", "Rock" ... im ParamsGUI.c ist hart kodiert mit. Das Passt dann nach dem Lokalisieren nicht mehr richtig. Hier muss noch nachgearbeitet werden! Die Ubersetzungen in der Tabelle muessen die gleichen sein wie bei dem Schalter "Class" daneben. Das sind im Moment 2x aehnliche Strings. Nur einen Satz Strings nehemen!
 
 15.April 24
 -----------
@@ -3487,7 +3487,7 @@ In Menu:Parameters/Motion -> Time Lines gibt es einen Schieberegler(?) "Pan". Wa
 Suche nach vergessenen Strings:
 - Ich manipuliere WCS_strings.h, so dass alle dort definieren Strings z.B. "NIX" sind.
 - WCS compilieren.
-- Dann Executable mit m68k-amiga-os-string anschauen. Außer der Copyright-Meldung sollte nicht viel drinstehen.
+- Dann Executable mit m68k-amiga-os-string anschauen. Ausser der Copyright-Meldung sollte nicht viel drinstehen.
 -Beispiel:
 echo '#define MSG_CLOUDGUI_CLOUDS_STR "\33cClouds"' | sed -E 's/(#define MSG_.*_STR )(.*$)/\1 \"NIX\"/'
 -ok, also WCS_strings.h mit folgendem Kommando manipulieren:

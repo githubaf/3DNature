@@ -26,7 +26,7 @@ void Make_EM_Window(void)
 
  if (! paramsloaded)
   {
-  User_Message(GetString( MSG_EDMOGUI_MOTIONEDITOR ),                                        // "Motion Editor"
+  User_Message(GetString( MSG_EDMOGUI_MOTIONEDITOR ),                                         // "Motion Editor"
                GetString( MSG_EDMOGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING ),  // "You must first load or create a parameter file before opening the Editor."
                GetString( MSG_EDMOGUI_OK ),                                                   // "OK"
                (CONST_STRPTR)"o");
@@ -164,7 +164,7 @@ void Make_EM_Window(void)
 	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDMOGUI_KEYFRAMES ), End,     // "\33c\0334Key Frames"
               Child, HGroup,
                 Child, EM_Win->BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_EDMOGUI_PREV ) ),  // "\33cPrev"
-                Child, Label2("Frame"),
+                Child, Label2(GetString( MSG_EDMOGUI_FRAME )),                                          // "Frame"
                 Child, HGroup, MUIA_Group_HorizSpacing, 0,
                   Child, EM_Win->Str[0] = StringObject, StringFrame,
 			MUIA_String_Integer, 0,
@@ -467,7 +467,7 @@ void Handle_EM_Window(ULONG WCS_ID)
       else
        {
        User_Message(GetString( MSG_EDMOGUI_MOTIONEDITORAUTOCENTER ),                          // "Motion Editor: Auto Center"
-    		    GetString( MSG_EDMOGUI_INTERACTIVEMODULEMUSTBEOPENBEFOREAUTOCENTERING ),  // "Interactive module must be open before auto centering!"
+                    GetString( MSG_EDMOGUI_INTERACTIVEMODULEMUSTBEOPENBEFOREAUTOCENTERING ),  // "Interactive module must be open before auto centering!"
                     GetString( MSG_EDMOGUI_OK ),                                              // "OK"
                     (CONST_STRPTR)"o");
        } /* else */

@@ -1919,6 +1919,10 @@ MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED
 Can't open Database Editor window!\nOperation terminated.
 
 ;
+MSG_DEMGUI_EXTRACTELEVATIONVALUESFROMOBJECTNAMESLABELFIELDSORUS
+Extract elevation values from Object Names, Label fields or use the values embedded in the Objects themselves?
+
+;
 MSG_DEMGUI_MAPVIEWEXPORTCONTOURS
 Map View: Export Contours
 
@@ -2294,6 +2298,9 @@ MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 .MDB is not a WCS Master Object file!
 
 ;
+MSG_DB_RECORDSMARKED
+Records = %d, Marked = %d
+
 ;
 MSG_DATAOPS_DATAOPSCONVERTDEM
 Data Ops: Convert DEM
@@ -5293,6 +5300,18 @@ Error loading Wave file to clone.
 ;
 MSG_EVMORGUI_ERRORLOADINGCLOUDFILETOCLONE
 Error loading Cloud file to clone.
+
+;
+MSG_EVMORGUI_ERRORCREATINGNEWPROJECTDIRECTORYITMAYALREADYEXISTO
+Error creating new Project Directory: %s. It may already exist or there may be a file with that name.
+
+;
+MSG_EVMORGUI_ERRORCREATINGNEWDATABASEDIRECTORYITMAYALREADYEXIST
+Error creating new Database Directory: %s. It may already exist or there may be a file with that name.
+
+;
+MSG_EVMORGUI_ERRORCREATINGNEWDEFAULTDIRECTORYITMAYALREADYEXISTO
+Error creating new Default Directory: %s. It may already exist or there may be a file with that name.
 
 ;
 MSG_EVMORGUI_ERRORSAVINGTHENEWPROJECTFILE
@@ -9363,4 +9382,5 @@ Out of memory!\nOperation terminated.
 MSG_NNGRIDR_OK
 OK
 
+;
 ;

@@ -1260,22 +1260,22 @@ float El;
   {
   Make_DE_Window();
   if (DE_Win)
-   User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ) ,                            // "Map View: Build DEM"
-		   GetString( MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT ),  // "Select contour objects to import and reselect \"Import\" when done."
-		   GetString( MSG_DEMGUI_OK ),                                       // "OK"
-                   (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ) ,                         // "Map View: Build DEM"
+                GetString( MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT ),  // "Select contour objects to import and reselect \"Import\" when done."
+                GetString( MSG_DEMGUI_OK ),                                       // "OK"
+                (CONST_STRPTR)"o");
   else
-   User_Message(GetString( MSG_DEMGUI_MAPVIEWEXPORTCONTOURS ) ,                             // "Map View: Export Contours",
-		   GetString( MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED ),  // "Can't open Database Editor window!\nOperation terminated."
-                   GetString( MSG_DEMGUI_OK ) ,                                             // "OK", 
-                   (CONST_STRPTR)"o");
+   User_Message(GetString( MSG_DEMGUI_MAPVIEWEXPORTCONTOURS ) ,                          // "Map View: Export Contours",
+                GetString( MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED ),  // "Can't open Database Editor window!\nOperation terminated."
+                GetString( MSG_DEMGUI_OK ) ,                                             // "OK",
+                (CONST_STRPTR)"o");
   return (0);
   } /* if Database Editor not open */
 
 
- ElSource = User_Message(GetString( MSG_DEMGUI_MAPVIEWEXPORTCONTOURS ) ,  // "Map View: Export Contours"
-         (CONST_STRPTR)"Extract elevation values from Object Names, Label fields or use the values embedded in the Objects themselves?",
-                         GetString( MSG_DEMGUI_NAMELABELEMBEDDED ),  // "Name|Label|Embedded"
+ ElSource = User_Message(GetString( MSG_DEMGUI_MAPVIEWEXPORTCONTOURS ) ,                                // "Map View: Export Contours"
+                         GetString( MSG_DEMGUI_EXTRACTELEVATIONVALUESFROMOBJECTNAMESLABELFIELDSORUS ),  // "Extract elevation values from Object Names, Label fields or use the values embedded in the Objects themselves?"
+                         GetString( MSG_DEMGUI_NAMELABELEMBEDDED ),                                     // "Name|Label|Embedded"
                          (CONST_STRPTR)"nle");
 
  get(DE_Win->LS_List, MUIA_List_Active, &ActiveItem);

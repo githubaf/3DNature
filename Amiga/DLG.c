@@ -594,7 +594,7 @@ struct BusyWindow *BWDL;
   if (DE_Win)
    {
    if (! Add_DE_NewItem())
-    User_Message((CONST_STRPTR)"Database Module",
+    User_Message(GetString( MSG_DLG_DATABASEMODULE ),                                      // "Database Module",
             GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTASTITEMDOESNOTAPP ),  // "Out of memory expanding Database Editor List!\nLast item does not appear in list view."
             GetString( MSG_DLG_OK ),                                                       // "OK", 
             (CONST_STRPTR)"o");

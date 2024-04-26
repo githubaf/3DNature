@@ -440,8 +440,8 @@ void Make_DC_Window(void)
 	      Child, VGroup,
 		Child, RowGroup(2),
 		  Child, RectangleObject, End,
-		  Child, TextObject, MUIA_Text_Contents, "\0334  Input  ", End,
-		  Child, TextObject, MUIA_Text_Contents, "\0334  Output ", End,
+		  Child, TextObject, MUIA_Text_Contents, GetString( MSG_DATAOPSGUI_INPUT ), End,   // "\0334  Input  "
+		  Child, TextObject, MUIA_Text_Contents, GetString( MSG_DATAOPSGUI_OUTPUT ), End,  // "\0334  Output "
 
 		  Child, Label2(GetString( MSG_DATAOPSGUI_VALUE1 ) ),  // "Value 1"
 		  Child, DC_Win->VertScaleStr[2] = StringObject, StringFrame,
@@ -1098,8 +1098,10 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
    read(fh, &HeaderType, 4);
    if (! Compression)
     {
-    User_Message((CONST_STRPTR)"Data Ops: Convert DEM",
-                 (CONST_STRPTR)"Warning\nFile is not a compressed Vista file and cannot be imported.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),  // "Data Ops: Convert DEM"
+                 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTACOMPRESSEDVISTAFILEANDCANNOTBEIM ),  // "Warning\nFile is not a compressed Vista file and cannot be imported."
+                 GetString( MSG_DATAOPSGUI_OK ),                                                // "OK"
+                 (CONST_STRPTR)"o");
     break;
     }
    if (HeaderType)

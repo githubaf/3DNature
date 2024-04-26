@@ -152,7 +152,7 @@ void Make_DE_Window(void)
 	      End, /* HGroup */
 	/* object label */
 	    Child, HGroup,
-	      Child, DE_Win->BT_Label = KeyButtonFunc('b', "\33cLabel"), 
+	      Child, DE_Win->BT_Label = KeyButtonFunc('b', (char*)GetString( MSG_EDDB_LABEL )),  // "\33cLabel"
 	      Child, DE_Win->Str[3] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      End, /* HGroup */

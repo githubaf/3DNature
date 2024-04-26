@@ -759,7 +759,7 @@ ES_Cycle_Data[2]=NULL;
               Child, ES_Win->FloatStrArrow[13][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2("Strata Strike "),
+              Child, Label2(GetString( MSG_EDSETGUI_STRATASTRIKE )),  // "Strata Strike "
 	      Child, ES_Win->FloatStr[14] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
