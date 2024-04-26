@@ -1154,7 +1154,7 @@ STATIC_FCN short InitDEMMap(struct Window *win, struct CloudData *CD) // used lo
 
  if (settings.fieldrender)
   {
-  sprintf(FrameStr, "Frame %d", (frame / 2) + (frame % 2));
+  sprintf(FrameStr, (char*)GetString( MSG_GLMP_FRAME_D ), (frame / 2) + (frame % 2));  // "Frame %d"
   if (frame % 2)
    strcat(FrameStr, "A");
   else

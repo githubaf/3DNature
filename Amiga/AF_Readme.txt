@@ -3375,17 +3375,17 @@ VERIFIED	Nothing		EdSetExtrasGUI.o
 VERFIFIED	Done		EdSetGUI.o 5.Mar
 VERIFIED	Done		EditGui.o 6.Mar
 VERIFIED	Done		EvenMoreGUI.o 7.Mar
-Done		Foliage.o 7.Mar
-Done		FoliageGUI.o 12.Mar
-Nothing		Fractal.o
-Done		GenericParams.o 12.Mar
-Done		GenericTLGUI.o 12.Mar
-Done		GlobeMap.o 14.Mar
-Done		GlobeMapSupport.o 14.Mar
-Nothing		GrammarTable.o
-Nothing		HelpGUI.o
-Notthing	HyperKhorner4M-1_gcc.o
-Nothing		Images.o
+VERIFIED	Done		Foliage.o 7.Mar
+VERIFIED	Done		FoliageGUI.o 12.Mar
+VERIFIED	Nothing		Fractal.o
+VERIFIED	Done		GenericParams.o 12.Mar
+VERIFIED	Done		GenericTLGUI.o 12.Mar
+VERIFIED	Done		GlobeMap.o 14.Mar
+VERIFIED	Done		GlobeMapSupport.o 14.Mar
+VERIFIED	Nothing		GrammarTable.o
+VERIFIED	Nothing		HelpGUI.o
+VERIFIED	Notthing	HyperKhorner4M-1_gcc.o
+VERIFIED	Nothing		Images.o
 Done		InteractiveDraw.o 14.Mar
 Done		InteractiveUtils.o 15.Mar
 Done		InteractiveView.o 15.Mar
