@@ -556,7 +556,7 @@ struct Wave *WV;
  if (Frame < 0.0)
   {
   strcpy(str, "");
-  GetInputString(GetString( MSG_CLOUD_ENTERFRAMENUMBER ),  // "Enter Frame Number."
+  GetInputString((char*)GetString( MSG_CLOUD_ENTERFRAMENUMBER ),  // "Enter Frame Number."
 	 ",abcdefghijklmnopqrstuvwxyz", str);
   Frame = atof(str);
   } /* if no frame number supplied */
@@ -564,7 +564,7 @@ struct Wave *WV;
  LatStep = 8.0 * (CD->Lat[1] - CD->Lat[0]) / (CD->Rows - 1);
  LonStep = 8.0 * (CD->Lon[1] - CD->Lon[0]) / (CD->Cols - 1);
 
- BWMD = BusyWin_New(GetString( MSG_CLOUD_COMPUTING ), CD->Rows, 0, MakeID('B','W','M','D'));  // "Computing..."
+ BWMD = BusyWin_New((char*)GetString( MSG_CLOUD_COMPUTING ), CD->Rows, 0, MakeID('B','W','M','D'));  // "Computing..."
 
  zip = 0;
  for (y=0, ptlat=CD->Lat[0] + CD->LatOff; y<=CD->Rows; y+=8, ptlat+=LatStep)
@@ -655,7 +655,7 @@ struct clipbounds cb;
 
 /* plot color in Map View, brighter indicates higher wave amplitude */
 
- BWMD = BusyWin_New(GetString( MSG_CLOUD_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));  // "Drawing..."
+ BWMD = BusyWin_New((char*)GetString( MSG_CLOUD_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));  // "Drawing..."
 
  Density = CD->Density / 100.0;
 

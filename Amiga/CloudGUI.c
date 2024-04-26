@@ -87,7 +87,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
 		MUIA_FixWidthTxt, "0123", End,
 	  Child, CL_Win->BT_AddWave = KeyButtonFunc('a', (char*)GetString( MSG_CLOUDGUI_MAPADD )),  // "\33cMap Add..."
 	  Child, CL_Win->BT_EditWave = KeyButtonFunc('e', (char*)GetString( MSG_CLOUDGUI_EDIT )),   // "\33cEdit..."
-	  Child, Label2("Animate"),
+	  Child, Label2(GetString( MSG_CLOUDGUI_ANIMATE )),                                         // "Animate")
 	  Child, CL_Win->Check = CheckMark(0),
 	  End, /* HGroup */
 	Child, Label(GetString( MSG_CLOUDGUI_LOUDMAPSIZERANGE )),  // "\33c\0334Cloud Map Size & Range"

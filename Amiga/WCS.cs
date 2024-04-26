@@ -817,9 +817,18 @@ MSG_AGUI_FLUSH
 \33cFlush
 
 ;
+MSG_AGUI_CREDITS
+Credits
+
+;
 MSG_AGUI_WCSSCREENMODE
 WCS: Screen Mode
 
+;
+MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
+In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
+
+;
 MSG_AGUI_DATABASEMODULE
 Database Module
 Datenbank Modul
@@ -915,6 +924,16 @@ Alle (0)
 MSG_AGUI_NOOTHERKEYS
 No Other Keys
 Keines weiteren Keys
+;
+; PK="Previous Key"
+MSG_AGUI_PK
+PK %d
+
+;
+; NK="Next Key"
+MSG_AGUI_NK
+NK %d
+
 ;
 MSG_AGUI_NONE
  -none-\x20
@@ -9344,3 +9363,4 @@ Out of memory!\nOperation terminated.
 MSG_NNGRIDR_OK
 OK
 
+;

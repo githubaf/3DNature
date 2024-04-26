@@ -3348,13 +3348,13 @@ Locale BitMaps.c done
 locale-Bearbeitung:
 
 ------------------------------
-Done		WCS.h
+VERIFIED	Done		WCS.h
 
-Done		AGUI.o
-Nothing		BigEndianReadWrite.o
-Done		BitMaps.o
-Done		Cloud.o	19.Feb
-Done		CloudGUI.o 20.Feb
+VERIFIED	Done		AGUI.o
+VERIFIED	Nothing		BigEndianReadWrite.o
+VERIFIED	Done		BitMaps.o
+VERIFIED	Done		Cloud.o	19.Feb
+VERIFIED	Done		CloudGUI.o 20.Feb
 Nothing		ColorBlends.o
 ??? 		Commands.o
 Done		DEM.o
@@ -3504,3 +3504,5 @@ Suche generell nach Strings:
 
 cd 68020
 for FILE in $(ls *.o | sed -E "s/(.*)\.o/..\/\1.c/"); do echo; echo  "********** $FILE **********"; echo;  cat $FILE | grep -nHs "\".*\"" | grep -E -v "//.*\"" | grep -v "fprintf.*" | grep -v -E "fscanf.*" | grep -v -E "\".{0,2}\"" | grep -v -E "\"[\.0-9]+\"" | grep -v "#include"; done
+
+- Besser geht es wohl doch mit manuelle Nach-Kontrolle der C-Files in Eclipse.

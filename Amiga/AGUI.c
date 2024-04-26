@@ -2080,7 +2080,7 @@ STATIC_FCN void Make_Log_Window(int Severity) // used locally only -> static, AF
  Set_Param_Menu(10);
 
      Log_Win->LogWindow = WindowObject,
-      MUIA_Window_Title		, "Status Log",
+      MUIA_Window_Title		, GetString (MSG_AGUI_STATUSLOG ),  // "Status Log"
       MUIA_Window_ID		, MakeID('S','T','L','G'),
       MUIA_Window_Screen	, WCSScrn,
 
@@ -2453,7 +2453,7 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
           Set_Param_Menu(10);
 
           CreditWin = WindowObject,
-            MUIA_Window_Title		, "Credits",
+            MUIA_Window_Title		, GetString( MSG_AGUI_CREDITS ),  // "Credits"
             MUIA_Window_ID		, MakeID('C','R','E','D'),
             MUIA_Window_Screen	, WCSScrn,
             WindowContents, VGroup,
@@ -2545,10 +2545,10 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
 	} /* save screen shot */
        case ID_SCRNRESET:
         {
-        ResetScrn = User_Message((CONST_STRPTR) GetString( MSG_AGUI_WCSSCREENMODE ) ,  // "WCS: Screen Mode"
-        		(CONST_STRPTR)"In order to reset the screen mode WCS will have to close and re-open.\
- Any work in progress should be saved before invoking this command.\n\
- Do you wish to proceed now?", (CONST_STRPTR)"OK|Cancel", (CONST_STRPTR)"oc");
+        ResetScrn = User_Message((CONST_STRPTR) GetString( MSG_AGUI_WCSSCREENMODE ) ,                           // "WCS: Screen Mode"
+                                 GetString( MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN ),  // "In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\nDo you wish to proceed now?"
+                                 GetString( MSG_AGUI_OKCANCEL ),   // "OK|Cancel"
+                                 (CONST_STRPTR)"oc");
         break;
 	} /* reset screen mode */
        } /* switch (WCS_ID) */
@@ -2649,7 +2649,7 @@ void DisableKeyButtons(short group)
    if (EM_Win->PrevKey >= 0)
     {
     set(EM_Win->BT_PrevKey, MUIA_Disabled, FALSE);
-    sprintf(str, "PK %d", EM_Win->PrevKey);
+    sprintf(str, (char*)GetString( MSG_AGUI_PK ), EM_Win->PrevKey);  // "PK %d"
     set(EM_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)str);
     if (EMTL_Win)
      {
@@ -2678,7 +2678,7 @@ void DisableKeyButtons(short group)
    if (EM_Win->NextKey >= 0)
     {
     set(EM_Win->BT_NextKey, MUIA_Disabled, FALSE);
-    sprintf(str, "NK %d", EM_Win->NextKey);
+    sprintf(str, (char*)GetString( MSG_AGUI_NK ), EM_Win->NextKey);  // "NK %d"
     set(EM_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)str);
     if (EMTL_Win)
      {
@@ -2778,7 +2778,7 @@ void DisableKeyButtons(short group)
    if (EC_Win->PrevKey >= 0)
     {
     set(EC_Win->BT_PrevKey, MUIA_Disabled, FALSE);
-    sprintf(str, "PK %d", EC_Win->PrevKey);
+    sprintf(str, (char*)GetString( MSG_AGUI_PK ), EC_Win->PrevKey);  // "PK %d"
     set(EC_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)str);
     if (ECTL_Win)
      {
@@ -2799,7 +2799,7 @@ void DisableKeyButtons(short group)
    if (EC_Win->NextKey >= 0)
     {
     set(EC_Win->BT_NextKey, MUIA_Disabled, FALSE);
-    sprintf(str, "NK %d", EC_Win->NextKey);
+    sprintf(str, (char*)GetString( MSG_AGUI_NK ), EC_Win->NextKey);  // "NK %d"
     set(EC_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)str);
     if (ECTL_Win)
      {
@@ -2904,11 +2904,11 @@ void DisableKeyButtons(short group)
    else
     {
     set(EE_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-    set(EE_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
+    set(EE_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_PREV ));  // "\33cPrev"
     if (EETL_Win)
      {
      set(EETL_Win->BT_PrevKey, MUIA_Disabled, TRUE);
-     set(EETL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)"\33cPrev");
+     set(EETL_Win->BT_PrevKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_PREV ));  // "\33cPrev"
      } /* if ecosystem time line window open */
     }
    if (EE_Win->NextKey >= 0)
@@ -2933,7 +2933,7 @@ void DisableKeyButtons(short group)
     if (EETL_Win)
      {
      set(EETL_Win->BT_NextKey, MUIA_Disabled, TRUE);
-     set(EETL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)"\33cNext");
+     set(EETL_Win->BT_NextKey, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_NEXT ));  // "\33cNext"
      set(EETL_Win->TxtArrow[0], MUIA_Disabled, TRUE);
      set(EETL_Win->TxtArrow[1], MUIA_Disabled, TRUE);
      set(EETL_Win->TxtArrowLg[0], MUIA_Disabled, TRUE);
@@ -2954,10 +2954,10 @@ void DisableKeyButtons(short group)
    else
     {
     set(EE_Win->BT_UpdateKeys, MUIA_Disabled, TRUE);
-    set(EE_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)"\33cAll (0)");
+    set(EE_Win->BT_UpdateAll, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_ALL0 ));  // "\33cAll (0)"
     if (EETL_Win)
      {
-     set(EETL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)"No Other Keys");
+     set(EETL_Win->KeysExistTxt, MUIA_Text_Contents, (IPTR)GetString( MSG_AGUI_NOOTHERKEYS ));  // "No Other Keys"
      } /* if ecosystem time line window open */
     }
    if (EE_Win->ItemKeys > 1)
