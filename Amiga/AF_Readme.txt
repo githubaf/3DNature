@@ -3386,15 +3386,15 @@ VERIFIED	Nothing		GrammarTable.o
 VERIFIED	Nothing		HelpGUI.o
 VERIFIED	Notthing	HyperKhorner4M-1_gcc.o
 VERIFIED	Nothing		Images.o
-Done		InteractiveDraw.o 14.Mar
-Done		InteractiveUtils.o 15.Mar
-Done		InteractiveView.o 15.Mar
-Done		LWSupport.o 19.Mar
-Done		LineSupport.o 19.Mar
-Nothing		MUIFloatInt.o
-Nothing		MakeFaces.o
-Done		Map.o  20.Mar
-Done		MapExtra.o 29.Mar.24
+VERIFIED	Done		InteractiveDraw.o 14.Mar
+VERIFIED	Done		InteractiveUtils.o 15.Mar
+VERIFIED	Done		InteractiveView.o 15.Mar
+VERIFIED	Done		LWSupport.o 19.Mar
+VERIFIED	Done		LineSupport.o 19.Mar
+VERIFIED	Nothing		MUIFloatInt.o
+VERIFIED	Nothing		MakeFaces.o
+VERIFIED	Done		Map.o  20.Mar
+VERIFIED	Done		MapExtra.o 29.Mar.24
 Done		MapGUI.o 31.Mar.24
 Done		MapLineObject.o 31.Mar.24
 Done		MapSupport.o 1.Apr.24

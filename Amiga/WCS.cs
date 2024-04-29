@@ -4102,7 +4102,7 @@ This is an old V1 format file! Would you like to re-save it in the new format no
 ;
 MSG_EDPAR_THEPARAMETERFILEFORMATHASBEENCHANGEDSLIGHTLYSINCETHIS
 The Parameter File format has been changed slightly since this file was saved. Would you like to re-save it in the new format now?
-
+Das Format der Parameterdatei hat sich seit dem letzen Speichern geändert. Soll die Datei jetzt im neuen Format gespeichert werden?
 ;
 MSG_EDPAR_LOADALLKEYFRAMES
 Load all key frames?
@@ -6068,6 +6068,11 @@ MSG_INTVIEW_SELECTPREVIEWREGIONWITHTWOCLICKS
 Select preview region with two clicks
 
 ;
+; See Motion Editor->Cam View->Diag
+MSG_INTVIEW_IAD
+"IA %d"
+
+;
 MSG_INTVIEW_ERROROPENINGSMALLRENDERINGWINDOWPERATIONTERMINATED
 Error opening Small Rendering Window!\nOperation terminated.
 
@@ -6276,6 +6281,14 @@ Out of memory opening Key Frame table!\nOperation terminated.
 ;
 MSG_LINESPRT_THEREAREMOREFRAMESTHANALLOWABLEVECTORPOINTSPATHWIL
 There are more frames than allowable vector points! Path will be truncated.
+
+;
+MSG_LINESPRT_CAMERAPATH
+CameraPath
+
+;
+MSG_LINESPRT_FOCUSPATH
+FocusPath
 
 ;
 MSG_LINESPRT_OKCANCEL
@@ -6874,6 +6887,19 @@ Computing...
 MSG_MAPEXTRA_DRAWING
 Drawing...
 
+;
+; Menu: Modules -> Map View, klick into Map View Window, watch Map View Control Window 
+MSG_MAPEXTRA_AFSQKMLFKM
+%s: A=%f sq km, L=%fkm.
+%s: A=%f km², L=%f km.
+;
+MSG_MAPEXTRA_CXRAFSQKM
+%s (%ldc x %ldr): A=%f sq km.
+%s (%ldSpn x %ldZln): A=%f km².
+;
+MSG_MAPEXTRA_AFSQKM
+%s: A=%f sq km.
+%s: A=%f km².
 ;
 MSG_MAPEXTRA_OUTOFMEMORYOTENOUGHFORTEMPORARYTOPOARRAYPERATIONFAIL
 Out of memory!\nNot enough for temporary topo array.\nOperation failed.
@@ -9382,5 +9408,4 @@ Out of memory!\nOperation terminated.
 MSG_NNGRIDR_OK
 OK
 
-;
 ;

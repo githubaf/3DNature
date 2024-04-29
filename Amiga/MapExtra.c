@@ -605,7 +605,7 @@ void findarea(short OBN)
 
  if ((strcmp(DBase[OBN].Special, "TOP") && strcmp(DBase[OBN].Special, "SFC"))
 	|| ! topoload)
-  sprintf(str, "%s: A=%f sq km, L=%fkm.", DBase[OBN].Name, area, Length);
+  sprintf(str, (char*)GetString( MSG_MAPEXTRA_AFSQKMLFKM ), DBase[OBN].Name, area, Length);  // "%s: A=%f sq km, L=%fkm."
  else
   {
   for (i=0; i<topomaps; i++)
@@ -617,10 +617,10 @@ void findarea(short OBN)
     } /* if map found */
    } /* for i=0... */
   if (found)
-   sprintf(str, "%s (%ldc x %ldr): A=%f sq km.", DBase[OBN].Name, 
+   sprintf(str, (char*)GetString( MSG_MAPEXTRA_CXRAFSQKM ), DBase[OBN].Name,  // "%s (%ldc x %ldr): A=%f sq km."
 	mapelmap[i].rows + 1, mapelmap[i].columns, area);
   else
-   sprintf(str, "%s: A=%f sq km.", DBase[OBN].Name, area);
+   sprintf(str, (char*)GetString( MSG_MAPEXTRA_AFSQKM ), DBase[OBN].Name, area);  // "%s: A=%f sq km."
 
   } /* else object is DEM and topos are loaded */
  if (error) strcat(str, (char*)GetString( MSG_MAPEXTRA_NOTCLOSED ));  // "[Not closed]"
@@ -635,7 +635,7 @@ void FindDistance(void)
  double Length, XOne, YOne, ZOne, XTwo = 0, YTwo = 0, ZTwo = 0, TempLat, TempLon;
  struct Box Bx;
 
- MapGUI_Message(0, GetString( MSG_MAPEXTRA_SETORIGINPOINT ));                       // "\0338Set origin point."
+ MapGUI_Message(0, (char*)GetString( MSG_MAPEXTRA_SETORIGINPOINT ));                // "\0338Set origin point."
  SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SETORIGINPOINT ), (UBYTE *)-1);  // "Set origin point"
 
  if (! MousePtSet(&Bx.Low, NULL, 0))
@@ -2043,7 +2043,7 @@ EndFix:
    {
    User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),                               // "Mapping Module: Fix Flats"
                 GetString( MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINTOPOMAPBOUNDARIESPERATI ),  // "All corner points must be within topo map boundaries!\nOperation terminated."
-                GetString( MSG_MAPEXTRA_OK ),                                                      // "OK"
+                GetString( MSG_MAPEXTRA_OK ),                                                  // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* one corner outside mapped area */

@@ -356,11 +356,11 @@ short InitDigPerspective(void)
   DBaseObject_New();
 
  if (! strcmp(DBase[OBN].Special, "TOP") || 
- 	! strcmp(DBase[OBN].Special, "SFC"))
+     ! strcmp(DBase[OBN].Special, "SFC"))
   {
   User_Message(GetString( MSG_LINESPRT_DIAGNOSTICDIGITIZE ),                                  // "Diagnostic: Digitize"
                GetString( MSG_LINESPRT_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIONTERM ),  // "Active object is a DEM and may not be digitized!\nOperation terminated."
-               GetString( MSG_LINESPRT_OK ),                                                       // "OK"
+               GetString( MSG_LINESPRT_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   return (0);
   } /* if DEM */ 
@@ -692,9 +692,9 @@ short PathToVector(short item)
 
 /* assign values to new database record */
  if (! item)
-  strcpy(str, "CameraPath");
+  strcpy(str, (char*)GetString( MSG_LINESPRT_CAMERAPATH ));  // "CameraPath"
  else
-  strcpy(str, "FocusPath");
+  strcpy(str, (char*)GetString( MSG_LINESPRT_FOCUSPATH ));   // "FocusPath"
 NewName:
  if (! GetInputString((char*)GetString( MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED ), ":;*/?`#%", str))  // "Enter name of vector to be created."
   return (0);

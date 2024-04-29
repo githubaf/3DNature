@@ -896,7 +896,7 @@ void smallwindow(short diagnostics)
  iflags = 0;
  c0 = 0x00;
  c1 = 0x01;
- sprintf(SmWin[WindowNumber]->Title, "IA %d", IA->WindowCounter);
+ sprintf(SmWin[WindowNumber]->Title, (char*)GetString( MSG_INTVIEW_IAD ), IA->WindowCounter);  // "IA %d"
  if (lastX - firstX < 20) lastX = firstX + 20; 
  SmWin[WindowNumber]->win = (struct Window *)
      make_window(InterWind0->LeftEdge + firstX - InterWind0->BorderLeft,
