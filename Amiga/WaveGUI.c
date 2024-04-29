@@ -1743,7 +1743,7 @@ void GUIDisableKeyButtons(struct GUIKeyStuff *GKS, struct TimeLineWindow *TL,
   if (WKS->PrevKey >= 0)
    {
    set(GKS->BT_PrevKey, MUIA_Disabled, FALSE);
-   sprintf(str, "PK %d", WKS->PrevKey);
+   sprintf(str, (char*)GetString( MSG_WAVGUI_PKD ), WKS->PrevKey);  // "PK %d"
    set(GKS->BT_PrevKey, MUIA_Text_Contents, (IPTR)str);
    if (TL)
     {
@@ -1764,7 +1764,7 @@ void GUIDisableKeyButtons(struct GUIKeyStuff *GKS, struct TimeLineWindow *TL,
   if (WKS->NextKey >= 0)
    {
    set(GKS->BT_NextKey, MUIA_Disabled, FALSE);
-   sprintf(str, "NK %d", WKS->NextKey);
+   sprintf(str, (char*)GetString( MSG_WAVGUI_NKD ), WKS->NextKey);  // "NK %d"
    set(GKS->BT_NextKey, MUIA_Text_Contents, (IPTR)str);
    if (TL)
     {

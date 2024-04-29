@@ -3360,7 +3360,7 @@ VERIFIED	Nothing		ColorBlends.o
 VERIFIED	Done		DEM.o
 VERIFIED	Done		DEMGUI.o 22.Feb
 VERIFIED	Nothing		DEMObject.o
-VERIFIED, only trings in File?	Done		DLG.o
+VERIFIED, only strings in File?	Done		DLG.o
 VERIFIED	Done		DataBase.o 26.Feb
 VERIFIED	Done		DataOps.o 26.Feb
 VERIFIED	Done		DataOpsGUI.o 26.Feb
@@ -3372,7 +3372,7 @@ VERIFIED	Done		EdEcoGUI.o 28.Feb
 VERIFIED	Done		EdMoGUI.o 29.Feb
 VERIFIED	Done		EdPar.o 1.Mar
 VERIFIED	Nothing		EdSetExtrasGUI.o
-VERFIFIED	Done		EdSetGUI.o 5.Mar
+VERIFIED	Done		EdSetGUI.o 5.Mar
 VERIFIED	Done		EditGui.o 6.Mar
 VERIFIED	Done		EvenMoreGUI.o 7.Mar
 VERIFIED	Done		Foliage.o 7.Mar
@@ -3395,35 +3395,35 @@ VERIFIED	Nothing		MUIFloatInt.o
 VERIFIED	Nothing		MakeFaces.o
 VERIFIED	Done		Map.o  20.Mar
 VERIFIED	Done		MapExtra.o 29.Mar.24
-Done		MapGUI.o 31.Mar.24
-Done		MapLineObject.o 31.Mar.24
-Done		MapSupport.o 1.Apr.24
-Done		MapTopo.o 1.Apr.24
-Done		MapTopoObject.o 1.Apr.24
-Done		MapUtil.o 1.Apr.24
-Nothing		Memory.o
-Nothing		Menu.o
-Done		MoreGUI.o 8.Apr.24
-Done		Params.o  8.Apr.24
-Done		ParamsGUI.o 9.Apr.24
-Nothing		PlotGUI.o
-Done		RequesterGUI.o 12.Apr.24
-Done		RexxSupport.o 12.Apr.24
-Nothing		ScratchPad.o
-Done 		ScreenModeGUI.o
-Done		Support.o
-Nothing		TLSupportGUI.o
-Done		TimeLinesGUI.o
-Done		Tree.o
-Version.o
-Nothing		VocabTable.o
-Done		WCS.o 22.Apr.24
-Nothing		WCS_locale.o
-Done		Wave.o 18.Apr.24
-Done		WaveGUI.o 19.Apr.24
-Done		nncrunch.o 22.Apr.24
-Done		nngridr.o 22.Apr.24
-Nothing		sasc_functions.o
+VERIFIED	Done		MapGUI.o 31.Mar.24
+VERIFIED	Done		MapLineObject.o 31.Mar.24
+VERIFIED	Done		MapSupport.o 1.Apr.24
+VERIFIED	Done		MapTopo.o 1.Apr.24
+VERIFIED	Done		MapTopoObject.o 1.Apr.24
+VERIFIED	Done		MapUtil.o 1.Apr.24
+VERIFIED	Nothing		Memory.o
+VERIFIED	Nothing		Menu.o
+VERIFIED	Done		MoreGUI.o 8.Apr.24
+VERIFIED	Done		Params.o  8.Apr.24
+VERIFIED	Done		ParamsGUI.o 9.Apr.24
+VERIFIED	Nothing		PlotGUI.o
+VERIFIED	Done		RequesterGUI.o 12.Apr.24
+VERIFIED	Done		RexxSupport.o 12.Apr.24
+VERIFIED	Nothing		ScratchPad.o
+VERIFIED	Done 		ScreenModeGUI.o
+VERIFIED	Done		Support.o
+VERIFIED	Nothing		TLSupportGUI.o
+VERIFIED	Done		TimeLinesGUI.o
+VERIFIED	Done		Tree.o
+VERIFIED	leave it original English	Version.o	
+VERIFIED	Nothing		VocabTable.o
+VERIFIED	Done		WCS.o 22.Apr.24
+VERIFIED	Nothing		WCS_locale.o
+VERIFIED	Done		Wave.o 18.Apr.24
+VERIFIED	Done		WaveGUI.o 19.Apr.24
+VERIFIED	Done		nncrunch.o 22.Apr.24
+VERIFIED	Done		nngridr.o 22.Apr.24
+VERIFIED	Nothing		sasc_functions.o
 
 
 22.Feb24

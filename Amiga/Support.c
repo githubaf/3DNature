@@ -975,7 +975,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
  else
   {
   strcpy(Ptrn, "#?.proj");
-  if (! getfilenameptrn(0, "Project", projectpath, projectname, Ptrn))
+  if (! getfilenameptrn(0, (char*)GetString( MSG_SUPPORT_PROJECT ), projectpath, projectname, Ptrn))  // "Project"
   return (0);
   strmfp(filename, projectpath, projectname);
   } /* else */

@@ -710,7 +710,7 @@ Behalten|Abbrechen
 ;
 MSG_AGUI_SORRYOUMUSTFIRSTLOAD338NBEFOREUSINGTHISFEATURE
 Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature.
-
+Entschuldigung!\nEs muss zuerst\n\338%s\0332\ngeladen werden, bevor diese Feature genutzt werden kann.
 ;
 MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT
 File already exists.\nDo you wish to overwrite it?
@@ -837,6 +837,7 @@ MSG_AGUI_DATABASEMODULEAPPEND
 Database Moldule: Append
 Datenbank Modul: Anhängen
 ;
+;This is a %s-String for NoLoad_Message() "Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature."
 MSG_AGUI_ADATABASE
 a Database
 eine Datenbank
@@ -7657,6 +7658,10 @@ MSG_MAPTOPOOB_OKCANCEL
 OK|Cancel
 
 ;
+MSG_MAPTOPOOB_DEMDD
+DEM %d/%d
+DEM %d/%d
+;
 MSG_MAPTOPOOB_ERRORSAVINGVECTORVERTICESTOFILE
 Error saving vector vertices to file!
 
@@ -8744,6 +8749,10 @@ MSG_SUPPORT_BOTHDBASEPARAMSNO
 Both|D'base|Params|No
 Beide|Datenbank|Parameter|Keine
 ;
+MSG_SUPPORT_PROJECT
+Project
+Projekt
+;
 MSG_SUPPORT_WCSPROJECTLOAD
 WCS Project: Load
 WCS Projekt: Laden
@@ -9141,6 +9150,16 @@ MSG_WAVGUI_KEYFRAMES
 ;
 MSG_WAVGUI_PREV
 \33cPrev
+
+;
+; PK="Previous Key"
+MSG_WAVGUI_PKD
+PK %d
+
+;
+; NK="Next Key"
+MSG_WAVGUI_NKD
+NK %d
 
 ;
 MSG_WAVGUI_FRAME

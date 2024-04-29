@@ -115,7 +115,7 @@ RetrySmooth:
    } /* for j=1... */
   } /* if displacement mapping */
 
- sprintf(DEMstr, "DEM %d/%d", DEMnum, NumDEMs);
+ sprintf(DEMstr, (char*)GetString( MSG_MAPTOPOOB_DEMDD ), DEMnum, NumDEMs);  // "DEM %d/%d"
  BWDE = BusyWin_New(DEMstr, (map->rows + 1) * 2, 0, MakeID('B','W','D','E'));
 
 /* compute screen coordinates */
@@ -2323,7 +2323,7 @@ if (MaxFract == 0)		/* don't need an index */
     fread((char *)&Vertices, sizeof (LONG), 1, fVtx);
     ENDIAN_CHANGE_IF_NEEDED( SimpleEndianFlip32S(Vertices,&Vertices); ) /* AF: 30.Dec.2022, Endian correction for i386-aros */
     Vtx->PSize = Vertices;
-    if ((Vtx->Use = (long *)get_Memory(Vertices * sizeof (long), MEMF_ANY)) != NULL)
+    if ((Vtx->Use = (LONG *)get_Memory(Vertices * sizeof (long), MEMF_ANY)) != NULL)
      {
      if ((Vtx->Pert = (UBYTE *)get_Memory(Vertices * sizeof (char), MEMF_ANY)) != NULL)
       {
