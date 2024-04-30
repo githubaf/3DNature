@@ -360,7 +360,7 @@ short InitDigPerspective(void)
   {
   User_Message(GetString( MSG_LINESPRT_DIAGNOSTICDIGITIZE ),                                  // "Diagnostic: Digitize"
                GetString( MSG_LINESPRT_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIONTERM ),  // "Active object is a DEM and may not be digitized!\nOperation terminated."
-               GetString( MSG_LINESPRT_OK ),                                                  // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   return (0);
   } /* if DEM */ 
@@ -371,7 +371,7 @@ short InitDigPerspective(void)
   {
   User_Message(GetString( MSG_LINESPRT_INTERACTIVEMODULEADDPOINTS ),    // "Interactive Module: Add Points"
                GetString( MSG_LINESPRT_OUTOFMEMORYPERATIONTERMINATED ), // "Out of memory!\nOperation terminated."
-               GetString( MSG_LINESPRT_OK ) ,                           // "OK"
+               GetString( MSG_GLOBAL_OK ) ,                           // "OK"
                (CONST_STRPTR)"o");
   return (0);
   } /* if out of memory allocating point array */
@@ -394,7 +394,7 @@ void QuitDigPerspective(void)
 
  if (User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
                       GetString( MSG_LINESPRT_SAVEOBJECTPOINTS ),  // "Save object points?"
-                      GetString( MSG_LINESPRT_OKCANCEL ),          // "OK|CANCEL"
+                      GetString( MSG_GLOBAL_OKCANCEL ),          // "OK|CANCEL"
                       (CONST_STRPTR)"oc", 1))
   {
   error = saveobject(OBN, NULL, DBase[OBN].Lon, DBase[OBN].Lat, DBase[OBN].Elev);
@@ -473,7 +473,7 @@ short VectorToPath(short item)
    {
    User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                           // "Mapping Module: Path"
                 GetString( MSG_LINESPRT_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED ),  // "Error loading vector object!\nOperation terminated."
-                GetString( MSG_LINESPRT_OK ),                                          // "OK"
+                GetString( MSG_GLOBAL_OK ),                                          // "OK"
                 (CONST_STRPTR)"o");
    return (0);
    } /* if load error */
@@ -619,7 +619,7 @@ EndVec:
   {
   User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                               // "Mapping Module: Path"
                GetString( MSG_LINESPRT_OUTOFMEMORYCREATINGKEYFRAMESPERATIONTERMINATED ),  // "Out of memory creating Key Frames!\nOperation terminated."
-               GetString( MSG_LINESPRT_OK ),                                              // "OK"
+               GetString( MSG_GLOBAL_OK ),                                              // "OK"
                (CONST_STRPTR)"o");
   return (0);
   } /* if error */
@@ -664,7 +664,7 @@ short PathToVector(short item)
   {
   User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                  // "Mapping Module: Path"
                GetString( MSG_LINESPRT_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening Key Frame table!\nOperation terminated."
-               GetString( MSG_LINESPRT_OK ),  // "OK"
+               GetString( MSG_GLOBAL_OK ),  // "OK"
                (CONST_STRPTR)"o");
   } /* if no key table */
 
@@ -684,7 +684,7 @@ short PathToVector(short item)
   {
   if (! User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
                      GetString( MSG_LINESPRT_THEREAREMOREFRAMESTHANALLOWABLEVECTORPOINTSPATHWIL ),  // "There are more frames than allowable vector points! Path will be truncated."
-                     GetString( MSG_LINESPRT_OKCANCEL ),                                            // "OK|Cancel"
+                     GetString( MSG_GLOBAL_OKCANCEL ),                                            // "OK|Cancel"
                      (CONST_STRPTR)"oc"))
    return (0);
   Frames = MAXOBJPTS - 1;
@@ -735,7 +735,7 @@ NewName:
     {
     User_Message(GetString( MSG_LINESPRT_DATABASEMODULE ),                                  // "Database Module"
                  GetString( MSG_LINESPRT_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding Database!\nOperation terminated."
-                 GetString( MSG_LINESPRT_OK ),                                              // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                              // "OK"
                  (CONST_STRPTR)"o");
     return (0);
     } /* if new database allocation fails */
@@ -779,7 +779,7 @@ NewName:
   {
   User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
                GetString( MSG_LINESPRT_OUTOFMEMORYCREATINGNEWVECTOROBJECTPERATIONTERMINAT ),  // "Out of memory creating new vector object!\nOperation terminated."
-               GetString( MSG_LINESPRT_OK ),                                                  // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   return (0);
   } /* if memory fails */

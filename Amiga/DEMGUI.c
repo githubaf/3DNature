@@ -244,7 +244,7 @@ if(Init)
    Close_MD_Window();
    User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),  // "Map View: Build DEM"
                 GetString( MSG_DEMGUI_OUTOFMEMORY ),      // "Out of memory!"
-                GetString( MSG_DEMGUI_OK ),               // "OK"
+                GetString( MSG_GLOBAL_OK ),               // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -396,7 +396,7 @@ long i, data;
        {
        if (! User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                       // "Map View: Build DEM"
                           GetString( MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU ),  // "This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?"
-                          GetString( MSG_DEMGUI_OKCANCEL ),                                              // "OK|Cancel"
+                          GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
                           (CONST_STRPTR)"oc"))
         break;
        Close_GR_Window();
@@ -914,7 +914,7 @@ long open;
    Close_GR_Window();
    User_Message(GetString( MSG_DEMGUI_MAPVIEWDEMGRIDDER ),  // "Map View: DEM Gridder"
                 GetString( MSG_DEMGUI_OUTOFMEMORY ),        // "Out of memory!"
-                GetString( MSG_DEMGUI_OK ),                 // "OK"
+                GetString( MSG_GLOBAL_OK ),                 // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -1262,12 +1262,12 @@ float El;
   if (DE_Win)
    User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ) ,                         // "Map View: Build DEM"
                 GetString( MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT ),  // "Select contour objects to import and reselect \"Import\" when done."
-                GetString( MSG_DEMGUI_OK ),                                       // "OK"
+                GetString( MSG_GLOBAL_OK ),                                       // "OK"
                 (CONST_STRPTR)"o");
   else
    User_Message(GetString( MSG_DEMGUI_MAPVIEWEXPORTCONTOURS ) ,                          // "Map View: Export Contours",
                 GetString( MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED ),  // "Can't open Database Editor window!\nOperation terminated."
-                GetString( MSG_DEMGUI_OK ) ,                                             // "OK",
+                GetString( MSG_GLOBAL_OK ) ,                                             // "OK",
                 (CONST_STRPTR)"o");
   return (0);
   } /* if Database Editor not open */
@@ -1310,7 +1310,7 @@ float El;
     {
     User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ) ,  // "Map View: Build DEM"
     		GetString( MSG_DEMGUI_ERRORIMPORTINGCONTOURDATAPERATIONTERMINATED ) ,  // "Error importing contour data!\nOperation terminated."
-                GetString( MSG_DEMGUI_OK ) ,  // "OK",
+                GetString( MSG_GLOBAL_OK ) ,  // "OK",
                 (CONST_STRPTR)"o");
     success = 0;
     break;
@@ -1321,7 +1321,7 @@ float El;
  if (Warn)
   User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                       // "Map View: Build DEM"
 		  GetString( MSG_DEMGUI_ATLEASTONEOBJECTFAILEDTOLOADANDCOULDNOTBEIMPORTED ),  // "At least one Object failed to load and could not be imported."
-                  GetString( MSG_DEMGUI_OK ),                                                 // "OK"
+                  GetString( MSG_GLOBAL_OK ),                                                 // "OK"
                   (CONST_STRPTR)"o");
 
  return (success);
@@ -1367,7 +1367,7 @@ long X, Y;
     success = 0;
     User_Message(GetString( MSG_DEMGUI_MAPVIEWIMPORTCONTOURS ),         // "Map View: Import Contours"
     		GetString( MSG_DEMGUI_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-                GetString( MSG_DEMGUI_OK ),                             // "OK",
+                GetString( MSG_GLOBAL_OK ),                             // "OK",
                 (CONST_STRPTR)"o");
     break;
     } /* else */
@@ -1406,7 +1406,7 @@ struct UTMLatLonCoords UTM;
   {
   User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                 // "Map View: Build DEM"
 	       GetString( MSG_DEMGUI_YOUDIDNOTSELECTAFILETOIMPORTPERATIONTERMINATED ),  // "You did not select a file to import!\nOperation terminated."
-               GetString( MSG_DEMGUI_OK ),                                              // "OK",
+               GetString( MSG_GLOBAL_OK ),                                              // "OK",
                (CONST_STRPTR)"o");
   return (0);
   } /* if */
@@ -1427,7 +1427,7 @@ struct UTMLatLonCoords UTM;
     {
     User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                      // "Map View: Build DEM"
     		GetString( MSG_DEMGUI_UTMZONESMAYBEFROM0TO60THESELECTEDZONEISOUTOFRANGEPER ),  // "UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated."
-                GetString( MSG_DEMGUI_OK ),                                                    //  "OK"
+                GetString( MSG_GLOBAL_OK ),                                                    //  "OK"
                 (CONST_STRPTR)"o");
     return (0);
     } /* if zone out of range */
@@ -1479,7 +1479,7 @@ struct UTMLatLonCoords UTM;
     success = 0;
     User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),  // "Map View: Build DEM"
     		GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),   // "Out of memory!\nOperation terminated."
-                GetString( MSG_DEMGUI_OK ),                // "OK"
+                GetString( MSG_GLOBAL_OK ),                // "OK"
                 (CONST_STRPTR)"o");
     break;
     } /* else out of memory */
@@ -1491,7 +1491,7 @@ struct UTMLatLonCoords UTM;
   Log(ERR_OPEN_FAIL, (CONST_STRPTR)XYZFile);
   User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ) ,                               // "Map View: Build DEM"
 	       GetString( MSG_DEMGUI_ERROROPENINGXYZFILETOIMPORTPERATIONTERMINATED ),  // "Error opening XYZ file to import!\nOperation terminated."
-               GetString( MSG_DEMGUI_OK ),                                             // "OK"
+               GetString( MSG_GLOBAL_OK ),                                             // "OK"
                (CONST_STRPTR)"o");
   success = 0;
   } /* else open file failed */
@@ -1534,7 +1534,7 @@ FILE *fXYZ;
   {
   User_Message(GetString( MSG_DEMGUI_MAPVIEWXYZEXPORT ) ,                                 // "Map View: XYZ Export"
 	       GetString( MSG_DEMGUI_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED ),  // "You must specify an output file name!\nOperation terminated."
-               GetString( MSG_DEMGUI_OK ),                                                // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                // "OK"
                (CONST_STRPTR)"o");
   return (0);
   } /* if no file name */
@@ -1554,7 +1554,7 @@ FILE *fXYZ;
     {
     User_Message(GetString( MSG_DEMGUI_MAPVIEWXYZEXPORT ),                                     // "Map View: XYZ Export"
     		GetString( MSG_DEMGUI_ERRORWRITINGTOXYZFILEPARTIALFILEWRITTENPERATIONTERMI ),  // "Error writing to XYZ file! Partial file written.\nOperation terminated."
-                GetString( MSG_DEMGUI_OK ),                                                    // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                 (CONST_STRPTR)"o");
     Log(ERR_WRITE_FAIL, (CONST_STRPTR)XYZFile);
     success = 0;
@@ -1568,7 +1568,7 @@ FILE *fXYZ;
   {
   User_Message( GetString( MSG_DEMGUI_MAPVIEWXYZEXPORT ),                                // "Map View: XYZ Export"
 		GetString( MSG_DEMGUI_UNABLETOOPENXYZFILEFOREXPORTPERATIONTERMINATED ),  // "Unable to open XYZ file for export!\nOperation terminated."
-                GetString( MSG_DEMGUI_OK ),                                              // "OK",
+                GetString( MSG_GLOBAL_OK ),                                              // "OK",
                 (CONST_STRPTR)"o");
   Log(ERR_OPEN_FAIL, (CONST_STRPTR)XYZFile);
   success = 0;

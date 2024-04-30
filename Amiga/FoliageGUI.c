@@ -70,7 +70,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
   {
   User_Message(GetString( MSG_FOLIGUI_PARAMETERSMODULEFOLIAGE ),         // "Parameters Module: Foliage"
 	       GetString( MSG_FOLIGUI_OUTOFMEMORYANTOPENFOLIAGEEDITOR ), // "Out of memory!\nCan't open Foliage Editor."
-               GetString( MSG_FOLIGUI_OK ),                              // "OK"
+               GetString( MSG_GLOBAL_OK ),                              // "OK"
                (CONST_STRPTR)"o");
   Close_FE_Window(1);
   return;
@@ -86,7 +86,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
    {
    User_Message(GetString( MSG_FOLIGUI_PARAMETERSMODULEFOLIAGE ),          // "Parameters Module: Foliage"
                 GetString( MSG_FOLIGUI_OUTOFMEMORYANTOPENFOLIAGEEDITOR ),  // b"Out of memory!\nCan't open Foliage Editor."
-                GetString( MSG_FOLIGUI_OK ),                               // "OK"
+                GetString( MSG_GLOBAL_OK ),                               // "OK"
                 (CONST_STRPTR)"o");
    Close_FE_Window(1);
    return;
@@ -224,7 +224,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
    Close_FE_Window(1);
    User_Message(GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
                 GetString( MSG_FOLIGUI_OUTOFMEMORY ),    // "Out of memory!"
-                GetString( MSG_FOLIGUI_OK ),             // "OK"
+                GetString( MSG_GLOBAL_OK ),             // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -448,7 +448,7 @@ double FloatVal;
       else
        User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
     		        GetString( MSG_FOLIGUI_UNABLETOLOADIMAGEFILEFORVIEWINGPERATIONTERMINATED ),   // "Unable to load image file for viewing!\nOperation terminated.",
-                        GetString( MSG_FOLIGUI_OK ),                                                  // "OK"
+                        GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                         (CONST_STRPTR)"o", 0);
       if (Bitmap[0])
        free_Memory(Bitmap[0], Width * Height);
@@ -774,7 +774,7 @@ short success = 0;
    else
     User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE ),                   // "Foliage Editor: Load Ecotype"
                      GetString( MSG_FOLIGUI_ERRORLOADINGECOTYPEFILEPERATIONTERMINATED ),  // "Error loading Ecotype file!\nOperation terminated."
-    		     GetString( MSG_FOLIGUI_OK ),                                         // "OK"
+    		     GetString( MSG_GLOBAL_OK ),                                         // "OK"
                      (CONST_STRPTR)"o", 0);
    fclose(ffile);
    FE_Win->Mod = 1;
@@ -808,7 +808,7 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
      {
      User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                            // "Foliage Editor: Add Group"
                       GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                      GetString( MSG_FOLIGUI_OK ),                                               // "OK"
+                      GetString( MSG_GLOBAL_OK ),                                               // "OK"
                       (CONST_STRPTR)"o", 0);
      fclose(ffile);
      return (0);
@@ -846,7 +846,7 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
    else
     User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                           // "Foliage Editor: Add Group"
                      GetString( MSG_FOLIGUI_ERRORLOADINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error loading Foliage Group file!\nOperation terminated."
-    		     GetString( MSG_FOLIGUI_OK ),                                              // "OK"
+    		     GetString( MSG_GLOBAL_OK ),                                              // "OK"
                      (CONST_STRPTR)"o", 0);
    fclose(ffile);
    } /* if file opened */
@@ -874,7 +874,7 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
    {
    User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
                     GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                    GetString( MSG_FOLIGUI_OK ),                                               // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                               // "OK"
                     (CONST_STRPTR)"o", 0);
    return (0);
    } /* if no memory */
@@ -916,7 +916,7 @@ struct FoliageGroup **NewGroupAddr, *NewGroup;
  else
   User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
 		   GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                   GetString( MSG_FOLIGUI_OK ) ,                                              // "OK"
+                   GetString( MSG_GLOBAL_OK ) ,                                              // "OK"
                    (CONST_STRPTR)"o", 0);
 
  return (0);
@@ -948,7 +948,7 @@ short success = 0;
     else
      User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP ),                         // "Foliage Editor: Save Group"
                       GetString( MSG_FOLIGUI_ERRORSAVINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error saving Foliage Group file!\nOperation terminated."
-    		      GetString( MSG_FOLIGUI_OK ),                                             // "OK"
+    		      GetString( MSG_GLOBAL_OK ),                                             // "OK"
                       (CONST_STRPTR)"o", 0);
     fclose(ffile);
     } /* if file opened */
@@ -1011,13 +1011,13 @@ UBYTE *Bitmap[3];
    else
     User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                             // "Foliage Editor: Add Image"
     		     GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ) ,  // "Out of memory allocating new group!\nOperation terminated."
-                     GetString( MSG_FOLIGUI_OK ),                                                // "OK"
+                     GetString( MSG_GLOBAL_OK ),                                                // "OK"
                      (CONST_STRPTR)"o", 0);
    } /* if image loaded */
   else
    User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                    // "Foliage Editor: Add Image"
 		    GetString( MSG_FOLIGUI_ERRORLOADINGIMAGEFILEPERATIONTERMINATED ),  // "Error loading image file!\nOperation terminated."
-                    GetString( MSG_FOLIGUI_OK ),                                       // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                       // "OK"
                     (CONST_STRPTR)"o", 0);
   if (Bitmap[0])
    free_Memory(Bitmap[0], Width * Height);
@@ -1472,7 +1472,7 @@ short success = 0;
     else
      User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEECOTYPE ),                  // "Foliage Editor: Save Ecotype"
                       GetString( MSG_FOLIGUI_ERRORSAVINGECOTYPEFILEPERATIONTERMINATED ),  // "Error saving Ecotype file!\nOperation terminated."
-                      GetString( MSG_FOLIGUI_OK ),                                        // "OK"
+                      GetString( MSG_GLOBAL_OK ),                                        // "OK"
                       (CONST_STRPTR)"o", 0);
     fclose(ffile);
     } /* if file opened */

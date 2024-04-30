@@ -43,7 +43,7 @@ void Make_EE_Window(void)
   {
   User_Message(GetString( MSG_EDECOGUI_ECOSYSTEMEDITOR ),                                     // "Ecosystem Editor"
                GetString( MSG_EDECOGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENIN ),  // "You must first load or create a parameter file before opening the Editor.",
-               GetString( MSG_EDECOGUI_OK ),                                                  // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no params */
@@ -74,7 +74,7 @@ void Make_EE_Window(void)
   {
   User_Message(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),          // "Parameters Module: Ecosystem"
 	       GetString( MSG_EDECOGUI_OUTOFMEMORYANTOPENECOSYSTEMEDITOR ),  // "Out of memory!\nCan't open Ecosystem Editor."
-               GetString( MSG_EDECOGUI_OK ),                                 // "OK"
+               GetString( MSG_GLOBAL_OK ),                                 // "OK"
                 (CONST_STRPTR)"o");
   Close_EE_Window(1);
   return;
@@ -275,7 +275,7 @@ void Make_EE_Window(void)
    Close_EE_Window(1);
    User_Message(GetString( MSG_EDECOGUI_ECOSYSTEMEDITOR ),  // "Ecosystem Editor"
                 GetString( MSG_EDECOGUI_OUTOFMEMORY ),      // "Out of memory!"
-                GetString( MSG_EDECOGUI_OK ),               // "OK"
+                GetString( MSG_GLOBAL_OK ),               // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -707,7 +707,7 @@ void Handle_EE_Window(ULONG WCS_ID)
       sprintf(str, (char*)GetString( MSG_EDECOGUI_DELETEALLKEYFRAMES ), PAR_NAME_ECO(EE_Win->EcoItem));  // "Delete all %s Key Frames?"
       if (User_Message_Def(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                          // "Parameters Module: Ecosystem"
                            (CONST_STRPTR)str,
-                           GetString( MSG_EDECOGUI_OKCANCEL ),                                           // "OK|Cancel",
+                           GetString( MSG_GLOBAL_OKCANCEL ),                                           // "OK|Cancel",
                            (CONST_STRPTR)"oc", 1))
        {
        for (i=ParHdr.KeyFrames-1; i>=0; i--)
@@ -761,7 +761,7 @@ void Handle_EE_Window(ULONG WCS_ID)
         {
         User_Message(GetString( MSG_EDECOGUI_ECOSYSTEMPARAMETERSSWAP ) ,                         // "Ecosystem Parameters: Swap"
                      GetString( MSG_EDECOGUI_CANTSWAPWITHFIRST12ECOSYSTEMSPERATIONTERMINATED ),  // "Can't swap with first 12 ecosystems!\nOperation terminated."
-                     GetString( MSG_EDECOGUI_OK ),                                               // "OK"
+                     GetString( MSG_GLOBAL_OK ),                                               // "OK"
                      (CONST_STRPTR)"oc");
         set(EE_Win->LS_List, MUIA_List_Active, EE_Win->EcoItem);
 	}

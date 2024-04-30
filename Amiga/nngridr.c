@@ -211,7 +211,7 @@ EndGrid:
  else
   User_Message(GetString( MSG_NNGRIDR_MAPVIEWGRIDDEM ),                // "Map View: Grid DEM"
                GetString( MSG_NNGRIDR_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-               GetString( MSG_NNGRIDR_OK ),                             // "OK"
+               GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");
 
  return (success);

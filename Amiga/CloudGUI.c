@@ -258,7 +258,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
    Close_CL_Window();
    User_Message((CONST_STRPTR) GetString( MSG_CLOUDGUI_MAPVIEWCLOUDS ) ,  // "Map View: Clouds"
                 (CONST_STRPTR) GetString( MSG_CLOUDGUI_OUTOFMEMORY ) ,    // "Out of memory!" 
-                (CONST_STRPTR) GetString( MSG_CLOUDGUI_OK ) ,             // "OK"
+                (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) ,             // "OK"
                 (CONST_STRPTR)"o");  
    return;
    } /* out of memory */
@@ -608,7 +608,7 @@ double FloatVal;
       {
       if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,     // "Cloud Editor"
     		  GetString( MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES ) ,  // "Delete all cloud key frames?"
-                  GetString( MSG_CLOUDGUI_OKCANCEL ) ,                 // "OK|Cancel"
+                  GetString( MSG_GLOBAL_OKCANCEL ) ,                 // "OK|Cancel"
                   (CONST_STRPTR)"oc", 1))
        {
        CL_Win->CD->NumKeys = 0;

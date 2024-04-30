@@ -271,7 +271,7 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
   {
   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ) ,                              // "Data Ops: Convert DEM"
                GetString( MSG_DATAOPS_YOUMUSTSPECIFYAFILETOCONVERTPERATIONTERMINATED ),  // "You must specify a file to convert!\nOperation terminated."
-               GetString( MSG_DATAOPS_OK ),                                              // "OK"
+               GetString( MSG_GLOBAL_OK ),                                              // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no row/col sizes */
@@ -279,7 +279,7 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
   {
   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ) ,                                // "Data Ops: Convert DEM"
                GetString( MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED ),  // "You must specify an output file name!\nOperation terminated."
-               GetString( MSG_DATAOPS_OK ),                                                // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no row/col sizes */
@@ -287,7 +287,7 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
   {
   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ) ,                                    // "Data Ops: Convert DEM"
                GetString( MSG_DATAOPS_YOUMUSTSPECIFYINPUTROWSANDCOLUMNSPERATIONTERMINATED ),   // "You must specify input rows and columns!\nOperation terminated."
-               GetString( MSG_DATAOPS_OK ),                                                    // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no row/col sizes */
@@ -297,7 +297,7 @@ void ConvertDEM(struct DEMConvertData *data, char *filename, short TestOnly)
    {
   User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ) ,                                   // "Data Ops: Convert DEM"
                GetString( MSG_DATAOPS_THEREISNODATABASETODIRECTOUTPUTENTITIESTOPERATIONTE ),  // "There is no Database to direct output entities to!\nOperation terminated."
-               GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                (CONST_STRPTR)"o");
    return;
    } /* if no database */
@@ -726,7 +726,7 @@ RepeatRGB:
     {
     if (! User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
                        GetString( MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTRO ),  // "Incorrect file size for specified header, width and height!\nProceed anyway?."
-                       GetString( MSG_DATAOPS_OKCANCEL ) ,                                            // "OK|Cancel",
+                       GetString( MSG_GLOBAL_OKCANCEL ) ,                                            // "OK|Cancel",
                        (CONST_STRPTR)"oc"))
      {
      error = 13;
@@ -3124,7 +3124,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),              // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                             // "OK"
+                GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* out of memory */
@@ -3132,7 +3132,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                           // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_UNABLETOOPENFILEFORINPUTPERATIONTERMINATED ),  // "Unable to open file for input!\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                                          // "OK"
+                GetString( MSG_GLOBAL_OK ),                                          // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, GetString( MSG_DATAOPS_CONVERTDEMSOURCEFILE ) );  // "Convert DEM source file"
    break;
@@ -3141,7 +3141,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTPE ),  // "Incorrect file size for specified header, width and height!\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_SIZE, GetString( MSG_DATAOPS_CONVERTDEMSOURCEFILE ));  // "Convert DEM source file"
    break;
@@ -3150,7 +3150,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                            // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_UNABLETOOPENFILEFOROUTPUTPERATIONTERMINATED ),  // "Unable to open file for output!\nOperation terminated.",
-                GetString( MSG_DATAOPS_OK ),                                           // "OK"
+                GetString( MSG_GLOBAL_OK ),                                           // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, GetString( MSG_DATAOPS_CONVERTDEMDESTINATIONFILE ) );  // "Convert DEM destination file"
    break;
@@ -3159,7 +3159,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                              // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_ERRORWRITINGDESTINATIONFILEPERATIONTERMINATED ),  // "Error writing destination file!\nOperation terminated.",
-                GetString( MSG_DATAOPS_OK ),                                             // "OK"
+                GetString( MSG_GLOBAL_OK ),                                             // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRITE_FAIL, GetString( MSG_DATAOPS_CONVERTDEMDESTINATIONFILE ) );  // "Convert DEM destination file"
    break;
@@ -3168,7 +3168,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                         // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_ERRORREADINGSOURCEFILEPERATIONTERMINATED ),  // "Error reading source file!\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                                        // "OK"
+                GetString( MSG_GLOBAL_OK ),                                        // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
    break;
@@ -3177,7 +3177,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                     // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_NOTACOMPRESSEDFILEPERATIONTERMINATED ),  // "Not a compressed file!\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                                    // "OK"
+                GetString( MSG_GLOBAL_OK ),                                    // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_SIZE, GetString( MSG_DATAOPS_CONVERTDEMSOURCEFILE ) );  // "Convert DEM source file"
    break;
@@ -3186,7 +3186,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),              // "Data Ops: Convert DEM"
                 (CONST_STRPTR)"Extended header!\nOperation terminated.",
-                GetString( MSG_DATAOPS_OK ),                             // "OK",
+                GetString( MSG_GLOBAL_OK ),                             // "OK",
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_SIZE, GetString( MSG_DATAOPS_CONVERTDEMSOURCEFILE ) );  // "Convert DEM source file"
    break;
@@ -3195,7 +3195,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_INPUTFILECONFIGURATIONNOTYETSUPPORTEDPERATIONTERMIN ),  // "Input file configuration not yet supported!\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, GetString( MSG_DATAOPS_CONVERTDEMSOURCETYPE ) );  // "Convert DEM source type"
    break;
@@ -3204,7 +3204,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_INPUTDATAFORMATNOTSUPPORTEDHECKYOURSETTINGSPERATION ),  // "Input data format not supported!\nCheck your settings.\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                                                   // "OK",
+                GetString( MSG_GLOBAL_OK ),                                                   // "OK",
                 (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, GetString( MSG_DATAOPS_CONVERTDEMSOURCETYPE ) );  // "Convert DEM source type"
    break;
@@ -3213,7 +3213,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATABASEMODULE ),                                  // "Database Module"
                 GetString( MSG_DATAOPS_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                                              // "OK"
+                GetString( MSG_GLOBAL_OK ),                                              // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* out of memory for database expansion */
@@ -3226,7 +3226,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                       // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_ERRORSAVINGOBJFILEOPERATIONTERMOINATED ),  // "Error saving \".Obj\" file!\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                                      // "OK"
+                GetString( MSG_GLOBAL_OK ),                                      // "OK"
                 (CONST_STRPTR)"o");
    break;
    }
@@ -3234,7 +3234,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED ),  // "Input file not recognized as a DTED file!\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPS_DTED ));  // "DTED"
    break;
@@ -3243,7 +3243,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI ),  // "!\nIllegal source value format/size combination!\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPS_BINARRAY ) );  // "Bin Array"
    break;
@@ -3252,7 +3252,7 @@ Cleanup:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
                 GetString( MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI ),  // "!\nIllegal target value format/size combination!\nOperation terminated."
-                GetString( MSG_DATAOPS_OK ),                                                   // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPS_BINARRAY ) );  // "Bin Array"
    break;

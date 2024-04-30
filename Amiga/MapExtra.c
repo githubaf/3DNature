@@ -725,7 +725,7 @@ void setorigin(void)
   {
   if (User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
                        GetString( MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX ),  // "Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?"
-                       GetString( MSG_MAPEXTRA_OKCANCEL ),                                            // "OK|Cancel"
+                       GetString( MSG_GLOBAL_OKCANCEL ),                                            // "OK|Cancel"
                        (CONST_STRPTR)"oc", 1))
    {
    DBase[OBN].Lat[DBase[OBN].Points] = DBase[OBN].Lat[1];
@@ -771,7 +771,7 @@ void setorigin(void)
 
  if (User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                       GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                      GetString( MSG_MAPEXTRA_OKCANCEL ),                                // "OK|Cancel"
+                      GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
                       (CONST_STRPTR)"oc", 1))
   {
   if (! topoload)
@@ -839,7 +839,7 @@ void matchpoints(void)
    {
    User_Message((CONST_STRPTR)DBase[OBN].Name,
                  GetString( MSG_MAPEXTRA_OBJECTRESULTINGFROMTHISMATCHWOULDBELARGERTHANTHEMA ),  // "Object resulting from this match would be larger than the maximum of MAXOBJPTS !\nOperation terminated."
-                 GetString( MSG_MAPEXTRA_OK ),                                                  // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                  (CONST_STRPTR)"o");
    goto AbortMatch;
    } /* if larger than allowed */
@@ -867,14 +867,14 @@ void matchpoints(void)
   {
   User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),                             // "Mapping Module: Point Match"
                GetString( MSG_MAPEXTRA_ILLEGALNUMBEROFPOINTSFFIRSTANDLASTDESTINATIONPOINT ),  // "Illegal number of points!\nIf first and last destination points are the same, source points must be larger than zero.\nOperation terminated.",
-               GetString( MSG_MAPEXTRA_OK ),                                                  // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   outline(MapWind0, OBN, 2, &cb);
   return;
   } /* if */
  if (! User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),  // "Mapping Module: Point Match"
                         GetString( MSG_MAPEXTRA_PROCEEDWITHRELOCATION ),    // "Proceed with relocation?"
-                        GetString( MSG_MAPEXTRA_OKCANCEL ),                 // "OK|CANCEL"
+                        GetString( MSG_GLOBAL_OKCANCEL ),                 // "OK|CANCEL"
                         (CONST_STRPTR)"oc", 1))
    return;
  if (match2 > 0)
@@ -940,7 +940,7 @@ void matchpoints(void)
   {
   User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),                        // "Mapping Module: Point Match"
                GetString( MSG_MAPEXTRA_OUTOFMEMORYOTENOUGHFORNEWPOINTSPERATIONFAILED ),  // "Out of memory!\nNot enough for new points.\nOperation failed."
-               GetString( MSG_MAPEXTRA_OK ),                                             // "OK"
+               GetString( MSG_GLOBAL_OK ),                                             // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if memory allocation error */
@@ -951,7 +951,7 @@ void matchpoints(void)
 
  if (User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                       GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                      GetString( MSG_MAPEXTRA_OKCANCEL ) ,                               // "OK|Cancel"
+                      GetString( MSG_GLOBAL_OKCANCEL ) ,                               // "OK|Cancel"
                       (CONST_STRPTR)"oc", 1))
   {
   if (! topoload)
@@ -1139,7 +1139,7 @@ short modpoints(short modify)
   {
   if (User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                        GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                       GetString( MSG_MAPEXTRA_OKCANCEL ),                                // "OK|Cancel"
+                       GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
                        (CONST_STRPTR)"oc", 1))
    {
    short error = 0;
@@ -1233,7 +1233,7 @@ struct clipbounds cb;
 
  if (! User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
                         GetString( MSG_MAPEXTRA_DUPLICATETHISOBJECT ),  // "Duplicate this object?"
-                        GetString( MSG_MAPEXTRA_OKCANCEL ),             // "OK|Cancel"
+                        GetString( MSG_GLOBAL_OKCANCEL ),             // "OK|Cancel"
                         (CONST_STRPTR)"oc", 1))
   return (0);
 
@@ -1385,7 +1385,7 @@ void makestream(short lowj)
    {
    User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),                            // "Mapping Module: Follow Stream"
                 GetString( MSG_MAPEXTRA_OUTOFMEMORYOTENOUGHFORTEMPORARYTOPOARRAYPERATIONFAIL ), // "Out of memory!\nNot enough for temporary topo array.\nOperation failed."
-                GetString( MSG_MAPEXTRA_OK ),                                                   // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    goto EndModify;
    } /* if out of memory */
@@ -1464,7 +1464,7 @@ HoleLoop:
    {
    User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),                   // "Mapping Module: Follow Stream"
                 GetString( MSG_MAPEXTRA_POINTMAXIMUMHASBEENREACHEDAPPINGTERMINATED ),  // "Point maximum has been reached!\nMapping terminated"
-                GetString( MSG_MAPEXTRA_OK ),                                          // "OK"
+                GetString( MSG_GLOBAL_OK ),                                          // "OK"
                 (CONST_STRPTR)"o");
    superdone = 1;
    } /* if */
@@ -1475,7 +1475,7 @@ HoleLoop:
    sprintf(str,
     (char*)GetString( MSG_MAPEXTRA_REACHEDEDGEOFCURRENTMAPOINTSONTINUETONEXTMAP ), pts);                  // "Reached edge of current map!\nPoints = %d\nContinue to next map?"
     superdone = 1 - User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ), (CONST_STRPTR)str,  // "Mapping Module: Follow Stream"
-         GetString( MSG_MAPEXTRA_OKCANCEL ),  // "OK|CANCEL"
+         GetString( MSG_GLOBAL_OKCANCEL ),  // "OK|CANCEL"
          (CONST_STRPTR)"oc");
    } /* else */
 
@@ -1487,7 +1487,7 @@ HoleLoop:
   {
   User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),                           // "Mapping Module: Follow Stream"
                GetString( MSG_MAPEXTRA_INITIALPOINTNOTWITHINCURRENTLYLOADEDTOPOBOUNDARIES ),  // "Initial point not within currently loaded topo boundaries!\nObject points reduced to 1."
-               GetString( MSG_MAPEXTRA_OK ),                                                  // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   DBase[OBN].Points = 1;
   DBase[OBN].Flags |= 1;
@@ -1497,7 +1497,7 @@ HoleLoop:
   {
   User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),                           // "Mapping Module: Follow Stream"
                GetString( MSG_MAPEXTRA_INITIALPOINTNOTWITHINCURRENTLYLOADEDTOPOBOUNDARIES ),  // "Initial point not within currently loaded topo boundaries!\nObject points reduced to 1."
-               GetString( MSG_MAPEXTRA_OK ),                                                  // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* else if */
@@ -1511,7 +1511,7 @@ EndModify:
 
  if (User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),  // "Mapping Module: Follow Stream"
                       GetString( MSG_MAPEXTRA_SAVEVECTOROBJECTNOW ),        // "Save vector object now?"
-                      GetString( MSG_MAPEXTRA_OKCANCEL ),                   // "OK|Cancel"
+                      GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
                       (CONST_STRPTR)"oc", 1))
   saveobject(OBN, NULL, DBase[OBN].Lon, DBase[OBN].Lat, DBase[OBN].Elev);
 
@@ -1658,7 +1658,7 @@ SetFrameCount:
 
   if (User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize",
                        GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save object now?"
-                       GetString( MSG_MAPEXTRA_OKCANCEL ),                                // "OK|Cancel"
+                       GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
                        (CONST_STRPTR)"oc", 1))
    {
    if (! topoload)
@@ -1676,7 +1676,7 @@ SetFrameCount:
  else
   User_Message(GetString( MSG_MAPEXTRA_MAPVIEWMODULEINTERPOLATE ),                            // "Map View Module: Interpolate"
                GetString( MSG_MAPEXTRA_OUTOFMEMORYCANTALLOCATENEWVECTORPERATIONTERMINATED ),  // "Out of memory! Can't allocate new vector.\nOperation terminated."
-               GetString( MSG_MAPEXTRA_OK ),                                                  // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
 
 } /* interpolatepath() */
@@ -2035,7 +2035,7 @@ EndFix:
    {
    User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),          // "Mapping Module: Fix Flats"
                 GetString( MSG_MAPEXTRA_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-                GetString( MSG_MAPEXTRA_OK ),                             // "OK"
+                GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* out of memory */
@@ -2043,7 +2043,7 @@ EndFix:
    {
    User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),                               // "Mapping Module: Fix Flats"
                 GetString( MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINTOPOMAPBOUNDARIESPERATI ),  // "All corner points must be within topo map boundaries!\nOperation terminated."
-                GetString( MSG_MAPEXTRA_OK ),                                                  // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* one corner outside mapped area */
@@ -2051,7 +2051,7 @@ EndFix:
    {
    User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),                          // "Mapping Module: Fix Flats"
            GetString( MSG_MAPEXTRA_ILLEGALDIMENSIONSTRYMAKINGTHERECTANGLELARGERPERATI ),  // "Illegal dimensions! Try making the rectangle larger.\nOperation terminated."
-           GetString( MSG_MAPEXTRA_OK ),                                                  // "OK"
+           GetString( MSG_GLOBAL_OK ),                                                  // "OK"
            (CONST_STRPTR)"o");
    break;
    } /* low = high row or column */
@@ -2059,7 +2059,7 @@ EndFix:
    {
    User_Message( GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),                               // "Mapping Module: Fix Flats"
                  GetString( MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINSAMEDEMPERATIONTERMINAT ),  // "All corner points must be within same DEM!\nOperation terminated."
-                 GetString( MSG_MAPEXTRA_OK ),                                                  // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                  (CONST_STRPTR)"o");
    break;
    } /* corners no on same map */
@@ -2067,7 +2067,7 @@ EndFix:
    {
    User_Message((CONST_STRPTR)DBase[TopoOBN[i]].Name,
                 GetString( MSG_MAPEXTRA_ERROROPENINGOUTPUTFILEPERATIONTERMINATED ),  // "Error opening output file!\nOperation terminated."
-                GetString( MSG_MAPEXTRA_OK ),                                        // "OK"
+                GetString( MSG_GLOBAL_OK ),                                        // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)DBase[TopoOBN[i]].Name);
    break;
@@ -2076,7 +2076,7 @@ EndFix:
    {
    User_Message((CONST_STRPTR)DBase[TopoOBN[i]].Name,
                 GetString( MSG_MAPEXTRA_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED ),  // "Error writing to output file!\nOperation terminated."
-                GetString( MSG_MAPEXTRA_OK ),                                          // "OK"
+                GetString( MSG_GLOBAL_OK ),                                          // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRITE_FAIL, (CONST_STRPTR)DBase[TopoOBN[i]].Name);
    break;

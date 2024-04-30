@@ -398,7 +398,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
   {
   User_Message(GetString( MSG_GENTLGUI_TIMELINES ),                                              // "Time Lines"
 	       GetString( MSG_GENTLGUI_YOUVEREACHEDTHELIMITOFOPENTIMELINEWINDOWSPLEASECLO ),  // "You've reached the limit of open Time Line windows. Please close one and try again."
-	       GetString( MSG_GENTLGUI_OK ),                                                  // "OK"
+	       GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no windows left */
@@ -557,7 +557,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
    Close_TL_Window(&TLWin[WinNum], 1);
    User_Message(GetString( MSG_GENTLGUI_TIMELINE ),     // "Time Line"
                 GetString( MSG_GENTLGUI_OUTOFMEMORY ),  // "Out of memory!"
-                GetString( MSG_GENTLGUI_OK ),           // "OK"
+                GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -601,7 +601,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
    Close_TL_Window(&TLWin[WinNum], 1);
    User_Message(GetString( MSG_GENTLGUI_TIMELINES ),                                              // "Time Lines"
 		GetString( MSG_GENTLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
-		GetString( MSG_GENTLGUI_OK ),                                                  // "OK"
+		GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */

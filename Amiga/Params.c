@@ -54,7 +54,7 @@ void MergeKeyFrames(union KeyFrame *MF, short MFKeys, union KeyFrame **OF,
 	 groupname);
      User_Message(GetString( MSG_PARAMS_KEYFRAMECANCEL ),  // "Key Frame: Cancel"
                   (CONST_STRPTR)str,
-                  GetString( MSG_PARAMS_OK ),               // "OK"
+                  GetString( MSG_GLOBAL_OK ),               // "OK"
                   (CONST_STRPTR)"o");
      break;
      }
@@ -135,7 +135,7 @@ STATIC_FCN short AllocNewKeyArray(union KeyFrame **KF, long *KFsize) // used loc
   {
   User_Message(GetString( MSG_PARAMS_KEYFRAMEMODULE ) ,                                     // "Key Frame Module"
                GetString( MSG_PARAMS_OUTOFMEMORYALLOCATINGNEWKEYFRAMEPERATIONTERMINATED ),  // "Out of memory allocating new key frame!\nOperation terminated."
-               GetString( MSG_PARAMS_OK ),                                                  // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   return (0);
   } /* if memory bust */
@@ -1762,7 +1762,7 @@ if (item == 0)
    {
    if (! User_Message(GetString( MSG_PARAMS_PARAMETERSMODULEVELOCITYDISTRIBUTION ),                 // "Parameters Module: Velocity Distribution"
                       GetString( MSG_PARAMS_EASEINPLUSEASEOUTFRAMEVALUESEXCEEDTOTALNUMBEROFANIMA ),  // "\"Ease In\" plus \"Ease Out\" frame values exceed total number of animated frames.\nThis is illegal! Do you wish to continue without Velocity Distribution?"
-                      GetString( MSG_PARAMS_OKCANCEL ),                                              // "OK|Cancel"
+                      GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
                       (CONST_STRPTR)"oc"))
     return (0);
    else

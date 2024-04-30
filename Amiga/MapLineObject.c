@@ -41,7 +41,7 @@ SaveRepeat:
    Log(ERR_WRITE_FAIL, (CONST_STRPTR)linefile);
    User_Message(GetString( MSG_MAPLINO_RENDERMODULE ),                               // "Render Module"
                 GetString( MSG_MAPLINO_ERRORSAVINGLINEVERTICESTOFILEELECTNEWPATH ),  // "Error saving line vertices to file!\nSelect new path."
-                GetString( MSG_MAPLINO_OK ),                                         // "OK"
+                GetString( MSG_GLOBAL_OK ),                                         // "OK"
                 (CONST_STRPTR)"o");
 NewFileRequest:
    if (getfilename(1,(char*)GetString( MSG_MAPLINO_NEWLINESAVEPATH ), linepath, linefile))  // "New Line Save Path"
@@ -55,7 +55,7 @@ NewFileRequest:
      Log(ERR_OPEN_FAIL, (CONST_STRPTR)linefile);
      if (User_Message_Def(GetString( MSG_MAPLINO_RENDERMODULE ),                          // "Render Module"
                           GetString( MSG_MAPLINO_ERROROPENINGLINESAVEFILEELECTNEWPATH ),  // "Error opening line save file!\nSelect new path?"
-                          GetString( MSG_MAPLINO_OKCANCEL ),                              // "OK|Cancel"
+                          GetString( MSG_GLOBAL_OKCANCEL ),                              // "OK|Cancel"
                           (CONST_STRPTR)"oc", 1))
       goto NewFileRequest;
      } /* if open fail */

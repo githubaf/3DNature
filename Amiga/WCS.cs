@@ -576,7 +576,7 @@ MSG_AGUI_PARAMETEREDITINGDEFAULTS
 Parameter Editing: Defaults
 
 ;
-MSG_AGUI_OKCANCEL
+MSG_GLOBAL_OKCANCEL
 OK|Cancel
 
 ;
@@ -584,7 +584,7 @@ MSG_AGUI_YOUMUSTFIRSTLOADADATABASEBEFOREDEFAULTPARAMETERSCANBEC
 You must first load a Database before Default Parameters can be computed.
 
 ;
-MSG_AGUI_OK
+MSG_GLOBAL_OK
 OK
 
 ;
@@ -985,17 +985,9 @@ MSG_BITMAPS_FILEALREADYEXISTSVERWRITEIT
 File already exists!\nOverwrite it?
 Datei bereits vorhanden!\nÜberschreiben?
 ;
-MSG_BITMAPS_OKCANCEL
-OK|CANCEL
-
-;
 MSG_BITMAPS_CANTOPENIMAGEFILEFOROUTPUTPERATIONTERMINATED
 Can't open image file for output!\nOperation terminated.
 Datei kann nicht zum Schreiben geöffnet werden!\nVorgang abgebrochen.
-;
-MSG_BITMAPS_OK
-OK
-
 ;
 MSG_BITMAPS_SAVINGIMAGE
 Saving Image
@@ -1096,10 +1088,6 @@ Cloud Editor:Grenzen festlegen
 MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN
 Map View Module must be open in order to use this function. Would you like to open it now?
 Das Map View Modul muss geöfffnet sein, um die Funktion nutzen zu können. Soll es jetzt geöffnet werden?
-;
-MSG_CLOUD_OKCANCEL
-OK|Cancel
-
 ;
 MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
 \0338Set northwest corner with mouse.
@@ -1323,10 +1311,6 @@ MSG_CLOUDGUI_OUTOFMEMORY
 Out of memory!
 Nicht genügend Speicher!
 ;
-MSG_CLOUDGUI_OK
-OK
-
-;
 MSG_CLOUDGUI_PARAMETERSMODULEMODEL
 Parameters Module: Model
 Parameter Modul: Modell
@@ -1357,10 +1341,6 @@ Enter frame to make key for.
 ;
 MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES
 Delete all cloud key frames?
-
-;
-MSG_CLOUDGUI_OKCANCEL
-OK|Cancel
 
 ;
 MSG_CLOUDGUI_FRACTALDIMENSION
@@ -1409,16 +1389,8 @@ MSG_DEM_NOFILESSELECTED
 No file(s) selected!
 
 ;
-MSG_DEM_OK
-OK
-
-;
 MSG_DEM_ERROROPENINGFILEFORINTERPOLATIONILENOTDEMORREMONTINUE
 Error opening file for interpolation!\nFile not DEM or REM\nContinue?
-
-;
-MSG_DEM_OKCANCEL
-OK|CANCEL
 
 ;
 MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER
@@ -1733,10 +1705,6 @@ MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU
 This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?
 
 ;
-MSG_DEMGUI_OKCANCEL
-OK|Cancel
-OK|Abrechen
-;
 MSG_DEMGUI_DEMBUILDER
 DEM Builder
 
@@ -1912,10 +1880,6 @@ Output DEM Name\x20
 MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT
 Select contour objects to import and reselect "Import" when done.
 
-MSG_DEMGUI_OK
-OK
-
-;
 MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED
 Can't open Database Editor window!\nOperation terminated.
 
@@ -2000,10 +1964,6 @@ Data Ops Module: Import DLG
 ;
 MSG_DLG_OUTOFMEMORYALLOCATINGTEMPORARYARRAYSPERATIONTERMINATED
 Out of memory allocating temporary arrays!\nOperation terminated.
-
-;
-MSG_DLG_OK
-OK
 
 ;
 MSG_DLG_DLGFILE
@@ -2163,10 +2123,6 @@ MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA
 Illegal number of database records: less than one!\nOperation terminated.
 
 ;
-MSG_DB_OK
-OK
-
-;
 MSG_DB_OUTOFMEMORYANTUPDATEDATABASELIST
 Out of memory!\nCan't update database list.
 
@@ -2311,10 +2267,6 @@ MSG_DATAOPS_YOUMUSTSPECIFYAFILETOCONVERTPERATIONTERMINATED
 You must specify a file to convert!\nOperation terminated.
 
 ;
-MSG_DATAOPS_OK
-OK
-
-;
 MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
 You must specify an output file name!\nOperation terminated.
 
@@ -2337,10 +2289,6 @@ Continue|Truncate|Cancel
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTRO
 Incorrect file size for specified header, width and height!\nProceed anyway?.
-
-;
-MSG_DATAOPS_OKCANCEL
-OK|Cancel
 
 ;
 MSG_DATAOPS_INVERTDATAORDER
@@ -2803,10 +2751,6 @@ MSG_DATAOPSGUI_OUTOFMEMORY
 Out of memory!
 
 ;
-MSG_DATAOPSGUI_OK
-OK
-
-;
 MSG_DATAOPSGUI_OUTPUTDIRECTORY
 Output Directory
 
@@ -3003,10 +2947,6 @@ MSG_DEFPARM_PLEASEENABLEATLEASTONETOPODEMANDTRYAGAIN
 Please enable at least one topo DEM and try again.
 
 ;
-MSG_DEFPARM_OK
-OK
-
-;
 MSG_DEFPARM_PLEASECLOSEALLTIMELINESWINDOWSANDTRYAGAIN
 Please close all Time Lines windows and try again.
 Bitte schließen Sie alle Time line Fenster und versuchen Sie es erneut.
@@ -3076,10 +3016,6 @@ MSG_DIAG_OUTOFMEMORY
 Out of memory!
 Nicht genügend Speicher!
 ;
-MSG_DIAG_OK
-OK
-
-;
 MSG_DIAG_QUITDIG
 \33cQuit Dig
 
@@ -3097,10 +3033,6 @@ MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY
 Make this the default object directory?
 
 ;
-MSG_DISPGUI_OKCANCEL
-OK|Cancel
-
-;
 MSG_DISPGUI_DATABASELOAD
 Database: Load
 Datenbank: Laden
@@ -3108,10 +3040,6 @@ Datenbank: Laden
 MSG_DISPGUI_ERROROPENINGDATABASEFILEPERATIONTERMINATED
 Error opening Database file!\nOperation terminated.
 Fehler beim Öffnen der Datenbank-Datei!\nVorgang abgebrochen.
-;
-MSG_DISPGUI_OK
-OK
-
 ;
 MSG_DISPGUI_UNSUPPORTEDDATABASEFILEFORMAT
 Unsupported Database file format.
@@ -3196,10 +3124,6 @@ Database Editor
 ;
 MSG_EDDB_YOUMUSTFIRSTLOADORCREATEADATABASEBEFOREOPENINGTHEEDITO
 You must first load or create a database before opening the editor.
-
-;
-MSG_EDDB_OK
-OK
 
 ;
 MSG_EDDB_DATABASEMODULE
@@ -3350,10 +3274,6 @@ MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME
 Object name already present in database!\nTry a new name?
 
 ;
-MSG_EDDB_OKCANCEL
-OK|Cancel
-
-;
 MSG_EDDB_ENTERSEARCHSTRING
 Enter search string.
 
@@ -3453,10 +3373,6 @@ Ecosystem Editor
 ;
 MSG_EDECOGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENIN
 You must first load or create a parameter file before opening the Editor.
-
-;
-MSG_EDECOGUI_OK
-OK
 
 ;
 MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM
@@ -3703,10 +3619,6 @@ MSG_EDECOGUI_DELETEALLKEYFRAMES
 Delete all %s Key Frames?
 
 ;
-MSG_EDECOGUI_OKCANCEL
-OK|Cancel
-
-;
 MSG_EDECOGUI_ECOSYSTEMPARAMETERSSWAP
 Ecosystem Parameters: Swap
 
@@ -3734,10 +3646,6 @@ Motion Editor
 ;
 MSG_EDMOGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING
 You must first load or create a parameter file before opening the Editor.
-
-;
-MSG_EDMOGUI_OK
-OK
 
 ;
 MSG_EDMOGUI_OPTIONS
@@ -3890,10 +3798,6 @@ Delete all %s Key Frames?
 ;
 MSG_EDMOGUI_PARAMETERSMODULEMOTION
 Parameters Module: Motion
-
-;
-MSG_EDMOGUI_OKCANCEL
-OK|Cancel
 
 ;
 MSG_EDMOGUI_ENTERFRAMETOMAKEKEYFOR
@@ -4049,10 +3953,6 @@ MSG_EDPAR_KEYFRAMESEXISTFORTHEBANKPARAMETEROVERWRITETHEM
 Key Frames exist for the "Bank" Parameter. Overwrite them?
 
 ;
-MSG_EDPAR_OKCANCEL
-OK|Cancel
-
-;
 MSG_EDPAR_ENTERKEYFRAMEINTERVALORKFORCURRENTKEYFRAMES
 Enter Key Frame interval or 'K' for current Key Frames.
 
@@ -4063,10 +3963,6 @@ Parameters Module: Export
 ;
 MSG_EDPAR_ERRORCREATINGKEYFRAMEPERATIONTERMINATED
 Error creating Key Frame!\nOperation terminated.
-
-;
-MSG_EDPAR_OK
-OK
 
 ;
 MSG_EDPAR_NOCAMERAPATHLATLONKEYFRAMESPERATIONTERMINATED
@@ -4710,10 +4606,6 @@ MSG_EDSETGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENIN
 You must first load or create a parameter file before opening the Render Module.
 
 ;
-MSG_EDSETGUI_OK
-OK
-
-;
 MSG_EDSETGUI_RENDERSETTINGSEDITOR
 Render Settings Editor
 
@@ -5022,10 +4914,6 @@ MSG_EDITGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING
 You must first load or create a parameter file before opening the Editor.
 
 ;
-MSG_EDITGUI_OK
-OK
-
-;
 MSG_EDITGUI_OPTIONS
 Options
 
@@ -5132,10 +5020,6 @@ Delete all %s Key Frames?
 ;
 MSG_EDITGUI_PARAMETERSMODULECOLOR
 Parameters Module: Color
-
-;
-MSG_EDITGUI_OKCANCEL
-OK|Cancel
 
 ;
 MSG_EDITGUI_COLOREDITORCOPY
@@ -5263,10 +5147,6 @@ MSG_EVMORGUI_OUTOFMEMORY_PERIOD
 Out of memory!
 
 ;
-MSG_EVMORGUI_OK
-OK
-
-;
 MSG_EVMORGUI_NEWPROJECT
 New Project
 
@@ -5344,10 +5224,6 @@ Parameter Modul: Laub
 MSG_FOLIGUI_OUTOFMEMORYANTOPENFOLIAGEEDITOR
 Out of memory!\nCan't open Foliage Editor.
 Nicht genügend Speicher!\nDer Laubwerkseditor konnte nicht geöffnet werden.
-;
-MSG_FOLIGUI_OK
-OK
-
 ;
 MSG_FOLIGUI_UNUSED
 Unused
@@ -5542,10 +5418,6 @@ MSG_GENPAR_OUTOFMEMORYALLOCATINGNEWKEYFRAMEPERATIONTERMINATED
 Out of memory allocating new key frame!\nOperation terminated.
 
 ;
-MSG_GENPAR_OK
-OK
-
-;
 MSG_GENTLGUI_TENS
 Tens
 
@@ -5572,10 +5444,6 @@ Sure, anything you say!
 ;
 MSG_GENTLGUI_YOUVEREACHEDTHELIMITOFOPENTIMELINEWINDOWSPLEASECLO
 You've reached the limit of open Time Line windows. Please close one and try again.
-
-;
-MSG_GENTLGUI_OK
-OK
 
 ;
 MSG_GENTLGUI_PAN
@@ -5647,10 +5515,6 @@ MSG_GLMP_OUTOFMEMORYPERATIONTERMINATED
 Out of memory!\nOperation terminated.
 
 ;
-MSG_GLMP_OK
-OK
-
-;
 MSG_GLMP_RENDERINITIALIZATIONCOMPLETE
 Render initialization complete.
 
@@ -5697,10 +5561,6 @@ Continue|Cancel
 ;
 MSG_GLMP_DIAGNOSTICBUFFERSCANTBEGENERATEDFORMULTIPLESEGMENTORMU
 Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?
-
-;
-MSG_GLMP_OKCANCEL
-OK|CANCEL
 
 ;
 MSG_GLMP_OUTOFMEMORYOPENINGDIAGNOSTICBUFFERSPROCEEDRENDERINGWIT
@@ -5920,10 +5780,6 @@ MSG_GLMPSPRT_ERRORLOADINGSUNIMAGEPERATIONTERMINATED
 Error loading Sun Image!\nOperation terminated.
 Fehler beim Laden des Sonnenbildes!\nVorgang abgebrochen.
 ;
-MSG_GLMPSPRT_OK
-OK
-
-;
 MSG_GLMPSPRT_MOON
 Moon
 Mond
@@ -5947,10 +5803,6 @@ Interactive Motion Module
 ;
 MSG_INTDRW_OUTOFMEMORYIDDENLINEREMOVALNOTAVAILABLE
 Out of memory!\nHidden line removal not available.
-
-;
-MSG_INTDRW_OK
-OK
 
 ;
 MSG_INTDRW_COMPASS
@@ -5985,10 +5837,6 @@ MSG_INTVIEW_YOUMUSTFIRSTLOADACOMPLETEPARAMETERFILE
 You must first load a complete Parameter file!
 
 ;
-MSG_INTVIEW_OK
-OK
-
-;
 MSG_INTVIEW_COMPLETEPARAMETERFILE
 Complete parameter file
 
@@ -6019,10 +5867,6 @@ Out of memory opening Camera View!\nOperation terminated.
 ;
 MSG_INTVIEW_OUTOFMEMORYLOADINGDEMSNCREASEGRIDSIZE
 Out of memory loading DEMs!\nIncrease grid size?
-
-;
-MSG_INTVIEW_OKCANCEL
-OK|Cancel
 
 ;
 MSG_INTVIEW_NODEMOBJECTSACTIVEPERATIONTERMINATED
@@ -6127,10 +5971,6 @@ MSG_LWSPRT_NOKEYFRAMESTOEXPORTPERATIONTERMINATED
 No Key Frames to export!\nOperation terminated.
 
 ;
-MSG_LWSPRT_OK
-OK
-
-;
 MSG_LWSPRT_OUTOFMEMORYPERATIONTERMINATED
 Out of memory!\nOperation terminated.
 
@@ -6202,10 +6042,6 @@ Diagnostic: Digitize
 ;
 MSG_LINESPRT_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIONTERM
 Active object is a DEM and may not be digitized!\nOperation terminated.
-
-;
-MSG_LINESPRT_OK
-OK
 
 ;
 MSG_LINESPRT_INTERACTIVEMODULEADDPOINTS
@@ -6292,10 +6128,6 @@ MSG_LINESPRT_FOCUSPATH
 FocusPath
 
 ;
-MSG_LINESPRT_OKCANCEL
-OK|Cancel
-
-;
 MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED
 Enter name of vector to be created.
 
@@ -6325,10 +6157,6 @@ MSG_MAP_FIRSTSETOFALIGNMENTLATLONCOORDINATESMUSTBELAR
 First set of alignment lat/lon coordinates must be larger than second and map scale must be greater than zero!\nOperation terminated.
 
 ;
-MSG_MAP_OK
-OK
-
-;
 MSG_MAP_SETNORTHWESTREFERENCEPOINTWITHMOUSE
 \0338Set northwest reference point with mouse.
 \0338Nord-West Referenzpunkt mit der Maus festlegen.
@@ -6351,10 +6179,6 @@ Mapping Module: Align
 ;
 MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO
 Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
-
-;
-MSG_MAP_OKCANCEL
-OK|Cancel
 
 ;
 MSG_MAP_MAPVIEW
@@ -6661,10 +6485,6 @@ MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX
 Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?
 
 ;
-MSG_MAPEXTRA_OKCANCEL
-OK|Cancel
-
-;
 MSG_MAPEXTRA_SELECTNEWORIGINQDONEUUUPDDDOWNESCABORT
 \0338Select new origin. Q=done, Uu=up, Dd=down, ESC=abort
 
@@ -6723,10 +6543,6 @@ Set last destination vertex
 ;
 MSG_MAPEXTRA_OBJECTRESULTINGFROMTHISMATCHWOULDBELARGERTHANTHEMA
 Object resulting from this match would be larger than the maximum of MAXOBJPTS !\nOperation terminated.
-
-;
-MSG_MAPEXTRA_OK
-OK
 
 ;
 MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH
@@ -7347,10 +7163,6 @@ MSG_MAPGUI_OUTOFMEMORYANTINITIALIZEMAPWINDOWPERATIONTERMINATED
 Out of memory!\nCan't initialize map window!\nOperation terminated.
 
 ;
-MSG_MAPGUI_OK
-OK
-
-;
 MSG_MAPGUI_MAPPINGMODULEALIGN
 Mapping Module: Align
 
@@ -7461,10 +7273,6 @@ MSG_MAPLINO_ERRORSAVINGLINEVERTICESTOFILEELECTNEWPATH
 Error saving line vertices to file!\nSelect new path.
 
 ;
-MSG_MAPLINO_OK
-OK
-
-;
 MSG_MAPLINO_NEWLINESAVEPATH
 New Line Save Path
 
@@ -7473,16 +7281,8 @@ MSG_MAPLINO_ERROROPENINGLINESAVEFILEELECTNEWPATH
 Error opening line save file!\nSelect new path?
 
 ;
-MSG_MAPLINO_OKCANCEL
-OK|Cancel
-
-;
 MSG_MAPSUPRT_CANTOPENOBJECTFILEBJECTNOTSAVED
 Can't open object file!\nObject not saved.
-
-;
-MSG_MAPSUPRT_OK
-OK
 
 ;
 MSG_MAPSUPRT_VECTORSAVEDPOINTS
@@ -7613,10 +7413,6 @@ MSG_MAPSUPRT_SELECTEDMAPISNOTCURRENTLYLOADEDOYOUWISHTOLOADTOPOM
 Selected map is not currently loaded!\nDo you wish to load topo maps?
 
 ;
-MSG_MAPSUPRT_OKCANCEL
-OK|CANCEL
-
-;
 MSG_MAPSUPRT_OUTOFMEMORYCREATINGBITMAPSPERATIONTERMINATED
 Out of memory creating bitmaps!\nOperation terminated.
 
@@ -7654,20 +7450,12 @@ MSG_MAPTOPOOB_ERRORALLOCATINGORREADINGFRACTALINDEXARRAYSCONTINU
 Error allocating or reading Fractal Index arrays!\nContinue without Fractal Displacement Mapping?
 
 ;
-MSG_MAPTOPOOB_OKCANCEL
-OK|Cancel
-
-;
 MSG_MAPTOPOOB_DEMDD
 DEM %d/%d
 DEM %d/%d
 ;
 MSG_MAPTOPOOB_ERRORSAVINGVECTORVERTICESTOFILE
 Error saving vector vertices to file!
-
-;
-MSG_MAPTOPOOB_OK
-OK
 
 ;
 MSG_MAPTOPOOB_NEWLINESAVEPATH
@@ -7899,10 +7687,6 @@ MSG_MOREGUI_EXTRACT
 ;
 MSG_MOREGUI_OUTOFMEMORY
 Out of memory!
-
-;
-MSG_MOREGUI_OK
-OK
 
 ;
 MSG_MOREGUI_USGSDEMFILES
@@ -8194,10 +7978,6 @@ MSG_MOREGUI_APPLYCHANGES
 Apply changes?
 Änderungen anwenden?
 ;
-MSG_MOREGUI_OKCANCEL
-OK|Cancel
-
-;
 MSG_MOREGUI_PREFERENCES
 Preferences
 Einstellungen
@@ -8275,10 +8055,6 @@ MSG_PARAMS_KEYFRAMECANCEL
 Key Frame: Cancel
 
 ;
-MSG_PARAMS_OK
-OK
-
-;
 MSG_PARAMS_KEYFRAMEMODULE
 Key Frame Module
 
@@ -8295,20 +8071,12 @@ MSG_PARAMS_EASEINPLUSEASEOUTFRAMEVALUESEXCEEDTOTALNUMBEROFANIMA
 "Ease In" plus "Ease Out" frame values exceed total number of animated frames.\nThis is illegal! Do you wish to continue without Velocity Distribution?
 
 ;
-MSG_PARAMS_OKCANCEL
-OK|Cancel
-
-;
 MSG_PARGUI_PARAMETERSMODULESCALE
 Parameters Module: Scale
 
 ;
 MSG_PARGUI_OUTOFMEMORYANTOPENSCALEWINDOW
 Out of memory!\nCan't open Scale window.
-
-;
-MSG_PARGUI_OK
-OK
 
 ;
 MSG_PARGUI_NOKEYFRAMESTOSCALE
@@ -8648,10 +8416,6 @@ MSG_PARGUI_SPECIFIEDWIDTHISLARGERTHANTHECURRENTSCREENWIDTHDOYOU
 Specified width is larger than the current screen width. Do you wish to use the screen width?
 
 ;
-MSG_PARGUI_OKCANCEL
-OK|Cancel
-
-;
 MSG_PARGUI_SPECIFIEDORCOMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREE
 Specified or computed height is larger than the current screen height. Do you wish to use the screen height?
 
@@ -8716,10 +8480,6 @@ WCS Konfiguration: Speichern
 MSG_SUPPORT_CANTOPENCONFIGURATIONFILEPERATIONTERMINATED
 Can't open configuration file!\nOperation terminated.
 Die Konfigurationsdatei konnte nicht geöffnet werden!\nVorgang abgebrochen.
-;
-MSG_SUPPORT_OK
-OK
-
 ;
 MSG_SUPPORT_WCSCONFIGURATIONLOAD
 WCS Configuration: Load
@@ -8806,10 +8566,6 @@ Parameter: Zeitleiste
 MSG_TLGUI_OUTOFMEMORYANTOPENTIMELINEWINDOW
 Out of memory!\nCan't open Time Line window.
 Nicht genügend Speicher!\nDas Zeitleistenfenster konnte nicht geöffnet werden.
-;
-MSG_TLGUI_OK
-OK
-
 ;
 MSG_TLGUI_NOMOTIONPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONTERM
 No Motion Parameters with more than one Key Frame!\nOperation terminated.
@@ -8971,10 +8727,6 @@ MSG_TREE_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMINAT
 Error opening Ecosystem Model file for input!\nOperation terminated.
 Die Ökosystem-Modelldatei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 ;
-MSG_TREE_OK
-OK
-
-;
 MSG_TREE_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPREM
 Error writing to Ecosystem Model file!\nOperation terminated prematurely.
 Fehler beim Schreiben der Ökosystem-Modelldatei!\nVorgang abgebrochen.
@@ -8998,10 +8750,6 @@ Keine Daten im Ökosystem-Modell!\nVorgang abgebrochen.
 MSG_TREE_APROBLEMOCCURREDLOADINGATLEASTONEIMAGEFORTHISECOSYSTEM
 A problem occurred loading at least one image for this ecosystem!\nContinue without it or them?
 Beim Laden von mindestens einem Bild dieses Ökosystems traten Probleme auf!\nOhne diese Bilder fortfahren?
-;
-MSG_TREE_OKCANCEL
-OK|Cancel
-
 ;
 MSG_WAV_INVALIDITEMUIN
 Invalid Item %lu in %s %d
@@ -9090,10 +8838,6 @@ Map View: Waves
 ;
 MSG_WAVGUI_OUTOFMEMORY
 Out of memory!
-
-;
-MSG_WAVGUI_OK
-OK
 
 ;
 MSG_WAVGUI_OPTIONS
@@ -9226,10 +8970,6 @@ MSG_WAVGUI_DELETEALLWAVEKEYFRAMES
 Delete all wave key frames?
 
 ;
-MSG_WAVGUI_OKCANCEL
-OK|Cancel
-
-;
 MSG_WAVGUI_AMPLITUDE
 Amplitude
 
@@ -9322,10 +9062,6 @@ MSG_WCS_BETAPERIODEXPIRED
 Beta period expired...
 Beta-Testzeit abgelaufen...
 ;
-MSG_WCS_OK
-OK
-
-;
 MSG_WCS_FORWCSAROSUIMASTERLIBRARYREVISION1967RHIGHERREQUIRED
 For WCS AROS\nmuimaster.library revision %d.%d\nor higher required.
 Für WCS AROS\nmuimaster.library revision %d.%d\noder höher erforderlich.
@@ -9364,10 +9100,6 @@ Map View: Build DEM
 ;
 MSG_NNCRUNCH_INSUFFICIENTDATAINGRIDDEDREGIONTOTRIANGULATEINCREA
 Insufficient data in gridded region to triangulate! Increase the size of the gridded region or add more control points.
-
-;
-MSG_NNCRUNCH_OK
-OK
 
 ;
 MSG_NNCRUNCH_CHOROPLETH
@@ -9422,9 +9154,5 @@ Map View: Grid DEM
 ;
 MSG_NNGRIDR_OUTOFMEMORYPERATIONTERMINATED
 Out of memory!\nOperation terminated.
-
-;
-MSG_NNGRIDR_OK
-OK
 
 ;

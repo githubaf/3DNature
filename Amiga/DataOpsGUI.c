@@ -495,7 +495,7 @@ void Make_DC_Window(void)
    Close_DC_Window();
    User_Message(GetString( MSG_DATAOPSGUI_DEMCONVERTER ),  // "DEM Converter"
                 GetString( MSG_DATAOPSGUI_OUTOFMEMORY ),   // "Out of memory!"
-                GetString( MSG_DATAOPSGUI_OK ),            // "OK"
+                GetString( MSG_GLOBAL_OK ),            // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -800,7 +800,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
   {
   User_Message((CONST_STRPTR)DC_Win->InFile,
                GetString( MSG_DATAOPSGUI_UNABLETOOPENFILEFORINPUT ),  // "Unable to open file for input!\n"
-               GetString( MSG_DATAOPSGUI_OK ),                        // "OK"
+               GetString( MSG_GLOBAL_OK ),                        // "OK"
                (CONST_STRPTR)"o");
   Log(WNG_OPEN_FAIL, (CONST_STRPTR)DC_Win->InFile);
   return;
@@ -810,7 +810,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
   {
   User_Message((CONST_STRPTR)DC_Win->InFile,
                GetString( MSG_DATAOPSGUI_UNABLETOREADFILESIZE ),  // "Unable to read file size!\n"
-               GetString( MSG_DATAOPSGUI_OK ),                    // "OK"
+               GetString( MSG_GLOBAL_OK ),                    // "OK"
                (CONST_STRPTR)"o");
   Log(WNG_READ_FAIL, (CONST_STRPTR)DC_Win->InFile);
   goto EndCheck;
@@ -911,7 +911,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     {
     User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERT ) ,            // "Data Ops: Convert"
     		GetString( MSG_DATAOPSGUI_WARNINGILEISNOTAWCSDEMFILE ),  // "Warning!\nFile is not a WCS DEM file."
-                GetString( MSG_DATAOPSGUI_OK ),                          // "OK"
+                GetString( MSG_GLOBAL_OK ),                          // "OK"
                 (CONST_STRPTR)"o");
     } /* if not WCS DEM */
    break;
@@ -1070,7 +1070,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     {
     User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERT ),                   // "Data Ops: Convert"
                  GetString( MSG_DATAOPSGUI_WARNINGILEISNOTANIFFZBUFFERFILE ),  // "Warning!\nFile is not an IFF Z Buffer file."
-                 GetString( MSG_DATAOPSGUI_OK ),                               // "OK"
+                 GetString( MSG_GLOBAL_OK ),                               // "OK"
                  (CONST_STRPTR)"o");
     }
    break;
@@ -1087,7 +1087,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     {
     User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),             // "Data Ops: Convert DEM"
                  GetString( MSG_DATAOPSGUI_WARNINGILEISNOTAVISTADEMFILE ),  // "Warning\nFile is not a Vista DEM file."
-                 GetString( MSG_DATAOPSGUI_OK ),                            // "OK"
+                 GetString( MSG_GLOBAL_OK ),                            // "OK"
                  (CONST_STRPTR)"o");
     break;
     } /* if no file id match */
@@ -1100,7 +1100,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     {
     User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),  // "Data Ops: Convert DEM"
                  GetString( MSG_DATAOPSGUI_WARNINGILEISNOTACOMPRESSEDVISTAFILEANDCANNOTBEIM ),  // "Warning\nFile is not a compressed Vista file and cannot be imported."
-                 GetString( MSG_DATAOPSGUI_OK ),                                                // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                                // "OK"
                  (CONST_STRPTR)"o");
     break;
     }
@@ -1155,7 +1155,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     {
     User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),         // "Data Ops: Convert DEM"
     		 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTANIFFFILE ),  // "Warning\nFile is not an IFF file."
-                 GetString( MSG_DATAOPSGUI_OK ),                        // "OK"
+                 GetString( MSG_GLOBAL_OK ),                        // "OK"
                  (CONST_STRPTR)"o");
     break;
     } /* not IFF file */
@@ -1163,7 +1163,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     {
     User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),              // "Data Ops: Convert DEM"
     		 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTANIFFIMAGEFILE ),  // "Warning\nFile is not an IFF image file."
-                 GetString( MSG_DATAOPSGUI_OK ),                             // "OK"
+                 GetString( MSG_GLOBAL_OK ),                             // "OK"
                  (CONST_STRPTR)"o");
     break;
     } /* not IFF image file */
@@ -1172,7 +1172,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     {
     User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ) ,        // "Data Ops: Convert DEM"
     		 GetString( MSG_DATAOPSGUI_ERRORREADINGBITMAPHEADER ),  // "Error reading bitmap header."
-                 GetString( MSG_DATAOPSGUI_OK ),                        // "OK"
+                 GetString( MSG_GLOBAL_OK ),                        // "OK"
                  (CONST_STRPTR)"o");
     break;
     } /* read error */
@@ -1230,7 +1230,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
     {
     User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),                     // "Data Ops: Convert DEM"
     		 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTRECOGNIZEDASADTEDFILE ),  // "Warning\nFile is not recognized as a DTED file."
-                 GetString( MSG_DATAOPSGUI_OK ),                                    // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                    // "OK"
                  (CONST_STRPTR)"o");
     break;
     } /* if */
@@ -1463,7 +1463,7 @@ void Make_DI_Window(void)
    Close_DI_Window();
    User_Message(GetString( MSG_DATAOPSGUI_DEMINTERPOLATE ),  // "DEM Interpolate"
                 GetString( MSG_DATAOPSGUI_OUTOFMEMORY ),     // "Out of memory!"
-                GetString( MSG_DATAOPSGUI_OK ),              // "OK"
+                GetString( MSG_GLOBAL_OK ),              // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */

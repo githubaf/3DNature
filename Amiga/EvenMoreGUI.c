@@ -134,7 +134,7 @@ void Make_TS_Window(void)
    Close_TS_Window(0);
    User_Message(GetString( MSG_EVMORGUI_SUNTIMEWINDOW ) ,  // "Sun Time Window"
                 GetString( MSG_EVMORGUI_OUTOFMEMORY ),     // "Out of memory!"
-                GetString( MSG_EVMORGUI_OK ),              // "OK"
+                GetString( MSG_GLOBAL_OK ),              // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -637,7 +637,7 @@ STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.202
    Close_PN_Window(0);
    User_Message(GetString( MSG_EVMORGUI_PROJECTNEWEDIT ),  // "Project: New/Edit"
                 GetString( MSG_EVMORGUI_OUTOFMEMORY ),     // "Out of memory!"
-                GetString( MSG_EVMORGUI_OK ),              // "OK"
+                GetString( MSG_GLOBAL_OK ),              // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -1055,7 +1055,7 @@ EndNewProj:
    } /* switch error */
   User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                    (CONST_STRPTR)str,
-                   GetString( MSG_EVMORGUI_OK ),          // "OK"
+                   GetString( MSG_GLOBAL_OK ),          // "OK"
                    (CONST_STRPTR)"o", 0);
   return (0);
   } /* if an error occurred */

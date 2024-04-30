@@ -98,7 +98,7 @@ RetrySmooth:
     {
     if (User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                                       // "Render Module"
                      GetString( MSG_MAPTOPOOB_ERRORALLOCATINGORREADINGFRACTALINDEXARRAYSCONTINU ),  // "Error allocating or reading Fractal Index arrays!\nContinue without Fractal Displacement Mapping?"
-                     GetString( MSG_MAPTOPOOB_OKCANCEL ),                                           // "OK|Cancel"
+                     GetString( MSG_GLOBAL_OKCANCEL ),                                           // "OK|Cancel"
                      (CONST_STRPTR)"oc"))
      {
      settings.displace = 0;
@@ -717,7 +717,7 @@ SaveRepeat:
     fclose(fvector);
     User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                     // "Render Module"
                  GetString( MSG_MAPTOPOOB_ERRORSAVINGVECTORVERTICESTOFILE ),  // "Error saving vector vertices to file!"
-                 GetString( MSG_MAPTOPOOB_OK ),                               // "OK"
+                 GetString( MSG_GLOBAL_OK ),                               // "OK"
                  (CONST_STRPTR)"o");
 NewFileRequest:
     if (getfilename(1, (char*)GetString( MSG_MAPTOPOOB_NEWLINESAVEPATH ), linepath, linefile))  // "New Line Save Path"
@@ -730,7 +730,7 @@ NewFileRequest:
       {
       User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                 // "Render Module"
                    GetString( MSG_MAPTOPOOB_CANTOPENVECTORFILEFOROUTPUT ),  // "Can't open vector file for output!"
-                   GetString( MSG_MAPTOPOOB_OK ),                           // "OK"
+                   GetString( MSG_GLOBAL_OK ),                           // "OK"
                    (CONST_STRPTR)"o");
       goto NewFileRequest;
       } /* if */
@@ -2798,7 +2798,7 @@ MapCleanup:
   {
   User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                                       // "Render Module"
                GetString( MSG_MAPTOPOOB_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening key frame table!\nOperation terminated."
-               GetString( MSG_MAPTOPOOB_OK ),                                                 // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                 // "OK"
                (CONST_STRPTR)"o");
   success = 0;
   } /* else */

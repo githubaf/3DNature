@@ -164,7 +164,7 @@ STATIC_FCN short AllocNewGenericKeyArray(union KeyFrame **KF, long *KFsize) // u
   {
   User_Message(GetString( MSG_GENPAR_KEYFRAMEMODULE ),                                      // "Key Frame Module"
                GetString( MSG_GENPAR_OUTOFMEMORYALLOCATINGNEWKEYFRAMEPERATIONTERMINATED ),  // "Out of memory allocating new key frame!\nOperation terminated."
-              GetString( MSG_GENPAR_OK ),                                                   // "OK"
+              GetString( MSG_GLOBAL_OK ),                                                   // "OK"
               (CONST_STRPTR)"o");
   return (0);
   } /* if memory bust */

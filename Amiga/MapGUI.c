@@ -1070,7 +1070,7 @@ short map(void)
   {
   User_Message(GetString( MSG_MAPGUI_MAPPINGMODULE ),                                           // "Mapping Module"
 		  GetString( MSG_MAPGUI_OUTOFMEMORYANTINITIALIZEMAPWINDOWPERATIONTERMINATED ),  // "Out of memory!\nCan't initialize map window!\nOperation terminated."
-		  GetString( MSG_MAPGUI_OK ), (CONST_STRPTR)"o");                               // "OK"
+		  GetString( MSG_GLOBAL_OK ), (CONST_STRPTR)"o");                               // "OK"
   Close_Map_Window(1);
   return(0);
   }
@@ -1527,7 +1527,7 @@ if(WCS_ID)
          else
           User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),  // "Mapping Module: Align"
                        GetString( MSG_MAPGUI_ILLEGALREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUA ),  // "Illegal registration values! High and low X or Y values are equal."
-                       GetString( MSG_MAPGUI_OK ), (CONST_STRPTR)"o");  // "OK"
+                       GetString( MSG_GLOBAL_OK ), (CONST_STRPTR)"o");  // "OK"
          } /* if align */
 	if(AutoClear)
 		{
@@ -2653,7 +2653,7 @@ HandleEvent:
          else
           User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                                    // "Mapping Module: Align"
                        GetString( MSG_MAPGUI_ILLEGALREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUA ),  // "Illegal registration values! High and low X or Y values are equal.
-                       GetString( MSG_MAPGUI_OK ),                                                    // "OK"
+                       GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                      (CONST_STRPTR)"o");
          } /* if align */
 	if(AutoClear)
@@ -2818,7 +2818,7 @@ void Make_EL_Window(void)
   {
   User_Message(GetString( MSG_MAPGUI_ECOSYSTEMLEGEND ),  // "Ecosystem Legend"
                GetString( MSG_MAPGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENINGT ),  // "You must first load or create a parameter file before opening the Legend."
-               GetString( MSG_MAPGUI_OK ),                                                    // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no params */
@@ -2896,7 +2896,7 @@ void Make_EL_Window(void)
    Close_EL_Window();
    User_Message(GetString( MSG_MAPGUI_ECOSYSTEMLEGEND ),  // "Ecosystem Legend"
                 GetString( MSG_MAPGUI_OUTOFMEMORY ),      // "Out of memory!"
-                GetString( MSG_MAPGUI_OK ),               // "OK"
+                GetString( MSG_GLOBAL_OK ),               // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */

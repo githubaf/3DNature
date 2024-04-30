@@ -319,7 +319,7 @@ void Make_DM_Window(void)
    Close_DM_Window();
    User_Message(GetString( MSG_MOREGUI_DEMEXTRACT ),   // "DEM Extract"
                 GetString( MSG_MOREGUI_OUTOFMEMORY ),  // "Out of memory!"
-                GetString( MSG_MOREGUI_OK ),           // "OK"
+                GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -890,7 +890,7 @@ void Make_PJ_Window(void)
    Close_PJ_Window(1);
    User_Message(GetString( MSG_MOREGUI_PROJECTNEWEDIT ),  // "Project: New/Edit"
                 GetString( MSG_MOREGUI_OUTOFMEMORY ),     // "Out of memory!"
-                GetString( MSG_MOREGUI_OK ),              //"OK"
+                GetString( MSG_GLOBAL_OK ),              //"OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -1495,7 +1495,7 @@ void Make_SC_Window(void)
    Close_SC_Window();
    User_Message(GetString( MSG_MOREGUI_PARAMETERSIMAGESCALE ),  // "Parameters: Image Scale"
                 GetString( MSG_MOREGUI_OUTOFMEMORY ),           // "Out of memory!"
-                GetString( MSG_MOREGUI_OK ),                    // "OK"
+                GetString( MSG_GLOBAL_OK ),                    // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -1639,7 +1639,7 @@ void Handle_SC_Window(ULONG WCS_ID)
       {
       if (User_Message(GetString( MSG_MOREGUI_PARAMETERSIMAGESCALE ),  // "Parameters: Image Scale"
                        GetString( MSG_MOREGUI_APPLYCHANGES ),          // "Apply changes?"
-                       GetString( MSG_MOREGUI_OKCANCEL ),              // "OK|Cancel"
+                       GetString( MSG_GLOBAL_OKCANCEL ),              // "OK|Cancel"
                        (CONST_STRPTR)"oc"))
        ApplyImageScale();
       Close_SC_Window();
@@ -1793,7 +1793,7 @@ void Make_PR_Window(void)
    Close_PR_Window();
    User_Message(GetString( MSG_MOREGUI_PREFERENCES ),  // "Preferences"
                 GetString( MSG_MOREGUI_OUTOFMEMORY ),  // "Out of memory!"
-                GetString( MSG_MOREGUI_OK ),           // "OK"
+                GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */

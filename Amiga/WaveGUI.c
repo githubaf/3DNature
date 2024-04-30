@@ -180,7 +180,7 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
    Close_WV_Window(&WVWin[WinNum]);
    User_Message(GetString( MSG_WAVGUI_MAPVIEWWAVES ),  // "Map View: Waves"
                 GetString( MSG_WAVGUI_OUTOFMEMORY ),   // "Out of memory!"
-                GetString( MSG_WAVGUI_OK ),            // "OK"
+                GetString( MSG_GLOBAL_OK ),            // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -700,7 +700,7 @@ struct WaveWindow *WV_Win;
       {
       if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
                            GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
-                           GetString( MSG_WAVGUI_OKCANCEL ),                // "OK|Cancel"
+                           GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
                            (CONST_STRPTR)"oc", 1))
        {
        WV_Win->WD->NumKeys = 0;
@@ -1382,7 +1382,7 @@ struct Wave *WV;
   {
   if (User_Message_Def(GetString( MSG_WAVGUI_ADDWAVE ),                                               // "Add Wave"
                        GetString( MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY ),  // "Map View Module must be open in order\ to use this function. Would you like to open it now?"
-                       GetString( MSG_WAVGUI_OKCANCEL ),                                              // "OK|Cancel"
+                       GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
                        (CONST_STRPTR)"oc",1))
    {
    map();

@@ -869,7 +869,7 @@ short LoadForestModels(void)
    {
    User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
                 GetString( MSG_TREE_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMINAT ),  // "Error opening Ecosystem Model file for input!\nOperation terminated."
-                GetString( MSG_TREE_OK ),                                                      // "OK",
+                GetString( MSG_GLOBAL_OK ),                                                      // "OK",
                 (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)name);
    break;
@@ -878,7 +878,7 @@ short LoadForestModels(void)
    {
    User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
                 GetString( MSG_TREE_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPREM ),  // "Error writing to Ecosystem Model file!\nOperation terminated prematurely."
-                GetString( MSG_TREE_OK ),                                                      // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRITE_FAIL, (CONST_STRPTR)name);
    break;
@@ -887,7 +887,7 @@ short LoadForestModels(void)
    {
    User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
                 GetString( MSG_TREE_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED ),  // "Not a WCS Ecosystem Model file!\nOperation terminated."
-                GetString( MSG_TREE_OK ),                                           // "OK"
+                GetString( MSG_GLOBAL_OK ),                                           // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_TYPE, (CONST_STRPTR)name);
    break;
@@ -896,7 +896,7 @@ short LoadForestModels(void)
    {
    User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
                 GetString( MSG_TREE_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMINA ),  // "Unsupported WCS Ecosystem Model file version!\nOperation terminated."
-                GetString( MSG_TREE_OK ),                                                      // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_VER, (CONST_STRPTR)name);
    break;
@@ -905,7 +905,7 @@ short LoadForestModels(void)
    {
    User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
                 GetString( MSG_TREE_OUTOFMEMORYALLOCATINGECOSYSTEMMODELSPERATIONTERMINATED ),  // "Out of memory allocating Ecosystem Models!\nOperation terminated."
-                GetString( MSG_TREE_OK ),                                                      // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* out of memory */
@@ -913,7 +913,7 @@ short LoadForestModels(void)
    {
    User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
                 GetString( MSG_TREE_NODATAINWCSECOSYSTEMMODELPERATIONTERMINATED ),  // "No data in WCS Ecosystem Model!\nOperation terminated."
-                GetString( MSG_TREE_OK ),                                           // "OK"
+                GetString( MSG_GLOBAL_OK ),                                           // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_ILL_VAL, (CONST_STRPTR)name);
    break;
@@ -1192,7 +1192,7 @@ struct WcsBitMapHeader BMHdr;
    if (EcoShift[i].BitmapImages <= 0 || error)
     {
     if (! User_Message((CONST_STRPTR)PAR_NAME_ECO(i), GetString( MSG_TREE_APROBLEMOCCURREDLOADINGATLEASTONEIMAGEFORTHISECOSYSTEM ),  // "A problem occurred loading at least one image for this ecosystem!\nContinue without it or them?"
-                       GetString( MSG_TREE_OKCANCEL ),   // "OK|Cancel"
+                       GetString( MSG_GLOBAL_OKCANCEL ),   // "OK|Cancel"
                        (CONST_STRPTR)"oc"))
      success = 0;
     } /* if no images found and loaded */

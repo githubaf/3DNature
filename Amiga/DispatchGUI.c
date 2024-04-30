@@ -53,7 +53,7 @@ short error = 0, i, SetDefault = 0;
      {
      SetDefault = User_Message_Def((CONST_STRPTR)str,
                                    GetString( MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY ),  // "Make this the default object directory?"
-                                   GetString( MSG_DISPGUI_OKCANCEL ),                           // "OK|Cancel"
+                                   GetString( MSG_GLOBAL_OKCANCEL ),                           // "OK|Cancel"
                                    (CONST_STRPTR)"oc", 1);
      Proj_Mod = 1;
      } /* if not already default directory */
@@ -79,7 +79,7 @@ short error = 0, i, SetDefault = 0;
    if (! FileName)
     User_Message(GetString( MSG_DISPGUI_DATABASELOAD ),                                // "Database: Load"
                  GetString( MSG_DISPGUI_ERROROPENINGDATABASEFILEPERATIONTERMINATED ),  // "Error opening Database file!\nOperation terminated."
-                 GetString( MSG_DISPGUI_OK ),                                          // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                          // "OK"
                  (CONST_STRPTR)"o");
    break;
    } /* no file */
@@ -89,7 +89,7 @@ short error = 0, i, SetDefault = 0;
    if (! FileName)
     User_Message(GetString( MSG_DISPGUI_DATABASELOAD ),                           // "Database: Load"
                  GetString( MSG_DISPGUI_NOTAWCSDATABASEFILEPERATIONTERMINATED ),  // "Not a WCS Database file!\nOperation terminated."
-                 GetString( MSG_DISPGUI_OK ),                                     // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                     // "OK"
                  (CONST_STRPTR)"o");
    break;
    } /* wrong type file */
@@ -99,7 +99,7 @@ short error = 0, i, SetDefault = 0;
    if (! FileName)
     User_Message(GetString( MSG_DISPGUI_DATABASELOAD ),                                // "Database: Load"
                  GetString( MSG_DISPGUI_ERRORREADINGDATABASEFILEPERATIONTERMINATED ),  // "Error reading Database file!\nOperation terminated."
-                 GetString( MSG_DISPGUI_OK ),                                          // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                          // "OK"
                  (CONST_STRPTR)"o");
    break;
    } /* read error */
@@ -108,7 +108,7 @@ short error = 0, i, SetDefault = 0;
    if (! FileName)
     User_Message(GetString( MSG_DISPGUI_DATABASEMODULELOAD ),                               // "Database Module: Load"
     		 GetString( MSG_DISPGUI_OUTOFMEMORYALLOCATINGDATABASEPERATIONTERMINATED ),  // "Out of memory allocating Database!\nOperation terminated."
-                 GetString( MSG_DISPGUI_OK ),                                               // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                               // "OK"
                  (CONST_STRPTR)"o");
    break;
    } /* memory bust */

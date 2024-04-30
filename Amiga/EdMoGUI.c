@@ -28,7 +28,7 @@ void Make_EM_Window(void)
   {
   User_Message(GetString( MSG_EDMOGUI_MOTIONEDITOR ),                                         // "Motion Editor"
                GetString( MSG_EDMOGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING ),  // "You must first load or create a parameter file before opening the Editor."
-               GetString( MSG_EDMOGUI_OK ),                                                   // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no params */
@@ -223,7 +223,7 @@ void Make_EM_Window(void)
    Close_EM_Window(1);
    User_Message(GetString( MSG_EDMOGUI_MOTIONEDITOR ),  // "Motion Editor"
                 GetString( MSG_EDMOGUI_OUTOFMEMORY ),   // "Out of memory!"
-                GetString( MSG_EDMOGUI_OK ),            // "OK"
+                GetString( MSG_GLOBAL_OK ),            // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -468,7 +468,7 @@ void Handle_EM_Window(ULONG WCS_ID)
        {
        User_Message(GetString( MSG_EDMOGUI_MOTIONEDITORAUTOCENTER ),                          // "Motion Editor: Auto Center"
                     GetString( MSG_EDMOGUI_INTERACTIVEMODULEMUSTBEOPENBEFOREAUTOCENTERING ),  // "Interactive module must be open before auto centering!"
-                    GetString( MSG_EDMOGUI_OK ),                                              // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                              // "OK"
                     (CONST_STRPTR)"o");
        } /* else */
       break;
@@ -588,7 +588,7 @@ void Handle_EM_Window(ULONG WCS_ID)
       sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), varname[EM_Win->MoItem]);  // "Delete all %s Key Frames?"
       if (User_Message_Def(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                       // "Parameters Module: Motion"
                            (CONST_STRPTR)str, 
-                           GetString( MSG_EDMOGUI_OKCANCEL ),                                     // "OK|Cancel"
+                           GetString( MSG_GLOBAL_OKCANCEL ),                                     // "OK|Cancel"
                            (CONST_STRPTR)"oc", 1))
        {
        if (MP && MP->ptsdrawn)
@@ -1533,7 +1533,7 @@ void Make_EMIA_Window(void)
    Close_EMIA_Window(-1);
    User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),   // "Camera View"
                 GetString( MSG_EDMOGUI_OUTOFMEMORY ),  // "Out of memory!"
-                GetString( MSG_EDMOGUI_OK ),           // "OK"
+                GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -1916,7 +1916,7 @@ void Handle_EMIA_Window(ULONG WCS_ID)
        {
        if (User_Message(GetString( MSG_EDMOGUI_CAMERAVIEWASPECT ),                                     // "Camera View: Aspect"
                         GetString( MSG_EDMOGUI_COMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREENHEIGHTDOY ),  // "Computed height is larger than the current screen height. Do you wish to use the screen height?"
-                        GetString( MSG_EDMOGUI_OKCANCEL),                                              // "OK|Cancel"
+                        GetString( MSG_GLOBAL_OKCANCEL),                                              // "OK|Cancel"
                         (CONST_STRPTR)"oc"))
         {
         Height = WCSScrn->Height;
@@ -2108,7 +2108,7 @@ void Make_EMPL_Window(void)
    Close_EMPL_Window();
    User_Message(GetString( MSG_EDMOGUI_MOTIONPARAMLIST ),  // "Motion Param List"
                 GetString( MSG_EDMOGUI_OUTOFMEMORY ),      // "Out of memory!"
-                GetString( MSG_EDMOGUI_OK ),               // "OK"
+                GetString( MSG_GLOBAL_OK ),               // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */

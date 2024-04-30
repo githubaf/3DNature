@@ -1083,7 +1083,7 @@ struct ColorComponents CC;
    error = 1;
    User_Message(GetString( MSG_GLMPSPRT_RENDERMODULE ),                            // "Render Module"
                 GetString( MSG_GLMPSPRT_ERRORLOADINGSUNIMAGEPERATIONTERMINATED ),  // "Error loading Sun Image!\nOperation terminated."
-                GetString( MSG_GLMPSPRT_OK ),                                      // "OK"
+                GetString( MSG_GLOBAL_OK ),                                      // "OK"
                 (CONST_STRPTR)"o");
    } /* else */
   if (Image[0])
@@ -1130,7 +1130,7 @@ struct ColorComponents CC;
    error = 1;
    User_Message(GetString( MSG_GLMPSPRT_RENDERMODULE ),                             // "Render Module"
                 GetString( MSG_GLMPSPRT_ERRORLOADINGMOONIMAGEPERATIONTERMINATED ),  // "Error loading Moon Image!\nOperation terminated."
-                GetString( MSG_GLMPSPRT_OK ),                                       // "OK"
+                GetString( MSG_GLOBAL_OK ),                                       // "OK"
                 (CONST_STRPTR)"o");
    } /* else */
   if (Image[0])

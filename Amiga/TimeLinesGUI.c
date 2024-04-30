@@ -73,7 +73,7 @@ void Make_EMTL_Window(void)
   {
   User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                // "Parameters: Time Line"
                GetString( MSG_TLGUI_OUTOFMEMORYANTOPENTIMELINEWINDOW ),  // "Out of memory!\nCan't open Time Line window."
-               GetString( MSG_TLGUI_OK ),                                // "OK"
+               GetString( MSG_GLOBAL_OK ),                                // "OK"
                (CONST_STRPTR)"o");
   Close_EMTL_Window(1);
   return;
@@ -83,7 +83,7 @@ void Make_EMTL_Window(void)
   {
   User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                                     // "Parameters: Time Line"
                GetString( MSG_TLGUI_NOMOTIONPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONTERM ),  // "No Motion Parameters with more than one Key Frame!\nOperation terminated."
-               GetString( MSG_TLGUI_OK ),                                                     // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                (CONST_STRPTR)"o");
   Close_EMTL_Window(1);
   return;
@@ -208,7 +208,7 @@ void Make_EMTL_Window(void)
    Close_EMTL_Window(1);
    User_Message(GetString( MSG_TLGUI_MOTIONTIMELINE ),  // "Motion Time Line"
                 GetString( MSG_TLGUI_OUTOFMEMORY ),     // "Out of memory!"
-                GetString( MSG_TLGUI_OK ),              // "OK"
+                GetString( MSG_GLOBAL_OK ),              // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -248,7 +248,7 @@ void Make_EMTL_Window(void)
    Close_EMTL_Window(1);
    User_Message(GetString( MSG_TLGUI_MOTIONEDITORTIMELINES ),                                  // "Motion Editor: Time Lines"
                 GetString( MSG_TLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPRIOR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
-                GetString( MSG_TLGUI_OK ),                                                     // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */
@@ -960,7 +960,7 @@ void Make_ECTL_Window(void)
   {
   User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                // "Parameters: Time Line"
                GetString( MSG_TLGUI_OUTOFMEMORYANTOPENTIMELINEWINDOW ),  // "Out of memory!\nCan't open Time Line window."
-               GetString( MSG_TLGUI_OK ),                                // "OK"
+               GetString( MSG_GLOBAL_OK ),                                // "OK"
                (CONST_STRPTR)"o");
   Close_ECTL_Window(1);
   return;
@@ -970,7 +970,7 @@ void Make_ECTL_Window(void)
   {
   User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                                     // "Parameters: Time Line"
                GetString( MSG_TLGUI_NOCOLORPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONTERMI ),  // "No Color Parameters with more than one Key Frame!\nOperation terminated."
-               GetString( MSG_TLGUI_OK ),                                                     // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                (CONST_STRPTR)"o");
   Close_ECTL_Window(1);
   return;
@@ -1105,7 +1105,7 @@ void Make_ECTL_Window(void)
    Close_ECTL_Window(1);
    User_Message(GetString( MSG_TLGUI_COLORTIMELINE ),  // "Color Time Line"
                 GetString( MSG_TLGUI_OUTOFMEMORY ),    // "Out of memory!"
-                GetString( MSG_TLGUI_OK ),             // "OK"
+                GetString( MSG_GLOBAL_OK ),             // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -1145,7 +1145,7 @@ void Make_ECTL_Window(void)
    Close_ECTL_Window(1);
    User_Message(GetString( MSG_TLGUI_COLOREDITORTIMELINES ),                                   // "Color Editor: Time Lines"
                 GetString( MSG_TLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPRIOR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
-                GetString( MSG_TLGUI_OK ),                                                     // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */
@@ -1720,7 +1720,7 @@ void Make_EETL_Window(void)
   {
   User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                // "Parameters: Time Line"
                GetString( MSG_TLGUI_OUTOFMEMORYANTOPENTIMELINEWINDOW ),  // "Out of memory!\nCan't open Time Line window."
-               GetString( MSG_TLGUI_OK ),                                // "OK"
+               GetString( MSG_GLOBAL_OK ),                                // "OK"
                (CONST_STRPTR)"o");
   Close_EETL_Window(1);
   return;
@@ -1730,7 +1730,7 @@ void Make_EETL_Window(void)
   {
   User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                                     // "Parameters: Time Line"
                GetString( MSG_TLGUI_NOECOSYSTEMPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONT ),  // "No Ecosystem Parameters with more than one Key Frame!\nOperation terminated."
-               GetString( MSG_TLGUI_OK ),                                                     // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                (CONST_STRPTR)"o");
   Close_EETL_Window(1);
   return;
@@ -1895,7 +1895,7 @@ void Make_EETL_Window(void)
    Close_EETL_Window(1);
    User_Message(GetString( MSG_TLGUI_ECOSYSTEMTIMELINE ),  // "Ecosystem Time Line"
                 GetString( MSG_TLGUI_OUTOFMEMORY ),        // "Out of memory!"
-                GetString( MSG_TLGUI_OK ),                 // "OK"
+                GetString( MSG_GLOBAL_OK ),                 // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -1943,7 +1943,7 @@ void Make_EETL_Window(void)
    Close_EETL_Window(1);
    User_Message(GetString( MSG_TLGUI_ECOSYSTEMEDITORTIMELINES ),                               // "Ecosystem Editor: Time Lines"
                 GetString( MSG_TLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPRIOR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
-                GetString( MSG_TLGUI_OK ),                                                     // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* if build key table failed */

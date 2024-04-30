@@ -66,7 +66,7 @@ void Make_DE_Window(void)
   {
   User_Message(GetString( MSG_EDDB_DATABASEEDITOR ),                                         // "Database Editor"
 	       GetString( MSG_EDDB_YOUMUSTFIRSTLOADORCREATEADATABASEBEFOREOPENINGTHEEDITO ), // "You must first load or create a database before opening the editor."
-               GetString( MSG_EDDB_OK ),                                                     // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no database */
@@ -79,7 +79,7 @@ void Make_DE_Window(void)
   {
   User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                    // "Database Module"
                GetString( MSG_EDDB_OUTOFMEMORYANTOPENDATABASEWINDOW ),  // "Out of memory!\nCan't open database window.",
-               GetString( MSG_EDDB_OK ),                                // "OK"
+               GetString( MSG_GLOBAL_OK ),                                // "OK"
                (CONST_STRPTR)"o");
   Close_DE_Window();
   return;
@@ -278,7 +278,7 @@ void Make_DE_Window(void)
    Close_DE_Window();
    User_Message(GetString( MSG_EDDB_DATABASEEDITOR ),  // "Database Editor"
                 GetString( MSG_EDDB_OUTOFMEMORY ),     // "Out of memory!"
-                GetString( MSG_EDDB_OK ),              // "OK"
+                GetString( MSG_GLOBAL_OK ),              // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -516,7 +516,7 @@ NewName:
        {
        if (! User_Message_Def(GetString( MSG_EDDB_DATABASEMODULENAME ),                             // "Database Module: Name"
                               GetString( MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME ) ,  // "Object name already present in database!\nTry a new name?"
-			      GetString( MSG_EDDB_OKCANCEL ),                                       // "OK|Cancel"
+			      GetString( MSG_GLOBAL_OKCANCEL ),                                       // "OK|Cancel"
                               (CONST_STRPTR)"oc", 1))
         break;
        goto NewName;
@@ -1486,7 +1486,7 @@ void Set_DE_List(short update)
    {
    User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                  // "Database Module"
                 GetString( MSG_EDDB_OUTOFMEMORYANTOPENDATABASELIST ),  // "Out of memory!\nCan't open database list."
-                GetString( MSG_EDDB_OK ),                              // "OK"
+                GetString( MSG_GLOBAL_OK ),                              // "OK"
                 (CONST_STRPTR)"o");
    } /* if out of memory */
   } /* if need more list space */
@@ -1664,7 +1664,7 @@ void Make_DL_Window(void)
   {
   User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                         // "Database Module"
                GetString( MSG_EDDB_OUTOFMEMORYANTOPENDIRECTORYLISTWINDOW ),  // "Out of memory!\nCan't open directory list window."
-               GetString( MSG_EDDB_OK ),                                     // "OK"
+               GetString( MSG_GLOBAL_OK ),                                     // "OK"
                (CONST_STRPTR)"o");
   Close_DL_Window(NULL);
   return;
@@ -1674,7 +1674,7 @@ void Make_DL_Window(void)
   {
   User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                         // "Database Module"
                GetString( MSG_EDDB_OUTOFMEMORYANTOPENDIRECTORYLISTWINDOW ),  // "Out of memory!\nCan't open directory list window."
-               GetString( MSG_EDDB_OK ),                                     // "OK"
+               GetString( MSG_GLOBAL_OK ),                                     // "OK"
                (CONST_STRPTR)"o");
   Close_DL_Window(NULL);
   return;
@@ -1722,7 +1722,7 @@ void Make_DL_Window(void)
    Close_DL_Window(DL_Win->DLCopy);
    User_Message(GetString( MSG_EDDB_DIRECTORYLIST ),  // "Directory List"
                 GetString( MSG_EDDB_OUTOFMEMORY ),    // "Out of memory!"
-                GetString( MSG_EDDB_OK ),             // "OK"
+                GetString( MSG_GLOBAL_OK ),             // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -2021,7 +2021,7 @@ short Add_DE_NewItem(void)
    {
    User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                                  // "Database Module"
                 GetString( MSG_EDDB_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
-                GetString( MSG_EDDB_OK ),                                              // "OK"
+                GetString( MSG_GLOBAL_OK ),                                              // "OK"
                 (CONST_STRPTR)"o");
    return (0);
    } /* if new list fails */

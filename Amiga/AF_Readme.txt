@@ -3506,3 +3506,43 @@ cd 68020
 for FILE in $(ls *.o | sed -E "s/(.*)\.o/..\/\1.c/"); do echo; echo  "********** $FILE **********"; echo;  cat $FILE | grep -nHs "\".*\"" | grep -E -v "//.*\"" | grep -v "fprintf.*" | grep -v -E "fscanf.*" | grep -v -E "\".{0,2}\"" | grep -v -E "\"[\.0-9]+\"" | grep -v "#include"; done
 
 - Besser geht es wohl doch mit manuelle Nach-Kontrolle der C-Files in Eclipse.
+
+29.April 2024
+--------------
+(char*)GetString() -> (CONST_STRPTR)GetString()
+
+cat WCS.c | sed -E "s/\(char\*\)[[:space:]]*GetString/\(CONST_STRPTR\)GetString/" | grep CONST_STRPTR
+
+30.April 2024
+-------------
+Aufrauemen der Strings. Duplikate entfernen...
+
+# wir haben 2339 Strings
+cat WCS.cs | grep MSG_ | wc -l
+
+# davon 44x "OK"
+
+# zeige nur mehrfache englische Strings (Zeile nach MSG_...)
+cat WCS.cs | grep MSG_ -A1 | grep -v MSG_ | grep -v "\-\-" | sort | uniq -d
+
+# Wir wollen jetzt die "OK"-Strings ersetzen in allen c-Files. Also erst mal zur Kontrolle auflisten:
+cat WCS.cs | awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="OK"){print MSG_NAME " : " ENGLISH}}'
+
+# gut. Nut die MSG_ Namen ausgeben
+cat WCS.cs | awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="OK"){print MSG_NAME}}'
+
+#Damit sed-Kommando bauen:
+for MESSAGE in $(awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="OK"){print MSG_NAME}}' WCS.cs); do echo sed -i "s/$MESSAGE/MSG_GLOBAL_OK/"; done
+
+# Alle "OK"-Messages in den C-Files durch MSG_GLOBAL_OK ersetzen. Auch in WCS.cs.
+# WCS.cs dann neu in Simplecat checken, alle entstandenen Mehrfachdefinitionen loeschen (Find Translation), Targets neu erzeugen, WCS neu bauen
+
+for MESSAGE in $(awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="OK"){print MSG_NAME}}' WCS.cs); do 
+	for FILE in $(ls *.c); do
+		sed -i -E "s/$MESSAGE([ )+])/MSG_GLOBAL_OK\1/" $FILE;  # Leereichen und Klammern nach dem Text behalten, Text muss durch leerzeichen der Klammer begrenzt sein
+	done
+	sed -i "s/$MESSAGE\$/MSG_GLOBAL_OK/" WCS.cs;   # und jetzt auch im wcs-File 
+done
+
+* Removed duplicated "OK|Cancel" and "OK|CANCEL" (now only "OK|Cancel" is used)
+

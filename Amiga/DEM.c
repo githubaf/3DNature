@@ -532,7 +532,7 @@ short InterpDEM(struct DEMInterpolateData *DEMInterp)
    {
    User_Message(GetString( MSG_DEM_DATAOPSDEMINTERPOLATE ) ,  // "Data Ops: DEM Interpolate"
            GetString( MSG_DEM_NOFILESSELECTED ) ,             // "No file(s) selected!"
-           (CONST_STRPTR) GetString( MSG_DEM_OK ) ,           // "OK",
+           (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) ,           // "OK",
            (CONST_STRPTR)"o");
    break;
    } /* if no file */
@@ -546,7 +546,7 @@ RelelRepeat:
    Log(ERR_WRONG_TYPE, (CONST_STRPTR)DEMInterp->elevfile);
    if (! User_Message((CONST_STRPTR)DEMInterp->elevfile,
            GetString( MSG_DEM_ERROROPENINGFILEFORINTERPOLATIONILENOTDEMORREMONTINUE ) ,  // "Error opening file for interpolation!\nFile not DEM or REM\nContinue?"
-           GetString( MSG_DEM_OKCANCEL ),                                                // "OK|CANCEL"
+           GetString( MSG_GLOBAL_OKCANCEL ),                                                // "OK|CANCEL"
            (CONST_STRPTR)"oc"))
     {
     break;
@@ -587,7 +587,7 @@ RelelRepeat:
    {
    if (! User_Message(GetString( MSG_DEM_DATAOPSINTERPOLATEDEM ) ,  // "Data Ops: Interpolate DEM"
            GetString( MSG_DEM_ERRORREADINGELEVATIONFILEONTINUE ) ,  // "Error reading elevation file!\nContinue?",
-           GetString( MSG_DEM_OKCANCEL ),                           // "OK|CANCEL"
+           GetString( MSG_GLOBAL_OKCANCEL ),                           // "OK|CANCEL"
            (CONST_STRPTR)"oc"))
     {
     break;
@@ -607,7 +607,7 @@ RelelRepeat:
    free_Memory (map.map, map.size);
    User_Message(GetString( MSG_DEM_DATAOPSINTERPOLATEDEM ) ,         // "Data Ops: Interpolate DEM"
                 GetString( MSG_DEM_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-                GetString( MSG_DEM_OK ),                             // "OK"
+                GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
    } /* if */
 
@@ -681,7 +681,7 @@ RelelRepeat:
      {
      User_Message(GetString( MSG_DEM_DATAOPSINTERPOLATEDEM ) ,                           // "Data Ops: Interpolate DEM"
                   GetString( MSG_DEM_ERROROPENINGDEMFILEFOROUTPUTPERATIONTERMINATED ) ,  // "Error opening DEM file for output!\nOperation terminated."
-                  GetString( MSG_DEM_OK ) ,                                              // "OK",
+                  GetString( MSG_GLOBAL_OK ) ,                                              // "OK",
                   (CONST_STRPTR)"o");
      Log(ERR_OPEN_FAIL, (CONST_STRPTR)DEMInterp->elevfile);
      error = 1;
@@ -694,7 +694,7 @@ RelelRepeat:
      {
      User_Message(GetString( MSG_DEM_DATAOPSINTERPOLATEDEM ) ,                  // "Data Ops: Interpolate DEM"
                   GetString( MSG_DEM_ERRORWRITINGDEMFILEPERATIONTERMINATED ) ,  // "Error writing DEM file!\nOperation terminated."
-                  (CONST_STRPTR) GetString( MSG_DEM_OK ),                       // "OK"
+                  (CONST_STRPTR) GetString( MSG_GLOBAL_OK ),                       // "OK"
                   (CONST_STRPTR)"o");
      Log(ERR_WRITE_FAIL, (CONST_STRPTR)DEMInterp->elevfile);
      close (fhelev);
@@ -729,7 +729,7 @@ RelelRepeat:
          {
          User_Message(GetString( MSG_DEM_DATABASEMODULE ) ,                                 // "Database Module",
                       GetString( MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
-                      GetString( MSG_DEM_OK ),                                              // "OK",
+                      GetString( MSG_GLOBAL_OK ),                                              // "OK",
                       (CONST_STRPTR)"o");
          error = 1;
          break;
@@ -758,7 +758,7 @@ RelelRepeat:
          {
          User_Message(GetString( MSG_DEM_DATABASEMODULE ) ,                                          // "Database Module"
                       GetString( MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
-                      GetString( MSG_DEM_OK ),                                                       // "OK",
+                      GetString( MSG_GLOBAL_OK ),                                                       // "OK",
                       (CONST_STRPTR)"o");
          error = 1;
          } /* if new list fails */
@@ -785,7 +785,7 @@ RelelRepeat:
        {
        User_Message(GetString( MSG_DEM_DATAOPSINTERPOLATEDEM ) ,                         // "Data Ops: Interpolate DEM"
                GetString( MSG_DEM_ERROROPENINGOBJECTFILEFOROUTPUTPERATIONTERMINATED ) ,  // "Error opening Object file for output!\nOperation terminated."
-               GetString( MSG_DEM_OK ) ,                                                 // "OK"
+               GetString( MSG_GLOBAL_OK ) ,                                                 // "OK"
                (CONST_STRPTR)"o");
        error = 1;
        break;
@@ -967,7 +967,7 @@ short ExtractDEM(struct DEMExtractData *DEMExtract)
   {
   User_Message((CONST_STRPTR)MsgHdr,
           GetString( MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED ) ,  // "Out of memory allocating DEM Info Header!\nOperation terminated."
-          GetString( MSG_DEM_OK ) ,                                                    // "OK"
+          GetString( MSG_GLOBAL_OK ) ,                                                    // "OK"
           (CONST_STRPTR)"o");
   return (0);
   } /* if */
@@ -977,7 +977,7 @@ short ExtractDEM(struct DEMExtractData *DEMExtract)
   {
   User_Message((CONST_STRPTR)MsgHdr,
           GetString( MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED ) ,  // "Out of memory allocating DEM Info Header!\nOperation terminated."
-          (CONST_STRPTR) GetString( MSG_DEM_OK ) ,                                     // "OK"
+          (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) ,                                     // "OK"
           (CONST_STRPTR)"o");
   goto EndExtract;
   } /* if */
@@ -1037,7 +1037,7 @@ short ExtractDEM(struct DEMExtractData *DEMExtract)
     {
     User_Message((CONST_STRPTR)MsgHdr,
             GetString( MSG_DEM_75MINUTEDEMSDONOTALLLIEWITHINSAMEUTMZONEPERATIONTERMINA ) ,  // "7.5 Minute DEMs do not all lie within same UTM Zone!\nOperation terminated."
-            GetString( MSG_DEM_OK ) ,                                                       // "OK"
+            GetString( MSG_GLOBAL_OK ) ,                                                       // "OK"
             (CONST_STRPTR)"o");
     error = 1;
     break;
@@ -1157,7 +1157,7 @@ short ExtractDEM(struct DEMExtractData *DEMExtract)
    {
    User_Message((CONST_STRPTR)MsgHdr,
            GetString( MSG_DEM_OUTOFMEMORYALLOCATINGDEMARRAYSPERATIONTERMINATED ) ,  // "Out of memory allocating DEM Arrays!\nOperation terminated."
-           GetString( MSG_DEM_OK ) ,                                                // "OK"
+           GetString( MSG_GLOBAL_OK ) ,                                                // "OK"
            (CONST_STRPTR)"o");
    error = 1;
    goto EndPhase1;
@@ -1208,7 +1208,7 @@ printf("URI %f UCI %f LRI %f LCI %f\n", DEMExtract->UTMRowInt, DEMExtract->UTMCo
      fclose(DEMFile);
      User_Message((CONST_STRPTR)MsgHdr,
              GetString( MSG_DEM_CANTREADDEMPROFILEHEADERPERATIONTERMINATED ) ,  // "Can't read DEM profile header!\nOperation terminated."
-             GetString( MSG_DEM_OK ) ,                                          // "OK"
+             GetString( MSG_GLOBAL_OK ) ,                                          // "OK"
              (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
      break;
@@ -1217,7 +1217,7 @@ printf("URI %f UCI %f LRI %f LCI %f\n", DEMExtract->UTMRowInt, DEMExtract->UTMCo
      {
      User_Message((CONST_STRPTR)MsgHdr,
                   GetString( MSG_DEM_ERRORREADINGDEMPROFILEHEADERPERATIONTERMINATED ),  // "Error reading DEM profile header!\nOperation terminated."
-                  GetString( MSG_DEM_OK ),                                              // "OK"
+                  GetString( MSG_GLOBAL_OK ),                                              // "OK"
                   (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL,(CONST_STRPTR) DEMExtract->elevfile);
      break;
@@ -1234,7 +1234,7 @@ printf("URI %f UCI %f LRI %f LCI %f\n", DEMExtract->UTMRowInt, DEMExtract->UTMCo
      {
      User_Message((CONST_STRPTR)MsgHdr,
                   GetString( MSG_DEM_ERRORREADINGDEMPROFILEHEADERPERATIONTERMINATED ),  // "Error reading DEM profile header!\nOperation terminated."
-                  GetString( MSG_DEM_OK ),                                              // "OK"
+                  GetString( MSG_GLOBAL_OK ),                                              // "OK"
                   (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
      break;
@@ -1474,7 +1474,7 @@ EndPhase1:
    fclose(DEMFile);
    User_Message((CONST_STRPTR)MsgHdr,
            GetString( MSG_DEM_CANTREADDEMPROFILEHEADERPERATIONTERMINATED ),  // "Can't read DEM profile header!\nOperation terminated."
-           GetString( MSG_DEM_OK ),                                          // "OK"
+           GetString( MSG_GLOBAL_OK ),                                          // "OK"
            (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
    error = 1;
@@ -1502,7 +1502,7 @@ EndPhase1:
    fclose(DEMFile);
    User_Message((CONST_STRPTR)MsgHdr,
            GetString( MSG_DEM_OUTOFMEMORYALLOCATINGTEMPORARYBUFFERPERATIONTERMINATED ),  // "Out of memory allocating temporary buffer!\nOperation terminated."
-           GetString( MSG_DEM_OK ),                                                      // "OK"
+           GetString( MSG_GLOBAL_OK ),                                                      // "OK"
            (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
    error = 1;
@@ -1517,7 +1517,7 @@ EndPhase1:
     {
     User_Message((CONST_STRPTR)MsgHdr,
             GetString( MSG_DEM_ERRORREADINGDEMPROFILEPERATIONTERMINATED ),  // "Error reading DEM profile!\nOperation terminated."
-            GetString( MSG_DEM_OK ),                                        // "OK", 
+            GetString( MSG_GLOBAL_OK ),                                        // "OK", 
             (CONST_STRPTR)"o");
     Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
     error = 1;
@@ -1529,7 +1529,7 @@ EndPhase1:
      {
      User_Message((CONST_STRPTR)MsgHdr,
              GetString( MSG_DEM_ERRORREADINGDEMPROFILEHEADERPERATIONTERMINATED ),  // "Error reading DEM profile header!\nOperation terminated."
-             GetString( MSG_DEM_OK ),                                              // "OK"
+             GetString( MSG_GLOBAL_OK ),                                              // "OK"
              (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
      error = 1;
@@ -1539,7 +1539,7 @@ EndPhase1:
      {
      User_Message((CONST_STRPTR)MsgHdr,
               GetString( MSG_DEM_IMPROPERDEMPROFILELENGTHPERATIONTERMINATED ),  // "Improper DEM profile length!\nOperation terminated."
-              GetString( MSG_DEM_OK ),                                          // "OK", 
+              GetString( MSG_GLOBAL_OK ),                                          // "OK", 
               (CONST_STRPTR)"o");
      Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
      error = 1;
@@ -1572,7 +1572,7 @@ EndPhase1:
    {
    User_Message((CONST_STRPTR)MsgHdr,
            GetString( MSG_DEM_OUTOFMEMORYALLOCATINGMAPBUFFERPERATIONTERMINATED ),  // "Out of memory allocating map buffer!\nOperation terminated."
-           GetString( MSG_DEM_OK ),                                                //  "OK"
+           GetString( MSG_GLOBAL_OK ),                                                //  "OK"
            (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
    if (DEMExtract->UTMData)
@@ -1745,7 +1745,7 @@ EndPhase1:
    {
    User_Message((CONST_STRPTR)MsgHdr,
            GetString( MSG_DEM_ERRORCREATINGOUTPUTFILEPERATIONTERMINATED ),  // "Error creating output file!\nOperation terminated."
-           GetString( MSG_DEM_OK ),                                         // "OK"
+           GetString( MSG_GLOBAL_OK ),                                         // "OK"
            (CONST_STRPTR)"o");
    break;
    } /* if file output error */
@@ -1787,7 +1787,7 @@ FILE *DEMFile;
   {
   User_Message((CONST_STRPTR)MsgHdr,
           GetString( MSG_DEM_NOFILESSELECTED ),  // "No file(s) selected!",
-          GetString( MSG_DEM_OK ),               // "OK"
+          GetString( MSG_GLOBAL_OK ),               // "OK"
           (CONST_STRPTR)"o");
   return (NULL);
   } /* if no file */
@@ -1798,7 +1798,7 @@ FILE *DEMFile;
   {
   User_Message((CONST_STRPTR)MsgHdr,
           GetString( MSG_DEM_CANTOPENDEMFILEFORINPUTPERATIONTERMINATED ),  // "Can't open DEM file for input!\nOperation terminated."
-          GetString( MSG_DEM_OK ),                                         // "OK"
+          GetString( MSG_GLOBAL_OK ),                                         // "OK"
           (CONST_STRPTR)"o");
   Log(ERR_OPEN_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
   return (NULL);
@@ -1809,7 +1809,7 @@ FILE *DEMFile;
   fclose(DEMFile);
   User_Message((CONST_STRPTR)MsgHdr,
           GetString( MSG_DEM_CANTREADDEMFILEHEADERPERATIONTERMINATED ),  // "Can't read DEM file header!\nOperation terminated."
-          GetString( MSG_DEM_OK ),                                       // "OK"
+          GetString( MSG_GLOBAL_OK ),                                       // "OK"
           (CONST_STRPTR)"o");
   Log(ERR_READ_FAIL, (CONST_STRPTR)DEMExtract->elevfile);
   return (NULL);
@@ -1839,7 +1839,7 @@ double Lon[6], Lat[6];
   {
   User_Message((CONST_STRPTR)FileBase,
 	GetString( MSG_DEM_ERROROPENINGOUTPUTFILEPERATIONTERMINATED ),  // "Error opening output file!\nOperation terminated."
-        GetString( MSG_DEM_OK ),                                        // "OK"
+        GetString( MSG_GLOBAL_OK ),                                        // "OK"
         (CONST_STRPTR)"o");
   Log(ERR_OPEN_FAIL, (CONST_STRPTR)FileBase);
   return (1);
@@ -1850,7 +1850,7 @@ double Lon[6], Lat[6];
   {
   User_Message((CONST_STRPTR)FileBase,
           GetString( MSG_DEM_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED ),  // "Error writing to output file!\nOperation terminated."
-          GetString( MSG_DEM_OK ),                                          // "OK",
+          GetString( MSG_GLOBAL_OK ),                                          // "OK",
           (CONST_STRPTR)"o");
   Log(ERR_WRITE_FAIL, (CONST_STRPTR)FileBase);
   close(fh);
@@ -1860,7 +1860,7 @@ double Lon[6], Lat[6];
   {
   User_Message((CONST_STRPTR)FileBase,
           GetString( MSG_DEM_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED ),  // "Error writing to output file!\nOperation terminated."
-          GetString( MSG_DEM_OK ),                                          // "OK"
+          GetString( MSG_GLOBAL_OK ),                                          // "OK"
           (CONST_STRPTR)"o");
   Log(ERR_WRITE_FAIL, (CONST_STRPTR)FileBase);
   close(fh);
@@ -1889,7 +1889,7 @@ double Lon[6], Lat[6];
     {
     User_Message(GetString( MSG_DEM_DATABASEMODULE ),                             // "Database Module"
             GetString( MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
-            GetString( MSG_DEM_OK ),                                              // "OK", 
+            GetString( MSG_GLOBAL_OK ),                                              // "OK", 
             (CONST_STRPTR)"o");
     return (1);
     } /* if new database allocation fails */
@@ -1917,7 +1917,7 @@ double Lon[6], Lat[6];
     {
     User_Message(GetString( MSG_DEM_DATABASEMODULE ),                     // "Database Module"
             GetString( MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLIST ),  // "Out of memory expanding Database Editor List!"
-            GetString( MSG_DEM_OK ),                                      // "OK"
+            GetString( MSG_GLOBAL_OK ),                                      // "OK"
             (CONST_STRPTR)"o");
     } /* if new list fails */
    } /* if database editor open */
@@ -1943,7 +1943,7 @@ double Lon[6], Lat[6];
   {
   User_Message((CONST_STRPTR)FileBase,
           GetString( MSG_DEM_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED ),  // "Error writing to output file!\nOperation terminated."
-          GetString( MSG_DEM_OK ),                                          // "OK"
+          GetString( MSG_GLOBAL_OK ),                                          // "OK"
           (CONST_STRPTR)"o");
   return (1);
   } /* if write error */
@@ -2659,7 +2659,7 @@ EndSpline:
    {
    User_Message(GetString( MSG_DEM_MAPPINGMODULEFIXFLATS ),                               // "Mapping Module: Fix Flats"
            GetString( MSG_DEM_BADARRAYDIMENSIONSSOMETHINGDOESNTCOMPUTEPERATIONTERMINA ),  // "Bad array dimensions! Something doesn't compute.\nOperation terminated."
-           GetString( MSG_DEM_OK ),                                                       // "OK"
+           GetString( MSG_GLOBAL_OK ),                                                       // "OK"
            (CONST_STRPTR)"o");
    break;
    }
@@ -2667,7 +2667,7 @@ EndSpline:
    {
    User_Message(GetString( MSG_DEM_MAPPINGMODULEFIXFLATS ),     // "Mapping Module: Fix Flats"
            GetString( MSG_DEM_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-           GetString( MSG_DEM_OK ),                             // "OK"
+           GetString( MSG_GLOBAL_OK ),                             // "OK"
            (CONST_STRPTR)"o");
    break;
    }
@@ -2675,7 +2675,7 @@ EndSpline:
    {
    User_Message(GetString( MSG_DEM_MAPPINGMODULEFIXFLATS ),                // "Mapping Module: Fix Flats"
            GetString( MSG_DEM_NOFLATSPOTSTOOPERATEONPERATIONTERMINATED ),  // "No flat spots to operate on!\nOperation terminated.",
-           GetString( MSG_DEM_OK ),                                        // "OK"
+           GetString( MSG_GLOBAL_OK ),                                        // "OK"
            (CONST_STRPTR)"o");
    break;
    }

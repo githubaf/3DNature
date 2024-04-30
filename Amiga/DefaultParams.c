@@ -214,7 +214,7 @@ EndDefault:
    {
    User_Message(GetString( MSG_DEFPARM_PARAMETERSMODULEDEFAULTS ),                  // "Parameters Module: Defaults"
                 GetString( MSG_DEFPARM_PLEASEENABLEATLEASTONETOPODEMANDTRYAGAIN ),  // "Please enable at least one topo DEM and try again."
-                GetString( MSG_DEFPARM_OK ),                                        // "OK"
+                GetString( MSG_GLOBAL_OK ),                                        // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* no topos */
@@ -222,7 +222,7 @@ EndDefault:
    {
    User_Message(GetString( MSG_DEFPARM_PARAMETERSMODULEDEFAULTS ),                   // "Parameters Module: Defaults"
                 GetString( MSG_DEFPARM_PLEASECLOSEALLTIMELINESWINDOWSANDTRYAGAIN ),  // "Please close all Time Lines windows and try again."
-                GetString( MSG_DEFPARM_OK ),                                         // "OK"
+                GetString( MSG_GLOBAL_OK ),                                         // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* no topos */
@@ -230,7 +230,7 @@ EndDefault:
    {
    User_Message(GetString( MSG_DEFPARM_PARAMETERSMODULEDEFAULTS ),  // "Parameters Module: Defaults"
                 GetString( MSG_DEFPARM_OUTOFMEMORY ),               // "Out of memory!"
-                GetString( MSG_DEFPARM_OK ),                        // "OK"
+                GetString( MSG_GLOBAL_OK ),                        // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* no topos */

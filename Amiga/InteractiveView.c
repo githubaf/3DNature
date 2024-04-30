@@ -38,7 +38,7 @@ short interactiveview(short new_window)
   {
   User_Message(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),              // "Parameters Module: Camera View"
                GetString( MSG_INTVIEW_YOUMUSTFIRSTLOADACOMPLETEPARAMETERFILE ),  // "You must first load a complete Parameter file!"
-               GetString( MSG_INTVIEW_OK ),                                      // "OK"
+               GetString( MSG_GLOBAL_OK ),                                      // "OK"
                (CONST_STRPTR)"o");
   Log(ERR_NO_LOAD, GetString( MSG_INTVIEW_COMPLETEPARAMETERFILE ));              // "Complete parameter file"
   return(0);
@@ -47,7 +47,7 @@ short interactiveview(short new_window)
   {
   User_Message(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),                         // "Parameters Module: Camera View"
                GetString( MSG_INTVIEW_THEREARENOOBJECTSINTHISDATABASEPERATIONTERMINATED ),  // "There are no objects in this Database!\nOperation terminated"
-               GetString( MSG_INTVIEW_OK ),                                                 // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                 // "OK"
                (CONST_STRPTR)"o");
   Log(ERR_NO_LOAD, GetString( MSG_INTVIEW_NOOBJECTSINDATABASE )); // "No objects in Database"
   return(0);
@@ -70,7 +70,7 @@ short interactiveview(short new_window)
    {
    User_Message(GetString( MSG_INTVIEW_EDITINGMODULEINTERACTIVE ),                  // "Editing Module: Interactive"
                 GetString( MSG_INTVIEW_CAMERAVIEWFAILEDTOOPENPERATIONTERMINATED ),  // "Camera View failed to open!\nOperation terminated."
-                GetString( MSG_INTVIEW_OK ),                                        // "OK"
+                GetString( MSG_GLOBAL_OK ),                                        // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WIN_FAIL, GetString( MSG_INTVIEW_CAMERAVIEW ));  // "Camera View"
    goto Cleanup;
@@ -88,7 +88,7 @@ short interactiveview(short new_window)
   {
   User_Message(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),                      // "Parameters Module: Camera View"
                GetString( MSG_INTVIEW_OUTOFMEMORYOPENINGCAMERAVIEWPERATIONTERMINATED ),  // "Out of memory opening Camera View!\nOperation terminated."
-               GetString( MSG_INTVIEW_OK ),                                              // "OK"
+               GetString( MSG_GLOBAL_OK ),                                              // "OK"
                (CONST_STRPTR)"o");
   goto Cleanup;
   } /* if no view center */
@@ -104,7 +104,7 @@ RepeatOpen:
    {
    if (User_Message_Def(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),             // "Parameters Module: Camera View"
                         GetString( MSG_INTVIEW_OUTOFMEMORYLOADINGDEMSNCREASEGRIDSIZE ),  // "Out of memory loading DEMs!\nIncrease grid size?"
-                        GetString( MSG_INTVIEW_OKCANCEL ),                               // "OK|Cancel"
+                        GetString( MSG_GLOBAL_OKCANCEL ),                               // "OK|Cancel"
                         (CONST_STRPTR)"oc", 1))
     {
     closeviewmaps(0);
@@ -115,7 +115,7 @@ RepeatOpen:
    } /* if out of memory */
   else if (error == 2) User_Message(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),            // "Parameters Module: Camera View"
                                     GetString( MSG_INTVIEW_NODEMOBJECTSACTIVEPERATIONTERMINATED ),  // "No DEM objects active!\nOperation terminated."
-                                    GetString( MSG_INTVIEW_OK ),                                    // "OK"
+                                    GetString( MSG_GLOBAL_OK ),                                    // "OK"
                                     (CONST_STRPTR)"o");
   ClearPointer(InterWind0);
   if (EMIA_Win) ClearPointer(EMIA_Win->Win);
@@ -558,7 +558,7 @@ void shaderelief(short reliefshade)
   {
   User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                   // "Camera View"
                GetString( MSG_INTVIEW_OUTOFMEMORYOPENINGZBUFFERPERATIONTERMINATED ),  // "Out of memory opening Z buffer!\nOperation terminated."
-               GetString( MSG_INTVIEW_OK ),                                           // "OK"
+               GetString( MSG_GLOBAL_OK ),                                           // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if */
@@ -566,7 +566,7 @@ void shaderelief(short reliefshade)
   {
   User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                           // "Camera View"
                GetString( MSG_INTVIEW_OUTOFMEMORYOPENINGANTIALIASBUFFERPERATIONTERMINATED ),  // "Out of memory opening Antialias buffer!\nOperation terminated."
-               GetString( MSG_INTVIEW_OK ),                                                   // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                (CONST_STRPTR)"o");
   goto Cleanup;
   } /* if */
@@ -621,7 +621,7 @@ RepeatAllocate:
     {
     if (User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                           // "Camera View"
                      GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
-                     GetString( MSG_INTVIEW_OKCANCEL ),                                             // "OK|Cancel"
+                     GetString( MSG_GLOBAL_OKCANCEL ),                                             // "OK|Cancel"
                     (CONST_STRPTR)"oc"))
      {
      settings.smoothfaces = 0;
@@ -664,7 +664,7 @@ RepeatAllocate:
    {
    User_Message(GetString( MSG_INTVIEW_RENDERMODULE ),                                         // "Render Module"
                 GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIO ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
-                GetString( MSG_INTVIEW_OK ),                                                   // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    error = 1;
    break;
@@ -757,7 +757,7 @@ void smallwindow(short diagnostics)
   {
   User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                // "Camera View"
                GetString( MSG_INTVIEW_GRIDMUSTBEPRESENTPLEASEREDRAWANDTRYAGAIN ),  // "Grid must be present, please redraw and try again."
-               GetString( MSG_INTVIEW_OK ),                                        // "OK"
+               GetString( MSG_GLOBAL_OK ),                                        // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no grid present */
@@ -908,7 +908,7 @@ void smallwindow(short diagnostics)
   {
   User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                          // "Camera View"
                GetString( MSG_INTVIEW_ERROROPENINGSMALLRENDERINGWINDOWPERATIONTERMINATED ),  // "Error opening Small Rendering Window!\nOperation terminated."
-               GetString( MSG_INTVIEW_OK ),                                                  // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   Log(ERR_WIN_FAIL, GetString( MSG_INTVIEW_SMALLRENDERINGWINDOW ));  // "Small rendering window."
   goto Cleanup;
@@ -1122,7 +1122,7 @@ void smallwindow(short diagnostics)
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)str);
    User_Message((CONST_STRPTR)str,
                 GetString( MSG_INTVIEW_ERROROPENINGDEMFILEFORINPUTPERATIONTERMINATED ),  // "Error opening DEM file for input!\nOperation terminated."
-                GetString( MSG_INTVIEW_OK ),                                             // "OK"
+                GetString( MSG_GLOBAL_OK ),                                             // "OK"
                 (CONST_STRPTR)"o");
    abort = 1;
    goto EndMap;
@@ -1151,7 +1151,7 @@ void smallwindow(short diagnostics)
    free_Memory (TempHdr.map, TempHdr.size);
    User_Message((CONST_STRPTR)str,
                 GetString( MSG_INTVIEW_OUTOFMEMORYTRYASMALLERPREVIEWSIZEPERATIONTERMINATED ),  // "Out of memory! Try a smaller preview size.\nOperation terminated."
-                GetString( MSG_INTVIEW_OK ),                                                   // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    abort = 1;
    goto EndMap;
@@ -1170,7 +1170,7 @@ void smallwindow(short diagnostics)
     {
     if (User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                           // "Camera View"
                      GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
-                     GetString( MSG_INTVIEW_OKCANCEL ),                                             // "OK|Cancel"
+                     GetString( MSG_GLOBAL_OKCANCEL ),                                             // "OK|Cancel"
                      (CONST_STRPTR)"oc"))
      {
      settings.smoothfaces = 0;
@@ -1264,7 +1264,7 @@ void smallwindow(short diagnostics)
     sprintf(str, "%s.relel", DBase[MapOBN].Name);
     User_Message((CONST_STRPTR)str,
                  GetString( MSG_INTVIEW_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-                 GetString( MSG_INTVIEW_OK ),                             // "OK"
+                 GetString( MSG_GLOBAL_OK ),                             // "OK"
                  (CONST_STRPTR)"o");
     abort = 1;
     goto EndMap;
@@ -1320,7 +1320,7 @@ void smallwindow(short diagnostics)
    {
    User_Message(GetString( MSG_INTVIEW_RENDERMODULE ),                                         // "Render Module"
                 GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIO ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
-                GetString( MSG_INTVIEW_OK ),                                                   // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    abort = 1;
    goto EndMap;
@@ -1522,7 +1522,7 @@ short abort = 0;
       {
       if (User_Message_Def(GetString( MSG_INTVIEW_PARAMETERSMODULEPREVIEW ),                      // "Parameters Module: Preview"
                            GetString( MSG_INTVIEW_RESTORETHEPARAMETERSUSEDTOCREATETHISPREVIEW ),  // "Restore the Parameters used to create this preview?"
-                           GetString( MSG_INTVIEW_OKCANCEL ),                                     // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
+                           GetString( MSG_GLOBAL_OKCANCEL ),                                     // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
                            (CONST_STRPTR)"oc", 1))
        {
        memcpy(&MoPar, &SmWin[win_number]->MoPar, sizeof (struct Animation));

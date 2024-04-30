@@ -39,7 +39,7 @@ void Make_EC_Window(void)
   {
   User_Message(GetString( MSG_EDITGUI_COLOREDITOR ),                                      // "Color Editor"
 	       GetString( MSG_EDITGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING ),  // "You must first load or create a parameter file before opening the Editor."
-               GetString( MSG_EDITGUI_OK ),                                               // "OK"
+               GetString( MSG_GLOBAL_OK ),                                               // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no params */
@@ -259,7 +259,7 @@ void Make_EC_Window(void)
    Close_EC_Window(1);
    User_Message(GetString( MSG_EDITGUI_COLOREDITOR ),  // "Color Editor"
                 GetString( MSG_EDITGUI_OUTOFMEMORY ),  // "Out of memory!"
-                GetString( MSG_EDITGUI_OK ),           // "OK"
+                GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -647,7 +647,7 @@ void Handle_EC_Window(ULONG WCS_ID)
       sprintf(str, (char*)GetString( MSG_EDITGUI_DELETEALLKEYFRAMES ), PAR_NAME_COLOR(EC_Win->PalItem));  // "Delete all %s Key Frames?"
       if (User_Message_Def(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
                            (CONST_STRPTR)str,
-                           GetString( MSG_EDITGUI_OKCANCEL ),               // "OK|Cancel"
+                           GetString( MSG_GLOBAL_OKCANCEL ),               // "OK|Cancel"
                            (CONST_STRPTR)"oc", 1))
        {
        for (i=ParHdr.KeyFrames-1; i>=0; i--)
@@ -726,7 +726,7 @@ void Handle_EC_Window(ULONG WCS_ID)
         {
         User_Message(GetString( MSG_EDITGUI_COLORPARAMETERSSWAP ),                          // "Color Parameters: Swap"
                      GetString( MSG_EDITGUI_CANTSWAPWITHFIRST24COLORSPERATIONTERMINATED ),  // "Can't swap with first 24 colors!\nOperation terminated."
-                     GetString( MSG_EDITGUI_OK ) ,                                          // "OK"
+                     GetString( MSG_GLOBAL_OK ) ,                                          // "OK"
                      (CONST_STRPTR)"oc");
         set(EC_Win->LS_List, MUIA_List_Active, EC_Win->PalItem);
 	} /* if */
@@ -793,7 +793,7 @@ void Handle_EC_Window(ULONG WCS_ID)
        {
        Remove = User_Message_Def((CONST_STRPTR)PAR_NAME_ECO(Eco),
     		                 GetString( MSG_EDITGUI_THECURRENTCOLORISBEINGUSEDREMOVEITANYWAY ),  // "The current color is being used. Remove it anyway?"
-                                 GetString( MSG_EDITGUI_OKCANCEL ),                                  // "OK|Cancel"
+                                 GetString( MSG_GLOBAL_OKCANCEL ),                                  // "OK|Cancel"
                                  (CONST_STRPTR)"oc", 0);
        } /* if in use */
       if (Remove)

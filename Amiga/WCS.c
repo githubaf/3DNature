@@ -372,7 +372,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
 
           User_Message((CONST_STRPTR)"World Construction set",
                        GetString( MSG_WCS_BETAPERIODEXPIRED ),     // "Beta period expired..."
-                       GetString( MSG_WCS_OK ),                    // "OK"
+                       GetString( MSG_GLOBAL_OK ),                    // "OK"
                        (CONST_STRPTR)"o");
       }
       else

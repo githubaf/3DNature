@@ -84,7 +84,7 @@ void Make_EP_Window(short hor_win)
   if (! EP_Win->EditWindow)
    {
    Close_EP_Window();
-   User_Message((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERSMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "Parameters Module", "Out of memory!", "OK", 
+   User_Message((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERSMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Parameters Module", "Out of memory!", "OK", 
    return;
    } /* out of memory */
 
@@ -241,7 +241,7 @@ STATIC_FCN void Handle_EP_Window(ULONG WCS_ID) // used locally only -> static, A
         if (dbaseloaded)
          {
          sprintf(str, (char*)GetString( MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS ) , dbasename);  // "Create Default Parameters for Database %s? All current Parameters will be overwritten."
-         if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) , (CONST_STRPTR)str, (CONST_STRPTR) GetString( MSG_AGUI_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "Parameter Editing: Defaults", str, "OK|Cancel"
+         if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) , (CONST_STRPTR)str, (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "Parameter Editing: Defaults", str, "OK|Cancel"
           {
           paramsloaded = DefaultParams();
           if (paramsloaded)
@@ -286,7 +286,7 @@ STATIC_FCN void Handle_EP_Window(ULONG WCS_ID) // used locally only -> static, A
         else
          {
          User_Message((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,  // "Parameter Editing: Defaults"
-        		 (CONST_STRPTR) GetString( MSG_AGUI_YOUMUSTFIRSTLOADADATABASEBEFOREDEFAULTPARAMETERSCANBEC ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "You must first load a Database before Default Parameters can be computed.", "OK"
+        		 (CONST_STRPTR) GetString( MSG_AGUI_YOUMUSTFIRSTLOADADATABASEBEFOREDEFAULTPARAMETERSCANBEC ) , (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "You must first load a Database before Default Parameters can be computed.", "OK"
 	 } /* else */
         break;
 	} /* create default parameters */
@@ -552,7 +552,7 @@ void Make_DB_Window(short hor_win)
   if (! DB_Win->DatabaseWindow)
    {
    Close_DB_Window();
-   User_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "Database Module", "Out of memory!", "OK"
+   User_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Database Module", "Out of memory!", "OK"
    return;
    } /* out of memory */
 
@@ -824,7 +824,7 @@ void Make_DO_Window(short hor_win)
   if (! DO_Win->DataOpsWindow)
    {
    Close_DO_Window();
-   User_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "DataOps Module", "Out of memory!", "OK"
+   User_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "DataOps Module", "Out of memory!", "OK"
    return;
    } /* out of memory */
 
@@ -1485,14 +1485,14 @@ short i;
 	{
         if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_WCSPROJECT ) ,  // "WCS Project"
         		(CONST_STRPTR) GetString( MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Project paths have been modified. Save them before closing?"
-				(CONST_STRPTR) GetString( MSG_AGUI_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
+				(CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
          SaveProject(-1, NULL, NULL);
 	} /* if project modified */
  if (Par_Mod && Mod_Warn)
 	{
         if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERMODULE ) ,  // "Parameter Module"
         		(CONST_STRPTR) GetString( MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Parameters have been modified. Save them before closing?"
-				(CONST_STRPTR) GetString( MSG_AGUI_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
+				(CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
          saveparams(0x1111, -1, 0);
 	} /* if parameters modified */
 
@@ -1577,7 +1577,7 @@ short i;
 	{
         if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) ,  // "Database Module"
         		(CONST_STRPTR) GetString( MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING ) ,  // "Database has been modified. Save it before closing?"
-				(CONST_STRPTR) GetString( MSG_AGUI_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
+				(CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
          savedbase(1);
 	} /* if database modified */
  if (DBase)
@@ -1864,7 +1864,7 @@ USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STR
 STATIC_FCN void NoMod_Message(STRPTR mod) // used locally only -> static, AF 25.7.2021
 {
 
-  User_Message(mod, (CONST_STRPTR) GetString( MSG_AGUI_NOTYETIMPLEMENTEDTAYTUNED ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) ,(CONST_STRPTR)"o");  // "Not yet implemented.\nStay Tuned!", "OK"
+  User_Message(mod, (CONST_STRPTR) GetString( MSG_AGUI_NOTYETIMPLEMENTEDTAYTUNED ) , (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) ,(CONST_STRPTR)"o");  // "Not yet implemented.\nStay Tuned!", "OK"
 
   Log(MSG_NO_MOD, mod);
 
@@ -1888,7 +1888,7 @@ void NoLoad_Message(CONST_STRPTR mod, CONST_STRPTR loaditem)
   sprintf(loadmesg, 
 		  (char*)GetString( MSG_AGUI_SORRYOUMUSTFIRSTLOAD338NBEFOREUSINGTHISFEATURE ) , loaditem);  // "Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature."
 
-  User_Message(mod, (CONST_STRPTR)loadmesg, (CONST_STRPTR) GetString( MSG_AGUI_OK ) ,(CONST_STRPTR)"o");  // "OK"
+  User_Message(mod, (CONST_STRPTR)loadmesg, (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) ,(CONST_STRPTR)"o");  // "OK"
 
   Log(ERR_NO_LOAD, loaditem);
 
@@ -1900,7 +1900,7 @@ USHORT FileExists_Message(STRPTR existsfile)
 {
 
   return(User_Message_Def(existsfile,  GetString( MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT ) ,  // "File already exists.\nDo you wish to overwrite it?"
-	 GetString( MSG_AGUI_OKCANCEL ) , "oc", 1));  // "OK|CANCEL"
+	 GetString( MSG_GLOBAL_OKCANCEL ) , "oc", 1));  // "OK|CANCEL"
 
 } /* FileExists_Message() */
 #endif
@@ -1931,7 +1931,7 @@ short GetInputString(char *message, char *reject, char *string)
 		MUIA_String_BufferPos, strlen(string), End,
 
 	Child, HGroup,
-	  Child, BT_OK = KeyButtonFunc('o', (char*)GetString( MSG_AGUI_OK ) ),          // "\33cOK"
+	  Child, BT_OK = KeyButtonFunc('o', (char*)GetString( MSG_GLOBAL_OK ) ),          // "\33cOK"
 	  Child, BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_AGUI_CANCEL ) ),  // "\33cCancel"
 	  End, /* HGroup */
         End, /* VGroup */
@@ -2027,7 +2027,7 @@ STATIC_FCN void Status_Log(STRPTR logtext, int Severity) // used locally only ->
   if (! Log_Win)
    {
    User_Message((CONST_STRPTR) GetString( MSG_AGUI_LOGSTATUSMODULE ) , (CONST_STRPTR) GetString( MSG_AGUI_CANTOPENLOGSTATUSWINDOW ) ,  // "Log Status Module", "Can't Open Log Status Window!"
-		   (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "OK"
+		   (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "OK"
    return;
    } /* if no window */
 
@@ -2100,7 +2100,7 @@ STATIC_FCN void Make_Log_Window(int Severity) // used locally only -> static, AF
   if (! Log_Win->LogWindow)
    {
    Close_Log_Window(2);
-   User_Message((CONST_STRPTR) GetString( MSG_AGUI_LOGWINDOW ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_AGUI_OK ) , (CONST_STRPTR)"o");  // "Log Window", "Out of memory!", "OK"
+   User_Message((CONST_STRPTR) GetString( MSG_AGUI_LOGWINDOW ) , (CONST_STRPTR) GetString( MSG_AGUI_OUTOFMEMORY ) , (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Log Window", "Out of memory!", "OK"
    return;
    } /* out of memory */
 
@@ -2547,7 +2547,7 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
         {
         ResetScrn = User_Message((CONST_STRPTR) GetString( MSG_AGUI_WCSSCREENMODE ) ,                           // "WCS: Screen Mode"
                                  GetString( MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN ),  // "In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\nDo you wish to proceed now?"
-                                 GetString( MSG_AGUI_OKCANCEL ),   // "OK|Cancel"
+                                 GetString( MSG_GLOBAL_OKCANCEL ),   // "OK|Cancel"
                                  (CONST_STRPTR)"oc");
         break;
 	} /* reset screen mode */

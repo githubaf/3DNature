@@ -77,7 +77,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
   {
   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),          // "Parameters Module: Scale"
                GetString( MSG_PARGUI_OUTOFMEMORYANTOPENSCALEWINDOW ),  // "Out of memory!\nCan't open Scale window."
-               GetString( MSG_PARGUI_OK ),                             // "OK"
+               GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
@@ -86,7 +86,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
   {
   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),          // "Parameters Module: Scale"
                GetString( MSG_PARGUI_OUTOFMEMORYANTOPENSCALEWINDOW ),  // "Out of memory!\nCan't open Scale window."
-               GetString( MSG_PARGUI_OK ),                             // "OK"
+               GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
@@ -96,7 +96,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
   {
   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),  // "Parameters Module: Scale"
                GetString( MSG_PARGUI_NOKEYFRAMESTOSCALE ),     // "No key frames to scale!"
-               GetString( MSG_PARGUI_OK ),                     // "OK"
+               GetString( MSG_GLOBAL_OK ),                     // "OK"
                (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
@@ -106,7 +106,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
   {
   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),          // "Parameters Module: Scale"
                GetString( MSG_PARGUI_OUTOFMEMORYANTOPENSCALEWINDOW ),  // "Out of memory!\nCan't open Scale window."
-               GetString( MSG_PARGUI_OK ),                             // "OK"
+               GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");
   Close_PS_Window(1);
   return;
@@ -216,7 +216,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
    Close_PS_Window(1);
    User_Message(GetString( MSG_PARGUI_SCALEKEYS ),    // "Scale Keys"
                 GetString( MSG_PARGUI_OUTOFMEMORY ),  // "Out of memory!"
-                GetString( MSG_PARGUI_OK ),           // "OK"
+                GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -591,7 +591,7 @@ void Make_LW_Window(void)
   {
   User_Message(GetString( MSG_PARGUI_LIGHTWAVEMOTIONIO ),                                     // "LightWave Motion I/O"
                GetString( MSG_PARGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREUSINGTHI ),  // "You must first load or create a parameter file before using this feature."
-               GetString( MSG_PARGUI_OK ),                                                    // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no params */
@@ -607,7 +607,7 @@ void Make_LW_Window(void)
   Close_LW_Window();
   User_Message(GetString( MSG_PARGUI_LIGHTWAVEMOTIONIO ),                                // "LightWave Motion I/O"
                GetString( MSG_PARGUI_ERRORBUILDINGMOTIONVALUETABLEPERATIONTERMINATED ),  // "Error building motion value table\nOperation terminated",
-               GetString( MSG_PARGUI_OK ),                                               // "OK"
+               GetString( MSG_GLOBAL_OK ),                                               // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no key table = out of memory */
@@ -724,7 +724,7 @@ void Make_LW_Window(void)
    Close_LW_Window();
    User_Message(GetString( MSG_PARGUI_LIGHTWAVEIO ),  // "LightWave I/O"
                 GetString( MSG_PARGUI_OUTOFMEMORY ),  // "Out of memory!"
-                GetString( MSG_PARGUI_OK ),           // "OK"
+                GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -928,7 +928,7 @@ void Make_FM_Window(void)
   {
   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                // "Parameters Module: Model"
                GetString( MSG_PARGUI_OUTOFMEMORYANTOPENMODELDESIGNWINDOW ),  // "Out of memory!\nCan't open model design window."
-               GetString( MSG_PARGUI_OK ),                                   // "OK"
+               GetString( MSG_GLOBAL_OK ),                                   // "OK"
                (CONST_STRPTR)"o");
   Close_FM_Window();
   return;
@@ -992,7 +992,7 @@ void Make_FM_Window(void)
    Close_FM_Window();
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),  // "Parameters Module: Model"
                 GetString( MSG_PARGUI_OUTOFMEMORY ),            // "Out of memory!"
-                GetString( MSG_PARGUI_OK ),                     // "OK"
+                GetString( MSG_GLOBAL_OK ),                     // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -1477,7 +1477,7 @@ EndLoad:
    {
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
                 GetString( MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFOROUTPUTPERATIONTERMI ),  // "Error opening Ecosystem Model file for output!\nOperation terminated."
-                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)name);
    break;
@@ -1486,7 +1486,7 @@ EndLoad:
    {
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
                 GetString( MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR ),  // "Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
-                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRITE_FAIL, (CONST_STRPTR)name);
    break;
@@ -1495,7 +1495,7 @@ EndLoad:
    {
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
                 GetString( MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED ),  // "Not a WCS Ecosystem Model file!\nOperation terminated."
-                GetString( MSG_PARGUI_OK ),                                           // "OK"
+                GetString( MSG_GLOBAL_OK ),                                           // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_TYPE, (CONST_STRPTR)name);
    break;
@@ -1504,7 +1504,7 @@ EndLoad:
    {
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
                 GetString( MSG_PARGUI_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMI ),  // "Unsupported WCS Ecosystem Model file version!\nOperation terminated.",
-                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_VER, (CONST_STRPTR)name);
    break;
@@ -1513,7 +1513,7 @@ EndLoad:
    {
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),  // "Parameters Module: Model"
                 GetString( MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFORINPUTPERATIONTERMINATE ),  // "You have not selected a file name for input!\nOperation terminated."
-                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* no name */
@@ -1603,7 +1603,7 @@ EndSave:
    {
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
                 GetString( MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFOROUTPUTPERATIONTERMI ),  // "Error opening Ecosystem Model file for output!\nOperation terminated."
-                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)name);
    break;
@@ -1612,7 +1612,7 @@ EndSave:
    {
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                  // "Parameters Module: Model"
                 GetString( MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR ),   // "Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
-                GetString( MSG_PARGUI_OK ),                                                     // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_READ_FAIL, (CONST_STRPTR)name);
    break;
@@ -1621,7 +1621,7 @@ EndSave:
    {
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
                 GetString( MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT ),  // "You have not selected a file name for output!\nOperation terminated."
-                GetString( MSG_PARGUI_OK ),                                                    // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* no name */
@@ -1726,7 +1726,7 @@ void Make_AN_Window(void)
    Close_AN_Window();
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEANIM ),  // "Parameters Module: Anim"
                 GetString( MSG_PARGUI_OUTOFMEMORY ),           // "Out of memory!"
-                GetString( MSG_PARGUI_OK ),                    // "OK"
+                GetString( MSG_GLOBAL_OK ),                    // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
@@ -1900,7 +1900,7 @@ void Init_Anim(short SaveAnim)
   {
   if (User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEANIM ),                                 // "Parameters Module: Anim"
                   GetString( MSG_PARGUI_SPECIFIEDWIDTHISLARGERTHANTHECURRENTSCREENWIDTHDOYOU ),  // "Specified width is larger than the current screen width. Do you wish to use the screen width?"
-                  GetString( MSG_PARGUI_OKCANCEL ),                                              // "OK|Cancel"
+                  GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
                   (CONST_STRPTR)"oc"))
    {
    RA.Width = WCSScrn->Width;
@@ -1920,7 +1920,7 @@ void Init_Anim(short SaveAnim)
   {
   if (User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEANIM ),                                  // "Parameters Module: Anim"
                    GetString( MSG_PARGUI_SPECIFIEDORCOMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREE ),  // "Specified or computed height is larger than the current screen height. Do you wish to use the screen height?
-                   GetString( MSG_PARGUI_OKCANCEL ),                                              // "OK|Cancel"
+                   GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
                    (CONST_STRPTR)"oc"))
    {
    RA.Height = WCSScrn->Height;

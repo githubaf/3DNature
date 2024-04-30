@@ -829,7 +829,7 @@ short  CreateBankKeys(void)
  if (CountKeyFrames(0, 8) > 0)
   if (! User_Message(GetString( MSG_EDPAR_PARAMETERSMODULEBANKKEYS ),             // "Parameters Module: Bank Keys"
           GetString( MSG_EDPAR_KEYFRAMESEXISTFORTHEBANKPARAMETEROVERWRITETHEM ),  // "Key Frames exist for the "Bank" Parameter. Overwrite them?"
-          GetString( MSG_EDPAR_OKCANCEL ), (CONST_STRPTR)"oc"))                   // "OK|Cancel"
+          GetString( MSG_GLOBAL_OKCANCEL ), (CONST_STRPTR)"oc"))                   // "OK|Cancel"
    {
    error = 10;
    goto EndBank;
@@ -916,7 +916,7 @@ EndBank:
    {
    User_Message(GetString( MSG_EDPAR_PARAMETERSMODULEEXPORT ),              // "Parameters Module: Export"
            GetString( MSG_EDPAR_ERRORCREATINGKEYFRAMEPERATIONTERMINATED ),  // "Error creating Key Frame!\nOperation terminated."
-           GetString( MSG_EDPAR_OK ),                                       // "OK"
+           GetString( MSG_GLOBAL_OK ),                                       // "OK"
            (CONST_STRPTR)"o");
    break;
    } /* no params loaded */
@@ -924,7 +924,7 @@ EndBank:
    {
    User_Message(GetString( MSG_EDPAR_PARAMETERSMODULEEXPORT ),                    // "Parameters Module: Export"
            GetString( MSG_EDPAR_NOCAMERAPATHLATLONKEYFRAMESPERATIONTERMINATED ),  // "No Camera Path Lat/Lon Key Frames!\nOperation terminated."
-           GetString( MSG_EDPAR_OK ),                                             // "OK"
+           GetString( MSG_GLOBAL_OK ),                                             // "OK"
            (CONST_STRPTR)"o");
    break;
    } /* no key frames */
@@ -932,7 +932,7 @@ EndBank:
    {
    User_Message(GetString( MSG_EDPAR_PARAMETERSMODULEEXPORT ),    // "Parameters Module: Export"
            GetString( MSG_EDPAR_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-           GetString( MSG_EDPAR_OK ),                             // "OK"
+           GetString( MSG_GLOBAL_OK ),                             // "OK"
            (CONST_STRPTR)"o");
    break;
    } /* file write fail */
@@ -1815,7 +1815,7 @@ short loadparams(USHORT loadcode, short loaditem)
     Log(ERR_WRONG_TYPE, GetString( MSG_EDPAR_VERSION10 ));                                      // "Version < 1.0"
     User_Message(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load",
                  GetString( MSG_EDPAR_UNSUPPORTEDPARAMETERFILETYPEORVERSIONPERATIONTERMINAT ),  // "Unsupported Parameter file type or version!\nOperation terminated."
-                 GetString( MSG_EDPAR_OK ),                                                     // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                  (CONST_STRPTR)"o");
     } /*  if version = 0.0 */
 
@@ -1837,7 +1837,7 @@ short loadparams(USHORT loadcode, short loaditem)
       {
       if (User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
                            GetString( MSG_EDPAR_THISISANOLDV1FORMATFILEWOULDYOULIKETORESAVEITINTHENEW ),  // "This is an old V1 format file! Would you like to re-save it in the new format now?"
-	                   GetString( MSG_EDPAR_OKCANCEL ),                                               // "OK|Cancel"
+	                   GetString( MSG_GLOBAL_OKCANCEL ),                                               // "OK|Cancel"
                            (CONST_STRPTR)"oc", 1))
        {
        strcpy(parampath, temppath);
@@ -1861,7 +1861,7 @@ short loadparams(USHORT loadcode, short loaditem)
       {
       if (User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
                            GetString( MSG_EDPAR_THEPARAMETERFILEFORMATHASBEENCHANGEDSLIGHTLYSINCETHIS ),  // "The Parameter File format has been changed slightly since this file was saved. Would you like to re-save it in the new format now?"
-                           GetString( MSG_EDPAR_OKCANCEL ),                                               // "OK|Cancel"
+                           GetString( MSG_GLOBAL_OKCANCEL ),                                               // "OK|Cancel"
                            (CONST_STRPTR)"oc", 1))
        {
        strcpy(parampath, temppath);
@@ -1967,7 +1967,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
    {
    User_Message(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),            // "Parameter Module: Load"
                 GetString( MSG_EDPAR_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-                GetString( MSG_EDPAR_OK ),                             // "OK"
+                GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
    KFsize = 0;
    goto ReadError;
@@ -2072,7 +2072,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
      sprintf(str, (char*)GetString( MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_COLOR(loaditem));  // "Color item %s not found in this file!\nOperation terminated."
      User_Message(GetString( MSG_EDPAR_COLOREDITORLOADCURRENT ),  // "Color Editor: Load Current"
                   (CONST_STRPTR)str, 
-                  GetString( MSG_EDPAR_OK ),                      // "OK"
+                  GetString( MSG_GLOBAL_OK ),                      // "OK"
                   (CONST_STRPTR)"o");
      } /* if not found */ 
     } /* else load user color */
@@ -2195,7 +2195,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
      sprintf(str, (char*)GetString( MSG_EDPAR_ECOSYSTEMITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_ECO(loaditem));  // "Ecosystem item %s not found in this file!\nOperation terminated."
      User_Message(GetString( MSG_EDPAR_ECOSYSTEMEDITORLOADCURRENT ),                                                  // "Ecosystem Editor: Load Current"
                   (CONST_STRPTR)str, 
-                  GetString( MSG_EDPAR_OK ),                                                                          // "OK"
+                  GetString( MSG_GLOBAL_OK ),                                                                          // "OK"
                   (CONST_STRPTR)"o");
      } /* if not found */ 
     } /* else */
@@ -2549,7 +2549,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
   {
   User_Message(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),            // "Parameter Module: Load"
                GetString( MSG_EDPAR_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated.",
-               GetString( MSG_EDPAR_OK ),                             // "OK"
+               GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");
   goto ReadError;
   } /* if memory bust */
@@ -2604,7 +2604,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
    {
    User_Message(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),            // "Parameter Module: Load"
                 GetString( MSG_EDPAR_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-                GetString( MSG_EDPAR_OK ),                             // "OK"
+                GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
    goto ReadError;
    } /* if memory bust */
@@ -2733,7 +2733,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
      sprintf(str, (char*)GetString( MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ),PAR_NAME_COLOR(loaditem));  // "Color item %s not found in this file!\nOperation terminated."
      User_Message(GetString( MSG_EDPAR_COLOREDITORLOADCURRENT ),                                                   // "Color Editor: Load Current"
                   (CONST_STRPTR)str,
-                  GetString( MSG_EDPAR_OK ),                                                                       // "OK",
+                  GetString( MSG_GLOBAL_OK ),                                                                       // "OK",
                   (CONST_STRPTR)"o");
      goto ReadError;
      } /* if not found */ 
@@ -2743,7 +2743,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
     sprintf(str, (char*)GetString( MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_COLOR(loaditem));  // "Color item %s not found in this file!\nOperation terminated."
     User_Message(GetString( MSG_EDPAR_COLOREDITORLOADCURRENT ),                                                    // "Color Editor: Load Current"
                  (CONST_STRPTR)str,
-                 GetString( MSG_EDPAR_OK ),                                                                        // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                                                        // "OK"
                  (CONST_STRPTR)"o");
     goto ReadError;
     }
@@ -3026,7 +3026,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
      sprintf(str, (char*)GetString( MSG_EDPAR_ECOSYSTEMITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_ECO(loaditem));  // "Ecosystem item %s not found in this file!\nOperation terminated."
      User_Message(GetString( MSG_EDPAR_ECOSYSTEMEDITORLOADCURRENT ),                                                  // "Ecosystem Editor: Load Current"
                   (CONST_STRPTR)str,
-                  GetString( MSG_EDPAR_OK ),                                                                          // "OK"
+                  GetString( MSG_GLOBAL_OK ),                                                                          // "OK"
                   (CONST_STRPTR)"o");
      goto ReadError;
      } /* if not found */ 
@@ -3036,7 +3036,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
     sprintf(str, (char*)GetString( MSG_EDPAR_ECOSYSTEMITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_ECO(loaditem));  // "Ecosystem item %s not found in this file!\nOperation terminated."
     User_Message(GetString( MSG_EDPAR_ECOSYSTEMEDITORLOADCURRENT ),                                                  // "Ecosystem Editor: Load Current"
                  (CONST_STRPTR)str,
-                 GetString( MSG_EDPAR_OK ),                                                                          // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                                                          // "OK"
                  (CONST_STRPTR)"o");
     goto ReadError;
     }
@@ -3667,7 +3667,7 @@ SaveRepeat:
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)paramfile);
    if (User_Message(GetString( MSG_EDPAR_PARAMFILE ),                         // "paramfile"
                     GetString( MSG_EDPAR_ERROROPENINGFILEFOROUTPUTRYAGAIN ),  // "Error opening file for output!\nTry again?"
-                    GetString( MSG_EDPAR_OKCANCEL ),                          // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                          // "OK|Cancel"
                     (CONST_STRPTR)"oc"))
     goto SaveRepeat;
    return 1;
@@ -3685,7 +3685,7 @@ SaveRepeat:
     Log(ERR_OPEN_FAIL, (CONST_STRPTR)paramfile);
     if (User_Message(GetString( MSG_EDPAR_PARAMFILE ),                         // "paramfile"
                      GetString( MSG_EDPAR_ERROROPENINGFILEFOROUTPUTRYAGAIN ),  // "Error opening file for output!\nTry again?"
-                     GetString( MSG_EDPAR_OKCANCEL ),                          // "OK|Cancel"
+                     GetString( MSG_GLOBAL_OKCANCEL ),                          // "OK|Cancel"
                      (CONST_STRPTR)"oc"))
      goto SaveRepeat;
     return 1;
@@ -3729,7 +3729,7 @@ SaveRepeat:
     Log(ERR_WRONG_TYPE, GetString( MSG_EDPAR_VERSION20 ));                                            // "Version < 2.0"
     if (! User_Message(GetString( MSG_EDPAR_PARAMETEREDITINGMODULE ),                                 // "Parameter Editing Module"
                        GetString( MSG_EDPAR_PARTIALFILESMAYNOTBEWRITTENTOOLDFILEVERSIONSDOYOUWISH ),  // "Partial files may not be written to old file versions!\n\Do you wish to save the entire parameter file?"
-                       GetString( MSG_EDPAR_OKCANCEL ),                                               // "OK|Cancel"
+                       GetString( MSG_GLOBAL_OKCANCEL ),                                               // "OK|Cancel"
                        (CONST_STRPTR)"oc"))
      goto SaveError;
     if(fparam)
@@ -3743,7 +3743,7 @@ SaveRepeat:
      Log(ERR_OPEN_FAIL, (CONST_STRPTR)paramfile);
      if (User_Message(GetString( MSG_EDPAR_PARAMFILE ),                         // "paramfile"
                       GetString( MSG_EDPAR_ERROROPENINGFILEFOROUTPUTRYAGAIN ),  // "Error opening file for output!\nTry again?"
-                      GetString( MSG_EDPAR_OKCANCEL ),                          // "OK|Cancel"
+                      GetString( MSG_GLOBAL_OKCANCEL ),                          // "OK|Cancel"
                       (CONST_STRPTR)"oc"))
       goto SaveRepeat;
      return 1;
@@ -3816,7 +3816,7 @@ SaveRepeat:
              PAR_NAME_COLOR(saveitem));
      User_Message(GetString( MSG_EDPAR_COLOREDITORSAVECURRENT ),                         // "Color Editor: Save Current"
                   (CONST_STRPTR)str,
-                  GetString( MSG_EDPAR_OK ),                                             // "OK"
+                  GetString( MSG_GLOBAL_OK ),                                             // "OK"
                   (CONST_STRPTR)"o");
      goto SaveError;
      } /* if not found */ 
@@ -3865,7 +3865,7 @@ SaveRepeat:
      sprintf(str, (char*)GetString( MSG_EDPAR_ECOSYSTEMITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_ECO(saveitem));  // "Ecosystem item %s not found in this file!\nOperation terminated."
      User_Message(GetString( MSG_EDPAR_ECOSYSTEMEDITORSAVECURRENT ),  // "Ecosystem Editor: Save Current"
                   (CONST_STRPTR)str,
-                  GetString( MSG_EDPAR_OK ),                          // "OK"
+                  GetString( MSG_GLOBAL_OK ),                          // "OK"
                   (CONST_STRPTR)"o");
      goto SaveError;
      } /* if not found */ 
@@ -3890,7 +3890,7 @@ SaveRepeat:
    {
    if (User_Message(GetString( MSG_EDPAR_PARAMETERMODULESAVE ),     // "Parameter Module: Save"
                     GetString( MSG_EDPAR_SAVEALLKEYFRAMESASWELL ),  // "Save all key frames as well?"
-                    GetString( MSG_EDPAR_OKCANCEL ),                // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
                     (CONST_STRPTR)"oc"))
     {
     if ((fwriteKeyFrames_BE(KF, ParHdr.KeyFrames, fparam)) != 1)
@@ -3982,7 +3982,7 @@ SaveError:
  Log(ERR_WRITE_FAIL, (CONST_STRPTR)paramfile);
  User_Message(GetString( MSG_EDPAR_PARAMFILE ),                                              // "paramfile"
               GetString( MSG_EDPAR_ERRORWRITINGTOPARAMETERFILETHEOUTPUTFILEHASBEENMODIFI ),  // "Error writing to Parameter file!\n\The output file has been modified and may no longer be valid. Try resaving to a different device or freeing some disk space and saving again."
-              GetString( MSG_EDPAR_OK ),                                                     // "OK"
+              GetString( MSG_GLOBAL_OK ),                                                     // "OK"
               (CONST_STRPTR)"o");
 
  return (1);

@@ -470,7 +470,7 @@ if (! IA_GridStyle) /* If hidden-line-removed */
    {
    User_Message(GetString( MSG_INTDRW_INTERACTIVEMOTIONMODULE ),                  // "Interactive Motion Module"
                 GetString( MSG_INTDRW_OUTOFMEMORYIDDENLINEREMOVALNOTAVAILABLE ),  // "Out of memory!\nHidden line removal not available."
-                GetString( MSG_INTDRW_OK ),                                       // "OK"
+                GetString( MSG_GLOBAL_OK ),                                       // "OK"
                 (CONST_STRPTR)"o");
    return (1);
    } /* if out of memory initializing TmpRas */
@@ -1528,7 +1528,7 @@ void Play_Motion(struct RenderAnim *RA)
   {
   User_Message(GetString( MSG_INTDRW_PARAMETERSMODULEPATH ),                               // "Parameters Module: Path"
                GetString( MSG_INTDRW_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening key frame table!\nOperation terminated."
-               GetString( MSG_INTDRW_OK ),                                                 // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                 // "OK"
                (CONST_STRPTR)"o");
   goto EndPlay;
   } /* if no key table */

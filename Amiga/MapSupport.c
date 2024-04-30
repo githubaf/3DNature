@@ -337,7 +337,7 @@ short saveobject(long OBN, char *fname, double *Lon, double *Lat, short *Elev)
     {
     Log(ERR_OPEN_FAIL, (CONST_STRPTR)DBase[OBN].Name);
     User_Message((CONST_STRPTR)DBase[OBN].Name, GetString( MSG_MAPSUPRT_CANTOPENOBJECTFILEBJECTNOTSAVED ),  // "Can't open object file!\nObject not saved."
-                 GetString( MSG_MAPSUPRT_OK ),                                                              // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                                              // "OK"
                  (CONST_STRPTR)"o");
     return(1);
     } /* if open fail */
@@ -453,7 +453,7 @@ short loadtopo(void)
   {
   User_Message(GetString( MSG_MAPSUPRT_MAPPINGMODULETOPOMAPPING ),                            // "Mapping Module: Topo Mapping"
                GetString( MSG_MAPSUPRT_NOTOPOMAPSFOUNDHECKOBJECTENABLEDSTATUSANDCLASSINDA ),  // "No topo maps found!\nCheck object Enabled Status and Class in database."
-               GetString( MSG_MAPSUPRT_OK ),                                                  // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   return (1);
   } /* if */
@@ -470,7 +470,7 @@ short loadtopo(void)
   {
   User_Message(GetString( MSG_MAPSUPRT_MAPVIEWLOADTOPOS ),               // "Map View: Load Topos"
                GetString( MSG_MAPSUPRT_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-               GetString( MSG_MAPSUPRT_OK ),                             // "OK"
+               GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");
   return (1);
   } /* if memory fail */
@@ -508,7 +508,7 @@ short loadtopo(void)
    sprintf(str, "%s.elev", DBase[i].Name);
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)str);
    User_Message((CONST_STRPTR)str, GetString( MSG_MAPSUPRT_ERRORLOADINGTOPOMAPCHECKSTATUSLOGTOSEEIFOUTOFMEMOR ),  // "Error loading topo map! Check Status Log to see if out of memory.\nOperation terminated."
-                GetString( MSG_MAPSUPRT_OK ),                                                                     // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                                     // "OK"
                 (CONST_STRPTR)"o");
    break;
    } /* if file not found */
@@ -599,7 +599,7 @@ if(BusyLoad)
   {
   User_Message(GetString( MSG_MAPSUPRT_MAPVIEWLOADTOPOS ),            // "Map View: Load Topos"
                GetString( MSG_MAPSUPRT_ERRORLOADINGDEMSNONELOADED ),  // "Error loading DEMs! None loaded."
-               GetString( MSG_MAPSUPRT_OK ),                          // "OK"
+               GetString( MSG_GLOBAL_OK ),                          // "OK"
                (CONST_STRPTR)"o");
   return (1);
   } /* if */
@@ -870,7 +870,7 @@ short XY_latlon(long i, long lowj, long highj)
    {
    User_Message(GetString( MSG_MAPSUPRT_MAPPINGMODULE ),                                       // "Mapping Module"
                 GetString( MSG_MAPSUPRT_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTERMINA ),  // "Out of memory allocating new vector array!\nOperation terminated."
-                GetString( MSG_MAPSUPRT_OK ),                                                  // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                 (CONST_STRPTR)"o");
    return (0);
    } /* if not enough memory */
@@ -1966,7 +1966,7 @@ void MakeColorMap(void)
   {
   User_Message(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
                GetString( MSG_MAPSUPRT_SELECTEDOBJECTMUSTBEATOPODEMEECLASSFIELDINDATABASE ),  // "Selected object must be a Topo DEM!\nSee Class field in Database Editor.\nOperation terminated."
-               GetString( MSG_MAPSUPRT_OK ),                                                  // "OK"
+               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* object not topo map */
@@ -1982,7 +1982,7 @@ RepeatCheck:
   {
   if (User_Message_Def(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
                        GetString( MSG_MAPSUPRT_SELECTEDMAPISNOTCURRENTLYLOADEDOYOUWISHTOLOADTOPOM ),  // "Selected map is not currently loaded!\nDo you wish to load topo maps?",
-                       GetString( MSG_MAPSUPRT_OKCANCEL ),                                            // "OK|CANCEL"
+                       GetString( MSG_GLOBAL_OKCANCEL ),                                            // "OK|CANCEL"
                        (CONST_STRPTR)"oc", 1))
    {
    loadtopo();
@@ -2004,7 +2004,7 @@ RepeatCheck:
   {
   User_Message(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                               // "Map View: Color Map"
                GetString( MSG_MAPSUPRT_OUTOFMEMORYCREATINGBITMAPSPERATIONTERMINATED ),  // "Out of memory creating bitmaps!\nOperation terminated."
-               GetString( MSG_MAPSUPRT_OK ),                                            // "OK"
+               GetString( MSG_GLOBAL_OK ),                                            // "OK"
                (CONST_STRPTR)"o");
   goto Cleanup;
   } /* if out of memory */

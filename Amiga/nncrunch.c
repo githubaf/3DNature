@@ -254,7 +254,7 @@ struct datum *DT;
     success = 0;
     User_Message(GetString( MSG_NNCRUNCH_MAPVIEWBUILDDEM ),                                     // "Map View: Build DEM"
                  GetString( MSG_NNCRUNCH_INSUFFICIENTDATAINGRIDDEDREGIONTOTRIANGULATEINCREA ),  // "Insufficient data in gridded region to triangulate! Increase the size of the gridded region or add more control points."
-                 GetString( MSG_NNCRUNCH_OK ),                                                  // "OK"
+                 GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                  (CONST_STRPTR)"o");
     goto EndRead;
     } /* else insufficient data */
@@ -1756,7 +1756,7 @@ double **matptr;
   {
   User_Message(GetString( MSG_NNCRUNCH_MAPVIEWBUILDDEM ),                            // "Map View: Build DEM",
                GetString( MSG_NNCRUNCH_OUTOFMEMORYDOUBLEMATRIXPERATIONTERMINATED ),  // "Out of memory Double Matrix!\nOperation terminated."
-               GetString( MSG_NNCRUNCH_OK ),                                         // "OK"
+               GetString( MSG_GLOBAL_OK ),                                         // "OK"
                (CONST_STRPTR)"o");
   } /* if */
  else
@@ -1766,7 +1766,7 @@ double **matptr;
    {
    User_Message(GetString( MSG_NNCRUNCH_MAPVIEWBUILDDEM ),                                     // "Map View: Build DEM"
                 GetString( MSG_NNCRUNCH_OUTOFMEMORYALLOCATINGDOUBLEMATRIXPERATIONTERMINATE ),  // "Out of memory allocating Double Matrix!\nOperation terminated."
-                GetString( MSG_NNCRUNCH_OK ),                                                  // "OK"
+                GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                 (CONST_STRPTR)"o");
    } /* if */
   else

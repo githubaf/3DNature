@@ -205,7 +205,7 @@ void SaveConfig(void)
   {
   User_Message(GetString( MSG_SUPPORT_WCSCONFIGURATIONSAVE ),                         // "WCS Configuration: Save"
                GetString( MSG_SUPPORT_CANTOPENCONFIGURATIONFILEPERATIONTERMINATED ),  // "Can't open configuration file!\nOperation terminated."
-               GetString( MSG_SUPPORT_OK ),                                           // "OK"
+               GetString( MSG_GLOBAL_OK ),                                           // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if, presumably, no ENVARC: */
@@ -293,7 +293,7 @@ void LoadConfig(void)
   {
   User_Message(GetString( MSG_SUPPORT_WCSCONFIGURATIONLOAD ),                         // "WCS Configuration: Load"
                GetString( MSG_SUPPORT_CANTOPENCONFIGURATIONFILEPERATIONTERMINATED ),  // "Can't open configuration file!\nOperation terminated."
-               GetString( MSG_SUPPORT_OK ),                                           // "OK"
+               GetString( MSG_GLOBAL_OK ),                                           // "OK"
                (CONST_STRPTR)"o");
   return;
   } /* if no configuration file */
@@ -653,7 +653,7 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
   if (! SaveName)
    User_Message(GetString( MSG_SUPPORT_WCSPROJECTSAVE ),                         // "WCS Project: Save"
                 GetString( MSG_SUPPORT_CANTOPENPROJECTFILEPERATIONTERMINATED ),  // "Can't open project file!\nOperation terminated."
-                GetString( MSG_SUPPORT_OK ),                                     // "OK"
+                GetString( MSG_GLOBAL_OK ),                                     // "OK"
                 (CONST_STRPTR)"o");
   return (0);
   } /* if open fail */
@@ -985,7 +985,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
   if (! LoadName)
    User_Message(GetString( MSG_SUPPORT_WCSPROJECTLOAD ),                         // "WCS Project: Load"
                 GetString( MSG_SUPPORT_CANTOPENPROJECTFILEPERATIONTERMINATED ),  // "Can't open project file!\nOperation terminated."
-                GetString( MSG_SUPPORT_OK ),                                     // "OK"
+                GetString( MSG_GLOBAL_OK ),                                     // "OK"
                 (CONST_STRPTR)"o");
   return (0);
   } /* if open fail */
@@ -998,7 +998,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
   if (! LoadName)
    User_Message(GetString( MSG_SUPPORT_PROJECTLOAD ),                           // "Project: Load"
                 GetString( MSG_SUPPORT_NOTAWCSPROJECTFILEPERATIONTERMINATED ),  // "Not a WCS Project file!\nOperation terminated.",
-                GetString( MSG_SUPPORT_OK ),                                    // "OK"
+                GetString( MSG_GLOBAL_OK ),                                    // "OK"
                 (CONST_STRPTR)"o");
   return (0);
   } /* if not WCS Project */
@@ -1440,7 +1440,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     else
      User_Message(GetString( MSG_SUPPORT_MAPPINGMODULEALIGN ),                                        // "Mapping Module: Align"
                   GetString( MSG_SUPPORT_ILLEGALMAPREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUAL ),  // "Illegal map registration values! High and low X or Y values are equal."
-                  GetString( MSG_SUPPORT_OK ),                                                        // "OK"
+                  GetString( MSG_GLOBAL_OK ),                                                        // "OK"
                   (CONST_STRPTR)"o");
     } /* if align */
    if(AutoClear)
@@ -1487,7 +1487,7 @@ short LoadDirList(void)
   {
   User_Message(GetString( MSG_SUPPORT_DIRECTORYLISTLOAD ),                      // "Directory List: Load"
                GetString( MSG_SUPPORT_CANTOPENPROJECTFILEPERATIONTERMINATED ),  // "Can't open project file!\nOperation terminated."
-               GetString( MSG_SUPPORT_OK ),                                     // "OK"
+               GetString( MSG_GLOBAL_OK ),                                     // "OK"
                (CONST_STRPTR)"o");
   return (0);
   } /* if open fail */
@@ -1499,7 +1499,7 @@ short LoadDirList(void)
   fclose(fproject);
   User_Message(GetString( MSG_SUPPORT_DIRECTORYLISTLOAD ),                     // "Directory List: Load"
                GetString( MSG_SUPPORT_NOTAWCSPROJECTFILEPERATIONTERMINATED ),  // "Not a WCS Project file!\nOperation terminated.",
-               GetString( MSG_SUPPORT_OK ),                                    // "OK"
+               GetString( MSG_GLOBAL_OK ),                                    // "OK"
                (CONST_STRPTR)"o");
   return (0);
   } /* if not WCS Project */

@@ -426,7 +426,7 @@ if (! MapWind0)
   {
   if (User_Message_Def((CONST_STRPTR) GetString( MSG_CLOUD_CLOUDEDITORSETBOUNDS ) ,     // "Cloud Editor:Set Bounds"
 		               (CONST_STRPTR) GetString( MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN ) ,  // "Map View Module must be open in order to use this function. Would you like to open it now?"
-					   (CONST_STRPTR) GetString( MSG_CLOUD_OKCANCEL ) ,                 // "OK|Cancel"
+					   (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) ,                 // "OK|Cancel"
 					   (CONST_STRPTR)"oc",1))
    {
    map();
@@ -462,7 +462,7 @@ StartAlign:
   {
   if (User_Message_Def(GetString( MSG_CLOUD_MAPPINGMODULEALIGN ),               // "Mapping Module: Align"
           GetString( MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
-          GetString( MSG_CLOUD_OKCANCEL ),                                      // "OK|Cancel"
+          GetString( MSG_GLOBAL_OKCANCEL ),                                      // "OK|Cancel"
 		  (CONST_STRPTR)"oc", 1))
    {
    goto StartAlign;
