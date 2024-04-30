@@ -264,7 +264,7 @@ void Make_EE_Window(void)
             End, /* HGroup */
           Child, HGroup, MUIA_Group_SameWidth, TRUE,
             Child, EE_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDECOGUI_KEEP )),     // "\33cKeep"
-            Child, EE_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EDECOGUI_CANCEL )),  // "\33cCancel"
+            Child, EE_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
             End, /* HGroup */
           End, /* VGroup */
         End, /* VGroup */

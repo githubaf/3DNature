@@ -341,7 +341,7 @@ if ((This = (struct BusyWindow *)get_Memory(sizeof(struct BusyWindow), MEMF_CLEA
 	   End,
 	  Child, HGroup,
 	   Child, RectangleObject, End,
-	   Child, This->BW_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_REQGUI_CANCEL )),  // "\33cCancel"
+	   Child, This->BW_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
 	   Child, RectangleObject, End,
 	   End,
 	  End,

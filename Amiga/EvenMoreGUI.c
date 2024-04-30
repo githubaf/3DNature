@@ -124,7 +124,7 @@ void Make_TS_Window(void)
 
 	Child, HGroup, MUIA_Group_SameWidth, TRUE,
 	  Child, TS_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EVMORGUI_KEEP )),     // "\33cKeep"
-	  Child, TS_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EVMORGUI_CANCEL )),  // "\33cCancel"
+	  Child, TS_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
 	  End, /* HGroup */
         End, /* VGroup */
       End; /* WindowObject */
@@ -626,7 +626,7 @@ STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.202
 	  Child, HGroup,
 	    Child, RectangleObject, End,
             Child, PN_Win->BT_Save = KeyButtonFunc('s', (char*)GetString( MSG_EVMORGUI_SAVE )),       // "\33cSave"
-            Child, PN_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EVMORGUI_CANCEL ) ),  // "\33cCancel"
+            Child, PN_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
 	    Child, RectangleObject, End,
             End, /* HGroup */
 	  End, /* VGroup */

@@ -212,7 +212,7 @@ void Make_EM_Window(void)
           Child, EM_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDMOGUI_KEEP )),           // "\33cKeep"
           Child, EM_Win->BT_WinSize = KeyButtonFunc('w', (char*)GetString( MSG_EDMOGUI_LISTWIN )),      // "\33cList Win "
           Child, EM_Win->BT_Interactive = KeyButtonFunc('i', (char*)GetString( MSG_EDMOGUI_CAMVIEW )),  // "\33cCam View "
-          Child, EM_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EDMOGUI_CANCEL )),        // "\33cCancel"
+          Child, EM_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),        // "\33cCancel"
           End, /* HGroup */
 
         End, /* VGroup */
@@ -1524,7 +1524,7 @@ void Make_EMIA_Window(void)
 
 	Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
         Child, EMIA_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDMOGUI_KEEP )),            // "\33cKeep"
-        Child, EMIA_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EDMOGUI_CANCEL )),         // "\33cCancel"
+        Child, EMIA_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),         // "\33cCancel"
 	End, /* VGroup */
       End; /* WindowObject */
 

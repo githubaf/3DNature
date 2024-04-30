@@ -198,7 +198,7 @@ void Make_EMTL_Window(void)
 	  Child, EMTL_Win->BT_Play = KeyButtonObject('p'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Text_Contents, GetString( MSG_TLGUI_PLAY ), End,  // "\33cPlay"
-	  Child, EMTL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_TLGUI_CANCEL )),  // "\33cCancel"
+	  Child, EMTL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
 	  End, /* HGroup */ 
 	End, /* VGroup */
       End; /* WindowObject EMTL_Win->TimeLineWin */
@@ -1095,7 +1095,7 @@ void Make_ECTL_Window(void)
 	  Child, ECTL_Win->BT_Play = KeyButtonObject('p'),
 		 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Text_Contents, GetString( MSG_TLGUI_PLAY ), End,  // "\33cPlay"
-	  Child, ECTL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_TLGUI_CANCEL )),  // "\33cCancel"
+	  Child, ECTL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
 	  End, /* HGroup */ 
 	End, /* VGroup */
       End; /* WindowObject ECTL_Win->TimeLineWin */
@@ -1885,7 +1885,7 @@ void Make_EETL_Window(void)
 	  Child, EETL_Win->BT_Play = KeyButtonObject('p'),
 		 MUIA_Text_Contents, "\33cPlay", End, 
 */
-	  Child, EETL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_TLGUI_CANCEL )),  // "\33cCancel"
+	  Child, EETL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
 	  End, /* HGroup */ 
 	End, /* VGroup */
       End; /* WindowObject EETL_Win->TimeLineWin */

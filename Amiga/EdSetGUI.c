@@ -921,7 +921,7 @@ ES_Cycle_Data[2]=NULL;
         Child, HGroup,
           Child, ES_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDSETGUI_KEEP ) ),     // "\33cKeep"
           Child, ES_Win->BT_Render = KeyButtonFunc('r', (char*)GetString( MSG_EDSETGUI_RENDER ) ),  // "\33cRender"
-          Child, ES_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EDSETGUI_CANCEL ) ),  // "\33cCancel"
+          Child, ES_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
           End, /* HGroup */
 
 	End, /* VGroup Window Contents */

@@ -1932,7 +1932,7 @@ short GetInputString(char *message, char *reject, char *string)
 
 	Child, HGroup,
 	  Child, BT_OK = KeyButtonFunc('o', (char*)GetString( MSG_GLOBAL_OK ) ),          // "\33cOK"
-	  Child, BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_AGUI_CANCEL ) ),  // "\33cCancel"
+	  Child, BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
 	  End, /* HGroup */
         End, /* VGroup */
       End; /* IS_Win */

@@ -248,7 +248,7 @@ void Make_EC_Window(void)
             End, /* HGroup */
           Child, HGroup, MUIA_Group_SameWidth, TRUE,
             Child, EC_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDITGUI_KEEP ) ),      // "\33cKeep"
-            Child, EC_Win->BT_Cancel = KeyButtonFunc('c',  (char*)GetString( MSG_EDITGUI_CANCEL ) ),  // "\33cCancel"
+            Child, EC_Win->BT_Cancel = KeyButtonFunc('c',  (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
             End, /* HGroup */
           End, /* VGroup */
         End, /* VGroup */

@@ -1711,7 +1711,7 @@ void Make_DL_Window(void)
         Child, HGroup,
           Child, DL_Win->BT_Apply =  KeyButtonFunc('k', (char*)GetString( MSG_EDDB_KEEP )),  // "\33cKeep"
           Child, DL_Win->BT_Load =   KeyButtonFunc('l', (char*)GetString( MSG_EDDB_LOAD )),  // "\33cLoad"
-          Child, DL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_EDDB_CANCEL)), // "\33cCancel"
+          Child, DL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL)), // "\33cCancel"
           End, /* HGroup */
 
         End, /* VGroup */

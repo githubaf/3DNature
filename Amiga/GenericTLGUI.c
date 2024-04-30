@@ -547,7 +547,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
 	 	 MUIA_InputMode, MUIV_InputMode_Toggle,
 		 MUIA_Selected, TRUE,
 	 	 MUIA_Text_Contents, GetString( MSG_GENTLGUI_GRID ), End,  // "\33cGrid"
-	  Child, TL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GENTLGUI_CANCEL )),  // "\33cCancel"
+	  Child, TL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
 	  End, /* HGroup */ 
 	End, /* VGroup */
       End; /* WindowObject TL_Win->TimeLineWin */

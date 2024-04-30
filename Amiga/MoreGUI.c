@@ -1483,7 +1483,7 @@ void Make_SC_Window(void)
 	  Child, HGroup,
 	    Child, RectangleObject, End,
             Child, SC_Win->BT_Apply = KeyButtonFunc('a', (char*)GetString( MSG_MOREGUI_APPLY )),    // "\33cApply"
-            Child, SC_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_MOREGUI_CANCEL )),  // "\33cCancel"),
+            Child, SC_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"),
 	    Child, RectangleObject, End,
             End, /* HGroup */
 

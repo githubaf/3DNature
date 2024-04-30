@@ -205,7 +205,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
 	  Child, HGroup,
             Child, PS_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_PARGUI_KEEP )),       // "\33cKeep"
             Child, PS_Win->BT_Operate = KeyButtonFunc('o', (char*)GetString( MSG_PARGUI_OPERATE )),  // "\33cOperate"
-            Child, PS_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_PARGUI_CANCEL )),    // "\33cCancel"
+            Child, PS_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),    // "\33cCancel"
             End, /* HGroup */
 	  End, /* VGroup */
 
