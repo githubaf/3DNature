@@ -1953,7 +1953,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
   if ((loadcode & 0x0111) && KeyFrames > 0)
    LoadKeys = User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
                                GetString( MSG_EDPAR_LOADALLKEYFRAMES ),     //  "Load all key frames?"
-                               GetString( MSG_EDPAR_YESNO),                 // "Yes|No"
+                               GetString( MSG_GLOBAL_YESNO),                 // "Yes|No"
                                (CONST_STRPTR)"yn", 1);
   } /* if load partial file */
 
@@ -2588,7 +2588,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
   if ((loadcode & 0x0111) && (KeyFrames > 0))
    LoadKeys = User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
                                GetString( MSG_EDPAR_LOADALLKEYFRAMES ),     // "Load all key frames?"
-                               GetString( MSG_EDPAR_YESNO ),                // "Yes|No"
+                               GetString( MSG_GLOBAL_YESNO ),                // "Yes|No"
                                (CONST_STRPTR)"yn", 1);
   } /* if load partial file */
 

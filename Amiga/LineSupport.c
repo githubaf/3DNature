@@ -543,13 +543,13 @@ short VectorToPath(short item)
 
  sprintf(str, "%s.elev", DBase[OBN].Name);
  if (User_Message_Def((CONST_STRPTR)str, GetString( MSG_LINESPRT_USEELEVATIONDATA ),  // "Use elevation data?"
-                      GetString( MSG_LINESPRT_YESNO ),                                // "Yes|No"
+                      GetString( MSG_GLOBAL_YESNO ),                                // "Yes|No"
                       (CONST_STRPTR)"yn", 1))
   {
   OpenOK = 1;
   Flatten = User_Message_Def(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
                              GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current flattening, datum and vertical exaggeration?"
-                             GetString( MSG_LINESPRT_YESNO ),                                               // "Yes|No"
+                             GetString( MSG_GLOBAL_YESNO ),                                               // "Yes|No"
                              (CONST_STRPTR)"yn", 1);
   } /* if use elev */
 
@@ -657,7 +657,7 @@ short PathToVector(short item)
          (CONST_STRPTR)"ak");
  Flatten = User_Message_Def(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
                             GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current Flattening, Datum and Vertical Exaggeration?"
-                            GetString( MSG_LINESPRT_YESNO ),                                               // "Yes|No"
+                            GetString( MSG_GLOBAL_YESNO ),                                               // "Yes|No"
                             (CONST_STRPTR)"yn", 1);
 
  if (! BuildKeyTable())

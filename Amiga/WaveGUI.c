@@ -515,7 +515,7 @@ short WinNum = 0;
     {
     if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),  // "Wave Editor"
                          GetString( MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB ),  // "The current Wave Model has been modified. Do you wish to save it before closing?"
-                         GetString( MSG_WAVGUI_YESNO ),  // "Yes|No"
+                         GetString( MSG_GLOBAL_YESNO ),  // "Yes|No"
                          (CONST_STRPTR)"yn", 1))
      {
      char filename[256];
@@ -529,7 +529,7 @@ short WinNum = 0;
         {
         if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
                              GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                             GetString( MSG_WAVGUI_YESNO ),                           // "Yes|No"
+                             GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
                              (CONST_STRPTR)"yn", 1))
          {
          strcpy(wavepath, WV_Win->WaveDir);
@@ -774,7 +774,7 @@ struct WaveWindow *WV_Win;
          {
          if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
                               GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                              GetString( MSG_WAVGUI_YESNO ),                           // "Yes|No"
+                              GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
                               (CONST_STRPTR)"yn", 1))
           {
           strcpy(wavepath, WV_Win->WaveDir);
@@ -804,7 +804,7 @@ struct WaveWindow *WV_Win;
          {
          if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
                               GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                              GetString( MSG_WAVGUI_YESNO ),                           // "Yes|No"
+                              GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
                               (CONST_STRPTR)"yn", 1))
           {
           strcpy(wavepath, WV_Win->WaveDir);
@@ -1401,7 +1401,7 @@ struct Wave *WV;
   {
   if (User_Message(GetString( MSG_WAVGUI_MAPVIEWWAVEADD ),                                     // "Map View: Wave Add"
                    GetString( MSG_WAVGUI_REMOVEALLCURRENTLYDEFINEDWAVESBEFOREADDINGNEWONES ),  // "Remove all currently defined waves before adding new ones?"
-                   GetString( MSG_WAVGUI_YESNO ),                                              // "Yes|No"
+                   GetString( MSG_GLOBAL_YESNO ),                                              // "Yes|No"
                    (CONST_STRPTR)"yn"))
    {
    Wave_DelAll(*Wave);

@@ -1309,7 +1309,7 @@ struct clipbounds cb;
      } /* else focus group */
     if (User_Message_Def(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),  // "Parameters Module: Make Key"
                          (CONST_STRPTR)str,
-                         GetString( MSG_EDMOGUI_YESNO ),                    // "Yes|No"
+                         GetString( MSG_GLOBAL_YESNO ),                    // "Yes|No"
                          (CONST_STRPTR)"yn", 1))
      {
      MakeKeyFrame((short)FrameKey, 0, i    );

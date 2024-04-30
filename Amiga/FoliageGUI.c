@@ -392,7 +392,7 @@ double FloatVal;
 
       apply = FE_Win->Mod && User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
                                               GetString( MSG_FOLIGUI_KEEPCHANGES ),    // "Keep changes?"
-                                              GetString( MSG_FOLIGUI_YESNO ),          // "Yes|No"
+                                              GetString( MSG_GLOBAL_YESNO ),          // "Yes|No"
                                               (CONST_STRPTR)"yn", 1);
       Close_FE_Window(apply);
       break;

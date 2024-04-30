@@ -996,7 +996,7 @@ ReadMore:
 /* invert file if it is stored SE corner to NW */
    if (User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),  // "Data Ops: Convert DEM"
                     GetString( MSG_DATAOPS_INVERTDATAORDER ),    // "Invert Data order?"
-                    GetString( MSG_DATAOPS_YESNO ),              // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),              // "Yes|No"
                     (CONST_STRPTR)"yn"))
     {
     long DataPts, ct;

@@ -2020,7 +2020,7 @@ RepeatCheck:
 /* topo drawing */
  if (User_Message_Def(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                    // "Map View: Color Map"
                       GetString( MSG_MAPSUPRT_INCLUDEDEMELEVATIONDATAINCOLORMAP ),  // "Include DEM elevation data in Color Map?"
-                      GetString( MSG_MAPSUPRT_YESNO ),                              // "Yes|No"
+                      GetString( MSG_GLOBAL_YESNO ),                              // "Yes|No"
                       (CONST_STRPTR)"yn", 1))
   {
   SetPointer(MapWind0, WaitPointer, 16, 16, -6, 0);

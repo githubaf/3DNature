@@ -683,7 +683,7 @@ void Handle_EC_Window(ULONG WCS_ID)
         {
         if (User_Message_Def(GetString( MSG_EDITGUI_COLOREDITORCOPY ) ,  // "Color Editor: Copy"
         		    GetString( MSG_EDITGUI_COPYKEYFRAMESTOO ),   // "Copy Key Frames too?" 
-                            GetString( MSG_EDITGUI_YESNO ),              // "Yes|No"
+                            GetString( MSG_GLOBAL_YESNO ),              // "Yes|No"
                             (CONST_STRPTR)"yn", 1))
          {
          for (i=ParHdr.KeyFrames-1; i>=0; i--)

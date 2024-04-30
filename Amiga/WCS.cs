@@ -1319,7 +1319,7 @@ MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE
 The current Cloud Model has been modified. Do you wish to save it before closing? Soll es vor dem Schließen gespeichert werden?
 Das aktuelle Wolkenmodell wurde geändert. Soll es vor dem Schließen gespeichert werden?
 ;
-MSG_CLOUDGUI_YESNO
+MSG_GLOBAL_YESNO
 Yes|No
 
 ;
@@ -2293,10 +2293,6 @@ Incorrect file size for specified header, width and height!\nProceed anyway?.
 ;
 MSG_DATAOPS_INVERTDATAORDER
 Invert Data order?
-
-;
-MSG_DATAOPS_YESNO
-Yes|No
 
 ;
 MSG_DATAOPS_INVERTING
@@ -3804,10 +3800,6 @@ MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY
 Parameters Module: Make Key
 
 ;
-MSG_EDMOGUI_YESNO
-Yes|No
-Ja|Nein
-;
 MSG_EDMOGUI_DRAW
 \0334Draw
 
@@ -3991,10 +3983,6 @@ Das Format der Parameterdatei hat sich seit dem letzen Speichern geändert. Soll 
 ;
 MSG_EDPAR_LOADALLKEYFRAMES
 Load all key frames?
-
-;
-MSG_EDPAR_YESNO
-Yes|No
 
 ;
 MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED
@@ -5010,10 +4998,6 @@ MSG_EDITGUI_COPYKEYFRAMESTOO
 Copy Key Frames too?
 
 ;
-MSG_EDITGUI_YESNO
-Yes|No
-
-;
 MSG_EDITGUI_COLORPARAMETERSSWAP
 Color Parameters: Swap
 
@@ -5288,10 +5272,6 @@ Hilfe
 MSG_FOLIGUI_KEEPCHANGES
 Keep changes?
 Änderungen behalten?
-;
-MSG_FOLIGUI_YESNO
-Yes|No
-Ja|Nein
 ;
 MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE
 Foliage Editor: View Image
@@ -6060,10 +6040,6 @@ MSG_LINESPRT_USEELEVATIONDATA
 Use elevation data?
 
 ;
-MSG_LINESPRT_YESNO
-Yes|No
-Ja|Nein
-;
 MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC
 Modify altitudes with current flattening, datum and vertical exaggeration?
 
@@ -6216,10 +6192,6 @@ Objekt auswählen
 MSG_MAP_ISTHISTHECORRECTOBJECT
 Is this the correct object?
 Ist dies das richtige Objekt?
-;
-MSG_MAP_YESNO
-Yes|No
-Ja|Nein
 ;
 MSG_MAP_MAPPINGMODULE
 Mapping Module
@@ -7387,10 +7359,6 @@ Out of memory creating bitmaps!\nOperation terminated.
 ;
 MSG_MAPSUPRT_INCLUDEDEMELEVATIONDATAINCOLORMAP
 Include DEM elevation data in Color Map?
-
-;
-MSG_MAPSUPRT_YESNO
-Yes|No
 
 ;
 MSG_MAPSUPRT_SAVECOLORMAPAS
@@ -8896,10 +8864,6 @@ Wave Editor
 ;
 MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB
 The current Wave Model has been modified. Do you wish to save it before closing?
-
-;
-MSG_WAVGUI_YESNO
-Yes|No
 
 ;
 MSG_WAVGUI_WAVEPATHFILE

@@ -1247,7 +1247,7 @@ short findmouse(short X, short Y, short IdentifyOnly)
 
    if (User_Message_Def((CONST_STRPTR)DBase[i].Name, 
                         GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),  // "Is this the correct object?"
-                        GetString( MSG_MAP_YESNO ),                   // "YES|NO"
+                        GetString( MSG_GLOBAL_YESNO ),                   // "YES|NO"
                         (CONST_STRPTR)"yn", 1))
     {
     done = 1;
@@ -1287,7 +1287,7 @@ short findmouse(short X, short Y, short IdentifyOnly)
     else outline(MapWind0, i, 2, &cb);
 
     if (User_Message_Def((CONST_STRPTR)DBase[i].Name, GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),   // "Is this the correct object?"
-                         GetString( MSG_MAP_YESNO ),                                                 // "YES|NO"
+                         GetString( MSG_GLOBAL_YESNO ),                                                 // "YES|NO"
                          (CONST_STRPTR)"yn", 1))
      {
      done = 1;
@@ -2050,7 +2050,7 @@ void Viewshed_Map(long OBN)
 
  if (User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),           // "Mapping Module: Viewshed"
                   GetString( MSG_MAP_DRAWVECTORSONVIEWSHEDRENDERING ),  // "Draw vectors on viewshed rendering?"
-                  GetString( MSG_MAP_YESNO ),                           // "Yes|No"
+                  GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
                   (CONST_STRPTR)"yn"))
   makemap(MapWind3, VS->cb.lowx, VS->cb.lowy, VS->cb.highx, VS->cb.highy, (IPTR)NULL);
 
@@ -2335,7 +2335,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
     
     if (User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
                      GetString( MSG_MAP_DIGITIZENEWREGISTRATIONPOINTS ),  // "Digitize new registration points?"
-                     GetString( MSG_MAP_YESNO ),                          // "YES|NO"
+                     GetString( MSG_GLOBAL_YESNO ),                          // "YES|NO"
                      (CONST_STRPTR)"yn"))
      {
      MP_Nlat = rlat[0];

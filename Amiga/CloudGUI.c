@@ -436,7 +436,7 @@ void Close_CL_Window(void)
     {
     if (User_Message_Def(GetString( MSG_CLOUDGUI_PARAMETERSMODULEMODEL ) ,  // "Parameters Module: Model"
     		         GetString( MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE ) ,  // "The current Cloud Model has been modified. Do you wish to save it before closing?"
-		         GetString( MSG_CLOUDGUI_YESNO ) ,  // "Yes|No"
+		         GetString( MSG_GLOBAL_YESNO ) ,  // "Yes|No"
                          (CONST_STRPTR)"yn", 1))
      {
      char filename[256];
@@ -450,7 +450,7 @@ void Close_CL_Window(void)
         {
         if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,               // "Cloud Editor"
         		GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ), // "Make this file the Project Cloud File?" 
-                        GetString( MSG_CLOUDGUI_YESNO ),                           // "Yes|No"
+                        GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
                         (CONST_STRPTR)"yn", 1))
          {
          strcpy(cloudpath, CL_Win->CloudDir);
@@ -678,7 +678,7 @@ double FloatVal;
          {
          if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
         		 GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
-                         GetString( MSG_CLOUDGUI_YESNO ),                             // "Yes|No"
+                         GetString( MSG_GLOBAL_YESNO ),                             // "Yes|No"
                          (CONST_STRPTR)"yn", 1))
           {
           strcpy(cloudpath, CL_Win->CloudDir);
@@ -708,7 +708,7 @@ double FloatVal;
          {
          if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
         		 GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
-                         GetString( MSG_CLOUDGUI_YESNO ) ,                            // "Yes|No", 
+                         GetString( MSG_GLOBAL_YESNO ) ,                            // "Yes|No", 
                          (CONST_STRPTR)"yn", 1))
           {
           strcpy(cloudpath, CL_Win->CloudDir);
