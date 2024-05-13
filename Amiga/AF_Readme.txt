@@ -3332,7 +3332,7 @@ smake WCS
 
 * libvgl muss separat compiliert werden. Fehlt noch, auch fuer vamos-compilieren!
 
-# der /home/developer/opt/m68k-amigaos_23Jan24/bin/m68k-amigaos-gcc hat beim 68060 auch keinen FPU-Test mehr... ltere Toolchain nehmen.
+# der /home/developer/opt/m68k-amigaos_23Jan24/bin/m68k-amigaos-gcc hat beim 68060 auch keinen FPU-Test mehr... aeltere Toolchain nehmen.
 
 16Dec23 -> 68060 FPU check missing
 15Dec23 -> OK                             <------- Wir bleiben erst mal bei dieser toolchain-Version
@@ -3522,8 +3522,9 @@ cat WCS.cs | grep MSG_ | wc -l
 
 # davon 44x "OK"
 
-# zeige nur mehrfache englische Strings (Zeile nach MSG_...)
-cat WCS.cs | grep MSG_ -A1 | grep -v MSG_ | grep -v "\-\-" | sort | uniq -d
+
+# zeige doppelte englische Strings (Zeile nach MSG_...) und wie oft sie vorhanden sind
+cat WCS.cs | grep MSG_ -A1 | grep -v MSG_  | sort | uniq -c -d #| wc -l
 
 # Wir wollen jetzt die "OK"-Strings ersetzen in allen c-Files. Also erst mal zur Kontrolle auflisten:
 cat WCS.cs | awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="OK"){print MSG_NAME " : " ENGLISH}}'
@@ -3534,15 +3535,36 @@ cat WCS.cs | awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="OK"){pr
 #Damit sed-Kommando bauen:
 for MESSAGE in $(awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="OK"){print MSG_NAME}}' WCS.cs); do echo sed -i "s/$MESSAGE/MSG_GLOBAL_OK/"; done
 
-# Alle "OK"-Messages in den C-Files durch MSG_GLOBAL_OK ersetzen. Auch in WCS.cs.
-# WCS.cs dann neu in Simplecat checken, alle entstandenen Mehrfachdefinitionen loeschen (Find Translation), Targets neu erzeugen, WCS neu bauen
+###################
 
-for MESSAGE in $(awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="OK"){print MSG_NAME}}' WCS.cs); do 
-	for FILE in $(ls *.c); do
-		sed -i -E "s/$MESSAGE([ )+])/MSG_GLOBAL_OK\1/" $FILE;  # Leereichen und Klammern nach dem Text behalten, Text muss durch leerzeichen der Klammer begrenzt sein
-	done
-	sed -i "s/$MESSAGE\$/MSG_GLOBAL_OK/" WCS.cs;   # und jetzt auch im wcs-File 
+for MESSAGE in $(awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="Yes|No"){print MSG_NAME}}' WCS.cs); do
+    for FILE in $(ls *.c); do
+        sed -i -E "s/$MESSAGE([ )+])/MSG_GLOBAL_YESNO\1/" $FILE;  # Leereichen und Klammern nach dem Text behalten, Text muss durch leerzeichen der Klammer begrenzt sein
+    done
+	sed -i "s/$MESSAGE\$/MSG_GLOBAL_YESNO/" WCS.cs;   # und jetzt auch im wcs-File 
 done
 
-* Removed duplicated "OK|Cancel" and "OK|CANCEL" (now only "OK|Cancel" is used)
+
+
+for MESSAGE in $(awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="Out of memory\!\\nOperation terminated."){print MSG_NAME}}' WCS.cs); do 
+    echo $MESSAGE
+	for FILE in $(ls *.c); do
+		sed -i -E "s/$MESSAGE([ )+])/MSG_GLOBAL_OUTOFMEMORYNOPERATIONTERMINATED\1/" $FILE;  # Leereichen und Klammern nach dem Text behalten, Text muss durch leerzeichen der Klammer begrenzt sein
+	done
+	
+	sed -i "s/$MESSAGE\$/MSG_GLOBAL_OUTOFMEMORYNOPERATIONTERMINATED/" WCS.cs;   # und jetzt auch im wcs-File 
+done
+
+
+8.Mai 2024
+----------
+Ich nehme immer noch den m68k-amigaos_15Dec23, weil danach der CPU/FPU-Test kaputt war. Bebbo hat das jetzt korrigiert. Teste...
+-> Ja, mit dem GCC vom 8.Mai 2024 funktioniert auch der FPU-TEst wieder! ... Aber nicht beim 68060. Da fehlt CPU und FPU-Test.
+
+13.Mai 2024
+-----------
+Neuer Compiler von Bebbo vom 11.Mai 2024 -> Jetzt ist der CPU/FPU Check in allen Varianten OK.
+- Beim Compilieren und LINKEN(!) muss -m68881 angegeben werden, damit die FPU verwendet wird und der FPU-Check drin ist.
+- Die Konfiguration fuer AROS i386 und x86-64 war seit dem 22.2.2024 falsch. Das ist nicht aufgefallen, weil die Makefiles nicht neu erzeugt wurden.
+--> Ab und zu in EclipseBuild Configurations -> Clean All und Build all machen, um ev. Aenderungen der Orefs auch in die Makefiles zu bringen.
 

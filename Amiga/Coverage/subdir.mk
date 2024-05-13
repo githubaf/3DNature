@@ -81,79 +81,6 @@ C_SRCS += \
 ../nngridr.c \
 ../sasc_functions.c 
 
-O_SRCS += \
-../AGUI.o \
-../BigEndianReadWrite.o \
-../BitMaps.o \
-../Cloud.o \
-../CloudGUI.o \
-../ColorBlends.o \
-../Commands.o \
-../DEM.o \
-../DEMGUI.o \
-../DEMObject.o \
-../DLG.o \
-../DataBase.o \
-../DataOps.o \
-../DataOpsGUI.o \
-../DefaultParams.o \
-../DiagnosticGUI.o \
-../DispatchGUI.o \
-../EdDBaseGUI.o \
-../EdEcoGUI.o \
-../EdMoGUI.o \
-../EdPar.o \
-../EdSetExtrasGUI.o \
-../EdSetGUI.o \
-../EditGui.o \
-../EvenMoreGUI.o \
-../Foliage.o \
-../FoliageGUI.o \
-../Fractal.o \
-../GenericParams.o \
-../GenericTLGUI.o \
-../GlobeMap.o \
-../GlobeMapSupport.o \
-../GrammarTable.o \
-../HyperKhorner4M-1.o \
-../Images.o \
-../InteractiveDraw.o \
-../InteractiveUtils.o \
-../InteractiveView.o \
-../LWSupport.o \
-../LineSupport.o \
-../MakeFaces.o \
-../Map.o \
-../MapExtra.o \
-../MapGUI.o \
-../MapLineObject.o \
-../MapSupport.o \
-../MapTopo.o \
-../MapTopoObject.o \
-../MapUtil.o \
-../Memory.o \
-../MoreGUI.o \
-../Params.o \
-../ParamsGUI.o \
-../PlotGUI.o \
-../RequesterGUI.o \
-../RexxSupport.o \
-../ScratchPad.o \
-../ScreenModeGUI.o \
-../Support.o \
-../TLSupportGUI.o \
-../TimeLinesGUI.o \
-../Tree.o \
-../Version.o \
-../VocabTable.o \
-../WCS.o \
-../WCS_locale.o \
-../Wave.o \
-../WaveGUI.o \
-../nncrunch.o \
-../nngridr.o \
-../sasc_functions.o 
-
 C_DEPS += \
 ./AGUI.d \
 ./BigEndianReadWrite.d \
@@ -310,7 +237,7 @@ OBJS += \
 %.o: ../%.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	m68k-amigaos-gcc -DFORCE_MUIMASTER_VMIN=19 -DTOOLCHAIN_VER=\"'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DAMIGA_GUI -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -O2 -g -pg -ftest-coverage -fprofile-arcs -Wall -c -fmessage-length=0 -funsigned-char -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -noixemul -fprofile-dir=/Coverage -fprofile-arcs -ftest-coverage -m68040 -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	m68k-amigaos-gcc -DFORCE_MUIMASTER_VMIN=19 -DSTATIC_FCN=static -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -O2 -g -pg -ftest-coverage -fprofile-arcs -Wall -c -fmessage-length=0 -funsigned-char -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -noixemul -fprofile-dir=/Coverage -fprofile-arcs -ftest-coverage -m68040 -m68881 -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
