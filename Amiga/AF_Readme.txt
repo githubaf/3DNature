@@ -3568,3 +3568,7 @@ Neuer Compiler von Bebbo vom 11.Mai 2024 -> Jetzt ist der CPU/FPU Check in allen
 - Die Konfiguration fuer AROS i386 und x86-64 war seit dem 22.2.2024 falsch. Das ist nicht aufgefallen, weil die Makefiles nicht neu erzeugt wurden.
 --> Ab und zu in EclipseBuild Configurations -> Clean All und Build all machen, um ev. Aenderungen der Orefs auch in die Makefiles zu bringen.
 
+14.Mai 2024
+-----------
+- Parameters Module -> Ecosystem -> Design -> Load "AspenModel" fuehrte zum Fehler. Mein Fehler. Ursache war ein %s11 statt %11s in ParamsGUI.c. Fxed.
+-> Die Fehlermeldungen sind aber auch (schon im Original 2.04) falsch. "Output" und "Error writing" obwohl wir in der Lesefunktion sind. Muss korrigiert werden. 

@@ -1428,7 +1428,7 @@ STATIC_FCN short Load_FM_Win(void) // used locally only -> static, AF 24.7.2021
  fscanf(fModel, "%hd", &Items);
  for (FM_Win->ItemNum=1; FM_Win->ItemNum<=Items; FM_Win->ItemNum++)
   {
-  if (fscanf(fModel, "%ld%ld%s11%ld%ld%ld", &Ht, &Stems, Class, &Red, &Grn, &Blu)
+  if (fscanf(fModel, "%ld%ld%11s%ld%ld%ld", &Ht, &Stems, Class, &Red, &Grn, &Blu)
 	!= 6)
    {
    error = 2;
