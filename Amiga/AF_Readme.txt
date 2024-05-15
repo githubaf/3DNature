@@ -3571,4 +3571,7 @@ Neuer Compiler von Bebbo vom 11.Mai 2024 -> Jetzt ist der CPU/FPU Check in allen
 14.Mai 2024
 -----------
 - Parameters Module -> Ecosystem -> Design -> Load "AspenModel" fuehrte zum Fehler. Mein Fehler. Ursache war ein %s11 statt %11s in ParamsGUI.c. Fxed.
--> Die Fehlermeldungen sind aber auch (schon im Original 2.04) falsch. "Output" und "Error writing" obwohl wir in der Lesefunktion sind. Muss korrigiert werden. 
+-> Die Fehlermeldungen sind aber auch (schon im Original 2.04) falsch. "Output" und "Error writing" obwohl wir in der Lesefunktion sind. Muss korrigiert werden.
+
+15.Mai 2024
+- Fehlermeldung in ParamsGUI.c korrigiert. 

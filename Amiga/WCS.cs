@@ -136,6 +136,7 @@ MSG_MENU_PAR_RESTORE
 Restore
 Wiederherstellen
 ;
+; --- Ecosystem Editor -> Class --- 
 MSG_TYPENAME_WATER
 Water
 Wasser
@@ -1363,7 +1364,7 @@ MSG_CLOUDGUI_CLOUDFILE
 Cloud File
 Wolkendatei
 ;
-; ------- DEMI.c ----------
+; ------- DEM.c ----------
 ;
 MSG_DEM_CREATINGRELATIVEELEVATIONMODEL
 Creating Relative Elevation Model
@@ -8264,8 +8265,12 @@ MSG_PARGUI_LOADMODELPATHNAME
 Load Model Path/Name
 
 ;
-MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR
-Error writing to Ecosystem Model file!\nOperation terminated prematurely.
+MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMI
+Eror opening Ecosystem Model file for input!\nOperation terminated.
+
+;
+MSG_PARGUI_ERRORREADINGFROMECOSYSTEMMODELFILEPERATIONTERMINATEDPR
+Error reading from Ecosystem Model file!\nOperation terminated prematurely.
 
 ;
 MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED
@@ -8286,6 +8291,10 @@ Save Model Path/Name
 ;
 MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFOROUTPUTPERATIONTERMI
 Error opening Ecosystem Model file for output!\nOperation terminated.
+
+;
+MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR
+Error writing to Ecosystem Model file!\nOperation terminated prematurely.
 
 ;
 MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT

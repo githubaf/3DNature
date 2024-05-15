@@ -1337,27 +1337,27 @@ STATIC_FCN void Unset_FM_Item(long item) // used locally only -> static, AF 24.7
 
  Ht = atoi(&FM_Win->ItemStr[item][0]);
  Stems = atoi(&FM_Win->ItemStr[item][6]);
-
- if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_WATER ), 6))      // " Water"
+                                                                                          //           in WCS.c/h
+ if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_WATER ), 6))      // " Water"  typename[0]=  (char*)GetString( MSG_TYPENAME_WATER );
   Class = 0;
- else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_SNOW ), 6))  // "  Snow"
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_SNOW ), 6))  // "  Snow"  typename[1]=  (char*)GetString( MSG_TYPENAME_SNOW );
   Class = 1;
- else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_ROCK ), 6))  // "  Rock"
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_ROCK ), 6))  // "  Rock"  typename[2]=  (char*)GetString( MSG_TYPENAME_ROCK );
   Class = 2;
- else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_STRAT ), 6))  // " Strat"
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_STRAT ), 6))  // " Strat" commented in WCS.c/h
   Class = 2;	/* probably not used anywhere since this was only briefly an option */
- else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_BARE ), 6))  // "  Bare"
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_BARE ), 6))  // "  Bare"  typename[3]=  (char*)GetString( MSG_TYPENAME_GROUND );
+  Class = 3;
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_CONIF ), 6))  // " Conif" typename[4]=  (char*)GetString( MSG_TYPENAME_CONIFER );
   Class = 4;
- else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_CONIF ), 6))  // " Conif"
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_DECID ), 6))  // " Decid" typename[5]=  (char*)GetString( MSG_TYPENAME_DECID );
   Class = 5;
- else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_DECID ), 6))  // " Decid"
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_LOWVG ), 6))  // " LowVg" typename[6]=  (char*)GetString( MSG_TYPENAME_LOWVEG );
   Class = 6;
- else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_LOWVG ), 6))  // " LowVg"
+ else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_SNAG ), 6))  // "  Snag"  typename[7]=  (char*)GetString( MSG_TYPENAME_SNAG );
   Class = 7;
- else if (! strncmp(&FM_Win->ItemStr[item][12], (char*)GetString( MSG_PARGUI_SNAG ), 6))  // "  Snag"
-  Class = 8;
  else
-  Class = 9;
+  Class = 8;
 
  Red = atoi(&FM_Win->ItemStr[item][18]);
  Grn = atoi(&FM_Win->ItemStr[item][24]);
@@ -1476,7 +1476,7 @@ EndLoad:
   case 1:
    {
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
-                GetString( MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFOROUTPUTPERATIONTERMI ),  // "Error opening Ecosystem Model file for output!\nOperation terminated."
+                GetString( MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMI ),   // "Error opening Ecosystem Model file for input!\nOperation terminated." // AF: fixed, was "output"
                 GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)name);
@@ -1484,9 +1484,9 @@ EndLoad:
    } /* open fail */
   case 2:
    {
-   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
-                GetString( MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR ),  // "Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
-                GetString( MSG_GLOBAL_OK ),                                                    // "OK"
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+                GetString( MSG_PARGUI_ERRORREADINGFROMECOSYSTEMMODELFILEPERATIONTERMINATEDPR ),  // "Error reading from Ecosystem Model file!\nOperation terminated prematurely.", // AF: fixed, was "writing to"
+                GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRITE_FAIL, (CONST_STRPTR)name);
    break;
