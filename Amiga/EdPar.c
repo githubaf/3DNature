@@ -931,7 +931,7 @@ EndBank:
   case 3:
    {
    User_Message(GetString( MSG_EDPAR_PARAMETERSMODULEEXPORT ),    // "Parameters Module: Export"
-           GetString( MSG_EDPAR_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+           GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
            GetString( MSG_GLOBAL_OK ),                             // "OK"
            (CONST_STRPTR)"o");
    break;
@@ -1966,7 +1966,7 @@ STATIC_FCN short loadparamsV2(USHORT loadcode, short loaditem, char *parampath,
   if ((KF = (union KeyFrame *)get_Memory(KFsize, MEMF_CLEAR)) == NULL)
    {
    User_Message(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),            // "Parameter Module: Load"
-                GetString( MSG_EDPAR_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
    KFsize = 0;
@@ -2548,7 +2548,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
  if (! settingsV1 || ! MoParV1 || ! CoParV1 || ! EcoParV1)
   {
   User_Message(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),            // "Parameter Module: Load"
-               GetString( MSG_EDPAR_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated.",
+               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated.",
                GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");
   goto ReadError;
@@ -2603,7 +2603,7 @@ STATIC_FCN short loadparamsV1(USHORT loadcode, short loaditem, char *parampath,
 	(KFV1 = (union KeyFrameV1 *)get_Memory(KFV1size, MEMF_CLEAR)) == NULL)
    {
    User_Message(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),            // "Parameter Module: Load"
-                GetString( MSG_EDPAR_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
    goto ReadError;

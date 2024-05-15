@@ -2209,7 +2209,7 @@ Cleanup:
   case 1:
    {
    User_Message(GetString( MSG_DLG_DATAOPSIMPORTWDB ),                // "Data Ops: Import WDB"
-                GetString( MSG_DLG_OUTOFMEMORYPERATIONTERMINATED ) ,  // "Out of memory!\nOperation terminated."
+                GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ) ,  // "Out of memory!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                              // "OK"
                 (CONST_STRPTR)"o");
    break;

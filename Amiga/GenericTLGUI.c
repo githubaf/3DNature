@@ -556,7 +556,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
    {
    Close_TL_Window(&TLWin[WinNum], 1);
    User_Message(GetString( MSG_GENTLGUI_TIMELINE ),     // "Time Line"
-                GetString( MSG_GENTLGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;

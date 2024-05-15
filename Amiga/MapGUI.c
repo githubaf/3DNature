@@ -2895,7 +2895,7 @@ void Make_EL_Window(void)
    {
    Close_EL_Window();
    User_Message(GetString( MSG_MAPGUI_ECOSYSTEMLEGEND ),  // "Ecosystem Legend"
-                GetString( MSG_MAPGUI_OUTOFMEMORY ),      // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),      // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),               // "OK"
                 (CONST_STRPTR)"o");
    return;

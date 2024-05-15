@@ -931,7 +931,7 @@ ES_Cycle_Data[2]=NULL;
    {
    Close_ES_Window(1);
    User_Message(GetString( MSG_EDSETGUI_RENDERSETTINGSEDITOR ),  // "Render Settings Editor"
-                GetString( MSG_EDSETGUI_OUTOFMEMORY ),           // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),           // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),                    // "OK"
                 (CONST_STRPTR)"o");
    return;

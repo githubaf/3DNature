@@ -370,7 +370,7 @@ short InitDigPerspective(void)
  if (! allocvecarray(OBN, MAXOBJPTS, NewArray))
   {
   User_Message(GetString( MSG_LINESPRT_INTERACTIVEMODULEADDPOINTS ),    // "Interactive Module: Add Points"
-               GetString( MSG_LINESPRT_OUTOFMEMORYPERATIONTERMINATED ), // "Out of memory!\nOperation terminated."
+               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ), // "Out of memory!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ) ,                           // "OK"
                (CONST_STRPTR)"o");
   return (0);

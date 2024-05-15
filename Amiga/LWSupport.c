@@ -186,7 +186,7 @@ EndWave:
    case 3:
     {
     User_Message(GetString( MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT ),          // "LightWave Motion: Export"
-                 GetString( MSG_LWSPRT_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                 GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                  GetString( MSG_GLOBAL_OK ),                             // "OK"
                  (CONST_STRPTR)"o");
     break;
@@ -460,7 +460,7 @@ struct coords DP;
  if (! VertexData || ! PolyData)
   {
   User_Message_Def(GetString( MSG_LWSPRT_LWOBJECTEXPORT ),                 // "LW Object Export"
-                   GetString( MSG_LWSPRT_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                   GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                    GetString( MSG_GLOBAL_OK ),                             // "OK"
                    (CONST_STRPTR)"o", 0);
   goto EndExport;

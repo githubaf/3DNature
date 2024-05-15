@@ -1263,7 +1263,7 @@ void smallwindow(short diagnostics)
     {
     sprintf(str, "%s.relel", DBase[MapOBN].Name);
     User_Message((CONST_STRPTR)str,
-                 GetString( MSG_INTVIEW_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                 GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                  GetString( MSG_GLOBAL_OK ),                             // "OK"
                  (CONST_STRPTR)"o");
     abort = 1;

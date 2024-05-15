@@ -215,7 +215,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
    {
    Close_PS_Window(1);
    User_Message(GetString( MSG_PARGUI_SCALEKEYS ),    // "Scale Keys"
-                GetString( MSG_PARGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -723,7 +723,7 @@ void Make_LW_Window(void)
    {
    Close_LW_Window();
    User_Message(GetString( MSG_PARGUI_LIGHTWAVEIO ),  // "LightWave I/O"
-                GetString( MSG_PARGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -991,7 +991,7 @@ void Make_FM_Window(void)
    {
    Close_FM_Window();
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),  // "Parameters Module: Model"
-                GetString( MSG_PARGUI_OUTOFMEMORY ),            // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),            // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),                     // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -1725,7 +1725,7 @@ void Make_AN_Window(void)
    {
    Close_AN_Window();
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEANIM ),  // "Parameters Module: Anim"
-                GetString( MSG_PARGUI_OUTOFMEMORY ),           // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),           // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),                    // "OK"
                 (CONST_STRPTR)"o");
    return;

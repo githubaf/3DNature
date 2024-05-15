@@ -3123,7 +3123,7 @@ Cleanup:
   case 1:
    {
    User_Message(GetString( MSG_DATAOPS_DATAOPSCONVERTDEM ),              // "Data Ops: Convert DEM"
-                GetString( MSG_DATAOPS_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
    break;

@@ -223,7 +223,7 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
    {
    Close_FE_Window(1);
    User_Message(GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
-                GetString( MSG_FOLIGUI_OUTOFMEMORY ),    // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),    // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),             // "OK"
                 (CONST_STRPTR)"o");
    return;

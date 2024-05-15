@@ -1049,7 +1049,7 @@ EndNewProj:
     } /* saving cloud */
    case 20:
     {
-    strcpy(str, (char*)GetString( MSG_EVMORGUI_OUTOFMEMORY_PERIOD ) );  // "Out of memory."
+    strcpy(str, (char*)GetString( MSG_GLOBAL_OUTOFMEMORY ) );  // "Out of memory."
     break;
     } /* allocating char array */
    } /* switch error */

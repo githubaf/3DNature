@@ -243,7 +243,7 @@ if(Init)
    {
    Close_MD_Window();
    User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),  // "Map View: Build DEM"
-                GetString( MSG_DEMGUI_OUTOFMEMORY ),      // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),      // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),               // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -913,7 +913,7 @@ long open;
    {
    Close_GR_Window();
    User_Message(GetString( MSG_DEMGUI_MAPVIEWDEMGRIDDER ),  // "Map View: DEM Gridder"
-                GetString( MSG_DEMGUI_OUTOFMEMORY ),        // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),        // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),                 // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -1366,7 +1366,7 @@ long X, Y;
     {
     success = 0;
     User_Message(GetString( MSG_DEMGUI_MAPVIEWIMPORTCONTOURS ),         // "Map View: Import Contours"
-    		GetString( MSG_DEMGUI_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+    		GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                             // "OK",
                 (CONST_STRPTR)"o");
     break;

@@ -1308,7 +1308,7 @@ MSG_CLOUDGUI_MAPVIEWCLOUDS
 Map View: Clouds
 Map View: Wolken
 ;
-MSG_CLOUDGUI_OUTOFMEMORY
+MSG_GLOBAL_OUTOFMEMORY
 Out of memory!
 Nicht genügend Speicher!
 ;
@@ -1414,7 +1414,7 @@ MSG_DEM_ERRORREADINGELEVATIONFILEONTINUE
 Error reading elevation file!\nContinue?
 
 ;
-MSG_DEM_OUTOFMEMORYPERATIONTERMINATED
+MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED
 Out of memory!\nOperation terminated.
 Nicht genügend Speicher!\nVorgang abgebrochen.
 ;
@@ -1806,10 +1806,6 @@ MSG_DEMGUI_MAPVIEWDEMGRIDDER
 Map View: DEM Gridder
 
 ;
-MSG_DEMGUI_OUTOFMEMORY
-Out of memory!
-Nicht genügend Speicher!
-;
 MSG_DEMGUI_NEWDEM
 NewDEM
 
@@ -1907,10 +1903,6 @@ At least one Object failed to load and could not be imported.
 ;
 MSG_DEMGUI_MAPVIEWIMPORTCONTOURS
 Map View: Import Contours
-
-;
-MSG_DEMGUI_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
 
 ;
 MSG_DEMGUI_XYZPATHFILE
@@ -2062,10 +2054,6 @@ Can't open WDB file for input!\nOperation terminated.
 MSG_DLG_DATAOPSIMPORTWDB
 Data Ops: Import WDB
 
-;
-MSG_DLG_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
-Nicht genügend Speicher!\nVorgang abgebrochen.
 ;
 MSG_DLG_ERROROPENINGSOURCEFILEPERATIONTERMINATED
 Error opening source file!\nOperation terminated.
@@ -2322,10 +2310,6 @@ Extrema
 ;
 MSG_DATAOPS_CONVERT
 Convert
-
-;
-MSG_DATAOPS_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
 
 ;
 MSG_DATAOPS_UNABLETOOPENFILEFORINPUTPERATIONTERMINATED
@@ -2744,10 +2728,6 @@ MSG_DATAOPSGUI_CONVERT
 \33cConvert
 
 ;
-MSG_DATAOPSGUI_OUTOFMEMORY
-Out of memory!
-
-;
 MSG_DATAOPSGUI_OUTPUTDIRECTORY
 Output Directory
 
@@ -2948,10 +2928,6 @@ MSG_DEFPARM_PLEASECLOSEALLTIMELINESWINDOWSANDTRYAGAIN
 Please close all Time Lines windows and try again.
 Bitte schließen Sie alle Time line Fenster und versuchen Sie es erneut.
 ;
-MSG_DEFPARM_OUTOFMEMORY
-Out of memory!
-Nicht genügend Speicher!
-;
 ;
 MSG_DIAG_DIAGNOSTICDATA
 Diagnostic Data
@@ -3008,10 +2984,6 @@ MSG_DIAG_DIGITIZE
 MSG_DIAG_RENDERDATA
 Render Data
 
-;
-MSG_DIAG_OUTOFMEMORY
-Out of memory!
-Nicht genügend Speicher!
 ;
 MSG_DIAG_QUITDIG
 \33cQuit Dig
@@ -3253,10 +3225,6 @@ MSG_EDDB_APPEND
 ;
 MSG_EDDB_CREATE
 \33cCreate\x20
-
-;
-MSG_EDDB_OUTOFMEMORY
-Out of memory!
 
 ;
 MSG_EDDB_ENTERNEWOBJECTNAME
@@ -3544,10 +3512,6 @@ MSG_EDECOGUI_KEEP
 \33cKeep
 
 ;
-MSG_EDECOGUI_OUTOFMEMORY
-Out of memory!
-
-;
 MSG_EDECOGUI_NUMERICPADENTER
 numericpad enter
 
@@ -3761,10 +3725,6 @@ MSG_EDMOGUI_CAMVIEW
 \33cCam View\x20
 
 ;
-MSG_EDMOGUI_OUTOFMEMORY
-Out of memory!
-
-;
 MSG_EDMOGUI_NUMERICPADENTER
 numericpad enter
 
@@ -3948,10 +3908,6 @@ Error creating Key Frame!\nOperation terminated.
 ;
 MSG_EDPAR_NOCAMERAPATHLATLONKEYFRAMESPERATIONTERMINATED
 No Camera Path Lat/Lon Key Frames!\nOperation terminated.
-
-;
-MSG_EDPAR_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
 
 ;
 MSG_EDPAR_UNUSED
@@ -4835,10 +4791,6 @@ MSG_EDSETGUI_RENDER
 \33cRender
 
 ;
-MSG_EDSETGUI_OUTOFMEMORY
-Out of memory!
-
-;
 MSG_EDSETGUI_HELP
 help
 
@@ -4965,10 +4917,6 @@ MSG_EDITGUI_REMOVE
 ;
 MSG_EDITGUI_KEEP
 \33cKeep
-
-;
-MSG_EDITGUI_OUTOFMEMORY
-Out of memory!
 
 ;
 MSG_EDITGUI_NUMERICPADENTER
@@ -5102,10 +5050,6 @@ MSG_EVMORGUI_KEEP
 ;
 MSG_EVMORGUI_SUNTIMEWINDOW
 Sun Time Window
-
-;
-MSG_EVMORGUI_OUTOFMEMORY_PERIOD
-Out of memory!
 
 ;
 MSG_EVMORGUI_NEWPROJECT
@@ -5257,10 +5201,6 @@ MSG_FOLIGUI_VIEW
 MSG_FOLIGUI_KEEP
 \33cKeep
 \33cBehalten
-;
-MSG_FOLIGUI_OUTOFMEMORY
-Out of memory!
-Nicht genügend Speicher!
 ;
 MSG_FOLIGUI_NUMERICPADENTER
 numericpad enter
@@ -5447,10 +5387,6 @@ MSG_GENTLGUI_TIMELINE
 Time Line
 
 ;
-MSG_GENTLGUI_OUTOFMEMORY
-Out of memory!
-
-;
 MSG_GENTLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPR
 At least two key frames for this parameter must be created prior to opening the time line window
 
@@ -5459,10 +5395,6 @@ At least two key frames for this parameter must be created prior to opening the 
 MSG_GLMP_RENDERMODULE
 Render Module
 Render Modul
-;
-MSG_GLMP_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
-
 ;
 MSG_GLMP_RENDERINITIALIZATIONCOMPLETE
 Render initialization complete.
@@ -5883,10 +5815,6 @@ MSG_INTVIEW_OUTOFMEMORYTRYASMALLERPREVIEWSIZEPERATIONTERMINATED
 Out of memory! Try a smaller preview size.\nOperation terminated.
 
 ;
-MSG_INTVIEW_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
-
-;
 MSG_INTVIEW_ECOSYSTEMS
 Ecosystems:
 
@@ -5918,10 +5846,6 @@ LightWave Motion: Export
 ;
 MSG_LWSPRT_NOKEYFRAMESTOEXPORTPERATIONTERMINATED
 No Key Frames to export!\nOperation terminated.
-
-;
-MSG_LWSPRT_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
 
 ;
 MSG_LWSPRT_ERROROPENINGFILEFOROUTPUTPERATIONTERMINATED
@@ -5995,10 +5919,6 @@ Active object is a DEM and may not be digitized!\nOperation terminated.
 ;
 MSG_LINESPRT_INTERACTIVEMODULEADDPOINTS
 Interactive Module: Add Points
-
-;
-MSG_LINESPRT_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
 
 ;
 MSG_LINESPRT_SAVEOBJECTPOINTS
@@ -6310,10 +6230,6 @@ MSG_MAP_MAPPINGMODULEVIEWSHED
 Mapping Module: Viewshed
 
 ;
-MSG_MAP_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
-
-;
 MSG_MAP_ERRORREADINGTOPOMAPSPERATIONTERMINATED
 Error reading topo maps!\nOperation terminated.
 
@@ -6612,10 +6528,6 @@ Keep or save DEM or reset parameters?
 ;
 MSG_MAPEXTRA_KEEPSAVERESETCANCEL
 Keep|Save|Reset|Cancel
-
-;
-MSG_MAPEXTRA_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
 
 ;
 MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINTOPOMAPBOUNDARIESPERATI
@@ -7184,10 +7096,6 @@ MSG_MAPGUI_ECOSYSTEMLEGEND
 Ecosystem Legend
 
 ;
-MSG_MAPGUI_OUTOFMEMORY
-Out of memory!
-Nicht genügend Speicher!
-;
 ;
 MSG_MAPGUI_ATLEASTONEENDCONTROLPOINTFORTHELINESEGMENTJUSTDRAWNC
 At least one end control point for the line segment just drawn could not be found!\nDo you wish to use the current and minimum slider elevations for this segment or abort the operation?
@@ -7244,10 +7152,6 @@ No topo maps found!\nCheck object Enabled Status and Class in database.
 ;
 MSG_MAPSUPRT_MAPVIEWLOADTOPOS
 Map View: Load Topos
-
-;
-MSG_MAPSUPRT_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
 
 ;
 MSG_MAPSUPRT_TOPOLOAD
@@ -7620,10 +7524,6 @@ Elev Max
 ;
 MSG_MOREGUI_EXTRACT
 \33cExtract
-
-;
-MSG_MOREGUI_OUTOFMEMORY
-Out of memory!
 
 ;
 MSG_MOREGUI_USGSDEMFILES
@@ -8070,10 +7970,6 @@ MSG_PARGUI_KEEP
 ;
 MSG_PARGUI_OPERATE
 \33cOperate
-
-;
-MSG_PARGUI_OUTOFMEMORY
-Out of memory!
 
 ;
 MSG_PARGUI_SCENE
@@ -8556,10 +8452,6 @@ MSG_TLGUI_PLAY
 \33cPlay
 \33cWiedergabe
 ;
-MSG_TLGUI_OUTOFMEMORY
-Out of memory!
-Nicht genügend Speicher!
-;
 MSG_TLGUI_MOTIONEDITORTIMELINES
 Motion Editor: Time Lines
 
@@ -8763,10 +8655,6 @@ MSG_WAVGUI_SAVE
 ;
 MSG_WAVGUI_MAPVIEWWAVES
 Map View: Waves
-
-;
-MSG_WAVGUI_OUTOFMEMORY
-Out of memory!
 
 ;
 MSG_WAVGUI_OPTIONS
@@ -9075,9 +8963,5 @@ Out of memory allocating Double Matrix!\nOperation terminated.
 ;
 MSG_NNGRIDR_MAPVIEWGRIDDEM
 Map View: Grid DEM
-
-;
-MSG_NNGRIDR_OUTOFMEMORYPERATIONTERMINATED
-Out of memory!\nOperation terminated.
 
 ;

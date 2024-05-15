@@ -606,7 +606,7 @@ RelelRepeat:
    {
    free_Memory (map.map, map.size);
    User_Message(GetString( MSG_DEM_DATAOPSINTERPOLATEDEM ) ,         // "Data Ops: Interpolate DEM"
-                GetString( MSG_DEM_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
    } /* if */
@@ -2666,7 +2666,7 @@ EndSpline:
   case 2:
    {
    User_Message(GetString( MSG_DEM_MAPPINGMODULEFIXFLATS ),     // "Mapping Module: Fix Flats"
-           GetString( MSG_DEM_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+           GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
            GetString( MSG_GLOBAL_OK ),                             // "OK"
            (CONST_STRPTR)"o");
    break;

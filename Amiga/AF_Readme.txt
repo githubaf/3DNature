@@ -3574,4 +3574,8 @@ Neuer Compiler von Bebbo vom 11.Mai 2024 -> Jetzt ist der CPU/FPU Check in allen
 -> Die Fehlermeldungen sind aber auch (schon im Original 2.04) falsch. "Output" und "Error writing" obwohl wir in der Lesefunktion sind. Muss korrigiert werden.
 
 15.Mai 2024
-- Fehlermeldung in ParamsGUI.c korrigiert. 
+- Fehlermeldung in ParamsGUI.c korrigiert.
+
+- Removed multiple definitions of
+Out of memory! (18 times defined)
+Out of memory!\nOperation terminated. (13 times defined)

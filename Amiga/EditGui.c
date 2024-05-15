@@ -258,7 +258,7 @@ void Make_EC_Window(void)
    {
    Close_EC_Window(1);
    User_Message(GetString( MSG_EDITGUI_COLOREDITOR ),  // "Color Editor"
-                GetString( MSG_EDITGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;

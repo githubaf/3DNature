@@ -179,7 +179,7 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
    {
    Close_WV_Window(&WVWin[WinNum]);
    User_Message(GetString( MSG_WAVGUI_MAPVIEWWAVES ),  // "Map View: Waves"
-                GetString( MSG_WAVGUI_OUTOFMEMORY ),   // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),   // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),            // "OK"
                 (CONST_STRPTR)"o");
    return;

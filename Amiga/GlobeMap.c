@@ -67,7 +67,7 @@ void globemap(void)
   if ((AltKF = (union KeyFrame *)get_Memory(KFsize, MEMF_ANY)) == NULL)
    {
    User_Message(GetString( MSG_GLMP_RENDERMODULE ),                   // "Render Module"
-                GetString( MSG_GLMP_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
    goto Cleanup2;

@@ -222,7 +222,7 @@ void Make_EM_Window(void)
    {
    Close_EM_Window(1);
    User_Message(GetString( MSG_EDMOGUI_MOTIONEDITOR ),  // "Motion Editor"
-                GetString( MSG_EDMOGUI_OUTOFMEMORY ),   // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),   // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),            // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -1532,7 +1532,7 @@ void Make_EMIA_Window(void)
    {
    Close_EMIA_Window(-1);
    User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),   // "Camera View"
-                GetString( MSG_EDMOGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -2107,7 +2107,7 @@ void Make_EMPL_Window(void)
    {
    Close_EMPL_Window();
    User_Message(GetString( MSG_EDMOGUI_MOTIONPARAMLIST ),  // "Motion Param List"
-                GetString( MSG_EDMOGUI_OUTOFMEMORY ),      // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),      // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),               // "OK"
                 (CONST_STRPTR)"o");
    return;

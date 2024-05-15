@@ -469,7 +469,7 @@ short loadtopo(void)
 	((TopoOBN = (short *)get_Memory(TopoOBNSize, MEMF_CLEAR)) == NULL))
   {
   User_Message(GetString( MSG_MAPSUPRT_MAPVIEWLOADTOPOS ),               // "Map View: Load Topos"
-               GetString( MSG_MAPSUPRT_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");
   return (1);

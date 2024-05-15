@@ -257,7 +257,7 @@ STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.202
    {
    Close_CL_Window();
    User_Message((CONST_STRPTR) GetString( MSG_CLOUDGUI_MAPVIEWCLOUDS ) ,  // "Map View: Clouds"
-                (CONST_STRPTR) GetString( MSG_CLOUDGUI_OUTOFMEMORY ) ,    // "Out of memory!" 
+                (CONST_STRPTR) GetString( MSG_GLOBAL_OUTOFMEMORY ) ,    // "Out of memory!" 
                 (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) ,             // "OK"
                 (CONST_STRPTR)"o");  
    return;

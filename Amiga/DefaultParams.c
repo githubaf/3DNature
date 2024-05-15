@@ -229,7 +229,7 @@ EndDefault:
   case 3:
    {
    User_Message(GetString( MSG_DEFPARM_PARAMETERSMODULEDEFAULTS ),  // "Parameters Module: Defaults"
-                GetString( MSG_DEFPARM_OUTOFMEMORY ),               // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),               // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),                        // "OK"
                 (CONST_STRPTR)"o");
    break;

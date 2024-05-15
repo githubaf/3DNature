@@ -318,7 +318,7 @@ void Make_DM_Window(void)
    {
    Close_DM_Window();
    User_Message(GetString( MSG_MOREGUI_DEMEXTRACT ),   // "DEM Extract"
-                GetString( MSG_MOREGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -889,7 +889,7 @@ void Make_PJ_Window(void)
    {
    Close_PJ_Window(1);
    User_Message(GetString( MSG_MOREGUI_PROJECTNEWEDIT ),  // "Project: New/Edit"
-                GetString( MSG_MOREGUI_OUTOFMEMORY ),     // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),     // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),              //"OK"
                 (CONST_STRPTR)"o");
    return;
@@ -1494,7 +1494,7 @@ void Make_SC_Window(void)
    {
    Close_SC_Window();
    User_Message(GetString( MSG_MOREGUI_PARAMETERSIMAGESCALE ),  // "Parameters: Image Scale"
-                GetString( MSG_MOREGUI_OUTOFMEMORY ),           // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),           // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),                    // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -1792,7 +1792,7 @@ void Make_PR_Window(void)
    {
    Close_PR_Window();
    User_Message(GetString( MSG_MOREGUI_PREFERENCES ),  // "Preferences"
-                GetString( MSG_MOREGUI_OUTOFMEMORY ),  // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");
    return;

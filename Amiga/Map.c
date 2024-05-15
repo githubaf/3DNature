@@ -1869,7 +1869,7 @@ void Viewshed_Map(long OBN)
 	== NULL)
   {
   User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),          // "Mapping Module: Viewshed"
-               GetString( MSG_MAP_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");
   Close_Viewshed_Window();
@@ -1889,7 +1889,7 @@ void Viewshed_Map(long OBN)
  if (VS->Map == NULL || VS->View == NULL)
   {
   User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),          // "Mapping Module: Viewshed"
-               GetString( MSG_MAP_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");
   Close_Viewshed_Window();
@@ -2504,7 +2504,7 @@ EndCheck:
    {
    error = 1;
    User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
-                GetString( MSG_MAP_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+                GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
    } /* else IORequest not created */
@@ -2514,7 +2514,7 @@ EndCheck:
   {
   error = 1;
   User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
-               GetString( MSG_MAP_OUTOFMEMORYPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");
   } /* else Message Port not created */

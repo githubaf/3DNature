@@ -274,7 +274,7 @@ void Make_EE_Window(void)
    {
    Close_EE_Window(1);
    User_Message(GetString( MSG_EDECOGUI_ECOSYSTEMEDITOR ),  // "Ecosystem Editor"
-                GetString( MSG_EDECOGUI_OUTOFMEMORY ),      // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),      // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),               // "OK"
                 (CONST_STRPTR)"o");
    return;

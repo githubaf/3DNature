@@ -277,7 +277,7 @@ void Make_DE_Window(void)
    {
    Close_DE_Window();
    User_Message(GetString( MSG_EDDB_DATABASEEDITOR ),  // "Database Editor"
-                GetString( MSG_EDDB_OUTOFMEMORY ),     // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),     // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),              // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -1721,7 +1721,7 @@ void Make_DL_Window(void)
    {
    Close_DL_Window(DL_Win->DLCopy);
    User_Message(GetString( MSG_EDDB_DIRECTORYLIST ),  // "Directory List"
-                GetString( MSG_EDDB_OUTOFMEMORY ),    // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),    // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),             // "OK"
                 (CONST_STRPTR)"o");
    return;

@@ -207,7 +207,7 @@ void Make_EMTL_Window(void)
    {
    Close_EMTL_Window(1);
    User_Message(GetString( MSG_TLGUI_MOTIONTIMELINE ),  // "Motion Time Line"
-                GetString( MSG_TLGUI_OUTOFMEMORY ),     // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),     // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),              // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -1104,7 +1104,7 @@ void Make_ECTL_Window(void)
    {
    Close_ECTL_Window(1);
    User_Message(GetString( MSG_TLGUI_COLORTIMELINE ),  // "Color Time Line"
-                GetString( MSG_TLGUI_OUTOFMEMORY ),    // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),    // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),             // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -1894,7 +1894,7 @@ void Make_EETL_Window(void)
    {
    Close_EETL_Window(1);
    User_Message(GetString( MSG_TLGUI_ECOSYSTEMTIMELINE ),  // "Ecosystem Time Line"
-                GetString( MSG_TLGUI_OUTOFMEMORY ),        // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),        // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),                 // "OK"
                 (CONST_STRPTR)"o");
    return;

@@ -494,7 +494,7 @@ void Make_DC_Window(void)
    {
    Close_DC_Window();
    User_Message(GetString( MSG_DATAOPSGUI_DEMCONVERTER ),  // "DEM Converter"
-                GetString( MSG_DATAOPSGUI_OUTOFMEMORY ),   // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),   // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),            // "OK"
                 (CONST_STRPTR)"o");
    return;
@@ -1462,7 +1462,7 @@ void Make_DI_Window(void)
    {
    Close_DI_Window();
    User_Message(GetString( MSG_DATAOPSGUI_DEMINTERPOLATE ),  // "DEM Interpolate"
-                GetString( MSG_DATAOPSGUI_OUTOFMEMORY ),     // "Out of memory!"
+                GetString( MSG_GLOBAL_OUTOFMEMORY ),     // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),              // "OK"
                 (CONST_STRPTR)"o");
    return;
