@@ -662,13 +662,13 @@ void FindDistance(void)
  MapGUI_Message(0, str);
 
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_MAPVIEW ), (UBYTE *)-1);  //  "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  //  "Map View"
  return;
 
 EndShift:
  MapIDCMP_Restore(MapWind0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_MAPVIEW ), (UBYTE *)-1);  //  "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  //  "Map View"
 
 } /* FindDistance() */
 
@@ -741,7 +741,7 @@ void setorigin(void)
  SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SELECTNEWORIGIN ), (UBYTE *)-1);           // "Select new origin"
  selectpoint = modpoints(0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
  if (selectpoint == 0)
   return;
 
@@ -830,7 +830,7 @@ void matchpoints(void)
   goto AbortMatch;
 
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
  match1 = matchB - matchA;
  if (match1 > match2)
@@ -970,7 +970,7 @@ void matchpoints(void)
 
 AbortMatch:
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
  if (matchobj)
   outline(MapWind0, matchobj, DBase[matchobj].Color, &cb);
  OBN = firstobj;
@@ -1518,7 +1518,7 @@ EndModify:
 EndStream:
  MapGUI_Message(0, " ");
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
 } /* makestream() */
 
@@ -1719,7 +1719,7 @@ void SetSurface_Map(ULONG surface)
   } /* if point selected */
 
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
  MapIDCMP_Restore(MapWind0);
 
 } /* SetSurface_Map() */

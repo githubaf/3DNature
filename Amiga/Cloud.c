@@ -486,7 +486,7 @@ StartAlign:
 EndAlign:
  MapGUI_Message(0, " ");
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, GetString( MSG_CLOUD_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
  if (error)
   return (0);
 

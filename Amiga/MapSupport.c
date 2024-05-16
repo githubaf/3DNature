@@ -633,7 +633,7 @@ short GetBounds(struct Box *Bx)
 EndGet:
  MapGUI_Message(0, " ");
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
  return (success);
 
@@ -1258,7 +1258,7 @@ void SetView_Map(short camera)
 
  MapIDCMP_Restore(MapWind0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
  if (abort) return;
 
  PAR_FIRST_MOTION(i + 1) = X_Lon_Convert((long)Vtx.X);
@@ -1609,7 +1609,7 @@ short SetIAView_Map(struct IntuiMessage *Event)
  SetWrMsk(MapWind0->RPort, 0x0f);
 
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, GetString( MSG_MAPSUPRT_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
  if (EMIA_Win && IA_AutoDraw && modval != 7)
   {

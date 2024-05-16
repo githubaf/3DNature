@@ -114,7 +114,7 @@ StartAlign:
 EndAlign:
  MapGUI_Message(0, " ");
  MapIDCMP_Restore(MapWind0);
- SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
 } /* alignmap() */
 
@@ -1108,7 +1108,7 @@ short shiftmap(int OnePoint, int XCen, int YCen)
 EndShift:
  MapIDCMP_Restore(MapWind0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
  return (success);
 
@@ -1211,7 +1211,7 @@ short findmouse(short X, short Y, short IdentifyOnly)
 
   MapIDCMP_Restore(MapWind0);
   MapGUI_Message(0, " ");
-  SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+  SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
   if (abortitem)
    {
    return (0);
@@ -1361,7 +1361,7 @@ short findmulti(void)
   {
   MapIDCMP_Restore(MapWind0);
   MapGUI_Message(0, " ");
-  SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+  SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
   return (-1);
   } /* if aborted */
 
@@ -1372,12 +1372,12 @@ short findmulti(void)
   {
   MapIDCMP_Restore(MapWind0);
   MapGUI_Message(0, " ");
-  SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+  SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
   return (-1);
   } /* if aborted */
  MapIDCMP_Restore(MapWind0);
  MapGUI_Message(0, " ");
- SetWindowTitles(MapWind0, GetString( MSG_MAP_MAPVIEW ), (UBYTE *)-1);  // "Map View"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPGUI_MAPVIEW ), (UBYTE *)-1);  // "Map View"
 
  if (Bx.Low.X > Bx.High.X)
   swmem(&Bx.Low.X, &Bx.High.X, sizeof (short));

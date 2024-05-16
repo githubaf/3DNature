@@ -80,7 +80,7 @@ MSG_MENU_MOD_DATAOPS
 Data Ops
 
 ;
-MSG_MENU_MOD_MAPVIEW
+MSG_MAPGUI_MAPVIEW
 Map View
 Kartenansicht
 ;
@@ -1113,10 +1113,6 @@ Mapping Modul: Ausrichten
 MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET
 Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
 Ungültige Werte!\nDer Pixeloffset auif beiden Achsen muss mindestens 1 betragen.\nNoch einmal versuchen?
-;
-MSG_CLOUD_MAPVIEW
-Map View
-
 ;
 MSG_CLOUD_ENTERFRAMENUMBER
 Enter Frame Number.
@@ -6046,10 +6042,6 @@ MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO
 Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
 
 ;
-MSG_MAP_MAPVIEW
-Map View
-
-;
 MSG_MAP_MAPVIEWECOSYSTEMS
 Map View: Ecosystems
 
@@ -6333,10 +6325,6 @@ Set destination point
 MSG_MAPEXTRA_LENGTHFKM
 Length: %f km
 Länge: %f km
-;
-MSG_MAPEXTRA_MAPVIEW
-Map View
-
 ;
 MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX
 Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?
@@ -7004,10 +6992,6 @@ MSG_MAPGUI_OKAY
 \33cOkay
 
 ;
-MSG_MAPGUI_MAPVIEW
-Map View
-
-;
 MSG_MAPGUI_MAPPINGMODULE
 Mapping module
 
@@ -7180,10 +7164,6 @@ MSG_MAPSUPRT_0338SETLOWERRIGHTCORNERESCABORT
 ;
 MSG_MAPSUPRT_SETLOWERRIGHTCORNER
 Set lower right corner
-
-;
-MSG_MAPSUPRT_MAPVIEW
-Map View
 
 ;
 MSG_MAPSUPRT_SLATFLONF
@@ -8825,10 +8805,6 @@ MSG_WAVGUI_0338SETCLOUDWAVESOURCEPOINT
 ;
 MSG_WAVGUI_SETCLOUDWAVESOURCEPOINT
 Set Cloud Wave Source Point %d
-
-;
-MSG_WAVGUI_MAPVIEW
-Map View
 
 ;
 MSG_WAVGUI_ENTERWAVEAMPLITUDE

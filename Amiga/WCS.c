@@ -151,7 +151,7 @@ int main(void)
 	WCSNewMenus[17].nm_Label= GetString(MSG_MENU_MODULES);
 	WCSNewMenus[18].nm_Label= GetString(MSG_MENU_MOD_DATABASE);
 	WCSNewMenus[19].nm_Label= GetString(MSG_MENU_MOD_DATAOPS);
-	WCSNewMenus[20].nm_Label= GetString(MSG_MENU_MOD_MAPVIEW);
+	WCSNewMenus[20].nm_Label= GetString(MSG_MAPGUI_MAPVIEW);
 	WCSNewMenus[21].nm_Label= GetString(MSG_MENU_MOD_PARAMETERS);
 	WCSNewMenus[22].nm_Label= GetString(MSG_MENU_MOD_RENDER);
 //	WCSNewMenus[23].nm_Label= NM_BARLABEL,	 0 , 0, 0, 0 },

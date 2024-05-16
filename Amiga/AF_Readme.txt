@@ -3579,3 +3579,17 @@ Neuer Compiler von Bebbo vom 11.Mai 2024 -> Jetzt ist der CPU/FPU Check in allen
 - Removed multiple definitions of
 Out of memory! (18 times defined)
 Out of memory!\nOperation terminated. (13 times defined)
+
+16.Mai 2024
+-----------
+# Zeige alle MSG_, die als Text "Map View" haben.
+cat WCS.cs | grep -B1 "Map View$"
+
+#OK, MSG_MAPGUI_MAPVIEW soll jetzt an allen Stellen benutzt werden:
+
+for MESSAGE in $(awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="Map View"){print MSG_NAME}}' WCS.cs); do
+    for FILE in $(ls *.c); do
+        sed -i -E "s/$MESSAGE([ )+])/MSG_MAPGUI_MAPVIEW\1/" $FILE;  # Leereichen und Klammern nach dem Text behalten, Text muss durch leerzeichen der Klammer begrenzt sein
+    done
+        sed -i "s/$MESSAGE\$/MSG_MAPGUI_MAPVIEW/" WCS.cs;   # und jetzt auch im wcs-File
+done
