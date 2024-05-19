@@ -246,7 +246,7 @@ RepeatReadAttrs:
 		 DBaseRecords + 100)) == NULL)
      {
      User_Message(GetString( MSG_DLG_DATABASEMODULE ),                             // "Database Module",
-             GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+             GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
              GetString( MSG_GLOBAL_OK ),                                              // "OK"
              (CONST_STRPTR)"o");
      break;
@@ -425,7 +425,7 @@ struct BusyWindow *BWDL;
 		 DBaseRecords + 100)) == NULL)
         {
         User_Message(GetString( MSG_DLG_DATABASEMODULE ),                                  // "Database Module"
-                     GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+                     GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
                      GetString( MSG_GLOBAL_OK ),                                              // "OK"
                      (CONST_STRPTR)"o");
         done = 1;
@@ -2256,7 +2256,7 @@ Cleanup:
    } /*  too many points */
   case 7:   {
    User_Message(GetString( MSG_DLG_DATAOPSIMPORTWDB ),                                // "Data Ops: Import WDB"
-                GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+                GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                              // "OK"
                 (CONST_STRPTR)"o");
    break;

@@ -728,7 +728,7 @@ RelelRepeat:
 		 DBaseRecords + 20)) == NULL)
          {
          User_Message(GetString( MSG_DEM_DATABASEMODULE ) ,                                 // "Database Module",
-                      GetString( MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+                      GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
                       GetString( MSG_GLOBAL_OK ),                                              // "OK",
                       (CONST_STRPTR)"o");
          error = 1;
@@ -1888,7 +1888,7 @@ double Lon[6], Lat[6];
 		 DBaseRecords + 20)) == NULL)
     {
     User_Message(GetString( MSG_DEM_DATABASEMODULE ),                             // "Database Module"
-            GetString( MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+            GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
             GetString( MSG_GLOBAL_OK ),                                              // "OK", 
             (CONST_STRPTR)"o");
     return (1);

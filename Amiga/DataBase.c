@@ -1219,7 +1219,7 @@ NewName2:
 		 DBaseRecords + 20)) == NULL)
    {
    User_Message(GetString( MSG_DB_DATABASEMODULE ),                                  // "Database Module"
-                GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+                GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                              // "OK"
                 (CONST_STRPTR)"o");
    return (0);
@@ -1380,7 +1380,7 @@ short DBaseObject_Add(void)
 		 DBaseRecords + 20)) == NULL)
     {
     User_Message(GetString( MSG_DB_DATABASEMODULE ),                                 // "Database Module"
-                 GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ), // "Out of memory expanding database!\nOperation terminated."
+                 GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ), // "Out of memory expanding database!\nOperation terminated."
                  GetString( MSG_GLOBAL_OK ),                                             // "OK"
                  (CONST_STRPTR)"o");
     break;

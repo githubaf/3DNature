@@ -1533,7 +1533,7 @@ FILE *fXYZ;
  if (! XYZFile[0])
   {
   User_Message(GetString( MSG_DEMGUI_MAPVIEWXYZEXPORT ) ,                                 // "Map View: XYZ Export"
-	       GetString( MSG_DEMGUI_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED ),  // "You must specify an output file name!\nOperation terminated."
+	       GetString( MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED ),  // "You must specify an output file name!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                                // "OK"
                (CONST_STRPTR)"o");
   return (0);

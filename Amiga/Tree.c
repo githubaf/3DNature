@@ -886,7 +886,7 @@ short LoadForestModels(void)
   case 3:
    {
    User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
-                GetString( MSG_TREE_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED ),  // "Not a WCS Ecosystem Model file!\nOperation terminated."
+                GetString( MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED ),  // "Not a WCS Ecosystem Model file!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                           // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_TYPE, (CONST_STRPTR)name);
@@ -895,7 +895,7 @@ short LoadForestModels(void)
   case 4:
    {
    User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
-                GetString( MSG_TREE_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMINA ),  // "Unsupported WCS Ecosystem Model file version!\nOperation terminated."
+                GetString( MSG_PARGUI_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMI ),  // "Unsupported WCS Ecosystem Model file version!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_VER, (CONST_STRPTR)name);

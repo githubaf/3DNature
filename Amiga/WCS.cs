@@ -1426,10 +1426,6 @@ MSG_DEM_DATABASEMODULE
 Database Module
 Datenbank Modul
 ;
-MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
-Out of memory expanding database!\nOperation terminated.
-
-;
 MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTPERATIONTERMINATE
 Out of memory expanding Database Editor List!\nOperation terminated.
 
@@ -1933,7 +1929,7 @@ MSG_DEMGUI_ERRORWRITINGTOXYZFILEPARTIALFILEWRITTENPERATIONTERMI
 Error writing to XYZ file! Partial file written.\nOperation terminated.
 
 ;
-MSG_DEMGUI_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
+MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
 You must specify an output file name!\nOperation terminated.
 
 ;
@@ -1991,7 +1987,7 @@ MSG_DLG_DATABASEMODULE
 Database Module
 Datenbank Modul
 ;
-MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
+MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED
 Out of memory expanding database!\nOperation terminated.
 
 ;
@@ -2168,10 +2164,6 @@ MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME
 Vector name already present in database!\nTry a new name?
 
 ;
-MSG_DB_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
-Out of memory expanding database!\nOperation terminated.
-
-;
 MSG_DB_DATABASEMODULEEDITOR
 Database Module: Editor
 
@@ -2250,10 +2242,6 @@ Data Ops: Convert DEM
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYAFILETOCONVERTPERATIONTERMINATED
 You must specify a file to convert!\nOperation terminated.
-
-;
-MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
-You must specify an output file name!\nOperation terminated.
 
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYINPUTROWSANDCOLUMNSPERATIONTERMINATED
@@ -2358,10 +2346,6 @@ Input data format not supported!\nCheck your settings.\nOperation terminated.
 ;
 MSG_DATAOPS_DATABASEMODULE
 Database Module
-
-;
-MSG_DATAOPS_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
-Out of memory expanding database!\nOperation terminated.
 
 ;
 MSG_DATAOPS_ERRORSAVINGOBJFILEOPERATIONTERMOINATED
@@ -3299,10 +3283,6 @@ MSG_EDDB_DIRECTORYLIST
 Directory List
 
 ;
-MSG_EDDB_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
-Out of memory expanding database!\nOperation terminated.
-
-;
 ;
 MSG_EDDB_DELETEOBJECTELEVATIONANDRELATIVEELEVATIONFILESFROMDISKASWELL
 Delete object, elevation and relative elevation files from disk as well as remove their names from the Database?
@@ -3328,7 +3308,7 @@ MSG_EDECOGUI_ECOSYSTEMEDITOR
 Ecosystem Editor
 
 ;
-MSG_EDECOGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENIN
+MSG_EDITGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING
 You must first load or create a parameter file before opening the Editor.
 
 ;
@@ -3591,10 +3571,6 @@ MSG_EDECOGUI_WINDAZ
 ;
 MSG_EDMOGUI_MOTIONEDITOR
 Motion Editor
-
-;
-MSG_EDMOGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING
-You must first load or create a parameter file before opening the Editor.
 
 ;
 MSG_EDMOGUI_OPTIONS
@@ -4829,10 +4805,6 @@ Deformation Map Path
 ;
 MSG_EDITGUI_COLOREDITOR
 Color Editor
-
-;
-MSG_EDITGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING
-You must first load or create a parameter file before opening the Editor.
 
 ;
 MSG_EDITGUI_OPTIONS
@@ -8151,11 +8123,11 @@ Error reading from Ecosystem Model file!\nOperation terminated prematurely.
 ;
 MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED
 Not a WCS Ecosystem Model file!\nOperation terminated.
-
+Keine Ökosystem-Modelldatei!\nVorgang abgebrochen.
 ;
 MSG_PARGUI_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMI
 Unsupported WCS Ecosystem Model file version!\nOperation terminated.
-
+Nicht unterstützte WCS Ökosystem-Modelldatei-Version!\nVorgang abgebrochen.
 ;
 MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFORINPUTPERATIONTERMINATE
 You have not selected a file name for input!\nOperation terminated.
@@ -8531,14 +8503,6 @@ Die Ökosystem-Modelldatei konnte nicht zum Lesen geöffnet werden!\nVorgang abgeb
 MSG_TREE_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPREM
 Error writing to Ecosystem Model file!\nOperation terminated prematurely.
 Fehler beim Schreiben der Ökosystem-Modelldatei!\nVorgang abgebrochen.
-;
-MSG_TREE_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED
-Not a WCS Ecosystem Model file!\nOperation terminated.
-Keine Ökosystem-Modelldatei!\nVorgang abgebrochen.
-;
-MSG_TREE_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMINA
-Unsupported WCS Ecosystem Model file version!\nOperation terminated.
-Nicht unterstützte Ökosystemm-Modelldateiversion!\nVorgang abgebrochen.
 ;
 MSG_TREE_OUTOFMEMORYALLOCATINGECOSYSTEMMODELSPERATIONTERMINATED
 Out of memory allocating Ecosystem Models!\nOperation terminated.

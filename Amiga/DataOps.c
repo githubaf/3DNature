@@ -3212,7 +3212,7 @@ Cleanup:
   case 12:
    {
    User_Message(GetString( MSG_DATAOPS_DATABASEMODULE ),                                  // "Database Module"
-                GetString( MSG_DATAOPS_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
+                GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                              // "OK"
                 (CONST_STRPTR)"o");
    break;
