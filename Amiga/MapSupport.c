@@ -869,7 +869,7 @@ short XY_latlon(long i, long lowj, long highj)
   if (! allocvecarray(i, highj, NewArray))
    {
    User_Message(GetString( MSG_MAPSUPRT_MAPPINGMODULE ),                                       // "Mapping Module"
-                GetString( MSG_MAPSUPRT_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTERMINA ),  // "Out of memory allocating new vector array!\nOperation terminated."
+                GetString( MSG_MAP_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTE ),  // "Out of memory allocating new vector array!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                 (CONST_STRPTR)"o");
    return (0);

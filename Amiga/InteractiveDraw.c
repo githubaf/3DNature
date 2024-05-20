@@ -1527,7 +1527,7 @@ void Play_Motion(struct RenderAnim *RA)
  if (! BuildKeyTable())
   {
   User_Message(GetString( MSG_INTDRW_PARAMETERSMODULEPATH ),                               // "Parameters Module: Path"
-               GetString( MSG_INTDRW_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening key frame table!\nOperation terminated."
+               GetString( MSG_GLMP_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening key frame table!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                                 // "OK"
                (CONST_STRPTR)"o");
   goto EndPlay;

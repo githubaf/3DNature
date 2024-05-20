@@ -73,7 +73,7 @@ RetrySmooth:
   if ((FaceIndex = (struct faces **)get_Memory(16 * sizeof (struct faces *), MEMF_ANY)) == NULL)
    {
    if (User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                              // "Render Module"
-                        GetString( MSG_MAPTOPOOB_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
+                        GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
                         GetString( MSG_MAPTOPOOB_RETRYCANCEL ),                               // "Retry|Cancel"
                         (CONST_STRPTR)"rc", 1))
     goto RetrySmooth;
@@ -2585,7 +2585,7 @@ RepeatLoad:
            map.scrnptrq = (float *)get_Memory (map.scrnptrsize, MEMF_ANY);
            if (! map.scrnptrx || ! map.scrnptry || ! map.scrnptrq || ! FractalMap)
             {
-            sprintf(str, (char*)GetString( MSG_MAPTOPOOB_OUTOFMEMORYREADINGMAP ), DBase[OBN].Name);  // "Out of memory reading map %s!"
+            sprintf(str, (char*)GetString( MSG_GLMP_OUTOFMEMORYREADINGMAP ), DBase[OBN].Name);  // "Out of memory reading map %s!"
             if (User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                        // "Render Module: Topo"
                                  (CONST_STRPTR)str,
                                  GetString( MSG_MAPTOPOOB_RETRYCANCEL ),                             //"Retry|Cancel",
@@ -2797,7 +2797,7 @@ MapCleanup:
  else
   {
   User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                                       // "Render Module"
-               GetString( MSG_MAPTOPOOB_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening key frame table!\nOperation terminated."
+               GetString( MSG_GLMP_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening key frame table!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                                 // "OK"
                (CONST_STRPTR)"o");
   success = 0;

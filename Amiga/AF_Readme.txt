@@ -3593,3 +3593,12 @@ for MESSAGE in $(awk '/^MSG_/{MSG_NAME=$0; getline; ENGLISH=$0; if(ENGLISH=="Map
     done
         sed -i "s/$MESSAGE\$/MSG_MAPGUI_MAPVIEW/" WCS.cs;   # und jetzt auch im wcs-File
 done
+
+
+20.May24
+--------
+Mehr String-Duplikate zusammengefasst
+Ueberpruefen:
+MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI
+MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
+Die beginnen mit einen Ausrufezeichen???

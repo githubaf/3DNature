@@ -557,7 +557,7 @@ void shaderelief(short reliefshade)
  if ((zbuf = (float *)get_Memory(zbufsize, MEMF_ANY)) == NULL)
   {
   User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                   // "Camera View"
-               GetString( MSG_INTVIEW_OUTOFMEMORYOPENINGZBUFFERPERATIONTERMINATED ),  // "Out of memory opening Z buffer!\nOperation terminated."
+               GetString( MSG_GLMP_OUTOFMEMORYOPENINGZBUFFERPERATIONTERMINATED ),  // "Out of memory opening Z buffer!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                           // "OK"
                (CONST_STRPTR)"o");
   return;
@@ -663,7 +663,7 @@ RepeatAllocate:
   if (! Edge1 || ! Edge2 || ! SubPix)
    {
    User_Message(GetString( MSG_INTVIEW_RENDERMODULE ),                                         // "Render Module"
-                GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIO ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
+                GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    error = 1;
@@ -1319,7 +1319,7 @@ void smallwindow(short diagnostics)
   if (! Edge1 || ! Edge2 || ! SubPix || ! TreePix)
    {
    User_Message(GetString( MSG_INTVIEW_RENDERMODULE ),                                         // "Render Module"
-                GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIO ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
+                GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    abort = 1;

@@ -756,9 +756,9 @@ RelelRepeat:
         {
         if (! Add_DE_NewItem())
          {
-         User_Message(GetString( MSG_DEM_DATABASEMODULE ) ,                                          // "Database Module"
-                      GetString( MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                                       // "OK",
+         User_Message(GetString( MSG_DEM_DATABASEMODULE ) ,                                           // "Database Module"
+                      GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                      GetString( MSG_GLOBAL_OK ),                                                     // "OK",
                       (CONST_STRPTR)"o");
          error = 1;
          } /* if new list fails */
