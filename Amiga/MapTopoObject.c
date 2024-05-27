@@ -72,7 +72,7 @@ StudyVertex = 0;
 RetrySmooth:
   if ((FaceIndex = (struct faces **)get_Memory(16 * sizeof (struct faces *), MEMF_ANY)) == NULL)
    {
-   if (User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                              // "Render Module"
+   if (User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
                         GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
                         GetString( MSG_MAPTOPOOB_RETRYCANCEL ),                               // "Retry|Cancel"
                         (CONST_STRPTR)"rc", 1))
@@ -96,7 +96,7 @@ RetrySmooth:
    {
    if (! VertexIndex_New(&Vtx[j], (long)j))
     {
-    if (User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                                       // "Render Module"
+    if (User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                       // "Render Module"
                      GetString( MSG_MAPTOPOOB_ERRORALLOCATINGORREADINGFRACTALINDEXARRAYSCONTINU ),  // "Error allocating or reading Fractal Index arrays!\nContinue without Fractal Displacement Mapping?"
                      GetString( MSG_GLOBAL_OKCANCEL ),                                           // "OK|Cancel"
                      (CONST_STRPTR)"oc"))
@@ -715,7 +715,7 @@ SaveRepeat:
    if (error)
     {
     fclose(fvector);
-    User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                     // "Render Module"
+    User_Message(GetString( MSG_AGUI_RENDERMODULE ),                     // "Render Module"
                  GetString( MSG_MAPTOPOOB_ERRORSAVINGVECTORVERTICESTOFILE ),  // "Error saving vector vertices to file!"
                  GetString( MSG_GLOBAL_OK ),                               // "OK"
                  (CONST_STRPTR)"o");
@@ -728,7 +728,7 @@ NewFileRequest:
      sprintf(filename, "%s%d", str, frame);
      if ((fvector = fopen(filename, "w")) == NULL)
       {
-      User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                 // "Render Module"
+      User_Message(GetString( MSG_AGUI_RENDERMODULE ),                 // "Render Module"
                    GetString( MSG_MAPTOPOOB_CANTOPENVECTORFILEFOROUTPUT ),  // "Can't open vector file for output!"
                    GetString( MSG_GLOBAL_OK ),                           // "OK"
                    (CONST_STRPTR)"o");
@@ -2796,7 +2796,7 @@ MapCleanup:
   } /* if key table built */
  else
   {
-  User_Message(GetString( MSG_MAPTOPOOB_RENDERMODULE ),                                       // "Render Module"
+  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                       // "Render Module"
                GetString( MSG_GLMP_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening key frame table!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                                 // "OK"
                (CONST_STRPTR)"o");

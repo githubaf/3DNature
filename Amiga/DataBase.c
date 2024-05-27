@@ -532,7 +532,7 @@ STATIC_FCN struct database *DataBase_New(short Records) // used locally only -> 
 	MEMF_CLEAR));
   } /* if */
 
- User_Message(GetString( MSG_DB_DATABASEMODULE ),  // "Database Module"
+ User_Message(GetString( MSG_AGUI_DATABASEMODULE ),  // "Database Module"
               GetString( MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA ), // "Illegal number of database records: less than one!\nOperation terminated."
          GetString( MSG_GLOBAL_OK ),  // "OK"
          (CONST_STRPTR)"o");
@@ -589,7 +589,7 @@ long i;
     }
    else
     {
-    User_Message(GetString( MSG_DB_DATABASEMODULE ),  // "Database Module"
+    User_Message(GetString( MSG_AGUI_DATABASEMODULE ),  // "Database Module"
             GetString( MSG_DB_OUTOFMEMORYANTUPDATEDATABASELIST ),  // "Out of memory!\nCan't update database list."
             GetString( MSG_GLOBAL_OK ),  // "OK"
             (CONST_STRPTR)"o");
@@ -1218,7 +1218,7 @@ NewName2:
   if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 20)) == NULL)
    {
-   User_Message(GetString( MSG_DB_DATABASEMODULE ),                                  // "Database Module"
+   User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                                  // "Database Module"
                 GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                              // "OK"
                 (CONST_STRPTR)"o");
@@ -1379,7 +1379,7 @@ short DBaseObject_Add(void)
    if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 20)) == NULL)
     {
-    User_Message(GetString( MSG_DB_DATABASEMODULE ),                                 // "Database Module"
+    User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                                 // "Database Module"
                  GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ), // "Out of memory expanding database!\nOperation terminated."
                  GetString( MSG_GLOBAL_OK ),                                             // "OK"
                  (CONST_STRPTR)"o");

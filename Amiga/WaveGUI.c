@@ -1668,7 +1668,7 @@ struct clipbounds cb;
  if (MaxAmp == 0.0)
   MaxAmp = 1.0;
 
- BWMD = BusyWin_New((char*)GetString( MSG_WAVGUI_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));  // "Drawing..."
+ BWMD = BusyWin_New((char*)GetString( MSG_GLOBAL_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));  // "Drawing..."
 
  for (row=0, y=Low_Y, ptlat=HighLat; y<=High_Y; y++, row++, ptlat+=LatStep)
   {

@@ -769,7 +769,7 @@ void setorigin(void)
  Log(MSG_NULL, (CONST_STRPTR)str);
  DBase[OBN].Flags |= 1;
 
- if (User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+ if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                       GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
                       GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
                       (CONST_STRPTR)"oc", 1))
@@ -949,7 +949,7 @@ void matchpoints(void)
  Log(MSG_NULL, (CONST_STRPTR)str);
  DBase[OBN].Flags |= 1;
 
- if (User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+ if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                       GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
                       GetString( MSG_GLOBAL_OKCANCEL ) ,                               // "OK|Cancel"
                       (CONST_STRPTR)"oc", 1))
@@ -1137,7 +1137,7 @@ short modpoints(short modify)
 
  if (modify && (DBase[OBN].Flags & 1))
   {
-  if (User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+  if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                        GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
                        GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
                        (CONST_STRPTR)"oc", 1))
@@ -1656,7 +1656,7 @@ SetFrameCount:
   outline(MapWind0, OBN, DBase[OBN].Color, &cb);
   DBase[OBN].Flags |= 1;
 
-  if (User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize",
+  if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize",
                        GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save object now?"
                        GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
                        (CONST_STRPTR)"oc", 1))
@@ -2630,7 +2630,7 @@ struct DirList *DLItem;
 
  setclipbounds(MapWind0, &cb);
 
- BWMD = BusyWin_New((char*)GetString( MSG_MAPEXTRA_DRAWING ), topomaps, 0, MakeID('B','W','M','D'));  // "Drawing..."
+ BWMD = BusyWin_New((char*)GetString( MSG_GLOBAL_DRAWING ), topomaps, 0, MakeID('B','W','M','D'));  // "Drawing..."
 
  for (i=0; i<topomaps; i++)
   {

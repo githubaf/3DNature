@@ -242,7 +242,7 @@ if(Init)
   if (! MD_Win->MakeDEMWin)
    {
    Close_MD_Window();
-   User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),  // "Map View: Build DEM"
+   User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),  // "Map View: Build DEM"
                 GetString( MSG_GLOBAL_OUTOFMEMORY ),      // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),               // "OK"
                 (CONST_STRPTR)"o");
@@ -394,7 +394,7 @@ long i, data;
       {
       if (GR_Win)
        {
-       if (! User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                       // "Map View: Build DEM"
+       if (! User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                                       // "Map View: Build DEM"
                           GetString( MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU ),  // "This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?"
                           GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
                           (CONST_STRPTR)"oc"))
@@ -1260,7 +1260,7 @@ float El;
   {
   Make_DE_Window();
   if (DE_Win)
-   User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ) ,                         // "Map View: Build DEM"
+   User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ) ,                         // "Map View: Build DEM"
                 GetString( MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT ),  // "Select contour objects to import and reselect \"Import\" when done."
                 GetString( MSG_GLOBAL_OK ),                                       // "OK"
                 (CONST_STRPTR)"o");
@@ -1308,7 +1308,7 @@ float El;
    if (! Object_ImportXYZ(DBase[j].Points, DBase[j].Lat,
 		DBase[j].Lon, ElevPtr, El, MD_Win->CurDat))
     {
-    User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ) ,  // "Map View: Build DEM"
+    User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ) ,  // "Map View: Build DEM"
     		GetString( MSG_DEMGUI_ERRORIMPORTINGCONTOURDATAPERATIONTERMINATED ) ,  // "Error importing contour data!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ) ,  // "OK",
                 (CONST_STRPTR)"o");
@@ -1319,7 +1319,7 @@ float El;
   } /* for j=0... */
 
  if (Warn)
-  User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                       // "Map View: Build DEM"
+  User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                                       // "Map View: Build DEM"
 		  GetString( MSG_DEMGUI_ATLEASTONEOBJECTFAILEDTOLOADANDCOULDNOTBEIMPORTED ),  // "At least one Object failed to load and could not be imported."
                   GetString( MSG_GLOBAL_OK ),                                                 // "OK"
                   (CONST_STRPTR)"o");
@@ -1404,7 +1404,7 @@ struct UTMLatLonCoords UTM;
   return (0);
  if (XYZFile[0] == 0)
   {
-  User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                 // "Map View: Build DEM"
+  User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                                 // "Map View: Build DEM"
 	       GetString( MSG_DEMGUI_YOUDIDNOTSELECTAFILETOIMPORTPERATIONTERMINATED ),  // "You did not select a file to import!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                              // "OK",
                (CONST_STRPTR)"o");
@@ -1425,7 +1425,7 @@ struct UTMLatLonCoords UTM;
    Zone = atoi(str);
    if (Zone < 0 || Zone > 60)
     {
-    User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),                                      // "Map View: Build DEM"
+    User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                                      // "Map View: Build DEM"
     		GetString( MSG_DEMGUI_UTMZONESMAYBEFROM0TO60THESELECTEDZONEISOUTOFRANGEPER ),  // "UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                    //  "OK"
                 (CONST_STRPTR)"o");
@@ -1477,8 +1477,8 @@ struct UTMLatLonCoords UTM;
    else
     {
     success = 0;
-    User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),  // "Map View: Build DEM"
-    		GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ),   // "Out of memory!\nOperation terminated."
+    User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),  // "Map View: Build DEM"
+    		GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),   // "Out of memory!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                // "OK"
                 (CONST_STRPTR)"o");
     break;
@@ -1489,7 +1489,7 @@ struct UTMLatLonCoords UTM;
  else
   {
   Log(ERR_OPEN_FAIL, (CONST_STRPTR)XYZFile);
-  User_Message(GetString( MSG_DEMGUI_MAPVIEWBUILDDEM ) ,                               // "Map View: Build DEM"
+  User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ) ,                               // "Map View: Build DEM"
 	       GetString( MSG_DEMGUI_ERROROPENINGXYZFILETOIMPORTPERATIONTERMINATED ),  // "Error opening XYZ file to import!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                             // "OK"
                (CONST_STRPTR)"o");
@@ -1722,7 +1722,7 @@ struct clipbounds cb;
 
 /* plot color in Map View, brighter indicates higher amplitude */
 
-  BWGR = BusyWin_New((char*)GetString( MSG_DEMGUI_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','G','R'));  // "Drawing..."
+  BWGR = BusyWin_New((char*)GetString( MSG_GLOBAL_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','G','R'));  // "Drawing..."
 
   DataRow = 0.0;
   for (y=Low_Y, k=0; y<=High_Y; y++, DataRow+=LatStep, k++)

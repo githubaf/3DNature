@@ -1022,10 +1022,6 @@ MSG_BITMAPS_BACKGROUND
 Background
 Hintergrund
 ;
-MSG_BITMAPS_RENDERMODULE
-Render Module
-Render Modul
-;
 MSG_BITMAPS_ERRORLOADINGZBUFFERPERATIONTERMINATED
 Error loading Z Buffer!\nOperation terminated.
 Fehler beim Loaden des Z-Puffers!\nVorgang abgebrochen.
@@ -1106,7 +1102,7 @@ MSG_CLOUD_SETSOUTHEASTCORNER
 Set southeast corner
 Süd-Ost Ecke festlegen
 ;
-MSG_CLOUD_MAPPINGMODULEALIGN
+MSG_MAPGUI_MAPPINGMODULEALIGN
 Mapping Module: Align
 Mapping Modul: Ausrichten
 ;
@@ -1122,7 +1118,7 @@ MSG_CLOUD_COMPUTING
 Computing...
 Berechne...
 ;
-MSG_CLOUD_DRAWING
+MSG_GLOBAL_DRAWING
 Drawing...
 Zeichne...
 ;
@@ -1422,10 +1418,6 @@ MSG_DEM_ERRORWRITINGDEMFILEPERATIONTERMINATED
 Error writing DEM file!\nOperation terminated.
 
 ;
-MSG_DEM_DATABASEMODULE
-Database Module
-Datenbank Modul
-;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE
 Out of memory expanding Database Editor List!\nOperation terminated.
 
@@ -1524,7 +1516,7 @@ MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLIST
 Out of memory expanding Database Editor List!
 
 ;
-MSG_DEM_MAPPINGMODULEFIXFLATS
+MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS
 Mapping Module: Fix Flats
 
 ;
@@ -1909,7 +1901,7 @@ MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR
 Enter the UTM zone number (0-60) for the data you are about to import.
 
 ;
-MSG_DEMGUI_MAPVIEWBUILDDEM
+MSG_MAPGUI_MAPVIEWBUILDDEM
 Map View: Build DEM
 
 ;
@@ -1935,10 +1927,6 @@ You must specify an output file name!\nOperation terminated.
 ;
 MSG_DEMGUI_UNABLETOOPENXYZFILEFOREXPORTPERATIONTERMINATED
 Unable to open XYZ file for export!\nOperation terminated.
-
-;
-MSG_DEMGUI_DRAWING
-Drawing...
 
 ;
 ; -------- DLG.c ----------
@@ -1982,10 +1970,6 @@ Lese
 MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE
 Enter up to 3 characters as a prefix for this DLG set if you desire.
 
-;
-MSG_DLG_DATABASEMODULE
-Database Module
-Datenbank Modul
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED
 Out of memory expanding database!\nOperation terminated.
@@ -2090,10 +2074,6 @@ New directory created: %s. Make it the default directory?
 ;
 MSG_DB_DATABASEMODULESAVE
 Database Module: Save
-
-;
-MSG_DB_DATABASEMODULE
-Database Module
 
 ;
 MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA
@@ -2338,10 +2318,6 @@ Convert DEM source type
 ;
 MSG_DATAOPS_INPUTDATAFORMATNOTSUPPORTEDHECKYOURSETTINGSPERATION
 Input data format not supported!\nCheck your settings.\nOperation terminated.
-
-;
-MSG_DATAOPS_DATABASEMODULE
-Database Module
 
 ;
 MSG_DATAOPS_ERRORSAVINGOBJFILEOPERATIONTERMOINATED
@@ -3069,10 +3045,6 @@ Database Editor
 ;
 MSG_EDDB_YOUMUSTFIRSTLOADORCREATEADATABASEBEFOREOPENINGTHEEDITO
 You must first load or create a database before opening the editor.
-
-;
-MSG_EDDB_DATABASEMODULE
-Database Module
 
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDATABASEWINDOW
@@ -4499,10 +4471,6 @@ MSG_EDSETGUI_MOONHALO
 \338Moon Halo
 
 ;
-MSG_EDSETGUI_RENDERMODULE
-Render Module
-
-;
 MSG_EDSETGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENIN
 You must first load or create a parameter file before opening the Render Module.
 
@@ -5267,7 +5235,7 @@ Error saving Ecotype file!\nOperation terminated.
 
 ;
 ;
-MSG_GENPAR_KEYFRAMEMODULE
+MSG_PARAMS_KEYFRAMEMODULE
 Key Frame Module
 
 ;
@@ -5355,10 +5323,6 @@ MSG_GENTLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPR
 At least two key frames for this parameter must be created prior to opening the time line window
 
 ;
-;
-MSG_GLMP_RENDERMODULE
-Render Module
-Render Modul
 ;
 MSG_GLMP_RENDERINITIALIZATIONCOMPLETE
 Render initialization complete.
@@ -5617,10 +5581,6 @@ MSG_GLMPSPRT_SUNHALO
 Sun Halo
 Sonnen-Halo
 ;
-MSG_GLMPSPRT_RENDERMODULE
-Render Module
-
-;
 MSG_GLMPSPRT_ERRORLOADINGSUNIMAGEPERATIONTERMINATED
 Error loading Sun Image!\nOperation terminated.
 Fehler beim Laden des Sonnenbildes!\nVorgang abgebrochen.
@@ -5637,10 +5597,6 @@ MSG_GLMPSPRT_ERRORLOADINGMOONIMAGEPERATIONTERMINATED
 Error loading Moon Image!\nOperation terminated.
 Fehler beim Laden des Mondbildes!\nVorgang abgebrochen.
 ;
-;
-MSG_INTDRW_DRAWING
-Drawing...
-
 ;
 MSG_INTDRW_INTERACTIVEMOTIONMODULE
 Interactive Motion Module
@@ -5732,10 +5688,6 @@ Out of memory allocating DEM array!\n
 ;
 MSG_INTVIEW_RETRYCANCEL
 Retry|Cancel
-
-;
-MSG_INTVIEW_RENDERMODULE
-Render Module
 
 ;
 MSG_INTVIEW_GRIDMUSTBEPRESENTPLEASEREDRAWANDTRYAGAIN
@@ -5857,7 +5809,7 @@ MSG_LINESPRT_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCREATEA
 Digitize new points for the active vector object or create a new object?
 
 ;
-MSG_LINESPRT_ACTIVENEWCANCEL
+MSG_GLOBAL_ACTIVENEWCANCEL
 Active|New|Cancel
 
 ;
@@ -5865,7 +5817,7 @@ MSG_LINESPRT_DIAGNOSTICDIGITIZE
 Diagnostic: Digitize
 
 ;
-MSG_LINESPRT_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIONTERM
+MSG_MAP_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIO
 Active object is a DEM and may not be digitized!\nOperation terminated.
 
 ;
@@ -5949,10 +5901,6 @@ MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED
 Enter name of vector to be created.
 
 ;
-MSG_LINESPRT_DATABASEMODULE
-Database Module
-
-;
 MSG_LINESPRT_VECTORNAMEALREADYPRESENTINDATABASEVERWRITEITORTRYA
 Vector name already present in Database!\nOverwrite it or try a new name?
 
@@ -5989,10 +5937,6 @@ MSG_MAP_SETSOUTHEASTREFERENCEPOINTESCABORT
 MSG_MAP_SETSOUTHEASTREFERENCEPOINT
 Set southeast reference point
 Süd-Ost Referenzpunkt festlegen
-;
-MSG_MAP_MAPPINGMODULEALIGN
-Mapping Module: Align
-
 ;
 MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO
 Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
@@ -6062,7 +6006,7 @@ MSG_MAP_ISTHISTHECORRECTOBJECT
 Is this the correct object?
 Ist dies das richtige Objekt?
 ;
-MSG_MAP_MAPPINGMODULE
+MSG_MAPGUI_MAPPINGMODULE
 Mapping Module
 
 ;
@@ -6102,19 +6046,11 @@ MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR
 Digitize new points for the active vector object or create a new object?
 
 ;
-MSG_MAP_ACTIVENEWCANCEL
-Active|New|Cancel
-
-;
 MSG_MAP_MAPVIEWDIGITIZE
 Map View: Digitize
 
 ;
-MSG_MAP_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIO
-Active object is a DEM and may not be digitized!\nOperation terminated.
-
-;
-MSG_MAP_MAPPINGMODULEDIGITIZE
+MSG_MAPGUI_MAPPINGMODULEDIGITIZE
 Mapping Module: Digitize
 
 ;
@@ -6298,10 +6234,6 @@ MSG_MAPEXTRA_RESETVECTORORIGIN
 Reset vector origin: %s.\n
 
 ;
-MSG_MAPEXTRA_MAPPINGMODULEDIGITIZE
-Mapping Module: Digitize
-
-;
 MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW
 Conform vector to terrain and save Object now?
 
@@ -6454,10 +6386,6 @@ MSG_MAPEXTRA_ENTERELEVATIONTOLERANCE
 Enter elevation tolerance.
 
 ;
-MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS
-Mapping Module: Fix Flats
-
-;
 MSG_MAPEXTRA_PROCEEDORRESETPOINTS
 Proceed or reset points?
 
@@ -6496,10 +6424,6 @@ Error writing to output file!\nOperation terminated.
 ;
 MSG_MAPEXTRA_COMPUTING
 Computing...
-
-;
-MSG_MAPEXTRA_DRAWING
-Drawing...
 
 ;
 ; Menu: Modules -> Map View, klick into Map View Window, watch Map View Control Window 
@@ -6948,16 +6872,8 @@ MSG_MAPGUI_OKAY
 \33cOkay
 
 ;
-MSG_MAPGUI_MAPPINGMODULE
-Mapping module
-
-;
 MSG_MAPGUI_OUTOFMEMORYANTINITIALIZEMAPWINDOWPERATIONTERMINATED
 Out of memory!\nCan't initialize map window!\nOperation terminated.
-
-;
-MSG_MAPGUI_MAPPINGMODULEALIGN
-Mapping Module: Align
 
 ;
 MSG_MAPGUI_ILLEGALREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUA
@@ -6992,20 +6908,12 @@ MSG_MAPGUI_VECTORTOPOCONFORMATIONABORTEDOBJECTSCOMPLETED
 Vector topo conformation aborted! %d objects completed.
 
 ;
-MSG_MAPGUI_MAPPINGMODULEDIGITIZE
-Mapping Module: Digitize
-
-;
 MSG_MAPGUI_SETDIGITIZINGINPUTSOURCE
 Set digitizing input source.
 
 ;
 MSG_MAPGUI_BITPADSUMMAGRIDMOUSE
 Bitpad|Summagrid|Mouse
-
-;
-MSG_MAPGUI_MAPVIEWBUILDDEM
-Map View: Build DEM
 
 ;
 MSG_MAPGUI_DEMCTRLPTLATFLONFELEV2F
@@ -7053,10 +6961,6 @@ MSG_MAPGUI_THEDATABASEHASBEENMODIFIEDSINCEITWASLOADEDOYOUWISHTO
 The Database has been modified since it was loaded.\nDo you wish to save it or a Master Object file now?
 
 ;
-;
-MSG_MAPLINO_RENDERMODULE
-Render Module
-
 ;
 MSG_MAPLINO_ERRORSAVINGLINEVERTICESTOFILEELECTNEWPATH
 Error saving line vertices to file!\nSelect new path.
@@ -7128,10 +7032,6 @@ MSG_MAPSUPRT_SLATFLONF
 ;
 MSG_MAPSUPRT_LATFLONF
 LAT: %f, LON: %f
-
-;
-MSG_MAPSUPRT_MAPPINGMODULE
-Mapping Module
 
 ;
 MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING
@@ -7206,10 +7106,6 @@ MSG_MAPTOPO_ECOSYSTEMOUTOFRANGE
 Ecosystem out of range.
 
 ;
-;
-MSG_MAPTOPOOB_RENDERMODULE
-Render Module
-
 ;
 MSG_MAPTOPOOB_RETRYCANCEL
 Retry|Cancel
@@ -7808,10 +7704,6 @@ MSG_PARAMS_KEYFRAMECANCEL
 Key Frame: Cancel
 
 ;
-MSG_PARAMS_KEYFRAMEMODULE
-Key Frame Module
-
-;
 MSG_PARAMS_PARAMETERSMODULEVELOCITYDISTRIBUTION
 Parameters Module: Velocity Distribution
 
@@ -8269,10 +8161,6 @@ Projekt: Laden
 MSG_SUPPORT_NOTAWCSPROJECTFILEPERATIONTERMINATED
 Not a WCS Project file!\nOperation terminated.
 Keine WCS Projektatei!\nVorgang abgebrochen.
-;
-MSG_SUPPORT_MAPPINGMODULEALIGN
-Mapping Module: Align
-
 ;
 MSG_SUPPORT_ILLEGALMAPREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUAL
 Illegal map registration values! High and low X or Y values are equal.
@@ -8747,10 +8635,6 @@ MSG_WAVGUI_ENTERWAVEVELOCITYKMHR
 Enter Wave Velocity (km/hr).
 
 ;
-MSG_WAVGUI_DRAWING
-Drawing...
-Zeichnen...
-;
 MSG_WAVGUI_ALL
 All (%d)
 
@@ -8811,10 +8695,6 @@ MSG_WCS_FATALERRORINTUITIONLIBRARYREVISIONREQUIREDABORTING
 FATAL ERROR: Intuition.library revision %d required. Aborting.\n
 Schwerer Fehler: Intuition.Library revision %d erforderlich. Abbruch.\n
 ;
-MSG_NNCRUNCH_MAPVIEWBUILDDEM
-Map View: Build DEM
-
-;
 MSG_NNCRUNCH_INSUFFICIENTDATAINGRIDDEDREGIONTOTRIANGULATEINCREA
 Insufficient data in gridded region to triangulate! Increase the size of the gridded region or add more control points.
 
@@ -8829,10 +8709,6 @@ Gradient
 ;
 MSG_NNCRUNCH_GRIDDING
 Gridding
-
-;
-MSG_NNCRUNCH_DRAWING
-Drawing...
 
 ;
 MSG_NNCRUNCH_MAPVIEWGRIDDEM

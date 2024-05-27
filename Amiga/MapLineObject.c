@@ -39,7 +39,7 @@ SaveRepeat:
    {
    fclose(fvector);
    Log(ERR_WRITE_FAIL, (CONST_STRPTR)linefile);
-   User_Message(GetString( MSG_MAPLINO_RENDERMODULE ),                               // "Render Module"
+   User_Message(GetString( MSG_AGUI_RENDERMODULE ),                               // "Render Module"
                 GetString( MSG_MAPLINO_ERRORSAVINGLINEVERTICESTOFILEELECTNEWPATH ),  // "Error saving line vertices to file!\nSelect new path."
                 GetString( MSG_GLOBAL_OK ),                                         // "OK"
                 (CONST_STRPTR)"o");
@@ -53,7 +53,7 @@ NewFileRequest:
     if ((fvector = fopen(filename, "w")) == NULL)
      {
      Log(ERR_OPEN_FAIL, (CONST_STRPTR)linefile);
-     if (User_Message_Def(GetString( MSG_MAPLINO_RENDERMODULE ),                          // "Render Module"
+     if (User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
                           GetString( MSG_MAPLINO_ERROROPENINGLINESAVEFILEELECTNEWPATH ),  // "Error opening line save file!\nSelect new path?"
                           GetString( MSG_GLOBAL_OKCANCEL ),                              // "OK|Cancel"
                           (CONST_STRPTR)"oc", 1))

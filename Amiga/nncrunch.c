@@ -252,7 +252,7 @@ struct datum *DT;
    else
     {
     success = 0;
-    User_Message(GetString( MSG_NNCRUNCH_MAPVIEWBUILDDEM ),                                     // "Map View: Build DEM"
+    User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                                     // "Map View: Build DEM"
                  GetString( MSG_NNCRUNCH_INSUFFICIENTDATAINGRIDDEDREGIONTOTRIANGULATEINCREA ),  // "Insufficient data in gridded region to triangulate! Increase the size of the gridded region or add more control points."
                  GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                  (CONST_STRPTR)"o");
@@ -1411,7 +1411,7 @@ struct elmapheaderV101 Hdr;
 
 /* plot color in Map View, brighter indicates higher amplitude */
 
-     BWGR = BusyWin_New((char*)GetString( MSG_NNCRUNCH_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','G','R'));  // "Drawing..."
+     BWGR = BusyWin_New((char*)GetString( MSG_GLOBAL_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','G','R'));  // "Drawing..."
 
      DataRow = 0.0;
      for (y=Low_Y, k=0; y<=High_Y; y++, DataRow+=LatStep, k++)
@@ -1754,7 +1754,7 @@ double **matptr;
  if ((matptr = (double **) 
       get_Memory(nrows * sizeof(double *), MEMF_ANY)) EQ NULL)
   {
-  User_Message(GetString( MSG_NNCRUNCH_MAPVIEWBUILDDEM ),                            // "Map View: Build DEM",
+  User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                            // "Map View: Build DEM",
                GetString( MSG_NNCRUNCH_OUTOFMEMORYDOUBLEMATRIXPERATIONTERMINATED ),  // "Out of memory Double Matrix!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                         // "OK"
                (CONST_STRPTR)"o");
@@ -1764,7 +1764,7 @@ double **matptr;
   if ((matptr[0] = (double *) 
           get_Memory(nrows * ncols * sizeof(double), MEMF_ANY)) EQ NULL)
    {
-   User_Message(GetString( MSG_NNCRUNCH_MAPVIEWBUILDDEM ),                                     // "Map View: Build DEM"
+   User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                                     // "Map View: Build DEM"
                 GetString( MSG_NNCRUNCH_OUTOFMEMORYALLOCATINGDOUBLEMATRIXPERATIONTERMINATE ),  // "Out of memory allocating Double Matrix!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                 (CONST_STRPTR)"o");

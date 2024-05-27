@@ -460,7 +460,7 @@ StartAlign:
 
  if (Bx.Low.X == Bx.High.X || Bx.Low.Y == Bx.High.Y)
   {
-  if (User_Message_Def(GetString( MSG_CLOUD_MAPPINGMODULEALIGN ),               // "Mapping Module: Align"
+  if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),               // "Mapping Module: Align"
           GetString( MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
           GetString( MSG_GLOBAL_OKCANCEL ),                                      // "OK|Cancel"
 		  (CONST_STRPTR)"oc", 1))
@@ -655,7 +655,7 @@ struct clipbounds cb;
 
 /* plot color in Map View, brighter indicates higher wave amplitude */
 
- BWMD = BusyWin_New((char*)GetString( MSG_CLOUD_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));  // "Drawing..."
+ BWMD = BusyWin_New((char*)GetString( MSG_GLOBAL_DRAWING ), High_Y - Low_Y + 1, 0, MakeID('B','W','M','D'));  // "Drawing..."
 
  Density = CD->Density / 100.0;
 

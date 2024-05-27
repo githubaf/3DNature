@@ -50,7 +50,7 @@ float fDx, fDy, fDq;
   SetPointer(InterWind0, WaitPointer, 16, 16, -6, 0);
   if (EMIA_Win) SetPointer(EMIA_Win->Win, WaitPointer, 16, 16, -6, 0);
   if (EM_Win) SetPointer(EM_Win->Win, WaitPointer, 16, 16, -6, 0);
-  BW = BusyWin_New((char*)GetString( MSG_INTDRW_DRAWING ), NoOfElMaps * 2, 1, MakeID('B','W','I','D'));  // "Drawing..."
+  BW = BusyWin_New((char*)GetString( MSG_GLOBAL_DRAWING ), NoOfElMaps * 2, 1, MakeID('B','W','I','D'));  // "Drawing..."
   constructview();
   if (! computeview(NULL))
    {

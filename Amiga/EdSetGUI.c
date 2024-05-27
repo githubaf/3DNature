@@ -295,7 +295,7 @@ ES_Cycle_Data[2]=NULL;
 
  if (! paramsloaded)
   {
-  User_Message(GetString( MSG_EDSETGUI_RENDERMODULE ),  // "Render Module"
+  User_Message(GetString( MSG_AGUI_RENDERMODULE ),  // "Render Module"
 	       GetString( MSG_EDSETGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENIN ),  // "You must first load or create a parameter file before opening the Render Module."
                GetString( MSG_GLOBAL_OK ),                                                  // "OK",
                (CONST_STRPTR)"o");

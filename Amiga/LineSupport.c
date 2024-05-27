@@ -349,7 +349,7 @@ short InitDigPerspective(void)
 
  if ((NewObj = User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
                                 GetString( MSG_LINESPRT_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCREATEA ),  // "Digitize new points for the active vector object or create a new object?"
-                                GetString( MSG_LINESPRT_ACTIVENEWCANCEL ),                                     // "Active|New|Cancel"
+                                GetString( MSG_GLOBAL_ACTIVENEWCANCEL ),                                     // "Active|New|Cancel"
                                 (CONST_STRPTR)"anc", 1)) == 0)
   return (0);
  if (NewObj == 2)
@@ -359,7 +359,7 @@ short InitDigPerspective(void)
      ! strcmp(DBase[OBN].Special, "SFC"))
   {
   User_Message(GetString( MSG_LINESPRT_DIAGNOSTICDIGITIZE ),                                  // "Diagnostic: Digitize"
-               GetString( MSG_LINESPRT_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIONTERM ),  // "Active object is a DEM and may not be digitized!\nOperation terminated."
+               GetString( MSG_MAP_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIO ),  // "Active object is a DEM and may not be digitized!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   return (0);
@@ -708,7 +708,7 @@ NewName:
    {
    short ans;
 
-   ans = User_Message_Def(GetString( MSG_LINESPRT_DATABASEMODULE ),                                      // "Database Module"
+   ans = User_Message_Def(GetString( MSG_AGUI_DATABASEMODULE ),                                      // "Database Module"
                           GetString( MSG_LINESPRT_VECTORNAMEALREADYPRESENTINDATABASEVERWRITEITORTRYA ),  // "Vector name already present in Database!\nOverwrite it or try a new name?"
                           GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ),                                  // "Overwrite|New|Cancel"
                           (CONST_STRPTR)"onc", 2);
@@ -733,7 +733,7 @@ NewName:
    if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 20)) == NULL)
     {
-    User_Message(GetString( MSG_LINESPRT_DATABASEMODULE ),                                  // "Database Module"
+    User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                                  // "Database Module"
                  GetString( MSG_LINESPRT_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding Database!\nOperation terminated."
                  GetString( MSG_GLOBAL_OK ),                                              // "OK"
                  (CONST_STRPTR)"o");

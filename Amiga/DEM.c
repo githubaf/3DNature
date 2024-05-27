@@ -727,7 +727,7 @@ RelelRepeat:
         if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 20)) == NULL)
          {
-         User_Message(GetString( MSG_DEM_DATABASEMODULE ) ,                                 // "Database Module",
+         User_Message(GetString( MSG_AGUI_DATABASEMODULE ) ,                                 // "Database Module",
                       GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
                       GetString( MSG_GLOBAL_OK ),                                              // "OK",
                       (CONST_STRPTR)"o");
@@ -756,7 +756,7 @@ RelelRepeat:
         {
         if (! Add_DE_NewItem())
          {
-         User_Message(GetString( MSG_DEM_DATABASEMODULE ) ,                                           // "Database Module"
+         User_Message(GetString( MSG_AGUI_DATABASEMODULE ) ,                                           // "Database Module"
                       GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
                       GetString( MSG_GLOBAL_OK ),                                                     // "OK",
                       (CONST_STRPTR)"o");
@@ -1887,7 +1887,7 @@ double Lon[6], Lat[6];
    if ((NewBase = DataBase_Expand(DBase, DBaseRecords, NoOfObjects,
 		 DBaseRecords + 20)) == NULL)
     {
-    User_Message(GetString( MSG_DEM_DATABASEMODULE ),                             // "Database Module"
+    User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                             // "Database Module"
             GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
             GetString( MSG_GLOBAL_OK ),                                              // "OK", 
             (CONST_STRPTR)"o");
@@ -1915,7 +1915,7 @@ double Lon[6], Lat[6];
    {
    if (! Add_DE_NewItem())
     {
-    User_Message(GetString( MSG_DEM_DATABASEMODULE ),                     // "Database Module"
+    User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                     // "Database Module"
             GetString( MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLIST ),  // "Out of memory expanding Database Editor List!"
             GetString( MSG_GLOBAL_OK ),                                      // "OK"
             (CONST_STRPTR)"o");
@@ -2657,7 +2657,7 @@ EndSpline:
   {
   case 1:
    {
-   User_Message(GetString( MSG_DEM_MAPPINGMODULEFIXFLATS ),                               // "Mapping Module: Fix Flats"
+   User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),                               // "Mapping Module: Fix Flats"
            GetString( MSG_DEM_BADARRAYDIMENSIONSSOMETHINGDOESNTCOMPUTEPERATIONTERMINA ),  // "Bad array dimensions! Something doesn't compute.\nOperation terminated."
            GetString( MSG_GLOBAL_OK ),                                                       // "OK"
            (CONST_STRPTR)"o");
@@ -2665,7 +2665,7 @@ EndSpline:
    }
   case 2:
    {
-   User_Message(GetString( MSG_DEM_MAPPINGMODULEFIXFLATS ),     // "Mapping Module: Fix Flats"
+   User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),     // "Mapping Module: Fix Flats"
            GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
            GetString( MSG_GLOBAL_OK ),                             // "OK"
            (CONST_STRPTR)"o");
@@ -2673,7 +2673,7 @@ EndSpline:
    }
   case 3:
    {
-   User_Message(GetString( MSG_DEM_MAPPINGMODULEFIXFLATS ),                // "Mapping Module: Fix Flats"
+   User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),                // "Mapping Module: Fix Flats"
            GetString( MSG_DEM_NOFLATSPOTSTOOPERATEONPERATIONTERMINATED ),  // "No flat spots to operate on!\nOperation terminated.",
            GetString( MSG_GLOBAL_OK ),                                        // "OK"
            (CONST_STRPTR)"o");

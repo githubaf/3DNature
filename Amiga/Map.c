@@ -60,7 +60,7 @@ void alignmap(struct Box *Bx)
  else if (mapscale <= 0.0) error = 1;
  if (error)
   {
-  User_Message(GetString( MSG_MAP_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
+  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
                GetString( MSG_MAP_FIRSTSETOFALIGNMENTLATLONCOORDINATESMUSTBELAR ),  // "First set of alignment lat/lon coordinates must be larger than second and map scale must be greater than zero!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                             // "OK"
                (CONST_STRPTR)"o");
@@ -88,7 +88,7 @@ StartAlign:
 
  if (Bx->Low.X == Bx->High.X || Bx->Low.Y == Bx->High.Y)
   {
-  if (User_Message_Def(GetString( MSG_MAP_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
+  if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
                        GetString( MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
                        GetString( MSG_GLOBAL_OKCANCEL ),                                       // "OK|Cancel"
                        (CONST_STRPTR)"oc", 1))
@@ -1314,7 +1314,7 @@ short findmouse(short X, short Y, short IdentifyOnly)
 
  if (! done)
   {
-  User_Message(GetString( MSG_MAP_MAPPINGMODULE ),   // "Mapping Module"
+  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULE ),   // "Mapping Module"
                GetString( MSG_MAP_OBJECTNOTFOUND ),  // "Object not found!"
                GetString( MSG_GLOBAL_OK ),              // "OK"
                (CONST_STRPTR)"o");
@@ -1431,7 +1431,7 @@ void addpoints(long lowj, long insert)
 
  if ((newobj = User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
          GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),   // "Digitize new points for the active vector object or create a new object?"
-         GetString( MSG_MAP_ACTIVENEWCANCEL ), (CONST_STRPTR)"anc", 1)) == 0)  // "Active|New|Cancel"
+         GetString( MSG_GLOBAL_ACTIVENEWCANCEL ), (CONST_STRPTR)"anc", 1)) == 0)  // "Active|New|Cancel"
   return;
  if (newobj == 2)
   DBaseObject_New();
@@ -1478,7 +1478,7 @@ void addpoints(long lowj, long insert)
   if (InputTabletPoints(lowj, MP_DigMode))
    {
    outline(MapWind0, OBN, 2, &cb);
-   if (User_Message_Def(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
+   if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
                         GetString( MSG_MAP_ACCEPTNEWPOINTS ),         // "Accept new points?"
                         GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
                         (CONST_STRPTR)"oc", 1))
@@ -1513,13 +1513,13 @@ EndDig:
     free_Memory(TempElev, TempSize / 4);
    } /* else */
   if (error == 1)
-   User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),                           // "Mapping Module: Digitize"
+   User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                           // "Mapping Module: Digitize"
                 GetString( MSG_MAP_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTE ),   // "Out of memory allocating new vector array!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                              // "OK"
                 (CONST_STRPTR)"o");
   if (! error)
    {
-   if (User_Message_Def(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+   if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
                         GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
                         GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
                         (CONST_STRPTR)"oc", 1))
@@ -1706,7 +1706,7 @@ EndDig:
     done = 1;
     outline(MapWind0, OBN, 2, &cb);
     DBase[OBN].Flags |= 1;
-    if (User_Message_Def(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+    if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
                          GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
                          GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
                          (CONST_STRPTR)"oc", 1))
@@ -1853,11 +1853,11 @@ void Viewshed_Map(long OBN)
 
  if (! MapWind3)
   {
-  User_Message(GetString( MSG_MAP_MAPPINGMODULE ),                                 // "Mapping Module"
+  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULE ),                                 // "Mapping Module"
                GetString( MSG_MAP_ERROROPENINGVIEWSHEDWINDOWXECUTIONTERMINATED ),  // "Error opening viewshed window!\nExecution terminated."
                GetString( MSG_GLOBAL_OK ),                                            // "OK"
                (CONST_STRPTR)"o");
-  Log(ERR_WIN_FAIL, GetString( MSG_MAP_MAPPINGMODULE ));  // "Mapping module"
+  Log(ERR_WIN_FAIL, GetString( MSG_MAPGUI_MAPPINGMODULE ));  // "Mapping module"
   return;
   }
 
@@ -2305,7 +2305,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
    if (OpenDevice((STRPTR)SERIALNAME, 0, (struct IORequest *)SerialIO, 0))
     {
     error = 1;
-    User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+    User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                  GetString( MSG_MAP_CANTOPENSERIALDEVICEPERATIONTERMINATED ),  // "Can't open serial device!\nOperation terminated."
                  GetString( MSG_GLOBAL_OK ),                                      // "OK"
                  (CONST_STRPTR)"o");
@@ -2333,7 +2333,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
     WaitIO((struct IORequest *)SerialIO);
 
     
-    if (User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
+    if (User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
                      GetString( MSG_MAP_DIGITIZENEWREGISTRATIONPOINTS ),  // "Digitize new registration points?"
                      GetString( MSG_GLOBAL_YESNO ),                          // "YES|NO"
                      (CONST_STRPTR)"yn"))
@@ -2397,7 +2397,7 @@ short i, b, error = 0, ReadSize, ByteX, ByteY, ByteButton;
       else if (Rx[0] > Rx[1]) MP_Rotate = Pi;
       else
        {
-       User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),                          // "Mapping Module: Digitize"
+       User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                          // "Mapping Module: Digitize"
                     GetString( MSG_MAP_ILLEGALVALUEWOREGISTRATIONPOINTSMAYNOTBECOINC ),  // "Illegal value!\nTwo registration points may not be coincident.\nOperation terminated."
                     GetString( MSG_GLOBAL_OK ),                                             // "OK
                     (CONST_STRPTR)"o");
@@ -2503,7 +2503,7 @@ EndCheck:
   else
    {
    error = 1;
-   User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
+   User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
                 GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
@@ -2513,7 +2513,7 @@ EndCheck:
  else
   {
   error = 1;
-  User_Message(GetString( MSG_MAP_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
+  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
                GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                             // "OK"
                (CONST_STRPTR)"o");

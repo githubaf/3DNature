@@ -77,7 +77,7 @@ void Make_DE_Window(void)
 
  if (! DBList_New(NoOfObjects + 20))
   {
-  User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                    // "Database Module"
+  User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                    // "Database Module"
                GetString( MSG_EDDB_OUTOFMEMORYANTOPENDATABASEWINDOW ),  // "Out of memory!\nCan't open database window.",
                GetString( MSG_GLOBAL_OK ),                                // "OK"
                (CONST_STRPTR)"o");
@@ -1484,7 +1484,7 @@ void Set_DE_List(short update)
   {
   if (! DBList_New(NoOfObjects + 20))
    {
-   User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                  // "Database Module"
+   User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                  // "Database Module"
                 GetString( MSG_EDDB_OUTOFMEMORYANTOPENDATABASELIST ),  // "Out of memory!\nCan't open database list."
                 GetString( MSG_GLOBAL_OK ),                              // "OK"
                 (CONST_STRPTR)"o");
@@ -1662,7 +1662,7 @@ void Make_DL_Window(void)
  DL_Win->DLNameSize = DL_Win->MaxDLItems * (sizeof (char *));
  if ((DL_Win->DLName = (char **)get_Memory(DL_Win->DLNameSize, MEMF_CLEAR)) == NULL)
   {
-  User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                         // "Database Module"
+  User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                         // "Database Module"
                GetString( MSG_EDDB_OUTOFMEMORYANTOPENDIRECTORYLISTWINDOW ),  // "Out of memory!\nCan't open directory list window."
                GetString( MSG_GLOBAL_OK ),                                     // "OK"
                (CONST_STRPTR)"o");
@@ -1672,7 +1672,7 @@ void Make_DL_Window(void)
 
  if ((DL_Win->DLCopy = DirList_Copy(DL)) == NULL)
   {
-  User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                         // "Database Module"
+  User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                         // "Database Module"
                GetString( MSG_EDDB_OUTOFMEMORYANTOPENDIRECTORYLISTWINDOW ),  // "Out of memory!\nCan't open directory list window."
                GetString( MSG_GLOBAL_OK ),                                     // "OK"
                (CONST_STRPTR)"o");
@@ -2019,7 +2019,7 @@ short Add_DE_NewItem(void)
   {
   if (! DBList_New(NoOfObjects + 20))
    {
-   User_Message(GetString( MSG_EDDB_DATABASEMODULE ),                                  // "Database Module"
+   User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                                  // "Database Module"
                 GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED ),  // "Out of memory expanding database!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                              // "OK"
                 (CONST_STRPTR)"o");

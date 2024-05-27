@@ -662,7 +662,7 @@ RepeatAllocate:
   Edge2 = (short *)get_Memory(EdgeSize, MEMF_CLEAR);
   if (! Edge1 || ! Edge2 || ! SubPix)
    {
-   User_Message(GetString( MSG_INTVIEW_RENDERMODULE ),                                         // "Render Module"
+   User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                         // "Render Module"
                 GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
@@ -1318,7 +1318,7 @@ void smallwindow(short diagnostics)
   Edge2 = (short *)get_Memory(EdgeSize, MEMF_CLEAR);
   if (! Edge1 || ! Edge2 || ! SubPix || ! TreePix)
    {
-   User_Message(GetString( MSG_INTVIEW_RENDERMODULE ),                                         // "Render Module"
+   User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                         // "Render Module"
                 GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");

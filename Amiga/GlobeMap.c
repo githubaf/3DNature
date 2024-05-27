@@ -66,7 +66,7 @@ void globemap(void)
   strcat(tempfile, ".temp");
   if ((AltKF = (union KeyFrame *)get_Memory(KFsize, MEMF_ANY)) == NULL)
    {
-   User_Message(GetString( MSG_GLMP_RENDERMODULE ),                   // "Render Module"
+   User_Message(GetString( MSG_AGUI_RENDERMODULE ),                   // "Render Module"
                 GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                             // "OK"
                 (CONST_STRPTR)"o");
@@ -150,7 +150,7 @@ void globemap(void)
   if (!RenderWind0)
    {
    Log(ERR_WIN_FAIL, GetString( MSG_GLMP_RENDERWINDOW ));                          // "Render window."
-   User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                // "Render Module"
+   User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                // "Render Module"
                 GetString( MSG_GLMP_ERROROPENINGRENDERWINDOWPERATIONTERMINATED ),  // "Error opening render window!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                          // "OK"
                 (CONST_STRPTR)"o");
@@ -193,7 +193,7 @@ void globemap(void)
  QCmapsize = bmapsize * 4;
  if ((zbuf = (float *)get_Memory(zbufsize, MEMF_ANY)) == NULL)
   {
-  User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                 // "Render Module"
+  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                 // "Render Module"
                GetString( MSG_GLMP_OUTOFMEMORYOPENINGZBUFFERPERATIONTERMINATED ),  // "Out of memory opening Z buffer!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                           // "OK",
                (CONST_STRPTR)"o");
@@ -203,7 +203,7 @@ void globemap(void)
   {
   if ((error = openbitmaps(bitmap, bmapsize)) == 1)
    {
-   User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                  // "Render Module"
+   User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                  // "Render Module"
                 GetString( MSG_GLMP_OUTOFMEMORYOPENINGBITMAPSPERATIONTERMINATED ),   // "Out of memory opening bitmaps!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                            // "OK"
                 (CONST_STRPTR)"o");
@@ -214,7 +214,7 @@ void globemap(void)
   } /* if render to RGB buffer */
  if ((bytemap = (USHORT *)get_Memory(bmapsize * 2, MEMF_CLEAR)) == NULL)
   {
-  User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                         // "Render Module"
+  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                         // "Render Module"
                GetString( MSG_GLMP_OUTOFMEMORYOPENINGANTIALIASBUFFERPERATIONTERMINATED ),  // "Out of memory opening anti-alias buffer!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                                   //"OK"
                (CONST_STRPTR)"o");
@@ -227,7 +227,7 @@ void globemap(void)
   if ((ReflectionMap = (UBYTE *)get_Memory(bmapsize, MEMF_ANY)) == NULL
 	|| ! ElevationMap || ! SlopeMap)
    {
-   if (User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+   if (User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGREFLECTIONBUFFERCONTINUEWITHOUTRE ),  // "Out of memory allocating Reflection buffer!\n\Continue without Reflections?"
                     GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
                     (CONST_STRPTR)"oc"))
@@ -244,7 +244,7 @@ void globemap(void)
   {
   if (settings.rendersegs > 1 || settings.maxframes > 1)
    {
-   if (! User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module
+   if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module
                           GetString( MSG_GLMP_DIAGNOSTICBUFFERSCANTBEGENERATEDFORMULTIPLESEGMENTORMU ),  // "Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?"
                           GetString( MSG_GLOBAL_OKCANCEL ),                                                // "OK|CANCEL"
                           (CONST_STRPTR)"oc", 1))
@@ -256,7 +256,7 @@ void globemap(void)
    allocQCmaps();
    if (! (render & 0x100))
     {
-    if (! User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+    if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                            GetString( MSG_GLMP_OUTOFMEMORYOPENINGDIAGNOSTICBUFFERSPROCEEDRENDERINGWIT ),  // "Out of memory opening Diagnostic buffers! Proceed rendering without them?"
                            GetString( MSG_GLOBAL_OKCANCEL ),                                                // "OK|CANCEL"
                            (CONST_STRPTR)"oc", 1))
@@ -267,7 +267,7 @@ void globemap(void)
 
  if (! BuildKeyTable())
   {
-  User_Message(GetString( MSG_GLMP_RENDERMODULE ) ,                                       // "Render Module"
+  User_Message(GetString( MSG_AGUI_RENDERMODULE ) ,                                       // "Render Module"
                GetString( MSG_GLMP_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),   // "Out of memory opening key frame table!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
@@ -289,7 +289,7 @@ void globemap(void)
   strmfp(filename, wavepath, wavefile);
   if (! Wave_Load(filename, &Tsunami))
    {
-   if (User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                          // "Render Module"
+   if (User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                          // "Render Module"
                     GetString( MSG_GLMP_ERRORLOADINGWAVEFILECONSTSTRPTRCONTINUEWITHOUTWAVES ),   // "Error loading Wave File!\n\Continue without Waves?"
                     GetString( MSG_GLMP_CONTINUECANCEL ),                                        // "Continue|Cancel"
                     (CONST_STRPTR)"oc"))
@@ -500,7 +500,7 @@ void globemap(void)
    colmap[0] = colmap[1] = colmap[2] = NULL;
    if (CMap)	    free_Memory(CMap, sizeof (struct Color_Map));
    CMap = NULL;
-   if (! User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+   if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                           GetString( MSG_GLMP_ERRORLOADINGMASTERCOLORMAPSEESTATUSLOGFORMOREINFORMATI ),  // "Error loading Master Color Map! See Status Log for more information.\n\Continue rendering without Color Map?"
                           GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
                           (CONST_STRPTR)"oc", 1))
@@ -513,7 +513,7 @@ void globemap(void)
   strmfp(filename, deformpath, deformfile);
   if (readDEM(filename, &DeformMap) != 0)
    {
-   if (! User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+   if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                           GetString( MSG_GLMP_ERRORLOADINGSTRATADEFORMATIONMAPCONTINUERENDERINGWITHO ),  // "Error loading Strata Deformation Map!\n\Continue rendering without Deformation Map?"
                           GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
                           (CONST_STRPTR)"oc", 1))
@@ -543,7 +543,7 @@ void globemap(void)
   }
  else
   {
-  if (! User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+  if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                          GetString( MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX ),  // "Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?"
                          GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
                          (CONST_STRPTR)"oc", 1))
@@ -820,7 +820,7 @@ RepeatAlloc2:
 	settings.fielddominance);
      if (error)
       {
-      User_Message(GetString( MSG_GLMP_RENDERMODULE ),                               // "Render Module"
+      User_Message(GetString( MSG_AGUI_RENDERMODULE ),                               // "Render Module"
                    GetString( MSG_GLMP_ERRORINTERLACINGFIELDSPERATIONTERMINATED ) ,  // "Error interlacing fields!\nOperation terminated."
                    GetString( MSG_GLOBAL_OK ),                                         // "OK"
                    (CONST_STRPTR)"o");
@@ -897,7 +897,7 @@ RepeatSaveZBuf:
 	zbuf, ILBMname, 0, 0);
     if (error == 2)
      {
-     if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),              // "Render Module"
+     if (User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),              // "Render Module"
                           GetString( MSG_GLMP_OUTOFMEMORYSAVINGZBUFFER ),  // "Out of memory saving Z Buffer!\n"
                           GetString( MSG_GLMP_RETRYCANCEL ),               // "Retry|Cancel"
                           (CONST_STRPTR)"rc", 1))
@@ -1228,7 +1228,7 @@ RetrySmooth:
     if ((map.face = (struct faces *)get_Memory
 	(FacePoints * sizeof (struct faces), MEMF_ANY)) == NULL)
      {
-     if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULE ),                              // "Render Module"
+     if (User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
                           GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
                           GetString( MSG_GLMP_RETRYCANCEL ),                               // "Retry|Cancel"
                           (CONST_STRPTR)"rc", 1))
@@ -1267,7 +1267,7 @@ RetryFractal:
      } /* if memory allocated */
     else
      {
-     if ((Ans = User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+     if ((Ans = User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                              GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGFRACTALMAPARRAYCONTINUEWITHOUTFRA ),  // "Out of memory allocating Fractal Map array!\n\Continue without Fractal Maps or retry?"
                              GetString( MSG_GLMP_CONTINUERETRYCANCEL ),                                     // "Continue|Retry|Cancel"
                              (CONST_STRPTR)"orc")) == 1)
@@ -1365,7 +1365,7 @@ RetryFractal:
     TreePixArraySize = 10000;
     if ((TreePix = get_Memory(TreePixArraySize, MEMF_CLEAR)) == NULL)
      {
-     User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+     User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                   GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASBUFFERPERATIONTERMINATED ),  // "Out of memory allocating antialias buffer!\nOperation terminated."
                   GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                   (CONST_STRPTR)"o");
@@ -1384,7 +1384,7 @@ RetryFractal:
    Edge2 = (short *)get_Memory(EdgeSize, MEMF_CLEAR);
    if (! Edge1 || ! Edge2 || ! SubPix)
     {
-    User_Message(GetString( MSG_GLMP_RENDERMODULE ),                                            // "Render Module"
+    User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                  GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
                  GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                  (CONST_STRPTR)"o");
@@ -1942,7 +1942,7 @@ TryAgain2:
     break;
     }
    } /* switch */
-  User_Message(GetString( MSG_GLMP_RENDERMODULE ),  // "Render Module"
+  User_Message(GetString( MSG_AGUI_RENDERMODULE ),  // "Render Module"
                (CONST_STRPTR)ErrStr,
                GetString( MSG_GLOBAL_OK ),            // "OK"
                (CONST_STRPTR)"o");

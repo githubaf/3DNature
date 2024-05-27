@@ -1438,7 +1438,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     if  ((AlignBox.High.Y != AlignBox.Low.Y) && (AlignBox.High.X - AlignBox.Low.Y))
      valuesetalign();
     else
-     User_Message(GetString( MSG_SUPPORT_MAPPINGMODULEALIGN ),                                        // "Mapping Module: Align"
+     User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                                        // "Mapping Module: Align"
                   GetString( MSG_SUPPORT_ILLEGALMAPREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUAL ),  // "Illegal map registration values! High and low X or Y values are equal."
                   GetString( MSG_GLOBAL_OK ),                                                        // "OK"
                   (CONST_STRPTR)"o");
