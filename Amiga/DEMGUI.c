@@ -83,10 +83,10 @@ if(Init)
 	MD_Displace[3] = (char*)GetString( MSG_DEMGUI_POINTSONLY );   // "Points Only",
 	MD_Displace[4] = NULL;
 
-	MD_ElevUnits[0] = (char*)GetString( MSG_DEMGUI_KILOMETERS );   // "Kilometers",
-	MD_ElevUnits[1] = (char*)GetString( MSG_DEMGUI_METERS );       // "Meters",
-	MD_ElevUnits[2] = (char*)GetString( MSG_DEMGUI_CENTIMETERS );  // "Centimeters",
-	MD_ElevUnits[3] = (char*)GetString( MSG_DEMGUI_MILES );        // "Miles",
+	MD_ElevUnits[0] = (char*)GetString( MSG_DATAOPSGUI_KILOMETERS );   // "Kilometers",
+	MD_ElevUnits[1] = (char*)GetString( MSG_DATAOPSGUI_METERS );       // "Meters",
+	MD_ElevUnits[2] = (char*)GetString( MSG_DATAOPSGUI_CENTIMETERS );  // "Centimeters",
+	MD_ElevUnits[3] = (char*)GetString( MSG_DATAOPSGUI_MILES );        // "Miles",
 	MD_ElevUnits[4] = (char*)GetString( MSG_DEMGUI_FEET );         // "Feet",
 	MD_ElevUnits[5] = (char*)GetString( MSG_DEMGUI_INCHES );       // "Inches",
 	MD_ElevUnits[6] = NULL;
