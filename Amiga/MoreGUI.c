@@ -32,7 +32,7 @@ void Make_DM_Window(void)
 
  if (! dbaseloaded)
   {
-  NoLoad_Message(GetString( MSG_MOREGUI_ADATABASE ), GetString( MSG_AGUI_ADATABASE ));  // "a Database"   "Data Ops: Extract DEM"
+  NoLoad_Message(GetString( MSG_DATAOPSGUI_ADATABASE ), GetString( MSG_DATAOPSGUI_ADATABASE ));  // "a Database"   "Data Ops: Extract DEM"
   return;
   }
 

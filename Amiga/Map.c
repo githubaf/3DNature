@@ -2699,7 +2699,7 @@ STATIC_FCN short Set_Eco_Color(long Lra, long Lca, short i, short *RelEl) // use
 
    if (eco >= ECOPARAMS)
     {
-    Log(WNG_ILL_VAL, GetString( MSG_MAP_ECOSYSTEMOUTOFRANGE ));  // "Ecosystem out of range."
+    Log(WNG_ILL_VAL, GetString( MSG_MAPTOPO_ECOSYSTEMOUTOFRANGE ));  // "Ecosystem out of range."
     eco = ECOPARAMS - 1;
     } /* if */
 

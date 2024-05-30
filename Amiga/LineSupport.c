@@ -457,7 +457,7 @@ short VectorToPath(short item)
  if (! dbaseloaded)
   {
   NoLoad_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),  // "Mapping Module: Path"
-                 GetString( MSG_LINESPRT_ADATABASE ));         // "a Database"
+                 GetString( MSG_DATAOPSGUI_ADATABASE ));         // "a Database"
   return (0);
   } /* if no database */
  if (! paramsloaded)
@@ -641,7 +641,7 @@ short PathToVector(short item)
  if (! dbaseloaded)
   {
   NoLoad_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),  // "Mapping Module: Path"
-                 GetString( MSG_LINESPRT_ADATABASE ));         // "a Database"
+                 GetString( MSG_DATAOPSGUI_ADATABASE ));         // "a Database"
   return (0);
   } /* if no database */
  if (! paramsloaded)

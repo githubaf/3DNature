@@ -250,9 +250,9 @@ STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.202
    FE_Win->BT_ViewImage, ID_FE_VIEWIMAGE, NULL);
 
   DoMethod(FE_Win->FoliageWin, MUIM_Notify, MUIA_Window_InputEvent,
-	GetString( MSG_FOLIGUI_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_FE_EXPORTECO);  // "numericpad enter"
+	GetString( MSG_GLOBAL_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_FE_EXPORTECO);  // "numericpad enter"
   DoMethod(FE_Win->FoliageWin, MUIM_Notify, MUIA_Window_InputEvent,
-	GetString( MSG_FOLIGUI_HELP ), app, 2, MUIM_Application_ReturnID, ID_FE_IMAGEPATH);  // "help"
+	GetString( MSG_GLOBAL_HELP ), app, 2, MUIM_Application_ReturnID, ID_FE_IMAGEPATH);  // "help"
 
 /* Link arrow buttons to application */
   for (i=0; i<6; i++)

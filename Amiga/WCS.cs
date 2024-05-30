@@ -629,7 +629,7 @@ MSG_AGUI_DATAOPSIMPORTDXF
 Data Ops: Import DXF
 
 ;
-MSG_AGUI_DATAOPSIMPORTWDB
+MSG_DLG_DATAOPSIMPORTWDB
 Data Ops: Import WDB
 
 ;
@@ -839,7 +839,7 @@ Database Moldule: Append
 Datenbank Modul: Anhängen
 ;
 ;This is a %s-String for NoLoad_Message() "Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature."
-MSG_AGUI_ADATABASE
+MSG_DATAOPSGUI_ADATABASE
 a Database
 eine Datenbank
 ;
@@ -1114,7 +1114,7 @@ MSG_CLOUD_ENTERFRAMENUMBER
 Enter Frame Number.
 Bildnummer einegeben.
 ;
-MSG_CLOUD_COMPUTING
+MSG_GLOBAL_COMPUTING
 Computing...
 Berechne...
 ;
@@ -2023,10 +2023,6 @@ MSG_DLG_CANTOPENWDBFILEFORINPUTPERATIONTERMINATED
 Can't open WDB file for input!\nOperation terminated.
 
 ;
-MSG_DLG_DATAOPSIMPORTWDB
-Data Ops: Import WDB
-
-;
 MSG_DLG_ERROROPENINGSOURCEFILEPERATIONTERMINATED
 Error opening source file!\nOperation terminated.
 
@@ -2212,7 +2208,7 @@ MSG_DB_RECORDSMARKED
 Records = %d, Marked = %d
 
 ;
-MSG_DATAOPS_DATAOPSCONVERTDEM
+MSG_DATAOPSGUI_DATAOPSCONVERTDEM
 Data Ops: Convert DEM
 
 ;
@@ -2708,10 +2704,6 @@ MSG_DATAOPSGUI_WARNINGILEISNOTANIFFZBUFFERFILE
 Warning!\nFile is not an IFF Z Buffer file.
 
 ;
-MSG_DATAOPSGUI_DATAOPSCONVERTDEM
-Data Ops: Convert DEM
-
-;
 MSG_DATAOPSGUI_WARNINGILEISNOTAVISTADEMFILE
 Warning\nFile is not a Vista DEM file.
 
@@ -2746,10 +2738,6 @@ Warning\nFile is not recognized as a DTED file.
 ;
 MSG_DATAOPSGUI_DATAOPSINTERPDEM
 Data Ops: Interp DEM
-
-;
-MSG_DATAOPSGUI_ADATABASE
-a Database
 
 ;
 MSG_DATAOPSGUI_DEMINTERPOLATE
@@ -3456,9 +3444,9 @@ MSG_EDECOGUI_KEEP
 \33cKeep
 
 ;
-MSG_EDECOGUI_NUMERICPADENTER
+MSG_GLOBAL_NUMERICPADENTER
 numericpad enter
-
+Ziffernblock Eingabe
 ;
 MSG_EDECOGUI_ELEVLINE
  Elev Line\x20
@@ -3663,10 +3651,6 @@ MSG_EDMOGUI_LISTWIN
 ;
 MSG_EDMOGUI_CAMVIEW
 \33cCam View\x20
-
-;
-MSG_EDMOGUI_NUMERICPADENTER
-numericpad enter
 
 ;
 MSG_EDMOGUI_MOTIONEDITORAUTOCENTER
@@ -4727,9 +4711,9 @@ MSG_EDSETGUI_RENDER
 \33cRender
 
 ;
-MSG_EDSETGUI_HELP
+MSG_GLOBAL_HELP
 help
-
+Hilfe
 ;
 MSG_EDSETGUI_SETTINGSEDITOR
 Settings Editor
@@ -4849,10 +4833,6 @@ MSG_EDITGUI_REMOVE
 ;
 MSG_EDITGUI_KEEP
 \33cKeep
-
-;
-MSG_EDITGUI_NUMERICPADENTER
-numericpad enter
 
 ;
 MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR
@@ -5133,14 +5113,6 @@ MSG_FOLIGUI_VIEW
 MSG_FOLIGUI_KEEP
 \33cKeep
 \33cBehalten
-;
-MSG_FOLIGUI_NUMERICPADENTER
-numericpad enter
-Ziffernblock Eingabe
-;
-MSG_FOLIGUI_HELP
-help
-Hilfe
 ;
 MSG_FOLIGUI_KEEPCHANGES
 Keep changes?
@@ -5444,7 +5416,7 @@ MSG_GLMP_LEVEL
 Level %ld = %ld
 
 ;
-MSG_GLMP_ECOSYSTEMS
+MSG_INTVIEW_ECOSYSTEMS
 Ecosystems:
 
 ;
@@ -5719,10 +5691,6 @@ MSG_INTVIEW_OUTOFMEMORYTRYASMALLERPREVIEWSIZEPERATIONTERMINATED
 Out of memory! Try a smaller preview size.\nOperation terminated.
 
 ;
-MSG_INTVIEW_ECOSYSTEMS
-Ecosystems:
-
-;
 MSG_INTVIEW_PARAMETERSMODULEPREVIEW
 Parameters Module: Preview
 
@@ -5831,10 +5799,6 @@ Save object points?
 ;
 MSG_LINESPRT_MAPPINGMODULEPATH
 Mapping Module: Path
-
-;
-MSG_LINESPRT_ADATABASE
-a Database
 
 ;
 MSG_LINESPRT_APARAMETERFILE
@@ -6190,7 +6154,7 @@ MSG_MAP_PTLATFLONF
 Pt %d  Lat=%f  Lon=%f
 
 ;
-MSG_MAP_ECOSYSTEMOUTOFRANGE
+MSG_MAPTOPO_ECOSYSTEMOUTOFRANGE
 Ecosystem out of range.
 
 ;
@@ -6420,10 +6384,6 @@ Error opening output file!\nOperation terminated.
 ;
 MSG_MAPEXTRA_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED
 Error writing to output file!\nOperation terminated.
-
-;
-MSG_MAPEXTRA_COMPUTING
-Computing...
 
 ;
 ; Menu: Modules -> Map View, klick into Map View Window, watch Map View Control Window 
@@ -7102,10 +7062,6 @@ MSG_MAPSUPRT_SAVECOLORMAPAS
 Save Color Map As:
 
 ;
-MSG_MAPTOPO_ECOSYSTEMOUTOFRANGE
-Ecosystem out of range.
-
-;
 ;
 MSG_MAPTOPOOB_RETRYCANCEL
 Retry|Cancel
@@ -7192,10 +7148,6 @@ MSG_MAPUTIL_NORENDERLIST
 No render list!
 
 ;
-;
-MSG_MOREGUI_ADATABASE
-a Database
-
 ;
 ; --- Check Menu:Module/Data Ops -> Extract DEM ---
 MSG_MOREGUI_DEMEXTRACT

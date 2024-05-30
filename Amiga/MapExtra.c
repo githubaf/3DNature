@@ -2508,7 +2508,7 @@ struct BusyWindow *BWMD;
  D = pow(2.0, (double)MaxStage);
  d = D / 2;
 
- BWMD = BusyWin_New((char*)GetString( MSG_MAPEXTRA_COMPUTING ), MaxStage, 0, MakeID('B','W','M','D'));  // "Computing..."
+ BWMD = BusyWin_New((char*)GetString( MSG_GLOBAL_COMPUTING ), MaxStage, 0, MakeID('B','W','M','D'));  // "Computing..."
 
  for (Stage=0; Stage<MaxStage; Stage++)
   {

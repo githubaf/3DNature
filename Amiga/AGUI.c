@@ -711,7 +711,7 @@ STATIC_FCN void Handle_DB_Window(ULONG WCS_ID) // used locally only -> static, A
          {
          Database_LoadDisp(NoOfObjects, 1, NULL, 1);
 	 } /* if database loaded */
-        else NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULEAPPEND ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Database Module: Append", "a Database"
+        else NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULEAPPEND ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Database Module: Append", "a Database"
         break;
         } /* Append database */
        case ID_DB_CREATE:
@@ -722,13 +722,13 @@ STATIC_FCN void Handle_DB_Window(ULONG WCS_ID) // used locally only -> static, A
        case ID_DB_SAVE:
         {
         if (dbaseloaded) savedbase(1);
-         else NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULESAVE ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Database Module: Save", "a Database"
+         else NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULESAVE ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Database Module: Save", "a Database"
         break;
         } /* SaveAs database */
        case ID_DB_SAVECUR:
         {
         if (dbaseloaded) savedbase(0);
-         else NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULESAVE ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Database Module: Save", "a Database"
+         else NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULESAVE ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Database Module: Save", "a Database"
         break;
         } /* Save database */
        case ID_DB_LOADCONFIG:
@@ -972,7 +972,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
        case ID_DO_IMPORTDLG:
         {
         if (! dbaseloaded)
-         NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSIMPORTDLG ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Data Ops: Import DLG", "a Database"
+         NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSIMPORTDLG ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Data Ops: Import DLG", "a Database"
         else
          ImportDLG();
         break;
@@ -980,7 +980,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
        case ID_DO_IMPORTDXF:
         {
         if (! dbaseloaded)
-         NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSIMPORTDXF ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Data Ops: Import DXF", "a Database"
+         NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSIMPORTDXF ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Data Ops: Import DXF", "a Database"
         else
          ImportDXF();
         break;
@@ -994,7 +994,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
 /*        StrataConvert(); See ColorBlends.c for converting gray-scale image into a strata texture array */
 
         if (! dbaseloaded)
-         NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSIMPORTWDB ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Data Ops: Import WDB", "a Database"
+         NoLoad_Message((CONST_STRPTR) GetString( MSG_DLG_DATAOPSIMPORTWDB ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Data Ops: Import WDB", "a Database"
         else
          ImportWDB();
 
@@ -1022,7 +1022,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
    case WI_WINDOW3:
     {
     if (! dbaseloaded)
-     NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSMODULEINTERPDEM ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Data Ops Module: Interp DEM", "a Database"
+     NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSMODULEINTERPDEM ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Data Ops Module: Interp DEM", "a Database"
     else
      Handle_DI_Window(WCS_ID);
     break;
@@ -1030,7 +1030,7 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID) // used locally only -> static, A
    case WI_WINDOW4:
     {
     if (! dbaseloaded)
-     NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSMODULEEXTRACTDEM ) , (CONST_STRPTR) GetString( MSG_AGUI_ADATABASE ) );  // "Data Ops Module: Extract DEM", "a Database"
+     NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATAOPSMODULEEXTRACTDEM ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Data Ops Module: Extract DEM", "a Database"
     else
      Handle_DM_Window(WCS_ID);
     break;

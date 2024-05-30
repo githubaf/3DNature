@@ -564,7 +564,7 @@ struct Wave *WV;
  LatStep = 8.0 * (CD->Lat[1] - CD->Lat[0]) / (CD->Rows - 1);
  LonStep = 8.0 * (CD->Lon[1] - CD->Lon[0]) / (CD->Cols - 1);
 
- BWMD = BusyWin_New((char*)GetString( MSG_CLOUD_COMPUTING ), CD->Rows, 0, MakeID('B','W','M','D'));  // "Computing..."
+ BWMD = BusyWin_New((char*)GetString( MSG_GLOBAL_COMPUTING ), CD->Rows, 0, MakeID('B','W','M','D'));  // "Computing..."
 
  zip = 0;
  for (y=0, ptlat=CD->Lat[0] + CD->LatOff; y<=CD->Rows; y+=8, ptlat+=LatStep)

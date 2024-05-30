@@ -312,7 +312,7 @@ void Make_EE_Window(void)
 
 /* set LW style enter command for making key */
   DoMethod(EE_Win->EcosystemWin, MUIM_Notify, MUIA_Window_InputEvent,
-	GetString( MSG_EDECOGUI_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EE_MAKEKEY);  // "numericpad enter"
+	GetString( MSG_GLOBAL_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EE_MAKEKEY);  // "numericpad enter"
 
 /* Link arrow buttons to application */
   MUI_DoNotiPresFal(app, EE_Win->StrArrow[0], ID_EE_SARROWLEFT,

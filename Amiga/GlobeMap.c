@@ -726,7 +726,7 @@ RepeatAlloc2:
      } /* if fracount */
     } /* for ct=0... */
 
-   Log(DTA_NULL, GetString( MSG_GLMP_ECOSYSTEMS ));  // "Ecosystems:"
+   Log(DTA_NULL, GetString( MSG_INTVIEW_ECOSYSTEMS ));  // "Ecosystems:"
    for (ct=0; ct<ECOPARAMS; ct++)
     {
     if (ecocount[ct])

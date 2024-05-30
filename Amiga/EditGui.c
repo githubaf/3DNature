@@ -292,7 +292,7 @@ void Make_EC_Window(void)
 
 /* set LW style enter command for making key */
   DoMethod(EC_Win->EcoPalWin, MUIM_Notify, MUIA_Window_InputEvent,
-	GetString( MSG_EDITGUI_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EC_MAKEKEY);  // "numericpad enter"
+	GetString( MSG_GLOBAL_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EC_MAKEKEY);  // "numericpad enter"
 
 /* Link arrow buttons to application */
   for (i=0; i<6; i++)

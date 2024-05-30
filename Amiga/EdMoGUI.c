@@ -258,7 +258,7 @@ void Make_EM_Window(void)
 
 /* set LW style enter command for making key */
   DoMethod(EM_Win->MotionWin, MUIM_Notify, MUIA_Window_InputEvent,
-	GetString( MSG_EDMOGUI_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EM_MAKEKEY);  // "numericpad enter"
+	GetString( MSG_GLOBAL_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EM_MAKEKEY);  // "numericpad enter"
 
 /* Link arrow buttons to application */
   MUI_DoNotiPresFal(app,
@@ -1630,7 +1630,7 @@ void Make_EMIA_Window(void)
 
 /* set LW style enter command for making key */
   DoMethod(EMIA_Win->IAMotionWin, MUIM_Notify, MUIA_Window_InputEvent,
-	GetString( MSG_EDMOGUI_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EM_MAKEKEY);  // "numericpad enter"
+	GetString( MSG_GLOBAL_NUMERICPADENTER ), app, 2, MUIM_Application_ReturnID, ID_EM_MAKEKEY);  // "numericpad enter"
 
 /* tab cycle stuff */
 

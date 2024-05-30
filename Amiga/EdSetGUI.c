@@ -1213,7 +1213,7 @@ ES_Cycle_Data[2]=NULL;
 #ifdef USE_WCS_HELP
 #ifdef USE_SETTINGS_HELP
   DoMethod(ES_Win->SettingsWin, MUIM_Notify,
-	 MUIA_Window_InputEvent, GetString( MSG_EDSETGUI_HELP ),  /*"rcommand h",*/  // "help"
+	 MUIA_Window_InputEvent, GetString( MSG_GLOBAL_HELP ),  /*"rcommand h",*/  // "help"
 	app, 2, MUIM_Application_ReturnID, ID_ES_HELP);
 #endif /* USE_SETTINGS_HELP */
 #endif /* USE_WCS_HELP */
