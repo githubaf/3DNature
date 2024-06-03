@@ -229,7 +229,7 @@ void globemap(void)
    {
    if (User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGREFLECTIONBUFFERCONTINUEWITHOUTRE ),  // "Out of memory allocating Reflection buffer!\n\Continue without Reflections?"
-                    GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
                     (CONST_STRPTR)"oc"))
     settings.reflections = 0;
    else
@@ -291,7 +291,7 @@ void globemap(void)
    {
    if (User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                          // "Render Module"
                     GetString( MSG_GLMP_ERRORLOADINGWAVEFILECONSTSTRPTRCONTINUEWITHOUTWAVES ),   // "Error loading Wave File!\n\Continue without Waves?"
-                    GetString( MSG_GLMP_CONTINUECANCEL ),                                        // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                        // "Continue|Cancel"
                     (CONST_STRPTR)"oc"))
     settings.waves = 0;
    else
@@ -326,7 +326,7 @@ void globemap(void)
     {
     if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                  // "Render Module: Clouds"
                          GetString( MSG_GLMP_ERRORLOADINGCLOUDMAPFILEONTINUEWITHOUTCLOUDSHADOWS ),  // "Error loading Cloud Map file!\nContinue without cloud shadows?"
-                         GetString( MSG_GLMP_CONTINUECANCEL ),                                      // "Continue|Cancel"
+                         GetString( MSG_GLOBAL_CONTINUECANCEL ),                                      // "Continue|Cancel"
                          (CONST_STRPTR)"oc", 1))
      {
      CloudData_Del(CD);
@@ -356,7 +356,7 @@ void globemap(void)
    {
    if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                      // "Render Module: Clouds"
                         GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAPONTINUEWITHOUTCLOUDSHADOWS ),   // "Out of memory creating Cloud Map!\nContinue without cloud shadows?"
-                        GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
+                        GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
                         (CONST_STRPTR)"oc", 1))
     {
     settings.clouds = 0;
@@ -502,7 +502,7 @@ void globemap(void)
    CMap = NULL;
    if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                           GetString( MSG_GLMP_ERRORLOADINGMASTERCOLORMAPSEESTATUSLOGFORMOREINFORMATI ),  // "Error loading Master Color Map! See Status Log for more information.\n\Continue rendering without Color Map?"
-                          GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
+                          GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
                           (CONST_STRPTR)"oc", 1))
     goto Cleanup2;
    } /* if error loading color map */
@@ -515,7 +515,7 @@ void globemap(void)
    {
    if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                           GetString( MSG_GLMP_ERRORLOADINGSTRATADEFORMATIONMAPCONTINUERENDERINGWITHO ),  // "Error loading Strata Deformation Map!\n\Continue rendering without Deformation Map?"
-                          GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
+                          GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
                           (CONST_STRPTR)"oc", 1))
     goto Cleanup2;
    settings.deformationmap = 0;
@@ -545,7 +545,7 @@ void globemap(void)
   {
   if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                          GetString( MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX ),  // "Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?"
-                         GetString( MSG_GLMP_CONTINUECANCEL ),                                          // "Continue|Cancel"
+                         GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
                          (CONST_STRPTR)"oc", 1))
    goto Cleanup2;
   } /* else */

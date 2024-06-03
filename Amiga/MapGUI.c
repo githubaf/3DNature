@@ -224,7 +224,7 @@ STATIC_FCN void InitMapNewMenus(void)
 	if(Init)
 	{
 		Init=FALSE;
-		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_DATABASE );     // "Database"
+		MapNewMenus[i++].nm_Label= GetString( MSG_DB_DATABASE );     // "Database"
 		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_LOADOBJECTS );  // "Load Objects"
 		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ALL );          // "All"
 		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ACTIVE );       // "Active"
@@ -233,7 +233,7 @@ STATIC_FCN void InitMapNewMenus(void)
 		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ALL );          // "All"
 		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_ACTIVE );       // "Active"
 		i++;   // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_DATABASE );     // "Database"
+		MapNewMenus[i++].nm_Label= GetString( MSG_DB_DATABASE );     // "Database"
 		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CLEARWINDOW );  // "Clear Window"
 		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_PRINT );        // "Print"
 		MapNewMenus[i++].nm_Label= GetString( MSG_MAPGUI_CLOSEMAP );     // "Close Map"
@@ -260,7 +260,7 @@ STATIC_FCN void InitMapNewMenus(void)
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_REFINE );      // "Refine"
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FRACTALMAP );  // "Fractal Map"
 		i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
-		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_COLORMAP );    // "Color Map"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_DATAOPSGUI_COLORMAP );    // "Color Map"
 		i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FIXFLATS );    // "Fix Flats"
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FINDDISTANCE );// "Find Distance"
@@ -313,8 +313,8 @@ STATIC_FCN void InitMapNewMenus(void)
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FOUR );        // "Four"
 
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_WINDOWS );     // "Windows"
-		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_DEMDESIGNER ); // "DEM Designer"
-		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_CLOUDEDITOR ); // "Cloud Editor"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_DEMGUI_DEMDESIGNER ); // "DEM Designer"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_CLOUDGUI_CLOUDEDITOR ); // "Cloud Editor"
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_WAVEEDITOR );  // "Wave Editor"
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_VIEWSHED );    // "Viewshed"
 		/*

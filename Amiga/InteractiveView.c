@@ -72,7 +72,7 @@ short interactiveview(short new_window)
                 GetString( MSG_INTVIEW_CAMERAVIEWFAILEDTOOPENPERATIONTERMINATED ),  // "Camera View failed to open!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                        // "OK"
                 (CONST_STRPTR)"o");
-   Log(ERR_WIN_FAIL, GetString( MSG_INTVIEW_CAMERAVIEW ));  // "Camera View"
+   Log(ERR_WIN_FAIL, GetString( MSG_EDMOGUI_CAMERAVIEW ));  // "Camera View"
    goto Cleanup;
    } /* if error opening window */
   } /* if open new window */
@@ -556,7 +556,7 @@ void shaderelief(short reliefshade)
  zbufsize = (IA->scrnwidth + 1) * (IA->scrnheight + 1) * 4;
  if ((zbuf = (float *)get_Memory(zbufsize, MEMF_ANY)) == NULL)
   {
-  User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                   // "Camera View"
+  User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                   // "Camera View"
                GetString( MSG_GLMP_OUTOFMEMORYOPENINGZBUFFERPERATIONTERMINATED ),  // "Out of memory opening Z buffer!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                           // "OK"
                (CONST_STRPTR)"o");
@@ -564,7 +564,7 @@ void shaderelief(short reliefshade)
   } /* if */
  if ((bytemap = (USHORT *)get_Memory(zbufsize / 2, MEMF_CLEAR)) == NULL)
   {
-  User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                           // "Camera View"
+  User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                           // "Camera View"
                GetString( MSG_INTVIEW_OUTOFMEMORYOPENINGANTIALIASBUFFERPERATIONTERMINATED ),  // "Out of memory opening Antialias buffer!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                (CONST_STRPTR)"o");
@@ -603,7 +603,7 @@ void shaderelief(short reliefshade)
 RepeatAllocate:
   if ((elmap[i].lmap = (LONG *)get_Memory(elmap[i].size * 2, MEMF_ANY)) == NULL)
    {
-   if (User_Message_Def(GetString( MSG_INTVIEW_CAMERAVIEW ),                     // "Camera View"
+   if (User_Message_Def(GetString( MSG_EDMOGUI_CAMERAVIEW ),                     // "Camera View"
                         GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGDEMARRAY ),  // "Out of memory allocating DEM array!\n"
                         GetString( MSG_INTVIEW_RETRYCANCEL ),                    // "Retry|Cancel"
                         (CONST_STRPTR)"rc", 1))
@@ -619,7 +619,7 @@ RepeatAllocate:
    NumPoints = 6 * elmap[i].columns;
    if ((elmap[i].face = (struct faces *)get_Memory(NumPoints * sizeof (struct faces) , MEMF_ANY)) == NULL)
     {
-    if (User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                           // "Camera View"
+    if (User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                           // "Camera View"
                      GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
                      GetString( MSG_GLOBAL_OKCANCEL ),                                             // "OK|Cancel"
                     (CONST_STRPTR)"oc"))
@@ -755,7 +755,7 @@ void smallwindow(short diagnostics)
 
  if (! IA->gridpresent)
   {
-  User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                // "Camera View"
+  User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                // "Camera View"
                GetString( MSG_INTVIEW_GRIDMUSTBEPRESENTPLEASEREDRAWANDTRYAGAIN ),  // "Grid must be present, please redraw and try again."
                GetString( MSG_GLOBAL_OK ),                                        // "OK"
                (CONST_STRPTR)"o");
@@ -906,7 +906,7 @@ void smallwindow(short diagnostics)
 	SmWin[WindowNumber]->Title, flags, iflags, c0, c1, WCSScrn);
  if (! SmWin[WindowNumber]->win)
   {
-  User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                          // "Camera View"
+  User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                          // "Camera View"
                GetString( MSG_INTVIEW_ERROROPENINGSMALLRENDERINGWINDOWPERATIONTERMINATED ),  // "Error opening Small Rendering Window!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
@@ -1168,7 +1168,7 @@ void smallwindow(short diagnostics)
    if ((SmWin[WindowNumber]->elmap.face = (struct faces *)
 	get_Memory(NumPoints * sizeof (struct faces), MEMF_ANY)) == NULL)
     {
-    if (User_Message(GetString( MSG_INTVIEW_CAMERAVIEW ),                                           // "Camera View"
+    if (User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                           // "Camera View"
                      GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
                      GetString( MSG_GLOBAL_OKCANCEL ),                                             // "OK|Cancel"
                      (CONST_STRPTR)"oc"))

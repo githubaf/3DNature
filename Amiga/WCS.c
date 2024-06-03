@@ -156,7 +156,7 @@ int main(void)
 	WCSNewMenus[22].nm_Label= GetString(MSG_MENU_MOD_RENDER);
 //	WCSNewMenus[23].nm_Label= NM_BARLABEL,	 0 , 0, 0, 0 },
 	WCSNewMenus[24].nm_Label= GetString(MSG_MENU_MOD_MOTIONEDITOR);
-	WCSNewMenus[25].nm_Label= GetString(MSG_MENU_MOD_COLOREDITOR);
+	WCSNewMenus[25].nm_Label= GetString(MSG_EDITGUI_COLOREDITOR);
 	WCSNewMenus[26].nm_Label= GetString(MSG_MENU_MOD_ECOSYSEDITOR);
 
 	WCSNewMenus[27].nm_Label= GetString(MSG_MENU_PREFS);

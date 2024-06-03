@@ -1176,7 +1176,7 @@ void Handle_PJ_Window(ULONG WCS_ID)
       } /* graphpath */
      case 9:
       {
-      getfilename(0, (char*)GetString( MSG_MOREGUI_COLORMAPFILEPATH ), colormappath, colormapfile);  // "Color Map File Path"
+      getfilename(0, (char*)GetString( MSG_EDSETGUI_COLORMAPFILEPATH ), colormappath, colormapfile);  // "Color Map File Path"
       set(PJ_Win->Str[18], MUIA_String_Contents, (IPTR)colormappath);
       set(PJ_Win->Str[9], MUIA_String_Contents, (IPTR)colormapfile);
       break;

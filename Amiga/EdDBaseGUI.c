@@ -514,7 +514,7 @@ NewName:
        } /* for i=0... */
       if (found)
        {
-       if (! User_Message_Def(GetString( MSG_EDDB_DATABASEMODULENAME ),                             // "Database Module: Name"
+       if (! User_Message_Def(GetString( MSG_DB_DATABASEMODULENAME ),                             // "Database Module: Name"
                               GetString( MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME ) ,  // "Object name already present in database!\nTry a new name?"
 			      GetString( MSG_GLOBAL_OKCANCEL ),                                       // "OK|Cancel"
                               (CONST_STRPTR)"oc", 1))

@@ -96,7 +96,7 @@ MSG_MENU_MOD_MOTIONEDITOR
 Motion Editor
 
 ;
-MSG_MENU_MOD_COLOREDITOR
+MSG_EDITGUI_COLOREDITOR
 Color Editor
 
 ;
@@ -843,7 +843,7 @@ MSG_DATAOPSGUI_ADATABASE
 a Database
 eine Datenbank
 ;
-MSG_AGUI_DATABASEMODULESAVE
+MSG_DB_DATABASEMODULESAVE
 Database Module: Save
 Datenbank Modul: Speichern
 ;
@@ -1614,7 +1614,7 @@ MSG_DATAOPSGUI_MILES
 Miles
 Meilen
 ;
-MSG_DEMGUI_FEET
+MSG_DATAOPSGUI_FEET
 Feet
 Fuﬂ
 ;
@@ -2050,7 +2050,7 @@ OK|Canel
 ;
 MSG_DB_DATABASE
 Database
-
+Datenbank
 ;
 MSG_DB_NUMBEROFOBJECTS
 Number of objects = %d
@@ -2062,10 +2062,6 @@ Directory Created: %s
 ;
 MSG_DB_NEWDIRECTORYCREATEDMAKEITTHEDEFAULTDIRECTORY
 New directory created: %s. Make it the default directory?
-
-;
-MSG_DB_DATABASEMODULESAVE
-Database Module: Save
 
 ;
 MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA
@@ -2126,7 +2122,7 @@ Enter new object name.
 ;
 MSG_DB_DATABASEMODULENAME
 Database Module: Name
-
+Datenbank Modul: Name
 ;
 MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME
 Vector name already present in database!\nTry a new name?
@@ -2320,7 +2316,7 @@ MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED
 Input file not recognized as a DTED file!\nOperation terminated.
 
 ;
-MSG_DATAOPS_DTED
+MSG_DATAOPSGUI_DTED
 DTED
 
 ;
@@ -2328,7 +2324,7 @@ MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 !\nIllegal source value format/size combination!\nOperation terminated.
 
 ;
-MSG_DATAOPS_BINARRAY
+MSG_DATAOPSGUI_BINARRAY
 Bin Array
 
 ;
@@ -2358,14 +2354,6 @@ Vista DEM
 ;
 MSG_DATAOPSGUI_IFF
 IFF
-
-;
-MSG_DATAOPSGUI_DTED
-DTED
-
-;
-MSG_DATAOPSGUI_BINARRAY
-Bin Array
 
 ;
 MSG_DATAOPSGUI_COLORMAP
@@ -2431,10 +2419,6 @@ Latitude
 MSG_DATAOPSGUI_LONGITUDE
 Longitude
 
-;
-MSG_DATAOPSGUI_FEET
-Feet
-Fuﬂ
 ;
 MSG_DATAOPSGUI_INCHES
 Inches
@@ -3145,10 +3129,6 @@ MSG_EDDB_CREATE
 ;
 MSG_EDDB_ENTERNEWOBJECTNAME
 Enter new object name.
-
-;
-MSG_EDDB_DATABASEMODULENAME
-Database Module: Name
 
 ;
 MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME
@@ -4731,10 +4711,6 @@ MSG_EDSETGUI_DEFORMATIONMAPPATH
 Deformation Map Path
 
 ;
-MSG_EDITGUI_COLOREDITOR
-Color Editor
-
-;
 MSG_EDITGUI_OPTIONS
 Options
 
@@ -5316,9 +5292,9 @@ MSG_GLMP_OUTOFMEMORYALLOCATINGREFLECTIONBUFFERCONTINUEWITHOUTRE
 Out of memory allocating Reflection buffer!\nContinue without Reflections?
 
 ;
-MSG_GLMP_CONTINUECANCEL
+MSG_GLOBAL_CONTINUECANCEL
 Continue|Cancel
-
+Weiter|Abbrechen
 ;
 MSG_GLMP_DIAGNOSTICBUFFERSCANTBEGENERATEDFORMULTIPLESEGMENTORMU
 Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?
@@ -5604,10 +5580,6 @@ Editing Module: Interactive
 ;
 MSG_INTVIEW_CAMERAVIEWFAILEDTOOPENPERATIONTERMINATED
 Camera View failed to open!\nOperation terminated.
-
-;
-MSG_INTVIEW_CAMERAVIEW
-Camera View
 
 ;
 MSG_INTVIEW_OUTOFMEMORYOPENINGCAMERAVIEWPERATIONTERMINATED
@@ -6384,10 +6356,6 @@ Out of memory!\nNot enough for temporary topo array.\nOperation failed.
 
 ;
 ;
-MSG_MAPGUI_DATABASE
-Database
-Datenbank
-;
 MSG_MAPGUI_LOADOBJECTS
 Load Objects
 
@@ -6498,10 +6466,6 @@ Refine
 ;
 MSG_MAPGUI_FRACTALMAP
 Fractal Map
-
-;
-MSG_MAPGUI_COLORMAP
-Color Map
 
 ;
 MSG_MAPGUI_FIXFLATS
@@ -6639,14 +6603,6 @@ Vier
 MSG_MAPGUI_WINDOWS
 Windows
 Fenster
-;
-MSG_MAPGUI_DEMDESIGNER
-DEM Designer
-
-;
-MSG_MAPGUI_CLOUDEDITOR
-Cloud Editor
-
 ;
 MSG_MAPGUI_WAVEEDITOR
 Wave Editor
@@ -7067,10 +7023,6 @@ MSG_MAPTOPOOB_CANTOPENVECTORFILEFOROUTPUT
 Can't open vector file for output!
 
 ;
-MSG_MAPTOPOOB_CLOUDS
-Clouds
-
-;
 MSG_MAPTOPOOB_CLOUD
 Cloud %d
 
@@ -7477,10 +7429,6 @@ Background Path/Name
 ;
 MSG_MOREGUI_GRAPHICSAVEPATHNAME
 Graphic Save Path/Name
-
-;
-MSG_MOREGUI_COLORMAPFILEPATH
-Color Map File Path
 
 ;
 MSG_MOREGUI_ECOSYSTEMMODELPATH
@@ -8499,10 +8447,6 @@ MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE
 Make this file the Project Wave File?
 
 ;
-MSG_WAVGUI_CLOUDWAVEEDITOR
-Cloud Wave Editor
-
-;
 MSG_WAVGUI_ENTERFRAMETOMAKEKEYFOR
 Enter frame to make key for.
 
@@ -8650,10 +8594,6 @@ Map View: Grid DEM
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOLA
 The ratio of vertical to horizontal map dimensions is too large for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
 
-;
-MSG_NNCRUNCH_CONTINUECANCEL
-Continue|Cancel
-Weiter|Abbrechen
 ;
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM
 The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?

@@ -3236,7 +3236,7 @@ Cleanup:
                 GetString( MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED ),  // "Input file not recognized as a DTED file!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
-   Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPS_DTED ));  // "DTED"
+   Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPSGUI_DTED ));  // "DTED"
    break;
    }
   case 16:
@@ -3245,7 +3245,7 @@ Cleanup:
                 GetString( MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI ),  // "!\nIllegal source value format/size combination!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
-   Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPS_BINARRAY ) );  // "Bin Array"
+   Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPSGUI_BINARRAY ) );  // "Bin Array"
    break;
    }
   case 17:
@@ -3254,7 +3254,7 @@ Cleanup:
                 GetString( MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI ),  // "!\nIllegal target value format/size combination!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
-   Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPS_BINARRAY ) );  // "Bin Array"
+   Log(ERR_WRONG_TYPE, GetString( MSG_DATAOPSGUI_BINARRAY ) );  // "Bin Array"
    break;
    }
   case 50:

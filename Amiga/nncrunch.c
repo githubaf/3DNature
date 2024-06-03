@@ -1680,7 +1680,7 @@ STATIC_FCN short TooSteep(struct NNGrid *NNG) // used locally only -> static, AF
 
    if (User_Message(GetString( MSG_NNCRUNCH_MAPVIEWGRIDDEM ),                                      // "Map View: Grid DEM"
                     GetString( MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOLA ),  // "The ratio of vertical to horizontal map dimensions is too large for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?"
-                    GetString( MSG_NNCRUNCH_CONTINUECANCEL ),                                      // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                      // "Continue|Cancel"
                     (CONST_STRPTR)"oc"))
     {
     NNG->igrad = 0;
@@ -1697,7 +1697,7 @@ STATIC_FCN short TooShallow(struct NNGrid *NNG) // used locally only -> static, 
 
    if (User_Message(GetString( MSG_NNCRUNCH_MAPVIEWGRIDDEM ) ,                                     // "Map View: Grid DEM"
                     GetString( MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM ),  // "The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?"
-                    GetString( MSG_NNCRUNCH_CONTINUECANCEL ),                                      // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                      // "Continue|Cancel"
                     (CONST_STRPTR)"oc"))
     {
     NNG->igrad = 0;
@@ -1714,7 +1714,7 @@ STATIC_FCN short TooNarrow(struct NNGrid *NNG) // used locally only -> static, A
 
    if (User_Message(GetString( MSG_NNCRUNCH_MAPVIEWGRIDDEM ),                                      // "Map View: Grid DEM"
                     GetString( MSG_NNCRUNCH_THERATIOOFWIDTHTOLENGTHOFTHISGRIDDEDREGIONMAYBETOO ),  // "The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now with the present dimensions?"
-                    GetString( MSG_NNCRUNCH_CONTINUECANCEL ),                                      // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                      // "Continue|Cancel"
                     (CONST_STRPTR)"oc"))
     {
     return (1);

@@ -722,13 +722,13 @@ STATIC_FCN void Handle_DB_Window(ULONG WCS_ID) // used locally only -> static, A
        case ID_DB_SAVE:
         {
         if (dbaseloaded) savedbase(1);
-         else NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULESAVE ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Database Module: Save", "a Database"
+         else NoLoad_Message((CONST_STRPTR) GetString( MSG_DB_DATABASEMODULESAVE ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Database Module: Save", "a Database"
         break;
         } /* SaveAs database */
        case ID_DB_SAVECUR:
         {
         if (dbaseloaded) savedbase(0);
-         else NoLoad_Message((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULESAVE ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Database Module: Save", "a Database"
+         else NoLoad_Message((CONST_STRPTR) GetString( MSG_DB_DATABASEMODULESAVE ) , (CONST_STRPTR) GetString( MSG_DATAOPSGUI_ADATABASE ) );  // "Database Module: Save", "a Database"
         break;
         } /* Save database */
        case ID_DB_LOADCONFIG:

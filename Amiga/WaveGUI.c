@@ -580,7 +580,7 @@ struct WaveWindow *WV_Win;
    if (WinNum == 0)
     Make_WV_Window(WinNum, (char*)GetString( MSG_WAVGUI_WAVEEDITOR ));  // "Wave Editor"
    else
-    Make_WV_Window(WinNum, (char*)GetString( MSG_WAVGUI_CLOUDWAVEEDITOR ));  // "Cloud Wave Editor"
+    Make_WV_Window(WinNum, (char*)GetString( MSG_CLOUDGUI_CLOUDWAVEEDITOR ));  // "Cloud Wave Editor"
    return;
    } /* Open Wave Editor Window */
 

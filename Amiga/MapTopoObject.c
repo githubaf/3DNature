@@ -1609,7 +1609,7 @@ short MapCloudObject(struct elmapheaderV101 *map, struct CloudData *CD,
 */
  CL = CD->Layer;
 
- BWCL = BusyWin_New((char*)GetString( MSG_MAPTOPOOB_CLOUDS ), CD->NumLayers, 1, MakeID('B','W','C','L'));  // "Clouds"
+ BWCL = BusyWin_New((char*)GetString( MSG_EDPAR_CLOUDS ), CD->NumLayers, 1, MakeID('B','W','C','L'));  // "Clouds"
 
 /* find ampl. range */
 
