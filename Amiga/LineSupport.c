@@ -348,7 +348,7 @@ short InitDigPerspective(void)
  short NewArray, NewObj;
 
  if ((NewObj = User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
-                                GetString( MSG_LINESPRT_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCREATEA ),  // "Digitize new points for the active vector object or create a new object?"
+                                GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),  // "Digitize new points for the active vector object or create a new object?"
                                 GetString( MSG_GLOBAL_ACTIVENEWCANCEL ),                                     // "Active|New|Cancel"
                                 (CONST_STRPTR)"anc", 1)) == 0)
   return (0);
@@ -471,9 +471,9 @@ short VectorToPath(short item)
   {
   if (Load_Object(OBN, NULL) > 0)
    {
-   User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                           // "Mapping Module: Path"
-                GetString( MSG_LINESPRT_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED ),  // "Error loading vector object!\nOperation terminated."
-                GetString( MSG_GLOBAL_OK ),                                          // "OK"
+   User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                     // "Mapping Module: Path"
+                GetString( MSG_MAP_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED),  // "Error loading vector object!\nOperation terminated."
+                GetString( MSG_GLOBAL_OK ),                                      // "OK"
                 (CONST_STRPTR)"o");
    return (0);
    } /* if load error */
@@ -494,7 +494,7 @@ short VectorToPath(short item)
 */
    if (! User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
                       GetString( MSG_LINESPRT_CAMERAKEYFRAMESEXISTPROCEEDINGWILLDELETECURRENTVAL ),  // "Camera Key Frames exist. Proceeding will delete current values!"
-                      GetString( MSG_LINESPRT_PROCEEDCANCEL ),                                       // "Proceed|Cancel"
+                      GetString( MSG_MOREGUI_PROCEEDCANCEL ),                                       // "Proceed|Cancel"
                       (CONST_STRPTR)"pc"))
     return (0);
    } /* if cancel */
@@ -514,7 +514,7 @@ short VectorToPath(short item)
 */
    if (! User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
                       GetString( MSG_LINESPRT_FOCUSKEYFRAMESEXISTPROCEEDINGWILLDELETECURRENTVALU ),  // "Focus Key Frames exist. Proceeding will delete current values!"
-                      GetString( MSG_LINESPRT_PROCEEDCANCEL ) ,                                      // "Proceed|Cancel"
+                      GetString( MSG_MOREGUI_PROCEEDCANCEL ) ,                                      // "Proceed|Cancel"
                       (CONST_STRPTR)"pc"))
     return (0);
    } /* if cancel */

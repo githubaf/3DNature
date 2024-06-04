@@ -644,7 +644,7 @@ void Handle_EC_Window(ULONG WCS_ID)
       } /* delete key */
      case ID_EC_DELETEALL:
       {
-      sprintf(str, (char*)GetString( MSG_EDITGUI_DELETEALLKEYFRAMES ), PAR_NAME_COLOR(EC_Win->PalItem));  // "Delete all %s Key Frames?"
+      sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), PAR_NAME_COLOR(EC_Win->PalItem));  // "Delete all %s Key Frames?"
       if (User_Message_Def(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
                            (CONST_STRPTR)str,
                            GetString( MSG_GLOBAL_OKCANCEL ),               // "OK|Cancel"

@@ -633,7 +633,7 @@ void Handle_EE_Window(ULONG WCS_ID)
       long FrameKey;
 
       sprintf(str, "%d", EE_Win->Frame);
-      if (! GetInputString((char*)GetString( MSG_EDECOGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
+      if (! GetInputString((char*)GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
 	 "abcdefghijklmnopqrstuvwxyz", str))
        break;
       FrameKey = atoi(str);
@@ -704,7 +704,7 @@ void Handle_EE_Window(ULONG WCS_ID)
       } /* delete key */
      case ID_EE_DELETEALL:
       {
-      sprintf(str, (char*)GetString( MSG_EDECOGUI_DELETEALLKEYFRAMES ), PAR_NAME_ECO(EE_Win->EcoItem));  // "Delete all %s Key Frames?"
+      sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), PAR_NAME_ECO(EE_Win->EcoItem));  // "Delete all %s Key Frames?"
       if (User_Message_Def(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                          // "Parameters Module: Ecosystem"
                            (CONST_STRPTR)str,
                            GetString( MSG_GLOBAL_OKCANCEL ),                                           // "OK|Cancel",

@@ -315,7 +315,7 @@ STATIC_FCN void InitMapNewMenus(void)
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_WINDOWS );     // "Windows"
 		MapNewMenus[i++].nm_Label=  GetString( MSG_DEMGUI_DEMDESIGNER ); // "DEM Designer"
 		MapNewMenus[i++].nm_Label=  GetString( MSG_CLOUDGUI_CLOUDEDITOR ); // "Cloud Editor"
-		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_WAVEEDITOR );  // "Wave Editor"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_WAVGUI_WAVEEDITOR );  // "Wave Editor"
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_VIEWSHED );    // "Viewshed"
 		/*
 MapNewMenus[i++].nm_Label=  {  NM_ITEM, (STRPTR)"Particle Tree",	 0 , 0, 0, (APTR)(ID_MC_PARTICLETREE) },

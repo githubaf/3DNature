@@ -74,7 +74,7 @@ RetrySmooth:
    {
    if (User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
                         GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
-                        GetString( MSG_MAPTOPOOB_RETRYCANCEL ),                               // "Retry|Cancel"
+                        GetString( MSG_INTVIEW_RETRYCANCEL ),                               // "Retry|Cancel"
                         (CONST_STRPTR)"rc", 1))
     goto RetrySmooth;
    else
@@ -2588,7 +2588,7 @@ RepeatLoad:
             sprintf(str, (char*)GetString( MSG_GLMP_OUTOFMEMORYREADINGMAP ), DBase[OBN].Name);  // "Out of memory reading map %s!"
             if (User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                        // "Render Module: Topo"
                                  (CONST_STRPTR)str,
-                                 GetString( MSG_MAPTOPOOB_RETRYCANCEL ),                             //"Retry|Cancel",
+                                 GetString( MSG_INTVIEW_RETRYCANCEL ),                             //"Retry|Cancel",
                                  (CONST_STRPTR)"rc", 1))
              {
              error = -1;

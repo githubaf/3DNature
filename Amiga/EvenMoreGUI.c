@@ -635,7 +635,7 @@ STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.202
   if (! PN_Win->NewProjWin)
    {
    Close_PN_Window(0);
-   User_Message(GetString( MSG_EVMORGUI_PROJECTNEWEDIT ),  // "Project: New/Edit"
+   User_Message(GetString( MSG_MOREGUI_PROJECTNEWEDIT ),  // "Project: New/Edit"
                 GetString( MSG_EVMORGUI_OUTOFMEMORY ),     // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),              // "OK"
                 (CONST_STRPTR)"o");

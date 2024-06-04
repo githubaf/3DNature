@@ -1813,7 +1813,7 @@ void Viewshed_Map(long OBN)
    {
    User_Message(GetString( MSG_MAP_DBASEOBNNAME ),                                // "DBase[OBN].Name"
                 GetString( MSG_MAP_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED ),  // "Error loading vector object!\nOperation terminated."
-                GetString( MSG_GLOBAL_OK ),                                          // "OK"
+                GetString( MSG_GLOBAL_OK ),                                       // "OK"
                 (CONST_STRPTR)"o");
    return;
    } /* if load fail */

@@ -499,7 +499,7 @@ void Handle_DE_Window(ULONG WCS_ID)
       strcpy(str, DBase[OBN].Name);
 NewName:
       found = 0;
-      if (! GetInputString((char*)GetString( MSG_EDDB_ENTERNEWOBJECTNAME ), ":;*/?`#%", str))  // "Enter new object name."
+      if (! GetInputString((char*)GetString( MSG_DB_ENTERNEWOBJECTNAME ), ":;*/?`#%", str))  // "Enter new object name."
        break;
       while (strlen(str) < length[0])
        strcat(str, " ");

@@ -639,7 +639,7 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
  else if ((NewName && NewName != 2) || ! projectpath[0] || ! projectname[0])
   {
   strcpy(Ptrn, "#?.proj");
-  if (! getfilenameptrn(1, (char*)GetString( MSG_SUPPORT_PROJECTPATHNAME ), projectpath, projectname, Ptrn))  // "Project Path/Name"
+  if (! getfilenameptrn(1, (char*)GetString( MSG_MOREGUI_PROJECTPATHNAME ), projectpath, projectname, Ptrn))  // "Project Path/Name"
    return (0);
   strmfp(filename, projectpath, projectname);
   } /* if new name */
@@ -975,7 +975,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
  else
   {
   strcpy(Ptrn, "#?.proj");
-  if (! getfilenameptrn(0, (char*)GetString( MSG_SUPPORT_PROJECT ), projectpath, projectname, Ptrn))  // "Project"
+  if (! getfilenameptrn(0, (char*)GetString( MSG_MENU_PROJECT ), projectpath, projectname, Ptrn))  // "Project"
   return (0);
   strmfp(filename, projectpath, projectname);
   } /* else */
@@ -1479,7 +1479,7 @@ short LoadDirList(void)
  strcpy(name, projectname);
  strcpy(Ptrn, "#?.proj");
 
- if (! getfilenameptrn(0, (char*)GetString( MSG_SUPPORT_DIRECTORYLIST ), path, name, Ptrn))  // "Directory List"
+ if (! getfilenameptrn(0, (char*)GetString( MSG_EDDB_DIRECTORYLIST ), path, name, Ptrn))  // "Directory List"
   return (0);
 
  strmfp(filename, path, name);

@@ -434,7 +434,7 @@ void Close_CL_Window(void)
    {
    if (CL_Win->Mod)
     {
-    if (User_Message_Def(GetString( MSG_CLOUDGUI_PARAMETERSMODULEMODEL ) ,  // "Parameters Module: Model"
+    if (User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ) ,  // "Parameters Module: Model"
     		         GetString( MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE ) ,  // "The current Cloud Model has been modified. Do you wish to save it before closing?"
 		         GetString( MSG_GLOBAL_YESNO ) ,  // "Yes|No"
                          (CONST_STRPTR)"yn", 1))
@@ -572,7 +572,7 @@ double FloatVal;
       char FrameStr[32];
 
       sprintf(FrameStr, "%d", CL_Win->WKS.Frame);
-      if (! GetInputString((char*)GetString( MSG_CLOUDGUI_ENTERFRAMETOMAKEKEYFOR ) ,  // "Enter frame to make key for."
+      if (! GetInputString((char*)GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ) ,  // "Enter frame to make key for."
     		  (char*)"abcdefghijklmnopqrstuvwxyz", FrameStr))
        break;
 
@@ -1516,7 +1516,7 @@ union KeyFrame *KF;
 /* get frame number for new key */
 
  sprintf(str, "%d", 0);
- if (! GetInputString((char*)GetString( MSG_CLOUDGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
+ if (! GetInputString((char*)GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
 		 (char*)"abcdefghijklmnopqrstuvwxyz", str))
   return (0);
 

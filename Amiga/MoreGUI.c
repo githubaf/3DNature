@@ -809,7 +809,7 @@ void Make_PJ_Window(void)
 	    End, /* HGroup */
 
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_DEFORMATIONMAPPATH_SPACES )),  // "Deformation Map Path"
+	    Child, Label2(GetString( MSG_MOREGUI_DEFORMATIONMAPPATH )),  // "Deformation Map Path"
 	    Child, PJ_Win->Str[25] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, deformpath, End,
@@ -1183,7 +1183,7 @@ void Handle_PJ_Window(ULONG WCS_ID)
       } /* colormappath */
      case 10:
       {
-      getfilename(0, (char*)GetString( MSG_MOREGUI_ECOSYSTEMMODELPATH ), modelpath, dummyfile);  // "Ecosystem Model Path"
+      getfilename(0, (char*)GetString( MSG_EDSETGUI_ECOSYSTEMMODELPATH ), modelpath, dummyfile);  // "Ecosystem Model Path"
       set(PJ_Win->Str[19], MUIA_String_Contents, (IPTR)modelpath);
       break;
       } /* modelpath */
@@ -1722,7 +1722,7 @@ void Make_PR_Window(void)
  Set_Param_Menu(10);
 
      PR_Win->PrefsWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_MOREGUI_PREFERENCES ),  // "Preferences"
+      MUIA_Window_Title		, GetString( MSG_MENU_PREFS ),  // "Preferences"
       MUIA_Window_ID		, MakeID('P','R','E','F'),
       MUIA_Window_Screen	, WCSScrn,
 
@@ -1791,7 +1791,7 @@ void Make_PR_Window(void)
   if (! PR_Win->PrefsWin)
    {
    Close_PR_Window();
-   User_Message(GetString( MSG_MOREGUI_PREFERENCES ),  // "Preferences"
+   User_Message(GetString( MSG_MENU_PREFS ),  // "Preferences"
                 GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),           // "OK"
                 (CONST_STRPTR)"o");

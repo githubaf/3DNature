@@ -664,7 +664,7 @@ struct WaveWindow *WV_Win;
       char FrameStr[32];
 
       sprintf(FrameStr, "%d", WV_Win->WKS.Frame);
-      if (! GetInputString((char*)GetString( MSG_WAVGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
+      if (! GetInputString((char*)GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
 	 "abcdefghijklmnopqrstuvwxyz", FrameStr))
        break;
 

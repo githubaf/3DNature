@@ -92,7 +92,7 @@ MSG_MENU_MOD_RENDER
 Render
 
 ;
-MSG_MENU_MOD_MOTIONEDITOR
+MSG_EDMOGUI_MOTIONEDITOR
 Motion Editor
 
 ;
@@ -1304,7 +1304,7 @@ MSG_GLOBAL_OUTOFMEMORY
 Out of memory!
 Nicht genügend Speicher!
 ;
-MSG_CLOUDGUI_PARAMETERSMODULEMODEL
+MSG_PARGUI_PARAMETERSMODULEMODEL
 Parameters Module: Model
 Parameter Modul: Modell
 ;
@@ -1328,7 +1328,7 @@ MSG_CLOUDGUI_CLOUDWAVEEDITOR
 Cloud Wave Editor
 
 ;
-MSG_CLOUDGUI_ENTERFRAMETOMAKEKEYFOR
+MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR
 Enter frame to make key for.
 
 ;
@@ -1394,7 +1394,7 @@ MSG_DEM_NEWNAMEABORT
 New Name|Abort
 
 ;
-MSG_DEM_ENTERNEWOBJECTNAME
+MSG_DB_ENTERNEWOBJECTNAME
 Enter new object name.
 
 ;
@@ -2114,10 +2114,6 @@ Unsupported file version! Object not loaded.
 ;
 MSG_DB_OBJECTDIRECTORY
 Object Directory
-
-;
-MSG_DB_ENTERNEWOBJECTNAME
-Enter new object name.
 
 ;
 MSG_DB_DATABASEMODULENAME
@@ -3127,10 +3123,6 @@ MSG_EDDB_CREATE
 \33cCreate\x20
 
 ;
-MSG_EDDB_ENTERNEWOBJECTNAME
-Enter new object name.
-
-;
 MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME
 Object name already present in database!\nTry a new name?
 
@@ -3197,7 +3189,7 @@ MSG_EDDB_LOAD
 ;
 MSG_EDDB_DIRECTORYLIST
 Directory List
-
+Verzeichnisliste
 ;
 ;
 MSG_EDDB_DELETEOBJECTELEVATIONANDRELATIVEELEVATIONFILESFROMDISKASWELL
@@ -3456,11 +3448,7 @@ MSG_EDECOGUI_UNDERSTORYECOSYSTEM
 \33c\0334Understory Ecosystem
 
 ;
-MSG_EDECOGUI_ENTERFRAMETOMAKEKEYFOR
-Enter frame to make key for.
-
-;
-MSG_EDECOGUI_DELETEALLKEYFRAMES
+MSG_EDMOGUI_DELETEALLKEYFRAMES
 Delete all %s Key Frames?
 
 ;
@@ -3484,10 +3472,6 @@ MSG_EDECOGUI_WINDAZ
    Wind Az\x20
 
 ;
-;
-MSG_EDMOGUI_MOTIONEDITOR
-Motion Editor
-
 ;
 MSG_EDMOGUI_OPTIONS
 Options
@@ -3621,16 +3605,8 @@ MSG_EDMOGUI_INTERACTIVEMODULEMUSTBEOPENBEFOREAUTOCENTERING
 Interactive module must be open before auto centering!
 
 ;
-MSG_EDMOGUI_DELETEALLKEYFRAMES
-Delete all %s Key Frames?
-
-;
 MSG_EDMOGUI_PARAMETERSMODULEMOTION
 Parameters Module: Motion
-
-;
-MSG_EDMOGUI_ENTERFRAMETOMAKEKEYFOR
-Enter frame to make key for.
 
 ;
 MSG_EDMOGUI_MAKEKEYFRAMESFORFOCUSPARAMETERSALSO
@@ -3757,7 +3733,7 @@ MSG_EDMOGUI_CAMERAVIEWASPECT
 Camera View: Aspect
 
 ;
-MSG_EDMOGUI_INTERACTIVEMOTION
+MSG_INTVIEW_INTERACTIVEMOTION
 Interactive Motion
 
 ;
@@ -4707,7 +4683,7 @@ MSG_EDSETGUI_ECOSYSTEMMODELPATH
 Ecosystem Model Path
 
 ;
-MSG_EDSETGUI_DEFORMATIONMAPPATH
+MSG_MOREGUI_DEFORMATIONMAPPATH
 Deformation Map Path
 
 ;
@@ -4791,16 +4767,8 @@ MSG_EDITGUI_KEEP
 \33cKeep
 
 ;
-MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR
-Enter frame to make key for.
-
-;
 MSG_EDITGUI_UNUSED
 Unused
-
-;
-MSG_EDITGUI_DELETEALLKEYFRAMES
-Delete all %s Key Frames?
 
 ;
 MSG_EDITGUI_PARAMETERSMODULECOLOR
@@ -4932,9 +4900,9 @@ MSG_EVMORGUI_SAVE
 \33cSave
 
 ;
-MSG_EVMORGUI_PROJECTNEWEDIT
+MSG_MOREGUI_PROJECTNEWEDIT
 Project: New/Edit
-
+Projekt: Neu/Bearbeiten
 ;
 MSG_EVMORGUI_NEWPROJECTPATHNAME
 New Project Path/Name
@@ -5069,10 +5037,6 @@ MSG_FOLIGUI_VIEW
 MSG_FOLIGUI_KEEP
 \33cKeep
 \33cBehalten
-;
-MSG_FOLIGUI_KEEPCHANGES
-Keep changes?
-Änderungen behalten?
 ;
 MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE
 Foliage Editor: View Image
@@ -5352,7 +5316,7 @@ MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED
 Error creating Cloud Map! Either out of memory or user aborted.
 
 ;
-MSG_GLMP_RETRYCANCEL
+MSG_INTVIEW_RETRYCANCEL
 Retry|Cancel
 
 ;
@@ -5428,7 +5392,7 @@ MSG_GLMP_OUTOFMEMORYREADINGMAP
 Out of memory reading map %s!
 
 ;
-MSG_GLMP_RENDERMODULETOPO
+MSG_MAPTOPOOB_RENDERMODULETOPO
 Render Module: Topo
 
 ;
@@ -5610,10 +5574,6 @@ MSG_INTVIEW_OUTOFMEMORYALLOCATINGDEMARRAY
 Out of memory allocating DEM array!\n
 
 ;
-MSG_INTVIEW_RETRYCANCEL
-Retry|Cancel
-
-;
 MSG_INTVIEW_GRIDMUSTBEPRESENTPLEASEREDRAWANDTRYAGAIN
 Grid must be present, please redraw and try again.
 
@@ -5649,10 +5609,6 @@ Parameters Module: Preview
 ;
 MSG_INTVIEW_RESTORETHEPARAMETERSUSEDTOCREATETHISPREVIEW
 Restore the Parameters used to create this preview?
-
-;
-MSG_INTVIEW_INTERACTIVEMOTION
-Interactive Motion
 
 ;
 MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI
@@ -5725,7 +5681,7 @@ The output image size is not a standard LightWave image size. The zoom factor an
 
 ;
 ;
-MSG_LINESPRT_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCREATEA
+MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR
 Digitize new points for the active vector object or create a new object?
 
 ;
@@ -5757,7 +5713,7 @@ MSG_LINESPRT_APARAMETERFILE
 a Parameter file
 
 ;
-MSG_LINESPRT_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED
+MSG_MAP_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED
 Error loading vector object!\nOperation terminated.
 
 ;
@@ -5765,7 +5721,7 @@ MSG_LINESPRT_CAMERAKEYFRAMESEXISTPROCEEDINGWILLDELETECURRENTVAL
 Camera Key Frames exist. Proceeding will delete current values!
 
 ;
-MSG_LINESPRT_PROCEEDCANCEL
+MSG_MOREGUI_PROCEEDCANCEL
 Proceed|Cancel
 
 ;
@@ -5958,10 +5914,6 @@ MSG_MAP_SETSECONDCORNERPOINT
 Set second corner point
 Zweiten Eckpunkt festlegen
 ;
-MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR
-Digitize new points for the active vector object or create a new object?
-
-;
 MSG_MAP_MAPVIEWDIGITIZE
 Map View: Digitize
 
@@ -6012,10 +5964,6 @@ Create Visual Sensitivity map for this object?
 ;
 MSG_MAP_DBASEOBNNAME
 DBase[OBN].Name
-
-;
-MSG_MAP_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED
-Error loading vector object!\nOperation terminated.
 
 ;
 MSG_MAP_VISUALSENSITIVITY
@@ -6604,7 +6552,7 @@ MSG_MAPGUI_WINDOWS
 Windows
 Fenster
 ;
-MSG_MAPGUI_WAVEEDITOR
+MSG_WAVGUI_WAVEEDITOR
 Wave Editor
 
 ;
@@ -6999,10 +6947,6 @@ Save Color Map As:
 
 ;
 ;
-MSG_MAPTOPOOB_RETRYCANCEL
-Retry|Cancel
-
-;
 MSG_MAPTOPOOB_ERRORALLOCATINGORREADINGFRACTALINDEXARRAYSCONTINU
 Error allocating or reading Fractal Index arrays!\nContinue without Fractal Displacement Mapping?
 
@@ -7049,10 +6993,6 @@ Animation
 ;
 MSG_MAPTOPOOB_FRAME
 Frame %d/%d
-
-;
-MSG_MAPTOPOOB_RENDERMODULETOPO
-Render Module: Topo
 
 ;
 ;
@@ -7238,10 +7178,6 @@ MSG_MOREGUI_PLEASEENTERTHELATITUDEANDLONGITUDEVALUESFORTHESOUTH
 Please enter the latitude and longitude values for the southeast corner of the current DEM in the string gadgets near the top of the DEM Extract Window.
 
 ;
-MSG_MOREGUI_PROCEEDCANCEL
-Proceed|Cancel
-
-;
 ; --- Check Menu:Project/Edit for correct alignement done by trailing spaces ---
 MSG_MOREGUI_FIRSTPAGE
 First Page
@@ -7351,10 +7287,6 @@ MSG_MOREGUI_WAVEFILENAME_SPACES
 Wave File Name\x20\x20\x20\x20\x20\x20
 
 ;
-MSG_MOREGUI_DEFORMATIONMAPPATH_SPACES
-Deformation Map Path
-
-;
 MSG_MOREGUI_DEFORMATIONMAPNAME_SPACES
 Deformation Map Name
 
@@ -7391,13 +7323,9 @@ MSG_MOREGUI_SAVE
 \33cSave
 \33cSpeichern
 ;
-MSG_MOREGUI_PROJECTNEWEDIT
-Project: New/Edit
-Projekt: Neu/Bearbeiten
-;
 MSG_MOREGUI_PROJECTPATHNAME
 Project Path/Name
-
+Projekt Pfad/Name
 ;
 MSG_MOREGUI_DATABASEPATHNAME
 Database Path/Name
@@ -7429,10 +7357,6 @@ Background Path/Name
 ;
 MSG_MOREGUI_GRAPHICSAVEPATHNAME
 Graphic Save Path/Name
-
-;
-MSG_MOREGUI_ECOSYSTEMMODELPATH
-Ecosystem Model Path
 
 ;
 MSG_MOREGUI_DEFAULTDIRECTORY
@@ -7506,10 +7430,6 @@ Parameters: Image Scale
 MSG_MOREGUI_APPLYCHANGES
 Apply changes?
 Änderungen anwenden?
-;
-MSG_MOREGUI_PREFERENCES
-Preferences
-Einstellungen
 ;
 MSG_MOREGUI_RENDERTASKPRIORITY
 \33c\0334Render Task Priority
@@ -7726,10 +7646,6 @@ MSG_PARGUI_EXPORT
 ;
 MSG_PARGUI_LIGHTWAVEIO
 LightWave I/O
-
-;
-MSG_PARGUI_PARAMETERSMODULEMODEL
-Parameters Module: Model
 
 ;
 MSG_PARGUI_OUTOFMEMORYANTOPENMODELDESIGNWINDOW
@@ -8002,10 +7918,6 @@ MSG_SUPPORT_WCSCONFIGURATIONLOAD
 WCS Configuration: Load
 WCS Konfiguration: Laden
 ;
-MSG_SUPPORT_PROJECTPATHNAME
-Project Path/Name
-Projekt Pfad/Name
-;
 MSG_SUPPORT_WCSPROJECTSAVE
 WCS Project: Save
 WCS Projekt: Speichern
@@ -8026,10 +7938,6 @@ MSG_SUPPORT_BOTHDBASEPARAMSNO
 Both|D'base|Params|No
 Beide|Datenbank|Parameter|Keine
 ;
-MSG_SUPPORT_PROJECT
-Project
-Projekt
-;
 MSG_SUPPORT_WCSPROJECTLOAD
 WCS Project: Load
 WCS Projekt: Laden
@@ -8045,10 +7953,6 @@ Keine WCS Projektatei!\nVorgang abgebrochen.
 MSG_SUPPORT_ILLEGALMAPREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUAL
 Illegal map registration values! High and low X or Y values are equal.
 
-;
-MSG_SUPPORT_DIRECTORYLIST
-Directory List
-Verzeichnisliste
 ;
 MSG_SUPPORT_DIRECTORYLISTLOAD
 Directory List: Load
@@ -8223,10 +8127,6 @@ Ecosystem Editor: Time Lines
 MSG_TLGUI_ECOSYSTEMTIMELINES
 Ecosystem Time Lines
 Ökosystem Zeitleisten
-;
-MSG_TREE_PARAMETERSMODULEMODEL
-Parameters Module: Model
-Parameter Modul: Modell
 ;
 MSG_TREE_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMINAT
 Error opening Ecosystem Model file for input!\nOperation terminated.
@@ -8431,10 +8331,6 @@ MSG_WAVGUI_SCALEKEYS
 \33cScale Keys\x20
 
 ;
-MSG_WAVGUI_WAVEEDITOR
-Wave Editor
-
-;
 MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB
 The current Wave Model has been modified. Do you wish to save it before closing?
 
@@ -8445,10 +8341,6 @@ Wave Path/File
 ;
 MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE
 Make this file the Project Wave File?
-
-;
-MSG_WAVGUI_ENTERFRAMETOMAKEKEYFOR
-Enter frame to make key for.
 
 ;
 MSG_WAVGUI_DELETEALLWAVEKEYFRAMES

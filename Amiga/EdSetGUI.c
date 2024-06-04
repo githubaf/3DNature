@@ -1443,7 +1443,7 @@ void Handle_ES_Window(ULONG WCS_ID)
       } /* temppath */
      case 7:
       {
-      getfilename(1, (char*)GetString( MSG_EDSETGUI_DEFORMATIONMAPPATH ), deformpath, deformfile);  // "Deformation Map Path"
+      getfilename(1, (char*)GetString( MSG_MOREGUI_DEFORMATIONMAPPATH ), deformpath, deformfile);  // "Deformation Map Path"
       set(ES_Win->Str[13], MUIA_String_Contents, (IPTR)deformpath);
       set(ES_Win->Str[14], MUIA_String_Contents, (IPTR)deformfile);
       break;

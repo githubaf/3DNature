@@ -1281,7 +1281,7 @@ struct clipbounds cb;
   MoItem = 0;
   SetIncrements(0);
   } /* else */
- if (! GetInputString((char*)GetString( MSG_EDMOGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
+ if (! GetInputString((char*)GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),  // "Enter frame to make key for."
 	 "abcdefghijklmnopqrstuvwxyz", str))
   return;
  FrameKey = atoi(str);
@@ -1954,7 +1954,7 @@ void Handle_EMIA_Window(ULONG WCS_ID)
       {
       if (KFsize != EM_Win->AltKFsize || memcmp(KF, EM_Win->AltKF, KFsize)
 		|| memcmp(&MoPar, &UndoMoPar[0], sizeof (MoPar)))
-       Close_EMIA_Window(CloseWindow_Query(GetString( MSG_EDMOGUI_INTERACTIVEMOTION ) ));  // "Interactive Motion"
+       Close_EMIA_Window(CloseWindow_Query(GetString( MSG_INTVIEW_INTERACTIVEMOTION ) ));  // "Interactive Motion"
       else
        Close_EMIA_Window(1);
       break;

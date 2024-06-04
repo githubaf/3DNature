@@ -565,7 +565,7 @@ RelelRepeat:
             (CONST_STRPTR)"na", 1))
      {
      strcpy(str, rootfile);
-     if (GetInputString((char*)GetString( MSG_DEM_ENTERNEWOBJECTNAME ), ":;*/?`#%", str))  // "Enter new object name."
+     if (GetInputString((char*)GetString( MSG_DB_ENTERNEWOBJECTNAME ), ":;*/?`#%", str))  // "Enter new object name."
       {
       while (strlen(str) < length[0])
        strcat(str, " ");

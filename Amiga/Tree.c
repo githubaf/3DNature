@@ -867,7 +867,7 @@ short LoadForestModels(void)
   {
   case 1:
    {
-   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
                 GetString( MSG_TREE_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMINAT ),  // "Error opening Ecosystem Model file for input!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                      // "OK",
                 (CONST_STRPTR)"o");
@@ -876,7 +876,7 @@ short LoadForestModels(void)
    } /* open fail */
   case 2:
    {
-   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
                 GetString( MSG_TREE_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPREM ),  // "Error writing to Ecosystem Model file!\nOperation terminated prematurely."
                 GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                 (CONST_STRPTR)"o");
@@ -885,7 +885,7 @@ short LoadForestModels(void)
    } /* write fail */
   case 3:
    {
-   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
                 GetString( MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED ),  // "Not a WCS Ecosystem Model file!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                           // "OK"
                 (CONST_STRPTR)"o");
@@ -894,7 +894,7 @@ short LoadForestModels(void)
    } /* wrong type */
   case 4:
    {
-   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
                 GetString( MSG_PARGUI_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMI ),  // "Unsupported WCS Ecosystem Model file version!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                 (CONST_STRPTR)"o");
@@ -903,7 +903,7 @@ short LoadForestModels(void)
    } /* wrong version */
   case 5:
    {
-   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
                 GetString( MSG_TREE_OUTOFMEMORYALLOCATINGECOSYSTEMMODELSPERATIONTERMINATED ),  // "Out of memory allocating Ecosystem Models!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                 (CONST_STRPTR)"o");
@@ -911,7 +911,7 @@ short LoadForestModels(void)
    } /* out of memory */
   case 6:
    {
-   User_Message(GetString( MSG_TREE_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
+   User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
                 GetString( MSG_TREE_NODATAINWCSECOSYSTEMMODELPERATIONTERMINATED ),  // "No data in WCS Ecosystem Model!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                           // "OK"
                 (CONST_STRPTR)"o");

@@ -618,7 +618,7 @@ RepeatAlloc2:
      {
      if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
                           GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                          GetString( MSG_GLMP_RETRYCANCEL ),                                          // "Retry|Cancel"
+                          GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
                           (CONST_STRPTR)"rc", 1))
       {
       goto RepeatAlloc2;
@@ -630,7 +630,7 @@ RepeatAlloc2:
     {
     if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
                          GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                         GetString( MSG_GLMP_RETRYCANCEL ),                                          // "Retry|Cancel"
+                         GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
                          (CONST_STRPTR)"rc", 1))
      {
      goto RepeatAlloc1;
@@ -899,7 +899,7 @@ RepeatSaveZBuf:
      {
      if (User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),              // "Render Module"
                           GetString( MSG_GLMP_OUTOFMEMORYSAVINGZBUFFER ),  // "Out of memory saving Z Buffer!\n"
-                          GetString( MSG_GLMP_RETRYCANCEL ),               // "Retry|Cancel"
+                          GetString( MSG_INTVIEW_RETRYCANCEL ),               // "Retry|Cancel"
                           (CONST_STRPTR)"rc", 1))
       {
       goto RepeatSaveZBuf;
@@ -1209,9 +1209,9 @@ RepeatLoad:
    if (! map.lmap || ! map.scrnptrx || ! map.scrnptry || ! map.scrnptrq)
     {
     sprintf(str, (char*)GetString( MSG_GLMP_OUTOFMEMORYREADINGMAP ), DBase[OBN].Name);  // "Out of memory reading map %s!"
-    if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULETOPO ),                 // "Render Module: Topo"
+    if (User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                 // "Render Module: Topo"
                          (CONST_STRPTR)str,
-                         GetString( MSG_GLMP_RETRYCANCEL ) ,                     // "Retry|Cancel"
+                         GetString( MSG_INTVIEW_RETRYCANCEL ) ,                     // "Retry|Cancel"
                          (CONST_STRPTR)"rc", 1))
      {
      error = -1;
@@ -1230,7 +1230,7 @@ RetrySmooth:
      {
      if (User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
                           GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
-                          GetString( MSG_GLMP_RETRYCANCEL ),                               // "Retry|Cancel"
+                          GetString( MSG_INTVIEW_RETRYCANCEL ),                               // "Retry|Cancel"
                           (CONST_STRPTR)"rc", 1))
       goto RetrySmooth;
      else
@@ -1689,7 +1689,7 @@ RepeatAlloc4:
   {
   if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                       // "Render Module: Clouds"
                        GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS ),  // "Out of memory allocating polygon edge buffers!",
-                       GetString( MSG_GLMP_RETRYCANCEL ),                              // "Retry|Cancel"
+                       GetString( MSG_INTVIEW_RETRYCANCEL ),                              // "Retry|Cancel"
                        (CONST_STRPTR)"rc", 1))
    {
    error = -1;
@@ -1710,7 +1710,7 @@ RepeatAlloc3:
    {
    if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
                         GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                        GetString( MSG_GLMP_RETRYCANCEL ),                  // "Retry|Cancel"
+                        GetString( MSG_INTVIEW_RETRYCANCEL ),                  // "Retry|Cancel"
                         (CONST_STRPTR)"rc", 1))
     {
     error = -1;
@@ -1766,7 +1766,7 @@ RepeatAlloc2:
        {
        if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
                             GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                            GetString( MSG_GLMP_RETRYCANCEL ),                  // "Retry|Cancel"
+                            GetString( MSG_INTVIEW_RETRYCANCEL ),                  // "Retry|Cancel"
                             (CONST_STRPTR)"rc", 1))
         {
         error = -1;
@@ -1796,7 +1796,7 @@ MapCleanup:
       {
       if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
                            GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                           GetString( MSG_GLMP_RETRYCANCEL ),                                          // "Retry|Cancel"
+                           GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
                            (CONST_STRPTR)"rc", 1))
        {
        goto RepeatAlloc1;
