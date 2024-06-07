@@ -8509,3 +8509,8 @@ MSG_NNGRIDR_MAPVIEWGRIDDEM
 Map View: Grid DEM
 
 ;
+; --- Here you can credit yourself to the end of the hard coded Menu->Project->Credits text
+; (English remains empty)
+MSG_MENU_PR_CREDITSTRANSLATION
+
+\nDeutsche Übersetzung von Alexander Fritsch (selco).\nFehlermeldungen und Verbesserungsvorschläge\nbitte an selco@t-online.de

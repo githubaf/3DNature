@@ -3602,3 +3602,10 @@ Ueberpruefen:
 MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 Die beginnen mit einen Ausrufezeichen???
+
+6.Mai 2024
+----------
+Eigen-Credits eingebaut.
+Credits fuer die jeweiligen Uebersetzer eingebaut. (in WCS.cs)
+
+

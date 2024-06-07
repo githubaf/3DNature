@@ -3280,5 +3280,8 @@ EXTERN Matx3x3 ScrRotMatx, NoBankMatx;
    #define MakeID(a,b,c,d) ( (a)<<24 | (b)<<16 | (c)<<8 | (d) )
 #endif
 
+#if defined __SASC || defined __AROS__
+int asprintf(char **strp, const char *fmt, ...);  // SAS/C and deadw00d's gcc for AROS x86_64/i386 do not have asprintf()
+#endif
 
 #endif

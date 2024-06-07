@@ -21,7 +21,7 @@ STATIC_FCN void MUI2_MenuCheck_Hack(void); // used locally only -> static, AF 25
 
 extern struct WaveWindow *WV_Win;
 
-
+extern char* LocaleExtCreditText; // in allocated iand intialized in WCS.c
 
 STATIC_FCN void Handle_RN_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Handle_DB_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
@@ -37,6 +37,47 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID); // used locally only -> static, 
 STATIC_FCN void Status_Log(STRPTR logtext, int Severity); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Make_Log_Window(int Severity); // used locally only -> static, AF 26.7.2021
 
+// SAS/C and deadw00d's gcc for AROS x86_64/i386 do not have asprintf()
+#if defined __SASC || defined __AROS__
+// chatgpt suggested the following:
+int asprintf(char **strp, const char *fmt, ...) {
+    va_list args;
+    va_list args_copy;
+    int len;
+
+    // Initialize the variable argument list
+    va_start(args, fmt);
+
+    // Copy the argument list to measure the length
+    va_copy(args_copy, args);
+    len = vsnprintf(NULL, 0, fmt, args_copy);
+    va_end(args_copy);
+
+    if (len < 0) {
+        va_end(args);
+        return -1;
+    }
+
+    // Allocate memory for the resulting string
+    *strp = (char *)malloc(len + 1);
+    if (!*strp) {
+        va_end(args);
+        return -1;
+    }
+
+    // Format the string
+    len = vsnprintf(*strp, len + 1, fmt, args);
+    va_end(args);
+
+    if (len < 0) {
+        free(*strp);
+        return -1;
+    }
+
+    return len;
+}
+
+#endif
 
 void Make_EP_Window(short hor_win)
 {
@@ -2355,8 +2396,7 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
                 TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_PARFILE ) , End,  // "\33rPar File "
                Child, InfoPar = TextObject, MUIA_Frame, MUIV_Frame_Text,
                 MUIA_Text_PreParse, "\33c", End,
-
-               Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
+              Child, TextObject, MUIA_Frame, MUIV_Frame_Text, MUIA_FramePhantomHoriz,
                 TRUE, MUIA_Text_Contents,  GetString( MSG_AGUI_SCREENMODE ) , End,  // "\33rScreenMode "
                Child, InfoScreenMode = TextObject, MUIA_Frame, MUIV_Frame_Text,
                 MUIA_Text_PreParse, "\33c", End,
@@ -2482,7 +2522,7 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
               Child, CreditList = ListviewObject, MUIA_Listview_Input, FALSE,
                MUIA_Listview_List,
                 FloattextObject, ReadListFrame,
-                MUIA_Floattext_Text, ExtCreditText,
+                MUIA_Floattext_Text, LocaleExtCreditText?LocaleExtCreditText:ExtCreditText,
                 MUIA_List_Format, "P=\33c",
                 End,
                End,
