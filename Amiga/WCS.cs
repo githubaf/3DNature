@@ -736,7 +736,7 @@ Can't Open Log Status Window!
 ;
 MSG_AGUI_CLEAR
 \33cClear
-
+\33cLöschen
 ;
 MSG_AGUI_HIDE
 \33cHide
@@ -5704,7 +5704,7 @@ Interactive Module: Add Points
 ;
 MSG_LINESPRT_SAVEOBJECTPOINTS
 Save object points?
-
+Objekt Punkte speichern?
 ;
 MSG_LINESPRT_MAPPINGMODULEPATH
 Mapping Module: Path
@@ -5712,11 +5712,11 @@ Mapping Module: Path
 ;
 MSG_LINESPRT_APARAMETERFILE
 a Parameter file
-
+eine Parameter Datei
 ;
 MSG_MAP_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED
 Error loading vector object!\nOperation terminated.
-
+Fehler beim Laden des Vektorobjektes!\nVorgang abgebrochen.
 ;
 MSG_LINESPRT_CAMERAKEYFRAMESEXISTPROCEEDINGWILLDELETECURRENTVAL
 Camera Key Frames exist. Proceeding will delete current values!
@@ -5724,7 +5724,7 @@ Camera Key Frames exist. Proceeding will delete current values!
 ;
 MSG_MOREGUI_PROCEEDCANCEL
 Proceed|Cancel
-
+Weiter|Abbrechen
 ;
 MSG_LINESPRT_FOCUSKEYFRAMESEXISTPROCEEDINGWILLDELETECURRENTVALU
 Focus Key Frames exist. Proceeding will delete current values!
@@ -5764,11 +5764,11 @@ There are more frames than allowable vector points! Path will be truncated.
 ;
 MSG_LINESPRT_CAMERAPATH
 CameraPath
-
+Kamera Pfad
 ;
 MSG_LINESPRT_FOCUSPATH
 FocusPath
-
+Fokus Pfad
 ;
 MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED
 Enter name of vector to be created.
@@ -5776,11 +5776,11 @@ Enter name of vector to be created.
 ;
 MSG_LINESPRT_VECTORNAMEALREADYPRESENTINDATABASEVERWRITEITORTRYA
 Vector name already present in Database!\nOverwrite it or try a new name?
-
+Vektorname bereits in der Datenbank vorhanden!\nÜberschreiben oder mit neuem Namen versuchen?
 ;
 MSG_LINESPRT_OVERWRITENEWCANCEL
 Overwrite|New|Cancel
-
+Überschreiben|Neu|Abbrechen
 ;
 MSG_LINESPRT_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
 Out of memory expanding Database!\nOperation terminated.
@@ -5853,19 +5853,19 @@ Mittelpunkt festlegen
 ;
 MSG_MAP_338SETORIGINPOINT
 \0338Set origin point.
-
+\0338Ursprungspunkt setzen.
 ;
 MSG_MAP_SETORIGINPOINT
 Set origin point
-
+Ursprungspunkt setzen
 ;
 MSG_MAP_SETDESTINATIONPOINTESCABORT
 \0338Set destination point. ESC=abort
-
+\0338Zielpunkt setzen. ESC=abort
 ;
 MSG_MAP_SETDESTINATIONPOINT
 Set destination point
-
+Zielpunkt setzen
 ;
 MSG_MAP_SELECTOBJECTESCABORT
 \0338Select object. ESC=abort
@@ -5957,7 +5957,7 @@ Mapping Module: Insert Points
 ;
 MSG_MAP_OUTOFMEMORYOPERATIONFAILED
 Out of memory! Operation failed.
-
+Ungenügend Speicher! Vorgang fehlgeschlagen.
 ;
 MSG_MAP_CREATEVISUALSENSITIVITYMAPFORTHISOBJECT
 Create Visual Sensitivity map for this object?
@@ -6061,23 +6061,23 @@ Ecosystem out of range.
 ;
 MSG_MAPEXTRA_NOTCLOSED
 [Not closed]
-
+[Nicht geschlossen]
 ;
 MSG_MAPEXTRA_SETORIGINPOINT_COLOUR
 \0338Set origin point.
-
+\0338Ursprungspunkt setzen.
 ;
 MSG_MAPEXTRA_SETORIGINPOINT
 Set origin point
-
+Ursprungspunkt setzen
 ;
 MSG_MAPEXTRA_SETDESTINATIONPOINTESCABORT
 \0338Set destination point. ESC=abort
-
+\0338Zielpunkt setzen. ESC=Abbruch
 ;
 MSG_MAPEXTRA_SETDESTINATIONPOINT
 Set destination point
-
+Zielpunkt setzen
 ;
 MSG_MAPEXTRA_LENGTHFKM
 Length: %f km
@@ -6149,7 +6149,7 @@ Mapping Module: Point Match
 ;
 MSG_MAPEXTRA_ILLEGALNUMBEROFPOINTSFFIRSTANDLASTDESTINATIONPOINT
 Illegal number of points!\nIf first and last destination points are the same, source points must be larger than zero.\nOperation terminated.
-
+Ungültige Anzahl Punkte!\nWenn der erste und letzte Zielpunkt gleich sind müssen die Quell-Punkte größer als Null sein.\nVorgang abgebrochen.
 ;
 MSG_MAPEXTRA_PROCEEDWITHRELOCATION
 Proceed with relocation?
@@ -6157,7 +6157,7 @@ Proceed with relocation?
 ;
 MSG_MAPEXTRA_OUTOFMEMORYOTENOUGHFORNEWPOINTSPERATIONFAILED
 Out of memory!\nNot enough for new points.\nOperation failed.
-
+Nicht genügend Speicher!\nNeue Punkte konnten nicht angelegt werden.\nVorgang fehlegschlagen.
 ;
 MSG_MAPEXTRA_MATCHEDVECTORTO
 Matched vector %s to %s.\n
@@ -6169,7 +6169,7 @@ Vertex %d  Latitude %f  Longitude %f
 ;
 MSG_MAPEXTRA_DUPLICATETHISOBJECT
 Duplicate this object?
-
+Dieses Objekt duplizieren?
 ;
 MSG_MAPEXTRA_SELECTSTREAMSTARTPOINTESCABORT
 \0338Select stream start point. ESC=abort
@@ -6209,7 +6209,7 @@ Initial point not within currently loaded topo boundaries!\nObject points reduce
 ;
 MSG_MAPEXTRA_SAVEVECTOROBJECTNOW
 Save vector object now?
-
+Vektor Objekt jetzt speichern?
 ;
 MSG_MAPEXTRA_ENTERNUMBEROFOUTPUTVERTICES
 Enter number of output vertices.
@@ -6225,7 +6225,7 @@ Mapping Module: Spline
 ;
 MSG_MAPEXTRA_OKRESETCANCEL
 OK|Reset|Cancel
-
+OK|Zurücksetzen|Abbrechen
 ;
 MSG_MAPEXTRA_MAPVIEWMODULEINTERPOLATE
 Map View Module: Interpolate
@@ -6233,7 +6233,7 @@ Map View Module: Interpolate
 ;
 MSG_MAPEXTRA_OUTOFMEMORYCANTALLOCATENEWVECTORPERATIONTERMINATED
 Out of memory! Can't allocate new vector.\nOperation terminated.
-
+Nicht genügend Speicher! Ein neuer Vektor kann nicht angelegt werden.\nVorgang abgebrochen.
 ;
 MSG_MAPEXTRA_SELECTSURFACEUELEVATIONESCABORT
 \0338Select Surface %lu Elevation. ESC=Abort
@@ -6253,19 +6253,19 @@ Enter elevation tolerance.
 ;
 MSG_MAPEXTRA_PROCEEDORRESETPOINTS
 Proceed or reset points?
-
+Weitermachen oder Punkte zurücksetzen?
 ;
 MSG_MAPEXTRA_PROCEEDRESETCANCEL
 Proceed|Reset|Cancel
-
+Weiter|Zurücksetzen|Abbrechen
 ;
 MSG_MAPEXTRA_KEEPORSAVEDEMORRESETPARAMETERS
 Keep or save DEM or reset parameters?
-
+DEM behalten oder Speichern oder Parameter zurücksetzen?
 ;
 MSG_MAPEXTRA_KEEPSAVERESETCANCEL
 Keep|Save|Reset|Cancel
-
+Behalten|Speichern|Zurücksetzen|Abbrechen
 ;
 MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINTOPOMAPBOUNDARIESPERATI
 All corner points must be within topo map boundaries!\nOperation terminated.
@@ -6273,19 +6273,19 @@ All corner points must be within topo map boundaries!\nOperation terminated.
 ;
 MSG_MAPEXTRA_ILLEGALDIMENSIONSTRYMAKINGTHERECTANGLELARGERPERATI
 Illegal dimensions! Try making the rectangle larger.\nOperation terminated.
-
+Ungültige Abmessungen! Versuchen Sie, das Rechteck zu vergrößern.\nVorgang abgebrochen.
 ;
 MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINSAMEDEMPERATIONTERMINAT
 All corner points must be within same DEM!\nOperation terminated.
-
+Alle Eckpunkte müssen sich innerhalb der selben DEM befinden!\nVorgang abgebrochen.
 ;
 MSG_MAPEXTRA_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
-
+Fehler beim Öffnen der Ausgabedatei!\nVorgang abgebrochen.
 ;
 MSG_MAPEXTRA_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED
 Error writing to output file!\nOperation terminated.
-
+Fehler beim Schreiben der Ausgabedatei!\nVorgang abgebrochen.
 ;
 ; Menu: Modules -> Map View, klick into Map View Window, watch Map View Control Window 
 MSG_MAPEXTRA_AFSQKMLFKM
@@ -6307,15 +6307,15 @@ Out of memory!\nNot enough for temporary topo array.\nOperation failed.
 ;
 MSG_MAPGUI_LOADOBJECTS
 Load Objects
-
+Objekte laden
 ;
 MSG_MAPGUI_ALL
 All
-
+Alle
 ;
 MSG_MAPGUI_ACTIVE
 Active
-
+Aktive
 ;
 MSG_MAPGUI_LOADTOPOS
 Load Topos
@@ -6323,11 +6323,11 @@ Load Topos
 ;
 MSG_MAPGUI_SAVEOBJECTS
 Save Objects
-
+Objekte speichern
 ;
 MSG_MAPGUI_CLEARWINDOW
 Clear Window
-
+Fenster löschen
 ;
 MSG_MAPGUI_PRINT
 Print
@@ -6435,7 +6435,7 @@ Neues Objekt
 ;
 MSG_MAPGUI_FINDOBJECT
 Find Object
-
+Objekt suchen
 ;
 MSG_MAPGUI_SINGLE
 Single
@@ -6499,11 +6499,11 @@ Motion
 ;
 MSG_MAPGUI_SETCAMERA
 Set Camera
-
+Setze Kamera
 ;
 MSG_MAPGUI_SETFOCUS
 Set Focus
-
+Setze Fokus
 ;
 MSG_MAPGUI_PATH
 Path
@@ -6583,7 +6583,7 @@ Map View Control
 ;
 MSG_MAPGUI_SCALE
 Scale\x20
-
+Skalieren\x20
 ;
 MSG_MAPGUI_LAT
 Lat\x20
@@ -6603,11 +6603,11 @@ Lon\x20
 ;
 MSG_MAPGUI_AUTO
 \33cAuto
-
+\33cAuto
 ;
 MSG_MAPGUI_33CCENTER
 \33cCenter
-
+\33cZentieren
 ;
 MSG_MAPGUI_EXAG
  Exag\x20
@@ -6675,7 +6675,7 @@ MSG_MAPGUI_LON
 ;
 MSG_MAPGUI_SELAT
 SE Lat
-SE Länge
+SO Länge
 ;
 MSG_MAPGUI_CREENCOORDS
 \33c\0334Screen Coords
@@ -6703,7 +6703,7 @@ MSG_MAPGUI_THISAREAISNDERCONSTRUCTIONARDHATREQUIRED
 ;
 MSG_MAPGUI_OKAY
 \33cOkay
-
+\33cOkay
 ;
 MSG_MAPGUI_OUTOFMEMORYANTINITIALIZEMAPWINDOWPERATIONTERMINATED
 Out of memory!\nCan't initialize map window!\nOperation terminated.
@@ -6809,15 +6809,15 @@ Error opening line save file!\nSelect new path?
 ;
 MSG_MAPSUPRT_CANTOPENOBJECTFILEBJECTNOTSAVED
 Can't open object file!\nObject not saved.
-
+Die Objekt Datei konne nicht geöffnet werden!\nDas Objekt wurde nicht gespeichert.
 ;
 MSG_MAPSUPRT_VECTORSAVEDPOINTS
 %s vector saved. %d points
-
+%s Vektor gespeichert. %d Punkte
 ;
 MSG_MAPSUPRT_ERRORSAVINGOBJECTFILEBJECTNOTSAVED
 Error saving object file!\nObject not saved.
-
+Fehle beim Speichern der Objekt Datei!\nDas Objekt wurde nicht gespeichert.
 ;
 MSG_MAPSUPRT_MAPPINGMODULETOPOMAPPING
 Mapping Module: Topo Mapping
@@ -6841,23 +6841,23 @@ Error loading topo map! Check Status Log to see if out of memory.\nOperation ter
 ;
 MSG_MAPSUPRT_ERRORLOADINGDEMSNONELOADED
 Error loading DEMs! None loaded.
-
+Fehler beim Laden der DEM Dateien! Es wurde keine DEM Dateien geladen.
 ;
 MSG_MAPSUPRT_SETUPPERLEFTCORNER
 Set upper left corner
-
+Obere linke Ecke setzen
 ;
 MSG_MAPSUPRT_0338SETUPPERLEFTCORNER
 \0338Set upper left corner.
-
+\0338Obere linke Ecke setzen.
 ;
 MSG_MAPSUPRT_0338SETLOWERRIGHTCORNERESCABORT
 \0338Set lower right corner. ESC=abort
-
+\0338Untere rechte Ecke setzen. ESC=abort
 ;
 MSG_MAPSUPRT_SETLOWERRIGHTCORNER
 Set lower right corner
-
+Untere rechte Ecke setzen
 ;
 MSG_MAPSUPRT_SLATFLONF
 %s, LAT: %f, LON: %f
@@ -6869,11 +6869,11 @@ LAT: %f, LON: %f
 ;
 MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING
 Vector object has been modified!\nSave it before closing?
-
+Das Vektor Object wurde verändert!\nSoll es vor dem Schlie0en gespeichert werden?
 ;
 MSG_MAPSUPRT_SAVECANCEL
 SAVE|CANCEL
-
+Speichern|Abbrechen
 ;
 MSG_MAPSUPRT_0338SELECTCAMERAPOINT
 \0338Select Camera Point
@@ -6954,7 +6954,7 @@ New Line Save Path
 ;
 MSG_MAPTOPOOB_CANTOPENVECTORFILEFOROUTPUT
 Can't open vector file for output!
-
+Die Vektordatei kann nicht zum Schreiben geöffnet werden!
 ;
 MSG_MAPTOPOOB_CLOUD
 Cloud %d
@@ -7013,27 +7013,27 @@ No render list!
 ; --- Check Menu:Module/Data Ops -> Extract DEM ---
 MSG_MOREGUI_DEMEXTRACT
 DEM Extract
-
+DEM Extrahieren
 ;
 MSG_MOREGUI_SELECTFILES
 \33cSelect Files
-
+\33cDateien auswählen
 ;
 MSG_MOREGUI_SELECTED
  Selected
-
+ Ausgewählt
 ;
 MSG_MOREGUI_SELATITUDE
  SE Latitude
-
+ SO Breite
 ;
 MSG_MOREGUI_SELONGITUDE
  SE Longitude
-
+ SO Länge
 ;
 MSG_MOREGUI_DEMNAME
 DEM Name
-
+DEM Name
 ;
 MSG_MOREGUI_LEVEL
 Level
@@ -7053,7 +7053,7 @@ MSG_MOREGUI_ZONE
 ;
 MSG_MOREGUI_ROJECTIONPARAMETERS
 \0334Projection Parameters
-
+\0334Projektionsparameter
 ;
 MSG_MOREGUI_GROUNDUNITS
 Ground Units
@@ -7153,11 +7153,11 @@ Elev Max
 ;
 MSG_MOREGUI_EXTRACT
 \33cExtract
-
+\33cExtrahieren
 ;
 MSG_MOREGUI_USGSDEMFILES
 USGS DEM Files
-
+USGS DEM Dateien
 ;
 MSG_MOREGUI_DATAOPSMODULEDEMEXTRACT
 Data Ops Module: DEM Extract
@@ -7165,7 +7165,7 @@ Data Ops Module: DEM Extract
 ;
 MSG_MOREGUI_PLEASEENTERTHELATITUDEANDLONGITUDEVALUESFORTHESOUTH
 Please enter the latitude and longitude values for the southeast corner of the current DEM in the string gadgets near the top of the DEM Extract Window.
-
+Bitte Geben Sie die Längen- und Breitengrade der Süd-Ost Ecke des aktuellen DEM's in das Textfeld oben im DEM Extrahieren Fenster ein.
 ;
 ; --- Check Menu:Project/Edit for correct alignement done by trailing spaces ---
 MSG_MOREGUI_FIRSTPAGE
@@ -7202,7 +7202,7 @@ Parameter Pfad\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_PARAMETERNAME_SPACES
 Parameter Name\x20\x20\x20\x20\x20\x20
-
+Parameter Name\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_FRAMESAVEPATH_SPACES
 Frame Save Path\x20\x20\x20\x20\x20
@@ -7226,23 +7226,23 @@ Vector Save Name\x20\x20\x20\x20
 ;
 MSG_MOREGUI_ZBUFFERPATH_SPACES
 Z Buffer Path\x20\x20\x20\x20\x20\x20\x20
-
+Z-Puffer Pfad\x20\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_ZBUFFERNAME_SPACES
 Z Buffer Name\x20\x20\x20\x20\x20\x20\x20
-
+Z-Puffer Name\x20\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_BACKGROUNDPATH_SPACES
 Background Path\x20\x20\x20\x20\x20
-
+Hintergrund Pfad\x20\x20\x20\x20
 ;
 MSG_MOREGUI_BACKGROUNDNAME_SPACES
 Background Name\x20\x20\x20\x20\x20
-
+Hintergrund Name\x20\x20\x20\x20
 ;
 MSG_MOREGUI_DEFAULTDIRECTORY_SPACES
 Default Directory\x20\x20\x20
-
+Standard Verzeichnis
 ;
 MSG_MOREGUI_GRAPHICSAVEPATH_SPACES
 Graphic Save Path\x20\x20\x20
@@ -7282,7 +7282,7 @@ Deformation Map Name
 ;
 MSG_MOREGUI_ECOSYSTEMMODELPATH_SPACES
 Ecosystem Model Path
-
+Ökosystem Modellpfad
 ;
 MSG_MOREGUI_IMAGEPATH_SPACES
 Image Path\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
@@ -7298,7 +7298,7 @@ Moon Image File\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_PCPROJECTDIRECTORY_SPACES
 PC Project Directory
-
+PC Projektverzeichnis
 ;
 MSG_MOREGUI_PCFRAMESDIRECTORY_SPACES
 PC Frames Directory\x20
@@ -7318,11 +7318,11 @@ Projekt Pfad/Name
 ;
 MSG_MOREGUI_DATABASEPATHNAME
 Database Path/Name
-
+Datenbank Pfad/Name
 ;
 MSG_MOREGUI_PARAMETERPATHNAME
 Parameter Path/Name
-
+Parameter Pfad/Name
 ;
 MSG_MOREGUI_FRAMESAVEPATHNAME
 Frame Save Path/Name
@@ -7338,11 +7338,11 @@ Vector Save Path/Name
 ;
 MSG_MOREGUI_ZBUFFERPATHNAME
 Z Buffer Path/Name
-
+Z-Puffer Pfad/Name
 ;
 MSG_MOREGUI_BACKGROUNDPATHNAME
 Background Path/Name
-
+Hintergrund Pfad/Name
 ;
 MSG_MOREGUI_GRAPHICSAVEPATHNAME
 Graphic Save Path/Name
@@ -7350,7 +7350,7 @@ Graphic Save Path/Name
 ;
 MSG_MOREGUI_DEFAULTDIRECTORY
 Default Directory
-
+Standardverzeichnis
 ;
 MSG_MOREGUI_CLOUDMAPPATH
 Cloud Map Path
@@ -7378,7 +7378,7 @@ Moon Image File
 ;
 MSG_MOREGUI_PCPROJECTPATH
 PC Project Path
-
+PC Projekt Pfad
 ;
 MSG_MOREGUI_PCFRAMESPATH
 PC Frames Path
@@ -7462,15 +7462,15 @@ MSG_MOREGUI_DTA
 ;
 MSG_MOREGUI_PARAMFILESAVEFORMAT
 \33c\0334Param File Save Format
-
+\33c\0334Parameter Datei Speicherformat
 ;
 MSG_MOREGUI_BINARY
 \33cBinary
-
+\33cBinär
 ;
 MSG_MOREGUI_ASCII
 \33cAscii
-
+\33cAscii
 ;
 ;
 MSG_PARAMS_MOTION
@@ -7483,7 +7483,7 @@ color
 ;
 MSG_PARAMS_ECOSYSTEM
 ecosystem
-
+Ökosystem
 ;
 MSG_PARAMS_OUTOFMEMORYRESTORINGOLDKEYFRAMESOMEKEYSMAYBELOST
 Out of memory restoring old key frames!\nSome %s keys may be lost.
@@ -7571,11 +7571,11 @@ MSG_PARGUI_OPERATE
 ;
 MSG_PARGUI_SCENE
 Scene
-
+Szene
 ;
 MSG_PARGUI_SCENEDEMS
 Scene + DEMs
-
+Szene + DEMs
 ;
 MSG_PARGUI_DEMONLY
 DEM Only
@@ -7591,7 +7591,7 @@ LightWave Motion I/O
 ;
 MSG_PARGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREUSINGTHI
 You must first load or create a parameter file before using this feature.
-
+Es muss zuerst eine Parameter Datei erzeugt oder geladen werden, bevor dieses Feature genutzt werden kann.
 ;
 MSG_PARGUI_ERRORBUILDINGMOTIONVALUETABLEPERATIONTERMINATED
 Error building motion value table\nOperation terminated
@@ -7635,7 +7635,7 @@ MSG_PARGUI_EXPORT
 ;
 MSG_PARGUI_LIGHTWAVEIO
 LightWave I/O
-
+LightWave I/O
 ;
 MSG_PARGUI_OUTOFMEMORYANTOPENMODELDESIGNWINDOW
 Out of memory!\nCan't open model design window.
@@ -7696,7 +7696,7 @@ MSG_PARGUI_HTITEMSCLASSREDGRNBLU
 ;
 MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_1
 The current Ecosystem Model has been modified. Do you wish to save it before closing?
-
+Das aktuelle Ökosystem Modell wurde verändert. Soll es vor dem Schließen gespeichert werden?
 ;
 MSG_PARGUI_YESNOCANCEL
 Yes|No|Cancel
