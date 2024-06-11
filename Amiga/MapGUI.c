@@ -307,10 +307,10 @@ STATIC_FCN void InitMapNewMenus(void)
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FOCUSVECT );   // "Focus-Vect"
 		i++;  // {  NM_ITEM, NM_BARLABEL,	 0 , 0, 0, 0 },
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_SURFACEEL );   // "Surface El"
-		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_ONE );         // "One"
-		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_TWO );         // "Two"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_DATAOPSGUI_ONE );         // "One"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_DATAOPSGUI_TWO );         // "Two"
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_THREE );       // "Three",
-		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_FOUR );        // "Four"
+		MapNewMenus[i++].nm_Label=  GetString( MSG_DATAOPSGUI_FOUR );        // "Four"
 
 		MapNewMenus[i++].nm_Label=  GetString( MSG_MAPGUI_WINDOWS );     // "Windows"
 		MapNewMenus[i++].nm_Label=  GetString( MSG_DEMGUI_DEMDESIGNER ); // "DEM Designer"

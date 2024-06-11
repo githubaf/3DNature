@@ -3608,4 +3608,9 @@ Die beginnen mit einen Ausrufezeichen???
 Eigen-Credits eingebaut.
 Credits fuer die jeweiligen Uebersetzer eingebaut. (in WCS.cs)
 
+11.Juni 2024
+------------
+Anzeige der noch fehlenden deutschen Uebersetzungen
+
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0; if(DEUTSCH==""){print MESSAGE;}else{DEUTSCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Deutsch:  %4d\n",DEUTSCHCOUNT);}'
 

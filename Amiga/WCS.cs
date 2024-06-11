@@ -86,7 +86,7 @@ Kartenansicht
 ;
 MSG_MENU_MOD_PARAMETERS
 Parameters
-
+Parameter
 ;
 MSG_MENU_MOD_RENDER
 Render
@@ -532,6 +532,7 @@ Height\x20
 Höhe\x20
 ;
 ; ------- AGUI.c ----------
+; see Project -> Module -> Parameters for Alignement
 ;
 MSG_AGUI_PARAMETERMODULE
 Parameter Module
@@ -543,11 +544,11 @@ MSG_AGUI_MOTION
 ;
 MSG_AGUI_COLOR
 \33l Color\x20
-
+\33l Farben\x20
 ;
 MSG_AGUI_ECOSYSTEM
 \33l Ecosystem\x20
-
+\33l Ökosystem\x20
 ;
 MSG_AGUI_CLOUDS
 \33l Clouds\x20
@@ -555,11 +556,11 @@ MSG_AGUI_CLOUDS
 ;
 MSG_AGUI_WAVES
 \33l Waves\x20
-
+\33l Wellen\x20
 ;
 MSG_AGUI_DEFAULTS
 \33l Defaults\x20
-
+\33l Standard-Werte\x20
 ;
 MSG_AGUI_PARAMETERSMODULE
 Parameters Module
@@ -567,11 +568,11 @@ Parameter Modul
 ;
 MSG_AGUI_OUTOFMEMORY
 Out of Memory!
-
+Nicht genügend Speicher!
 ;
 MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS
 Create Default Parameters for Database %s? All current Parameters will be overwritten.
-
+Standard-Parametersatz für die Datenbank %s erzeugen? Alle aktuellen Parameter werden überschrieben.
 ;
 MSG_AGUI_PARAMETEREDITINGDEFAULTS
 Parameter Editing: Defaults
@@ -579,15 +580,15 @@ Parameter Editing: Defaults
 ;
 MSG_GLOBAL_OKCANCEL
 OK|Cancel
-
+OK|Abbrechen
 ;
 MSG_AGUI_YOUMUSTFIRSTLOADADATABASEBEFOREDEFAULTPARAMETERSCANBEC
 You must first load a Database before Default Parameters can be computed.
-
+Es muss erst eine Datenbank geladen werden bevor ein Standard-Parametersatz erzeugt werden kann.
 ;
 MSG_GLOBAL_OK
 OK
-
+OK
 ;
 MSG_AGUI_STANDUP
 Stand Up
@@ -655,11 +656,11 @@ Module Control Panel
 ;
 MSG_AGUI_VERSION
 Version
-
+Version
 ;
 MSG_AGUI_OKAY
 \33cOkay
-
+\33cOkay
 ;
 MSG_AGUI_EXTRASMODULE
 Extras Module
@@ -683,15 +684,15 @@ WCS Projekt
 ;
 MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Project paths have been modified. Save them before closing?
-
+Die Projekt-Pfade wurden verändet. Sollen sie vor dem Schließen gespeichert werden?
 ;
 MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Parameters have been modified. Save them before closing?
-
+Die Parameter würden verändert. Sollen sie vor dem Schließen gespeichert werden?
 ;
 MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING
 Database has been modified. Save it before closing?
-
+die Datenbank wurde geändert. Soll sie vor dem Schließen gespeichert werden?
 ;
 MSG_AGUI_MESSAGE
 Message
@@ -715,7 +716,7 @@ Entschuldigung!\nEs muss zuerst\n\338%s\0332\ngeladen werden, bevor diese Featur
 ;
 MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT
 File already exists.\nDo you wish to overwrite it?
-
+Die Datei existiert bereits? Soll sie überschrieben werden?
 ;
 MSG_AGUI_INPUTREQUEST
 Input Request
@@ -723,7 +724,7 @@ Input Request
 ;
 MSG_GLOBAL_33CCANCEL
 \33cCancel
-
+\33cAbbrechen
 ;
 MSG_AGUI_LOGSTATUSMODULE
 Log Status Module
@@ -780,11 +781,11 @@ MSG_AGUI_LARGEST
 ;
 MSG_AGUI_CHIP
 \33cChip
-
+\33cChip
 ;
 MSG_AGUI_FAST
 \33cFast
-
+\33cFast
 ;
 MSG_AGUI_TOPOMAPS
 \33rTopo Maps\x20
@@ -800,7 +801,7 @@ MSG_AGUI_MAP
 ;
 MSG_AGUI_AREXXPORT
 \33rARexx Port\x20
-
+\33rARexx Port\x20
 ;
 MSG_AGUI_DATABASE
 \33rDatabase\x20
@@ -812,7 +813,7 @@ MSG_AGUI_PARFILE
 ;
 MSG_AGUI_SCREENMODE
 \33rScreenMode\x20
-
+\33rBildschirmmodus\x20
 ;
 MSG_AGUI_FLUSH
 \33cFlush
@@ -824,7 +825,7 @@ Credits
 ;
 MSG_AGUI_WCSSCREENMODE
 WCS: Screen Mode
-
+WCS: Bildschirmmodus
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
@@ -6532,21 +6533,9 @@ MSG_MAPGUI_SURFACEEL
 Surface El
 
 ;
-MSG_MAPGUI_ONE
-One
-Eins
-;
-MSG_MAPGUI_TWO
-Two
-Zwei
-;
 MSG_MAPGUI_THREE
 Three
 Drei
-;
-MSG_MAPGUI_FOUR
-Four
-Vier
 ;
 MSG_MAPGUI_WINDOWS
 Windows
@@ -7711,7 +7700,7 @@ The current Ecosystem Model has been modified. Do you wish to save it before clo
 ;
 MSG_PARGUI_YESNOCANCEL
 Yes|No|Cancel
-
+Ja|Nein|Abbrechen
 ;
 ; --- Check Menu:Modules/Parameters->Ecosystem->Class (upper middle of Ecosystem Editor Window)
 ; For pretty table view strings for Water, Snow, Rock, Bare, Conif, Decid, LowVg, Snag, Stump, Start should all habe same length, adjusted by spaces
@@ -7767,11 +7756,11 @@ Load Model Path/Name
 ;
 MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMI
 Eror opening Ecosystem Model file for input!\nOperation terminated.
-
+Fehler beim Öffnen der Ökosystem Modelldatei zum lesen!\nVorgang abegebrochen.
 ;
 MSG_PARGUI_ERRORREADINGFROMECOSYSTEMMODELFILEPERATIONTERMINATEDPR
 Error reading from Ecosystem Model file!\nOperation terminated prematurely.
-
+Beim Lesen der Ökosystem Modelldatei ist ein Fehler aufgetrete!\nVorgang vorzeitig abgebrochen.
 ;
 MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED
 Not a WCS Ecosystem Model file!\nOperation terminated.
@@ -7783,7 +7772,7 @@ Nicht unterstützte WCS Ökosystem-Modelldatei-Version!\nVorgang abgebrochen.
 ;
 MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFORINPUTPERATIONTERMINATE
 You have not selected a file name for input!\nOperation terminated.
-
+Es wurde kein Dateiname zum Lesen ausgewählt!\nVorgang abgebrochen.
 ;
 MSG_PARGUI_SAVEMODELPATHNAME
 Save Model Path/Name
@@ -7791,15 +7780,15 @@ Save Model Path/Name
 ;
 MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFOROUTPUTPERATIONTERMI
 Error opening Ecosystem Model file for output!\nOperation terminated.
-
+Fehler beim Öffnen der Ökosystem Modelldatei zum schreiben!\nVorgang abgebrochen.
 ;
 MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR
 Error writing to Ecosystem Model file!\nOperation terminated prematurely.
-
+Fehler beim Screiben der Ökosystem Modelldatei zum schreiben!\nVorgang vorzeitig abgebrochen.
 ;
 MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT
 You have not selected a file name for output!\nOperation terminated.
-
+Es wurde kein Dateiname zum Schreiben ausgewählt!\nVorgang abgebrochen.
 ;
 MSG_PARGUI_ANIMCONTROLWINDOW
 Anim Control Window
@@ -8207,7 +8196,7 @@ Wave Length (km)
 ;
 MSG_WAVGUI_VELOCITYKMHR
 Velocity (km/hr)
-
+Geschwindigkeit (km/hr)
 ;
 MSG_WAVGUI_ADD
 \33cAdd...
@@ -8421,7 +8410,7 @@ No Other Keys
 ;
 MSG_WCS_STACKTOSMALLUBYTES
 Stack to small! (%lu Bytes)\n
-
+Stack zu klein! (%lu Bytes)\n
 ;
 MSG_WCS_PLEASESETSTACKTOUBYTES
 Please set Stack to %lu Bytes!\n
