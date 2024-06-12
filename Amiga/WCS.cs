@@ -58,7 +58,7 @@ Credits...
 ;
 MSG_MENU_PR_LOG
 Log...
-
+Log...
 ;
 MSG_MENU_PR_QUIT
 Quit...
@@ -98,7 +98,7 @@ Motion Editor
 ;
 MSG_EDITGUI_COLOREDITOR
 Color Editor
-
+Farbeinstellungen
 ;
 MSG_MENU_MOD_ECOSYSEDITOR
 Ecosys Editor
@@ -151,7 +151,7 @@ Stein
 ;
 MSG_TYPENAME_GROUND
 Ground
-Nakter Boden
+Nackter Boden
 ;
 MSG_TYPENAME_CONIFER
 Conifer
@@ -163,7 +163,7 @@ Laubbaum
 ;
 MSG_TYPENAME_LOWVEG
 Low Veg
-Niedriege Vegetation
+Niedrige Vegetation
 ;
 MSG_TYPENAME_SNAG
 Snag
@@ -275,11 +275,11 @@ Fog Full
 ;
 MSG_VARNAME_ZMINIMUM
 Z Minimum
-
+Z Minimum
 ;
 MSG_VARNAME_SUNLAT
 Sun Lat
-
+Sonnenbreitengrad
 ;
 MSG_VARNAME_SUNLON
 Sun Lon
@@ -311,11 +311,11 @@ MSG_STDMESG_OUTOFMEMORY
 ;
 MSG_STDMESG_OPENFILEFAILED
  Open file failed!
- Öffnen der Datei fehlgeschlgagen!
+ Öffnen der Datei fehlgeschlagen!
 ;
 MSG_STDMESG_READFILEFAILED
  Read file failed!
- Lesen der Datei fehlgschlagen!
+ Lesen der Datei fehlgeschlagen!
 ;
 MSG_STDMESG_WRITINGTOFILEFAILED
  Writing to file failed!
@@ -347,7 +347,7 @@ MSG_STDMESG_GUINOTIMPLEMENTED
 ;
 MSG_STDMESG_PARAMETERFILELOADED
  Parameter file loaded.
- Paremeterdatei geladen.
+ Parameterdatei geladen.
 ;
 MSG_STDMESG_PARAMETERFILESAVED
  Parameter file saved.
@@ -423,7 +423,7 @@ MSG_STDMESG_INCORRECTFILEVERSION
 ;
 MSG_STDMESG_RELATIVEELEVATIONFILESAVED
  Relative Elevation File Saved.
-Relative Elevation Datei geladen.
+ Relative Elevation Datei geladen.
 ;
 MSG_STDMESG_VECTOROBJECTSLOADED
  Vector objects loaded.
@@ -584,7 +584,7 @@ OK|Abbrechen
 ;
 MSG_AGUI_YOUMUSTFIRSTLOADADATABASEBEFOREDEFAULTPARAMETERSCANBEC
 You must first load a Database before Default Parameters can be computed.
-Es muss erst eine Datenbank geladen werden bevor ein Standard-Parametersatz erzeugt werden kann.
+Es muss erst eine Datenbank geladen werden, bevor ein Standard-Parametersatz erzeugt werden kann.
 ;
 MSG_GLOBAL_OK
 OK
@@ -684,7 +684,7 @@ WCS Projekt
 ;
 MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Project paths have been modified. Save them before closing?
-Die Projekt-Pfade wurden verändet. Sollen sie vor dem Schließen gespeichert werden?
+Die Projekt-Pfade wurden verändert. Sollen sie vor dem Schließen gespeichert werden?
 ;
 MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Parameters have been modified. Save them before closing?
@@ -976,7 +976,7 @@ Einstellungen laden...
 ;
 MSG_AGUI_SAVESETTINGS
 Save Settings...
-Einstellingen speichern...
+Einstellungen speichern...
 ;
 ; ----- BitMaps.c --------
 MSG_BITMAPS_IFFFILEPATHNAME
@@ -1025,7 +1025,7 @@ Hintergrund
 ;
 MSG_BITMAPS_ERRORLOADINGZBUFFERPERATIONTERMINATED
 Error loading Z Buffer!\nOperation terminated.
-Fehler beim Loaden des Z-Puffers!\nVorgang abgebrochen.
+Fehler beim Laden des Z-Puffers!\nVorgang abgebrochen.
 ;
 MSG_BITMAPS_OUTOFMEMORYMERGINGZBUFFERPERATIONTERMINATED
 Out of memory merging Z Buffer!\nOperation terminated.
@@ -1049,7 +1049,7 @@ Fehler beim Lesen der Z-Puffer-Datei!\nZBUF Chunk fehlt.\nVorgang abgebrochen.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILERONGSIZEPERATIONTERMINATED
 Error reading Z Buffer file!\nWrong Size.\nOperation terminated.
-Fehler beim Lesen der Z-Puffer-Datei!\nFoalsche Größe.\nVorgang abgebrochen.
+Fehler beim Lesen der Z-Puffer-Datei!\nFalsche Größe.\nVorgang abgebrochen.
 ;
 MSG_BITMAPS_ERRORLOADINGBACKGROUNDIMAGEPERATIONTERMINATED
 Error loading background image!\nOperation terminated.
@@ -1069,7 +1069,7 @@ Fehler beim Lesen der Hintergrunddatei!\nFalsche Größe.\nVorgang abgebrochen.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBODYCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BODY Chunk.\nOperation terminated.
-Fehler beim Lesen der Hinmtergrunddatei!\nBODY Chunk fehlt.\nVorgang abgebrochen.
+Fehler beim Lesen der Hintergrunddatei!\nBODY Chunk fehlt.\nVorgang abgebrochen.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBMHDCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BMHD Chunk.\nOperation terminated.
@@ -1077,7 +1077,7 @@ Fehler beim Lesen der Hintergrunddatei!\nBMHD Chunk fehlt.\nVorgang abgebrochen.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOMPRESSIONERRORPERATIONTE
 Error reading Background file!\nCompression error.\nOperation terminated.
-Fehler beim Lesen der Hintergrund-Datei!\nKompressionsfehler.\nVorgang abgebrochen.
+Fehler beim Lesen der Hintergrunddatei!\nKompressionsfehler.\nVorgang abgebrochen.
 ;
 MSG_CLOUD_CLOUDEDITORSETBOUNDS
 Cloud Editor:Set Bounds
@@ -1085,7 +1085,7 @@ Cloud Editor:Grenzen festlegen
 ;
 MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN
 Map View Module must be open in order to use this function. Would you like to open it now?
-Das Map View Modul muss geöfffnet sein, um die Funktion nutzen zu können. Soll es jetzt geöffnet werden?
+Das Map View Modul muss geöffnet sein, um die Funktion nutzen zu können. Soll es jetzt geöffnet werden?
 ;
 MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
 \0338Set northwest corner with mouse.
@@ -1109,11 +1109,11 @@ Mapping Modul: Ausrichten
 ;
 MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET
 Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
-Ungültige Werte!\nDer Pixeloffset auif beiden Achsen muss mindestens 1 betragen.\nNoch einmal versuchen?
+Ungültige Werte!\nDer Pixeloffset auf beiden Achsen muss mindestens 1 betragen.\nNoch einmal versuchen?
 ;
 MSG_CLOUD_ENTERFRAMENUMBER
 Enter Frame Number.
-Bildnummer einegeben.
+Bildnummer eingeben.
 ;
 MSG_GLOBAL_COMPUTING
 Computing...
@@ -1159,7 +1159,7 @@ MSG_CLOUDGUI_CLOUDSHADOWS
 ;
 MSG_CLOUDGUI_CLOUDTYPE
 Cloud Type
-Wokentyp
+Wolkentyp
 ;
 MSG_CLOUDGUI_SEED
 Seed
@@ -1319,7 +1319,7 @@ Yes|No
 ;
 MSG_CLOUDGUI_CLOUDPATHFILE
 Cloud Path/File
-Wolke PFad/Datei
+Wolke Pfad/Datei
 ;
 MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE
 Make this file the Project Cloud File?
@@ -1451,7 +1451,7 @@ MSG_DEM_75MINUTE
 ;
 MSG_DEM_READING
 Reading
-Lese
+Lesen
 ;
 MSG_DEM_CANTREADDEMPROFILEHEADERPERATIONTERMINATED
 Can't read DEM profile header!\nOperation terminated.
@@ -1499,11 +1499,11 @@ Fehler beim Erzeugen der Ausgabedatei!\nVorgang abgebrochen.
 ;
 MSG_DEM_CANTOPENDEMFILEFORINPUTPERATIONTERMINATED
 Can't open DEM file for input!\nOperation terminated.
-Die DEM Datei konne nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
+Die DEM Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_DEM_CANTREADDEMFILEHEADERPERATIONTERMINATED
 Can't read DEM file header!\nOperation terminated.
-ler beim Lesen des DEM File-Headers!\nVorgang abgebrochen.
+Fehler beim Lesen des DEM File-Headers!\nVorgang abgebrochen.
 ;
 MSG_DEM_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
@@ -2055,23 +2055,23 @@ Datenbank
 ;
 MSG_DB_NUMBEROFOBJECTS
 Number of objects = %d
-
+Anzahl Objekte = %d
 ;
 MSG_DB_DIRECTORYCREATED
 Directory Created: %s
-
+Verzeichnis angelegt: %s
 ;
 MSG_DB_NEWDIRECTORYCREATEDMAKEITTHEDEFAULTDIRECTORY
 New directory created: %s. Make it the default directory?
-
+Neues Verzeichnis angelegt: %s. Soll es das Standard Verzeichnis werden?
 ;
 MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA
 Illegal number of database records: less than one!\nOperation terminated.
-
+Ungültige Anzahl Datenbankeinträge: Weniger als eins!\nVorgang abgebrochen.
 ;
 MSG_DB_OUTOFMEMORYANTUPDATEDATABASELIST
 Out of memory!\nCan't update database list.
-
+Nicht genügend Speicher!\nDie Datenbankliste konnte nicht erneuert werden.
 ;
 MSG_DB_VECTORLOAD
 Vector Load
@@ -2079,7 +2079,7 @@ Vector Load
 ;
 MSG_DB_OBJECTS
 %d objects
-
+%d Objekte
 ;
 MSG_DB_ATLEASTONEVECTORFILEWASFOUNDTOCONTAINANUMBEROFPOINTSDIFF
 At least one vector file was found to contain a number of points different from that in its Database record!\nThe record has been updated.\nDatabase should be re-saved.
@@ -2103,7 +2103,7 @@ Error reading longitudes! Object not loaded.
 ;
 MSG_DB_OUTOFMEMORYOBJECTNOTLOADED
 Out of memory! Object not loaded.
-
+Nicht genügend Speicher! Objekt wurde  nicht geladen.
 ;
 MSG_DB_ERRORREADINGHEADEROBJECTNOTLOADED
 Error reading header! Object not loaded.
@@ -2111,11 +2111,11 @@ Error reading header! Object not loaded.
 ;
 MSG_DB_UNSUPPORTEDFILEVERSIONOBJECTNOTLOADED
 Unsupported file version! Object not loaded.
-
+Nicht unterstützte Dateiversion!  Objekt wurde  nicht geladen.
 ;
 MSG_DB_OBJECTDIRECTORY
 Object Directory
-
+Objektverzeichnis
 ;
 MSG_DB_DATABASEMODULENAME
 Database Module: Name
@@ -2123,15 +2123,15 @@ Datenbank Modul: Name
 ;
 MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME
 Vector name already present in database!\nTry a new name?
-
+Der Vektorname ist in der Datenbank bereits vorhanden!\nEinen neuen Namen versuchen?
 ;
 MSG_DB_DATABASEMODULEEDITOR
 Database Module: Editor
-
+Datenbank Modul: Editor
 ;
 MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN
 No memory for vector coordinates!\nNew object has been created but can not be edited until memory is available.
-
+Nicht genügend Speicher für die Vektorkoordinaten!\nEin neues Objekt wurde erzeugt aber es kann erst bearbeitet werden, wenn freier Speicher verfügbar ist.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE
 Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.
@@ -2139,23 +2139,23 @@ Out of memory expanding Database Editor List!\nNew object has been created but w
 ;
 MSG_DB_ADDOBJECT
 Add Object
-
+Objekt hinzufügen
 ;
 MSG_DB_DATABASEADDOBJECT
 Database: Add Object
-
+Datenbank: Objekt hinzufügen
 ;
 MSG_DB_NOFILESSELECTED
 No file(s) selected!
-
+Keine Datei(en) ausgewählt!
 ;
 MSG_DB_OBJECTMUSTENDINSUFFIXOBJ
 Object must end in suffix "Obj"!
-
+Das Objekt muss die Endung "Obj" haben!
 ;
 MSG_DB_OBJECTNAMEALREADYPRESENTINDATABASEUPLICATEITEMSWILLBESKI
 Object name already present in database!\nDuplicate items will be skipped.
-
+Der Objektname ist in der Datenbank bereits vorhanden!\nDoppelte Einträge werden ignoriert.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENADD
 Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.
@@ -2163,7 +2163,7 @@ Out of memory expanding Database Editor List!\nNew object has been added but wil
 ;
 MSG_DB_ERRORLOADINGTHISOBJECTPERATIONTERMINATED
 Error loading this Object!\nOperation terminated.
-
+Fehler beim Laden dieses Objekts!\nVorgang abgebrochen.
 ;
 MSG_DB_MAPVIEWSAVEALL
 Map View: Save All
@@ -2207,11 +2207,11 @@ You must specify a file to convert!\nOperation terminated.
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYINPUTROWSANDCOLUMNSPERATIONTERMINATED
 You must specify input rows and columns!\nOperation terminated.
-
+Die Anzahl von Eingabezeilen und -spalten muss angeben werden!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_THEREISNODATABASETODIRECTOUTPUTENTITIESTOPERATIONTE
 There is no Database to direct output entities to!\nOperation terminated.
-
+Es ist keine Datenbank für die Weiterleitung der Ergebnisse vorhanden!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_INPUTDATACANNOTBEEQUALLYDIVIDEDAMONGOUTPUTMAPSASTCO
 Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows.
@@ -2219,31 +2219,32 @@ Input data cannot be equally divided among output maps.\nLast Column of maps wil
 ;
 MSG_DATAOPS_CONTINUETRUNCATECANCEL
 Continue|Truncate|Cancel
-
+Weiter|Abschneiden|Abbrechen
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTRO
 Incorrect file size for specified header, width and height!\nProceed anyway?.
 
 ;
+; invert file if it is stored SE corner to NW
 MSG_DATAOPS_INVERTDATAORDER
 Invert Data order?
-
+Daten-Reihenfolge invertieren?
 ;
 MSG_DATAOPS_INVERTING
 Inverting
-
+Invertieren
 ;
 MSG_DATAOPS_FLOOR
 Floor
-
+Untergrenze
 ;
 MSG_DATAOPS_CEILING
 Ceiling
-
+Obergrenze
 ;
 MSG_DATAOPS_REPLACE
 Replace
-
+Ersetzen
 ;
 MSG_DATAOPS_RESAMPLE
 Resample
@@ -2251,15 +2252,15 @@ Resample
 ;
 MSG_DATAOPS_EXTREMA
 Extrema
-
+Extrema
 ;
 MSG_DATAOPS_CONVERT
 Convert
-
+Konvertieren
 ;
 MSG_DATAOPS_UNABLETOOPENFILEFORINPUTPERATIONTERMINATED
 Unable to open file for input!\nOperation terminated.
-
+Die Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_CONVERTDEMSOURCEFILE
 Convert DEM source file
@@ -2287,7 +2288,7 @@ Error reading source file!\nOperation terminated.
 ;
 MSG_DATAOPS_NOTACOMPRESSEDFILEPERATIONTERMINATED
 Not a compressed file!\nOperation terminated.
-
+Keine komprimierte Datei!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_EXTENDEDHEADERPERATIONTERMINATED
 Extended header!\nOperation terminated.
@@ -2303,23 +2304,23 @@ Convert DEM source type
 ;
 MSG_DATAOPS_INPUTDATAFORMATNOTSUPPORTEDHECKYOURSETTINGSPERATION
 Input data format not supported!\nCheck your settings.\nOperation terminated.
-
+Nicht unterstütztes Eingabedatenformat!\nÜberprüfen Sie Ihre Einstellungen.\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_ERRORSAVINGOBJFILEOPERATIONTERMOINATED
 Error saving ".Obj" file!\nOperation terminated.
-
+Fehler beim Speichern der ".Obj" Datei!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED
 Input file not recognized as a DTED file!\nOperation terminated.
-
+Eingabedatei nicht als DTED Datei erkannt!\nVorgang abgebrochen.
 ;
 MSG_DATAOPSGUI_DTED
 DTED
-
+DTED
 ;
 MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 !\nIllegal source value format/size combination!\nOperation terminated.
-
+!\nUngültige Kombination von Quell-Format und -größe!\nVorgang abgebrochen.
 ;
 MSG_DATAOPSGUI_BINARRAY
 Bin Array
@@ -2339,7 +2340,7 @@ WCS DEM
 ;
 MSG_DATAOPSGUI_ZBUFFER
 Z Buffer
-
+Z Puffer
 ;
 MSG_DATAOPSGUI_ASCIIARRAY
 Ascii Array
@@ -2347,11 +2348,11 @@ Ascii Array
 ;
 MSG_DATAOPSGUI_VISTADEM
 Vista DEM
-
+Vista DEM
 ;
 MSG_DATAOPSGUI_IFF
 IFF
-
+IFF
 ;
 MSG_DATAOPSGUI_COLORMAP
 Color Map
@@ -2403,19 +2404,19 @@ Low-High
 ;
 MSG_DATAOPSGUI_BYROW
 By Row
-
+Zeilenweise
 ;
 MSG_DATAOPSGUI_BYCOLUMN
 By Column
-
+Spaltenweise
 ;
 MSG_DATAOPSGUI_LATITUDE
 Latitude
-
+Breite
 ;
 MSG_DATAOPSGUI_LONGITUDE
 Longitude
-
+Länge
 ;
 MSG_DATAOPSGUI_INCHES
 Inches
@@ -2471,7 +2472,7 @@ DEM Converter
 ;
 MSG_DATAOPSGUI_INPUTFORMAT
  Input Format
-
+ Eingabeformat
 ;
 MSG_DATAOPSGUI_INPUTFILESIZE
 Input File Size
@@ -2515,7 +2516,7 @@ Ceiling
 ;
 MSG_DATAOPSGUI_REPLACE
  Replace
-
+ Ersetzen
 ;
 MSG_DATAOPSGUI_BY
 by
@@ -2539,11 +2540,11 @@ MSG_DATAOPSGUI_BOTTOM
 ;
 MSG_DATAOPSGUI_INPUTCOLS
 Input Cols
-
+Eingabespalten
 ;
 MSG_DATAOPSGUI_INPUTROWS
 Input Rows
-
+Eingabezeilen
 ;
 MSG_DATAOPSGUI_WRAPLONGITUDE
 Wrap Longitude
@@ -2551,19 +2552,19 @@ Wrap Longitude
 ;
 MSG_DATAOPSGUI_TEST
 \33cTest
-
+\33cTesten
 ;
 MSG_DATAOPSGUI_MIN
 Min
-
+Min
 ;
 MSG_DATAOPSGUI_MAX
 Max
-
+Max
 ;
 MSG_DATAOPSGUI_OUTPUTFORMAT
 Output Format
-
+Ausgabeformat
 ;
 MSG_DATAOPSGUI_OUTDIR
 Out Dir
@@ -2571,15 +2572,15 @@ Out Dir
 ;
 MSG_DATAOPSGUI_NAME
 Name
-
+Name
 ;
 MSG_DATAOPSGUI_DEMSROWWISEEW
 DEMs Row-Wise E/W
-
+DEMs Zeilenweise O/W
 ;
 MSG_DATAOPSGUI_COLUMNWISENS
   Column-Wise N/S
-
+  Spaltenweise N/S
 ;
 MSG_DATAOPSGUI_HIGHLAT
 High Lat
@@ -2599,11 +2600,11 @@ MSG_DATAOPSGUI_LOWLON
 ;
 MSG_DATAOPSGUI_OUTPUTCOLS
  Output Cols
-
+ Ausgabe Spalen
 ;
 MSG_DATAOPSGUI_OUTPUTROWS
  Output Rows
-
+ Ausgabe Zeilen
 ;
 MSG_DATAOPSGUI_SPLINECONSTRAINT
 Spline Constraint
@@ -2619,11 +2620,11 @@ MSG_DATAOPSGUI_OUTPUT
 ;
 MSG_DATAOPSGUI_VALUE1
 Value 1
-
+Wert 1
 ;
 MSG_DATAOPSGUI_VALUE2
 Value 2
-
+Wert 2
 ;
 MSG_DATAOPSGUI_MAXOUTVAL
 Max Out Val
@@ -2635,11 +2636,11 @@ Min Out Val
 ;
 MSG_DATAOPSGUI_CONVERT
 \33cConvert
-
+\33cKonvertieren
 ;
 MSG_DATAOPSGUI_OUTPUTDIRECTORY
 Output Directory
-
+Ausgabeverzeichnis
 ;
 MSG_DATAOPSGUI_FILETOCONVERT
 File to Convert
@@ -2647,7 +2648,7 @@ File to Convert
 ;
 MSG_DATAOPSGUI_UNABLETOOPENFILEFORINPUT
 Unable to open file for input!\n
-
+Kann Datei nicht zum Lesen öffnen!\n
 ;
 MSG_DATAOPSGUI_UNABLETOREADFILESIZE
 Unable to read file size!\n
@@ -2659,19 +2660,19 @@ Data Ops: Convert
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTAWCSDEMFILE
 Warning!\nFile is not a WCS DEM file.
-
+Warnung\nDie Datei ist keine WCS DEM Datei.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFZBUFFERFILE
 Warning!\nFile is not an IFF Z Buffer file.
-
+Warnung\nDie Datei ist keine IFF Z Puffer Datei.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTAVISTADEMFILE
 Warning\nFile is not a Vista DEM file.
-
+Warnung\nDie Datei ist keine Vista DEM Datei.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTACOMPRESSEDVISTAFILEANDCANNOTBEIM
 Warning\nFile is not a compressed Vista file and cannot be imported.
-
+Warnung\nDie Datei ist keine komprimierte Vista date und kann deshalb nicht importiert werden.
 ;
 MSG_DATAOPSGUI_ISTHISASMALLLARGEORHUGEVISTAFILE
 Is this a Small, Large or Huge Vista file?
@@ -2683,11 +2684,11 @@ Small|Large|Huge
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFFILE
 Warning\nFile is not an IFF file.
-
+Warnung\nDie Datei ist keine IFF Datei.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFIMAGEFILE
 Warning\nFile is not an IFF image file.
-
+Warnung\nDie Datei ist keine IFF Bilddatei.
 ;
 MSG_DATAOPSGUI_ERRORREADINGBITMAPHEADER
 Error reading bitmap header.
@@ -2695,7 +2696,7 @@ Error reading bitmap header.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTRECOGNIZEDASADTEDFILE
 Warning\nFile is not recognized as a DTED file.
-
+Warnung\nDie Datei wurde nicht als DTED Datei erkannt.
 ;
 MSG_DATAOPSGUI_DATAOPSINTERPDEM
 Data Ops: Interp DEM
@@ -2707,11 +2708,11 @@ DEM Interpolate
 ;
 MSG_DATAOPSGUI_SELECTFILES
 \33cSelect Files
-
+\33cDateien auswählen
 ;
 MSG_DATAOPSGUI_SELECTED
  Selected
-
+ Ausgewählt
 ;
 MSG_DATAOPSGUI_ELEVATIONVAR
 Elevation Var %
@@ -2723,7 +2724,7 @@ MSG_DATAOPSGUI_MAXFLATVAR
 ;
 MSG_DATAOPSGUI_INTERPOLATE
 \33cInterpolate
-
+\33cInterpolieren
 ;
 MSG_DATAOPSGUI_DEMFILES
 DEM Files
@@ -2832,11 +2833,11 @@ Bitte schließen Sie alle Time line Fenster und versuchen Sie es erneut.
 ;
 MSG_DIAG_DIAGNOSTICDATA
 Diagnostic Data
-
+Diagnosedaten
 ;
 MSG_DIAG_DISTANCE
   Distance
-
+  Entfernung
 ;
 MSG_DIAG_ELEVATION
  Elevation
@@ -2868,19 +2869,19 @@ MSG_DIAG_SUNANGLE
 ;
 MSG_DIAG_LATITUDE
   Latitude
-
+  Breite
 ;
 MSG_DIAG_LONGITUDE
  Longitude
-
+ Länge
 ;
 MSG_DIAG_DATABASE
 \33cDatabase
-
+\33cDatenbank
 ;
 MSG_DIAG_DIGITIZE
 \33cDigitize
-
+\33cDigitalisieren
 ;
 MSG_DIAG_RENDERDATA
 Render Data
@@ -3150,11 +3151,11 @@ Out of memory!\nCan't open database list.
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDIRECTORYLISTWINDOW
 Out of memory!\nCan't open directory list window.
-
+Nicht genügend Speicher!\nDas Ordnerlisten-Fenster kann nicht geöffnet werden.
 ;
 MSG_EDDB_DIRECTORYLISTEDITOR
 Directory List Editor
-
+Ordnerlisten-Editor
 ;
 MSG_EDDB_DEFAULTDIRECTORY
 \33cDefault Directory
@@ -3797,7 +3798,7 @@ This is an old V1 format file! Would you like to re-save it in the new format no
 ;
 MSG_EDPAR_THEPARAMETERFILEFORMATHASBEENCHANGEDSLIGHTLYSINCETHIS
 The Parameter File format has been changed slightly since this file was saved. Would you like to re-save it in the new format now?
-Das Format der Parameterdatei hat sich seit dem letzen Speichern geändert. Soll die Datei jetzt im neuen Format gespeichert werden?
+Das Format der Parameterdatei hat sich seit dem letzten Speichern geändert. Soll die Datei jetzt im neuen Format gespeichert werden?
 ;
 MSG_EDPAR_LOADALLKEYFRAMES
 Load all key frames?
@@ -4670,7 +4671,7 @@ Background File Path/Name
 ;
 MSG_EDSETGUI_ZBUFFERFILEPATHNAME
 Z Buffer File Path/Name
-
+Z Puffer Datei Pfad/Name
 ;
 MSG_EDSETGUI_COLORMAPFILEPATH
 Color Map File Path
@@ -4682,7 +4683,7 @@ Temporary File Path/Name
 ;
 MSG_EDSETGUI_ECOSYSTEMMODELPATH
 Ecosystem Model Path
-
+Ökosystem Modell Pfad
 ;
 MSG_MOREGUI_DEFORMATIONMAPPATH
 Deformation Map Path
@@ -4738,7 +4739,7 @@ MSG_EDITGUI_DELETE
 ;
 MSG_EDITGUI_DELETEALL
 \33cDelete All
-
+\33cAlles löschen
 ;
 MSG_EDITGUI_TIMELINES
 \33cTime Lines\x20
@@ -4750,7 +4751,7 @@ MSG_EDITGUI_SCALEKEYS
 ;
 MSG_EDITGUI_COPY
 \33cCopy
-
+\33cKopieren
 ;
 MSG_EDITGUI_SWAP
 \33cSwap
@@ -4758,15 +4759,15 @@ MSG_EDITGUI_SWAP
 ;
 MSG_EDITGUI_INSERT
 \33cInsert
-
+\33cEinfügen
 ;
 MSG_EDITGUI_REMOVE
 \33cRemove
-
+\33cEntfernen
 ;
 MSG_EDITGUI_KEEP
 \33cKeep
-
+\33cBehalten
 ;
 MSG_EDITGUI_UNUSED
 Unused
@@ -4807,51 +4808,51 @@ PM
 ;
 MSG_EVMORGUI_JAN
 Jan
-
+Jan
 ;
 MSG_EVMORGUI_FEB
 Feb
-
+Feb
 ;
 MSG_EVMORGUI_MAR
 Mar
-
+Mär
 ;
 MSG_EVMORGUI_APR
 Apr
-
+Apr
 ;
 MSG_EVMORGUI_MAY
 May
-
+Mai
 ;
 MSG_EVMORGUI_JUN
 Jun
-
+Jun
 ;
 MSG_EVMORGUI_JUL
 Jul
-
+Jul
 ;
 MSG_EVMORGUI_AUG
 Aug
-
+Aug
 ;
 MSG_EVMORGUI_SEP
 Sep
-
+Sep
 ;
 MSG_EVMORGUI_OCT
 Oct
-
+Okt
 ;
 MSG_EVMORGUI_NOV
 Nov
-
+Now
 ;
 MSG_EVMORGUI_DEC
 Dec
-
+Dez
 ;
 MSG_EVMORGUI_SUNTIME
 Sun Time
@@ -4863,11 +4864,11 @@ Ref Lon
 ;
 MSG_EVMORGUI_DATE
 Date
-
+Datum
 ;
 MSG_EVMORGUI_TIME
 Time
-
+Zeit
 ;
 MSG_EVMORGUI_SUNLON
 Sun Lon
@@ -4883,7 +4884,7 @@ MSG_EVMORGUI_REVERSESEASONS
 ;
 MSG_EVMORGUI_KEEP
 \33cKeep
-
+\33cBehalten
 ;
 MSG_EVMORGUI_SUNTIMEWINDOW
 Sun Time Window
@@ -4891,15 +4892,15 @@ Sun Time Window
 ;
 MSG_EVMORGUI_NEWPROJECT
 New Project
-
+Neues Projekt
 ;
 MSG_EVMORGUI_CLONEPROJECT
 Clone Project
-
+Projekt klonen
 ;
 MSG_EVMORGUI_SAVE
 \33cSave
-
+\33cSpeichern
 ;
 MSG_MOREGUI_PROJECTNEWEDIT
 Project: New/Edit
@@ -4907,7 +4908,7 @@ Projekt: Neu/Bearbeiten
 ;
 MSG_EVMORGUI_NEWPROJECTPATHNAME
 New Project Path/Name
-
+Neues Projekt Pfad/Name
 ;
 MSG_EVMORGUI_YOUMUSTSUPPLYANEWPROJECTNAME
 You must supply a new project name.
@@ -6809,7 +6810,7 @@ Error opening line save file!\nSelect new path?
 ;
 MSG_MAPSUPRT_CANTOPENOBJECTFILEBJECTNOTSAVED
 Can't open object file!\nObject not saved.
-Die Objekt Datei konne nicht geöffnet werden!\nDas Objekt wurde nicht gespeichert.
+Die Objekt Datei konnte nicht geöffnet werden!\nDas Objekt wurde nicht gespeichert.
 ;
 MSG_MAPSUPRT_VECTORSAVEDPOINTS
 %s vector saved. %d points
@@ -6853,7 +6854,7 @@ MSG_MAPSUPRT_0338SETUPPERLEFTCORNER
 ;
 MSG_MAPSUPRT_0338SETLOWERRIGHTCORNERESCABORT
 \0338Set lower right corner. ESC=abort
-\0338Untere rechte Ecke setzen. ESC=abort
+\0338Untere rechte Ecke setzen. ESC=abbrechen
 ;
 MSG_MAPSUPRT_SETLOWERRIGHTCORNER
 Set lower right corner
@@ -7708,7 +7709,7 @@ Ja|Nein|Abbrechen
 ; the stringlength of the first string will be used for table-headline
 MSG_PARGUI_WATER (//31)
  Water
-      Wassser
+      Wasser
 ;
 MSG_PARGUI_SNOW (//31)
   Snow
@@ -7760,7 +7761,7 @@ Fehler beim Öffnen der Ökosystem Modelldatei zum lesen!\nVorgang abegebrochen.
 ;
 MSG_PARGUI_ERRORREADINGFROMECOSYSTEMMODELFILEPERATIONTERMINATEDPR
 Error reading from Ecosystem Model file!\nOperation terminated prematurely.
-Beim Lesen der Ökosystem Modelldatei ist ein Fehler aufgetrete!\nVorgang vorzeitig abgebrochen.
+Beim Lesen der Ökosystem Modelldatei ist ein Fehler aufgetreten!\nVorgang vorzeitig abgebrochen.
 ;
 MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED
 Not a WCS Ecosystem Model file!\nOperation terminated.
@@ -7913,7 +7914,7 @@ WCS Projekt: Speichern
 ;
 MSG_SUPPORT_CANTOPENPROJECTFILEPERATIONTERMINATED
 Can't open project file!\nOperation terminated.
-Die Projektdatei konnen nicht geöffnet werden!\nVorgang abgebrochen.
+Die Projektdatei konnte nicht geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_SUPPORT_PROJECTSAVE
 Project: Save
@@ -8047,7 +8048,7 @@ Keine Farbparameter mit mehr als einem Schlüsselbild!\nVorgang abgebrochen.
 ;
 MSG_TLGUI_COLORTIMELINE
 Color Time Line
-Faben Zeitleiste
+Farben Zeitleiste
 ;
 MSG_TLGUI_FRAME_SPACE
 Frame\x20
@@ -8196,7 +8197,7 @@ Wave Length (km)
 ;
 MSG_WAVGUI_VELOCITYKMHR
 Velocity (km/hr)
-Geschwindigkeit (km/hr)
+Geschwindigkeit (km/h)
 ;
 MSG_WAVGUI_ADD
 \33cAdd...

@@ -3614,3 +3614,8 @@ Anzeige der noch fehlenden deutschen Uebersetzungen
 
 cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0; if(DEUTSCH==""){print MESSAGE;}else{DEUTSCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Deutsch:  %4d\n",DEUTSCHCOUNT);}'
 
+12.Juni 2024
+------------
+* Anzeigen der deutschen Tete zur Rechtschreibpruefung (In Word oeffnen als ISO western)
+
+cat WCS.cs  | awk '/MSG_.*/{MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0; if(DEUTSCH!="") {print $0;}}' >aaa.txt
