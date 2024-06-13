@@ -1041,11 +1041,11 @@ Fehler beim Lesen der Z-Puffer-Datei!\nFormat ist nicht Fließkomma mit einfacher
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBODCHUNKPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated.
-Fehler beim Lesen der Z-Puffer-Datei!\nZBOD Chunk fehlt.\nVorgang abgebrochen.
+Fehler beim Lesen der Z-Puffer-Datei!\nZBOD-Chunk fehlt.\nVorgang abgebrochen.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBUFCHUNKPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated.
-Fehler beim Lesen der Z-Puffer-Datei!\nZBUF Chunk fehlt.\nVorgang abgebrochen.
+Fehler beim Lesen der Z-Puffer-Datei!\nZBUF-Chunk fehlt.\nVorgang abgebrochen.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILERONGSIZEPERATIONTERMINATED
 Error reading Z Buffer file!\nWrong Size.\nOperation terminated.
@@ -1069,11 +1069,11 @@ Fehler beim Lesen der Hintergrunddatei!\nFalsche Größe.\nVorgang abgebrochen.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBODYCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BODY Chunk.\nOperation terminated.
-Fehler beim Lesen der Hintergrunddatei!\nBODY Chunk fehlt.\nVorgang abgebrochen.
+Fehler beim Lesen der Hintergrunddatei!\nBODY-Chunk fehlt.\nVorgang abgebrochen.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBMHDCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BMHD Chunk.\nOperation terminated.
-Fehler beim Lesen der Hintergrunddatei!\nBMHD Chunk fehlt.\nVorgang abgebrochen.
+Fehler beim Lesen der Hintergrunddatei!\nBMHD-Chunk fehlt.\nVorgang abgebrochen.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOMPRESSIONERRORPERATIONTE
 Error reading Background file!\nCompression error.\nOperation terminated.
@@ -1479,7 +1479,7 @@ One Degree
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGTEMPORARYBUFFERPERATIONTERMINATED
 Out of memory allocating temporary buffer!\nOperation terminated.
-Nicht genügend Speicher zum Allockieren des Temp-Puffers!\nVorgang abgebrochen.
+Nicht genügend Speicher für die Anforderung des Temp-Puffers!\nVorgang abgebrochen.
 ;
 MSG_DEM_ERRORREADINGDEMPROFILEPERATIONTERMINATED
 Error reading DEM profile!\nOperation terminated.
@@ -1938,7 +1938,7 @@ Out of memory allocating temporary arrays!\nOperation terminated.
 ;
 MSG_DLG_DLGFILE
 DLG File
-DLG Datei
+DLG-Datei
 ;
 MSG_DLG_NOFILESSELECTED
 No file(s) selected!
@@ -1982,7 +1982,7 @@ Data Ops Module: Import DXF
 ;
 MSG_DLG_DXFFILE
 DXF File
-DXF Datei
+DXF-Datei
 ;
 MSG_DLG_CANTOPENDXFFILEFORINPUTPERATIONTERMINATED
 Can't open DXF file for input!\nOperation terminated.
@@ -2014,7 +2014,7 @@ Data Ops Module: Import WDB
 ;
 MSG_DLG_WDBFILE
 WDB File
-WDB Datei
+WDB-Datei
 ;
 MSG_DLG_CANTOPENWDBFILEFORINPUTPERATIONTERMINATED
 Can't open WDB file for input!\nOperation terminated.
@@ -2063,7 +2063,7 @@ Verzeichnis angelegt: %s
 ;
 MSG_DB_NEWDIRECTORYCREATEDMAKEITTHEDEFAULTDIRECTORY
 New directory created: %s. Make it the default directory?
-Neues Verzeichnis angelegt: %s. Soll es das Standard Verzeichnis werden?
+Neues Verzeichnis angelegt: %s. Soll es das Standardverzeichnis werden?
 ;
 MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA
 Illegal number of database records: less than one!\nOperation terminated.
@@ -2103,7 +2103,7 @@ Error reading longitudes! Object not loaded.
 ;
 MSG_DB_OUTOFMEMORYOBJECTNOTLOADED
 Out of memory! Object not loaded.
-Nicht genügend Speicher! Objekt wurde  nicht geladen.
+Nicht genügend Speicher! Objekt wurde nicht geladen.
 ;
 MSG_DB_ERRORREADINGHEADEROBJECTNOTLOADED
 Error reading header! Object not loaded.
@@ -2111,7 +2111,7 @@ Error reading header! Object not loaded.
 ;
 MSG_DB_UNSUPPORTEDFILEVERSIONOBJECTNOTLOADED
 Unsupported file version! Object not loaded.
-Nicht unterstützte Dateiversion!  Objekt wurde  nicht geladen.
+Nicht unterstützte Dateiversion!  Objekt wurde nicht geladen.
 ;
 MSG_DB_OBJECTDIRECTORY
 Object Directory
@@ -2131,7 +2131,7 @@ Datenbank Modul: Editor
 ;
 MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN
 No memory for vector coordinates!\nNew object has been created but can not be edited until memory is available.
-Nicht genügend Speicher für die Vektorkoordinaten!\nEin neues Objekt wurde erzeugt aber es kann erst bearbeitet werden, wenn freier Speicher verfügbar ist.
+Nicht genügend Speicher für die Vektorkoordinaten!\nEin neues Objekt wurde erzeugt, aber es kann erst bearbeitet werden, wenn freier Speicher verfügbar ist.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE
 Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.
@@ -2312,7 +2312,7 @@ Fehler beim Speichern der ".Obj" Datei!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED
 Input file not recognized as a DTED file!\nOperation terminated.
-Eingabedatei nicht als DTED Datei erkannt!\nVorgang abgebrochen.
+Eingabedatei nicht als DTED-Datei erkannt!\nVorgang abgebrochen.
 ;
 MSG_DATAOPSGUI_DTED
 DTED
@@ -2576,11 +2576,11 @@ Name
 ;
 MSG_DATAOPSGUI_DEMSROWWISEEW
 DEMs Row-Wise E/W
-DEMs Zeilenweise O/W
+DEMs zeilenweise O/W
 ;
 MSG_DATAOPSGUI_COLUMNWISENS
   Column-Wise N/S
-  Spaltenweise N/S
+  spaltenweise N/S
 ;
 MSG_DATAOPSGUI_HIGHLAT
 High Lat
@@ -2600,7 +2600,7 @@ MSG_DATAOPSGUI_LOWLON
 ;
 MSG_DATAOPSGUI_OUTPUTCOLS
  Output Cols
- Ausgabe Spalen
+ Ausgabe Spalten
 ;
 MSG_DATAOPSGUI_OUTPUTROWS
  Output Rows
@@ -2684,11 +2684,11 @@ Small|Large|Huge
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFFILE
 Warning\nFile is not an IFF file.
-Warnung\nDie Datei ist keine IFF Datei.
+Warnung\nDie Datei ist keine IFF-Datei.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFIMAGEFILE
 Warning\nFile is not an IFF image file.
-Warnung\nDie Datei ist keine IFF Bilddatei.
+Warnung\nDie Datei ist keine IFF-Bilddatei.
 ;
 MSG_DATAOPSGUI_ERRORREADINGBITMAPHEADER
 Error reading bitmap header.
@@ -2696,7 +2696,7 @@ Error reading bitmap header.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTRECOGNIZEDASADTEDFILE
 Warning\nFile is not recognized as a DTED file.
-Warnung\nDie Datei wurde nicht als DTED Datei erkannt.
+Warnung\nDie Datei wurde nicht als DTED-Datei erkannt.
 ;
 MSG_DATAOPSGUI_DATAOPSINTERPDEM
 Data Ops: Interp DEM
@@ -5862,7 +5862,7 @@ Ursprungspunkt setzen
 ;
 MSG_MAP_SETDESTINATIONPOINTESCABORT
 \0338Set destination point. ESC=abort
-\0338Zielpunkt setzen. ESC=abort
+\0338Zielpunkt setzen. ESC=Abbrechen
 ;
 MSG_MAP_SETDESTINATIONPOINT
 Set destination point
@@ -6278,7 +6278,7 @@ Ungültige Abmessungen! Versuchen Sie, das Rechteck zu vergrößern.\nVorgang abgeb
 ;
 MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINSAMEDEMPERATIONTERMINAT
 All corner points must be within same DEM!\nOperation terminated.
-Alle Eckpunkte müssen sich innerhalb der selben DEM befinden!\nVorgang abgebrochen.
+Alle Eckpunkte müssen sich innerhalb derselben DEM befinden!\nVorgang abgebrochen.
 ;
 MSG_MAPEXTRA_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
@@ -6870,7 +6870,7 @@ LAT: %f, LON: %f
 ;
 MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING
 Vector object has been modified!\nSave it before closing?
-Das Vektor Object wurde verändert!\nSoll es vor dem Schlie0en gespeichert werden?
+Das Vektor Objekt wurde verändert!\nSoll es vor dem Schlie0en gespeichert werden?
 ;
 MSG_MAPSUPRT_SAVECANCEL
 SAVE|CANCEL
@@ -7243,7 +7243,7 @@ Hintergrund Name\x20\x20\x20\x20
 ;
 MSG_MOREGUI_DEFAULTDIRECTORY_SPACES
 Default Directory\x20\x20\x20
-Standard Verzeichnis
+Standardverzeichnis
 ;
 MSG_MOREGUI_GRAPHICSAVEPATH_SPACES
 Graphic Save Path\x20\x20\x20
@@ -7757,7 +7757,7 @@ Load Model Path/Name
 ;
 MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMI
 Eror opening Ecosystem Model file for input!\nOperation terminated.
-Fehler beim Öffnen der Ökosystem Modelldatei zum lesen!\nVorgang abegebrochen.
+Fehler beim Öffnen der Ökosystem Modelldatei zum Lesen!\nVorgang abgebrochen.
 ;
 MSG_PARGUI_ERRORREADINGFROMECOSYSTEMMODELFILEPERATIONTERMINATEDPR
 Error reading from Ecosystem Model file!\nOperation terminated prematurely.
@@ -7781,11 +7781,11 @@ Save Model Path/Name
 ;
 MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFOROUTPUTPERATIONTERMI
 Error opening Ecosystem Model file for output!\nOperation terminated.
-Fehler beim Öffnen der Ökosystem Modelldatei zum schreiben!\nVorgang abgebrochen.
+Fehler beim Öffnen der Ökosystem Modelldatei zum Schreiben!\nVorgang abgebrochen.
 ;
 MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR
 Error writing to Ecosystem Model file!\nOperation terminated prematurely.
-Fehler beim Screiben der Ökosystem Modelldatei zum schreiben!\nVorgang vorzeitig abgebrochen.
+Fehler beim Schreiben der Ökosystem Modelldatei zum Schreiben!\nVorgang vorzeitig abgebrochen.
 ;
 MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT
 You have not selected a file name for output!\nOperation terminated.
@@ -7938,7 +7938,7 @@ Projekt: Laden
 ;
 MSG_SUPPORT_NOTAWCSPROJECTFILEPERATIONTERMINATED
 Not a WCS Project file!\nOperation terminated.
-Keine WCS Projektatei!\nVorgang abgebrochen.
+Keine WCS ProjektDatei!\nVorgang abgebrochen.
 ;
 MSG_SUPPORT_ILLEGALMAPREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUAL
 Illegal map registration values! High and low X or Y values are equal.
@@ -8170,30 +8170,31 @@ MSG_WAV_SPREADINGCONVERGING
 Spreading|Converging
 
 ;
+; See Project/Modules/Parameters -> Waves
 ;
 MSG_WAVGUI_33C0334CWAVES
 \33c\0334Waves
-
+\33c\0334Wellen
 ;
 MSG_WAVGUI_ACTIVEWAVE
 \33c\0334Active Wave
-
+\33c\0334Aktive Welle
 ;
 MSG_WAVGUI_LATITUDE
 Latitude
-
+Breitengrad
 ;
 MSG_WAVGUI_LONGITUDE
 Longitude
-
+Längengrad
 ;
 MSG_WAVGUI_AMPLITUDEM
 Amplitude (m)
-
+Amplitude (m)
 ;
 MSG_WAVGUI_WAVELENGTHKM
 Wave Length (km)
-
+Länge der Welle (km)
 ;
 MSG_WAVGUI_VELOCITYKMHR
 Velocity (km/hr)
@@ -8201,7 +8202,7 @@ Geschwindigkeit (km/h)
 ;
 MSG_WAVGUI_ADD
 \33cAdd...
-
+\33cHinzufügen...
 ;
 MSG_WAVGUI_MAPADD
 \33cMap Add...
@@ -8209,15 +8210,15 @@ MSG_WAVGUI_MAPADD
 ;
 MSG_WAVGUI_REMOVE
 \33cRemove
-
+\33cEntfernen
 ;
 MSG_WAVGUI_LOAD
 \33cLoad
-
+\33cLaden
 ;
 MSG_WAVGUI_SAVE
 \33cSave
-
+\33cSpeichern
 ;
 MSG_WAVGUI_MAPVIEWWAVES
 Map View: Waves
@@ -8225,11 +8226,11 @@ Map View: Waves
 ;
 MSG_WAVGUI_OPTIONS
 Options
-
+Optionen
 ;
 MSG_WAVGUI_WAVES
 \33cWaves
-
+\33cWellen
 ;
 MSG_WAVGUI_TIDES
 \33cTides
@@ -8241,11 +8242,11 @@ MSG_WAVGUI_REFLECT
 ;
 MSG_WAVGUI_FRACTAL
 \33cFractal
-
+\33cFraktal
 ;
 MSG_WAVGUI_ANIMATION
 \33c\0334Animation
-
+\33c\0334Animation
 ;
 MSG_WAVGUI_MOVELATITUDE
 Move Latitude
@@ -8257,77 +8258,77 @@ Move Longitude
 ;
 MSG_WAVGUI_AMPLITUDEFACT
 Amplitude Fact
-
+Amplitudenfaktor
 ;
 MSG_WAVGUI_WHITECAPHTM
 WhiteCap Ht (m)
-
+Schaumkronen Höhe (m)
 ;
 MSG_WAVGUI_DRAWWAVES
 \33cDraw Waves
-
+\33cWellen Zeichnen
 ;
 MSG_WAVGUI_DRAWDETAIL
 \33cDraw Detail
-
+\33cDetails zeichnen
 ;
 MSG_WAVGUI_KEYFRAMES
 \33c\0334Key Frames
-
+\33c\0334Key Frames
 ;
 MSG_WAVGUI_PREV
 \33cPrev
-
+\33cVorheriger
 ;
 ; PK="Previous Key"
 MSG_WAVGUI_PKD
 PK %d
-
+VK %d
 ;
 ; NK="Next Key"
 MSG_WAVGUI_NKD
 NK %d
-
+NK %d
 ;
 MSG_WAVGUI_FRAME
 Frame
-
+Frame
 ;
 MSG_WAVGUI_NEXT
 \33cNext
-
+\33cNächster
 ;
 MSG_WAVGUI_MAKEKEY
 \33cMake Key
-
+\33cKey erzeugen
 ;
 MSG_WAVGUI_UPDATE
 \33cUpdate
-
+\33cAktualisieren
 ;
 MSG_WAVGUI_DELETE
 \33c\33uDel\33nete
-
+\33cLöschen
 ;
 MSG_WAVGUI_DELETEALL
 \33cDelete All
-
+\33cAlle löschen
 ;
 MSG_WAVGUI_TIMELINES
 \33cTime Lines\x20
-
+\33cZeitleisten
 ;
 MSG_WAVGUI_SCALEKEYS
 \33cScale Keys\x20
-
+\33cKeys skalieren\x20
 ;
 MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB
 The current Wave Model has been modified. Do you wish to save it before closing?
-
+Das aktuelle Wellen-Modell wurde verändert. Soll es vor dem Schließen gespeichert werden?
 ;
 MSG_WAVGUI_WAVEPATHFILE
 Wave Path/File
-
+Wellen Pfad/Datei
 ;
 MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE
 Make this file the Project Wave File?
@@ -8335,15 +8336,15 @@ Make this file the Project Wave File?
 ;
 MSG_WAVGUI_DELETEALLWAVEKEYFRAMES
 Delete all wave key frames?
-
+Alle Wellen-Keyframes löschen?
 ;
 MSG_WAVGUI_AMPLITUDE
 Amplitude
-
+Amplitude
 ;
 MSG_WAVGUI_WHITECAPHEIGHT
 WhiteCap Height
-
+Höhe der Schaumkronen
 ;
 MSG_WAVGUI_WAVETIMELINES
 Wave Time Lines
@@ -8355,11 +8356,11 @@ Cloud Wave Time Lines
 ;
 MSG_WAVGUI_WAVEFILE
 Wave File
-
+Wellen-Datei
 ;
 MSG_WAVGUI_ADDWAVE
 Add Wave
-
+Wellen hinzufügen
 ;
 MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY
 Map View Module must be open in order\nto use this function. Would you like to open it now?
@@ -8371,7 +8372,7 @@ Map View: Wave Add
 ;
 MSG_WAVGUI_REMOVEALLCURRENTLYDEFINEDWAVESBEFOREADDINGNEWONES
 Remove all currently defined waves before adding new ones?
-
+Alle beisher definieren Wellen löschen bevor neue erzeugt werden?
 ;
 MSG_WAVGUI_0338SETCLOUDWAVESOURCEPOINT
 \0338Set Cloud Wave Source Point %d
@@ -8387,27 +8388,27 @@ Enter Wave Amplitude.
 ;
 MSG_WAVGUI_ENTERWAVELENGTHKM
 Enter Wave Length (km).
-
+Länge der Wellen eingeben (km).
 ;
 MSG_WAVGUI_ENTERWAVEVELOCITYKMHR
 Enter Wave Velocity (km/hr).
-
+Geschwindigkeit der Wellen eingeben (km/h).
 ;
 MSG_WAVGUI_ALL
 All (%d)
-
+Alle (%d)
 ;
 MSG_WAVGUI_KEYSEXIST
 Keys Exist (%d)
-
+Keys existieren (%d)
 ;
 MSG_WAVGUI_ALL0
 \33cAll (0)
-
+\33cAlle (0)
 ;
 MSG_WAVGUI_NOOTHERKEYS
 No Other Keys
-
+Keine weiteren Keys
 ;
 MSG_WCS_STACKTOSMALLUBYTES
 Stack to small! (%lu Bytes)\n
