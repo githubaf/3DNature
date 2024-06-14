@@ -7243,7 +7243,7 @@ Hintergrund Name\x20\x20\x20\x20
 ;
 MSG_MOREGUI_DEFAULTDIRECTORY_SPACES
 Default Directory\x20\x20\x20
-Standardverzeichnis
+Standardverzeichnis\x20
 ;
 MSG_MOREGUI_GRAPHICSAVEPATH_SPACES
 Graphic Save Path\x20\x20\x20
@@ -7791,33 +7791,34 @@ MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT
 You have not selected a file name for output!\nOperation terminated.
 Es wurde kein Dateiname zum Schreiben ausgewählt!\nVorgang abgebrochen.
 ;
+; --- Project/Parameters -> Motion -> Cam View -> Anim ---
 MSG_PARGUI_ANIMCONTROLWINDOW
 Anim Control Window
 
 ;
 MSG_PARGUI_ANIMPATH
 Anim Path
-
+Anim Pfad
 ;
 MSG_PARGUI_ANIMNAME
 Anim Name
-
+Anim Name
 ;
 MSG_PARGUI_TO
 To
-
+Bis
 ;
 MSG_PARGUI_BY
 By
-
+Schritt
 ;
 MSG_PARGUI_WINDOWWIDTH
 Window Width
-
+Fensterbreite
 ;
 MSG_PARGUI_HEIGHT
  Height
-
+ Höhe
 ;
 MSG_PARGUI_USERENDERIMAGEASPECT
 Use Render Image Aspect
@@ -7841,11 +7842,11 @@ Anim Frames Path/Name
 ;
 MSG_PARGUI_SPECIFIEDWIDTHISLARGERTHANTHECURRENTSCREENWIDTHDOYOU
 Specified width is larger than the current screen width. Do you wish to use the screen width?
-
+Die angegebene Breite ist größer als die Bildschirmbreite. Soll statt dessen die Bildschirmbreite verwendet werden?
 ;
 MSG_PARGUI_SPECIFIEDORCOMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREE
 Specified or computed height is larger than the current screen height. Do you wish to use the screen height?
-
+Die angegebene oder berechnete Höhe ist größer als die Bildschirmhöhe. Soll statt dessen die Bildschirmhöhe verwendet werden?
 ;
 ;
 MSG_REQGUI_CANTINITIALIZEFILEREQUESTER
@@ -7866,35 +7867,35 @@ MSG_REQGUI_SFRAMES
 ;
 MSG_REXSPT_WCSISSHUTTINGDOWN
 WCS is shutting down.
-
+WCS wird beendet.
 ;
 MSG_REXSPT_WCSCURRENTLYDOESNOTSUPPORTCOMMANDSLONGERTHAN10WORDS
 WCS currently does not support commands longer than 10 words.
-
+WCS unterstützt gegenwärtig keine Kommandos mit mehr als 10 Worten.
 ;
 MSG_REXSPT_WCSDIDNOTRECOGNISETHECOMMANDSINTHEORDERSUPPLIED
 WCS did not recognise the commands in the order supplied.
-
+WCS hat die Kommandos in der angegebenen Reihenfolge nicht erkannt.
 ;
 MSG_REXSPT_WCSDIDNOTRECOGNISEONEOFTHECOMMANDWORDS
 WCS did not recognise one of the command words.
-
+WCS hat eines der Befehlsworte nicht erkannt.
 ;
 MSG_REXSPT_WCSRECOGNISEDAPARTIALBUTINCOMPLETECOMMAND
 WCS recognised a partial but incomplete command.
-
+WCS hat einen unvollständigen Befehl erkannt.
 ;
 MSG_REXSPT_NONALPHABETICCHARACTERFOUNDINCOMMANDWORD
 Non-alphabetic character found in command word.
-
+Nicht-ASCII Zeichen im Befehlswort gefunden.
 ;
 MSG_REXSPT_COMMANDWORDSIZEEXCEEDED
 Command word size exceeded.
-
+Befehlswort-Länge überschritten.
 ;
 MSG_REXSPT_INLINEARGSIZEEXCEEDED
 Inline Arg size exceeded.
-
+Inline-Argumentengröße überschritten.
 ;
 MSG_SUPPORT_WCSCONFIGURATIONSAVE
 WCS Configuration: Save
@@ -8383,7 +8384,7 @@ Set Cloud Wave Source Point %d
 
 ;
 MSG_WAVGUI_ENTERWAVEAMPLITUDE
-Enter Wave Amplitude.
+Enter Wave Amplitude.\raggedbottom
 
 ;
 MSG_WAVGUI_ENTERWAVELENGTHKM
