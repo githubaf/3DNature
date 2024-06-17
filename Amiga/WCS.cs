@@ -1163,7 +1163,7 @@ Wolkentyp
 ;
 MSG_CLOUDGUI_SEED
 Seed
-
+Startwert
 ;
 MSG_CLOUDGUI_CLOUDWAVES
 \33c\0334Cloud Waves
@@ -1171,7 +1171,7 @@ MSG_CLOUDGUI_CLOUDWAVES
 ;
 MSG_CLOUDGUI_WAVES
 Waves
-
+Wellen
 ;
 MSG_CLOUDGUI_MAPADD
 \33cMap Add...
@@ -1183,7 +1183,7 @@ MSG_CLOUDGUI_EDIT
 ;
 MSG_CLOUDGUI_ANIMATE
 Animate
-
+Animieren
 ;
 MSG_CLOUDGUI_LOUDMAPSIZERANGE
 \33c\0334Cloud Map Size & Range
@@ -1191,11 +1191,11 @@ MSG_CLOUDGUI_LOUDMAPSIZERANGE
 ;
 MSG_CLOUDGUI_ROWS
 Rows
-
+Zeilen
 ;
 MSG_CLOUDGUI_COLS
 Cols
-
+Spalten
 ;
 MSG_CLOUDGUI_LATMAX
 Lat Max
@@ -1211,7 +1211,7 @@ Lon Max
 ;
 MSG_CLOUDGUI_ANIMATION
 \33c\0334Animation
-
+\33c\0334Animation
 ;
 MSG_CLOUDGUI_COVERAGE
 Coverage
@@ -1219,11 +1219,11 @@ Bedeckung
 ;
 MSG_CLOUDGUI_DENSITY
 Density
-
+Dichte
 ;
 MSG_CLOUDGUI_ROUGHNESS
 Roughness
-
+Rauhigkeit
 ;
 MSG_CLOUDGUI_FRACTDIM
 Fract Dim
@@ -1263,7 +1263,7 @@ MSG_CLOUDGUI_MAKEKEY
 ;
 MSG_CLOUDGUI_UPDATE
 \33cUpdate
-
+\33cAktualisieren
 ;
 MSG_CLOUDGUI_DELETE
 \33c\33uDel\33nete
@@ -1381,7 +1381,7 @@ Data Ops: DEM Interpolate
 ;
 MSG_DEM_NOFILESSELECTED
 No file(s) selected!
-
+Keine Datei(en) ausgewählt!
 ;
 MSG_DEM_ERROROPENINGFILEFORINTERPOLATIONILENOTDEMORREMONTINUE
 Error opening file for interpolation!\nFile not DEM or REM\nContinue?
@@ -1393,11 +1393,11 @@ DEM name is too long to add an extra character to. Do you wish to enter a new ba
 ;
 MSG_DEM_NEWNAMEABORT
 New Name|Abort
-
+Neuer Name|Abbrechen
 ;
 MSG_DB_ENTERNEWOBJECTNAME
 Enter new object name.
-
+Geben Sie einen neuen Objektnamen ein.
 ;
 MSG_DEM_DATAOPSINTERPOLATEDEM
 Data Ops: Interpolate DEM
@@ -1413,11 +1413,11 @@ Nicht genügend Speicher!\nVorgang abgebrochen.
 ;
 MSG_DEM_ERROROPENINGDEMFILEFOROUTPUTPERATIONTERMINATED
 Error opening DEM file for output!\nOperation terminated.
-
+Fehler beim Öffnen der DEM-Datei zum Schreiben!\nVorgang abgebrochen.
 ;
 MSG_DEM_ERRORWRITINGDEMFILEPERATIONTERMINATED
 Error writing DEM file!\nOperation terminated.
-
+Fehler beim Schreiben der DEM-Datei!\nVorgang abgebrochen.
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE
 Out of memory expanding Database Editor List!\nOperation terminated.
@@ -1425,7 +1425,7 @@ Out of memory expanding Database Editor List!\nOperation terminated.
 ;
 MSG_DEM_ERROROPENINGOBJECTFILEFOROUTPUTPERATIONTERMINATED
 Error opening Object file for output!\nOperation terminated.
-
+Fehler beim Öffnen der Objekt-Datei zum Schreiben!\nVorgang abgebrochen.
 ;
 ; ------ DEMGUI.c ---------
 ;
@@ -1447,7 +1447,7 @@ Out of memory allocating DEM Arrays!\nOperation terminated.
 ;
 MSG_DEM_75MINUTE
 7.5 Minute
-
+7,5 Minuten
 ;
 MSG_DEM_READING
 Reading
@@ -1471,11 +1471,11 @@ Resample
 ;
 MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT
 Enter a name for the 30 meter DEM object.
-
+Geben Sie einen Namen für das 30 Meter DEM-Objekt ein.
 ;
 MSG_DEM_ONEDEGREE
 One Degree
-
+Ein Grad
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGTEMPORARYBUFFERPERATIONTERMINATED
 Out of memory allocating temporary buffer!\nOperation terminated.
@@ -1507,11 +1507,11 @@ Fehler beim Lesen des DEM File-Headers!\nVorgang abgebrochen.
 ;
 MSG_DEM_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
-
+Fehler beim Öffnen der Ausgabedatei!\nVorgang abgebrochen.
 ;
 MSG_DEM_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED
 Error writing to output file!\nOperation terminated.
-
+Fehler beim Schreiben der Ausgabedatei!\nVorgang abgebrochen.
 ;
 MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLIST
 Out of memory expanding Database Editor List!
@@ -1537,19 +1537,19 @@ Datenbank Objekte
 ;
 MSG_DEMGUI_XYZLATLON
 XYZ Lat/Lon
-
+XYZ Breite/Länge
 ;
 MSG_DEMGUI_XYZUTM
 XYZ UTM
-
+XYZ UTM
 ;
 MSG_DEMGUI_DXFLATLON
 DXF Lat/Lon
-
+DXF Breite/Länge
 ;
 MSG_DEMGUI_DXFUTM
 DXF UTM
-
+DXF UTM
 ;
 MSG_DEMGUI_SLIDER
 Slider
@@ -1561,7 +1561,7 @@ End Points
 ;
 MSG_DEMGUI_DEM
 DEM
-
+DEM
 ;
 MSG_DEMGUI_NUMERIC
 Numeric
@@ -1573,7 +1573,7 @@ Isoline
 ;
 MSG_DEMGUI_GRADIENT
 Gradient
-
+Gradient
 ;
 MSG_DEMGUI_CONCAVE
 Concave
@@ -1589,15 +1589,15 @@ None
 ;
 MSG_DEMGUI_LINESPOINTS
 Lines/Points
-
+Linien/Punkte
 ;
 MSG_DEMGUI_LINESONLY
 Lines Only
-
+Nur Linien
 ;
 MSG_DEMGUI_POINTSONLY
 Points Only
-
+Nur Punkte
 ;
 MSG_DATAOPSGUI_KILOMETERS
 Kilometers
@@ -1633,11 +1633,11 @@ MSG_DEMGUI_MAP
 ;
 MSG_DEMGUI_ADD
 \33cAdd
-
+\33cHinzufügen
 ;
 MSG_DEMGUI_MOVE
 \33cMove
-
+\33cVerschieben
 ;
 MSG_DEMGUI_DEL
 \33cDel
@@ -1701,15 +1701,15 @@ MSG_DEMGUI_OPTIONS
 ;
 MSG_DEMGUI_GRADIENTS
 Gradients\x20\x20
-
+Gradienten\x20
 ;
 MSG_DEMGUI_CHOROPLETH
 Choropleth\x20
 
 ;
 MSG_DEMGUI_DENSITY
-Density\x20\x20\x20\x40
-
+Density\x20\x20\x20\x20
+Dichte\x20\x20\x20\x20\x20
 ;
 MSG_DEMGUI_EXTRAPOLATE
 Extrapolate
@@ -1717,11 +1717,11 @@ Extrapolieren
 ;
 MSG_DEMGUI_SOUTHHEMI
 South Hemi.
-
+Südl. Hemi.
 ;
 MSG_DEMGUI_BOUNDARIES
 \33c\0334Boundaries
-
+\33c\0334Grenzen
 ;
 MSG_DEMGUI_NORTH
 North
@@ -1745,11 +1745,11 @@ MSG_DEMGUI_ELLOVERLAP
 ;
 MSG_DEMGUI_HORIZ
 Horiz
-
+Horiz
 ;
 MSG_DEMGUI_VERT
 Vert
-
+Vert
 ;
 MSG_DEMGUI_SURFACETAUTNESS
 \33c\0334Surface Tautness
@@ -1757,15 +1757,15 @@ MSG_DEMGUI_SURFACETAUTNESS
 ;
 MSG_DEMGUI_SCALE
 \33c\0334Scale
-
+\33c\0334Skalieren
 ;
 MSG_DEMGUI_NULL
 Null
-
+Null
 ;
 MSG_DEMGUI_DELTA
 Delta
-
+Delta
 ;
 MSG_DEMGUI_GRID
 \33cGrid
@@ -1793,7 +1793,7 @@ NewDEM
 ;
 MSG_DEMGUI_IMPORT
 \33cImport
-
+\33cImportieren
 ;
 MSG_DEMGUI_SAVEPTS
 \33cSave Pts
@@ -1805,10 +1805,10 @@ MSG_DEMGUI_BUILD
 ;
 MSG_DEMGUI_DRAWPTS
 \33cDraw Pts
-
+\33cPunkte zeichnen
 ;
 MSG_DEMGUI_CLEARPTS
-\33cClear Pts
+\33cPunkte löschen
 
 ;
 MSG_DEMGUI_NONNEG
@@ -1821,11 +1821,11 @@ MSG_DEMGUI_OUTPUT
 ;
 MSG_DEMGUI_COLS
 Cols
-
+Spalten
 ;
 MSG_DEMGUI_ROWS
 Rows
-
+Zeilen
 ;
 MSG_DEMGUI_OPTIONALNOISEMAP
 \33c\0334Optional Noise Map
@@ -1841,7 +1841,7 @@ Fract
 ;
 MSG_DEMGUI_OFFSETX
 Offset X
-
+Offset X
 ;
 MSG_DEMGUI_SCOPE
 Scope
@@ -1942,11 +1942,11 @@ DLG-Datei
 ;
 MSG_DLG_NOFILESSELECTED
 No file(s) selected!
-
+Keine Datei(en) ausgewählt!
 ;
 MSG_DLG_CANTOPENDLGFILEFORINPUTPERATIONTERMINATED
 Can't open DLG file for input!\nOperation terminated.
-
+Die DLG-Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_DLG_FILENOTAUSGSOPTIONALDLGPERATIONTERMINATED
 File not a USGS Optional DLG!\nOperation terminated.
@@ -1954,15 +1954,15 @@ File not a USGS Optional DLG!\nOperation terminated.
 ;
 MSG_DLG_INAPPROPRIATEUTMZONEPERATIONTERMINATED
 Inappropriate UTM Zone!\nOperation terminated.
-
+Unzulässige UTM-Zone!\nVorgang abgebrochen.
 ;
 MSG_DLG_THISFILECONTAINSDATAINANUNSUPPORTEDREFERENCESYSTEMPERAT
 This file contains data in an unsupported Reference System!\nOperation terminated.
-
+Diese Datei enthält Daten in einem nicht unterstützten Referenzsystem!\nVorgang abgebrochen.
 ;
 MSG_DLG_READING
 Reading
-Lese
+Lesen
 ;
 MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE
 Enter up to 3 characters as a prefix for this DLG set if you desire.
@@ -1973,8 +1973,8 @@ Out of memory expanding database!\nOperation terminated.
 
 ;
 MSG_DLG_ERRORSAVINGOBJECTFILEPERATIONTERMINATED
-Error saving object file!\nOperation terminated
-
+Error saving object file!\nOperation terminated.
+Fehler beim Speichern der Objektdatei!\nVorgang abgebrochen.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTDXF
 Data Ops Module: Import DXF
@@ -1986,19 +1986,19 @@ DXF-Datei
 ;
 MSG_DLG_CANTOPENDXFFILEFORINPUTPERATIONTERMINATED
 Can't open DXF file for input!\nOperation terminated.
-
+Die DXF-Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_DLG_IMPROPERCODEVALUEFOUNDPERATIONTERMINATEDPREMATURELY
 Improper Code value found!\nOperation terminated prematurely.
-
+Unzulässiger Codewert gefunden!\nOperation vorzeitig abgebrochen.
 ;
 MSG_DLG_ERRORSAVINGOBJECTPERATIONTERMINATED
 Error saving object!\nOperation terminated.
-
+Fehler beim Speichern des Objektes!\nVorgang abgebrochen.
 ;
 MSG_DLG_ANENTITYHASBEENFOUNDWITHNONAMEIDENTIFIERPLEASEENTERADEF
 An entity has been found with no name identifier. Please enter a default name.
-
+Ein Eintrag ohne Namenskennzeichnung wurde gefunden. Bitte geben Sie einen Standardnamen ein.
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTASTITEMDOESNOTAPP
 Out of memory expanding Database Editor List!\nLast item does not appear in list view.
@@ -2006,7 +2006,7 @@ Out of memory expanding Database Editor List!\nLast item does not appear in list
 ;
 MSG_DLG_ERRORSAVINGLASTOBJECTPERATIONTERMINATED
 Error saving last object!\nOperation terminated.
-
+fehler beim Speichern des letzten Objetes!\nVorgang abgebrochen.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTWDB
 Data Ops Module: Import WDB
@@ -2018,36 +2018,36 @@ WDB-Datei
 ;
 MSG_DLG_CANTOPENWDBFILEFORINPUTPERATIONTERMINATED
 Can't open WDB file for input!\nOperation terminated.
-
+Die WDB-Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_DLG_ERROROPENINGSOURCEFILEPERATIONTERMINATED
 Error opening source file!\nOperation terminated.
-
+Fehler beim Öffnen der Quelldatei!\nVorgang abegebrochen.
 ;
 MSG_DLG_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
-
+Fehler bei Öffnen der Ausgabedatei!\nVorgang abgebrochen.
 ;
 MSG_DLG_UNSUPPORTEDATTRIBUTECODEPERATIONTERMINATED
 Unsupported attribute code!\nOperation terminated.
-
+Nicht unterstützter Attribut-Code!\nVorgang abgebrochen.
 ;
 MSG_DLG_OBJECTCONTAINSTOOMANYPOINTSPERATIONTERMINATED
 Object contains too many points!\nOperation terminated.
-
+Das Objekt enthält zu viele Punkte!\nVorgang abgebrochen.
 ;
 ;
 MSG_DB_NEWDATABASECREATED
 New database created: %s
-
+Neue Datenbank erzeugt: %s
 ;
 MSG_DB_ERRORSAVINGDATABASEELECTANEWDIRECTORY
 Error saving database!\nSelect a new directory?
-
+Fehler beim Speichern der Datenbank!\nEinen neuen Ordner wählen?
 ;
 MSG_DB_OKCANCEL
 OK|Canel
-
+OK|Abbrechen
 ;
 MSG_DB_DATABASE
 Database
@@ -2091,15 +2091,15 @@ Map View: Load
 ;
 MSG_DB_ERRORREADINGELEVATIONSOBJECTNOTLOADED
 Error reading elevations! Object not loaded.
-
+Fehler beim Lesen der Höhenwerte! Objekt wurde nicht geladen.
 ;
 MSG_DB_ERRORREADINGLATITUDESOBJECTNOTLOADED
 Error reading latitudes! Object not loaded.
-
+Fehler beim Lesen der Breitengrade! Objekt wurde nicht geladen.
 ;
 MSG_DB_ERRORREADINGLONGITUDESOBJECTNOTLOADED
 Error reading longitudes! Object not loaded.
-
+Fehler beim Lesen der Längengrade! Objekt wurde nicht geladen.
 ;
 MSG_DB_OUTOFMEMORYOBJECTNOTLOADED
 Out of memory! Object not loaded.
@@ -2107,7 +2107,7 @@ Nicht genügend Speicher! Objekt wurde nicht geladen.
 ;
 MSG_DB_ERRORREADINGHEADEROBJECTNOTLOADED
 Error reading header! Object not loaded.
-
+Fehler beim Lesen des Headers! Objekt wurde nicht geladen.
 ;
 MSG_DB_UNSUPPORTEDFILEVERSIONOBJECTNOTLOADED
 Unsupported file version! Object not loaded.
@@ -2171,7 +2171,7 @@ Map View: Save All
 ;
 MSG_DB_ERRORWRITINGMASTEROBJECTFILEPERATIONTERMINATED
 Error writing Master Object file!\nOperation terminated.
-
+Fehler beim Schreiben der Master-Objektdatei!\nOperation abgebrochen.
 ;
 MSG_DB_WCSMASTEROBJECT
 WCSMasterObject
@@ -2183,7 +2183,7 @@ Out of memory loading Master Object File!\nEnabled Objects will be loaded indivi
 ;
 MSG_DB_ERRORREADINGMASTEROBJECTFILEPERATIONTERMINATED
 Error reading Master Object file!\nOperation terminated.
-
+Fehler beim Lesen der Master-Objektdatei!\nOperation abgebrochen.
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
@@ -2191,7 +2191,7 @@ Number of Objects in the Master Object file does not match the number of Objects
 ;
 MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 .MDB is not a WCS Master Object file!
-
+.MDB ist keine WCS-Master-Objekt-Datei!
 ;
 MSG_DB_RECORDSMARKED
 Records = %d, Marked = %d
@@ -2203,7 +2203,7 @@ Data Ops: Convert DEM
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYAFILETOCONVERTPERATIONTERMINATED
 You must specify a file to convert!\nOperation terminated.
-
+Sie müssen eine Datei zum Konvertieren angeben!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYINPUTROWSANDCOLUMNSPERATIONTERMINATED
 You must specify input rows and columns!\nOperation terminated.
@@ -2222,8 +2222,8 @@ Continue|Truncate|Cancel
 Weiter|Abschneiden|Abbrechen
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTRO
-Incorrect file size for specified header, width and height!\nProceed anyway?.
-
+Incorrect file size for specified header, width and height!\nProceed anyway?
+Falsche dateigröße fpr den angegebenen Header, Breite und Höhe!\nTrotzdem weitermachen?
 ;
 ; invert file if it is stored SE corner to NW
 MSG_DATAOPS_INVERTDATAORDER
@@ -2280,11 +2280,11 @@ Convert DEM destination file
 ;
 MSG_DATAOPS_ERRORWRITINGDESTINATIONFILEPERATIONTERMINATED
 Error writing destination file!\nOperation terminated.
-
+Fehler beim Schreiben der Zieldatei!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_ERRORREADINGSOURCEFILEPERATIONTERMINATED
 Error reading source file!\nOperation terminated.
-
+Fehler beim Llesen der Quelldatei!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_NOTACOMPRESSEDFILEPERATIONTERMINATED
 Not a compressed file!\nOperation terminated.
@@ -2292,7 +2292,7 @@ Keine komprimierte Datei!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_EXTENDEDHEADERPERATIONTERMINATED
 Extended header!\nOperation terminated.
-
+Erweiterer Header!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_INPUTFILECONFIGURATIONNOTYETSUPPORTEDPERATIONTERMIN
 Input file configuration not yet supported!\nOperation terminated.
