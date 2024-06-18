@@ -2368,15 +2368,15 @@ Color IFF
 ;
 MSG_DATAOPSGUI_SIGNEDINT
 Signed Int
-
+Signed Int
 ;
 MSG_DATAOPSGUI_UNSIGNEDINT
 Unsigned Int
-
+Unsigned Int
 ;
 MSG_DATAOPSGUI_FLOATINGPT
 Floating Pt
-
+Fließkomma
 ;
 MSG_DATAOPSGUI_ONE
 One
@@ -2508,11 +2508,11 @@ MSG_DATAOPSGUI_DATAUNITS
 ;
 MSG_DATAOPSGUI_FLOOR
   Floor
-
+  Untergrenze
 ;
 MSG_DATAOPSGUI_CEILING
 Ceiling
-
+Obergrenze
 ;
 MSG_DATAOPSGUI_REPLACE
  Replace
@@ -2524,19 +2524,19 @@ by
 ;
 MSG_DATAOPSGUI_CROPLEFT
 Crop Left
-
+Links zuschneiden
 ;
 MSG_DATAOPSGUI_RIGHT
     Right
-
+    Rechts
 ;
 MSG_DATAOPSGUI_CROPTOP
  Crop Top
-
+ Oben zuschneiden
 ;
 MSG_DATAOPSGUI_BOTTOM
    Bottom
-
+   Unten
 ;
 MSG_DATAOPSGUI_INPUTCOLS
 Input Cols
@@ -2568,7 +2568,7 @@ Ausgabeformat
 ;
 MSG_DATAOPSGUI_OUTDIR
 Out Dir
-
+Ausgabeordner
 ;
 MSG_DATAOPSGUI_NAME
 Name
@@ -2584,19 +2584,19 @@ MSG_DATAOPSGUI_COLUMNWISENS
 ;
 MSG_DATAOPSGUI_HIGHLAT
 High Lat
-
+Obere Breite
 ;
 MSG_DATAOPSGUI_LOWLAT
  Low Lat
-
+ Unterere Breite
 ;
 MSG_DATAOPSGUI_HIGHLON
 High Lon
-
+Obere Länge
 ;
 MSG_DATAOPSGUI_LOWLON
  Low Lon
-
+ untere Länge
 ;
 MSG_DATAOPSGUI_OUTPUTCOLS
  Output Cols
@@ -2628,11 +2628,11 @@ Wert 2
 ;
 MSG_DATAOPSGUI_MAXOUTVAL
 Max Out Val
-
+Max Ausgabewert
 ;
 MSG_DATAOPSGUI_MINOUTVAL
 Min Out Val
-
+Min Ausgabewert
 ;
 MSG_DATAOPSGUI_CONVERT
 \33cConvert
@@ -2652,7 +2652,7 @@ Kann Datei nicht zum Lesen öffnen!\n
 ;
 MSG_DATAOPSGUI_UNABLETOREADFILESIZE
 Unable to read file size!\n
-
+Dateigröße kann nicht gelesen werden!\n
 ;
 MSG_DATAOPSGUI_DATAOPSCONVERT
 Data Ops: Convert
@@ -2676,11 +2676,11 @@ Warnung\nDie Datei ist keine komprimierte Vista date und kann deshalb nicht impo
 ;
 MSG_DATAOPSGUI_ISTHISASMALLLARGEORHUGEVISTAFILE
 Is this a Small, Large or Huge Vista file?
-
+Ist dies eine "Small", "Large" oder "Huge" Vista Datei?
 ;
 MSG_DATAOPSGUI_SMALLLARGEHUGE
 Small|Large|Huge
-
+Small|Large|Huge
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFFILE
 Warning\nFile is not an IFF file.
@@ -2692,7 +2692,7 @@ Warnung\nDie Datei ist keine IFF-Bilddatei.
 ;
 MSG_DATAOPSGUI_ERRORREADINGBITMAPHEADER
 Error reading bitmap header.
-
+Fehler beim Lesen des Bitmap-Headers.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTRECOGNIZEDASADTEDFILE
 Warning\nFile is not recognized as a DTED file.
@@ -2704,7 +2704,7 @@ Data Ops: Interp DEM
 ;
 MSG_DATAOPSGUI_DEMINTERPOLATE
 DEM Interpolate
-
+DEM Interpolieren
 ;
 MSG_DATAOPSGUI_SELECTFILES
 \33cSelect Files
@@ -2728,7 +2728,7 @@ MSG_DATAOPSGUI_INTERPOLATE
 ;
 MSG_DATAOPSGUI_DEMFILES
 DEM Files
-
+DEM Dateien
 ;
 MSG_DEFPARM_AMBIENT
 Ambient
@@ -2841,7 +2841,7 @@ MSG_DIAG_DISTANCE
 ;
 MSG_DIAG_ELEVATION
  Elevation
-
+ Höhe
 ;
 MSG_DIAG_OVERSTORY
  Overstory
@@ -2857,15 +2857,15 @@ MSG_DIAG_RELEL
 ;
 MSG_DIAG_ASPECT
     Aspect
-
+    Aspekt
 ;
 MSG_DIAG_SLOPE
      Slope
-
+     Neigung
 ;
 MSG_DIAG_SUNANGLE
  Sun Angle
-
+ Sonnenwinkel
 ;
 MSG_DIAG_LATITUDE
   Latitude
@@ -2893,16 +2893,16 @@ MSG_DIAG_QUITDIG
 ;
 MSG_DIAG_SURFACE
 Surface
-
+Oberfläche
 ;
 MSG_DIAG_NONE
 None
-
+Keine
 ;
 ;
 MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY
 Make this the default object directory?
-
+Soll dies der Starndard-Objektordner werden?
 ;
 MSG_DISPGUI_DATABASELOAD
 Database: Load
@@ -2935,15 +2935,15 @@ Out of memory allocating Database!\nOperation terminated.
 ;
 MSG_EDDB_POINT
 Point
-
+Punkt
 ;
 MSG_EDDB_CIRCLE
 Circle
-
+Kreis
 ;
 MSG_EDDB_SQUARE
 Square
-
+Quadrat
 ;
 MSG_EDDB_CROSS
 Cross
@@ -2951,19 +2951,19 @@ Cross
 ;
 MSG_EDDB_SOLID
 Solid
-
+durchgezogen
 ;
 MSG_EDDB_DOTTED
 Dotted
-
+gepunktet
 ;
 MSG_EDDB_DASHED
 Dashed
-
+gestrichelt
 ;
 MSG_EDDB_BROKEN
 Broken
-
+unterbrochen
 ;
 MSG_EDDB_TOPO
 Topo
@@ -2971,11 +2971,11 @@ Topo
 ;
 MSG_EDDB_SURFACE
 Surface
-
+Oberfläche
 ;
 MSG_EDDB_VECTOR
 Vector
-
+Vektor
 ;
 MSG_EDDB_ILLUMVEC
 Illum Vec
@@ -2991,7 +2991,7 @@ Illum Seg
 ;
 MSG_EDDB_DATABASEEDITOR
 Database Editor
-
+Datenbank Editor
 ;
 MSG_EDDB_YOUMUSTFIRSTLOADORCREATEADATABASEBEFOREOPENINGTHEEDITO
 You must first load or create a database before opening the editor.
@@ -3007,35 +3007,35 @@ Options
 ;
 MSG_EDDB_VECTORS
 \33cVectors
-
+\33cVektoren
 ;
 MSG_EDDB_SURFACES
 \33cSurfaces
-
+\33cOberflächen
 ;
 MSG_EDDB_FRACTALS
 \33cFractals
-
+\33cFraktale
 ;
 MSG_EDDB_NAME
 \33cName
-
+\33cName
 ;
 MSG_EDDB_ENABLED
 Enabled
-
+Aktiviert
 ;
 MSG_EDDB_POINTS
 Points
-
+Punkte
 ;
 MSG_EDDB_CLASS
 Class
-
+Klasse
 ;
 MSG_EDDB_LAYER1
 Layer 1\x20
-
+Ebene 1\x20
 ;
 MSG_EDDB_SEL
 Sel
@@ -3043,15 +3043,15 @@ Sel
 ;
 MSG_EDDB_ON
 On
-
+Ein
 ;
 MSG_EDDB_OFF
 Off
-
+Aus
 ;
 MSG_EDDB_LAYER2
 Layer 2\x20
-
+Ebene 2\x20
 ;
 MSG_EDDB_LABEL
 \33cLabel
@@ -3063,31 +3063,31 @@ DEM Max Fractal\x20
 ;
 MSG_EDDB_LINESTYLE
 Line Style
-
+Linienstil
 ;
 MSG_EDDB_LINEWEIGHT
 Line Weight\x20
-
+Linienstärke\x20
 ;
 MSG_EDDB_DRAWPEN
 Draw Pen\x20
-
+Zeichenstift\x20
 ;
 MSG_EDDB_RGB
 RGB
-
+RGB
 ;
 MSG_EDDB_R
 R
-
+R
 ;
 MSG_EDDB_G
 G
-
+G
 ;
 MSG_EDDB_B
 B
-
+B
 ;
 MSG_EDDB_NEWOBJ
 \33cNew Obj
@@ -3099,43 +3099,43 @@ MSG_EDDB_ADDOBJ
 ;
 MSG_EDDB_REMOVE_SPACE
 \33cRemove\x20
-
+\33cEntfernen\x20
 ;
 MSG_EDDB_SEARCH
 \33cSearch\x20
-
+\33cSuchen\x20
 ;
 MSG_EDDB_SORT
 \33cSort
-
+\33cSortieren
 ;
 MSG_EDDB_SAVE
 \33cSave\x20
-
+\33cSpeichern\x20
 ;
 MSG_EDDB_LOAD_SAPCE
 \33cLoad\x20
-
+\33cLoaden\x20
 ;
 MSG_EDDB_APPEND
 \33cAppend\x20
-
+\33cHinzufügen\x20
 ;
 MSG_EDDB_CREATE
 \33cCreate\x20
-
+\33cErzeugen\x20
 ;
 MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME
 Object name already present in database!\nTry a new name?
-
+Der Objektname ist bereits in der Datenbank vorhanden!\nEinen neuen Namen versuchen?
 ;
 MSG_EDDB_ENTERSEARCHSTRING
 Enter search string.
-
+Suchtext eingeben.
 ;
 MSG_EDDB_SORTING
 Sorting
-
+Sortiere
 ;
 MSG_EDDB_DATABASEMODULEREMOVEITEM
 Database Module: Remove Item
@@ -3143,7 +3143,7 @@ Database Module: Remove Item
 ;
 MSG_EDDB_FROMDISKDATABASEONLYCANCEL
 From Disk|Database Only|Cancel
-
+Von Diskette|Nur Datenbank|Abbrechen
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDATABASELIST
 Out of memory!\nCan't open database list.
@@ -3159,35 +3159,35 @@ Ordnerlisten-Editor
 ;
 MSG_EDDB_DEFAULTDIRECTORY
 \33cDefault Directory
-
+\33cStandard Ordner
 ;
 MSG_EDDB_ADD
 \33cAdd...
-
+\33cHinzufügen...
 ;
 MSG_EDDB_SWAP
 \33cSwap...
-
+\33cVertauscchen...
 ;
 MSG_EDDB_MOVE
 \33cMove...
-
+\33cVerschieben...
 ;
 MSG_EDDB_REMOVE
 \33cRemove
-
+\33cEntfernen
 ;
 MSG_EDDB_READONLY
 \33c*Read Only
-
+\33cNur Lesen
 ;
 MSG_EDDB_KEEP
 \33cKeep
-
+\33cBehalten
 ;
 MSG_EDDB_LOAD
 \33cLoad
-
+\33cLesen
 ;
 MSG_EDDB_DIRECTORYLIST
 Directory List
@@ -3212,7 +3212,7 @@ Procedural
 ;
 MSG_EDECOGUI_NONE
 None
-
+Keine
 ;
 MSG_EDECOGUI_ECOSYSTEMEDITOR
 Ecosystem Editor
@@ -3224,7 +3224,7 @@ You must first load or create a parameter file before opening the Editor.
 ;
 MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM
 Parameters Module: Ecosystem
-
+Parameter Modul: Ökosystem
 ;
 MSG_EDECOGUI_OUTOFMEMORYANTOPENECOSYSTEMEDITOR
 Out of memory!\nCan't open Ecosystem Editor.
@@ -3232,7 +3232,7 @@ Out of memory!\nCan't open Ecosystem Editor.
 ;
 MSG_EDECOGUI_UNUSED
 Unused
-
+Unbenutzt
 ;
 MSG_EDECOGUI_OPTIONS
 Options
@@ -3244,15 +3244,15 @@ MSG_EDECOGUI_CMAPS
 ;
 MSG_EDECOGUI_SURFACE
 \33cSurface
-
+\33cOberfläche
 ;
 MSG_EDECOGUI_FRACTALS
 \33cFractals
-
+\33cFraktale
 ;
 MSG_EDECOGUI_ECOSYSTEMS
 \33cEcosystems
-
+\33cÖkosysteme
 ;
 MSG_EDECOGUI_STRATA_COLOR
 \33cStrata
@@ -3260,11 +3260,11 @@ MSG_EDECOGUI_STRATA_COLOR
 ;
 MSG_EDECOGUI_TIDES
 \33cTides
-
+\33cGezeiten
 ;
 MSG_EDECOGUI_NAME
 Name
-
+Name
 ;
 MSG_EDECOGUI_EXTURE
 \33c\0334Texture
@@ -3272,7 +3272,7 @@ MSG_EDECOGUI_EXTURE
 ;
 MSG_EDECOGUI_CLASS
 Class
-
+Klasse
 ;
 MSG_EDECOGUI_DETAILMODEL
 \33cDetail Model
@@ -3356,15 +3356,15 @@ MSG_EDECOGUI_UPDATE
 ;
 MSG_EDECOGUI_ALL0
 \33cAll (0)
-
+\33cAlle (0)
 ;
 MSG_EDECOGUI_DELETE
 \33c\33uDel\33nete
-
+\33cLöschen
 ;
 MSG_EDECOGUI_DELETEALL
 \33cDelete All
-
+\33cAlle Löschen
 ;
 MSG_EDECOGUI_TIMELINES
 \33cTime Lines\x20
@@ -3376,19 +3376,19 @@ MSG_EDECOGUI_SCALEKEYS
 ;
 MSG_EDECOGUI_COPY
 \33cCopy
-
+\33cKopieren
 ;
 MSG_EDECOGUI_SWAP
 \33cSwap
-
+\33cVertauschen
 ;
 MSG_EDECOGUI_INSERT
 \33cInsert
-
+\33cEinfügen
 ;
 MSG_EDECOGUI_REMOVE
 \33cRemove
-
+\33cEntfernen
 ;
 MSG_EDECOGUI_SORTLIST
 \33cSort List
@@ -3396,7 +3396,7 @@ MSG_EDECOGUI_SORTLIST
 ;
 MSG_EDECOGUI_KEEP
 \33cKeep
-
+\33cBehalten
 ;
 MSG_GLOBAL_NUMERICPADENTER
 numericpad enter
@@ -3428,23 +3428,23 @@ Min Rel El\x20
 ;
 MSG_EDECOGUI_MAXSLOPE
  Max Slope\x20
-
+ Max Neigung\x20
 ;
 MSG_EDECOGUI_MINSLOPE
  Min Slope\x20
-
+ Min Neigung
 ;
 MSG_EDECOGUI_DENSITY
    Density\x20
-
+   Dichte\x20
 ;
 MSG_EDECOGUI_HEIGHT
     Height\x20
-
+    Höhe\x20
 ;
 MSG_EDECOGUI_ECOSYSTEMCOLOR
 \33c\0334Ecosystem Color
-
+\33c\0334Ökosystem Farbe
 ;
 MSG_EDECOGUI_UNDERSTORYECOSYSTEM
 \33c\0334Understory Ecosystem
@@ -3464,11 +3464,11 @@ Can't swap with first 12 ecosystems!\nOperation terminated.
 ;
 MSG_EDECOGUI_SEALEVEL
  Sea Level\x20
-
+ Meeresspiegel \x20
 ;
 MSG_EDECOGUI_SEADEPTH
  Sea Depth\x20
-
+ Meerestiefe\x20
 ;
 MSG_EDECOGUI_WINDAZ
    Wind Az\x20
@@ -3481,15 +3481,15 @@ Options
 ;
 MSG_EDMOGUI_PATHS
 \33cPaths
-
+\33cPfade
 ;
 MSG_EDMOGUI_FRACTAL
 \33cFractal
-
+\33cFraktal
 ;
 MSG_EDMOGUI_HORIZON
 \33cHorizon
-
+\33cHorizont
 ;
 MSG_EDMOGUI_CELESTIAL
 \33cCelestial
@@ -3501,7 +3501,7 @@ MSG_EDMOGUI_REFLECTION
 ;
 MSG_EDMOGUI_PARAMETERLIST
 \33c\0334Parameter List
-
+\33c\0334Parameter Liste
 ;
 MSG_EDMOGUI_INTERACTIVEGROUP
 \33c\0334Interactive Group
@@ -3533,47 +3533,47 @@ MSG_EDMOGUI_HIGH
 ;
 MSG_EDMOGUI_KEYFRAMES
 \33c\0334Key Frames
-
+\33c\0334Key Frames
 ;
 MSG_EDMOGUI_PREV
 \33cPrev
-
+\33cVorheriger
 ;
 MSG_EDMOGUI_FRAME
 Frame
-
+Frame
 ;
 MSG_EDMOGUI_NEXT
 \33cNext
-
+\33cNächster
 ;
 MSG_EDMOGUI_MAKEKEY
 \33cMake Key
-
+\33cKey erzeugen
 ;
 MSG_EDMOGUI_GROUP
 \33cGroup
-
+\33cGruppe
 ;
 MSG_EDMOGUI_UPDATE
 \33cUpdate
-
+\33cAktualisieren
 ;
 MSG_EDMOGUI_ALL0
 \33cAll (0)
-
+\33cAlle (0)
 ;
 MSG_EDMOGUI_DELETE
 \33c\33uDel\33nete
-
+\33cLöschen
 ;
 MSG_EDMOGUI_DELETEALL
 \33cDelete All
-
+\33cAlle Löschen
 ;
 MSG_EDMOGUI_TIMELINES
 \33cTime Lines\x20
-
+\33cZeitleisten\x20
 ;
 MSG_EDMOGUI_BANK
 \33cBank\x20
@@ -3581,15 +3581,15 @@ MSG_EDMOGUI_BANK
 ;
 MSG_EDMOGUI_SCALE
 \33cScale\x20
-
+\33cSkalieren\x20
 ;
 MSG_EDMOGUI_SUN
 \33cSun\x20
-
+\33cSonne\x20
 ;
 MSG_EDMOGUI_KEEP
 \33cKeep
-
+\33cBehalten
 ;
 MSG_EDMOGUI_LISTWIN
 \33cList Win\x20
@@ -3597,7 +3597,7 @@ MSG_EDMOGUI_LISTWIN
 ;
 MSG_EDMOGUI_CAMVIEW
 \33cCam View\x20
-
+\33cKamera-Ansicht\x20
 ;
 MSG_EDMOGUI_MOTIONEDITORAUTOCENTER
 Motion Editor: Auto Center
@@ -3613,11 +3613,11 @@ Parameters Module: Motion
 ;
 MSG_EDMOGUI_MAKEKEYFRAMESFORFOCUSPARAMETERSALSO
 Make key frames for Focus Parameters also?
-
+Sollen Keyframes auch für die Fokus-Parameter erzeugt werden?
 ;
 MSG_EDMOGUI_MAKEKEYFRAMESFORCAMERAPARAMETERSALSO
 Make key frames for Camera Parameters also?
-
+Sollen Keyframes auch für die Kamera-Parameter erzeugt werden?
 ;
 MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY
 Parameters Module: Make Key
@@ -3625,7 +3625,7 @@ Parameters Module: Make Key
 ;
 MSG_EDMOGUI_DRAW
 \0334Draw
-
+\0334Zeichenen
 ;
 MSG_EDMOGUI_BOUNDS
 \0334Bounds
@@ -3681,7 +3681,7 @@ MSG_EDMOGUI_ANIM
 ;
 MSG_EDMOGUI_COMPASS
 \33cCompass
-
+\33cKompass
 ;
 MSG_EDMOGUI_LAND
 \33cLand
@@ -3697,7 +3697,7 @@ MSG_EDMOGUI_BOX
 ;
 MSG_EDMOGUI_PROFILE
 \33cProfile
-
+\33cProfil
 ;
 MSG_EDMOGUI_PROFDENS
 \33c\0334Prof Dens
@@ -3705,7 +3705,7 @@ MSG_EDMOGUI_PROFDENS
 ;
 MSG_EDMOGUI_AUTODRAW
 \33cAuto Draw
-
+\33cAuto Zeichenen
 ;
 MSG_EDMOGUI_GRID
 \33c\0334Grid
@@ -3717,7 +3717,7 @@ MSG_EDMOGUI_MOVEMENT
 ;
 MSG_EDMOGUI_FRAME_COLOR
 \33c\0334Frame
-
+\33c\0334Frame
 ;
 MSG_EDMOGUI_CENTERFOC
 CenterFoc
@@ -3729,11 +3729,11 @@ Img Aspect
 ;
 MSG_EDMOGUI_CAMERAVIEW
 Camera View
-
+Kamera-Ansicht
 ;
 MSG_EDMOGUI_CAMERAVIEWASPECT
 Camera View: Aspect
-
+Kamera-Ansicht: Aspekt
 ;
 MSG_INTVIEW_INTERACTIVEMOTION
 Interactive Motion
@@ -3745,7 +3745,7 @@ Motion Param List
 ;
 MSG_EDMOGUI_COMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREENHEIGHTDOY
 Computed height is larger than the current screen height. Do you wish to use the screen height?
-
+Die berechnete Höhe ist größer als die aktuelle Bildschirmhöhe. Soll statt dessen die Bildschirmhöhe verwendet werden?
 ;
 ;
 MSG_EDPAR_PARAMETERSMODULEBANKKEYS
@@ -3758,15 +3758,15 @@ Key Frames exist for the "Bank" Parameter. Overwrite them?
 ;
 MSG_EDPAR_ENTERKEYFRAMEINTERVALORKFORCURRENTKEYFRAMES
 Enter Key Frame interval or 'K' for current Key Frames.
-
+Geben Sie das Frame Intervall an oder 'K' für die aktuellen Keyframes.
 ;
 MSG_EDPAR_PARAMETERSMODULEEXPORT
 Parameters Module: Export
-
+Parameter Modul: Export
 ;
 MSG_EDPAR_ERRORCREATINGKEYFRAMEPERATIONTERMINATED
 Error creating Key Frame!\nOperation terminated.
-
+Fehler beim erzeugen des Keyframes!\nVorgang abgebrochen.
 ;
 MSG_EDPAR_NOCAMERAPATHLATLONKEYFRAMESPERATIONTERMINATED
 No Camera Path Lat/Lon Key Frames!\nOperation terminated.
@@ -3774,27 +3774,27 @@ No Camera Path Lat/Lon Key Frames!\nOperation terminated.
 ;
 MSG_EDPAR_UNUSED
 Unused
-
+Unbenutzt
 ;
 MSG_EDPAR_LOADPARAMETERFILE
 Load Parameter File
-
+Parameter Datei laden
 ;
 MSG_EDPAR_VERSION10
 Version < 1.0
-
+Version < 1.0
 ;
 MSG_EDPAR_PARAMETERMODULELOAD
 Parameter Module: Load
-
+Parameter Modul: Laden
 ;
 MSG_EDPAR_UNSUPPORTEDPARAMETERFILETYPEORVERSIONPERATIONTERMINAT
 Unsupported Parameter file type or version!\nOperation terminated.
-
+Nicht unterstützter Parameter Dateityp oder Version!\nVorgang abgebrochen.
 ;
 MSG_EDPAR_THISISANOLDV1FORMATFILEWOULDYOULIKETORESAVEITINTHENEW
 This is an old V1 format file! Would you like to re-save it in the new format now?
-
+Dies ist eine alte V1-Format Datei! Soll sie im jetzt im neuen Format gespeichert werden?
 ;
 MSG_EDPAR_THEPARAMETERFILEFORMATHASBEENCHANGEDSLIGHTLYSINCETHIS
 The Parameter File format has been changed slightly since this file was saved. Would you like to re-save it in the new format now?
@@ -3802,7 +3802,7 @@ Das Format der Parameterdatei hat sich seit dem letzten Speichern geändert. Soll
 ;
 MSG_EDPAR_LOADALLKEYFRAMES
 Load all key frames?
-
+Alle Keyframes laden?
 ;
 MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED
 Color item %s not found in this file!\nOperation terminated.
@@ -3870,19 +3870,19 @@ Strata 4
 ;
 MSG_EDPAR_SUN
 Sun
-
+Sonne
 ;
 MSG_EDPAR_MOON
 Moon
-
+Mond
 ;
 MSG_EDPAR_CLOUDS
 Clouds
-
+Wolken
 ;
 MSG_EDPAR_SAVEPARAMETERFILE
 Save Parameter File
-
+Parameter Datei speichern
 ;
 MSG_EDPAR_PARAMFILE
 paramfile
@@ -3890,11 +3890,11 @@ paramfile
 ;
 MSG_EDPAR_ERROROPENINGFILEFOROUTPUTRYAGAIN
 Error opening file for output!\nTry again?
-
+Fehler beim Öffnen der Datei zum Schreiben!\nNochmal versuchen?
 ;
 MSG_EDPAR_VERSION20
 Version < 2.0
-
+Version < 2.0
 ;
 MSG_EDPAR_PARAMETEREDITINGMODULE
 Parameter Editing Module
@@ -3914,11 +3914,11 @@ Ecosystem Editor: Save Current
 ;
 MSG_EDPAR_PARAMETERMODULESAVE
 Parameter Module: Save
-
+Parameter Modul: Speichern
 ;
 MSG_EDPAR_SAVEALLKEYFRAMESASWELL
 Save all key frames as well?
-
+Sollen auch alle Keyframes gespeichert werden?
 ;
 MSG_EDPAR_MOTION
 %s motion
@@ -3938,7 +3938,7 @@ MSG_EDPAR_SETTINGS
 ;
 MSG_EDPAR_ALL
 %s all
-
+%s alle
 ;
 MSG_EDPAR_ERRORWRITINGTOPARAMETERFILETHEOUTPUTFILEHASBEENMODIFI
 Error writing to Parameter file!\nThe output file has been modified and may no longer be valid. Try resaving to a different device or freeing some disk space and saving again.
@@ -3951,7 +3951,7 @@ MSG_EDSETGUI_ENDERSIZE
 ;
 MSG_EDSETGUI_MAGESAVE
 \0334Image Save
-
+\0334Bild speichern
 ;
 MSG_EDSETGUI_MOTIONPATHSVECTORS
 \0334Motion Paths & Vectors
@@ -3963,11 +3963,11 @@ MSG_EDSETGUI_COLORMAPS
 ;
 MSG_EDSETGUI_SURFACES
 \0334Surfaces
-
+\0334Oberflächen
 ;
 MSG_EDSETGUI_FRACTALS
 \0334Fractals
-
+\0334Fraktale
 ;
 MSG_EDSETGUI_ECOSYSTEMSSTRATA
 \0334Ecosystems & Strata
@@ -3979,39 +3979,39 @@ MSG_EDSETGUI_MISCELLANEOUS
 ;
 MSG_EDSETGUI_PROCESSING
 \0334Processing
-
+\0334Bearbeitung
 ;
 MSG_EDSETGUI_POSTPROCESS
 \0334Post-Process
-
+\0334Nachbearbeitung
 ;
 MSG_EDSETGUI_NORGB
 No RGB
-
+Kein RGB
 ;
 MSG_EDSETGUI_RGB
 \338RGB
-
+\338RGB
 ;
 MSG_EDSETGUI_NOSCREEN
 No Screen
-
+Kein Bildschirm
 ;
 MSG_EDSETGUI_SCREEN
 \338Screen
-
+\338Bildschirm
 ;
 MSG_EDSETGUI_NODATA
 No Data
-
+Keine Daten
 ;
 MSG_EDSETGUI_DATA
 \338Data
-
+\338Daten
 ;
 MSG_EDSETGUI_SCULPTRGB
 Sculpt RGB
-
+Sculpt RGB
 ;
 MSG_EDSETGUI_RAWINTRLVDRGB
 Raw intrlvd RGB
@@ -4019,7 +4019,7 @@ Raw intrlvd RGB
 ;
 MSG_EDSETGUI_IFFILBM
 \338IFF ILBM
-
+\338IFF ILBM
 ;
 MSG_EDSETGUI_NOCONCTATENATE
 No Conctatenate
@@ -4047,23 +4047,23 @@ MSG_EDSETGUI_RNDRTOBITMAP
 ;
 MSG_EDSETGUI_NOVECTORS
 No Vectors
-
+Keine Vektoren
 ;
 MSG_EDSETGUI_NOHAZEEFF
 No Haze Eff
-
+Kein Dunst-Effekt
 ;
 MSG_EDSETGUI_HAZEEFFECT
 \338Haze Effect
-
+\338Dunst-Effekt
 ;
 MSG_EDSETGUI_VARIABLEFRACTALDEPTH
 Variable Fractal Depth
-
+Variable Fraktal Tiefe
 ;
 MSG_EDSETGUI_CONSTANTFRACTALDEPTH
 \338Constant Fractal Depth
-
+\338Konstante Fraktal Tiefe
 ;
 MSG_EDSETGUI_FRACTALDEPTHMAPS
 \338Fractal Depth Maps
@@ -4111,11 +4111,11 @@ MSG_EDSETGUI_SURFACEGRID
 ;
 MSG_EDSETGUI_NOFIXEDHORIZON
 No Fixed Horizon
-
+Kein Fester Horizont
 ;
 MSG_EDSETGUI_FIXEDHORIZON
 \338Fixed Horizon
-
+\338Fester Horizont
 ;
 MSG_EDSETGUI_NOALTZREFERENCE
 No Alt Z Reference
@@ -4127,51 +4127,51 @@ MSG_EDSETGUI_ALTZREFERENCE
 ;
 MSG_EDSETGUI_NOCLOUDSHADOWS
 No Cloud Shadows
-
+Kein Wolkenschatten
 ;
 MSG_EDSETGUI_CLOUDSHADOWS
 \338Cloud Shadows
-
+\338Wolkenschatten
 ;
 MSG_EDSETGUI_NOBACKGROUND
 No Background
-
+Kein Hintergrundbild
 ;
 MSG_EDSETGUI_BACKGROUND
 \338Background
-
+\338Hintergrundbild
 ;
 MSG_EDSETGUI_NOZBUFFER
 No Z Buffer
-
+Kein Z-Puffer
 ;
 MSG_EDSETGUI_ZBUFFER
 \338Z Buffer
-
+\338Z-Puffer
 ;
 MSG_EDSETGUI_NOBLUR
 No Blur
-
+Kein Bewegungsunschärfe
 ;
 MSG_EDSETGUI_BLUR
 \338Blur
-
+\338Bewegungsunschärfe
 ;
 MSG_EDSETGUI_NOZBUFFEREDBLUR
 No Z Buffered Blur
-
+Keine Z-Puffer Bewegungsunschärfe
 ;
 MSG_EDSETGUI_ZBUFFEREDBLUR
 \338Z Buffered Blur
-
+\338Z-Puffer Bewegungsunschärfe
 ;
 MSG_EDSETGUI_NOSCALING
 No Scaling
-
+Keine Skalierung
 ;
 MSG_EDSETGUI_SCALING
 \338Scaling
-
+\338Skalierung
 ;
 MSG_EDSETGUI_NOTOPOSASSURFACES
 No Topos As Surfaces
@@ -4183,51 +4183,51 @@ MSG_EDSETGUI_TOPOSASSURFACES
 ;
 MSG_EDSETGUI_NOEXPORTZBUFFER
 No Export Z Buffer
-
+Kein Z-Puffer Export
 ;
 MSG_EDSETGUI_EXPORTZBUFFER
 \338Export Z Buffer
-
+\338Z-Puffer Export
 ;
 MSG_EDSETGUI_ZASFLOATINGPTIFF
 \338Z As Floating Pt IFF
-
+\338Z als Fließkomma IFF
 ;
 MSG_EDSETGUI_ZASGRAYSCALEIFF
 Z As Gray Scale IFF
-
+Z als Grauwerte IFF
 ;
 MSG_EDSETGUI_ZASFLOATINGPTARRAY
 \338Z As Floating Pt Array
-
+\338Z als Fließkomma Feld
 ;
 MSG_EDSETGUI_ZASGRAYSCALEARRAY
 Z As Gray Scale Array
-
+Z als Grauwerte Feld
 ;
 MSG_EDSETGUI_NOFIELDRENDERING
 No Field Rendering
-
+Keine Halbbild-Berechnung
 ;
 MSG_EDSETGUI_FIELDRENDERING
 \338Field Rendering
-
+\338Halbbild-Berechnung
 ;
 MSG_EDSETGUI_NOGLOBALGRADIENTS
 No Global Gradients
-
+Keine Globalen Verläufe
 ;
 MSG_EDSETGUI_GLOBALGRADIENTS
 \338Global Gradients
-
+\338Globale Verläufe
 ;
 MSG_EDSETGUI_NOECOSYSTEMFLATTENING
 No Ecosystem Flattening
-
+Keine Ökosystemglättung
 ;
 MSG_EDSETGUI_ECOSYSTEMFLATTENING
 \338Ecosystem Flattening
-
+\338Ökosystemglättung
 ;
 MSG_EDSETGUI_NOLOOKAHEAD
 No Look Ahead
@@ -4247,11 +4247,11 @@ MSG_EDSETGUI_VELOCITYDISTRIBUTION
 ;
 MSG_EDSETGUI_NOTREESORTEXTURES
 No Trees or Textures
-
+Keine Bäume und Texturen
 ;
 MSG_EDSETGUI_TREESANDTEXTURES
 \338Trees and Textures
-
+\338Bäume und Texturen
 ;
 MSG_EDSETGUI_NORENDERBEYONDHORIZON
 No Render Beyond Horizon
@@ -4307,35 +4307,35 @@ MSG_EDSETGUI_FIELDDOMINANCEREVERSE
 ;
 MSG_EDSETGUI_NO3DCLOUDS
 No 3D Clouds
-
+Keine 3D Wolken
 ;
 MSG_EDSETGUI_3DCLOUDS
 \3383D Clouds
-
+\3383D Wolken
 ;
 MSG_EDSETGUI_NOPERTURBANCE
 No Perturbance
-
+Keine Störungen
 ;
 MSG_EDSETGUI_PERTURBANCE
 \338Perturbance
-
+\338Störungen
 ;
 MSG_EDSETGUI_NOWAVES
 No Waves
-
+Keine wellen
 ;
 MSG_EDSETGUI_WAVES
 \338Waves
-
+\338Wellen
 ;
 MSG_EDSETGUI_NOREFLECTIONS
 No Reflections
-
+Keine Spiegelungen
 ;
 MSG_EDSETGUI_REFLECTIONS
 \338Reflections
-
+\338Spiegelungen
 ;
 MSG_EDSETGUI_NOSTRATADEFORMATIONMAP
 No Strata Deformation Map
@@ -4355,27 +4355,27 @@ MSG_EDSETGUI_SURFACECOLORMAPS
 ;
 MSG_EDSETGUI_NOSUN
 No Sun
-
+Keine Sonne
 ;
 MSG_EDSETGUI_SUN
 \338Sun
-
+\338Sonne
 ;
 MSG_EDSETGUI_NOMOON
 No Moon
-
+Kein Mond
 ;
 MSG_EDSETGUI_MOON
 \338Moon
-
+\338Mond
 ;
 MSG_EDSETGUI_NOTIDES
 No Tides
-
+Keine Gezeiten
 ;
 MSG_EDSETGUI_TIDES
 \338Tides
-
+\338Gezeiten
 ;
 MSG_EDSETGUI_NOSUNHALO
 No Sun Halo
@@ -4403,63 +4403,63 @@ Render Settings Editor
 ;
 MSG_EDSETGUI_WIDTH
 Width\x20
-
+Breite\x20
 ;
 MSG_EDSETGUI_HEIGHT
 Height\x20
-
+Höhe\x20
 ;
 MSG_EDSETGUI_ASPCT
 Aspct\x20
-
+Aspekt\x20
 ;
 MSG_EDSETGUI_VOSCN
 V Oscn\x20
-
+V Oscn\x20
 ;
 MSG_EDSETGUI_CHANGEIMAGESIZE
 \33cChange Image Size
-
+\33cBildgröße ändern
 ;
 MSG_EDSETGUI_START
  Start\x20
-
+ Anfang\x20
 ;
 MSG_EDSETGUI_END
     End\x20
-
+    Ende\x20
 ;
 MSG_EDSETGUI_STEP
   Step\x20
-
+  Schrittweite\x20
 ;
 MSG_EDSETGUI_FRAMES
  Frames\x20
-
+ Frames\x20
 ;
 MSG_EDSETGUI_SEGMNT
 Segmnt\x20
-
+Segmente\x20
 ;
 MSG_EDSETGUI_1STSEG
 1st Seg\x20
-
+1. Seg\x20
 ;
 MSG_EDSETGUI_SAVEPATH
 Save Path\x20
-
+Pfad speichern\x20
 ;
 MSG_EDSETGUI_SAVEFILE
 Save File\x20
-
+Dateui speichern\x20
 ;
 MSG_EDSETGUI_TEMPPATH
 Temp Path\x20
-
+Temp Pfad\x20
 ;
 MSG_EDSETGUI_FRAMES_2
 Frames
-
+Bilder
 ;
 MSG_EDSETGUI_BANKING
 Banking
@@ -4475,19 +4475,19 @@ MSG_EDSETGUI_OUT
 ;
 MSG_EDSETGUI_VECTORPATH
 Vector Path\x20
-
+Vektor Pfad\x20
 ;
 MSG_EDSETGUI_VECTORFILE
 Vector File\x20
-
+Vektor Datei\x20
 ;
 MSG_EDSETGUI_ZOFFSET
 Z Offset\x20
-
+Z Offset\x20
 ;
 MSG_EDSETGUI_SEGS
  Segs\x20
-
+ Segmente\x20
 ;
 MSG_EDSETGUI_DEFAULTECO
 Default Eco\x20
@@ -4539,11 +4539,11 @@ MSG_EDSETGUI_CREATEFRACTALMAPS
 ;
 MSG_EDSETGUI_SHORT
 Short
-
+Kurz
 ;
 MSG_EDSETGUI_LONG
 Long
-
+Lang
 ;
 MSG_EDSETGUI_RELATIVERENDERTIME
 Relative Render Time
@@ -4567,7 +4567,7 @@ Tree Ht Fact\x20
 ;
 MSG_EDSETGUI_MODELPATH
 Model Path\x20
-
+Modell Pfad\x20
 ;
 MSG_EDSETGUI_DEFMAPPATH
 Def Map Path\x20
@@ -4643,7 +4643,7 @@ Render Memory
 ;
 MSG_EDSETGUI_KEEP
 \33cKeep
-
+\33cBehalten
 ;
 MSG_EDSETGUI_RENDER
 \33cRender
@@ -4679,7 +4679,7 @@ Color Map File Path
 ;
 MSG_EDSETGUI_TEMPORARYFILEPATHNAME
 Temporary File Path/Name
-
+Temp Datei Pfad/Name
 ;
 MSG_EDSETGUI_ECOSYSTEMMODELPATH
 Ecosystem Model Path
@@ -4695,7 +4695,7 @@ Options
 ;
 MSG_EDITGUI_SURFACES
 \33cSurfaces
-
+\33cOberflächen
 ;
 MSG_EDITGUI_STRATA
 \33cStrata
@@ -4707,35 +4707,35 @@ MSG_EDITGUI_CELESTIAL
 ;
 MSG_EDITGUI_EYFRAMES
 \33c\0334Key Frames
-
+\33c\0334Keyframes
 ;
 MSG_EDITGUI_PREV
 \33cPrev
-
+\33cVorheriger
 ;
 MSG_EDITGUI_FRAME
 Frame
-
+Frame
 ;
 MSG_EDITGUI_NEXT
 \33cNext
-
+\33cNächster
 ;
 MSG_EDITGUI_MAKEKEY
 \33cMake Key
-
+\33cKey erzeugen
 ;
 MSG_EDITGUI_UPDATE
 \33cUpdate
-
+\33cAktualisieren
 ;
 MSG_EDITGUI_ALL0
 \33cAll (0)
-
+\33cAlle (0)
 ;
 MSG_EDITGUI_DELETE
 \33c\33uDel\33nete
-
+\33cLöschen
 ;
 MSG_EDITGUI_DELETEALL
 \33cDelete All
@@ -4743,7 +4743,7 @@ MSG_EDITGUI_DELETEALL
 ;
 MSG_EDITGUI_TIMELINES
 \33cTime Lines\x20
-
+\33cZeitleisten\x20
 ;
 MSG_EDITGUI_SCALEKEYS
 \33cScale Keys\x20
@@ -4755,7 +4755,7 @@ MSG_EDITGUI_COPY
 ;
 MSG_EDITGUI_SWAP
 \33cSwap
-
+\33cVertauschen
 ;
 MSG_EDITGUI_INSERT
 \33cInsert
@@ -4771,7 +4771,7 @@ MSG_EDITGUI_KEEP
 ;
 MSG_EDITGUI_UNUSED
 Unused
-
+Unbenutzt
 ;
 MSG_EDITGUI_PARAMETERSMODULECOLOR
 Parameters Module: Color
@@ -4795,16 +4795,16 @@ Can't swap with first 24 colors!\nOperation terminated.
 ;
 MSG_EDITGUI_THECURRENTCOLORISBEINGUSEDREMOVEITANYWAY
 The current color is being used. Remove it anyway?
-
+Die aktuelle Farbe wird benutzt. Trotzdem entfernen?
 ;
 ;
 MSG_EVMORGUI_AM
 AM
-
+Vormittag
 ;
 MSG_EVMORGUI_PM
 PM
-
+Nachmittag
 ;
 MSG_EVMORGUI_JAN
 Jan
@@ -4912,7 +4912,7 @@ Neues Projekt Pfad/Name
 ;
 MSG_EVMORGUI_YOUMUSTSUPPLYANEWPROJECTNAME
 You must supply a new project name.
-
+Sie müssen einen neuen Projektnamen vergeben.
 ;
 MSG_EVMORGUI_ERRORLOADINGPROJECTFILETOCLONE
 Error loading Project file to clone.
@@ -4928,19 +4928,19 @@ Error loading Cloud file to clone.
 ;
 MSG_EVMORGUI_ERRORCREATINGNEWPROJECTDIRECTORYITMAYALREADYEXISTO
 Error creating new Project Directory: %s. It may already exist or there may be a file with that name.
-
+Fehler beim Erzeugen des neuen Projektordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit dem selben Namen.
 ;
 MSG_EVMORGUI_ERRORCREATINGNEWDATABASEDIRECTORYITMAYALREADYEXIST
 Error creating new Database Directory: %s. It may already exist or there may be a file with that name.
-
+Fehler beim Erzeugen des neuen Datenbankordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit dem selben Namen.
 ;
 MSG_EVMORGUI_ERRORCREATINGNEWDEFAULTDIRECTORYITMAYALREADYEXISTO
 Error creating new Default Directory: %s. It may already exist or there may be a file with that name.
-
+Fehler beim Erzeugen des neuen Standardordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit dem selben Namen.
 ;
 MSG_EVMORGUI_ERRORSAVINGTHENEWPROJECTFILE
 Error saving the new Project file.
-
+Fehler bei Speichern der neuen Projektdatei.
 ;
 MSG_EVMORGUI_ERRORSAVINGTHECLONEDWAVEFILE
 Error saving the cloned Wave file.
@@ -4952,12 +4952,12 @@ Error saving the cloned Cloud file.
 ;
 MSG_EVMORGUI_OUTOFMEMORY
 Out of memory.
-
+Nicht genügend Speicher.
 ;
 ;
 MSG_FOLI_INVALIDFLAGSUIN
 Invalid Flags %lu in %s %d\n
-
+Ungültige Flags %lu in %s %d\n
 ;
 ;
 MSG_FOLIGUI_PARAMETERSMODULEFOLIAGE
@@ -4970,7 +4970,7 @@ Nicht genügend Speicher!\nDer Laubwerkseditor konnte nicht geöffnet werden.
 ;
 MSG_FOLIGUI_UNUSED
 Unused
-
+Unbenutzt
 ;
 MSG_FOLIGUI_FOLIAGEEDITOR
 Foliage Editor
@@ -5151,7 +5151,7 @@ Bias
 ;
 MSG_GENTLGUI_TIMELINES
 Time Lines
-
+Zeitleisten
 ;
 MSG_GENTLGUI_OKGARYYOUKNOWYOUCANTHAVEMORETHANTENVALUESPERTIMELI
 OK, Gary! You know you can't have more than ten values per Time Line. Maybe now you will concede the value of dynamic allocation.
@@ -5236,15 +5236,15 @@ Error opening render window!\nOperation terminated.
 ;
 MSG_GLMP_LARGESTAVAILABLEMEMORYBLOCKU
 Largest available memory block = %lu
-
+Größter verfügbarer Speicherblock = %lu
 ;
 MSG_GLMP_FASTMEMORYAVAILABLEU
 Fast memory available = %lu
-
+Fast Memory verfügbar = %lu
 ;
 MSG_GLMP_OUTOFMEMORYOPENINGZBUFFERPERATIONTERMINATED
 Out of memory opening Z buffer!\nOperation terminated.
-
+Nicht genügend Speicher zum Öffnen des Z-Puffers!\nVorgang abgebrochen.
 ;
 MSG_GLMP_OUTOFMEMORYOPENINGBITMAPSPERATIONTERMINATED
 Out of memory opening bitmaps!\nOperation terminated.
@@ -5280,7 +5280,7 @@ Error loading Wave File!\nContinue without Waves?
 ;
 MSG_GLMP_RENDERMODULECLOUDS
 Render Module: Clouds
-
+Render Modul: Wolken
 ;
 MSG_GLMP_ERRORLOADINGCLOUDMAPFILEONTINUEWITHOUTCLOUDSHADOWS
 Error loading Cloud Map file!\nContinue without cloud shadows?
@@ -5312,7 +5312,7 @@ Render memory allocated.
 ;
 MSG_GLMP_ANIMATION
 Animation
-
+Animation
 ;
 MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED
 Error creating Cloud Map! Either out of memory or user aborted.
@@ -5320,11 +5320,11 @@ Error creating Cloud Map! Either out of memory or user aborted.
 ;
 MSG_INTVIEW_RETRYCANCEL
 Retry|Cancel
-
+Wiederholen|Abbrechen
 ;
 MSG_GLMP_SEGMENT
 Segment %d
-
+Segment %d
 ;
 MSG_GLMP_CANTOPENVECTORFILEFOROUTPUTONTINUERENDERINGWITHOUTVECT
 Can't open vector file for output!\nContinue rendering without vectors?
@@ -5332,15 +5332,15 @@ Can't open vector file for output!\nContinue rendering without vectors?
 ;
 MSG_GLMP_FRACTALS
 Fractals:
-
+Fraktale:
 ;
 MSG_GLMP_LEVEL
 Level %ld = %ld
-
+Level %ld = %ld
 ;
 MSG_INTVIEW_ECOSYSTEMS
 Ecosystems:
-
+Ökosysteme:
 ;
 MSG_GLMP_ERRORINTERLACINGFIELDSPERATIONTERMINATED
 Error interlacing fields!\nOperation terminated.
@@ -5348,23 +5348,23 @@ Error interlacing fields!\nOperation terminated.
 ;
 MSG_GLMP_RENDERMODULESAVE
 Render Module: Save
-
+Render Modul: Speichern
 ;
 MSG_GLMP_ERRORSAVINGBITMAPPEDIMAGETRYANOTHERDEVICE
 Error saving bitmapped image! Try another device?
-
+Fehler beim Speichern des Bitmap-Bildes! Ein anderes Device versuchen?
 ;
 MSG_GLMP_NEWFRAMESAVEPATH
 New Frame Save Path
-
+Neuer Bilder Speicher-Pfad
 ;
 MSG_GLMP_OUTOFMEMORYSAVINGZBUFFER
 Out of memory saving Z Buffer!\n
-
+Nicht genügend Speicher zum Speichern des Z-Puffers!\n
 ;
 MSG_GLMP_ERRORSAVINGZBUFFERTRYANOTHERDEVICE
 Error saving Z Buffer! Try another device?
-
+Fehler beim Speichern des Z-Puffers! Ein anderes Device versuchen?
 ;
 MSG_GLMP_ZBUFFERSAVEPATH
 Z Buffer Save Path
@@ -5408,7 +5408,7 @@ Out of memory allocating Fractal Map array!\nContinue without Fractal Maps or re
 ;
 MSG_GLMP_CONTINUERETRYCANCEL
 Continue|Retry|Cancel
-
+Weiter|Wiederholen|Abbrechen
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASBUFFERPERATIONTERMINATED
 Out of memory allocating antialias buffer!\nOperation terminated.
@@ -5420,7 +5420,7 @@ Out of memory allocating antialias and edge buffers!\nOperation terminated.
 ;
 MSG_GLMP_VECTORS
 Vectors
-
+Vektoren
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS
 Out of memory allocating polygon edge buffers!
@@ -5449,7 +5449,7 @@ Error opening paged-out file! Can't restore Reflection buffers. Operation termin
 ;
 MSG_GLMPSPRT_FRAMEDVPLATFVPLONFVPALTF
 Frame %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
-
+Frame %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
 ;
 MSG_GLMPSPRT_QMAXFQFOCUSFBANKINGF
 Q max=%f, Q focus=%f, Banking=%f\n
@@ -5465,7 +5465,7 @@ Horizontlinie=%d, Zenitlinie=%d\n
 ;
 MSG_GLMPSPRT_REFLECTIONS
 Reflections
-Reflektionen
+Spiegelungen
 ;
 MSG_GLMPSPRT_SUN
 Sun
@@ -5502,7 +5502,7 @@ Out of memory!\nHidden line removal not available.
 ;
 MSG_INTDRW_COMPASS
 Compass
-
+Kompass
 ;
 MSG_INTDRW_PARAMETERSMODULEPATH
 Parameters Module: Path
@@ -5514,7 +5514,7 @@ Anim
 ;
 MSG_INTDRW_FRAME
 Frame %d/%d
-
+Frame %d/%d
 ;
 MSG_INTUTIL_AUTOCENTEREDALTFLATFLONF
 Auto-centered: alt = %f  lat = %f  lon = %f\n
@@ -5522,7 +5522,7 @@ Auto-zentriert: Höhe = %f  Breite = %f  Länge  = %f\n
 ;
 MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW
 Parameters Module: Camera View
-
+Parameter Modul: Kamera Ansicht
 ;
 MSG_INTVIEW_YOUMUSTFIRSTLOADACOMPLETEPARAMETERFILE
 You must first load a complete Parameter file!
@@ -5538,7 +5538,7 @@ There are no objects in this Database!\nOperation terminated
 ;
 MSG_INTVIEW_NOOBJECTSINDATABASE
 No objects in Database
-
+Keine Objekte in der Datenbank
 ;
 MSG_INTVIEW_EDITINGMODULEINTERACTIVE
 Editing Module: Interactive
@@ -5570,7 +5570,7 @@ Out of memory opening Antialias buffer!\nOperation terminated.
 ;
 MSG_INTVIEW_IMAGE
 Image
-
+Bild
 ;
 MSG_INTVIEW_OUTOFMEMORYALLOCATINGDEMARRAY
 Out of memory allocating DEM array!\n
@@ -5603,11 +5603,11 @@ Error opening DEM file for input!\nOperation terminated.
 ;
 MSG_INTVIEW_OUTOFMEMORYTRYASMALLERPREVIEWSIZEPERATIONTERMINATED
 Out of memory! Try a smaller preview size.\nOperation terminated.
-
+Nicht genügend Speicher! Versuchen Sie eine kleinere Vorschaugröße.\nVorgang abgebrochen.
 ;
 MSG_INTVIEW_PARAMETERSMODULEPREVIEW
 Parameters Module: Preview
-
+Parameter Modul: Vorschau
 ;
 MSG_INTVIEW_RESTORETHEPARAMETERSUSEDTOCREATETHISPREVIEW
 Restore the Parameters used to create this preview?
@@ -5624,7 +5624,7 @@ Export Motion Path/File
 ;
 MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT
 LightWave Motion: Export
-
+LightWave Motion: Exportieren
 ;
 MSG_LWSPRT_NOKEYFRAMESTOEXPORTPERATIONTERMINATED
 No Key Frames to export!\nOperation terminated.
@@ -5636,7 +5636,7 @@ Error opening file for output!\nOperation terminated.
 ;
 MSG_LWSPRT_ERRORWRITINGTOFILEPERATIONTERMINATEDPREMATURELY
 Error writing to file!\nOperation terminated prematurely.
-
+Fehler beim Schreiben der Datei!\nVorgang vorzeitig abgebrochen.
 ;
 MSG_LWSPRT_DEMFILETOEXPORT
 DEM file to export
