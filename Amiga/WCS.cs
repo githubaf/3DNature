@@ -267,11 +267,11 @@ Schattenfaktor
 ;
 MSG_VARNAME_FOGNONE
 Fog None
-
+Kein Nebel
 ;
 MSG_VARNAME_FOGFULL
 Fog Full
-
+Voller Nebel
 ;
 MSG_VARNAME_ZMINIMUM
 Z Minimum
@@ -521,7 +521,7 @@ Ziehbar\x20
 ;
 MSG_SCNRMODGUI_OVERSCAN
 Overscan:\x20
-
+Overscan:\x20
 ;
 MSG_SCNRMODGUI_WIDTH
 Width\x20
@@ -648,7 +648,7 @@ Render Modul
 ;
 MSG_AGUI_ADATABASEANDPARAMETERFILE
 a Database and Parameter file
-
+eine Datenbank- und Parameterdatei
 ;
 MSG_AGUI_MODULECONTROLPANEL
 Module Control Panel
@@ -668,11 +668,11 @@ Extras Modul
 ;
 MSG_AGUI_PUBLICSCREENSTILLHASVISITORSTRYCLOSINGAGAIN
 Public Screen still has visitors. Try closing again?
-
+Der Public Screen hat noch Visitors. Schließen erneut versuchen?
 ;
 MSG_AGUI_CLOSEWARNCANCEL
 Close|Warn|Cancel
-
+Scließen|Warnen|Abbrechen
 ;
 MSG_AGUI_QUITPROGRAMREYOUSURE
 Quit Program\nAre you sure?
@@ -696,11 +696,11 @@ die Datenbank wurde geändert. Soll sie vor dem Schließen gespeichert werden?
 ;
 MSG_AGUI_MESSAGE
 Message
-
+Nachricht
 ;
 MSG_AGUI_NOTYETIMPLEMENTEDTAYTUNED
 Not yet implemented.\nStay Tuned!
-
+Noch nicht implement.\nBleiben Sie dran!
 ;
 MSG_AGUI_KEEPCHANGES
 Keep changes?
@@ -720,7 +720,7 @@ Die Datei existiert bereits? Soll sie überschrieben werden?
 ;
 MSG_AGUI_INPUTREQUEST
 Input Request
-
+Eingabeaufforderung
 ;
 MSG_GLOBAL_33CCANCEL
 \33cCancel
@@ -728,11 +728,11 @@ MSG_GLOBAL_33CCANCEL
 ;
 MSG_AGUI_LOGSTATUSMODULE
 Log Status Module
-
+Log Status Modul
 ;
 MSG_AGUI_CANTOPENLOGSTATUSWINDOW
 Can't Open Log Status Window!
-
+Das Log Status Fenster konnte nicht geöffnet werden!
 ;
 MSG_AGUI_CLEAR
 \33cClear
@@ -748,16 +748,16 @@ MSG_AGUI_CLOSE
 ;
 MSG_AGUI_LOGWINDOW
 Log Window
-
+Log Fenster
 ;
 MSG_AGUI_LOGWINDOWOPENED
 Log window opened.
-
+Log Fenster geöffnet.
 ;
 ; - Info Window -
 MSG_AGUI_INFO
 Info
-
+Info
 ;
 MSG_AGUI_TIME
 \33rTime\x20
@@ -809,7 +809,7 @@ MSG_AGUI_DATABASE
 ;
 MSG_AGUI_PARFILE
 \33rPar File\x20
-
+\33cPar Datei\x20
 ;
 MSG_AGUI_SCREENMODE
 \33rScreenMode\x20
@@ -817,11 +817,11 @@ MSG_AGUI_SCREENMODE
 ;
 MSG_AGUI_FLUSH
 \33cFlush
-
+\33cSpeicher leeren
 ;
 MSG_AGUI_CREDITS
 Credits
-
+Über
 ;
 MSG_AGUI_WCSSCREENMODE
 WCS: Screen Mode
@@ -829,7 +829,8 @@ WCS: Bildschirmmodus
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
-
+Um den Bildschrim zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt \
+ausführen?
 ;
 MSG_AGUI_DATABASEMODULE
 Database Module
@@ -886,7 +887,7 @@ MSG_AGUI_MOTIONIO
 ;
 MSG_AGUI_STATUSLOG
 Status Log
-
+Status Log
 ;
 MSG_AGUI_ERR
 ERR:
@@ -931,12 +932,12 @@ Keines weiteren Keys
 ; PK="Previous Key"
 MSG_AGUI_PK
 PK %d
-
+VK %d
 ;
 ; NK="Next Key"
 MSG_AGUI_NK
 NK %d
-
+NK %d
 ;
 MSG_AGUI_NONE
  -none-\x20
@@ -1147,7 +1148,7 @@ Cloud Editor
 ;
 MSG_CLOUDGUI_OPTIONS
 Options
-
+Optionen
 ;
 MSG_CLOUDGUI_CLOUDS
 \33cClouds
@@ -1247,7 +1248,7 @@ MSG_CLOUDGUI_EYFRAMES
 ;
 MSG_CLOUDGUI_PREV
 \33cPrev
-
+\33cVorheriger
 ;
 MSG_CLOUDGUI_FRAME
 Frame
@@ -1255,11 +1256,11 @@ Frame
 ;
 MSG_CLOUDGUI_NEXT
 \33cNext
-
+\33cNächster
 ;
 MSG_CLOUDGUI_MAKEKEY
 \33cMake Key
-
+\33cKey erzeugen
 ;
 MSG_CLOUDGUI_UPDATE
 \33cUpdate
@@ -1275,11 +1276,11 @@ MSG_CLOUDGUI_DELETEALL
 ;
 MSG_CLOUDGUI_TIMELINES
 \33cTime Lines\x20
-
+\33cZeitleisten\x20
 ;
 MSG_CLOUDGUI_SCALEKEYS
 \33cScale Keys\x20
-
+\33cKeys skalieren\x20
 ;
 MSG_CLOUDGUI_DRAWCLOUD
 \33cDraw Cloud
@@ -1315,7 +1316,7 @@ Das aktuelle Wolkenmodell wurde geändert. Soll es vor dem Schließen gespeichert 
 ;
 MSG_GLOBAL_YESNO
 Yes|No
-
+Ja|Nein
 ;
 MSG_CLOUDGUI_CLOUDPATHFILE
 Cloud Path/File
@@ -1369,11 +1370,11 @@ Relative elevation
 ;
 MSG_DEM_COMPUTING
 Computing
-
+Berechne
 ;
 MSG_DEM_FILES
 Files
-
+Dateien
 ;
 MSG_DEM_DATAOPSDEMINTERPOLATE
 Data Ops: DEM Interpolate
@@ -1385,11 +1386,11 @@ Keine Datei(en) ausgewählt!
 ;
 MSG_DEM_ERROROPENINGFILEFORINTERPOLATIONILENOTDEMORREMONTINUE
 Error opening file for interpolation!\nFile not DEM or REM\nContinue?
-
+Fehler beim Öffnen der Datei zum Interpolieren!\nDatei ist kein DEM oder REM\nWeitermachen?"
 ;
 MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER
 DEM name is too long to add an extra character to. Do you wish to enter a new base name for the DEM or abort the interpolation?
-
+Der DEM-Name ist zu lang zum Hinzufügen eines weiteren Zeichens. Möchten Sie einen neuen Basis-Namen für das DEM eingeben oder die Interpolation abbrechen?
 ;
 MSG_DEM_NEWNAMEABORT
 New Name|Abort
@@ -1405,7 +1406,7 @@ Data Ops: Interpolate DEM
 ;
 MSG_DEM_ERRORREADINGELEVATIONFILEONTINUE
 Error reading elevation file!\nContinue?
-
+Fehler beim Lesen der Höhendatei!\nWeitermachen?
 ;
 MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED
 Out of memory!\nOperation terminated.
@@ -1435,7 +1436,7 @@ Data Ops: DEM Extract
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED
 Out of memory allocating DEM Info Header!\nOperation terminated.
-
+Nicht genügend Speicher für die Anforderung des DEM Info Headers!\nVorgang abgebrochen.
 ;
 MSG_DEM_75MINUTEDEMSDONOTALLLIEWITHINSAMEUTMZONEPERATIONTERMINA
 7.5 Minute DEMs do not all lie within same UTM Zone!\nOperation terminated.
@@ -1565,7 +1566,7 @@ DEM
 ;
 MSG_DEMGUI_NUMERIC
 Numeric
-
+Numerisch
 ;
 MSG_DEMGUI_ISOLINE
 Isoline
@@ -2995,7 +2996,7 @@ Datenbank Editor
 ;
 MSG_EDDB_YOUMUSTFIRSTLOADORCREATEADATABASEBEFOREOPENINGTHEEDITO
 You must first load or create a database before opening the editor.
-
+Es muss zuerst eine Datenbank erzeugt oder geladen werden, bevor der Editor geöffnet werden kann.
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDATABASEWINDOW
 Out of memory!\nCan't open database window.
@@ -3003,7 +3004,7 @@ Out of memory!\nCan't open database window.
 ;
 MSG_EDDB_OPTIONS
 Options
-
+Optionen
 ;
 MSG_EDDB_VECTORS
 \33cVectors
@@ -3220,7 +3221,7 @@ Ecosystem Editor
 ;
 MSG_EDITGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING
 You must first load or create a parameter file before opening the Editor.
-
+Es muss zuerst eine Parameter Datei erzeugt oder geladen werden, bevor der Editor geöfffnet werden kann.
 ;
 MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM
 Parameters Module: Ecosystem
@@ -3236,7 +3237,7 @@ Unbenutzt
 ;
 MSG_EDECOGUI_OPTIONS
 Options
-
+Optionen
 ;
 MSG_EDECOGUI_CMAPS
 \33cCMaps
@@ -3477,7 +3478,7 @@ MSG_EDECOGUI_WINDAZ
 ;
 MSG_EDMOGUI_OPTIONS
 Options
-
+Optionen
 ;
 MSG_EDMOGUI_PATHS
 \33cPaths
@@ -4395,7 +4396,7 @@ MSG_EDSETGUI_MOONHALO
 ;
 MSG_EDSETGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENIN
 You must first load or create a parameter file before opening the Render Module.
-
+Es muss zuerst eine Parameter Datei erzeugt oder geladen werden, bevor das Render Modul geöffnet werden kann.
 ;
 MSG_EDSETGUI_RENDERSETTINGSEDITOR
 Render Settings Editor
@@ -4691,7 +4692,7 @@ Deformation Map Path
 ;
 MSG_EDITGUI_OPTIONS
 Options
-
+Optionen
 ;
 MSG_EDITGUI_SURFACES
 \33cSurfaces
@@ -5526,7 +5527,7 @@ Parameter Modul: Kamera Ansicht
 ;
 MSG_INTVIEW_YOUMUSTFIRSTLOADACOMPLETEPARAMETERFILE
 You must first load a complete Parameter file!
-
+Es muss zuerst eine vollständige Parameter Datei geladen werden!
 ;
 MSG_INTVIEW_COMPLETEPARAMETERFILE
 Complete parameter file
@@ -6372,15 +6373,15 @@ Pan
 ;
 MSG_MAPGUI_MOVE
 Move
-
+Verschieben
 ;
 MSG_MAPGUI_IN
 In
-
+Rein
 ;
 MSG_MAPGUI_OUT
 Out
-
+Raus
 ;
 MSG_MAPGUI_LEFT
 Left
@@ -6560,11 +6561,11 @@ Emboss
 ;
 MSG_MAPGUI_SLOPE
 Slope
-
+Neigung
 ;
 MSG_MAPGUI_CONTOUR
 Contour
-
+Kontur
 ;
 MSG_MAPGUI_GREY
 Grey
@@ -6616,7 +6617,7 @@ MSG_MAPGUI_EXAG
 ;
 MSG_MAPGUI_33CDATABASE
 \33c Database\x20
-
+\33c Datenbank\x20
 ;
 MSG_MAPGUI_TOPO
 Topo
@@ -6720,7 +6721,7 @@ Set vertex to insert after. Q=done Uu=up Dd=down ESC=abort
 ;
 MSG_MAPGUI_QDONEUUUPDDDOWNDELETE
 Q=done Uu=up Dd=down -=delete
-
+Q=fertig Uu=hoch Dd=runter -=löschen
 ;
 MSG_MAPGUI_VECTORCONFORMEDTOTOPOGRAPHY
 Vector %s conformed to topography.
@@ -6760,11 +6761,11 @@ Datenbank: Speichern
 ;
 MSG_MAPGUI_DBASEOBJECTBOTHNEITHER
 D'base|Object|Both|Neither
-
+Datenbank|Objekt|Beide|Keines
 ;
 MSG_MAPGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENINGT
 You must first load or create a parameter file before opening the Legend.
-
+Es muss zuerst eine Parameter Datei erzeugt oder geladen werden, bevor die Legende geöffnet werden kann.
 ;
 MSG_MAPGUI_MAPVIEWECOSYSTEMLEGEND
 Map View: Ecosystem Legend
@@ -6772,11 +6773,11 @@ Map View: Ecosystem Legend
 ;
 MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND
 Out of memory!\nCan't open Ecosystem Legend.
-
+Nicht genügend Speicher!\nDie Ökosystem Legende konnte nicht geöffnet werden.
 ;
 MSG_MAPGUI_ECOSYSTEMLEGEND
 Ecosystem Legend
-
+Ökosystem Legende
 ;
 ;
 MSG_MAPGUI_ATLEASTONEENDCONTROLPOINTFORTHELINESEGMENTJUSTDRAWNC
@@ -6789,7 +6790,7 @@ Slider|Abort
 ;
 MSG_MAPGUI_ENTERELEVATIONVALUEFORNEWCONTROLPOINT
 Enter elevation value for new control point.
-
+Höhenwert für den neuen Kotrollpunkt eingeben.
 ;
 MSG_MAPGUI_THEDATABASEHASBEENMODIFIEDSINCEITWASLOADEDOYOUWISHTO
 The Database has been modified since it was loaded.\nDo you wish to save it or a Master Object file now?
@@ -7645,7 +7646,7 @@ Out of memory!\nCan't open model design window.
 ; --- Check Menu: Modules/Parameters->Ecosystem Design (middle of Ecosystem Editor Window), now "Ecosystem Model Editor" opens
 MSG_PARGUI_ECOSYSTEMMODELEDITOR
 Ecosystem Model Editor
-
+Ökosystem Modell Editor
 ;
 MSG_PARGUI_NAME_SPACE
 Name\x20
@@ -8235,7 +8236,7 @@ MSG_WAVGUI_WAVES
 ;
 MSG_WAVGUI_TIDES
 \33cTides
-
+\33cGezeiten
 ;
 MSG_WAVGUI_REFLECT
 \33cReflect
