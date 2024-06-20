@@ -2337,7 +2337,7 @@ Binary Array
 ;
 MSG_DATAOPSGUI_WCSDEM
 WCS DEM
-
+WCS DEM
 ;
 MSG_DATAOPSGUI_ZBUFFER
 Z Buffer
@@ -2930,8 +2930,8 @@ Database Module: Load
 Datenbank Modul: Laden
 ;
 MSG_DISPGUI_OUTOFMEMORYALLOCATINGDATABASEPERATIONTERMINATED
-Out of memory allocating Database!\nOperation terminated.
-
+fOut of memory allocating Database!\nOperation terminated.
+Nicht genügend Speicher für die Datenbank!\nVorgang abgebrochen.
 ;
 ;
 MSG_EDDB_POINT
@@ -2948,7 +2948,7 @@ Quadrat
 ;
 MSG_EDDB_CROSS
 Cross
-
+Kreutz
 ;
 MSG_EDDB_SOLID
 Solid
@@ -3000,7 +3000,7 @@ Es muss zuerst eine Datenbank erzeugt oder geladen werden, bevor der Editor geöf
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDATABASEWINDOW
 Out of memory!\nCan't open database window.
-
+Nicht genügend Speicher!\nDas Datenbank-Fenster konnte nicht geöffnet werden.
 ;
 MSG_EDDB_OPTIONS
 Options
@@ -3092,11 +3092,11 @@ B
 ;
 MSG_EDDB_NEWOBJ
 \33cNew Obj
-
+\33cNeues Objekt
 ;
 MSG_EDDB_ADDOBJ
 \33cAdd Obj
-
+\33cObj Hinzufügen
 ;
 MSG_EDDB_REMOVE_SPACE
 \33cRemove\x20
@@ -3140,7 +3140,7 @@ Sortiere
 ;
 MSG_EDDB_DATABASEMODULEREMOVEITEM
 Database Module: Remove Item
-
+Datenbank Module: Eintrag entfernen
 ;
 MSG_EDDB_FROMDISKDATABASEONLYCANCEL
 From Disk|Database Only|Cancel
@@ -3217,7 +3217,7 @@ Keine
 ;
 MSG_EDECOGUI_ECOSYSTEMEDITOR
 Ecosystem Editor
-
+Ökosystem Editor
 ;
 MSG_EDITGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING
 You must first load or create a parameter file before opening the Editor.
@@ -3229,7 +3229,7 @@ Parameter Modul: Ökosystem
 ;
 MSG_EDECOGUI_OUTOFMEMORYANTOPENECOSYSTEMEDITOR
 Out of memory!\nCan't open Ecosystem Editor.
-
+Nicht genügend Speicher!\nDer Ökosystem Editor konnte nicht geöffnet werden.
 ;
 MSG_EDECOGUI_UNUSED
 Unused
@@ -3269,7 +3269,7 @@ Name
 ;
 MSG_EDECOGUI_EXTURE
 \33c\0334Texture
-
+\33c\0334Textur
 ;
 MSG_EDECOGUI_CLASS
 Class
@@ -3285,7 +3285,7 @@ MSG_EDECOGUI_DESIGN
 ;
 MSG_EDECOGUI_IMAGES
 Images
-
+Bilder
 ;
 MSG_EDECOGUI_MAXHT
 Max Ht %
@@ -3297,7 +3297,7 @@ Max Img Ht
 ;
 MSG_EDECOGUI_EDITIMAGES
 \33cEdit Images...
-
+\33cBilder bearbeiten...
 ;
 MSG_EDECOGUI_STRATA
 Strata
@@ -3333,19 +3333,19 @@ MSG_EDECOGUI_MATCHBLU
 ;
 MSG_EDECOGUI_EYFRAMES
 \33c\0334Key Frames
-
+\33c\0334Key Frames
 ;
 MSG_EDECOGUI_PREV
 \33cPrev
-
+\33cVoriger
 ;
 MSG_EDECOGUI_FRAME
 Frame
-
+Frame
 ;
 MSG_EDECOGUI_NEXT
 \33cNext
-
+\33cNächster
 ;
 MSG_EDECOGUI_MAKEKEY
 \33cMake Key
@@ -3369,7 +3369,7 @@ MSG_EDECOGUI_DELETEALL
 ;
 MSG_EDECOGUI_TIMELINES
 \33cTime Lines\x20
-
+\33cZeitleisten\x20
 ;
 MSG_EDECOGUI_SCALEKEYS
 \33cScale Keys\x20
@@ -3393,7 +3393,7 @@ MSG_EDECOGUI_REMOVE
 ;
 MSG_EDECOGUI_SORTLIST
 \33cSort List
-
+\33cListe sortieren
 ;
 MSG_EDECOGUI_KEEP
 \33cKeep
@@ -3453,7 +3453,7 @@ MSG_EDECOGUI_UNDERSTORYECOSYSTEM
 ;
 MSG_EDMOGUI_DELETEALLKEYFRAMES
 Delete all %s Key Frames?
-
+Alle %s Keyframes löschen?
 ;
 MSG_EDECOGUI_ECOSYSTEMPARAMETERSSWAP
 Ecosystem Parameters: Swap
@@ -3931,7 +3931,7 @@ MSG_EDPAR_COLORS
 ;
 MSG_EDPAR_ECOSYSTEMS
 %s ecosystems
-
+%s Ökosysteme
 ;
 MSG_EDPAR_SETTINGS
 %s settings
@@ -4016,7 +4016,7 @@ Sculpt RGB
 ;
 MSG_EDSETGUI_RAWINTRLVDRGB
 Raw intrlvd RGB
-
+Raw intrlvd RGB
 ;
 MSG_EDSETGUI_IFFILBM
 \338IFF ILBM
@@ -4160,11 +4160,11 @@ MSG_EDSETGUI_BLUR
 ;
 MSG_EDSETGUI_NOZBUFFEREDBLUR
 No Z Buffered Blur
-Keine Z-Puffer Bewegungsunschärfe
+Keine Z-Puffer Unschärfe
 ;
 MSG_EDSETGUI_ZBUFFEREDBLUR
 \338Z Buffered Blur
-\338Z-Puffer Bewegungsunschärfe
+\338Z-Puffer Unschärfe
 ;
 MSG_EDSETGUI_NOSCALING
 No Scaling
@@ -4380,19 +4380,19 @@ MSG_EDSETGUI_TIDES
 ;
 MSG_EDSETGUI_NOSUNHALO
 No Sun Halo
-
+Kein Sonnen-Halo
 ;
 MSG_EDSETGUI_SUNHALO
 \338Sun Halo
-
+\338Sonnen-Halo
 ;
 MSG_EDSETGUI_NOMOONHALO
 No Moon Halo
-
+Keinen Mondhof
 ;
 MSG_EDSETGUI_MOONHALO
 \338Moon Halo
-
+\338Mondhof
 ;
 MSG_EDSETGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENIN
 You must first load or create a parameter file before opening the Render Module.
@@ -5196,7 +5196,7 @@ MSG_GENTLGUI_DELKEY
 ;
 MSG_GENTLGUI_LINEAR
 \33cLinear
-
+\33cLinear
 ;
 MSG_GENTLGUI_FRAME
 Frame
@@ -5204,7 +5204,7 @@ Frame
 ;
 MSG_GENTLGUI_KEEP
 \33cKeep
-
+\33cBehalten
 ;
 MSG_GENTLGUI_GRID
 \33cGrid
@@ -5212,7 +5212,7 @@ MSG_GENTLGUI_GRID
 ;
 MSG_GENTLGUI_TIMELINE
 Time Line
-
+Zeitleiste
 ;
 MSG_GENTLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPR
 At least two key frames for this parameter must be created prior to opening the time line window
@@ -5369,7 +5369,7 @@ Fehler beim Speichern des Z-Puffers! Ein anderes Device versuchen?
 ;
 MSG_GLMP_ZBUFFERSAVEPATH
 Z Buffer Save Path
-
+Z-Puffer Speicherpfad
 ;
 MSG_GLMP_RENDERWINDOW
 Render Window
@@ -5381,7 +5381,7 @@ Color map directory not found.
 ;
 MSG_GLMP_POLYGONS
 Polygons:
-
+Polygone:
 ;
 MSG_GLMP_FRAME_D
 Frame %d
@@ -5583,7 +5583,7 @@ Grid must be present, please redraw and try again.
 ;
 MSG_INTVIEW_SELECTPREVIEWREGIONWITHTWOCLICKS
 Select preview region with two clicks
-
+Wählen Sie die Vorschauregion mit zwei Klicks
 ;
 ; See Motion Editor->Cam View->Diag
 MSG_INTVIEW_IAD
@@ -5600,7 +5600,7 @@ Small rendering window.
 ;
 MSG_INTVIEW_ERROROPENINGDEMFILEFORINPUTPERATIONTERMINATED
 Error opening DEM file for input!\nOperation terminated.
-
+Fehler beim Öffnen der DEM-Datei zum Lesen!\nVorgang abgebrochen.
 ;
 MSG_INTVIEW_OUTOFMEMORYTRYASMALLERPREVIEWSIZEPERATIONTERMINATED
 Out of memory! Try a smaller preview size.\nOperation terminated.
@@ -5612,7 +5612,7 @@ Parameter Modul: Vorschau
 ;
 MSG_INTVIEW_RESTORETHEPARAMETERSUSEDTOCREATETHISPREVIEW
 Restore the Parameters used to create this preview?
-
+Sollen die Parameter, die für die Erstellung dieser Vorschau benutzt wurden, wiederhergerstellt werden?
 ;
 MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI
 Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?
@@ -5633,7 +5633,7 @@ No Key Frames to export!\nOperation terminated.
 ;
 MSG_LWSPRT_ERROROPENINGFILEFOROUTPUTPERATIONTERMINATED
 Error opening file for output!\nOperation terminated.
-
+Fehler beim Öffnen der Datei zum Schreiben!\nVorgang abgebrochen.
 ;
 MSG_LWSPRT_ERRORWRITINGTOFILEPERATIONTERMINATEDPREMATURELY
 Error writing to file!\nOperation terminated prematurely.
@@ -5645,11 +5645,11 @@ DEM file to export
 ;
 MSG_LWSPRT_ERRORLOADINGDEMOBJECTPERATIONTERMINATED
 Error loading DEM Object!\nOperation terminated.
-
+Fehler beim Laden des DEM-Objetes!\nVorgang abgebrochen.
 ;
 MSG_LWSPRT_ERRORLOADINGDEMOBJECTBJECTNOTSAVED
 Error loading DEM Object!\nObject not saved.
-
+Fehler beim LAden des DEM-Objekts!\nObjekt wurde nicht gespeichert.
 ;
 MSG_LWSPRT_LWOBJECTEXPORT
 LW Object Export
@@ -5690,7 +5690,7 @@ Digitize new points for the active vector object or create a new object?
 ;
 MSG_GLOBAL_ACTIVENEWCANCEL
 Active|New|Cancel
-
+Aktives|Neu|Abbrechen
 ;
 MSG_LINESPRT_DIAGNOSTICDIGITIZE
 Diagnostic: Digitize
