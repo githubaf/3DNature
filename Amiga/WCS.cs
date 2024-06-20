@@ -672,7 +672,7 @@ Der Public Screen hat noch Visitors. Schließen erneut versuchen?
 ;
 MSG_AGUI_CLOSEWARNCANCEL
 Close|Warn|Cancel
-Scließen|Warnen|Abbrechen
+Schließen|Warnen|Abbrechen
 ;
 MSG_AGUI_QUITPROGRAMREYOUSURE
 Quit Program\nAre you sure?
@@ -700,7 +700,7 @@ Nachricht
 ;
 MSG_AGUI_NOTYETIMPLEMENTEDTAYTUNED
 Not yet implemented.\nStay Tuned!
-Noch nicht implement.\nBleiben Sie dran!
+Noch nicht implementiert.\nBleiben Sie dran!
 ;
 MSG_AGUI_KEEPCHANGES
 Keep changes?
@@ -829,8 +829,7 @@ WCS: Bildschirmmodus
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
-Um den Bildschrim zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt \
-ausführen?
+Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt ausführen?
 ;
 MSG_AGUI_DATABASEMODULE
 Database Module
@@ -2007,7 +2006,7 @@ Out of memory expanding Database Editor List!\nLast item does not appear in list
 ;
 MSG_DLG_ERRORSAVINGLASTOBJECTPERATIONTERMINATED
 Error saving last object!\nOperation terminated.
-fehler beim Speichern des letzten Objetes!\nVorgang abgebrochen.
+Fehler beim Speichern des letzten Objekts!\nVorgang abgebrochen.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTWDB
 Data Ops Module: Import WDB
@@ -2023,7 +2022,7 @@ Die WDB-Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_DLG_ERROROPENINGSOURCEFILEPERATIONTERMINATED
 Error opening source file!\nOperation terminated.
-Fehler beim Öffnen der Quelldatei!\nVorgang abegebrochen.
+Fehler beim Öffnen der Quelldatei!\nVorgang abgebrochen.
 ;
 MSG_DLG_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
@@ -2224,7 +2223,7 @@ Weiter|Abschneiden|Abbrechen
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTRO
 Incorrect file size for specified header, width and height!\nProceed anyway?
-Falsche dateigröße fpr den angegebenen Header, Breite und Höhe!\nTrotzdem weitermachen?
+Falsche Dateigröße für den angegebenen Header, Breite und Höhe!\nTrotzdem weitermachen?
 ;
 ; invert file if it is stored SE corner to NW
 MSG_DATAOPS_INVERTDATAORDER
@@ -2285,7 +2284,7 @@ Fehler beim Schreiben der Zieldatei!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_ERRORREADINGSOURCEFILEPERATIONTERMINATED
 Error reading source file!\nOperation terminated.
-Fehler beim Llesen der Quelldatei!\nVorgang abgebrochen.
+Fehler beim Lesen der Quelldatei!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_NOTACOMPRESSEDFILEPERATIONTERMINATED
 Not a compressed file!\nOperation terminated.
@@ -2293,7 +2292,7 @@ Keine komprimierte Datei!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_EXTENDEDHEADERPERATIONTERMINATED
 Extended header!\nOperation terminated.
-Erweiterer Header!\nVorgang abgebrochen.
+Erweiteter Header!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_INPUTFILECONFIGURATIONNOTYETSUPPORTEDPERATIONTERMIN
 Input file configuration not yet supported!\nOperation terminated.
@@ -2589,7 +2588,7 @@ Obere Breite
 ;
 MSG_DATAOPSGUI_LOWLAT
  Low Lat
- Unterere Breite
+ Untere Breite
 ;
 MSG_DATAOPSGUI_HIGHLON
 High Lon
@@ -2729,7 +2728,7 @@ MSG_DATAOPSGUI_INTERPOLATE
 ;
 MSG_DATAOPSGUI_DEMFILES
 DEM Files
-DEM Dateien
+DEM-Dateien
 ;
 MSG_DEFPARM_AMBIENT
 Ambient
@@ -2829,7 +2828,7 @@ Please enable at least one topo DEM and try again.
 ;
 MSG_DEFPARM_PLEASECLOSEALLTIMELINESWINDOWSANDTRYAGAIN
 Please close all Time Lines windows and try again.
-Bitte schließen Sie alle Time line Fenster und versuchen Sie es erneut.
+Bitte schließen Sie alle Zeitleistenfenster und versuchen Sie es erneut.
 ;
 ;
 MSG_DIAG_DIAGNOSTICDATA
@@ -2903,7 +2902,7 @@ Keine
 ;
 MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY
 Make this the default object directory?
-Soll dies der Starndard-Objektordner werden?
+Soll dies der Standard-Objektordner werden?
 ;
 MSG_DISPGUI_DATABASELOAD
 Database: Load
@@ -3116,7 +3115,7 @@ MSG_EDDB_SAVE
 ;
 MSG_EDDB_LOAD_SAPCE
 \33cLoad\x20
-\33cLoaden\x20
+\33cLaden\x20
 ;
 MSG_EDDB_APPEND
 \33cAppend\x20
@@ -3160,7 +3159,7 @@ Ordnerlisten-Editor
 ;
 MSG_EDDB_DEFAULTDIRECTORY
 \33cDefault Directory
-\33cStandard Ordner
+\33cStandardordner
 ;
 MSG_EDDB_ADD
 \33cAdd...
@@ -3168,7 +3167,7 @@ MSG_EDDB_ADD
 ;
 MSG_EDDB_SWAP
 \33cSwap...
-\33cVertauscchen...
+\33cVertauschen...
 ;
 MSG_EDDB_MOVE
 \33cMove...
@@ -3221,7 +3220,7 @@ Ecosystem Editor
 ;
 MSG_EDITGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING
 You must first load or create a parameter file before opening the Editor.
-Es muss zuerst eine Parameter Datei erzeugt oder geladen werden, bevor der Editor geöfffnet werden kann.
+Es muss zuerst eine Parameter Datei erzeugt oder geladen werden, bevor der Editor geöffnet werden kann.
 ;
 MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM
 Parameters Module: Ecosystem
@@ -3626,7 +3625,7 @@ Parameters Module: Make Key
 ;
 MSG_EDMOGUI_DRAW
 \0334Draw
-\0334Zeichenen
+\0334Zeichnen
 ;
 MSG_EDMOGUI_BOUNDS
 \0334Bounds
@@ -3706,7 +3705,7 @@ MSG_EDMOGUI_PROFDENS
 ;
 MSG_EDMOGUI_AUTODRAW
 \33cAuto Draw
-\33cAuto Zeichenen
+\33cAuto Zeichnen
 ;
 MSG_EDMOGUI_GRID
 \33c\0334Grid
@@ -4152,11 +4151,11 @@ MSG_EDSETGUI_ZBUFFER
 ;
 MSG_EDSETGUI_NOBLUR
 No Blur
-Kein Bewegungsunschärfe
+Kein Unschärfe
 ;
 MSG_EDSETGUI_BLUR
 \338Blur
-\338Bewegungsunschärfe
+\338Unschärfe
 ;
 MSG_EDSETGUI_NOZBUFFEREDBLUR
 No Z Buffered Blur
@@ -4452,7 +4451,7 @@ Pfad speichern\x20
 ;
 MSG_EDSETGUI_SAVEFILE
 Save File\x20
-Dateui speichern\x20
+Datei speichern\x20
 ;
 MSG_EDSETGUI_TEMPPATH
 Temp Path\x20
@@ -4668,7 +4667,7 @@ Vector File Path/Name
 ;
 MSG_EDSETGUI_BACKGROUNDFILEPATHNAME
 Background File Path/Name
-
+Hintergrund-Datei Pfad/Name
 ;
 MSG_EDSETGUI_ZBUFFERFILEPATHNAME
 Z Buffer File Path/Name
@@ -4929,15 +4928,15 @@ Error loading Cloud file to clone.
 ;
 MSG_EVMORGUI_ERRORCREATINGNEWPROJECTDIRECTORYITMAYALREADYEXISTO
 Error creating new Project Directory: %s. It may already exist or there may be a file with that name.
-Fehler beim Erzeugen des neuen Projektordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit dem selben Namen.
+Fehler beim Erzeugen des neuen Projektordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit demselben Namen.
 ;
 MSG_EVMORGUI_ERRORCREATINGNEWDATABASEDIRECTORYITMAYALREADYEXIST
 Error creating new Database Directory: %s. It may already exist or there may be a file with that name.
-Fehler beim Erzeugen des neuen Datenbankordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit dem selben Namen.
+Fehler beim Erzeugen des neuen Datenbankordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit demselben Namen.
 ;
 MSG_EVMORGUI_ERRORCREATINGNEWDEFAULTDIRECTORYITMAYALREADYEXISTO
 Error creating new Default Directory: %s. It may already exist or there may be a file with that name.
-Fehler beim Erzeugen des neuen Standardordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit dem selben Namen.
+Fehler beim Erzeugen des neuen Standardordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit demselben Namen.
 ;
 MSG_EVMORGUI_ERRORSAVINGTHENEWPROJECTFILE
 Error saving the new Project file.
@@ -4987,7 +4986,7 @@ MSG_FOLIGUI_GROUP
 ;
 MSG_FOLIGUI_SUGGEST
 \33cSuggest...
-
+\33cVorschlagen...
 ;
 MSG_FOLIGUI_MAXPICHT
 Max Pic Ht\x20
@@ -5051,7 +5050,7 @@ Das Bild konnte nicht für die Anzeige geladen werden!\nVorgang abgebrochen.
 ;
 MSG_FOLIGUI_SELECTANECOTYPE
 Select an Ecotype
-
+Ökotyp auswählen
 ;
 MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE
 Foliage Editor: Load Ecotype
@@ -5087,7 +5086,7 @@ Laubwerkseditor: Neue Gruppe
 ;
 MSG_FOLIGUI_ECOTYPESAVEPATHFILE
 Ecotype Save Path/File
-
+Ökotyp Speichern Pfad7Datei
 ;
 MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP
 Foliage Editor: Save Group
@@ -5507,7 +5506,7 @@ Kompass
 ;
 MSG_INTDRW_PARAMETERSMODULEPATH
 Parameters Module: Path
-
+Parameter Modul: Pfad
 ;
 MSG_INTDRW_ANIM
 Anim
@@ -5535,7 +5534,7 @@ Complete parameter file
 ;
 MSG_INTVIEW_THEREARENOOBJECTSINTHISDATABASEPERATIONTERMINATED
 There are no objects in this Database!\nOperation terminated
-
+Keine Objekte in der Datenbank vorhanden!\nVorgang abgebrochen
 ;
 MSG_INTVIEW_NOOBJECTSINDATABASE
 No objects in Database
@@ -5547,11 +5546,11 @@ Editing Module: Interactive
 ;
 MSG_INTVIEW_CAMERAVIEWFAILEDTOOPENPERATIONTERMINATED
 Camera View failed to open!\nOperation terminated.
-
+Die Kameraansicht konnte nicht geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_INTVIEW_OUTOFMEMORYOPENINGCAMERAVIEWPERATIONTERMINATED
 Out of memory opening Camera View!\nOperation terminated.
-
+Nicht genügend Speicher zum Öffnen der Kameraansicht!\nOperation abgebrochen.
 ;
 MSG_INTVIEW_OUTOFMEMORYLOADINGDEMSNCREASEGRIDSIZE
 Out of memory loading DEMs!\nIncrease grid size?
@@ -5559,7 +5558,7 @@ Out of memory loading DEMs!\nIncrease grid size?
 ;
 MSG_INTVIEW_NODEMOBJECTSACTIVEPERATIONTERMINATED
 No DEM objects active!\nOperation terminated.
-
+Keine aktiven DEM-Objekte!\nVorgang abgebrochen.
 ;
 MSG_INTVIEW_ELEVATIONMAPSLOADED
 Elevation maps loaded = %d.\n
@@ -5588,7 +5587,7 @@ Wählen Sie die Vorschauregion mit zwei Klicks
 ; See Motion Editor->Cam View->Diag
 MSG_INTVIEW_IAD
 "IA %d"
-
+"IA %d"
 ;
 MSG_INTVIEW_ERROROPENINGSMALLRENDERINGWINDOWPERATIONTERMINATED
 Error opening Small Rendering Window!\nOperation terminated.
@@ -5612,7 +5611,7 @@ Parameter Modul: Vorschau
 ;
 MSG_INTVIEW_RESTORETHEPARAMETERSUSEDTOCREATETHISPREVIEW
 Restore the Parameters used to create this preview?
-Sollen die Parameter, die für die Erstellung dieser Vorschau benutzt wurden, wiederhergerstellt werden?
+Sollen die Parameter, die für die Erstellung dieser Vorschau benutzt wurden, wiederhergestellt werden?
 ;
 MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI
 Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?
@@ -5645,11 +5644,11 @@ DEM file to export
 ;
 MSG_LWSPRT_ERRORLOADINGDEMOBJECTPERATIONTERMINATED
 Error loading DEM Object!\nOperation terminated.
-Fehler beim Laden des DEM-Objetes!\nVorgang abgebrochen.
+Fehler beim Laden des DEM-Objetks!\nVorgang abgebrochen.
 ;
 MSG_LWSPRT_ERRORLOADINGDEMOBJECTBJECTNOTSAVED
 Error loading DEM Object!\nObject not saved.
-Fehler beim LAden des DEM-Objekts!\nObjekt wurde nicht gespeichert.
+Fehler beim Laden des DEM-Objekts!\nObjekt wurde nicht gespeichert.
 ;
 MSG_LWSPRT_LWOBJECTEXPORT
 LW Object Export
@@ -5738,7 +5737,7 @@ Enter frame interval to represent each vector segment.
 ;
 MSG_LINESPRT_USEELEVATIONDATA
 Use elevation data?
-
+Höhendaten benutzen?
 ;
 MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC
 Modify altitudes with current flattening, datum and vertical exaggeration?
@@ -5774,7 +5773,7 @@ Fokus Pfad
 ;
 MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED
 Enter name of vector to be created.
-
+Geben Sie einen Namen für den neuen Vektor an.
 ;
 MSG_LINESPRT_VECTORNAMEALREADYPRESENTINDATABASEVERWRITEITORTRYA
 Vector name already present in Database!\nOverwrite it or try a new name?
@@ -5786,11 +5785,11 @@ Overwrite|New|Cancel
 ;
 MSG_LINESPRT_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED
 Out of memory expanding Database!\nOperation terminated.
-
+Nicht genügend Speicher zum Vergrößern der Datenbank!\nVorgang abgebrochen.
 ;
 MSG_LINESPRT_OUTOFMEMORYCREATINGNEWVECTOROBJECTPERATIONTERMINAT
 Out of memory creating new vector object!\nOperation terminated.
-
+Nicht genügend Speicher zum Erzeugen des neuen Vektorobjekts!\nVorgang abgebrochen.
 ;
 ;
 MSG_MAP_FIRSTSETOFALIGNMENTLATLONCOORDINATESMUSTBELAR
@@ -5899,7 +5898,7 @@ Select or de-select items?
 ;
 MSG_MAP_SELECTDESELECTCANCEL
 Select|De-select|Cancel
-
+Auswählen|Auswahl aufheben|Abbrechen
 ;
 MSG_MAP_SETFIRSTCORNERPOINTWITHMOUSE
 \0338Set first corner point with mouse.
@@ -5927,7 +5926,7 @@ Mapping Module: Digitize
 ;
 MSG_MAP_ACCEPTNEWPOINTS
 Accept new points?
-
+Neue Punkte akzeptieren?
 ;
 MSG_MAP_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTE
 Out of memory allocating new vector array!\nOperation terminated.
@@ -5947,11 +5946,11 @@ MSG_MAP_SETLABELPOINTRETURNINTERPOLATECCLOSEQQUIT
 ;
 MSG_MAP_SETPOINTRETURNINTERPOLATECCLOSEQQUIT
 \0338Set Point: %d.  RETURN=interpolate C=close Q=quit
-
+\0338Setze Punkt: %d.  RETURN=Interpolieren C=Schließen Q=Beenden
 ;
 MSG_MAP_RETURNTOACCEPTESCTOCANCEL
 \0338RETURN to accept, ESC to cancel
-
+\0338RETURN = Akzeptieren, ESC = Abbrechen
 ;
 MSG_MAP_MAPPINGMODULEINSERTPOINTS
 Mapping Module: Insert Points
@@ -5967,7 +5966,7 @@ Create Visual Sensitivity map for this object?
 ;
 MSG_MAP_DBASEOBNNAME
 DBase[OBN].Name
-
+DBase[OBN].Name
 ;
 MSG_MAP_VISUALSENSITIVITY
 Visual Sensitivity
@@ -5991,7 +5990,7 @@ Smooth the map before computing viewshed?
 ;
 MSG_MAP_ENTERVERTICALOFFSETINMETERS
 Enter vertical offset in meters.
-
+Vertikalen Offset in Meter eingegeben.
 ;
 MSG_MAP_SMOOTHING
 Smoothing...
@@ -6007,7 +6006,7 @@ Draw vectors on viewshed rendering?
 ;
 MSG_MAP_CANTOPENSERIALDEVICEPERATIONTERMINATED
 Can't open serial device!\nOperation terminated.
-
+Das Serial Device konnte nicht geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_MAP_DIGITIZENEWREGISTRATIONPOINTS
 Digitize new registration points?
@@ -6609,7 +6608,7 @@ MSG_MAPGUI_AUTO
 ;
 MSG_MAPGUI_33CCENTER
 \33cCenter
-\33cZentieren
+\33cZentrieren
 ;
 MSG_MAPGUI_EXAG
  Exag\x20
@@ -7115,11 +7114,11 @@ Resolution X
 ;
 MSG_MOREGUI_ROWS
 Rows
-
+Zeilen
 ;
 MSG_MOREGUI_COLUMNS
  Columns
-
+ Spalten
 ;
 MSG_MOREGUI_PROFILEDATA
 \0334Profile Data
@@ -7127,11 +7126,11 @@ MSG_MOREGUI_PROFILEDATA
 ;
 MSG_MOREGUI_ROW
 Row
-
+Zeile
 ;
 MSG_MOREGUI_COLUMN
  Column
-
+ Spalte
 ;
 MSG_MOREGUI_PROFROWS
  Prof Rows
@@ -7208,23 +7207,23 @@ Parameter Name\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_FRAMESAVEPATH_SPACES
 Frame Save Path\x20\x20\x20\x20\x20
-
+Bilder-Speicherpfad\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_FRAMESAVENAME_SPACES
 Frame Save Name\x20\x20\x20\x20\x20
-
+Bilder-Speichername\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_TEMPFRAMEPATH_SPACES
 Temp Frame Path\x20\x20\x20\x20\x20
-
+Temp. Bilderpfad\x20\x20\x20\x20
 ;
 MSG_MOREGUI_VECTORSAVEPATH_SPACES
 Vector Save Path\x20\x20\x20\x20
-
+Vektor-Speicherpfad
 ;
 MSG_MOREGUI_VECTORSAVENAME_SPACES
 Vector Save Name\x20\x20\x20\x20
-
+Vektor-Speichername
 ;
 MSG_MOREGUI_ZBUFFERPATH_SPACES
 Z Buffer Path\x20\x20\x20\x20\x20\x20\x20
@@ -7248,11 +7247,11 @@ Standardverzeichnis\x20
 ;
 MSG_MOREGUI_GRAPHICSAVEPATH_SPACES
 Graphic Save Path\x20\x20\x20
-
+Grafik-Speicherpfad\x20
 ;
 MSG_MOREGUI_GRAPHICSAVENAME_SPACES
 Graphic Save Name\x20\x20\x20
-
+Grafik-Speichername\x20
 ;
 MSG_MOREGUI_COLORMAPPATH_SPACES
 Color Map Path\x20\x20\x20\x20\x20\x20
@@ -7292,11 +7291,11 @@ Image Path\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_SUNIMAGEFILE_SPACES
 Sun Image File\x20\x20\x20\x20\x20\x20
-
+Sonnen-Bilddatei\x20\x20\x20\x20
 ;
 MSG_MOREGUI_MOONIMAGEFILE_SPACES
 Moon Image File\x20\x20\x20\x20\x20
-
+Mond-Bilddatei\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_PCPROJECTDIRECTORY_SPACES
 PC Project Directory
@@ -7304,11 +7303,11 @@ PC Projektverzeichnis
 ;
 MSG_MOREGUI_PCFRAMESDIRECTORY_SPACES
 PC Frames Directory\x20
-
+PC Bilderordner\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_DIRECTORYLIST
 \33cDirectory List
-
+\33cOrdnerliste
 ;
 MSG_MOREGUI_SAVE
 \33cSave
@@ -7368,15 +7367,15 @@ Deformation Path
 ;
 MSG_MOREGUI_IMAGEPATH
 Image Path
-
+Bilderpfad
 ;
 MSG_MOREGUI_SUNIMAGEFILE
 Sun Image File
-
+Sonnen-Bilddatei
 ;
 MSG_MOREGUI_MOONIMAGEFILE
 Moon Image File
-
+Mond-Bilddatei
 ;
 MSG_MOREGUI_PCPROJECTPATH
 PC Project Path
@@ -7444,7 +7443,7 @@ MSG_MOREGUI_RENDERSIZE
 ;
 MSG_MOREGUI_STATUSLOGMESSAGES
 \33c\0334Status Log Messages
-
+\33c\0334Status Log Nachrichten
 ;
 MSG_MOREGUI_ERR
 \33cERR
@@ -7537,27 +7536,27 @@ MSG_PARGUI_COLOR
 ;
 MSG_PARGUI_ECOSYSTEM
 \33cEcosystem
-
+\33cÖkosystem
 ;
 MSG_PARGUI_ALLFRAMES
 \33cAll Frames
-
+\33cAlle Frames
 ;
 MSG_PARGUI_THISFRAME
 \33cThis Frame
-
+\33cDieser Frame
 ;
 MSG_PARGUI_CALE
 \33c\0334Scale
-
+\33c\0334Skalieren
 ;
 MSG_PARGUI_FRAMES
 \33cFrame(s)
-
+\33cFrame(s)
 ;
 MSG_PARGUI_VALUES
 \33cValue(s)
-
+\33cWert(e)
 ;
 MSG_PARGUI_HIFT
 \33c\0334Shift
@@ -7565,7 +7564,7 @@ MSG_PARGUI_HIFT
 ;
 MSG_PARGUI_KEEP
 \33cKeep
-
+\33cBehalten
 ;
 MSG_PARGUI_OPERATE
 \33cOperate
@@ -7581,7 +7580,7 @@ Szene + DEMs
 ;
 MSG_PARGUI_DEMONLY
 DEM Only
-
+Nur DEM
 ;
 MSG_PARGUI_MOTIONONLY
 Motion Only
@@ -7609,7 +7608,7 @@ MSG_PARGUI_XPORTENTITY
 ;
 MSG_PARGUI_MAXPOLYGONS
 Max Polygons
-
+Max Polygone
 ;
 MSG_PARGUI_MAXVERTICES
 Max Vertices
@@ -7633,7 +7632,7 @@ MSG_PARGUI_ROTATETOHORIZONTAL
 ;
 MSG_PARGUI_EXPORT
 \33cExport
-
+\33cExportieren
 ;
 MSG_PARGUI_LIGHTWAVEIO
 LightWave I/O
@@ -7940,7 +7939,7 @@ Projekt: Laden
 ;
 MSG_SUPPORT_NOTAWCSPROJECTFILEPERATIONTERMINATED
 Not a WCS Project file!\nOperation terminated.
-Keine WCS ProjektDatei!\nVorgang abgebrochen.
+Keine WCS Projekt-Datei!\nVorgang abgebrochen.
 ;
 MSG_SUPPORT_ILLEGALMAPREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUAL
 Illegal map registration values! High and low X or Y values are equal.
@@ -8374,7 +8373,7 @@ Map View: Wave Add
 ;
 MSG_WAVGUI_REMOVEALLCURRENTLYDEFINEDWAVESBEFOREADDINGNEWONES
 Remove all currently defined waves before adding new ones?
-Alle beisher definieren Wellen löschen bevor neue erzeugt werden?
+Alle bisher definieren Wellen löschen bevor neue erzeugt werden?
 ;
 MSG_WAVGUI_0338SETCLOUDWAVESOURCEPOINT
 \0338Set Cloud Wave Source Point %d
@@ -8426,7 +8425,7 @@ Beta-Testzeit abgelaufen...
 ;
 MSG_WCS_FORWCSAROSUIMASTERLIBRARYREVISION1967RHIGHERREQUIRED
 For WCS AROS\nmuimaster.library revision %d.%d\nor higher required.
-Für WCS AROS\nmuimaster.library revision %d.%d\noder höher erforderlich.
+Für WCS AROS\nmuimaster.library Revision %d.%d\noder höher erforderlich.
 ;
 MSG_WCS_ERROR
 Error
@@ -8438,23 +8437,23 @@ Abbrechen
 ;
 MSG_WCS_FATALERRORMUIMASTERLIBRARYREVISIONREQUIREDABORTING
 FATAL ERROR: MUIMaster.Library revision %d required. Aborting.\n
-Schwerer Fehler: MuiMaster.library revision %d erforderlich. Abbruch.\n
+Schwerer Fehler: MuiMaster.library Revision %d erforderlich. Abbruch.\n
 ;
 MSG_WCS_FATALERRORGADTOOLSLIBRARYREVISIONREQUIREDABORTING
 FATAL ERROR: GadTools.Library revision %d required. Aborting.\n
-Schwerer Fehler: GadTools.Library revision %d erforderlich. Abbruch.\n
+Schwerer Fehler: GadTools.Library Revision %d erforderlich. Abbruch.\n
 ;
 MSG_WCS_FATALERRORASLLIBRARYREVISIONREQUIREDABORTING
 FATAL ERROR: ASL.Library revision %d required. Aborting.\n
-Schwerer Fehler: ASL.Library revision %d erforderlich. Abbruch.\n
+Schwerer Fehler: ASL.Library Revision %d erforderlich. Abbruch.\n
 ;
 MSG_WCS_FATALERRORGRAPHICSLIBRARYREVISIONREQUIREDABORTING
 FATAL ERROR: Graphics.Library revision %d required. Aborting.\n
-Schwerer Fehler: Graphics.Library revidion %d erforderlich. Abbruch.\n
+Schwerer Fehler: Graphics.Library Revision %d erforderlich. Abbruch.\n
 ;
 MSG_WCS_FATALERRORINTUITIONLIBRARYREVISIONREQUIREDABORTING
 FATAL ERROR: Intuition.library revision %d required. Aborting.\n
-Schwerer Fehler: Intuition.Library revision %d erforderlich. Abbruch.\n
+Schwerer Fehler: Intuition.Library Revision %d erforderlich. Abbruch.\n
 ;
 MSG_NNCRUNCH_INSUFFICIENTDATAINGRIDDEDREGIONTOTRIANGULATEINCREA
 Insufficient data in gridded region to triangulate! Increase the size of the gridded region or add more control points.
