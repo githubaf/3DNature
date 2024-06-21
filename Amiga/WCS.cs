@@ -981,7 +981,7 @@ Einstellungen speichern...
 ; ----- BitMaps.c --------
 MSG_BITMAPS_IFFFILEPATHNAME
 IFF File Path/Name
-
+IFF-Datei Pfad/Name
 ;
 MSG_BITMAPS_FILEALREADYEXISTSVERWRITEIT
 File already exists!\nOverwrite it?
@@ -1199,15 +1199,15 @@ Spalten
 ;
 MSG_CLOUDGUI_LATMAX
 Lat Max
-
+Breite Max
 ;
 MSG_CLOUDGUI_MIN
 Min
-
+Min
 ;
 MSG_CLOUDGUI_LONMAX
 Lon Max
-
+Länge Max
 ;
 MSG_CLOUDGUI_ANIMATION
 \33c\0334Animation
@@ -1235,7 +1235,7 @@ Move Lat
 ;
 MSG_CLOUDGUI_LON
 Lon
-
+Länge
 ;
 MSG_CLOUDGUI_ALTITUDE
 Altitude
@@ -1243,7 +1243,7 @@ Höhe
 ;
 MSG_CLOUDGUI_EYFRAMES
 \33c\0334Key Frames
-
+\33c\0334Keyframes
 ;
 MSG_CLOUDGUI_PREV
 \33cPrev
@@ -1557,7 +1557,7 @@ Slider
 ;
 MSG_DEMGUI_ENDPOINTS
 End Points
-
+Endpunkte
 ;
 MSG_DEMGUI_DEM
 DEM
@@ -1569,7 +1569,7 @@ Numerisch
 ;
 MSG_DEMGUI_ISOLINE
 Isoline
-
+Wertefeldlinie
 ;
 MSG_DEMGUI_GRADIENT
 Gradient
@@ -1585,7 +1585,7 @@ Konvex
 ;
 MSG_DEMGUI_NONE
 None
-
+Keine
 ;
 MSG_DEMGUI_LINESPOINTS
 Lines/Points
@@ -1621,7 +1621,7 @@ Fuß
 ;
 MSG_DEMGUI_DEMDESIGNER
 DEM Designer
-
+DEM Designer
 ;
 MSG_DEMGUI_CONTROLPTS
 Control Pts
@@ -1681,7 +1681,7 @@ MSG_DEMGUI_STDDEVIATION
 ;
 MSG_DEMGUI_NONLINEARITY
   Non-linearity\x20
-
+  Nichtlinearität\x20
 ;
 MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU
 This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?
@@ -1797,7 +1797,7 @@ MSG_DEMGUI_IMPORT
 ;
 MSG_DEMGUI_SAVEPTS
 \33cSave Pts
-
+\33cPunkte speichern
 ;
 MSG_DEMGUI_BUILD
 \33cBuild...
@@ -1813,11 +1813,11 @@ MSG_DEMGUI_CLEARPTS
 ;
 MSG_DEMGUI_NONNEG
 Non-Neg\x20\x20\x20\x20
-
+Nicht-Negativ\x20
 ;
 MSG_DEMGUI_OUTPUT
 \33c\0334Output
-
+\33c\0334Ausgabe
 ;
 MSG_DEMGUI_COLS
 Cols
@@ -1837,7 +1837,7 @@ Startwert
 ;
 MSG_DEMGUI_FRACT
 Fract
-
+Frakt
 ;
 MSG_DEMGUI_OFFSETX
 Offset X
@@ -1853,7 +1853,7 @@ MSG_DEMGUI_APPLYNOISEMAP
 ;
 MSG_DEMGUI_OUTPUTDEMNAME
 Output DEM Name\x20
-
+Ausgabe-DEM Name\x20
 ;
 MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT
 Select contour objects to import and reselect "Import" when done.
@@ -1876,11 +1876,11 @@ Name|Label|Embedded
 ;
 MSG_DEMGUI_ERRORIMPORTINGCONTOURDATAPERATIONTERMINATED
 Error importing contour data!\nOperation terminated.
-
+Fehler beim Importieren der Konturdaten!\nVorgang abgebrochen.
 ;
 MSG_DEMGUI_ATLEASTONEOBJECTFAILEDTOLOADANDCOULDNOTBEIMPORTED
 At least one Object failed to load and could not be imported.
-
+Mindestens ein Objekt konnte nicht geladen und importiert werden.
 ;
 MSG_DEMGUI_MAPVIEWIMPORTCONTOURS
 Map View: Import Contours
@@ -1888,15 +1888,15 @@ Map View: Import Contours
 ;
 MSG_DEMGUI_XYZPATHFILE
 XYZ Path/File
-
+XYZ Pfad/Datei
 ;
 MSG_DEMGUI_YOUDIDNOTSELECTAFILETOIMPORTPERATIONTERMINATED
 You did not select a file to import!\nOperation terminated.
-
+Sie haben keine Datei zum Importieren angegeben!\nVorgang abgebrochen.
 ;
 MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR
 Enter the UTM zone number (0-60) for the data you are about to import.
-
+Geben Sie die UTM-Zonennummer (0-60) für die zu importierenden Daten ein.
 ;
 MSG_MAPGUI_MAPVIEWBUILDDEM
 Map View: Build DEM
@@ -1904,11 +1904,11 @@ Map View: Build DEM
 ;
 MSG_DEMGUI_UTMZONESMAYBEFROM0TO60THESELECTEDZONEISOUTOFRANGEPER
 UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated.
-
+Die UTM-Zone muss im Bereich 0-60 liegen! Die ausgewählte Zone liegt nicht in diesem Bereich!\nVorgang abgebrochen.
 ;
 MSG_DEMGUI_ERROROPENINGXYZFILETOIMPORTPERATIONTERMINATED
 Error opening XYZ file to import!\nOperation terminated.
-
+Fehler beim Öffnen der XYZ-Datei zum importieren!\nVorganng abgebrochen.
 ;
 MSG_DEMGUI_MAPVIEWXYZEXPORT
 Map View: XYZ Export
@@ -1916,15 +1916,15 @@ Map View: XYZ Export
 ;
 MSG_DEMGUI_ERRORWRITINGTOXYZFILEPARTIALFILEWRITTENPERATIONTERMI
 Error writing to XYZ file! Partial file written.\nOperation terminated.
-
+Fehler beim Schreiben der XYZ-Datei! Datei wurde nur teilweise geschrieben.\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
 You must specify an output file name!\nOperation terminated.
-
+Sie müssen einen Namen für die Ausgabedatei angeben!\nVorgang abgebrochen.
 ;
 MSG_DEMGUI_UNABLETOOPENXYZFILEFOREXPORTPERATIONTERMINATED
 Unable to open XYZ file for export!\nOperation terminated.
-
+Die XYZ-Datei konnte nicht zum Exportieren geöffnet werden!\nVorgang abgebrochen.
 ;
 ; -------- DLG.c ----------
 ;
@@ -1966,11 +1966,11 @@ Lesen
 ;
 MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE
 Enter up to 3 characters as a prefix for this DLG set if you desire.
-
+Wenn Sie möchten können Sie bis zu 3 Zeichen als Präfix für diesen DLG-Satz vergeben.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED
 Out of memory expanding database!\nOperation terminated.
-
+Nicht genügend Speicher für die Erweiterung der Datenbank!\nVorgang abgebrochen.
 ;
 MSG_DLG_ERRORSAVINGOBJECTFILEPERATIONTERMINATED
 Error saving object file!\nOperation terminated.
@@ -2264,7 +2264,7 @@ Die Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_CONVERTDEMSOURCEFILE
 Convert DEM source file
-
+DEM Konvertieren Quelldatei
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTPE
 Incorrect file size for specified header, width and height!\nOperation terminated.
@@ -2272,11 +2272,11 @@ Incorrect file size for specified header, width and height!\nOperation terminate
 ;
 MSG_DATAOPS_UNABLETOOPENFILEFOROUTPUTPERATIONTERMINATED
 Unable to open file for output!\nOperation terminated.
-
+Die Datei konnen nicht zum Schreiben geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_CONVERTDEMDESTINATIONFILE
 Convert DEM destination file
-
+DEM Konvertieren Zieldatei
 ;
 MSG_DATAOPS_ERRORWRITINGDESTINATIONFILEPERATIONTERMINATED
 Error writing destination file!\nOperation terminated.
@@ -2296,11 +2296,11 @@ Erweiteter Header!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_INPUTFILECONFIGURATIONNOTYETSUPPORTEDPERATIONTERMIN
 Input file configuration not yet supported!\nOperation terminated.
-
+Die Konfiguration dieser Eingebadatei wird z.Z. noch nicht unterstützt!\nVorgang abgebrochen.
 ;
 MSG_DATAOPS_CONVERTDEMSOURCETYPE
 Convert DEM source type
-
+DEM konvertieren Quelltyp
 ;
 MSG_DATAOPS_INPUTDATAFORMATNOTSUPPORTEDHECKYOURSETTINGSPERATION
 Input data format not supported!\nCheck your settings.\nOperation terminated.
@@ -2360,11 +2360,11 @@ Color Map
 ;
 MSG_DATAOPSGUI_GRAYIFF
 Gray IFF
-
+Grau-IFF
 ;
 MSG_DATAOPSGUI_COLORIFF
 Color IFF
-
+Farb-IFF
 ;
 MSG_DATAOPSGUI_SIGNEDINT
 Signed Int
@@ -2448,7 +2448,7 @@ Min Out
 ;
 MSG_DATAOPSGUI_IOSCALE
 I/O Scale
-
+I/O Skalieren
 ;
 MSG_DATAOPSGUI_DEMREGISTRATION
 \0334DEM Registration
@@ -2460,15 +2460,15 @@ MSG_DATAOPSGUI_VALUEFORMATSAMPLING
 ;
 MSG_DATAOPSGUI_VALUEFORMATCOLORED
 \0334Value Format
-
+\0334Werteformat
 ;
 MSG_DATAOPSGUI_PREPROCESS
 \0334Pre-Process
-
+\0334Vorverabeitung
 ;
 MSG_DATAOPSGUI_DEMCONVERTER
 DEM Converter
-
+DEM Konverter
 ;
 MSG_DATAOPSGUI_INPUTFORMAT
  Input Format
@@ -2476,35 +2476,35 @@ MSG_DATAOPSGUI_INPUTFORMAT
 ;
 MSG_DATAOPSGUI_INPUTFILESIZE
 Input File Size
-
+Eingabedateigröße
 ;
 MSG_DATAOPSGUI_HEADERBYTES
 Header Bytes
-
+Headerbytes
 ;
 MSG_DATAOPSGUI_VALUEFORMAT
 Value Format
-
+Werteformat
 ;
 MSG_DATAOPSGUI_VALUEBYTES
  Value Bytes
-
+ Bytes pro Wert
 ;
 MSG_DATAOPSGUI_BYTEORDER
   Byte Order
-
+ Bytereihenfolge
 ;
 MSG_DATAOPSGUI_READORDER
   Read Order
-
+  Lesereihenfolge
 ;
 MSG_DATAOPSGUI_ROWSEQUAL
   Rows Equal
-
+Zeilen entsprechen
 ;
 MSG_DATAOPSGUI_DATAUNITS
   Data Units
-
+  Einheiten
 ;
 MSG_DATAOPSGUI_FLOOR
   Floor
@@ -2612,11 +2612,11 @@ Spline Constraint
 ;
 MSG_DATAOPSGUI_INPUT
 \0334  Input\x20\x20
-
+\0334  Eingabe\x20\x20
 ;
 MSG_DATAOPSGUI_OUTPUT
 \0334  Output\x20
-
+\0334  Ausgabe\x20
 ;
 MSG_DATAOPSGUI_VALUE1
 Value 1
@@ -2644,7 +2644,7 @@ Ausgabeverzeichnis
 ;
 MSG_DATAOPSGUI_FILETOCONVERT
 File to Convert
-
+Zu konvertierende Datei
 ;
 MSG_DATAOPSGUI_UNABLETOOPENFILEFORINPUT
 Unable to open file for input!\n
@@ -3059,7 +3059,7 @@ MSG_EDDB_LABEL
 ;
 MSG_EDDB_DEMMAXFRACTAL
 DEM Max Fractal\x20
-
+DEM max Fraktal\x20
 ;
 MSG_EDDB_LINESTYLE
 Line Style
@@ -3208,7 +3208,7 @@ Scaled Images
 ;
 MSG_EDECOGUI_PROCEDURAL
 Procedural
-
+Prozedural
 ;
 MSG_EDECOGUI_NONE
 None
@@ -3348,11 +3348,11 @@ MSG_EDECOGUI_NEXT
 ;
 MSG_EDECOGUI_MAKEKEY
 \33cMake Key
-
+\33cKey erzeugen
 ;
 MSG_EDECOGUI_UPDATE
 \33cUpdate
-
+\33cAktualisieren
 ;
 MSG_EDECOGUI_ALL0
 \33cAll (0)
@@ -3372,7 +3372,7 @@ MSG_EDECOGUI_TIMELINES
 ;
 MSG_EDECOGUI_SCALEKEYS
 \33cScale Keys\x20
-
+\33cKeys skalieren\x20
 ;
 MSG_EDECOGUI_COPY
 \33cCopy
@@ -3404,7 +3404,7 @@ Ziffernblock Eingabe
 ;
 MSG_EDECOGUI_ELEVLINE
  Elev Line\x20
-
+ Höhenlinie\x20
 ;
 MSG_EDECOGUI_ELEVSKEW
  Elev Skew\x20
@@ -3497,7 +3497,7 @@ MSG_EDMOGUI_CELESTIAL
 ;
 MSG_EDMOGUI_REFLECTION
 \33cReflection
-
+\33cSpiegelung
 ;
 MSG_EDMOGUI_PARAMETERLIST
 \33c\0334Parameter List
@@ -3629,7 +3629,7 @@ MSG_EDMOGUI_DRAW
 ;
 MSG_EDMOGUI_BOUNDS
 \0334Bounds
-
+\0334Grenzen
 ;
 MSG_EDMOGUI_RADIAL
 Radial
