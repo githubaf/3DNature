@@ -3616,13 +3616,13 @@ cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEU
 
 12.Juni 2024
 ------------
-* Anzeigen der deutschen Tete zur Rechtschreibpruefung (In Word oeffnen als ISO western)
+* Anzeigen der deutschen Texte zur Rechtschreibpruefung (In Word oeffnen als ISO western)
 
 cat WCS.cs  | awk '/MSG_.*/{MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0; if(DEUTSCH!="") {print $0;}}' >aaa.txt
 
 20.Juni 2024
 ------------
-Zur Rechtschreibprüfung mit Word \-Sequenzen entfernen
+Zur Rechtschreibpruefung mit Word \-Sequenzen entfernen
 
 cat WCS.cs  | awk '/MSG_.*/{MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0; if(DEUTSCH!="") {gsub(/\\n/," ",$0); gsub(/\\338/," ",$0); gsub(/\\332/," ",$0); gsub(/\\0332/," ",$0); gsub(/\\33c/," ",$0); gsub(/\\33l/," ",$0); print $0;  }}'  >aaa.txt
 
