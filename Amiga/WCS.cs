@@ -1455,7 +1455,7 @@ Lesen
 ;
 MSG_DEM_CANTREADDEMPROFILEHEADERPERATIONTERMINATED
 Can't read DEM profile header!\nOperation terminated.
-
+Der DEM-Profileheader konnte nicht gelesen werden!\nVorgang abgebrochen.
 ;
 MSG_DEM_ERRORREADINGDEMPROFILEHEADERPERATIONTERMINATED
 Error reading DEM profile header!\nOperation terminated.
@@ -1789,7 +1789,7 @@ Map View: DEM Gridder
 ;
 MSG_DEMGUI_NEWDEM
 NewDEM
-
+Neues DEM
 ;
 MSG_DEMGUI_IMPORT
 \33cImport
@@ -1808,8 +1808,8 @@ MSG_DEMGUI_DRAWPTS
 \33cPunkte zeichnen
 ;
 MSG_DEMGUI_CLEARPTS
+\33cClear Pts
 \33cPunkte löschen
-
 ;
 MSG_DEMGUI_NONNEG
 Non-Neg\x20\x20\x20\x20
@@ -1860,7 +1860,7 @@ Select contour objects to import and reselect "Import" when done.
 
 MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED
 Can't open Database Editor window!\nOperation terminated.
-
+Das Datenbank-Editorfenster konnte nicht geöffnet werden!\nVorgang abgebrochen.
 ;
 MSG_DEMGUI_EXTRACTELEVATIONVALUESFROMOBJECTNAMESLABELFIELDSORUS
 Extract elevation values from Object Names, Label fields or use the values embedded in the Objects themselves?
@@ -2518,9 +2518,10 @@ MSG_DATAOPSGUI_REPLACE
  Replace
  Ersetzen
 ;
+; DEM COnverter: Replace value1 "by" value2 
 MSG_DATAOPSGUI_BY
 by
-
+durch
 ;
 MSG_DATAOPSGUI_CROPLEFT
 Crop Left
@@ -2576,11 +2577,11 @@ Name
 ;
 MSG_DATAOPSGUI_DEMSROWWISEEW
 DEMs Row-Wise E/W
-DEMs zeilenweise O/W
+DEMs zeilenweise  O/W
 ;
 MSG_DATAOPSGUI_COLUMNWISENS
   Column-Wise N/S
-  spaltenweise N/S
+     spaltenweise N/S
 ;
 MSG_DATAOPSGUI_HIGHLAT
 High Lat
