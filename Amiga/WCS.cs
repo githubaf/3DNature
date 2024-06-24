@@ -712,7 +712,7 @@ Behalten|Abbrechen
 ;
 MSG_AGUI_SORRYOUMUSTFIRSTLOAD338NBEFOREUSINGTHISFEATURE
 Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature.
-Entschuldigung!\nEs muss zuerst\n\338%s\0332\ngeladen werden, bevor diese Feature genutzt werden kann.
+Entschuldigung!\nEs muss zuerst\n\338%s\0332\ngeladen werden, bevor dieses Feature genutzt werden kann.
 ;
 MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT
 File already exists.\nDo you wish to overwrite it?
@@ -4325,7 +4325,7 @@ MSG_EDSETGUI_PERTURBANCE
 ;
 MSG_EDSETGUI_NOWAVES
 No Waves
-Keine wellen
+Keine Wellen
 ;
 MSG_EDSETGUI_WAVES
 \338Waves
@@ -4409,7 +4409,7 @@ Breite\x20
 ;
 MSG_EDSETGUI_HEIGHT
 Height\x20
-Höhe\x20
+    Höhe\x20
 ;
 MSG_EDSETGUI_ASPCT
 Aspct\x20
@@ -4417,7 +4417,7 @@ Aspekt\x20
 ;
 MSG_EDSETGUI_VOSCN
 V Oscn\x20
-V Oscn\x20
+  V Oscn\x20
 ;
 MSG_EDSETGUI_CHANGEIMAGESIZE
 \33cChange Image Size
@@ -4425,15 +4425,15 @@ MSG_EDSETGUI_CHANGEIMAGESIZE
 ;
 MSG_EDSETGUI_START
  Start\x20
- Anfang\x20
+       Anfang\x20
 ;
 MSG_EDSETGUI_END
     End\x20
-    Ende\x20
+   Ende\x20
 ;
 MSG_EDSETGUI_STEP
   Step\x20
-  Schrittweite\x20
+ Schrittweite\x20
 ;
 MSG_EDSETGUI_FRAMES
  Frames\x20
@@ -4441,11 +4441,11 @@ MSG_EDSETGUI_FRAMES
 ;
 MSG_EDSETGUI_SEGMNT
 Segmnt\x20
-Segmente\x20
+     Segmente\x20
 ;
 MSG_EDSETGUI_1STSEG
 1st Seg\x20
-1. Seg\x20
+ 1. Seg\x20
 ;
 MSG_EDSETGUI_SAVEPATH
 Save Path\x20
@@ -4561,7 +4561,7 @@ Snow m/
 ;
 MSG_EDSETGUI_REFLATITUDE
 Ref Latitude\x20
-
+Ref Breite\x20
 ;
 MSG_EDSETGUI_TREEHTFACT
 Tree Ht Fact\x20
@@ -4605,7 +4605,7 @@ MSG_EDSETGUI_REFLATITUDE_2
 ;
 MSG_EDSETGUI_REFLONGITUDE
 Ref Longitude\x20
-
+ Ref Länge\x20
 ;
 MSG_EDSETGUI_BGPATH
    BG Path\x20
