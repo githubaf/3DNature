@@ -2509,11 +2509,11 @@ MSG_DATAOPSGUI_DATAUNITS
 ;
 MSG_DATAOPSGUI_FLOOR
   Floor
-  Untergrenze
+Untergrenze
 ;
 MSG_DATAOPSGUI_CEILING
 Ceiling
-Obergrenze
+ Obergrenze
 ;
 MSG_DATAOPSGUI_REPLACE
  Replace
@@ -2542,11 +2542,11 @@ MSG_DATAOPSGUI_BOTTOM
 ;
 MSG_DATAOPSGUI_INPUTCOLS
 Input Cols
-Eingabespalten
+    Eingabespalten
 ;
 MSG_DATAOPSGUI_INPUTROWS
 Input Rows
- Eingabezeilen
+     Eingabezeilen
 ;
 MSG_DATAOPSGUI_WRAPLONGITUDE
 Wrap Longitude
@@ -2602,7 +2602,7 @@ Untere Länge\x20
 ;
 MSG_DATAOPSGUI_OUTPUTCOLS
  Output Cols
- Ausgabe Spalten
+Ausgabe Spalten
 ;
 MSG_DATAOPSGUI_OUTPUTROWS
  Output Rows
@@ -2618,7 +2618,7 @@ MSG_DATAOPSGUI_INPUT
 ;
 MSG_DATAOPSGUI_OUTPUT
 \0334  Output\x20
-\0334  Ausgabe\x20
+\0334 Ausgabe\x20
 ;
 MSG_DATAOPSGUI_VALUE1
 Value 1
