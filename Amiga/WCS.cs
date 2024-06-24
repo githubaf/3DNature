@@ -2314,6 +2314,7 @@ MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED
 Input file not recognized as a DTED file!\nOperation terminated.
 Eingabedatei nicht als DTED-Datei erkannt!\nVorgang abgebrochen.
 ;
+; --- Adjust alignement with spaces before and after you translation as needed ---
 MSG_DATAOPSGUI_DTED
 DTED
 DTED
@@ -2484,19 +2485,19 @@ Headerbytes
 ;
 MSG_DATAOPSGUI_VALUEFORMAT
 Value Format
-Werteformat
+       Werteformat
 ;
 MSG_DATAOPSGUI_VALUEBYTES
  Value Bytes
- Bytes pro Wert
+    Bytes pro Wert
 ;
 MSG_DATAOPSGUI_BYTEORDER
   Byte Order
- Bytereihenfolge
+   Bytereihenfolge
 ;
 MSG_DATAOPSGUI_READORDER
   Read Order
-  Lesereihenfolge
+   Lesereihenfolge
 ;
 MSG_DATAOPSGUI_ROWSEQUAL
   Rows Equal
@@ -2504,7 +2505,7 @@ Zeilen entsprechen
 ;
 MSG_DATAOPSGUI_DATAUNITS
   Data Units
-  Einheiten
+         Einheiten
 ;
 MSG_DATAOPSGUI_FLOOR
   Floor
@@ -2545,7 +2546,7 @@ Eingabespalten
 ;
 MSG_DATAOPSGUI_INPUTROWS
 Input Rows
-Eingabezeilen
+ Eingabezeilen
 ;
 MSG_DATAOPSGUI_WRAPLONGITUDE
 Wrap Longitude
@@ -2585,19 +2586,19 @@ MSG_DATAOPSGUI_COLUMNWISENS
 ;
 MSG_DATAOPSGUI_HIGHLAT
 High Lat
-Obere Breite
+ Obere Breite
 ;
 MSG_DATAOPSGUI_LOWLAT
  Low Lat
- Untere Breite
+Untere Breite
 ;
 MSG_DATAOPSGUI_HIGHLON
 High Lon
-Obere Länge
+ Obere Länge\x20
 ;
 MSG_DATAOPSGUI_LOWLON
  Low Lon
- untere Länge
+Untere Länge\x20
 ;
 MSG_DATAOPSGUI_OUTPUTCOLS
  Output Cols
