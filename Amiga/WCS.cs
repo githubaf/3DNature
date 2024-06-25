@@ -829,7 +829,8 @@ WCS: Bildschirmmodus
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
-Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt ausführen?
+Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt \
+ausführen?
 ;
 MSG_AGUI_DATABASEMODULE
 Database Module
@@ -7171,6 +7172,7 @@ Please enter the latitude and longitude values for the southeast corner of the c
 Bitte Geben Sie die Längen- und Breitengrade der Süd-Ost Ecke des aktuellen DEM's in das Textfeld oben im DEM Extrahieren Fenster ein.
 ;
 ; --- Check Menu:Project/Edit for correct alignement done by trailing spaces ---
+;    all strings on one page must have the same length for correct alignement
 MSG_MOREGUI_FIRSTPAGE
 First Page
 Erste Seite
@@ -7209,11 +7211,11 @@ Parameter Name\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_FRAMESAVEPATH_SPACES
 Frame Save Path\x20\x20\x20\x20\x20
-Bilder-Speicherpfad\x20\x20\x20\x20\x20
+Bilder-Speicherpfad\x20
 ;
 MSG_MOREGUI_FRAMESAVENAME_SPACES
 Frame Save Name\x20\x20\x20\x20\x20
-Bilder-Speichername\x20\x20\x20\x20\x20
+Bilder-Speichername\x20
 ;
 MSG_MOREGUI_TEMPFRAMEPATH_SPACES
 Temp Frame Path\x20\x20\x20\x20\x20
@@ -7221,11 +7223,11 @@ Temp. Bilderpfad\x20\x20\x20\x20
 ;
 MSG_MOREGUI_VECTORSAVEPATH_SPACES
 Vector Save Path\x20\x20\x20\x20
-Vektor-Speicherpfad
+Vektor-Speicherpfad\x20
 ;
 MSG_MOREGUI_VECTORSAVENAME_SPACES
 Vector Save Name\x20\x20\x20\x20
-Vektor-Speichername
+Vektor-Speichername\x20
 ;
 MSG_MOREGUI_ZBUFFERPATH_SPACES
 Z Buffer Path\x20\x20\x20\x20\x20\x20\x20
@@ -7245,8 +7247,9 @@ Hintergrund Name\x20\x20\x20\x20
 ;
 MSG_MOREGUI_DEFAULTDIRECTORY_SPACES
 Default Directory\x20\x20\x20
-Standardverzeichnis\x20
+Standardordner\x20\x20\x20\x20\x20\x20
 ;
+; --- second page ---
 MSG_MOREGUI_GRAPHICSAVEPATH_SPACES
 Graphic Save Path\x20\x20\x20
 Grafik-Speicherpfad\x20
@@ -7289,7 +7292,7 @@ Ecosystem Model Path
 ;
 MSG_MOREGUI_IMAGEPATH_SPACES
 Image Path\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
-
+Bilderpfad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_SUNIMAGEFILE_SPACES
 Sun Image File\x20\x20\x20\x20\x20\x20
@@ -7301,11 +7304,11 @@ Mond-Bilddatei\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_PCPROJECTDIRECTORY_SPACES
 PC Project Directory
-PC Projektverzeichnis
+PC-Projektordner\x20\x20\x20\x20
 ;
 MSG_MOREGUI_PCFRAMESDIRECTORY_SPACES
 PC Frames Directory\x20
-PC Bilderordner\x20\x20\x20\x20\x20
+PC-Bilderordner\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_DIRECTORYLIST
 \33cDirectory List
