@@ -3626,4 +3626,11 @@ Zur Rechtschreibpruefung mit Word \-Sequenzen entfernen
 
 cat WCS.cs  | awk '/MSG_.*/{MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0; if(DEUTSCH!="") {gsub(/\\n/," ",$0); gsub(/\\338/," ",$0); gsub(/\\332/," ",$0); gsub(/\\0332/," ",$0); gsub(/\\33c/," ",$0); gsub(/\\33l/," ",$0); print $0;  }}'  >aaa.txt
 
+28.Juni 2024
+------------
+Amiwell hat mit den italienischen Uebersetzungen begonnen.
+Anzeige der fehlenden italiensichen Uebersetzungen:
+
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; if(ITALIAN==""){print ENGLISH;}else{ITALIANCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Italian:  %4d\n",ITALIANCOUNT);}'
+
 

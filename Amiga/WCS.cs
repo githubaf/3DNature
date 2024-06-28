@@ -23,7 +23,7 @@ Nuovo...
 MSG_MENU_PR_EDIT
 Edit...
 Bearbeiten...
-
+Modifica...
 ;
 MSG_MENU_PR_OPEN
 Open...
@@ -43,22 +43,22 @@ Salva come...
 MSG_MENU_PR_LOADCONFIG
 Load Config
 Konfiguration laden
-
+Carica Configurazione
 ;
 MSG_MENU_PR_SAVECONFIG
 Save Config
 Konfiguration speichern
-
+Salva Configurazione
 ;
 MSG_MENU_PR_SAVESCREEN
 Save Screen...
 Bildschirm speichern...
-
+Salva Schermo...
 ;
 MSG_MENU_PR_INFO
 Info...
 Information...
-
+Informazioni...
 ;
 MSG_MENU_PR_VERSION
 Version...
@@ -68,12 +68,12 @@ Versione...
 MSG_MENU_PR_CREDITS
 Credits...
 Über...
-
+Ringraziamenti...
 ;
 MSG_MENU_PR_LOG
 Log...
 Log...
-
+Log...
 ;
 MSG_MENU_PR_QUIT
 Quit...
@@ -83,238 +83,238 @@ Fine...
 MSG_MENU_PR_ICONIFY
 Iconify...
 Iconifizieren...
-
+Iconifica...
 ;
 MSG_MENU_MODULES
 Modules
 Module
-
+Moduli
 ;
 MSG_MENU_MOD_DATABASE
 DataBase
 Datenbank
-
+Database
 ;
 MSG_MENU_MOD_DATAOPS
 Data Ops
-
-
+Data Ops
+Dati Ops
 ;
 MSG_MAPGUI_MAPVIEW
 Map View
 Kartenansicht
-
+Vista Mappa
 ;
 MSG_MENU_MOD_PARAMETERS
 Parameters
 Parameter
-
+Parametri
 ;
 MSG_MENU_MOD_RENDER
 Render
-
-
+Render
+Rendering
 ;
 MSG_EDMOGUI_MOTIONEDITOR
 Motion Editor
-
-
+Bewegungseditor
+Modifica Movimento
 ;
 MSG_EDITGUI_COLOREDITOR
 Color Editor
 Farbeinstellungen
-
+Modifica Colori
 ;
 MSG_MENU_MOD_ECOSYSEDITOR
 Ecosys Editor
 Ökosystem Editor
-
+Modifica Ecosistema
 ;
 MSG_MENU_PREFS
 Preferences
 Einstellungen
-
+Preferenze
 ;
 MSG_MENU_PREF_PREFERENCES
 Preferences...
 Voreinstellungen...
-
+Preferenze...
 ;
 MSG_MENU_PREF_SCREENMODE
 Screen Mode...
 Bildschirmmodus...
-
+Modo Schermo...
 ;
 MSG_MENU_PARAMETERS
 Parameters
 Parameter
-
+Parametri
 ;
 MSG_MENU_PAR_LOADALL
 Load All...
 Alles laden...
-
+Carica Tutto...
 ;
 MSG_MENU_PAR_SAVEALL
 Save All...
 Alles speichern...
-
+Salva Tutto...
 ;
 MSG_MENU_PAR_FREEZE
 Freeze
 Einfrieren
-
+Congelamento
 ;
 MSG_MENU_PAR_RESTORE
 Restore
 Wiederherstellen
-
+Ripristina
 ;
 ; --- Ecosystem Editor -> Class --- 
 MSG_TYPENAME_WATER
 Water
 Wasser
-
+Acqua
 ;
 MSG_TYPENAME_SNOW
 Snow
 Schnee
-
+Neve
 ;
 MSG_TYPENAME_ROCK
 Rock
 Stein
-
+Roccia
 ;
 MSG_TYPENAME_GROUND
 Ground
 Nackter Boden
-
+Terreno
 ;
 MSG_TYPENAME_CONIFER
 Conifer
 Nadelbaum
-
+Piante
 ;
 MSG_TYPENAME_DECID
 Decid
 Laubbaum
-
+Decide
 ;
 MSG_TYPENAME_LOWVEG
 Low Veg
 Niedrige Vegetation
-
+Bassa Vegetazione
 ;
 MSG_TYPENAME_SNAG
 Snag
 Abgestorbener Baum
-
+Albero Morto
 ;
 MSG_TYPENAME_STUMP
 Stump
 Baumstumpf
-
+Ceppo Albero
 ;
 MSG_VARNAME_CAMERAALTITUDE
 Camera Altitude
 Kamera Höhe
-
+Camera D'altitudine
 ;
 MSG_VARNAME_CAMERALATITUDE
 Camera Latitude
 Kamera Breitengrad
-
+Camera Latitudine
 ;
 MSG_VARNAME_CAMERALONGITUDE
 Camera Longitude
 Kamera Längengrad
-
+Camera Longitudine
 ;
 MSG_VARNAME_FOCUSALTITUDE
 Focus Altitude
 Fokus Höhe
-
+Focus Altitudine
 ;
 MSG_VARNAME_FOCUSLATITUDE
 Focus Latitude
 Fokus Breitengrad
-
+Focus Latitudine
 ;
 MSG_VARNAME_FOCUSLONGITUDE
 Focus Longitude
 Fokus Längengrad
-
+Focus Longitudine
 ;
 MSG_VARNAME_CENTERX
 Center X
 Zentrum X
-
+Centra X
 ;
 MSG_VARNAME_CENTERY
 Center Y
 Zentrum Y
-
+Centra Y
 ;
 MSG_VARNAME_BANK
 Bank
 Neigung
-
+Inclinazione
 ;
 MSG_VARNAME_EARTHROTATION
 Earth Rotation
 Erdrotation
-
+Rotazione Terra
 ;
 MSG_VARNAME_SCALE
 Scale
 Skalierung
-
+Scala
 ;
 MSG_VARNAME_VIEWARC
 View Arc
 Sichtwinkel
-
+Angolo di Visione
 ;
 MSG_VARNAME_FLATTENING
 Flattening
 
-
+Appiattimento
 ;
 MSG_VARNAME_DATUM
 Datum
 Datum
-
+Datum 
 ;
 MSG_VARNAME_VERTICALEXAG
 Vertical Exag
 Vertik. Überhöhung
-
+Exag Verticale
 ;
 MSG_VARNAME_SUNLIGHTLAT
 Sun Light Lat
 
-
+Luce Sole Lat
 ;
 MSG_VARNAME_SUNLIGHTLON
 Sun Light Lon
 
-
+Luce Sole Lon
 ;
 MSG_VARNAME_HORIZONLINE
 Horizon Line
-
-
+Horizontlinie
+Linea Orizzonte
 ;
 MSG_VARNAME_HORIZONPOINT
 Horizon Point
 
-
+Punto Orizzonte
 ;
 MSG_VARNAME_HORIZONSTRETCH
 Horizon Stretch
 
-
+Estendere Orizzonte
 ;
 MSG_VARNAME_HAZESTART
 Haze Start
@@ -324,192 +324,192 @@ Dunst Beginn
 MSG_VARNAME_HAZERANGE
 Haze Range
 Dunst Bereich
-
+Area Foschia
 ;
 MSG_VARNAME_SHADEFACTOR
 Shade Factor
 Schattenfaktor
-
+Fattore Ombra
 ;
 MSG_VARNAME_FOGNONE
 Fog None
 Kein Nebel
-
+Niente Nebbia
 ;
 MSG_VARNAME_FOGFULL
 Fog Full
 Voller Nebel
-
+Pieno di nebbia
 ;
 MSG_VARNAME_ZMINIMUM
 Z Minimum
 Z Minimum
-
+Minimo Z
 ;
 MSG_VARNAME_SUNLAT
 Sun Lat
 Sonnenbreitengrad
-
+Latitudine Sole
 ;
 MSG_VARNAME_SUNLON
 Sun Lon
 Sonnenlängengrad
-
+Longitudine Sole
 ;
 MSG_VARNAME_SUNSIZE
 Sun Size
 Sonnengröße
-
+Grandezza Sole
 ;
 MSG_VARNAME_MOONLAT
 Moon Lat
 Mondbreitengrad
-
+Latitudine Luna
 ;
 MSG_VARNAME_MOONLON
 Moon Lon
 Mondlängengrad
-
+Longitudine Luna
 ;
 MSG_VARNAME_MOONSIZE
 Moon Size
 Mondgröße
-
+Grandezza Luna
 ;
 MSG_VARNAME_REFLECTION
 Reflection %
 Reflektion %
-
+Riflessione %
 ;
 MSG_STDMESG_OUTOFMEMORY
  Out of memory!
  Nicht genügend Speicher!
-
+ Non c'è abbastanza memoria!
 ;
 MSG_STDMESG_OPENFILEFAILED
  Open file failed!
  Öffnen der Datei fehlgeschlagen!
-
+ Apertura File Fallita!
 ;
 MSG_STDMESG_READFILEFAILED
  Read file failed!
  Lesen der Datei fehlgeschlagen!
-
+ Lettura File Fallita!
 ;
 MSG_STDMESG_WRITINGTOFILEFAILED
  Writing to file failed!
  Schreiben der Datei fehlgeschlagen!
-
+ Scrittura File Fallita!
 ;
 MSG_STDMESG_WRONGFILETYPE
  Wrong file type!
  Falscher Dateityp!
-
+ Tipo di File Errato!
 ;
 MSG_STDMESG_ILLEGALINSTRUCTION
  Illegal instruction!
  Unerlaubte Anweisung!
-
+ Istruzione Sbagliata!
 ;
 MSG_STDMESG_ILLEGALVALUE
  Illegal value!
  Unerlaubter Wert!
-
+ Valore Sbaliato!
 ;
 MSG_STDMESG_FILENOTLOADED
  File not loaded!
  Datei nicht geladen!
-
+ File non Caricato!
 ;
 MSG_STDMESG_MODULENOTIMPLEMENTED
  Module not implemented.
  Modul nicht implementiert.
-
+ Modulo non Implementato.
 ;
 MSG_STDMESG_GUINOTIMPLEMENTED
  GUI not implemented.
  GUI nicht implementiert.
-
+ GUI non Implementata
 ;
 MSG_STDMESG_PARAMETERFILELOADED
  Parameter file loaded.
  Parameterdatei geladen.
-
+ Parametri File Caricati.
 ;
 MSG_STDMESG_PARAMETERFILESAVED
  Parameter file saved.
  Parameterdatei gespeichert.
-
+ Parametri File Salvati.
 ;
 MSG_STDMESG_DATABASEFILELOADED
  Database file loaded.
  Datenbankdatei geladen.
-
+ File del Database Caricati.
 ;
 MSG_STDMESG_DATABASEFILESAVED
  Database file saved.
  Datenbankdatei gespeichert.
-
+ File del Database Salvati.
 ;
 MSG_STDMESG_DEMFILELOADED
  DEM file loaded.
  DEM-Datei geladen.
-
+ DEM File Caricati.
 ;
 MSG_STDMESG_DEMFILESAVED
  DEM file saved.
  DEM-Datei gespeichert.
-
+ DEM File Salvati.
 ;
 MSG_STDMESG_VECTORFILELOADED
  Vector file loaded.
  Vektordatei geladen.
-
+ File Vettoriali Caricati.
 ;
 MSG_STDMESG_VECTORFILESAVED
  Vector file saved.
  Vektordatei gespeichert.
-
+ File Vettoriali Salvati.
 ;
 MSG_STDMESG_IMAGEFILELOADED
  Image file loaded.
  Bild geladen.
-
+ File Immagine Caricati.
 ;
 MSG_STDMESG_IMAGEFILESAVED
  Image file saved.
  Bild gespeichert.
-
+ File Immagine Salvati.
 ;
 MSG_STDMESG_COLORMAPFILELOADED
  Color Map file loaded.
  Color Map Datei geladen.
-
+ Mappa a Colori File Caricato.
 ;
 MSG_STDMESG_COLORMAPFILESAVED
  Color Map file saved.
  Color Map Datei gespeichert.
-
+ Mappa a Colori File Salvato.
 ;
 MSG_STDMESG_ENABLE_SOFT_OUTLINE_STYLE
 \33t
 \33t
-
+\33t
 ;
 MSG_STDMESG_MAPPINGMODULE
  Mapping Module.
 Mapping Modul.
-
+ Modulo Mappatura.
 ;
 MSG_STDMESG_DIRECTORYNOTFOUND
  Directory not found!
  Ordner nicht gefunden!
-
+ Directory non Trovata!
 ;
 MSG_STDMESG_OPENWINDOWFAILED
  Open window failed!
  Öffnen des Fensters fehlgeschlagen!
-
+ Apertura Finestra Fallita!
 ;
 MSG_STDMESG_EMPTY
 
@@ -519,47 +519,47 @@ MSG_STDMESG_EMPTY
 MSG_STDMESG_INCORRECTFILESIZE
  Incorrect file size!
  Falsche Dateigröße!
-
+ Grandezza File Incorretta!
 ;
 MSG_STDMESG_INCORRECTFILEVERSION
  Incorrect file version!
  Falsche Dateiversion!
-
+ Versione File Incorretta!
 ;
 MSG_STDMESG_RELATIVEELEVATIONFILESAVED
  Relative Elevation File Saved.
  Relative Elevation Datei geladen.
-
+ Elevazione Relativa File Salvato.
 ;
 MSG_STDMESG_VECTOROBJECTSLOADED
  Vector objects loaded.
  Vektordatei geladen.
-
+ Oggetto Vettoriale Caricato.
 ;
 MSG_STDMESG_PROJECTFILELOADED
  Project file loaded.
  Projektdatei geladen.
-
+ File Progetto Caricato.
 ;
 MSG_STDMESG_PROJECTFILESAVED
  Project file saved.
  Projektdatei gespeichert.
-
+ File Progetto Salvato.
 ;
 MSG_STDMESG_DIRECTORYLISTLOADED
  Directory List loaded
  Ordnerliste geladen
-
+ Lista Directory Caricata.
 ;
 MSG_STDMESG_RENDERTIMEFORFRAME
  Render time for frame
  Berechnungszeit für Bild
-
+ Tempo di Calcolo Dell'immagine
 ;
 MSG_STDMESG_RENDERTIMEFORANIM
  Render time for anim,
  Berechnungszeit für die Animation,
-
+ Tempo di Calcolo Dell'animazione,
 ;
 ;
 ; ---- ScreenModeGui.c ----
