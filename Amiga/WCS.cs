@@ -6139,7 +6139,7 @@ Sie müssen einen neuen Projektnamen vergeben.
 ;
 MSG_EVMORGUI_ERRORLOADINGPROJECTFILETOCLONE
 Error loading Project file to clone.
-
+Fehler beim Laden der zu klonenden Projektdatei.
 
 ;
 MSG_EVMORGUI_ERRORLOADINGWAVEFILETOCLONE
@@ -7604,12 +7604,12 @@ Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to fir
 ;
 MSG_MAPEXTRA_SELECTNEWORIGINQDONEUUUPDDDOWNESCABORT
 \0338Select new origin. Q=done, Uu=up, Dd=down, ESC=abort
-
+\0338Neuen Ursprung festlegen. Q=fertig, Uu=hoch, Dd=runter, ESC=abbrechen
 
 ;
 MSG_MAPEXTRA_SELECTNEWORIGIN
 Select new origin
-
+Neuen Ursprung festlegen
 
 ;
 MSG_MAPEXTRA_RESETVECTORORIGIN
@@ -8832,27 +8832,27 @@ MSG_MOREGUI_COORDINATEPAIRS
 ;
 MSG_MOREGUI_SWE
 SW E
-
+SW O
 
 ;
 MSG_MOREGUI_N
  N
-
+ N
 
 ;
 MSG_MOREGUI_NWE
 NW E
-
+NW O
 
 ;
 MSG_MOREGUI_NEE
 NE E
-
+NO O
 
 ;
 MSG_MOREGUI_SEE
 SE E
-
+SO O
 
 ;
 MSG_MOREGUI_ELEVMIN
@@ -8872,12 +8872,12 @@ Axis Rotation
 ;
 MSG_MOREGUI_ACCURACY
  Accuracy
-
+ Genauigkeit
 
 ;
 MSG_MOREGUI_RESOLUTIONX
 Resolution X
-
+Auflösung X
 
 ;
 MSG_MOREGUI_ROWS
@@ -8917,7 +8917,7 @@ MSG_MOREGUI_PROFCOLS
 ;
 MSG_MOREGUI_COORDSE
 Coords E
-
+Koord O
 
 ;
 MSG_MOREGUI_ELEVATIONDATUM
