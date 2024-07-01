@@ -1,10 +1,9 @@
 ## Version $VER: WCS.catalog 1.1 (09.02.2024)
-## Languages english deutsch italiano français Unknown
+## Languages english deutsch italiano français
 ## Codeset english 0
 ## Codeset deutsch 0
 ## Codeset italiano 0
 ## Codeset français 0
-## Codeset Unknown 0
 ## SimpleCatConfig CharsPerLine 200
 ## Header WCS_STRINGS_H
 ## TARGET CATALOG deutsch "VBox:SelcoGit/3DNature/Amiga/Catalogs/deutsch"
@@ -18,34 +17,29 @@ Project
 Projekt
 Progetto
 Projet
-
 ;
 MSG_MENU_PR_NEW
 New...
 Neu...
 Nuovo...
 Nouveau...
-
 ;
 MSG_MENU_PR_EDIT
 Edit...
 Bearbeiten...
 Modifica...
 Éditer...
-
 ;
 MSG_MENU_PR_OPEN
 Open...
 Öffnen...
 Carica...
 Ouvrir...
-
 ;
 MSG_MENU_PR_SAVE
 Save
 Speichern
 Salva
-
 
 ;
 MSG_MENU_PR_SAVEAS
@@ -53,13 +47,11 @@ Save As...
 Speichern unter...
 Salva come...
 
-
 ;
 MSG_MENU_PR_LOADCONFIG
 Load Config
 Konfiguration laden
 Carica Configurazione
-
 
 ;
 MSG_MENU_PR_SAVECONFIG
@@ -67,13 +59,11 @@ Save Config
 Konfiguration speichern
 Salva Configurazione
 
-
 ;
 MSG_MENU_PR_SAVESCREEN
 Save Screen...
 Bildschirm speichern...
 Salva Schermo...
-
 
 ;
 MSG_MENU_PR_INFO
@@ -81,13 +71,11 @@ Info...
 Information...
 Informazioni...
 
-
 ;
 MSG_MENU_PR_VERSION
 Version...
 Version...
 Versione...
-
 
 ;
 MSG_MENU_PR_CREDITS
@@ -95,13 +83,11 @@ Credits...
 Über...
 Ringraziamenti...
 
-
 ;
 MSG_MENU_PR_LOG
 Log...
 Log...
 Log...
-
 
 ;
 MSG_MENU_PR_QUIT
@@ -109,13 +95,11 @@ Quit...
 Beenden...
 Fine...
 
-
 ;
 MSG_MENU_PR_ICONIFY
 Iconify...
 Iconifizieren...
 Iconifica...
-
 
 ;
 MSG_MENU_MODULES
@@ -123,13 +107,11 @@ Modules
 Module
 Moduli
 
-
 ;
 MSG_MENU_MOD_DATABASE
 DataBase
 Datenbank
 Database
-
 
 ;
 MSG_MENU_MOD_DATAOPS
@@ -137,13 +119,11 @@ Data Ops
 Data Ops
 Dati Ops
 
-
 ;
 MSG_MAPGUI_MAPVIEW
 Map View
 Kartenansicht
 Vista Mappa
-
 
 ;
 MSG_MENU_MOD_PARAMETERS
@@ -151,13 +131,11 @@ Parameters
 Parameter
 Parametri
 
-
 ;
 MSG_MENU_MOD_RENDER
 Render
 Render
 Rendering
-
 
 ;
 MSG_EDMOGUI_MOTIONEDITOR
@@ -165,13 +143,11 @@ Motion Editor
 Bewegungseditor
 Modifica Movimento
 
-
 ;
 MSG_EDITGUI_COLOREDITOR
 Color Editor
 Farbeinstellungen
 Modifica Colori
-
 
 ;
 MSG_MENU_MOD_ECOSYSEDITOR
@@ -179,13 +155,11 @@ Ecosys Editor
 Ökosystem Editor
 Modifica Ecosistema
 
-
 ;
 MSG_MENU_PREFS
 Preferences
 Einstellungen
 Preferenze
-
 
 ;
 MSG_MENU_PREF_PREFERENCES
@@ -193,13 +167,11 @@ Preferences...
 Voreinstellungen...
 Preferenze...
 
-
 ;
 MSG_MENU_PREF_SCREENMODE
 Screen Mode...
 Bildschirmmodus...
 Modo Schermo...
-
 
 ;
 MSG_MENU_PARAMETERS
@@ -207,13 +179,11 @@ Parameters
 Parameter
 Parametri
 
-
 ;
 MSG_MENU_PAR_LOADALL
 Load All...
 Alles laden...
 Carica Tutto...
-
 
 ;
 MSG_MENU_PAR_SAVEALL
@@ -221,20 +191,17 @@ Save All...
 Alles speichern...
 Salva Tutto...
 
-
 ;
 MSG_MENU_PAR_FREEZE
 Freeze
 Einfrieren
 Congelamento
 
-
 ;
 MSG_MENU_PAR_RESTORE
 Restore
 Wiederherstellen
 Ripristina
-
 
 ;
 ; --- Ecosystem Editor -> Class --- 
@@ -243,13 +210,11 @@ Water
 Wasser
 Acqua
 
-
 ;
 MSG_TYPENAME_SNOW
 Snow
 Schnee
 Neve
-
 
 ;
 MSG_TYPENAME_ROCK
@@ -257,13 +222,11 @@ Rock
 Stein
 Roccia
 
-
 ;
 MSG_TYPENAME_GROUND
 Ground
 Nackter Boden
 Terreno
-
 
 ;
 MSG_TYPENAME_CONIFER
@@ -271,13 +234,11 @@ Conifer
 Nadelbaum
 Piante
 
-
 ;
 MSG_TYPENAME_DECID
 Decid
 Laubbaum
 Decide
-
 
 ;
 MSG_TYPENAME_LOWVEG
@@ -285,13 +246,11 @@ Low Veg
 Niedrige Vegetation
 Bassa Vegetazione
 
-
 ;
 MSG_TYPENAME_SNAG
 Snag
 Abgestorbener Baum
 Albero Morto
-
 
 ;
 MSG_TYPENAME_STUMP
@@ -299,13 +258,11 @@ Stump
 Baumstumpf
 Ceppo Albero
 
-
 ;
 MSG_VARNAME_CAMERAALTITUDE
 Camera Altitude
 Kamera Höhe
 Camera D'altitudine
-
 
 ;
 MSG_VARNAME_CAMERALATITUDE
@@ -313,13 +270,11 @@ Camera Latitude
 Kamera Breitengrad
 Camera Latitudine
 
-
 ;
 MSG_VARNAME_CAMERALONGITUDE
 Camera Longitude
 Kamera Längengrad
 Camera Longitudine
-
 
 ;
 MSG_VARNAME_FOCUSALTITUDE
@@ -327,13 +282,11 @@ Focus Altitude
 Fokus Höhe
 Focus Altitudine
 
-
 ;
 MSG_VARNAME_FOCUSLATITUDE
 Focus Latitude
 Fokus Breitengrad
 Focus Latitudine
-
 
 ;
 MSG_VARNAME_FOCUSLONGITUDE
@@ -341,13 +294,11 @@ Focus Longitude
 Fokus Längengrad
 Focus Longitudine
 
-
 ;
 MSG_VARNAME_CENTERX
 Center X
 Zentrum X
 Centra X
-
 
 ;
 MSG_VARNAME_CENTERY
@@ -355,13 +306,11 @@ Center Y
 Zentrum Y
 Centra Y
 
-
 ;
 MSG_VARNAME_BANK
 Bank
 Neigung
 Inclinazione
-
 
 ;
 MSG_VARNAME_EARTHROTATION
@@ -369,13 +318,11 @@ Earth Rotation
 Erdrotation
 Rotazione Terra
 
-
 ;
 MSG_VARNAME_SCALE
 Scale
 Skalierung
 Scala
-
 
 ;
 MSG_VARNAME_VIEWARC
@@ -383,13 +330,11 @@ View Arc
 Sichtwinkel
 Angolo di Visione
 
-
 ;
 MSG_VARNAME_FLATTENING
 Flattening
 
 Appiattimento
-
 
 ;
 MSG_VARNAME_DATUM
@@ -397,13 +342,11 @@ Datum
 Datum
 Datum
 
-
 ;
 MSG_VARNAME_VERTICALEXAG
 Vertical Exag
 Vertik. Überhöhung
 Exag Verticale
-
 
 ;
 MSG_VARNAME_SUNLIGHTLAT
@@ -411,13 +354,11 @@ Sun Light Lat
 
 Luce Sole Lat
 
-
 ;
 MSG_VARNAME_SUNLIGHTLON
 Sun Light Lon
 
 Luce Sole Lon
-
 
 ;
 MSG_VARNAME_HORIZONLINE
@@ -425,13 +366,11 @@ Horizon Line
 Horizontlinie
 Linea Orizzonte
 
-
 ;
 MSG_VARNAME_HORIZONPOINT
 Horizon Point
 
 Punto Orizzonte
-
 
 ;
 MSG_VARNAME_HORIZONSTRETCH
@@ -439,13 +378,11 @@ Horizon Stretch
 
 Estendere Orizzonte
 
-
 ;
 MSG_VARNAME_HAZESTART
 Haze Start
 Dunst Beginn
-
-
+Inizio Foschia
 
 ;
 MSG_VARNAME_HAZERANGE
@@ -453,13 +390,11 @@ Haze Range
 Dunst Bereich
 Area Foschia
 
-
 ;
 MSG_VARNAME_SHADEFACTOR
 Shade Factor
 Schattenfaktor
 Fattore Ombra
-
 
 ;
 MSG_VARNAME_FOGNONE
@@ -467,13 +402,11 @@ Fog None
 Kein Nebel
 Niente Nebbia
 
-
 ;
 MSG_VARNAME_FOGFULL
 Fog Full
 Voller Nebel
 Pieno di nebbia
-
 
 ;
 MSG_VARNAME_ZMINIMUM
@@ -481,13 +414,11 @@ Z Minimum
 Z Minimum
 Minimo Z
 
-
 ;
 MSG_VARNAME_SUNLAT
 Sun Lat
 Sonnenbreitengrad
 Latitudine Sole
-
 
 ;
 MSG_VARNAME_SUNLON
@@ -495,13 +426,11 @@ Sun Lon
 Sonnenlängengrad
 Longitudine Sole
 
-
 ;
 MSG_VARNAME_SUNSIZE
 Sun Size
 Sonnengröße
 Grandezza Sole
-
 
 ;
 MSG_VARNAME_MOONLAT
@@ -509,13 +438,11 @@ Moon Lat
 Mondbreitengrad
 Latitudine Luna
 
-
 ;
 MSG_VARNAME_MOONLON
 Moon Lon
 Mondlängengrad
 Longitudine Luna
-
 
 ;
 MSG_VARNAME_MOONSIZE
@@ -523,13 +450,11 @@ Moon Size
 Mondgröße
 Grandezza Luna
 
-
 ;
 MSG_VARNAME_REFLECTION
 Reflection %
 Reflektion %
 Riflessione %
-
 
 ;
 MSG_STDMESG_OUTOFMEMORY
@@ -537,13 +462,11 @@ MSG_STDMESG_OUTOFMEMORY
  Nicht genügend Speicher!
  Non c'è abbastanza memoria!
 
-
 ;
 MSG_STDMESG_OPENFILEFAILED
  Open file failed!
  Öffnen der Datei fehlgeschlagen!
  Apertura File Fallita!
-
 
 ;
 MSG_STDMESG_READFILEFAILED
@@ -551,13 +474,11 @@ MSG_STDMESG_READFILEFAILED
  Lesen der Datei fehlgeschlagen!
  Lettura File Fallita!
 
-
 ;
 MSG_STDMESG_WRITINGTOFILEFAILED
  Writing to file failed!
  Schreiben der Datei fehlgeschlagen!
  Scrittura File Fallita!
-
 
 ;
 MSG_STDMESG_WRONGFILETYPE
@@ -565,13 +486,11 @@ MSG_STDMESG_WRONGFILETYPE
  Falscher Dateityp!
  Tipo di File Errato!
 
-
 ;
 MSG_STDMESG_ILLEGALINSTRUCTION
  Illegal instruction!
  Unerlaubte Anweisung!
  Istruzione Sbagliata!
-
 
 ;
 MSG_STDMESG_ILLEGALVALUE
@@ -579,13 +498,11 @@ MSG_STDMESG_ILLEGALVALUE
  Unerlaubter Wert!
  Valore Sbaliato!
 
-
 ;
 MSG_STDMESG_FILENOTLOADED
  File not loaded!
  Datei nicht geladen!
  File non Caricato!
-
 
 ;
 MSG_STDMESG_MODULENOTIMPLEMENTED
@@ -593,13 +510,11 @@ MSG_STDMESG_MODULENOTIMPLEMENTED
  Modul nicht implementiert.
  Modulo non Implementato.
 
-
 ;
 MSG_STDMESG_GUINOTIMPLEMENTED
  GUI not implemented.
  GUI nicht implementiert.
  GUI non Implementata.
-
 
 ;
 MSG_STDMESG_PARAMETERFILELOADED
@@ -607,13 +522,11 @@ MSG_STDMESG_PARAMETERFILELOADED
  Parameterdatei geladen.
  Parametri File Caricati.
 
-
 ;
 MSG_STDMESG_PARAMETERFILESAVED
  Parameter file saved.
  Parameterdatei gespeichert.
  Parametri File Salvati.
-
 
 ;
 MSG_STDMESG_DATABASEFILELOADED
@@ -621,13 +534,11 @@ MSG_STDMESG_DATABASEFILELOADED
  Datenbankdatei geladen.
  File del Database Caricati.
 
-
 ;
 MSG_STDMESG_DATABASEFILESAVED
  Database file saved.
  Datenbankdatei gespeichert.
  File del Database Salvati.
-
 
 ;
 MSG_STDMESG_DEMFILELOADED
@@ -635,13 +546,11 @@ MSG_STDMESG_DEMFILELOADED
  DEM-Datei geladen.
  DEM File Caricati.
 
-
 ;
 MSG_STDMESG_DEMFILESAVED
  DEM file saved.
  DEM-Datei gespeichert.
  DEM File Salvati.
-
 
 ;
 MSG_STDMESG_VECTORFILELOADED
@@ -649,13 +558,11 @@ MSG_STDMESG_VECTORFILELOADED
  Vektordatei geladen.
  File Vettoriali Caricati.
 
-
 ;
 MSG_STDMESG_VECTORFILESAVED
  Vector file saved.
  Vektordatei gespeichert.
  File Vettoriali Salvati.
-
 
 ;
 MSG_STDMESG_IMAGEFILELOADED
@@ -663,13 +570,11 @@ MSG_STDMESG_IMAGEFILELOADED
  Bild geladen.
  File Immagine Caricati.
 
-
 ;
 MSG_STDMESG_IMAGEFILESAVED
  Image file saved.
  Bild gespeichert.
  File Immagine Salvati.
-
 
 ;
 MSG_STDMESG_COLORMAPFILELOADED
@@ -677,13 +582,11 @@ MSG_STDMESG_COLORMAPFILELOADED
  Color Map Datei geladen.
  Mappa a Colori File Caricato.
 
-
 ;
 MSG_STDMESG_COLORMAPFILESAVED
  Color Map file saved.
  Color Map Datei gespeichert.
  Mappa a Colori File Salvato.
-
 
 ;
 MSG_STDMESG_ENABLE_SOFT_OUTLINE_STYLE
@@ -691,13 +594,11 @@ MSG_STDMESG_ENABLE_SOFT_OUTLINE_STYLE
 \33t
 \33t
 
-
 ;
 MSG_STDMESG_MAPPINGMODULE
  Mapping Module.
 Mapping Modul.
  Modulo Mappatura.
-
 
 ;
 MSG_STDMESG_DIRECTORYNOTFOUND
@@ -705,17 +606,14 @@ MSG_STDMESG_DIRECTORYNOTFOUND
  Ordner nicht gefunden!
  Directory non Trovata!
 
-
 ;
 MSG_STDMESG_OPENWINDOWFAILED
  Open window failed!
  Öffnen des Fensters fehlgeschlagen!
  Apertura Finestra Fallita!
 
-
 ;
 MSG_STDMESG_EMPTY
-
 
 
 
@@ -726,13 +624,11 @@ MSG_STDMESG_INCORRECTFILESIZE
  Falsche Dateigröße!
  Grandezza File Incorretta!
 
-
 ;
 MSG_STDMESG_INCORRECTFILEVERSION
  Incorrect file version!
  Falsche Dateiversion!
  Versione File Incorretta!
-
 
 ;
 MSG_STDMESG_RELATIVEELEVATIONFILESAVED
@@ -740,13 +636,11 @@ MSG_STDMESG_RELATIVEELEVATIONFILESAVED
  Relative Elevation Datei geladen.
  Elevazione Relativa File Salvato.
 
-
 ;
 MSG_STDMESG_VECTOROBJECTSLOADED
  Vector objects loaded.
  Vektordatei geladen.
  Oggetto Vettoriale Caricato.
-
 
 ;
 MSG_STDMESG_PROJECTFILELOADED
@@ -754,13 +648,11 @@ MSG_STDMESG_PROJECTFILELOADED
  Projektdatei geladen.
  File Progetto Caricato.
 
-
 ;
 MSG_STDMESG_PROJECTFILESAVED
  Project file saved.
  Projektdatei gespeichert.
  File Progetto Salvato.
-
 
 ;
 MSG_STDMESG_DIRECTORYLISTLOADED
@@ -768,20 +660,17 @@ MSG_STDMESG_DIRECTORYLISTLOADED
  Ordnerliste geladen
  Lista Directory Caricata
 
-
 ;
 MSG_STDMESG_RENDERTIMEFORFRAME
  Render time for frame
  Berechnungszeit für Bild
  Tempo di Calcolo Dell'immagine
 
-
 ;
 MSG_STDMESG_RENDERTIMEFORANIM
  Render time for anim,
  Berechnungszeit für die Animation,
  Tempo di Calcolo Dell'animazione,
-
 
 ;
 ;
@@ -791,136 +680,117 @@ MSG_STDMESG_RENDERTIMEFORANIM
 MSG_SCNRMODGUI_NONE
 None
 Kein
-
-
+Nessuno
 
 ;
 MSG_SCNRMODGUI_TEXT
 Text
 Text
-
-
+Testo
 
 ;
 MSG_SCNRMODGUI_STANDARD
 Standard
 Standard
-
-
+Standard
 
 ;
 MSG_SCNRMODGUI_MAX
 Max
 Max
-
-
+Massimo
 
 ;
 MSG_SCNRMODGUI_VIDEO
 Video
 Video
-
-
+Video
 
 ;
 MSG_SCNRMODGUI_WORLDCONSTRUCTIONSETSCREENMODE
 World Construction Set Screenmode
 World Construction Set Bildschirmmodus
-
-
+World Construction Set Modo Schermo
 
 ;
 MSG_SCNRMODGUI_DISPLAYMODE
 \33cDisplay Mode
 \33cAnzeigemodus
-
-
+\33cModo Schermo
 
 ;
 MSG_SCNRMODGUI_MODEINFORMATION
 \33cMode Information
 \33cModuseigenschaften
-
-
+\33cModo Informazione
 
 ;
 ; Check Screenmode-Requester for correct alignement!
 MSG_SCNRMODGUI_MODEESUTOCANNATTRIBUTESN
 Mode:           \nRes :                      \nAuto:            \nScan:                   \n\nAttributes\n\n\n
 Modus:           \nRes  :                      \nAuto :            \nScan :                   \n\nAttribute\n\n\n
-
-
+Modo:           \nRes :                      \nAuto:            \nScan :                  \n\nAttribute\n\n\n
 
 ;
 MSG_SCNRMODGUI_SAVE
 \33cSave
 \33cSpeichern
-
-
+\33cSalva
 
 ;
 MSG_SCNRMODGUI_USE
 \33cUse
 \33cBenutzen
-
-
+\33cUsa
 
 ;
 MSG_SCNRMODGUI_EXIT
 \33cExit
 \33cAbbrechen
-
-
+\33cEsci
 
 ;
 ; Check Screenmode-Requester for correct alignement!
 MSG_SCNRMODGUI_MODE0XESXXUTOXCANNSNATTRIBUTES
 Mode: 0x%08lx\nRes : %dx%d - %dx%d\nAuto: %dx%d\nScan: %dns\n\nAttributes\n
 Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAttribute\n
-
-
+Modo: 0x%08lx\nRes : %dx%d - %dx%d\nAuto: %dx%d\nRicerca: %dns\n\nAttributi\n
 
 ;
 MSG_SCNRMODGUI_LACED
 Laced\x20
 Interlace\x20
-
-
+Interlacciato\x20
 
 ;
 MSG_SCNRMODGUI_GENLOCKABLE
 Genlockable\x20
 Unterstützt Genlock\x20
-
-
+Supporta Genlock\x20
 
 ;
 MSG_SCNRMODGUI_DRAGGABLE
 Draggable\x20
 Ziehbar\x20
-
-
+Trascinabile\x20
 
 ;
 MSG_SCNRMODGUI_OVERSCAN
 Overscan:\x20
 Overscan:\x20
-
-
+Overscan:\x20
 
 ;
 MSG_SCNRMODGUI_WIDTH
 Width\x20
 Breite\x20
-
-
+Larghezza\x20
 
 ;
 MSG_SCNRMODGUI_HEIGHT
 Height\x20
 Höhe\x20
-
-
+Altezza\x20
 
 ;
 ; ------- AGUI.c ----------
@@ -929,1029 +799,883 @@ Höhe\x20
 MSG_AGUI_PARAMETERMODULE
 Parameter Module
 Parameter Modul
-
-
+Parametri Modulo
 
 ;
 MSG_AGUI_MOTION
 \33l Motion\x20
 
-
-
+\331 Movimento\x20
 
 ;
 MSG_AGUI_COLOR
 \33l Color\x20
 \33l Farben\x20
-
-
+\331 Colore\x20
 
 ;
 MSG_AGUI_ECOSYSTEM
 \33l Ecosystem\x20
 \33l Ökosystem\x20
-
-
+\331 Ecosistema\x20
 
 ;
 MSG_AGUI_CLOUDS
 \33l Clouds\x20
 \33l Wolken\x20
-
-
+\331 Nuvole\x20
 
 ;
 MSG_AGUI_WAVES
 \33l Waves\x20
 \33l Wellen\x20
-
-
+\331 Onde\x20
 
 ;
 MSG_AGUI_DEFAULTS
 \33l Defaults\x20
 \33l Standard-Werte\x20
-
-
+\331 Predefinito\x20
 
 ;
 MSG_AGUI_PARAMETERSMODULE
 Parameters Module
 Parameter Modul
-
-
+Parametri Modulo
 
 ;
 MSG_AGUI_OUTOFMEMORY
 Out of Memory!
 Nicht genügend Speicher!
-
-
+Memoria Esaurita!
 
 ;
 MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS
 Create Default Parameters for Database %s? All current Parameters will be overwritten.
 Standard-Parametersatz für die Datenbank %s erzeugen? Alle aktuellen Parameter werden überschrieben.
-
-
+Crea Valori Predefiniti per il Database %s? I Parametri Correnti Verranno Sovrascritti.
 
 ;
 MSG_AGUI_PARAMETEREDITINGDEFAULTS
 Parameter Editing: Defaults
 
-
-
+Modifica dei Parametri: Predefinito
 
 ;
 MSG_GLOBAL_OKCANCEL
 OK|Cancel
 OK|Abbrechen
-
-
+SI|Cancella
 
 ;
 MSG_AGUI_YOUMUSTFIRSTLOADADATABASEBEFOREDEFAULTPARAMETERSCANBEC
 You must first load a Database before Default Parameters can be computed.
 Es muss erst eine Datenbank geladen werden, bevor ein Standard-Parametersatz erzeugt werden kann.
-
-
+È necessario caricare un database prima di poter calcolare i parametri predefiniti.
 
 ;
 MSG_GLOBAL_OK
 OK
 OK
-
-
+SI
 
 ;
 MSG_AGUI_STANDUP
 Stand Up
 Hochkant
-
-
+Alzarsi in piedi
 
 ;
 MSG_AGUI_LAYDOWN
 Lay Down
 Quer
-
-
+Sdraiarsi
 
 ;
 MSG_AGUI_LOAD
 \33l Load\x20
 \33l Laden\x20
-
-
+\331 Carica\x20
 
 ;
 MSG_AGUI_APPEND
 \33l Append\x20
 \33l Anhängen\x20
-
-
+\331 Allegare\x20
 
 ;
 MSG_AGUI_CREATE
 \33l Create\x20
 \33l Erzeugen\x20
-
-
+\331 Creare\x20
 
 ;
 MSG_AGUI_EDIT
 \33l Edit\x20
 \33l Bearbeiten\x20
-
-
+\331 Modifica\x20
 
 ;
 MSG_AGUI_SAVE
 \33l Save\x20
 \33l Speichern\x20
-
-
+\331 Salva\x20
 
 ;
 MSG_AGUI_DIRLIST
 \33l Dir List\x20
 \33l Ordnerliste\x20
-
-
+\331 Lista Directory\x20
 
 ;
 MSG_AGUI_DATAOPSIMPORTDLG
 Data Ops: Import DLG
-Data Ops: Importiere DLG
 
-
+Data Ops: Importare DLG
 
 ;
 MSG_AGUI_DATAOPSIMPORTDXF
 Data Ops: Import DXF
 
-
-
+Data Ops: Importare DXF
 
 ;
 MSG_DLG_DATAOPSIMPORTWDB
 Data Ops: Import WDB
 
-
-
+Data Ops: Importare WDB
 
 ;
 MSG_AGUI_DATAOPSMODULEINTERPDEM
 Data Ops Module: Interp DEM
 
-
-
+Data Ops Modulo: Interp DEM
 
 ;
 MSG_AGUI_DATAOPSMODULEEXTRACTDEM
 Data Ops Module: Extract DEM
 
-
-
+Data Ops Modulo: Estrai DEM
 
 ;
 MSG_AGUI_RENDERMODULE
 Render Module
-Render Modul
 
-
+Rendering Modulo
 
 ;
 MSG_AGUI_ADATABASEANDPARAMETERFILE
 a Database and Parameter file
 eine Datenbank- und Parameterdatei
-
-
+Database e Parametri File
 
 ;
 MSG_AGUI_MODULECONTROLPANEL
 Module Control Panel
 
-
-
+Pannello Modulo di Controllo
 
 ;
 MSG_AGUI_VERSION
 Version
 Version
-
-
+Versione
 
 ;
 MSG_AGUI_OKAY
 \33cOkay
 \33cOkay
-
-
+\33cOk
 
 ;
 MSG_AGUI_EXTRASMODULE
 Extras Module
 Extras Modul
-
-
+Modulo degli Extra
 
 ;
 MSG_AGUI_PUBLICSCREENSTILLHASVISITORSTRYCLOSINGAGAIN
 Public Screen still has visitors. Try closing again?
 Der Public Screen hat noch Visitors. Schließen erneut versuchen?
-
-
+Lo schermo pubblico ha ancora visitatori. Provare a chiudere di nuovo?
 
 ;
 MSG_AGUI_CLOSEWARNCANCEL
 Close|Warn|Cancel
 Schließen|Warnen|Abbrechen
-
-
+Chiudi|Avverti|Cancella
 
 ;
 MSG_AGUI_QUITPROGRAMREYOUSURE
 Quit Program\nAre you sure?
 Programm beenden\nSind Sie sicher?
-
-
+Chiudere il Programma\nSei Sicuro?
 
 ;
 MSG_AGUI_WCSPROJECT
 WCS Project
 WCS Projekt
-
-
+WCS Progetto
 
 ;
 MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Project paths have been modified. Save them before closing?
 Die Projekt-Pfade wurden verändert. Sollen sie vor dem Schließen gespeichert werden?
-
-
+I percorsi del progetto sono stati modificati. Salvarli prima di chiudere?
 
 ;
 MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Parameters have been modified. Save them before closing?
 Die Parameter würden verändert. Sollen sie vor dem Schließen gespeichert werden?
-
-
+I parametri sono stati modificati. Salvarli prima di chiuderli?
 
 ;
 MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING
 Database has been modified. Save it before closing?
-die Datenbank wurde geändert. Soll sie vor dem Schließen gespeichert werden?
-
-
+Die Datenbank wurde geändert. Soll sie vor dem Schließen gespeichert werden?
+Il database è stato modificato. Salvare prima di chiudere?
 
 ;
 MSG_AGUI_MESSAGE
 Message
 Nachricht
-
-
+Messaggio
 
 ;
 MSG_AGUI_NOTYETIMPLEMENTEDTAYTUNED
 Not yet implemented.\nStay Tuned!
 Noch nicht implementiert.\nBleiben Sie dran!
-
-
+Non ancora implementato.\nRimanete Sintonizzati!
 
 ;
 MSG_AGUI_KEEPCHANGES
 Keep changes?
 Änderungen behalten?
-
-
+Mantenere le modifiche?
 
 ;
 MSG_AGUI_KEEPCANCEL
 Keep|Cancel
 Behalten|Abbrechen
-
-
+Mantieni|Cancella
 
 ;
 MSG_AGUI_SORRYOUMUSTFIRSTLOAD338NBEFOREUSINGTHISFEATURE
 Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature.
 Entschuldigung!\nEs muss zuerst\n\338%s\0332\ngeladen werden, bevor dieses Feature genutzt werden kann.
-
-
+Attenzione!\nPrima di utilizzare questa funzione\n\338%s\0332\n è necessario caricarla.
 
 ;
 MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT
 File already exists.\nDo you wish to overwrite it?
 Die Datei existiert bereits? Soll sie überschrieben werden?
-
-
+File già esistente.\n Vuoi Sovrascriverlo?
 
 ;
 MSG_AGUI_INPUTREQUEST
 Input Request
 Eingabeaufforderung
-
-
+Richiesta Input
 
 ;
 MSG_GLOBAL_33CCANCEL
 \33cCancel
 \33cAbbrechen
-
-
+\33cCancella
 
 ;
 MSG_AGUI_LOGSTATUSMODULE
 Log Status Module
 Log Status Modul
-
-
+Log Stato Modulo
 
 ;
 MSG_AGUI_CANTOPENLOGSTATUSWINDOW
 Can't Open Log Status Window!
 Das Log Status Fenster konnte nicht geöffnet werden!
-
-
+Non è possibile aprire la finestra dello stato dei log!
 
 ;
 MSG_AGUI_CLEAR
 \33cClear
 \33cLöschen
-
-
+\33cLibera
 
 ;
 MSG_AGUI_HIDE
 \33cHide
 \33cVerbergen
-
-
+\33cNascondi
 
 ;
 MSG_AGUI_CLOSE
 \33cClose
 \33cSchließen
-
-
+\33cChiudi
 
 ;
 MSG_AGUI_LOGWINDOW
 Log Window
 Log Fenster
-
-
+Finestra Log
 
 ;
 MSG_AGUI_LOGWINDOWOPENED
 Log window opened.
 Log Fenster geöffnet.
-
-
+Finestra Log Aperta.
 
 ;
 ; - Info Window -
 MSG_AGUI_INFO
 Info
 Info
-
-
+Informazioni
 
 ;
 MSG_AGUI_TIME
 \33rTime\x20
 \33rUhrzeit\x20
-
-
+\33rTempo\x20
 
 ;
 MSG_AGUI_DATE
 \33rDate\x20
 \33rDatum\x20
-
-
+\33rData\x20
 
 ;
 MSG_AGUI_MEMORY
 \33rMemory:
 \33rSpeicher:
-
-
+\33rMemoria:
 
 ;
 MSG_AGUI_AVAILABLE
 \33rAvailable\x20
 \33rVerfügbar\x20
-
-
+\33rDisponibile\x20
 
 ;
 MSG_AGUI_LARGEST
 \33rLargest\x20
 \33rGrößter\x20
-
-
+\33rGrande\x20
 
 ;
 MSG_AGUI_CHIP
 \33cChip
 \33cChip
-
-
+\33cChip
 
 ;
 MSG_AGUI_FAST
 \33cFast
 \33cFast
-
-
+\33cFast
 
 ;
 MSG_AGUI_TOPOMAPS
 \33rTopo Maps\x20
 
-
-
+\33rMappa Topografica\x20
 
 ;
 MSG_AGUI_INTER
 \33cInter
 
-
-
+\33cInter
 
 ;
 MSG_AGUI_MAP
 \33cMap
-
-
-
+\33cKarte
+\33cMappa
 
 ;
 MSG_AGUI_AREXXPORT
 \33rARexx Port\x20
 \33rARexx Port\x20
-
-
+\33rARexx Port\x20
 
 ;
 MSG_AGUI_DATABASE
 \33rDatabase\x20
 \33rDatenbank\x20
-
-
+\33rDatabase\x20
 
 ;
 MSG_AGUI_PARFILE
 \33rPar File\x20
 \33cPar Datei\x20
-
-
+\33rPar File\x20
 
 ;
 MSG_AGUI_SCREENMODE
 \33rScreenMode\x20
 \33rBildschirmmodus\x20
-
-
+\33rModo Schermo\x20
 
 ;
 MSG_AGUI_FLUSH
 \33cFlush
 \33cSpeicher leeren
-
-
+\33cMemoria vuota
 
 ;
 MSG_AGUI_CREDITS
 Credits
 Über
-
-
+Ringraziamenti
 
 ;
 MSG_AGUI_WCSSCREENMODE
 WCS: Screen Mode
 WCS: Bildschirmmodus
-
-
+WCS: Modo Schermo
 
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
 Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt \
 ausführen?
-
-
+Per ripristinare la modalità schermo, WCS dovrà essere chiuso e riaperto. Qualsiasi lavoro in corso deve essere salvato prima di invocare questo comando.\n Volete procedere ora?
 
 ;
 MSG_AGUI_DATABASEMODULE
 Database Module
 Datenbank Modul
-
-
+Modulo Database
 
 ;
 MSG_AGUI_DATABASEMODULEAPPEND
 Database Moldule: Append
 Datenbank Modul: Anhängen
-
-
+Modulo Database: Allegare
 
 ;
 ;This is a %s-String for NoLoad_Message() "Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature."
 MSG_DATAOPSGUI_ADATABASE
 a Database
 eine Datenbank
-
-
+a Database
 
 ;
 MSG_DB_DATABASEMODULESAVE
 Database Module: Save
 Datenbank Modul: Speichern
-
-
+Modulo Database: Salva
 
 ;
 MSG_AGUI_DATAOPSMODULE
 DataOps Module
-DataOps Modul
 
-
+Modulo DataOps
 
 ;
 MSG_AGUI_EXTRACTDEM
 \33l Extract DEM\x20
 \33l Extrahiere DEM\x20
-
-
+\331 Estrai DEM\x20
 
 ;
 MSG_AGUI_CONVERTDEM
 \33l Convert DEM\x20
 \33l Konvertiere DEM\x20
-
-
+\331 Convertire DEM\x20
 
 ;
 MSG_AGUI_INTERPDEM
 \33l Interp DEM\x20
 \33l Interpoliere DEM\x20
-
-
+\331 Interpolare DEM\x20
 
 ;
 MSG_AGUI_IMPORTDLG
 \33l Import DLG\x20
 \33l Importiere DLG\x20
-
-
+\331 Importare DLG\x20
 
 ;
 MSG_AGUI_IMPORTDXF
 \33l Import DXF
 \33l Importiere DXF\x20
-
-
+\331 Importare DXF\x20
 
 ;
 MSG_AGUI_IMPORTWDB
 \33l Import WDB\x20
 \33l Importiere WDB\x20
-
-
+\331 Importare WDB\x20
 
 ;
 MSG_AGUI_EXPORTLW
 \33l Export LW\x20
 \33l Exportiere LW\x20
-
-
+\331 Esportare LW\x20
 
 ;
 MSG_AGUI_MOTIONIO
 \33l Motion I/O\x20
 
-
-
+\331 Movimento I/0\x20
 
 ;
 MSG_AGUI_STATUSLOG
 Status Log
 Status Log
-
-
+Stato Log
 
 ;
 MSG_AGUI_ERR
 ERR:
 
-
-
+ERR:
 
 ;
 MSG_AGUI_WNG
 WNG:
 
-
-
+WNG:
 
 ;
 MSG_AGUI_MSG
 MSG:
 
-
-
+MSG:
 
 ;
 MSG_AGUI_DTA
 DTA:
 
-
-
+DTA:
 
 ;
 MSG_AGUI_PREV
 \33cPrev
 \33cVorheriger
-
-
+\33cPrecedente
 
 ;
 MSG_AGUI_NEXT
 \33cNext
 \33cNächster
-
-
+\33cProssimo
 
 ;
 MSG_AGUI_ALL
 All (%d)
 Alle (%d)
-
-
+Tutto (%d)
 
 ;
 MSG_AGUI_KEYSEXIST
 Keys Exist (%d)
 Key (%d) existiert
-
-
+Chiavi (%d) esistenti
 
 ;
 MSG_AGUI_ALL0
 \33cAll (0)
 Alle (0)
-
-
+Tutto (0)
 
 ;
 MSG_AGUI_NOOTHERKEYS
 No Other Keys
 Keines weiteren Keys
-
-
+No Altre Chiavi
 
 ;
 ; PK="Previous Key"
 MSG_AGUI_PK
 PK %d
 VK %d
-
-
+PK %d
 
 ;
 ; NK="Next Key"
 MSG_AGUI_NK
 NK %d
 NK %d
-
-
+NK %d
 
 ;
 MSG_AGUI_NONE
  -none-\x20
 -leer-
-
-
+-Nessuno-
 
 ;
 MSG_AGUI_USE
 Use
 Benutzen
-
-
+Usa
 
 ;
 MSG_AGUI_LOADMOTION
 Load Motion...
 Lade Motion...
-
-
+Carica Movimento...
 
 ;
 MSG_AGUI_SAVEMOTION
 Save Motion...
 Speichere Motion...
-
-
+Salva Movimento...
 
 ;
 MSG_AGUI_LOADCOLOR
 Load Color...
 Lade Farben...
-
-
+Carica Colori...
 
 ;
 MSG_AGUI_SAVECOLOR
 Save Color...
 Speichere Farben...
-
-
+Salva Colori...
 
 ;
 MSG_AGUI_LOADECO
 Load Eco...
 Lade Öko...
-
-
+Carica Eco...
 
 ;
 MSG_AGUI_SAVEECO
 Save Eco...
 Speichere Öko...
-
-
+Salva Eco...
 
 ;
 MSG_AGUI_LOADSETTINGS
 Load Settings...
 Einstellungen laden...
-
-
+Carica Impostazioni...
 
 ;
 MSG_AGUI_SAVESETTINGS
 Save Settings...
 Einstellungen speichern...
-
-
+Salva Impostazioni...
 
 ;
 ; ----- BitMaps.c --------
 MSG_BITMAPS_IFFFILEPATHNAME
 IFF File Path/Name
 IFF-Datei Pfad/Name
-
-
+IFF-File Percorso/Nome
 
 ;
 MSG_BITMAPS_FILEALREADYEXISTSVERWRITEIT
 File already exists!\nOverwrite it?
 Datei bereits vorhanden!\nÜberschreiben?
-
-
+Il file esiste già!\nSovrascriverlo?
 
 ;
 MSG_BITMAPS_CANTOPENIMAGEFILEFOROUTPUTPERATIONTERMINATED
 Can't open image file for output!\nOperation terminated.
 Datei kann nicht zum Schreiben geöffnet werden!\nVorgang abgebrochen.
-
-
+Impossibile aprire il file immagine per l'output!\nOperazione terminata.
 
 ;
 MSG_BITMAPS_SAVINGIMAGE
 Saving Image
 Speichern des Bildes
-
-
+Salva Immagine
 
 ;
 MSG_BITMAPS_YES
 YES
 Ja
-
-
+Si
 
 ;
 MSG_BITMAPS_NO
 NO
 Nein
-
-
+No
 
 ;
 MSG_BITMAPS_ERRORSAVINGIMAGEPERATIONTERMINATED
 Error saving image!\nOperation terminated.
 Fehler beim Speichern des Bildes!\nVorgang abgebrochen.
-
-
+Errore nel salvare l'immagine!\nOperazione Terminata.
 
 ;
 MSG_BITMAPS_LOADINGIMAGE
 Loading Image
 Laden des Bildes
-
-
+Caricamento Immagine
 
 ;
 MSG_BITMAPS_WRONGIMAGESIZE
 Wrong image size
 Falsche Bildgröße
-
-
+Grandezza immagine sbagliata
 
 ;
 MSG_BITMAPS_WRONGIMAGEDEPTH
 Wrong image depth
 Falsche Farbtiefe des Bildes
-
-
+Profondità colore immagine sbagliata
 
 ;
 MSG_BITMAPS_BACKGROUND
 Background
 Hintergrund
-
-
+Sfondo
 
 ;
 MSG_BITMAPS_ERRORLOADINGZBUFFERPERATIONTERMINATED
 Error loading Z Buffer!\nOperation terminated.
 Fehler beim Laden des Z-Puffers!\nVorgang abgebrochen.
-
-
+Errore nel caricamento del buffer Z!\nOperazione terminata.
 
 ;
 MSG_BITMAPS_OUTOFMEMORYMERGINGZBUFFERPERATIONTERMINATED
 Out of memory merging Z Buffer!\nOperation terminated.
 Nicht genügend Speichern zum Mergen des Z-Puffers!\nVorgang abgebrochen.
-
-
+Unione di Z Buffer fuori memoria!\nOperazione terminata.
 
 ;
 MSG_BITMAPS_ERROROPENINGZBUFFERFILEFORINPUTPERATIONTERMINATED
 Error opening Z Buffer file for input!\nOperation terminated.
 Fehler beim Öffnen der Z-Puffer-Datei zum Lesen!\nVorgang abgebrochen.
-
-
+Errore nell'apertura del file Z Buffer per l'input!\nOperazione terminata.
 
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOTSINGLEPRECISIONFLOATINGPOI
 Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated.
 Fehler beim Lesen der Z-Puffer-Datei!\nFormat ist nicht Fließkomma mit einfacher Genauigkeit.\nVorgang abgebrochen.
-
-
+Errore nella lettura del file Z Buffer!\nNon in virgola mobile a precisione singola.\nOperazione Terminata.
 
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBODCHUNKPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated.
 Fehler beim Lesen der Z-Puffer-Datei!\nZBOD-Chunk fehlt.\nVorgang abgebrochen.
-
-
+Errore nella lettura del file Z Buffer!\nNessun ZBOD chunk.\nOperazione terminata.
 
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBUFCHUNKPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated.
 Fehler beim Lesen der Z-Puffer-Datei!\nZBUF-Chunk fehlt.\nVorgang abgebrochen.
-
-
+Errore nella lettura del file Z Buffer!\nNessun ZBUF chunk.\nOperazione terminata.
 
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILERONGSIZEPERATIONTERMINATED
 Error reading Z Buffer file!\nWrong Size.\nOperation terminated.
 Fehler beim Lesen der Z-Puffer-Datei!\nFalsche Größe.\nVorgang abgebrochen.
-
-
+Errore nella lettura del file Z Buffer!\nDimensione sbagliata.\nOperazione terminata.
 
 ;
 MSG_BITMAPS_ERRORLOADINGBACKGROUNDIMAGEPERATIONTERMINATED
 Error loading background image!\nOperation terminated.
 Fehler beim Laden des Hintergrundbildes!\nVorgang abgebrochen.
-
-
+Errore nel caricamento dell'immagine di sfondo!\nOperazione terminata.
 
 ;
 MSG_BITMAPS_OUTOFMEMORYMERGINGBACKGROUNDPERATIONTERMINATED
 Out of memory merging background!\nOperation terminated.
 Nicht genügend Speicher zum Mergen des Hintergrundes!\nVorgang abgebrochen.
-
-
+Sfondo di fusione fuori memoria!\nOperazione terminata.
 
 ;
 MSG_BITMAPS_ERROROPENINGBACKGROUNDFILEFORINPUTPERATIONTERMINATE
 Error opening Background file for input!\nOperation terminated.
 Fehler beim Öffnen der Hintergrunddatei zum Lesen!\nVorgang abgebrochen.
-
-
+Errore nell'apertura del file di sfondo per l'input!\nOperazione terminata.
 
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILERONGSIZEPERATIONTERMINATE
 Error reading Background file!\nWrong Size.\nOperation terminated.
 Fehler beim Lesen der Hintergrunddatei!\nFalsche Größe.\nVorgang abgebrochen.
-
-
+Errore nell'apertura del file di sfondo!\nDimensione errata.\nOperazione terminata.
 
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBODYCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BODY Chunk.\nOperation terminated.
 Fehler beim Lesen der Hintergrunddatei!\nBODY-Chunk fehlt.\nVorgang abgebrochen.
-
-
+Errore nell'apertura del file di sfondo!\nNessun Corpo Chunk.\nOperazione terminata.
 
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBMHDCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BMHD Chunk.\nOperation terminated.
 Fehler beim Lesen der Hintergrunddatei!\nBMHD-Chunk fehlt.\nVorgang abgebrochen.
-
-
+Errore nell'apertura del file di sfondo!\nNessun BMHD Chunk.\nOperazione terminata.
 
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOMPRESSIONERRORPERATIONTE
 Error reading Background file!\nCompression error.\nOperation terminated.
 Fehler beim Lesen der Hintergrunddatei!\nKompressionsfehler.\nVorgang abgebrochen.
-
-
+Errore nella lettura del file di sfondo!\nErrore di compressione.\nOperazione terminata.
 
 ;
 MSG_CLOUD_CLOUDEDITORSETBOUNDS
 Cloud Editor:Set Bounds
 Cloud Editor:Grenzen festlegen
-
-
+Editor Nuvole:Impostare i limiti
 
 ;
 MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN
 Map View Module must be open in order to use this function. Would you like to open it now?
 Das Map View Modul muss geöffnet sein, um die Funktion nutzen zu können. Soll es jetzt geöffnet werden?
-
-
+Il modulo Vista mappa deve essere aperto per poter utilizzare questa funzione. Volete aprirlo ora?
 
 ;
 MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
 \0338Set northwest corner with mouse.
 \0338Nord-West Ecke mit der Maus festlegen.
-
-
+\0338Impostare l'angolo nord-ovest con il mouse.
 
 ;
 MSG_CLOUD_SETNORTHWESTCORNER
 Set northwest corner
 Nord-West Ecke festlegen
-
-
+Imposta l'angolo nord-ovest
 
 ;
 MSG_CLOUD_ETSOUTHEASTCORNERESCABORT
 \0338Set southeast corner. ESC=abort
 \0338Süd-Ost Ecke festlegen. ESC=Abbruch
-
-
+\0338Impostare l'angolo sud-est. ESC=Interrompere
 
 ;
 MSG_CLOUD_SETSOUTHEASTCORNER
 Set southeast corner
 Süd-Ost Ecke festlegen
-
-
+Imposta l'angolo sud-est
 
 ;
 MSG_MAPGUI_MAPPINGMODULEALIGN
 Mapping Module: Align
 Mapping Modul: Ausrichten
-
-
+Modulo Mappatura: Allineare
 
 ;
 MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET
 Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
 Ungültige Werte!\nDer Pixeloffset auf beiden Achsen muss mindestens 1 betragen.\nNoch einmal versuchen?
-
-
+Valori Illegali!\nDeve esserci almeno un pixel di offset su entrambi gli assi.\nRiprovare?
 
 ;
 MSG_CLOUD_ENTERFRAMENUMBER
 Enter Frame Number.
 Bildnummer eingeben.
-
-
+Inserire il numero di frame.
 
 ;
 MSG_GLOBAL_COMPUTING
 Computing...
 Berechne...
-
-
+Computing...
 
 ;
 MSG_GLOBAL_DRAWING
 Drawing...
 Zeichne...
-
-
+Disegno...
 
 ;
 ; ------ CloudGUI.c -------
@@ -1961,12 +1685,10 @@ Cirrus
 Schleierwolken
 
 
-
 ;
 MSG_CLOUDGUI_STRATUS
 Stratus
 Schichtwolken
-
 
 
 ;
@@ -1975,18 +1697,15 @@ Nimbus
 Regenwolken
 
 
-
 ;
 MSG_CLOUDGUI_CUMULUS
 Cumulus
 Haufenwolken
 
 
-
 ;
 MSG_CLOUDGUI_CLOUDEDITOR
 Cloud Editor
-
 
 
 
@@ -1996,12 +1715,10 @@ Options
 Optionen
 
 
-
 ;
 MSG_CLOUDGUI_CLOUDS
 \33cClouds
 \33cWolken
-
 
 
 ;
@@ -2010,12 +1727,10 @@ MSG_CLOUDGUI_CLOUDSHADOWS
 \33cWolkenschatten
 
 
-
 ;
 MSG_CLOUDGUI_CLOUDTYPE
 Cloud Type
 Wolkentyp
-
 
 
 ;
@@ -2024,11 +1739,9 @@ Seed
 Startwert
 
 
-
 ;
 MSG_CLOUDGUI_CLOUDWAVES
 \33c\0334Cloud Waves
-
 
 
 
@@ -2038,11 +1751,9 @@ Waves
 Wellen
 
 
-
 ;
 MSG_CLOUDGUI_MAPADD
 \33cMap Add...
-
 
 
 
@@ -2052,18 +1763,15 @@ MSG_CLOUDGUI_EDIT
 \33cBearbeiten...
 
 
-
 ;
 MSG_CLOUDGUI_ANIMATE
 Animate
 Animieren
 
 
-
 ;
 MSG_CLOUDGUI_LOUDMAPSIZERANGE
 \33c\0334Cloud Map Size & Range
-
 
 
 
@@ -2073,12 +1781,10 @@ Rows
 Zeilen
 
 
-
 ;
 MSG_CLOUDGUI_COLS
 Cols
 Spalten
-
 
 
 ;
@@ -2087,12 +1793,10 @@ Lat Max
 Breite Max
 
 
-
 ;
 MSG_CLOUDGUI_MIN
 Min
 Min
-
 
 
 ;
@@ -2101,12 +1805,10 @@ Lon Max
 Länge Max
 
 
-
 ;
 MSG_CLOUDGUI_ANIMATION
 \33c\0334Animation
 \33c\0334Animation
-
 
 
 ;
@@ -2115,12 +1817,10 @@ Coverage
 Bedeckung
 
 
-
 ;
 MSG_CLOUDGUI_DENSITY
 Density
 Dichte
-
 
 
 ;
@@ -2129,11 +1829,9 @@ Roughness
 Rauhigkeit
 
 
-
 ;
 MSG_CLOUDGUI_FRACTDIM
 Fract Dim
-
 
 
 
@@ -2143,12 +1841,10 @@ Move Lat
 
 
 
-
 ;
 MSG_CLOUDGUI_LON
 Lon
 Länge
-
 
 
 ;
@@ -2157,12 +1853,10 @@ Altitude
 Höhe
 
 
-
 ;
 MSG_CLOUDGUI_EYFRAMES
 \33c\0334Key Frames
 \33c\0334Keyframes
-
 
 
 ;
@@ -2171,11 +1865,9 @@ MSG_CLOUDGUI_PREV
 \33cVorheriger
 
 
-
 ;
 MSG_CLOUDGUI_FRAME
 Frame
-
 
 
 
@@ -2185,12 +1877,10 @@ MSG_CLOUDGUI_NEXT
 \33cNächster
 
 
-
 ;
 MSG_CLOUDGUI_MAKEKEY
 \33cMake Key
 \33cKey erzeugen
-
 
 
 ;
@@ -2199,12 +1889,10 @@ MSG_CLOUDGUI_UPDATE
 \33cAktualisieren
 
 
-
 ;
 MSG_CLOUDGUI_DELETE
 \33c\33uDel\33nete
 \33cLöschen
-
 
 
 ;
@@ -2213,12 +1901,10 @@ MSG_CLOUDGUI_DELETEALL
 \33cAlles Löschen
 
 
-
 ;
 MSG_CLOUDGUI_TIMELINES
 \33cTime Lines\x20
 \33cZeitleisten\x20
-
 
 
 ;
@@ -2227,12 +1913,10 @@ MSG_CLOUDGUI_SCALEKEYS
 \33cKeys skalieren\x20
 
 
-
 ;
 MSG_CLOUDGUI_DRAWCLOUD
 \33cDraw Cloud
 \33cZeichne Wolke
-
 
 
 ;
@@ -2241,12 +1925,10 @@ MSG_CLOUDGUI_SETBOUNDS
 \33cGrenzen festlegen
 
 
-
 ;
 MSG_CLOUDGUI_SAVE
 \33cSave
 \33cSpeichern
-
 
 
 ;
@@ -2255,12 +1937,10 @@ MSG_CLOUDGUI_LOAD
 \33cLaden
 
 
-
 ;
 MSG_CLOUDGUI_MAPVIEWCLOUDS
 Map View: Clouds
 Map View: Wolken
-
 
 
 ;
@@ -2269,12 +1949,10 @@ Out of memory!
 Nicht genügend Speicher!
 
 
-
 ;
 MSG_PARGUI_PARAMETERSMODULEMODEL
 Parameters Module: Model
 Parameter Modul: Modell
-
 
 
 ;
@@ -2283,12 +1961,10 @@ The current Cloud Model has been modified. Do you wish to save it before closing
 Das aktuelle Wolkenmodell wurde geändert. Soll es vor dem Schließen gespeichert werden?
 
 
-
 ;
 MSG_GLOBAL_YESNO
 Yes|No
 Ja|Nein
-
 
 
 ;
@@ -2297,11 +1973,9 @@ Cloud Path/File
 Wolke Pfad/Datei
 
 
-
 ;
 MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE
 Make this file the Project Cloud File?
-
 
 
 
@@ -2311,11 +1985,9 @@ Cloud Wave Editor
 
 
 
-
 ;
 MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR
 Enter frame to make key for.
-
 
 
 
@@ -2325,11 +1997,9 @@ Delete all cloud key frames?
 
 
 
-
 ;
 MSG_CLOUDGUI_FRACTALDIMENSION
 Fractal Dimension
-
 
 
 
@@ -2339,11 +2009,9 @@ Move Latitude
 
 
 
-
 ;
 MSG_CLOUDGUI_MOVELONGITUDE
 Move Longitude
-
 
 
 
@@ -2353,12 +2021,10 @@ Cloud Time Lines
 
 
 
-
 ;
 MSG_CLOUDGUI_CLOUDFILE
 Cloud File
 Wolkendatei
-
 
 
 ;
@@ -2369,11 +2035,9 @@ Creating Relative Elevation Model
 
 
 
-
 ;
 MSG_DEM_RELATIVEELEVATION
 Relative elevation
-
 
 
 
@@ -2383,18 +2047,15 @@ Computing
 Berechne
 
 
-
 ;
 MSG_DEM_FILES
 Files
 Dateien
 
 
-
 ;
 MSG_DEM_DATAOPSDEMINTERPOLATE
 Data Ops: DEM Interpolate
-
 
 
 
@@ -2404,12 +2065,10 @@ No file(s) selected!
 Keine Datei(en) ausgewählt!
 
 
-
 ;
 MSG_DEM_ERROROPENINGFILEFORINTERPOLATIONILENOTDEMORREMONTINUE
 Error opening file for interpolation!\nFile not DEM or REM\nContinue?
 Fehler beim Öffnen der Datei zum Interpolieren!\nDatei ist kein DEM oder REM\nWeitermachen?"
-
 
 
 ;
@@ -2418,12 +2077,10 @@ DEM name is too long to add an extra character to. Do you wish to enter a new ba
 Der DEM-Name ist zu lang zum Hinzufügen eines weiteren Zeichens. Möchten Sie einen neuen Basis-Namen für das DEM eingeben oder die Interpolation abbrechen?
 
 
-
 ;
 MSG_DEM_NEWNAMEABORT
 New Name|Abort
 Neuer Name|Abbrechen
-
 
 
 ;
@@ -2432,11 +2089,9 @@ Enter new object name.
 Geben Sie einen neuen Objektnamen ein.
 
 
-
 ;
 MSG_DEM_DATAOPSINTERPOLATEDEM
 Data Ops: Interpolate DEM
-
 
 
 
@@ -2446,12 +2101,10 @@ Error reading elevation file!\nContinue?
 Fehler beim Lesen der Höhendatei!\nWeitermachen?
 
 
-
 ;
 MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED
 Out of memory!\nOperation terminated.
 Nicht genügend Speicher!\nVorgang abgebrochen.
-
 
 
 ;
@@ -2460,12 +2113,10 @@ Error opening DEM file for output!\nOperation terminated.
 Fehler beim Öffnen der DEM-Datei zum Schreiben!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEM_ERRORWRITINGDEMFILEPERATIONTERMINATED
 Error writing DEM file!\nOperation terminated.
 Fehler beim Schreiben der DEM-Datei!\nVorgang abgebrochen.
-
 
 
 ;
@@ -2474,12 +2125,10 @@ Out of memory expanding Database Editor List!\nOperation terminated.
 
 
 
-
 ;
 MSG_DEM_ERROROPENINGOBJECTFILEFOROUTPUTPERATIONTERMINATED
 Error opening Object file for output!\nOperation terminated.
 Fehler beim Öffnen der Objekt-Datei zum Schreiben!\nVorgang abgebrochen.
-
 
 
 ;
@@ -2490,18 +2139,15 @@ Data Ops: DEM Extract
 
 
 
-
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED
 Out of memory allocating DEM Info Header!\nOperation terminated.
 Nicht genügend Speicher für die Anforderung des DEM Info Headers!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEM_75MINUTEDEMSDONOTALLLIEWITHINSAMEUTMZONEPERATIONTERMINA
 7.5 Minute DEMs do not all lie within same UTM Zone!\nOperation terminated.
-
 
 
 
@@ -2511,12 +2157,10 @@ Out of memory allocating DEM Arrays!\nOperation terminated.
 
 
 
-
 ;
 MSG_DEM_75MINUTE
 7.5 Minute
 7,5 Minuten
-
 
 
 ;
@@ -2525,12 +2169,10 @@ Reading
 Lesen
 
 
-
 ;
 MSG_DEM_CANTREADDEMPROFILEHEADERPERATIONTERMINATED
 Can't read DEM profile header!\nOperation terminated.
 Der DEM-Profileheader konnte nicht gelesen werden!\nVorgang abgebrochen.
-
 
 
 ;
@@ -2539,11 +2181,9 @@ Error reading DEM profile header!\nOperation terminated.
 Fehler beim Lesen des DEM Profil-Headers!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEM_BLANKPATCH
 Blank Patch
-
 
 
 
@@ -2553,12 +2193,10 @@ Resample
 
 
 
-
 ;
 MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT
 Enter a name for the 30 meter DEM object.
 Geben Sie einen Namen für das 30 Meter DEM-Objekt ein.
-
 
 
 ;
@@ -2567,12 +2205,10 @@ One Degree
 Ein Grad
 
 
-
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGTEMPORARYBUFFERPERATIONTERMINATED
 Out of memory allocating temporary buffer!\nOperation terminated.
 Nicht genügend Speicher für die Anforderung des Temp-Puffers!\nVorgang abgebrochen.
-
 
 
 ;
@@ -2581,18 +2217,15 @@ Error reading DEM profile!\nOperation terminated.
 Fehler beim Lesen des DEM Profils!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEM_IMPROPERDEMPROFILELENGTHPERATIONTERMINATED
 Improper DEM profile length!\nOperation terminated.
 Ungültige Länge des DEM Profils!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGMAPBUFFERPERATIONTERMINATED
 Out of memory allocating map buffer!\nOperation terminated.
-
 
 
 
@@ -2602,12 +2235,10 @@ Error creating output file!\nOperation terminated.
 Fehler beim Erzeugen der Ausgabedatei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEM_CANTOPENDEMFILEFORINPUTPERATIONTERMINATED
 Can't open DEM file for input!\nOperation terminated.
 Die DEM Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
-
 
 
 ;
@@ -2616,12 +2247,10 @@ Can't read DEM file header!\nOperation terminated.
 Fehler beim Lesen des DEM File-Headers!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEM_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
 Fehler beim Öffnen der Ausgabedatei!\nVorgang abgebrochen.
-
 
 
 ;
@@ -2630,11 +2259,9 @@ Error writing to output file!\nOperation terminated.
 Fehler beim Schreiben der Ausgabedatei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLIST
 Out of memory expanding Database Editor List!
-
 
 
 
@@ -2644,18 +2271,15 @@ Mapping Module: Fix Flats
 
 
 
-
 ;
 MSG_DEM_BADARRAYDIMENSIONSSOMETHINGDOESNTCOMPUTEPERATIONTERMINA
 Bad array dimensions! Something doesn't compute.\nOperation terminated.
 
 
 
-
 ;
 MSG_DEM_NOFLATSPOTSTOOPERATEONPERATIONTERMINATED
 No flat spots to operate on!\nOperation terminated.
-
 
 
 
@@ -2667,12 +2291,10 @@ D'base Objects
 Datenbank Objekte
 
 
-
 ;
 MSG_DEMGUI_XYZLATLON
 XYZ Lat/Lon
 XYZ Breite/Länge
-
 
 
 ;
@@ -2681,12 +2303,10 @@ XYZ UTM
 XYZ UTM
 
 
-
 ;
 MSG_DEMGUI_DXFLATLON
 DXF Lat/Lon
 DXF Breite/Länge
-
 
 
 ;
@@ -2695,11 +2315,9 @@ DXF UTM
 DXF UTM
 
 
-
 ;
 MSG_DEMGUI_SLIDER
 Slider
-
 
 
 
@@ -2709,12 +2327,10 @@ End Points
 Endpunkte
 
 
-
 ;
 MSG_DEMGUI_DEM
 DEM
 DEM
-
 
 
 ;
@@ -2723,12 +2339,10 @@ Numeric
 Numerisch
 
 
-
 ;
 MSG_DEMGUI_ISOLINE
 Isoline
 Wertefeldlinie
-
 
 
 ;
@@ -2737,12 +2351,10 @@ Gradient
 Gradient
 
 
-
 ;
 MSG_DEMGUI_CONCAVE
 Concave
 Konkav
-
 
 
 ;
@@ -2751,12 +2363,10 @@ Convex
 Konvex
 
 
-
 ;
 MSG_DEMGUI_NONE
 None
 Keine
-
 
 
 ;
@@ -2765,12 +2375,10 @@ Lines/Points
 Linien/Punkte
 
 
-
 ;
 MSG_DEMGUI_LINESONLY
 Lines Only
 Nur Linien
-
 
 
 ;
@@ -2779,12 +2387,10 @@ Points Only
 Nur Punkte
 
 
-
 ;
 MSG_DATAOPSGUI_KILOMETERS
 Kilometers
 Kilometer
-
 
 
 ;
@@ -2793,12 +2399,10 @@ Meters
 Meter
 
 
-
 ;
 MSG_DATAOPSGUI_CENTIMETERS
 Centimeters
 Zentimeter
-
 
 
 ;
@@ -2807,12 +2411,10 @@ Miles
 Meilen
 
 
-
 ;
 MSG_DATAOPSGUI_FEET
 Feet
 Fuß
-
 
 
 ;
@@ -2821,11 +2423,9 @@ DEM Designer
 DEM Designer
 
 
-
 ;
 MSG_DEMGUI_CONTROLPTS
 Control Pts
-
 
 
 
@@ -2835,12 +2435,10 @@ MSG_DEMGUI_MAP
 
 
 
-
 ;
 MSG_DEMGUI_ADD
 \33cAdd
 \33cHinzufügen
-
 
 
 ;
@@ -2849,18 +2447,15 @@ MSG_DEMGUI_MOVE
 \33cVerschieben
 
 
-
 ;
 MSG_DEMGUI_DEL
 \33cDel
 \33cLöschen
 
 
-
 ;
 MSG_DEMGUI_PTINFO
 \33cPt Info
-
 
 
 
@@ -2870,11 +2465,9 @@ MSG_DEMGUI_SETEL
 
 
 
-
 ;
 MSG_DEMGUI_ELEVSOURCE
 Elev Source
-
 
 
 
@@ -2884,11 +2477,9 @@ MSG_DEMGUI_ELEVUNITS
  Höhen Einheit
 
 
-
 ;
 MSG_DEMGUI_DISPLACE
    Displace
-
 
 
 
@@ -2898,11 +2489,9 @@ MSG_DEMGUI_DRAWMODE
 Zeichenmodus
 
 
-
 ;
 MSG_DEMGUI_NOGRADIENTREVERSAL
 \33cNo Gradient Reversal
-
 
 
 
@@ -2912,11 +2501,9 @@ Minimum Spacing \x20
 
 
 
-
 ;
 MSG_DEMGUI_STDDEVIATION
   Std Deviation\x20
-
 
 
 
@@ -2926,11 +2513,9 @@ MSG_DEMGUI_NONLINEARITY
   Nichtlinearität\x20
 
 
-
 ;
 MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU
 This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?
-
 
 
 
@@ -2940,11 +2525,9 @@ DEM Builder
 
 
 
-
 ;
 MSG_DEMGUI_ELEVATIONMODELGRID
 \33c\0334Elevation Model Grid
-
 
 
 
@@ -2954,18 +2537,15 @@ MSG_DEMGUI_OPTIONS
 \33c\0334Optionen
 
 
-
 ;
 MSG_DEMGUI_GRADIENTS
 Gradients\x20\x20
 Gradienten\x20
 
 
-
 ;
 MSG_DEMGUI_CHOROPLETH
 Choropleth\x20
-
 
 
 
@@ -2975,12 +2555,10 @@ Density\x20\x20\x20\x20
 Dichte\x20\x20\x20\x20\x20
 
 
-
 ;
 MSG_DEMGUI_EXTRAPOLATE
 Extrapolate
 Extrapolieren
-
 
 
 ;
@@ -2989,12 +2567,10 @@ South Hemi.
 Südl. Hemi.
 
 
-
 ;
 MSG_DEMGUI_BOUNDARIES
 \33c\0334Boundaries
 \33c\0334Grenzen
-
 
 
 ;
@@ -3003,12 +2579,10 @@ North
 Nord
 
 
-
 ;
 MSG_DEMGUI_SOUTH
 South
 Süd
-
 
 
 ;
@@ -3017,18 +2591,15 @@ East
 Ost
 
 
-
 ;
 MSG_DEMGUI_WEST
 West
 West
 
 
-
 ;
 MSG_DEMGUI_ELLOVERLAP
 \33c\0334Cell Overlap
-
 
 
 
@@ -3038,12 +2609,10 @@ Horiz
 Horiz
 
 
-
 ;
 MSG_DEMGUI_VERT
 Vert
 Vert
-
 
 
 ;
@@ -3052,12 +2621,10 @@ MSG_DEMGUI_SURFACETAUTNESS
 \33c\033fOberflächenspannung
 
 
-
 ;
 MSG_DEMGUI_SCALE
 \33c\0334Scale
 \33c\0334Skalieren
-
 
 
 ;
@@ -3066,12 +2633,10 @@ Null
 Null
 
 
-
 ;
 MSG_DEMGUI_DELTA
 Delta
 Delta
-
 
 
 ;
@@ -3080,11 +2645,9 @@ MSG_DEMGUI_GRID
 \33cGitter
 
 
-
 ;
 MSG_DEMGUI_NOISE
 \33cNoise
-
 
 
 
@@ -3094,18 +2657,15 @@ MSG_DEMGUI_DRAW
 \33cZeichnen
 
 
-
 ;
 MSG_DEMGUI_SAVE
 \33cSave
 \33cSpeichern
 
 
-
 ;
 MSG_DEMGUI_MAPVIEWDEMGRIDDER
 Map View: DEM Gridder
-
 
 
 
@@ -3115,12 +2675,10 @@ NewDEM
 Neues DEM
 
 
-
 ;
 MSG_DEMGUI_IMPORT
 \33cImport
 \33cImportieren
-
 
 
 ;
@@ -3129,11 +2687,9 @@ MSG_DEMGUI_SAVEPTS
 \33cPunkte speichern
 
 
-
 ;
 MSG_DEMGUI_BUILD
 \33cBuild...
-
 
 
 
@@ -3143,12 +2699,10 @@ MSG_DEMGUI_DRAWPTS
 \33cPunkte zeichnen
 
 
-
 ;
 MSG_DEMGUI_CLEARPTS
 \33cClear Pts
 \33cPunkte löschen
-
 
 
 ;
@@ -3157,12 +2711,10 @@ Non-Neg\x20\x20\x20\x20
 Nicht-Negativ\x20
 
 
-
 ;
 MSG_DEMGUI_OUTPUT
 \33c\0334Output
 \33c\0334Ausgabe
-
 
 
 ;
@@ -3171,18 +2723,15 @@ Cols
 Spalten
 
 
-
 ;
 MSG_DEMGUI_ROWS
 Rows
 Zeilen
 
 
-
 ;
 MSG_DEMGUI_OPTIONALNOISEMAP
 \33c\0334Optional Noise Map
-
 
 
 
@@ -3192,12 +2741,10 @@ Seed
 Startwert
 
 
-
 ;
 MSG_DEMGUI_FRACT
 Fract
 Frakt
-
 
 
 ;
@@ -3206,11 +2753,9 @@ Offset X
 Offset X
 
 
-
 ;
 MSG_DEMGUI_SCOPE
 Scope
-
 
 
 
@@ -3220,12 +2765,10 @@ MSG_DEMGUI_APPLYNOISEMAP
 
 
 
-
 ;
 MSG_DEMGUI_OUTPUTDEMNAME
 Output DEM Name\x20
 Ausgabe-DEM Name\x20
-
 
 
 ;
@@ -3234,17 +2777,14 @@ Select contour objects to import and reselect "Import" when done.
 
 
 
-
 MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED
 Can't open Database Editor window!\nOperation terminated.
 Das Datenbank-Editorfenster konnte nicht geöffnet werden!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEMGUI_EXTRACTELEVATIONVALUESFROMOBJECTNAMESLABELFIELDSORUS
 Extract elevation values from Object Names, Label fields or use the values embedded in the Objects themselves?
-
 
 
 
@@ -3254,11 +2794,9 @@ Map View: Export Contours
 
 
 
-
 ;
 MSG_DEMGUI_NAMELABELEMBEDDED
 Name|Label|Embedded
-
 
 
 
@@ -3268,18 +2806,15 @@ Error importing contour data!\nOperation terminated.
 Fehler beim Importieren der Konturdaten!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEMGUI_ATLEASTONEOBJECTFAILEDTOLOADANDCOULDNOTBEIMPORTED
 At least one Object failed to load and could not be imported.
 Mindestens ein Objekt konnte nicht geladen und importiert werden.
 
 
-
 ;
 MSG_DEMGUI_MAPVIEWIMPORTCONTOURS
 Map View: Import Contours
-
 
 
 
@@ -3289,12 +2824,10 @@ XYZ Path/File
 XYZ Pfad/Datei
 
 
-
 ;
 MSG_DEMGUI_YOUDIDNOTSELECTAFILETOIMPORTPERATIONTERMINATED
 You did not select a file to import!\nOperation terminated.
 Sie haben keine Datei zum Importieren angegeben!\nVorgang abgebrochen.
-
 
 
 ;
@@ -3303,11 +2836,9 @@ Enter the UTM zone number (0-60) for the data you are about to import.
 Geben Sie die UTM-Zonennummer (0-60) für die zu importierenden Daten ein.
 
 
-
 ;
 MSG_MAPGUI_MAPVIEWBUILDDEM
 Map View: Build DEM
-
 
 
 
@@ -3317,18 +2848,15 @@ UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation ter
 Die UTM-Zone muss im Bereich 0-60 liegen! Die ausgewählte Zone liegt nicht in diesem Bereich!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEMGUI_ERROROPENINGXYZFILETOIMPORTPERATIONTERMINATED
 Error opening XYZ file to import!\nOperation terminated.
 Fehler beim Öffnen der XYZ-Datei zum importieren!\nVorganng abgebrochen.
 
 
-
 ;
 MSG_DEMGUI_MAPVIEWXYZEXPORT
 Map View: XYZ Export
-
 
 
 
@@ -3338,19 +2866,16 @@ Error writing to XYZ file! Partial file written.\nOperation terminated.
 Fehler beim Schreiben der XYZ-Datei! Datei wurde nur teilweise geschrieben.\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
 You must specify an output file name!\nOperation terminated.
 Sie müssen einen Namen für die Ausgabedatei angeben!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DEMGUI_UNABLETOOPENXYZFILEFOREXPORTPERATIONTERMINATED
 Unable to open XYZ file for export!\nOperation terminated.
 Die XYZ-Datei konnte nicht zum Exportieren geöffnet werden!\nVorgang abgebrochen.
-
 
 
 ;
@@ -3361,11 +2886,9 @@ Data Ops Module: Import DLG
 
 
 
-
 ;
 MSG_DLG_OUTOFMEMORYALLOCATINGTEMPORARYARRAYSPERATIONTERMINATED
 Out of memory allocating temporary arrays!\nOperation terminated.
-
 
 
 
@@ -3375,12 +2898,10 @@ DLG File
 DLG-Datei
 
 
-
 ;
 MSG_DLG_NOFILESSELECTED
 No file(s) selected!
 Keine Datei(en) ausgewählt!
-
 
 
 ;
@@ -3389,11 +2910,9 @@ Can't open DLG file for input!\nOperation terminated.
 Die DLG-Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DLG_FILENOTAUSGSOPTIONALDLGPERATIONTERMINATED
 File not a USGS Optional DLG!\nOperation terminated.
-
 
 
 
@@ -3403,12 +2922,10 @@ Inappropriate UTM Zone!\nOperation terminated.
 Unzulässige UTM-Zone!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DLG_THISFILECONTAINSDATAINANUNSUPPORTEDREFERENCESYSTEMPERAT
 This file contains data in an unsupported Reference System!\nOperation terminated.
 Diese Datei enthält Daten in einem nicht unterstützten Referenzsystem!\nVorgang abgebrochen.
-
 
 
 ;
@@ -3417,12 +2934,10 @@ Reading
 Lesen
 
 
-
 ;
 MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE
 Enter up to 3 characters as a prefix for this DLG set if you desire.
 Wenn Sie möchten können Sie bis zu 3 Zeichen als Präfix für diesen DLG-Satz vergeben.
-
 
 
 ;
@@ -3431,18 +2946,15 @@ Out of memory expanding database!\nOperation terminated.
 Nicht genügend Speicher für die Erweiterung der Datenbank!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DLG_ERRORSAVINGOBJECTFILEPERATIONTERMINATED
 Error saving object file!\nOperation terminated.
 Fehler beim Speichern der Objektdatei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DLG_DATAOPSMODULEIMPORTDXF
 Data Ops Module: Import DXF
-
 
 
 
@@ -3452,12 +2964,10 @@ DXF File
 DXF-Datei
 
 
-
 ;
 MSG_DLG_CANTOPENDXFFILEFORINPUTPERATIONTERMINATED
 Can't open DXF file for input!\nOperation terminated.
 Die DXF-Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
-
 
 
 ;
@@ -3466,12 +2976,10 @@ Improper Code value found!\nOperation terminated prematurely.
 Unzulässiger Codewert gefunden!\nOperation vorzeitig abgebrochen.
 
 
-
 ;
 MSG_DLG_ERRORSAVINGOBJECTPERATIONTERMINATED
 Error saving object!\nOperation terminated.
 Fehler beim Speichern des Objektes!\nVorgang abgebrochen.
-
 
 
 ;
@@ -3480,11 +2988,9 @@ An entity has been found with no name identifier. Please enter a default name.
 Ein Eintrag ohne Namenskennzeichnung wurde gefunden. Bitte geben Sie einen Standardnamen ein.
 
 
-
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTASTITEMDOESNOTAPP
 Out of memory expanding Database Editor List!\nLast item does not appear in list view.
-
 
 
 
@@ -3494,11 +3000,9 @@ Error saving last object!\nOperation terminated.
 Fehler beim Speichern des letzten Objekts!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DLG_DATAOPSMODULEIMPORTWDB
 Data Ops Module: Import WDB
-
 
 
 
@@ -3508,12 +3012,10 @@ WDB File
 WDB-Datei
 
 
-
 ;
 MSG_DLG_CANTOPENWDBFILEFORINPUTPERATIONTERMINATED
 Can't open WDB file for input!\nOperation terminated.
 Die WDB-Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
-
 
 
 ;
@@ -3522,12 +3024,10 @@ Error opening source file!\nOperation terminated.
 Fehler beim Öffnen der Quelldatei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DLG_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
 Fehler bei Öffnen der Ausgabedatei!\nVorgang abgebrochen.
-
 
 
 ;
@@ -3536,12 +3036,10 @@ Unsupported attribute code!\nOperation terminated.
 Nicht unterstützter Attribut-Code!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DLG_OBJECTCONTAINSTOOMANYPOINTSPERATIONTERMINATED
 Object contains too many points!\nOperation terminated.
 Das Objekt enthält zu viele Punkte!\nVorgang abgebrochen.
-
 
 
 ;
@@ -3551,12 +3049,10 @@ New database created: %s
 Neue Datenbank erzeugt: %s
 
 
-
 ;
 MSG_DB_ERRORSAVINGDATABASEELECTANEWDIRECTORY
 Error saving database!\nSelect a new directory?
 Fehler beim Speichern der Datenbank!\nEinen neuen Ordner wählen?
-
 
 
 ;
@@ -3565,12 +3061,10 @@ OK|Canel
 OK|Abbrechen
 
 
-
 ;
 MSG_DB_DATABASE
 Database
 Datenbank
-
 
 
 ;
@@ -3579,12 +3073,10 @@ Number of objects = %d
 Anzahl Objekte = %d
 
 
-
 ;
 MSG_DB_DIRECTORYCREATED
 Directory Created: %s
 Verzeichnis angelegt: %s
-
 
 
 ;
@@ -3593,12 +3085,10 @@ New directory created: %s. Make it the default directory?
 Neues Verzeichnis angelegt: %s. Soll es das Standardverzeichnis werden?
 
 
-
 ;
 MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA
 Illegal number of database records: less than one!\nOperation terminated.
 Ungültige Anzahl Datenbankeinträge: Weniger als eins!\nVorgang abgebrochen.
-
 
 
 ;
@@ -3607,11 +3097,9 @@ Out of memory!\nCan't update database list.
 Nicht genügend Speicher!\nDie Datenbankliste konnte nicht erneuert werden.
 
 
-
 ;
 MSG_DB_VECTORLOAD
 Vector Load
-
 
 
 
@@ -3621,11 +3109,9 @@ MSG_DB_OBJECTS
 %d Objekte
 
 
-
 ;
 MSG_DB_ATLEASTONEVECTORFILEWASFOUNDTOCONTAINANUMBEROFPOINTSDIFF
 At least one vector file was found to contain a number of points different from that in its Database record!\nThe record has been updated.\nDatabase should be re-saved.
-
 
 
 
@@ -3635,12 +3121,10 @@ Map View: Load
 
 
 
-
 ;
 MSG_DB_ERRORREADINGELEVATIONSOBJECTNOTLOADED
 Error reading elevations! Object not loaded.
 Fehler beim Lesen der Höhenwerte! Objekt wurde nicht geladen.
-
 
 
 ;
@@ -3649,12 +3133,10 @@ Error reading latitudes! Object not loaded.
 Fehler beim Lesen der Breitengrade! Objekt wurde nicht geladen.
 
 
-
 ;
 MSG_DB_ERRORREADINGLONGITUDESOBJECTNOTLOADED
 Error reading longitudes! Object not loaded.
 Fehler beim Lesen der Längengrade! Objekt wurde nicht geladen.
-
 
 
 ;
@@ -3663,12 +3145,10 @@ Out of memory! Object not loaded.
 Nicht genügend Speicher! Objekt wurde nicht geladen.
 
 
-
 ;
 MSG_DB_ERRORREADINGHEADEROBJECTNOTLOADED
 Error reading header! Object not loaded.
 Fehler beim Lesen des Headers! Objekt wurde nicht geladen.
-
 
 
 ;
@@ -3677,12 +3157,10 @@ Unsupported file version! Object not loaded.
 Nicht unterstützte Dateiversion!  Objekt wurde nicht geladen.
 
 
-
 ;
 MSG_DB_OBJECTDIRECTORY
 Object Directory
 Objektverzeichnis
-
 
 
 ;
@@ -3691,12 +3169,10 @@ Database Module: Name
 Datenbank Modul: Name
 
 
-
 ;
 MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME
 Vector name already present in database!\nTry a new name?
 Der Vektorname ist in der Datenbank bereits vorhanden!\nEinen neuen Namen versuchen?
-
 
 
 ;
@@ -3705,18 +3181,15 @@ Database Module: Editor
 Datenbank Modul: Editor
 
 
-
 ;
 MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN
 No memory for vector coordinates!\nNew object has been created but can not be edited until memory is available.
 Nicht genügend Speicher für die Vektorkoordinaten!\nEin neues Objekt wurde erzeugt, aber es kann erst bearbeitet werden, wenn freier Speicher verfügbar ist.
 
 
-
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE
 Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.
-
 
 
 
@@ -3726,12 +3199,10 @@ Add Object
 Objekt hinzufügen
 
 
-
 ;
 MSG_DB_DATABASEADDOBJECT
 Database: Add Object
 Datenbank: Objekt hinzufügen
-
 
 
 ;
@@ -3740,12 +3211,10 @@ No file(s) selected!
 Keine Datei(en) ausgewählt!
 
 
-
 ;
 MSG_DB_OBJECTMUSTENDINSUFFIXOBJ
 Object must end in suffix "Obj"!
 Das Objekt muss die Endung "Obj" haben!
-
 
 
 ;
@@ -3754,11 +3223,9 @@ Object name already present in database!\nDuplicate items will be skipped.
 Der Objektname ist in der Datenbank bereits vorhanden!\nDoppelte Einträge werden ignoriert.
 
 
-
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENADD
 Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.
-
 
 
 
@@ -3768,11 +3235,9 @@ Error loading this Object!\nOperation terminated.
 Fehler beim Laden dieses Objekts!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DB_MAPVIEWSAVEALL
 Map View: Save All
-
 
 
 
@@ -3782,11 +3247,9 @@ Error writing Master Object file!\nOperation terminated.
 Fehler beim Schreiben der Master-Objektdatei!\nOperation abgebrochen.
 
 
-
 ;
 MSG_DB_WCSMASTEROBJECT
 WCSMasterObject
-
 
 
 
@@ -3796,18 +3259,15 @@ Out of memory loading Master Object File!\nEnabled Objects will be loaded indivi
 
 
 
-
 ;
 MSG_DB_ERRORREADINGMASTEROBJECTFILEPERATIONTERMINATED
 Error reading Master Object file!\nOperation terminated.
 Fehler beim Lesen der Master-Objektdatei!\nOperation abgebrochen.
 
 
-
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
-
 
 
 
@@ -3817,11 +3277,9 @@ MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 .MDB ist keine WCS-Master-Objekt-Datei!
 
 
-
 ;
 MSG_DB_RECORDSMARKED
 Records = %d, Marked = %d
-
 
 
 
@@ -3831,12 +3289,10 @@ Data Ops: Convert DEM
 
 
 
-
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYAFILETOCONVERTPERATIONTERMINATED
 You must specify a file to convert!\nOperation terminated.
 Sie müssen eine Datei zum Konvertieren angeben!\nVorgang abgebrochen.
-
 
 
 ;
@@ -3845,18 +3301,15 @@ You must specify input rows and columns!\nOperation terminated.
 Die Anzahl von Eingabezeilen und -spalten muss angeben werden!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DATAOPS_THEREISNODATABASETODIRECTOUTPUTENTITIESTOPERATIONTE
 There is no Database to direct output entities to!\nOperation terminated.
 Es ist keine Datenbank für die Weiterleitung der Ergebnisse vorhanden!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DATAOPS_INPUTDATACANNOTBEEQUALLYDIVIDEDAMONGOUTPUTMAPSASTCO
 Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows.
-
 
 
 
@@ -3866,12 +3319,10 @@ Continue|Truncate|Cancel
 Weiter|Abschneiden|Abbrechen
 
 
-
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTRO
 Incorrect file size for specified header, width and height!\nProceed anyway?
 Falsche Dateigröße für den angegebenen Header, Breite und Höhe!\nTrotzdem weitermachen?
-
 
 
 ;
@@ -3881,12 +3332,10 @@ Invert Data order?
 Daten-Reihenfolge invertieren?
 
 
-
 ;
 MSG_DATAOPS_INVERTING
 Inverting
 Invertieren
-
 
 
 ;
@@ -3895,12 +3344,10 @@ Floor
 Untergrenze
 
 
-
 ;
 MSG_DATAOPS_CEILING
 Ceiling
 Obergrenze
-
 
 
 ;
@@ -3909,11 +3356,9 @@ Replace
 Ersetzen
 
 
-
 ;
 MSG_DATAOPS_RESAMPLE
 Resample
-
 
 
 
@@ -3923,12 +3368,10 @@ Extrema
 Extrema
 
 
-
 ;
 MSG_DATAOPS_CONVERT
 Convert
 Konvertieren
-
 
 
 ;
@@ -3937,18 +3380,15 @@ Unable to open file for input!\nOperation terminated.
 Die Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DATAOPS_CONVERTDEMSOURCEFILE
 Convert DEM source file
 DEM Konvertieren Quelldatei
 
 
-
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTPE
 Incorrect file size for specified header, width and height!\nOperation terminated.
-
 
 
 
@@ -3958,12 +3398,10 @@ Unable to open file for output!\nOperation terminated.
 Die Datei konnen nicht zum Schreiben geöffnet werden!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DATAOPS_CONVERTDEMDESTINATIONFILE
 Convert DEM destination file
 DEM Konvertieren Zieldatei
-
 
 
 ;
@@ -3972,12 +3410,10 @@ Error writing destination file!\nOperation terminated.
 Fehler beim Schreiben der Zieldatei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DATAOPS_ERRORREADINGSOURCEFILEPERATIONTERMINATED
 Error reading source file!\nOperation terminated.
 Fehler beim Lesen der Quelldatei!\nVorgang abgebrochen.
-
 
 
 ;
@@ -3986,12 +3422,10 @@ Not a compressed file!\nOperation terminated.
 Keine komprimierte Datei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DATAOPS_EXTENDEDHEADERPERATIONTERMINATED
 Extended header!\nOperation terminated.
 Erweiteter Header!\nVorgang abgebrochen.
-
 
 
 ;
@@ -4000,12 +3434,10 @@ Input file configuration not yet supported!\nOperation terminated.
 Die Konfiguration dieser Eingebadatei wird z.Z. noch nicht unterstützt!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DATAOPS_CONVERTDEMSOURCETYPE
 Convert DEM source type
 DEM konvertieren Quelltyp
-
 
 
 ;
@@ -4014,19 +3446,16 @@ Input data format not supported!\nCheck your settings.\nOperation terminated.
 Nicht unterstütztes Eingabedatenformat!\nÜberprüfen Sie Ihre Einstellungen.\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DATAOPS_ERRORSAVINGOBJFILEOPERATIONTERMOINATED
 Error saving ".Obj" file!\nOperation terminated.
 Fehler beim Speichern der ".Obj" Datei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED
 Input file not recognized as a DTED file!\nOperation terminated.
 Eingabedatei nicht als DTED-Datei erkannt!\nVorgang abgebrochen.
-
 
 
 ;
@@ -4036,18 +3465,15 @@ DTED
 DTED
 
 
-
 ;
 MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 !\nIllegal source value format/size combination!\nOperation terminated.
 !\nUngültige Kombination von Quell-Format und -größe!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DATAOPSGUI_BINARRAY
 Bin Array
-
 
 
 
@@ -4057,11 +3483,9 @@ MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 
 
 
-
 ;
 MSG_DATAOPSGUI_BINARYARRAY
 Binary Array
-
 
 
 
@@ -4071,18 +3495,15 @@ WCS DEM
 WCS DEM
 
 
-
 ;
 MSG_DATAOPSGUI_ZBUFFER
 Z Buffer
 Z Puffer
 
 
-
 ;
 MSG_DATAOPSGUI_ASCIIARRAY
 Ascii Array
-
 
 
 
@@ -4092,18 +3513,15 @@ Vista DEM
 Vista DEM
 
 
-
 ;
 MSG_DATAOPSGUI_IFF
 IFF
 IFF
 
 
-
 ;
 MSG_DATAOPSGUI_COLORMAP
 Color Map
-
 
 
 
@@ -4113,12 +3531,10 @@ Gray IFF
 Grau-IFF
 
 
-
 ;
 MSG_DATAOPSGUI_COLORIFF
 Color IFF
 Farb-IFF
-
 
 
 ;
@@ -4127,12 +3543,10 @@ Signed Int
 Signed Int
 
 
-
 ;
 MSG_DATAOPSGUI_UNSIGNEDINT
 Unsigned Int
 Unsigned Int
-
 
 
 ;
@@ -4141,12 +3555,10 @@ Floating Pt
 Fließkomma
 
 
-
 ;
 MSG_DATAOPSGUI_ONE
 One
 Eins
-
 
 
 ;
@@ -4155,12 +3567,10 @@ Two
 Zwei
 
 
-
 ;
 MSG_DATAOPSGUI_FOUR
 Four
 Vier
-
 
 
 ;
@@ -4169,11 +3579,9 @@ Eight
 Acht
 
 
-
 ;
 MSG_DATAOPSGUI_HIGHLOW
 High-Low
-
 
 
 
@@ -4183,12 +3591,10 @@ Low-High
 
 
 
-
 ;
 MSG_DATAOPSGUI_BYROW
 By Row
 Zeilenweise
-
 
 
 ;
@@ -4197,12 +3603,10 @@ By Column
 Spaltenweise
 
 
-
 ;
 MSG_DATAOPSGUI_LATITUDE
 Latitude
 Breite
-
 
 
 ;
@@ -4211,12 +3615,10 @@ Longitude
 Länge
 
 
-
 ;
 MSG_DATAOPSGUI_INCHES
 Inches
 Zoll
-
 
 
 ;
@@ -4225,11 +3627,9 @@ Other
 Andere
 
 
-
 ;
 MSG_DATAOPSGUI_TWOVALUEEQUIVALENCE
 \0334Two Value Equivalence
-
 
 
 
@@ -4239,11 +3639,9 @@ MSG_DATAOPSGUI_ONEVALUEEQUIVALENCE
 
 
 
-
 ;
 MSG_DATAOPSGUI_MAXMINSTRETCH
 \0334Max-Min Stretch
-
 
 
 
@@ -4253,11 +3651,9 @@ Max Out
 
 
 
-
 ;
 MSG_DATAOPSGUI_MINOUT
 Min Out
-
 
 
 
@@ -4267,11 +3663,9 @@ I/O Scale
 I/O Skalieren
 
 
-
 ;
 MSG_DATAOPSGUI_DEMREGISTRATION
 \0334DEM Registration
-
 
 
 
@@ -4281,12 +3675,10 @@ MSG_DATAOPSGUI_VALUEFORMATSAMPLING
 
 
 
-
 ;
 MSG_DATAOPSGUI_VALUEFORMATCOLORED
 \0334Value Format
 \0334Werteformat
-
 
 
 ;
@@ -4295,12 +3687,10 @@ MSG_DATAOPSGUI_PREPROCESS
 \0334Vorverabeitung
 
 
-
 ;
 MSG_DATAOPSGUI_DEMCONVERTER
 DEM Converter
 DEM Konverter
-
 
 
 ;
@@ -4309,12 +3699,10 @@ MSG_DATAOPSGUI_INPUTFORMAT
  Eingabeformat
 
 
-
 ;
 MSG_DATAOPSGUI_INPUTFILESIZE
 Input File Size
 Eingabedateigröße
-
 
 
 ;
@@ -4323,12 +3711,10 @@ Header Bytes
 Headerbytes
 
 
-
 ;
 MSG_DATAOPSGUI_VALUEFORMAT
 Value Format
        Werteformat
-
 
 
 ;
@@ -4337,12 +3723,10 @@ MSG_DATAOPSGUI_VALUEBYTES
     Bytes pro Wert
 
 
-
 ;
 MSG_DATAOPSGUI_BYTEORDER
   Byte Order
    Bytereihenfolge
-
 
 
 ;
@@ -4351,12 +3735,10 @@ MSG_DATAOPSGUI_READORDER
    Lesereihenfolge
 
 
-
 ;
 MSG_DATAOPSGUI_ROWSEQUAL
   Rows Equal
 Zeilen entsprechen
-
 
 
 ;
@@ -4365,12 +3747,10 @@ MSG_DATAOPSGUI_DATAUNITS
          Einheiten
 
 
-
 ;
 MSG_DATAOPSGUI_FLOOR
   Floor
 Untergrenze
-
 
 
 ;
@@ -4379,12 +3759,10 @@ Ceiling
  Obergrenze
 
 
-
 ;
 MSG_DATAOPSGUI_REPLACE
  Replace
  Ersetzen
-
 
 
 ;
@@ -4394,12 +3772,10 @@ by
 durch
 
 
-
 ;
 MSG_DATAOPSGUI_CROPLEFT
 Crop Left
 Links zuschneiden
-
 
 
 ;
@@ -4408,12 +3784,10 @@ MSG_DATAOPSGUI_RIGHT
     Rechts
 
 
-
 ;
 MSG_DATAOPSGUI_CROPTOP
  Crop Top
  Oben zuschneiden
-
 
 
 ;
@@ -4422,12 +3796,10 @@ MSG_DATAOPSGUI_BOTTOM
    Unten
 
 
-
 ;
 MSG_DATAOPSGUI_INPUTCOLS
 Input Cols
     Eingabespalten
-
 
 
 ;
@@ -4436,11 +3808,9 @@ Input Rows
      Eingabezeilen
 
 
-
 ;
 MSG_DATAOPSGUI_WRAPLONGITUDE
 Wrap Longitude
-
 
 
 
@@ -4450,12 +3820,10 @@ MSG_DATAOPSGUI_TEST
 \33cTesten
 
 
-
 ;
 MSG_DATAOPSGUI_MIN
 Min
 Min
-
 
 
 ;
@@ -4464,12 +3832,10 @@ Max
 Max
 
 
-
 ;
 MSG_DATAOPSGUI_OUTPUTFORMAT
 Output Format
 Ausgabeformat
-
 
 
 ;
@@ -4478,12 +3844,10 @@ Out Dir
 Ausgabeordner
 
 
-
 ;
 MSG_DATAOPSGUI_NAME
 Name
 Name
-
 
 
 ;
@@ -4492,12 +3856,10 @@ DEMs Row-Wise E/W
 DEMs zeilenweise  O/W
 
 
-
 ;
 MSG_DATAOPSGUI_COLUMNWISENS
   Column-Wise N/S
      spaltenweise N/S
-
 
 
 ;
@@ -4506,12 +3868,10 @@ High Lat
  Obere Breite
 
 
-
 ;
 MSG_DATAOPSGUI_LOWLAT
  Low Lat
 Untere Breite
-
 
 
 ;
@@ -4520,12 +3880,10 @@ High Lon
  Obere Länge\x20
 
 
-
 ;
 MSG_DATAOPSGUI_LOWLON
  Low Lon
 Untere Länge\x20
-
 
 
 ;
@@ -4534,18 +3892,15 @@ MSG_DATAOPSGUI_OUTPUTCOLS
 Ausgabe Spalten
 
 
-
 ;
 MSG_DATAOPSGUI_OUTPUTROWS
  Output Rows
  Ausgabe Zeilen
 
 
-
 ;
 MSG_DATAOPSGUI_SPLINECONSTRAINT
 Spline Constraint
-
 
 
 
@@ -4555,12 +3910,10 @@ MSG_DATAOPSGUI_INPUT
 \0334  Eingabe\x20\x20
 
 
-
 ;
 MSG_DATAOPSGUI_OUTPUT
 \0334  Output\x20
 \0334 Ausgabe\x20
-
 
 
 ;
@@ -4569,12 +3922,10 @@ Value 1
 Wert 1
 
 
-
 ;
 MSG_DATAOPSGUI_VALUE2
 Value 2
 Wert 2
-
 
 
 ;
@@ -4583,12 +3934,10 @@ Max Out Val
 Max Ausgabewert
 
 
-
 ;
 MSG_DATAOPSGUI_MINOUTVAL
 Min Out Val
 Min Ausgabewert
-
 
 
 ;
@@ -4597,12 +3946,10 @@ MSG_DATAOPSGUI_CONVERT
 \33cKonvertieren
 
 
-
 ;
 MSG_DATAOPSGUI_OUTPUTDIRECTORY
 Output Directory
 Ausgabeverzeichnis
-
 
 
 ;
@@ -4611,12 +3958,10 @@ File to Convert
 Zu konvertierende Datei
 
 
-
 ;
 MSG_DATAOPSGUI_UNABLETOOPENFILEFORINPUT
 Unable to open file for input!\n
 Kann Datei nicht zum Lesen öffnen!\n
-
 
 
 ;
@@ -4625,11 +3970,9 @@ Unable to read file size!\n
 Dateigröße kann nicht gelesen werden!\n
 
 
-
 ;
 MSG_DATAOPSGUI_DATAOPSCONVERT
 Data Ops: Convert
-
 
 
 
@@ -4639,12 +3982,10 @@ Warning!\nFile is not a WCS DEM file.
 Warnung\nDie Datei ist keine WCS DEM Datei.
 
 
-
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFZBUFFERFILE
 Warning!\nFile is not an IFF Z Buffer file.
 Warnung\nDie Datei ist keine IFF Z Puffer Datei.
-
 
 
 ;
@@ -4653,12 +3994,10 @@ Warning\nFile is not a Vista DEM file.
 Warnung\nDie Datei ist keine Vista DEM Datei.
 
 
-
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTACOMPRESSEDVISTAFILEANDCANNOTBEIM
 Warning\nFile is not a compressed Vista file and cannot be imported.
 Warnung\nDie Datei ist keine komprimierte Vista date und kann deshalb nicht importiert werden.
-
 
 
 ;
@@ -4667,12 +4006,10 @@ Is this a Small, Large or Huge Vista file?
 Ist dies eine "Small", "Large" oder "Huge" Vista Datei?
 
 
-
 ;
 MSG_DATAOPSGUI_SMALLLARGEHUGE
 Small|Large|Huge
 Small|Large|Huge
-
 
 
 ;
@@ -4681,12 +4018,10 @@ Warning\nFile is not an IFF file.
 Warnung\nDie Datei ist keine IFF-Datei.
 
 
-
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFIMAGEFILE
 Warning\nFile is not an IFF image file.
 Warnung\nDie Datei ist keine IFF-Bilddatei.
-
 
 
 ;
@@ -4695,18 +4030,15 @@ Error reading bitmap header.
 Fehler beim Lesen des Bitmap-Headers.
 
 
-
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTRECOGNIZEDASADTEDFILE
 Warning\nFile is not recognized as a DTED file.
 Warnung\nDie Datei wurde nicht als DTED-Datei erkannt.
 
 
-
 ;
 MSG_DATAOPSGUI_DATAOPSINTERPDEM
 Data Ops: Interp DEM
-
 
 
 
@@ -4716,12 +4048,10 @@ DEM Interpolate
 DEM Interpolieren
 
 
-
 ;
 MSG_DATAOPSGUI_SELECTFILES
 \33cSelect Files
 \33cDateien auswählen
-
 
 
 ;
@@ -4730,11 +4060,9 @@ MSG_DATAOPSGUI_SELECTED
  Ausgewählt
 
 
-
 ;
 MSG_DATAOPSGUI_ELEVATIONVAR
 Elevation Var %
-
 
 
 
@@ -4744,12 +4072,10 @@ MSG_DATAOPSGUI_MAXFLATVAR
 
 
 
-
 ;
 MSG_DATAOPSGUI_INTERPOLATE
 \33cInterpolate
 \33cInterpolieren
-
 
 
 ;
@@ -4758,12 +4084,10 @@ DEM Files
 DEM-Dateien
 
 
-
 ;
 MSG_DEFPARM_AMBIENT
 Ambient
 Umgebungslicht
-
 
 
 ;
@@ -4772,12 +4096,10 @@ Sun
 Sonne
 
 
-
 ;
 MSG_DEFPARM_HAZE
 Haze
 Dunst
-
 
 
 ;
@@ -4786,12 +4108,10 @@ Horizon
 Horizont
 
 
-
 ;
 MSG_DEFPARM_ZENITH
 Zenith
 Zenit
-
 
 
 ;
@@ -4800,12 +4120,10 @@ Surface Grid
 Oberflächengitter
 
 
-
 ;
 MSG_DEFPARM_SURFACE1
 Surface 1
 Oberfläche 1
-
 
 
 ;
@@ -4814,12 +4132,10 @@ Surface 3
 Oberfläche 2
 
 
-
 ;
 MSG_DEFPARM_SURFACE3
 Surface 3
 Oberfläche 3
-
 
 
 ;
@@ -4828,12 +4144,10 @@ Surface 4
 Oberfläche4
 
 
-
 ;
 MSG_DEFPARM_WATER
 Water
 Wasser
-
 
 
 ;
@@ -4842,12 +4156,10 @@ Snow
 Schnee
 
 
-
 ;
 MSG_DEFPARM_TUNDRA
 Tundra
 Tundra
-
 
 
 ;
@@ -4856,12 +4168,10 @@ Wetland
 Feuchtgebiete
 
 
-
 ;
 MSG_DEFPARM_GRASS
 Grass
 Gras
-
 
 
 ;
@@ -4870,12 +4180,10 @@ Deciduous
 Laubbäume
 
 
-
 ;
 MSG_DEFPARM_CONIFER
 Conifer
 Nadelbäume
-
 
 
 ;
@@ -4884,12 +4192,10 @@ Granite
 Granit
 
 
-
 ;
 MSG_DEFPARM_GROUND
 Ground
 Boden
-
 
 
 ;
@@ -4898,12 +4204,10 @@ Riparian
 Uferzone
 
 
-
 ;
 MSG_DEFPARM_ROCK
 Rock
 Fels
-
 
 
 ;
@@ -4912,18 +4216,15 @@ Bare Ground
 Nackter Boden
 
 
-
 ;
 MSG_DEFPARM_PARAMETERSMODULEDEFAULTS
 Parameters Module: Defaults
 Parameter Modul: Voreinstellungen
 
 
-
 ;
 MSG_DEFPARM_PLEASEENABLEATLEASTONETOPODEMANDTRYAGAIN
 Please enable at least one topo DEM and try again.
-
 
 
 
@@ -4933,13 +4234,11 @@ Please close all Time Lines windows and try again.
 Bitte schließen Sie alle Zeitleistenfenster und versuchen Sie es erneut.
 
 
-
 ;
 ;
 MSG_DIAG_DIAGNOSTICDATA
 Diagnostic Data
 Diagnosedaten
-
 
 
 ;
@@ -4948,18 +4247,15 @@ MSG_DIAG_DISTANCE
   Entfernung
 
 
-
 ;
 MSG_DIAG_ELEVATION
  Elevation
  Höhe
 
 
-
 ;
 MSG_DIAG_OVERSTORY
  Overstory
-
 
 
 
@@ -4969,11 +4265,9 @@ Understory
 
 
 
-
 ;
 MSG_DIAG_RELEL
     Rel El
-
 
 
 
@@ -4983,12 +4277,10 @@ MSG_DIAG_ASPECT
     Aspekt
 
 
-
 ;
 MSG_DIAG_SLOPE
      Slope
      Neigung
-
 
 
 ;
@@ -4997,12 +4289,10 @@ MSG_DIAG_SUNANGLE
  Sonnenwinkel
 
 
-
 ;
 MSG_DIAG_LATITUDE
   Latitude
   Breite
-
 
 
 ;
@@ -5011,12 +4301,10 @@ MSG_DIAG_LONGITUDE
  Länge
 
 
-
 ;
 MSG_DIAG_DATABASE
 \33cDatabase
 \33cDatenbank
-
 
 
 ;
@@ -5025,11 +4313,9 @@ MSG_DIAG_DIGITIZE
 \33cDigitalisieren
 
 
-
 ;
 MSG_DIAG_RENDERDATA
 Render Data
-
 
 
 
@@ -5039,19 +4325,16 @@ MSG_DIAG_QUITDIG
 
 
 
-
 ;
 MSG_DIAG_SURFACE
 Surface
 Oberfläche
 
 
-
 ;
 MSG_DIAG_NONE
 None
 Keine
-
 
 
 ;
@@ -5061,12 +4344,10 @@ Make this the default object directory?
 Soll dies der Standard-Objektordner werden?
 
 
-
 ;
 MSG_DISPGUI_DATABASELOAD
 Database: Load
 Datenbank: Laden
-
 
 
 ;
@@ -5075,12 +4356,10 @@ Error opening Database file!\nOperation terminated.
 Fehler beim Öffnen der Datenbank-Datei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DISPGUI_UNSUPPORTEDDATABASEFILEFORMAT
 Unsupported Database file format.
 Nicht unterstütztes Datenbank-Dateiformat.
-
 
 
 ;
@@ -5089,12 +4368,10 @@ Not a WCS Database file!\nOperation terminated.
 Keine Datenbank-Datei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_DISPGUI_ERRORREADINGDATABASEFILEPERATIONTERMINATED
 Error reading Database file!\nOperation terminated.
 Fehler beim Lesen der Datenbank-Datei!\nVorgang abgebrochen.
-
 
 
 ;
@@ -5103,12 +4380,10 @@ Database Module: Load
 Datenbank Modul: Laden
 
 
-
 ;
 MSG_DISPGUI_OUTOFMEMORYALLOCATINGDATABASEPERATIONTERMINATED
 fOut of memory allocating Database!\nOperation terminated.
 Nicht genügend Speicher für die Datenbank!\nVorgang abgebrochen.
-
 
 
 ;
@@ -5118,12 +4393,10 @@ Point
 Punkt
 
 
-
 ;
 MSG_EDDB_CIRCLE
 Circle
 Kreis
-
 
 
 ;
@@ -5132,12 +4405,10 @@ Square
 Quadrat
 
 
-
 ;
 MSG_EDDB_CROSS
 Cross
 Kreutz
-
 
 
 ;
@@ -5146,12 +4417,10 @@ Solid
 durchgezogen
 
 
-
 ;
 MSG_EDDB_DOTTED
 Dotted
 gepunktet
-
 
 
 ;
@@ -5160,18 +4429,15 @@ Dashed
 gestrichelt
 
 
-
 ;
 MSG_EDDB_BROKEN
 Broken
 unterbrochen
 
 
-
 ;
 MSG_EDDB_TOPO
 Topo
-
 
 
 
@@ -5181,18 +4447,15 @@ Surface
 Oberfläche
 
 
-
 ;
 MSG_EDDB_VECTOR
 Vector
 Vektor
 
 
-
 ;
 MSG_EDDB_ILLUMVEC
 Illum Vec
-
 
 
 
@@ -5202,11 +4465,9 @@ Segment V
 
 
 
-
 ;
 MSG_EDDB_ILLUMSEG
 Illum Seg
-
 
 
 
@@ -5216,12 +4477,10 @@ Database Editor
 Datenbank Editor
 
 
-
 ;
 MSG_EDDB_YOUMUSTFIRSTLOADORCREATEADATABASEBEFOREOPENINGTHEEDITO
 You must first load or create a database before opening the editor.
 Es muss zuerst eine Datenbank erzeugt oder geladen werden, bevor der Editor geöffnet werden kann.
-
 
 
 ;
@@ -5230,12 +4489,10 @@ Out of memory!\nCan't open database window.
 Nicht genügend Speicher!\nDas Datenbank-Fenster konnte nicht geöffnet werden.
 
 
-
 ;
 MSG_EDDB_OPTIONS
 Options
 Optionen
-
 
 
 ;
@@ -5244,12 +4501,10 @@ MSG_EDDB_VECTORS
 \33cVektoren
 
 
-
 ;
 MSG_EDDB_SURFACES
 \33cSurfaces
 \33cOberflächen
-
 
 
 ;
@@ -5258,12 +4513,10 @@ MSG_EDDB_FRACTALS
 \33cFraktale
 
 
-
 ;
 MSG_EDDB_NAME
 \33cName
 \33cName
-
 
 
 ;
@@ -5272,12 +4525,10 @@ Enabled
 Aktiviert
 
 
-
 ;
 MSG_EDDB_POINTS
 Points
 Punkte
-
 
 
 ;
@@ -5286,18 +4537,15 @@ Class
 Klasse
 
 
-
 ;
 MSG_EDDB_LAYER1
 Layer 1\x20
 Ebene 1\x20
 
 
-
 ;
 MSG_EDDB_SEL
 Sel
-
 
 
 
@@ -5307,12 +4555,10 @@ On
 Ein
 
 
-
 ;
 MSG_EDDB_OFF
 Off
 Aus
-
 
 
 ;
@@ -5321,11 +4567,9 @@ Layer 2\x20
 Ebene 2\x20
 
 
-
 ;
 MSG_EDDB_LABEL
 \33cLabel
-
 
 
 
@@ -5335,12 +4579,10 @@ DEM Max Fractal\x20
 DEM max Fraktal\x20
 
 
-
 ;
 MSG_EDDB_LINESTYLE
 Line Style
 Linienstil
-
 
 
 ;
@@ -5349,12 +4591,10 @@ Line Weight\x20
 Linienstärke\x20
 
 
-
 ;
 MSG_EDDB_DRAWPEN
 Draw Pen\x20
 Zeichenstift\x20
-
 
 
 ;
@@ -5363,12 +4603,10 @@ RGB
 RGB
 
 
-
 ;
 MSG_EDDB_R
 R
 R
-
 
 
 ;
@@ -5377,12 +4615,10 @@ G
 G
 
 
-
 ;
 MSG_EDDB_B
 B
 B
-
 
 
 ;
@@ -5391,12 +4627,10 @@ MSG_EDDB_NEWOBJ
 \33cNeues Objekt
 
 
-
 ;
 MSG_EDDB_ADDOBJ
 \33cAdd Obj
 \33cObj Hinzufügen
-
 
 
 ;
@@ -5405,12 +4639,10 @@ MSG_EDDB_REMOVE_SPACE
 \33cEntfernen\x20
 
 
-
 ;
 MSG_EDDB_SEARCH
 \33cSearch\x20
 \33cSuchen\x20
-
 
 
 ;
@@ -5419,12 +4651,10 @@ MSG_EDDB_SORT
 \33cSortieren
 
 
-
 ;
 MSG_EDDB_SAVE
 \33cSave\x20
 \33cSpeichern\x20
-
 
 
 ;
@@ -5433,12 +4663,10 @@ MSG_EDDB_LOAD_SAPCE
 \33cLaden\x20
 
 
-
 ;
 MSG_EDDB_APPEND
 \33cAppend\x20
 \33cHinzufügen\x20
-
 
 
 ;
@@ -5447,12 +4675,10 @@ MSG_EDDB_CREATE
 \33cErzeugen\x20
 
 
-
 ;
 MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME
 Object name already present in database!\nTry a new name?
 Der Objektname ist bereits in der Datenbank vorhanden!\nEinen neuen Namen versuchen?
-
 
 
 ;
@@ -5461,12 +4687,10 @@ Enter search string.
 Suchtext eingeben.
 
 
-
 ;
 MSG_EDDB_SORTING
 Sorting
 Sortiere
-
 
 
 ;
@@ -5475,18 +4699,15 @@ Database Module: Remove Item
 Datenbank Module: Eintrag entfernen
 
 
-
 ;
 MSG_EDDB_FROMDISKDATABASEONLYCANCEL
 From Disk|Database Only|Cancel
 Von Diskette|Nur Datenbank|Abbrechen
 
 
-
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDATABASELIST
 Out of memory!\nCan't open database list.
-
 
 
 
@@ -5496,12 +4717,10 @@ Out of memory!\nCan't open directory list window.
 Nicht genügend Speicher!\nDas Ordnerlisten-Fenster kann nicht geöffnet werden.
 
 
-
 ;
 MSG_EDDB_DIRECTORYLISTEDITOR
 Directory List Editor
 Ordnerlisten-Editor
-
 
 
 ;
@@ -5510,12 +4729,10 @@ MSG_EDDB_DEFAULTDIRECTORY
 \33cStandardordner
 
 
-
 ;
 MSG_EDDB_ADD
 \33cAdd...
 \33cHinzufügen...
-
 
 
 ;
@@ -5524,12 +4741,10 @@ MSG_EDDB_SWAP
 \33cVertauschen...
 
 
-
 ;
 MSG_EDDB_MOVE
 \33cMove...
 \33cVerschieben...
-
 
 
 ;
@@ -5538,12 +4753,10 @@ MSG_EDDB_REMOVE
 \33cEntfernen
 
 
-
 ;
 MSG_EDDB_READONLY
 \33c*Read Only
 \33cNur Lesen
-
 
 
 ;
@@ -5552,19 +4765,16 @@ MSG_EDDB_KEEP
 \33cBehalten
 
 
-
 ;
 MSG_EDDB_LOAD
 \33cLoad
 \33cLesen
 
 
-
 ;
 MSG_EDDB_DIRECTORYLIST
 Directory List
 Verzeichnisliste
-
 
 
 ;
@@ -5574,11 +4784,9 @@ Delete object, elevation and relative elevation files from disk as well as remov
 
 
 
-
 ;
 MSG_EDECOGUI_BRUSHSTAMP
 Brush Stamp
-
 
 
 
@@ -5588,12 +4796,10 @@ Scaled Images
 
 
 
-
 ;
 MSG_EDECOGUI_PROCEDURAL
 Procedural
 Prozedural
-
 
 
 ;
@@ -5602,12 +4808,10 @@ None
 Keine
 
 
-
 ;
 MSG_EDECOGUI_ECOSYSTEMEDITOR
 Ecosystem Editor
 Ökosystem Editor
-
 
 
 ;
@@ -5616,12 +4820,10 @@ You must first load or create a parameter file before opening the Editor.
 Es muss zuerst eine Parameter Datei erzeugt oder geladen werden, bevor der Editor geöffnet werden kann.
 
 
-
 ;
 MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM
 Parameters Module: Ecosystem
 Parameter Modul: Ökosystem
-
 
 
 ;
@@ -5630,12 +4832,10 @@ Out of memory!\nCan't open Ecosystem Editor.
 Nicht genügend Speicher!\nDer Ökosystem Editor konnte nicht geöffnet werden.
 
 
-
 ;
 MSG_EDECOGUI_UNUSED
 Unused
 Unbenutzt
-
 
 
 ;
@@ -5644,11 +4844,9 @@ Options
 Optionen
 
 
-
 ;
 MSG_EDECOGUI_CMAPS
 \33cCMaps
-
 
 
 
@@ -5658,12 +4856,10 @@ MSG_EDECOGUI_SURFACE
 \33cOberfläche
 
 
-
 ;
 MSG_EDECOGUI_FRACTALS
 \33cFractals
 \33cFraktale
-
 
 
 ;
@@ -5672,11 +4868,9 @@ MSG_EDECOGUI_ECOSYSTEMS
 \33cÖkosysteme
 
 
-
 ;
 MSG_EDECOGUI_STRATA_COLOR
 \33cStrata
-
 
 
 
@@ -5686,12 +4880,10 @@ MSG_EDECOGUI_TIDES
 \33cGezeiten
 
 
-
 ;
 MSG_EDECOGUI_NAME
 Name
 Name
-
 
 
 ;
@@ -5700,18 +4892,15 @@ MSG_EDECOGUI_EXTURE
 \33c\0334Textur
 
 
-
 ;
 MSG_EDECOGUI_CLASS
 Class
 Klasse
 
 
-
 ;
 MSG_EDECOGUI_DETAILMODEL
 \33cDetail Model
-
 
 
 
@@ -5721,18 +4910,15 @@ MSG_EDECOGUI_DESIGN
 
 
 
-
 ;
 MSG_EDECOGUI_IMAGES
 Images
 Bilder
 
 
-
 ;
 MSG_EDECOGUI_MAXHT
 Max Ht %
-
 
 
 
@@ -5742,18 +4928,15 @@ Max Img Ht
 
 
 
-
 ;
 MSG_EDECOGUI_EDITIMAGES
 \33cEdit Images...
 \33cBilder bearbeiten...
 
 
-
 ;
 MSG_EDECOGUI_STRATA
 Strata
-
 
 
 
@@ -5763,11 +4946,9 @@ Strata Colors
 
 
 
-
 ;
 MSG_EDECOGUI_FRACTURES
 Fractures
-
 
 
 
@@ -5777,11 +4958,9 @@ Mud Cracks
 
 
 
-
 ;
 MSG_EDECOGUI_OLORMAP
 \33c\0334Color Map
-
 
 
 
@@ -5791,11 +4970,9 @@ MSG_EDECOGUI_MATCHRED
 
 
 
-
 ;
 MSG_EDECOGUI_MATCHGRN
  Match Grn\x20
-
 
 
 
@@ -5805,12 +4982,10 @@ MSG_EDECOGUI_MATCHBLU
 
 
 
-
 ;
 MSG_EDECOGUI_EYFRAMES
 \33c\0334Key Frames
 \33c\0334Key Frames
-
 
 
 ;
@@ -5819,12 +4994,10 @@ MSG_EDECOGUI_PREV
 \33cVoriger
 
 
-
 ;
 MSG_EDECOGUI_FRAME
 Frame
 Frame
-
 
 
 ;
@@ -5833,12 +5006,10 @@ MSG_EDECOGUI_NEXT
 \33cNächster
 
 
-
 ;
 MSG_EDECOGUI_MAKEKEY
 \33cMake Key
 \33cKey erzeugen
-
 
 
 ;
@@ -5847,12 +5018,10 @@ MSG_EDECOGUI_UPDATE
 \33cAktualisieren
 
 
-
 ;
 MSG_EDECOGUI_ALL0
 \33cAll (0)
 \33cAlle (0)
-
 
 
 ;
@@ -5861,12 +5030,10 @@ MSG_EDECOGUI_DELETE
 \33cLöschen
 
 
-
 ;
 MSG_EDECOGUI_DELETEALL
 \33cDelete All
 \33cAlle Löschen
-
 
 
 ;
@@ -5875,12 +5042,10 @@ MSG_EDECOGUI_TIMELINES
 \33cZeitleisten\x20
 
 
-
 ;
 MSG_EDECOGUI_SCALEKEYS
 \33cScale Keys\x20
 \33cKeys skalieren\x20
-
 
 
 ;
@@ -5889,12 +5054,10 @@ MSG_EDECOGUI_COPY
 \33cKopieren
 
 
-
 ;
 MSG_EDECOGUI_SWAP
 \33cSwap
 \33cVertauschen
-
 
 
 ;
@@ -5903,12 +5066,10 @@ MSG_EDECOGUI_INSERT
 \33cEinfügen
 
 
-
 ;
 MSG_EDECOGUI_REMOVE
 \33cRemove
 \33cEntfernen
-
 
 
 ;
@@ -5917,12 +5078,10 @@ MSG_EDECOGUI_SORTLIST
 \33cListe sortieren
 
 
-
 ;
 MSG_EDECOGUI_KEEP
 \33cKeep
 \33cBehalten
-
 
 
 ;
@@ -5931,18 +5090,15 @@ numericpad enter
 Ziffernblock Eingabe
 
 
-
 ;
 MSG_EDECOGUI_ELEVLINE
  Elev Line\x20
  Höhenlinie\x20
 
 
-
 ;
 MSG_EDECOGUI_ELEVSKEW
  Elev Skew\x20
-
 
 
 
@@ -5952,11 +5108,9 @@ El Skew Az\x20
 
 
 
-
 ;
 MSG_EDECOGUI_RELELEFF
 Rel El Eff\x20
-
 
 
 
@@ -5966,11 +5120,9 @@ Max Rel El\x20
 
 
 
-
 ;
 MSG_EDECOGUI_MINRELEL
 Min Rel El\x20
-
 
 
 
@@ -5980,12 +5132,10 @@ MSG_EDECOGUI_MAXSLOPE
  Max Neigung\x20
 
 
-
 ;
 MSG_EDECOGUI_MINSLOPE
  Min Slope\x20
  Min Neigung
-
 
 
 ;
@@ -5994,12 +5144,10 @@ MSG_EDECOGUI_DENSITY
    Dichte\x20
 
 
-
 ;
 MSG_EDECOGUI_HEIGHT
     Height\x20
     Höhe\x20
-
 
 
 ;
@@ -6008,11 +5156,9 @@ MSG_EDECOGUI_ECOSYSTEMCOLOR
 \33c\0334Ökosystem Farbe
 
 
-
 ;
 MSG_EDECOGUI_UNDERSTORYECOSYSTEM
 \33c\0334Understory Ecosystem
-
 
 
 
@@ -6022,11 +5168,9 @@ Delete all %s Key Frames?
 Alle %s Keyframes löschen?
 
 
-
 ;
 MSG_EDECOGUI_ECOSYSTEMPARAMETERSSWAP
 Ecosystem Parameters: Swap
-
 
 
 
@@ -6036,12 +5180,10 @@ Can't swap with first 12 ecosystems!\nOperation terminated.
 
 
 
-
 ;
 MSG_EDECOGUI_SEALEVEL
  Sea Level\x20
  Meeresspiegel \x20
-
 
 
 ;
@@ -6050,11 +5192,9 @@ MSG_EDECOGUI_SEADEPTH
  Meerestiefe\x20
 
 
-
 ;
 MSG_EDECOGUI_WINDAZ
    Wind Az\x20
-
 
 
 
@@ -6065,12 +5205,10 @@ Options
 Optionen
 
 
-
 ;
 MSG_EDMOGUI_PATHS
 \33cPaths
 \33cPfade
-
 
 
 ;
@@ -6079,18 +5217,15 @@ MSG_EDMOGUI_FRACTAL
 \33cFraktal
 
 
-
 ;
 MSG_EDMOGUI_HORIZON
 \33cHorizon
 \33cHorizont
 
 
-
 ;
 MSG_EDMOGUI_CELESTIAL
 \33cCelestial
-
 
 
 
@@ -6100,18 +5235,15 @@ MSG_EDMOGUI_REFLECTION
 \33cSpiegelung
 
 
-
 ;
 MSG_EDMOGUI_PARAMETERLIST
 \33c\0334Parameter List
 \33c\0334Parameter Liste
 
 
-
 ;
 MSG_EDMOGUI_INTERACTIVEGROUP
 \33c\0334Interactive Group
-
 
 
 
@@ -6121,11 +5253,9 @@ Focal Azimuth
 
 
 
-
 ;
 MSG_EDMOGUI_FOCALDISTANCE
 Focal Distance
-
 
 
 
@@ -6135,12 +5265,10 @@ Sensitivity\x20
 Empfindlichkeit\x20
 
 
-
 ;
 MSG_EDMOGUI_LOW
 \33cLow
 \33cNiedrig
-
 
 
 ;
@@ -6149,12 +5277,10 @@ MSG_EDMOGUI_MED
 \33cMittel
 
 
-
 ;
 MSG_EDMOGUI_HIGH
 \33cHigh
 \33cHoch
-
 
 
 ;
@@ -6163,12 +5289,10 @@ MSG_EDMOGUI_KEYFRAMES
 \33c\0334Key Frames
 
 
-
 ;
 MSG_EDMOGUI_PREV
 \33cPrev
 \33cVorheriger
-
 
 
 ;
@@ -6177,12 +5301,10 @@ Frame
 Frame
 
 
-
 ;
 MSG_EDMOGUI_NEXT
 \33cNext
 \33cNächster
-
 
 
 ;
@@ -6191,12 +5313,10 @@ MSG_EDMOGUI_MAKEKEY
 \33cKey erzeugen
 
 
-
 ;
 MSG_EDMOGUI_GROUP
 \33cGroup
 \33cGruppe
-
 
 
 ;
@@ -6205,12 +5325,10 @@ MSG_EDMOGUI_UPDATE
 \33cAktualisieren
 
 
-
 ;
 MSG_EDMOGUI_ALL0
 \33cAll (0)
 \33cAlle (0)
-
 
 
 ;
@@ -6219,12 +5337,10 @@ MSG_EDMOGUI_DELETE
 \33cLöschen
 
 
-
 ;
 MSG_EDMOGUI_DELETEALL
 \33cDelete All
 \33cAlle Löschen
-
 
 
 ;
@@ -6233,11 +5349,9 @@ MSG_EDMOGUI_TIMELINES
 \33cZeitleisten\x20
 
 
-
 ;
 MSG_EDMOGUI_BANK
 \33cBank\x20
-
 
 
 
@@ -6247,12 +5361,10 @@ MSG_EDMOGUI_SCALE
 \33cSkalieren\x20
 
 
-
 ;
 MSG_EDMOGUI_SUN
 \33cSun\x20
 \33cSonne\x20
-
 
 
 ;
@@ -6261,11 +5373,9 @@ MSG_EDMOGUI_KEEP
 \33cBehalten
 
 
-
 ;
 MSG_EDMOGUI_LISTWIN
 \33cList Win\x20
-
 
 
 
@@ -6275,11 +5385,9 @@ MSG_EDMOGUI_CAMVIEW
 \33cKamera-Ansicht\x20
 
 
-
 ;
 MSG_EDMOGUI_MOTIONEDITORAUTOCENTER
 Motion Editor: Auto Center
-
 
 
 
@@ -6289,11 +5397,9 @@ Interactive module must be open before auto centering!
 
 
 
-
 ;
 MSG_EDMOGUI_PARAMETERSMODULEMOTION
 Parameters Module: Motion
-
 
 
 
@@ -6303,18 +5409,15 @@ Make key frames for Focus Parameters also?
 Sollen Keyframes auch für die Fokus-Parameter erzeugt werden?
 
 
-
 ;
 MSG_EDMOGUI_MAKEKEYFRAMESFORCAMERAPARAMETERSALSO
 Make key frames for Camera Parameters also?
 Sollen Keyframes auch für die Kamera-Parameter erzeugt werden?
 
 
-
 ;
 MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY
 Parameters Module: Make Key
-
 
 
 
@@ -6324,18 +5427,15 @@ MSG_EDMOGUI_DRAW
 \0334Zeichnen
 
 
-
 ;
 MSG_EDMOGUI_BOUNDS
 \0334Bounds
 \0334Grenzen
 
 
-
 ;
 MSG_EDMOGUI_RADIAL
 Radial
-
 
 
 
@@ -6345,11 +5445,9 @@ Rectang
 
 
 
-
 ;
 MSG_EDMOGUI_SOLID
 Solid
-
 
 
 
@@ -6359,11 +5457,9 @@ Wire
 
 
 
-
 ;
 MSG_EDMOGUI_CAMVC
 Cam VC
-
 
 
 
@@ -6373,11 +5469,9 @@ MSG_EDMOGUI_TERRAIN
 
 
 
-
 ;
 MSG_EDMOGUI_ELSHADE
 \33cElShade
-
 
 
 
@@ -6387,11 +5481,9 @@ MSG_EDMOGUI_SUNSHADE
 
 
 
-
 ;
 MSG_EDMOGUI_ECOSYS
 \33cEcoSys\x20
-
 
 
 
@@ -6401,11 +5493,9 @@ MSG_EDMOGUI_DIAG
 
 
 
-
 ;
 MSG_EDMOGUI_VECTORS
 \33cVectors
-
 
 
 
@@ -6415,18 +5505,15 @@ MSG_EDMOGUI_ANIM
 
 
 
-
 ;
 MSG_EDMOGUI_COMPASS
 \33cCompass
 \33cKompass
 
 
-
 ;
 MSG_EDMOGUI_LAND
 \33cLand
-
 
 
 
@@ -6436,11 +5523,9 @@ MSG_EDMOGUI_TARGET
 
 
 
-
 ;
 MSG_EDMOGUI_BOX
 \33cBox
-
 
 
 
@@ -6450,11 +5535,9 @@ MSG_EDMOGUI_PROFILE
 \33cProfil
 
 
-
 ;
 MSG_EDMOGUI_PROFDENS
 \33c\0334Prof Dens
-
 
 
 
@@ -6464,11 +5547,9 @@ MSG_EDMOGUI_AUTODRAW
 \33cAuto Zeichnen
 
 
-
 ;
 MSG_EDMOGUI_GRID
 \33c\0334Grid
-
 
 
 
@@ -6478,18 +5559,15 @@ MSG_EDMOGUI_MOVEMENT
 
 
 
-
 ;
 MSG_EDMOGUI_FRAME_COLOR
 \33c\0334Frame
 \33c\0334Frame
 
 
-
 ;
 MSG_EDMOGUI_CENTERFOC
 CenterFoc
-
 
 
 
@@ -6499,12 +5577,10 @@ Img Aspect
 
 
 
-
 ;
 MSG_EDMOGUI_CAMERAVIEW
 Camera View
 Kamera-Ansicht
-
 
 
 ;
@@ -6513,11 +5589,9 @@ Camera View: Aspect
 Kamera-Ansicht: Aspekt
 
 
-
 ;
 MSG_INTVIEW_INTERACTIVEMOTION
 Interactive Motion
-
 
 
 
@@ -6527,12 +5601,10 @@ Motion Param List
 
 
 
-
 ;
 MSG_EDMOGUI_COMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREENHEIGHTDOY
 Computed height is larger than the current screen height. Do you wish to use the screen height?
 Die berechnete Höhe ist größer als die aktuelle Bildschirmhöhe. Soll statt dessen die Bildschirmhöhe verwendet werden?
-
 
 
 ;
@@ -6542,11 +5614,9 @@ Parameters Module: Bank Keys
 
 
 
-
 ;
 MSG_EDPAR_KEYFRAMESEXISTFORTHEBANKPARAMETEROVERWRITETHEM
 Key Frames exist for the "Bank" Parameter. Overwrite them?
-
 
 
 
@@ -6556,12 +5626,10 @@ Enter Key Frame interval or 'K' for current Key Frames.
 Geben Sie das Frame Intervall an oder 'K' für die aktuellen Keyframes.
 
 
-
 ;
 MSG_EDPAR_PARAMETERSMODULEEXPORT
 Parameters Module: Export
 Parameter Modul: Export
-
 
 
 ;
@@ -6570,11 +5638,9 @@ Error creating Key Frame!\nOperation terminated.
 Fehler beim erzeugen des Keyframes!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_EDPAR_NOCAMERAPATHLATLONKEYFRAMESPERATIONTERMINATED
 No Camera Path Lat/Lon Key Frames!\nOperation terminated.
-
 
 
 
@@ -6584,12 +5650,10 @@ Unused
 Unbenutzt
 
 
-
 ;
 MSG_EDPAR_LOADPARAMETERFILE
 Load Parameter File
 Parameter Datei laden
-
 
 
 ;
@@ -6598,12 +5662,10 @@ Version < 1.0
 Version < 1.0
 
 
-
 ;
 MSG_EDPAR_PARAMETERMODULELOAD
 Parameter Module: Load
 Parameter Modul: Laden
-
 
 
 ;
@@ -6612,12 +5674,10 @@ Unsupported Parameter file type or version!\nOperation terminated.
 Nicht unterstützter Parameter Dateityp oder Version!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_EDPAR_THISISANOLDV1FORMATFILEWOULDYOULIKETORESAVEITINTHENEW
 This is an old V1 format file! Would you like to re-save it in the new format now?
 Dies ist eine alte V1-Format Datei! Soll sie im jetzt im neuen Format gespeichert werden?
-
 
 
 ;
@@ -6626,18 +5686,15 @@ The Parameter File format has been changed slightly since this file was saved. W
 Das Format der Parameterdatei hat sich seit dem letzten Speichern geändert. Soll die Datei jetzt im neuen Format gespeichert werden?
 
 
-
 ;
 MSG_EDPAR_LOADALLKEYFRAMES
 Load all key frames?
 Alle Keyframes laden?
 
 
-
 ;
 MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED
 Color item %s not found in this file!\nOperation terminated.
-
 
 
 
@@ -6647,11 +5704,9 @@ Color Editor: Load Current
 
 
 
-
 ;
 MSG_EDPAR_ECOSYSTEMITEMNOTFOUNDINTHISFILEPERATIONTERMINATED
 Ecosystem item %s not found in this file!\nOperation terminated.
-
 
 
 
@@ -6661,11 +5716,9 @@ Ecosystem Editor: Load Current
 
 
 
-
 ;
 MSG_EDPAR_MOTIONVERF
 %s motion, Ver %f
-
 
 
 
@@ -6675,11 +5728,9 @@ MSG_EDPAR_COLORSVERF
 
 
 
-
 ;
 MSG_EDPAR_ECOSYSTEMSVERF
 %s ecosystems, Ver %f
-
 
 
 
@@ -6689,11 +5740,9 @@ MSG_EDPAR_SETTINGSVERF
 
 
 
-
 ;
 MSG_EDPAR_ALLVERF
 %s all, Ver %f
-
 
 
 
@@ -6703,11 +5752,9 @@ Water Foam
 
 
 
-
 ;
 MSG_EDPAR_BEACHSAND
 Beach Sand
-
 
 
 
@@ -6717,11 +5764,9 @@ Beach Rock
 
 
 
-
 ;
 MSG_EDPAR_STRATA1
 Strata 1
-
 
 
 
@@ -6731,11 +5776,9 @@ Strata 2
 
 
 
-
 ;
 MSG_EDPAR_STRATA3
 Strata 3
-
 
 
 
@@ -6745,12 +5788,10 @@ Strata 4
 
 
 
-
 ;
 MSG_EDPAR_SUN
 Sun
 Sonne
-
 
 
 ;
@@ -6759,12 +5800,10 @@ Moon
 Mond
 
 
-
 ;
 MSG_EDPAR_CLOUDS
 Clouds
 Wolken
-
 
 
 ;
@@ -6773,11 +5812,9 @@ Save Parameter File
 Parameter Datei speichern
 
 
-
 ;
 MSG_EDPAR_PARAMFILE
 paramfile
-
 
 
 
@@ -6787,18 +5824,15 @@ Error opening file for output!\nTry again?
 Fehler beim Öffnen der Datei zum Schreiben!\nNochmal versuchen?
 
 
-
 ;
 MSG_EDPAR_VERSION20
 Version < 2.0
 Version < 2.0
 
 
-
 ;
 MSG_EDPAR_PARAMETEREDITINGMODULE
 Parameter Editing Module
-
 
 
 
@@ -6808,11 +5842,9 @@ Partial files may not be written to old file versions!\nDo you wish to save the 
 
 
 
-
 ;
 MSG_EDPAR_COLOREDITORSAVECURRENT
 Color Editor: Save Current
-
 
 
 
@@ -6822,12 +5854,10 @@ Ecosystem Editor: Save Current
 
 
 
-
 ;
 MSG_EDPAR_PARAMETERMODULESAVE
 Parameter Module: Save
 Parameter Modul: Speichern
-
 
 
 ;
@@ -6836,11 +5866,9 @@ Save all key frames as well?
 Sollen auch alle Keyframes gespeichert werden?
 
 
-
 ;
 MSG_EDPAR_MOTION
 %s motion
-
 
 
 
@@ -6850,18 +5878,15 @@ MSG_EDPAR_COLORS
 
 
 
-
 ;
 MSG_EDPAR_ECOSYSTEMS
 %s ecosystems
 %s Ökosysteme
 
 
-
 ;
 MSG_EDPAR_SETTINGS
 %s settings
-
 
 
 
@@ -6871,11 +5896,9 @@ MSG_EDPAR_ALL
 %s alle
 
 
-
 ;
 MSG_EDPAR_ERRORWRITINGTOPARAMETERFILETHEOUTPUTFILEHASBEENMODIFI
 Error writing to Parameter file!\nThe output file has been modified and may no longer be valid. Try resaving to a different device or freeing some disk space and saving again.
-
 
 
 
@@ -6886,18 +5909,15 @@ MSG_EDSETGUI_ENDERSIZE
 
 
 
-
 ;
 MSG_EDSETGUI_MAGESAVE
 \0334Image Save
 \0334Bild speichern
 
 
-
 ;
 MSG_EDSETGUI_MOTIONPATHSVECTORS
 \0334Motion Paths & Vectors
-
 
 
 
@@ -6907,12 +5927,10 @@ MSG_EDSETGUI_COLORMAPS
 
 
 
-
 ;
 MSG_EDSETGUI_SURFACES
 \0334Surfaces
 \0334Oberflächen
-
 
 
 ;
@@ -6921,11 +5939,9 @@ MSG_EDSETGUI_FRACTALS
 \0334Fraktale
 
 
-
 ;
 MSG_EDSETGUI_ECOSYSTEMSSTRATA
 \0334Ecosystems & Strata
-
 
 
 
@@ -6935,12 +5951,10 @@ MSG_EDSETGUI_MISCELLANEOUS
 
 
 
-
 ;
 MSG_EDSETGUI_PROCESSING
 \0334Processing
 \0334Bearbeitung
-
 
 
 ;
@@ -6949,12 +5963,10 @@ MSG_EDSETGUI_POSTPROCESS
 \0334Nachbearbeitung
 
 
-
 ;
 MSG_EDSETGUI_NORGB
 No RGB
 Kein RGB
-
 
 
 ;
@@ -6963,12 +5975,10 @@ MSG_EDSETGUI_RGB
 \338RGB
 
 
-
 ;
 MSG_EDSETGUI_NOSCREEN
 No Screen
 Kein Bildschirm
-
 
 
 ;
@@ -6977,12 +5987,10 @@ MSG_EDSETGUI_SCREEN
 \338Bildschirm
 
 
-
 ;
 MSG_EDSETGUI_NODATA
 No Data
 Keine Daten
-
 
 
 ;
@@ -6991,12 +5999,10 @@ MSG_EDSETGUI_DATA
 \338Daten
 
 
-
 ;
 MSG_EDSETGUI_SCULPTRGB
 Sculpt RGB
 Sculpt RGB
-
 
 
 ;
@@ -7005,18 +6011,15 @@ Raw intrlvd RGB
 Raw intrlvd RGB
 
 
-
 ;
 MSG_EDSETGUI_IFFILBM
 \338IFF ILBM
 \338IFF ILBM
 
 
-
 ;
 MSG_EDSETGUI_NOCONCTATENATE
 No Conctatenate
-
 
 
 
@@ -7026,11 +6029,9 @@ MSG_EDSETGUI_CONCATENATE
 
 
 
-
 ;
 MSG_EDSETGUI_NOBANKTURNS
 No Bank Turns
-
 
 
 
@@ -7040,11 +6041,9 @@ MSG_EDSETGUI_BANKTURNS
 
 
 
-
 ;
 MSG_EDSETGUI_RNDRTOFILE
 \338Rndr To File
-
 
 
 
@@ -7054,12 +6053,10 @@ MSG_EDSETGUI_RNDRTOBITMAP
 
 
 
-
 ;
 MSG_EDSETGUI_NOVECTORS
 No Vectors
 Keine Vektoren
-
 
 
 ;
@@ -7068,12 +6065,10 @@ No Haze Eff
 Kein Dunst-Effekt
 
 
-
 ;
 MSG_EDSETGUI_HAZEEFFECT
 \338Haze Effect
 \338Dunst-Effekt
-
 
 
 ;
@@ -7082,18 +6077,15 @@ Variable Fractal Depth
 Variable Fraktal Tiefe
 
 
-
 ;
 MSG_EDSETGUI_CONSTANTFRACTALDEPTH
 \338Constant Fractal Depth
 \338Konstante Fraktal Tiefe
 
 
-
 ;
 MSG_EDSETGUI_FRACTALDEPTHMAPS
 \338Fractal Depth Maps
-
 
 
 
@@ -7103,11 +6095,9 @@ No Color Maps
 
 
 
-
 ;
 MSG_EDSETGUI_COLORMAPS_2
 \338Color Maps
-
 
 
 
@@ -7117,11 +6107,9 @@ No CMap Random Borders
 
 
 
-
 ;
 MSG_EDSETGUI_CMAPRANDOMBORDERS
 \338CMap Random Borders
-
 
 
 
@@ -7131,11 +6119,9 @@ No CMap Textures
 
 
 
-
 ;
 MSG_EDSETGUI_CMAPTEXTURES
 \338CMap Textures
-
 
 
 
@@ -7145,11 +6131,9 @@ No CMap Color Match
 
 
 
-
 ;
 MSG_EDSETGUI_CMAPCOLORMATCH
 \338CMap Color Match
-
 
 
 
@@ -7159,11 +6143,9 @@ No Surface Grid
 
 
 
-
 ;
 MSG_EDSETGUI_SURFACEGRID
 \338Surface Grid
-
 
 
 
@@ -7173,18 +6155,15 @@ No Fixed Horizon
 Kein Fester Horizont
 
 
-
 ;
 MSG_EDSETGUI_FIXEDHORIZON
 \338Fixed Horizon
 \338Fester Horizont
 
 
-
 ;
 MSG_EDSETGUI_NOALTZREFERENCE
 No Alt Z Reference
-
 
 
 
@@ -7194,12 +6173,10 @@ MSG_EDSETGUI_ALTZREFERENCE
 
 
 
-
 ;
 MSG_EDSETGUI_NOCLOUDSHADOWS
 No Cloud Shadows
 Kein Wolkenschatten
-
 
 
 ;
@@ -7208,12 +6185,10 @@ MSG_EDSETGUI_CLOUDSHADOWS
 \338Wolkenschatten
 
 
-
 ;
 MSG_EDSETGUI_NOBACKGROUND
 No Background
 Kein Hintergrundbild
-
 
 
 ;
@@ -7222,12 +6197,10 @@ MSG_EDSETGUI_BACKGROUND
 \338Hintergrundbild
 
 
-
 ;
 MSG_EDSETGUI_NOZBUFFER
 No Z Buffer
 Kein Z-Puffer
-
 
 
 ;
@@ -7236,12 +6209,10 @@ MSG_EDSETGUI_ZBUFFER
 \338Z-Puffer
 
 
-
 ;
 MSG_EDSETGUI_NOBLUR
 No Blur
 Kein Unschärfe
-
 
 
 ;
@@ -7250,12 +6221,10 @@ MSG_EDSETGUI_BLUR
 \338Unschärfe
 
 
-
 ;
 MSG_EDSETGUI_NOZBUFFEREDBLUR
 No Z Buffered Blur
 Keine Z-Puffer Unschärfe
-
 
 
 ;
@@ -7264,12 +6233,10 @@ MSG_EDSETGUI_ZBUFFEREDBLUR
 \338Z-Puffer Unschärfe
 
 
-
 ;
 MSG_EDSETGUI_NOSCALING
 No Scaling
 Keine Skalierung
-
 
 
 ;
@@ -7278,11 +6245,9 @@ MSG_EDSETGUI_SCALING
 \338Skalierung
 
 
-
 ;
 MSG_EDSETGUI_NOTOPOSASSURFACES
 No Topos As Surfaces
-
 
 
 
@@ -7292,12 +6257,10 @@ MSG_EDSETGUI_TOPOSASSURFACES
 
 
 
-
 ;
 MSG_EDSETGUI_NOEXPORTZBUFFER
 No Export Z Buffer
 Kein Z-Puffer Export
-
 
 
 ;
@@ -7306,12 +6269,10 @@ MSG_EDSETGUI_EXPORTZBUFFER
 \338Z-Puffer Export
 
 
-
 ;
 MSG_EDSETGUI_ZASFLOATINGPTIFF
 \338Z As Floating Pt IFF
 \338Z als Fließkomma IFF
-
 
 
 ;
@@ -7320,12 +6281,10 @@ Z As Gray Scale IFF
 Z als Grauwerte IFF
 
 
-
 ;
 MSG_EDSETGUI_ZASFLOATINGPTARRAY
 \338Z As Floating Pt Array
 \338Z als Fließkomma Feld
-
 
 
 ;
@@ -7334,12 +6293,10 @@ Z As Gray Scale Array
 Z als Grauwerte Feld
 
 
-
 ;
 MSG_EDSETGUI_NOFIELDRENDERING
 No Field Rendering
 Keine Halbbild-Berechnung
-
 
 
 ;
@@ -7348,12 +6305,10 @@ MSG_EDSETGUI_FIELDRENDERING
 \338Halbbild-Berechnung
 
 
-
 ;
 MSG_EDSETGUI_NOGLOBALGRADIENTS
 No Global Gradients
 Keine Globalen Verläufe
-
 
 
 ;
@@ -7362,12 +6317,10 @@ MSG_EDSETGUI_GLOBALGRADIENTS
 \338Globale Verläufe
 
 
-
 ;
 MSG_EDSETGUI_NOECOSYSTEMFLATTENING
 No Ecosystem Flattening
 Keine Ökosystemglättung
-
 
 
 ;
@@ -7376,11 +6329,9 @@ MSG_EDSETGUI_ECOSYSTEMFLATTENING
 \338Ökosystemglättung
 
 
-
 ;
 MSG_EDSETGUI_NOLOOKAHEAD
 No Look Ahead
-
 
 
 
@@ -7390,11 +6341,9 @@ MSG_EDSETGUI_LOOKAHEAD
 
 
 
-
 ;
 MSG_EDSETGUI_NOVELOCITYDISTRIBUTION
 No Velocity Distribution
-
 
 
 
@@ -7404,12 +6353,10 @@ MSG_EDSETGUI_VELOCITYDISTRIBUTION
 
 
 
-
 ;
 MSG_EDSETGUI_NOTREESORTEXTURES
 No Trees or Textures
 Keine Bäume und Texturen
-
 
 
 ;
@@ -7418,11 +6365,9 @@ MSG_EDSETGUI_TREESANDTEXTURES
 \338Bäume und Texturen
 
 
-
 ;
 MSG_EDSETGUI_NORENDERBEYONDHORIZON
 No Render Beyond Horizon
-
 
 
 
@@ -7432,11 +6377,9 @@ MSG_EDSETGUI_RENDERBEYONDHORIZON
 
 
 
-
 ;
 MSG_EDSETGUI_NOCMAPLUMINOUSCOLORS
 No CMap Luminous Colors
-
 
 
 
@@ -7446,11 +6389,9 @@ MSG_EDSETGUI_CMAPLUMINOUSCOLORS
 
 
 
-
 ;
 MSG_EDSETGUI_NORMALSHADING
 Normal Shading
-
 
 
 
@@ -7460,11 +6401,9 @@ MSG_EDSETGUI_POLYGONSMOOTHING
 
 
 
-
 ;
 MSG_EDSETGUI_FRACTALDISPLACEMENT
 \338Fractal Displacement
-
 
 
 
@@ -7474,11 +6413,9 @@ Individual Color Maps
 
 
 
-
 ;
 MSG_EDSETGUI_MASTERCOLORMAP
 \338Master Color Map
-
 
 
 
@@ -7488,11 +6425,9 @@ Master CMap DEM Oriented
 
 
 
-
 ;
 MSG_EDSETGUI_MASTERCMAPIMAGEORIENTED
 \338Master CMap Image Oriented
-
 
 
 
@@ -7502,11 +6437,9 @@ Field Dominance Normal
 
 
 
-
 ;
 MSG_EDSETGUI_FIELDDOMINANCEREVERSE
 \338Field Dominance Reverse
-
 
 
 
@@ -7516,12 +6449,10 @@ No 3D Clouds
 Keine 3D Wolken
 
 
-
 ;
 MSG_EDSETGUI_3DCLOUDS
 \3383D Clouds
 \3383D Wolken
-
 
 
 ;
@@ -7530,12 +6461,10 @@ No Perturbance
 Keine Störungen
 
 
-
 ;
 MSG_EDSETGUI_PERTURBANCE
 \338Perturbance
 \338Störungen
-
 
 
 ;
@@ -7544,12 +6473,10 @@ No Waves
 Keine Wellen
 
 
-
 ;
 MSG_EDSETGUI_WAVES
 \338Waves
 \338Wellen
-
 
 
 ;
@@ -7558,18 +6485,15 @@ No Reflections
 Keine Spiegelungen
 
 
-
 ;
 MSG_EDSETGUI_REFLECTIONS
 \338Reflections
 \338Spiegelungen
 
 
-
 ;
 MSG_EDSETGUI_NOSTRATADEFORMATIONMAP
 No Strata Deformation Map
-
 
 
 
@@ -7579,11 +6503,9 @@ MSG_EDSETGUI_STRATADEFORMATIONMAP
 
 
 
-
 ;
 MSG_EDSETGUI_NOSURFACECOLORMAPS
 No Surface Color Maps
-
 
 
 
@@ -7593,12 +6515,10 @@ MSG_EDSETGUI_SURFACECOLORMAPS
 
 
 
-
 ;
 MSG_EDSETGUI_NOSUN
 No Sun
 Keine Sonne
-
 
 
 ;
@@ -7607,12 +6527,10 @@ MSG_EDSETGUI_SUN
 \338Sonne
 
 
-
 ;
 MSG_EDSETGUI_NOMOON
 No Moon
 Kein Mond
-
 
 
 ;
@@ -7621,12 +6539,10 @@ MSG_EDSETGUI_MOON
 \338Mond
 
 
-
 ;
 MSG_EDSETGUI_NOTIDES
 No Tides
 Keine Gezeiten
-
 
 
 ;
@@ -7635,12 +6551,10 @@ MSG_EDSETGUI_TIDES
 \338Gezeiten
 
 
-
 ;
 MSG_EDSETGUI_NOSUNHALO
 No Sun Halo
 Kein Sonnen-Halo
-
 
 
 ;
@@ -7649,12 +6563,10 @@ MSG_EDSETGUI_SUNHALO
 \338Sonnen-Halo
 
 
-
 ;
 MSG_EDSETGUI_NOMOONHALO
 No Moon Halo
 Keinen Mondhof
-
 
 
 ;
@@ -7663,18 +6575,15 @@ MSG_EDSETGUI_MOONHALO
 \338Mondhof
 
 
-
 ;
 MSG_EDSETGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENIN
 You must first load or create a parameter file before opening the Render Module.
 Es muss zuerst eine Parameter Datei erzeugt oder geladen werden, bevor das Render Modul geöffnet werden kann.
 
 
-
 ;
 MSG_EDSETGUI_RENDERSETTINGSEDITOR
 Render Settings Editor
-
 
 
 
@@ -7684,12 +6593,10 @@ Width\x20
 Breite\x20
 
 
-
 ;
 MSG_EDSETGUI_HEIGHT
 Height\x20
     Höhe\x20
-
 
 
 ;
@@ -7698,12 +6605,10 @@ Aspct\x20
 Aspekt\x20
 
 
-
 ;
 MSG_EDSETGUI_VOSCN
 V Oscn\x20
   V Oscn\x20
-
 
 
 ;
@@ -7712,12 +6617,10 @@ MSG_EDSETGUI_CHANGEIMAGESIZE
 \33cBildgröße ändern
 
 
-
 ;
 MSG_EDSETGUI_START
  Start\x20
        Anfang\x20
-
 
 
 ;
@@ -7726,12 +6629,10 @@ MSG_EDSETGUI_END
    Ende\x20
 
 
-
 ;
 MSG_EDSETGUI_STEP
   Step\x20
  Schrittweite\x20
-
 
 
 ;
@@ -7740,12 +6641,10 @@ MSG_EDSETGUI_FRAMES
  Frames\x20
 
 
-
 ;
 MSG_EDSETGUI_SEGMNT
 Segmnt\x20
      Segmente\x20
-
 
 
 ;
@@ -7754,12 +6653,10 @@ MSG_EDSETGUI_1STSEG
  1. Seg\x20
 
 
-
 ;
 MSG_EDSETGUI_SAVEPATH
 Save Path\x20
 Pfad speichern\x20
-
 
 
 ;
@@ -7768,12 +6665,10 @@ Save File\x20
 Datei speichern\x20
 
 
-
 ;
 MSG_EDSETGUI_TEMPPATH
 Temp Path\x20
 Temp Pfad\x20
-
 
 
 ;
@@ -7782,11 +6677,9 @@ Frames
 Bilder
 
 
-
 ;
 MSG_EDSETGUI_BANKING
 Banking
-
 
 
 
@@ -7796,11 +6689,9 @@ Ease In\x20
 
 
 
-
 ;
 MSG_EDSETGUI_OUT
  Out\x20
-
 
 
 
@@ -7810,12 +6701,10 @@ Vector Path\x20
 Vektor Pfad\x20
 
 
-
 ;
 MSG_EDSETGUI_VECTORFILE
 Vector File\x20
 Vektor Datei\x20
-
 
 
 ;
@@ -7824,18 +6713,15 @@ Z Offset\x20
 Z Offset\x20
 
 
-
 ;
 MSG_EDSETGUI_SEGS
  Segs\x20
  Segmente\x20
 
 
-
 ;
 MSG_EDSETGUI_DEFAULTECO
 Default Eco\x20
-
 
 
 
@@ -7845,11 +6731,9 @@ CMap Path\x20
 
 
 
-
 ;
 MSG_EDSETGUI_CMAPFILE
 CMap File\x20
-
 
 
 
@@ -7859,11 +6743,9 @@ Spacing\x20
 
 
 
-
 ;
 MSG_EDSETGUI_SURFACEEL1
 Surface El 1\x20
-
 
 
 
@@ -7873,11 +6755,9 @@ Surface El 2\x20
 
 
 
-
 ;
 MSG_EDSETGUI_SURFACEEL3
 Surface El 3\x20
-
 
 
 
@@ -7887,11 +6767,9 @@ Surface El 4\x20
 
 
 
-
 ;
 MSG_EDSETGUI_FRACTALDEPTH
 Fractal Depth\x20
-
 
 
 
@@ -7901,11 +6779,9 @@ Displacement
 
 
 
-
 ;
 MSG_EDSETGUI_SLOPEFACTOR
 Slope Factor
-
 
 
 
@@ -7915,12 +6791,10 @@ MSG_EDSETGUI_CREATEFRACTALMAPS
 
 
 
-
 ;
 MSG_EDSETGUI_SHORT
 Short
 Kurz
-
 
 
 ;
@@ -7929,11 +6803,9 @@ Long
 Lang
 
 
-
 ;
 MSG_EDSETGUI_RELATIVERENDERTIME
 Relative Render Time
-
 
 
 
@@ -7943,11 +6815,9 @@ Eco m/
 
 
 
-
 ;
 MSG_EDSETGUI_SNOWM
 Snow m/
-
 
 
 
@@ -7957,11 +6827,9 @@ Ref Latitude\x20
 Ref Breite\x20
 
 
-
 ;
 MSG_EDSETGUI_TREEHTFACT
 Tree Ht Fact\x20
-
 
 
 
@@ -7971,11 +6839,9 @@ Model Path\x20
 Modell Pfad\x20
 
 
-
 ;
 MSG_EDSETGUI_DEFMAPPATH
 Def Map Path\x20
-
 
 
 
@@ -7985,11 +6851,9 @@ Def Map File\x20
 
 
 
-
 ;
 MSG_EDSETGUI_STRATADIP
    Strata Dip\x20
-
 
 
 
@@ -7999,11 +6863,9 @@ Strata Strike\x20
 
 
 
-
 ;
 MSG_EDSETGUI_DEFORMATION
   Deformation\x20
-
 
 
 
@@ -8013,11 +6875,9 @@ MSG_EDSETGUI_ZENITHALT
 
 
 
-
 ;
 MSG_EDSETGUI_SKYDITHER
 Sky Dither\x20
-
 
 
 
@@ -8027,18 +6887,15 @@ MSG_EDSETGUI_REFLATITUDE_2
 
 
 
-
 ;
 MSG_EDSETGUI_REFLONGITUDE
 Ref Longitude\x20
  Ref Länge\x20
 
 
-
 ;
 MSG_EDSETGUI_BGPATH
    BG Path\x20
-
 
 
 
@@ -8048,11 +6905,9 @@ MSG_EDSETGUI_BGFILE
 
 
 
-
 ;
 MSG_EDSETGUI_ZBUFPATH
 Z Buf Path\x20
-
 
 
 
@@ -8062,11 +6917,9 @@ Z Buf File\x20
 
 
 
-
 ;
 MSG_EDSETGUI_BLURFACTOR
 Blur Factor\x20
-
 
 
 
@@ -8076,11 +6929,9 @@ Max Blur Offset\x20
 
 
 
-
 ;
 MSG_EDSETGUI_FINALWIDTH
    Final Width\x20
-
 
 
 
@@ -8090,11 +6941,9 @@ MSG_EDSETGUI_FINALHEIGHT
 
 
 
-
 ;
 MSG_EDSETGUI_RENDERMEMORY
 Render Memory
-
 
 
 
@@ -8104,11 +6953,9 @@ MSG_EDSETGUI_KEEP
 \33cBehalten
 
 
-
 ;
 MSG_EDSETGUI_RENDER
 \33cRender
-
 
 
 
@@ -8118,11 +6965,9 @@ help
 Hilfe
 
 
-
 ;
 MSG_EDSETGUI_SETTINGSEDITOR
 Settings Editor
-
 
 
 
@@ -8132,11 +6977,9 @@ Frame Path/Name
 
 
 
-
 ;
 MSG_EDSETGUI_VECTORFILEPATHNAME
 Vector File Path/Name
-
 
 
 
@@ -8146,18 +6989,15 @@ Background File Path/Name
 Hintergrund-Datei Pfad/Name
 
 
-
 ;
 MSG_EDSETGUI_ZBUFFERFILEPATHNAME
 Z Buffer File Path/Name
 Z Puffer Datei Pfad/Name
 
 
-
 ;
 MSG_EDSETGUI_COLORMAPFILEPATH
 Color Map File Path
-
 
 
 
@@ -8167,18 +7007,15 @@ Temporary File Path/Name
 Temp Datei Pfad/Name
 
 
-
 ;
 MSG_EDSETGUI_ECOSYSTEMMODELPATH
 Ecosystem Model Path
 Ökosystem Modell Pfad
 
 
-
 ;
 MSG_MOREGUI_DEFORMATIONMAPPATH
 Deformation Map Path
-
 
 
 
@@ -8188,18 +7025,15 @@ Options
 Optionen
 
 
-
 ;
 MSG_EDITGUI_SURFACES
 \33cSurfaces
 \33cOberflächen
 
 
-
 ;
 MSG_EDITGUI_STRATA
 \33cStrata
-
 
 
 
@@ -8209,12 +7043,10 @@ MSG_EDITGUI_CELESTIAL
 
 
 
-
 ;
 MSG_EDITGUI_EYFRAMES
 \33c\0334Key Frames
 \33c\0334Keyframes
-
 
 
 ;
@@ -8223,12 +7055,10 @@ MSG_EDITGUI_PREV
 \33cVorheriger
 
 
-
 ;
 MSG_EDITGUI_FRAME
 Frame
 Frame
-
 
 
 ;
@@ -8237,12 +7067,10 @@ MSG_EDITGUI_NEXT
 \33cNächster
 
 
-
 ;
 MSG_EDITGUI_MAKEKEY
 \33cMake Key
 \33cKey erzeugen
-
 
 
 ;
@@ -8251,12 +7079,10 @@ MSG_EDITGUI_UPDATE
 \33cAktualisieren
 
 
-
 ;
 MSG_EDITGUI_ALL0
 \33cAll (0)
 \33cAlle (0)
-
 
 
 ;
@@ -8265,12 +7091,10 @@ MSG_EDITGUI_DELETE
 \33cLöschen
 
 
-
 ;
 MSG_EDITGUI_DELETEALL
 \33cDelete All
 \33cAlles löschen
-
 
 
 ;
@@ -8279,11 +7103,9 @@ MSG_EDITGUI_TIMELINES
 \33cZeitleisten\x20
 
 
-
 ;
 MSG_EDITGUI_SCALEKEYS
 \33cScale Keys\x20
-
 
 
 
@@ -8293,12 +7115,10 @@ MSG_EDITGUI_COPY
 \33cKopieren
 
 
-
 ;
 MSG_EDITGUI_SWAP
 \33cSwap
 \33cVertauschen
-
 
 
 ;
@@ -8307,12 +7127,10 @@ MSG_EDITGUI_INSERT
 \33cEinfügen
 
 
-
 ;
 MSG_EDITGUI_REMOVE
 \33cRemove
 \33cEntfernen
-
 
 
 ;
@@ -8321,18 +7139,15 @@ MSG_EDITGUI_KEEP
 \33cBehalten
 
 
-
 ;
 MSG_EDITGUI_UNUSED
 Unused
 Unbenutzt
 
 
-
 ;
 MSG_EDITGUI_PARAMETERSMODULECOLOR
 Parameters Module: Color
-
 
 
 
@@ -8342,11 +7157,9 @@ Color Editor: Copy
 
 
 
-
 ;
 MSG_EDITGUI_COPYKEYFRAMESTOO
 Copy Key Frames too?
-
 
 
 
@@ -8356,11 +7169,9 @@ Color Parameters: Swap
 
 
 
-
 ;
 MSG_EDITGUI_CANTSWAPWITHFIRST24COLORSPERATIONTERMINATED
 Can't swap with first 24 colors!\nOperation terminated.
-
 
 
 
@@ -8370,13 +7181,11 @@ The current color is being used. Remove it anyway?
 Die aktuelle Farbe wird benutzt. Trotzdem entfernen?
 
 
-
 ;
 ;
 MSG_EVMORGUI_AM
 AM
 Vormittag
-
 
 
 ;
@@ -8385,12 +7194,10 @@ PM
 Nachmittag
 
 
-
 ;
 MSG_EVMORGUI_JAN
 Jan
 Jan
-
 
 
 ;
@@ -8399,12 +7206,10 @@ Feb
 Feb
 
 
-
 ;
 MSG_EVMORGUI_MAR
 Mar
 Mär
-
 
 
 ;
@@ -8413,12 +7218,10 @@ Apr
 Apr
 
 
-
 ;
 MSG_EVMORGUI_MAY
 May
 Mai
-
 
 
 ;
@@ -8427,12 +7230,10 @@ Jun
 Jun
 
 
-
 ;
 MSG_EVMORGUI_JUL
 Jul
 Jul
-
 
 
 ;
@@ -8441,12 +7242,10 @@ Aug
 Aug
 
 
-
 ;
 MSG_EVMORGUI_SEP
 Sep
 Sep
-
 
 
 ;
@@ -8455,12 +7254,10 @@ Oct
 Okt
 
 
-
 ;
 MSG_EVMORGUI_NOV
 Nov
 Now
-
 
 
 ;
@@ -8469,11 +7266,9 @@ Dec
 Dez
 
 
-
 ;
 MSG_EVMORGUI_SUNTIME
 Sun Time
-
 
 
 
@@ -8483,12 +7278,10 @@ Ref Lon
 
 
 
-
 ;
 MSG_EVMORGUI_DATE
 Date
 Datum
-
 
 
 ;
@@ -8497,11 +7290,9 @@ Time
 Zeit
 
 
-
 ;
 MSG_EVMORGUI_SUNLON
 Sun Lon
-
 
 
 
@@ -8511,11 +7302,9 @@ Sun Lat
 
 
 
-
 ;
 MSG_EVMORGUI_REVERSESEASONS
 \33cReverse Seasons
-
 
 
 
@@ -8525,11 +7314,9 @@ MSG_EVMORGUI_KEEP
 \33cBehalten
 
 
-
 ;
 MSG_EVMORGUI_SUNTIMEWINDOW
 Sun Time Window
-
 
 
 
@@ -8539,12 +7326,10 @@ New Project
 Neues Projekt
 
 
-
 ;
 MSG_EVMORGUI_CLONEPROJECT
 Clone Project
 Projekt klonen
-
 
 
 ;
@@ -8553,12 +7338,10 @@ MSG_EVMORGUI_SAVE
 \33cSpeichern
 
 
-
 ;
 MSG_MOREGUI_PROJECTNEWEDIT
 Project: New/Edit
 Projekt: Neu/Bearbeiten
-
 
 
 ;
@@ -8567,12 +7350,10 @@ New Project Path/Name
 Neues Projekt Pfad/Name
 
 
-
 ;
 MSG_EVMORGUI_YOUMUSTSUPPLYANEWPROJECTNAME
 You must supply a new project name.
 Sie müssen einen neuen Projektnamen vergeben.
-
 
 
 ;
@@ -8581,11 +7362,9 @@ Error loading Project file to clone.
 Fehler beim Laden der zu klonenden Projektdatei.
 
 
-
 ;
 MSG_EVMORGUI_ERRORLOADINGWAVEFILETOCLONE
 Error loading Wave file to clone.
-
 
 
 
@@ -8595,12 +7374,10 @@ Error loading Cloud file to clone.
 
 
 
-
 ;
 MSG_EVMORGUI_ERRORCREATINGNEWPROJECTDIRECTORYITMAYALREADYEXISTO
 Error creating new Project Directory: %s. It may already exist or there may be a file with that name.
 Fehler beim Erzeugen des neuen Projektordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit demselben Namen.
-
 
 
 ;
@@ -8609,12 +7386,10 @@ Error creating new Database Directory: %s. It may already exist or there may be 
 Fehler beim Erzeugen des neuen Datenbankordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit demselben Namen.
 
 
-
 ;
 MSG_EVMORGUI_ERRORCREATINGNEWDEFAULTDIRECTORYITMAYALREADYEXISTO
 Error creating new Default Directory: %s. It may already exist or there may be a file with that name.
 Fehler beim Erzeugen des neuen Standardordners: %s. Der Ordner existiert bereits oder es gibt eine Datei mit demselben Namen.
-
 
 
 ;
@@ -8623,11 +7398,9 @@ Error saving the new Project file.
 Fehler bei Speichern der neuen Projektdatei.
 
 
-
 ;
 MSG_EVMORGUI_ERRORSAVINGTHECLONEDWAVEFILE
 Error saving the cloned Wave file.
-
 
 
 
@@ -8637,12 +7410,10 @@ Error saving the cloned Cloud file.
 
 
 
-
 ;
 MSG_EVMORGUI_OUTOFMEMORY
 Out of memory.
 Nicht genügend Speicher.
-
 
 
 ;
@@ -8652,13 +7423,11 @@ Invalid Flags %lu in %s %d\n
 Ungültige Flags %lu in %s %d\n
 
 
-
 ;
 ;
 MSG_FOLIGUI_PARAMETERSMODULEFOLIAGE
 Parameters Module: Foliage
 Parameter Modul: Laub
-
 
 
 ;
@@ -8667,12 +7436,10 @@ Out of memory!\nCan't open Foliage Editor.
 Nicht genügend Speicher!\nDer Laubwerkseditor konnte nicht geöffnet werden.
 
 
-
 ;
 MSG_FOLIGUI_UNUSED
 Unused
 Unbenutzt
-
 
 
 ;
@@ -8681,12 +7448,10 @@ Foliage Editor
 Laubwerkseditor
 
 
-
 ;
 MSG_FOLIGUI_ECOSYSTEM
 Ecosystem
 Ökosystem
-
 
 
 ;
@@ -8695,18 +7460,15 @@ MSG_FOLIGUI_GROUP
 \33c\0334Gruppe
 
 
-
 ;
 MSG_FOLIGUI_SUGGEST
 \33cSuggest...
 \33cVorschlagen...
 
 
-
 ;
 MSG_FOLIGUI_MAXPICHT
 Max Pic Ht\x20
-
 
 
 
@@ -8716,12 +7478,10 @@ MSG_FOLIGUI_DENSITY
  Dichte %\x20
 
 
-
 ;
 MSG_FOLIGUI_HEIGHT
   Height %\x20
   Höhe %\x20
-
 
 
 ;
@@ -8730,12 +7490,10 @@ Use Image Colors
 Bildfarben verwenden
 
 
-
 ;
 MSG_FOLIGUI_ADD
 \33cAdd...
 \33cHinzufügen...
-
 
 
 ;
@@ -8744,12 +7502,10 @@ MSG_FOLIGUI_REMOVE
 \33cEntfernen
 
 
-
 ;
 MSG_FOLIGUI_NEW
 \33cNew...
 \33cNeu...
-
 
 
 ;
@@ -8758,12 +7514,10 @@ MSG_FOLIGUI_EXPORT
 \33cExportieren...
 
 
-
 ;
 MSG_FOLIGUI_MAGES
 \33c\0334Images
 \33c\0334Bilder
-
 
 
 ;
@@ -8772,11 +7526,9 @@ Width
 Breite
 
 
-
 ;
 MSG_FOLIGUI_HT
 Ht
-
 
 
 
@@ -8786,12 +7538,10 @@ MSG_FOLIGUI_VIEW
 \33cAnsicht...
 
 
-
 ;
 MSG_FOLIGUI_KEEP
 \33cKeep
 \33cBehalten
-
 
 
 ;
@@ -8800,12 +7550,10 @@ Foliage Editor: View Image
 Laubwerkseditor: Bild anzeigen
 
 
-
 ;
 MSG_FOLIGUI_UNABLETOLOADIMAGEFILEFORVIEWINGPERATIONTERMINATED
 Unable to load image file for viewing!\nOperation terminated.
 Das Bild konnte nicht für die Anzeige geladen werden!\nVorgang abgebrochen.
-
 
 
 ;
@@ -8814,11 +7562,9 @@ Select an Ecotype
 Ökotyp auswählen
 
 
-
 ;
 MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE
 Foliage Editor: Load Ecotype
-
 
 
 
@@ -8828,11 +7574,9 @@ Error loading Ecotype file!\nOperation terminated.
 
 
 
-
 ;
 MSG_FOLIGUI_SELECTAFOLIAGEGROUP
 Select a Foliage Group
-
 
 
 
@@ -8842,12 +7586,10 @@ Foliage Editor: Add Group
 Laubwerkseditor: Gruppe hinzufügen
 
 
-
 ;
 MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED
 Out of memory allocating new group!\nOperation terminated.
 Nicht genügend Speicher zum Anlegen einer neuen Gruppe!\nVorgang abgebrochen.
-
 
 
 ;
@@ -8856,12 +7598,10 @@ Error loading Foliage Group file!\nOperation terminated.
 Fehler beim Laden der Laubwerksgruppendatei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_FOLIGUI_ENTERNEWGROUPNAME
 Enter new group name.
 Neuen Gruppennamen eingeben.
-
 
 
 ;
@@ -8870,12 +7610,10 @@ Foliage Editor: New Group
 Laubwerkseditor: Neue Gruppe
 
 
-
 ;
 MSG_FOLIGUI_ECOTYPESAVEPATHFILE
 Ecotype Save Path/File
 Ökotyp Speichern Pfad7Datei
-
 
 
 ;
@@ -8884,12 +7622,10 @@ Foliage Editor: Save Group
 Laubwerkseditor: Gruppe speichern
 
 
-
 ;
 MSG_FOLIGUI_ERRORSAVINGFOLIAGEGROUPFILEPERATIONTERMINATED
 Error saving Foliage Group file!\nOperation terminated.
 Fehler beim Speichern der Laubwerksgruppendatei!\nVorgang abgebrochen.
-
 
 
 ;
@@ -8898,12 +7634,10 @@ Image Path/File
 Bild Pfad/Name
 
 
-
 ;
 MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE
 Foliage Editor: Add Image
 Laubwerkseditor: Bild hinzufügen
-
 
 
 ;
@@ -8912,12 +7646,10 @@ Error loading image file!\nOperation terminated.
 Fehler beim Laden des Bildes!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_FOLIGUI_ENTERNEWIMAGEPATHANDNAME
 Enter new image path and name.
 Nauen Bild Pfad und Namen eingeben.
-
 
 
 ;
@@ -8926,12 +7658,10 @@ The image loaded properly. Maybe some day there will even be a way for you to se
 Das Bild wurde erfolgreich geladen. Vielleicht gibt es in der Zukunft eine Möglichkeit, es auch anzuzeigen!\n
 
 
-
 ;
 MSG_FOLIGUI_THATWOULDBENICE
 That would be nice
 Das wäre schön
-
 
 
 ;
@@ -8940,11 +7670,9 @@ Foliage Editor: Save Ecotype
 
 
 
-
 ;
 MSG_FOLIGUI_ERRORSAVINGECOTYPEFILEPERATIONTERMINATED
 Error saving Ecotype file!\nOperation terminated.
-
 
 
 
@@ -8955,11 +7683,9 @@ Key Frame Module
 
 
 
-
 ;
 MSG_PARAMS_OUTOFMEMORYALLOCATINGNEWKEYFRAMEPERATIONTERMINATED
 Out of memory allocating new key frame!\nOperation terminated.
-
 
 
 
@@ -8969,11 +7695,9 @@ Tens
 
 
 
-
 ;
 MSG_GENTLGUI_CONT
 Cont
-
 
 
 
@@ -8983,18 +7707,15 @@ Bias
 
 
 
-
 ;
 MSG_GENTLGUI_TIMELINES
 Time Lines
 Zeitleisten
 
 
-
 ;
 MSG_GENTLGUI_OKGARYYOUKNOWYOUCANTHAVEMORETHANTENVALUESPERTIMELI
 OK, Gary! You know you can't have more than ten values per Time Line. Maybe now you will concede the value of dynamic allocation.
-
 
 
 
@@ -9004,11 +7725,9 @@ Sure, anything you say!
 
 
 
-
 ;
 MSG_GENTLGUI_YOUVEREACHEDTHELIMITOFOPENTIMELINEWINDOWSPLEASECLO
 You've reached the limit of open Time Line windows. Please close one and try again.
-
 
 
 
@@ -9018,11 +7737,9 @@ MSG_GENTLGUI_PAN
 
 
 
-
 ;
 MSG_GENTLGUI_ZOOM
  Zoom\x20
-
 
 
 
@@ -9032,11 +7749,9 @@ Frame\x20
 
 
 
-
 ;
 MSG_GENTLGUI_PREV
 \33cPrev
-
 
 
 
@@ -9046,11 +7761,9 @@ MSG_GENTLGUI_NEXT
 
 
 
-
 ;
 MSG_GENTLGUI_ADDKEY
 \33cAdd Key
-
 
 
 
@@ -9060,18 +7773,15 @@ MSG_GENTLGUI_DELKEY
 
 
 
-
 ;
 MSG_GENTLGUI_LINEAR
 \33cLinear
 \33cLinear
 
 
-
 ;
 MSG_GENTLGUI_FRAME
 Frame
-
 
 
 
@@ -9081,11 +7791,9 @@ MSG_GENTLGUI_KEEP
 \33cBehalten
 
 
-
 ;
 MSG_GENTLGUI_GRID
 \33cGrid
-
 
 
 
@@ -9095,11 +7803,9 @@ Time Line
 Zeitleiste
 
 
-
 ;
 MSG_GENTLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPR
 At least two key frames for this parameter must be created prior to opening the time line window
-
 
 
 
@@ -9110,11 +7816,9 @@ Render initialization complete.
 
 
 
-
 ;
 MSG_GLMP_WCSRENDERWINDOW
 WCS Render Window
-
 
 
 
@@ -9124,11 +7828,9 @@ Render window.
 
 
 
-
 ;
 MSG_GLMP_ERROROPENINGRENDERWINDOWPERATIONTERMINATED
 Error opening render window!\nOperation terminated.
-
 
 
 
@@ -9138,12 +7840,10 @@ Largest available memory block = %lu
 Größter verfügbarer Speicherblock = %lu
 
 
-
 ;
 MSG_GLMP_FASTMEMORYAVAILABLEU
 Fast memory available = %lu
 Fast Memory verfügbar = %lu
-
 
 
 ;
@@ -9152,11 +7852,9 @@ Out of memory opening Z buffer!\nOperation terminated.
 Nicht genügend Speicher zum Öffnen des Z-Puffers!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_GLMP_OUTOFMEMORYOPENINGBITMAPSPERATIONTERMINATED
 Out of memory opening bitmaps!\nOperation terminated.
-
 
 
 
@@ -9166,11 +7864,9 @@ Out of memory opening anti-alias buffer!\nOperation terminated.
 
 
 
-
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGREFLECTIONBUFFERCONTINUEWITHOUTRE
 Out of memory allocating Reflection buffer!\nContinue without Reflections?
-
 
 
 
@@ -9180,11 +7876,9 @@ Continue|Cancel
 Weiter|Abbrechen
 
 
-
 ;
 MSG_GLMP_DIAGNOSTICBUFFERSCANTBEGENERATEDFORMULTIPLESEGMENTORMU
 Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?
-
 
 
 
@@ -9194,11 +7888,9 @@ Out of memory opening Diagnostic buffers! Proceed rendering without them?
 
 
 
-
 ;
 MSG_GLMP_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED
 Out of memory opening key frame table!\nOperation terminated.
-
 
 
 
@@ -9208,18 +7900,15 @@ Error loading Wave File!\nContinue without Waves?
 
 
 
-
 ;
 MSG_GLMP_RENDERMODULECLOUDS
 Render Module: Clouds
 Render Modul: Wolken
 
 
-
 ;
 MSG_GLMP_ERRORLOADINGCLOUDMAPFILEONTINUEWITHOUTCLOUDSHADOWS
 Error loading Cloud Map file!\nContinue without cloud shadows?
-
 
 
 
@@ -9229,11 +7918,9 @@ Out of memory creating Cloud Map!\nContinue without cloud shadows?
 
 
 
-
 ;
 MSG_GLMP_MASTERCMAPHEADERFILE
 Master CMap Header File
-
 
 
 
@@ -9243,11 +7930,9 @@ Error loading Master Color Map! See Status Log for more information.\nContinue r
 
 
 
-
 ;
 MSG_GLMP_ERRORLOADINGSTRATADEFORMATIONMAPCONTINUERENDERINGWITHO
 Error loading Strata Deformation Map!\nContinue rendering without Deformation Map?
-
 
 
 
@@ -9257,11 +7942,9 @@ Out of memory creating Noise Map!\nContinue rendering without Texture Noise?
 
 
 
-
 ;
 MSG_GLMP_RENDERMEMORYALLOCATED
 Render memory allocated.
-
 
 
 
@@ -9271,11 +7954,9 @@ Animation
 Animation
 
 
-
 ;
 MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED
 Error creating Cloud Map! Either out of memory or user aborted.
-
 
 
 
@@ -9285,18 +7966,15 @@ Retry|Cancel
 Wiederholen|Abbrechen
 
 
-
 ;
 MSG_GLMP_SEGMENT
 Segment %d
 Segment %d
 
 
-
 ;
 MSG_GLMP_CANTOPENVECTORFILEFOROUTPUTONTINUERENDERINGWITHOUTVECT
 Can't open vector file for output!\nContinue rendering without vectors?
-
 
 
 
@@ -9306,12 +7984,10 @@ Fractals:
 Fraktale:
 
 
-
 ;
 MSG_GLMP_LEVEL
 Level %ld = %ld
 Level %ld = %ld
-
 
 
 ;
@@ -9320,11 +7996,9 @@ Ecosystems:
 Ökosysteme:
 
 
-
 ;
 MSG_GLMP_ERRORINTERLACINGFIELDSPERATIONTERMINATED
 Error interlacing fields!\nOperation terminated.
-
 
 
 
@@ -9334,12 +8008,10 @@ Render Module: Save
 Render Modul: Speichern
 
 
-
 ;
 MSG_GLMP_ERRORSAVINGBITMAPPEDIMAGETRYANOTHERDEVICE
 Error saving bitmapped image! Try another device?
 Fehler beim Speichern des Bitmap-Bildes! Ein anderes Device versuchen?
-
 
 
 ;
@@ -9348,12 +8020,10 @@ New Frame Save Path
 Neuer Bilder Speicher-Pfad
 
 
-
 ;
 MSG_GLMP_OUTOFMEMORYSAVINGZBUFFER
 Out of memory saving Z Buffer!\n
 Nicht genügend Speicher zum Speichern des Z-Puffers!\n
-
 
 
 ;
@@ -9362,18 +8032,15 @@ Error saving Z Buffer! Try another device?
 Fehler beim Speichern des Z-Puffers! Ein anderes Device versuchen?
 
 
-
 ;
 MSG_GLMP_ZBUFFERSAVEPATH
 Z Buffer Save Path
 Z-Puffer Speicherpfad
 
 
-
 ;
 MSG_GLMP_RENDERWINDOW
 Render Window
-
 
 
 
@@ -9383,18 +8050,15 @@ Color map directory not found.
 
 
 
-
 ;
 MSG_GLMP_POLYGONS
 Polygons:
 Polygone:
 
 
-
 ;
 MSG_GLMP_FRAME_D
 Frame %d
-
 
 
 
@@ -9404,11 +8068,9 @@ Frame %d/%d
 
 
 
-
 ;
 MSG_GLMP_OUTOFMEMORYREADINGMAP
 Out of memory reading map %s!
-
 
 
 
@@ -9418,11 +8080,9 @@ Render Module: Topo
 
 
 
-
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY
 Out of memory allocating Smoothing Index array!
-
 
 
 
@@ -9432,18 +8092,15 @@ Out of memory allocating Fractal Map array!\nContinue without Fractal Maps or re
 
 
 
-
 ;
 MSG_GLMP_CONTINUERETRYCANCEL
 Continue|Retry|Cancel
 Weiter|Wiederholen|Abbrechen
 
 
-
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASBUFFERPERATIONTERMINATED
 Out of memory allocating antialias buffer!\nOperation terminated.
-
 
 
 
@@ -9453,18 +8110,15 @@ Out of memory allocating antialias and edge buffers!\nOperation terminated.
 
 
 
-
 ;
 MSG_GLMP_VECTORS
 Vectors
 Vektoren
 
 
-
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS
 Out of memory allocating polygon edge buffers!
-
 
 
 
@@ -9474,11 +8128,9 @@ Out of memory creating Cloud Map!
 
 
 
-
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGCLOUDKEYFRAMESPERATIONTERMINATED
 Out of memory allocating Cloud Key Frames!\nOperation terminated
-
 
 
 
@@ -9488,18 +8140,15 @@ Error reading paged-out file! Can't restore Reflection buffers. Operation termin
 
 
 
-
 ;
 MSG_GLMP_ERRORALLOCATINGMEMORYFORPAGEDOUTFILECANTRESTOREREFLECT
 Error allocating memory for paged-out file! Can't restore Reflection buffers. Operation terminated.
 
 
 
-
 ;
 MSG_GLMP_ERROROPENINGPAGEDOUTFILECANTRESTOREREFLECTIONBUFFERSOP
 Error opening paged-out file! Can't restore Reflection buffers. Operation terminated.
-
 
 
 
@@ -9510,11 +8159,9 @@ Frame %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
 Frame %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
 
 
-
 ;
 MSG_GLMPSPRT_QMAXFQFOCUSFBANKINGF
 Q max=%f, Q focus=%f, Banking=%f\n
-
 
 
 
@@ -9524,12 +8171,10 @@ Sky
 Himmel
 
 
-
 ;
 MSG_GLMPSPRT_HORLINEZENITHLINE
 horline=%d, zenithline=%d\n
 Horizontlinie=%d, Zenitlinie=%d\n
-
 
 
 ;
@@ -9538,12 +8183,10 @@ Reflections
 Spiegelungen
 
 
-
 ;
 MSG_GLMPSPRT_SUN
 Sun
 Sonne
-
 
 
 ;
@@ -9552,12 +8195,10 @@ Sun Halo
 Sonnen-Halo
 
 
-
 ;
 MSG_GLMPSPRT_ERRORLOADINGSUNIMAGEPERATIONTERMINATED
 Error loading Sun Image!\nOperation terminated.
 Fehler beim Laden des Sonnenbildes!\nVorgang abgebrochen.
-
 
 
 ;
@@ -9566,19 +8207,16 @@ Moon
 Mond
 
 
-
 ;
 MSG_GLMPSPRT_MOONHALO
 Moon Halo
 Mondhof
 
 
-
 ;
 MSG_GLMPSPRT_ERRORLOADINGMOONIMAGEPERATIONTERMINATED
 Error loading Moon Image!\nOperation terminated.
 Fehler beim Laden des Mondbildes!\nVorgang abgebrochen.
-
 
 
 ;
@@ -9588,11 +8226,9 @@ Interactive Motion Module
 
 
 
-
 ;
 MSG_INTDRW_OUTOFMEMORYIDDENLINEREMOVALNOTAVAILABLE
 Out of memory!\nHidden line removal not available.
-
 
 
 
@@ -9602,18 +8238,15 @@ Compass
 Kompass
 
 
-
 ;
 MSG_INTDRW_PARAMETERSMODULEPATH
 Parameters Module: Path
 Parameter Modul: Pfad
 
 
-
 ;
 MSG_INTDRW_ANIM
 Anim
-
 
 
 
@@ -9623,12 +8256,10 @@ Frame %d/%d
 Frame %d/%d
 
 
-
 ;
 MSG_INTUTIL_AUTOCENTEREDALTFLATFLONF
 Auto-centered: alt = %f  lat = %f  lon = %f\n
 Auto-zentriert: Höhe = %f  Breite = %f  Länge  = %f\n
-
 
 
 ;
@@ -9637,18 +8268,15 @@ Parameters Module: Camera View
 Parameter Modul: Kamera Ansicht
 
 
-
 ;
 MSG_INTVIEW_YOUMUSTFIRSTLOADACOMPLETEPARAMETERFILE
 You must first load a complete Parameter file!
 Es muss zuerst eine vollständige Parameter Datei geladen werden!
 
 
-
 ;
 MSG_INTVIEW_COMPLETEPARAMETERFILE
 Complete parameter file
-
 
 
 
@@ -9658,18 +8286,15 @@ There are no objects in this Database!\nOperation terminated
 Keine Objekte in der Datenbank vorhanden!\nVorgang abgebrochen
 
 
-
 ;
 MSG_INTVIEW_NOOBJECTSINDATABASE
 No objects in Database
 Keine Objekte in der Datenbank
 
 
-
 ;
 MSG_INTVIEW_EDITINGMODULEINTERACTIVE
 Editing Module: Interactive
-
 
 
 
@@ -9679,18 +8304,15 @@ Camera View failed to open!\nOperation terminated.
 Die Kameraansicht konnte nicht geöffnet werden!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_INTVIEW_OUTOFMEMORYOPENINGCAMERAVIEWPERATIONTERMINATED
 Out of memory opening Camera View!\nOperation terminated.
 Nicht genügend Speicher zum Öffnen der Kameraansicht!\nOperation abgebrochen.
 
 
-
 ;
 MSG_INTVIEW_OUTOFMEMORYLOADINGDEMSNCREASEGRIDSIZE
 Out of memory loading DEMs!\nIncrease grid size?
-
 
 
 
@@ -9700,11 +8322,9 @@ No DEM objects active!\nOperation terminated.
 Keine aktiven DEM-Objekte!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_INTVIEW_ELEVATIONMAPSLOADED
 Elevation maps loaded = %d.\n
-
 
 
 
@@ -9714,18 +8334,15 @@ Out of memory opening Antialias buffer!\nOperation terminated.
 
 
 
-
 ;
 MSG_INTVIEW_IMAGE
 Image
 Bild
 
 
-
 ;
 MSG_INTVIEW_OUTOFMEMORYALLOCATINGDEMARRAY
 Out of memory allocating DEM array!\n
-
 
 
 
@@ -9735,12 +8352,10 @@ Grid must be present, please redraw and try again.
 
 
 
-
 ;
 MSG_INTVIEW_SELECTPREVIEWREGIONWITHTWOCLICKS
 Select preview region with two clicks
 Wählen Sie die Vorschauregion mit zwei Klicks
-
 
 
 ;
@@ -9750,11 +8365,9 @@ MSG_INTVIEW_IAD
 "IA %d"
 
 
-
 ;
 MSG_INTVIEW_ERROROPENINGSMALLRENDERINGWINDOWPERATIONTERMINATED
 Error opening Small Rendering Window!\nOperation terminated.
-
 
 
 
@@ -9764,12 +8377,10 @@ Small rendering window.
 
 
 
-
 ;
 MSG_INTVIEW_ERROROPENINGDEMFILEFORINPUTPERATIONTERMINATED
 Error opening DEM file for input!\nOperation terminated.
 Fehler beim Öffnen der DEM-Datei zum Lesen!\nVorgang abgebrochen.
-
 
 
 ;
@@ -9778,12 +8389,10 @@ Out of memory! Try a smaller preview size.\nOperation terminated.
 Nicht genügend Speicher! Versuchen Sie eine kleinere Vorschaugröße.\nVorgang abgebrochen.
 
 
-
 ;
 MSG_INTVIEW_PARAMETERSMODULEPREVIEW
 Parameters Module: Preview
 Parameter Modul: Vorschau
-
 
 
 ;
@@ -9792,11 +8401,9 @@ Restore the Parameters used to create this preview?
 Sollen die Parameter, die für die Erstellung dieser Vorschau benutzt wurden, wiederhergestellt werden?
 
 
-
 ;
 MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI
 Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?
-
 
 
 
@@ -9807,18 +8414,15 @@ Export Motion Path/File
 
 
 
-
 ;
 MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT
 LightWave Motion: Export
 LightWave Motion: Exportieren
 
 
-
 ;
 MSG_LWSPRT_NOKEYFRAMESTOEXPORTPERATIONTERMINATED
 No Key Frames to export!\nOperation terminated.
-
 
 
 
@@ -9828,18 +8432,15 @@ Error opening file for output!\nOperation terminated.
 Fehler beim Öffnen der Datei zum Schreiben!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_LWSPRT_ERRORWRITINGTOFILEPERATIONTERMINATEDPREMATURELY
 Error writing to file!\nOperation terminated prematurely.
 Fehler beim Schreiben der Datei!\nVorgang vorzeitig abgebrochen.
 
 
-
 ;
 MSG_LWSPRT_DEMFILETOEXPORT
 DEM file to export
-
 
 
 
@@ -9849,12 +8450,10 @@ Error loading DEM Object!\nOperation terminated.
 Fehler beim Laden des DEM-Objetks!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_LWSPRT_ERRORLOADINGDEMOBJECTBJECTNOTSAVED
 Error loading DEM Object!\nObject not saved.
 Fehler beim Laden des DEM-Objekts!\nObjekt wurde nicht gespeichert.
-
 
 
 ;
@@ -9863,12 +8462,10 @@ LW Object Export
 LW Objekt Export
 
 
-
 ;
 MSG_LWSPRT_LWOBJECTPATHFILE
 LW Object path/file
 LW Objekt Pfad/Dateiname
-
 
 
 ;
@@ -9877,12 +8474,10 @@ Scene Path/File
 Szene Pfad/Dateiname
 
 
-
 ;
 MSG_LWSPRT_STRLENOFDEMPATHIS0
 strlen of DEMPath is 0!\n
 strlen von DEMPath ist 0!\n
-
 
 
 ;
@@ -9891,12 +8486,10 @@ LW DEM Object Path
 LW DEM Objekt Pfad
 
 
-
 ;
 MSG_LWSPRT_LWSCENEEXPORT
 LW Scene Export
 LW Szene Export
-
 
 
 ;
@@ -9905,11 +8498,9 @@ A problem occurred saving the LW scene.\nIf a file was created it will not be co
 
 
 
-
 ;
 MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA
 The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created.
-
 
 
 
@@ -9920,18 +8511,15 @@ Digitize new points for the active vector object or create a new object?
 
 
 
-
 ;
 MSG_GLOBAL_ACTIVENEWCANCEL
 Active|New|Cancel
 Aktives|Neu|Abbrechen
 
 
-
 ;
 MSG_LINESPRT_DIAGNOSTICDIGITIZE
 Diagnostic: Digitize
-
 
 
 
@@ -9941,11 +8529,9 @@ Active object is a DEM and may not be digitized!\nOperation terminated.
 
 
 
-
 ;
 MSG_LINESPRT_INTERACTIVEMODULEADDPOINTS
 Interactive Module: Add Points
-
 
 
 
@@ -9955,11 +8541,9 @@ Save object points?
 Objekt Punkte speichern?
 
 
-
 ;
 MSG_LINESPRT_MAPPINGMODULEPATH
 Mapping Module: Path
-
 
 
 
@@ -9969,18 +8553,15 @@ a Parameter file
 eine Parameter Datei
 
 
-
 ;
 MSG_MAP_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED
 Error loading vector object!\nOperation terminated.
 Fehler beim Laden des Vektorobjektes!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_LINESPRT_CAMERAKEYFRAMESEXISTPROCEEDINGWILLDELETECURRENTVAL
 Camera Key Frames exist. Proceeding will delete current values!
-
 
 
 
@@ -9990,11 +8571,9 @@ Proceed|Cancel
 Weiter|Abbrechen
 
 
-
 ;
 MSG_LINESPRT_FOCUSKEYFRAMESEXISTPROCEEDINGWILLDELETECURRENTVALU
 Focus Key Frames exist. Proceeding will delete current values!
-
 
 
 
@@ -10004,18 +8583,15 @@ Enter frame interval to represent each vector segment.
 
 
 
-
 ;
 MSG_LINESPRT_USEELEVATIONDATA
 Use elevation data?
 Höhendaten benutzen?
 
 
-
 ;
 MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC
 Modify altitudes with current flattening, datum and vertical exaggeration?
-
 
 
 
@@ -10025,11 +8601,9 @@ Out of memory creating Key Frames!\nOperation terminated.
 
 
 
-
 ;
 MSG_LINESPRT_USEALLSPLINEDPOINTSORONLYKEYFRAMES
 Use all splined points or only Key Frames?
-
 
 
 
@@ -10039,11 +8613,9 @@ All Splined|Key Frames
 
 
 
-
 ;
 MSG_LINESPRT_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED
 Out of memory opening Key Frame table!\nOperation terminated.
-
 
 
 
@@ -10053,12 +8625,10 @@ There are more frames than allowable vector points! Path will be truncated.
 
 
 
-
 ;
 MSG_LINESPRT_CAMERAPATH
 CameraPath
 Kamera Pfad
-
 
 
 ;
@@ -10067,12 +8637,10 @@ FocusPath
 Fokus Pfad
 
 
-
 ;
 MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED
 Enter name of vector to be created.
 Geben Sie einen Namen für den neuen Vektor an.
-
 
 
 ;
@@ -10081,12 +8649,10 @@ Vector name already present in Database!\nOverwrite it or try a new name?
 Vektorname bereits in der Datenbank vorhanden!\nÜberschreiben oder mit neuem Namen versuchen?
 
 
-
 ;
 MSG_LINESPRT_OVERWRITENEWCANCEL
 Overwrite|New|Cancel
 Überschreiben|Neu|Abbrechen
-
 
 
 ;
@@ -10095,12 +8661,10 @@ Out of memory expanding Database!\nOperation terminated.
 Nicht genügend Speicher zum Vergrößern der Datenbank!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_LINESPRT_OUTOFMEMORYCREATINGNEWVECTOROBJECTPERATIONTERMINAT
 Out of memory creating new vector object!\nOperation terminated.
 Nicht genügend Speicher zum Erzeugen des neuen Vektorobjekts!\nVorgang abgebrochen.
-
 
 
 ;
@@ -10110,12 +8674,10 @@ First set of alignment lat/lon coordinates must be larger than second and map sc
 
 
 
-
 ;
 MSG_MAP_SETNORTHWESTREFERENCEPOINTWITHMOUSE
 \0338Set northwest reference point with mouse.
 \0338Nord-West Referenzpunkt mit der Maus festlegen.
-
 
 
 ;
@@ -10124,12 +8686,10 @@ Set northwest reference point
 Nord-West Referenzpunkt festlegen
 
 
-
 ;
 MSG_MAP_SETSOUTHEASTREFERENCEPOINTESCABORT
 \0338Set southeast reference point. ESC=abort
 \0338Süd-Ost Referenzpunkt festlegen. ESC=Abbruch
-
 
 
 ;
@@ -10138,11 +8698,9 @@ Set southeast reference point
 Süd-Ost Referenzpunkt festlegen
 
 
-
 ;
 MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO
 Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
-
 
 
 
@@ -10152,11 +8710,9 @@ Map View: Ecosystems
 
 
 
-
 ;
 MSG_MAP_THEREARENOPARAMETERSLOADEDECOSYSTEMMAPPINGISN
 There are no Parameters loaded! Ecosystem mapping is not available until you load a Parameter file or create Default Parameters.
-
 
 
 
@@ -10166,11 +8722,9 @@ Map Draw
 
 
 
-
 ;
 MSG_MAP_MAPVIEWTOPODRAW
 Map View: Topo Draw
-
 
 
 
@@ -10180,11 +8734,9 @@ Memory allocation failure, cannot draw topo. Continue?
 
 
 
-
 ;
 MSG_MAP_OUTOFMEMORYLOADINGRELATIVEELEVATIONFILEECOSYS
 Out of memory loading Relative Elevation file. Ecosystem mapping not available?
-
 
 
 
@@ -10194,12 +8746,10 @@ Relative elevation file
 
 
 
-
 ;
 MSG_MAP_338SETCENTERPOINT
 \0338Set center point.
 \0338Mittelpunkt festlegen.
-
 
 
 ;
@@ -10208,12 +8758,10 @@ Set center point
 Mittelpunkt festlegen
 
 
-
 ;
 MSG_MAP_338SETORIGINPOINT
 \0338Set origin point.
 \0338Ursprungspunkt setzen.
-
 
 
 ;
@@ -10222,12 +8770,10 @@ Set origin point
 Ursprungspunkt setzen
 
 
-
 ;
 MSG_MAP_SETDESTINATIONPOINTESCABORT
 \0338Set destination point. ESC=abort
 \0338Zielpunkt setzen. ESC=Abbrechen
-
 
 
 ;
@@ -10236,12 +8782,10 @@ Set destination point
 Zielpunkt setzen
 
 
-
 ;
 MSG_MAP_SELECTOBJECTESCABORT
 \0338Select object. ESC=abort
 \0338Objekt auswählen. ESC=Abbrechen
-
 
 
 ;
@@ -10250,18 +8794,15 @@ Select object
 Objekt auswählen
 
 
-
 ;
 MSG_MAP_ISTHISTHECORRECTOBJECT
 Is this the correct object?
 Ist dies das richtige Objekt?
 
 
-
 ;
 MSG_MAPGUI_MAPPINGMODULE
 Mapping Module
-
 
 
 
@@ -10271,11 +8812,9 @@ Object not found!
 Objekt nicht gefunden!
 
 
-
 ;
 MSG_MAP_MAPVIEWMULTISELECT
 Map View: Multi-Select
-
 
 
 
@@ -10285,12 +8824,10 @@ Select or de-select items?
 
 
 
-
 ;
 MSG_MAP_SELECTDESELECTCANCEL
 Select|De-select|Cancel
 Auswählen|Auswahl aufheben|Abbrechen
-
 
 
 ;
@@ -10299,12 +8836,10 @@ MSG_MAP_SETFIRSTCORNERPOINTWITHMOUSE
 \0338Ersten Eckpunkt mit der Maus festlegen.
 
 
-
 ;
 MSG_MAP_338SETFIRSTCORNERPOINTWITHMOUSE
 Set first corner point with mouse
 Ersten Eckpunkt mit der Maus festlegen
-
 
 
 ;
@@ -10313,18 +8848,15 @@ Set second corner point. ESC=abort
 Zweiten Eckpunkt festlegen. ESC=Abbruch
 
 
-
 ;
 MSG_MAP_SETSECONDCORNERPOINT
 Set second corner point
 Zweiten Eckpunkt festlegen
 
 
-
 ;
 MSG_MAP_MAPVIEWDIGITIZE
 Map View: Digitize
-
 
 
 
@@ -10334,18 +8866,15 @@ Mapping Module: Digitize
 
 
 
-
 ;
 MSG_MAP_ACCEPTNEWPOINTS
 Accept new points?
 Neue Punkte akzeptieren?
 
 
-
 ;
 MSG_MAP_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTE
 Out of memory allocating new vector array!\nOperation terminated.
-
 
 
 
@@ -10355,11 +8884,9 @@ Conform vector to terrain now?
 
 
 
-
 ;
 MSG_MAP_VECTORCONFORMEDTOTOPOGRAPHY
 Vector %s conformed to topography.
-
 
 
 
@@ -10369,12 +8896,10 @@ MSG_MAP_SETLABELPOINTRETURNINTERPOLATECCLOSEQQUIT
 
 
 
-
 ;
 MSG_MAP_SETPOINTRETURNINTERPOLATECCLOSEQQUIT
 \0338Set Point: %d.  RETURN=interpolate C=close Q=quit
 \0338Setze Punkt: %d.  RETURN=Interpolieren C=Schließen Q=Beenden
-
 
 
 ;
@@ -10383,11 +8908,9 @@ MSG_MAP_RETURNTOACCEPTESCTOCANCEL
 \0338RETURN = Akzeptieren, ESC = Abbrechen
 
 
-
 ;
 MSG_MAP_MAPPINGMODULEINSERTPOINTS
 Mapping Module: Insert Points
-
 
 
 
@@ -10397,11 +8920,9 @@ Out of memory! Operation failed.
 Ungenügend Speicher! Vorgang fehlgeschlagen.
 
 
-
 ;
 MSG_MAP_CREATEVISUALSENSITIVITYMAPFORTHISOBJECT
 Create Visual Sensitivity map for this object?
-
 
 
 
@@ -10411,11 +8932,9 @@ DBase[OBN].Name
 DBase[OBN].Name
 
 
-
 ;
 MSG_MAP_VISUALSENSITIVITY
 Visual Sensitivity
-
 
 
 
@@ -10425,11 +8944,9 @@ Error opening viewshed window!\nExecution terminated.
 
 
 
-
 ;
 MSG_MAP_MAPPINGMODULEVIEWSHED
 Mapping Module: Viewshed
-
 
 
 
@@ -10439,11 +8956,9 @@ Error reading topo maps!\nOperation terminated.
 
 
 
-
 ;
 MSG_MAP_SMOOTHTHEMAPBEFORECOMPUTINGVIEWSHED
 Smooth the map before computing viewshed?
-
 
 
 
@@ -10453,18 +8968,15 @@ Enter vertical offset in meters.
 Vertikalen Offset in Meter eingegeben.
 
 
-
 ;
 MSG_MAP_SMOOTHING
 Smoothing...
 Glätten...
 
 
-
 ;
 MSG_MAP_PATHPOINT
 Path Point
-
 
 
 
@@ -10474,18 +8986,15 @@ Draw vectors on viewshed rendering?
 
 
 
-
 ;
 MSG_MAP_CANTOPENSERIALDEVICEPERATIONTERMINATED
 Can't open serial device!\nOperation terminated.
 Das Serial Device konnte nicht geöffnet werden!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_MAP_DIGITIZENEWREGISTRATIONPOINTS
 Digitize new registration points?
-
 
 
 
@@ -10495,11 +9004,9 @@ MSG_MAP_SETNWREGISTRATIONPOINTBUTTON3ABORT
 
 
 
-
 ;
 MSG_MAP_SETNEREGISTRATIONPOINTBUTTON3ABORT
 \0338Set NE registration point. Button 3=abort
-
 
 
 
@@ -10509,18 +9016,15 @@ MSG_MAP_SETSEREGISTRATIONPOINTBUTTON3ABORT
 
 
 
-
 ;
 MSG_MAP_LENGTHFFF
 length %f %f %f\n
 Länge %f %f %f\n
 
 
-
 ;
 MSG_MAP_ILLEGALVALUEWOREGISTRATIONPOINTSMAYNOTBECOINC
 Illegal value!\nTwo registration points may not be coincident.\nOperation terminated.
-
 
 
 
@@ -10530,11 +9034,9 @@ Registration points coincident
 
 
 
-
 ;
 MSG_MAP_MAPROTATIONF
 Map rotation = %f\n
-
 
 
 
@@ -10544,11 +9046,9 @@ Longitude scale = %f /point
 
 
 
-
 ;
 MSG_MAP_LATITUDESCALEFPOINT
 Latitude scale = %f /point
-
 
 
 
@@ -10558,11 +9058,9 @@ Set point %d. Button 2=close, 3=abort, 4=done
 
 
 
-
 ;
 MSG_MAP_PTLATFLONF
 Pt %d  Lat=%f  Lon=%f
-
 
 
 
@@ -10572,12 +9070,10 @@ Ecosystem out of range.
 
 
 
-
 ;
 MSG_MAPEXTRA_NOTCLOSED
 [Not closed]
 [Nicht geschlossen]
-
 
 
 ;
@@ -10586,12 +9082,10 @@ MSG_MAPEXTRA_SETORIGINPOINT_COLOUR
 \0338Ursprungspunkt setzen.
 
 
-
 ;
 MSG_MAPEXTRA_SETORIGINPOINT
 Set origin point
 Ursprungspunkt setzen
-
 
 
 ;
@@ -10600,12 +9094,10 @@ MSG_MAPEXTRA_SETDESTINATIONPOINTESCABORT
 \0338Zielpunkt setzen. ESC=Abbruch
 
 
-
 ;
 MSG_MAPEXTRA_SETDESTINATIONPOINT
 Set destination point
 Zielpunkt setzen
-
 
 
 ;
@@ -10614,11 +9106,9 @@ Length: %f km
 Länge: %f km
 
 
-
 ;
 MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX
 Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?
-
 
 
 
@@ -10628,18 +9118,15 @@ MSG_MAPEXTRA_SELECTNEWORIGINQDONEUUUPDDDOWNESCABORT
 \0338Neuen Ursprung festlegen. Q=fertig, Uu=hoch, Dd=runter, ESC=abbrechen
 
 
-
 ;
 MSG_MAPEXTRA_SELECTNEWORIGIN
 Select new origin
 Neuen Ursprung festlegen
 
 
-
 ;
 MSG_MAPEXTRA_RESETVECTORORIGIN
 Reset vector origin: %s.\n
-
 
 
 
@@ -10649,11 +9136,9 @@ Conform vector to terrain and save Object now?
 
 
 
-
 ;
 MSG_MAPEXTRA_VECTORCONFORMEDTOTOPOGRAPHY
 Vector %s conformed to topography.
-
 
 
 
@@ -10663,11 +9148,9 @@ MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
 
 
 
-
 ;
 MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEX
 Select first source vertex
-
 
 
 
@@ -10677,11 +9160,9 @@ MSG_MAPEXTRA_SELECTLASTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
 
 
 
-
 ;
 MSG_MAPEXTRA_SELECTLASTSOURCEVERTEX
 Select last source vertex
-
 
 
 
@@ -10691,11 +9172,9 @@ MSG_MAPEXTRA_SELECTFIRSTDESTNVERTEXQDONEUUUPDDDOWNESCABORT
 
 
 
-
 ;
 MSG_MAPEXTRA_SELECTFIRSTDESTINATIONVERTEX
 Select first destination vertex
-
 
 
 
@@ -10705,11 +9184,9 @@ MSG_MAPEXTRA_SELECTLASTDESTNVERTEXQDONEUUUPDDDOWNESCABORT
 
 
 
-
 ;
 MSG_MAPEXTRA_SETLASTDESTINATIONVERTEX
 Set last destination vertex
-
 
 
 
@@ -10719,11 +9196,9 @@ Object resulting from this match would be larger than the maximum of MAXOBJPTS !
 
 
 
-
 ;
 MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH
 Mapping Module: Point Match
-
 
 
 
@@ -10733,11 +9208,9 @@ Illegal number of points!\nIf first and last destination points are the same, so
 Ungültige Anzahl Punkte!\nWenn der erste und letzte Zielpunkt gleich sind müssen die Quell-Punkte größer als Null sein.\nVorgang abgebrochen.
 
 
-
 ;
 MSG_MAPEXTRA_PROCEEDWITHRELOCATION
 Proceed with relocation?
-
 
 
 
@@ -10747,11 +9220,9 @@ Out of memory!\nNot enough for new points.\nOperation failed.
 Nicht genügend Speicher!\nNeue Punkte konnten nicht angelegt werden.\nVorgang fehlegschlagen.
 
 
-
 ;
 MSG_MAPEXTRA_MATCHEDVECTORTO
 Matched vector %s to %s.\n
-
 
 
 
@@ -10761,18 +9232,15 @@ Vertex %d  Latitude %f  Longitude %f
 
 
 
-
 ;
 MSG_MAPEXTRA_DUPLICATETHISOBJECT
 Duplicate this object?
 Dieses Objekt duplizieren?
 
 
-
 ;
 MSG_MAPEXTRA_SELECTSTREAMSTARTPOINTESCABORT
 \0338Select stream start point. ESC=abort
-
 
 
 
@@ -10782,11 +9250,9 @@ Select stream start point
 
 
 
-
 ;
 MSG_MAPEXTRA_SELECTAPPROXIMATESTREAMENDPOINTESCABORT
 \0338Select approximate stream end point. ESC=abort
-
 
 
 
@@ -10796,11 +9262,9 @@ Select approximate stream end point
 
 
 
-
 ;
 MSG_MAPEXTRA_MAKINGSTREAMCLICKONSTREAMENDPOINTESCABORT
 Making Stream: click on stream end point. ESC=abort
-
 
 
 
@@ -10810,11 +9274,9 @@ Mapping Module: Follow Stream
 
 
 
-
 ;
 MSG_MAPEXTRA_POINTMAXIMUMHASBEENREACHEDAPPINGTERMINATED
 Point maximum has been reached!\nMapping terminated
-
 
 
 
@@ -10824,11 +9286,9 @@ Reached edge of current map!\nPoints = %d\nContinue to next map?
 
 
 
-
 ;
 MSG_MAPEXTRA_INITIALPOINTNOTWITHINCURRENTLYLOADEDTOPOBOUNDARIES
 Initial point not within currently loaded topo boundaries!\nObject points reduced to 1.
-
 
 
 
@@ -10838,11 +9298,9 @@ Save vector object now?
 Vektor Objekt jetzt speichern?
 
 
-
 ;
 MSG_MAPEXTRA_ENTERNUMBEROFOUTPUTVERTICES
 Enter number of output vertices.
-
 
 
 
@@ -10852,11 +9310,9 @@ Spline length = %f kilometers\nInterval = %f km/segment
 
 
 
-
 ;
 MSG_MAPEXTRA_MAPPINGMODULESPLINE
 Mapping Module: Spline
-
 
 
 
@@ -10866,11 +9322,9 @@ OK|Reset|Cancel
 OK|Zurücksetzen|Abbrechen
 
 
-
 ;
 MSG_MAPEXTRA_MAPVIEWMODULEINTERPOLATE
 Map View Module: Interpolate
-
 
 
 
@@ -10880,11 +9334,9 @@ Out of memory! Can't allocate new vector.\nOperation terminated.
 Nicht genügend Speicher! Ein neuer Vektor kann nicht angelegt werden.\nVorgang abgebrochen.
 
 
-
 ;
 MSG_MAPEXTRA_SELECTSURFACEUELEVATIONESCABORT
 \0338Select Surface %lu Elevation. ESC=Abort
-
 
 
 
@@ -10894,11 +9346,9 @@ Select Surface %lu Elevation
 
 
 
-
 ;
 MSG_MAPEXTRA_ENTERMINIMUMMATCHINGPOINTS
 Enter minimum matching points.
-
 
 
 
@@ -10908,12 +9358,10 @@ Enter elevation tolerance.
 
 
 
-
 ;
 MSG_MAPEXTRA_PROCEEDORRESETPOINTS
 Proceed or reset points?
 Weitermachen oder Punkte zurücksetzen?
-
 
 
 ;
@@ -10922,12 +9370,10 @@ Proceed|Reset|Cancel
 Weiter|Zurücksetzen|Abbrechen
 
 
-
 ;
 MSG_MAPEXTRA_KEEPORSAVEDEMORRESETPARAMETERS
 Keep or save DEM or reset parameters?
 DEM behalten oder Speichern oder Parameter zurücksetzen?
-
 
 
 ;
@@ -10936,11 +9382,9 @@ Keep|Save|Reset|Cancel
 Behalten|Speichern|Zurücksetzen|Abbrechen
 
 
-
 ;
 MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINTOPOMAPBOUNDARIESPERATI
 All corner points must be within topo map boundaries!\nOperation terminated.
-
 
 
 
@@ -10950,12 +9394,10 @@ Illegal dimensions! Try making the rectangle larger.\nOperation terminated.
 Ungültige Abmessungen! Versuchen Sie, das Rechteck zu vergrößern.\nVorgang abgebrochen.
 
 
-
 ;
 MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINSAMEDEMPERATIONTERMINAT
 All corner points must be within same DEM!\nOperation terminated.
 Alle Eckpunkte müssen sich innerhalb derselben DEM befinden!\nVorgang abgebrochen.
-
 
 
 ;
@@ -10964,12 +9406,10 @@ Error opening output file!\nOperation terminated.
 Fehler beim Öffnen der Ausgabedatei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_MAPEXTRA_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED
 Error writing to output file!\nOperation terminated.
 Fehler beim Schreiben der Ausgabedatei!\nVorgang abgebrochen.
-
 
 
 ;
@@ -10979,12 +9419,10 @@ MSG_MAPEXTRA_AFSQKMLFKM
 %s: A=%f km², L=%f km.
 
 
-
 ;
 MSG_MAPEXTRA_CXRAFSQKM
 %s (%ldc x %ldr): A=%f sq km.
 %s (%ldSpn x %ldZln): A=%f km².
-
 
 
 ;
@@ -10993,11 +9431,9 @@ MSG_MAPEXTRA_AFSQKM
 %s: A=%f km².
 
 
-
 ;
 MSG_MAPEXTRA_OUTOFMEMORYOTENOUGHFORTEMPORARYTOPOARRAYPERATIONFAIL
 Out of memory!\nNot enough for temporary topo array.\nOperation failed.
-
 
 
 
@@ -11008,12 +9444,10 @@ Load Objects
 Objekte laden
 
 
-
 ;
 MSG_MAPGUI_ALL
 All
 Alle
-
 
 
 ;
@@ -11022,11 +9456,9 @@ Active
 Aktive
 
 
-
 ;
 MSG_MAPGUI_LOADTOPOS
 Load Topos
-
 
 
 
@@ -11036,12 +9468,10 @@ Save Objects
 Objekte speichern
 
 
-
 ;
 MSG_MAPGUI_CLEARWINDOW
 Clear Window
 Fenster löschen
-
 
 
 ;
@@ -11050,12 +9480,10 @@ Print
 Drucken
 
 
-
 ;
 MSG_MAPGUI_CLOSEMAP
 Close Map
 Karte schließen
-
 
 
 ;
@@ -11064,11 +9492,9 @@ View
 Ansicht
 
 
-
 ;
 MSG_MAPGUI_CONTROLS
 Controls
-
 
 
 
@@ -11078,12 +9504,10 @@ Eco Legend
 
 
 
-
 ;
 MSG_MAPGUI_ALIGNMAP
 Align Map
 Ausrichtung
-
 
 
 ;
@@ -11092,12 +9516,10 @@ Center
 Zentrieren
 
 
-
 ;
 MSG_MAPGUI_AUTOCENTER
 Auto Center
 autom. Zentrieren
-
 
 
 ;
@@ -11106,11 +9528,9 @@ Zoom
 Vergrößern
 
 
-
 ;
 MSG_MAPGUI_PAN
 Pan
-
 
 
 
@@ -11120,12 +9540,10 @@ Move
 Verschieben
 
 
-
 ;
 MSG_MAPGUI_IN
 In
 Rein
-
 
 
 ;
@@ -11134,12 +9552,10 @@ Out
 Raus
 
 
-
 ;
 MSG_MAPGUI_LEFT
 Left
 Links
-
 
 
 ;
@@ -11148,12 +9564,10 @@ Right
 Rechts
 
 
-
 ;
 MSG_MAPGUI_UP
 Up
 Hoch
-
 
 
 ;
@@ -11162,18 +9576,15 @@ Down
 Runter
 
 
-
 ;
 MSG_MAPGUI_DRAW
 Draw
 Zeichnen
 
 
-
 ;
 MSG_MAPGUI_DRAWMAP
 Draw Map
-
 
 
 
@@ -11183,11 +9594,9 @@ Normal
 
 
 
-
 ;
 MSG_MAPGUI_REFINE
 Refine
-
 
 
 
@@ -11197,11 +9606,9 @@ Fractal Map
 
 
 
-
 ;
 MSG_MAPGUI_FIXFLATS
 Fix Flats
-
 
 
 
@@ -11211,12 +9618,10 @@ Find Distance
 
 
 
-
 ;
 MSG_MAPGUI_OBJECT
 Object
 Objekt
-
 
 
 ;
@@ -11225,18 +9630,15 @@ New Object
 Neues Objekt
 
 
-
 ;
 MSG_MAPGUI_FINDOBJECT
 Find Object
 Objekt suchen
 
 
-
 ;
 MSG_MAPGUI_SINGLE
 Single
-
 
 
 
@@ -11246,12 +9648,10 @@ Multi
 
 
 
-
 ;
 MSG_MAPGUI_HIGHLIGHT
 Highlight
 Markieren
-
 
 
 ;
@@ -11260,12 +9660,10 @@ Add Points
 Punkte hinzufügen
 
 
-
 ;
 MSG_MAPGUI_NEW
 New
 Neu
-
 
 
 ;
@@ -11274,18 +9672,15 @@ Append
 Anhängen
 
 
-
 ;
 MSG_MAPGUI_INSERT
 Insert
 Einfügen
 
 
-
 ;
 MSG_MAPGUI_CREATESTREAM
 Create Stream
-
 
 
 
@@ -11295,11 +9690,9 @@ Modify Points
 Punkte ändern
 
 
-
 ;
 MSG_MAPGUI_INPUTSOURCE
 Input Source
-
 
 
 
@@ -11309,11 +9702,9 @@ Conform Topo
 
 
 
-
 ;
 MSG_MAPGUI_MATCHPOINTS
 Match Points
-
 
 
 
@@ -11323,11 +9714,9 @@ Move Origin
 
 
 
-
 ;
 MSG_MAPGUI_DUPLICATE
 Duplicate
-
 
 
 
@@ -11337,12 +9726,10 @@ Motion
 
 
 
-
 ;
 MSG_MAPGUI_SETCAMERA
 Set Camera
 Setze Kamera
-
 
 
 ;
@@ -11351,12 +9738,10 @@ Set Focus
 Setze Fokus
 
 
-
 ;
 MSG_MAPGUI_PATH
 Path
 Pfad
-
 
 
 ;
@@ -11365,11 +9750,9 @@ Interpolate
 Interpolieren
 
 
-
 ;
 MSG_MAPGUI_VECTCAMERA
 Vect-Camera
-
 
 
 
@@ -11379,11 +9762,9 @@ Vect-Focus
 
 
 
-
 ;
 MSG_MAPGUI_CAMERAVECT
 Camera-Vect
-
 
 
 
@@ -11393,11 +9774,9 @@ Focus-Vect
 
 
 
-
 ;
 MSG_MAPGUI_SURFACEEL
 Surface El
-
 
 
 
@@ -11407,18 +9786,15 @@ Three
 Drei
 
 
-
 ;
 MSG_MAPGUI_WINDOWS
 Windows
 Fenster
 
 
-
 ;
 MSG_WAVGUI_WAVEEDITOR
 Wave Editor
-
 
 
 
@@ -11428,18 +9804,15 @@ Viewshed
 
 
 
-
 ;
 MSG_MAPGUI_SURFACE
 Surface
 Oberfläche
 
 
-
 ;
 MSG_MAPGUI_EMBOSS
 Emboss
-
 
 
 
@@ -11449,12 +9822,10 @@ Slope
 Neigung
 
 
-
 ;
 MSG_MAPGUI_CONTOUR
 Contour
 Kontur
-
 
 
 ;
@@ -11463,12 +9834,10 @@ Grey
 Grau
 
 
-
 ;
 MSG_MAPGUI_LIGHTGREY
 Light Grey
 Hellgrau
-
 
 
 ;
@@ -11477,11 +9846,9 @@ Color
 Farbig
 
 
-
 ;
 MSG_MAPGUI_MAPVIEWCONTROL
 Map View Control
-
 
 
 
@@ -11491,11 +9858,9 @@ Scale\x20
 Skalieren\x20
 
 
-
 ;
 MSG_MAPGUI_LAT
 Lat\x20
-
 
 
 
@@ -11505,11 +9870,9 @@ MSG_MAPGUI_33CZOOM
 
 
 
-
 ;
 MSG_MAPGUI_33CPAN
 \33cPan
-
 
 
 
@@ -11519,12 +9882,10 @@ Lon\x20
 
 
 
-
 ;
 MSG_MAPGUI_AUTO
 \33cAuto
 \33cAuto
-
 
 
 ;
@@ -11533,11 +9894,9 @@ MSG_MAPGUI_33CCENTER
 \33cZentrieren
 
 
-
 ;
 MSG_MAPGUI_EXAG
  Exag\x20
-
 
 
 
@@ -11547,11 +9906,9 @@ MSG_MAPGUI_33CDATABASE
 \33c Datenbank\x20
 
 
-
 ;
 MSG_MAPGUI_TOPO
 Topo
-
 
 
 
@@ -11561,11 +9918,9 @@ Vec
 
 
 
-
 ;
 MSG_MAPGUI_ECO
 \33cEco\x20
-
 
 
 
@@ -11575,18 +9930,15 @@ Inter
 
 
 
-
 ;
 MSG_MAPGUI_STYLE
 Style:
 Stil:
 
 
-
 ;
 MSG_MAPGUI_DITHER
 Dither
-
 
 
 
@@ -11596,12 +9948,10 @@ MSG_MAPGUI_ALIGN
 \33cAusrichten\x20
 
 
-
 ;
 MSG_MAPGUI_CLEAR
 \33cClear
 \33cLöschen
-
 
 
 ;
@@ -11610,11 +9960,9 @@ MSG_MAPGUI_33CDRAW
 \33cZeichnen
 
 
-
 ;
 MSG_MAPGUI_33CREFINE
 \33cRefine
-
 
 
 
@@ -11624,12 +9972,10 @@ Map Alignment
 
 
 
-
 ;
 MSG_MAPGUI_EOGRAPHICCOORDS
 \33c\0334Geographic Coords
 \33c\0334Geo-Koordinaten
-
 
 
 ;
@@ -11638,12 +9984,10 @@ NW Lat
 NW Breite
 
 
-
 ;
 MSG_MAPGUI_LON
  Lon
  Länge
-
 
 
 ;
@@ -11652,12 +9996,10 @@ SE Lat
 SO Länge
 
 
-
 ;
 MSG_MAPGUI_CREENCOORDS
 \33c\0334Screen Coords
 \33c\0334Bildschirm Koordinaten
-
 
 
 ;
@@ -11666,18 +10008,15 @@ MSG_MAPGUI_UPPERLEFTX
  Oben Links X
 
 
-
 ;
 MSG_MAPGUI_LOWERRIGHTX
 Lower Right X
 Unten Rechts X
 
 
-
 ;
 MSG_MAPGUI_SETREGISTRATION
 \33cSet Registration
-
 
 
 
@@ -11687,12 +10026,10 @@ Map Control Window Notice
 
 
 
-
 ;
 MSG_MAPGUI_THISAREAISNDERCONSTRUCTIONARDHATREQUIRED
 \33cThis area is\nUnder Construction.\nHard hat required.
 \33cAchtung!\nBaustelle\nEs besteht Helmpflicht.
-
 
 
 ;
@@ -11701,11 +10038,9 @@ MSG_MAPGUI_OKAY
 \33cOkay
 
 
-
 ;
 MSG_MAPGUI_OUTOFMEMORYANTINITIALIZEMAPWINDOWPERATIONTERMINATED
 Out of memory!\nCan't initialize map window!\nOperation terminated.
-
 
 
 
@@ -11715,11 +10050,9 @@ Illegal registration values! High and low X or Y values are equal.
 
 
 
-
 ;
 MSG_MAPGUI_SETVERTEXTOINSERTAFTERQDONEUUUPDDDOWNESCABORT
 Set vertex to insert after. Q=done Uu=up Dd=down ESC=abort
-
 
 
 
@@ -11729,11 +10062,9 @@ Q=done Uu=up Dd=down -=delete
 Q=fertig Uu=hoch Dd=runter -=löschen
 
 
-
 ;
 MSG_MAPGUI_VECTORCONFORMEDTOTOPOGRAPHY
 Vector %s conformed to topography.
-
 
 
 
@@ -11743,11 +10074,9 @@ Vector topo conformation aborted.
 
 
 
-
 ;
 MSG_MAPGUI_CONFORM
 Conform
-
 
 
 
@@ -11757,11 +10086,9 @@ All enabled vectors conformed to topography.
 
 
 
-
 ;
 MSG_MAPGUI_VECTORTOPOCONFORMATIONABORTEDOBJECTSCOMPLETED
 Vector topo conformation aborted! %d objects completed.
-
 
 
 
@@ -11771,11 +10098,9 @@ Set digitizing input source.
 
 
 
-
 ;
 MSG_MAPGUI_BITPADSUMMAGRIDMOUSE
 Bitpad|Summagrid|Mouse
-
 
 
 
@@ -11785,12 +10110,10 @@ DEM Ctrl Pt: Lat %f Lon %f Elev %.2f
 
 
 
-
 ;
 MSG_MAPGUI_DATABASESAVE
 Database: Save
 Datenbank: Speichern
-
 
 
 ;
@@ -11799,18 +10122,15 @@ D'base|Object|Both|Neither
 Datenbank|Objekt|Beide|Keines
 
 
-
 ;
 MSG_MAPGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENINGT
 You must first load or create a parameter file before opening the Legend.
 Es muss zuerst eine Parameter Datei erzeugt oder geladen werden, bevor die Legende geöffnet werden kann.
 
 
-
 ;
 MSG_MAPGUI_MAPVIEWECOSYSTEMLEGEND
 Map View: Ecosystem Legend
-
 
 
 
@@ -11820,12 +10140,10 @@ Out of memory!\nCan't open Ecosystem Legend.
 Nicht genügend Speicher!\nDie Ökosystem Legende konnte nicht geöffnet werden.
 
 
-
 ;
 MSG_MAPGUI_ECOSYSTEMLEGEND
 Ecosystem Legend
 Ökosystem Legende
-
 
 
 ;
@@ -11835,11 +10153,9 @@ At least one end control point for the line segment just drawn could not be foun
 
 
 
-
 ;
 MSG_MAPGUI_SLIDERABORT
 Slider|Abort
-
 
 
 
@@ -11849,11 +10165,9 @@ Enter elevation value for new control point.
 Höhenwert für den neuen Kotrollpunkt eingeben.
 
 
-
 ;
 MSG_MAPGUI_THEDATABASEHASBEENMODIFIEDSINCEITWASLOADEDOYOUWISHTO
 The Database has been modified since it was loaded.\nDo you wish to save it or a Master Object file now?
-
 
 
 
@@ -11864,11 +10178,9 @@ Error saving line vertices to file!\nSelect new path.
 
 
 
-
 ;
 MSG_MAPLINO_NEWLINESAVEPATH
 New Line Save Path
-
 
 
 
@@ -11878,12 +10190,10 @@ Error opening line save file!\nSelect new path?
 
 
 
-
 ;
 MSG_MAPSUPRT_CANTOPENOBJECTFILEBJECTNOTSAVED
 Can't open object file!\nObject not saved.
 Die Objekt Datei konnte nicht geöffnet werden!\nDas Objekt wurde nicht gespeichert.
-
 
 
 ;
@@ -11892,18 +10202,15 @@ MSG_MAPSUPRT_VECTORSAVEDPOINTS
 %s Vektor gespeichert. %d Punkte
 
 
-
 ;
 MSG_MAPSUPRT_ERRORSAVINGOBJECTFILEBJECTNOTSAVED
 Error saving object file!\nObject not saved.
 Fehle beim Speichern der Objekt Datei!\nDas Objekt wurde nicht gespeichert.
 
 
-
 ;
 MSG_MAPSUPRT_MAPPINGMODULETOPOMAPPING
 Mapping Module: Topo Mapping
-
 
 
 
@@ -11913,11 +10220,9 @@ No topo maps found!\nCheck object Enabled Status and Class in database.
 
 
 
-
 ;
 MSG_MAPSUPRT_MAPVIEWLOADTOPOS
 Map View: Load Topos
-
 
 
 
@@ -11927,11 +10232,9 @@ Topo Load
 
 
 
-
 ;
 MSG_MAPSUPRT_ERRORLOADINGTOPOMAPCHECKSTATUSLOGTOSEEIFOUTOFMEMOR
 Error loading topo map! Check Status Log to see if out of memory.\nOperation terminated.
-
 
 
 
@@ -11941,12 +10244,10 @@ Error loading DEMs! None loaded.
 Fehler beim Laden der DEM Dateien! Es wurde keine DEM Dateien geladen.
 
 
-
 ;
 MSG_MAPSUPRT_SETUPPERLEFTCORNER
 Set upper left corner
 Obere linke Ecke setzen
-
 
 
 ;
@@ -11955,12 +10256,10 @@ MSG_MAPSUPRT_0338SETUPPERLEFTCORNER
 \0338Obere linke Ecke setzen.
 
 
-
 ;
 MSG_MAPSUPRT_0338SETLOWERRIGHTCORNERESCABORT
 \0338Set lower right corner. ESC=abort
 \0338Untere rechte Ecke setzen. ESC=abbrechen
-
 
 
 ;
@@ -11969,11 +10268,9 @@ Set lower right corner
 Untere rechte Ecke setzen
 
 
-
 ;
 MSG_MAPSUPRT_SLATFLONF
 %s, LAT: %f, LON: %f
-
 
 
 
@@ -11983,12 +10280,10 @@ LAT: %f, LON: %f
 
 
 
-
 ;
 MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING
 Vector object has been modified!\nSave it before closing?
 Das Vektor Objekt wurde verändert!\nSoll es vor dem Schlie0en gespeichert werden?
-
 
 
 ;
@@ -11997,11 +10292,9 @@ SAVE|CANCEL
 Speichern|Abbrechen
 
 
-
 ;
 MSG_MAPSUPRT_0338SELECTCAMERAPOINT
 \0338Select Camera Point
-
 
 
 
@@ -12011,11 +10304,9 @@ Select Camera Point
 
 
 
-
 ;
 MSG_MAPSUPRT_0338SELECTFOCUSPOINT
 \0338Select Focus Point
-
 
 
 
@@ -12025,11 +10316,9 @@ Select Focus Point
 
 
 
-
 ;
 MSG_MAPSUPRT_INTERACTIVECAMERAPOINT
 Interactive Camera Point
-
 
 
 
@@ -12039,11 +10328,9 @@ Interactive Focus Point
 
 
 
-
 ;
 MSG_MAPSUPRT_INTERACTIVESUNPOSITION
 Interactive Sun Position
-
 
 
 
@@ -12053,11 +10340,9 @@ Interactive Start Haze
 
 
 
-
 ;
 MSG_MAPSUPRT_INTERACTIVEFULLHAZE
 Interactive Full Haze
-
 
 
 
@@ -12067,11 +10352,9 @@ Map View: Color Map
 
 
 
-
 ;
 MSG_MAPSUPRT_SELECTEDOBJECTMUSTBEATOPODEMEECLASSFIELDINDATABASE
 Selected object must be a Topo DEM!\nSee Class field in Database Editor.\nOperation terminated.
-
 
 
 
@@ -12081,11 +10364,9 @@ Selected map is not currently loaded!\nDo you wish to load topo maps?
 
 
 
-
 ;
 MSG_MAPSUPRT_OUTOFMEMORYCREATINGBITMAPSPERATIONTERMINATED
 Out of memory creating bitmaps!\nOperation terminated.
-
 
 
 
@@ -12095,11 +10376,9 @@ Include DEM elevation data in Color Map?
 
 
 
-
 ;
 MSG_MAPSUPRT_SAVECOLORMAPAS
 Save Color Map As:
-
 
 
 
@@ -12110,18 +10389,15 @@ Error allocating or reading Fractal Index arrays!\nContinue without Fractal Disp
 
 
 
-
 ;
 MSG_MAPTOPOOB_DEMDD
 DEM %d/%d
 DEM %d/%d
 
 
-
 ;
 MSG_MAPTOPOOB_ERRORSAVINGVECTORVERTICESTOFILE
 Error saving vector vertices to file!
-
 
 
 
@@ -12131,18 +10407,15 @@ New Line Save Path
 
 
 
-
 ;
 MSG_MAPTOPOOB_CANTOPENVECTORFILEFOROUTPUT
 Can't open vector file for output!
 Die Vektordatei kann nicht zum Schreiben geöffnet werden!
 
 
-
 ;
 MSG_MAPTOPOOB_CLOUD
 Cloud %d
-
 
 
 
@@ -12152,11 +10425,9 @@ Enter the maximum pixel size for a polygon. The smaller the number the longer im
 
 
 
-
 ;
 MSG_MAPTOPOOB_ENTERTHEFIRSTFRAMETOSCAN
 Enter the first frame to scan.
-
 
 
 
@@ -12166,11 +10437,9 @@ Enter the last frame to scan.
 
 
 
-
 ;
 MSG_MAPTOPOOB_ENTERTHEFRAMEINTERVALTOSCANTHESMALLERTHENUMBERTHE
 Enter the frame interval to scan. The smaller the number the longer this process will take!
-
 
 
 
@@ -12180,11 +10449,9 @@ Animation
 
 
 
-
 ;
 MSG_MAPTOPOOB_FRAME
 Frame %d/%d
-
 
 
 
@@ -12195,11 +10462,9 @@ Render List: No maps found
 
 
 
-
 ;
 MSG_MAPUTIL_RENDERLIST
 Render List:
-
 
 
 
@@ -12209,12 +10474,10 @@ MSG_MAPUTIL_DDIR
 %hd. %s Richtung=%s
 
 
-
 ;
 MSG_MAPUTIL_EW
 E-W
 O-W
-
 
 
 ;
@@ -12223,11 +10486,9 @@ W-E
 W-O
 
 
-
 ;
 MSG_MAPUTIL_NORENDERLIST
 No render list!
-
 
 
 
@@ -12239,12 +10500,10 @@ DEM Extract
 DEM Extrahieren
 
 
-
 ;
 MSG_MOREGUI_SELECTFILES
 \33cSelect Files
 \33cDateien auswählen
-
 
 
 ;
@@ -12253,12 +10512,10 @@ MSG_MOREGUI_SELECTED
  Ausgewählt
 
 
-
 ;
 MSG_MOREGUI_SELATITUDE
  SE Latitude
  SO Breite
-
 
 
 ;
@@ -12267,18 +10524,15 @@ MSG_MOREGUI_SELONGITUDE
  SO Länge
 
 
-
 ;
 MSG_MOREGUI_DEMNAME
 DEM Name
 DEM Name
 
 
-
 ;
 MSG_MOREGUI_LEVEL
 Level
-
 
 
 
@@ -12288,11 +10542,9 @@ MSG_MOREGUI_ELEVPTRN
 
 
 
-
 ;
 MSG_MOREGUI_REFSYS
  Ref Sys
-
 
 
 
@@ -12302,18 +10554,15 @@ MSG_MOREGUI_ZONE
 
 
 
-
 ;
 MSG_MOREGUI_ROJECTIONPARAMETERS
 \0334Projection Parameters
 \0334Projektionsparameter
 
 
-
 ;
 MSG_MOREGUI_GROUNDUNITS
 Ground Units
-
 
 
 
@@ -12323,11 +10572,9 @@ MSG_MOREGUI_ELEVUNITS
 
 
 
-
 ;
 MSG_MOREGUI_POLYSIDES
  Poly Sides
-
 
 
 
@@ -12337,12 +10584,10 @@ MSG_MOREGUI_COORDINATEPAIRS
 
 
 
-
 ;
 MSG_MOREGUI_SWE
 SW E
 SW O
-
 
 
 ;
@@ -12351,12 +10596,10 @@ MSG_MOREGUI_N
  N
 
 
-
 ;
 MSG_MOREGUI_NWE
 NW E
 NW O
-
 
 
 ;
@@ -12365,18 +10608,15 @@ NE E
 NO O
 
 
-
 ;
 MSG_MOREGUI_SEE
 SE E
 SO O
 
 
-
 ;
 MSG_MOREGUI_ELEVMIN
 Elev Min
-
 
 
 
@@ -12386,11 +10626,9 @@ MSG_MOREGUI_X20ELEVMAX
 
 
 
-
 ;
 MSG_MOREGUI_AXISROTATION
 Axis Rotation
-
 
 
 
@@ -12400,12 +10638,10 @@ MSG_MOREGUI_ACCURACY
  Genauigkeit
 
 
-
 ;
 MSG_MOREGUI_RESOLUTIONX
 Resolution X
 Auflösung X
-
 
 
 ;
@@ -12414,18 +10650,15 @@ Rows
 Zeilen
 
 
-
 ;
 MSG_MOREGUI_COLUMNS
  Columns
  Spalten
 
 
-
 ;
 MSG_MOREGUI_PROFILEDATA
 \0334Profile Data
-
 
 
 
@@ -12435,18 +10668,15 @@ Row
 Zeile
 
 
-
 ;
 MSG_MOREGUI_COLUMN
  Column
  Spalte
 
 
-
 ;
 MSG_MOREGUI_PROFROWS
  Prof Rows
-
 
 
 
@@ -12456,18 +10686,15 @@ MSG_MOREGUI_PROFCOLS
 
 
 
-
 ;
 MSG_MOREGUI_COORDSE
 Coords E
 Koord O
 
 
-
 ;
 MSG_MOREGUI_ELEVATIONDATUM
 Elevation Datum
-
 
 
 
@@ -12477,12 +10704,10 @@ Elev Max
 
 
 
-
 ;
 MSG_MOREGUI_EXTRACT
 \33cExtract
 \33cExtrahieren
-
 
 
 ;
@@ -12491,11 +10716,9 @@ USGS DEM Files
 USGS DEM Dateien
 
 
-
 ;
 MSG_MOREGUI_DATAOPSMODULEDEMEXTRACT
 Data Ops Module: DEM Extract
-
 
 
 
@@ -12503,7 +10726,6 @@ Data Ops Module: DEM Extract
 MSG_MOREGUI_PLEASEENTERTHELATITUDEANDLONGITUDEVALUESFORTHESOUTH
 Please enter the latitude and longitude values for the southeast corner of the current DEM in the string gadgets near the top of the DEM Extract Window.
 Bitte Geben Sie die Längen- und Breitengrade der Süd-Ost Ecke des aktuellen DEM's in das Textfeld oben im DEM Extrahieren Fenster ein.
-
 
 
 ;
@@ -12514,12 +10736,10 @@ First Page
 Erste Seite
 
 
-
 ;
 MSG_MOREGUI_SECONDPAGE
 Second Page
 Zweite Seite
-
 
 
 ;
@@ -12528,12 +10748,10 @@ Project Editor
 Projekt Editor
 
 
-
 ;
 MSG_MOREGUI_PROJECTPATH_SPACES
 Project Path\x20\x20\x20\x20\x20\x20\x20\x20
 Projekt Pfad\x20\x20\x20\x20\x20\x20\x20\x20
-
 
 
 ;
@@ -12542,12 +10760,10 @@ Project Name\x20\x20\x20\x20\x20\x20\x20\x20
 Projekt Name\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
 ;
 MSG_MOREGUI_DATABASEPATH_SPACES
 Database Path\x20\x20\x20\x20\x20\x20\x20
 Datenbank Pfad\x20\x20\x20\x20\x20\x20
-
 
 
 ;
@@ -12556,12 +10772,10 @@ Database Name\x20\x20\x20\x20\x20\x20\x20
 Datenbank Name\x20\x20\x20\x20\x20\x20
 
 
-
 ;
 MSG_MOREGUI_PARAMETERPATH_SPACES
 Parameter Path\x20\x20\x20\x20\x20\x20
 Parameter Pfad\x20\x20\x20\x20\x20\x20
-
 
 
 ;
@@ -12570,12 +10784,10 @@ Parameter Name\x20\x20\x20\x20\x20\x20
 Parameter Name\x20\x20\x20\x20\x20\x20
 
 
-
 ;
 MSG_MOREGUI_FRAMESAVEPATH_SPACES
 Frame Save Path\x20\x20\x20\x20\x20
 Bilder-Speicherpfad\x20
-
 
 
 ;
@@ -12584,12 +10796,10 @@ Frame Save Name\x20\x20\x20\x20\x20
 Bilder-Speichername\x20
 
 
-
 ;
 MSG_MOREGUI_TEMPFRAMEPATH_SPACES
 Temp Frame Path\x20\x20\x20\x20\x20
 Temp. Bilderpfad\x20\x20\x20\x20
-
 
 
 ;
@@ -12598,12 +10808,10 @@ Vector Save Path\x20\x20\x20\x20
 Vektor-Speicherpfad\x20
 
 
-
 ;
 MSG_MOREGUI_VECTORSAVENAME_SPACES
 Vector Save Name\x20\x20\x20\x20
 Vektor-Speichername\x20
-
 
 
 ;
@@ -12612,12 +10820,10 @@ Z Buffer Path\x20\x20\x20\x20\x20\x20\x20
 Z-Puffer Pfad\x20\x20\x20\x20\x20\x20\x20
 
 
-
 ;
 MSG_MOREGUI_ZBUFFERNAME_SPACES
 Z Buffer Name\x20\x20\x20\x20\x20\x20\x20
 Z-Puffer Name\x20\x20\x20\x20\x20\x20\x20
-
 
 
 ;
@@ -12626,19 +10832,16 @@ Background Path\x20\x20\x20\x20\x20
 Hintergrund Pfad\x20\x20\x20\x20
 
 
-
 ;
 MSG_MOREGUI_BACKGROUNDNAME_SPACES
 Background Name\x20\x20\x20\x20\x20
 Hintergrund Name\x20\x20\x20\x20
 
 
-
 ;
 MSG_MOREGUI_DEFAULTDIRECTORY_SPACES
 Default Directory\x20\x20\x20
 Standardordner\x20\x20\x20\x20\x20\x20
-
 
 
 ;
@@ -12648,18 +10851,15 @@ Graphic Save Path\x20\x20\x20
 Grafik-Speicherpfad\x20
 
 
-
 ;
 MSG_MOREGUI_GRAPHICSAVENAME_SPACES
 Graphic Save Name\x20\x20\x20
 Grafik-Speichername\x20
 
 
-
 ;
 MSG_MOREGUI_COLORMAPPATH_SPACES
 Color Map Path\x20\x20\x20\x20\x20\x20
-
 
 
 
@@ -12669,11 +10869,9 @@ Color Map Name\x20\x20\x20\x20\x20\x20
 
 
 
-
 ;
 MSG_MOREGUI_CLOUDMAPPATH_SPACES
 Cloud Map Path\x20\x20\x20\x20\x20\x20
-
 
 
 
@@ -12683,11 +10881,9 @@ Cloud Map Name\x20\x20\x20\x20\x20\x20
 
 
 
-
 ;
 MSG_MOREGUI_WAVEFILEPATH_SPACES
 Wave File Path\x20\x20\x20\x20\x20\x20
-
 
 
 
@@ -12697,11 +10893,9 @@ Wave File Name\x20\x20\x20\x20\x20\x20
 
 
 
-
 ;
 MSG_MOREGUI_DEFORMATIONMAPNAME_SPACES
 Deformation Map Name
-
 
 
 
@@ -12711,12 +10905,10 @@ Ecosystem Model Path
 Ökosystem Modellpfad
 
 
-
 ;
 MSG_MOREGUI_IMAGEPATH_SPACES
 Image Path\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 Bilderpfad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
-
 
 
 ;
@@ -12725,12 +10917,10 @@ Sun Image File\x20\x20\x20\x20\x20\x20
 Sonnen-Bilddatei\x20\x20\x20\x20
 
 
-
 ;
 MSG_MOREGUI_MOONIMAGEFILE_SPACES
 Moon Image File\x20\x20\x20\x20\x20
 Mond-Bilddatei\x20\x20\x20\x20\x20\x20
-
 
 
 ;
@@ -12739,12 +10929,10 @@ PC Project Directory
 PC-Projektordner\x20\x20\x20\x20
 
 
-
 ;
 MSG_MOREGUI_PCFRAMESDIRECTORY_SPACES
 PC Frames Directory\x20
 PC-Bilderordner\x20\x20\x20\x20\x20
-
 
 
 ;
@@ -12753,12 +10941,10 @@ MSG_MOREGUI_DIRECTORYLIST
 \33cOrdnerliste
 
 
-
 ;
 MSG_MOREGUI_SAVE
 \33cSave
 \33cSpeichern
-
 
 
 ;
@@ -12767,12 +10953,10 @@ Project Path/Name
 Projekt Pfad/Name
 
 
-
 ;
 MSG_MOREGUI_DATABASEPATHNAME
 Database Path/Name
 Datenbank Pfad/Name
-
 
 
 ;
@@ -12781,11 +10965,9 @@ Parameter Path/Name
 Parameter Pfad/Name
 
 
-
 ;
 MSG_MOREGUI_FRAMESAVEPATHNAME
 Frame Save Path/Name
-
 
 
 
@@ -12795,11 +10977,9 @@ Temp Frame Path/Name
 
 
 
-
 ;
 MSG_MOREGUI_VECTORSAVEPATHNAME
 Vector Save Path/Name
-
 
 
 
@@ -12809,18 +10989,15 @@ Z Buffer Path/Name
 Z-Puffer Pfad/Name
 
 
-
 ;
 MSG_MOREGUI_BACKGROUNDPATHNAME
 Background Path/Name
 Hintergrund Pfad/Name
 
 
-
 ;
 MSG_MOREGUI_GRAPHICSAVEPATHNAME
 Graphic Save Path/Name
-
 
 
 
@@ -12830,11 +11007,9 @@ Default Directory
 Standardverzeichnis
 
 
-
 ;
 MSG_MOREGUI_CLOUDMAPPATH
 Cloud Map Path
-
 
 
 
@@ -12844,11 +11019,9 @@ Wave Path
 
 
 
-
 ;
 MSG_MOREGUI_DEFORMATIONPATH
 Deformation Path
-
 
 
 
@@ -12858,12 +11031,10 @@ Image Path
 Bilderpfad
 
 
-
 ;
 MSG_MOREGUI_SUNIMAGEFILE
 Sun Image File
 Sonnen-Bilddatei
-
 
 
 ;
@@ -12872,18 +11043,15 @@ Moon Image File
 Mond-Bilddatei
 
 
-
 ;
 MSG_MOREGUI_PCPROJECTPATH
 PC Project Path
 PC Projekt Pfad
 
 
-
 ;
 MSG_MOREGUI_PCFRAMESPATH
 PC Frames Path
-
 
 
 
@@ -12893,12 +11061,10 @@ Image Scale
 Bildgröße ändern
 
 
-
 ;
 MSG_MOREGUI_WIDTH
  Width
 Breite
-
 
 
 ;
@@ -12907,12 +11073,10 @@ Height
 Höhe
 
 
-
 ;
 MSG_MOREGUI_PIXELASPECT
 Pixel Aspect
 Pixel Aspekt
-
 
 
 ;
@@ -12921,12 +11085,10 @@ MSG_MOREGUI_HALVE
 Halbieren
 
 
-
 ;
 MSG_MOREGUI_DOUBLE
 \33cDouble
 Verdoppeln
-
 
 
 ;
@@ -12935,11 +11097,9 @@ MSG_MOREGUI_APPLY
 \33cAnwenden
 
 
-
 ;
 MSG_MOREGUI_PARAMETERSIMAGESCALE
 Parameters: Image Scale
-
 
 
 
@@ -12949,11 +11109,9 @@ Apply changes?
 Änderungen anwenden?
 
 
-
 ;
 MSG_MOREGUI_RENDERTASKPRIORITY
 \33c\0334Render Task Priority
-
 
 
 
@@ -12963,12 +11121,10 @@ MSG_MOREGUI_LOW
 \33cNiedrig
 
 
-
 ;
 MSG_MOREGUI_NORMAL
 \33cNormal
 \33cMittel
-
 
 
 ;
@@ -12977,11 +11133,9 @@ MSG_MOREGUI_HIGH
 \33cHoch
 
 
-
 ;
 MSG_MOREGUI_RENDERSIZE
 \33c\0334Render Size
-
 
 
 
@@ -12991,11 +11145,9 @@ MSG_MOREGUI_STATUSLOGMESSAGES
 \33c\0334Status Log Nachrichten
 
 
-
 ;
 MSG_MOREGUI_ERR
 \33cERR
-
 
 
 
@@ -13005,11 +11157,9 @@ MSG_MOREGUI_WNG
 
 
 
-
 ;
 MSG_MOREGUI_MSG
 \33cMSG
-
 
 
 
@@ -13019,12 +11169,10 @@ MSG_MOREGUI_DTA
 
 
 
-
 ;
 MSG_MOREGUI_PARAMFILESAVEFORMAT
 \33c\0334Param File Save Format
 \33c\0334Parameter Datei Speicherformat
-
 
 
 ;
@@ -13033,12 +11181,10 @@ MSG_MOREGUI_BINARY
 \33cBinär
 
 
-
 ;
 MSG_MOREGUI_ASCII
 \33cAscii
 \33cAscii
-
 
 
 ;
@@ -13048,11 +11194,9 @@ motion
 
 
 
-
 ;
 MSG_PARAMS_COLOR
 color
-
 
 
 
@@ -13062,11 +11206,9 @@ ecosystem
 Ökosystem
 
 
-
 ;
 MSG_PARAMS_OUTOFMEMORYRESTORINGOLDKEYFRAMESOMEKEYSMAYBELOST
 Out of memory restoring old key frames!\nSome %s keys may be lost.
-
 
 
 
@@ -13076,11 +11218,9 @@ Key Frame: Cancel
 
 
 
-
 ;
 MSG_PARAMS_PARAMETERSMODULEVELOCITYDISTRIBUTION
 Parameters Module: Velocity Distribution
-
 
 
 
@@ -13090,11 +11230,9 @@ MSG_PARAMS_EASEINPLUSEASEOUTFRAMEVALUESEXCEEDTOTALNUMBEROFANIMA
 
 
 
-
 ;
 MSG_PARGUI_PARAMETERSMODULESCALE
 Parameters Module: Scale
-
 
 
 
@@ -13104,11 +11242,9 @@ Out of memory!\nCan't open Scale window.
 
 
 
-
 ;
 MSG_PARGUI_NOKEYFRAMESTOSCALE
 No key frames to scale!
-
 
 
 
@@ -13118,11 +11254,9 @@ Scale Keys
 
 
 
-
 ;
 MSG_PARGUI_PARAM
 Param
-
 
 
 
@@ -13132,11 +11266,9 @@ Frame
 
 
 
-
 ;
 MSG_PARGUI_MOTION
 \33cMotion
-
 
 
 
@@ -13146,12 +11278,10 @@ MSG_PARGUI_COLOR
 
 
 
-
 ;
 MSG_PARGUI_ECOSYSTEM
 \33cEcosystem
 \33cÖkosystem
-
 
 
 ;
@@ -13160,12 +11290,10 @@ MSG_PARGUI_ALLFRAMES
 \33cAlle Frames
 
 
-
 ;
 MSG_PARGUI_THISFRAME
 \33cThis Frame
 \33cDieser Frame
-
 
 
 ;
@@ -13174,12 +11302,10 @@ MSG_PARGUI_CALE
 \33c\0334Skalieren
 
 
-
 ;
 MSG_PARGUI_FRAMES
 \33cFrame(s)
 \33cFrame(s)
-
 
 
 ;
@@ -13188,11 +11314,9 @@ MSG_PARGUI_VALUES
 \33cWert(e)
 
 
-
 ;
 MSG_PARGUI_HIFT
 \33c\0334Shift
-
 
 
 
@@ -13202,11 +11326,9 @@ MSG_PARGUI_KEEP
 \33cBehalten
 
 
-
 ;
 MSG_PARGUI_OPERATE
 \33cOperate
-
 
 
 
@@ -13216,12 +11338,10 @@ Scene
 Szene
 
 
-
 ;
 MSG_PARGUI_SCENEDEMS
 Scene + DEMs
 Szene + DEMs
-
 
 
 ;
@@ -13230,11 +11350,9 @@ DEM Only
 Nur DEM
 
 
-
 ;
 MSG_PARGUI_MOTIONONLY
 Motion Only
-
 
 
 
@@ -13244,18 +11362,15 @@ LightWave Motion I/O
 
 
 
-
 ;
 MSG_PARGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREUSINGTHI
 You must first load or create a parameter file before using this feature.
 Es muss zuerst eine Parameter Datei erzeugt oder geladen werden, bevor dieses Feature genutzt werden kann.
 
 
-
 ;
 MSG_PARGUI_ERRORBUILDINGMOTIONVALUETABLEPERATIONTERMINATED
 Error building motion value table\nOperation terminated
-
 
 
 
@@ -13265,11 +11380,9 @@ LightWave Export
 
 
 
-
 ;
 MSG_PARGUI_XPORTENTITY
 \33c\0334Export Entity
-
 
 
 
@@ -13279,11 +11392,9 @@ Max Polygons
 Max Polygone
 
 
-
 ;
 MSG_PARGUI_MAXVERTICES
 Max Vertices
-
 
 
 
@@ -13293,11 +11404,9 @@ MSG_PARGUI_BATHYMETRY
 
 
 
-
 ;
 MSG_PARGUI_REFLAT
 Ref Lat
-
 
 
 
@@ -13307,11 +11416,9 @@ Lon
 
 
 
-
 ;
 MSG_PARGUI_ROTATETOHORIZONTAL
 \33cRotate to Horizontal
-
 
 
 
@@ -13321,18 +11428,15 @@ MSG_PARGUI_EXPORT
 \33cExportieren
 
 
-
 ;
 MSG_PARGUI_LIGHTWAVEIO
 LightWave I/O
 LightWave I/O
 
 
-
 ;
 MSG_PARGUI_OUTOFMEMORYANTOPENMODELDESIGNWINDOW
 Out of memory!\nCan't open model design window.
-
 
 
 
@@ -13343,12 +11447,10 @@ Ecosystem Model Editor
 Ökosystem Modell Editor
 
 
-
 ;
 MSG_PARGUI_NAME_SPACE
 Name\x20
 Name\x20
-
 
 
 ;
@@ -13357,12 +11459,10 @@ MSG_PARGUI_ADD
 \33cHinzufügen
 
 
-
 ;
 MSG_PARGUI_REMOVE
 \33cRemove
 \33cLöschen
-
 
 
 ;
@@ -13371,12 +11471,10 @@ MSG_PARGUI_LOAD
 \33cLaden
 
 
-
 ;
 MSG_PARGUI_SAVE
 \33cSave
 \33cSpeichern
-
 
 
 ;
@@ -13385,11 +11483,9 @@ Ht (m)
 Höhe (m)
 
 
-
 ;
 MSG_PARGUI_ITEMS
 Items
-
 
 
 
@@ -13399,12 +11495,10 @@ Class
 Klasse
 
 
-
 ;
 MSG_PARGUI_RED
 Red
 Rot
-
 
 
 ;
@@ -13413,18 +11507,15 @@ Grn
 Grün
 
 
-
 ;
 MSG_PARGUI_BLU
 Blu
 Blau
 
 
-
 ;
 MSG_PARGUI_HTITEMSCLASSREDGRNBLU
 \0338    Ht Items Class   Red   Grn   Blu
-
 
 
 
@@ -13434,12 +11525,10 @@ The current Ecosystem Model has been modified. Do you wish to save it before clo
 Das aktuelle Ökosystem Modell wurde verändert. Soll es vor dem Schließen gespeichert werden?
 
 
-
 ;
 MSG_PARGUI_YESNOCANCEL
 Yes|No|Cancel
 Ja|Nein|Abbrechen
-
 
 
 ;
@@ -13452,12 +11541,10 @@ MSG_PARGUI_WATER (//31)
       Wasser
 
 
-
 ;
 MSG_PARGUI_SNOW (//31)
   Snow
       Schnee
-
 
 
 ;
@@ -13466,12 +11553,10 @@ MSG_PARGUI_ROCK (//31)
        Fels
 
 
-
 ;
 MSG_PARGUI_BARE (//31)
   Bare
        Kahl
-
 
 
 ;
@@ -13480,12 +11565,10 @@ MSG_PARGUI_CONIF (//31)
      Nadelbaum
 
 
-
 ;
 MSG_PARGUI_DECID (//31)
  Decid
       Laubbaum
-
 
 
 ;
@@ -13494,12 +11577,10 @@ MSG_PARGUI_LOWVG (//31)
       LowVg
 
 
-
 ;
 MSG_PARGUI_SNAG (//31)
   Snag
  Abgestorbener Baum
-
 
 
 ;
@@ -13508,18 +11589,15 @@ MSG_PARGUI_STUMP (//31)
      Baumstumpf
 
 
-
 ;
 MSG_PARGUI_STRAT (//31)
  Strat
         Strat
 
 
-
 ;
 MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2
 The current Ecosystem Model has been modified. Do you wish to save it before proceeding?
-
 
 
 
@@ -13529,12 +11607,10 @@ Load Model Path/Name
 
 
 
-
 ;
 MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMI
 Eror opening Ecosystem Model file for input!\nOperation terminated.
 Fehler beim Öffnen der Ökosystem Modelldatei zum Lesen!\nVorgang abgebrochen.
-
 
 
 ;
@@ -13543,12 +11619,10 @@ Error reading from Ecosystem Model file!\nOperation terminated prematurely.
 Beim Lesen der Ökosystem Modelldatei ist ein Fehler aufgetreten!\nVorgang vorzeitig abgebrochen.
 
 
-
 ;
 MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED
 Not a WCS Ecosystem Model file!\nOperation terminated.
 Keine Ökosystem-Modelldatei!\nVorgang abgebrochen.
-
 
 
 ;
@@ -13557,18 +11631,15 @@ Unsupported WCS Ecosystem Model file version!\nOperation terminated.
 Nicht unterstützte WCS Ökosystem-Modelldatei-Version!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFORINPUTPERATIONTERMINATE
 You have not selected a file name for input!\nOperation terminated.
 Es wurde kein Dateiname zum Lesen ausgewählt!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_PARGUI_SAVEMODELPATHNAME
 Save Model Path/Name
-
 
 
 
@@ -13578,19 +11649,16 @@ Error opening Ecosystem Model file for output!\nOperation terminated.
 Fehler beim Öffnen der Ökosystem Modelldatei zum Schreiben!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR
 Error writing to Ecosystem Model file!\nOperation terminated prematurely.
 Fehler beim Schreiben der Ökosystem Modelldatei zum Schreiben!\nVorgang vorzeitig abgebrochen.
 
 
-
 ;
 MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT
 You have not selected a file name for output!\nOperation terminated.
 Es wurde kein Dateiname zum Schreiben ausgewählt!\nVorgang abgebrochen.
-
 
 
 ;
@@ -13600,12 +11668,10 @@ Anim Control Window
 
 
 
-
 ;
 MSG_PARGUI_ANIMPATH
 Anim Path
 Anim Pfad
-
 
 
 ;
@@ -13614,12 +11680,10 @@ Anim Name
 Anim Name
 
 
-
 ;
 MSG_PARGUI_TO
 To
 Bis
-
 
 
 ;
@@ -13628,12 +11692,10 @@ By
 Schritt
 
 
-
 ;
 MSG_PARGUI_WINDOWWIDTH
 Window Width
 Fensterbreite
-
 
 
 ;
@@ -13642,11 +11704,9 @@ MSG_PARGUI_HEIGHT
  Höhe
 
 
-
 ;
 MSG_PARGUI_USERENDERIMAGEASPECT
 Use Render Image Aspect
-
 
 
 
@@ -13656,11 +11716,9 @@ MSG_PARGUI_RENDERONLY
 
 
 
-
 ;
 MSG_PARGUI_RENDERSAVE
 \33cRender & Save
-
 
 
 
@@ -13670,11 +11728,9 @@ Parameters Module: Anim
 
 
 
-
 ;
 MSG_PARGUI_ANIMFRAMESPATHNAME
 Anim Frames Path/Name
-
 
 
 
@@ -13684,12 +11740,10 @@ Specified width is larger than the current screen width. Do you wish to use the 
 Die angegebene Breite ist größer als die Bildschirmbreite. Soll statt dessen die Bildschirmbreite verwendet werden?
 
 
-
 ;
 MSG_PARGUI_SPECIFIEDORCOMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREE
 Specified or computed height is larger than the current screen height. Do you wish to use the screen height?
 Die angegebene oder berechnete Höhe ist größer als die Bildschirmhöhe. Soll statt dessen die Bildschirmhöhe verwendet werden?
-
 
 
 ;
@@ -13699,11 +11753,9 @@ Can't initialize file requester!\n
 
 
 
-
 ;
 MSG_REQGUI_DATABASEFILESAVER
 DataBase File Saver
-
 
 
 
@@ -13713,11 +11765,9 @@ DataBase File Loader
 
 
 
-
 ;
 MSG_REQGUI_SFRAMES
 \0334%s frames:  %02d:%02d:%02d
-
 
 
 
@@ -13727,12 +11777,10 @@ WCS is shutting down.
 WCS wird beendet.
 
 
-
 ;
 MSG_REXSPT_WCSCURRENTLYDOESNOTSUPPORTCOMMANDSLONGERTHAN10WORDS
 WCS currently does not support commands longer than 10 words.
 WCS unterstützt gegenwärtig keine Kommandos mit mehr als 10 Worten.
-
 
 
 ;
@@ -13741,12 +11789,10 @@ WCS did not recognise the commands in the order supplied.
 WCS hat die Kommandos in der angegebenen Reihenfolge nicht erkannt.
 
 
-
 ;
 MSG_REXSPT_WCSDIDNOTRECOGNISEONEOFTHECOMMANDWORDS
 WCS did not recognise one of the command words.
 WCS hat eines der Befehlsworte nicht erkannt.
-
 
 
 ;
@@ -13755,12 +11801,10 @@ WCS recognised a partial but incomplete command.
 WCS hat einen unvollständigen Befehl erkannt.
 
 
-
 ;
 MSG_REXSPT_NONALPHABETICCHARACTERFOUNDINCOMMANDWORD
 Non-alphabetic character found in command word.
 Nicht-ASCII Zeichen im Befehlswort gefunden.
-
 
 
 ;
@@ -13769,12 +11813,10 @@ Command word size exceeded.
 Befehlswort-Länge überschritten.
 
 
-
 ;
 MSG_REXSPT_INLINEARGSIZEEXCEEDED
 Inline Arg size exceeded.
 Inline-Argumentengröße überschritten.
-
 
 
 ;
@@ -13783,12 +11825,10 @@ WCS Configuration: Save
 WCS Konfiguration: Speichern
 
 
-
 ;
 MSG_SUPPORT_CANTOPENCONFIGURATIONFILEPERATIONTERMINATED
 Can't open configuration file!\nOperation terminated.
 Die Konfigurationsdatei konnte nicht geöffnet werden!\nVorgang abgebrochen.
-
 
 
 ;
@@ -13797,12 +11837,10 @@ WCS Configuration: Load
 WCS Konfiguration: Laden
 
 
-
 ;
 MSG_SUPPORT_WCSPROJECTSAVE
 WCS Project: Save
 WCS Projekt: Speichern
-
 
 
 ;
@@ -13811,12 +11849,10 @@ Can't open project file!\nOperation terminated.
 Die Projektdatei konnte nicht geöffnet werden!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_SUPPORT_PROJECTSAVE
 Project: Save
 Projekt: Speichern
-
 
 
 ;
@@ -13825,12 +11861,10 @@ Save Database and Parameter files as well?
 Datenbank- und Parameterdateien ebenfalls speichern?
 
 
-
 ;
 MSG_SUPPORT_BOTHDBASEPARAMSNO
 Both|D'base|Params|No
 Beide|Datenbank|Parameter|Keine
-
 
 
 ;
@@ -13839,12 +11873,10 @@ WCS Project: Load
 WCS Projekt: Laden
 
 
-
 ;
 MSG_SUPPORT_PROJECTLOAD
 Project: Load
 Projekt: Laden
-
 
 
 ;
@@ -13853,11 +11885,9 @@ Not a WCS Project file!\nOperation terminated.
 Keine WCS Projekt-Datei!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_SUPPORT_ILLEGALMAPREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUAL
 Illegal map registration values! High and low X or Y values are equal.
-
 
 
 
@@ -13867,12 +11897,10 @@ Directory List: Load
 Verzeichnisliste: Laden
 
 
-
 ;
 MSG_SUPPORT_PRINTING
 Printing...
 Drucken...
-
 
 
 ;
@@ -13883,11 +11911,9 @@ Tens
 
 
 
-
 ;
 MSG_TLGUI_CONT
 Cont
-
 
 
 
@@ -13897,12 +11923,10 @@ Bias
 
 
 
-
 ;
 MSG_TLGUI_PARAMETERSTIMELINE
 Parameters: Time Line
 Parameter: Zeitleiste
-
 
 
 ;
@@ -13911,11 +11935,9 @@ Out of memory!\nCan't open Time Line window.
 Nicht genügend Speicher!\nDas Zeitleistenfenster konnte nicht geöffnet werden.
 
 
-
 ;
 MSG_TLGUI_NOMOTIONPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONTERM
 No Motion Parameters with more than one Key Frame!\nOperation terminated.
-
 
 
 
@@ -13925,12 +11947,10 @@ Motion Time Line
 
 
 
-
 ;
 MSG_TLGUI_PAN
   Pan\x20
 Horiz. Schwenken\x20
-
 
 
 ;
@@ -13939,12 +11959,10 @@ MSG_TLGUI_ZOOM
  Vergrößern\x20
 
 
-
 ;
 MSG_TLGUI_FRAME_PACE__
 Frame\x20
 Bild\x20
-
 
 
 ;
@@ -13953,12 +11971,10 @@ MSG_TLGUI_PREV
 \33cVoriges
 
 
-
 ;
 MSG_TLGUI_NEXT
 \33cNext
 \33cNächstes
-
 
 
 ;
@@ -13967,12 +11983,10 @@ MSG_TLGUI_ADDKEY
 \33cSchlüsselbild Hinzufügen
 
 
-
 ;
 MSG_TLGUI_DELKEY
 \33c\33uDel\33n Key
 \33cSchlüsselbild Löschen\33n
-
 
 
 ;
@@ -13981,12 +11995,10 @@ MSG_TLGUI_LINEAR
 \33cLinear
 
 
-
 ;
 MSG_TLGUI_FRAME
 Frame
 Bild
-
 
 
 ;
@@ -13995,12 +12007,10 @@ MSG_TLGUI_KEEP
 \33cBehalten
 
 
-
 ;
 MSG_TLGUI_GRID
 \33cGrid
 \33dRaster
-
 
 
 ;
@@ -14009,11 +12019,9 @@ MSG_TLGUI_PLAY
 \33cWiedergabe
 
 
-
 ;
 MSG_TLGUI_MOTIONEDITORTIMELINES
 Motion Editor: Time Lines
-
 
 
 
@@ -14023,11 +12031,9 @@ At least two key frames for this parameter must be created prior to opening the 
 Für diesen Parameter müssen mindestens zwei Schlüsselbilder erzeugt werden, bevor das Zeitleistenfenster geöffnet werden kann.
 
 
-
 ;
 MSG_TLGUI_MOTIONTIMELINES
 Motion Time Lines
-
 
 
 
@@ -14037,12 +12043,10 @@ No Color Parameters with more than one Key Frame!\nOperation terminated.
 Keine Farbparameter mit mehr als einem Schlüsselbild!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_TLGUI_COLORTIMELINE
 Color Time Line
 Farben Zeitleiste
-
 
 
 ;
@@ -14051,12 +12055,10 @@ Frame\x20
 Bild\x20
 
 
-
 ;
 MSG_TLGUI_COLOREDITORTIMELINES
 Color Editor: Time Lines
 Farbeinstellungen: Zeitleisten
-
 
 
 ;
@@ -14065,18 +12067,15 @@ Color Time Lines
 Farben Zeitleisten
 
 
-
 ;
 MSG_TLGUI_ELEVATIONLINE
 \0334Elevation Line
 \0334Höhenlinie
 
 
-
 ;
 MSG_TLGUI_SKEW
 \0334Skew
-
 
 
 
@@ -14086,11 +12085,9 @@ MSG_TLGUI_AZIMUTH
 \0334Azimut
 
 
-
 ;
 MSG_TLGUI_RELATIVEELEVATIONEFFECT
 \0334Relative Elevation Effect
-
 
 
 
@@ -14100,12 +12097,10 @@ MSG_TLGUI_MXRELATIVEELEVATION
 \0334max relative Höhe
 
 
-
 ;
 MSG_TLGUI_MNRELATIVEELEVATION
 \0334Mn Relative Elevation
 \0334min relative Höhe
-
 
 
 ;
@@ -14114,12 +12109,10 @@ MSG_TLGUI_MXSLOPE
 \0334max Steigung
 
 
-
 ;
 MSG_TLGUI_MNSLOPE
 \0334Mn Slope
 \0334min Steigung
-
 
 
 ;
@@ -14128,12 +12121,10 @@ MSG_TLGUI_DENSITY
 \0334Dichte
 
 
-
 ;
 MSG_TLGUI_HEIGHT
 \0334Height
 \0334Höhe
-
 
 
 ;
@@ -14142,12 +12133,10 @@ No Ecosystem Parameters with more than one Key Frame!\nOperation terminated.
 Keine Ökosystemparameter mit mehr als einem Schlüsselbild!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_TLGUI_ECOSYSTEMTIMELINE
 Ecosystem Time Line
 Ökosystem Zeitleiste
-
 
 
 ;
@@ -14156,12 +12145,10 @@ Ecosystem Editor: Time Lines
 Ökosystem Einstellungen: Zeitleisten
 
 
-
 ;
 MSG_TLGUI_ECOSYSTEMTIMELINES
 Ecosystem Time Lines
 Ökosystem Zeitleisten
-
 
 
 ;
@@ -14170,12 +12157,10 @@ Error opening Ecosystem Model file for input!\nOperation terminated.
 Die Ökosystem-Modelldatei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_TREE_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPREM
 Error writing to Ecosystem Model file!\nOperation terminated prematurely.
 Fehler beim Schreiben der Ökosystem-Modelldatei!\nVorgang abgebrochen.
-
 
 
 ;
@@ -14184,12 +12169,10 @@ Out of memory allocating Ecosystem Models!\nOperation terminated.
 Nicht genügend Speicher für die Ökosystem-Modelle!\nVorgang abgebrochen.
 
 
-
 ;
 MSG_TREE_NODATAINWCSECOSYSTEMMODELPERATIONTERMINATED
 No data in WCS Ecosystem Model!\nOperation terminated.
 Keine Daten im Ökosystem-Modell!\nVorgang abgebrochen.
-
 
 
 ;
@@ -14198,11 +12181,9 @@ A problem occurred loading at least one image for this ecosystem!\nContinue with
 Beim Laden von mindestens einem Bild dieses Ökosystems traten Probleme auf!\nOhne diese Bilder fortfahren?
 
 
-
 ;
 MSG_WAV_INVALIDITEMUIN
 Invalid Item %lu in %s %d
-
 
 
 
@@ -14212,11 +12193,9 @@ Wave: Set Defaults
 
 
 
-
 ;
 MSG_WAV_SELECTGENERALWAVECENTER
 Select general wave center.
-
 
 
 
@@ -14226,11 +12205,9 @@ Focus Point|Camera Point
 
 
 
-
 ;
 MSG_WAV_SELECTWAVESPEED
 Select wave speed.
-
 
 
 
@@ -14240,18 +12217,15 @@ Fast|Very Fast|Slow
 schnell|sehr schnell|langsam
 
 
-
 ;
 MSG_WAV_SELECTWAVEDIRECTION
 Select wave direction.
 
 
 
-
 ;
 MSG_WAV_SPREADINGCONVERGING
 Spreading|Converging
-
 
 
 
@@ -14263,12 +12237,10 @@ MSG_WAVGUI_33C0334CWAVES
 \33c\0334Wellen
 
 
-
 ;
 MSG_WAVGUI_ACTIVEWAVE
 \33c\0334Active Wave
 \33c\0334Aktive Welle
-
 
 
 ;
@@ -14277,12 +12249,10 @@ Latitude
 Breitengrad
 
 
-
 ;
 MSG_WAVGUI_LONGITUDE
 Longitude
 Längengrad
-
 
 
 ;
@@ -14291,12 +12261,10 @@ Amplitude (m)
 Amplitude (m)
 
 
-
 ;
 MSG_WAVGUI_WAVELENGTHKM
 Wave Length (km)
 Länge der Welle (km)
-
 
 
 ;
@@ -14305,18 +12273,15 @@ Velocity (km/hr)
 Geschwindigkeit (km/h)
 
 
-
 ;
 MSG_WAVGUI_ADD
 \33cAdd...
 \33cHinzufügen...
 
 
-
 ;
 MSG_WAVGUI_MAPADD
 \33cMap Add...
-
 
 
 
@@ -14326,12 +12291,10 @@ MSG_WAVGUI_REMOVE
 \33cEntfernen
 
 
-
 ;
 MSG_WAVGUI_LOAD
 \33cLoad
 \33cLaden
-
 
 
 ;
@@ -14340,11 +12303,9 @@ MSG_WAVGUI_SAVE
 \33cSpeichern
 
 
-
 ;
 MSG_WAVGUI_MAPVIEWWAVES
 Map View: Waves
-
 
 
 
@@ -14354,12 +12315,10 @@ Options
 Optionen
 
 
-
 ;
 MSG_WAVGUI_WAVES
 \33cWaves
 \33cWellen
-
 
 
 ;
@@ -14368,11 +12327,9 @@ MSG_WAVGUI_TIDES
 \33cGezeiten
 
 
-
 ;
 MSG_WAVGUI_REFLECT
 \33cReflect
-
 
 
 
@@ -14382,18 +12339,15 @@ MSG_WAVGUI_FRACTAL
 \33cFraktal
 
 
-
 ;
 MSG_WAVGUI_ANIMATION
 \33c\0334Animation
 \33c\0334Animation
 
 
-
 ;
 MSG_WAVGUI_MOVELATITUDE
 Move Latitude
-
 
 
 
@@ -14403,12 +12357,10 @@ Move Longitude
 
 
 
-
 ;
 MSG_WAVGUI_AMPLITUDEFACT
 Amplitude Fact
 Amplitudenfaktor
-
 
 
 ;
@@ -14417,12 +12369,10 @@ WhiteCap Ht (m)
 Schaumkronen Höhe (m)
 
 
-
 ;
 MSG_WAVGUI_DRAWWAVES
 \33cDraw Waves
 \33cWellen Zeichnen
-
 
 
 ;
@@ -14431,19 +12381,16 @@ MSG_WAVGUI_DRAWDETAIL
 \33cDetails zeichnen
 
 
-
 ;
 MSG_WAVGUI_KEYFRAMES
 \33c\0334Key Frames
 \33c\0334Key Frames
 
 
-
 ;
 MSG_WAVGUI_PREV
 \33cPrev
 \33cVorheriger
-
 
 
 ;
@@ -14453,13 +12400,11 @@ PK %d
 VK %d
 
 
-
 ;
 ; NK="Next Key"
 MSG_WAVGUI_NKD
 NK %d
 NK %d
-
 
 
 ;
@@ -14468,12 +12413,10 @@ Frame
 Frame
 
 
-
 ;
 MSG_WAVGUI_NEXT
 \33cNext
 \33cNächster
-
 
 
 ;
@@ -14482,12 +12425,10 @@ MSG_WAVGUI_MAKEKEY
 \33cKey erzeugen
 
 
-
 ;
 MSG_WAVGUI_UPDATE
 \33cUpdate
 \33cAktualisieren
-
 
 
 ;
@@ -14496,12 +12437,10 @@ MSG_WAVGUI_DELETE
 \33cLöschen
 
 
-
 ;
 MSG_WAVGUI_DELETEALL
 \33cDelete All
 \33cAlle löschen
-
 
 
 ;
@@ -14510,12 +12449,10 @@ MSG_WAVGUI_TIMELINES
 \33cZeitleisten
 
 
-
 ;
 MSG_WAVGUI_SCALEKEYS
 \33cScale Keys\x20
 \33cKeys skalieren\x20
-
 
 
 ;
@@ -14524,18 +12461,15 @@ The current Wave Model has been modified. Do you wish to save it before closing?
 Das aktuelle Wellen-Modell wurde verändert. Soll es vor dem Schließen gespeichert werden?
 
 
-
 ;
 MSG_WAVGUI_WAVEPATHFILE
 Wave Path/File
 Wellen Pfad/Datei
 
 
-
 ;
 MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE
 Make this file the Project Wave File?
-
 
 
 
@@ -14545,12 +12479,10 @@ Delete all wave key frames?
 Alle Wellen-Keyframes löschen?
 
 
-
 ;
 MSG_WAVGUI_AMPLITUDE
 Amplitude
 Amplitude
-
 
 
 ;
@@ -14559,11 +12491,9 @@ WhiteCap Height
 Höhe der Schaumkronen
 
 
-
 ;
 MSG_WAVGUI_WAVETIMELINES
 Wave Time Lines
-
 
 
 
@@ -14573,12 +12503,10 @@ Cloud Wave Time Lines
 
 
 
-
 ;
 MSG_WAVGUI_WAVEFILE
 Wave File
 Wellen-Datei
-
 
 
 ;
@@ -14587,11 +12515,9 @@ Add Wave
 Wellen hinzufügen
 
 
-
 ;
 MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY
 Map View Module must be open in order\nto use this function. Would you like to open it now?
-
 
 
 
@@ -14601,18 +12527,15 @@ Map View: Wave Add
 
 
 
-
 ;
 MSG_WAVGUI_REMOVEALLCURRENTLYDEFINEDWAVESBEFOREADDINGNEWONES
 Remove all currently defined waves before adding new ones?
 Alle bisher definieren Wellen löschen bevor neue erzeugt werden?
 
 
-
 ;
 MSG_WAVGUI_0338SETCLOUDWAVESOURCEPOINT
 \0338Set Cloud Wave Source Point %d
-
 
 
 
@@ -14622,11 +12545,9 @@ Set Cloud Wave Source Point %d
 
 
 
-
 ;
 MSG_WAVGUI_ENTERWAVEAMPLITUDE
 Enter Wave Amplitude.\raggedbottom
-
 
 
 
@@ -14636,12 +12557,10 @@ Enter Wave Length (km).
 Länge der Wellen eingeben (km).
 
 
-
 ;
 MSG_WAVGUI_ENTERWAVEVELOCITYKMHR
 Enter Wave Velocity (km/hr).
 Geschwindigkeit der Wellen eingeben (km/h).
-
 
 
 ;
@@ -14650,12 +12569,10 @@ All (%d)
 Alle (%d)
 
 
-
 ;
 MSG_WAVGUI_KEYSEXIST
 Keys Exist (%d)
 Keys existieren (%d)
-
 
 
 ;
@@ -14664,12 +12581,10 @@ MSG_WAVGUI_ALL0
 \33cAlle (0)
 
 
-
 ;
 MSG_WAVGUI_NOOTHERKEYS
 No Other Keys
 Keine weiteren Keys
-
 
 
 ;
@@ -14678,12 +12593,10 @@ Stack to small! (%lu Bytes)\n
 Stack zu klein! (%lu Bytes)\n
 
 
-
 ;
 MSG_WCS_PLEASESETSTACKTOUBYTES
 Please set Stack to %lu Bytes!\n
 Bitte Stack auf %lu Bytes erhöhen!\n
-
 
 
 ;
@@ -14692,12 +12605,10 @@ Beta period expired...
 Beta-Testzeit abgelaufen...
 
 
-
 ;
 MSG_WCS_FORWCSAROSUIMASTERLIBRARYREVISION1967RHIGHERREQUIRED
 For WCS AROS\nmuimaster.library revision %d.%d\nor higher required.
 Für WCS AROS\nmuimaster.library Revision %d.%d\noder höher erforderlich.
-
 
 
 ;
@@ -14706,12 +12617,10 @@ Error
 Fehler
 
 
-
 ;
 MSG_WCS_CANCEL
 Cancel
 Abbrechen
-
 
 
 ;
@@ -14720,12 +12629,10 @@ FATAL ERROR: MUIMaster.Library revision %d required. Aborting.\n
 Schwerer Fehler: MuiMaster.library Revision %d erforderlich. Abbruch.\n
 
 
-
 ;
 MSG_WCS_FATALERRORGADTOOLSLIBRARYREVISIONREQUIREDABORTING
 FATAL ERROR: GadTools.Library revision %d required. Aborting.\n
 Schwerer Fehler: GadTools.Library Revision %d erforderlich. Abbruch.\n
-
 
 
 ;
@@ -14734,12 +12641,10 @@ FATAL ERROR: ASL.Library revision %d required. Aborting.\n
 Schwerer Fehler: ASL.Library Revision %d erforderlich. Abbruch.\n
 
 
-
 ;
 MSG_WCS_FATALERRORGRAPHICSLIBRARYREVISIONREQUIREDABORTING
 FATAL ERROR: Graphics.Library revision %d required. Aborting.\n
 Schwerer Fehler: Graphics.Library Revision %d erforderlich. Abbruch.\n
-
 
 
 ;
@@ -14748,11 +12653,9 @@ FATAL ERROR: Intuition.library revision %d required. Aborting.\n
 Schwerer Fehler: Intuition.Library Revision %d erforderlich. Abbruch.\n
 
 
-
 ;
 MSG_NNCRUNCH_INSUFFICIENTDATAINGRIDDEDREGIONTOTRIANGULATEINCREA
 Insufficient data in gridded region to triangulate! Increase the size of the gridded region or add more control points.
-
 
 
 
@@ -14762,11 +12665,9 @@ ChoroPleth
 
 
 
-
 ;
 MSG_NNCRUNCH_GRADIENT
 Gradient
-
 
 
 
@@ -14776,11 +12677,9 @@ Gridding
 
 
 
-
 ;
 MSG_NNCRUNCH_MAPVIEWGRIDDEM
 Map View: Grid DEM
-
 
 
 
@@ -14790,11 +12689,9 @@ The ratio of vertical to horizontal map dimensions is too large for gradient est
 
 
 
-
 ;
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM
 The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
-
 
 
 
@@ -14805,18 +12702,15 @@ with the present dimensions?
 
 
 
-
 ;
 MSG_NNCRUNCH_OUTOFMEMORYDOUBLEMATRIXPERATIONTERMINATED
 Out of memory Double Matrix!\nOperation terminated.
 
 
 
-
 ;
 MSG_NNCRUNCH_OUTOFMEMORYALLOCATINGDOUBLEMATRIXPERATIONTERMINATE
 Out of memory allocating Double Matrix!\nOperation terminated.
-
 
 
 
@@ -14827,13 +12721,11 @@ Map View: Grid DEM
 
 
 
-
 ;
 ; --- Here you can credit yourself to the end of the hard coded Menu->Project->Credits text
 ; (English remains empty)
 MSG_MENU_PR_CREDITSTRANSLATION
 
 \nDeutsche Übersetzung von Alexander Fritsch (selco).\nFehlermeldungen und Verbesserungsvorschläge\nbitte an selco@t-online.de
-
 
 
