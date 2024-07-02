@@ -132,7 +132,7 @@ int main(void)
 
     Locale_Open("WCS.catalog",1,1);  // Version, revision  - Simplecat Doc says: There is no need to check any result.
 
-    asprintf(&LocaleExtCreditText,"%s%s%s",ExtCreditText,GetString(MSG_MENU_PR_CREDITSTRANSLATION)); // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
+    asprintf(&LocaleExtCreditText,"%s%s",ExtCreditText,GetString(MSG_MENU_PR_CREDITSTRANSLATION)); // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
 
     // set correct locale strings to the menu
 	WCSNewMenus[ 0].nm_Label= GetString(MSG_MENU_PROJECT);

@@ -42,6 +42,9 @@
 #define CATCOMP_BLOCK 1     /* enable CATCOMP_BLOCK */
 #include "WCS_locale.h" /* prototypes and catcomp block */
 
+
+#include <stdio.h>
+#include <BigEndianReadWrite.h>
 /*************************************************************************/
 
 #ifdef __amigaos4__
@@ -135,24 +138,70 @@ static int is_empty_or_whitespace(const char *str) {
 STRPTR GetString(long id)
 {
 LONG   *l;
+LONG    l_content;
 UWORD  *w;
+UWORD   w_content;
 STRPTR  builtin;
+static int i=0;
 
 	l = (LONG *)CatCompBlock;
 
-    while (*l != id ) {
+//       +---+---+---+----------------  id
+//       |   |   |   |   +---+--------  offset to next id
+//       |   |   |   |   |   |
+//    "\x00\x00\x00\x00\x00\x08"
+//    Project "\x00"                  //MSG_MENU_PROJECT_STR
+//
+//    "\x00\x00\x00\x01\x00\x08"
+//	  New... "\x00\x00"               // MSG_MENU_PR_NEW_STR
+//
+//    "\x00\x00\x00\x02\x00\x08"
+//    Edit... "\x00"                  // MSG_MENU_PR_EDIT_STR
+//
+//    "\x00\x00\x00\x03\x00\x08"
+//    Open... "\x00"                  // MSG_MENU_PR_OPEN_STR
+//
+//    "\x00\x00\x00\x04\x00\x06"
+//    Save "\x00\x00"                 // MSG_MENU_PR_SAVE_STR
+//
+//    "\x00\x00\x00\x05\x00\x0C"
+//    Save As... "\x00\x00"           // MSG_MENU_PR_SAVEAS_STR
+
+	l_content=*l;
+	ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32S(l_content,&l_content);)
+
+    while (l_content != id ) {
         w = (UWORD *)((ULONG)l + 4);
-        l = (LONG *)((ULONG)l + (ULONG)*w + 6);
+
+        w_content=*w;
+        ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16U(w_content,&w_content);) // AF: 2.Jul.2024, Endian correction for i386-aros
+
+        if(i<10)
+    	{
+    	   printf("id=%ld, *l=%ld, (ULONG)*w=0x%04lx\n",id, l_content,(ULONG)w_content);
+    	   i++;
+    	}
+
+        l = (LONG *)((ULONG)l + (ULONG)w_content + 6);   // next: 4 bytes id-value + 2 bytes offset-value + 0 bytes string
+        l_content=*l;
+        ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32S(l_content,&l_content);)
     }
+
+	printf("Nach der while-Loop: *l=%ld\n",l_content);
+
     builtin = (STRPTR)((ULONG)l + 6);
+    printf("builtin=<%s>\n",builtin);
 
     if ( locale_catalog && LocaleBase ) {
     	APTR string=GetCatalogStr( locale_catalog, id, builtin);
+    	printf("String=<%s>\n",string);
     	if(!is_empty_or_whitespace(string))   // AF: if translated string is not empty, return it
     	{
-    		return( (APTR) GetCatalogStr( locale_catalog, id, builtin));
+    		printf("return string=<%s>\n",string);
+    		return string;
     	}
     }
+    printf("returning builtin=<%s>\n",builtin);
     return(builtin);  // AF: if string is empty, return builtin
 }
 /* \\\ GetString */
