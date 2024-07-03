@@ -42,8 +42,6 @@
 #define CATCOMP_BLOCK 1     /* enable CATCOMP_BLOCK */
 #include "WCS_locale.h" /* prototypes and catcomp block */
 
-
-#include <stdio.h>
 #include <BigEndianReadWrite.h>
 /*************************************************************************/
 
@@ -176,32 +174,19 @@ static int i=0;
         w_content=*w;
         ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16U(w_content,&w_content);) // AF: 2.Jul.2024, Endian correction for i386-aros
 
-        if(i<10)
-    	{
-    	   printf("id=%ld, *l=%ld, (ULONG)*w=0x%04lx\n",id, l_content,(ULONG)w_content);
-    	   i++;
-    	}
-
         l = (LONG *)((ULONG)l + (ULONG)w_content + 6);   // next: 4 bytes id-value + 2 bytes offset-value + 0 bytes string
         l_content=*l;
         ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32S(l_content,&l_content);)
     }
-
-	printf("Nach der while-Loop: *l=%ld\n",l_content);
-
     builtin = (STRPTR)((ULONG)l + 6);
-    printf("builtin=<%s>\n",builtin);
 
     if ( locale_catalog && LocaleBase ) {
     	APTR string=GetCatalogStr( locale_catalog, id, builtin);
-    	printf("String=<%s>\n",string);
     	if(!is_empty_or_whitespace(string))   // AF: if translated string is not empty, return it
     	{
-    		printf("return string=<%s>\n",string);
     		return string;
     	}
     }
-    printf("returning builtin=<%s>\n",builtin);
     return(builtin);  // AF: if string is empty, return builtin
 }
 /* \\\ GetString */

@@ -3633,8 +3633,9 @@ Anzeige der fehlenden italiensichen Uebersetzungen:
 
 cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; if(ITALIAN==""){print ENGLISH;}else{ITALIANCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Italian:  %4d\n",ITALIANCOUNT);}'
 
-WCS und Catalos zu AROS kopieren
-cd i386-aros
+WCS bauen und Catalos zu AROS kopieren
+---------------------------------------
+cd ~/Desktop/SelcoGit/3DNature/Amiga/i386-aros
 make all && rm -rf ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox && cp -r ~/Desktop/SelcoGit/3DNature/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox
 mkdir -p ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/Amiga/i386-aros/Catalogs/italiano
 mkdir -p ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/Amiga/i386-aros/Catalogs/deutsch
@@ -3644,4 +3645,18 @@ cp Catalogs/deutsch/WCS.catalog ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/li
 
 cd ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS
 Arch/linux/AROSBootstrap &
+
+-------------------------------------------
+
+cd ~/Desktop/SelcoGit/3DNature/Amiga/x86_64-aros
+make all && rm -rf ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox && cp -r ~/Desktop/SelcoGit/3DNature/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox
+mkdir -p ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/Amiga/x86_64-aros//Catalogs/italiano
+mkdir -p ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/Amiga/x86_64-aros//Catalogs/deutsch
+cd ..
+cp Catalogs/italiano/WCS.catalog ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/Amiga/x86_64-aros//Catalogs/italiano
+cp Catalogs/deutsch/WCS.catalog ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/Amiga/x86_64-aros//Catalogs/deutsch
+
+cd ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/
+boot/linux/AROSBootstrap &
+
 

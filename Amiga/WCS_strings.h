@@ -2477,7 +2477,7 @@
 #define MSG_CLOUDGUI_MAPVIEWCLOUDS_STR "Map View: Clouds"
 #define MSG_GLOBAL_OUTOFMEMORY_STR "Out of memory!"
 #define MSG_PARGUI_PARAMETERSMODULEMODEL_STR "Parameters Module: Model"
-#define MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE_STR "The current Cloud Model has been modified. Do you wish to save it before closing? Soll es vor dem Schlieﬂen gespeichert werden?"
+#define MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE_STR "The current Cloud Model has been modified. Do you wish to save it before closing?"
 #define MSG_GLOBAL_YESNO_STR "Yes|No"
 #define MSG_CLOUDGUI_CLOUDPATHFILE_STR "Cloud Path/File"
 #define MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE_STR "Make this file the Project Cloud File?"
@@ -4262,7 +4262,7 @@
 #define MSG_NNCRUNCH_OUTOFMEMORYDOUBLEMATRIXPERATIONTERMINATED_STR "Out of memory Double Matrix!\nOperation terminated."
 #define MSG_NNCRUNCH_OUTOFMEMORYALLOCATINGDOUBLEMATRIXPERATIONTERMINATE_STR "Out of memory allocating Double Matrix!\nOperation terminated."
 #define MSG_NNGRIDR_MAPVIEWGRIDDEM_STR "Map View: Grid DEM"
-#define MSG_MENU_PR_CREDITSTRANSLATION_STR "\nkein englischer Text "
+#define MSG_MENU_PR_CREDITSTRANSLATION_STR ""
 
 #endif /* CATCOMP_STRINGS */
 
@@ -4916,7 +4916,7 @@ const char CatCompBlock[] =
     MSG_GLOBAL_OUTOFMEMORY_STR "\x00\x00"
     "\x00\x00\x01\x40\x00\x1A"
     MSG_PARGUI_PARAMETERSMODULEMODEL_STR "\x00\x00"
-    "\x00\x00\x01\x41\x00\x80"
+    "\x00\x00\x01\x41\x00\x52"
     MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE_STR "\x00"
     "\x00\x00\x01\x42\x00\x08"
     MSG_GLOBAL_YESNO_STR "\x00\x00"
@@ -8486,7 +8486,7 @@ const char CatCompBlock[] =
     MSG_NNCRUNCH_OUTOFMEMORYALLOCATINGDOUBLEMATRIXPERATIONTERMINATE_STR "\x00"
     "\x00\x00\x08\x39\x00\x14"
     MSG_NNGRIDR_MAPVIEWGRIDDEM_STR "\x00\x00"
-    "\x00\x00\x08\x3A\x00\x18"
+    "\x00\x00\x08\x3A\x00\x02"
     MSG_MENU_PR_CREDITSTRANSLATION_STR "\x00\x00"
 };
 

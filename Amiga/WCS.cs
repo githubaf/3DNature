@@ -1683,349 +1683,349 @@ Disegno...
 MSG_CLOUDGUI_CIRRUS
 Cirrus
 Schleierwolken
-
+Velo di Nuvole
 
 ;
 MSG_CLOUDGUI_STRATUS
 Stratus
 Schichtwolken
-
+Nuvole a strati
 
 ;
 MSG_CLOUDGUI_NIMBUS
 Nimbus
 Regenwolken
-
+Nuvole cariche di pioggia
 
 ;
 MSG_CLOUDGUI_CUMULUS
 Cumulus
 Haufenwolken
-
+Mucchio di nuvole
 
 ;
 MSG_CLOUDGUI_CLOUDEDITOR
 Cloud Editor
 
-
+Editor Nuvole
 
 ;
 MSG_CLOUDGUI_OPTIONS
 Options
 Optionen
-
+Opzioni
 
 ;
 MSG_CLOUDGUI_CLOUDS
 \33cClouds
 \33cWolken
-
+\33cNuvole
 
 ;
 MSG_CLOUDGUI_CLOUDSHADOWS
 \33cCloud Shadows
 \33cWolkenschatten
-
+\33cOmbre nuvole
 
 ;
 MSG_CLOUDGUI_CLOUDTYPE
 Cloud Type
 Wolkentyp
-
+Tipo di nuvola
 
 ;
 MSG_CLOUDGUI_SEED
 Seed
 Startwert
-
+Valore iniziale
 
 ;
 MSG_CLOUDGUI_CLOUDWAVES
 \33c\0334Cloud Waves
 
-
+\33c\0334 Onde delle nuvole
 
 ;
 MSG_CLOUDGUI_WAVES
 Waves
 Wellen
-
+Onde
 
 ;
 MSG_CLOUDGUI_MAPADD
 \33cMap Add...
 
-
+\33cInserisci Mappa...
 
 ;
 MSG_CLOUDGUI_EDIT
 \33cEdit...
 \33cBearbeiten...
-
+\33cModifica...
 
 ;
 MSG_CLOUDGUI_ANIMATE
 Animate
 Animieren
-
+Animare
 
 ;
 MSG_CLOUDGUI_LOUDMAPSIZERANGE
 \33c\0334Cloud Map Size & Range
 
-
+\33c\0334Mappa Nuvola Dimensioni & Gamma
 
 ;
 MSG_CLOUDGUI_ROWS
 Rows
 Zeilen
-
+Righe
 
 ;
 MSG_CLOUDGUI_COLS
 Cols
 Spalten
-
+Colonne
 
 ;
 MSG_CLOUDGUI_LATMAX
 Lat Max
 Breite Max
-
+Massima Latitudine
 
 ;
 MSG_CLOUDGUI_MIN
 Min
 Min
-
+Min
 
 ;
 MSG_CLOUDGUI_LONMAX
 Lon Max
 Länge Max
-
+Massima Longitudine
 
 ;
 MSG_CLOUDGUI_ANIMATION
 \33c\0334Animation
 \33c\0334Animation
-
+\33c\0334Animazione
 
 ;
 MSG_CLOUDGUI_COVERAGE
 Coverage
 Bedeckung
-
+Copertura
 
 ;
 MSG_CLOUDGUI_DENSITY
 Density
 Dichte
-
+Densità
 
 ;
 MSG_CLOUDGUI_ROUGHNESS
 Roughness
 Rauhigkeit
-
+Ruvidità
 
 ;
 MSG_CLOUDGUI_FRACTDIM
 Fract Dim
 
-
+Dimensione Fract
 
 ;
 MSG_CLOUDGUI_MOVELAT
 Move Lat
 
-
+Muovere Latitudine
 
 ;
 MSG_CLOUDGUI_LON
 Lon
 Länge
-
+Longitudine
 
 ;
 MSG_CLOUDGUI_ALTITUDE
 Altitude
 Höhe
-
+Altitudine
 
 ;
 MSG_CLOUDGUI_EYFRAMES
 \33c\0334Key Frames
 \33c\0334Keyframes
-
+\33c\0334Numero Frame
 
 ;
 MSG_CLOUDGUI_PREV
 \33cPrev
 \33cVorheriger
-
+\33cPrecedente
 
 ;
 MSG_CLOUDGUI_FRAME
 Frame
 
-
+Frame
 
 ;
 MSG_CLOUDGUI_NEXT
 \33cNext
 \33cNächster
-
+\33cAvanti
 
 ;
 MSG_CLOUDGUI_MAKEKEY
 \33cMake Key
 \33cKey erzeugen
-
+133cCrea Numero
 
 ;
 MSG_CLOUDGUI_UPDATE
 \33cUpdate
 \33cAktualisieren
-
+\33cAggiornamento
 
 ;
 MSG_CLOUDGUI_DELETE
 \33c\33uDel\33nete
 \33cLöschen
-
+\33cCancellare
 
 ;
 MSG_CLOUDGUI_DELETEALL
 \33cDelete All
 \33cAlles Löschen
-
+\33cCancella Tutto
 
 ;
 MSG_CLOUDGUI_TIMELINES
 \33cTime Lines\x20
 \33cZeitleisten\x20
-
+\33cLinee Temporali\x20
 
 ;
 MSG_CLOUDGUI_SCALEKEYS
 \33cScale Keys\x20
 \33cKeys skalieren\x20
-
+\33cScala Numero\x20
 
 ;
 MSG_CLOUDGUI_DRAWCLOUD
 \33cDraw Cloud
 \33cZeichne Wolke
-
+\33cDisegna Nuvola
 
 ;
 MSG_CLOUDGUI_SETBOUNDS
 \33cSet Bounds
 \33cGrenzen festlegen
-
+\33cStabilire i confini
 
 ;
 MSG_CLOUDGUI_SAVE
 \33cSave
 \33cSpeichern
-
+\33cSalva
 
 ;
 MSG_CLOUDGUI_LOAD
 \33cLoad
 \33cLaden
-
+\33cCarica
 
 ;
 MSG_CLOUDGUI_MAPVIEWCLOUDS
 Map View: Clouds
 Map View: Wolken
-
+Map View: Nuvole
 
 ;
 MSG_GLOBAL_OUTOFMEMORY
 Out of memory!
 Nicht genügend Speicher!
-
+Memoria Esaurita!
 
 ;
 MSG_PARGUI_PARAMETERSMODULEMODEL
 Parameters Module: Model
 Parameter Modul: Modell
-
+Parametri Modulo: Modello
 
 ;
 MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE
-The current Cloud Model has been modified. Do you wish to save it before closing? Soll es vor dem Schließen gespeichert werden?
+The current Cloud Model has been modified. Do you wish to save it before closing?
 Das aktuelle Wolkenmodell wurde geändert. Soll es vor dem Schließen gespeichert werden?
-
+L'attuale modello di nuvola è stato modificato. Desiderate salvarlo prima di chiuderlo?
 
 ;
 MSG_GLOBAL_YESNO
 Yes|No
 Ja|Nein
-
+Si|No
 
 ;
 MSG_CLOUDGUI_CLOUDPATHFILE
 Cloud Path/File
 Wolke Pfad/Datei
-
+Nuvola Percorso/File
 
 ;
 MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE
 Make this file the Project Cloud File?
 
-
+Rendere questo file il file del progetto della nuvola?
 
 ;
 MSG_CLOUDGUI_CLOUDWAVEEDITOR
 Cloud Wave Editor
 
-
+Editor Onda Nuvola
 
 ;
 MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR
 Enter frame to make key for.
 
-
+Immettere il Frame per la quale creare il numero.
 
 ;
 MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES
 Delete all cloud key frames?
 
-
+Cancellare tutti i numeri dei frame delle nuvole?
 
 ;
 MSG_CLOUDGUI_FRACTALDIMENSION
 Fractal Dimension
 
-
+Dimensione Fractale
 
 ;
 MSG_CLOUDGUI_MOVELATITUDE
 Move Latitude
 
-
+Muovere latitudine
 
 ;
 MSG_CLOUDGUI_MOVELONGITUDE
 Move Longitude
 
-
+Muovere Longitudine
 
 ;
 MSG_CLOUDGUI_CLOUDTIMELINES
 Cloud Time Lines
 
-
+Linee temporali della nuvole
 
 ;
 MSG_CLOUDGUI_CLOUDFILE
 Cloud File
 Wolkendatei
-
+File Nuvola
 
 ;
 ; ------- DEM.c ----------
@@ -2033,103 +2033,103 @@ Wolkendatei
 MSG_DEM_CREATINGRELATIVEELEVATIONMODEL
 Creating Relative Elevation Model
 
-
+Creazione del modello di elevazione relativa
 
 ;
 MSG_DEM_RELATIVEELEVATION
 Relative elevation
 
-
+Relativa elevazione
 
 ;
 MSG_DEM_COMPUTING
 Computing
 Berechne
-
+Calcolare
 
 ;
 MSG_DEM_FILES
 Files
 Dateien
-
+Files
 
 ;
 MSG_DEM_DATAOPSDEMINTERPOLATE
 Data Ops: DEM Interpolate
 
-
+Data Ops: DEM Interpolazione
 
 ;
 MSG_DEM_NOFILESSELECTED
 No file(s) selected!
 Keine Datei(en) ausgewählt!
-
+Nessun file(s) selezionato!
 
 ;
 MSG_DEM_ERROROPENINGFILEFORINTERPOLATIONILENOTDEMORREMONTINUE
 Error opening file for interpolation!\nFile not DEM or REM\nContinue?
 Fehler beim Öffnen der Datei zum Interpolieren!\nDatei ist kein DEM oder REM\nWeitermachen?"
-
+Errore nell'apertura del file per l'interpolazione!\nFile non DEM o REM\nContinuare?
 
 ;
 MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER
 DEM name is too long to add an extra character to. Do you wish to enter a new base name for the DEM or abort the interpolation?
 Der DEM-Name ist zu lang zum Hinzufügen eines weiteren Zeichens. Möchten Sie einen neuen Basis-Namen für das DEM eingeben oder die Interpolation abbrechen?
-
+Il nome del DEM è troppo lungo per aggiungere un carattere supplementare. Si desidera inserire un nuovo nome di base per il DEM o interrompere l'interpolazione?
 
 ;
 MSG_DEM_NEWNAMEABORT
 New Name|Abort
 Neuer Name|Abbrechen
-
+Nuovo Nome|Interrompere
 
 ;
 MSG_DB_ENTERNEWOBJECTNAME
 Enter new object name.
 Geben Sie einen neuen Objektnamen ein.
-
+Inserire il nome del nuovo oggetto.
 
 ;
 MSG_DEM_DATAOPSINTERPOLATEDEM
 Data Ops: Interpolate DEM
 
-
+Data Ops: Interpolazione DEM
 
 ;
 MSG_DEM_ERRORREADINGELEVATIONFILEONTINUE
 Error reading elevation file!\nContinue?
 Fehler beim Lesen der Höhendatei!\nWeitermachen?
-
+Errore nella lettura del file di elevazione!\nContinuare?
 
 ;
 MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED
 Out of memory!\nOperation terminated.
 Nicht genügend Speicher!\nVorgang abgebrochen.
-
+Memoria esaurita! Operazione terminata.
 
 ;
 MSG_DEM_ERROROPENINGDEMFILEFOROUTPUTPERATIONTERMINATED
 Error opening DEM file for output!\nOperation terminated.
 Fehler beim Öffnen der DEM-Datei zum Schreiben!\nVorgang abgebrochen.
-
+Errore nell'apertura del file DEM per l'output!\nOperazione terminata.
 
 ;
 MSG_DEM_ERRORWRITINGDEMFILEPERATIONTERMINATED
 Error writing DEM file!\nOperation terminated.
 Fehler beim Schreiben der DEM-Datei!\nVorgang abgebrochen.
-
+Errore nella scrittura del file DEM!\nOperazione terminata.
 
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE
 Out of memory expanding Database Editor List!\nOperation terminated.
 
-
+Memoria esaurita per l'espansione dell'elenco dell'editor di database!\nOperazione terminata.
 
 ;
 MSG_DEM_ERROROPENINGOBJECTFILEFOROUTPUTPERATIONTERMINATED
 Error opening Object file for output!\nOperation terminated.
 Fehler beim Öffnen der Objekt-Datei zum Schreiben!\nVorgang abgebrochen.
-
+Errore nell'apertura del file oggetto per l'output!\nOperazione terminata.
 
 ;
 ; ------ DEMGUI.c ---------
@@ -2137,151 +2137,151 @@ Fehler beim Öffnen der Objekt-Datei zum Schreiben!\nVorgang abgebrochen.
 MSG_DEM_DATAOPSDEMEXTRACT
 Data Ops: DEM Extract
 
-
+Data Ops: DEM Estratto
 
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED
 Out of memory allocating DEM Info Header!\nOperation terminated.
 Nicht genügend Speicher für die Anforderung des DEM Info Headers!\nVorgang abgebrochen.
-
+Memoria esaurita per l'allocazione dell'intestazione delle informazioni DEM!\nOperazione terminata.
 
 ;
 MSG_DEM_75MINUTEDEMSDONOTALLLIEWITHINSAMEUTMZONEPERATIONTERMINA
 7.5 Minute DEMs do not all lie within same UTM Zone!\nOperation terminated.
 
-
+I DEM da 7,5 minuti non si trovano tutti nella stessa zona UTM!\nOperazione terminata.
 
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGDEMARRAYSPERATIONTERMINATED
 Out of memory allocating DEM Arrays!\nOperation terminated.
 
-
+Memoria esaurita per l'allocazione degli array DEM!\nOperazione terminata.
 
 ;
 MSG_DEM_75MINUTE
 7.5 Minute
 7,5 Minuten
-
+7,5 Minuti
 
 ;
 MSG_DEM_READING
 Reading
 Lesen
-
+Lettura
 
 ;
 MSG_DEM_CANTREADDEMPROFILEHEADERPERATIONTERMINATED
 Can't read DEM profile header!\nOperation terminated.
 Der DEM-Profileheader konnte nicht gelesen werden!\nVorgang abgebrochen.
-
+Impossibile leggere l'intestazione del profilo DEM!\nOperazione terminata.
 
 ;
 MSG_DEM_ERRORREADINGDEMPROFILEHEADERPERATIONTERMINATED
 Error reading DEM profile header!\nOperation terminated.
 Fehler beim Lesen des DEM Profil-Headers!\nVorgang abgebrochen.
-
+Errore nella lettura dell'intestazione del profilo DEM!\nOperazione terminata.
 
 ;
 MSG_DEM_BLANKPATCH
 Blank Patch
 
-
+Patch Inesistente
 
 ;
 MSG_DEM_RESAMPLE
 Resample
 
-
+Campione
 
 ;
 MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT
 Enter a name for the 30 meter DEM object.
 Geben Sie einen Namen für das 30 Meter DEM-Objekt ein.
-
+Inserire un nome per l'oggetto DEM di 30 metri.
 
 ;
 MSG_DEM_ONEDEGREE
 One Degree
 Ein Grad
-
+Un Grado
 
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGTEMPORARYBUFFERPERATIONTERMINATED
 Out of memory allocating temporary buffer!\nOperation terminated.
 Nicht genügend Speicher für die Anforderung des Temp-Puffers!\nVorgang abgebrochen.
-
+Memoria esaurita per l'allocazione del buffer temporaneo!\nOperazione terminata.
 
 ;
 MSG_DEM_ERRORREADINGDEMPROFILEPERATIONTERMINATED
 Error reading DEM profile!\nOperation terminated.
 Fehler beim Lesen des DEM Profils!\nVorgang abgebrochen.
-
+Errore nella lettura del profilo DEM!\nOperazione terminata.
 
 ;
 MSG_DEM_IMPROPERDEMPROFILELENGTHPERATIONTERMINATED
 Improper DEM profile length!\nOperation terminated.
 Ungültige Länge des DEM Profils!\nVorgang abgebrochen.
-
+Lunghezza del profilo DEM non corretta!\nOperazione terminata.
 
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGMAPBUFFERPERATIONTERMINATED
 Out of memory allocating map buffer!\nOperation terminated.
 
-
+Memoria esaurita per l'allocazione del buffer della mappa!\nOperazione terminata.
 
 ;
 MSG_DEM_ERRORCREATINGOUTPUTFILEPERATIONTERMINATED
 Error creating output file!\nOperation terminated.
 Fehler beim Erzeugen der Ausgabedatei!\nVorgang abgebrochen.
-
+Errore nella creazione del file di output!\nOperazione terminata.
 
 ;
 MSG_DEM_CANTOPENDEMFILEFORINPUTPERATIONTERMINATED
 Can't open DEM file for input!\nOperation terminated.
 Die DEM Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
-
+Impossibile aprire il file DEM per l'input!\nOperazione terminata.
 
 ;
 MSG_DEM_CANTREADDEMFILEHEADERPERATIONTERMINATED
 Can't read DEM file header!\nOperation terminated.
 Fehler beim Lesen des DEM File-Headers!\nVorgang abgebrochen.
-
+Impossibile leggere l'intestazione del file DEM!\nOperazione terminata.
 
 ;
 MSG_DEM_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
 Fehler beim Öffnen der Ausgabedatei!\nVorgang abgebrochen.
-
+Errore nell'apertura del file di output!\nOperazione terminata.
 
 ;
 MSG_DEM_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED
 Error writing to output file!\nOperation terminated.
 Fehler beim Schreiben der Ausgabedatei!\nVorgang abgebrochen.
-
+Errore nella scrittura del file di output!\nOperazione terminata.
 
 ;
 MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLIST
 Out of memory expanding Database Editor List!
 
-
+Elenco dell'editor del database in espansione è senza memoria!
 
 ;
 MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS
 Mapping Module: Fix Flats
 
-
+Modulo di mappatura: Correggere i Flats
 
 ;
 MSG_DEM_BADARRAYDIMENSIONSSOMETHINGDOESNTCOMPUTEPERATIONTERMINA
 Bad array dimensions! Something doesn't compute.\nOperation terminated.
 
-
+Dimensioni dell'array errate! Qualcosa non viene calcolato.\nOperazione terminata.
 
 ;
 MSG_DEM_NOFLATSPOTSTOOPERATEONPERATIONTERMINATED
 No flat spots to operate on!\nOperation terminated.
 
-
+Non ci sono zone piatte su cui operare!\nOperazione terminata.
 
 ;
 ; ------ DEMGUI.c ---------
@@ -2289,241 +2289,241 @@ No flat spots to operate on!\nOperation terminated.
 MSG_DEMGUI_DBASEOBJECTS
 D'base Objects
 Datenbank Objekte
-
+Database Oggetto
 
 ;
 MSG_DEMGUI_XYZLATLON
 XYZ Lat/Lon
 XYZ Breite/Länge
-
+XYZ Latitudine/ongitudine
 
 ;
 MSG_DEMGUI_XYZUTM
 XYZ UTM
 XYZ UTM
-
+XYZ UTM
 
 ;
 MSG_DEMGUI_DXFLATLON
 DXF Lat/Lon
 DXF Breite/Länge
-
+DXF Latitudine/Longitudine
 
 ;
 MSG_DEMGUI_DXFUTM
 DXF UTM
 DXF UTM
-
+DXF UTM
 
 ;
 MSG_DEMGUI_SLIDER
 Slider
 
-
+Cursore
 
 ;
 MSG_DEMGUI_ENDPOINTS
 End Points
 Endpunkte
-
+Fine dei Punti
 
 ;
 MSG_DEMGUI_DEM
 DEM
 DEM
-
+DEM
 
 ;
 MSG_DEMGUI_NUMERIC
 Numeric
 Numerisch
-
+Numerico
 
 ;
 MSG_DEMGUI_ISOLINE
 Isoline
 Wertefeldlinie
-
+Valore Campo
 
 ;
 MSG_DEMGUI_GRADIENT
 Gradient
 Gradient
-
+Gradiente
 
 ;
 MSG_DEMGUI_CONCAVE
 Concave
 Konkav
-
+Concavo
 
 ;
 MSG_DEMGUI_CONVEX
 Convex
 Konvex
-
+Convesso
 
 ;
 MSG_DEMGUI_NONE
 None
 Keine
-
+Niente
 
 ;
 MSG_DEMGUI_LINESPOINTS
 Lines/Points
 Linien/Punkte
-
+Punti/Linee
 
 ;
 MSG_DEMGUI_LINESONLY
 Lines Only
 Nur Linien
-
+Solo Linee
 
 ;
 MSG_DEMGUI_POINTSONLY
 Points Only
 Nur Punkte
-
+Solo Punti
 
 ;
 MSG_DATAOPSGUI_KILOMETERS
 Kilometers
 Kilometer
-
+Kilometri
 
 ;
 MSG_DATAOPSGUI_METERS
 Meters
 Meter
-
+Metri
 
 ;
 MSG_DATAOPSGUI_CENTIMETERS
 Centimeters
 Zentimeter
-
+Centimetri
 
 ;
 MSG_DATAOPSGUI_MILES
 Miles
 Meilen
-
+Miglie
 
 ;
 MSG_DATAOPSGUI_FEET
 Feet
 Fuß
-
+Piedi
 
 ;
 MSG_DEMGUI_DEMDESIGNER
 DEM Designer
 DEM Designer
-
+DEM Designer
 
 ;
 MSG_DEMGUI_CONTROLPTS
 Control Pts
 
-
+Controllo Punti
 
 ;
 MSG_DEMGUI_MAP
 \33cMap
 
-
+\33cMappa
 
 ;
 MSG_DEMGUI_ADD
 \33cAdd
 \33cHinzufügen
-
+\33cAggiungere
 
 ;
 MSG_DEMGUI_MOVE
 \33cMove
 \33cVerschieben
-
+\33cMuovere
 
 ;
 MSG_DEMGUI_DEL
 \33cDel
 \33cLöschen
-
+\33cCancellare
 
 ;
 MSG_DEMGUI_PTINFO
 \33cPt Info
 
-
+\33cInformazione Punto
 
 ;
 MSG_DEMGUI_SETEL
 \33cSet El
 
-
+\33cSettaggio Elemento
 
 ;
 MSG_DEMGUI_ELEVSOURCE
 Elev Source
 
-
+Elevazione Sorgente
 
 ;
 MSG_DEMGUI_ELEVUNITS
  Elev Units
  Höhen Einheit
-
+ Elevazione Unità
 
 ;
 MSG_DEMGUI_DISPLACE
    Displace
 
-
+   Spostare
 
 ;
 MSG_DEMGUI_DRAWMODE
   Draw Mode
 Zeichenmodus
-
+Modo Disegno
 
 ;
 MSG_DEMGUI_NOGRADIENTREVERSAL
 \33cNo Gradient Reversal
 
-
+\33cNessuna inversione di Gradiente
 
 ;
 MSG_DEMGUI_MINIMUMSPACING
 Minimum Spacing \x20
 
-
+Spazio Minimo \x20
 
 ;
 MSG_DEMGUI_STDDEVIATION
   Std Deviation\x20
 
-
+  Std Deviazione\20
 
 ;
 MSG_DEMGUI_NONLINEARITY
   Non-linearity\x20
   Nichtlinearität\x20
-
+  Non Linearità\x20
 
 ;
 MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU
 This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?
 
-
+Questa finestra deve rimanere aperta mentre la griglia DEM è aperta!\nVuoi chiuderle entrambe?
 
 ;
 MSG_DEMGUI_DEMBUILDER
 DEM Builder
 
-
+DEM Costruzione
 
 ;
 MSG_DEMGUI_ELEVATIONMODELGRID
