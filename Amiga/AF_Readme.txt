@@ -3659,4 +3659,9 @@ cp Catalogs/deutsch/WCS.catalog ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux
 cd ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/
 boot/linux/AROSBootstrap &
 
+5.Juli 2024
+-----------
+Leo macht die niederlaendische Ueberstezung. 105/2107 bis jetzt
+
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0;getline;FRENCH=$0; getline; DUTCH=$0; if(DUTCH==""){print ENGLISH;}else{DUTCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Dutch:  %4d\n",DUTCHCOUNT);}'
 
