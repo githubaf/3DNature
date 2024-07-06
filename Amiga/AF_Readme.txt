@@ -3665,3 +3665,11 @@ Leo macht die niederlaendische Ueberstezung. 105/2107 bis jetzt
 
 cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0;getline;FRENCH=$0; getline; DUTCH=$0; if(DUTCH==""){print ENGLISH;}else{DUTCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Dutch:  %4d\n",DUTCHCOUNT);}'
 
+6.Juli 2024
+-----------
+In s:user-startup aufnehmen:
+assign WCS_CATALOGSPATH: vbox:SelcoGit/3DNature/Amiga/Catalogs/ 
+assign WCS_SOURCESPATH:  vbox:SelcoGit/3DNature/Amiga
+
+; In WCS.cs sollte keine harten Pfade stehen, denn andere Uebersetzer (Leo fuer hollaendisch) haben grantiert andere Pfade. Deshlab sind da jetzt diese Logischen Laufwerke drin.
+

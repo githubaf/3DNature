@@ -7,11 +7,11 @@
 ## Codeset nederlands 0
 ## SimpleCatConfig CharsPerLine 200
 ## Header WCS_STRINGS_H
-## TARGET CATALOG deutsch "VBox:SelcoGit/3DNature/Amiga/Catalogs/deutsch"
-## TARGET C english "VBox:SelcoGit/3DNature/Amiga/WCS_strings.h" NoCode NoArray NoBlockStatic
-## TARGET CATALOG italiano "VBox:SelcoGit/3DNature/Amiga/Catalogs/italiano"
-## TARGET CATALOG français "VBox:SelcoGit/3DNature/Amiga/Catalogs/français"
-## TARGET CATALOG nederlands "VBox:SelcoGit/3DNature/Amiga/Catalogs/nederlands"
+## TARGET CATALOG deutsch "WCS_CATALOGSPATH:deutsch"
+## TARGET C english "WCS_SOURCESPATH:WCS_strings.h" NoCode NoArray NoBlockStatic
+## TARGET CATALOG italiano "WCS_CATALOGSPATH:italiano"
+## TARGET CATALOG français "WCS_CATALOGSPATH:français"
+## TARGET CATALOG nederlands "WCS_CATALOGSPATH:nederlands"
 ;
 ;
 MSG_MENU_PROJECT
@@ -377,7 +377,7 @@ Scale
 Skalierung
 Scala
 
-Schalen
+Schaal
 ;
 MSG_VARNAME_VIEWARC
 View Arc
@@ -794,56 +794,56 @@ None
 Kein
 Nessuno
 
-
+Geen
 ;
 MSG_SCNRMODGUI_TEXT
 Text
 Text
 Testo
 
-
+Tekst
 ;
 MSG_SCNRMODGUI_STANDARD
 Standard
 Standard
 Standard
 
-
+Standaard
 ;
 MSG_SCNRMODGUI_MAX
 Max
 Max
 Massimo
 
-
+Maximum
 ;
 MSG_SCNRMODGUI_VIDEO
 Video
 Video
 Video
 
-
+Video
 ;
 MSG_SCNRMODGUI_WORLDCONSTRUCTIONSETSCREENMODE
 World Construction Set Screenmode
 World Construction Set Bildschirmmodus
 World Construction Set Modo Schermo
 
-
+World Construction Set Beeldschermmodus
 ;
 MSG_SCNRMODGUI_DISPLAYMODE
 \33cDisplay Mode
 \33cAnzeigemodus
 \33cModo Schermo
 
-
+\33cSchermmodus
 ;
 MSG_SCNRMODGUI_MODEINFORMATION
 \33cMode Information
 \33cModuseigenschaften
 \33cModo Informazione
 
-
+\\33cInformatie modus
 ;
 ; Check Screenmode-Requester for correct alignement!
 MSG_SCNRMODGUI_MODEESUTOCANNATTRIBUTESN
@@ -851,28 +851,28 @@ Mode:           \nRes :                      \nAuto:            \nScan:         
 Modus:           \nRes  :                      \nAuto :            \nScan :                   \n\nAttribute\n\n\n
 Modo:           \nRes :                      \nAuto:            \nScan :                  \n\nAttribute\n\n\n
 
-
+Modus:           \nRes  :                      \nAuto :            \nScan :                   \n\nAttribute\n\n\n
 ;
 MSG_SCNRMODGUI_SAVE
 \33cSave
 \33cSpeichern
 \33cSalva
 
-
+\\33cOpslaan
 ;
 MSG_SCNRMODGUI_USE
 \33cUse
 \33cBenutzen
 \33cUsa
 
-
+\33cGebruiken
 ;
 MSG_SCNRMODGUI_EXIT
 \33cExit
 \33cAbbrechen
 \33cEsci
 
-
+\33cAfsluiten
 ;
 ; Check Screenmode-Requester for correct alignement!
 MSG_SCNRMODGUI_MODE0XESXXUTOXCANNSNATTRIBUTES
@@ -880,49 +880,49 @@ Mode: 0x%08lx\nRes : %dx%d - %dx%d\nAuto: %dx%d\nScan: %dns\n\nAttributes\n
 Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAttribute\n
 Modo: 0x%08lx\nRes : %dx%d - %dx%d\nAuto: %dx%d\nRicerca: %dns\n\nAttributi\n
 
-
+Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAttribute\n
 ;
 MSG_SCNRMODGUI_LACED
 Laced\x20
 Interlace\x20
 Interlacciato\x20
 
-
+Interlace\x20
 ;
 MSG_SCNRMODGUI_GENLOCKABLE
 Genlockable\x20
 Unterstützt Genlock\x20
 Supporta Genlock\x20
 
-
+Ondersteunt Genlock\x20
 ;
 MSG_SCNRMODGUI_DRAGGABLE
 Draggable\x20
 Ziehbar\x20
 Trascinabile\x20
 
-
+Sleepbaar\x20
 ;
 MSG_SCNRMODGUI_OVERSCAN
 Overscan:\x20
 Overscan:\x20
 Overscan:\x20
 
-
+Overscan:\x20
 ;
 MSG_SCNRMODGUI_WIDTH
 Width\x20
 Breite\x20
 Larghezza\x20
 
-
+Breedte\x20
 ;
 MSG_SCNRMODGUI_HEIGHT
 Height\x20
 Höhe\x20
 Altezza\x20
 
-
+Hoogte\x20
 ;
 ; ------- AGUI.c ----------
 ; see Project -> Module -> Parameters for Alignement
@@ -932,385 +932,385 @@ Parameter Module
 Parameter Modul
 Parametri Modulo
 
-
+Parameter Module
 ;
 MSG_AGUI_MOTION
 \33l Motion\x20
 
 \33l Movimento\x20
 
-
+\33l Beweging\x20
 ;
 MSG_AGUI_COLOR
 \33l Color\x20
 \33l Farben\x20
 \33l Colore\x20
 
-
+\33l Kleur\x20
 ;
 MSG_AGUI_ECOSYSTEM
 \33l Ecosystem\x20
 \33l Ökosystem\x20
 \33l Ecosistema\x20
 
-
+\33l Ecosysteem\x20
 ;
 MSG_AGUI_CLOUDS
 \33l Clouds\x20
 \33l Wolken\x20
 \33l Nuvole\x20
 
-
+\33l Wolken\x20
 ;
 MSG_AGUI_WAVES
 \33l Waves\x20
 \33l Wellen\x20
 \33l Onde\x20
 
-
+\33l Golven\x20
 ;
 MSG_AGUI_DEFAULTS
 \33l Defaults\x20
 \33l Standard-Werte\x20
 \33l Predefinito\x20
 
-
+\33l Standaard Waarden\x20
 ;
 MSG_AGUI_PARAMETERSMODULE
 Parameters Module
 Parameter Modul
 Parametri Modulo
 
-
+Parameters Module
 ;
 MSG_AGUI_OUTOFMEMORY
 Out of Memory!
 Nicht genügend Speicher!
 Memoria Esaurita!
 
-
+Te weinig geheugen!
 ;
 MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS
 Create Default Parameters for Database %s? All current Parameters will be overwritten.
 Standard-Parametersatz für die Datenbank %s erzeugen? Alle aktuellen Parameter werden überschrieben.
 Crea Valori Predefiniti per il Database %s? I Parametri Correnti Verranno Sovrascritti.
 
-
+Standaard Parameters maken voor Database %s? Alle huidige Parameters zullen worden overschreven.
 ;
 MSG_AGUI_PARAMETEREDITINGDEFAULTS
 Parameter Editing: Defaults
 
 Modifica dei Parametri: Predefinito
 
-
+Parameter bewerken: Standaard
 ;
 MSG_GLOBAL_OKCANCEL
 OK|Cancel
 OK|Abbrechen
 SI|Cancella
 
-
+OK|Annuleren
 ;
 MSG_AGUI_YOUMUSTFIRSTLOADADATABASEBEFOREDEFAULTPARAMETERSCANBEC
 You must first load a Database before Default Parameters can be computed.
 Es muss erst eine Datenbank geladen werden, bevor ein Standard-Parametersatz erzeugt werden kann.
 È necessario caricare un database prima di poter calcolare i parametri predefiniti.
 
-
+Laad eerst een Database voordat Standaard Parameters kunnen worden berekend.
 ;
 MSG_GLOBAL_OK
 OK
 OK
 SI
 
-
+OK
 ;
 MSG_AGUI_STANDUP
 Stand Up
 Hochkant
 
 
-
+Portrait
 ;
 MSG_AGUI_LAYDOWN
 Lay Down
 Quer
 
 
-
+Landscape
 ;
 MSG_AGUI_LOAD
 \33l Load\x20
 \33l Laden\x20
 \33l Carica\x20
 
-
+\33l Laad\x20
 ;
 MSG_AGUI_APPEND
 \33l Append\x20
 \33l Anhängen\x20
 \33l Allegare\x20
 
-
+\33l Toevoegen\x20
 ;
 MSG_AGUI_CREATE
 \33l Create\x20
 \33l Erzeugen\x20
 \33l Creare\x20
 
-
+\33l Nieuw\x20
 ;
 MSG_AGUI_EDIT
 \33l Edit\x20
 \33l Bearbeiten\x20
 \33l Modifica\x20
 
-
+\33l Bewerken\x20
 ;
 MSG_AGUI_SAVE
 \33l Save\x20
 \33l Speichern\x20
 \33l Salva\x20
 
-
+\33l Opslaan\x20
 ;
 MSG_AGUI_DIRLIST
 \33l Dir List\x20
 \33l Ordnerliste\x20
 \33l Lista Directory\x20
 
-
+\33l Bestandslijst\x20
 ;
 MSG_AGUI_DATAOPSIMPORTDLG
 Data Ops: Import DLG
 
 Data Ops: Importare DLG
 
-
+Data Ops: Import DLG
 ;
 MSG_AGUI_DATAOPSIMPORTDXF
 Data Ops: Import DXF
 
 Data Ops: Importare DXF
 
-
+Data Ops: Import DXF
 ;
 MSG_DLG_DATAOPSIMPORTWDB
 Data Ops: Import WDB
 
 Data Ops: Importare WDB
 
-
+Data Ops: Import WDB
 ;
 MSG_AGUI_DATAOPSMODULEINTERPDEM
 Data Ops Module: Interp DEM
 
 Data Ops Modulo: Interp DEM
 
-
+Data Ops Modulo: Interp DEM
 ;
 MSG_AGUI_DATAOPSMODULEEXTRACTDEM
 Data Ops Module: Extract DEM
 
 Data Ops Modulo: Estrai DEM
 
-
+Data Ops Modulo: Extract DEM
 ;
 MSG_AGUI_RENDERMODULE
 Render Module
 
 Rendering Modulo
 
-
+Render Module
 ;
 MSG_AGUI_ADATABASEANDPARAMETERFILE
 a Database and Parameter file
 eine Datenbank- und Parameterdatei
 Database e Parametri File
 
-
+Database en Parameter Bestand
 ;
 MSG_AGUI_MODULECONTROLPANEL
 Module Control Panel
 
 Modulo di Controllo
 
-
+Module Controle Paneel
 ;
 MSG_AGUI_VERSION
 Version
 Version
 Versione
 
-
+Versie
 ;
 MSG_AGUI_OKAY
 \33cOkay
 \33cOkay
 \33cOk
 
-
+\33cOK
 ;
 MSG_AGUI_EXTRASMODULE
 Extras Module
 Extras Modul
 Modulo degli Extra
 
-
+Extras Module
 ;
 MSG_AGUI_PUBLICSCREENSTILLHASVISITORSTRYCLOSINGAGAIN
 Public Screen still has visitors. Try closing again?
 Der Public Screen hat noch Visitors. Schließen erneut versuchen?
 Lo schermo pubblico ha ancora visitatori. Provare a chiudere di nuovo?
 
-
+Publiek Scherm heeft nog Visitors. Nogmaals proberen te sluiten?
 ;
 MSG_AGUI_CLOSEWARNCANCEL
 Close|Warn|Cancel
 Schließen|Warnen|Abbrechen
 Chiudi|Avverti|Cancella
 
-
+Sluiten|Waarschuwen|Annuleren
 ;
 MSG_AGUI_QUITPROGRAMREYOUSURE
 Quit Program\nAre you sure?
 Programm beenden\nSind Sie sicher?
 Chiudere il Programma\nSei Sicuro?
 
-
+Programma Afsluiten\nWeet U het zeker?
 ;
 MSG_AGUI_WCSPROJECT
 WCS Project
 WCS Projekt
 WCS Progetto
 
-
+WCS Project
 ;
 MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Project paths have been modified. Save them before closing?
 Die Projekt-Pfade wurden verändert. Sollen sie vor dem Schließen gespeichert werden?
 I percorsi del progetto sono stati modificati. Salvarli prima di chiudere?
 
-
+Projectpaden zijn gewijzigd. Paden opslaan voordat u afsluit?
 ;
 MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Parameters have been modified. Save them before closing?
 Die Parameter würden verändert. Sollen sie vor dem Schließen gespeichert werden?
 I parametri sono stati modificati. Salvarli prima di chiuderli?
 
-
+Parameters zijn gewijzigd. Wijzigingen opslaan voordat u afsluit?
 ;
 MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING
 Database has been modified. Save it before closing?
 Die Datenbank wurde geändert. Soll sie vor dem Schließen gespeichert werden?
 Il database è stato modificato. Salvare prima di chiudere?
 
-
+De database is gewijzigd. Database opslaan voordat u afsluit?
 ;
 MSG_AGUI_MESSAGE
 Message
 Nachricht
 Messaggio
 
-
+Bericht
 ;
 MSG_AGUI_NOTYETIMPLEMENTEDTAYTUNED
 Not yet implemented.\nStay Tuned!
 Noch nicht implementiert.\nBleiben Sie dran!
 Non ancora implementato.\nRimanete Sintonizzati!
 
-
+Nog niet geïmplementeerd.\nStay Tuned!
 ;
 MSG_AGUI_KEEPCHANGES
 Keep changes?
 Änderungen behalten?
 Mantenere le modifiche?
 
-
+Wijzigingen behouden?
 ;
 MSG_AGUI_KEEPCANCEL
 Keep|Cancel
 Behalten|Abbrechen
 Mantieni|Cancella
 
-
+Behouden|Annuleren
 ;
 MSG_AGUI_SORRYOUMUSTFIRSTLOAD338NBEFOREUSINGTHISFEATURE
 Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature.
 Entschuldigung!\nEs muss zuerst\n\338%s\0332\ngeladen werden, bevor dieses Feature genutzt werden kann.
 Attenzione!\nPrima di utilizzare questa funzione\n\338%s\0332\n è necessario caricarla.
 
-
+Sorry!\nU moet eerst\n\338%s\0332\n laden voordat u deze functie kunt gebruiken.
 ;
 MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT
 File already exists.\nDo you wish to overwrite it?
 Die Datei existiert bereits? Soll sie überschrieben werden?
 File già esistente.\n Vuoi Sovrascriverlo?
 
-
+Het bestand bestaat al.\nWilt u het overschrijven?
 ;
 MSG_AGUI_INPUTREQUEST
 Input Request
 Eingabeaufforderung
 Richiesta Input
 
-
+Invoer Verzoek
 ;
 MSG_GLOBAL_33CCANCEL
 \33cCancel
 \33cAbbrechen
 \33cCancella
 
-
+\33cAnnuleren
 ;
 MSG_AGUI_LOGSTATUSMODULE
 Log Status Module
 Log Status Modul
 Log Stato Modulo
 
-
+Log Status Module
 ;
 MSG_AGUI_CANTOPENLOGSTATUSWINDOW
 Can't Open Log Status Window!
 Das Log Status Fenster konnte nicht geöffnet werden!
 Non è possibile aprire la finestra dello stato dei log!
 
-
+Kan Log Status Venster niet openen!
 ;
 MSG_AGUI_CLEAR
 \33cClear
 \33cLöschen
 \33cLibera
 
-
+\33cLeegmaken
 ;
 MSG_AGUI_HIDE
 \33cHide
 \33cVerbergen
 \33cNascondi
 
-
+\33cVerbergen
 ;
 MSG_AGUI_CLOSE
 \33cClose
 \33cSchließen
 \33cChiudi
 
-
+\33cSluiten
 ;
 MSG_AGUI_LOGWINDOW
 Log Window
 Log Fenster
 Finestra Log
 
-
+Log Venster
 ;
 MSG_AGUI_LOGWINDOWOPENED
 Log window opened.
 Log Fenster geöffnet.
 Finestra Log Aperta.
 
-
+Log Venster geopend.
 ;
 ; - Info Window -
 MSG_AGUI_INFO
@@ -1318,126 +1318,126 @@ Info
 Info
 Informazioni
 
-
+Informatie
 ;
 MSG_AGUI_TIME
 \33rTime\x20
 \33rUhrzeit\x20
 \33rTempo\x20
 
-
+\33rTijd\x20
 ;
 MSG_AGUI_DATE
 \33rDate\x20
 \33rDatum\x20
 \33rData\x20
 
-
+\33rDatum\x20
 ;
 MSG_AGUI_MEMORY
 \33rMemory:
 \33rSpeicher:
 \33rMemoria:
 
-
+\33rGeheugen:
 ;
 MSG_AGUI_AVAILABLE
 \33rAvailable\x20
 \33rVerfügbar\x20
 \33rDisponibile\x20
 
-
+\33rBeschikbaar\x20
 ;
 MSG_AGUI_LARGEST
 \33rLargest\x20
 \33rGrößter\x20
 \33rGrande\x20
 
-
+\33rGrootste\x20
 ;
 MSG_AGUI_CHIP
 \33cChip
 \33cChip
 \33cChip
 
-
+\33cChip
 ;
 MSG_AGUI_FAST
 \33cFast
 \33cFast
 \33cFast
 
-
+\33cFast
 ;
 MSG_AGUI_TOPOMAPS
 \33rTopo Maps\x20
 
 \33rMappa Topografica\x20
 
-
+\33rTopo Maps\x20
 ;
 MSG_AGUI_INTER
 \33cInter
 
 \33cInter
 
-
+\33cInter
 ;
 MSG_AGUI_MAP
 \33cMap
 \33cKarte
 \33cMappa
 
-
+\33cKaart
 ;
 MSG_AGUI_AREXXPORT
 \33rARexx Port\x20
 \33rARexx Port\x20
 \33rARexx Port\x20
 
-
+\33rARexx Poort\x20
 ;
 MSG_AGUI_DATABASE
 \33rDatabase\x20
 \33rDatenbank\x20
 \33rDatabase\x20
 
-
+\33rDatabase\x20
 ;
 MSG_AGUI_PARFILE
 \33rPar File\x20
 \33cPar Datei\x20
 \33rPar File\x20
 
-
+\33rPar Bestand\x20
 ;
 MSG_AGUI_SCREENMODE
 \33rScreenMode\x20
 \33rBildschirmmodus\x20
 \33rModo Schermo\x20
 
-
+\33rSchermmodus\x20
 ;
 MSG_AGUI_FLUSH
 \33cFlush
 \33cSpeicher leeren
 \33cMemoria vuota
 
-
+\33cGeheugen vrijmaken
 ;
 MSG_AGUI_CREDITS
 Credits
 Über
 Ringraziamenti
 
-
+Over
 ;
 MSG_AGUI_WCSSCREENMODE
 WCS: Screen Mode
 WCS: Bildschirmmodus
 WCS: Modo Schermo
 
-
+WCS: Schermmodus
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
@@ -1445,21 +1445,21 @@ Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. D
 ausführen?
 Per ripristinare la modalità schermo, WCS dovrà essere chiuso e riaperto. Qualsiasi lavoro in corso deve essere salvato prima di invocare questo comando.\n Volete procedere ora?
 
-
+Om de schermmodus te resetten zal WCS moeten worden gesloten en heropend. Werk in uitvoering moet worden opgeslagen voordat deze opdracht wordt uitgevoerd.\n Wilt u nu doorgaan?
 ;
 MSG_AGUI_DATABASEMODULE
 Database Module
 Datenbank Modul
 Modulo Database
 
-
+Database Module
 ;
 MSG_AGUI_DATABASEMODULEAPPEND
 Database Moldule: Append
 Datenbank Modul: Anhängen
 Modulo Database: Allegare
 
-
+Database Module: Toevoegen
 ;
 ;This is a %s-String for NoLoad_Message() "Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature."
 MSG_DATAOPSGUI_ADATABASE
@@ -1467,154 +1467,154 @@ a Database
 eine Datenbank
 a Database
 
-
+een Database
 ;
 MSG_DB_DATABASEMODULESAVE
 Database Module: Save
 Datenbank Modul: Speichern
 Modulo Database: Salva
 
-
+Database Module: Opslaan
 ;
 MSG_AGUI_DATAOPSMODULE
 DataOps Module
 
 Modulo DataOps
 
-
+DataOps Module
 ;
 MSG_AGUI_EXTRACTDEM
 \33l Extract DEM\x20
 \33l Extrahiere DEM\x20
 \33l Estrai DEM\x20
 
-
+\33l Extraheer DEM\x20
 ;
 MSG_AGUI_CONVERTDEM
 \33l Convert DEM\x20
 \33l Konvertiere DEM\x20
 \33l Convertire DEM\x20
 
-
+\33l Converteer DEM\x20
 ;
 MSG_AGUI_INTERPDEM
 \33l Interp DEM\x20
 \33l Interpoliere DEM\x20
 \33l Interpolare DEM\x20
 
-
+\33l Interpoleer DEM\x20
 ;
 MSG_AGUI_IMPORTDLG
 \33l Import DLG\x20
 \33l Importiere DLG\x20
 \33l Importare DLG\x20
 
-
+\33l Importeer DLG\x20
 ;
 MSG_AGUI_IMPORTDXF
 \33l Import DXF
 \33l Importiere DXF\x20
 \33l Importare DXF\x20
 
-
+\33l Importeer DXF\x20
 ;
 MSG_AGUI_IMPORTWDB
 \33l Import WDB\x20
 \33l Importiere WDB\x20
 \33l Importare WDB\x20
 
-
+\33l Importeer WDB\x20
 ;
 MSG_AGUI_EXPORTLW
 \33l Export LW\x20
 \33l Exportiere LW\x20
 \33l Esportare LW\x20
 
-
+\33l Exporteer LW\x20
 ;
 MSG_AGUI_MOTIONIO
 \33l Motion I/O\x20
 
 \33l Movimento I/0\x20
 
-
+\33l Beweging I/O\x20
 ;
 MSG_AGUI_STATUSLOG
 Status Log
 Status Log
 Stato Log
 
-
+Status Log
 ;
 MSG_AGUI_ERR
 ERR:
 
 ERR:
 
-
+FOUT:
 ;
 MSG_AGUI_WNG
 WNG:
 
 WNG:
 
-
+Waarschuwing:
 ;
 MSG_AGUI_MSG
 MSG:
 
 MSG:
 
-
+Bericht:
 ;
 MSG_AGUI_DTA
 DTA:
 
 DTA:
 
-
+Data:
 ;
 MSG_AGUI_PREV
 \33cPrev
 \33cVorheriger
 \33cPrecedente
 
-
+\33cVorige
 ;
 MSG_AGUI_NEXT
 \33cNext
 \33cNächster
 \33cProssimo
 
-
+\33cVolgende
 ;
 MSG_AGUI_ALL
 All (%d)
 Alle (%d)
 Tutto (%d)
 
-
+Alles (%d)
 ;
 MSG_AGUI_KEYSEXIST
 Keys Exist (%d)
 Key (%d) existiert
 Chiavi (%d) esistenti
 
-
+Sleutel (%d) bestaat
 ;
 MSG_AGUI_ALL0
 \33cAll (0)
 Alle (0)
 Tutto (0)
 
-
+\33cAlles (0)
 ;
 MSG_AGUI_NOOTHERKEYS
 No Other Keys
 Keines weiteren Keys
 No Altre Chiavi
 
-
+Geen andere Sleutels
 ;
 ; PK="Previous Key"
 MSG_AGUI_PK
@@ -1622,7 +1622,7 @@ PK %d
 VK %d
 PK %d
 
-
+VS %d
 ;
 ; NK="Next Key"
 MSG_AGUI_NK
@@ -1630,77 +1630,77 @@ NK %d
 NK %d
 NK %d
 
-
+NS %d
 ;
 MSG_AGUI_NONE
  -none-\x20
 -leer-
 -Nessuno-
 
-
+-Geen-
 ;
 MSG_AGUI_USE
 Use
 Benutzen
 Usa
 
-
+Gebuiken
 ;
 MSG_AGUI_LOADMOTION
 Load Motion...
 Lade Motion...
 Carica Movimento...
 
-
+Laad Beweging...
 ;
 MSG_AGUI_SAVEMOTION
 Save Motion...
 Speichere Motion...
 Salva Movimento...
 
-
+Sla Beweging op...
 ;
 MSG_AGUI_LOADCOLOR
 Load Color...
 Lade Farben...
 Carica Colori...
 
-
+Laad Kleuren...
 ;
 MSG_AGUI_SAVECOLOR
 Save Color...
 Speichere Farben...
 Salva Colori...
 
-
+Sla Kleuren op...
 ;
 MSG_AGUI_LOADECO
 Load Eco...
 Lade Öko...
 Carica Eco...
 
-
+Laad Eco...
 ;
 MSG_AGUI_SAVEECO
 Save Eco...
 Speichere Öko...
 Salva Eco...
 
-
+Sla Eco op...
 ;
 MSG_AGUI_LOADSETTINGS
 Load Settings...
 Einstellungen laden...
 Carica Impostazioni...
 
-
+Laad Instellingen...
 ;
 MSG_AGUI_SAVESETTINGS
 Save Settings...
 Einstellungen speichern...
 Salva Impostazioni...
 
-
+Bewaar Instellingen...
 ;
 ; ----- BitMaps.c --------
 MSG_BITMAPS_IFFFILEPATHNAME
@@ -1708,252 +1708,252 @@ IFF File Path/Name
 IFF-Datei Pfad/Name
 IFF-File Percorso/Nome
 
-
+IFF Bestand Pad/Naam
 ;
 MSG_BITMAPS_FILEALREADYEXISTSVERWRITEIT
 File already exists!\nOverwrite it?
 Datei bereits vorhanden!\nÜberschreiben?
 Il file esiste già!\nSovrascriverlo?
 
-
+Bestand bestaat al!\nOverschrijven?
 ;
 MSG_BITMAPS_CANTOPENIMAGEFILEFOROUTPUTPERATIONTERMINATED
 Can't open image file for output!\nOperation terminated.
 Datei kann nicht zum Schreiben geöffnet werden!\nVorgang abgebrochen.
 Impossibile aprire il file immagine per l'output!\nOperazione terminata.
 
-
+Kan beeldbestand niet openen voor uitvoer!\nOperatie afgebroken.
 ;
 MSG_BITMAPS_SAVINGIMAGE
 Saving Image
 Speichern des Bildes
 Salva Immagine
 
-
+Afbeelding Opslaan
 ;
 MSG_BITMAPS_YES
 YES
 Ja
 Si
 
-
+Ja
 ;
 MSG_BITMAPS_NO
 NO
 Nein
 No
 
-
+Nee
 ;
 MSG_BITMAPS_ERRORSAVINGIMAGEPERATIONTERMINATED
 Error saving image!\nOperation terminated.
 Fehler beim Speichern des Bildes!\nVorgang abgebrochen.
 Errore nel salvare l'immagine!\nOperazione Terminata.
 
-
+Fout bij opslaan van afbeelding!\nOperatie afgebroken.
 ;
 MSG_BITMAPS_LOADINGIMAGE
 Loading Image
 Laden des Bildes
 Caricamento Immagine
 
-
+Afbeelding Laden
 ;
 MSG_BITMAPS_WRONGIMAGESIZE
 Wrong image size
 Falsche Bildgröße
 Grandezza immagine sbagliata
 
-
+Afmetingen afbeelding onjuist
 ;
 MSG_BITMAPS_WRONGIMAGEDEPTH
 Wrong image depth
 Falsche Farbtiefe des Bildes
 Profondità colore immagine sbagliata
 
-
+Kleurdiepte afbeelding onjuist
 ;
 MSG_BITMAPS_BACKGROUND
 Background
 Hintergrund
 Sfondo
 
-
+Achtergrond
 ;
 MSG_BITMAPS_ERRORLOADINGZBUFFERPERATIONTERMINATED
 Error loading Z Buffer!\nOperation terminated.
 Fehler beim Laden des Z-Puffers!\nVorgang abgebrochen.
 Errore nel caricamento del buffer Z!\nOperazione terminata.
 
-
+Fout bij laden van Z Buffer!\nOperatie afgebroken.
 ;
 MSG_BITMAPS_OUTOFMEMORYMERGINGZBUFFERPERATIONTERMINATED
 Out of memory merging Z Buffer!\nOperation terminated.
 Nicht genügend Speichern zum Mergen des Z-Puffers!\nVorgang abgebrochen.
 Unione di Z Buffer fuori memoria!\nOperazione terminata.
 
-
+Te weinig geheugen voor samenvoegen van Z Buffer!\nOperatie afgebroken.
 ;
 MSG_BITMAPS_ERROROPENINGZBUFFERFILEFORINPUTPERATIONTERMINATED
 Error opening Z Buffer file for input!\nOperation terminated.
 Fehler beim Öffnen der Z-Puffer-Datei zum Lesen!\nVorgang abgebrochen.
 Errore nell'apertura del file Z Buffer per l'input!\nOperazione terminata.
 
-
+Fout bij openen van Z Buffer bestand voor invoer!\nOperatie afgebroken.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOTSINGLEPRECISIONFLOATINGPOI
 Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated.
 Fehler beim Lesen der Z-Puffer-Datei!\nFormat ist nicht Fließkomma mit einfacher Genauigkeit.\nVorgang abgebrochen.
 Errore nella lettura del file Z Buffer!\nNon in virgola mobile a precisione singola.\nOperazione Terminata.
 
-
+Fout bij lezen van Z Buffer bestand!\nGeen enkele precisie drijvende komma.\nOperatie afgebroken.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBODCHUNKPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated.
 Fehler beim Lesen der Z-Puffer-Datei!\nZBOD-Chunk fehlt.\nVorgang abgebrochen.
 Errore nella lettura del file Z Buffer!\nNessun ZBOD chunk.\nOperazione terminata.
 
-
+Fout bij lezen van Z Buffer bestand!\nZBOD chunk ontbreekt.\nOperatie afgebroken.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBUFCHUNKPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated.
 Fehler beim Lesen der Z-Puffer-Datei!\nZBUF-Chunk fehlt.\nVorgang abgebrochen.
 Errore nella lettura del file Z Buffer!\nNessun ZBUF chunk.\nOperazione terminata.
 
-
+Fout bij lezen van Z Buffer bestand!\nZBUF chunk ontbreekt.\nOperatie afgebroken.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILERONGSIZEPERATIONTERMINATED
 Error reading Z Buffer file!\nWrong Size.\nOperation terminated.
 Fehler beim Lesen der Z-Puffer-Datei!\nFalsche Größe.\nVorgang abgebrochen.
 Errore nella lettura del file Z Buffer!\nDimensione sbagliata.\nOperazione terminata.
 
-
+Fout bij lezen van Z Buffer bestand!\nAfmetingen onjuist.\nOperatie afgebroken.
 ;
 MSG_BITMAPS_ERRORLOADINGBACKGROUNDIMAGEPERATIONTERMINATED
 Error loading background image!\nOperation terminated.
 Fehler beim Laden des Hintergrundbildes!\nVorgang abgebrochen.
 Errore nel caricamento dell'immagine di sfondo!\nOperazione terminata.
 
-
+Fout bij laden van achtergrond afbeelding!\nOperatie afgebroken.
 ;
 MSG_BITMAPS_OUTOFMEMORYMERGINGBACKGROUNDPERATIONTERMINATED
 Out of memory merging background!\nOperation terminated.
 Nicht genügend Speicher zum Mergen des Hintergrundes!\nVorgang abgebrochen.
 Sfondo di fusione fuori memoria!\nOperazione terminata.
 
-
+Te weinig geheugen voor samenvoegen met achtergrond!\nOperatie afgebroken.
 ;
 MSG_BITMAPS_ERROROPENINGBACKGROUNDFILEFORINPUTPERATIONTERMINATE
 Error opening Background file for input!\nOperation terminated.
 Fehler beim Öffnen der Hintergrunddatei zum Lesen!\nVorgang abgebrochen.
 Errore nell'apertura del file di sfondo per l'input!\nOperazione terminata.
 
-
+Fout bij openen van achtergrond bestand voor invoer!\nOperatie afgebroken.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILERONGSIZEPERATIONTERMINATE
 Error reading Background file!\nWrong Size.\nOperation terminated.
 Fehler beim Lesen der Hintergrunddatei!\nFalsche Größe.\nVorgang abgebrochen.
 Errore nell'apertura del file di sfondo!\nDimensione errata.\nOperazione terminata.
 
-
+Afmetingen van achtergrond bestand onjuist!\nOperatie afgebroken.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBODYCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BODY Chunk.\nOperation terminated.
 Fehler beim Lesen der Hintergrunddatei!\nBODY-Chunk fehlt.\nVorgang abgebrochen.
 Errore nell'apertura del file di sfondo!\nNessun Corpo Chunk.\nOperazione terminata.
 
-
+Fout bij lezen van achtergrond bestand!\nBODY chunk ontbreekt.\nOperatie afgebroken.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBMHDCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BMHD Chunk.\nOperation terminated.
 Fehler beim Lesen der Hintergrunddatei!\nBMHD-Chunk fehlt.\nVorgang abgebrochen.
 Errore nell'apertura del file di sfondo!\nNessun BMHD Chunk.\nOperazione terminata.
 
-
+Fout bij lezen van achtergrond bestand!\nBMHD chunk ontbreekt.\nOperatie afgebroken.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOMPRESSIONERRORPERATIONTE
 Error reading Background file!\nCompression error.\nOperation terminated.
 Fehler beim Lesen der Hintergrunddatei!\nKompressionsfehler.\nVorgang abgebrochen.
 Errore nella lettura del file di sfondo!\nErrore di compressione.\nOperazione terminata.
 
-
+Fout bij lezen van achtergrond bestand!\nCompressie fout.\nOperatie afgebroken.
 ;
 MSG_CLOUD_CLOUDEDITORSETBOUNDS
 Cloud Editor:Set Bounds
 Cloud Editor:Grenzen festlegen
 Editor Nuvole:Impostare i limiti
 
-
+Wolken Editor:Grenzen instellen
 ;
 MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN
 Map View Module must be open in order to use this function. Would you like to open it now?
 Das Map View Modul muss geöffnet sein, um die Funktion nutzen zu können. Soll es jetzt geöffnet werden?
 Il modulo Vista mappa deve essere aperto per poter utilizzare questa funzione. Volete aprirlo ora?
 
-
+Kaartweergave Module moet geopend zijn om deze functie te gebruiken. Wilt u het nu openen?
 ;
 MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
 \0338Set northwest corner with mouse.
 \0338Nord-West Ecke mit der Maus festlegen.
 \0338Impostare l'angolo nord-ovest con il mouse.
 
-
+\0338Stel noord-west hoek in met muis.
 ;
 MSG_CLOUD_SETNORTHWESTCORNER
 Set northwest corner
 Nord-West Ecke festlegen
 Imposta l'angolo nord-ovest
 
-
+Stel noord-west hoek in
 ;
 MSG_CLOUD_ETSOUTHEASTCORNERESCABORT
 \0338Set southeast corner. ESC=abort
 \0338Süd-Ost Ecke festlegen. ESC=Abbruch
 \0338Impostare l'angolo sud-est. ESC=Interrompere
 
-
+\0338Stel zuid-oost hoek in. ESC=annuleren
 ;
 MSG_CLOUD_SETSOUTHEASTCORNER
 Set southeast corner
 Süd-Ost Ecke festlegen
 Imposta l'angolo sud-est
 
-
+Stel zuid-oost hoek in
 ;
 MSG_MAPGUI_MAPPINGMODULEALIGN
 Mapping Module: Align
 Mapping Modul: Ausrichten
 Modulo Mappatura: Allineare
 
-
+Mapping Module: Uitlijnen
 ;
 MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET
 Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
 Ungültige Werte!\nDer Pixeloffset auf beiden Achsen muss mindestens 1 betragen.\nNoch einmal versuchen?
 Valori Illegali!\nDeve esserci almeno un pixel di offset su entrambi gli assi.\nRiprovare?
 
-
+Ongeldige waarden!\nEr moet minstens één pixel offset zijn op beide assen.\nOpnieuw proberen?
 ;
 MSG_CLOUD_ENTERFRAMENUMBER
 Enter Frame Number.
 Bildnummer eingeben.
 Inserire il numero di frame.
 
-
+Voer Frame Nummer in.
 ;
 MSG_GLOBAL_COMPUTING
 Computing...
 Berechne...
 Computing...
 
-
+Berekenen...
 ;
 MSG_GLOBAL_DRAWING
 Drawing...
 Zeichne...
 Disegno...
 
-
+Tekenen...
 ;
 ; ------ CloudGUI.c -------
 ;
@@ -1962,266 +1962,266 @@ Cirrus
 Schleierwolken
 Velo di Nuvole
 
-
+Cirrus wolken
 ;
 MSG_CLOUDGUI_STRATUS
 Stratus
 Schichtwolken
 Nuvole a strati
 
-
+Stratus wolken
 ;
 MSG_CLOUDGUI_NIMBUS
 Nimbus
 Regenwolken
 Nuvole cariche di pioggia
 
-
+Nimbus wolken
 ;
 MSG_CLOUDGUI_CUMULUS
 Cumulus
 Haufenwolken
 Mucchio di nuvole
 
-
+Cumulus wolken
 ;
 MSG_CLOUDGUI_CLOUDEDITOR
 Cloud Editor
 
 Editor Nuvole
 
-
+Wolken Editor
 ;
 MSG_CLOUDGUI_OPTIONS
 Options
 Optionen
 Opzioni
 
-
+Opties
 ;
 MSG_CLOUDGUI_CLOUDS
 \33cClouds
 \33cWolken
 \33cNuvole
 
-
+\33cWolken
 ;
 MSG_CLOUDGUI_CLOUDSHADOWS
 \33cCloud Shadows
 \33cWolkenschatten
 \33cOmbre nuvole
 
-
+\33cWolkenschaduwen
 ;
 MSG_CLOUDGUI_CLOUDTYPE
 Cloud Type
 Wolkentyp
 Tipo di nuvola
 
-
+Wolken type
 ;
 MSG_CLOUDGUI_SEED
 Seed
 Startwert
 Valore iniziale
 
-
+Startwaarde
 ;
 MSG_CLOUDGUI_CLOUDWAVES
 \33c\0334Cloud Waves
 
 \33c\0334 Onde delle nuvole
 
-
+\33c\0334Wolkgolven
 ;
 MSG_CLOUDGUI_WAVES
 Waves
 Wellen
 Onde
 
-
+Golven
 ;
 MSG_CLOUDGUI_MAPADD
 \33cMap Add...
 
 \33cInserisci Mappa...
 
-
+\33cVoeg kaart toe...
 ;
 MSG_CLOUDGUI_EDIT
 \33cEdit...
 \33cBearbeiten...
 \33cModifica...
 
-
+\33cBewerken...
 ;
 MSG_CLOUDGUI_ANIMATE
 Animate
 Animieren
 Animare
 
-
+Animeren
 ;
 MSG_CLOUDGUI_LOUDMAPSIZERANGE
 \33c\0334Cloud Map Size & Range
 
 \33c\0334Mappa Nuvola Dimensioni & Gamma
 
-
+\33c\0334Wolkkaart Grootte & Bereik
 ;
 MSG_CLOUDGUI_ROWS
 Rows
 Zeilen
 Righe
 
-
+Rijen
 ;
 MSG_CLOUDGUI_COLS
 Cols
 Spalten
 Colonne
 
-
+Kolommen
 ;
 MSG_CLOUDGUI_LATMAX
 Lat Max
 Breite Max
 Massima Latitudine
 
-
+Maximum Breedte
 ;
 MSG_CLOUDGUI_MIN
 Min
 Min
 Min
 
-
+Min
 ;
 MSG_CLOUDGUI_LONMAX
 Lon Max
 Länge Max
 Massima Longitudine
 
-
+Maximum Lengte
 ;
 MSG_CLOUDGUI_ANIMATION
 \33c\0334Animation
 \33c\0334Animation
 \33c\0334Animazione
 
-
+\33c\0334Animatie
 ;
 MSG_CLOUDGUI_COVERAGE
 Coverage
 Bedeckung
 Copertura
 
-
+Bedekkingsgraad
 ;
 MSG_CLOUDGUI_DENSITY
 Density
 Dichte
 Densità
 
-
+Dichtheid
 ;
 MSG_CLOUDGUI_ROUGHNESS
 Roughness
 Rauhigkeit
 Ruvidità
 
-
+Ruwheid
 ;
 MSG_CLOUDGUI_FRACTDIM
 Fract Dim
 
 Dimensione Fract
 
-
+Deeltjes afmetingen
 ;
 MSG_CLOUDGUI_MOVELAT
 Move Lat
 
 Muovere Latitudine
 
-
+Beweeg in Laterale richting
 ;
 MSG_CLOUDGUI_LON
 Lon
 Länge
 Longitudine
 
-
+Lengte
 ;
 MSG_CLOUDGUI_ALTITUDE
 Altitude
 Höhe
 Altitudine
 
-
+Hoogte
 ;
 MSG_CLOUDGUI_EYFRAMES
 \33c\0334Key Frames
 \33c\0334Keyframes
 \33c\0334Numero Frame
 
-
+\33c\0334Sleutel Frames
 ;
 MSG_CLOUDGUI_PREV
 \33cPrev
 \33cVorheriger
 \33cPrecedente
 
-
+\33cVorige
 ;
 MSG_CLOUDGUI_FRAME
 Frame
 
 Frame
 
-
+Frame
 ;
 MSG_CLOUDGUI_NEXT
 \33cNext
 \33cNächster
 \33cAvanti
 
-
+\33cVolgende
 ;
 MSG_CLOUDGUI_MAKEKEY
 \33cMake Key
 \33cKey erzeugen
-133cCrea Numero
+\33cCrea Numero
 
-
+\33cMaak Sleutel
 ;
 MSG_CLOUDGUI_UPDATE
 \33cUpdate
 \33cAktualisieren
 \33cAggiornamento
 
-
+\33cBijwerken
 ;
 MSG_CLOUDGUI_DELETE
 \33c\33uDel\33nete
 \33cLöschen
 \33cCancellare
 
-
+\33cVerwijder
 ;
 MSG_CLOUDGUI_DELETEALL
 \33cDelete All
 \33cAlles Löschen
 \33cCancella Tutto
 
-
+\33cVerwijder Alles
 ;
 MSG_CLOUDGUI_TIMELINES
 \33cTime Lines\x20
 \33cZeitleisten\x20
 \33cLinee Temporali\x20
 
-
+\33cTijdlijnen\x20
 ;
 MSG_CLOUDGUI_SCALEKEYS
 \33cScale Keys\x20
@@ -2235,133 +2235,133 @@ MSG_CLOUDGUI_DRAWCLOUD
 \33cZeichne Wolke
 \33cDisegna Nuvola
 
-
+\33cTeken Wolk
 ;
 MSG_CLOUDGUI_SETBOUNDS
 \33cSet Bounds
 \33cGrenzen festlegen
 \33cStabilire i confini
 
-
+\33cStel Grenzen in
 ;
 MSG_CLOUDGUI_SAVE
 \33cSave
 \33cSpeichern
 \33cSalva
 
-
+\33cOpslaan
 ;
 MSG_CLOUDGUI_LOAD
 \33cLoad
 \33cLaden
 \33cCarica
 
-
+\33cLaden
 ;
 MSG_CLOUDGUI_MAPVIEWCLOUDS
 Map View: Clouds
 Map View: Wolken
 Map View: Nuvole
 
-
+Map View: Wolken
 ;
 MSG_GLOBAL_OUTOFMEMORY
 Out of memory!
 Nicht genügend Speicher!
 Memoria Esaurita!
 
-
+Te weinig geheugen!
 ;
 MSG_PARGUI_PARAMETERSMODULEMODEL
 Parameters Module: Model
 Parameter Modul: Modell
 Parametri Modulo: Modello
 
-
+Parameters Module: Model
 ;
 MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE
 The current Cloud Model has been modified. Do you wish to save it before closing?
 Das aktuelle Wolkenmodell wurde geändert. Soll es vor dem Schließen gespeichert werden?
 L'attuale modello di nuvola è stato modificato. Desiderate salvarlo prima di chiuderlo?
 
-
+Het huidige Wolken Model is gewijzigd. Wilt u het opslaan voordat u het sluit?
 ;
 MSG_GLOBAL_YESNO
 Yes|No
 Ja|Nein
 Si|No
 
-
+Ja|Nee
 ;
 MSG_CLOUDGUI_CLOUDPATHFILE
 Cloud Path/File
 Wolke Pfad/Datei
 Nuvola Percorso/File
 
-
+Wolken Pad/Bestand
 ;
 MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE
 Make this file the Project Cloud File?
 
 Rendere questo file il file del progetto della nuvola?
 
-
+Van dit bestand het Project Wolken Bestand maken?
 ;
 MSG_CLOUDGUI_CLOUDWAVEEDITOR
 Cloud Wave Editor
 
 Editor Onda Nuvola
 
-
+Wolken Golf Editor
 ;
 MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR
 Enter frame to make key for.
 
 Immettere il Frame per la quale creare il numero.
 
-
+Voer frame in om sleutel voor te maken.
 ;
 MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES
 Delete all cloud key frames?
 
 Cancellare tutti i numeri dei frame delle nuvole?
 
-
+Alle wolken sleutel frames verwijderen?
 ;
 MSG_CLOUDGUI_FRACTALDIMENSION
 Fractal Dimension
 
 Dimensione Fractale
 
-
+Fractale Afmetingen
 ;
 MSG_CLOUDGUI_MOVELATITUDE
 Move Latitude
 
 Muovere latitudine
 
-
+Beweeg in Latitudinale richting
 ;
 MSG_CLOUDGUI_MOVELONGITUDE
 Move Longitude
 
 Muovere Longitudine
 
-
+Beeweg in Longitudinale richting
 ;
 MSG_CLOUDGUI_CLOUDTIMELINES
 Cloud Time Lines
 
 Linee temporali della nuvole
 
-
+Wolken Tijdlijnen
 ;
 MSG_CLOUDGUI_CLOUDFILE
 Cloud File
 Wolkendatei
 File Nuvola
 
-
+Wolken Bestand
 ;
 ; ------- DEM.c ----------
 ;
@@ -2370,119 +2370,119 @@ Creating Relative Elevation Model
 
 Creazione del modello di elevazione relativa
 
-
+Creëren van Relatieve Hoogte Model
 ;
 MSG_DEM_RELATIVEELEVATION
 Relative elevation
 
 Relativa elevazione
 
-
+Relatieve hoogte
 ;
 MSG_DEM_COMPUTING
 Computing
 Berechne
 Calcolare
 
-
+Berekenen
 ;
 MSG_DEM_FILES
 Files
 Dateien
 Files
 
-
+Bestanden
 ;
 MSG_DEM_DATAOPSDEMINTERPOLATE
 Data Ops: DEM Interpolate
 
 Data Ops: DEM Interpolazione
 
-
+Data Ops: DEM Interpoleren
 ;
 MSG_DEM_NOFILESSELECTED
 No file(s) selected!
 Keine Datei(en) ausgewählt!
 Nessun file(s) selezionato!
 
-
+Geen bestand(en) geselecteerd!
 ;
 MSG_DEM_ERROROPENINGFILEFORINTERPOLATIONILENOTDEMORREMONTINUE
 Error opening file for interpolation!\nFile not DEM or REM\nContinue?
 Fehler beim Öffnen der Datei zum Interpolieren!\nDatei ist kein DEM oder REM\nWeitermachen?"
 Errore nell'apertura del file per l'interpolazione!\nFile non DEM o REM\nContinuare?
 
-
+Fout bij openen van bestand voor interpolatie!\nBestand is geen DEM of REM\nDoorgaan?
 ;
 MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER
 DEM name is too long to add an extra character to. Do you wish to enter a new base name for the DEM or abort the interpolation?
 Der DEM-Name ist zu lang zum Hinzufügen eines weiteren Zeichens. Möchten Sie einen neuen Basis-Namen für das DEM eingeben oder die Interpolation abbrechen?
 Il nome del DEM è troppo lungo per aggiungere un carattere supplementare. Si desidera inserire un nuovo nome di base per il DEM o interrompere l'interpolazione?
 
-
+DEM naam is te lang om een extra karakter toe te voegen. Wilt u een nieuwe basis naam voor de DEM invoeren of de interpolatie afbreken?
 ;
 MSG_DEM_NEWNAMEABORT
 New Name|Abort
 Neuer Name|Abbrechen
 Nuovo Nome|Interrompere
 
-
+Nieuwe Naam|Afbreken
 ;
 MSG_DB_ENTERNEWOBJECTNAME
 Enter new object name.
 Geben Sie einen neuen Objektnamen ein.
 Inserire il nome del nuovo oggetto.
 
-
+Voer nieuwe objectnaam in.
 ;
 MSG_DEM_DATAOPSINTERPOLATEDEM
 Data Ops: Interpolate DEM
 
 Data Ops: Interpolazione DEM
 
-
+Data Ops: DEM Interpoleren
 ;
 MSG_DEM_ERRORREADINGELEVATIONFILEONTINUE
 Error reading elevation file!\nContinue?
 Fehler beim Lesen der Höhendatei!\nWeitermachen?
 Errore nella lettura del file di elevazione!\nContinuare?
 
-
+Fout bij lezen van hoogte bestand!\nDoorgaan?
 ;
 MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED
 Out of memory!\nOperation terminated.
 Nicht genügend Speicher!\nVorgang abgebrochen.
 Memoria esaurita! Operazione terminata.
 
-
+Te weinig geheugen!\nOperatie afgebroken.
 ;
 MSG_DEM_ERROROPENINGDEMFILEFOROUTPUTPERATIONTERMINATED
 Error opening DEM file for output!\nOperation terminated.
 Fehler beim Öffnen der DEM-Datei zum Schreiben!\nVorgang abgebrochen.
 Errore nell'apertura del file DEM per l'output!\nOperazione terminata.
 
-
+Fout bij openen van DEM bestand voor uitvoer!\nOperatie afgebroken.
 ;
 MSG_DEM_ERRORWRITINGDEMFILEPERATIONTERMINATED
 Error writing DEM file!\nOperation terminated.
 Fehler beim Schreiben der DEM-Datei!\nVorgang abgebrochen.
 Errore nella scrittura del file DEM!\nOperazione terminata.
 
-
+Fout bij schrijven van DEM bestand!\nOperatie afgebroken.
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE
 Out of memory expanding Database Editor List!\nOperation terminated.
 
 Memoria esaurita per l'espansione dell'elenco dell'editor di database!\nOperazione terminata.
 
-
+Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nOperatie afgebroken.
 ;
 MSG_DEM_ERROROPENINGOBJECTFILEFOROUTPUTPERATIONTERMINATED
 Error opening Object file for output!\nOperation terminated.
 Fehler beim Öffnen der Objekt-Datei zum Schreiben!\nVorgang abgebrochen.
 Errore nell'apertura del file oggetto per l'output!\nOperazione terminata.
 
-
+Fout bij openen van Object bestand voor uitvoer!\nOperatie afgebroken.
 ;
 ; ------ DEMGUI.c ---------
 ;
@@ -2491,175 +2491,175 @@ Data Ops: DEM Extract
 
 Data Ops: DEM Estratto
 
-
+Data Ops: DEM Extract
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED
 Out of memory allocating DEM Info Header!\nOperation terminated.
 Nicht genügend Speicher für die Anforderung des DEM Info Headers!\nVorgang abgebrochen.
 Memoria esaurita per l'allocazione dell'intestazione delle informazioni DEM!\nOperazione terminata.
 
-
+Te weinig geheugen voor toewijzen van DEM Info Header!\nOperatie afgebroken.
 ;
 MSG_DEM_75MINUTEDEMSDONOTALLLIEWITHINSAMEUTMZONEPERATIONTERMINA
 7.5 Minute DEMs do not all lie within same UTM Zone!\nOperation terminated.
 
 I DEM da 7,5 minuti non si trovano tutti nella stessa zona UTM!\nOperazione terminata.
 
-
+7,5 Minuten DEMs liggen niet allemaal in dezelfde UTM-Zone!\nOperatie afgebroken.
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGDEMARRAYSPERATIONTERMINATED
 Out of memory allocating DEM Arrays!\nOperation terminated.
 
 Memoria esaurita per l'allocazione degli array DEM!\nOperazione terminata.
 
-
+Te weinig geheugen voor toewijzen van DEM Arrays!\nOperatie afgebroken.
 ;
 MSG_DEM_75MINUTE
 7.5 Minute
 7,5 Minuten
 7,5 Minuti
 
-
+7,5 Minuten
 ;
 MSG_DEM_READING
 Reading
 Lesen
 Lettura
 
-
+Lezen
 ;
 MSG_DEM_CANTREADDEMPROFILEHEADERPERATIONTERMINATED
 Can't read DEM profile header!\nOperation terminated.
 Der DEM-Profileheader konnte nicht gelesen werden!\nVorgang abgebrochen.
 Impossibile leggere l'intestazione del profilo DEM!\nOperazione terminata.
 
-
+Kan DEM profiel kop niet lezen!\nOperatie afgebroken.
 ;
 MSG_DEM_ERRORREADINGDEMPROFILEHEADERPERATIONTERMINATED
 Error reading DEM profile header!\nOperation terminated.
 Fehler beim Lesen des DEM Profil-Headers!\nVorgang abgebrochen.
 Errore nella lettura dell'intestazione del profilo DEM!\nOperazione terminata.
 
-
+Fout bij lezen van DEM profiel kop!\nOperatie afgebroken.
 ;
 MSG_DEM_BLANKPATCH
 Blank Patch
 
 Patch Inesistente
 
-
+Lege Patch
 ;
 MSG_DEM_RESAMPLE
 Resample
 
 Campione
 
-
+Opnieuw Bemonsteren
 ;
 MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT
 Enter a name for the 30 meter DEM object.
 Geben Sie einen Namen für das 30 Meter DEM-Objekt ein.
 Inserire un nome per l'oggetto DEM di 30 metri.
 
-
+Voer een naam in voor het 30 meter DEM object.
 ;
 MSG_DEM_ONEDEGREE
 One Degree
 Ein Grad
 Un Grado
 
-
+Een graad
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGTEMPORARYBUFFERPERATIONTERMINATED
 Out of memory allocating temporary buffer!\nOperation terminated.
 Nicht genügend Speicher für die Anforderung des Temp-Puffers!\nVorgang abgebrochen.
 Memoria esaurita per l'allocazione del buffer temporaneo!\nOperazione terminata.
 
-
+Te weinig geheugen voor toewijzen van tijdelijke buffer!\nOperatie afgebroken.
 ;
 MSG_DEM_ERRORREADINGDEMPROFILEPERATIONTERMINATED
 Error reading DEM profile!\nOperation terminated.
 Fehler beim Lesen des DEM Profils!\nVorgang abgebrochen.
 Errore nella lettura del profilo DEM!\nOperazione terminata.
 
-
+Fout bij lezen van DEM profiel!\nOperatie afgebroken.
 ;
 MSG_DEM_IMPROPERDEMPROFILELENGTHPERATIONTERMINATED
 Improper DEM profile length!\nOperation terminated.
 Ungültige Länge des DEM Profils!\nVorgang abgebrochen.
 Lunghezza del profilo DEM non corretta!\nOperazione terminata.
 
-
+Ongeldige lengte van DEM profiel!\nOperatie afgebroken.
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGMAPBUFFERPERATIONTERMINATED
 Out of memory allocating map buffer!\nOperation terminated.
 
 Memoria esaurita per l'allocazione del buffer della mappa!\nOperazione terminata.
 
-
+Te weinig geheugen voor toewijzen van kaart buffer!\nOperatie afgebroken.
 ;
 MSG_DEM_ERRORCREATINGOUTPUTFILEPERATIONTERMINATED
 Error creating output file!\nOperation terminated.
 Fehler beim Erzeugen der Ausgabedatei!\nVorgang abgebrochen.
 Errore nella creazione del file di output!\nOperazione terminata.
 
-
+Fout bij maken van uitvoer bestand!\nOperatie afgebroken.
 ;
 MSG_DEM_CANTOPENDEMFILEFORINPUTPERATIONTERMINATED
 Can't open DEM file for input!\nOperation terminated.
 Die DEM Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 Impossibile aprire il file DEM per l'input!\nOperazione terminata.
 
-
+Kan DEM bestand niet openen voor invoer!\nOperatie afgebroken.
 ;
 MSG_DEM_CANTREADDEMFILEHEADERPERATIONTERMINATED
 Can't read DEM file header!\nOperation terminated.
 Fehler beim Lesen des DEM File-Headers!\nVorgang abgebrochen.
 Impossibile leggere l'intestazione del file DEM!\nOperazione terminata.
 
-
+Kan DEM bestand kop niet lezen!\nOperatie afgebroken.
 ;
 MSG_DEM_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
 Fehler beim Öffnen der Ausgabedatei!\nVorgang abgebrochen.
 Errore nell'apertura del file di output!\nOperazione terminata.
 
-
+Fout bij openen van uitvoer bestand!\nOperatie afgebroken.
 ;
 MSG_DEM_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED
 Error writing to output file!\nOperation terminated.
 Fehler beim Schreiben der Ausgabedatei!\nVorgang abgebrochen.
 Errore nella scrittura del file di output!\nOperazione terminata.
 
-
+Fout bij schrijven naar uitvoer bestand!\nOperatie afgebroken.
 ;
 MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLIST
 Out of memory expanding Database Editor List!
 
 Elenco dell'editor del database in espansione è senza memoria!
 
-
+Te weinig geheugen voor uitbreiden van Database Editor Lijst!
 ;
 MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS
 Mapping Module: Fix Flats
 
 Modulo di mappatura: Correggere i Flats
 
-
+Mapping Module: Corrigeer Flats
 ;
 MSG_DEM_BADARRAYDIMENSIONSSOMETHINGDOESNTCOMPUTEPERATIONTERMINA
 Bad array dimensions! Something doesn't compute.\nOperation terminated.
 
 Dimensioni dell'array errate! Qualcosa non viene calcolato.\nOperazione terminata.
 
-
+Onjuiste array dimensies! Iets klopt niet.\nOperatie afgebroken.
 ;
 MSG_DEM_NOFLATSPOTSTOOPERATEONPERATIONTERMINATED
 No flat spots to operate on!\nOperation terminated.
 
 Non ci sono zone piatte su cui operare!\nOperazione terminata.
 
-
+Geen vlakke plekken om op te werken!\nOperatie afgebroken.
 ;
 ; ------ DEMGUI.c ---------
 ;
@@ -2668,196 +2668,196 @@ D'base Objects
 Datenbank Objekte
 Database Oggetto
 
-
+Database Objecten
 ;
 MSG_DEMGUI_XYZLATLON
 XYZ Lat/Lon
 XYZ Breite/Länge
-XYZ Latitudine/ongitudine
+XYZ Latitudine/Longitudine
 
-
+XYZ Breedte/Lengte
 ;
 MSG_DEMGUI_XYZUTM
 XYZ UTM
 XYZ UTM
 XYZ UTM
 
-
+XYZ UTM
 ;
 MSG_DEMGUI_DXFLATLON
 DXF Lat/Lon
 DXF Breite/Länge
 DXF Latitudine/Longitudine
 
-
+DXF Breedte/Lengte
 ;
 MSG_DEMGUI_DXFUTM
 DXF UTM
 DXF UTM
 DXF UTM
 
-
+DXF UTM
 ;
 MSG_DEMGUI_SLIDER
 Slider
 
 Cursore
 
-
+Schuifbalk
 ;
 MSG_DEMGUI_ENDPOINTS
 End Points
 Endpunkte
 Fine dei Punti
 
-
+Eindpunten
 ;
 MSG_DEMGUI_DEM
 DEM
 DEM
 DEM
 
-
+DEM
 ;
 MSG_DEMGUI_NUMERIC
 Numeric
 Numerisch
 Numerico
 
-
+Numeriek
 ;
 MSG_DEMGUI_ISOLINE
 Isoline
 Wertefeldlinie
 Valore Campo
 
-
+Isolijn
 ;
 MSG_DEMGUI_GRADIENT
 Gradient
 Gradient
 Gradiente
 
-
+Gradient
 ;
 MSG_DEMGUI_CONCAVE
 Concave
 Konkav
 Concavo
 
-
+Concaaf
 ;
 MSG_DEMGUI_CONVEX
 Convex
 Konvex
 Convesso
 
-
+Convex
 ;
 MSG_DEMGUI_NONE
 None
 Keine
 Niente
 
-
+Geen
 ;
 MSG_DEMGUI_LINESPOINTS
 Lines/Points
 Linien/Punkte
 Punti/Linee
 
-
+Lijnen/Punten
 ;
 MSG_DEMGUI_LINESONLY
 Lines Only
 Nur Linien
 Solo Linee
 
-
+Alleen Lijnen
 ;
 MSG_DEMGUI_POINTSONLY
 Points Only
 Nur Punkte
 Solo Punti
 
-
+Alleen Punten
 ;
 MSG_DATAOPSGUI_KILOMETERS
 Kilometers
 Kilometer
 Kilometri
 
-
+Kilometers
 ;
 MSG_DATAOPSGUI_METERS
 Meters
 Meter
 Metri
 
-
+Meters
 ;
 MSG_DATAOPSGUI_CENTIMETERS
 Centimeters
 Zentimeter
 Centimetri
 
-
+Centimeters
 ;
 MSG_DATAOPSGUI_MILES
 Miles
 Meilen
 Miglie
 
-
+Mijlen
 ;
 MSG_DATAOPSGUI_FEET
 Feet
 Fuß
 Piedi
 
-
+Voeten
 ;
 MSG_DEMGUI_DEMDESIGNER
 DEM Designer
 DEM Designer
 DEM Designer
 
-
+DEM Designer
 ;
 MSG_DEMGUI_CONTROLPTS
 Control Pts
 
 Controllo Punti
 
-
+Controle Punten
 ;
 MSG_DEMGUI_MAP
 \33cMap
 
 \33cMappa
 
-
+\33cKaart
 ;
 MSG_DEMGUI_ADD
 \33cAdd
 \33cHinzufügen
 \33cAggiungere
 
-
+\33cToevoegen
 ;
 MSG_DEMGUI_MOVE
 \33cMove
 \33cVerschieben
 \33cMuovere
 
-
+\33cVerplaatsen
 ;
 MSG_DEMGUI_DEL
 \33cDel
 \33cLöschen
 \33cCancellare
 
-
+\33cVerwijder
 ;
 MSG_DEMGUI_PTINFO
 \33cPt Info
@@ -2878,28 +2878,28 @@ Elev Source
 
 Elevazione Sorgente
 
-
+Hoogte Bron
 ;
 MSG_DEMGUI_ELEVUNITS
  Elev Units
  Höhen Einheit
  Elevazione Unità
 
-
+Hoogte Eenheden
 ;
 MSG_DEMGUI_DISPLACE
    Displace
 
    Spostare
 
-
+Verplaatsen
 ;
 MSG_DEMGUI_DRAWMODE
   Draw Mode
 Zeichenmodus
 Modo Disegno
 
-
+Teken Modus
 ;
 MSG_DEMGUI_NOGRADIENTREVERSAL
 \33cNo Gradient Reversal
@@ -2913,447 +2913,448 @@ Minimum Spacing \x20
 
 Spazio Minimo \x20
 
-
+Minimale Ruimte \x20
 ;
 MSG_DEMGUI_STDDEVIATION
   Std Deviation\x20
 
   Std Deviazione\20
 
-
+Standaard Afwijking\x20
 ;
 MSG_DEMGUI_NONLINEARITY
   Non-linearity\x20
   Nichtlinearität\x20
   Non Linearità\x20
 
-
+Non Lineariteit\x20
 ;
 MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU
 This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?
 
 Questa finestra deve rimanere aperta mentre la griglia DEM è aperta!\nVuoi chiuderle entrambe?
 
-
+Dit venster moet open blijven terwijl de DEM Gridder open is!\nWilt u ze beide sluiten?
 ;
 MSG_DEMGUI_DEMBUILDER
 DEM Builder
 
 DEM Costruzione
 
-
+DEM Bouwer
 ;
 MSG_DEMGUI_ELEVATIONMODELGRID
 \33c\0334Elevation Model Grid
 
 
 
-
+\33c\0334Hoogteraster Model
 ;
 MSG_DEMGUI_OPTIONS
 \33c\0334Options
 \33c\0334Optionen
 
 
-
+\33c\0334Opties
 ;
 MSG_DEMGUI_GRADIENTS
 Gradients\x20\x20
 Gradienten\x20
 
 
-
+Gradiënten\x20\x20
 ;
 MSG_DEMGUI_CHOROPLETH
 Choropleth\x20
 
 
 
-
+Choroplet\x20\x20
 ;
 MSG_DEMGUI_DENSITY
 Density\x20\x20\x20\x20
 Dichte\x20\x20\x20\x20\x20
 
 
-
+Dichtheid\x20\x20\x20\x20
 ;
 MSG_DEMGUI_EXTRAPOLATE
 Extrapolate
 Extrapolieren
 
 
-
+Extrapoleren
 ;
 MSG_DEMGUI_SOUTHHEMI
 South Hemi.
 Südl. Hemi.
 
 
-
+Zuidelijk Halfrond.
 ;
 MSG_DEMGUI_BOUNDARIES
 \33c\0334Boundaries
 \33c\0334Grenzen
 
 
-
+\33c\0334Grenzen
 ;
 MSG_DEMGUI_NORTH
 North
 Nord
 
 
-
+Noord
 ;
 MSG_DEMGUI_SOUTH
 South
 Süd
 
 
-
+Zuid
 ;
 MSG_DEMGUI_EAST
 East
 Ost
 
 
-
+Oost
 ;
 MSG_DEMGUI_WEST
 West
 West
 
 
-
+West
 ;
 MSG_DEMGUI_ELLOVERLAP
 \33c\0334Cell Overlap
 
 
 
-
+\33c\0334Cellen Overlap
 ;
 MSG_DEMGUI_HORIZ
 Horiz
 Horiz
 
 
-
+Horiz
 ;
 MSG_DEMGUI_VERT
 Vert
 Vert
 
 
-
+Vert
 ;
 MSG_DEMGUI_SURFACETAUTNESS
 \33c\0334Surface Tautness
 \33c\033fOberflächenspannung
 
 
-
+\33c\0334Oppervlakte Spanning
 ;
 MSG_DEMGUI_SCALE
 \33c\0334Scale
 \33c\0334Skalieren
 
 
-
+\33c\0334Schaal
 ;
 MSG_DEMGUI_NULL
 Null
 Null
 
 
-
+Nul
 ;
 MSG_DEMGUI_DELTA
 Delta
 Delta
 
 
-
+Delta
 ;
 MSG_DEMGUI_GRID
 \33cGrid
 \33cGitter
 
 
-
+\33cRaster
 ;
 MSG_DEMGUI_NOISE
 \33cNoise
 
 
 
-
+\33cRuis
 ;
 MSG_DEMGUI_DRAW
 \33cDraw
 \33cZeichnen
 
 
-
+\33cTeken
 ;
 MSG_DEMGUI_SAVE
 \33cSave
 \33cSpeichern
 
 
-
+\33cOpslaan
 ;
 MSG_DEMGUI_MAPVIEWDEMGRIDDER
 Map View: DEM Gridder
 
 
 
-
+Map View: DEM Raster
 ;
 MSG_DEMGUI_NEWDEM
 NewDEM
 Neues DEM
 
 
-
+Nieuw DEM
 ;
 MSG_DEMGUI_IMPORT
 \33cImport
 \33cImportieren
 
 
-
+\33cImporteren
 ;
 MSG_DEMGUI_SAVEPTS
 \33cSave Pts
 \33cPunkte speichern
 
 
-
+\33cPunten Opslaan
 ;
 MSG_DEMGUI_BUILD
 \33cBuild...
 
 
 
-
+\33cCreëren...
 ;
 MSG_DEMGUI_DRAWPTS
 \33cDraw Pts
 \33cPunkte zeichnen
 
 
-
+\33cTeken Punten
 ;
 MSG_DEMGUI_CLEARPTS
 \33cClear Pts
 \33cPunkte löschen
 
 
-
+\33cWis Punten
 ;
 MSG_DEMGUI_NONNEG
 Non-Neg\x20\x20\x20\x20
 Nicht-Negativ\x20
 
 
-
+Non-Negatief\x20\x20\x20\x20
 ;
 MSG_DEMGUI_OUTPUT
 \33c\0334Output
 \33c\0334Ausgabe
 
 
-
+\33c\0334Uitvoer
 ;
 MSG_DEMGUI_COLS
 Cols
 Spalten
 
 
-
+Kolommen
 ;
 MSG_DEMGUI_ROWS
 Rows
 Zeilen
 
 
-
+Regels
 ;
 MSG_DEMGUI_OPTIONALNOISEMAP
 \33c\0334Optional Noise Map
 
 
 
-
+\33c\0334Optionele Ruis Map
 ;
 MSG_DEMGUI_SEED
 Seed
 Startwert
 
 
-
+Startwaarde
 ;
 MSG_DEMGUI_FRACT
 Fract
 Frakt
 
 
-
+Fract
 ;
 MSG_DEMGUI_OFFSETX
 Offset X
 Offset X
 
 
-
+Offset X
 ;
 MSG_DEMGUI_SCOPE
 Scope
 
 
 
-
+Reikwijdte
 ;
 MSG_DEMGUI_APPLYNOISEMAP
 \33cApply Noise Map
 
 
 
-
+\33cRuis Map Toepassen
 ;
 MSG_DEMGUI_OUTPUTDEMNAME
 Output DEM Name\x20
 Ausgabe-DEM Name\x20
 
 
-
+Uitvoer DEM Naam\x20
 ;
 MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT
 Select contour objects to import and reselect "Import" when done.
 
 
 
-
+Selecteer contour objecten om te importeren en selecteer opnieuw "Importeren" wanneer klaar.
+;
 MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED
 Can't open Database Editor window!\nOperation terminated.
 Das Datenbank-Editorfenster konnte nicht geöffnet werden!\nVorgang abgebrochen.
 
 
-
+Kan Database Editor venster niet openen!\nOperatie afgebroken.
 ;
 MSG_DEMGUI_EXTRACTELEVATIONVALUESFROMOBJECTNAMESLABELFIELDSORUS
 Extract elevation values from Object Names, Label fields or use the values embedded in the Objects themselves?
 
 
 
-
+Extraheer hoogte waarden uit Object Namen, Labelvelden of de waarden ingebed in de Objecten zelf gebruiken?
 ;
 MSG_DEMGUI_MAPVIEWEXPORTCONTOURS
 Map View: Export Contours
 
 
 
-
+Map View: Contouren Exporteren
 ;
 MSG_DEMGUI_NAMELABELEMBEDDED
 Name|Label|Embedded
 
 
 
-
+Naam|Label|Ingebed
 ;
 MSG_DEMGUI_ERRORIMPORTINGCONTOURDATAPERATIONTERMINATED
 Error importing contour data!\nOperation terminated.
 Fehler beim Importieren der Konturdaten!\nVorgang abgebrochen.
 
 
-
+Fout bij importeren van contour data!\nOperatie afgebroken.
 ;
 MSG_DEMGUI_ATLEASTONEOBJECTFAILEDTOLOADANDCOULDNOTBEIMPORTED
 At least one Object failed to load and could not be imported.
 Mindestens ein Objekt konnte nicht geladen und importiert werden.
 
 
-
+Minstens één Object kon niet geladen en geïmporteerd worden.
 ;
 MSG_DEMGUI_MAPVIEWIMPORTCONTOURS
 Map View: Import Contours
 
 
 
-
+Map View: Contouren Importeren
 ;
 MSG_DEMGUI_XYZPATHFILE
 XYZ Path/File
 XYZ Pfad/Datei
 
 
-
+XYZ Pad/Bestand
 ;
 MSG_DEMGUI_YOUDIDNOTSELECTAFILETOIMPORTPERATIONTERMINATED
 You did not select a file to import!\nOperation terminated.
 Sie haben keine Datei zum Importieren angegeben!\nVorgang abgebrochen.
 
 
-
+U heeft geen bestand geselecteerd om te importeren!\nOperatie afgebroken.
 ;
 MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR
 Enter the UTM zone number (0-60) for the data you are about to import.
 Geben Sie die UTM-Zonennummer (0-60) für die zu importierenden Daten ein.
 
 
-
+Voer het UTM zone nummer (0-60) in voor de data die u gaat importeren.
 ;
 MSG_MAPGUI_MAPVIEWBUILDDEM
 Map View: Build DEM
 
 
 
-
+Map View: DEM Creëren
 ;
 MSG_DEMGUI_UTMZONESMAYBEFROM0TO60THESELECTEDZONEISOUTOFRANGEPER
 UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated.
 Die UTM-Zone muss im Bereich 0-60 liegen! Die ausgewählte Zone liegt nicht in diesem Bereich!\nVorgang abgebrochen.
 
 
-
+UTM zones mogen van 0 tot 60 zijn! De geselecteerde zone ligt buiten bereik.\nOperatie afgebroken.
 ;
 MSG_DEMGUI_ERROROPENINGXYZFILETOIMPORTPERATIONTERMINATED
 Error opening XYZ file to import!\nOperation terminated.
 Fehler beim Öffnen der XYZ-Datei zum importieren!\nVorganng abgebrochen.
 
 
-
+Fout bij openen van XYZ bestand om te importeren!\nOperatie afgebroken.
 ;
 MSG_DEMGUI_MAPVIEWXYZEXPORT
 Map View: XYZ Export
 
 
 
-
+Map View: XYZ Export
 ;
 MSG_DEMGUI_ERRORWRITINGTOXYZFILEPARTIALFILEWRITTENPERATIONTERMI
 Error writing to XYZ file! Partial file written.\nOperation terminated.
 Fehler beim Schreiben der XYZ-Datei! Datei wurde nur teilweise geschrieben.\nVorgang abgebrochen.
 
 
-
+Foout bij schrijven naar XYZ bestand! Deel van bestand geschreven.\nOperatie afgebroken.
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
 You must specify an output file name!\nOperation terminated.
 Sie müssen einen Namen für die Ausgabedatei angeben!\nVorgang abgebrochen.
 
 
-
+Specificeer een uitvoer bestandsnaam!\nOperatie afgebroken.
 ;
 MSG_DEMGUI_UNABLETOOPENXYZFILEFOREXPORTPERATIONTERMINATED
 Unable to open XYZ file for export!\nOperation terminated.
 Die XYZ-Datei konnte nicht zum Exportieren geöffnet werden!\nVorgang abgebrochen.
 
 
-
+Kan XYZ bestand niet openen voor export!\nOperatie afgebroken.
 ;
 ; -------- DLG.c ----------
 ;
@@ -3362,189 +3363,189 @@ Data Ops Module: Import DLG
 
 
 
-
+Data Ops Module: Import DLG
 ;
 MSG_DLG_OUTOFMEMORYALLOCATINGTEMPORARYARRAYSPERATIONTERMINATED
 Out of memory allocating temporary arrays!\nOperation terminated.
 
 
 
-
+Te weinig geheugen voor toewijzen van tijdelijke arrays!\nOperatie afgebroken.
 ;
 MSG_DLG_DLGFILE
 DLG File
 DLG-Datei
 
 
-
+DLG-Bestand
 ;
 MSG_DLG_NOFILESSELECTED
 No file(s) selected!
 Keine Datei(en) ausgewählt!
 
 
-
+Geen bestand(en) geselecteerd!
 ;
 MSG_DLG_CANTOPENDLGFILEFORINPUTPERATIONTERMINATED
 Can't open DLG file for input!\nOperation terminated.
 Die DLG-Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 
 
-
+Kan DLG bestand niet openen voor invoer!\nOperatie afgebroken.
 ;
 MSG_DLG_FILENOTAUSGSOPTIONALDLGPERATIONTERMINATED
 File not a USGS Optional DLG!\nOperation terminated.
 
 
 
-
+Bestand is geen USGS Optionele DLG!\nOperatie afgebroken.
 ;
 MSG_DLG_INAPPROPRIATEUTMZONEPERATIONTERMINATED
 Inappropriate UTM Zone!\nOperation terminated.
 Unzulässige UTM-Zone!\nVorgang abgebrochen.
 
 
-
+Ongeldige UTM Zone!\nOperatie afgebroken.
 ;
 MSG_DLG_THISFILECONTAINSDATAINANUNSUPPORTEDREFERENCESYSTEMPERAT
 This file contains data in an unsupported Reference System!\nOperation terminated.
 Diese Datei enthält Daten in einem nicht unterstützten Referenzsystem!\nVorgang abgebrochen.
 
 
-
+Dit bestand bevat data in een niet ondersteund Referentie Systeem!\nOperatie afgebroken.
 ;
 MSG_DLG_READING
 Reading
 Lesen
 
 
-
+Lezen
 ;
 MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE
 Enter up to 3 characters as a prefix for this DLG set if you desire.
 Wenn Sie möchten können Sie bis zu 3 Zeichen als Präfix für diesen DLG-Satz vergeben.
 
 
-
+Voer maximaal 3 karakters in als een prefix voor deze DLG set als u dat wenst.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED
 Out of memory expanding database!\nOperation terminated.
 Nicht genügend Speicher für die Erweiterung der Datenbank!\nVorgang abgebrochen.
 
 
-
+Te weinig geheugen voor uitbreiden van database!\nOperatie afgebroken.
 ;
 MSG_DLG_ERRORSAVINGOBJECTFILEPERATIONTERMINATED
 Error saving object file!\nOperation terminated.
 Fehler beim Speichern der Objektdatei!\nVorgang abgebrochen.
 
 
-
+Fout bij opslaan van object bestand!\nOperatie afgebroken.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTDXF
 Data Ops Module: Import DXF
 
 
 
-
+Data Ops Module: Importeer DXF
 ;
 MSG_DLG_DXFFILE
 DXF File
 DXF-Datei
 
 
-
+DXF-Bestand
 ;
 MSG_DLG_CANTOPENDXFFILEFORINPUTPERATIONTERMINATED
 Can't open DXF file for input!\nOperation terminated.
 Die DXF-Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 
 
-
+Kan DXF bestand niet openen voor invoer!\nOperatie afgebroken.
 ;
 MSG_DLG_IMPROPERCODEVALUEFOUNDPERATIONTERMINATEDPREMATURELY
 Improper Code value found!\nOperation terminated prematurely.
 Unzulässiger Codewert gefunden!\nOperation vorzeitig abgebrochen.
 
 
-
+Ongeldige Code waarde gevonden!\nOperatie voortijdig afgebroken.
 ;
 MSG_DLG_ERRORSAVINGOBJECTPERATIONTERMINATED
 Error saving object!\nOperation terminated.
 Fehler beim Speichern des Objektes!\nVorgang abgebrochen.
 
 
-
+Fout bij opslaan van object!\nOperatie afgebroken.
 ;
 MSG_DLG_ANENTITYHASBEENFOUNDWITHNONAMEIDENTIFIERPLEASEENTERADEF
 An entity has been found with no name identifier. Please enter a default name.
 Ein Eintrag ohne Namenskennzeichnung wurde gefunden. Bitte geben Sie einen Standardnamen ein.
 
 
-
+Er is een entiteit gevonden zonder naam identificatie. Voer een standaard naam in.
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTASTITEMDOESNOTAPP
 Out of memory expanding Database Editor List!\nLast item does not appear in list view.
 
 
 
-
+Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nLaatste item verschijnt niet in lijst weergave.
 ;
 MSG_DLG_ERRORSAVINGLASTOBJECTPERATIONTERMINATED
 Error saving last object!\nOperation terminated.
 Fehler beim Speichern des letzten Objekts!\nVorgang abgebrochen.
 
 
-
+Foout bij opslaan van laatste object!\nOperatie afgebroken.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTWDB
 Data Ops Module: Import WDB
 
 
 
-
+Data Ops Module: Importeer WDB
 ;
 MSG_DLG_WDBFILE
 WDB File
 WDB-Datei
 
 
-
+WDV-Bestand
 ;
 MSG_DLG_CANTOPENWDBFILEFORINPUTPERATIONTERMINATED
 Can't open WDB file for input!\nOperation terminated.
 Die WDB-Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 
 
-
+Kan WDB bestand niet openen voor invoer!\nOperatie afgebroken.
 ;
 MSG_DLG_ERROROPENINGSOURCEFILEPERATIONTERMINATED
 Error opening source file!\nOperation terminated.
 Fehler beim Öffnen der Quelldatei!\nVorgang abgebrochen.
 
 
-
+Fout bij openen van bron bestand!\nOperatie afgebroken.
 ;
 MSG_DLG_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
 Fehler bei Öffnen der Ausgabedatei!\nVorgang abgebrochen.
 
 
-
+Fout bij openen van uitvoer bestand!\nOperatie afgebroken.
 ;
 MSG_DLG_UNSUPPORTEDATTRIBUTECODEPERATIONTERMINATED
 Unsupported attribute code!\nOperation terminated.
 Nicht unterstützter Attribut-Code!\nVorgang abgebrochen.
 
 
-
+Niet ondersteunde attribuut code!\nOperatie afgebroken.
 ;
 MSG_DLG_OBJECTCONTAINSTOOMANYPOINTSPERATIONTERMINATED
 Object contains too many points!\nOperation terminated.
 Das Objekt enthält zu viele Punkte!\nVorgang abgebrochen.
 
 
-
+Het object bevat te veel punten!\nOperatie afgebroken.
 ;
 ;
 MSG_DB_NEWDATABASECREATED
@@ -3552,160 +3553,160 @@ New database created: %s
 Neue Datenbank erzeugt: %s
 
 
-
+Nieuwe database aangemaakt: %s
 ;
 MSG_DB_ERRORSAVINGDATABASEELECTANEWDIRECTORY
 Error saving database!\nSelect a new directory?
 Fehler beim Speichern der Datenbank!\nEinen neuen Ordner wählen?
 
 
-
+Fout bij opslaan van database!\nEen nieuwe directory selecteren?
 ;
 MSG_DB_OKCANCEL
 OK|Canel
 OK|Abbrechen
 
 
-
+OK|Annuleren
 ;
 MSG_DB_DATABASE
 Database
 Datenbank
 
 
-
+Database
 ;
 MSG_DB_NUMBEROFOBJECTS
 Number of objects = %d
 Anzahl Objekte = %d
 
 
-
+Aantal objecten = %d
 ;
 MSG_DB_DIRECTORYCREATED
 Directory Created: %s
 Verzeichnis angelegt: %s
 
 
-
+Directory aangemaakt: %s
 ;
 MSG_DB_NEWDIRECTORYCREATEDMAKEITTHEDEFAULTDIRECTORY
 New directory created: %s. Make it the default directory?
 Neues Verzeichnis angelegt: %s. Soll es das Standardverzeichnis werden?
 
 
-
+Nieue directory aangemaakt: %s. Wilt u het het standaard directory maken?
 ;
 MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA
 Illegal number of database records: less than one!\nOperation terminated.
 Ungültige Anzahl Datenbankeinträge: Weniger als eins!\nVorgang abgebrochen.
 
 
-
+Ongeldig aantal database records: minder dan één!\nOperatie afgebroken.
 ;
 MSG_DB_OUTOFMEMORYANTUPDATEDATABASELIST
 Out of memory!\nCan't update database list.
 Nicht genügend Speicher!\nDie Datenbankliste konnte nicht erneuert werden.
 
 
-
+Te weinig geheugen!\nKan database lijst niet bijwerken.
 ;
 MSG_DB_VECTORLOAD
 Vector Load
 
 
 
-
+Laa Vector
 ;
 MSG_DB_OBJECTS
 %d objects
 %d Objekte
 
 
-
+%d objecten
 ;
 MSG_DB_ATLEASTONEVECTORFILEWASFOUNDTOCONTAINANUMBEROFPOINTSDIFF
 At least one vector file was found to contain a number of points different from that in its Database record!\nThe record has been updated.\nDatabase should be re-saved.
 
 
 
-
+Ten minste één vector bestand bevatte een aantal punten dat verschilde van dat in zijn Database record!\nHet record is bijgewerkt.\nDatabase moet opnieuw worden opgeslagen.
 ;
 MSG_DB_MAPVIEWLOAD
 Map View: Load
 
 
 
-
+Map View: Laden
 ;
 MSG_DB_ERRORREADINGELEVATIONSOBJECTNOTLOADED
 Error reading elevations! Object not loaded.
 Fehler beim Lesen der Höhenwerte! Objekt wurde nicht geladen.
 
 
-
+Fout bij lezen van hoogtes! Object niet geladen.
 ;
 MSG_DB_ERRORREADINGLATITUDESOBJECTNOTLOADED
 Error reading latitudes! Object not loaded.
 Fehler beim Lesen der Breitengrade! Objekt wurde nicht geladen.
 
 
-
+Fout bij lezen van breedtes! Object niet geladen.
 ;
 MSG_DB_ERRORREADINGLONGITUDESOBJECTNOTLOADED
 Error reading longitudes! Object not loaded.
 Fehler beim Lesen der Längengrade! Objekt wurde nicht geladen.
 
 
-
+Fout bij lezen van lengtes! Object niet geladen.
 ;
 MSG_DB_OUTOFMEMORYOBJECTNOTLOADED
 Out of memory! Object not loaded.
 Nicht genügend Speicher! Objekt wurde nicht geladen.
 
 
-
+Te weinig geheugen! Object niet geladen.
 ;
 MSG_DB_ERRORREADINGHEADEROBJECTNOTLOADED
 Error reading header! Object not loaded.
 Fehler beim Lesen des Headers! Objekt wurde nicht geladen.
 
 
-
+Fout bij lezen van header! Object niet geladen.
 ;
 MSG_DB_UNSUPPORTEDFILEVERSIONOBJECTNOTLOADED
 Unsupported file version! Object not loaded.
 Nicht unterstützte Dateiversion!  Objekt wurde nicht geladen.
 
 
-
+Niet ondersteunde bestandsversie! Object niet geladen.
 ;
 MSG_DB_OBJECTDIRECTORY
 Object Directory
 Objektverzeichnis
 
 
-
+Object Directory
 ;
 MSG_DB_DATABASEMODULENAME
 Database Module: Name
 Datenbank Modul: Name
 
 
-
+Database Module: Naam
 ;
 MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME
 Vector name already present in database!\nTry a new name?
 Der Vektorname ist in der Datenbank bereits vorhanden!\nEinen neuen Namen versuchen?
 
 
-
+De vector naam is al aanwezig in de database!\nEen nieuwe naam proberen?
 ;
 MSG_DB_DATABASEMODULEEDITOR
 Database Module: Editor
 Datenbank Modul: Editor
 
-
+Database Module: Editor
 
 ;
 MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN
@@ -3713,168 +3714,169 @@ No memory for vector coordinates!\nNew object has been created but can not be ed
 Nicht genügend Speicher für die Vektorkoordinaten!\nEin neues Objekt wurde erzeugt, aber es kann erst bearbeitet werden, wenn freier Speicher verfügbar ist.
 
 
-
+Te weinig geheugen voor vector coördinaten!\nNieuw object is aangemaakt maar kan niet bewerkt worden totdat er geheugen beschikbaar is.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE
 Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.
 
 
 
-
+Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is aangemaakt maar zal niet verschijnen in lijst weergave.
 ;
 MSG_DB_ADDOBJECT
 Add Object
 Objekt hinzufügen
 
 
-
+Object toevoegen
 ;
 MSG_DB_DATABASEADDOBJECT
 Database: Add Object
 Datenbank: Objekt hinzufügen
 
 
-
+Database: Object toevoegen
 ;
 MSG_DB_NOFILESSELECTED
 No file(s) selected!
 Keine Datei(en) ausgewählt!
 
 
-
+Geen bestand(en) geselecteerd!
 ;
 MSG_DB_OBJECTMUSTENDINSUFFIXOBJ
 Object must end in suffix "Obj"!
 Das Objekt muss die Endung "Obj" haben!
 
 
-
+Het object moet eindigen op suffix "Obj"!
 ;
 MSG_DB_OBJECTNAMEALREADYPRESENTINDATABASEUPLICATEITEMSWILLBESKI
 Object name already present in database!\nDuplicate items will be skipped.
 Der Objektname ist in der Datenbank bereits vorhanden!\nDoppelte Einträge werden ignoriert.
 
 
-
+De object naam is al aanwezig in de database!\nDubbele items zullen worden genegeerd.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENADD
 Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.
 
 
 
-
+Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is toegevoegd maar zal niet verschijnen in lijst weergave.
 ;
 MSG_DB_ERRORLOADINGTHISOBJECTPERATIONTERMINATED
 Error loading this Object!\nOperation terminated.
 Fehler beim Laden dieses Objekts!\nVorgang abgebrochen.
 
 
-
+Fout bij laden van dit object!\nOperatie afgebroken.
 ;
 MSG_DB_MAPVIEWSAVEALL
 Map View: Save All
 
 
 
-
+Map View: Alles Opslaan
 ;
 MSG_DB_ERRORWRITINGMASTEROBJECTFILEPERATIONTERMINATED
 Error writing Master Object file!\nOperation terminated.
 Fehler beim Schreiben der Master-Objektdatei!\nOperation abgebrochen.
 
 
-
+Foout bij schrijven van Master Object bestand!\nOperatie afgebroken.
 ;
 MSG_DB_WCSMASTEROBJECT
 WCSMasterObject
 
 
 
-
+WCSMasterObject
 ;
 MSG_DB_OUTOFMEMORYLOADINGMASTEROBJECTFILENABLEDOBJECTSWILLBELOA
 Out of memory loading Master Object File!\nEnabled Objects will be loaded individually.
 
 
 
-
+Te weinig geheugen voor laden van Master Object bestand!\nIngeschakelde objecten zullen individueel worden geladen.
 ;
 MSG_DB_ERRORREADINGMASTEROBJECTFILEPERATIONTERMINATED
 Error reading Master Object file!\nOperation terminated.
 Fehler beim Lesen der Master-Objektdatei!\nOperation abgebrochen.
 
 
-
+Foout bij lezen van Master Object bestand!\nOperatie afgebroken.
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
 
 
 
-
+Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van \
+individuele bestanden
 ;
 MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 .MDB is not a WCS Master Object file!
 .MDB ist keine WCS-Master-Objekt-Datei!
 
 
-
+.MDB is geen WCS Master Object bestand!
 ;
 MSG_DB_RECORDSMARKED
 Records = %d, Marked = %d
 
 
 
-
+Records = %d, Gemarkeerd = %d
 ;
 MSG_DATAOPSGUI_DATAOPSCONVERTDEM
 Data Ops: Convert DEM
 
 
 
-
+Data Ops: DEM converteren
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYAFILETOCONVERTPERATIONTERMINATED
 You must specify a file to convert!\nOperation terminated.
 Sie müssen eine Datei zum Konvertieren angeben!\nVorgang abgebrochen.
 
 
-
+Specificeer een bestand om te converteren!\nOperatie afgebroken.
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYINPUTROWSANDCOLUMNSPERATIONTERMINATED
 You must specify input rows and columns!\nOperation terminated.
 Die Anzahl von Eingabezeilen und -spalten muss angeben werden!\nVorgang abgebrochen.
 
 
-
+Specificeer invoer rijen en kolommen!\nOperatie afgebroken.
 ;
 MSG_DATAOPS_THEREISNODATABASETODIRECTOUTPUTENTITIESTOPERATIONTE
 There is no Database to direct output entities to!\nOperation terminated.
 Es ist keine Datenbank für die Weiterleitung der Ergebnisse vorhanden!\nVorgang abgebrochen.
 
 
-
+Er is geen Database om uitvoer entiteiten naar te leiden!\nOperatie afgebroken.
 ;
 MSG_DATAOPS_INPUTDATACANNOTBEEQUALLYDIVIDEDAMONGOUTPUTMAPSASTCO
 Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows.
 
 
 
-
+Invuldata kan niet gelijk verdeeld worden over uitvoer kaarten.\nLaatste kolom van kaarten zal %ld kolommen hebben.\nLaatste rij van kaarten zal %ld rijen hebben.
 ;
 MSG_DATAOPS_CONTINUETRUNCATECANCEL
 Continue|Truncate|Cancel
 Weiter|Abschneiden|Abbrechen
 
 
-
+Doorgaan|Afbreken|Annuleren
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTRO
 Incorrect file size for specified header, width and height!\nProceed anyway?
 Falsche Dateigröße für den angegebenen Header, Breite und Höhe!\nTrotzdem weitermachen?
 
 
-
+Bestandsgrootte klopt niet met opgegeven header, breedte en hoogte!\nToch doorgaan?
 ;
 ; invert file if it is stored SE corner to NW
 MSG_DATAOPS_INVERTDATAORDER
@@ -3882,112 +3884,112 @@ Invert Data order?
 Daten-Reihenfolge invertieren?
 
 
-
+Data volgorde omkeren?
 ;
 MSG_DATAOPS_INVERTING
 Inverting
 Invertieren
 
 
-
+Omkeren
 ;
 MSG_DATAOPS_FLOOR
 Floor
 Untergrenze
 
 
-
+Ondergrens
 ;
 MSG_DATAOPS_CEILING
 Ceiling
 Obergrenze
 
 
-
+Bovengrens
 ;
 MSG_DATAOPS_REPLACE
 Replace
 Ersetzen
 
 
-
+Vervangen
 ;
 MSG_DATAOPS_RESAMPLE
 Resample
 
 
 
-
+Herbemonsteren
 ;
 MSG_DATAOPS_EXTREMA
 Extrema
 Extrema
 
 
-
+Extreem
 ;
 MSG_DATAOPS_CONVERT
 Convert
 Konvertieren
 
 
-
+Converteren
 ;
 MSG_DATAOPS_UNABLETOOPENFILEFORINPUTPERATIONTERMINATED
 Unable to open file for input!\nOperation terminated.
 Die Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 
 
-
+Kan het bestand niet openen voor invoer!\nOperatie afgebroken.
 ;
 MSG_DATAOPS_CONVERTDEMSOURCEFILE
 Convert DEM source file
 DEM Konvertieren Quelldatei
 
 
-
+Converteer DEM bron bestand
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTPE
 Incorrect file size for specified header, width and height!\nOperation terminated.
 
 
 
-
+Onjuiste bestandsgrootte voor opgegeven header, breedte en hoogte!\nOperatie afgebroken.
 ;
 MSG_DATAOPS_UNABLETOOPENFILEFOROUTPUTPERATIONTERMINATED
 Unable to open file for output!\nOperation terminated.
 Die Datei konnen nicht zum Schreiben geöffnet werden!\nVorgang abgebrochen.
 
 
-
+Kan het bestand niet openen voor uitvoer!\nOperatie afgebroken.
 ;
 MSG_DATAOPS_CONVERTDEMDESTINATIONFILE
 Convert DEM destination file
 DEM Konvertieren Zieldatei
 
 
-
+Converteer DEM doelbestand
 ;
 MSG_DATAOPS_ERRORWRITINGDESTINATIONFILEPERATIONTERMINATED
 Error writing destination file!\nOperation terminated.
 Fehler beim Schreiben der Zieldatei!\nVorgang abgebrochen.
 
 
-
+Fout bij schrijven van doelbestand!\nOperatie afgebroken.
 ;
 MSG_DATAOPS_ERRORREADINGSOURCEFILEPERATIONTERMINATED
 Error reading source file!\nOperation terminated.
 Fehler beim Lesen der Quelldatei!\nVorgang abgebrochen.
 
 
-
+Fout bij lezen van bronbestand!\nOperatie afgebroken.
 ;
 MSG_DATAOPS_NOTACOMPRESSEDFILEPERATIONTERMINATED
 Not a compressed file!\nOperation terminated.
 Keine komprimierte Datei!\nVorgang abgebrochen.
 
 
-
+Bestand is niet gecomprimeerd!\nOperatie afgebroken.
 ;
 MSG_DATAOPS_EXTENDEDHEADERPERATIONTERMINATED
 Extended header!\nOperation terminated.
@@ -4001,35 +4003,35 @@ Input file configuration not yet supported!\nOperation terminated.
 Die Konfiguration dieser Eingebadatei wird z.Z. noch nicht unterstützt!\nVorgang abgebrochen.
 
 
-
+Invoer bestand configuratie wordt nog niet ondersteund!\nOperatie afgebroken.
 ;
 MSG_DATAOPS_CONVERTDEMSOURCETYPE
 Convert DEM source type
 DEM konvertieren Quelltyp
 
 
-
+DEM bron type converteren
 ;
 MSG_DATAOPS_INPUTDATAFORMATNOTSUPPORTEDHECKYOURSETTINGSPERATION
 Input data format not supported!\nCheck your settings.\nOperation terminated.
 Nicht unterstütztes Eingabedatenformat!\nÜberprüfen Sie Ihre Einstellungen.\nVorgang abgebrochen.
 
 
-
+Invoer data formaat wordt niet ondersteund!\nControleer uw instellingen.\nOperatie afgebroken.
 ;
 MSG_DATAOPS_ERRORSAVINGOBJFILEOPERATIONTERMOINATED
 Error saving ".Obj" file!\nOperation terminated.
 Fehler beim Speichern der ".Obj" Datei!\nVorgang abgebrochen.
 
 
-
+Fout bij opslaan van ".Obj" bestand!\nOperatie afgebroken.
 ;
 MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED
 Input file not recognized as a DTED file!\nOperation terminated.
 Eingabedatei nicht als DTED-Datei erkannt!\nVorgang abgebrochen.
 
 
-
+Invulbestand niet herkend als een DTED bestand!\nOperatie afgebroken.
 ;
 ; --- Adjust alignement with spaces before and after you translation as needed ---
 MSG_DATAOPSGUI_DTED
@@ -4037,203 +4039,203 @@ DTED
 DTED
 
 
-
+DTED
 ;
 MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 !\nIllegal source value format/size combination!\nOperation terminated.
 !\nUngültige Kombination von Quell-Format und -größe!\nVorgang abgebrochen.
 
 
-
+Ongeldige bronwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 ;
 MSG_DATAOPSGUI_BINARRAY
 Bin Array
 
 
 
-
+Binaire Reeks
 ;
 MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 !\nIllegal target value format/size combination!\nOperation terminated.
 
 
 
-
+!\nOngeldige doelwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 ;
 MSG_DATAOPSGUI_BINARYARRAY
 Binary Array
 
 
 
-
+Binaire Reeks
 ;
 MSG_DATAOPSGUI_WCSDEM
 WCS DEM
 WCS DEM
 
 
-
+WCS DEM
 ;
 MSG_DATAOPSGUI_ZBUFFER
 Z Buffer
 Z Puffer
 
 
-
+Z Buffer
 ;
 MSG_DATAOPSGUI_ASCIIARRAY
 Ascii Array
 
 
 
-
+Ascii Reeks
 ;
 MSG_DATAOPSGUI_VISTADEM
 Vista DEM
 Vista DEM
 
 
-
+Vista DEM
 ;
 MSG_DATAOPSGUI_IFF
 IFF
 IFF
 
 
-
+IFF
 ;
 MSG_DATAOPSGUI_COLORMAP
 Color Map
 
 
 
-
+Kleurenkaart
 ;
 MSG_DATAOPSGUI_GRAYIFF
 Gray IFF
 Grau-IFF
 
 
-
+Grijswaarden IFF
 ;
 MSG_DATAOPSGUI_COLORIFF
 Color IFF
 Farb-IFF
 
 
-
+Kleur IFF
 ;
 MSG_DATAOPSGUI_SIGNEDINT
 Signed Int
 Signed Int
 
 
-
+Signed Int
 ;
 MSG_DATAOPSGUI_UNSIGNEDINT
 Unsigned Int
 Unsigned Int
 
 
-
+Unsigned Int
 ;
 MSG_DATAOPSGUI_FLOATINGPT
 Floating Pt
 Fließkomma
 
 
-
+Floating Pt
 ;
 MSG_DATAOPSGUI_ONE
 One
 Eins
 
 
-
+Een
 ;
 MSG_DATAOPSGUI_TWO
 Two
 Zwei
 
 
-
+Twee
 ;
 MSG_DATAOPSGUI_FOUR
 Four
 Vier
 
 
-
+Vier
 ;
 MSG_DATAOPSGUI_EIGHT
 Eight
 Acht
 
 
-
+Acht
 ;
 MSG_DATAOPSGUI_HIGHLOW
 High-Low
 
 
 
-
+Hoog-Laag
 ;
 MSG_DATAOPSGUI_LOWHIGH
 Low-High
 
 
 
-
+Laag-Hoog
 ;
 MSG_DATAOPSGUI_BYROW
 By Row
 Zeilenweise
 
 
-
+Per rij
 ;
 MSG_DATAOPSGUI_BYCOLUMN
 By Column
 Spaltenweise
 
 
-
+Per kolom
 ;
 MSG_DATAOPSGUI_LATITUDE
 Latitude
 Breite
 
 
-
+Breedte
 ;
 MSG_DATAOPSGUI_LONGITUDE
 Longitude
 Länge
 
 
-
+Lengte
 ;
 MSG_DATAOPSGUI_INCHES
 Inches
 Zoll
 
 
-
+Inch
 ;
 MSG_DATAOPSGUI_OTHER
 Other
 Andere
 
 
-
+Anders
 ;
 MSG_DATAOPSGUI_TWOVALUEEQUIVALENCE
 \0334Two Value Equivalence
 
 
 
-
+\0334Twee Waarden Equivalentie
 ;
 MSG_DATAOPSGUI_ONEVALUEEQUIVALENCE
 \0334One Value Equivalence
@@ -4241,97 +4243,97 @@ MSG_DATAOPSGUI_ONEVALUEEQUIVALENCE
 
 
 
-;
+;\0334Een Waarde Equivalentie
 MSG_DATAOPSGUI_MAXMINSTRETCH
 \0334Max-Min Stretch
 
 
 
-
+\0334Max-Min Rek
 ;
 MSG_DATAOPSGUI_MAXOUT
 Max Out
 
 
 
-
+Max Uit
 ;
 MSG_DATAOPSGUI_MINOUT
 Min Out
 
 
 
-
+Min Uit
 ;
 MSG_DATAOPSGUI_IOSCALE
 I/O Scale
 I/O Skalieren
 
 
-
+I/O Schalen
 ;
 MSG_DATAOPSGUI_DEMREGISTRATION
 \0334DEM Registration
 
 
 
-
+\0334DEM Registratie
 ;
 MSG_DATAOPSGUI_VALUEFORMATSAMPLING
 \0334Value Format & Sampling
 
 
 
-
+\0334Waarde formaat & Bemonstering
 ;
 MSG_DATAOPSGUI_VALUEFORMATCOLORED
 \0334Value Format
 \0334Werteformat
 
 
-
+\0334Waarde formaat
 ;
 MSG_DATAOPSGUI_PREPROCESS
 \0334Pre-Process
 \0334Vorverabeitung
 
 
-
+\0334Voorbewerking
 ;
 MSG_DATAOPSGUI_DEMCONVERTER
 DEM Converter
 DEM Konverter
 
 
-
+DEM Converter
 ;
 MSG_DATAOPSGUI_INPUTFORMAT
  Input Format
  Eingabeformat
 
 
-
+Invoer formaat
 ;
 MSG_DATAOPSGUI_INPUTFILESIZE
 Input File Size
 Eingabedateigröße
 
 
-
+Invoerbestandsgrootte
 ;
 MSG_DATAOPSGUI_HEADERBYTES
 Header Bytes
 Headerbytes
 
 
-
+Header bytes
 ;
 MSG_DATAOPSGUI_VALUEFORMAT
 Value Format
        Werteformat
 
 
-
+Waardeformaat
 ;
 MSG_DATAOPSGUI_VALUEBYTES
  Value Bytes
@@ -4345,49 +4347,49 @@ MSG_DATAOPSGUI_BYTEORDER
    Bytereihenfolge
 
 
-
+Bytevolgorde
 ;
 MSG_DATAOPSGUI_READORDER
   Read Order
    Lesereihenfolge
 
 
-
+Leesvolgorde
 ;
 MSG_DATAOPSGUI_ROWSEQUAL
   Rows Equal
 Zeilen entsprechen
 
 
-
+Gelijk aantal rijen
 ;
 MSG_DATAOPSGUI_DATAUNITS
   Data Units
          Einheiten
 
 
-
+Data eenheden
 ;
 MSG_DATAOPSGUI_FLOOR
   Floor
 Untergrenze
 
 
-
+Ondergrens
 ;
 MSG_DATAOPSGUI_CEILING
 Ceiling
  Obergrenze
 
 
-
+Bovengrens
 ;
 MSG_DATAOPSGUI_REPLACE
  Replace
  Ersetzen
 
 
-
+Vervangen
 ;
 ; DEM COnverter: Replace value1 "by" value2 
 MSG_DATAOPSGUI_BY
@@ -4395,231 +4397,231 @@ by
 durch
 
 
-
+door
 ;
 MSG_DATAOPSGUI_CROPLEFT
 Crop Left
 Links zuschneiden
 
 
-
+Links bijsnijden
 ;
 MSG_DATAOPSGUI_RIGHT
     Right
     Rechts
 
 
-
+Rechts
 ;
 MSG_DATAOPSGUI_CROPTOP
  Crop Top
  Oben zuschneiden
 
 
-
+Boven bijsnijden
 ;
 MSG_DATAOPSGUI_BOTTOM
    Bottom
    Unten
 
 
-
+Onder
 ;
 MSG_DATAOPSGUI_INPUTCOLS
 Input Cols
     Eingabespalten
 
 
-
+Invoer kolommen
 ;
 MSG_DATAOPSGUI_INPUTROWS
 Input Rows
      Eingabezeilen
 
 
-
+Invoerrijen
 ;
 MSG_DATAOPSGUI_WRAPLONGITUDE
 Wrap Longitude
 
 
 
-
+Longitude omslaan
 ;
 MSG_DATAOPSGUI_TEST
 \33cTest
 \33cTesten
 
 
-
+\33cTesten
 ;
 MSG_DATAOPSGUI_MIN
 Min
 Min
 
 
-
+Min
 ;
 MSG_DATAOPSGUI_MAX
 Max
 Max
 
 
-
+Max
 ;
 MSG_DATAOPSGUI_OUTPUTFORMAT
 Output Format
 Ausgabeformat
 
 
-
+Uitvoer formaat
 ;
 MSG_DATAOPSGUI_OUTDIR
 Out Dir
 Ausgabeordner
 
 
-
+Uitvoer directory
 ;
 MSG_DATAOPSGUI_NAME
 Name
 Name
 
 
-
+Naam
 ;
 MSG_DATAOPSGUI_DEMSROWWISEEW
 DEMs Row-Wise E/W
 DEMs zeilenweise  O/W
 
 
-
+DEMs rijgewijs O/W
 ;
 MSG_DATAOPSGUI_COLUMNWISENS
   Column-Wise N/S
      spaltenweise N/S
 
 
-
+Kolomgewijs N/Z
 ;
 MSG_DATAOPSGUI_HIGHLAT
 High Lat
  Obere Breite
 
 
-
+Bovenste breedte
 ;
 MSG_DATAOPSGUI_LOWLAT
  Low Lat
 Untere Breite
 
 
-
+Onderste breedte
 ;
 MSG_DATAOPSGUI_HIGHLON
 High Lon
  Obere Länge\x20
 
 
-
+Bovenste lengte\x20
 ;
 MSG_DATAOPSGUI_LOWLON
  Low Lon
 Untere Länge\x20
 
 
-
+Onderste lengte\x20
 ;
 MSG_DATAOPSGUI_OUTPUTCOLS
  Output Cols
 Ausgabe Spalten
 
 
-
+Uitvoer kolommen
 ;
 MSG_DATAOPSGUI_OUTPUTROWS
  Output Rows
  Ausgabe Zeilen
 
 
-
+Uitvoer rijen
 ;
 MSG_DATAOPSGUI_SPLINECONSTRAINT
 Spline Constraint
 
 
 
-
+Spline beperking
 ;
 MSG_DATAOPSGUI_INPUT
 \0334  Input\x20\x20
 \0334  Eingabe\x20\x20
 
 
-
+\0334Invoer\x20\x20
 ;
 MSG_DATAOPSGUI_OUTPUT
 \0334  Output\x20
 \0334 Ausgabe\x20
 
 
-
+\0334 Uitvoer\x20
 ;
 MSG_DATAOPSGUI_VALUE1
 Value 1
 Wert 1
 
 
-
+Waarde 1
 ;
 MSG_DATAOPSGUI_VALUE2
 Value 2
 Wert 2
 
 
-
+Waarde 2
 ;
 MSG_DATAOPSGUI_MAXOUTVAL
 Max Out Val
 Max Ausgabewert
 
 
-
+Max uitvoerwaarde
 ;
 MSG_DATAOPSGUI_MINOUTVAL
 Min Out Val
 Min Ausgabewert
 
 
-
+Min uitvoerwaarde
 ;
 MSG_DATAOPSGUI_CONVERT
 \33cConvert
 \33cKonvertieren
 
 
-
+\33cConverteren
 ;
 MSG_DATAOPSGUI_OUTPUTDIRECTORY
 Output Directory
 Ausgabeverzeichnis
 
 
-
+Uitvoer directory
 ;
 MSG_DATAOPSGUI_FILETOCONVERT
 File to Convert
 Zu konvertierende Datei
 
 
-
+Bestand om te converteren
 ;
 MSG_DATAOPSGUI_UNABLETOOPENFILEFORINPUT
 Unable to open file for input!\n
 Kann Datei nicht zum Lesen öffnen!\n
 
 
-
+Kan bestand niet openen voor invoer!\n
 ;
 MSG_DATAOPSGUI_UNABLETOREADFILESIZE
 Unable to read file size!\n
@@ -4633,7 +4635,7 @@ Data Ops: Convert
 
 
 
-
+Data Ops: Converteren
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTAWCSDEMFILE
 Warning!\nFile is not a WCS DEM file.
@@ -4647,294 +4649,294 @@ Warning!\nFile is not an IFF Z Buffer file.
 Warnung\nDie Datei ist keine IFF Z Puffer Datei.
 
 
-
+Waarschuwing!\nBestand is geen IFF Z Buffer bestand.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTAVISTADEMFILE
 Warning\nFile is not a Vista DEM file.
 Warnung\nDie Datei ist keine Vista DEM Datei.
 
 
-
+Waarschuwing\nBestand is geen Vista DEM bestand.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTACOMPRESSEDVISTAFILEANDCANNOTBEIM
 Warning\nFile is not a compressed Vista file and cannot be imported.
 Warnung\nDie Datei ist keine komprimierte Vista date und kann deshalb nicht importiert werden.
 
 
-
+Waarschuwing\nBestand is geen gecomprimeerd Vista bestand en kan niet worden geïmporteerd.
 ;
 MSG_DATAOPSGUI_ISTHISASMALLLARGEORHUGEVISTAFILE
 Is this a Small, Large or Huge Vista file?
 Ist dies eine "Small", "Large" oder "Huge" Vista Datei?
 
 
-
+Is dit een klein, groot of extra groot Vista bestand?
 ;
 MSG_DATAOPSGUI_SMALLLARGEHUGE
 Small|Large|Huge
 Small|Large|Huge
 
 
-
+Klein|Groot|Extra groot
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFFILE
 Warning\nFile is not an IFF file.
 Warnung\nDie Datei ist keine IFF-Datei.
 
 
-
+Waarschuwing\nBestand is geen IFF bestand.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFIMAGEFILE
 Warning\nFile is not an IFF image file.
 Warnung\nDie Datei ist keine IFF-Bilddatei.
 
 
-
+Waarschuwing\nBestand is geen IFF afbeelding.
 ;
 MSG_DATAOPSGUI_ERRORREADINGBITMAPHEADER
 Error reading bitmap header.
 Fehler beim Lesen des Bitmap-Headers.
 
 
-
+Fout bij lezen van bitmap header.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTRECOGNIZEDASADTEDFILE
 Warning\nFile is not recognized as a DTED file.
 Warnung\nDie Datei wurde nicht als DTED-Datei erkannt.
 
 
-
+Waarschuwing\nBestand wordt niet herkend als een DTED bestand.
 ;
 MSG_DATAOPSGUI_DATAOPSINTERPDEM
 Data Ops: Interp DEM
 
 
 
-
+Data Ops: DEM interpoleren
 ;
 MSG_DATAOPSGUI_DEMINTERPOLATE
 DEM Interpolate
 DEM Interpolieren
 
 
-
+DEM interpoleren
 ;
 MSG_DATAOPSGUI_SELECTFILES
 \33cSelect Files
 \33cDateien auswählen
 
 
-
+\33cBestanden selecteren
 ;
 MSG_DATAOPSGUI_SELECTED
  Selected
  Ausgewählt
 
 
-
+Geselecteerd
 ;
 MSG_DATAOPSGUI_ELEVATIONVAR
 Elevation Var %
 
 
 
-
+Hoogte Var %
 ;
 MSG_DATAOPSGUI_MAXFLATVAR
    Max Flat Var
 
 
 
-
+Max Vlak Var
 ;
 MSG_DATAOPSGUI_INTERPOLATE
 \33cInterpolate
 \33cInterpolieren
 
 
-
+\33cInterpoleren
 ;
 MSG_DATAOPSGUI_DEMFILES
 DEM Files
 DEM-Dateien
 
 
-
+DEM bestanden
 ;
 MSG_DEFPARM_AMBIENT
 Ambient
 Umgebungslicht
 
 
-
+Omgevingslicht
 ;
 MSG_DEFPARM_SUN
 Sun
 Sonne
 
 
-
+Zon
 ;
 MSG_DEFPARM_HAZE
 Haze
 Dunst
 
 
-
+Nevel
 ;
 MSG_DEFPARM_HORIZON
 Horizon
 Horizont
 
 
-
+Horizon
 ;
 MSG_DEFPARM_ZENITH
 Zenith
 Zenit
 
 
-
+Zenit
 ;
 MSG_DEFPARM_SURFACEGRID
 Surface Grid
 Oberflächengitter
 
 
-
+Oppervlakte raster
 ;
 MSG_DEFPARM_SURFACE1
 Surface 1
 Oberfläche 1
 
 
-
+Oppervlakte 1
 ;
 MSG_DEFPARM_SURFACE2
 Surface 3
 Oberfläche 2
 
 
-
+Oppervlakte 2
 ;
 MSG_DEFPARM_SURFACE3
 Surface 3
 Oberfläche 3
 
 
-
+Oppervlakte 3
 ;
 MSG_DEFPARM_SURFACE4
 Surface 4
 Oberfläche4
 
 
-
+Oppervlakte 4
 ;
 MSG_DEFPARM_WATER
 Water
 Wasser
 
 
-
+Water
 ;
 MSG_DEFPARM_SNOW
 Snow
 Schnee
 
 
-
+Sneeuw
 ;
 MSG_DEFPARM_TUNDRA
 Tundra
 Tundra
 
 
-
+Toendra
 ;
 MSG_DEFPARM_WETLAND
 Wetland
 Feuchtgebiete
 
 
-
+Moeras
 ;
 MSG_DEFPARM_GRASS
 Grass
 Gras
 
 
-
+Gras
 ;
 MSG_DEFPARM_DECIDUOUS
 Deciduous
 Laubbäume
 
 
-
+Loofbomen
 ;
 MSG_DEFPARM_CONIFER
 Conifer
 Nadelbäume
 
 
-
+Pijnbomen
 ;
 MSG_DEFPARM_GRANITE
 Granite
 Granit
 
 
-
+Graniet
 ;
 MSG_DEFPARM_GROUND
 Ground
 Boden
 
 
-
+Bodem
 ;
 MSG_DEFPARM_RIPARIAN
 Riparian
 Uferzone
 
 
-
+Oever
 ;
 MSG_DEFPARM_ROCK
 Rock
 Fels
 
 
-
+Rotsen
 ;
 MSG_DEFPARM_BAREGROUND
 Bare Ground
 Nackter Boden
 
 
-
+Kale bodem
 ;
 MSG_DEFPARM_PARAMETERSMODULEDEFAULTS
 Parameters Module: Defaults
 Parameter Modul: Voreinstellungen
 
 
-
+Parameter Module: Standaardinstellingen
 ;
 MSG_DEFPARM_PLEASEENABLEATLEASTONETOPODEMANDTRYAGAIN
 Please enable at least one topo DEM and try again.
 
 
 
-
+Schakel minstens één topo DEM in en probeer het opnieuw.
 ;
 MSG_DEFPARM_PLEASECLOSEALLTIMELINESWINDOWSANDTRYAGAIN
 Please close all Time Lines windows and try again.
 Bitte schließen Sie alle Zeitleistenfenster und versuchen Sie es erneut.
 
 
-
+Sluit alle Tijdlijn vensters en probeer het opnieuw.
 ;
 ;
 MSG_DIAG_DIAGNOSTICDATA
@@ -4942,119 +4944,119 @@ Diagnostic Data
 Diagnosedaten
 
 
-
+Diagnostische gegevens
 ;
 MSG_DIAG_DISTANCE
   Distance
   Entfernung
 
 
-
+Afstand
 ;
 MSG_DIAG_ELEVATION
  Elevation
  Höhe
 
 
-
+Hoogte
 ;
 MSG_DIAG_OVERSTORY
  Overstory
 
 
 
-
+Bovenlaag
 ;
 MSG_DIAG_UNDERSTORY
 Understory
 
 
 
-
+Onderlaag
 ;
 MSG_DIAG_RELEL
     Rel El
 
 
 
-
+Relatieve hoogte
 ;
 MSG_DIAG_ASPECT
     Aspect
     Aspekt
 
 
-
+Aspect
 ;
 MSG_DIAG_SLOPE
      Slope
      Neigung
 
 
-
+Hellingshoek
 ;
 MSG_DIAG_SUNANGLE
  Sun Angle
  Sonnenwinkel
 
 
-
+Zonhoek
 ;
 MSG_DIAG_LATITUDE
   Latitude
   Breite
 
 
-
+Breedte
 ;
 MSG_DIAG_LONGITUDE
  Longitude
  Länge
 
 
-
+Lengte
 ;
 MSG_DIAG_DATABASE
 \33cDatabase
 \33cDatenbank
 
 
-
+\33cDatabase
 ;
 MSG_DIAG_DIGITIZE
 \33cDigitize
 \33cDigitalisieren
 
 
-
+\33cDigitaliseren
 ;
 MSG_DIAG_RENDERDATA
 Render Data
 
 
 
-
+Render Data
 ;
 MSG_DIAG_QUITDIG
 \33cQuit Dig
 
 
 
-
+\33cBeëindig Digitaliseren
 ;
 MSG_DIAG_SURFACE
 Surface
 Oberfläche
 
 
-
+Oppervlakte
 ;
 MSG_DIAG_NONE
 None
 Keine
 
 
-
+Geen
 ;
 ;
 MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY
@@ -5062,49 +5064,49 @@ Make this the default object directory?
 Soll dies der Standard-Objektordner werden?
 
 
-
+Dit de standaard object directory maken?
 ;
 MSG_DISPGUI_DATABASELOAD
 Database: Load
 Datenbank: Laden
 
 
-
+Database: Laden
 ;
 MSG_DISPGUI_ERROROPENINGDATABASEFILEPERATIONTERMINATED
 Error opening Database file!\nOperation terminated.
 Fehler beim Öffnen der Datenbank-Datei!\nVorgang abgebrochen.
 
 
-
+Fout bij openen van Database bestand!\nOperatie afgebroken.
 ;
 MSG_DISPGUI_UNSUPPORTEDDATABASEFILEFORMAT
 Unsupported Database file format.
 Nicht unterstütztes Datenbank-Dateiformat.
 
 
-
+Nie-ondersteund Database bestandsformaat.
 ;
 MSG_DISPGUI_NOTAWCSDATABASEFILEPERATIONTERMINATED
 Not a WCS Database file!\nOperation terminated.
 Keine Datenbank-Datei!\nVorgang abgebrochen.
 
 
-
+Geen WCS Database bestand!\nOperatie afgebroken.
 ;
 MSG_DISPGUI_ERRORREADINGDATABASEFILEPERATIONTERMINATED
 Error reading Database file!\nOperation terminated.
 Fehler beim Lesen der Datenbank-Datei!\nVorgang abgebrochen.
 
 
-
+Fout bij lezen van Database bestand!\nOperatie afgebroken.
 ;
 MSG_DISPGUI_DATABASEMODULELOAD
 Database Module: Load
 Datenbank Modul: Laden
 
 
-
+Database Module: Laden
 ;
 MSG_DISPGUI_OUTOFMEMORYALLOCATINGDATABASEPERATIONTERMINATED
 fOut of memory allocating Database!\nOperation terminated.
@@ -5119,455 +5121,455 @@ Point
 Punkt
 
 
-
+Punt
 ;
 MSG_EDDB_CIRCLE
 Circle
 Kreis
 
 
-
+Circle
 ;
 MSG_EDDB_SQUARE
 Square
 Quadrat
 
 
-
+Vierkant
 ;
 MSG_EDDB_CROSS
 Cross
 Kreutz
 
 
-
+Kruis
 ;
 MSG_EDDB_SOLID
 Solid
 durchgezogen
 
 
-
+Volledig
 ;
 MSG_EDDB_DOTTED
 Dotted
 gepunktet
 
 
-
+Gespikkeld
 ;
 MSG_EDDB_DASHED
 Dashed
 gestrichelt
 
 
-
+Gestreept
 ;
 MSG_EDDB_BROKEN
 Broken
 unterbrochen
 
 
-
+Gebroken
 ;
 MSG_EDDB_TOPO
 Topo
 
 
 
-
+Topo
 ;
 MSG_EDDB_SURFACE
 Surface
 Oberfläche
 
 
-
+Oppevlakte
 ;
 MSG_EDDB_VECTOR
 Vector
 Vektor
 
 
-
+Vector
 ;
 MSG_EDDB_ILLUMVEC
 Illum Vec
 
 
 
-
+Illum Vec
 ;
 MSG_EDDB_SEGMENTV
 Segment V
 
 
 
-
+Segement V
 ;
 MSG_EDDB_ILLUMSEG
 Illum Seg
 
 
 
-
+Illume Seg
 ;
 MSG_EDDB_DATABASEEDITOR
 Database Editor
 Datenbank Editor
 
 
-
+Database Editor
 ;
 MSG_EDDB_YOUMUSTFIRSTLOADORCREATEADATABASEBEFOREOPENINGTHEEDITO
 You must first load or create a database before opening the editor.
 Es muss zuerst eine Datenbank erzeugt oder geladen werden, bevor der Editor geöffnet werden kann.
 
 
-
+Laad of maak eerst een database voordat u de editor opent.
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDATABASEWINDOW
 Out of memory!\nCan't open database window.
 Nicht genügend Speicher!\nDas Datenbank-Fenster konnte nicht geöffnet werden.
 
 
-
+Te weinig geheugen!\nKan database venster niet openen.
 ;
 MSG_EDDB_OPTIONS
 Options
 Optionen
 
 
-
+Opties
 ;
 MSG_EDDB_VECTORS
 \33cVectors
 \33cVektoren
 
 
-
+\33cVectoren
 ;
 MSG_EDDB_SURFACES
 \33cSurfaces
 \33cOberflächen
 
 
-
+\33cOppervlakten
 ;
 MSG_EDDB_FRACTALS
 \33cFractals
 \33cFraktale
 
 
-
+\33cFractalen
 ;
 MSG_EDDB_NAME
 \33cName
 \33cName
 
 
-
+\33cNaam
 ;
 MSG_EDDB_ENABLED
 Enabled
 Aktiviert
 
 
-
+Ingeschakeld
 ;
 MSG_EDDB_POINTS
 Points
 Punkte
 
 
-
+Punten
 ;
 MSG_EDDB_CLASS
 Class
 Klasse
 
 
-
+Klasse
 ;
 MSG_EDDB_LAYER1
 Layer 1\x20
 Ebene 1\x20
 
 
-
+Laag 1\x20
 ;
 MSG_EDDB_SEL
 Sel
 
 
 
-
+Sel
 ;
 MSG_EDDB_ON
 On
 Ein
 
 
-
+Aan
 ;
 MSG_EDDB_OFF
 Off
 Aus
 
 
-
+Uit
 ;
 MSG_EDDB_LAYER2
 Layer 2\x20
 Ebene 2\x20
 
 
-
+Laaag 2\x20
 ;
 MSG_EDDB_LABEL
 \33cLabel
 
 
 
-
+\33cLabel
 ;
 MSG_EDDB_DEMMAXFRACTAL
 DEM Max Fractal\x20
 DEM max Fraktal\x20
 
 
-
+DEM max Fractaal\x20
 ;
 MSG_EDDB_LINESTYLE
 Line Style
 Linienstil
 
 
-
+Lijnstijl
 ;
 MSG_EDDB_LINEWEIGHT
 Line Weight\x20
 Linienstärke\x20
 
 
-
+Lijndikte\x20
 ;
 MSG_EDDB_DRAWPEN
 Draw Pen\x20
 Zeichenstift\x20
 
 
-
+Tekenpen\x20
 ;
 MSG_EDDB_RGB
 RGB
 RGB
 
 
-
+RGB
 ;
 MSG_EDDB_R
 R
 R
 
 
-
+R
 ;
 MSG_EDDB_G
 G
 G
 
 
-
+G
 ;
 MSG_EDDB_B
 B
 B
 
 
-
+B
 ;
 MSG_EDDB_NEWOBJ
 \33cNew Obj
 \33cNeues Objekt
 
 
-
+\33cNieuw Object
 ;
 MSG_EDDB_ADDOBJ
 \33cAdd Obj
 \33cObj Hinzufügen
 
 
-
+\33cVoeg Object toe
 ;
 MSG_EDDB_REMOVE_SPACE
 \33cRemove\x20
 \33cEntfernen\x20
 
 
-
+\33cVerwijderen\x20
 ;
 MSG_EDDB_SEARCH
 \33cSearch\x20
 \33cSuchen\x20
 
 
-
+\33cZoeken\x20
 ;
 MSG_EDDB_SORT
 \33cSort
 \33cSortieren
 
 
-
+\33cSorteren
 ;
 MSG_EDDB_SAVE
 \33cSave\x20
 \33cSpeichern\x20
 
 
-
+\33cOpslaan\x20
 ;
 MSG_EDDB_LOAD_SAPCE
 \33cLoad\x20
 \33cLaden\x20
 
 
-
+\33cLaden\x20
 ;
 MSG_EDDB_APPEND
 \33cAppend\x20
 \33cHinzufügen\x20
 
 
-
+\33cToevoegen\x20
 ;
 MSG_EDDB_CREATE
 \33cCreate\x20
 \33cErzeugen\x20
 
 
-
+\33cMaken\x20
 ;
 MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME
 Object name already present in database!\nTry a new name?
 Der Objektname ist bereits in der Datenbank vorhanden!\nEinen neuen Namen versuchen?
 
 
-
+Objectnaam is al aanwezig in database!\nEen nieuwe naam proberen?
 ;
 MSG_EDDB_ENTERSEARCHSTRING
 Enter search string.
 Suchtext eingeben.
 
 
-
+Zoektekst invoeren.
 ;
 MSG_EDDB_SORTING
 Sorting
 Sortiere
 
 
-
+Sorteren
 ;
 MSG_EDDB_DATABASEMODULEREMOVEITEM
 Database Module: Remove Item
 Datenbank Module: Eintrag entfernen
 
 
-
+Database Module: Verwijder item
 ;
 MSG_EDDB_FROMDISKDATABASEONLYCANCEL
 From Disk|Database Only|Cancel
 Von Diskette|Nur Datenbank|Abbrechen
 
 
-
+Van schijf|Alleen database|Annuleren
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDATABASELIST
 Out of memory!\nCan't open database list.
 
 
 
-
+Te weinig geheugen!\nKan database lijst niet openen.
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDIRECTORYLISTWINDOW
 Out of memory!\nCan't open directory list window.
 Nicht genügend Speicher!\nDas Ordnerlisten-Fenster kann nicht geöffnet werden.
 
 
-
+Te weinig geheugen!\nKan directory lijst venster niet openen.
 ;
 MSG_EDDB_DIRECTORYLISTEDITOR
 Directory List Editor
 Ordnerlisten-Editor
 
 
-
+Directory lijst editor
 ;
 MSG_EDDB_DEFAULTDIRECTORY
 \33cDefault Directory
 \33cStandardordner
 
 
-
+\33cStandaard directory
 ;
 MSG_EDDB_ADD
 \33cAdd...
 \33cHinzufügen...
 
 
-
+\33cToevoegen...
 ;
 MSG_EDDB_SWAP
 \33cSwap...
 \33cVertauschen...
 
 
-
+\33cWisselen...
 ;
 MSG_EDDB_MOVE
 \33cMove...
 \33cVerschieben...
 
 
-
+\33cVerplaatsen...
 ;
 MSG_EDDB_REMOVE
 \33cRemove
 \33cEntfernen
 
 
-
+\33cVerwijderen
 ;
 MSG_EDDB_READONLY
 \33c*Read Only
 \33cNur Lesen
 
 
-
+\33cAlleen lezen
 ;
 MSG_EDDB_KEEP
 \33cKeep
 \33cBehalten
 
 
-
+\33cBehouden
 ;
 MSG_EDDB_LOAD
 \33cLoad
 \33cLesen
 
 
-
+\33cLaden
 ;
 MSG_EDDB_DIRECTORYLIST
 Directory List
 Verzeichnisliste
 
 
-
+Directory lijst
 ;
 ;
 MSG_EDDB_DELETEOBJECTELEVATIONANDRELATIVEELEVATIONFILESFROMDISKASWELL
@@ -5575,7 +5577,7 @@ Delete object, elevation and relative elevation files from disk as well as remov
 
 
 
-
+Object verwijderen, hoogte en relatieve hoogte bestanden van schijf verwijderen en de namen uit de Database verwijderen?
 ;
 MSG_EDECOGUI_BRUSHSTAMP
 Brush Stamp
