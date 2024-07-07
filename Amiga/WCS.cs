@@ -858,7 +858,7 @@ MSG_SCNRMODGUI_SAVE
 \33cSpeichern
 \33cSalva
 
-\\33cOpslaan
+\33cOpslaan
 ;
 MSG_SCNRMODGUI_USE
 \33cUse
@@ -3812,7 +3812,8 @@ Number of Objects in the Master Object file does not match the number of Objects
 
 
 
-Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van individuele bestanden.
+Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van \
+individuele bestanden
 ;
 MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 .MDB is not a WCS Master Object file!
@@ -6880,7 +6881,8 @@ Error writing to Parameter file!\nThe output file has been modified and may no l
 
 
 
-Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla opnieuw op.
+Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla \
+opnieuw op.
 ;
 ;
 MSG_EDSETGUI_ENDERSIZE
@@ -9427,7 +9429,7 @@ Out of memory allocating Smoothing Index array!
 
 
 
-Te weinig geheugen bij toewijzen van Gladheidsindex array!  
+Te weinig geheugen bij toewijzen van Gladheidsindex array!
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGFRACTALMAPARRAYCONTINUEWITHOUTFRA
 Out of memory allocating Fractal Map array!\nContinue without Fractal Maps or retry?
@@ -9681,14 +9683,14 @@ Camera View failed to open!\nOperation terminated.
 Die Kameraansicht konnte nicht geöffnet werden!\nVorgang abgebrochen.
 
 
-Camera Weergave kon niet worden geopend!\nBewerking afgebroken
+Camera Weergave kon niet worden geopend!\nBewerking afgebroken.
 ;
 MSG_INTVIEW_OUTOFMEMORYOPENINGCAMERAVIEWPERATIONTERMINATED
 Out of memory opening Camera View!\nOperation terminated.
 Nicht genügend Speicher zum Öffnen der Kameraansicht!\nOperation abgebrochen.
 
 
-Te weinig geheugen bij openen van Camera Weergave!\nBewerking afgebroken
+Te weinig geheugen bij openen van Camera Weergave!\nBewerking afgebroken.
 ;
 MSG_INTVIEW_OUTOFMEMORYLOADINGDEMSNCREASEGRIDSIZE
 Out of memory loading DEMs!\nIncrease grid size?
@@ -9702,7 +9704,7 @@ No DEM objects active!\nOperation terminated.
 Keine aktiven DEM-Objekte!\nVorgang abgebrochen.
 
 
-Geen DEM-objecten actief!\nBewerking afgebroken
+Geen DEM-objecten actief!\nBewerking afgebroken.
 ;
 MSG_INTVIEW_ELEVATIONMAPSLOADED
 Elevation maps loaded = %d.\n
@@ -9914,7 +9916,8 @@ The output image size is not a standard LightWave image size. The zoom factor an
 
 
 
-De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte scènebestand.
+De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte \
+scènebestand.
 ;
 ;
 MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR
@@ -11837,7 +11840,8 @@ At least one end control point for the line segment just drawn could not be foun
 
 
 
-Minstens één eindcontrolepunt voor het zojuist getekende lijnsegment kon niet worden gevonden!\nWilt u de huidige en minimale schuifregelaarhoogten voor dit segment gebruiken of de bewerking annuleren?
+Minstens één eindcontrolepunt voor het zojuist getekende lijnsegment kon niet worden gevonden!\nWilt u de huidige en minimale schuifregelaarhoogten voor dit segment gebruiken of de bewerking \
+annuleren?
 ;
 MSG_MAPGUI_SLIDERABORT
 Slider|Abort
@@ -14807,7 +14811,8 @@ with the present dimensions?
 
 
 
-De verhouding van breedte tot lengte van dit gerasterde gebied kan te extreem zijn voor goede interpolatie.\nHet veranderen van de blokverhoudingen, of het herschalen van de x- of y-coördinaat kan een goed idee zijn.\nWilt u nu doorgaan met de huidige afmetingen?
+De verhouding van breedte tot lengte van dit gerasterde gebied kan te extreem zijn voor goede interpolatie.\nHet veranderen van de blokverhoudingen, of het herschalen van de x- of y-coördinaat kan een \
+goed idee zijn.\nWilt u nu doorgaan met de huidige afmetingen?
 ;
 MSG_NNCRUNCH_OUTOFMEMORYDOUBLEMATRIXPERATIONTERMINATED
 Out of memory Double Matrix!\nOperation terminated.
@@ -14836,7 +14841,6 @@ Kaartweergave: Raster DEM
 MSG_MENU_PR_CREDITSTRANSLATION
 
 \nDeutsche Übersetzung von Alexander Fritsch (selco).\nFehlermeldungen und Verbesserungsvorschläge\nbitte an selco@t-online.de
-
 
 
 \nNederlandse vertaling door Leo.\nFoutmeldingen en suggesties voor verbetering\nnaar leo
