@@ -61,21 +61,21 @@ Load Config
 Konfiguration laden
 Carica Configurazione
 
-Laad configuratie
+Laad Configuratie
 ;
 MSG_MENU_PR_SAVECONFIG
 Save Config
 Konfiguration speichern
 Salva Configurazione
 
-Bewaar configuratie
+Bewaar Configuratie
 ;
 MSG_MENU_PR_SAVESCREEN
 Save Screen...
 Bildschirm speichern...
 Salva Schermo...
 
-Beeldscherm bewaren...
+Beeldscherm Bewaren...
 ;
 MSG_MENU_PR_INFO
 Info...
@@ -124,7 +124,7 @@ Modules
 Module
 Moduli
 
-Module
+Modules
 ;
 MSG_MENU_MOD_DATABASE
 DataBase
@@ -166,14 +166,14 @@ Motion Editor
 Bewegungseditor
 Modifica Movimento
 
-Bewegingseditor
+Beweging Editor
 ;
 MSG_EDITGUI_COLOREDITOR
 Color Editor
 Farbeinstellungen
 Modifica Colori
 
-Kleur editor
+Kleur Editor
 ;
 MSG_MENU_MOD_ECOSYSEDITOR
 Ecosys Editor
@@ -222,7 +222,7 @@ Save All...
 Alles speichern...
 Salva Tutto...
 
-Alles bewaren...
+Alles Opslaan...
 ;
 MSG_MENU_PAR_FREEZE
 Freeze
@@ -258,7 +258,7 @@ Rock
 Stein
 Roccia
 
-Rotsen
+Rots
 ;
 MSG_TYPENAME_GROUND
 Ground
@@ -293,7 +293,7 @@ Snag
 Abgestorbener Baum
 Albero Morto
 
-Dode boom
+Dode Boom
 ;
 MSG_TYPENAME_STUMP
 Stump
@@ -405,28 +405,28 @@ Vertical Exag
 Vertik. Überhöhung
 Exag Verticale
 
-Verticale Hoogte
+Verticale Overdr
 ;
 MSG_VARNAME_SUNLIGHTLAT
 Sun Light Lat
 
 Luce Sole Lat
 
-Zonlicht Lateraal
+Zonlicht Lat
 ;
 MSG_VARNAME_SUNLIGHTLON
 Sun Light Lon
 
 Luce Sole Lon
 
-Zonlicht Longitudinaal
+Zonlicht Long
 ;
 MSG_VARNAME_HORIZONLINE
 Horizon Line
 Horizontlinie
 Linea Orizzonte
 
-Horizon
+Horizon Lijn
 ;
 MSG_VARNAME_HORIZONPOINT
 Horizon Point
@@ -489,14 +489,14 @@ Sun Lat
 Sonnenbreitengrad
 Latitudine Sole
 
-Zon Lateraal
+Zon Lat
 ;
 MSG_VARNAME_SUNLON
 Sun Lon
 Sonnenlängengrad
 Longitudine Sole
 
-Zon Longitudinaal
+Zon Long
 ;
 MSG_VARNAME_SUNSIZE
 Sun Size
@@ -510,14 +510,14 @@ Moon Lat
 Mondbreitengrad
 Latitudine Luna
 
-Maan Lateraal
+Maan Lat
 ;
 MSG_VARNAME_MOONLON
 Moon Lon
 Mondlängengrad
 Longitudine Luna
 
-Maan Longitudinaal
+Maan Long
 ;
 MSG_VARNAME_MOONSIZE
 Moon Size
@@ -552,7 +552,7 @@ MSG_STDMESG_READFILEFAILED
  Lesen der Datei fehlgeschlagen!
  Lettura File Fallita!
 
- Lee bestand mislukt!
+ Lezen bestand mislukt!
 ;
 MSG_STDMESG_WRITINGTOFILEFAILED
  Writing to file failed!
@@ -608,84 +608,84 @@ MSG_STDMESG_PARAMETERFILELOADED
  Parameterdatei geladen.
  Parametri File Caricati.
 
- Parameter Bestand Geladen.
+ Parameter bestand geladen.
 ;
 MSG_STDMESG_PARAMETERFILESAVED
  Parameter file saved.
  Parameterdatei gespeichert.
  Parametri File Salvati.
 
- Parameter Bestand Opgeslagen.
+ Parameter bestand opgeslagen.
 ;
 MSG_STDMESG_DATABASEFILELOADED
  Database file loaded.
  Datenbankdatei geladen.
  File del Database Caricati.
 
- Database Bestand Geladen.
+ Database bestand geladen.
 ;
 MSG_STDMESG_DATABASEFILESAVED
  Database file saved.
  Datenbankdatei gespeichert.
  File del Database Salvati.
 
- Database Bestand Opgeslagen.
+ Database bestand opgeslagen.
 ;
 MSG_STDMESG_DEMFILELOADED
  DEM file loaded.
  DEM-Datei geladen.
  DEM File Caricati.
 
- DEM Bestand geladen.
+ DEM bestand geladen.
 ;
 MSG_STDMESG_DEMFILESAVED
  DEM file saved.
  DEM-Datei gespeichert.
  DEM File Salvati.
 
- DEM Bestand opgeslagen.
+ DEM bestand opgeslagen.
 ;
 MSG_STDMESG_VECTORFILELOADED
  Vector file loaded.
  Vektordatei geladen.
  File Vettoriali Caricati.
 
- Vector Bestand geladen.
+ Vector bestand geladen.
 ;
 MSG_STDMESG_VECTORFILESAVED
  Vector file saved.
  Vektordatei gespeichert.
  File Vettoriali Salvati.
 
- Vector Bestand opgeslagen.
+ Vector bestand opgeslagen.
 ;
 MSG_STDMESG_IMAGEFILELOADED
  Image file loaded.
  Bild geladen.
  File Immagine Caricati.
 
- Beeld Bestand geladen.
+ Afbeeldingsbestand geladen.
 ;
 MSG_STDMESG_IMAGEFILESAVED
  Image file saved.
  Bild gespeichert.
  File Immagine Salvati.
 
- Beeld Bestand opgeslagen.
+ Afbeeldingsbestand opgeslagen.
 ;
 MSG_STDMESG_COLORMAPFILELOADED
  Color Map file loaded.
  Color Map Datei geladen.
  Mappa a Colori File Caricato.
 
- Kleurenkaart Bestand geladen.
+ Kleurenkaart bestand geladen.
 ;
 MSG_STDMESG_COLORMAPFILESAVED
  Color Map file saved.
  Color Map Datei gespeichert.
  Mappa a Colori File Salvato.
 
- Kleurenkaart Bestand opgeslagen.
+ Kleurenkaart bestand opgeslagen.
 ;
 MSG_STDMESG_ENABLE_SOFT_OUTLINE_STYLE
 \33t
@@ -706,7 +706,7 @@ MSG_STDMESG_DIRECTORYNOTFOUND
  Ordner nicht gefunden!
  Directory non Trovata!
 
- Bestandsmap niet gevonden!
+ Directory niet gevonden!
 ;
 MSG_STDMESG_OPENWINDOWFAILED
  Open window failed!
@@ -748,28 +748,28 @@ MSG_STDMESG_VECTOROBJECTSLOADED
  Vektordatei geladen.
  Oggetto Vettoriale Caricato.
 
- Vector Objecten geladen.
+ Vector objecten geladen.
 ;
 MSG_STDMESG_PROJECTFILELOADED
  Project file loaded.
  Projektdatei geladen.
  File Progetto Caricato.
 
- Project Bestand geladen.
+ Project bestand geladen.
 ;
 MSG_STDMESG_PROJECTFILESAVED
  Project file saved.
  Projektdatei gespeichert.
  File Progetto Salvato.
 
- Project Bestand opgeslagen.
+ Project bestand opgeslagen.
 ;
 MSG_STDMESG_DIRECTORYLISTLOADED
  Directory List loaded
  Ordnerliste geladen
  Lista Directory Caricata
 
- Bestandslijst geladen
+ Directory Lijst geladen
 ;
 MSG_STDMESG_RENDERTIMEFORFRAME
  Render time for frame
@@ -843,7 +843,7 @@ MSG_SCNRMODGUI_MODEINFORMATION
 \33cModuseigenschaften
 \33cModo Informazione
 
-\\33cInformatie modus
+\33cInformatie Modus
 ;
 ; Check Screenmode-Requester for correct alignement!
 MSG_SCNRMODGUI_MODEESUTOCANNATTRIBUTESN
@@ -851,7 +851,7 @@ Mode:           \nRes :                      \nAuto:            \nScan:         
 Modus:           \nRes  :                      \nAuto :            \nScan :                   \n\nAttribute\n\n\n
 Modo:           \nRes :                      \nAuto:            \nScan :                  \n\nAttribute\n\n\n
 
-Modus:           \nRes  :                      \nAuto :            \nScan :                   \n\nAttribute\n\n\n
+Modus:           \nRes  :                      \nAuto :            \nScan :                   \n\nAttributen\n\n\n
 ;
 MSG_SCNRMODGUI_SAVE
 \33cSave
@@ -880,7 +880,7 @@ Mode: 0x%08lx\nRes : %dx%d - %dx%d\nAuto: %dx%d\nScan: %dns\n\nAttributes\n
 Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAttribute\n
 Modo: 0x%08lx\nRes : %dx%d - %dx%d\nAuto: %dx%d\nRicerca: %dns\n\nAttributi\n
 
-Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAttribute\n
+Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAttributen\n
 ;
 MSG_SCNRMODGUI_LACED
 Laced\x20
@@ -988,7 +988,7 @@ Out of Memory!
 Nicht genügend Speicher!
 Memoria Esaurita!
 
-Te weinig geheugen!
+Te weinig Geheugen!
 ;
 MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS
 Create Default Parameters for Database %s? All current Parameters will be overwritten.
@@ -1030,14 +1030,14 @@ Stand Up
 Hochkant
 
 
-Portrait
+Staand
 ;
 MSG_AGUI_LAYDOWN
 Lay Down
 Quer
 
 
-Landscape
+Liggend
 ;
 MSG_AGUI_LOAD
 \33l Load\x20
@@ -1079,28 +1079,28 @@ MSG_AGUI_DIRLIST
 \33l Ordnerliste\x20
 \33l Lista Directory\x20
 
-\33l Bestandslijst\x20
+\33l Dir Lijst\x20
 ;
 MSG_AGUI_DATAOPSIMPORTDLG
 Data Ops: Import DLG
 
 Data Ops: Importare DLG
 
-Data Ops: Import DLG
+Data Ops: Importeer DLG
 ;
 MSG_AGUI_DATAOPSIMPORTDXF
 Data Ops: Import DXF
 
 Data Ops: Importare DXF
 
-Data Ops: Import DXF
+Data Ops: Importeer DXF
 ;
 MSG_DLG_DATAOPSIMPORTWDB
 Data Ops: Import WDB
 
 Data Ops: Importare WDB
 
-Data Ops: Import WDB
+Data Ops: Importeer WDB
 ;
 MSG_AGUI_DATAOPSMODULEINTERPDEM
 Data Ops Module: Interp DEM
@@ -1163,7 +1163,7 @@ Public Screen still has visitors. Try closing again?
 Der Public Screen hat noch Visitors. Schließen erneut versuchen?
 Lo schermo pubblico ha ancora visitatori. Provare a chiudere di nuovo?
 
-Publiek Scherm heeft nog Visitors. Nogmaals proberen te sluiten?
+Publiek Scherm heeft nog Gebruikers. Nogmaals proberen te sluiten?
 ;
 MSG_AGUI_CLOSEWARNCANCEL
 Close|Warn|Cancel
@@ -1212,7 +1212,7 @@ Message
 Nachricht
 Messaggio
 
-Bericht
+Melding
 ;
 MSG_AGUI_NOTYETIMPLEMENTEDTAYTUNED
 Not yet implemented.\nStay Tuned!
@@ -1240,7 +1240,7 @@ Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature.
 Entschuldigung!\nEs muss zuerst\n\338%s\0332\ngeladen werden, bevor dieses Feature genutzt werden kann.
 Attenzione!\nPrima di utilizzare questa funzione\n\338%s\0332\n è necessario caricarla.
 
-Sorry!\nU moet eerst\n\338%s\0332\n laden voordat u deze functie kunt gebruiken.
+Sorry!\nLaad eerst\n\338%s\0332\n voordat u deze functie kunt gebruiken.
 ;
 MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT
 File already exists.\nDo you wish to overwrite it?
@@ -1374,7 +1374,7 @@ MSG_AGUI_TOPOMAPS
 
 \33rMappa Topografica\x20
 
-\33rTopo Maps\x20
+\33rTopo Kaarten\x20
 ;
 MSG_AGUI_INTER
 \33cInter
@@ -1565,7 +1565,7 @@ MSG:
 
 MSG:
 
-Bericht:
+Melding:
 ;
 MSG_AGUI_DTA
 DTA:
@@ -1600,7 +1600,7 @@ Keys Exist (%d)
 Key (%d) existiert
 Chiavi (%d) esistenti
 
-Sleutel (%d) bestaat
+Key (%d) bestaat
 ;
 MSG_AGUI_ALL0
 \33cAll (0)
@@ -1614,7 +1614,7 @@ No Other Keys
 Keines weiteren Keys
 No Altre Chiavi
 
-Geen andere Sleutels
+Geen andere Keys
 ;
 ; PK="Previous Key"
 MSG_AGUI_PK
@@ -1622,7 +1622,7 @@ PK %d
 VK %d
 PK %d
 
-VS %d
+VorigK %d
 ;
 ; NK="Next Key"
 MSG_AGUI_NK
@@ -1630,7 +1630,7 @@ NK %d
 NK %d
 NK %d
 
-NS %d
+VolgK %d
 ;
 MSG_AGUI_NONE
  -none-\x20
@@ -1644,7 +1644,7 @@ Use
 Benutzen
 Usa
 
-Gebuiken
+Gebruik
 ;
 MSG_AGUI_LOADMOTION
 Load Motion...
@@ -1722,7 +1722,7 @@ Can't open image file for output!\nOperation terminated.
 Datei kann nicht zum Schreiben geöffnet werden!\nVorgang abgebrochen.
 Impossibile aprire il file immagine per l'output!\nOperazione terminata.
 
-Kan beeldbestand niet openen voor uitvoer!\nOperatie afgebroken.
+Kan afbeeldingbestand niet openen voor uitvoer!\nOperatie afgebroken.
 ;
 MSG_BITMAPS_SAVINGIMAGE
 Saving Image
@@ -1750,7 +1750,7 @@ Error saving image!\nOperation terminated.
 Fehler beim Speichern des Bildes!\nVorgang abgebrochen.
 Errore nel salvare l'immagine!\nOperazione Terminata.
 
-Fout bij opslaan van afbeelding!\nOperatie afgebroken.
+Fout bij opslaan van de afbeelding!\nOperatie afgebroken.
 ;
 MSG_BITMAPS_LOADINGIMAGE
 Loading Image
@@ -2046,7 +2046,7 @@ MSG_CLOUDGUI_MAPADD
 
 \33cInserisci Mappa...
 
-\33cVoeg kaart toe...
+\33cVoeg Kaart toe...
 ;
 MSG_CLOUDGUI_EDIT
 \33cEdit...
@@ -2088,7 +2088,7 @@ Lat Max
 Breite Max
 Massima Latitudine
 
-Maximum Breedte
+Max Lat
 ;
 MSG_CLOUDGUI_MIN
 Min
@@ -2102,7 +2102,7 @@ Lon Max
 Länge Max
 Massima Longitudine
 
-Maximum Lengte
+Max Long
 ;
 MSG_CLOUDGUI_ANIMATION
 \33c\0334Animation
@@ -2144,14 +2144,14 @@ Move Lat
 
 Muovere Latitudine
 
-Beweeg in Laterale richting
+Verplaats Lat
 ;
 MSG_CLOUDGUI_LON
 Lon
 Länge
 Longitudine
 
-Lengte
+Long
 ;
 MSG_CLOUDGUI_ALTITUDE
 Altitude
@@ -2165,7 +2165,7 @@ MSG_CLOUDGUI_EYFRAMES
 \33c\0334Keyframes
 \33c\0334Numero Frame
 
-\33c\0334Sleutel Frames
+\33c\0334Key Frames
 ;
 MSG_CLOUDGUI_PREV
 \33cPrev
@@ -2193,7 +2193,7 @@ MSG_CLOUDGUI_MAKEKEY
 \33cKey erzeugen
 \33cCrea Numero
 
-\33cMaak Sleutel
+\33cMaak Key
 ;
 MSG_CLOUDGUI_UPDATE
 \33cUpdate
@@ -2228,7 +2228,7 @@ MSG_CLOUDGUI_SCALEKEYS
 \33cKeys skalieren\x20
 \33cScala Numero\x20
 
-
+\33cSchaal Keys\x20
 ;
 MSG_CLOUDGUI_DRAWCLOUD
 \33cDraw Cloud
@@ -2319,14 +2319,14 @@ Enter frame to make key for.
 
 Immettere il Frame per la quale creare il numero.
 
-Voer frame in om sleutel voor te maken.
+Voer frame in om Key voor te maken.
 ;
 MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES
 Delete all cloud key frames?
 
 Cancellare tutti i numeri dei frame delle nuvole?
 
-Alle wolken sleutel frames verwijderen?
+Alle wolken key frames verwijderen?
 ;
 MSG_CLOUDGUI_FRACTALDIMENSION
 Fractal Dimension
@@ -2340,14 +2340,14 @@ Move Latitude
 
 Muovere latitudine
 
-Beweeg in Latitudinale richting
+Verplaats in Latitudinale richting
 ;
 MSG_CLOUDGUI_MOVELONGITUDE
 Move Longitude
 
 Muovere Longitudine
 
-Beeweg in Longitudinale richting
+Verplaats in Longitudinale richting
 ;
 MSG_CLOUDGUI_CLOUDTIMELINES
 Cloud Time Lines
@@ -2370,7 +2370,7 @@ Creating Relative Elevation Model
 
 Creazione del modello di elevazione relativa
 
-Creëren van Relatieve Hoogte Model
+Maken van Relatieve Hoogte Model
 ;
 MSG_DEM_RELATIVEELEVATION
 Relative elevation
@@ -2554,7 +2554,7 @@ Resample
 
 Campione
 
-Opnieuw Bemonsteren
+Herberekenen
 ;
 MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT
 Enter a name for the 30 meter DEM object.
@@ -2645,7 +2645,7 @@ Mapping Module: Fix Flats
 
 Modulo di mappatura: Correggere i Flats
 
-Mapping Module: Corrigeer Flats
+Mapping Module: Corrigeer Platte Stukken
 ;
 MSG_DEM_BADARRAYDIMENSIONSSOMETHINGDOESNTCOMPUTEPERATIONTERMINA
 Bad array dimensions! Something doesn't compute.\nOperation terminated.
@@ -2675,7 +2675,7 @@ XYZ Lat/Lon
 XYZ Breite/Länge
 XYZ Latitudine/Longitudine
 
-XYZ Breedte/Lengte
+XYZ Lat/Long
 ;
 MSG_DEMGUI_XYZUTM
 XYZ UTM
@@ -2689,7 +2689,7 @@ DXF Lat/Lon
 DXF Breite/Länge
 DXF Latitudine/Longitudine
 
-DXF Breedte/Lengte
+DXF Lat/Long
 ;
 MSG_DEMGUI_DXFUTM
 DXF UTM
@@ -2731,7 +2731,7 @@ Isoline
 Wertefeldlinie
 Valore Campo
 
-Isolijn
+Isobaar
 ;
 MSG_DEMGUI_GRADIENT
 Gradient
@@ -2864,35 +2864,35 @@ MSG_DEMGUI_PTINFO
 
 \33cInformazione Punto
 
-
+\33cInfo Punt
 ;
 MSG_DEMGUI_SETEL
 \33cSet El
 
 \33cSettaggio Elemento
 
-
+\33cStel Hoogte in
 ;
 MSG_DEMGUI_ELEVSOURCE
 Elev Source
 
 Elevazione Sorgente
 
-Hoogte Bron
+Hgt Bron
 ;
 MSG_DEMGUI_ELEVUNITS
  Elev Units
  Höhen Einheit
  Elevazione Unità
 
-Hoogte Eenheden
+Hgt Eenheden
 ;
 MSG_DEMGUI_DISPLACE
    Displace
 
    Spostare
 
-Verplaatsen
+Verschuiven
 ;
 MSG_DEMGUI_DRAWMODE
   Draw Mode
@@ -2906,7 +2906,7 @@ MSG_DEMGUI_NOGRADIENTREVERSAL
 
 \33cNessuna inversione di Gradiente
 
-
+\33cGeen Omgekeerde Gradiënt
 ;
 MSG_DEMGUI_MINIMUMSPACING
 Minimum Spacing \x20
@@ -2969,7 +2969,7 @@ Choropleth\x20
 
 
 
-Choroplet\x20\x20
+Choropleth\x20\x20
 ;
 MSG_DEMGUI_DENSITY
 Density\x20\x20\x20\x20
@@ -2990,7 +2990,7 @@ South Hemi.
 Südl. Hemi.
 
 
-Zuidelijk Halfrond.
+Zuid. Halfrond
 ;
 MSG_DEMGUI_BOUNDARIES
 \33c\0334Boundaries
@@ -3137,7 +3137,7 @@ MSG_DEMGUI_BUILD
 
 
 
-\33cCreëren...
+\33cMaken...
 ;
 MSG_DEMGUI_DRAWPTS
 \33cDraw Pts
@@ -3151,7 +3151,7 @@ MSG_DEMGUI_CLEARPTS
 \33cPunkte löschen
 
 
-\33cWis Punten
+\33cPunten Wissen
 ;
 MSG_DEMGUI_NONNEG
 Non-Neg\x20\x20\x20\x20
@@ -3214,7 +3214,7 @@ Scope
 
 
 
-Reikwijdte
+Scope
 ;
 MSG_DEMGUI_APPLYNOISEMAP
 \33cApply Noise Map
@@ -3340,7 +3340,7 @@ Error writing to XYZ file! Partial file written.\nOperation terminated.
 Fehler beim Schreiben der XYZ-Datei! Datei wurde nur teilweise geschrieben.\nVorgang abgebrochen.
 
 
-Foout bij schrijven naar XYZ bestand! Deel van bestand geschreven.\nOperatie afgebroken.
+Fout bij schrijven naar XYZ bestand! Deel van bestand geschreven.\nOperatie afgebroken.
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
 You must specify an output file name!\nOperation terminated.
@@ -3616,7 +3616,7 @@ Vector Load
 
 
 
-Laa Vector
+Laad Vector
 ;
 MSG_DB_OBJECTS
 %d objects
@@ -3644,7 +3644,7 @@ Error reading elevations! Object not loaded.
 Fehler beim Lesen der Höhenwerte! Objekt wurde nicht geladen.
 
 
-Fout bij lezen van hoogtes! Object niet geladen.
+Fout bij lezen van hoogten! Object niet geladen.
 ;
 MSG_DB_ERRORREADINGLATITUDESOBJECTNOTLOADED
 Error reading latitudes! Object not loaded.
@@ -3658,7 +3658,7 @@ Error reading longitudes! Object not loaded.
 Fehler beim Lesen der Längengrade! Objekt wurde nicht geladen.
 
 
-Fout bij lezen van lengtes! Object niet geladen.
+Fout bij lezen van lengtegraden! Object niet geladen.
 ;
 MSG_DB_OUTOFMEMORYOBJECTNOTLOADED
 Out of memory! Object not loaded.
@@ -3809,7 +3809,8 @@ Foout bij lezen van Master Object bestand!\nOperatie afgebroken.
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
-
+Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus \
+einzelnen Dateien geladen
 
 
 Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van \
@@ -3919,7 +3920,7 @@ Resample
 
 
 
-Herbemonsteren
+Herberekenen
 ;
 MSG_DATAOPS_EXTREMA
 Extrema
@@ -4144,7 +4145,7 @@ Floating Pt
 Fließkomma
 
 
-Floating Pt
+Drijvende komma
 ;
 MSG_DATAOPSGUI_ONE
 One
@@ -4214,7 +4215,7 @@ Longitude
 Länge
 
 
-Lengte
+Lengtegraad
 ;
 MSG_DATAOPSGUI_INCHES
 Inches
@@ -4284,7 +4285,7 @@ MSG_DATAOPSGUI_VALUEFORMATSAMPLING
 
 
 
-\0334Waarde formaat & Bemonstering
+\0334Waarde formaat & Berekening
 ;
 MSG_DATAOPSGUI_VALUEFORMATCOLORED
 \0334Value Format
@@ -4330,7 +4331,7 @@ Header bytes
 ;
 MSG_DATAOPSGUI_VALUEFORMAT
 Value Format
-       Werteformat
+Werteformat
 
 
 Waardeformaat
@@ -4446,7 +4447,7 @@ Wrap Longitude
 
 
 
-Longitude omslaan
+Lengtegraad omslaan
 ;
 MSG_DATAOPSGUI_TEST
 \33cTest
@@ -4908,7 +4909,7 @@ Rock
 Fels
 
 
-Rotsen
+Rots
 ;
 MSG_DEFPARM_BAREGROUND
 Bare Ground
@@ -5007,14 +5008,14 @@ MSG_DIAG_LATITUDE
   Breite
 
 
-Breedte
+Breedtegraad
 ;
 MSG_DIAG_LONGITUDE
  Longitude
  Länge
 
 
-Lengte
+Lengtegraad
 ;
 MSG_DIAG_DATABASE
 \33cDatabase
@@ -5128,7 +5129,7 @@ Circle
 Kreis
 
 
-Circle
+Circel
 ;
 MSG_EDDB_SQUARE
 Square
@@ -5149,7 +5150,7 @@ Solid
 durchgezogen
 
 
-Volledig
+Gevuld
 ;
 MSG_EDDB_DOTTED
 Dotted
@@ -5184,7 +5185,7 @@ Surface
 Oberfläche
 
 
-Oppevlakte
+Oppervlakte
 ;
 MSG_EDDB_VECTOR
 Vector
@@ -5205,14 +5206,14 @@ Segment V
 
 
 
-Segement V
+Segment V
 ;
 MSG_EDDB_ILLUMSEG
 Illum Seg
 
 
 
-Illume Seg
+Illum Seg
 ;
 MSG_EDDB_DATABASEEDITOR
 Database Editor
@@ -5815,7 +5816,7 @@ MSG_EDECOGUI_EYFRAMES
 \33c\0334Key Frames
 
 
-\33c\0334Sleutel Frames
+\33c\0334Key Frames
 ;
 MSG_EDECOGUI_PREV
 \33cPrev
@@ -5843,7 +5844,7 @@ MSG_EDECOGUI_MAKEKEY
 \33cKey erzeugen
 
 
-\33cMaak sleutel
+\33cMaak Key
 ;
 MSG_EDECOGUI_UPDATE
 \33cUpdate
@@ -5885,7 +5886,7 @@ MSG_EDECOGUI_SCALEKEYS
 \33cKeys skalieren\x20
 
 
-\33cSchaal sleutels\x20
+\33cSchaal keys\x20
 ;
 MSG_EDECOGUI_COPY
 \33cCopy
@@ -5948,14 +5949,14 @@ MSG_EDECOGUI_ELEVSKEW
 
 
 
-Hoogte neiging\x20
+Hgt neiging\x20
 ;
 MSG_EDECOGUI_ELSKEWAZ
 El Skew Az\x20
 
 
 
-Hg Neig Az\x20
+Hgt Neig Az\x20
 ;
 MSG_EDECOGUI_RELELEFF
 Rel El Eff\x20
@@ -6025,7 +6026,7 @@ Delete all %s Key Frames?
 Alle %s Keyframes löschen?
 
 
-Alle %s sleutel frames verwijderen?
+Alle %s key frames verwijderen?
 ;
 MSG_EDECOGUI_ECOSYSTEMPARAMETERSSWAP
 Ecosystem Parameters: Swap
@@ -6166,7 +6167,7 @@ MSG_EDMOGUI_KEYFRAMES
 \33c\0334Key Frames
 
 
-\33c\0334Sleutel Frames
+\33c\0334Key Frames
 ;
 MSG_EDMOGUI_PREV
 \33cPrev
@@ -6194,7 +6195,7 @@ MSG_EDMOGUI_MAKEKEY
 \33cKey erzeugen
 
 
-\33cMaak sleutel
+\33cMaak Key
 ;
 MSG_EDMOGUI_GROUP
 \33cGroup
@@ -6306,21 +6307,21 @@ Make key frames for Focus Parameters also?
 Sollen Keyframes auch für die Fokus-Parameter erzeugt werden?
 
 
-Ook sleutel frames maken voor Focus Parameters?
+Ook key frames maken voor Focus Parameters?
 ;
 MSG_EDMOGUI_MAKEKEYFRAMESFORCAMERAPARAMETERSALSO
 Make key frames for Camera Parameters also?
 Sollen Keyframes auch für die Kamera-Parameter erzeugt werden?
 
 
-Ook sleutel frames maken voor Camera Parameters?
+Ook key frames maken voor Camera Parameters?
 ;
 MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY
 Parameters Module: Make Key
 
 
 
-Parameter Module: Sleutel maken
+Parameter Module: Key maken
 ;
 MSG_EDMOGUI_DRAW
 \0334Draw
@@ -6545,21 +6546,21 @@ Parameters Module: Bank Keys
 
 
 
-Parameter Module: Helling Sleutels
+Parameter Module: Neiging Keys
 ;
 MSG_EDPAR_KEYFRAMESEXISTFORTHEBANKPARAMETEROVERWRITETHEM
 Key Frames exist for the "Bank" Parameter. Overwrite them?
 
 
 
-Sleutel frames bestaan al voor de "Helling" Parameter. Overschrijven?
+Key frames bestaan al voor de "Neiging" Parameter. Overschrijven?
 ;
 MSG_EDPAR_ENTERKEYFRAMEINTERVALORKFORCURRENTKEYFRAMES
 Enter Key Frame interval or 'K' for current Key Frames.
 Geben Sie das Frame Intervall an oder 'K' für die aktuellen Keyframes.
 
 
-Voer sleutel frame interval in of 'K' voor huidige sleutel frames.
+Voer key frame interval in of 'K' voor huidige key frames.
 ;
 MSG_EDPAR_PARAMETERSMODULEEXPORT
 Parameters Module: Export
@@ -6573,14 +6574,14 @@ Error creating Key Frame!\nOperation terminated.
 Fehler beim erzeugen des Keyframes!\nVorgang abgebrochen.
 
 
-Fout bij maken van sleutel frame!\nOperatie afgebroken.
+Fout bij maken van key frame!\nOperatie afgebroken.
 ;
 MSG_EDPAR_NOCAMERAPATHLATLONKEYFRAMESPERATIONTERMINATED
 No Camera Path Lat/Lon Key Frames!\nOperation terminated.
 
 
 
-Geen Camera Pad Lat/Lon sleutel Frames!\nOperatie afgebroken.
+Geen Camera Pad Lat/Long key Frames!\nOperatie afgebroken.
 ;
 MSG_EDPAR_UNUSED
 Unused
@@ -6636,7 +6637,7 @@ Load all key frames?
 Alle Keyframes laden?
 
 
-Alle sleutel frames laden?
+Alle key frames laden?
 ;
 MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED
 Color item %s not found in this file!\nOperation terminated.
@@ -6839,7 +6840,7 @@ Save all key frames as well?
 Sollen auch alle Keyframes gespeichert werden?
 
 
-Alle sleutel frames ook opslaan?
+Alle key frames ook opslaan?
 ;
 MSG_EDPAR_MOTION
 %s motion
@@ -7065,7 +7066,7 @@ No Vectors
 Keine Vektoren
 
 
-Geeen vectoren
+Geen vectoren
 ;
 MSG_EDSETGUI_NOHAZEEFF
 No Haze Eff
@@ -7135,7 +7136,7 @@ No CMap Textures
 
 
 
-Geeen CMap Texturen
+Geen CMap Texturen
 ;
 MSG_EDSETGUI_CMAPTEXTURES
 \338CMap Textures
@@ -7331,7 +7332,7 @@ MSG_EDSETGUI_ZASFLOATINGPTARRAY
 \338Z als Fließkomma Feld
 
 
-\338Z als Drijvende Komma Groep
+\338Z als Drijvende Komma Reeks
 ;
 MSG_EDSETGUI_ZASGRAYSCALEARRAY
 Z As Gray Scale Array
@@ -7429,7 +7430,7 @@ No Render Beyond Horizon
 
 
 
-Geeen renderen voorbij de horizon
+Geen renderen voorbij de horizon
 ;
 MSG_EDSETGUI_RENDERBEYONDHORIZON
 \338Render Beyond Horizon
@@ -7471,7 +7472,7 @@ MSG_EDSETGUI_FRACTALDISPLACEMENT
 
 
 
-\338Fraktale Verschuiving
+\338Fractale Verschuiving
 ;
 MSG_EDSETGUI_INDIVIDUALCOLORMAPS
 Individual Color Maps
@@ -7681,7 +7682,7 @@ Render Settings Editor
 
 
 
-Render Instellungen Editor
+Render Instellingen Editor
 ;
 MSG_EDSETGUI_WIDTH
 Width\x20
@@ -7716,7 +7717,7 @@ MSG_EDSETGUI_CHANGEIMAGESIZE
 \33cBildgröße ändern
 
 
-\33cAfbeelding grootte wijzigen
+\33cAfbeeldingsgrootte wijzigen
 ;
 MSG_EDSETGUI_START
  Start\x20
@@ -7961,14 +7962,14 @@ Ref Latitude\x20
 Ref Breite\x20
 
 
-Ref Breedte\x20
+Ref Breedtegraad\x20
 ;
 MSG_EDSETGUI_TREEHTFACT
 Tree Ht Fact\x20
 
 
 
-Boom Ht Fact\x20
+Boom Hgt Fact\x20
 ;
 MSG_EDSETGUI_MODELPATH
 Model Path\x20
@@ -8031,14 +8032,14 @@ MSG_EDSETGUI_REFLATITUDE_2
 
 
 
-Ref Breedte\x20
+Ref Breedtegraad\x20
 ;
 MSG_EDSETGUI_REFLONGITUDE
 Ref Longitude\x20
  Ref Länge\x20
 
 
-Ref Lengte\x20
+Ref Lengtegraad\x20
 ;
 MSG_EDSETGUI_BGPATH
    BG Path\x20
@@ -8220,7 +8221,7 @@ MSG_EDITGUI_EYFRAMES
 \33c\0334Keyframes
 
 
-\33c\0334Sleutel Frames
+\33c\0334Key Frames
 ;
 MSG_EDITGUI_PREV
 \33cPrev
@@ -8248,7 +8249,7 @@ MSG_EDITGUI_MAKEKEY
 \33cKey erzeugen
 
 
-\33cSleutel maken
+\33cKey maken
 ;
 MSG_EDITGUI_UPDATE
 \33cUpdate
@@ -8290,7 +8291,7 @@ MSG_EDITGUI_SCALEKEYS
 
 
 
-\33cSleutels schalen\x20
+\33cKeys schalen\x20
 ;
 MSG_EDITGUI_COPY
 \33cCopy
@@ -8353,7 +8354,7 @@ Copy Key Frames too?
 
 
 
-Sleutel Frames ook kopiëren?
+Key Frames ook kopiëren?
 ;
 MSG_EDITGUI_COLORPARAMETERSSWAP
 Color Parameters: Swap
@@ -8480,7 +8481,7 @@ Sun Time
 
 
 
-
+Zon Tijd
 ;
 MSG_EVMORGUI_REFLON
 Ref Lon
@@ -8515,7 +8516,7 @@ Sun Lat
 
 
 
-Zon Breedte
+Zon Lat
 ;
 MSG_EVMORGUI_REVERSESEASONS
 \33cReverse Seasons
@@ -8536,7 +8537,7 @@ Sun Time Window
 
 
 
-
+Zon Tijd Venster
 ;
 MSG_EVMORGUI_NEWPROJECT
 New Project
@@ -8959,14 +8960,14 @@ Key Frame Module
 
 
 
-Sleutel Frame Module
+Key Frame Module
 ;
 MSG_PARAMS_OUTOFMEMORYALLOCATINGNEWKEYFRAMEPERATIONTERMINATED
 Out of memory allocating new key frame!\nOperation terminated.
 
 
 
-Te weinig geheugen bij aanmaken van nieuw sleutelframe!\nBewerking afgebroken.
+Te weinig geheugen bij aanmaken van nieuwe key frame!\nBewerking afgebroken.
 ;
 MSG_GENTLGUI_TENS
 Tens
@@ -9057,14 +9058,14 @@ MSG_GENTLGUI_ADDKEY
 
 
 
-\33cSleutel toevoegen
+\33cKey toevoegen
 ;
 MSG_GENTLGUI_DELKEY
 \33c\33uDel\33n Key
 
 
 
-\33c\33uSleutel\33nVerwijderen
+\33c\33uKey\33nVerwijderen
 ;
 MSG_GENTLGUI_LINEAR
 \33cLinear
@@ -9106,7 +9107,7 @@ At least two key frames for this parameter must be created prior to opening the 
 
 
 
-Maak minstens twee sleutelframes voor deze parameter voordat u het tijdlijnvenster opent
+Maak minstens twee key frames voor deze parameter voordat u het tijdlijnvenster opent
 ;
 ;
 MSG_GLMP_RENDERINITIALIZATIONCOMPLETE
@@ -9205,7 +9206,7 @@ Out of memory opening key frame table!\nOperation terminated.
 
 
 
-Te weinig geheugen bij openen van sleutelframetabel!\nBewerking afgebroken.
+Te weinig geheugen bij openen van key frametabel!\nBewerking afgebroken.
 ;
 MSG_GLMP_ERRORLOADINGWAVEFILECONSTSTRPTRCONTINUEWITHOUTWAVES
 Error loading Wave File!\nContinue without Waves?
@@ -9429,7 +9430,7 @@ Out of memory allocating Smoothing Index array!
 
 
 
-Te weinig geheugen bij toewijzen van Gladheidsindex array!
+Te weinig geheugen bij toewijzen van Gladheidsindex reeks!
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGFRACTALMAPARRAYCONTINUEWITHOUTFRA
 Out of memory allocating Fractal Map array!\nContinue without Fractal Maps or retry?
@@ -9485,11 +9486,11 @@ Out of memory allocating Cloud Key Frames!\nOperation terminated
 
 
 
-Te weinig geheugen bij toewijzen van Wolken Sleutelframes!\nBewerking afgebroken
+Te weinig geheugen bij toewijzen van Wolken key frames!\nBewerking afgebroken
 ;
 MSG_GLMP_ERRORREADINGPAGEDOUTFILECANTRESTOREREFLECTIONBUFFERSOP
 Error reading paged-out file! Can't restore Reflection buffers. Operation terminated.
-
+Fehler beim Lesen der ausgelagerten Datei! Die Puffer für die Reflektionen konnten nicht wiederhergestellt werden. Vorgang abgebrochen.
 
 
 Fout bij lezen van paged-out bestand! Kan Reflectiebuffers niet herstellen. Bewerking afgebroken.
@@ -9514,7 +9515,7 @@ Frame %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
 Frame %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
 
 
-Frame %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
+Frame %hd  VP.lat=%f, VP.long=%f, VP.hgt=%f\n
 ;
 MSG_GLMPSPRT_QMAXFQFOCUSFBANKINGF
 Q max=%f, Q focus=%f, Banking=%f\n
@@ -9634,7 +9635,7 @@ Auto-centered: alt = %f  lat = %f  lon = %f\n
 Auto-zentriert: Höhe = %f  Breite = %f  Länge  = %f\n
 
 
-Auto-gecentreerd: hoogte = %f  breedte = %f  lengte = %f\n
+Auto-gecentreerd: hgt = %f  lat = %f  long = %f\n
 ;
 MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW
 Parameters Module: Camera View
@@ -9825,7 +9826,7 @@ No Key Frames to export!\nOperation terminated.
 
 
 
-Geen Sleutelframes om te exporteren!\nBewerking afgebroken.
+Geen Key frames om te exporteren!\nBewerking afgebroken.
 ;
 MSG_LWSPRT_ERROROPENINGFILEFOROUTPUTPERATIONTERMINATED
 Error opening file for output!\nOperation terminated.
@@ -9913,7 +9914,8 @@ Fout bij opslaan van de LW-scene.\nAls een bestand is gemaakt, is het niet compl
 ;
 MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA
 The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created.
-
+Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt \
+dargestellt.
 
 
 De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte \
@@ -9922,7 +9924,7 @@ scènebestand.
 ;
 MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR
 Digitize new points for the active vector object or create a new object?
-
+Neue Punkte für das aktive Vektorobjekt digitalisieren oder neues Objekt erstellen?
 
 
 Nieuwe punten digitaliseren voor het actieve vectorobject of een nieuw object maken?
@@ -9988,7 +9990,7 @@ Camera Key Frames exist. Proceeding will delete current values!
 
 
 
-Camera Sleutelframes bestaan al. Doorgaan zal huidige waarden verwijderen!
+Camera Key frames bestaan al. Doorgaan zal huidige waarden verwijderen!
 ;
 MSG_MOREGUI_PROCEEDCANCEL
 Proceed|Cancel
@@ -10002,7 +10004,7 @@ Focus Key Frames exist. Proceeding will delete current values!
 
 
 
-Focus Sleutelframes bestaan al. Doorgaan zal huidige waarden verwijderen!
+Focus Key frames bestaan al. Doorgaan zal huidige waarden verwijderen!
 ;
 MSG_LINESPRT_ENTERFRAMEINTERVALTOREPRESENTEACHVECTORSEGMENT
 Enter frame interval to represent each vector segment.
@@ -10030,32 +10032,32 @@ Out of memory creating Key Frames!\nOperation terminated.
 
 
 
-Te weinig geheugen bij maken van Sleutelframes!\nBewerking afgebroken.
+Te weinig geheugen bij maken van Key frames!\nBewerking afgebroken.
 ;
 MSG_LINESPRT_USEALLSPLINEDPOINTSORONLYKEYFRAMES
 Use all splined points or only Key Frames?
 
 
 
-Alle gesplinede punten of alleen Sleutelframes gebruiken?
+Alle gesplinede punten of alleen Key frames gebruiken?
 ;
 MSG_LINESPRT_ALLSPLINEDKEYFRAMES
 All Splined|Key Frames
 
 
 
-Alle gesplinede|Sleutelframes
+Alle gesplinede|Key frames
 ;
 MSG_LINESPRT_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED
 Out of memory opening Key Frame table!\nOperation terminated.
 
 
 
-Te weinig geheugen bij openen van Sleutelframetabel!\nBewerking afgebroken.
+Te weinig geheugen bij openen van Key frametabel!\nBewerking afgebroken.
 ;
 MSG_LINESPRT_THEREAREMOREFRAMESTHANALLOWABLEVECTORPOINTSPATHWIL
 There are more frames than allowable vector points! Path will be truncated.
-
+Es gibt mehr Frames als zulässige Vektorpunkte! Der Pfad wird abgeschnitten.
 
 
 Er zijn meer frames dan toegestane vectorpunten! Pad zal worden ingekort.
@@ -10115,7 +10117,7 @@ First set of alignment lat/lon coordinates must be larger than second and map sc
 
 
 
-Eers set van uitlijnende lat/lon-coördinaten moet groter zijn dan de tweede en de kaartschaal moet groter zijn dan nul!\nBewerking afgebroken.
+Eers set van uitlijnende lat/long-coördinaten moet groter zijn dan de tweede en de kaartschaal moet groter zijn dan nul!\nBewerking afgebroken.
 ;
 MSG_MAP_SETNORTHWESTREFERENCEPOINTWITHMOUSE
 \0338Set northwest reference point with mouse.
@@ -10199,7 +10201,7 @@ Relative elevation file
 
 
 
-Relatief hoogtebestand
+Relatieve hoogtebestand
 ;
 MSG_MAP_338SETCENTERPOINT
 \0338Set center point.
@@ -10287,14 +10289,14 @@ Kaartweergave: Multi-Select
 ;
 MSG_MAP_SELECTORDESELECTITEMS
 Select or de-select items?
-
+Einträge auswählen oder abwählen?
 
 
 Items selecteren of deselecteren?
 ;
 MSG_MAP_SELECTDESELECTCANCEL
 Select|De-select|Cancel
-Auswählen|Auswahl aufheben|Abbrechen
+Auswählen|Abwählen|Abbrechen
 
 
 Selecteren|Deselecteren|Annuleren
@@ -10525,14 +10527,14 @@ Lengte %f %f %f\n
 ;
 MSG_MAP_ILLEGALVALUEWOREGISTRATIONPOINTSMAYNOTBECOINC
 Illegal value!\nTwo registration points may not be coincident.\nOperation terminated.
-
+Ungültiger Wert!\nZwei Registrierungspunkte dürfen nicht zusammenfallen.\nVorgang abgebrochen.
 
 
 Ongeldige waarde!\nTwee registratiepunten mogen niet samenvallen.\nBewerking afgebroken.
 ;
 MSG_MAP_REGISTRATIONPOINTSCOINCIDENT
 Registration points coincident
-
+Registrierungspunkte fallen zusammen
 
 
 Registratiepunten vallen samen
@@ -10549,7 +10551,7 @@ Longitude scale = %f /point
 
 
 
-Longitude schaal = %f /punt
+Lengtegraad schaal = %f /punt
 ;
 MSG_MAP_LATITUDESCALEFPOINT
 Latitude scale = %f /point
@@ -10560,7 +10562,7 @@ Latitude schaal = %f /punt
 ;
 MSG_MAP_SETPOINTBUTTON2CLOSE3ABORT4DONE
 Set point %d. Button 2=close, 3=abort, 4=done
-
+Punkt %d setzen. Taste 2=schließen, 3=abbrechen, 4=fertig
 
 
 Punt %d instellen. Knop 2=sluiten, 3=afbreken, 4=klaar
@@ -10570,11 +10572,11 @@ Pt %d  Lat=%f  Lon=%f
 
 
 
-Pt %d  Breedte=%f  Lengte=%f
+Pt %d  Lat=%f  Long=%f
 ;
 MSG_MAPTOPO_ECOSYSTEMOUTOFRANGE
 Ecosystem out of range.
-
+Ökosystem außerhalb des zulässigen Bereichs.
 
 
 Ecosysteem buiten bereik.
@@ -10766,7 +10768,7 @@ Vertex %d  Latitude %f  Longitude %f
 
 
 
-Hoekpunt %d  Breedte %f  Lengte %f
+Hoekpunt %d  Breedtegraad %f  Lengtegraad %f
 ;
 MSG_MAPEXTRA_DUPLICATETHISOBJECT
 Duplicate this object?
@@ -11643,21 +11645,21 @@ NW Lat
 NW Breite
 
 
-NW Breedte
+NW Lat
 ;
 MSG_MAPGUI_LON
  Lon
  Länge
 
 
-Lengte
+Long
 ;
 MSG_MAPGUI_SELAT
 SE Lat
 SO Länge
 
 
-ZO Lengte
+ZO Lat
 ;
 MSG_MAPGUI_CREENCOORDS
 \33c\0334Screen Coords
@@ -11790,7 +11792,7 @@ DEM Ctrl Pt: Lat %f Lon %f Elev %.2f
 
 
 
-DEM Ctrl Punt: Breedte %f Lengte %f Hoogte %.2f
+DEM Ctrl Punt: Lat %f Long %f Hgt %.2f
 ;
 MSG_MAPGUI_DATABASESAVE
 Database: Save
@@ -11982,14 +11984,14 @@ MSG_MAPSUPRT_SLATFLONF
 
 
 
-%s, LAT: %f, LON: %f
+%s, LAT: %f, LONG: %f
 ;
 MSG_MAPSUPRT_LATFLONF
 LAT: %f, LON: %f
 
 
 
-LAT: %f, LON: %f
+LAT: %f, LONG: %f
 ;
 MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING
 Vector object has been modified!\nSave it before closing?
@@ -12266,14 +12268,14 @@ MSG_MOREGUI_SELATITUDE
  SO Breite
 
 
-ZO Breedte
+ZO Breedtegraad
 ;
 MSG_MOREGUI_SELONGITUDE
  SE Longitude
  SO Länge
 
 
- ZO Lengte
+ZO Lengtegraad
 ;
 MSG_MOREGUI_DEMNAME
 DEM Name
@@ -12294,7 +12296,7 @@ MSG_MOREGUI_ELEVPTRN
 
 
 
- Hgt Ptrn
+Hgt Ptrn
 ;
 MSG_MOREGUI_REFSYS
  Ref Sys
@@ -12476,7 +12478,7 @@ Elevation Datum
 
 
 
-Elevatie Datum
+Hoogte Datum
 ;
 MSG_MOREGUI_ELEVMAX
 Elev Max
@@ -12646,7 +12648,7 @@ Default Directory\x20\x20\x20
 Standardordner\x20\x20\x20\x20\x20\x20
 
 
-Standaardmap\x20\x20\x20\x20\x20\x20
+Standaarddirectory\x20\x20\x20\x20\x20\x20
 ;
 ; --- second page ---
 MSG_MOREGUI_GRAPHICSAVEPATH_SPACES
@@ -12731,7 +12733,7 @@ Sun Image File\x20\x20\x20\x20\x20\x20
 Sonnen-Bilddatei\x20\x20\x20\x20
 
 
-Zonnenafbeeldingen Bestand\x20\x20\x20\x20\x20\x20
+Zonafbeeldingen Bestand\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_MOONIMAGEFILE_SPACES
 Moon Image File\x20\x20\x20\x20\x20
@@ -12745,21 +12747,21 @@ PC Project Directory
 PC-Projektordner\x20\x20\x20\x20
 
 
-PC Project Map\x20\x20\x20\x20\x20
+PC Project Directory\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_PCFRAMESDIRECTORY_SPACES
 PC Frames Directory\x20
 PC-Bilderordner\x20\x20\x20\x20\x20
 
 
-PC Afbeeldingen Map\x20\x20\x20\x20\x20
+PC Afbeeldingen Directory\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_DIRECTORYLIST
 \33cDirectory List
 \33cOrdnerliste
 
 
-\33cMappenlijst
+\33cDirectory lijst
 ;
 MSG_MOREGUI_SAVE
 \33cSave
@@ -12836,7 +12838,7 @@ Default Directory
 Standardverzeichnis
 
 
-Standaardmap
+Standaarddirectory
 ;
 MSG_MOREGUI_CLOUDMAPPATH
 Cloud Map Path
@@ -12871,7 +12873,7 @@ Sun Image File
 Sonnen-Bilddatei
 
 
-Zonnenafbeeldingen Bestand
+Zonafbeeldingen Bestand
 ;
 MSG_MOREGUI_MOONIMAGEFILE
 Moon Image File
@@ -12997,7 +12999,7 @@ MSG_MOREGUI_STATUSLOGMESSAGES
 \33c\0334Status Log Nachrichten
 
 
-\33c\0334Status Log Berichten
+\33c\0334Status Log Meldingen
 ;
 MSG_MOREGUI_ERR
 \33cERR
@@ -13075,14 +13077,14 @@ Out of memory restoring old key frames!\nSome %s keys may be lost.
 
 
 
-Te weinig geheugen bij het herstellen van oude sleutel frames!\nSommige %s sleutels kunnen verloren gaan.
+Te weinig geheugen bij het herstellen van oude key frames!\nSommige %s keys kunnen verloren gaan.
 ;
 MSG_PARAMS_KEYFRAMECANCEL
 Key Frame: Cancel
 
 
 
-Sleutel Frame: Annuleren
+Key Frame: Annuleren
 ;
 MSG_PARAMS_PARAMETERSMODULEVELOCITYDISTRIBUTION
 Parameters Module: Velocity Distribution
@@ -13117,14 +13119,14 @@ No key frames to scale!
 
 
 
-Geen sleutel frames om te schalen!
+Geen key frames om te schalen!
 ;
 MSG_PARGUI_SCALEKEYS
 Scale Keys
 
 
 
-Sleutels Schalen
+Keys Schalen
 ;
 MSG_PARGUI_PARAM
 Param
@@ -13313,7 +13315,7 @@ Lon
 
 
 
-Lon
+Long
 ;
 MSG_PARGUI_ROTATETOHORIZONTAL
 \33cRotate to Horizontal
@@ -13486,7 +13488,7 @@ MSG_PARGUI_CONIF (//31)
      Nadelbaum
 
 
-Pijnboom
+Naaldboom
 ;
 MSG_PARGUI_DECID (//31)
  Decid
@@ -13500,7 +13502,7 @@ MSG_PARGUI_LOWVG (//31)
       LowVg
 
 
-LowVg
+LgVeg
 ;
 MSG_PARGUI_SNAG (//31)
   Snag
@@ -13873,7 +13875,7 @@ Directory List: Load
 Verzeichnisliste: Laden
 
 
-Mappenlijst: Laden
+Directory lijst: Laden
 ;
 MSG_SUPPORT_PRINTING
 Printing...
@@ -13924,7 +13926,7 @@ No Motion Parameters with more than one Key Frame!\nOperation terminated.
 
 
 
-Geen bewegingsparameters met meer dan één sleutel frame!\nBewerking afgebroken.
+Geen bewegingsparameters met meer dan één key frame!\nBewerking afgebroken.
 ;
 MSG_TLGUI_MOTIONTIMELINE
 Motion Time Line
@@ -13973,14 +13975,14 @@ MSG_TLGUI_ADDKEY
 \33cSchlüsselbild Hinzufügen
 
 
-\33cSleutel frame Toevoegen
+\33cKey frame Toevoegen
 ;
 MSG_TLGUI_DELKEY
 \33c\33uDel\33n Key
 \33cSchlüsselbild Löschen\33n
 
 
-\33c\33uSleutel frame Verwijderen\33n
+\33c\33uKey frame Verwijderen\33n
 ;
 MSG_TLGUI_LINEAR
 \33cLinear
@@ -14029,7 +14031,7 @@ At least two key frames for this parameter must be created prior to opening the 
 Für diesen Parameter müssen mindestens zwei Schlüsselbilder erzeugt werden, bevor das Zeitleistenfenster geöffnet werden kann.
 
 
-Minstens twee sleutel frames voor deze parameter maken voordat het tijdlijstvenster wordt geopend.
+Minstens twee key frames voor deze parameter maken voordat het tijdlijstvenster wordt geopend.
 ;
 MSG_TLGUI_MOTIONTIMELINES
 Motion Time Lines
@@ -14085,7 +14087,7 @@ MSG_TLGUI_SKEW
 
 
 
-\0334Scheef
+\0334Neiging
 ;
 MSG_TLGUI_AZIMUTH
 \0334Azimuth
@@ -14099,14 +14101,14 @@ MSG_TLGUI_RELATIVEELEVATIONEFFECT
 
 
 
-\0334Relatief Hoogte Effect
+\0334Relatieve Hoogte Effect
 ;
 MSG_TLGUI_MXRELATIVEELEVATION
 \0334Mx Relative Elevation
 \0334max relative Höhe
 
 
-\0334max relatieve hoogte
+\0334Max Relatieve Hoogte
 ;
 MSG_TLGUI_MNRELATIVEELEVATION
 \0334Mn Relative Elevation
@@ -14148,7 +14150,7 @@ No Ecosystem Parameters with more than one Key Frame!\nOperation terminated.
 Keine Ökosystemparameter mit mehr als einem Schlüsselbild!\nVorgang abgebrochen.
 
 
-Geeen ecosysteemparameters met meer dan één sleutel frame!\nBewerking afgebroken.
+Geen ecosysteemparameters met meer dan één key frame!\nBewerking afgebroken.
 ;
 MSG_TLGUI_ECOSYSTEMTIMELINE
 Ecosystem Time Line
@@ -14197,7 +14199,7 @@ No data in WCS Ecosystem Model!\nOperation terminated.
 Keine Daten im Ökosystem-Modell!\nVorgang abgebrochen.
 
 
-Geeen gegevens in WCS ecosysteemmodel!\nBewerking afgebroken.
+Geen gegevens in WCS ecosysteemmodel!\nBewerking afgebroken.
 ;
 MSG_TREE_APROBLEMOCCURREDLOADINGATLEASTONEIMAGEFORTHISECOSYSTEM
 A problem occurred loading at least one image for this ecosystem!\nContinue without it or them?
@@ -14290,7 +14292,7 @@ Longitude
 Längengrad
 
 
-Lengthgraad
+Lengtegraad
 ;
 MSG_WAVGUI_AMPLITUDEM
 Amplitude (m)
@@ -14304,7 +14306,7 @@ Wave Length (km)
 Länge der Welle (km)
 
 
-Gollengte (km)
+Golflengte (km)
 ;
 MSG_WAVGUI_VELOCITYKMHR
 Velocity (km/hr)
@@ -14381,7 +14383,7 @@ MSG_WAVGUI_REFLECT
 
 
 
-\33cReflecteren
+\33cReflectie
 ;
 MSG_WAVGUI_FRACTAL
 \33cFractal
@@ -14444,7 +14446,7 @@ MSG_WAVGUI_KEYFRAMES
 \33c\0334Key Frames
 
 
-\33c\0334Sleutel Frames
+\33c\0334Key Frames
 ;
 MSG_WAVGUI_PREV
 \33cPrev
@@ -14459,7 +14461,7 @@ PK %d
 VK %d
 
 
-VS %d
+VorigK %d
 ;
 ; NK="Next Key"
 MSG_WAVGUI_NKD
@@ -14467,7 +14469,7 @@ NK %d
 NK %d
 
 
-
+VolgK %d
 ;
 MSG_WAVGUI_FRAME
 Frame
@@ -14488,7 +14490,7 @@ MSG_WAVGUI_MAKEKEY
 \33cKey erzeugen
 
 
-\33cSleutel maken
+\33cKey maken
 ;
 MSG_WAVGUI_UPDATE
 \33cUpdate
@@ -14502,7 +14504,7 @@ MSG_WAVGUI_DELETE
 \33cLöschen
 
 
-
+\33cVerwijderen
 ;
 MSG_WAVGUI_DELETEALL
 \33cDelete All
@@ -14523,7 +14525,7 @@ MSG_WAVGUI_SCALEKEYS
 \33cKeys skalieren\x20
 
 
-\33cSleutels Schalen\x20
+\33cKeys Schalen\x20
 ;
 MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB
 The current Wave Model has been modified. Do you wish to save it before closing?
@@ -14551,7 +14553,7 @@ Delete all wave key frames?
 Alle Wellen-Keyframes löschen?
 
 
-Alle golf sleutel frames verwijderen?
+Alle golf key frames verwijderen?
 ;
 MSG_WAVGUI_AMPLITUDE
 Amplitude
@@ -14663,7 +14665,7 @@ Keys Exist (%d)
 Keys existieren (%d)
 
 
-Sleutels bestaan (%d)
+Keys bestaan al (%d)
 ;
 MSG_WAVGUI_ALL0
 \33cAll (0)
@@ -14677,7 +14679,7 @@ No Other Keys
 Keine weiteren Keys
 
 
-Geen andere sleutels
+Geen andere keys
 ;
 MSG_WCS_STACKTOSMALLUBYTES
 Stack to small! (%lu Bytes)\n
@@ -14842,5 +14844,5 @@ MSG_MENU_PR_CREDITSTRANSLATION
 
 \nDeutsche Übersetzung von Alexander Fritsch (selco).\nFehlermeldungen und Verbesserungsvorschläge\nbitte an selco@t-online.de
 
+\nNederlandse vertaling door Leo.\nFoutmeldingen en suggesties voor verbetering\ns.v.p. naar selco@t-online.de
 
-\nNederlandse vertaling door Leo.\nFoutmeldingen en suggesties voor verbetering\nnaar leo

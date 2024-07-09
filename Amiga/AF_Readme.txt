@@ -3673,3 +3673,9 @@ assign WCS_SOURCESPATH:  vbox:SelcoGit/3DNature/Amiga
 
 ; In WCS.cs sollte keine harten Pfade stehen, denn andere Uebersetzer (Leo fuer hollaendisch) haben grantiert andere Pfade. Deshlab sind da jetzt diese Logischen Laufwerke drin.
 
+9.Juli 2024
+-----------
+Rechtschreibpruefung Hollaendisch:
+cat WCS.cs  | awk '/MSG_.*/{MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0; getline;ITALIAN=$0;getline;FRENCH=$0;getline;DUTCH=$0; if(DUTCH!="") {gsub(/\\n/," ",$0); gsub(/\\338/," ",$0); gsub(/\\332/," ",$0); gsub(/\\0332/," ",$0); gsub(/\\0334/," ",$0); gsub(/\\33c/," ",$0); gsub(/\\33l/," ",$0); gsub(/\\33r/," ",$0); gsub(/\\33t/," ",$0); print $0;  }}'  >aaa.txt
+
+
