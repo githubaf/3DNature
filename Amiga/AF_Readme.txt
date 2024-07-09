@@ -3678,4 +3678,16 @@ assign WCS_SOURCESPATH:  vbox:SelcoGit/3DNature/Amiga
 Rechtschreibpruefung Hollaendisch:
 cat WCS.cs  | awk '/MSG_.*/{MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0; getline;ITALIAN=$0;getline;FRENCH=$0;getline;DUTCH=$0; if(DUTCH!="") {gsub(/\\n/," ",$0); gsub(/\\338/," ",$0); gsub(/\\332/," ",$0); gsub(/\\0332/," ",$0); gsub(/\\0334/," ",$0); gsub(/\\33c/," ",$0); gsub(/\\33l/," ",$0); gsub(/\\33r/," ",$0); gsub(/\\33t/," ",$0); print $0;  }}'  >aaa.txt
 
+Was ist Freeze Menu -> Parameters -> Freeze/Undo
+"Fix all parameter sets' values for later undo"
+It calls a function that copies Motion parameters, Color parameters, Eco parameters, settings and Keyframes into Undo-Buffers.
+
+Siehe EdPar.c 
+void FixPar(short k, short ParSet); 
+void UndoPar(short k, short ParUndo);
+
+und AGUI.c
+case ID_EP_FIX
+case ID_EP_UNDO
+
 
