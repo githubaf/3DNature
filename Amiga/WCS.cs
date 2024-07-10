@@ -229,7 +229,7 @@ Freeze
 Einfrieren
 Congelamento
 
-Bevriezen
+Vastleggen voor herstel
 ;
 MSG_MENU_PAR_RESTORE
 Restore
@@ -566,7 +566,7 @@ MSG_STDMESG_WRONGFILETYPE
  Falscher Dateityp!
  Tipo di File Errato!
 
- Verkeerd bestandstype!
+ Ongeldig bestandstype!
 ;
 MSG_STDMESG_ILLEGALINSTRUCTION
  Illegal instruction!
@@ -1441,8 +1441,7 @@ WCS: Schermmodus
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
-Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt \
-ausführen?
+Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt ausführen?
 Per ripristinare la modalità schermo, WCS dovrà essere chiuso e riaperto. Qualsiasi lavoro in corso deve essere salvato prima di invocare questo comando.\n Volete procedere ora?
 
 Om de schermmodus te resetten zal WCS moeten worden gesloten en heropend. Werk in uitvoering moet worden opgeslagen voordat deze opdracht wordt uitgevoerd.\n Wilt u nu doorgaan?
@@ -3053,7 +3052,7 @@ MSG_DEMGUI_SURFACETAUTNESS
 \33c\033fOberflächenspannung
 
 
-\33c\0334Oppervlakte Spanning
+\33c\0334Ruwheid Oppervlak
 ;
 MSG_DEMGUI_SCALE
 \33c\0334Scale
@@ -3510,7 +3509,7 @@ WDB File
 WDB-Datei
 
 
-WDV-Bestand
+WDB-Bestand
 ;
 MSG_DLG_CANTOPENWDBFILEFORINPUTPERATIONTERMINATED
 Can't open WDB file for input!\nOperation terminated.
@@ -3809,12 +3808,10 @@ Foout bij lezen van Master Object bestand!\nOperatie afgebroken.
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
-Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus \
-einzelnen Dateien geladen
+Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus einzelnen Dateien geladen
 
 
-Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van \
-individuele bestanden
+Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van individuele bestanden
 ;
 MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 .MDB is not a WCS Master Object file!
@@ -4243,8 +4240,8 @@ MSG_DATAOPSGUI_ONEVALUEEQUIVALENCE
 
 
 
-
-;\0334Een Waarde Equivalentie
+\0334Een Waarde Equivalentie
+;
 MSG_DATAOPSGUI_MAXMINSTRETCH
 \0334Max-Min Stretch
 
@@ -4629,7 +4626,7 @@ Unable to read file size!\n
 Dateigröße kann nicht gelesen werden!\n
 
 
-
+Kan bestandsgrootte niet lezen!\n
 ;
 MSG_DATAOPSGUI_DATAOPSCONVERT
 Data Ops: Convert
@@ -4643,7 +4640,7 @@ Warning!\nFile is not a WCS DEM file.
 Warnung\nDie Datei ist keine WCS DEM Datei.
 
 
-
+Waarschuwing!\nBestand is geen WCS DEM bestand.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFZBUFFERFILE
 Warning!\nFile is not an IFF Z Buffer file.
@@ -4804,35 +4801,35 @@ Surface Grid
 Oberflächengitter
 
 
-Oppervlakte raster
+Oppervlak raster
 ;
 MSG_DEFPARM_SURFACE1
 Surface 1
 Oberfläche 1
 
 
-Oppervlakte 1
+Oppervlak 1
 ;
 MSG_DEFPARM_SURFACE2
-Surface 3
+Surface 2
 Oberfläche 2
 
 
-Oppervlakte 2
+Oppervlak 2
 ;
 MSG_DEFPARM_SURFACE3
 Surface 3
 Oberfläche 3
 
 
-Oppervlakte 3
+Oppervlak 3
 ;
 MSG_DEFPARM_SURFACE4
 Surface 4
 Oberfläche4
 
 
-Oppervlakte 4
+Oppervlak 4
 ;
 MSG_DEFPARM_WATER
 Water
@@ -5050,7 +5047,7 @@ Surface
 Oberfläche
 
 
-Oppervlakte
+Oppervlak
 ;
 MSG_DIAG_NONE
 None
@@ -5185,7 +5182,7 @@ Surface
 Oberfläche
 
 
-Oppervlakte
+Oppervlak
 ;
 MSG_EDDB_VECTOR
 Vector
@@ -5255,7 +5252,7 @@ MSG_EDDB_SURFACES
 \33cOberflächen
 
 
-\33cOppervlakten
+\33cOppervlakken
 ;
 MSG_EDDB_FRACTALS
 \33cFractals
@@ -5662,7 +5659,7 @@ MSG_EDECOGUI_SURFACE
 \33cOberfläche
 
 
-\33cOppervlakte
+\33cOppervlak
 ;
 MSG_EDECOGUI_FRACTALS
 \33cFractals
@@ -6882,8 +6879,7 @@ Error writing to Parameter file!\nThe output file has been modified and may no l
 
 
 
-Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla \
-opnieuw op.
+Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla opnieuw op.
 ;
 ;
 MSG_EDSETGUI_ENDERSIZE
@@ -7164,14 +7160,14 @@ No Surface Grid
 
 
 
-Geen Oppervlakte Raster
+Geen Oppervlak Raster
 ;
 MSG_EDSETGUI_SURFACEGRID
 \338Surface Grid
 
 
 
-\338Oppervlakte Raster
+\338Oppervlak Raster
 ;
 MSG_EDSETGUI_NOFIXEDHORIZON
 No Fixed Horizon
@@ -7591,14 +7587,14 @@ No Surface Color Maps
 
 
 
-Geen Oppervlakte Kleurenkaarten
+Geen Oppervlak Kleurenkaarten
 ;
 MSG_EDSETGUI_SURFACECOLORMAPS
 \338Surface Color Maps
 
 
 
-\338Oppervlakte Kleurenkaarten
+\338Oppervlak Kleurenkaarten
 ;
 MSG_EDSETGUI_NOSUN
 No Sun
@@ -7871,28 +7867,28 @@ Surface El 1\x20
 
 
 
-Oppervlakte El 1\x20
+Oppervlak El 1\x20
 ;
 MSG_EDSETGUI_SURFACEEL2
 Surface El 2\x20
 
 
 
-Oppervlakte El 2\x20
+Oppervlak El 2\x20
 ;
 MSG_EDSETGUI_SURFACEEL3
 Surface El 3\x20
 
 
 
-Oppervlakte El 3\x20
+Oppervlak El 3\x20
 ;
 MSG_EDSETGUI_SURFACEEL4
 Surface El 4\x20
 
 
 
-Oppervlakte El 4\x20
+Oppervlak El 4\x20
 ;
 MSG_EDSETGUI_FRACTALDEPTH
 Fractal Depth\x20
@@ -9826,7 +9822,7 @@ No Key Frames to export!\nOperation terminated.
 
 
 
-Geen Key frames om te exporteren!\nBewerking afgebroken.
+Geen Key Frames om te exporteren!\nBewerking afgebroken.
 ;
 MSG_LWSPRT_ERROROPENINGFILEFOROUTPUTPERATIONTERMINATED
 Error opening file for output!\nOperation terminated.
@@ -9914,12 +9910,10 @@ Fout bij opslaan van de LW-scene.\nAls een bestand is gemaakt, is het niet compl
 ;
 MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA
 The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created.
-Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt \
-dargestellt.
+Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt dargestellt.
 
 
-De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte \
-scènebestand.
+De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte scènebestand.
 ;
 ;
 MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR
@@ -9948,7 +9942,7 @@ Active object is a DEM and may not be digitized!\nOperation terminated.
 
 
 
-Actief object is een DEM en mag niet worden gedigitaliseerd!\nBewerking afgebroken.
+Actief object is een DEM en wordt niet gedigitaliseerd!\nBewerking afgebroken.
 ;
 MSG_LINESPRT_INTERACTIVEMODULEADDPOINTS
 Interactive Module: Add Points
@@ -9990,7 +9984,7 @@ Camera Key Frames exist. Proceeding will delete current values!
 
 
 
-Camera Key frames bestaan al. Doorgaan zal huidige waarden verwijderen!
+Camera Key Frames bestaan al. Doorgaan zal huidige waarden verwijderen!
 ;
 MSG_MOREGUI_PROCEEDCANCEL
 Proceed|Cancel
@@ -10039,14 +10033,14 @@ Use all splined points or only Key Frames?
 
 
 
-Alle gesplinede punten of alleen Key frames gebruiken?
+Alle gesplinede punten of alleen Key Frames gebruiken?
 ;
 MSG_LINESPRT_ALLSPLINEDKEYFRAMES
 All Splined|Key Frames
 
 
 
-Alle gesplinede|Key frames
+Alle gesplinede|Key Frames
 ;
 MSG_LINESPRT_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED
 Out of memory opening Key Frame table!\nOperation terminated.
@@ -10117,7 +10111,7 @@ First set of alignment lat/lon coordinates must be larger than second and map sc
 
 
 
-Eers set van uitlijnende lat/long-coördinaten moet groter zijn dan de tweede en de kaartschaal moet groter zijn dan nul!\nBewerking afgebroken.
+Eerste set van uitgelijnde lat/long-coördinaten moet groter zijn dan de tweede en de kaartschaal moet groter zijn dan nul!\nBewerking afgebroken.
 ;
 MSG_MAP_SETNORTHWESTREFERENCEPOINTWITHMOUSE
 \0338Set northwest reference point with mouse.
@@ -10173,14 +10167,14 @@ Map Draw
 
 
 
-Kaartrasteren
+Kaart Tekenen
 ;
 MSG_MAP_MAPVIEWTOPODRAW
 Map View: Topo Draw
 
 
 
-Kaartrasteren: Topo tekenen
+Kaartweergave: Topo Tekenen
 ;
 MSG_MAP_MEMORYALLOCATIONFAILURECANNOTDRAWTOPOCONTINUE
 Memory allocation failure, cannot draw topo. Continue?
@@ -10229,7 +10223,7 @@ Set origin point
 Ursprungspunkt setzen
 
 
-Oorsprongpunt instellen
+Oorsprongspunt instellen
 ;
 MSG_MAP_SETDESTINATIONPOINTESCABORT
 \0338Set destination point. ESC=abort
@@ -10320,14 +10314,14 @@ Set second corner point. ESC=abort
 Zweiten Eckpunkt festlegen. ESC=Abbruch
 
 
-Twede hoekpunt instellen. ESC=annuleren
+Tweede hoekpunt instellen. ESC=annuleren
 ;
 MSG_MAP_SETSECONDCORNERPOINT
 Set second corner point
 Zweiten Eckpunkt festlegen
 
 
-Twede hoekpunt instellen
+Tweede hoekpunt instellen
 ;
 MSG_MAP_MAPVIEWDIGITIZE
 Map View: Digitize
@@ -10558,7 +10552,7 @@ Latitude scale = %f /point
 
 
 
-Latitude schaal = %f /punt
+Breedtegraad schaal = %f /punt
 ;
 MSG_MAP_SETPOINTBUTTON2CLOSE3ABORT4DONE
 Set point %d. Button 2=close, 3=abort, 4=done
@@ -10600,7 +10594,7 @@ Set origin point
 Ursprungspunkt setzen
 
 
-Oorsprongpunt instellen
+Oorsprongspunt instellen
 ;
 MSG_MAPEXTRA_SETDESTINATIONPOINTESCABORT
 \0338Set destination point. ESC=abort
@@ -10614,7 +10608,7 @@ Set destination point
 Zielpunkt setzen
 
 
-Doelpunt instellen
+Bestemmingspunt instellen
 ;
 MSG_MAPEXTRA_LENGTHFKM
 Length: %f km
@@ -10642,7 +10636,7 @@ Select new origin
 Neuen Ursprung festlegen
 
 
-Niuewe oorsprong selecteren
+Nieuwe oorsprong selecteren
 ;
 MSG_MAPEXTRA_RESETVECTORORIGIN
 Reset vector origin: %s.\n
@@ -10670,35 +10664,35 @@ MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
 
 
 
-\0338Eerste bronpunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
+\0338Eerste bron hoekpunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
 ;
 MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEX
 Select first source vertex
 
 
 
-Selecteer eerste bronpunt
+Selecteer eerste bron hoekpunt
 ;
 MSG_MAPEXTRA_SELECTLASTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
 \0338Select last source vertex. Q=done Uu=up Dd=down ESC=abort
 
 
 
-\0338Laatste bronpunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
+\0338Laatste bron hoekpunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
 ;
 MSG_MAPEXTRA_SELECTLASTSOURCEVERTEX
 Select last source vertex
 
 
 
-Laatste bronpunt selecteren
+Laatste bron hoekpunt selecteren
 ;
 MSG_MAPEXTRA_SELECTFIRSTDESTNVERTEXQDONEUUUPDDDOWNESCABORT
 \0338Select first dest'n vertex. Q=done Uu=up Dd=down ESC=abort
 
 
 
-\0338Eerste bestemmingspunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
+\0338Eerste bestemmings hoekpunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
 ;
 MSG_MAPEXTRA_SELECTFIRSTDESTINATIONVERTEX
 Select first destination vertex
@@ -10894,14 +10888,14 @@ MSG_MAPEXTRA_SELECTSURFACEUELEVATIONESCABORT
 
 
 
-\0338Oppervlakte %lu Hoogte selecteren. ESC=Afbreken
+\0338Oppervlak %lu Hoogte selecteren. ESC=Afbreken
 ;
 MSG_MAPEXTRA_SELECTSURFACEUELEVATION
 Select Surface %lu Elevation
 
 
 
-Selecteer Oppervlakte %lu Hoogte
+Selecteer Oppervlak %lu Hoogte
 ;
 MSG_MAPEXTRA_ENTERMINIMUMMATCHINGPOINTS
 Enter minimum matching points.
@@ -11267,7 +11261,7 @@ Add Points
 Punkte hinzufügen
 
 
-Punte toevoegen
+Punten toevoegen
 ;
 MSG_MAPGUI_NEW
 New
@@ -11351,7 +11345,7 @@ Set Camera
 Setze Kamera
 
 
-Stel camera in
+Stel Camera in
 ;
 MSG_MAPGUI_SETFOCUS
 Set Focus
@@ -11407,7 +11401,7 @@ Surface El
 
 
 
-Oppervlakte El
+Oppervlak El
 ;
 MSG_MAPGUI_THREE
 Three
@@ -11526,7 +11520,7 @@ Lon\x20
 
 
 
-Lon\x20
+Long\x20
 ;
 MSG_MAPGUI_AUTO
 \33cAuto
@@ -11694,7 +11688,7 @@ Map Control Window Notice
 
 
 
-Kaartbesturingsvenster Mededeling
+Kaart Controle Venster Mededeling
 ;
 MSG_MAPGUI_THISAREAISNDERCONSTRUCTIONARDHATREQUIRED
 \33cThis area is\nUnder Construction.\nHard hat required.
@@ -11729,7 +11723,7 @@ Set vertex to insert after. Q=done Uu=up Dd=down ESC=abort
 
 
 
-Stel punt in om in te voegen. Q=klaar Uu=omhoog Dd=omlaag ESC=annuleren
+Stel hoekpunt in om in te voegen. Q=klaar Uu=omhoog Dd=omlaag ESC=annuleren
 ;
 MSG_MAPGUI_QDONEUUUPDDDOWNDELETE
 Q=done Uu=up Dd=down -=delete
@@ -11785,7 +11779,7 @@ Bitpad|Summagrid|Mouse
 
 
 
-
+Bitpad|Summagrid|Muis
 ;
 MSG_MAPGUI_DEMCTRLPTLATFLONFELEV2F
 DEM Ctrl Pt: Lat %f Lon %f Elev %.2f
@@ -11872,14 +11866,14 @@ Error saving line vertices to file!\nSelect new path.
 
 
 
-Fout bij opslaan van lijnpunten naar bestand!\nSelecteer nieuw pad.
+Fout bij opslaan van lijn hoekpunten naar bestand!\nSelecteer nieuw pad.
 ;
 MSG_MAPLINO_NEWLINESAVEPATH
 New Line Save Path
 
 
 
-Nieuw Lijn Pad
+Nieuw Lijn Opslag Pad
 ;
 MSG_MAPLINO_ERROROPENINGLINESAVEFILEELECTNEWPATH
 Error opening line save file!\nSelect new path?
@@ -11956,28 +11950,28 @@ Set upper left corner
 Obere linke Ecke setzen
 
 
-Linksbovenhoek instellen
+Linker bovenhoek instellen
 ;
 MSG_MAPSUPRT_0338SETUPPERLEFTCORNER
 \0338Set upper left corner.
 \0338Obere linke Ecke setzen.
 
 
-\0338Linksbovenhoek instellen.
+\0338Linker bovenhoek instellen.
 ;
 MSG_MAPSUPRT_0338SETLOWERRIGHTCORNERESCABORT
 \0338Set lower right corner. ESC=abort
 \0338Untere rechte Ecke setzen. ESC=abbrechen
 
 
-\0338Rechtsonderhoek instellen. ESC=annuleren
+\0338Rechter onderhoek instellen. ESC=annuleren
 ;
 MSG_MAPSUPRT_SETLOWERRIGHTCORNER
 Set lower right corner
 Untere rechte Ecke setzen
 
 
-Recentsonderhoek instellen
+Rechter onderhoek instellen
 ;
 MSG_MAPSUPRT_SLATFLONF
 %s, LAT: %f, LON: %f
@@ -12068,7 +12062,7 @@ Interactive Full Haze
 
 
 
-Interactieve Volle Nevel
+Interactieve Volledige Nevel
 ;
 MSG_MAPSUPRT_MAPVIEWCOLORMAP
 Map View: Color Map
@@ -12132,14 +12126,14 @@ Error saving vector vertices to file!
 
 
 
-Fout bij opslaan van vectorpunten naar bestand!
+Fout bij opslaan van vector hoekpunten naar bestand!
 ;
 MSG_MAPTOPOOB_NEWLINESAVEPATH
 New Line Save Path
 
 
 
-Nieuw Lijn Pad
+Nieuw Lijn Opslag Pad
 ;
 MSG_MAPTOPOOB_CANTOPENVECTORFILEFOROUTPUT
 Can't open vector file for output!
@@ -12380,7 +12374,7 @@ SE E
 SO O
 
 
-
+ZO O
 ;
 MSG_MOREGUI_ELEVMIN
 Elev Min
@@ -12471,7 +12465,7 @@ Coords E
 Koord O
 
 
-Coord O
+Coörd O
 ;
 MSG_MOREGUI_ELEVATIONDATUM
 Elevation Datum
@@ -12522,14 +12516,14 @@ First Page
 Erste Seite
 
 
-Eerste Pagina
+Pagina Een
 ;
 MSG_MOREGUI_SECONDPAGE
 Second Page
 Zweite Seite
 
 
-Tweede Pagina
+Pagina Twee
 ;
 MSG_MOREGUI_PROJECTEDITOR
 Project Editor
@@ -12606,7 +12600,7 @@ Vector Save Path\x20\x20\x20\x20
 Vektor-Speicherpfad\x20
 
 
-
+Vector Opslaan Pad\x20\x20\x20\x20
 ;
 MSG_MOREGUI_VECTORSAVENAME_SPACES
 Vector Save Name\x20\x20\x20\x20
@@ -12634,7 +12628,7 @@ Background Path\x20\x20\x20\x20\x20
 Hintergrund Pfad\x20\x20\x20\x20
 
 
-Acchtergrond Pad\x20\x20\x20\x20\x20
+Achtergrond Pad\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_BACKGROUNDNAME_SPACES
 Background Name\x20\x20\x20\x20\x20
@@ -12726,7 +12720,7 @@ Image Path\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 Bilderpfad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-Afbbeeldingen Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Afbeeldingen Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 ;
 MSG_MOREGUI_SUNIMAGEFILE_SPACES
 Sun Image File\x20\x20\x20\x20\x20\x20
@@ -12922,7 +12916,7 @@ Pixel Aspect
 Pixel Aspekt
 
 
-Puxel Aspect
+Pixel Aspect
 ;
 MSG_MOREGUI_HALVE
 \33cHalve
@@ -12950,7 +12944,7 @@ Parameters: Image Scale
 
 
 
-Parameters: Afbeeldingsgrootte wijzigen
+Parameters: Afbeeldingsgrootte
 ;
 MSG_MOREGUI_APPLYCHANGES
 Apply changes?
@@ -13020,7 +13014,7 @@ MSG_MOREGUI_MSG
 
 
 
-\33cMELD
+\33cMELDING
 ;
 MSG_MOREGUI_DTA
 \33cDTA
@@ -13098,7 +13092,7 @@ MSG_PARAMS_EASEINPLUSEASEOUTFRAMEVALUESEXCEEDTOTALNUMBEROFANIMA
 
 
 
-"Ease In" plus "Ease Out" frame waarden overschrijden het totale aantal geanimeerde frames.\nDit is illegaal! Wilt u doorgaan zonder Snelheidsverdeling?
+"Ease In" plus "Ease Out" frame waarden overschrijden het totale aantal geanimeerde frames.\nDit werkt niet! Wilt u doorgaan zonder Snelheidsverdeling?
 ;
 MSG_PARGUI_PARAMETERSMODULESCALE
 Parameters Module: Scale
@@ -13294,7 +13288,7 @@ Max Vertices
 
 
 
-Max Vertices
+Max Hoekpunten
 ;
 MSG_PARGUI_BATHYMETRY
 \33cBathymetry
@@ -13351,7 +13345,7 @@ Ecosystem Model Editor
 Ökosystem Modell Editor
 
 
-Ecossysteem Model Editor
+Ecosysteem Model Editor
 ;
 MSG_PARGUI_NAME_SPACE
 Name\x20
@@ -13442,7 +13436,7 @@ The current Ecosystem Model has been modified. Do you wish to save it before clo
 Das aktuelle Ökosystem Modell wurde verändert. Soll es vor dem Schließen gespeichert werden?
 
 
-Het huidige ecosysteemmodel is gewijzigd. Wilt u het opslaan voordat u het sluit?
+Het huidige Ecosysteemmodel is gewijzigd. Wilt u het opslaan voordat u het sluit?
 ;
 MSG_PARGUI_YESNOCANCEL
 Yes|No|Cancel
@@ -13502,7 +13496,7 @@ MSG_PARGUI_LOWVG (//31)
       LowVg
 
 
-LgVeg
+LageVeg
 ;
 MSG_PARGUI_SNAG (//31)
   Snag
@@ -13530,7 +13524,7 @@ The current Ecosystem Model has been modified. Do you wish to save it before pro
 
 
 
-Het huidige ecosysteemmodel is gewijzigd. Wilt u het opslaan voordat u verder gaat?
+Het huidige Ecosysteemmodel is gewijzigd. Wilt u het opslaan voordat u verder gaat?
 ;
 MSG_PARGUI_LOADMODELPATHNAME
 Load Model Path/Name
@@ -13544,28 +13538,28 @@ Eror opening Ecosystem Model file for input!\nOperation terminated.
 Fehler beim Öffnen der Ökosystem Modelldatei zum Lesen!\nVorgang abgebrochen.
 
 
-Fout bij openen van ecosysteemmodelbestand voor invoer!\nBewerking afgebroken.
+Fout bij openen van Ecosysteemmodelbestand voor invoer!\nBewerking afgebroken.
 ;
 MSG_PARGUI_ERRORREADINGFROMECOSYSTEMMODELFILEPERATIONTERMINATEDPR
 Error reading from Ecosystem Model file!\nOperation terminated prematurely.
 Beim Lesen der Ökosystem Modelldatei ist ein Fehler aufgetreten!\nVorgang vorzeitig abgebrochen.
 
 
-Fout bij lezen van ecosysteemmodelbestand!\nBewerking afgebroken.
+Fout bij lezen van Ecosysteemmodelbestand!\nBewerking afgebroken.
 ;
 MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED
 Not a WCS Ecosystem Model file!\nOperation terminated.
 Keine Ökosystem-Modelldatei!\nVorgang abgebrochen.
 
 
-Geen WCS ecosysteemmodelbestand!\nBewerking afgebroken.
+Geen WCS Ecosysteemmodelbestand!\nBewerking afgebroken.
 ;
 MSG_PARGUI_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMI
 Unsupported WCS Ecosystem Model file version!\nOperation terminated.
 Nicht unterstützte WCS Ökosystem-Modelldatei-Version!\nVorgang abgebrochen.
 
 
-Niet ondersteunde WCS ecosysteemmodelbestandversie!\nBewerking afgebroken.
+Niet ondersteunde WCS Ecosysteemmodelbestandversie!\nBewerking afgebroken.
 ;
 MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFORINPUTPERATIONTERMINATE
 You have not selected a file name for input!\nOperation terminated.
@@ -13586,14 +13580,14 @@ Error opening Ecosystem Model file for output!\nOperation terminated.
 Fehler beim Öffnen der Ökosystem Modelldatei zum Schreiben!\nVorgang abgebrochen.
 
 
-Fout bij openen van ecosysteemmodelbestand voor uitvoer!\nBewerking afgebroken.
+Fout bij openen van Ecosysteemmodelbestand voor uitvoer!\nBewerking afgebroken.
 ;
 MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR
 Error writing to Ecosystem Model file!\nOperation terminated prematurely.
 Fehler beim Schreiben der Ökosystem Modelldatei zum Schreiben!\nVorgang vorzeitig abgebrochen.
 
 
-Fout bij schrijven naar ecosysteemmodelbestand!\nBewerking afgebroken.
+Fout bij schrijven naar Ecosysteemmodelbestand!\nBewerking afgebroken.
 ;
 MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT
 You have not selected a file name for output!\nOperation terminated.
@@ -13608,7 +13602,7 @@ Anim Control Window
 
 
 
-Animatiebesturingsvenster
+Animatie controle venster
 ;
 MSG_PARGUI_ANIMPATH
 Anim Path
@@ -13685,21 +13679,21 @@ Anim Frames Path/Name
 
 
 
-Anim BAfbeeldingen Pfad/Name
+Anim Frames Pad/Naam
 ;
 MSG_PARGUI_SPECIFIEDWIDTHISLARGERTHANTHECURRENTSCREENWIDTHDOYOU
 Specified width is larger than the current screen width. Do you wish to use the screen width?
 Die angegebene Breite ist größer als die Bildschirmbreite. Soll statt dessen die Bildschirmbreite verwendet werden?
 
 
-De aan gegeven breedte is groter dan de huidige scherm breedte. Wilt u de scherm breedte gebruiken?
+De opgegeven breedte is groter dan de huidige schermbreedte. Wilt u de schermbreedte gebruiken?
 ;
 MSG_PARGUI_SPECIFIEDORCOMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREE
 Specified or computed height is larger than the current screen height. Do you wish to use the screen height?
 Die angegebene oder berechnete Höhe ist größer als die Bildschirmhöhe. Soll statt dessen die Bildschirmhöhe verwendet werden?
 
 
-De opgegeven of berekende hoogte is groter dan de huidige scherm hoogte. Wilt u de scherm hoogte gebruiken?
+De opgegeven of berekende hoogte is groter dan de huidige schermhoogte. Wilt u de schermhoogte gebruiken?
 ;
 ;
 MSG_REQGUI_CANTINITIALIZEFILEREQUESTER
@@ -13721,7 +13715,7 @@ DataBase File Loader
 
 
 
-Database Bestand Laden
+Database Bestand Lader
 ;
 MSG_REQGUI_SFRAMES
 \0334%s frames:  %02d:%02d:%02d
@@ -13770,14 +13764,14 @@ Non-alphabetic character found in command word.
 Nicht-ASCII Zeichen im Befehlswort gefunden.
 
 
-Niet-alfabetisch karakter gevonden in commandowoord.
+Non alfa karakter gevonden in commandowoord.
 ;
 MSG_REXSPT_COMMANDWORDSIZEEXCEEDED
 Command word size exceeded.
 Befehlswort-Länge überschritten.
 
 
-Commandowoordgrootte overschreden.
+Commandowoord lengte overschreden.
 ;
 MSG_REXSPT_INLINEARGSIZEEXCEEDED
 Inline Arg size exceeded.
@@ -13840,7 +13834,7 @@ Both|D'base|Params|No
 Beide|Datenbank|Parameter|Keine
 
 
-Beide|D'base|Params|Nee
+Beide|Database|Params|Nee
 ;
 MSG_SUPPORT_WCSPROJECTLOAD
 WCS Project: Load
@@ -13919,14 +13913,14 @@ Out of memory!\nCan't open Time Line window.
 Nicht genügend Speicher!\nDas Zeitleistenfenster konnte nicht geöffnet werden.
 
 
-Te weinig geheugen!\nKan het tijdlijstvenster niet openen.
+Te weinig geheugen!\nKan het Tijdlijstvenster niet openen.
 ;
 MSG_TLGUI_NOMOTIONPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONTERM
 No Motion Parameters with more than one Key Frame!\nOperation terminated.
 
 
 
-Geen bewegingsparameters met meer dan één key frame!\nBewerking afgebroken.
+Geen bewegingsparameters met meer dan één Key Frame!\nBewerking afgebroken.
 ;
 MSG_TLGUI_MOTIONTIMELINE
 Motion Time Line
@@ -13947,7 +13941,7 @@ MSG_TLGUI_ZOOM
  Vergrößern\x20
 
 
-Zoom\x20
+Inzoomen\x20
 ;
 MSG_TLGUI_FRAME_PACE__
 Frame\x20
@@ -13979,10 +13973,10 @@ MSG_TLGUI_ADDKEY
 ;
 MSG_TLGUI_DELKEY
 \33c\33uDel\33n Key
-\33cSchlüsselbild Löschen\33n
+\33cSchlüsselbild Löschen
 
 
-\33c\33uKey frame Verwijderen\33n
+\33cKey frame Verwijderen
 ;
 MSG_TLGUI_LINEAR
 \33cLinear
@@ -14115,7 +14109,7 @@ MSG_TLGUI_MNRELATIVEELEVATION
 \0334min relative Höhe
 
 
-\0334min relatieve hoogte
+\0334Min Relatieve hoogte
 ;
 MSG_TLGUI_MXSLOPE
 \0334Mx Slope
@@ -14178,14 +14172,14 @@ Error opening Ecosystem Model file for input!\nOperation terminated.
 Die Ökosystem-Modelldatei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
 
 
-Fout bij openen van ecosysteemmodelbestand voor invoer!\nBewerking afgebroken.
+Fout bij openen van Ecosysteemmodelbestand voor invoer!\nBewerking afgebroken.
 ;
 MSG_TREE_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPREM
 Error writing to Ecosystem Model file!\nOperation terminated prematurely.
 Fehler beim Schreiben der Ökosystem-Modelldatei!\nVorgang abgebrochen.
 
 
-Fout bij schrijven naar ecosysteemmodelbestand!\nBewerking afgebroken.
+Fout bij schrijven naar Ecosysteemmodelbestand!\nBewerking afgebroken.
 ;
 MSG_TREE_OUTOFMEMORYALLOCATINGECOSYSTEMMODELSPERATIONTERMINATED
 Out of memory allocating Ecosystem Models!\nOperation terminated.
@@ -14262,7 +14256,7 @@ Spreading|Converging
 
 
 
-Spreiden|Samenkomen
+Uit elkaar|Naar elkaar toe
 ;
 ; See Project/Modules/Parameters -> Waves
 ;
@@ -14418,7 +14412,7 @@ Amplitude Fact
 Amplitudenfaktor
 
 
-Amplitude Factor
+Hoogte Factor
 ;
 MSG_WAVGUI_WHITECAPHTM
 WhiteCap Ht (m)
@@ -14461,7 +14455,7 @@ PK %d
 VK %d
 
 
-VorigK %d
+Vorig.Key %d
 ;
 ; NK="Next Key"
 MSG_WAVGUI_NKD
@@ -14469,7 +14463,7 @@ NK %d
 NK %d
 
 
-VolgK %d
+Volg.Key %d
 ;
 MSG_WAVGUI_FRAME
 Frame
@@ -14560,7 +14554,7 @@ Amplitude
 Amplitude
 
 
-Amplitude
+Hoogte
 ;
 MSG_WAVGUI_WHITECAPHEIGHT
 WhiteCap Height
@@ -14637,7 +14631,7 @@ Enter Wave Amplitude.\raggedbottom
 
 
 
-Voer golfamplitude in.\raggedbottom
+Voer golfhoogte in.
 ;
 MSG_WAVGUI_ENTERWAVELENGTHKM
 Enter Wave Length (km).
@@ -14763,7 +14757,7 @@ Insufficient data in gridded region to triangulate! Increase the size of the gri
 
 
 
-Onvoldoende gegevens in het gerasterde gebied om driehoeken te maken! Vergroot de grootte van het gerasterde gebied of voeg meer controlepunten toe.
+Onvoldoende gegevens in het gerasterde gebied om driehoeken te maken! Vergroot het gerasterde gebied of voeg meer controlepunten toe.
 ;
 MSG_NNCRUNCH_CHOROPLETH
 ChoroPleth
@@ -14798,18 +14792,17 @@ The ratio of vertical to horizontal map dimensions is too large for gradient est
 
 
 
-De verhouding van verticale tot horizontale kaartdimensies is te groot voor gradiënt schatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt schatting?
+De verhouding van verticale tot horizontale kaartdimensies is te groot voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
 ;
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM
 The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
 
 
 
-De verhouding van verticale tot horizontale kaartdimensies is te klein voor gradiënt schatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt schatting?
+De verhouding van verticale tot horizontale kaartdimensies is te klein voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
 ;
 MSG_NNCRUNCH_THERATIOOFWIDTHTOLENGTHOFTHISGRIDDEDREGIONMAYBETOO
-The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now \
-with the present dimensions?
+The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now with the present dimensions?
 
 
 
@@ -14845,4 +14838,3 @@ MSG_MENU_PR_CREDITSTRANSLATION
 \nDeutsche Übersetzung von Alexander Fritsch (selco).\nFehlermeldungen und Verbesserungsvorschläge\nbitte an selco@t-online.de
 
 \nNederlandse vertaling door Leo.\nFoutmeldingen en suggesties voor verbetering\ns.v.p. naar selco@t-online.de
-
