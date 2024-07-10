@@ -1441,7 +1441,8 @@ WCS: Schermmodus
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
-Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt ausführen?
+Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt \
+ausführen?
 Per ripristinare la modalità schermo, WCS dovrà essere chiuso e riaperto. Qualsiasi lavoro in corso deve essere salvato prima di invocare questo comando.\n Volete procedere ora?
 
 Om de schermmodus te resetten zal WCS moeten worden gesloten en heropend. Werk in uitvoering moet worden opgeslagen voordat deze opdracht wordt uitgevoerd.\n Wilt u nu doorgaan?
@@ -3808,10 +3809,12 @@ Foout bij lezen van Master Object bestand!\nOperatie afgebroken.
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
-Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus einzelnen Dateien geladen
+Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus \
+einzelnen Dateien geladen
 
 
-Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van individuele bestanden
+Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van \
+individuele bestanden
 ;
 MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 .MDB is not a WCS Master Object file!
@@ -4953,35 +4956,35 @@ Afstand
 ;
 MSG_DIAG_ELEVATION
  Elevation
- Höhe
+        Höhe
 
 
 Hoogte
 ;
 MSG_DIAG_OVERSTORY
  Overstory
-
+Overstory???
 
 
 Bovenlaag
 ;
 MSG_DIAG_UNDERSTORY
 Understory
-
+Understory??
 
 
 Onderlaag
 ;
 MSG_DIAG_RELEL
     Rel El
-
+    Rel El??
 
 
 Relatieve hoogte
 ;
 MSG_DIAG_ASPECT
     Aspect
-    Aspekt
+      Aspekt
 
 
 Aspect
@@ -4995,21 +4998,21 @@ Hellingshoek
 ;
 MSG_DIAG_SUNANGLE
  Sun Angle
- Sonnenwinkel
+Sonnenwinkel
 
 
 Zonhoek
 ;
 MSG_DIAG_LATITUDE
   Latitude
-  Breite
+      Breite
 
 
 Breedtegraad
 ;
 MSG_DIAG_LONGITUDE
  Longitude
- Länge
+       Länge
 
 
 Lengtegraad
@@ -6879,7 +6882,8 @@ Error writing to Parameter file!\nThe output file has been modified and may no l
 
 
 
-Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla opnieuw op.
+Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla \
+opnieuw op.
 ;
 ;
 MSG_EDSETGUI_ENDERSIZE
@@ -9910,10 +9914,12 @@ Fout bij opslaan van de LW-scene.\nAls een bestand is gemaakt, is het niet compl
 ;
 MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA
 The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created.
-Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt dargestellt.
+Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt \
+dargestellt.
 
 
-De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte scènebestand.
+De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte \
+scènebestand.
 ;
 ;
 MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR
@@ -14627,7 +14633,7 @@ Set Cloud Wave Source Point %d
 Wolken Golf Bron Punt Instellen %d
 ;
 MSG_WAVGUI_ENTERWAVEAMPLITUDE
-Enter Wave Amplitude.\raggedbottom
+Enter Wave Amplitude.
 
 
 
@@ -14802,7 +14808,8 @@ The ratio of vertical to horizontal map dimensions is too small for gradient est
 De verhouding van verticale tot horizontale kaartdimensies is te klein voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
 ;
 MSG_NNCRUNCH_THERATIOOFWIDTHTOLENGTHOFTHISGRIDDEDREGIONMAYBETOO
-The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now with the present dimensions?
+The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now \
+with the present dimensions?
 
 
 
@@ -14838,3 +14845,4 @@ MSG_MENU_PR_CREDITSTRANSLATION
 \nDeutsche Übersetzung von Alexander Fritsch (selco).\nFehlermeldungen und Verbesserungsvorschläge\nbitte an selco@t-online.de
 
 \nNederlandse vertaling door Leo.\nFoutmeldingen en suggesties voor verbetering\ns.v.p. naar selco@t-online.de
+
