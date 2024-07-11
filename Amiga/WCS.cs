@@ -3706,8 +3706,8 @@ MSG_DB_DATABASEMODULEEDITOR
 Database Module: Editor
 Datenbank Modul: Editor
 
-Database Module: Editor
 
+Database Module: Editor
 ;
 MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN
 No memory for vector coordinates!\nNew object has been created but can not be edited until memory is available.
@@ -4341,7 +4341,7 @@ MSG_DATAOPSGUI_VALUEBYTES
     Bytes pro Wert
 
 
-
+Bytes per waarde
 ;
 MSG_DATAOPSGUI_BYTEORDER
   Byte Order
@@ -5655,7 +5655,7 @@ MSG_EDECOGUI_CMAPS
 
 
 
-\33cCKaarten
+\33cKleuren
 ;
 MSG_EDECOGUI_SURFACE
 \33cSurface
@@ -14369,7 +14369,7 @@ MSG_WAVGUI_WAVES
 \33cWellen
 
 
-
+\33cGolven
 ;
 MSG_WAVGUI_TIDES
 \33cTides
