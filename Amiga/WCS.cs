@@ -2913,7 +2913,7 @@ Minimum Spacing \x20
 
 Spazio Minimo \x20
 
-Minimale Ruimte \x20
+  Minimale Ruimte \x20
 ;
 MSG_DEMGUI_STDDEVIATION
   Std Deviation\x20
@@ -2927,7 +2927,7 @@ MSG_DEMGUI_NONLINEARITY
   Nichtlinearität\x20
   Non Linearità\x20
 
-Non Lineariteit\x20
+   Non Lineariteit\x20
 ;
 MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU
 This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?
@@ -2990,7 +2990,7 @@ South Hemi.
 Südl. Hemi.
 
 
-Zuid. Halfrond
+Zuid. Halfrond.
 ;
 MSG_DEMGUI_BOUNDARIES
 \33c\0334Boundaries
@@ -4952,70 +4952,70 @@ MSG_DIAG_DISTANCE
   Entfernung
 
 
-Afstand
+        Afstand
 ;
 MSG_DIAG_ELEVATION
  Elevation
         Höhe
 
 
-Hoogte
+         Hoogte
 ;
 MSG_DIAG_OVERSTORY
  Overstory
 Overstory???
 
 
-Bovenlaag
+      Bovenlaag
 ;
 MSG_DIAG_UNDERSTORY
 Understory
 Understory??
 
 
-Onderlaag
+      Onderlaag
 ;
 MSG_DIAG_RELEL
     Rel El
     Rel El??
 
 
-Relatieve hoogte
+  Relatieve hgt
 ;
 MSG_DIAG_ASPECT
     Aspect
       Aspekt
 
 
-Aspect
+         Aspect
 ;
 MSG_DIAG_SLOPE
      Slope
      Neigung
 
 
-Hellingshoek
+   Hellingshoek
 ;
 MSG_DIAG_SUNANGLE
  Sun Angle
 Sonnenwinkel
 
 
-Zonhoek
+        Zonhoek
 ;
 MSG_DIAG_LATITUDE
   Latitude
       Breite
 
 
-Breedtegraad
+   Breedtegraad
 ;
 MSG_DIAG_LONGITUDE
  Longitude
        Länge
 
 
-Lengtegraad
+    Lengtegraad
 ;
 MSG_DIAG_DATABASE
 \33cDatabase
@@ -5795,14 +5795,14 @@ MSG_EDECOGUI_MATCHRED
 
 
 
-Gelijk aan Rood\x20
+ Gelijk aan Rood\x20
 ;
 MSG_EDECOGUI_MATCHGRN
  Match Grn\x20
 
 
 
-Geijk aan Groen\x20
+Gelijk aan Groen\x20
 ;
 MSG_EDECOGUI_MATCHBLU
  Match Blu\x20
@@ -5963,49 +5963,49 @@ Rel El Eff\x20
 
 
 
-Rel Hoog Eff\x20
+ Rel Hoog Eff\x20
 ;
 MSG_EDECOGUI_MAXRELEL
 Max Rel El\x20
 
 
 
-Max Rel El\x20
+   Max Rel El\x20
 ;
 MSG_EDECOGUI_MINRELEL
 Min Rel El\x20
 
 
 
-Min Rel El\x20
+   Min Rel El\x20
 ;
 MSG_EDECOGUI_MAXSLOPE
  Max Slope\x20
  Max Neigung\x20
 
 
-Max Hellingshoek\x20
+Max Hell.hoek\x20
 ;
 MSG_EDECOGUI_MINSLOPE
  Min Slope\x20
  Min Neigung
 
 
-Min Hellingshoek
+Min Hell.hoek\x20
 ;
 MSG_EDECOGUI_DENSITY
    Density\x20
    Dichte\x20
 
 
-Dichtheid\x20
+    Dichtheid\x20
 ;
 MSG_EDECOGUI_HEIGHT
     Height\x20
     Höhe\x20
 
 
-Hoogte\x20
+       Hoogte\x20
 ;
 MSG_EDECOGUI_ECOSYSTEMCOLOR
 \33c\0334Ecosystem Color
@@ -6047,21 +6047,21 @@ MSG_EDECOGUI_SEALEVEL
  Meeresspiegel \x20
 
 
-Zeeniveau\x20
+    Zeeniveau\x20
 ;
 MSG_EDECOGUI_SEADEPTH
  Sea Depth\x20
  Meerestiefe\x20
 
 
-Zeediepte\x20
+    Zeediepte\x20
 ;
 MSG_EDECOGUI_WINDAZ
    Wind Az\x20
 
 
 
-Wind Az\x20
+      Wind Az\x20
 ;
 ;
 MSG_EDMOGUI_OPTIONS
@@ -6405,7 +6405,7 @@ MSG_EDMOGUI_DIAG
 
 
 
-\33cDialoog\x20
+\33cDiagnose\x20
 ;
 MSG_EDMOGUI_VECTORS
 \33cVectors
@@ -6496,7 +6496,7 @@ CenterFoc
 
 
 
-CentrumFoc
+Centrum Focus
 ;
 MSG_EDMOGUI_IMGASPECT
 Img Aspect
@@ -7696,21 +7696,21 @@ Height\x20
     Höhe\x20
 
 
-Hoogte\x20
+ Hoogte\x20
 ;
 MSG_EDSETGUI_ASPCT
 Aspct\x20
 Aspekt\x20
 
 
-Aspect\x20
+ Aspect\x20
 ;
 MSG_EDSETGUI_VOSCN
 V Oscn\x20
   V Oscn\x20
 
 
-V Oscn\x20
+ V Oscn\x20
 ;
 MSG_EDSETGUI_CHANGEIMAGESIZE
 \33cChange Image Size
@@ -7724,21 +7724,21 @@ MSG_EDSETGUI_START
        Anfang\x20
 
 
-Begin\x20
+ Begin\x20
 ;
 MSG_EDSETGUI_END
     End\x20
    Ende\x20
 
 
-Einde\x20
+ Einde\x20
 ;
 MSG_EDSETGUI_STEP
   Step\x20
  Schrittweite\x20
 
 
-Stapgrootte\x20
+Stapgr\x20
 ;
 MSG_EDSETGUI_FRAMES
  Frames\x20
@@ -7752,14 +7752,14 @@ Segmnt\x20
      Segmente\x20
 
 
-Segmenten\x20
+  Segm\x20
 ;
 MSG_EDSETGUI_1STSEG
 1st Seg\x20
  1. Seg\x20
 
 
-1ste Segm\x20
+Segm 1\x20
 ;
 MSG_EDSETGUI_SAVEPATH
 Save Path\x20
@@ -7906,7 +7906,7 @@ Displacement
 
 
 
-Verschuiving
+Verschuiving\x20\x20
 ;
 MSG_EDSETGUI_SLOPEFACTOR
 Slope Factor
@@ -7969,7 +7969,7 @@ Tree Ht Fact\x20
 
 
 
-Boom Hgt Fact\x20
+   Boom Hgt Fact\x20
 ;
 MSG_EDSETGUI_MODELPATH
 Model Path\x20
@@ -7997,7 +7997,7 @@ MSG_EDSETGUI_STRATADIP
 
 
 
-Lagen Dip\x20
+   Lagen Dip\x20
 ;
 MSG_EDSETGUI_STRATASTRIKE
 Strata Strike\x20
@@ -8011,7 +8011,7 @@ MSG_EDSETGUI_DEFORMATION
 
 
 
-Deformatie\x20
+  Deformatie\x20
 ;
 MSG_EDSETGUI_ZENITHALT
    Zenith Alt\x20
@@ -8039,7 +8039,7 @@ Ref Longitude\x20
  Ref Länge\x20
 
 
-Ref Lengtegraad\x20
+ Ref Lengtegraad\x20
 ;
 MSG_EDSETGUI_BGPATH
    BG Path\x20
@@ -11673,7 +11673,7 @@ MSG_MAPGUI_UPPERLEFTX
  Oben Links X
 
 
-Boven Links X
+ Boven Links X
 ;
 MSG_MAPGUI_LOWERRIGHTX
 Lower Right X
