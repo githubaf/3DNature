@@ -1083,35 +1083,35 @@ MSG_AGUI_DIRLIST
 ;
 MSG_AGUI_DATAOPSIMPORTDLG
 Data Ops: Import DLG
-
+Data Ops: Importiere DLG
 Data Ops: Importare DLG
 
 Data Ops: Importeer DLG
 ;
 MSG_AGUI_DATAOPSIMPORTDXF
 Data Ops: Import DXF
-
+Data Ops: Importiere DXF
 Data Ops: Importare DXF
 
 Data Ops: Importeer DXF
 ;
 MSG_DLG_DATAOPSIMPORTWDB
 Data Ops: Import WDB
-
+Data Ops: Importiere WDB
 Data Ops: Importare WDB
 
 Data Ops: Importeer WDB
 ;
 MSG_AGUI_DATAOPSMODULEINTERPDEM
 Data Ops Module: Interp DEM
-
+Data Ops Modul: Interpoliere DEM
 Data Ops Modulo: Interp DEM
 
 Data Ops Modulo: Interp DEM
 ;
 MSG_AGUI_DATAOPSMODULEEXTRACTDEM
 Data Ops Module: Extract DEM
-
+Data Ops Modul: Extrahiere DEM
 Data Ops Modulo: Estrai DEM
 
 Data Ops Modulo: Extract DEM
@@ -1478,7 +1478,7 @@ Database Module: Opslaan
 ;
 MSG_AGUI_DATAOPSMODULE
 DataOps Module
-
+DataOps Modul
 Modulo DataOps
 
 DataOps Module
@@ -2395,7 +2395,7 @@ Bestanden
 ;
 MSG_DEM_DATAOPSDEMINTERPOLATE
 Data Ops: DEM Interpolate
-
+Data Ops: DEM Interpolieren
 Data Ops: DEM Interpolazione
 
 Data Ops: DEM Interpoleren
@@ -2437,7 +2437,7 @@ Voer nieuwe objectnaam in.
 ;
 MSG_DEM_DATAOPSINTERPOLATEDEM
 Data Ops: Interpolate DEM
-
+Data Ops: Interpoliere DEM
 Data Ops: Interpolazione DEM
 
 Data Ops: DEM Interpoleren
@@ -2472,7 +2472,7 @@ Fout bij schrijven van DEM bestand!\nOperatie afgebroken.
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE
 Out of memory expanding Database Editor List!\nOperation terminated.
-
+Nicht genügend Speicher zum Erweitern der Datenbank-Editor-Liste!\nVorgang abgebrochen.
 Memoria esaurita per l'espansione dell'elenco dell'editor di database!\nOperazione terminata.
 
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nOperatie afgebroken.
@@ -2488,7 +2488,7 @@ Fout bij openen van Object bestand voor uitvoer!\nOperatie afgebroken.
 ;
 MSG_DEM_DATAOPSDEMEXTRACT
 Data Ops: DEM Extract
-
+Data Ops: DEM Extrahieren
 Data Ops: DEM Estratto
 
 Data Ops: DEM Extract
@@ -2502,7 +2502,7 @@ Te weinig geheugen voor toewijzen van DEM Info Header!\nOperatie afgebroken.
 ;
 MSG_DEM_75MINUTEDEMSDONOTALLLIEWITHINSAMEUTMZONEPERATIONTERMINA
 7.5 Minute DEMs do not all lie within same UTM Zone!\nOperation terminated.
-
+Die 7,5-Minuten-DEM-Daten liegen nicht alle innerhalb derselben UTM-Zone!\nVorgang abgebrochen.
 I DEM da 7,5 minuti non si trovano tutti nella stessa zona UTM!\nOperazione terminata.
 
 7,5 Minuten DEMs liggen niet allemaal in dezelfde UTM-Zone!\nOperatie afgebroken.
@@ -3360,7 +3360,7 @@ Kan XYZ bestand niet openen voor export!\nOperatie afgebroken.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTDLG
 Data Ops Module: Import DLG
-
+Data Ops Modul: Importiere DLG
 
 
 Data Ops Module: Import DLG
@@ -3444,7 +3444,7 @@ Fout bij opslaan van object bestand!\nOperatie afgebroken.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTDXF
 Data Ops Module: Import DXF
-
+Data Ops Modul: Importiere DXF
 
 
 Data Ops Module: Importeer DXF
@@ -3500,7 +3500,7 @@ Foout bij opslaan van laatste object!\nOperatie afgebroken.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTWDB
 Data Ops Module: Import WDB
-
+Data Ops Modul: Importiere WDB
 
 
 Data Ops Module: Importeer WDB
@@ -3832,7 +3832,7 @@ Records = %d, Gemarkeerd = %d
 ;
 MSG_DATAOPSGUI_DATAOPSCONVERTDEM
 Data Ops: Convert DEM
-
+Data Ops: Konvertiere DEM
 
 
 Data Ops: DEM converteren
@@ -3952,7 +3952,7 @@ Converteer DEM bron bestand
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTPE
 Incorrect file size for specified header, width and height!\nOperation terminated.
-
+Falsche Dateigröße für den angegebenen Header, Breite und Höhe!\nVorgang abgebrochen.
 
 
 Onjuiste bestandsgrootte voor opgegeven header, breedte en hoogte!\nOperatie afgebroken.
@@ -4051,21 +4051,21 @@ Ongeldige bronwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 ;
 MSG_DATAOPSGUI_BINARRAY
 Bin Array
-
+Bin Feld
 
 
 Binaire Reeks
 ;
 MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 !\nIllegal target value format/size combination!\nOperation terminated.
-
+!\nUngültige Zielwert-Format/Größenkombination!\nVorgang abgebrochen.
 
 
 !\nOngeldige doelwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 ;
 MSG_DATAOPSGUI_BINARYARRAY
 Binary Array
-
+Binär-Feld
 
 
 Binaire Reeks
@@ -4086,7 +4086,7 @@ Z Buffer
 ;
 MSG_DATAOPSGUI_ASCIIARRAY
 Ascii Array
-
+ASCII-Feld
 
 
 Ascii Reeks
@@ -9161,21 +9161,21 @@ Te weinig geheugen bij openen van Z-buffer!\nBewerking afgebroken.
 ;
 MSG_GLMP_OUTOFMEMORYOPENINGBITMAPSPERATIONTERMINATED
 Out of memory opening bitmaps!\nOperation terminated.
-
+Nicht genügend Speicher beim Öffnen der Bitmaps!\nVorgang abgebrochen.
 
 
 Te weinig geheugen bij openen van bitmaps!\nBewerking afgebroken.
 ;
 MSG_GLMP_OUTOFMEMORYOPENINGANTIALIASBUFFERPERATIONTERMINATED
 Out of memory opening anti-alias buffer!\nOperation terminated.
-
+Nicht genügend Speicher beim Öffnen des Anti-Aliasing-Puffers!\nVorgang abgebrochen.
 
 
 Te weinig geheugen bij openen van anti-alias buffer!\nBewerking afgebroken.
 ;
 MSG_GLMP_OUTOFMEMORYALLOCATINGREFLECTIONBUFFERCONTINUEWITHOUTRE
 Out of memory allocating Reflection buffer!\nContinue without Reflections?
-
+Nicht genügend Speicher zum Zuweisen des Reflexionspuffers!\nOhne Reflexionen fortfahren?
 
 
 Te weinig geheugen bij toewijzen van Reflectiebuffer!\nDoorgaan zonder Reflecties?
@@ -12503,7 +12503,7 @@ USGS DEM Bestanden
 ;
 MSG_MOREGUI_DATAOPSMODULEDEMEXTRACT
 Data Ops Module: DEM Extract
-
+Data Ops Modul: DEM Extrahieren
 
 
 Data Ops Module: DEM Extraheren
@@ -13003,28 +13003,28 @@ MSG_MOREGUI_STATUSLOGMESSAGES
 ;
 MSG_MOREGUI_ERR
 \33cERR
-
+\33cERR
 
 
 \33cFOUT
 ;
 MSG_MOREGUI_WNG
 \33cWNG
-
+\33cWNG
 
 
 \33cWAARSCH
 ;
 MSG_MOREGUI_MSG
 \33cMSG
-
+\33cMSG
 
 
 \33cMELDING
 ;
 MSG_MOREGUI_DTA
 \33cDTA
-
+\33cDTA
 
 
 \33cDTA
@@ -13045,7 +13045,7 @@ MSG_MOREGUI_BINARY
 ;
 MSG_MOREGUI_ASCII
 \33cAscii
-\33cAscii
+\33cASCII
 
 
 \33cAscii
@@ -13074,21 +13074,21 @@ ecosysteem
 ;
 MSG_PARAMS_OUTOFMEMORYRESTORINGOLDKEYFRAMESOMEKEYSMAYBELOST
 Out of memory restoring old key frames!\nSome %s keys may be lost.
-
+Nicht genügend Speicher zum Wiederherstellen alter Keyframes!\nEtwa %s-Schlüssel könnten verloren gegangen sein.
 
 
 Te weinig geheugen bij het herstellen van oude key frames!\nSommige %s keys kunnen verloren gaan.
 ;
 MSG_PARAMS_KEYFRAMECANCEL
 Key Frame: Cancel
-
+Key Frame: Abbrechen
 
 
 Key Frame: Annuleren
 ;
 MSG_PARAMS_PARAMETERSMODULEVELOCITYDISTRIBUTION
 Parameters Module: Velocity Distribution
-
+Parameter Modul: Geschwindigkeitsverteilung
 
 
 Parameter Module: Snelheidsverdeling
@@ -13116,28 +13116,28 @@ Te weinig geheugen!\nKan het Schalen venster niet openen.
 ;
 MSG_PARGUI_NOKEYFRAMESTOSCALE
 No key frames to scale!
-
+Keine Keyframes zum Skalieren vorhanden!
 
 
 Geen key frames om te schalen!
 ;
 MSG_PARGUI_SCALEKEYS
 Scale Keys
-
+Keys skalieren
 
 
 Keys Schalen
 ;
 MSG_PARGUI_PARAM
 Param
-
+Param
 
 
 Param
 ;
 MSG_PARGUI_FRAME
 Frame
-
+Frame
 
 
 Frame
@@ -13270,7 +13270,7 @@ Fout bij opbouwen van bewegingswaardetabel\nBewerking afgebroken
 ;
 MSG_PARGUI_LIGHTWAVEEXPORT
 LightWave Export
-
+LightWave Export
 
 
 LightWave Export
