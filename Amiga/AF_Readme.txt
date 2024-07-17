@@ -3690,4 +3690,16 @@ und AGUI.c
 case ID_EP_FIX
 case ID_EP_UNDO
 
+17.Juli 2024
+------------
+Alignement-Ueberpruefung Project > Edit
+
+z.B. hollaendisch ueberpruefen. Alle Strings muessen gleich lang sein. Das sieht man aber nicht so leicht mit den vielen \x20
+# gebe alle hollaendischen Texte aus, die zwischen "MSG_MOREGUI_PROJECTPATH_SPACES" und "MSG_MOREGUI_GRAPHICSAVEPATH_SPACES stehen. Dann ersetze \x20 durch * aund bestimme die Stringlaenge:
+
+# Page  1
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0; if(MESSAGE=="MSG_MOREGUI_PROJECTPATH_SPACES"){START=1;} if(MESSAGE=="MSG_MOREGUI_GRAPHICSAVEPATH_SPACES"){START=0;} if(START==1){getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0;getline;FRENCH=$0; getline; DUTCH=$0; print DUTCH} }' | awk '//{gsub("\\\\x20","*");printf("%s -- %d\n",$0,length($0));}'
+
+# Page 2
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0; if(MESSAGE=="MSG_MOREGUI_GRAPHICSAVEPATH_SPACES"){START=1;} if(MESSAGE=="MSG_MOREGUI_DIRECTORYLIST"){START=0;} if(START==1){getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0;getline;FRENCH=$0; getline; DUTCH=$0; print DUTCH} }' | awk '//{gsub("\\\\x20","*");printf("%s -- %d\n",$0,length($0));}'
 
