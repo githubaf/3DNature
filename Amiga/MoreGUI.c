@@ -809,7 +809,7 @@ void Make_PJ_Window(void)
 	    End, /* HGroup */
 
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_DEFORMATIONMAPPATH )),  // "Deformation Map Path"
+	    Child, Label2(GetString( MSG_MOREGUI_DEFORMATIONMAPPATH_SPACES )),  // "Deformation Map Path"
 	    Child, PJ_Win->Str[25] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, deformpath, End,
