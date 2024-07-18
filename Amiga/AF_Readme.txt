@@ -3324,7 +3324,7 @@ Todo: Nur Leerzeichen dabei auch ignorieren.
 assign include: MUI:Developer/c/include add
 assign include: Work:SDI/includes add
 
-Fr Amiga-Compilieren muss Build_ID muss gesetzt sein
+Fuer Amiga-Compilieren muss Build_ID muss gesetzt sein
 1.VBox:SelcoGit/3DNature/Amiga> setenv BuildID "WCS_SASC" 
 1.VBox:SelcoGit/3DNature/Amiga> copy env:BUILDID ENVARC: 
 
@@ -3702,4 +3702,16 @@ cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0; if(MESSAGE=="MSG_MOREGUI_PROJ
 
 # Page 2
 cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0; if(MESSAGE=="MSG_MOREGUI_GRAPHICSAVEPATH_SPACES"){START=1;} if(MESSAGE=="MSG_MOREGUI_DIRECTORYLIST"){START=0;} if(START==1){getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0;getline;FRENCH=$0; getline; DUTCH=$0; print DUTCH} }' | awk '//{gsub("\\\\x20","*");printf("%s -- %d\n",$0,length($0));}'
+
+
+18.Juli 2024
+------------
+Andere Schrift bei Menu Parameters Ecosystems in der deutsche Uebersetzung?
+Die unteren Schalter sind alle gleich breit.
+
+MSG_EDECOGUI_SORTLIST
+\33cSort List
+\33cListe sortieren  <--- ist recht lang. Wenn alle Schalter gleich breit sein sollen, dann passt das Fenster noicht mehr auf einen PAL-Bildschirm. Deshalb waehlt MUI automatisch eine andere Schrift.
+
+Also kuerzerer Text oder besserer Screenmode oder damit leben!
 

@@ -261,14 +261,14 @@ int main(void)
 	StdMesg[29]=   (char*)GetString( MSG_STDMESG_MAPPINGMODULE );
 	StdMesg[30]=   (char*)GetString( MSG_STDMESG_DIRECTORYNOTFOUND );
 	StdMesg[31]=   (char*)GetString( MSG_STDMESG_OPENWINDOWFAILED );
-	StdMesg[32]=   (char*)GetString( MSG_STDMESG_EMPTY );
-	StdMesg[33]=   (char*)GetString( MSG_STDMESG_EMPTY );
+	StdMesg[32]=   " ";
+	StdMesg[33]=   " ";
 	StdMesg[34]=   (char*)GetString( MSG_STDMESG_INCORRECTFILESIZE );
 	StdMesg[35]=   (char*)GetString( MSG_STDMESG_OPENWINDOWFAILED );
 	StdMesg[36]=   (char*)GetString( MSG_STDMESG_INCORRECTFILESIZE );
 	StdMesg[37]=   (char*)GetString( MSG_STDMESG_INCORRECTFILEVERSION );
 	StdMesg[38]=   (char*)GetString( MSG_STDMESG_RELATIVEELEVATIONFILESAVED );
-	StdMesg[39]=   (char*)GetString( MSG_STDMESG_EMPTY );
+	StdMesg[39]=   " ";
 	StdMesg[40]=   (char*)GetString( MSG_STDMESG_VECTOROBJECTSLOADED );
 	StdMesg[41]=   (char*)GetString( MSG_STDMESG_PROJECTFILELOADED );
 	StdMesg[42]=   (char*)GetString( MSG_STDMESG_PROJECTFILESAVED );
@@ -276,7 +276,7 @@ int main(void)
 	StdMesg[44]=   (char*)GetString( MSG_STDMESG_INCORRECTFILEVERSION );
 	StdMesg[45]=   (char*)GetString( MSG_STDMESG_RENDERTIMEFORFRAME );
 	StdMesg[46]=   (char*)GetString( MSG_STDMESG_RENDERTIMEFORANIM );
-	StdMesg[47]=   (char*)GetString( MSG_STDMESG_EMPTY );
+	StdMesg[47]=   " ";
 
 // AF: 9.Dec.22 Change the images to little Endian in case of i386-aros
 #ifdef __AROS__
