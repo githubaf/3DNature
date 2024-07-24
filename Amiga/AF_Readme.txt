@@ -3612,7 +3612,7 @@ Credits fuer die jeweiligen Uebersetzer eingebaut. (in WCS.cs)
 ------------
 Anzeige der noch fehlenden deutschen Uebersetzungen
 
-cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0; if(DEUTSCH==""){print MESSAGE;}else{DEUTSCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Deutsch:  %4d\n",DEUTSCHCOUNT);}'
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0; if(DEUTSCH==""){print MESSAGE;}else{DEUTSCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Deutsch:  %4d\n",DEUTSCHCOUNT);printf("%d%%\n",DEUTSCHCOUNT*100/MSGCOUNT++);}'
 
 12.Juni 2024
 ------------
@@ -3631,7 +3631,7 @@ cat WCS.cs  | awk '/MSG_.*/{MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0; if
 Amiwell hat mit den italienischen Uebersetzungen begonnen.
 Anzeige der fehlenden italiensichen Uebersetzungen:
 
-cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; if(ITALIAN==""){print ENGLISH;}else{ITALIANCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Italian:  %4d\n",ITALIANCOUNT);}'
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; if(ITALIAN==""){print ENGLISH;}else{ITALIANCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Italian:  %4d\n",ITALIANCOUNT);printf("%d%%\n",ITALIANCOUNT*100/MSGCOUNT++);}'
 
 WCS bauen und Catalos zu AROS kopieren
 ---------------------------------------
@@ -3663,7 +3663,7 @@ boot/linux/AROSBootstrap &
 -----------
 Leo macht die niederlaendische Ueberstezung. 105/2107 bis jetzt
 
-cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0;getline;FRENCH=$0; getline; DUTCH=$0; if(DUTCH==""){print ENGLISH;}else{DUTCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Dutch:  %4d\n",DUTCHCOUNT);}'
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0;getline;FRENCH=$0; getline; DUTCH=$0; if(DUTCH==""){print ENGLISH;}else{DUTCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Dutch:  %4d\n",DUTCHCOUNT);printf("%d%%\n",DUTCHCOUNT*100/MSGCOUNT++);}'
 
 6.Juli 2024
 -----------
@@ -3714,4 +3714,11 @@ MSG_EDECOGUI_SORTLIST
 \33cListe sortieren  <--- ist recht lang. Wenn alle Schalter gleich breit sein sollen, dann passt das Fenster noicht mehr auf einen PAL-Bildschirm. Deshalb waehlt MUI automatisch eine andere Schrift.
 
 Also kuerzerer Text oder besserer Screenmode oder damit leben!
+
+22.Juli 2024
+------------
+Simplecat scheint Backslashe in lange zu machen. Dadurch werden mehrzeilig. Das bringt meine AWK-Scripte durcheinander. Die Backslashe wieder entfernen:
+
+awk '{if (sub(/\\$/, "")) printf "%s", $0; else print $0}' WCS.cs >aaa.tmp && cp aaa.tmp WCS.cs
+
 
