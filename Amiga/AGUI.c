@@ -3156,7 +3156,7 @@ void Set_Param_Menu(short Group)
 
  switch (Group)
   {
-  case 0:
+  case 0:  // Motion Editor active
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_ITEM;    
    WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)NM_BARLABEL;    
@@ -3165,11 +3165,13 @@ void Set_Param_Menu(short Group)
    WCSNewMenus[MENU_STOP + 1].nm_UserData = (APTR)(ID_EM_LOADALL);
    WCSNewMenus[MENU_STOP + 2].nm_UserData = (APTR)(ID_EM_SAVEALL);
    WCSNewMenus[MENU_STOP + 3].nm_Type = NM_ITEM;
+   WCSNewMenus[MENU_STOP + 3].nm_Label =  GetString( MSG_AGUI_LOADACTIVE );  // "Load Active...";
+   WCSNewMenus[MENU_STOP + 4].nm_Label =  GetString( MSG_AGUI_SAVEACTIVE );  // "Save Active...";
    WCSNewMenus[MENU_STOP + 3].nm_UserData = (APTR)(ID_EM_LOADCURRENT);
    WCSNewMenus[MENU_STOP + 4].nm_UserData = (APTR)(ID_EM_SAVECURRENT);
    break;
    }
-  case 1:
+  case 1:  // Color Editor active
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_ITEM;    
    WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)NM_BARLABEL;    
@@ -3178,11 +3180,13 @@ void Set_Param_Menu(short Group)
    WCSNewMenus[MENU_STOP + 1].nm_UserData = (APTR)(ID_EC_LOADALL);
    WCSNewMenus[MENU_STOP + 2].nm_UserData = (APTR)(ID_EC_SAVEALL);
    WCSNewMenus[MENU_STOP + 3].nm_Type = NM_ITEM;
+   WCSNewMenus[MENU_STOP + 3].nm_Label =  GetString( MSG_AGUI_LOADACTIVE );  // "Load Active...";
+   WCSNewMenus[MENU_STOP + 4].nm_Label =  GetString( MSG_AGUI_SAVEACTIVE );  // "Save Active...";
    WCSNewMenus[MENU_STOP + 3].nm_UserData = (APTR)(ID_EC_LOADCURRENT);
    WCSNewMenus[MENU_STOP + 4].nm_UserData = (APTR)(ID_EC_SAVECURRENT);
    break;
    }
-  case 2:
+  case 2:  // Ecosystem Editor active
    {
    WCSNewMenus[MENU_STOP].nm_Type = NM_ITEM;    
    WCSNewMenus[MENU_STOP].nm_Label =  (STRPTR)NM_BARLABEL;    
@@ -3191,6 +3195,8 @@ void Set_Param_Menu(short Group)
    WCSNewMenus[MENU_STOP + 1].nm_UserData = (APTR)(ID_EE_LOADALL);
    WCSNewMenus[MENU_STOP + 2].nm_UserData = (APTR)(ID_EE_SAVEALL);
    WCSNewMenus[MENU_STOP + 3].nm_Type = NM_ITEM;
+   WCSNewMenus[MENU_STOP + 3].nm_Label =  GetString( MSG_AGUI_LOADACTIVE );  // "Load Active...";
+   WCSNewMenus[MENU_STOP + 4].nm_Label =  GetString( MSG_AGUI_SAVEACTIVE );  // "Save Active...";
    WCSNewMenus[MENU_STOP + 3].nm_UserData = (APTR)(ID_EE_LOADCURRENT);
    WCSNewMenus[MENU_STOP + 4].nm_UserData = (APTR)(ID_EE_SAVECURRENT);
    break;
