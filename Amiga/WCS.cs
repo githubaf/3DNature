@@ -4788,7 +4788,7 @@ Data Ops Module: Import DLG
 ;
 MSG_DLG_OUTOFMEMORYALLOCATINGTEMPORARYARRAYSPERATIONTERMINATED
 Out of memory allocating temporary arrays!\nOperation terminated.
-
+Nicht genügend Speicher zum Anlegen der temporären Felder!\nVorgang abgebrochen.
 
 
 Te weinig geheugen voor toewijzen van tijdelijke reeksen!\nOperatie afgebroken.
@@ -4828,7 +4828,7 @@ Kan DLG bestand niet openen voor invoer!\nOperatie afgebroken.
 ;
 MSG_DLG_FILENOTAUSGSOPTIONALDLGPERATIONTERMINATED
 File not a USGS Optional DLG!\nOperation terminated.
-
+Datei ist kein USGS Optionales DLG!\nVorgang abgebrochen.
 
 
 Bestand is geen USGS Optionele DLG!\nOperatie afgebroken.
@@ -4958,7 +4958,7 @@ Er is een entiteit gevonden zonder naam identificatie. Voer een standaard naam i
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTASTITEMDOESNOTAPP
 Out of memory expanding Database Editor List!\nLast item does not appear in list view.
-
+Nicht genügend Speicher, um die Datenbankeditor-Liste zu erweitern!\nDas letzte Element erscheint nicht in der Listenansicht.
 
 
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nLaatste item verschijnt niet in lijst weergave.
@@ -5159,7 +5159,7 @@ MSG_DB_OBJECTS
 ;
 MSG_DB_ATLEASTONEVECTORFILEWASFOUNDTOCONTAINANUMBEROFPOINTSDIFF
 At least one vector file was found to contain a number of points different from that in its Database record!\nThe record has been updated.\nDatabase should be re-saved.
-
+Eine oder mehrere Vektordateien enthalten eine andere Anzahl von Punkten als ihren Datenbankeinträgen angegeben\nDie Einträge wurden aktualisiert.\nDie Datenbank sollte erneut gespeichert werden.
 
 
 Ten minste één vector bestand bevatte een aantal punten dat verschilde van dat in zijn Database record!\nHet record is bijgewerkt.\nDatabase moet opnieuw worden opgeslagen.
@@ -5169,7 +5169,7 @@ Ten minste één vector bestand bevatte een aantal punten dat verschilde van dat i
 ;
 MSG_DB_MAPVIEWLOAD
 Map View: Load
-
+Kartenansicht: Laden
 
 
 Map View: Laden
@@ -5278,7 +5278,8 @@ Database Module: Editor
 
 ;
 MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN
-No memory for vector coordinates!\nNew object has been created but can not be edited until memory is available.
+No memory for vector coordinates!\nNew object has been crefNicht genügend Speicher um die Datenbankeditor-Liste zu erweitern. Ein neues Objekt wurde erstellt, erscheint aber nicht in der \
+Listenansicht.ated but can not be edited until memory is available.
 Nicht genügend Speicher für die Vektorkoordinaten!\nEin neues Objekt wurde erzeugt, aber es kann erst bearbeitet werden, wenn freier Speicher verfügbar ist.
 
 
@@ -5289,7 +5290,7 @@ Te weinig geheugen voor vector coördinaten!\nNieuw object is aangemaakt maar kan
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE
 Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.
-
+Nicht genügend Speicher um die Datenbankeditor-Liste zu erweitern. Ein neues Objekt wurde erstellt, erscheint aber nicht in der Listenansicht.
 
 
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is aangemaakt maar zal niet verschijnen in lijst weergave.
@@ -5349,11 +5350,11 @@ De object naam is al aanwezig in de database!\nDubbele items zullen worden geneg
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENADD
 Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.
+Nicht genügend Speicher um die Datenbankeditor-Liste zu erweitern. Ein neues Objekt wurde hinzugefügt, erscheint aber nicht in der Listenansicht.
 
 
 
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is toegevoegd maar zal niet verschijnen in lijst weergave.
-
 
 
 ;
@@ -5369,7 +5370,7 @@ Fout bij laden van dit object!\nOperatie afgebroken.
 ;
 MSG_DB_MAPVIEWSAVEALL
 Map View: Save All
-
+Kartenansicht: Alles Speichern
 
 
 Map View: Alles Opslaan
@@ -5389,7 +5390,7 @@ Foout bij schrijven van Master Object bestand!\nOperatie afgebroken.
 ;
 MSG_DB_WCSMASTEROBJECT
 WCSMasterObject
-
+WCSMasterObject
 
 
 WCSMasterObject
@@ -5399,7 +5400,7 @@ WCSMasterObject
 ;
 MSG_DB_OUTOFMEMORYLOADINGMASTEROBJECTFILENABLEDOBJECTSWILLBELOA
 Out of memory loading Master Object File!\nEnabled Objects will be loaded individually.
-
+Nicht genügend Speicher zum Laden der Master-Objektdatei!\nAktivierte Objekte werden einzeln geladen.
 
 
 Te weinig geheugen voor laden van Master Object bestand!\nIngeschakelde objecten zullen individueel worden geladen.
@@ -5441,7 +5442,7 @@ MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 ;
 MSG_DB_RECORDSMARKED
 Records = %d, Marked = %d
-
+Einträge = %d, Markiert = %d
 
 
 Records = %d, Gemarkeerd = %d
@@ -15145,7 +15146,7 @@ Lengte: %f km
 ;
 MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX
 Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?
-
+Das Objekt ist nicht geschlossen!\nDer Ursprung kann nicht verschoben werden.\nLetzten Scheitelpunkt gleich dem ersten setzen?
 
 
 Object is niet gesloten!\nDe oorsprong kan niet worden verplaatst.\nStel laatste punt nu gelijk aan eerste?
@@ -15175,7 +15176,7 @@ Nieuwe oorsprong selecteren
 ;
 MSG_MAPEXTRA_RESETVECTORORIGIN
 Reset vector origin: %s.\n
-
+Vektor-Ursprung zurücksetzen: %s\n
 
 
 Vectoroorsprong resetten: %s.\n
@@ -15205,7 +15206,7 @@ Vector %s aangepast aan topografie.
 ;
 MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
 \0338Select first source vertex. Q=done Uu=up Dd=down ESC=abort
-
+\0338Ersten Quell-Scheitelpunkt auswählen. Q=fertig Uu=hoch Dd=runter ESC=abbrechen
 
 
 \0338Eerste bron hoekpunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
@@ -15215,7 +15216,7 @@ MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
 ;
 MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEX
 Select first source vertex
-
+Ersten Quell-Scheitelpunkt auswählen
 
 
 Selecteer eerste bron hoekpunt
@@ -15225,7 +15226,7 @@ Selecteer eerste bron hoekpunt
 ;
 MSG_MAPEXTRA_SELECTLASTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
 \0338Select last source vertex. Q=done Uu=up Dd=down ESC=abort
-
+\0338Letzten Quell-Scheitelpunkt auswählen. Q=fertig Uu=hoch Dd=runter ESC=abbrechen
 
 
 \0338Laatste bron hoekpunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
@@ -15235,7 +15236,7 @@ MSG_MAPEXTRA_SELECTLASTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
 ;
 MSG_MAPEXTRA_SELECTLASTSOURCEVERTEX
 Select last source vertex
-
+Letzten Quell-Scheitelpunkt auswählen
 
 
 Laatste bron hoekpunt selecteren
@@ -15245,7 +15246,7 @@ Laatste bron hoekpunt selecteren
 ;
 MSG_MAPEXTRA_SELECTFIRSTDESTNVERTEXQDONEUUUPDDDOWNESCABORT
 \0338Select first dest'n vertex. Q=done Uu=up Dd=down ESC=abort
-
+\0338Ersten Ziel-Scheitelpunkt auswählen. Q=fertig Uu=hoch Dd=runter ESC=abbrechen
 
 
 \0338Eerste bestemmings hoekpunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
@@ -15255,7 +15256,7 @@ MSG_MAPEXTRA_SELECTFIRSTDESTNVERTEXQDONEUUUPDDDOWNESCABORT
 ;
 MSG_MAPEXTRA_SELECTFIRSTDESTINATIONVERTEX
 Select first destination vertex
-
+Ersten Ziel-Scheitelpunkt auswählen
 
 
 Eerste bestemmingspunt selecteren
@@ -15265,7 +15266,7 @@ Eerste bestemmingspunt selecteren
 ;
 MSG_MAPEXTRA_SELECTLASTDESTNVERTEXQDONEUUUPDDDOWNESCABORT
 \0338Select last dest'n vertex. Q=done Uu=up Dd=down ESC=abort
-
+\0338Letzten Ziel-Scheitelpunkt auswählen. Q=fertig Uu=hoch Dd=runter ESC=abbrechen
 
 
 \0338Laatste bestemmingspunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
@@ -15275,7 +15276,7 @@ MSG_MAPEXTRA_SELECTLASTDESTNVERTEXQDONEUUUPDDDOWNESCABORT
 ;
 MSG_MAPEXTRA_SETLASTDESTINATIONVERTEX
 Set last destination vertex
-
+Letzten Ziel-Scheitelpunkt setzen
 
 
 Laatste bestemmingspunt instellen
@@ -15315,7 +15316,7 @@ Ongeldig aantal punten!\nAls eerste en laatste bestemmingspunten hetzelfde zijn,
 ;
 MSG_MAPEXTRA_PROCEEDWITHRELOCATION
 Proceed with relocation?
-
+Mit der Verschiebung fortfahren?
 
 
 Doorgaan met verplaatsing?
@@ -15345,7 +15346,7 @@ Overeenkomende vector %s met %s.\n
 ;
 MSG_MAPEXTRA_VERTEXLATITUDEFLONGITUDEF
 Vertex %d  Latitude %f  Longitude %f
-
+Scheitelpunkt %d  Breite %f  Länge %f
 
 
 Hoekpunt %d  Breedtegraad %f  Lengtegraad %f
@@ -15465,7 +15466,7 @@ Vectorobject nu opslaan?
 ;
 MSG_MAPEXTRA_ENTERNUMBEROFOUTPUTVERTICES
 Enter number of output vertices.
-
+Anzahl der Ziel-Scheitelpunkte eingeben.
 
 
 Voer aantal uitvoerpunten in.
@@ -15475,7 +15476,7 @@ Voer aantal uitvoerpunten in.
 ;
 MSG_MAPEXTRA_SPLINELENGTHFKILOMETERSNTERVALFKMSEGMENT
 Spline length = %f kilometers\nInterval = %f km/segment
-
+Spline-Länge = %f Kilometer\nIntervall = %f km/Segment
 
 
 Splinelengte = %f kilometers\nInterval = %f km/segment
@@ -15505,7 +15506,7 @@ OK|Reset|Annuleren
 ;
 MSG_MAPEXTRA_MAPVIEWMODULEINTERPOLATE
 Map View Module: Interpolate
-
+Kartenasichtsmodul: Interpolieren
 
 
 Kaartweergave Module: Interpoleren
@@ -15555,7 +15556,7 @@ Voer minimum aantal overeenkomende punten in.
 ;
 MSG_MAPEXTRA_ENTERELEVATIONTOLERANCE
 Enter elevation tolerance.
-
+Höhentoleranz eingeben.
 
 
 Voer hoogtetolerantie in.
@@ -15797,7 +15798,7 @@ Besturing
 ;
 MSG_MAPGUI_ECOLEGEND
 Eco Legend
-
+Öko-Legende
 
 
 Eco Legende
@@ -17120,7 +17121,7 @@ Opslaan|Annuleren
 ;
 MSG_MAPSUPRT_0338SELECTCAMERAPOINT
 \0338Select Camera Point
-
+\0338Kamera-Position auswählen
 
 
 \0338Camera Positie selecteren
@@ -17130,7 +17131,7 @@ MSG_MAPSUPRT_0338SELECTCAMERAPOINT
 ;
 MSG_MAPSUPRT_SELECTCAMERAPOINT
 Select Camera Point
-
+Kameraposition auswählen
 
 
 Camera Positie selecteren
@@ -17140,7 +17141,7 @@ Camera Positie selecteren
 ;
 MSG_MAPSUPRT_0338SELECTFOCUSPOINT
 \0338Select Focus Point
-
+\0338Fokuspunkt auswählen
 
 
 \0338Focus Punt selecteren
@@ -17150,7 +17151,7 @@ MSG_MAPSUPRT_0338SELECTFOCUSPOINT
 ;
 MSG_MAPSUPRT_SELECTFOCUSPOINT
 Select Focus Point
-
+\0338Fokuspunkt auswählen
 
 
 Focus Punt selecteren
@@ -17160,7 +17161,7 @@ Focus Punt selecteren
 ;
 MSG_MAPSUPRT_INTERACTIVECAMERAPOINT
 Interactive Camera Point
-
+Interaktive Kamaraposition
 
 
 Interactieve Camera Positie
@@ -17170,7 +17171,7 @@ Interactieve Camera Positie
 ;
 MSG_MAPSUPRT_INTERACTIVEFOCUSPOINT
 Interactive Focus Point
-
+Interaktiver Fokuspunkt
 
 
 Interactief Focus Punt
@@ -17180,7 +17181,7 @@ Interactief Focus Punt
 ;
 MSG_MAPSUPRT_INTERACTIVESUNPOSITION
 Interactive Sun Position
-
+Interaktive Sonnenposition
 
 
 Interactieve Zon Positie
@@ -17190,7 +17191,7 @@ Interactieve Zon Positie
 ;
 MSG_MAPSUPRT_INTERACTIVESTARTHAZE
 Interactive Start Haze
-
+Interaktiver Dunst-Start
 
 
 Interactieve Start Nevel
@@ -17200,7 +17201,7 @@ Interactieve Start Nevel
 ;
 MSG_MAPSUPRT_INTERACTIVEFULLHAZE
 Interactive Full Haze
-
+Interaktiver voller Dunst
 
 
 Interactieve Volledige Nevel
@@ -17220,7 +17221,7 @@ Kaartweergave: Kleurenkaart
 ;
 MSG_MAPSUPRT_SELECTEDOBJECTMUSTBEATOPODEMEECLASSFIELDINDATABASE
 Selected object must be a Topo DEM!\nSee Class field in Database Editor.\nOperation terminated.
-
+Das ausgewählte Objekt muss ein Topo DEM sein!\nSiehe das Klassen-Feld im Datenbank Editor.Vorgng abgebrochen.
 
 
 Geselecteerd object moet een Topo DEM zijn!\nZie Klasse veld in Database Editor.\nBewerking afgebroken.
@@ -17291,7 +17292,7 @@ DEM %d/%d
 ;
 MSG_MAPTOPOOB_ERRORSAVINGVECTORVERTICESTOFILE
 Error saving vector vertices to file!
-
+Fehler beim Speichern der Vektorscheitelpunkte in die Datei!
 
 
 Fout bij opslaan van vector hoekpunten naar bestand!
@@ -17321,7 +17322,7 @@ Kan vectorbestand niet openen voor uitvoer!
 ;
 MSG_MAPTOPOOB_CLOUD
 Cloud %d
-
+Wolke %d
 
 
 Wolk %d
@@ -17331,7 +17332,7 @@ Wolk %d
 ;
 MSG_MAPTOPOOB_ENTERTHEMAXIMUMPIXELSIZEFORAPOLYGONTHESMALLERTHEN
 Enter the maximum pixel size for a polygon. The smaller the number the longer image rendering will take!
-
+Maximale Pixel-Größe für ei Polygon eingeben. Kleinere Werte erhöhen die Berechnungsdauer!
 
 
 Voer de maximale pixelgrootte voor een veelhoek in. Hoe kleiner het getal, hoe langer het renderen van de afbeelding duurt!
@@ -17371,7 +17372,7 @@ Voer het frame interval in om te scannen. Hoe kleiner het getal, hoe langer dit 
 ;
 MSG_MAPTOPOOB_ANIMATION
 Animation
-
+Animation
 
 
 Animatie
@@ -17381,7 +17382,7 @@ Animatie
 ;
 MSG_MAPTOPOOB_FRAME
 Frame %d/%d
-
+Bild %d/%d
 
 
 Frame %d/%d
@@ -18246,7 +18247,7 @@ Parameter Pad/Naam
 ;
 MSG_MOREGUI_FRAMESAVEPATHNAME
 Frame Save Path/Name
-
+Bilder-Speicherpfad/Name
 
 
 Frame Opslaan Pad/Naam
@@ -18256,7 +18257,7 @@ Frame Opslaan Pad/Naam
 ;
 MSG_MOREGUI_TEMPFRAMEPATHNAME
 Temp Frame Path/Name
-
+Temp. Bilder-Speicherpfad/Name
 
 
 Tijd. Frame Pad/Naam
@@ -18266,7 +18267,7 @@ Tijd. Frame Pad/Naam
 ;
 MSG_MOREGUI_VECTORSAVEPATHNAME
 Vector Save Path/Name
-
+Vektor-Speicherpfad/Name
 
 
 Vector Opslaan Pad/Naam
@@ -18296,7 +18297,7 @@ Achtergrond Pad/Naam
 ;
 MSG_MOREGUI_GRAPHICSAVEPATHNAME
 Graphic Save Path/Name
-
+Grafik-Speicherpfad/Name
 
 
 Grafiek Opslaan Pad/Naam
@@ -18306,7 +18307,7 @@ Grafiek Opslaan Pad/Naam
 ;
 MSG_MOREGUI_DEFAULTDIRECTORY
 Default Directory
-Standardverzeichnis
+Standardordner
 
 
 Standaarddirectory
@@ -18386,7 +18387,7 @@ PC Project Pad
 ;
 MSG_MOREGUI_PCFRAMESPATH
 PC Frames Path
-
+PC-Bilder Pfad
 
 
 PC Afbeeldingen Pad

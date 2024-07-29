@@ -1065,7 +1065,7 @@ void Close_PJ_Window(short Apply)
 
 /**********************************************************************/
 
-void Handle_PJ_Window(ULONG WCS_ID)
+void Handle_PJ_Window(ULONG WCS_ID)   // Menu -> Edit
 {
 
   if ((WCS_ID & 0x0000ff00) == GP_OPEN_WINDOW)
@@ -1111,7 +1111,7 @@ void Handle_PJ_Window(ULONG WCS_ID)
      {
      case 0:
       {
-      getfilename(0, (char*)GetString( MSG_MOREGUI_PROJECTPATHNAME ), projectpath, projectname);  // "Project Path/Name"
+      getfilename(0, (char*)GetString( MSG_MOREGUI_PROJECTPATHNAME ), projectpath, projectname);  // "Project Path/Name" File Selector
       set(PJ_Win->Str[0], MUIA_String_Contents, (IPTR)projectpath);
       set(PJ_Win->Str[1], MUIA_String_Contents, (IPTR)projectname);
       break;
@@ -1430,7 +1430,7 @@ void Handle_PJ_Window(ULONG WCS_ID)
 
 /***********************************************************************/
 
-void Make_SC_Window(void)
+void Make_SC_Window(void)  // Scale-Window, Menu -> Modules -> Render -> Render -> Change Image Size
 {
  char *floatdata;
  long open;
@@ -1904,7 +1904,7 @@ void Close_PR_Window(void)
 
 /***********************************************************************/
 
-void Handle_PR_Window(ULONG WCS_ID)
+void Handle_PR_Window(ULONG WCS_ID)   // Menu -> Preferences
 {
  long i, data;
 

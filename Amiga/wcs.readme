@@ -43,8 +43,8 @@ You need a full installation of the commercial WCS 2 package on your Amiga.
 Fortunately, the installation disks have been made available by 3DNature.
 You can download the disk images in adf format from www.3dnature.com from
 the Downloads -> Legacy Software section.
-When installation is complete just copy the executables from this archive
-into the WCS drawer.
+When installation is complete just copy the executables and 
+the drawer Catalogs from this archive into the WCS drawer.
 
 WinUAE users:
 -------------
@@ -114,7 +114,11 @@ Version 2.031 (Emerald-Berta)
                  set Ceiling to 255 when converting from a format to
                  one byte unsigned values etc.)
         *Credits:Thank you Amiwell79 for multiple nice donations!
-                 
+
+Version 2.031 (Emerald-Caesar)
+        *Feature: Locale support added.
+                  German catalog (selco) 
+                  Dutch catalog (leof)
 
 
 Deutsch
@@ -154,8 +158,8 @@ Zunächst ist eine vollständige Installation des kommerziellen WCS 2 Paketes
 erforderlich. Großzügigerweise stellt 3DNature.com auch die Installations-
 disketten im ADF-Format zum freien Download für jedermann bereit. Sie befinden
 sich auf www.3dnature.com unter Downloads -> Legacy Software.
-Nach der Installation sind einfach die neuen Programmversionen aus diesem 
-Archiv in den WCS-Ordner zu kopieren.
+Nach der Installation sind einfach die neuen Programmversionen und 
+die Schublade Catalogs aus diesem Archiv in den WCS-Ordner zu kopieren.
 
 WinUAE-Anwender:
 ----------------

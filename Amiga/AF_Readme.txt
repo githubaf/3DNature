@@ -3711,14 +3711,16 @@ Die unteren Schalter sind alle gleich breit.
 
 MSG_EDECOGUI_SORTLIST
 \33cSort List
-\33cListe sortieren  <--- ist recht lang. Wenn alle Schalter gleich breit sein sollen, dann passt das Fenster noicht mehr auf einen PAL-Bildschirm. Deshalb waehlt MUI automatisch eine andere Schrift.
+\33cListe sortieren  <--- ist recht lang. Wenn alle Schalter gleich breit sein sollen, dann passt das Fenster nicht mehr auf einen PAL-Bildschirm. Deshalb waehlt MUI automatisch eine andere Schrift.
 
 Also kuerzerer Text oder besserer Screenmode oder damit leben!
 
 22.Juli 2024
 ------------
-Simplecat scheint Backslashe in lange zu machen. Dadurch werden mehrzeilig. Das bringt meine AWK-Scripte durcheinander. Die Backslashe wieder entfernen:
+Simplecat scheint Backslashe in lange Strngs zu machen. Dadurch werden mehrzeilig. Das bringt meine AWK-Scripte durcheinander. Die Backslashe wieder entfernen:
 
 awk '{if (sub(/\\$/, "")) printf "%s", $0; else print $0}' WCS.cs >aaa.tmp && cp aaa.tmp WCS.cs
 
-
+29.Juli 2024
+------------
+Mehr deutsche Uebersetzungen. 1504/2107
