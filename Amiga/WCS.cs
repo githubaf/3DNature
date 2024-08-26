@@ -681,7 +681,7 @@ Horizon Punt
 
 
 
-
+Punkt Na Horyzoncie
 ;
 MSG_VARNAME_HORIZONSTRETCH
 Horizon Stretch
@@ -692,7 +692,7 @@ Horizon Uitrekken
 
 
 
-
+Rozci±gniêcie Horyzontu
 ;
 MSG_VARNAME_HAZESTART
 Haze Start
@@ -703,7 +703,7 @@ Nevel Start
 
 
 
-
+Pocz±tek Zamglenia
 ;
 MSG_VARNAME_HAZERANGE
 Haze Range
@@ -714,7 +714,7 @@ Nevel Bereik
 
 
 
-
+Zasiêg Mg³y
 ;
 MSG_VARNAME_SHADEFACTOR
 Shade Factor
@@ -725,7 +725,7 @@ Schaduw Factor
 
 
 
-
+Stopieñ Cienia
 ;
 MSG_VARNAME_FOGNONE
 Fog None
@@ -736,7 +736,7 @@ Geen Mist
 
 
 
-
+Bez Mg³y 
 ;
 MSG_VARNAME_FOGFULL
 Fog Full
@@ -747,7 +747,7 @@ Volledige Mist
 
 
 
-
+Pe³na Mg³a
 ;
 MSG_VARNAME_ZMINIMUM
 Z Minimum
@@ -758,7 +758,7 @@ Z Minimum
 
 
 
-
+Z Minimalne
 ;
 MSG_VARNAME_SUNLAT
 Sun Lat
@@ -769,7 +769,7 @@ Zon Lat
 
 
 
-
+Wys. S³oñca
 ;
 MSG_VARNAME_SUNLON
 Sun Lon
@@ -780,7 +780,7 @@ Zon Long
 
 
 
-
+D³ug. S³oñca
 ;
 MSG_VARNAME_SUNSIZE
 Sun Size
@@ -791,7 +791,7 @@ Zon Grootte
 
 
 
-
+Rozmiar S³oñca
 ;
 MSG_VARNAME_MOONLAT
 Moon Lat
@@ -802,7 +802,7 @@ Maan Lat
 
 
 
-
+Wys. Ksiê¿yca
 ;
 MSG_VARNAME_MOONLON
 Moon Lon
@@ -813,7 +813,7 @@ Maan Long
 
 
 
-
+D³ug. Ksiê¿yca
 ;
 MSG_VARNAME_MOONSIZE
 Moon Size
@@ -824,7 +824,7 @@ Maan Grootte
 
 
 
-
+Rozmiar Ksiê¿yca
 ;
 MSG_VARNAME_REFLECTION
 Reflection %
@@ -835,7 +835,7 @@ Reflectie %
 
 
 
-
+Odbicie %
 ;
 MSG_STDMESG_OUTOFMEMORY
  Out of memory!
@@ -846,7 +846,7 @@ MSG_STDMESG_OUTOFMEMORY
 
 
 
-
+Brak Pamiêci!
 ;
 MSG_STDMESG_OPENFILEFAILED
  Open file failed!
@@ -857,7 +857,7 @@ MSG_STDMESG_OPENFILEFAILED
 
 
 
-
+Nie mo¿na otworzyæ pliku!
 ;
 MSG_STDMESG_READFILEFAILED
  Read file failed!
@@ -868,7 +868,7 @@ MSG_STDMESG_READFILEFAILED
 
 
 
-
+B³±d odczytu pliku!
 ;
 MSG_STDMESG_WRITINGTOFILEFAILED
  Writing to file failed!
@@ -879,7 +879,7 @@ MSG_STDMESG_WRITINGTOFILEFAILED
 
 
 
-
+B³±d zapisu pliku!
 ;
 MSG_STDMESG_WRONGFILETYPE
  Wrong file type!
@@ -890,7 +890,7 @@ MSG_STDMESG_WRONGFILETYPE
 
 
 
-
+Niew³a¶ciwy typ pliku!
 ;
 MSG_STDMESG_ILLEGALINSTRUCTION
  Illegal instruction!
@@ -901,7 +901,7 @@ MSG_STDMESG_ILLEGALINSTRUCTION
 
 
 
-
+Nieznanza instrukcja!
 ;
 MSG_STDMESG_ILLEGALVALUE
  Illegal value!
@@ -912,7 +912,7 @@ MSG_STDMESG_ILLEGALVALUE
 
 
 
-
+Niew³±¶ciwa warto¶æ!
 ;
 MSG_STDMESG_FILENOTLOADED
  File not loaded!
@@ -923,7 +923,7 @@ MSG_STDMESG_FILENOTLOADED
 
 
 
-
+Plik nie wczytany!
 ;
 MSG_STDMESG_MODULENOTIMPLEMENTED
  Module not implemented.
@@ -934,7 +934,7 @@ MSG_STDMESG_MODULENOTIMPLEMENTED
 
 
 
-
+Modu³ nie jest zaimplementowany
 ;
 MSG_STDMESG_GUINOTIMPLEMENTED
  GUI not implemented.
@@ -945,7 +945,7 @@ MSG_STDMESG_GUINOTIMPLEMENTED
 
 
 
-
+GUI nie zaimplementowane.
 ;
 MSG_STDMESG_PARAMETERFILELOADED
  Parameter file loaded.
@@ -956,7 +956,7 @@ MSG_STDMESG_PARAMETERFILELOADED
 
 
 
-
+Plik z parametrami wczytany.
 ;
 MSG_STDMESG_PARAMETERFILESAVED
  Parameter file saved.
@@ -967,7 +967,7 @@ MSG_STDMESG_PARAMETERFILESAVED
 
 
 
-
+Plik z parametrami zapisany.
 ;
 MSG_STDMESG_DATABASEFILELOADED
  Database file loaded.
@@ -978,7 +978,7 @@ MSG_STDMESG_DATABASEFILELOADED
 
 
 
-
+Plik bazy danych wczytany.
 ;
 MSG_STDMESG_DATABASEFILESAVED
  Database file saved.
@@ -989,7 +989,7 @@ MSG_STDMESG_DATABASEFILESAVED
 
 
 
-
+Plik bazy danych zapisany.
 ;
 MSG_STDMESG_DEMFILELOADED
  DEM file loaded.
@@ -1000,7 +1000,7 @@ MSG_STDMESG_DEMFILELOADED
 
 
 
-
+Plik DEM wczytany.
 ;
 MSG_STDMESG_DEMFILESAVED
  DEM file saved.
@@ -1011,7 +1011,7 @@ MSG_STDMESG_DEMFILESAVED
 
 
 
-
+Plik DEM zapisany.
 ;
 MSG_STDMESG_VECTORFILELOADED
  Vector file loaded.
@@ -1022,7 +1022,7 @@ MSG_STDMESG_VECTORFILELOADED
 
 
 
-
+Plik z wektorami wczytany.
 ;
 MSG_STDMESG_VECTORFILESAVED
  Vector file saved.
@@ -1033,7 +1033,7 @@ MSG_STDMESG_VECTORFILESAVED
 
 
 
-
+Plik z wektorami zapisany.
 ;
 MSG_STDMESG_IMAGEFILELOADED
  Image file loaded.
@@ -1044,7 +1044,7 @@ MSG_STDMESG_IMAGEFILELOADED
 
 
 
-
+Plik obrazu wczytany.
 ;
 MSG_STDMESG_IMAGEFILESAVED
  Image file saved.
@@ -1055,7 +1055,7 @@ MSG_STDMESG_IMAGEFILESAVED
 
 
 
-
+Plik obrazu zapisany.
 ;
 MSG_STDMESG_COLORMAPFILELOADED
  Color Map file loaded.
@@ -1066,7 +1066,7 @@ MSG_STDMESG_COLORMAPFILELOADED
 
 
 
-
+Plik mapy kolorów wczytany.
 ;
 MSG_STDMESG_COLORMAPFILESAVED
  Color Map file saved.
@@ -1077,7 +1077,7 @@ MSG_STDMESG_COLORMAPFILESAVED
 
 
 
-
+Plik mapy kolorów zapisany.
 ;
 MSG_STDMESG_ENABLE_SOFT_OUTLINE_STYLE
 \33t
@@ -1099,7 +1099,7 @@ Mapping Modul.
 
 
 
-
+Modu³ mapuj±cy.
 ;
 MSG_STDMESG_DIRECTORYNOTFOUND
  Directory not found!
@@ -1110,7 +1110,7 @@ MSG_STDMESG_DIRECTORYNOTFOUND
 
 
 
-
+Katalog nie znaleziony!
 ;
 MSG_STDMESG_OPENWINDOWFAILED
  Open window failed!
@@ -1121,7 +1121,7 @@ MSG_STDMESG_OPENWINDOWFAILED
 
 
 
-
+B³±d otwarcia okna!
 ;
 MSG_STDMESG_INCORRECTFILESIZE
  Incorrect file size!
@@ -1132,7 +1132,7 @@ MSG_STDMESG_INCORRECTFILESIZE
 
 
 
-
+Niew³a¶ciwy rozmiar pliku!
 ;
 MSG_STDMESG_INCORRECTFILEVERSION
  Incorrect file version!
@@ -1143,7 +1143,7 @@ MSG_STDMESG_INCORRECTFILEVERSION
 
 
 
-
+Niew³a¶ciwa wersja pliku!
 ;
 MSG_STDMESG_RELATIVEELEVATIONFILESAVED
  Relative Elevation File Saved.
@@ -1154,7 +1154,7 @@ MSG_STDMESG_RELATIVEELEVATIONFILESAVED
 
 
 
-
+Plik wzglêdnej wysoko¶ci zapisany.
 ;
 MSG_STDMESG_VECTOROBJECTSLOADED
  Vector objects loaded.
@@ -1165,7 +1165,7 @@ MSG_STDMESG_VECTOROBJECTSLOADED
 
 
 
-
+Objekty wektorowe wczytane.
 ;
 MSG_STDMESG_PROJECTFILELOADED
  Project file loaded.
@@ -1176,7 +1176,7 @@ MSG_STDMESG_PROJECTFILELOADED
 
 
 
-
+Plik projektu wczytany.
 ;
 MSG_STDMESG_PROJECTFILESAVED
  Project file saved.
@@ -1187,7 +1187,7 @@ MSG_STDMESG_PROJECTFILESAVED
 
 
 
-
+Plik porojektu zapisany.
 ;
 MSG_STDMESG_DIRECTORYLISTLOADED
  Directory List loaded
@@ -1198,7 +1198,7 @@ MSG_STDMESG_DIRECTORYLISTLOADED
 
 
 
-
+Lista katalogów wczytana
 ;
 MSG_STDMESG_RENDERTIMEFORFRAME
  Render time for frame
@@ -1209,7 +1209,7 @@ MSG_STDMESG_RENDERTIMEFORFRAME
 
 
 
-
+Czas renderowanie na kaltkê
 ;
 MSG_STDMESG_RENDERTIMEFORANIM
  Render time for anim,
@@ -1220,7 +1220,7 @@ MSG_STDMESG_RENDERTIMEFORANIM
 
 
 
-
+Czas renderowania animacji
 ;
 ;
 ; ---- ScreenModeGui.c ----
@@ -1235,7 +1235,7 @@ Geen
 
 
 
-
+Nie
 ;
 MSG_SCNRMODGUI_TEXT
 Text
@@ -1246,7 +1246,7 @@ Tekst
 
 
 
-
+Tekst
 ;
 MSG_SCNRMODGUI_STANDARD
 Standard
@@ -1257,7 +1257,7 @@ Standaard
 
 
 
-
+Standardowy
 ;
 MSG_SCNRMODGUI_MAX
 Max
@@ -1268,7 +1268,7 @@ Maximum
 
 
 
-
+Max
 ;
 MSG_SCNRMODGUI_VIDEO
 Video
@@ -1279,7 +1279,7 @@ Video
 
 
 
-
+Video
 ;
 MSG_SCNRMODGUI_WORLDCONSTRUCTIONSETSCREENMODE
 World Construction Set Screenmode
@@ -1290,7 +1290,7 @@ World Construction Set Beeldschermmodus
 
 
 
-
+World Construction Set Parametry Ekranu
 ;
 MSG_SCNRMODGUI_DISPLAYMODE
 \33cDisplay Mode
@@ -1301,7 +1301,7 @@ MSG_SCNRMODGUI_DISPLAYMODE
 
 
 
-
+\33c Tryb Ekranu
 ;
 MSG_SCNRMODGUI_MODEINFORMATION
 \33cMode Information
@@ -1312,7 +1312,7 @@ MSG_SCNRMODGUI_MODEINFORMATION
 
 
 
-
+Informacje o trybie
 ;
 ; Check Screenmode-Requester for correct alignement!
 MSG_SCNRMODGUI_MODEESUTOCANNATTRIBUTESN
@@ -1324,7 +1324,7 @@ Modus:           \nRes  :                      \nAuto :            \nScan :     
 
 
 
-
+Tryb:     \nRozd  :            \nAuto :        \nScan :        \n\nAttributes\n\n\n
 ;
 MSG_SCNRMODGUI_SAVE
 \33cSave
@@ -1335,7 +1335,7 @@ MSG_SCNRMODGUI_SAVE
 
 
 
-
+\33cZapisz
 ;
 MSG_SCNRMODGUI_USE
 \33cUse
@@ -1346,7 +1346,7 @@ MSG_SCNRMODGUI_USE
 
 
 
-
+\33cU¿yj
 ;
 MSG_SCNRMODGUI_EXIT
 \33cExit
@@ -1357,7 +1357,7 @@ MSG_SCNRMODGUI_EXIT
 
 
 
-
+\33cWyjd¼
 ;
 ; Check Screenmode-Requester for correct alignement!
 MSG_SCNRMODGUI_MODE0XESXXUTOXCANNSNATTRIBUTES
@@ -1380,7 +1380,7 @@ Interlace\x20
 
 
 
-
+Interlace\x20
 ;
 MSG_SCNRMODGUI_GENLOCKABLE
 Genlockable\x20
@@ -1424,7 +1424,7 @@ Breedte\x20
 
 
 
-
+Szeroko¶æ\x20
 ;
 MSG_SCNRMODGUI_HEIGHT
 Height\x20
@@ -1435,7 +1435,7 @@ Hoogte\x20
 
 
 
-
+Wysoko¶æ\x20
 ;
 ; ------- AGUI.c ----------
 ; see Project -> Module -> Parameters for Alignement
@@ -1449,7 +1449,7 @@ Parameter Module
 
 
 
-
+Parametry Modu³u
 ;
 MSG_AGUI_MOTION
 \33l Motion\x20
@@ -1460,7 +1460,7 @@ MSG_AGUI_MOTION
 
 
 
-
+\33l Ruch\x20
 ;
 MSG_AGUI_COLOR
 \33l Color\x20
@@ -1471,7 +1471,7 @@ MSG_AGUI_COLOR
 
 
 
-
+\33l Kolor\x20
 ;
 MSG_AGUI_ECOSYSTEM
 \33l Ecosystem\x20
@@ -1482,7 +1482,7 @@ MSG_AGUI_ECOSYSTEM
 
 
 
-
+\33l Ekosystem\x20
 ;
 MSG_AGUI_CLOUDS
 \33l Clouds\x20
@@ -1493,7 +1493,7 @@ MSG_AGUI_CLOUDS
 
 
 
-
+\33l Chmury\x20
 ;
 MSG_AGUI_WAVES
 \33l Waves\x20
@@ -1504,7 +1504,7 @@ MSG_AGUI_WAVES
 
 
 
-
+\33l Fale\x20
 ;
 MSG_AGUI_DEFAULTS
 \33l Defaults\x20
@@ -1515,7 +1515,7 @@ MSG_AGUI_DEFAULTS
 
 
 
-
+\33l Domy¶lne \x20
 ;
 MSG_AGUI_PARAMETERSMODULE
 Parameters Module
@@ -1526,7 +1526,7 @@ Parameters Module
 
 
 
-
+Parametry Modu³u
 ;
 MSG_AGUI_OUTOFMEMORY
 Out of Memory!
@@ -1537,7 +1537,7 @@ Te weinig Geheugen!
 
 
 
-
+Brak Pamiêci
 ;
 MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS
 Create Default Parameters for Database %s? All current Parameters will be overwritten.
@@ -1548,7 +1548,7 @@ Standaard Parameters maken voor Database %s? Alle huidige Parameters zullen word
 
 
 
-
+Utworzyæ domy¶lne parametry dla Bazy Danych %s? Wszystkie aktualne ustawienia zostan± nadpisane.
 ;
 MSG_AGUI_PARAMETEREDITINGDEFAULTS
 Parameter Editing: Defaults
@@ -1559,7 +1559,7 @@ Parameter bewerken: Standaard
 
 
 
-
+Edycja Parametrów: Domy¶lne
 ;
 MSG_GLOBAL_OKCANCEL
 OK|Cancel
@@ -1570,7 +1570,7 @@ OK|Annuleren
 
 
 
-
+OK|Anuluj
 ;
 MSG_AGUI_YOUMUSTFIRSTLOADADATABASEBEFOREDEFAULTPARAMETERSCANBEC
 You must first load a Database before Default Parameters can be computed.
@@ -1581,7 +1581,7 @@ Laad eerst een Database voordat Standaard Parameters kunnen worden berekend.
 
 
 
-
+Musisz wczytaæ Bazê Danych zanim Domy¶lne Warto¶ci bêd± przeliczone.
 ;
 MSG_GLOBAL_OK
 OK
@@ -1592,7 +1592,7 @@ OK
 
 
 
-
+OK
 ;
 MSG_AGUI_STANDUP
 Stand Up
@@ -1603,7 +1603,7 @@ Staand
 
 
 
-
+Poka¿
 ;
 MSG_AGUI_LAYDOWN
 Lay Down
@@ -1614,7 +1614,7 @@ Liggend
 
 
 
-
+Schowaj
 ;
 MSG_AGUI_LOAD
 \33l Load\x20
@@ -1625,7 +1625,7 @@ MSG_AGUI_LOAD
 
 
 
-
+\33l Wczytaj\x20
 ;
 MSG_AGUI_APPEND
 \33l Append\x20
@@ -1636,7 +1636,7 @@ MSG_AGUI_APPEND
 
 
 
-
+\33l Do³±cz\lx20
 ;
 MSG_AGUI_CREATE
 \33l Create\x20
@@ -1647,7 +1647,7 @@ MSG_AGUI_CREATE
 
 
 
-
+\33l Utwórz\x20
 ;
 MSG_AGUI_EDIT
 \33l Edit\x20
@@ -1658,7 +1658,7 @@ MSG_AGUI_EDIT
 
 
 
-
+\33l Edytuj\x20
 ;
 MSG_AGUI_SAVE
 \33l Save\x20
@@ -1669,7 +1669,7 @@ MSG_AGUI_SAVE
 
 
 
-
+\33l Zapisz\x20
 ;
 MSG_AGUI_DIRLIST
 \33l Dir List\x20
@@ -10953,9 +10953,20 @@ Geen scherm
 
 
 ;
-MSG_EDSETGUI_SCREEN
-\338Screen
-\338Bildschirm
+MSG_EDSETGUI_SCREEN_GRAYSCALE
+\338Screen (Gray Scale)
+\338Bildschirm (Graustufen)
+
+
+\338Scherm
+
+
+
+
+;
+MSG_EDSETGUI_SCREEN_COLORED
+\338Screen (Colored)
+\338Bildschirm (Farbig)
 
 
 \338Scherm

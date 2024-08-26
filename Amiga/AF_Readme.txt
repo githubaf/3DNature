@@ -3772,3 +3772,8 @@ bobycob von ppa.pl macht die polnische Ubersetzung.
 
 #Anzeige der fehlenden polnischen Uebersetzungen
 cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getlone; PORTOGUISE=$0; getline; DANISCH=$0; getline; DANISH=$0; getline; SPANISCH=$0; getline; POLISH=$0; if(POLISH==""){print ENGLISH;}else{POLISHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Polish:  %4d\n",POLISHCOUNT);printf("%d%%\n",POLISHCOUNT*100/MSGCOUNT++);}'
+
+26.Aug.2024
+-----------
+
+Render-Setting "Sreen (Colored)" added. 0x10+0x20, damit es compatibel zum alten WCS2.04 bleibt

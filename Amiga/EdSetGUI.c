@@ -18,7 +18,7 @@ void Make_ES_Window(void)
 
  static const char *ES_PageCycle[10]={NULL};
  static const char *ES_Cycle_RGB[3]={NULL};
- static const char *ES_Cycle_Screen[3]={NULL};
+ static const char *ES_Cycle_Screen[4]={NULL};   // 26.Aug 2024: Added Screen Colored for coreded render preview
  static const char *ES_Cycle_Data[3]={NULL};
  static const char *ES_Cycle_SaveFormat[4]={NULL};
  static const char *ES_Cycle_Concat[3]={NULL};
@@ -90,9 +90,10 @@ ES_Cycle_RGB[0]=(char*)GetString( MSG_EDSETGUI_NORGB ); // "No RGB"
 ES_Cycle_RGB[1]=(char*)GetString( MSG_EDSETGUI_RGB );   //"\338RGB"
 ES_Cycle_RGB[2]=NULL;
 
-ES_Cycle_Screen[0]=(char*)GetString( MSG_EDSETGUI_NOSCREEN );  // "No Screen"
-ES_Cycle_Screen[1]=(char*)GetString( MSG_EDSETGUI_SCREEN );    // "\338Screen"
-ES_Cycle_Screen[2]=NULL;
+ES_Cycle_Screen[0]=(char*)GetString( MSG_EDSETGUI_NOSCREEN );          // "No Screen"
+ES_Cycle_Screen[1]=(char*)GetString( MSG_EDSETGUI_SCREEN_GRAYSCALE );  // "\338Screen Grayscale"
+ES_Cycle_Screen[2]=(char*)GetString( MSG_EDSETGUI_SCREEN_COLORED );    // "\338Screen Colored"
+ES_Cycle_Screen[3]=NULL;
 
 ES_Cycle_Data[0]=(char*)GetString( MSG_EDSETGUI_NODATA );  // "No Data"
 ES_Cycle_Data[1]=(char*)GetString( MSG_EDSETGUI_DATA );    // "\338Data"
