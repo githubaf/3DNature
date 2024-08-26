@@ -1268,6 +1268,16 @@ EXTERN USHORT AltColors[16]
  0x392,	/* 5, green */
  0x37c,	/* 6, med blue */
  0xdd2,	/* 7, yellow */
+#ifdef AF_COLOR_TEST
+ 0x000,	/* 8-15, gray scale */  // Black
+ 0x00f, //0xddd,  // Test AF       Blue
+ 0x0f0, //0xbbb,                   Green
+ 0x0ff, //0x999,                   Blue+Green
+ 0xf00, //0x777,                   Red
+ 0xf0f, //0x555,                   Red+Blue
+ 0xff0, //0x333,                   Red+Green
+ 0xfff, //0x111                    Red+Blue+Green
+#else
  0xfff,	/* 8-15, gray scale */
  0xddd,
  0xbbb,
@@ -1276,6 +1286,7 @@ EXTERN USHORT AltColors[16]
  0x555,
  0x333,
  0x111
+#endif
  }
 #endif /* MAIN */
 ;

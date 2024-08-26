@@ -3724,3 +3724,51 @@ awk '{if (sub(/\\$/, "")) printf "%s", $0; else print $0}' WCS.cs >aaa.tmp && cp
 29.Juli 2024
 ------------
 Mehr deutsche Uebersetzungen. 1504/2107
+
+18.9.2024
+---------
+Der Bildschirm bei PAL LACE ist 640x512, 4 Bit (16 Farben). Die Farben stecken in WCS.c
+STATIC_FCN struct ColorSpec NewAltColors[]=
+{
+  {0x00, 0x08, 0x09, 0x0b},
+  {0x01, 0x00, 0x00, 0x00},
+  {0x02, 0x0d, 0x0d, 0x0d},
+  {0x03, 0x0b, 0x01, 0x00},
+  {0x04, 0x03, 0x04, 0x08},
+  {0x05, 0x03, 0x09, 0x02},
+  {0x06, 0x03, 0x07, 0x0c},
+  {0x07, 0x0d, 0x0d, 0x02},
+  {0x08, 0x0f, 0x0f, 0x0f},   // 8 Gray-Values
+  {0x09, 0x0d, 0x0d, 0x0d},
+  {0x0a, 0x0b, 0x0b, 0x0b},
+  {0x0b, 0x09, 0x09, 0x09},
+  {0x0c, 0x07, 0x07, 0x07},
+  {0x0d, 0x05, 0x05, 0x05},
+  {0x0e, 0x03, 0x03, 0x03},
+  {0x0f, 0x01, 0x01, 0x01},
+  {-1, 0, 0, 0}
+  }; /* NewAltColors */
+
+
+Test ordered Dithering
+
+# Erzeugen eines RAW-rgb-Files aus CanyonSet000
+convert ~/Desktop/CanyonSet000 rgb:CanyonSet000.rgb
+ilbmtoppm: warning - non-square pixels; to fix do a 'pnmscale -yscale 1.1'
+ilbmtoppm: input is a deep (24-bit) ILBM
+
+# Anzeigen
+developer@cn-vm-afritsch:~/Desktop/SelcoGit/3DNature/Amiga$ display -size 752x480 -depth 8 rgb:CanyonSet000.rgb
+
+./PlotGUI.c anschauen. Da sinf PutPixel-Funktionen drin.
+-> void ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip) ist die Funktion, die in das Renderwindow malt
+MapTopo.c:1041 zeichnet das den groesstm Teil des Bildes, aber keine Wolken und Wasserwellen
+MapTopoObject.c:2204 zeichnet die Wolken
+
+
+25.Aug.2024
+-----------
+bobycob von ppa.pl macht die polnische Ubersetzung.
+
+#Anzeige der fehlenden polnischen Uebersetzungen
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getlone; PORTOGUISE=$0; getline; DANISCH=$0; getline; DANISH=$0; getline; SPANISCH=$0; getline; POLISH=$0; if(POLISH==""){print ENGLISH;}else{POLISHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Polish:  %4d\n",POLISHCOUNT);printf("%d%%\n",POLISHCOUNT*100/MSGCOUNT++);}'
