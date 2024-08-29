@@ -152,7 +152,7 @@ Over...
 
 
 
-Podziekowania...
+Podziêkowania...
 ;
 MSG_MENU_PR_LOG
 Log...
@@ -174,7 +174,7 @@ Afsluiten...
 
 
 
-Wyjdz...
+Wyjd¼...
 ;
 MSG_MENU_PR_ICONIFY
 Iconify...
@@ -439,7 +439,7 @@ Loofboom
 
 
 
-Decyzja
+Drzewa Li¶ciaste
 ;
 MSG_TYPENAME_LOWVEG
 Low Veg
@@ -450,7 +450,7 @@ Ondergroei
 
 
 
-
+Niska Ro¶linno¶æ
 ;
 MSG_TYPENAME_SNAG
 Snag
@@ -461,7 +461,7 @@ Dode Boom
 
 
 
-
+Drzewa obumar³e
 ;
 MSG_TYPENAME_STUMP
 Stump
@@ -472,7 +472,7 @@ Boomstronk
 
 
 
-
+Pieñ drzewa
 ;
 MSG_VARNAME_CAMERAALTITUDE
 Camera Altitude
@@ -571,7 +571,7 @@ Helling
 
 
 
-
+Nachylenie
 ;
 MSG_VARNAME_EARTHROTATION
 Earth Rotation
@@ -736,7 +736,7 @@ Geen Mist
 
 
 
-Bez Mg³y 
+Bez Mg³y
 ;
 MSG_VARNAME_FOGFULL
 Fog Full
@@ -923,7 +923,7 @@ MSG_STDMESG_FILENOTLOADED
 
 
 
-Plik nie wczytany!
+Plik niewczytany!
 ;
 MSG_STDMESG_MODULENOTIMPLEMENTED
  Module not implemented.
@@ -934,7 +934,7 @@ MSG_STDMESG_MODULENOTIMPLEMENTED
 
 
 
-Modu³ nie jest zaimplementowany
+Modu³ nie jest zaimplementowany.
 ;
 MSG_STDMESG_GUINOTIMPLEMENTED
  GUI not implemented.
@@ -1391,7 +1391,7 @@ Ondersteunt Genlock\x20
 
 
 
-
+Obs³uguje Genlock
 ;
 MSG_SCNRMODGUI_DRAGGABLE
 Draggable\x20
@@ -1402,7 +1402,7 @@ Sleepbaar\x20
 
 
 
-
+Przesuwalny
 ;
 MSG_SCNRMODGUI_OVERSCAN
 Overscan:\x20
@@ -1603,7 +1603,7 @@ Staand
 
 
 
-Poka¿
+Uk³ad Pionowy
 ;
 MSG_AGUI_LAYDOWN
 Lay Down
@@ -1614,7 +1614,7 @@ Liggend
 
 
 
-Schowaj
+Uk³ad Poziomy
 ;
 MSG_AGUI_LOAD
 \33l Load\x20
@@ -1636,7 +1636,7 @@ MSG_AGUI_APPEND
 
 
 
-\33l Do³±cz\lx20
+\33l Do³±cz\x20
 ;
 MSG_AGUI_CREATE
 \33l Create\x20
@@ -1680,7 +1680,7 @@ MSG_AGUI_DIRLIST
 
 
 
-
+\33l Lista katalogów\x20
 ;
 MSG_AGUI_DATAOPSIMPORTDLG
 Data Ops: Import DLG
@@ -1691,7 +1691,7 @@ Data Ops: Importeer DLG
 
 
 
-
+Data Ops: Import DLG
 ;
 MSG_AGUI_DATAOPSIMPORTDXF
 Data Ops: Import DXF
@@ -1702,7 +1702,7 @@ Data Ops: Importeer DXF
 
 
 
-
+Data Ops: Import DXF
 ;
 MSG_DLG_DATAOPSIMPORTWDB
 Data Ops: Import WDB
@@ -1746,7 +1746,7 @@ Render Module
 
 
 
-
+Modu³ Renderuj±cy
 ;
 MSG_AGUI_ADATABASEANDPARAMETERFILE
 a Database and Parameter file
@@ -1757,7 +1757,7 @@ Database en Parameter Bestand
 
 
 
-
+Plik Bazy Danych i Parametrów
 ;
 MSG_AGUI_MODULECONTROLPANEL
 Module Control Panel
@@ -1768,7 +1768,7 @@ Module Controle Paneel
 
 
 
-
+Modu³ Panelu Kontrolnego
 ;
 MSG_AGUI_VERSION
 Version
@@ -1779,7 +1779,7 @@ Versie
 
 
 
-
+Wersja
 ;
 MSG_AGUI_OKAY
 \33cOkay
@@ -1801,7 +1801,7 @@ Extras Module
 
 
 
-
+Modu³y Dodatkowe
 ;
 MSG_AGUI_PUBLICSCREENSTILLHASVISITORSTRYCLOSINGAGAIN
 Public Screen still has visitors. Try closing again?
@@ -1812,7 +1812,7 @@ Publiek Scherm heeft nog Gebruikers. Nogmaals proberen te sluiten?
 
 
 
-
+Ekran wci±¿ zawiera okna. Spróbowaæ zamkn±æ ponownie?
 ;
 MSG_AGUI_CLOSEWARNCANCEL
 Close|Warn|Cancel
@@ -1823,7 +1823,7 @@ Sluiten|Waarschuwen|Annuleren
 
 
 
-
+Zamknij|Ostrze¿enie|Anuluj
 ;
 MSG_AGUI_QUITPROGRAMREYOUSURE
 Quit Program\nAre you sure?
@@ -1834,7 +1834,7 @@ Programma Afsluiten\nWeet U het zeker?
 
 
 
-
+Zamknij Program\nJeste¶ pewien?
 ;
 MSG_AGUI_WCSPROJECT
 WCS Project
@@ -1845,7 +1845,7 @@ WCS Project
 
 
 
-
+WCS Projekt
 ;
 MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Project paths have been modified. Save them before closing?
@@ -1856,7 +1856,7 @@ Projectpaden zijn gewijzigd. Paden opslaan voordat u afsluit?
 
 
 
-
+¦cie¿ki projektu zosta³y zmodyfikowane. Czy zapisaæ zmiany przed zamkniêciem?
 ;
 MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Parameters have been modified. Save them before closing?
@@ -1867,7 +1867,7 @@ Parameters zijn gewijzigd. Wijzigingen opslaan voordat u afsluit?
 
 
 
-
+Parametry zosta³y zmodyfikowane. Czy zapisaæ je przed zamkniêciem?
 ;
 MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING
 Database has been modified. Save it before closing?
@@ -1878,7 +1878,7 @@ De database is gewijzigd. Database opslaan voordat u afsluit?
 
 
 
-
+Baza danych zosta³a zmodyfikowana. Czy zapisaæ j± przed zamkniêciem?
 ;
 MSG_AGUI_MESSAGE
 Message
@@ -1889,7 +1889,7 @@ Melding
 
 
 
-
+Komunikat
 ;
 MSG_AGUI_NOTYETIMPLEMENTEDTAYTUNED
 Not yet implemented.\nStay Tuned!
@@ -1900,7 +1900,7 @@ Nog niet geïmplementeerd.\nStay Tuned!
 
 
 
-
+Jeszcze nie zaimplementowane.\nProszê nie regulowaæ odbiornika!
 ;
 MSG_AGUI_KEEPCHANGES
 Keep changes?
@@ -1911,7 +1911,7 @@ Wijzigingen behouden?
 
 
 
-
+Zachowaæ zmiany?
 ;
 MSG_AGUI_KEEPCANCEL
 Keep|Cancel
@@ -1922,7 +1922,7 @@ Behouden|Annuleren
 
 
 
-
+Zachowaj|Porzuæ
 ;
 MSG_AGUI_SORRYOUMUSTFIRSTLOAD338NBEFOREUSINGTHISFEATURE
 Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature.
@@ -1933,7 +1933,7 @@ Sorry!\nLaad eerst\n\338%s\0332\n voordat u deze functie kunt gebruiken.
 
 
 
-
+Przykro mi!\nNajpierw musisz za³adowaæ\n\336%s\0332\nzanim u¿yjesz tej funkcji.
 ;
 MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT
 File already exists.\nDo you wish to overwrite it?
@@ -1944,7 +1944,7 @@ Het bestand bestaat al.\nWilt u het overschrijven?
 
 
 
-
+Plik ju¿ istnieje.\nCzy chcesz go nadpisaæ?
 ;
 MSG_AGUI_INPUTREQUEST
 Input Request
@@ -1955,7 +1955,7 @@ Invoer Verzoek
 
 
 
-
+Wprowad¼ Dane
 ;
 MSG_GLOBAL_33CCANCEL
 \33cCancel
@@ -1966,7 +1966,7 @@ MSG_GLOBAL_33CCANCEL
 
 
 
-
+\33cAnuluj
 ;
 MSG_AGUI_LOGSTATUSMODULE
 Log Status Module
@@ -1977,7 +1977,7 @@ Log Status Module
 
 
 
-
+Modu³ logu zdarzeñ
 ;
 MSG_AGUI_CANTOPENLOGSTATUSWINDOW
 Can't Open Log Status Window!
@@ -1988,7 +1988,7 @@ Kan Log Status Venster niet openen!
 
 
 
-
+NIe Mogê Otworzyæ Okna Logu Wydarzeñ
 ;
 MSG_AGUI_CLEAR
 \33cClear
@@ -1999,7 +1999,7 @@ MSG_AGUI_CLEAR
 
 
 
-
+\33cWyczy¶æ
 ;
 MSG_AGUI_HIDE
 \33cHide
@@ -2010,7 +2010,7 @@ MSG_AGUI_HIDE
 
 
 
-
+\33cSchowaj
 ;
 MSG_AGUI_CLOSE
 \33cClose
@@ -2021,7 +2021,7 @@ MSG_AGUI_CLOSE
 
 
 
-
+\33cZamknij
 ;
 MSG_AGUI_LOGWINDOW
 Log Window
@@ -2032,7 +2032,7 @@ Log Venster
 
 
 
-
+Okno Logu
 ;
 MSG_AGUI_LOGWINDOWOPENED
 Log window opened.
@@ -2043,7 +2043,7 @@ Log Venster geopend.
 
 
 
-
+Okno Logu Otwarte.
 ;
 ; - Info Window -
 MSG_AGUI_INFO
@@ -2055,7 +2055,7 @@ Informatie
 
 
 
-
+Informacje
 ;
 MSG_AGUI_TIME
 \33rTime\x20
@@ -2066,7 +2066,7 @@ MSG_AGUI_TIME
 
 
 
-
+\33rCzas\x20
 ;
 MSG_AGUI_DATE
 \33rDate\x20
@@ -2077,7 +2077,7 @@ MSG_AGUI_DATE
 
 
 
-
+\33rData\x20
 ;
 MSG_AGUI_MEMORY
 \33rMemory:
@@ -2088,7 +2088,7 @@ MSG_AGUI_MEMORY
 
 
 
-
+\33rPamiêæ
 ;
 MSG_AGUI_AVAILABLE
 \33rAvailable\x20
@@ -2099,7 +2099,7 @@ MSG_AGUI_AVAILABLE
 
 
 
-
+\33rDostêpne\x20
 ;
 MSG_AGUI_LARGEST
 \33rLargest\x20
@@ -2110,7 +2110,7 @@ MSG_AGUI_LARGEST
 
 
 
-
+\33rNajwiêkszy\x20
 ;
 MSG_AGUI_CHIP
 \33cChip
@@ -2143,7 +2143,7 @@ MSG_AGUI_TOPOMAPS
 
 
 
-
+\33rMapa Topograficzna\x20
 ;
 MSG_AGUI_INTER
 \33cInter
@@ -2165,7 +2165,7 @@ MSG_AGUI_MAP
 
 
 
-
+\33cMapa
 ;
 MSG_AGUI_AREXXPORT
 \33rARexx Port\x20
@@ -2187,7 +2187,7 @@ MSG_AGUI_DATABASE
 
 
 
-
+\33rBaza Danych\x20
 ;
 MSG_AGUI_PARFILE
 \33rPar File\x20
@@ -2209,7 +2209,7 @@ MSG_AGUI_SCREENMODE
 
 
 
-
+\33rTryb Ekranu\x20
 ;
 MSG_AGUI_FLUSH
 \33cFlush
@@ -2220,7 +2220,7 @@ MSG_AGUI_FLUSH
 
 
 
-
+\33cWyczy¶æ
 ;
 MSG_AGUI_CREDITS
 Credits
@@ -2231,7 +2231,7 @@ Over
 
 
 
-
+Podziêkowania
 ;
 MSG_AGUI_WCSSCREENMODE
 WCS: Screen Mode
@@ -2242,7 +2242,7 @@ WCS: Schermmodus
 
 
 
-
+WCS: Tryb Ekranu
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
@@ -2254,7 +2254,7 @@ Om de schermmodus te resetten zal WCS moeten worden gesloten en heropend. Werk i
 
 
 
-
+Aby zresetowaæ tyb wy¶wietlania WCS chce zakoñczyæ pracê i uruchomiæ siê ponownie. Powiniene¶ teraz zapisa¶ swoj± pracê aby unikn±æ strat zanim wykonasz to polecenie.\nCzy chesz kontynuwaoæ?
 ;
 MSG_AGUI_DATABASEMODULE
 Database Module
@@ -2265,7 +2265,7 @@ Database Module
 
 
 
-
+Modu³ Bazy Danych
 ;
 MSG_AGUI_DATABASEMODULEAPPEND
 Database Moldule: Append
@@ -2276,7 +2276,7 @@ Database Module: Toevoegen
 
 
 
-
+Modu³ Bazy Danych: Dopisz
 ;
 ;This is a %s-String for NoLoad_Message() "Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature."
 MSG_DATAOPSGUI_ADATABASE
@@ -2288,7 +2288,7 @@ een Database
 
 
 
-
+Baza Danych
 ;
 MSG_DB_DATABASEMODULESAVE
 Database Module: Save
@@ -2299,7 +2299,7 @@ Database Module: Opslaan
 
 
 
-
+Modu³ Bazy Danych: Zapisz
 ;
 MSG_AGUI_DATAOPSMODULE
 DataOps Module
@@ -2310,7 +2310,7 @@ DataOps Module
 
 
 
-
+Modu³ DataOps
 ;
 MSG_AGUI_EXTRACTDEM
 \33l Extract DEM\x20
@@ -2321,7 +2321,7 @@ MSG_AGUI_EXTRACTDEM
 
 
 
-
+\33l Rozpakuj DEM\x20
 ;
 MSG_AGUI_CONVERTDEM
 \33l Convert DEM\x20
@@ -2332,7 +2332,7 @@ MSG_AGUI_CONVERTDEM
 
 
 
-
+\33l Conversja DEM\x20
 ;
 MSG_AGUI_INTERPDEM
 \33l Interp DEM\x20
@@ -2343,7 +2343,7 @@ MSG_AGUI_INTERPDEM
 
 
 
-
+\33l Interpolacja DEM\x20
 ;
 MSG_AGUI_IMPORTDLG
 \33l Import DLG\x20
@@ -2354,7 +2354,7 @@ MSG_AGUI_IMPORTDLG
 
 
 
-
+\33l Import DLG\x20
 ;
 MSG_AGUI_IMPORTDXF
 \33l Import DXF
@@ -2365,7 +2365,7 @@ MSG_AGUI_IMPORTDXF
 
 
 
-
+\33l Import DXF\x20
 ;
 MSG_AGUI_IMPORTWDB
 \33l Import WDB\x20
@@ -2376,7 +2376,7 @@ MSG_AGUI_IMPORTWDB
 
 
 
-
+\33l Import WDB\x20
 ;
 MSG_AGUI_EXPORTLW
 \33l Export LW\x20
@@ -2387,7 +2387,7 @@ MSG_AGUI_EXPORTLW
 
 
 
-
+\33l Eksport LW\x2-
 ;
 MSG_AGUI_MOTIONIO
 \33l Motion I/O\x20
@@ -2398,7 +2398,7 @@ MSG_AGUI_MOTIONIO
 
 
 
-
+\33l Animacja\x20
 ;
 MSG_AGUI_STATUSLOG
 Status Log
@@ -2409,7 +2409,7 @@ Status Log
 
 
 
-
+Log Zdarzeñ
 ;
 MSG_AGUI_ERR
 ERR:
@@ -2464,7 +2464,7 @@ MSG_AGUI_PREV
 
 
 
-
+\33cPoprzedni
 ;
 MSG_AGUI_NEXT
 \33cNext
@@ -2475,7 +2475,7 @@ MSG_AGUI_NEXT
 
 
 
-
+\33cNastêpny
 ;
 MSG_AGUI_ALL
 All (%d)
@@ -2486,7 +2486,7 @@ Alles (%d)
 
 
 
-
+Wszystko (%d)
 ;
 MSG_AGUI_KEYSEXIST
 Keys Exist (%d)
@@ -2497,7 +2497,7 @@ Key (%d) bestaat
 
 
 
-
+Klucze Wystêpuj± (%d)
 ;
 MSG_AGUI_ALL0
 \33cAll (0)
@@ -2508,7 +2508,7 @@ MSG_AGUI_ALL0
 
 
 
-
+\33cWszystko (0)
 ;
 MSG_AGUI_NOOTHERKEYS
 No Other Keys
@@ -2519,7 +2519,7 @@ Geen andere Keys
 
 
 
-
+Bez Innych Kluczy
 ;
 ; PK="Previous Key"
 MSG_AGUI_PK
@@ -2554,7 +2554,7 @@ MSG_AGUI_NONE
 
 
 
-
+-nie-\x20
 ;
 MSG_AGUI_USE
 Use
@@ -2565,7 +2565,7 @@ Gebruik
 
 
 
-
+U¿yj
 ;
 MSG_AGUI_LOADACTIVE
 Load Active...
@@ -2576,7 +2576,7 @@ Laad Actief...
 
 
 
-
+Wczytaj Aktywne...
 ;
 MSG_AGUI_SAVEACTIVE
 Save Active...
@@ -2587,7 +2587,7 @@ Sla Actief op...
 
 
 
-
+Zapisz Aktywne...
 ;
 MSG_AGUI_LOADMOTION
 Load Motion...
@@ -2598,7 +2598,7 @@ Laad Beweging...
 
 
 
-
+Wczytaj Animacjê...
 ;
 MSG_AGUI_SAVEMOTION
 Save Motion...
@@ -2609,7 +2609,7 @@ Sla Beweging op...
 
 
 
-
+Zapisz Animacjê...
 ;
 MSG_AGUI_LOADCOLOR
 Load Color...
@@ -2620,7 +2620,7 @@ Laad Kleuren...
 
 
 
-
+Wczytaj Kolor...
 ;
 MSG_AGUI_SAVECOLOR
 Save Color...
@@ -2631,7 +2631,7 @@ Sla Kleuren op...
 
 
 
-
+Zapisz Kolor...
 ;
 MSG_AGUI_LOADECO
 Load Eco...
@@ -2642,7 +2642,7 @@ Laad Eco...
 
 
 
-
+Wczytaj Ekosystem...
 ;
 MSG_AGUI_SAVEECO
 Save Eco...
@@ -2653,7 +2653,7 @@ Sla Eco op...
 
 
 
-
+Zapisz Ekosystem...
 ;
 MSG_AGUI_LOADSETTINGS
 Load Settings...
@@ -2664,7 +2664,7 @@ Laad Instellingen...
 
 
 
-
+Wczytaj ustawienia...
 ;
 MSG_AGUI_SAVESETTINGS
 Save Settings...
@@ -2675,7 +2675,7 @@ Bewaar Instellingen...
 
 
 
-
+Zapisz Ustawienia...
 ;
 ; ----- BitMaps.c --------
 MSG_BITMAPS_IFFFILEPATHNAME
@@ -2687,7 +2687,7 @@ IFF Bestand Pad/Naam
 
 
 
-
+IFF ¦cie¿ka Pliku/Nazwa
 ;
 MSG_BITMAPS_FILEALREADYEXISTSVERWRITEIT
 File already exists!\nOverwrite it?
@@ -2698,7 +2698,7 @@ Bestand bestaat al!\nOverschrijven?
 
 
 
-
+Plik ju¿ istnieje\nCzy nadpisaæ?
 ;
 MSG_BITMAPS_CANTOPENIMAGEFILEFOROUTPUTPERATIONTERMINATED
 Can't open image file for output!\nOperation terminated.
@@ -2709,7 +2709,7 @@ Kan afbeeldingbestand niet openen voor uitvoer!\nOperatie afgebroken.
 
 
 
-
+Nie mogê utowrzyæ pliku obrazu dla wyj¶cia!\nOperacja anluwana.
 ;
 MSG_BITMAPS_SAVINGIMAGE
 Saving Image
@@ -2720,7 +2720,7 @@ Afbeelding Opslaan
 
 
 
-
+Zapisywanie Obrazu
 ;
 MSG_BITMAPS_YES
 YES
@@ -2731,7 +2731,7 @@ Ja
 
 
 
-
+Tak
 ;
 MSG_BITMAPS_NO
 NO
@@ -2742,7 +2742,7 @@ Nee
 
 
 
-
+Nie
 ;
 MSG_BITMAPS_ERRORSAVINGIMAGEPERATIONTERMINATED
 Error saving image!\nOperation terminated.
@@ -2753,7 +2753,7 @@ Fout bij opslaan van de afbeelding!\nOperatie afgebroken.
 
 
 
-
+B³±d zapisu obrazu!\nOperacja anulowana.
 ;
 MSG_BITMAPS_LOADINGIMAGE
 Loading Image
@@ -2764,7 +2764,7 @@ Afbeelding Laden
 
 
 
-
+Wczytaj obraz
 ;
 MSG_BITMAPS_WRONGIMAGESIZE
 Wrong image size
@@ -2775,7 +2775,7 @@ Afmetingen afbeelding onjuist
 
 
 
-
+Niew³a¶ciwy rozmiar obrazu
 ;
 MSG_BITMAPS_WRONGIMAGEDEPTH
 Wrong image depth
@@ -2786,7 +2786,7 @@ Kleurdiepte afbeelding onjuist
 
 
 
-
+Niew³a¶ciwa g³êboko¶æ obrazu
 ;
 MSG_BITMAPS_BACKGROUND
 Background
@@ -2797,7 +2797,7 @@ Achtergrond
 
 
 
-
+T³o
 ;
 MSG_BITMAPS_ERRORLOADINGZBUFFERPERATIONTERMINATED
 Error loading Z Buffer!\nOperation terminated.
@@ -2808,7 +2808,7 @@ Fout bij laden van Z Buffer!\nOperatie afgebroken.
 
 
 
-
+B³±d ³adowania bufora Z!\nOperacja anulowana.
 ;
 MSG_BITMAPS_OUTOFMEMORYMERGINGZBUFFERPERATIONTERMINATED
 Out of memory merging Z Buffer!\nOperation terminated.
@@ -2819,7 +2819,7 @@ Te weinig geheugen voor samenvoegen van Z Buffer!\nOperatie afgebroken.
 
 
 
-
+Brak pamiêci dla ³±czenia bufora Z!\n Operacja Anulowana.
 ;
 MSG_BITMAPS_ERROROPENINGZBUFFERFILEFORINPUTPERATIONTERMINATED
 Error opening Z Buffer file for input!\nOperation terminated.
@@ -2830,7 +2830,7 @@ Fout bij openen van Z Buffer bestand voor invoer!\nOperatie afgebroken.
 
 
 
-
+B³±d otwrcia pliku bufora Z dla wej¶cia!\nOperacja anulowana.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOTSINGLEPRECISIONFLOATINGPOI
 Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated.
@@ -2841,7 +2841,7 @@ Fout bij lezen van Z Buffer bestand!\nGeen enkele precisie drijvende komma.\nOpe
 
 
 
-
+B³±d odczytu pliku bufora Z!\nNie s± pojedyñczej precyzji warto¶ciami zmienno przecinkowymi.\nOperacja anluowana.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBODCHUNKPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated.
@@ -2852,7 +2852,7 @@ Fout bij lezen van Z Buffer bestand!\nZBOD chunk ontbreekt.\nOperatie afgebroken
 
 
 
-
+B³±d odczytu pliku bufora Z!\nNie ma ZBOD chunk.\nOperacja anulowana.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBUFCHUNKPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated.
@@ -2863,7 +2863,7 @@ Fout bij lezen van Z Buffer bestand!\nZBUF chunk ontbreekt.\nOperatie afgebroken
 
 
 
-
+B³±d odczytu pliku bufora Z!\nBrak ZBUF chunk.\nOperacja anulowana.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILERONGSIZEPERATIONTERMINATED
 Error reading Z Buffer file!\nWrong Size.\nOperation terminated.
@@ -2874,7 +2874,7 @@ Fout bij lezen van Z Buffer bestand!\nAfmetingen onjuist.\nOperatie afgebroken.
 
 
 
-
+B³±d odczytu pliku bufora Z!\nNiew³a¶ciwy Rozmiar\nOperacja anulowana.
 ;
 MSG_BITMAPS_ERRORLOADINGBACKGROUNDIMAGEPERATIONTERMINATED
 Error loading background image!\nOperation terminated.
@@ -2885,7 +2885,7 @@ Fout bij laden van achtergrond afbeelding!\nOperatie afgebroken.
 
 
 
-
+B³±d odczytu obrazu t³a!\nOperacja anulowana.
 ;
 MSG_BITMAPS_OUTOFMEMORYMERGINGBACKGROUNDPERATIONTERMINATED
 Out of memory merging background!\nOperation terminated.
@@ -2896,7 +2896,7 @@ Te weinig geheugen voor samenvoegen met achtergrond!\nOperatie afgebroken.
 
 
 
-
+Brak pamiêci dla do³±czenia t³a!\nOperacja anulowana.
 ;
 MSG_BITMAPS_ERROROPENINGBACKGROUNDFILEFORINPUTPERATIONTERMINATE
 Error opening Background file for input!\nOperation terminated.

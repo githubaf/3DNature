@@ -2289,7 +2289,7 @@ mit gitk die History vom WCS.c angeschaut und ann einzelne Versione mit git chec
 
 Korrigiert, Kann wieder mit SAS/C gebaut werden.
 
-27.Feb.23
+27.Feb.23, 29.Aug.2024: Added Picasso96Develop
 ---------
 SAS/C-Version kann mit Vamos 0.7 gebaut werden. Ohne smake, aufruf aller Compiler/Linker-Kommandos. Folgende ~/.vamosrc benutzt. SC, MUI, SDI auf den Linux-Rechner kopiert.
 
@@ -2305,7 +2305,7 @@ hw_access=disable
 ram_size=32768
 
 #16 KBytes of Stack
-stack=16
+stack=16 
 
 [volumes]
 # wb310=~/amiga/wb310
@@ -2315,15 +2315,16 @@ L=~/Desktop/AmigaFiles/L
 MUI=~/Desktop/AmigaFiles/MUI
 SDI=~/Desktop/AmigaFiles/SDI
 Libs=~/Desktop/AmigaFiles/Libs
+Picasso96Develop=~/Desktop/AmigaFiles/Picasso96Develop
 
 [assigns]
-include=sc:include,MUI:Developer/C/Include,SDI:includes
+include=sc:include,MUI:Developer/C/Include,SDI:includes,Picasso96Develop:Include
 lib=sc:lib
 t=root:tmp
 ENV=t:ENV
 
 [path]
-path=sc:c,L:
+path=sc:c,L: 
 #,wb310:c
 
 #wichtig, sonst meckert smake "Can't open version 0 of icon.library"

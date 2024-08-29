@@ -24,6 +24,10 @@
 #include <exec/tasks.h>
 #include <clib/exec_protos.h>
 
+#ifndef __AROS__
+   #include <proto/Picasso96.h>
+#endif
+
 #define MIN_LIBRARY_REV 37
 #define DITHER_TABLE_SIZE 4096
 
@@ -136,6 +140,8 @@ unsigned long cvt_TIME(char const *time);
 unsigned long get_time(unsigned long *result);
 
 char *LocaleExtCreditText=NULL;  // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
+
+struct Library	*P96Base=NULL;
 
 int main(void)
 {
@@ -330,6 +336,8 @@ int main(void)
 
 ResetScreenMode:
 
+P96Base=OpenLibrary((STRPTR)"Picasso96API.library",2);  // Alexander 27.8.2024: Can fail if no P96 installed. We check this when needed
+
 if ((IntuitionBase = (struct IntuitionBase *)
  OpenLibrary((STRPTR)"intuition.library", MIN_LIBRARY_REV)))
  {
@@ -469,7 +477,20 @@ if ((IntuitionBase = (struct IntuitionBase *)
 
       if(WCSScrn)
        {
-       DTable = DitherTable_New(DITHER_TABLE_SIZE);
+#ifndef __AROS__
+    	  ULONG IsP96Screen=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_ISP96);
+    	  printf("Screen is %s a P96 Screen\n",IsP96Screen? "" : "not ");
+    	  if(IsP96Screen)
+    	  {
+    		  ULONG Value=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BITSPERPIXEL);
+    		  printf("Screen has %d Bits per Pixel\n",Value);
+    		  Value=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BYTESPERPIXEL);
+    		  printf("Screen has %d Bytes per Pixel\n",Value);
+    	  }
+#endif
+
+
+    DTable = DitherTable_New(DITHER_TABLE_SIZE);
        PubScreenStatus(WCSScrn, 0);
 
        if (DTable)
@@ -558,6 +579,11 @@ else
  printf((char*)GetString( MSG_WCS_FATALERRORINTUITIONLIBRARYREVISIONREQUIREDABORTING ), MIN_LIBRARY_REV);  // "FATAL ERROR: Intuition.library revision %d required. Aborting.\n"
  } /* else */
 
+if(P96Base) // if we could open P96 we have also to close at the end...
+{
+	CloseLibrary(P96Base);
+	P96Base=NULL;
+}
 
 //Cleanup:
  if (DL) DirList_Del(DL);
