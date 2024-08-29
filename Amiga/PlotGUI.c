@@ -6,6 +6,8 @@
 #include "WCS.h"
 #ifndef __AROS__
    #include <proto/Picasso96.h>
+#else
+   #include <proto/cybergraphics.h>
 #endif
 
 #define RENDER_SCREEN_DITHER_SIZE 4096
@@ -139,6 +141,9 @@ void ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long 
 {
 #ifndef __AROS__
 	p96WritePixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
+#else
+	// No need to open CyberGraphics.library? Auto-Open?
+	WriteRGBPixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
 #endif
 }
 

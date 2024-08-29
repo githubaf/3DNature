@@ -3778,3 +3778,7 @@ cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEU
 -----------
 
 Render-Setting "Sreen (Colored)" added. 0x10+0x20, damit es compatibel zum alten WCS2.04 bleibt
+
+29.Aug.2024
+-----------
+24-Bit Renderwindow auch fuer AROS. (Im Moment fest eingebaut fuer ersten Test)
