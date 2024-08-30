@@ -3780,7 +3780,7 @@ Geen bestand(en) geselecteerd!
 
 
 
-
+Nie wybrano pliku(ów)!
 ;
 MSG_DEM_ERROROPENINGFILEFORINTERPOLATIONILENOTDEMORREMONTINUE
 Error opening file for interpolation!\nFile not DEM or REM\nContinue?
@@ -3791,7 +3791,7 @@ Fout bij openen van bestand voor interpolatie!\nBestand is geen DEM of REM\nDoor
 
 
 
-
+B³±d otwarcia pliku dla interpolacji!\nPlik DEM lub REM nie istnieje\nKontynuowaæ?
 ;
 MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER
 DEM name is too long to add an extra character to. Do you wish to enter a new base name for the DEM or abort the interpolation?
@@ -3802,7 +3802,7 @@ DEM naam is te lang om een extra karakter toe te voegen. Wilt u een nieuwe basis
 
 
 
-
+Nazwa DEM jest zbyt d³uga aby dodaæ dodatkowe znaki. Czy chcesz podaæ now± nazwê bazow± dla DEM czy chcesz wolisz anulowaæ interpolacjê?
 ;
 MSG_DEM_NEWNAMEABORT
 New Name|Abort
@@ -3813,7 +3813,7 @@ Nieuwe Naam|Afbreken
 
 
 
-
+Nowa Nazwa|Anuluj
 ;
 MSG_DB_ENTERNEWOBJECTNAME
 Enter new object name.
@@ -3824,7 +3824,7 @@ Voer nieuwe objectnaam in.
 
 
 
-
+Wprowad¼ now± nazwê objektu.
 ;
 MSG_DEM_DATAOPSINTERPOLATEDEM
 Data Ops: Interpolate DEM
@@ -3835,7 +3835,7 @@ Data Ops: DEM Interpoleren
 
 
 
-
+Data Ops: Interpolacja DEM
 ;
 MSG_DEM_ERRORREADINGELEVATIONFILEONTINUE
 Error reading elevation file!\nContinue?
@@ -3846,7 +3846,7 @@ Fout bij lezen van hoogte bestand!\nDoorgaan?
 
 
 
-
+B³±d odczytu pliku wzniesienia!\nKontynuowaæ?
 ;
 MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED
 Out of memory!\nOperation terminated.
@@ -3857,7 +3857,7 @@ Te weinig geheugen!\nOperatie afgebroken.
 
 
 
-
+Brak Pamiêci\nOperacja anulowana.
 ;
 MSG_DEM_ERROROPENINGDEMFILEFOROUTPUTPERATIONTERMINATED
 Error opening DEM file for output!\nOperation terminated.
@@ -3868,7 +3868,7 @@ Fout bij openen van DEM bestand voor uitvoer!\nOperatie afgebroken.
 
 
 
-
+B³±d otwarcia pliku DEM dla wyj¶cia\nOperacja anulowana.
 ;
 MSG_DEM_ERRORWRITINGDEMFILEPERATIONTERMINATED
 Error writing DEM file!\nOperation terminated.
@@ -3879,7 +3879,7 @@ Fout bij schrijven van DEM bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d zapisu pliku DEM\nOperacja anulowana.
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE
 Out of memory expanding Database Editor List!\nOperation terminated.
@@ -3890,7 +3890,7 @@ Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nOperatie afgebrok
 
 
 
-
+Brak pamiêci na rozszerzenie bazy danych o edytowane dane\nOperacja anulowana.
 ;
 MSG_DEM_ERROROPENINGOBJECTFILEFOROUTPUTPERATIONTERMINATED
 Error opening Object file for output!\nOperation terminated.
@@ -3901,7 +3901,7 @@ Fout bij openen van Object bestand voor uitvoer!\nOperatie afgebroken.
 
 
 
-
+B³±d otwarcia pliku objektu dla wyj¶cia!\nOperacja anulowana.
 ;
 ; ------ DEMGUI.c ---------
 ;
@@ -3914,7 +3914,7 @@ Data Ops: DEM Extract
 
 
 
-
+Data Ops: DEM wypakowane
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED
 Out of memory allocating DEM Info Header!\nOperation terminated.
@@ -3925,7 +3925,7 @@ Te weinig geheugen voor toewijzen van DEM Info Header!\nOperatie afgebroken.
 
 
 
-
+Brak pamiêci dla nag³ówka informacjynego pliku DEM!\nOperacja anulowana.
 ;
 MSG_DEM_75MINUTEDEMSDONOTALLLIEWITHINSAMEUTMZONEPERATIONTERMINA
 7.5 Minute DEMs do not all lie within same UTM Zone!\nOperation terminated.
@@ -3936,7 +3936,7 @@ I DEM da 7,5 minuti non si trovano tutti nella stessa zona UTM!\nOperazione term
 
 
 
-
+7,5 minutowe DEMy nie mieszcz± siê w strefie czasowej UTM!\nOperation termiated.
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGDEMARRAYSPERATIONTERMINATED
 Out of memory allocating DEM Arrays!\nOperation terminated.
@@ -3947,7 +3947,7 @@ Te weinig geheugen voor toewijzen van DEM Reeksen!\nOperatie afgebroken.
 
 
 
-
+Brak pamiêci na alokacjê tablic DEM!\nOperacja anulowana.
 ;
 MSG_DEM_75MINUTE
 7.5 Minute
@@ -3958,7 +3958,7 @@ MSG_DEM_75MINUTE
 
 
 
-
+7,5 minut
 ;
 MSG_DEM_READING
 Reading
@@ -3969,7 +3969,7 @@ Lezen
 
 
 
-
+Odczyt
 ;
 MSG_DEM_CANTREADDEMPROFILEHEADERPERATIONTERMINATED
 Can't read DEM profile header!\nOperation terminated.
@@ -3980,7 +3980,7 @@ Kan DEM profiel kop niet lezen!\nOperatie afgebroken.
 
 
 
-
+Nie mo¿na odczytaæ nag³ówka profilu DEM!\nOperacja anulowana.
 ;
 MSG_DEM_ERRORREADINGDEMPROFILEHEADERPERATIONTERMINATED
 Error reading DEM profile header!\nOperation terminated.
@@ -3991,7 +3991,7 @@ Fout bij lezen van DEM profiel kop!\nOperatie afgebroken.
 
 
 
-
+B³±d odczytu nag³ówka profilu DEM!\nOperacja anulowana.
 ;
 MSG_DEM_BLANKPATCH
 Blank Patch
@@ -4002,7 +4002,7 @@ Lege Patch
 
 
 
-
+Pusta ¦cie¿ka
 ;
 MSG_DEM_RESAMPLE
 Resample
@@ -4024,7 +4024,7 @@ Voer een naam in voor het 30 meter DEM object.
 
 
 
-
+Wprowad¼ nazwê dla 30m objektów DEM.
 ;
 MSG_DEM_ONEDEGREE
 One Degree
@@ -4035,7 +4035,7 @@ Een graad
 
 
 
-
+Jeden Stopieñ
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGTEMPORARYBUFFERPERATIONTERMINATED
 Out of memory allocating temporary buffer!\nOperation terminated.
@@ -4046,7 +4046,7 @@ Te weinig geheugen voor toewijzen van tijdelijke buffer!\nOperatie afgebroken.
 
 
 
-
+Brak pamiêci dla alokacji tymczasowego bufora!\nOperacja anulowana.
 ;
 MSG_DEM_ERRORREADINGDEMPROFILEPERATIONTERMINATED
 Error reading DEM profile!\nOperation terminated.
@@ -4057,7 +4057,7 @@ Fout bij lezen van DEM profiel!\nOperatie afgebroken.
 
 
 
-
+B³±d odczytu profilu DEM!\nOperacja anulowana.
 ;
 MSG_DEM_IMPROPERDEMPROFILELENGTHPERATIONTERMINATED
 Improper DEM profile length!\nOperation terminated.
@@ -4068,7 +4068,7 @@ Ongeldige lengte van DEM profiel!\nOperatie afgebroken.
 
 
 
-
+Niew³a¶ciwa d³ugo¶æ profilu DEM!\nOperacja anulowana.
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGMAPBUFFERPERATIONTERMINATED
 Out of memory allocating map buffer!\nOperation terminated.
@@ -4079,7 +4079,7 @@ Te weinig geheugen voor toewijzen van kaart buffer!\nOperatie afgebroken.
 
 
 
-
+Brak pamiêci dla bufora map!\nOperacja anulowana.
 ;
 MSG_DEM_ERRORCREATINGOUTPUTFILEPERATIONTERMINATED
 Error creating output file!\nOperation terminated.
@@ -4090,7 +4090,7 @@ Fout bij maken van uitvoer bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d tworzenia pliku wyj¶ciowego!\nOperacja anulowana.
 ;
 MSG_DEM_CANTOPENDEMFILEFORINPUTPERATIONTERMINATED
 Can't open DEM file for input!\nOperation terminated.
@@ -4101,7 +4101,7 @@ Kan DEM bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
 
-
+Nie mo¿na otworzyæ pliku DEM dla wej¶cia!\nOperacja anulowana.
 ;
 MSG_DEM_CANTREADDEMFILEHEADERPERATIONTERMINATED
 Can't read DEM file header!\nOperation terminated.
@@ -4112,7 +4112,7 @@ Kan DEM bestand kop niet lezen!\nOperatie afgebroken.
 
 
 
-
+Nie mogê odczytaæ nag³ówka pliku DEM!\nOperacja anulowana.
 ;
 MSG_DEM_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
@@ -4123,7 +4123,7 @@ Fout bij openen van uitvoer bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d otwracia pliku pkliku wyj¶ciiowgo!\nOperacja anulowana.
 ;
 MSG_DEM_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED
 Error writing to output file!\nOperation terminated.
@@ -4134,7 +4134,7 @@ Fout bij schrijven naar uitvoer bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d zapisu pliku wyj¶ciowego!\nOpercja anulowana.
 ;
 MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLIST
 Out of memory expanding Database Editor List!
@@ -4145,7 +4145,7 @@ Te weinig geheugen voor uitbreiden van Database Editor Lijst!
 
 
 
-
+Brak pamieci dla rozszerzenia bazy danych o edycjê!
 ;
 MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS
 Mapping Module: Fix Flats
@@ -4167,7 +4167,7 @@ Onjuiste reeks dimensies! Iets klopt niet.\nOperatie afgebroken.
 
 
 
-
+Niew³a¶ciwe wymiary tablicy! Czego¶ nie uda siê przeliczyæ.\nOperacja anulowana.
 ;
 MSG_DEM_NOFLATSPOTSTOOPERATEONPERATIONTERMINATED
 No flat spots to operate on!\nOperation terminated.
@@ -4178,7 +4178,7 @@ Geen vlakke plekken om op te werken!\nOperatie afgebroken.
 
 
 
-
+Nie ma p³askim miejsc na których mo¿na pracowaæ!\nOperacja anulowana.
 ;
 ; ------ DEMGUI.c ---------
 ;
@@ -4191,7 +4191,7 @@ Database Objecten
 
 
 
-
+Obiekty Bazy Danych
 ;
 MSG_DEMGUI_XYZLATLON
 XYZ Lat/Lon
@@ -4202,7 +4202,7 @@ XYZ Lat/Long
 
 
 
-
+XYZ Wys/Szer
 ;
 MSG_DEMGUI_XYZUTM
 XYZ UTM
@@ -4224,7 +4224,7 @@ DXF Lat/Long
 
 
 
-
+DXF Wys/Szer
 ;
 MSG_DEMGUI_DXFUTM
 DXF UTM
@@ -4246,7 +4246,7 @@ Schuifbalk
 
 
 
-
+Suwak
 ;
 MSG_DEMGUI_ENDPOINTS
 End Points
@@ -4257,7 +4257,7 @@ Eindpunten
 
 
 
-
+Punk Koñcowy
 ;
 MSG_DEMGUI_DEM
 DEM
@@ -4268,7 +4268,7 @@ DEM
 
 
 
-
+DEM
 ;
 MSG_DEMGUI_NUMERIC
 Numeric
@@ -4279,7 +4279,7 @@ Numeriek
 
 
 
-
+Numeryczne
 ;
 MSG_DEMGUI_ISOLINE
 Isoline
@@ -4290,7 +4290,7 @@ Isobaar
 
 
 
-
+Izolinia
 ;
 MSG_DEMGUI_GRADIENT
 Gradient
@@ -4345,7 +4345,7 @@ Lijnen/Punten
 
 
 
-
+Linie/Punkty
 ;
 MSG_DEMGUI_LINESONLY
 Lines Only
@@ -4356,7 +4356,7 @@ Alleen Lijnen
 
 
 
-
+Tylko Linie
 ;
 MSG_DEMGUI_POINTSONLY
 Points Only
@@ -4367,7 +4367,7 @@ Alleen Punten
 
 
 
-
+Tylko Punkty
 ;
 MSG_DATAOPSGUI_KILOMETERS
 Kilometers
@@ -4378,7 +4378,7 @@ Kilometers
 
 
 
-
+Kilometry
 ;
 MSG_DATAOPSGUI_METERS
 Meters
@@ -4389,7 +4389,7 @@ Meters
 
 
 
-
+Metry
 ;
 MSG_DATAOPSGUI_CENTIMETERS
 Centimeters
@@ -4400,7 +4400,7 @@ Centimeters
 
 
 
-
+Centymetry
 ;
 MSG_DATAOPSGUI_MILES
 Miles
@@ -4411,7 +4411,7 @@ Mijlen
 
 
 
-
+Mile
 ;
 MSG_DATAOPSGUI_FEET
 Feet
@@ -4422,7 +4422,7 @@ Voeten
 
 
 
-
+Stopy
 ;
 MSG_DEMGUI_DEMDESIGNER
 DEM Designer

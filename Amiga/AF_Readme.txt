@@ -3782,3 +3782,7 @@ Render-Setting "Sreen (Colored)" added. 0x10+0x20, damit es compatibel zum alten
 29.Aug.2024
 -----------
 24-Bit Renderwindow auch fuer AROS. (Im Moment fest eingebaut fuer ersten Test)
+
+30.Aug.2024
+-----------
+Neue GCC-Version vom 20Aug24
