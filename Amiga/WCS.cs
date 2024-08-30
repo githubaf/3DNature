@@ -1,4 +1,4 @@
-## Version $VER: WCS.catalog 1.1 (11-Lis-11   )
+## Version $VER: WCS.catalog 1.1 (11.01.2000)
 ## Languages english deutsch italiano français nederlands português dansk español polski
 ## Codeset english 0
 ## Codeset deutsch 0
@@ -1460,7 +1460,7 @@ MSG_AGUI_MOTION
 
 
 
-\33l Ruch\x20
+\33l Animacja\x20
 ;
 MSG_AGUI_COLOR
 \33l Color\x20
@@ -2907,7 +2907,7 @@ Fout bij openen van achtergrond bestand voor invoer!\nOperatie afgebroken.
 
 
 
-
+B³±d otwarcia pliku t³a!\n Operacja anulowana.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILERONGSIZEPERATIONTERMINATE
 Error reading Background file!\nWrong Size.\nOperation terminated.
@@ -2918,7 +2918,7 @@ Afmetingen van achtergrond bestand onjuist!\nOperatie afgebroken.
 
 
 
-
+B³±d odczytu pliku t³a!\nNiew³a¶ciwy Rozmiar.\nPoracja anulowana.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBODYCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BODY Chunk.\nOperation terminated.
@@ -2929,7 +2929,7 @@ Fout bij lezen van achtergrond bestand!\nBODY chunk ontbreekt.\nOperatie afgebro
 
 
 
-
+B³±d odczytu pliku t³a!\nBrak BODU-Chunk.\nOperacja anlulowana.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBMHDCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BMHD Chunk.\nOperation terminated.
@@ -2940,7 +2940,7 @@ Fout bij lezen van achtergrond bestand!\nBMHD chunk ontbreekt.\nOperatie afgebro
 
 
 
-
+B³±d oczytu pliu t³a!\nBrak BMHD Chunk.\nOperacja anulowana.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOMPRESSIONERRORPERATIONTE
 Error reading Background file!\nCompression error.\nOperation terminated.
@@ -2951,7 +2951,7 @@ Fout bij lezen van achtergrond bestand!\nCompressie fout.\nOperatie afgebroken.
 
 
 
-
+B³±d odczytu pliku t³a!\nB³±d Dekompresji.\nOperacja anulowana.
 ;
 MSG_CLOUD_CLOUDEDITORSETBOUNDS
 Cloud Editor:Set Bounds
@@ -2962,7 +2962,7 @@ Wolken Editor:Grenzen instellen
 
 
 
-
+Edytor Chmur: Ustwieni Granic
 ;
 MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN
 Map View Module must be open in order to use this function. Would you like to open it now?
@@ -2973,7 +2973,7 @@ Kaartweergave Module moet geopend zijn om deze functie te gebruiken. Wilt u het 
 
 
 
-
+Modu³ przegl±du map musi byæ otwarty aby mó u¿yæ tej funkcji. Czy chesz otworzyæ go teraz?
 ;
 MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
 \0338Set northwest corner with mouse.
@@ -2984,7 +2984,7 @@ MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
 
 
 
-
+\0338Ustaw pó³nocno-zachodni naro¿nik za pomoc± myszy.
 ;
 MSG_CLOUD_SETNORTHWESTCORNER
 Set northwest corner
@@ -2995,7 +2995,7 @@ Stel noord-west hoek in
 
 
 
-
+Ustaw pó³nocno-zachodni naro¿nik
 ;
 MSG_CLOUD_ETSOUTHEASTCORNERESCABORT
 \0338Set southeast corner. ESC=abort
@@ -3006,7 +3006,7 @@ MSG_CLOUD_ETSOUTHEASTCORNERESCABORT
 
 
 
-
+\0338Ustaw pó³nocno-wschodni naro¿nik. ESC=przerwij
 ;
 MSG_CLOUD_SETSOUTHEASTCORNER
 Set southeast corner
@@ -3017,7 +3017,7 @@ Stel zuid-oost hoek in
 
 
 
-
+Ustaw pó³nocno-wschodni naro¿nik
 ;
 MSG_MAPGUI_MAPPINGMODULEALIGN
 Mapping Module: Align
@@ -3028,7 +3028,7 @@ Mapping Module: Uitlijnen
 
 
 
-
+Modu³ Mapowania: Wyrówmamie
 ;
 MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET
 Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
@@ -3039,7 +3039,7 @@ Ongeldige waarden!\nEr moet minstens één pixel offset zijn op beide assen.\nOpni
 
 
 
-
+Niew³a¶ciwe warto¶ci!\nMusi byæ przynajmniej jeden piksel przesuniêcia dla obu k±tów\nSpróbowaæ ponownie?
 ;
 MSG_CLOUD_ENTERFRAMENUMBER
 Enter Frame Number.
@@ -3050,7 +3050,7 @@ Voer Frame Nummer in.
 
 
 
-
+Worowad¼ numer klatki.
 ;
 MSG_GLOBAL_COMPUTING
 Computing...
@@ -3061,7 +3061,7 @@ Berekenen...
 
 
 
-
+Obliczenia...
 ;
 MSG_GLOBAL_DRAWING
 Drawing...
@@ -3072,7 +3072,7 @@ Tekenen...
 
 
 
-
+Rysowanie...
 ;
 ; ------ CloudGUI.c -------
 ;
@@ -3085,7 +3085,7 @@ Cirrus wolken
 
 
 
-
+Chmura Pierzasta
 ;
 MSG_CLOUDGUI_STRATUS
 Stratus
@@ -3129,7 +3129,7 @@ Wolken Editor
 
 
 
-
+Edytor Chmur
 ;
 MSG_CLOUDGUI_OPTIONS
 Options
@@ -3140,7 +3140,7 @@ Opties
 
 
 
-
+Opcje
 ;
 MSG_CLOUDGUI_CLOUDS
 \33cClouds
@@ -3151,7 +3151,7 @@ MSG_CLOUDGUI_CLOUDS
 
 
 
-
+\33cChmury
 ;
 MSG_CLOUDGUI_CLOUDSHADOWS
 \33cCloud Shadows
@@ -3162,7 +3162,7 @@ MSG_CLOUDGUI_CLOUDSHADOWS
 
 
 
-
+\33cCienie Chmur
 ;
 MSG_CLOUDGUI_CLOUDTYPE
 Cloud Type
@@ -3173,7 +3173,7 @@ Wolken type
 
 
 
-
+Typ Chmury
 ;
 MSG_CLOUDGUI_SEED
 Seed
@@ -3184,7 +3184,7 @@ Startwaarde
 
 
 
-
+Warto¶æ pocz±tkowa
 ;
 MSG_CLOUDGUI_CLOUDWAVES
 \33c\0334Cloud Waves
@@ -3195,7 +3195,7 @@ MSG_CLOUDGUI_CLOUDWAVES
 
 
 
-
+\33c\0334Fale Chmur
 ;
 MSG_CLOUDGUI_WAVES
 Waves
@@ -3206,7 +3206,7 @@ Golven
 
 
 
-
+Fale
 ;
 MSG_CLOUDGUI_MAPADD
 \33cMap Add...
@@ -3217,7 +3217,7 @@ MSG_CLOUDGUI_MAPADD
 
 
 
-
+\33cDodaj Mapê...
 ;
 MSG_CLOUDGUI_EDIT
 \33cEdit...
@@ -3228,7 +3228,7 @@ MSG_CLOUDGUI_EDIT
 
 
 
-
+\33cEdycja...
 ;
 MSG_CLOUDGUI_ANIMATE
 Animate
@@ -3239,7 +3239,7 @@ Animeren
 
 
 
-
+Animacja
 ;
 MSG_CLOUDGUI_LOUDMAPSIZERANGE
 \33c\0334Cloud Map Size & Range
@@ -3250,7 +3250,7 @@ MSG_CLOUDGUI_LOUDMAPSIZERANGE
 
 
 
-
+\33c\0334Mapa Chmur Rozmiar i Zasiêg
 ;
 MSG_CLOUDGUI_ROWS
 Rows
@@ -3261,7 +3261,7 @@ Rijen
 
 
 
-
+Rzêdy
 ;
 MSG_CLOUDGUI_COLS
 Cols
@@ -3272,7 +3272,7 @@ Kolommen
 
 
 
-
+Kolumny
 ;
 MSG_CLOUDGUI_LATMAX
 Lat Max
@@ -3283,7 +3283,7 @@ Max Lat
 
 
 
-
+Najwy¿sza Wysoko¶æ
 ;
 MSG_CLOUDGUI_MIN
 Min
@@ -3294,7 +3294,7 @@ Min
 
 
 
-
+Najni¿sza
 ;
 MSG_CLOUDGUI_LONMAX
 Lon Max
@@ -3305,7 +3305,7 @@ Max Long
 
 
 
-
+Najwiêksza Szeroko¶æ
 ;
 MSG_CLOUDGUI_ANIMATION
 \33c\0334Animation
@@ -3316,7 +3316,7 @@ MSG_CLOUDGUI_ANIMATION
 
 
 
-
+\33c\0334Animacja
 ;
 MSG_CLOUDGUI_COVERAGE
 Coverage
@@ -3327,7 +3327,7 @@ Bedekkingsgraad
 
 
 
-
+Pokrycie
 ;
 MSG_CLOUDGUI_DENSITY
 Density
@@ -3338,7 +3338,7 @@ Dichtheid
 
 
 
-
+Gêsto¶æ
 ;
 MSG_CLOUDGUI_ROUGHNESS
 Roughness
@@ -3349,7 +3349,7 @@ Ruwheid
 
 
 
-
+Szorstko¶æ
 ;
 MSG_CLOUDGUI_FRACTDIM
 Fract Dim
@@ -3371,7 +3371,7 @@ Verplaats Lat
 
 
 
-
+Wysoko¶æ Ruchu
 ;
 MSG_CLOUDGUI_LON
 Lon
@@ -3382,7 +3382,7 @@ Long
 
 
 
-
+Szeroko¶æ
 ;
 MSG_CLOUDGUI_ALTITUDE
 Altitude
@@ -3393,7 +3393,7 @@ Hoogte
 
 
 
-
+Wysoko¶æ
 ;
 MSG_CLOUDGUI_EYFRAMES
 \33c\0334Key Frames
@@ -3404,7 +3404,7 @@ MSG_CLOUDGUI_EYFRAMES
 
 
 
-
+\33c\0334Kluczowe Klatki
 ;
 MSG_CLOUDGUI_PREV
 \33cPrev
@@ -3415,7 +3415,7 @@ MSG_CLOUDGUI_PREV
 
 
 
-
+\33cPoprzedni
 ;
 MSG_CLOUDGUI_FRAME
 Frame
@@ -3426,7 +3426,7 @@ Frame
 
 
 
-
+Klatka
 ;
 MSG_CLOUDGUI_NEXT
 \33cNext
@@ -3437,7 +3437,7 @@ MSG_CLOUDGUI_NEXT
 
 
 
-
+Nastêpny
 ;
 MSG_CLOUDGUI_MAKEKEY
 \33cMake Key
@@ -3448,7 +3448,7 @@ MSG_CLOUDGUI_MAKEKEY
 
 
 
-
+\33cStwórz Klucz
 ;
 MSG_CLOUDGUI_UPDATE
 \33cUpdate
@@ -3459,7 +3459,7 @@ MSG_CLOUDGUI_UPDATE
 
 
 
-
+\33cAktualizuj
 ;
 MSG_CLOUDGUI_DELETE
 \33c\33uDel\33nete
@@ -3470,7 +3470,7 @@ MSG_CLOUDGUI_DELETE
 
 
 
-
+\33cUsuñ
 ;
 MSG_CLOUDGUI_DELETEALL
 \33cDelete All
@@ -3481,7 +3481,7 @@ MSG_CLOUDGUI_DELETEALL
 
 
 
-
+\33cUsuñ Wszystko
 ;
 MSG_CLOUDGUI_TIMELINES
 \33cTime Lines\x20
@@ -3492,7 +3492,7 @@ MSG_CLOUDGUI_TIMELINES
 
 
 
-
+\33cLInia Czasu\x20
 ;
 MSG_CLOUDGUI_SCALEKEYS
 \33cScale Keys\x20
@@ -3503,7 +3503,7 @@ MSG_CLOUDGUI_SCALEKEYS
 
 
 
-
+\33cSkala\x20
 ;
 MSG_CLOUDGUI_DRAWCLOUD
 \33cDraw Cloud
@@ -3514,7 +3514,7 @@ MSG_CLOUDGUI_DRAWCLOUD
 
 
 
-
+\33cRysowanie Chmur
 ;
 MSG_CLOUDGUI_SETBOUNDS
 \33cSet Bounds
@@ -3525,7 +3525,7 @@ MSG_CLOUDGUI_SETBOUNDS
 
 
 
-
+\33cUstaw Granice
 ;
 MSG_CLOUDGUI_SAVE
 \33cSave
@@ -3536,7 +3536,7 @@ MSG_CLOUDGUI_SAVE
 
 
 
-
+\33cZapisz
 ;
 MSG_CLOUDGUI_LOAD
 \33cLoad
@@ -3547,7 +3547,7 @@ MSG_CLOUDGUI_LOAD
 
 
 
-
+\33cWczytaj
 ;
 MSG_CLOUDGUI_MAPVIEWCLOUDS
 Map View: Clouds
@@ -3558,7 +3558,7 @@ Map View: Wolken
 
 
 
-
+Podgl±d Mapy: Chmury
 ;
 MSG_GLOBAL_OUTOFMEMORY
 Out of memory!
@@ -3569,7 +3569,7 @@ Te weinig geheugen!
 
 
 
-
+Brak Pamiêci
 ;
 MSG_PARGUI_PARAMETERSMODULEMODEL
 Parameters Module: Model
@@ -3580,7 +3580,7 @@ Parameters Module: Model
 
 
 
-
+Parametry Modu³u: Model
 ;
 MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE
 The current Cloud Model has been modified. Do you wish to save it before closing?
@@ -3591,7 +3591,7 @@ Het huidige Wolken Model is gewijzigd. Wilt u het opslaan voordat u het sluit?
 
 
 
-
+Aktualny model chmur zosta³ zmodyfikowany. Czy chcesz zapisaæ przed zamniêciem?
 ;
 MSG_GLOBAL_YESNO
 Yes|No
@@ -3602,7 +3602,7 @@ Ja|Nee
 
 
 
-
+Tak|Nie
 ;
 MSG_CLOUDGUI_CLOUDPATHFILE
 Cloud Path/File
@@ -3613,7 +3613,7 @@ Wolken Pad/Bestand
 
 
 
-
+Chmura ¦cie¿ka/Plik
 ;
 MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE
 Make this file the Project Cloud File?
@@ -3624,7 +3624,7 @@ Van dit bestand het Project Wolken Bestand maken?
 
 
 
-
+Wybraæ plik jako plik chmur dla projektu?
 ;
 MSG_CLOUDGUI_CLOUDWAVEEDITOR
 Cloud Wave Editor
@@ -3635,7 +3635,7 @@ Wolken Golf Editor
 
 
 
-
+Edytor pofalowania chmur
 ;
 MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR
 Enter frame to make key for.
@@ -3646,7 +3646,7 @@ Voer frame in om Key voor te maken.
 
 
 
-
+Wybierz klatkê dla której chesz utworzyæ klucz.
 ;
 MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES
 Delete all cloud key frames?
@@ -3657,7 +3657,7 @@ Alle wolken key frames verwijderen?
 
 
 
-
+Usun±æ wszystkie klucze ramek dla chmur?
 ;
 MSG_CLOUDGUI_FRACTALDIMENSION
 Fractal Dimension
@@ -3668,7 +3668,7 @@ Fractale Afmetingen
 
 
 
-
+Rozmiar Fractali
 ;
 MSG_CLOUDGUI_MOVELATITUDE
 Move Latitude
@@ -3679,7 +3679,7 @@ Verplaats in Latitudinale richting
 
 
 
-
+Wysoko¶æ Ruchu
 ;
 MSG_CLOUDGUI_MOVELONGITUDE
 Move Longitude
@@ -3701,7 +3701,7 @@ Wolken Tijdlijnen
 
 
 
-
+Linia Czasu dla Chmur
 ;
 MSG_CLOUDGUI_CLOUDFILE
 Cloud File
@@ -3712,7 +3712,7 @@ Wolken Bestand
 
 
 
-
+Plik Chmur
 ;
 ; ------- DEM.c ----------
 ;
@@ -3725,7 +3725,7 @@ Maken van Relatieve Hoogte Model
 
 
 
-
+Tworzenie Relatywnego Wzniesienia Modelu
 ;
 MSG_DEM_RELATIVEELEVATION
 Relative elevation
@@ -3736,7 +3736,7 @@ Relatieve hoogte
 
 
 
-
+Relatywnegpo wzniesienia
 ;
 MSG_DEM_COMPUTING
 Computing
@@ -3747,7 +3747,7 @@ Berekenen
 
 
 
-
+Obliczenia
 ;
 MSG_DEM_FILES
 Files
@@ -3758,7 +3758,7 @@ Bestanden
 
 
 
-
+Pliki
 ;
 MSG_DEM_DATAOPSDEMINTERPOLATE
 Data Ops: DEM Interpolate
