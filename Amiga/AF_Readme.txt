@@ -3786,3 +3786,7 @@ Render-Setting "Sreen (Colored)" added. 0x10+0x20, damit es compatibel zum alten
 30.Aug.2024
 -----------
 Neue GCC-Version vom 20Aug24
+
+2.Sep.2024
+----------
+Daenische Uebersetzungen von "Screemo"  In Prefs:Font muessen ISO-8859-9 Schriften ausgewaehlt werden, damit das richtig aussieht.

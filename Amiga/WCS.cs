@@ -117,7 +117,7 @@ Salva Schermo...
 
 Beeldscherm Bewaren...
 
-
+Gem skærmbillede...
 
 Zapisz Ekran...
 ;
@@ -128,7 +128,7 @@ Informazioni...
 
 Informatie...
 
-
+Information...
 
 Info...
 ;
@@ -139,7 +139,7 @@ Versione...
 
 Versie...
 
-
+Version...
 
 Wersja...
 ;
@@ -161,7 +161,7 @@ Log...
 
 Log...
 
-
+Log...
 
 Przedgl±d Zdarzeñ...
 ;
@@ -172,7 +172,7 @@ Fine...
 
 Afsluiten...
 
-
+Afslut
 
 Wyjd¼...
 ;
@@ -183,7 +183,7 @@ Iconifica...
 
 Iconificeren...
 
-
+Ikonificér
 
 Minimalizuj...
 ;
@@ -194,7 +194,7 @@ Moduli
 
 Modules
 
-
+Moduler
 
 Modu³y
 ;
@@ -205,7 +205,7 @@ Database
 
 Database
 
-
+Database
 
 Baza Danych
 ;
@@ -216,7 +216,7 @@ Dati Ops
 
 Data Ops
 
-
+Data Ops
 
 
 ;
@@ -227,7 +227,7 @@ Vista Mappa
 
 Kaartweergave
 
-
+Kortvisning
 
 Widok Mapy
 ;
@@ -238,7 +238,7 @@ Parametri
 
 Parameters
 
-
+Parametre
 
 Parametry
 ;
@@ -249,7 +249,7 @@ Rendering
 
 Render
 
-
+Beregn
 
 Renderowanie
 ;
@@ -260,7 +260,7 @@ Modifica Movimento
 
 Beweging Editor
 
-
+Bevægelsesredigering
 
 Edytor Ruchu
 ;
@@ -271,7 +271,7 @@ Modifica Colori
 
 Kleur Editor
 
-
+Farveindstillinger
 
 Edytor Kolorów
 ;
@@ -282,7 +282,7 @@ Modifica Ecosistema
 
 Ecosysteem Editor
 
-
+Redigering af økosystem
 
 
 ;
@@ -293,7 +293,7 @@ Preferenze
 
 Voorkeuren
 
-
+Indstillinger
 
 Preferencje
 ;
@@ -304,7 +304,7 @@ Preferenze...
 
 Voorkeuren...
 
-
+Indstillinger
 
 Preferencje...
 ;
@@ -315,7 +315,7 @@ Modo Schermo...
 
 Schermmodus...
 
-
+Skærmopsætning
 
 Prametry Obrazu...
 ;
@@ -326,7 +326,7 @@ Parametri
 
 Parameters
 
-
+Parametre
 
 Parametry
 ;
@@ -337,7 +337,7 @@ Carica Tutto...
 
 Laad Alles...
 
-
+Indlæs alle...
 
 Wczytaj wszystko...
 ;
@@ -348,7 +348,7 @@ Salva Tutto...
 
 Alles Opslaan...
 
-
+Gem alt...
 
 Zapisz Wszystko...
 ;
@@ -359,7 +359,7 @@ Congelamento
 
 Vastleggen voor herstel
 
-
+Frys
 
 Zatrzymaj
 ;
@@ -370,7 +370,7 @@ Ripristina
 
 Herstellen
 
-
+Genskab
 
 Wznów
 ;
@@ -382,7 +382,7 @@ Acqua
 
 Water
 
-
+Vand
 
 Woda
 ;
@@ -393,7 +393,7 @@ Neve
 
 Sneeuw
 
-
+Sne
 
 ¦nieg
 ;
@@ -404,7 +404,7 @@ Roccia
 
 Rots
 
-
+Sten
 
 Ska³a
 ;
@@ -415,7 +415,7 @@ Terreno
 
 Terrein
 
-
+Terræn
 
 Grunt
 ;
@@ -426,7 +426,7 @@ Piante
 
 Naaldboom
 
-
+Nåletræer
 
 Drzewostan
 ;
@@ -437,7 +437,7 @@ Decide
 
 Loofboom
 
-
+Løvtræ
 
 Drzewa Li¶ciaste
 ;
@@ -448,7 +448,7 @@ Bassa Vegetazione
 
 Ondergroei
 
-
+Lav Vegation
 
 Niska Ro¶linno¶æ
 ;
@@ -470,7 +470,7 @@ Ceppo Albero
 
 Boomstronk
 
-
+Træstub
 
 Pieñ drzewa
 ;
@@ -481,7 +481,7 @@ Camera D'altitudine
 
 Camera Hoogte
 
-
+Kamera Højde
 
 Kamera - Wysoko¶æ
 ;
@@ -492,7 +492,7 @@ Camera Latitudine
 
 Camera Breedtegraad
 
-
+Kamera breddegrad
 
 Kamera - Szeroko¶æ
 ;
@@ -503,7 +503,7 @@ Camera Longitudine
 
 Camera Lengtegraad
 
-
+Kamera længdegrad
 
 Kamera - D³ugo¶æ
 ;
@@ -514,7 +514,7 @@ Focus Altitudine
 
 Focus Hoogte
 
-
+Focu Højde
 
 Focus Kamery - Wysoko¶æ
 ;
@@ -525,7 +525,7 @@ Focus Latitudine
 
 Focus Breedtegraad
 
-
+Focus breddegrad
 
 Focus Kamery - Szeroko¶æ
 ;
@@ -536,7 +536,7 @@ Focus Longitudine
 
 Focus Lengtegraad
 
-
+Fokus længdegrad
 
 Focus Kamery - D³ugo¶æ
 ;
@@ -547,7 +547,7 @@ Centra X
 
 Midden X
 
-
+Centrum X
 
 ¦rodek X
 ;
@@ -558,7 +558,7 @@ Centra Y
 
 Midden Y
 
-
+Centrum Y
 
 ¦rodek Y
 ;
@@ -580,7 +580,7 @@ Rotazione Terra
 
 Aardrotatie
 
-
+Jordrotation
 
 Obrót Ziemii
 ;
@@ -602,7 +602,7 @@ Angolo di Visione
 
 Zichtboog
 
-
+Betragsningsvinkel
 
 K±t Widzenia
 ;
@@ -613,7 +613,7 @@ Appiattimento
 
 Afvlakking
 
-
+Udfladning
 
 Sp³aszczenie
 ;
@@ -624,7 +624,7 @@ Datum
 
 Datum
 
-
+Dato
 
 Punkt Wyj¶ciowy
 ;
@@ -668,7 +668,7 @@ Linea Orizzonte
 
 Horizon Lijn
 
-
+Horizontallinje
 
 Linia Horyzontu
 ;
@@ -679,7 +679,7 @@ Punto Orizzonte
 
 Horizon Punt
 
-
+Horizontalpunkt
 
 Punkt Na Horyzoncie
 ;
@@ -723,7 +723,7 @@ Fattore Ombra
 
 Schaduw Factor
 
-
+Skyggefaktor
 
 Stopieñ Cienia
 ;
@@ -734,7 +734,7 @@ Niente Nebbia
 
 Geen Mist
 
-
+Ingen tåge
 
 Bez Mg³y
 ;
@@ -745,7 +745,7 @@ Pieno di nebbia
 
 Volledige Mist
 
-
+Fuld tåge
 
 Pe³na Mg³a
 ;
@@ -756,7 +756,7 @@ Minimo Z
 
 Z Minimum
 
-
+Z Minimum
 
 Z Minimalne
 ;
@@ -789,7 +789,7 @@ Grandezza Sole
 
 Zon Grootte
 
-
+Solstørrelse
 
 Rozmiar S³oñca
 ;
@@ -822,7 +822,7 @@ Grandezza Luna
 
 Maan Grootte
 
-
+Månestørrelse
 
 Rozmiar Ksiê¿yca
 ;
@@ -833,7 +833,7 @@ Riflessione %
 
 Reflectie %
 
-
+Reflektion %
 
 Odbicie %
 ;
@@ -855,7 +855,7 @@ MSG_STDMESG_OPENFILEFAILED
 
  Bestand openen mislukt!
 
-
+ Åbning af fil fejlede!
 
 Nie mo¿na otworzyæ pliku!
 ;
@@ -866,7 +866,7 @@ MSG_STDMESG_READFILEFAILED
 
  Lezen bestand mislukt!
 
-
+ Læsning af fil fejlede!
 
 B³±d odczytu pliku!
 ;
@@ -877,7 +877,7 @@ MSG_STDMESG_WRITINGTOFILEFAILED
 
  Opslaan bestand mislukt!
 
-
+ Skrivning af fil fejlede!
 
 B³±d zapisu pliku!
 ;
@@ -888,7 +888,7 @@ MSG_STDMESG_WRONGFILETYPE
 
  Ongeldig bestandstype!
 
-
+ Forkert filtype!
 
 Niew³a¶ciwy typ pliku!
 ;
@@ -899,7 +899,7 @@ MSG_STDMESG_ILLEGALINSTRUCTION
 
  Ongeldige instructie!
 
-
+ Ugyldig instruktion!
 
 Nieznanza instrukcja!
 ;
@@ -910,7 +910,7 @@ MSG_STDMESG_ILLEGALVALUE
 
  Ongeldige waarde!
 
-
+ Ugyldig værdi!
 
 Niew³±¶ciwa warto¶æ!
 ;
@@ -921,7 +921,7 @@ MSG_STDMESG_FILENOTLOADED
 
  Bestand niet geladen!
 
-
+ Fil ikke indlæst!
 
 Plik niewczytany!
 ;
@@ -932,7 +932,7 @@ MSG_STDMESG_MODULENOTIMPLEMENTED
 
  Module niet geïmplementeerd.
 
-
+ Module er ikke implementeret.
 
 Modu³ nie jest zaimplementowany.
 ;
@@ -943,7 +943,7 @@ MSG_STDMESG_GUINOTIMPLEMENTED
 
  GUI niet geïmplementeerd.
 
-
+ GUI er ikke implementeret.
 
 GUI nie zaimplementowane.
 ;
@@ -954,7 +954,7 @@ MSG_STDMESG_PARAMETERFILELOADED
 
  Parameter bestand geladen.
 
-
+ Parameter fil indlæst.
 
 Plik z parametrami wczytany.
 ;
@@ -965,7 +965,7 @@ MSG_STDMESG_PARAMETERFILESAVED
 
  Parameter bestand opgeslagen.
 
-
+ Parameter fil gemt.
 
 Plik z parametrami zapisany.
 ;
@@ -976,7 +976,7 @@ MSG_STDMESG_DATABASEFILELOADED
 
  Database bestand geladen.
 
-
+ Database fil indlæst.
 
 Plik bazy danych wczytany.
 ;
@@ -987,7 +987,7 @@ MSG_STDMESG_DATABASEFILESAVED
 
  Database bestand opgeslagen.
 
-
+ Database fil gemt.
 
 Plik bazy danych zapisany.
 ;
@@ -998,7 +998,7 @@ MSG_STDMESG_DEMFILELOADED
 
  DEM bestand geladen.
 
-
+ DEM fil indlæst.
 
 Plik DEM wczytany.
 ;
@@ -1009,7 +1009,7 @@ MSG_STDMESG_DEMFILESAVED
 
  DEM bestand opgeslagen.
 
-
+ DEM fil gemt.
 
 Plik DEM zapisany.
 ;
@@ -1020,7 +1020,7 @@ MSG_STDMESG_VECTORFILELOADED
 
  Vector bestand geladen.
 
-
+ Vektor fil indlæst.
 
 Plik z wektorami wczytany.
 ;
@@ -1031,7 +1031,7 @@ MSG_STDMESG_VECTORFILESAVED
 
  Vector bestand opgeslagen.
 
-
+ Vektor fil gemt.
 
 Plik z wektorami zapisany.
 ;
@@ -1042,7 +1042,7 @@ MSG_STDMESG_IMAGEFILELOADED
 
  Afbeeldingsbestand geladen.
 
-
+ Billedefil indlæst.
 
 Plik obrazu wczytany.
 ;
@@ -1053,7 +1053,7 @@ MSG_STDMESG_IMAGEFILESAVED
 
  Afbeeldingsbestand opgeslagen.
 
-
+ Billedefil gemt.
 
 Plik obrazu zapisany.
 ;
@@ -1064,7 +1064,7 @@ MSG_STDMESG_COLORMAPFILELOADED
 
  Kleurenkaart bestand geladen.
 
-
+ Farvekort indlæst.
 
 Plik mapy kolorów wczytany.
 ;
@@ -1075,7 +1075,7 @@ MSG_STDMESG_COLORMAPFILESAVED
 
  Kleurenkaart bestand opgeslagen.
 
-
+ Farvekort gemt.
 
 Plik mapy kolorów zapisany.
 ;
@@ -1097,7 +1097,7 @@ Mapping Modul.
 
  Mapping Module.
 
-
+ Mapningsmodul.
 
 Modu³ mapuj±cy.
 ;
@@ -1108,7 +1108,7 @@ MSG_STDMESG_DIRECTORYNOTFOUND
 
  Directory niet gevonden!
 
-
+ Bibliotek blev ikke fundet!
 
 Katalog nie znaleziony!
 ;
@@ -1119,7 +1119,7 @@ MSG_STDMESG_OPENWINDOWFAILED
 
  Venster openen mislukt!
 
-
+ Åbning af vindue fejlede!
 
 B³±d otwarcia okna!
 ;
@@ -1130,7 +1130,7 @@ MSG_STDMESG_INCORRECTFILESIZE
 
  Bestandsgrootte ongeldig!
 
-
+ Forkert filstørrelse!
 
 Niew³a¶ciwy rozmiar pliku!
 ;
@@ -1141,7 +1141,7 @@ MSG_STDMESG_INCORRECTFILEVERSION
 
  Bestandsversie ongeldig!
 
-
+ Forkert fil version!
 
 Niew³a¶ciwa wersja pliku!
 ;
@@ -1152,7 +1152,7 @@ MSG_STDMESG_RELATIVEELEVATIONFILESAVED
 
  Relatieve Hoogte Bestand Opgeslagen.
 
-
+ Relativ højdefil gemt.
 
 Plik wzglêdnej wysoko¶ci zapisany.
 ;
@@ -1163,7 +1163,7 @@ MSG_STDMESG_VECTOROBJECTSLOADED
 
  Vector objecten geladen.
 
-
+ Vektor objekter indlæst.
 
 Objekty wektorowe wczytane.
 ;
@@ -1174,7 +1174,7 @@ MSG_STDMESG_PROJECTFILELOADED
 
  Project bestand geladen.
 
-
+ Projekt fil indlæst.
 
 Plik projektu wczytany.
 ;
@@ -1185,7 +1185,7 @@ MSG_STDMESG_PROJECTFILESAVED
 
  Project bestand opgeslagen.
 
-
+ Projekt fil gemt.
 
 Plik porojektu zapisany.
 ;
@@ -1196,7 +1196,7 @@ MSG_STDMESG_DIRECTORYLISTLOADED
 
  Directory Lijst geladen
 
-
+ Biblioteksliste indlæst.
 
 Lista katalogów wczytana
 ;
@@ -1207,7 +1207,7 @@ MSG_STDMESG_RENDERTIMEFORFRAME
 
  Berekentijd voor frame
 
-
+ Beregningstid for skærmbillede
 
 Czas renderowanie na kaltkê
 ;
@@ -1218,7 +1218,7 @@ MSG_STDMESG_RENDERTIMEFORANIM
 
  Berekentijd voor animatie,
 
-
+ Beregningstid for animation,
 
 Czas renderowania animacji
 ;
@@ -1233,7 +1233,7 @@ Nessuno
 
 Geen
 
-
+Ingen
 
 Nie
 ;
@@ -1244,7 +1244,7 @@ Testo
 
 Tekst
 
-
+Tekst
 
 Tekst
 ;
@@ -1255,7 +1255,7 @@ Standard
 
 Standaard
 
-
+Standard
 
 Standardowy
 ;
@@ -1266,7 +1266,7 @@ Massimo
 
 Maximum
 
-
+Maximum
 
 Max
 ;
@@ -1277,7 +1277,7 @@ Video
 
 Video
 
-
+Video
 
 Video
 ;
@@ -1288,7 +1288,7 @@ World Construction Set Modo Schermo
 
 World Construction Set Beeldschermmodus
 
-
+World Construction Set Skærmopsætning
 
 World Construction Set Parametry Ekranu
 ;
@@ -1299,7 +1299,7 @@ MSG_SCNRMODGUI_DISPLAYMODE
 
 \33cSchermmodus
 
-
+\33cSkærmmodus
 
 \33c Tryb Ekranu
 ;
@@ -1310,7 +1310,7 @@ MSG_SCNRMODGUI_MODEINFORMATION
 
 \33cInformatie Modus
 
-
+\33cModus information
 
 Informacje o trybie
 ;
@@ -1322,7 +1322,7 @@ Modo:           \nRes :                      \nAuto:            \nScan :        
 
 Modus:           \nRes  :                      \nAuto :            \nScan :                   \n\nAttributen\n\n\n
 
-
+Modus:           \nOpl.  :                      \nAuto :            \nScan :                   \n\nAtributter\n\n\n
 
 Tryb:     \nRozd  :            \nAuto :        \nScan :        \n\nAttributes\n\n\n
 ;
@@ -1333,7 +1333,7 @@ MSG_SCNRMODGUI_SAVE
 
 \33cOpslaan
 
-
+\33cGem
 
 \33cZapisz
 ;
@@ -1344,7 +1344,7 @@ MSG_SCNRMODGUI_USE
 
 \33cGebruiken
 
-
+\33cAnvend
 
 \33cU¿yj
 ;
@@ -1355,7 +1355,7 @@ MSG_SCNRMODGUI_EXIT
 
 \33cAfsluiten
 
-
+\33cAfslut
 
 \33cWyjd¼
 ;
@@ -1367,7 +1367,7 @@ Modo: 0x%08lx\nRes : %dx%d - %dx%d\nAuto: %dx%d\nRicerca: %dns\n\nAttributi\n
 
 Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAttributen\n
 
-
+Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAtributter\n
 
 
 ;
@@ -1389,7 +1389,7 @@ Supporta Genlock\x20
 
 Ondersteunt Genlock\x20
 
-
+Understøtter Genlock\x20
 
 Obs³uguje Genlock
 ;
