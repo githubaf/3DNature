@@ -438,7 +438,7 @@ if(Init)
         	MUIA_HorizWeight, 0, End,
 
        /* Row 3 */
-               Child, Label2(GetString( MSG_MAPGUI_LON )),  // "Lon "
+               Child, Label2(GetString( MSG_MAPGUI_LONX20 )),  // "Lon "
                Child, MP->Lon = StringObject, StringFrame,
         	MUIA_String_Contents, "       ",
          	MUIA_String_Accept, " -0123456789.",
