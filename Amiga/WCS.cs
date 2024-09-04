@@ -172,7 +172,7 @@ Fine...
 
 Afsluiten...
 
-Afslut
+Afslut...
 
 Wyjd¼...
 ;
@@ -183,7 +183,7 @@ Iconifica...
 
 Iconificeren...
 
-Ikonificér
+Ikonificér...
 
 Minimalizuj...
 ;
@@ -304,7 +304,7 @@ Preferenze...
 
 Voorkeuren...
 
-Indstillinger
+Indstillinger...
 
 Preferencje...
 ;
@@ -315,7 +315,7 @@ Modo Schermo...
 
 Schermmodus...
 
-Skærmopsætning
+Skærmopsætning...
 
 Prametry Obrazu...
 ;
@@ -1196,7 +1196,7 @@ MSG_STDMESG_DIRECTORYLISTLOADED
 
  Directory Lijst geladen
 
- Biblioteksliste indlæst.
+ Biblioteksliste indlæst
 
 Lista katalogów wczytana
 ;
@@ -4312,7 +4312,7 @@ Concaaf
 
 
 
-
+Wklês³o¶æ
 ;
 MSG_DEMGUI_CONVEX
 Convex
@@ -4323,7 +4323,7 @@ Convex
 
 
 
-
+Wypuk³o¶æ
 ;
 MSG_DEMGUI_NONE
 None
@@ -4334,7 +4334,7 @@ Geen
 
 
 
-
+Nie
 ;
 MSG_DEMGUI_LINESPOINTS
 Lines/Points
@@ -4433,7 +4433,7 @@ DEM Designer
 
 
 
-
+DEM Desiner
 ;
 MSG_DEMGUI_CONTROLPTS
 Control Pts
@@ -4444,7 +4444,7 @@ Controle Punten
 
 
 
-
+Punkt Kontrolny
 ;
 MSG_DEMGUI_MAP
 \33cMap
@@ -4455,7 +4455,7 @@ MSG_DEMGUI_MAP
 
 
 
-
+\33cMapa
 ;
 MSG_DEMGUI_ADD
 \33cAdd
@@ -4466,7 +4466,7 @@ MSG_DEMGUI_ADD
 
 
 
-
+\33cDodaj
 ;
 MSG_DEMGUI_MOVE
 \33cMove
@@ -4477,7 +4477,7 @@ MSG_DEMGUI_MOVE
 
 
 
-
+\33cPrzenie¶
 ;
 MSG_DEMGUI_DEL
 \33cDel
@@ -4488,7 +4488,7 @@ MSG_DEMGUI_DEL
 
 
 
-
+\33cUsuñ
 ;
 MSG_DEMGUI_PTINFO
 \33cPt Info
@@ -4499,7 +4499,7 @@ MSG_DEMGUI_PTINFO
 
 
 
-
+\33cPunkt Informacyjny
 ;
 MSG_DEMGUI_SETEL
 \33cSet El
@@ -4510,7 +4510,7 @@ MSG_DEMGUI_SETEL
 
 
 
-
+\33cUstawieni Elementu
 ;
 MSG_DEMGUI_ELEVSOURCE
 Elev Source
@@ -4521,7 +4521,7 @@ Hgt Bron
 
 
 
-
+¬ród³o Wzniesienia
 ;
 MSG_DEMGUI_ELEVUNITS
  Elev Units
@@ -4532,7 +4532,7 @@ Hgt Eenheden
 
 
 
-
+Jednostki Wzniesienia
 ;
 MSG_DEMGUI_DISPLACE
    Displace
@@ -4543,7 +4543,7 @@ Verschuiven
 
 
 
-
+Przemieszczenie
 ;
 MSG_DEMGUI_DRAWMODE
   Draw Mode
@@ -4554,7 +4554,7 @@ Teken Modus
 
 
 
-
+Tryb Rysowania
 ;
 MSG_DEMGUI_NOGRADIENTREVERSAL
 \33cNo Gradient Reversal
@@ -4565,7 +4565,7 @@ MSG_DEMGUI_NOGRADIENTREVERSAL
 
 
 
-
+\33cBrak Odwrócenia Nachylenia
 ;
 MSG_DEMGUI_MINIMUMSPACING
 Minimum Spacing \x20
@@ -4576,7 +4576,7 @@ Spazio Minimo \x20
 
 
 
-
+Minimalny Odstêp \x20
 ;
 MSG_DEMGUI_STDDEVIATION
   Std Deviation\x20
@@ -4587,7 +4587,7 @@ Standaard Afwijking\x20
 
 
 
-
+Standardowe Odchylenie
 ;
 MSG_DEMGUI_NONLINEARITY
   Non-linearity\x20
@@ -4598,7 +4598,7 @@ MSG_DEMGUI_NONLINEARITY
 
 
 
-
+Nieliniowo¶æ \x20
 ;
 MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU
 This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?
@@ -4609,7 +4609,7 @@ Dit venster moet open blijven terwijl de DEM Gridder open is!\nWilt u ze beide s
 
 
 
-
+To okno muai pozostaæ otwarty gdy otwarte jest okno siatki DEM\nCzy ¿yczysz sobie zamkn±æ oba?
 ;
 MSG_DEMGUI_DEMBUILDER
 DEM Builder
@@ -4620,7 +4620,7 @@ DEM Bouwer
 
 
 
-
+Budowanie DEM
 ;
 MSG_DEMGUI_ELEVATIONMODELGRID
 \33c\0334Elevation Model Grid
@@ -4631,7 +4631,7 @@ MSG_DEMGUI_ELEVATIONMODELGRID
 
 
 
-
+\33c\0334Model Siatki Elevawcji
 ;
 MSG_DEMGUI_OPTIONS
 \33c\0334Options
@@ -4642,7 +4642,7 @@ MSG_DEMGUI_OPTIONS
 
 
 
-
+\33c\0334Opcje
 ;
 MSG_DEMGUI_GRADIENTS
 Gradients\x20\x20
@@ -4653,7 +4653,7 @@ Gradiënten\x20\x20
 
 
 
-
+Nachylenia\x20\x20
 ;
 MSG_DEMGUI_CHOROPLETH
 Choropleth\x20
@@ -4664,7 +4664,7 @@ Choropleth\x20\x20
 
 
 
-
+Kartogram\x20\x20
 ;
 MSG_DEMGUI_DENSITY
 Density\x20\x20\x20\x20
@@ -4675,7 +4675,7 @@ Dichtheid\x20\x20\x20\x20
 
 
 
-
+ Gêsto¶æ\x20\x20\x20\x20
 ;
 MSG_DEMGUI_EXTRAPOLATE
 Extrapolate
@@ -4686,7 +4686,7 @@ Extrapoleren
 
 
 
-
+Ekstrapolacja
 ;
 MSG_DEMGUI_SOUTHHEMI
 South Hemi.
@@ -4697,7 +4697,7 @@ Zuid. Halfrond.
 
 
 
-
+Pó³kula Po³udniowa.
 ;
 MSG_DEMGUI_BOUNDARIES
 \33c\0334Boundaries
@@ -4708,7 +4708,7 @@ MSG_DEMGUI_BOUNDARIES
 
 
 
-
+\33c\0334Granice
 ;
 MSG_DEMGUI_NORTH
 North
@@ -4719,7 +4719,7 @@ Noord
 
 
 
-
+Pó³noc
 ;
 MSG_DEMGUI_SOUTH
 South
@@ -4730,7 +4730,7 @@ Zuid
 
 
 
-
+Po³udnie
 ;
 MSG_DEMGUI_EAST
 East
@@ -4741,7 +4741,7 @@ Oost
 
 
 
-
+Wschód
 ;
 MSG_DEMGUI_WEST
 West
@@ -4752,7 +4752,7 @@ West
 
 
 
-
+Zachód
 ;
 MSG_DEMGUI_ELLOVERLAP
 \33c\0334Cell Overlap
@@ -4763,7 +4763,7 @@ MSG_DEMGUI_ELLOVERLAP
 
 
 
-
+\33c\0334Nak³adanie siê komórek
 ;
 MSG_DEMGUI_HORIZ
 Horiz
@@ -4774,7 +4774,7 @@ Horiz
 
 
 
-
+Pioziom
 ;
 MSG_DEMGUI_VERT
 Vert
@@ -4785,7 +4785,7 @@ Vert
 
 
 
-
+Pion
 ;
 MSG_DEMGUI_SURFACETAUTNESS
 \33c\0334Surface Tautness
@@ -4796,7 +4796,7 @@ MSG_DEMGUI_SURFACETAUTNESS
 
 
 
-
+\33c\0334Napiêcie Powierzchniowe
 ;
 MSG_DEMGUI_SCALE
 \33c\0334Scale
@@ -4807,7 +4807,7 @@ MSG_DEMGUI_SCALE
 
 
 
-
+\33c\0334Skala
 ;
 MSG_DEMGUI_NULL
 Null
@@ -4818,7 +4818,7 @@ Nul
 
 
 
-
+Nic
 ;
 MSG_DEMGUI_DELTA
 Delta
@@ -4840,7 +4840,7 @@ MSG_DEMGUI_GRID
 
 
 
-
+\33cSiatka
 ;
 MSG_DEMGUI_NOISE
 \33cNoise
@@ -4851,7 +4851,7 @@ MSG_DEMGUI_NOISE
 
 
 
-
+\33cSzum
 ;
 MSG_DEMGUI_DRAW
 \33cDraw
@@ -4862,7 +4862,7 @@ MSG_DEMGUI_DRAW
 
 
 
-
+\33cRysowanie
 ;
 MSG_DEMGUI_SAVE
 \33cSave
@@ -4873,7 +4873,7 @@ MSG_DEMGUI_SAVE
 
 
 
-
+\33cZapisz
 ;
 MSG_DEMGUI_MAPVIEWDEMGRIDDER
 Map View: DEM Gridder
@@ -4884,7 +4884,7 @@ Map View: DEM Raster
 
 
 
-
+Podgl±d Mapy: Siatka DEM
 ;
 MSG_DEMGUI_NEWDEM
 NewDEM
@@ -4895,7 +4895,7 @@ Nieuw DEM
 
 
 
-
+Nowy DEM
 ;
 MSG_DEMGUI_IMPORT
 \33cImport
@@ -4906,7 +4906,7 @@ MSG_DEMGUI_IMPORT
 
 
 
-
+\33cImport
 ;
 MSG_DEMGUI_SAVEPTS
 \33cSave Pts
@@ -4917,7 +4917,7 @@ MSG_DEMGUI_SAVEPTS
 
 
 
-
+\33cZapisz Punkty
 ;
 MSG_DEMGUI_BUILD
 \33cBuild...
@@ -4928,7 +4928,7 @@ MSG_DEMGUI_BUILD
 
 
 
-
+\33cBuduj...
 ;
 MSG_DEMGUI_DRAWPTS
 \33cDraw Pts
@@ -4939,7 +4939,7 @@ MSG_DEMGUI_DRAWPTS
 
 
 
-
+\33cRysuj Punkty
 ;
 MSG_DEMGUI_CLEARPTS
 \33cClear Pts
@@ -4950,7 +4950,7 @@ MSG_DEMGUI_CLEARPTS
 
 
 
-
+\33cUsuñ Punkty
 ;
 MSG_DEMGUI_NONNEG
 Non-Neg\x20\x20\x20\x20
@@ -4961,7 +4961,7 @@ Non-Negatief\x20\x20\x20\x20
 
 
 
-
+Nie-Negacja\x20\x20\x20\x20
 ;
 MSG_DEMGUI_OUTPUT
 \33c\0334Output
@@ -4972,7 +4972,7 @@ MSG_DEMGUI_OUTPUT
 
 
 
-
+\33c\0334Wyj¶cie
 ;
 MSG_DEMGUI_COLS
 Cols
@@ -4983,7 +4983,7 @@ Kolommen
 
 
 
-
+Kolumny
 ;
 MSG_DEMGUI_ROWS
 Rows
@@ -4994,7 +4994,7 @@ Regels
 
 
 
-
+Rzêdy
 ;
 MSG_DEMGUI_OPTIONALNOISEMAP
 \33c\0334Optional Noise Map
@@ -5005,7 +5005,7 @@ MSG_DEMGUI_OPTIONALNOISEMAP
 
 
 
-
+\33c\0334Opcjonalna Mapa Szumu
 ;
 MSG_DEMGUI_SEED
 Seed
@@ -5016,7 +5016,7 @@ Startwaarde
 
 
 
-
+Warto¶æ Pocz±tkowa
 ;
 MSG_DEMGUI_FRACT
 Fract
@@ -5027,7 +5027,7 @@ Fract
 
 
 
-
+U³amek
 ;
 MSG_DEMGUI_OFFSETX
 Offset X
@@ -5038,7 +5038,7 @@ Offset X
 
 
 
-
+Przesuniêcie X
 ;
 MSG_DEMGUI_SCOPE
 Scope
@@ -5049,7 +5049,7 @@ Scope
 
 
 
-
+Zakres
 ;
 MSG_DEMGUI_APPLYNOISEMAP
 \33cApply Noise Map
@@ -5060,7 +5060,7 @@ MSG_DEMGUI_APPLYNOISEMAP
 
 
 
-
+\33cZastosuj Mapê Szumu
 ;
 MSG_DEMGUI_OUTPUTDEMNAME
 Output DEM Name\x20
@@ -5071,7 +5071,7 @@ Uitvoer DEM Naam\x20
 
 
 
-
+Wyj¶ciowa nazwa DEM\x20
 ;
 MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT
 Select contour objects to import and reselect "Import" when done.
@@ -5082,7 +5082,7 @@ Selecteer contour objecten om te importeren en selecteer opnieuw "Importeren" wa
 
 
 
-
+Wybierz kontur objektu do importu i ponownie wybierz import po zakoñczeniu.
 ;
 MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED
 Can't open Database Editor window!\nOperation terminated.
@@ -5093,7 +5093,7 @@ Kan Database Editor venster niet openen!\nOperatie afgebroken.
 
 
 
-
+Nie mogê otworzyæ okna edycji bazy danych!\nOperacja Anulowana.
 ;
 MSG_DEMGUI_EXTRACTELEVATIONVALUESFROMOBJECTNAMESLABELFIELDSORUS
 Extract elevation values from Object Names, Label fields or use the values embedded in the Objects themselves?
@@ -5104,7 +5104,7 @@ Extraheer hoogte waarden uit Object Namen, Labelvelden of de waarden ingebed in 
 
 
 
-
+Czy chesz pobraæ warto¶ci wysoko¶ci z nazw obiektów, etykiet pól, czy te¿ u¿yæ warto¶ci osadzonych bezpo¶rednio w samych obiektach?
 ;
 MSG_DEMGUI_MAPVIEWEXPORTCONTOURS
 Map View: Export Contours
@@ -5115,7 +5115,7 @@ Map View: Contouren Exporteren
 
 
 
-
+Widok Mapy: Export Konturów
 ;
 MSG_DEMGUI_NAMELABELEMBEDDED
 Name|Label|Embedded
@@ -5126,7 +5126,7 @@ Naam|Label|Ingebed
 
 
 
-
+Nazwa|Etykieta|Osadzone
 ;
 MSG_DEMGUI_ERRORIMPORTINGCONTOURDATAPERATIONTERMINATED
 Error importing contour data!\nOperation terminated.
@@ -5137,7 +5137,7 @@ Fout bij importeren van contour data!\nOperatie afgebroken.
 
 
 
-
+B³±d importu danych konturu!\nOperacja Anulowana.
 ;
 MSG_DEMGUI_ATLEASTONEOBJECTFAILEDTOLOADANDCOULDNOTBEIMPORTED
 At least one Object failed to load and could not be imported.
@@ -5148,7 +5148,7 @@ Minstens één Object kon niet geladen en geïmporteerd worden.
 
 
 
-
+B³±d odczytu przynajmniej jednego objektu i nie zosta³ importowany.
 ;
 MSG_DEMGUI_MAPVIEWIMPORTCONTOURS
 Map View: Import Contours
@@ -5159,7 +5159,7 @@ Map View: Contouren Importeren
 
 
 
-
+Widok Mapy: Import Konturów
 ;
 MSG_DEMGUI_XYZPATHFILE
 XYZ Path/File
@@ -5170,7 +5170,7 @@ XYZ Pad/Bestand
 
 
 
-
+XYZ ¦cie¿ka/Plik
 ;
 MSG_DEMGUI_YOUDIDNOTSELECTAFILETOIMPORTPERATIONTERMINATED
 You did not select a file to import!\nOperation terminated.
@@ -5181,7 +5181,7 @@ U heeft geen bestand geselecteerd om te importeren!\nOperatie afgebroken.
 
 
 
-
+Nie wybra³e¶/a¶ pliku do importu\nOperacja Anulowana.
 ;
 MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR
 Enter the UTM zone number (0-60) for the data you are about to import.
@@ -5192,7 +5192,7 @@ Voer het UTM zone nummer (0-60) in voor de data die u gaat importeren.
 
 
 
-
+Wprowad¼ numer strwfy UTM (0-60) dla danych które importujesz.
 ;
 MSG_MAPGUI_MAPVIEWBUILDDEM
 Map View: Build DEM
@@ -5203,7 +5203,7 @@ Map View: DEM Creëren
 
 
 
-
+Widok Mapy: Budowa DEM
 ;
 MSG_DEMGUI_UTMZONESMAYBEFROM0TO60THESELECTEDZONEISOUTOFRANGEPER
 UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated.
@@ -5214,7 +5214,7 @@ UTM zones mogen van 0 tot 60 zijn! De geselecteerde zone ligt buiten bereik.\nOp
 
 
 
-
+Strefy UTM powinny byæ w zakresie id 0 do 60! Wybrana strefa jest poza zakresem.\nOperacja anulowana.
 ;
 MSG_DEMGUI_ERROROPENINGXYZFILETOIMPORTPERATIONTERMINATED
 Error opening XYZ file to import!\nOperation terminated.
@@ -5225,7 +5225,7 @@ Fout bij openen van XYZ bestand om te importeren!\nOperatie afgebroken.
 
 
 
-
+B³±d otwarcia pliku XYZ do importu!\nOperacja Anulowana.
 ;
 MSG_DEMGUI_MAPVIEWXYZEXPORT
 Map View: XYZ Export
