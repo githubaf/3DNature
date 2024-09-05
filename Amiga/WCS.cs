@@ -5247,7 +5247,7 @@ Fout bij schrijven naar XYZ bestand! Deel van bestand geschreven.\nOperatie afge
 
 
 
-
+B³±d zapisu do pliku danych XYZ! Dane zpisane czê¶ciowo.\n Operacja anulowana.
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
 You must specify an output file name!\nOperation terminated.
@@ -5258,7 +5258,7 @@ Specificeer een uitvoer bestandsnaam!\nOperatie afgebroken.
 
 
 
-
+Musisz wskazaæ nazwê pliku wyj¶ciowego!\n Operacja anulowana.
 ;
 MSG_DEMGUI_UNABLETOOPENXYZFILEFOREXPORTPERATIONTERMINATED
 Unable to open XYZ file for export!\nOperation terminated.
@@ -5269,7 +5269,7 @@ Kan XYZ bestand niet openen voor export!\nOperatie afgebroken.
 
 
 
-
+Nie mo¿na otworzyæ pliku danych XYZ dla exportu!\nOperacja anulowana.
 ;
 ; -------- DLG.c ----------
 ;
@@ -5282,7 +5282,7 @@ Data Ops Module: Import DLG
 
 
 
-
+Modu³ Data Ops: Import DLG
 ;
 MSG_DLG_OUTOFMEMORYALLOCATINGTEMPORARYARRAYSPERATIONTERMINATED
 Out of memory allocating temporary arrays!\nOperation terminated.
@@ -5293,7 +5293,7 @@ Te weinig geheugen voor toewijzen van tijdelijke reeksen!\nOperatie afgebroken.
 
 
 
-
+Brak pamiêci dla alokacji tymczasowych tabel!\nOperacja anulowana.
 ;
 MSG_DLG_DLGFILE
 DLG File
@@ -5304,7 +5304,7 @@ DLG-Bestand
 
 
 
-
+Plik DLG
 ;
 MSG_DLG_NOFILESSELECTED
 No file(s) selected!
@@ -5315,7 +5315,7 @@ Geen bestand(en) geselecteerd!
 
 
 
-
+Nie wybrano pliku!
 ;
 MSG_DLG_CANTOPENDLGFILEFORINPUTPERATIONTERMINATED
 Can't open DLG file for input!\nOperation terminated.
@@ -5326,7 +5326,7 @@ Kan DLG bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
 
-
+Nie mogê otworzyæ pliku DLG dla wej¶cia\nOperacja anulowana.
 ;
 MSG_DLG_FILENOTAUSGSOPTIONALDLGPERATIONTERMINATED
 File not a USGS Optional DLG!\nOperation terminated.
@@ -5337,7 +5337,7 @@ Bestand is geen USGS Optionele DLG!\nOperatie afgebroken.
 
 
 
-
+Plik nie zawiera danych USGS opcjonalnych dla DLG!\nOperacja anulowana.
 ;
 MSG_DLG_INAPPROPRIATEUTMZONEPERATIONTERMINATED
 Inappropriate UTM Zone!\nOperation terminated.
@@ -5348,7 +5348,7 @@ Ongeldige UTM Zone!\nOperatie afgebroken.
 
 
 
-
+Niew³a¶ciwa strefa UTM!\nOperacja anulowana.
 ;
 MSG_DLG_THISFILECONTAINSDATAINANUNSUPPORTEDREFERENCESYSTEMPERAT
 This file contains data in an unsupported Reference System!\nOperation terminated.
@@ -5359,7 +5359,7 @@ Dit bestand bevat data in een niet ondersteund Referentie Systeem!\nOperatie afg
 
 
 
-
+Ten plik zawira dane zapisane w niewspieranym systemie!\nOperacja anulowana.
 ;
 MSG_DLG_READING
 Reading
@@ -5370,7 +5370,7 @@ Lezen
 
 
 
-
+Czytam
 ;
 MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE
 Enter up to 3 characters as a prefix for this DLG set if you desire.
@@ -5381,7 +5381,7 @@ Voer maximaal 3 karakters in als een prefix voor deze DLG set als u dat wenst.
 
 
 
-
+Wprowad¿ do trzech liter prefiksu dla tego DLG ustaw je¶li potrzebujesz.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED
 Out of memory expanding database!\nOperation terminated.
@@ -5392,7 +5392,7 @@ Te weinig geheugen voor uitbreiden van database!\nOperatie afgebroken.
 
 
 
-
+Brak pamiêci dla rozszerzenia bazy danych!\nOperacja anulowana.
 ;
 MSG_DLG_ERRORSAVINGOBJECTFILEPERATIONTERMINATED
 Error saving object file!\nOperation terminated.
@@ -5403,7 +5403,7 @@ Fout bij opslaan van object bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d zapisu pliku objektu!\nOperacja anulowana.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTDXF
 Data Ops Module: Import DXF
@@ -5414,7 +5414,7 @@ Data Ops Module: Importeer DXF
 
 
 
-
+Modu³ Data Ops: Importuj DXF
 ;
 MSG_DLG_DXFFILE
 DXF File
@@ -5425,7 +5425,7 @@ DXF-Bestand
 
 
 
-
+Plik DXF
 ;
 MSG_DLG_CANTOPENDXFFILEFORINPUTPERATIONTERMINATED
 Can't open DXF file for input!\nOperation terminated.
@@ -5436,7 +5436,7 @@ Kan DXF bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
 
-
+Nie mogê otworzyæ pliku DXF dla wej¶cia!\nOperacja anulowana.
 ;
 MSG_DLG_IMPROPERCODEVALUEFOUNDPERATIONTERMINATEDPREMATURELY
 Improper Code value found!\nOperation terminated prematurely.
@@ -5447,7 +5447,7 @@ Ongeldige Code waarde gevonden!\nOperatie voortijdig afgebroken.
 
 
 
-
+Znaleziona niew³a¶ciwa warto¶æ Kodu.\nOperacja anulowana przedwcze¶nie.
 ;
 MSG_DLG_ERRORSAVINGOBJECTPERATIONTERMINATED
 Error saving object!\nOperation terminated.
@@ -5458,7 +5458,7 @@ Fout bij opslaan van object!\nOperatie afgebroken.
 
 
 
-
+B³±d zapisu objektu!\nOperacja anulowana.
 ;
 MSG_DLG_ANENTITYHASBEENFOUNDWITHNONAMEIDENTIFIERPLEASEENTERADEF
 An entity has been found with no name identifier. Please enter a default name.
@@ -5469,7 +5469,7 @@ Er is een entiteit gevonden zonder naam identificatie. Voer een standaard naam i
 
 
 
-
+Cia³o nie ma nazwy. Wprowad¼ domy¶ln± nazwê.
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTASTITEMDOESNOTAPP
 Out of memory expanding Database Editor List!\nLast item does not appear in list view.
@@ -5480,7 +5480,7 @@ Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nLaatste item vers
 
 
 
-
+Brak pamieci dla rozszerzenia bazy danych o listê edytorów!\nOstatnia pozycja nie zostanie wy¶wietlona.
 ;
 MSG_DLG_ERRORSAVINGLASTOBJECTPERATIONTERMINATED
 Error saving last object!\nOperation terminated.
@@ -5491,7 +5491,7 @@ Foout bij opslaan van laatste object!\nOperatie afgebroken.
 
 
 
-
+B³±dd zapisu ostaniego objektu!\nOperacja anulowana.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTWDB
 Data Ops Module: Import WDB
@@ -5502,7 +5502,7 @@ Data Ops Module: Importeer WDB
 
 
 
-
+Modu³ Data Ops: Import WDB
 ;
 MSG_DLG_WDBFILE
 WDB File
@@ -5513,7 +5513,7 @@ WDB-Bestand
 
 
 
-
+Plik WDB
 ;
 MSG_DLG_CANTOPENWDBFILEFORINPUTPERATIONTERMINATED
 Can't open WDB file for input!\nOperation terminated.
@@ -5524,7 +5524,7 @@ Kan WDB bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
 
-
+Nie mogê otworzyæ pliku WDB dla wej¶cia!\nOperacja anulowana.
 ;
 MSG_DLG_ERROROPENINGSOURCEFILEPERATIONTERMINATED
 Error opening source file!\nOperation terminated.
@@ -5535,7 +5535,7 @@ Fout bij openen van bron bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d otwarcia pliku ¼ród³owego!\nOperacja anulowana.
 ;
 MSG_DLG_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
@@ -5546,7 +5546,7 @@ Fout bij openen van uitvoer bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d otwrcia pliku dla wyj¶cia.\nOperacja anulowana.
 ;
 MSG_DLG_UNSUPPORTEDATTRIBUTECODEPERATIONTERMINATED
 Unsupported attribute code!\nOperation terminated.
@@ -5557,7 +5557,7 @@ Niet ondersteunde attribuut code!\nOperatie afgebroken.
 
 
 
-
+Niewspierany kod atrybutu!\nOperacja anulowana.
 ;
 MSG_DLG_OBJECTCONTAINSTOOMANYPOINTSPERATIONTERMINATED
 Object contains too many points!\nOperation terminated.
@@ -5568,7 +5568,7 @@ Het object bevat te veel punten!\nOperatie afgebroken.
 
 
 
-
+Objekt zawiera zbyt wielu punktów!\nOperacja anulowana.
 ;
 ;
 MSG_DB_NEWDATABASECREATED
@@ -5580,7 +5580,7 @@ Nieuwe database aangemaakt: %s
 
 
 
-
+Utworzono now± bazê danych: %s
 ;
 MSG_DB_ERRORSAVINGDATABASEELECTANEWDIRECTORY
 Error saving database!\nSelect a new directory?
@@ -5591,10 +5591,10 @@ Fout bij opslaan van database!\nEen nieuwe directory selecteren?
 
 
 
-
+B³±d zapisu bazy danych!
 ;
 MSG_DB_OKCANCEL
-OK|Canel
+OK|Cancel
 OK|Abbrechen
 
 
@@ -5602,7 +5602,7 @@ OK|Annuleren
 
 
 
-
+OK|Anuluj
 ;
 MSG_DB_DATABASE
 Database
@@ -5613,7 +5613,7 @@ Database
 
 
 
-
+Baza danych
 ;
 MSG_DB_NUMBEROFOBJECTS
 Number of objects = %d
@@ -5624,7 +5624,7 @@ Aantal objecten = %d
 
 
 
-
+Ilo¶æ objektów = %d
 ;
 MSG_DB_DIRECTORYCREATED
 Directory Created: %s
@@ -5635,7 +5635,7 @@ Directory aangemaakt: %s
 
 
 
-
+Katalog Utworzony: %s
 ;
 MSG_DB_NEWDIRECTORYCREATEDMAKEITTHEDEFAULTDIRECTORY
 New directory created: %s. Make it the default directory?
@@ -5646,7 +5646,7 @@ Nieue directory aangemaakt: %s. Wilt u het het standaard directory maken?
 
 
 
-
+Nowy katalog utworzony: %s. Czy ma byæ domy¶lnym katalogiem?
 ;
 MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA
 Illegal number of database records: less than one!\nOperation terminated.
@@ -5657,7 +5657,7 @@ Ongeldig aantal database records: minder dan één!\nOperatie afgebroken.
 
 
 
-
+Niew³a¶ciwa ilo¶æ rekordów bazy danych: mniej ni¿ jeden!\nOperacja anulowana.
 ;
 MSG_DB_OUTOFMEMORYANTUPDATEDATABASELIST
 Out of memory!\nCan't update database list.
@@ -5668,7 +5668,7 @@ Te weinig geheugen!\nKan database lijst niet bijwerken.
 
 
 
-
+Brak pamiêci!\nNie mogê zaktualizowaæ listy baz danych.
 ;
 MSG_DB_VECTORLOAD
 Vector Load
@@ -5679,7 +5679,7 @@ Laad Vector
 
 
 
-
+£adowanie wektora
 ;
 MSG_DB_OBJECTS
 %d objects
@@ -5690,7 +5690,7 @@ MSG_DB_OBJECTS
 
 
 
-
+%d Objekty
 ;
 MSG_DB_ATLEASTONEVECTORFILEWASFOUNDTOCONTAINANUMBEROFPOINTSDIFF
 At least one vector file was found to contain a number of points different from that in its Database record!\nThe record has been updated.\nDatabase should be re-saved.
@@ -5701,7 +5701,7 @@ Ten minste één vector bestand bevatte een aantal punten dat verschilde van dat i
 
 
 
-
+Przynajmniej jeden plik vektorów zawiera liczbê punków ró¿n± od warto¶ci zapisanej w bazie danych!\nWpis w bazie zostanie zaktualizowany.\nBaza danych powinna zostaæ ponownie zapisana.
 ;
 MSG_DB_MAPVIEWLOAD
 Map View: Load
@@ -5712,7 +5712,7 @@ Map View: Laden
 
 
 
-
+Widok Mapy: Wczytaj
 ;
 MSG_DB_ERRORREADINGELEVATIONSOBJECTNOTLOADED
 Error reading elevations! Object not loaded.
@@ -5723,7 +5723,7 @@ Fout bij lezen van hoogten! Object niet geladen.
 
 
 
-
+B³±d odczytu wzniesieñ! Objekt nie wczytany.
 ;
 MSG_DB_ERRORREADINGLATITUDESOBJECTNOTLOADED
 Error reading latitudes! Object not loaded.
@@ -5734,7 +5734,7 @@ Fout bij lezen van breedtes! Object niet geladen.
 
 
 
-
+B³±d odczytu wysoko¶ci! Objekt nie wczytany.
 ;
 MSG_DB_ERRORREADINGLONGITUDESOBJECTNOTLOADED
 Error reading longitudes! Object not loaded.
@@ -5745,7 +5745,7 @@ Fout bij lezen van lengtegraden! Object niet geladen.
 
 
 
-
+B³±d odczytu szeroko¶ci! Objekt nie wczytany.
 ;
 MSG_DB_OUTOFMEMORYOBJECTNOTLOADED
 Out of memory! Object not loaded.
@@ -5756,7 +5756,7 @@ Te weinig geheugen! Object niet geladen.
 
 
 
-
+Brak pamiêci! Objekt nie wczytany.
 ;
 MSG_DB_ERRORREADINGHEADEROBJECTNOTLOADED
 Error reading header! Object not loaded.
@@ -5767,7 +5767,7 @@ Fout bij lezen van header! Object niet geladen.
 
 
 
-
+B³±d odczytu nag³ówka! Objekt nie wczytany.
 ;
 MSG_DB_UNSUPPORTEDFILEVERSIONOBJECTNOTLOADED
 Unsupported file version! Object not loaded.
