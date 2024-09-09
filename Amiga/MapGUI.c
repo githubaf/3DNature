@@ -417,10 +417,7 @@ if(Init)
 
        /* Row 1 */
                Child, Label2(GetString( MSG_MAPGUI_SCALE )),  // "Scale "
-               Child, MP->Scale = StringObject, StringFrame,
-		MUIA_String_Contents, "       ",
-        	MUIA_String_Accept, " 0123456789.",
-		MUIA_FixWidthTxt, "012345", End,
+               Child, MP->Scale = StringObject, StringFrame, MUIA_String_Contents, "       ", MUIA_String_Accept, " 0123456789.", MUIA_FixWidthTxt, "012345", End,
                Child, MP->ScaleLess = ImageButtonWCS(MUII_ArrowLeft),
                Child, MP->ScaleMore = ImageButtonWCS(MUII_ArrowRight),
                Child, MP->MapZoom   = KeyButtonObject('z'), MUIA_Text_Contents, GetString( MSG_MAPGUI_33CZOOM ),  // "\33cZoom"
@@ -428,10 +425,7 @@ if(Init)
 
        /* Row 2 */
                Child, Label2(GetString( MSG_MAPGUI_LAT)),  // "Lat "
-               Child, MP->Lat = StringObject, StringFrame,
-        	MUIA_String_Contents, "      ",
-        	MUIA_String_Accept, " -0123456789.",
-		MUIA_FixWidthTxt, "012345", End,
+               Child, MP->Lat = StringObject, StringFrame,	MUIA_String_Contents, "       ", MUIA_String_Accept, " -0123456789.", MUIA_FixWidthTxt, "012345", End,
                Child, MP->LatLess = ImageButtonWCS(MUII_ArrowLeft),
                Child, MP->LatMore = ImageButtonWCS(MUII_ArrowRight),
                Child, MP->MapPan    = KeyButtonObject('p'), MUIA_Text_Contents, GetString( MSG_MAPGUI_33CPAN ),  // "\33cPan"
@@ -439,10 +433,7 @@ if(Init)
 
        /* Row 3 */
                Child, Label2(GetString( MSG_MAPGUI_LONX20 )),  // "Lon "
-               Child, MP->Lon = StringObject, StringFrame,
-        	MUIA_String_Contents, "       ",
-         	MUIA_String_Accept, " -0123456789.",
-		MUIA_FixWidthTxt, "012345", End,
+               Child, MP->Lon = StringObject, StringFrame, MUIA_String_Contents, "       ", MUIA_String_Accept, " -0123456789.", MUIA_FixWidthTxt, "012345", End,
                Child, MP->LonLess = ImageButtonWCS(MUII_ArrowLeft),
                Child, MP->LonMore = ImageButtonWCS(MUII_ArrowRight),
                Child, HGroup, MUIA_Group_HorizSpacing, 0, MUIA_HorizWeight, 0,
@@ -450,22 +441,15 @@ if(Init)
                  Child, MP->MapCenter = KeyButtonFunc('e', (char*)GetString( MSG_MAPGUI_33CCENTER )),  // "\33cCenter"
                  End, /* HGroup */
 
-               End, /* ColGroup */
-
        /* Row 4 */
-             Child, ColGroup(5), MUIA_VertWeight, 0, MUIA_Group_HorizSpacing, 0,
                Child, Label2(GetString( MSG_MAPGUI_EXAG )),  // " Exag "
-               Child, MP->Exag = StringObject, StringFrame,
-        	MUIA_String_Contents, "       ",
-        	MUIA_String_Accept, " 0123456789.",
-		MUIA_FixWidthTxt, "012345", End,
+               Child, MP->Exag = StringObject, StringFrame, MUIA_String_Contents, "       ", MUIA_String_Accept, " 0123456789.", MUIA_FixWidthTxt, "012345", End,
                Child, MP->ExagLess = ImageButtonWCS(MUII_ArrowLeft),
                Child, MP->ExagMore = ImageButtonWCS(MUII_ArrowRight),
-               Child, MP->MapObject = KeyButtonObject('b'),
-			MUIA_Text_Contents, GetString( MSG_MAPGUI_33CDATABASE ),  // "\33c Database "
+               Child, MP->MapObject = KeyButtonObject('b'), MUIA_Text_Contents, GetString( MSG_MAPGUI_33CDATABASE ),  // "\33c Database "
         		MUIA_HorizWeight, 0, End,
-               End, /* ColGroup */
-	     End, /* VGroup */
+              End, /* ColGroup */
+	   End, /* VGroup */
 
            Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, MUIA_HorizWeight, 0, End,
            Child, VGroup,

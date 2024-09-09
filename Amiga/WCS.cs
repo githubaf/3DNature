@@ -18064,7 +18064,7 @@ Schalen\x20
 
 ;
 MSG_MAPGUI_LAT
-Lat\x20
+  Lat\x20
 
 
 
@@ -18097,7 +18097,7 @@ MSG_MAPGUI_33CPAN
 
 ;
 MSG_MAPGUI_LONX20
-Lon\x20
+  Lon\x20
 
 
 

@@ -3795,10 +3795,10 @@
 #define MSG_MAPGUI_COLOR_STR "Color"
 #define MSG_MAPGUI_MAPVIEWCONTROL_STR "Map View Control"
 #define MSG_MAPGUI_SCALE_STR "Scale\x20"
-#define MSG_MAPGUI_LAT_STR "Lat\x20"
+#define MSG_MAPGUI_LAT_STR "  Lat\x20"
 #define MSG_MAPGUI_33CZOOM_STR "\33cZoom"
 #define MSG_MAPGUI_33CPAN_STR "\33cPan"
-#define MSG_MAPGUI_LONX20_STR "Lon\x20"
+#define MSG_MAPGUI_LONX20_STR "  Lon\x20"
 #define MSG_MAPGUI_AUTO_STR "\33cAuto"
 #define MSG_MAPGUI_33CCENTER_STR "\33cCenter"
 #define MSG_MAPGUI_EXAG_STR " Exag\x20"
@@ -7552,13 +7552,13 @@ const char CatCompBlock[] =
     MSG_MAPGUI_MAPVIEWCONTROL_STR "\x00\x00"
     "\x00\x00\x06\x62\x00\x08"
     MSG_MAPGUI_SCALE_STR "\x00\x00"
-    "\x00\x00\x06\x63\x00\x06"
+    "\x00\x00\x06\x63\x00\x08"
     MSG_MAPGUI_LAT_STR "\x00\x00"
     "\x00\x00\x06\x64\x00\x08"
     MSG_MAPGUI_33CZOOM_STR "\x00\x00"
     "\x00\x00\x06\x65\x00\x06"
     MSG_MAPGUI_33CPAN_STR "\x00"
-    "\x00\x00\x06\x66\x00\x06"
+    "\x00\x00\x06\x66\x00\x08"
     MSG_MAPGUI_LONX20_STR "\x00\x00"
     "\x00\x00\x06\x67\x00\x08"
     MSG_MAPGUI_AUTO_STR "\x00\x00"
@@ -8507,6 +8507,56 @@ const char CatCompBlock[] =
 };
 
 #endif /* CATCOMP_BLOCK */
+
+
+/****************************************************************************/
+
+
+
+struct LocaleInfo
+{
+    APTR li_LocaleBase;
+    APTR li_Catalog;
+};
+
+
+
+
+
+#ifdef CATCOMP_CODE
+
+#include <libraries/locale.h>
+#include <proto/locale.h>
+
+
+STRPTR GetString(struct LocaleInfo *li, LONG stringNum)
+{
+LONG   *l;
+UWORD  *w;
+STRPTR  builtIn;
+
+    l = (LONG *)CatCompBlock;
+
+    while (*l != stringNum)
+    {
+        w = (UWORD *)((ULONG)l + 4);
+        l = (LONG *)((ULONG)l + (ULONG)*w + 6);
+    }
+    builtIn = (STRPTR)((ULONG)l + 6);
+
+#undef LocaleBase
+#define LocaleBase li->li_LocaleBase
+    
+    if (LocaleBase)
+        return(GetCatalogStr(li->li_Catalog,stringNum,builtIn));
+#undef LocaleBase
+
+    return(builtIn);
+}
+
+
+#endif /* CATCOMP_CODE */
+
 
 
 /****************************************************************************/

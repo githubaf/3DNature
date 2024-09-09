@@ -3790,3 +3790,16 @@ Neue GCC-Version vom 20Aug24
 2.Sep.2024
 ----------
 Daenische Uebersetzungen von "Screemo"  In Prefs:Font muessen ISO-8859-9 Schriften ausgewaehlt werden, damit das richtig aussieht.
+
+6.Sep.2024
+----------
+Wenn die englischen Texte geaendert werden muessen: (neue Strings oder Aenderung im Englischen)
+SimpleCat >  Export > C Source(.c)
+   VBox:SelcoGit/3DNature/Amiga/WCS_strings.h
+   Language english
+   No Code, No Strings, No Block  ohne Haken.
+   No Array, No Static Block      mit Haken.
+
+9.Sep.2024
+----------
+Im MapGUI-Fenster war "Exag" nich richtig aligned. Fehler war schon in WCS2.04. Fixed.

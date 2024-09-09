@@ -116,9 +116,11 @@ Version 2.031 (Emerald-Berta)
         *Credits:Thank you Amiwell79 for multiple nice donations!
 
 Version 2.031 (Emerald-Caesar)
-        *Feature: Locale support added.
-                  German catalog (selco) 
-                  Dutch catalog (leof)
+        *Feature:Locale support added.
+                 German catalog (selco) 
+                 Dutch catalog (leof)
+        *BugFix: Fixed incorrect alignement of "Exag" im MapGUI window .
+                 (This bug existed already in last original version 2.04)
 
 
 Deutsch
