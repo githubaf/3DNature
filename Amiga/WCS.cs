@@ -5778,7 +5778,7 @@ Niet ondersteunde bestandsversie! Object niet geladen.
 
 
 
-
+Niewspierana wersja pliku! Objekt niewczytany.
 ;
 MSG_DB_OBJECTDIRECTORY
 Object Directory
@@ -5789,7 +5789,7 @@ Object Directory
 
 
 
-
+Katalog Objektów
 ;
 MSG_DB_DATABASEMODULENAME
 Database Module: Name
@@ -5800,7 +5800,7 @@ Database Module: Naam
 
 
 
-
+Modu³ Bazy Danych: Nazwa
 ;
 MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME
 Vector name already present in database!\nTry a new name?
@@ -5811,7 +5811,7 @@ De vector naam is al aanwezig in de database!\nEen nieuwe naam proberen?
 
 
 
-
+Wektor ju¿ wystêpuje w bazie danych!\nU¿yæ inn± nazwê?
 ;
 MSG_DB_DATABASEMODULEEDITOR
 Database Module: Editor
@@ -5822,11 +5822,10 @@ Database Module: Editor
 
 
 
-
+Modu³ Bazy Danych: Edytor
 ;
 MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN
-No memory for vector coordinates!\nNew object has been crefNicht genügend Speicher um die Datenbankeditor-Liste zu erweitern. Ein neues Objekt wurde erstellt, erscheint aber nicht in der \
-Listenansicht.ated but can not be edited until memory is available.
+No memory for vector coordinates!\nNew object has been created but can not be edited until memory is available.
 Nicht genügend Speicher für die Vektorkoordinaten!\nEin neues Objekt wurde erzeugt, aber es kann erst bearbeitet werden, wenn freier Speicher verfügbar ist.
 
 
@@ -5834,7 +5833,7 @@ Te weinig geheugen voor vector coördinaten!\nNieuw object is aangemaakt maar kan
 
 
 
-
+Brak pamiêci na koordynaty wektora!\nObjekt zosta³ utworzony ale nie mo¿e byæ edytowany do czasu gdy bêdziedostêpna pamiêæ.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE
 Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.
@@ -5845,7 +5844,7 @@ Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is a
 
 
 
-
+Brak pamiêci dla rozszerzenia Bazy Danych Listy Edycji!\nNowy objekt zosta³ utworzony, ale nie pojawi siê na li¶cie.
 ;
 MSG_DB_ADDOBJECT
 Add Object
@@ -5856,7 +5855,7 @@ Object toevoegen
 
 
 
-
+Dodaj Objekt
 ;
 MSG_DB_DATABASEADDOBJECT
 Database: Add Object
@@ -5867,7 +5866,7 @@ Database: Object toevoegen
 
 
 
-
+Baza Danych: Dodaj Objekt
 ;
 MSG_DB_NOFILESSELECTED
 No file(s) selected!
@@ -5878,7 +5877,7 @@ Geen bestand(en) geselecteerd!
 
 
 
-
+Nie wybrano pliku(ów)!
 ;
 MSG_DB_OBJECTMUSTENDINSUFFIXOBJ
 Object must end in suffix "Obj"!
@@ -5889,7 +5888,7 @@ Het object moet eindigen op suffix "Obj"!
 
 
 
-
+Objekt musi byæ zakoñczony przyrostkiem "Obj"!
 ;
 MSG_DB_OBJECTNAMEALREADYPRESENTINDATABASEUPLICATEITEMSWILLBESKI
 Object name already present in database!\nDuplicate items will be skipped.
@@ -5900,7 +5899,7 @@ De object naam is al aanwezig in de database!\nDubbele items zullen worden geneg
 
 
 
-
+Nazwa objektu wystêpuje ju¿ w bazie danych!\nDuplikaty zostan± ominiête.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENADD
 Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.
@@ -5911,7 +5910,7 @@ Nicht genügend Speicher um die Datenbankeditor-Liste zu erweitern. Ein neues Obj
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is toegevoegd maar zal niet verschijnen in lijst weergave.
 
 
-
+Brak pamiêci dla roszerzenie Listy Edycji w bazie danych!\nNowy objekt zosta³ dodany, ale nie zostanie wy¶wietlony na li¶cie.
 ;
 MSG_DB_ERRORLOADINGTHISOBJECTPERATIONTERMINATED
 Error loading this Object!\nOperation terminated.
@@ -5922,7 +5921,7 @@ Fout bij laden van dit object!\nOperatie afgebroken.
 
 
 
-
+B³±d wczytania objektu!\nOperacja anulowana.
 ;
 MSG_DB_MAPVIEWSAVEALL
 Map View: Save All
@@ -5933,7 +5932,7 @@ Map View: Alles Opslaan
 
 
 
-
+Widok Map: Zapisz Wszystko
 ;
 MSG_DB_ERRORWRITINGMASTEROBJECTFILEPERATIONTERMINATED
 Error writing Master Object file!\nOperation terminated.
@@ -5944,7 +5943,7 @@ Foout bij schrijven van Master Object bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d zapisu Nadrzêdnego Objektu do pliku!\nOperacja anulowana.
 ;
 MSG_DB_WCSMASTEROBJECT
 WCSMasterObject
@@ -5955,7 +5954,7 @@ WCSMasterObject
 
 
 
-
+WCSObjektNadrzêdny
 ;
 MSG_DB_OUTOFMEMORYLOADINGMASTEROBJECTFILENABLEDOBJECTSWILLBELOA
 Out of memory loading Master Object File!\nEnabled Objects will be loaded individually.
@@ -5966,7 +5965,7 @@ Te weinig geheugen voor laden van Master Object bestand!\nIngeschakelde objecten
 
 
 
-
+Brak pamieci dla wczytania pliku Objektu Nadrzêdnego!\nAktywne objekty bêd± ³adowane indywidualnie.
 ;
 MSG_DB_ERRORREADINGMASTEROBJECTFILEPERATIONTERMINATED
 Error reading Master Object file!\nOperation terminated.
@@ -5977,7 +5976,7 @@ Foout bij lezen van Master Object bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d odczytu pliku Nadrzêdnego Objektu!\nOperacja anulowana.
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
@@ -5990,7 +5989,7 @@ individuele bestanden
 
 
 
-
+Liczba objektów w pliku Objektu Nadrzêdnego nie zgadza siê z liczb± Objektów w aktualnej Bazie Danych! Plik Objektu Nadrzêdnego nie zostanie u¿yty. Objekty zostan± wczytane indywidualnie z plików
 ;
 MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 .MDB is not a WCS Master Object file!
@@ -6001,7 +6000,7 @@ MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 
 
 
-
+MDB nie jest plikiem Objektu Ndarzêdnego WCS!
 ;
 MSG_DB_RECORDSMARKED
 Records = %d, Marked = %d
@@ -6012,7 +6011,7 @@ Records = %d, Gemarkeerd = %d
 
 
 
-
+Rekordy = %d, Zaznaczone = %d
 ;
 MSG_DATAOPSGUI_DATAOPSCONVERTDEM
 Data Ops: Convert DEM
@@ -6023,7 +6022,7 @@ Data Ops: DEM converteren
 
 
 
-
+Data Ops: Konwersja DEM
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYAFILETOCONVERTPERATIONTERMINATED
 You must specify a file to convert!\nOperation terminated.
@@ -6034,7 +6033,7 @@ Specificeer een bestand om te converteren!\nOperatie afgebroken.
 
 
 
-
+Musisz wskazaæ plik do konwersji!\nOperacja anulowana.
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYINPUTROWSANDCOLUMNSPERATIONTERMINATED
 You must specify input rows and columns!\nOperation terminated.
@@ -6045,7 +6044,7 @@ Specificeer invoer rijen en kolommen!\nOperatie afgebroken.
 
 
 
-
+Musisz zdefiniowaæ ilo¶æ wierszy i kolumn!\nOperacja anulowana.
 ;
 MSG_DATAOPS_THEREISNODATABASETODIRECTOUTPUTENTITIESTOPERATIONTE
 There is no Database to direct output entities to!\nOperation terminated.
@@ -6056,7 +6055,7 @@ Er is geen Database om uitvoer entiteiten naar te leiden!\nOperatie afgebroken.
 
 
 
-
+Nie ma bazy danych do której mo¿na kierowaæ wyniki!\nOperacja anulowana.
 ;
 MSG_DATAOPS_INPUTDATACANNOTBEEQUALLYDIVIDEDAMONGOUTPUTMAPSASTCO
 Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows.
@@ -6067,7 +6066,7 @@ Invuldata kan niet gelijk verdeeld worden over uitvoer kaarten.\nLaatste kolom v
 
 
 
-
+Dane wej¶ciowe nie mog± byæ równo podzielone na wyj¶ciowe mapy.\nOstatnia Kolumna map ma %ld kolumn\nOstatni rz±d map ma %ld rows.
 ;
 MSG_DATAOPS_CONTINUETRUNCATECANCEL
 Continue|Truncate|Cancel
@@ -6089,7 +6088,7 @@ Bestandsgrootte klopt niet met opgegeven header, breedte en hoogte!\nToch doorga
 
 
 
-
+Niew³a¶ciwy rozmiar pliku dla wskazanego nag³ówka, szeroko¶æ i wysoko¶æ!\nMimo to kontynuowaæ?
 ;
 ; invert file if it is stored SE corner to NW
 MSG_DATAOPS_INVERTDATAORDER
@@ -6101,7 +6100,7 @@ Data volgorde omkeren?
 
 
 
-
+Odwróciæ kolejno¶æ Danych?
 ;
 MSG_DATAOPS_INVERTING
 Inverting
@@ -6112,7 +6111,7 @@ Omkeren
 
 
 
-
+Odwracanie
 ;
 MSG_DATAOPS_FLOOR
 Floor
@@ -6123,7 +6122,7 @@ Ondergrens
 
 
 
-
+Pod³oga
 ;
 MSG_DATAOPS_CEILING
 Ceiling
@@ -6134,7 +6133,7 @@ Bovengrens
 
 
 
-
+Sufit
 ;
 MSG_DATAOPS_REPLACE
 Replace
@@ -6145,7 +6144,7 @@ Vervangen
 
 
 
-
+Zast±p
 ;
 MSG_DATAOPS_RESAMPLE
 Resample

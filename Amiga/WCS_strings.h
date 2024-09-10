@@ -2685,7 +2685,7 @@
 #define MSG_DB_DATABASEMODULENAME_STR "Database Module: Name"
 #define MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME_STR "Vector name already present in database!\nTry a new name?"
 #define MSG_DB_DATABASEMODULEEDITOR_STR "Database Module: Editor"
-#define MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN_STR "No memory for vector coordinates!\nNew object has been crefNicht genügend Speicher um die Datenbankeditor-Liste zu erweitern. Ein neues Objekt wurde erstellt, erscheint aber nicht in der Listenansicht.ated but can not be edited until memory is available."
+#define MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN_STR "No memory for vector coordinates!\nNew object has been created but can not be edited until memory is available."
 #define MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE_STR "Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view."
 #define MSG_DB_ADDOBJECT_STR "Add Object"
 #define MSG_DB_DATABASEADDOBJECT_STR "Database: Add Object"
@@ -5332,8 +5332,8 @@ const char CatCompBlock[] =
     MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME_STR "\x00\x00"
     "\x00\x00\x02\x0C\x00\x18"
     MSG_DB_DATABASEMODULEEDITOR_STR "\x00"
-    "\x00\x00\x02\x0D\x00\xFE"
-    MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN_STR "\x00"
+    "\x00\x00\x02\x0D\x00\x70"
+    MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN_STR "\x00\x00"
     "\x00\x00\x02\x0E\x00\x6C"
     MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE_STR "\x00"
     "\x00\x00\x02\x0F\x00\x0C"
@@ -8507,56 +8507,6 @@ const char CatCompBlock[] =
 };
 
 #endif /* CATCOMP_BLOCK */
-
-
-/****************************************************************************/
-
-
-
-struct LocaleInfo
-{
-    APTR li_LocaleBase;
-    APTR li_Catalog;
-};
-
-
-
-
-
-#ifdef CATCOMP_CODE
-
-#include <libraries/locale.h>
-#include <proto/locale.h>
-
-
-STRPTR GetString(struct LocaleInfo *li, LONG stringNum)
-{
-LONG   *l;
-UWORD  *w;
-STRPTR  builtIn;
-
-    l = (LONG *)CatCompBlock;
-
-    while (*l != stringNum)
-    {
-        w = (UWORD *)((ULONG)l + 4);
-        l = (LONG *)((ULONG)l + (ULONG)*w + 6);
-    }
-    builtIn = (STRPTR)((ULONG)l + 6);
-
-#undef LocaleBase
-#define LocaleBase li->li_LocaleBase
-    
-    if (LocaleBase)
-        return(GetCatalogStr(li->li_Catalog,stringNum,builtIn));
-#undef LocaleBase
-
-    return(builtIn);
-}
-
-
-#endif /* CATCOMP_CODE */
-
 
 
 /****************************************************************************/
