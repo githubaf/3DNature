@@ -3772,7 +3772,7 @@ MapTopoObject.c:2204 zeichnet die Wolken
 bobycob von ppa.pl macht die polnische Ubersetzung.
 
 #Anzeige der fehlenden polnischen Uebersetzungen
-cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getlone; PORTOGUISE=$0; getline; DANISCH=$0; getline; DANISH=$0; getline; SPANISCH=$0; getline; POLISH=$0; if(POLISH==""){print ENGLISH;}else{POLISHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Polish:  %4d\n",POLISHCOUNT);printf("%d%%\n",POLISHCOUNT*100/MSGCOUNT++);}'
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; getline; POLISH=$0; if(POLISH==""){print ENGLISH;}else{POLISHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Polish:  %4d\n",POLISHCOUNT);printf("%d%%\n",POLISHCOUNT*100/MSGCOUNT++);}'
 
 26.Aug.2024
 -----------
@@ -3803,3 +3803,10 @@ SimpleCat >  Export > C Source(.c)
 9.Sep.2024
 ----------
 Im MapGUI-Fenster war "Exag" nich richtig aligned. Fehler war schon in WCS2.04. Fixed.
+
+10.Sep.2024
+-----------
+#Anzeige aller polnischen Texte zum Spell check
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; getline; POLISH=$0; if(POLISH!=""){gsub(/\\n/," ",$0); gsub(/\\338/," ",$0); gsub(/\\332/," ",$0); gsub(/\\0332/," ",$0); gsub(/\\0334/," ",$0); gsub(/\\33c/," ",$0); gsub(/\\33l/," ",$0); gsub(/\\33r/," ",$0); gsub(/\\33t/," ",$0); gsub(/\\x20/," ",$0);print $0;  }}'  >polish.txt
+
+

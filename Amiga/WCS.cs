@@ -284,7 +284,7 @@ Ecosysteem Editor
 
 Redigering af økosystem
 
-
+Edytor Ekosystemu
 ;
 MSG_MENU_PREFS
 Preferences
@@ -1088,7 +1088,7 @@ MSG_STDMESG_ENABLE_SOFT_OUTLINE_STYLE
 
 
 
-
+\33t
 ;
 MSG_STDMESG_MAPPINGMODULE
  Mapping Module.
@@ -1099,7 +1099,7 @@ Mapping Modul.
 
  Mapningsmodul.
 
-Modu³ mapuj±cy.
+Modu³ Mapowania.
 ;
 MSG_STDMESG_DIRECTORYNOTFOUND
  Directory not found!
@@ -1110,7 +1110,7 @@ MSG_STDMESG_DIRECTORYNOTFOUND
 
  Bibliotek blev ikke fundet!
 
-Katalog nie znaleziony!
+Katalog nieznaleziony!
 ;
 MSG_STDMESG_OPENWINDOWFAILED
  Open window failed!
@@ -1165,7 +1165,7 @@ MSG_STDMESG_VECTOROBJECTSLOADED
 
  Vektor objekter indlæst.
 
-Objekty wektorowe wczytane.
+Objekty wektorów wczytane.
 ;
 MSG_STDMESG_PROJECTFILELOADED
  Project file loaded.
@@ -1209,7 +1209,7 @@ MSG_STDMESG_RENDERTIMEFORFRAME
 
  Beregningstid for skærmbillede
 
-Czas renderowanie na kaltkê
+Czas renderowania na klatkê
 ;
 MSG_STDMESG_RENDERTIMEFORANIM
  Render time for anim,
@@ -1312,7 +1312,7 @@ MSG_SCNRMODGUI_MODEINFORMATION
 
 \33cModus information
 
-Informacje o trybie
+\33cInformacje o trybie
 ;
 ; Check Screenmode-Requester for correct alignement!
 MSG_SCNRMODGUI_MODEESUTOCANNATTRIBUTESN
@@ -1369,7 +1369,7 @@ Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAttributen\n
 
 Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAtributter\n
 
-
+Tryb: 0x%08lx\nRoz : %dx%d - %dx%d\nAuto: %dx%d\nScan: %dns\n\nAttributy\n
 ;
 MSG_SCNRMODGUI_LACED
 Laced\x20
@@ -1391,7 +1391,7 @@ Ondersteunt Genlock\x20
 
 Understøtter Genlock\x20
 
-Obs³uguje Genlock
+Obs³uguje Genlock\x20
 ;
 MSG_SCNRMODGUI_DRAGGABLE
 Draggable\x20
@@ -1402,7 +1402,7 @@ Sleepbaar\x20
 
 
 
-Przesuwalny
+Przesuwalny\x20
 ;
 MSG_SCNRMODGUI_OVERSCAN
 Overscan:\x20
@@ -1449,7 +1449,7 @@ Parameter Module
 
 
 
-Parametry Modu³u
+Modu³ Parametrów
 ;
 MSG_AGUI_MOTION
 \33l Motion\x20
@@ -1526,7 +1526,7 @@ Parameters Module
 
 
 
-Parametry Modu³u
+Modu³ Parametrów
 ;
 MSG_AGUI_OUTOFMEMORY
 Out of Memory!
@@ -1548,7 +1548,7 @@ Standaard Parameters maken voor Database %s? Alle huidige Parameters zullen word
 
 
 
-Utworzyæ domy¶lne parametry dla Bazy Danych %s? Wszystkie aktualne ustawienia zostan± nadpisane.
+Czy utworzyæ domy¶lne parametry dla Bazy Danych %s? Wszystkie aktualne ustawienia zostan± nadpisane.
 ;
 MSG_AGUI_PARAMETEREDITINGDEFAULTS
 Parameter Editing: Defaults
@@ -1581,7 +1581,7 @@ Laad eerst een Database voordat Standaard Parameters kunnen worden berekend.
 
 
 
-Musisz wczytaæ Bazê Danych zanim Domy¶lne Warto¶ci bêd± przeliczone.
+Musisz wczytaæ Bazê Danych zanim Domy¶lne Warto¶ci zostan± przeliczone.
 ;
 MSG_GLOBAL_OK
 OK
@@ -1746,7 +1746,7 @@ Render Module
 
 
 
-Modu³ Renderuj±cy
+Modu³ Renderowania
 ;
 MSG_AGUI_ADATABASEANDPARAMETERFILE
 a Database and Parameter file
@@ -1812,7 +1812,7 @@ Publiek Scherm heeft nog Gebruikers. Nogmaals proberen te sluiten?
 
 
 
-Ekran wci±¿ zawiera okna. Spróbowaæ zamkn±æ ponownie?
+Ekran wci±¿ zawiera okna. Spróbowaæ ponownie?
 ;
 MSG_AGUI_CLOSEWARNCANCEL
 Close|Warn|Cancel
@@ -1823,7 +1823,7 @@ Sluiten|Waarschuwen|Annuleren
 
 
 
-Zamknij|Ostrze¿enie|Anuluj
+Zamknij|Ostrze¿|Anuluj
 ;
 MSG_AGUI_QUITPROGRAMREYOUSURE
 Quit Program\nAre you sure?
@@ -1834,7 +1834,7 @@ Programma Afsluiten\nWeet U het zeker?
 
 
 
-Zamknij Program\nJeste¶ pewien?
+Opu¶æ Program\nJeste¶ pewien?
 ;
 MSG_AGUI_WCSPROJECT
 WCS Project
@@ -1977,7 +1977,7 @@ Log Status Module
 
 
 
-Modu³ logu zdarzeñ
+Modu³ Log Zdarzeñ
 ;
 MSG_AGUI_CANTOPENLOGSTATUSWINDOW
 Can't Open Log Status Window!
@@ -2010,7 +2010,7 @@ MSG_AGUI_HIDE
 
 
 
-\33cSchowaj
+\33cUkryj
 ;
 MSG_AGUI_CLOSE
 \33cClose
@@ -2088,7 +2088,7 @@ MSG_AGUI_MEMORY
 
 
 
-\33rPamiêæ
+\33rPamiêæ:
 ;
 MSG_AGUI_AVAILABLE
 \33rAvailable\x20
@@ -2254,7 +2254,7 @@ Om de schermmodus te resetten zal WCS moeten worden gesloten en heropend. Werk i
 
 
 
-Aby zresetowaæ tyb wy¶wietlania WCS chce zakoñczyæ pracê i uruchomiæ siê ponownie. Powiniene¶ teraz zapisa¶ swoj± pracê aby unikn±æ strat zanim wykonasz to polecenie.\nCzy chesz kontynuwaoæ?
+Aby zresetowaæ tyb wy¶wietlania WCS chce zakoñczyæ pracê i uruchomiæ siê ponownie. Powiniene¶ teraz zapisa¶ swoj± pracê aby unikn±æ strat zanim wykonasz to polecenie.\nCzy chesz kontynuowaæ?
 ;
 MSG_AGUI_DATABASEMODULE
 Database Module
@@ -2664,7 +2664,7 @@ Laad Instellingen...
 
 
 
-Wczytaj ustawienia...
+Wczytaj Ustawienia...
 ;
 MSG_AGUI_SAVESETTINGS
 Save Settings...
@@ -2709,7 +2709,7 @@ Kan afbeeldingbestand niet openen voor uitvoer!\nOperatie afgebroken.
 
 
 
-Nie mogê utowrzyæ pliku obrazu dla wyj¶cia!\nOperacja anluwana.
+Nie mogê utowrzyæ pliku obrazu dla wyj¶cia!\nOperacja anulowana.
 ;
 MSG_BITMAPS_SAVINGIMAGE
 Saving Image
@@ -6077,7 +6077,7 @@ Doorgaan|Afbreken|Annuleren
 
 
 
-
+Kontynuuj|Przytnij|Anuluj
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTRO
 Incorrect file size for specified header, width and height!\nProceed anyway?
@@ -6177,7 +6177,7 @@ Converteren
 
 
 
-
+Konwersja
 ;
 MSG_DATAOPS_UNABLETOOPENFILEFORINPUTPERATIONTERMINATED
 Unable to open file for input!\nOperation terminated.
@@ -6188,7 +6188,7 @@ Kan het bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
 
-
+Nie mo¿na otworzyæ pliku dla wej¶cia!\nOperacja anulowana.
 ;
 MSG_DATAOPS_CONVERTDEMSOURCEFILE
 Convert DEM source file
@@ -6199,7 +6199,7 @@ Converteer DEM bron bestand
 
 
 
-
+Konwerja pliku ¼ród³owego DEM
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTPE
 Incorrect file size for specified header, width and height!\nOperation terminated.
@@ -6210,7 +6210,7 @@ Onjuiste bestandsgrootte voor opgegeven header, breedte en hoogte!\nOperatie afg
 
 
 
-
+Niew³a¶ciwy rozmiar dla wskazanaego nag³ówka, szeroko¶æ i d³ugo¶æ!\nOperacja anulowana.
 ;
 MSG_DATAOPS_UNABLETOOPENFILEFOROUTPUTPERATIONTERMINATED
 Unable to open file for output!\nOperation terminated.
@@ -6221,7 +6221,7 @@ Kan het bestand niet openen voor uitvoer!\nOperatie afgebroken.
 
 
 
-
+Niemo¿na otworzyæ pliku dla wyj¶cia!\nOperacja anulowana.
 ;
 MSG_DATAOPS_CONVERTDEMDESTINATIONFILE
 Convert DEM destination file
@@ -6232,7 +6232,7 @@ Converteer DEM doelbestand
 
 
 
-
+Konwersja DEM plik docelowy
 ;
 MSG_DATAOPS_ERRORWRITINGDESTINATIONFILEPERATIONTERMINATED
 Error writing destination file!\nOperation terminated.
@@ -6243,7 +6243,7 @@ Fout bij schrijven van doelbestand!\nOperatie afgebroken.
 
 
 
-
+B³±d zapisu pliku docelowego!\nOperacja anulowana.
 ;
 MSG_DATAOPS_ERRORREADINGSOURCEFILEPERATIONTERMINATED
 Error reading source file!\nOperation terminated.
@@ -6254,7 +6254,7 @@ Fout bij lezen van bronbestand!\nOperatie afgebroken.
 
 
 
-
+B³±d odczytu pliku ¼ród³owego!\nOperacja anulowana.
 ;
 MSG_DATAOPS_NOTACOMPRESSEDFILEPERATIONTERMINATED
 Not a compressed file!\nOperation terminated.
@@ -6265,7 +6265,7 @@ Bestand is niet gecomprimeerd!\nOperatie afgebroken.
 
 
 
-
+Plik nie skompresowany!\nOperacja anulowana.
 ;
 MSG_DATAOPS_EXTENDEDHEADERPERATIONTERMINATED
 Extended header!\nOperation terminated.
@@ -6276,7 +6276,7 @@ Uitgebreide header!\nOperatie afgebroken.
 
 
 
-
+Rozszrzony nag³ówek!\nOperacja anulowana.
 ;
 MSG_DATAOPS_INPUTFILECONFIGURATIONNOTYETSUPPORTEDPERATIONTERMIN
 Input file configuration not yet supported!\nOperation terminated.
@@ -6287,7 +6287,7 @@ Invoer bestand configuratie wordt nog niet ondersteund!\nOperatie afgebroken.
 
 
 
-
+Konfiguracja pliku wej¶ciowego nie jest jeszcze wspierana!\nOperacja anulowana.
 ;
 MSG_DATAOPS_CONVERTDEMSOURCETYPE
 Convert DEM source type
@@ -6298,7 +6298,7 @@ DEM bron type converteren
 
 
 
-
+Conwerja DEM typ ¼ród³a
 ;
 MSG_DATAOPS_INPUTDATAFORMATNOTSUPPORTEDHECKYOURSETTINGSPERATION
 Input data format not supported!\nCheck your settings.\nOperation terminated.
@@ -6309,7 +6309,7 @@ Invoer data formaat wordt niet ondersteund!\nControleer uw instellingen.\nOperat
 
 
 
-
+Format danych wej¶ciowych nie wspierany!\nSprawd¼ ustawienia.\nOperacja anulowana.
 ;
 MSG_DATAOPS_ERRORSAVINGOBJFILEOPERATIONTERMOINATED
 Error saving ".Obj" file!\nOperation terminated.
@@ -6320,7 +6320,7 @@ Fout bij opslaan van ".Obj" bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d zapisu pliku ".Obj"!\nOperacja anulowana.
 ;
 MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED
 Input file not recognized as a DTED file!\nOperation terminated.
@@ -6331,7 +6331,7 @@ Invulbestand niet herkend als een DTED bestand!\nOperatie afgebroken.
 
 
 
-
+Plik wej¶ciowy nierozpoznany jako DTED!\nOperacja anulowana.
 ;
 ; --- Adjust alignement with spaces before and after you translation as needed ---
 MSG_DATAOPSGUI_DTED
@@ -6354,7 +6354,7 @@ Ongeldige bronwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 
 
 
-
+!\nNielegalna kombinacja warto¶ci format/rozmiar ¿ród³a!\nOperacja anulowana.
 ;
 MSG_DATAOPSGUI_BINARRAY
 Bin Array
@@ -6365,7 +6365,7 @@ Binaire Reeks
 
 
 
-
+Tabela Binarna
 ;
 MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 !\nIllegal target value format/size combination!\nOperation terminated.
@@ -6376,7 +6376,7 @@ MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 
 
 
-
+!\nNielegalna kombinacja warto¶ci format/rozmiar destynacji!\nOperacja anulowana.
 ;
 MSG_DATAOPSGUI_BINARYARRAY
 Binary Array
@@ -6387,7 +6387,7 @@ Binaire Reeks
 
 
 
-
+Tabela Binarna
 ;
 MSG_DATAOPSGUI_WCSDEM
 WCS DEM
@@ -6409,7 +6409,7 @@ Z Buffer
 
 
 
-
+Z Bufor
 ;
 MSG_DATAOPSGUI_ASCIIARRAY
 Ascii Array
@@ -6420,7 +6420,7 @@ Ascii Reeks
 
 
 
-
+Tabela ASCII
 ;
 MSG_DATAOPSGUI_VISTADEM
 Vista DEM
@@ -6453,7 +6453,7 @@ Kleurenkaart
 
 
 
-
+Mapa Kolorów
 ;
 MSG_DATAOPSGUI_GRAYIFF
 Gray IFF
@@ -6464,7 +6464,7 @@ Grijswaarden IFF
 
 
 
-
+Odcienie szaro¶ci IFF
 ;
 MSG_DATAOPSGUI_COLORIFF
 Color IFF
@@ -6475,7 +6475,7 @@ Kleur IFF
 
 
 
-
+Kolorowy IFF
 ;
 MSG_DATAOPSGUI_SIGNEDINT
 Signed Int
@@ -6486,7 +6486,7 @@ Signed Int
 
 
 
-
+Warto¶æ ze znakiem
 ;
 MSG_DATAOPSGUI_UNSIGNEDINT
 Unsigned Int
@@ -6497,7 +6497,7 @@ Unsigned Int
 
 
 
-
+Warto¶æ bez znaku
 ;
 MSG_DATAOPSGUI_FLOATINGPT
 Floating Pt
@@ -6508,7 +6508,7 @@ Drijvende komma
 
 
 
-
+zmiennoprzecinkowa
 ;
 MSG_DATAOPSGUI_ONE
 One
@@ -6519,7 +6519,7 @@ Een
 
 
 
-
+Jeden
 ;
 MSG_DATAOPSGUI_TWO
 Two
@@ -6530,7 +6530,7 @@ Twee
 
 
 
-
+Dwa
 ;
 MSG_DATAOPSGUI_FOUR
 Four
@@ -6541,7 +6541,7 @@ Vier
 
 
 
-
+Cztery
 ;
 MSG_DATAOPSGUI_EIGHT
 Eight
@@ -6552,7 +6552,7 @@ Acht
 
 
 
-
+Osiem
 ;
 MSG_DATAOPSGUI_HIGHLOW
 High-Low
@@ -6585,7 +6585,7 @@ Per rij
 
 
 
-
+Co Rz±d
 ;
 MSG_DATAOPSGUI_BYCOLUMN
 By Column
@@ -6596,7 +6596,7 @@ Per kolom
 
 
 
-
+Co Kolumna
 ;
 MSG_DATAOPSGUI_LATITUDE
 Latitude
@@ -6607,7 +6607,7 @@ Breedte
 
 
 
-
+Wysoko¶æ
 ;
 MSG_DATAOPSGUI_LONGITUDE
 Longitude
@@ -6618,7 +6618,7 @@ Lengtegraad
 
 
 
-
+Szeroko¶æ
 ;
 MSG_DATAOPSGUI_INCHES
 Inches
@@ -6629,7 +6629,7 @@ Inch
 
 
 
-
+Cale
 ;
 MSG_DATAOPSGUI_OTHER
 Other
@@ -6640,7 +6640,7 @@ Anders
 
 
 
-
+Inne
 ;
 MSG_DATAOPSGUI_TWOVALUEEQUIVALENCE
 \0334Two Value Equivalence
