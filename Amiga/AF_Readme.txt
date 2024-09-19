@@ -3812,8 +3812,8 @@ cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEU
 19.Sep. 2024
 ------------
 * Unterstuetzung von CGX-Screens fuer Farb-Rendervorschau
-* WinUAE konfig und Workbench-Dir kopiert, umbenannt, alles was P96 is gelöscht. PicassoII+ als GFX Board ausgewaehlt, CGX3 von http://de.aminet.net/aminet/driver/video/CyberGraphX3.lha installiert.
-* wget https://aminet.net/dev/misc/CGraphX-DevKit.lha nach ~/AmigaFiles entpackt und .vamosrc angepasst, damit der Testbau mit SAS/C und Vamos weiter funktioniert.
+* WinUAE konfig und Workbench-Dir kopiert, umbenannt, alles was P96 is geloescht. PicassoII+ als GFX Board ausgewaehlt, CGX3 von http://de.aminet.net/aminet/driver/video/CyberGraphX3.lha installiert.
+* https://aminet.net/dev/misc/CGraphX-DevKit.lha nach ~/AmigaFiles entpackt und .vamosrc angepasst, damit der Testbau mit SAS/C und Vamos weiter funktioniert.
 * cat ~/.vamosrc
 
 [vamos]
