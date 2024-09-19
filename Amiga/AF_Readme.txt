@@ -3809,4 +3809,50 @@ Im MapGUI-Fenster war "Exag" nich richtig aligned. Fehler war schon in WCS2.04. 
 #Anzeige aller polnischen Texte zum Spell check
 cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; getline; POLISH=$0; if(POLISH!=""){gsub(/\\n/," ",$0); gsub(/\\338/," ",$0); gsub(/\\332/," ",$0); gsub(/\\0332/," ",$0); gsub(/\\0334/," ",$0); gsub(/\\33c/," ",$0); gsub(/\\33l/," ",$0); gsub(/\\33r/," ",$0); gsub(/\\33t/," ",$0); gsub(/\\x20/," ",$0);print $0;  }}'  >polish.txt
 
+19.Sep. 2024
+------------
+* Unterstuetzung von CGX-Screens fuer Farb-Rendervorschau
+* WinUAE konfig und Workbench-Dir kopiert, umbenannt, alles was P96 is gelöscht. PicassoII+ als GFX Board ausgewaehlt, CGX3 von http://de.aminet.net/aminet/driver/video/CyberGraphX3.lha installiert.
+* wget https://aminet.net/dev/misc/CGraphX-DevKit.lha nach ~/AmigaFiles entpackt und .vamosrc angepasst, damit der Testbau mit SAS/C und Vamos weiter funktioniert.
+* cat ~/.vamosrc
+
+[vamos]
+#quiet=True
+
+# 8Meg Ram for 68000er Computer
+#ram_size=8192
+
+# more RAM for bigger CPUs, disable HW access for so much RAM
+cpu=68020
+hw_access=disable
+ram_size=32768
+
+#16 KBytes of Stack
+stack=16 
+
+[volumes]
+# wb310=~/amiga/wb310
+sc=~/Desktop/AmigaFiles/sc
+C=~/Desktop/AmigaFiles/C
+L=~/Desktop/AmigaFiles/L
+MUI=~/Desktop/AmigaFiles/MUI
+SDI=~/Desktop/AmigaFiles/SDI
+Libs=~/Desktop/AmigaFiles/Libs
+Picasso96Develop=~/Desktop/AmigaFiles/Picasso96Develop
+CGraphX=~/Desktop/AmigaFiles/CGraphX/C
+
+[assigns]
+include=sc:include,MUI:Developer/C/Include,SDI:includes,Picasso96Develop:Include,CGraphX:Include
+lib=sc:lib
+t=root:tmp
+ENV=t:ENV
+
+[path]
+path=sc:c,L: 
+#,wb310:c
+
+#wichtig, sonst meckert smake "Can't open version 0 of icon.library"
+[icon.library]
+mode=fake
+
 

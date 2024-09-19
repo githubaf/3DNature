@@ -26,6 +26,11 @@
 
 #ifndef __AROS__
    #include <proto/Picasso96.h>
+   #include <cybergraphx/cybergraphics.h>
+   #include <proto/cybergraphics.h>
+#else
+   #include <cybergraphx/cybergraphics.h>
+   #include <proto/cybergraphics.h>
 #endif
 
 #define MIN_LIBRARY_REV 37
@@ -142,6 +147,7 @@ unsigned long get_time(unsigned long *result);
 char *LocaleExtCreditText=NULL;  // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
 
 struct Library	*P96Base=NULL;
+struct Library *CyberGfxBase=NULL;
 
 int main(void)
 {
@@ -337,6 +343,10 @@ int main(void)
 ResetScreenMode:
 
 P96Base=OpenLibrary((STRPTR)"Picasso96API.library",2);  // Alexander 27.8.2024: Can fail if no P96 installed. We check this when needed
+if(!P96Base)
+{
+	CyberGfxBase=OpenLibrary((STRPTR)CYBERGFXNAME,0);  // Alexander 18.9.2024: Can fail if no CyberGfx installed. We check this when needed
+}
 
 if ((IntuitionBase = (struct IntuitionBase *)
  OpenLibrary((STRPTR)"intuition.library", MIN_LIBRARY_REV)))
@@ -478,15 +488,31 @@ if ((IntuitionBase = (struct IntuitionBase *)
       if(WCSScrn)
        {
 #ifndef __AROS__
-    	  ULONG IsP96Screen=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_ISP96);
-    	  printf("Screen is %s a P96 Screen\n",IsP96Screen? "" : "not ");
-    	  if(IsP96Screen)
+    	  if(P96Base)
     	  {
-    		  ULONG Value=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BITSPERPIXEL);
-    		  printf("Screen has %d Bits per Pixel\n",Value);
-    		  Value=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BYTESPERPIXEL);
-    		  printf("Screen has %d Bytes per Pixel\n",Value);
+    		  ULONG IsP96Screen=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_ISP96);
+    		  printf("Screen is %s a P96 Screen\n",IsP96Screen? "" : "not ");
+    		  if(IsP96Screen)
+    		  {
+    			  ULONG Value=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BITSPERPIXEL);
+    			  printf("Screen has %d Bits per Pixel\n",Value);
+    			  Value=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BYTESPERPIXEL);
+    			  printf("Screen has %d Bytes per Pixel\n",Value);
+    		  }
     	  }
+    	  else
+        	  if(CyberGfxBase)
+        	  {
+        		  ULONG IsCgfxScreen=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_ISCYBERGFX);
+        		  printf("Screen is %s a CGFX Screen\n",IsCgfxScreen? "" : "not ");
+        		  if(IsCgfxScreen)
+        		  {
+        			  ULONG Value=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_DEPTH);
+        			  printf("Screen has %d Bits per Pixel\n",Value);
+        			  Value=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_BPPIX);
+        			  printf("Screen has %d Bytes per Pixel\n",Value);
+        		  }
+        	  }
 #endif
 
 
@@ -579,6 +605,11 @@ else
  printf((char*)GetString( MSG_WCS_FATALERRORINTUITIONLIBRARYREVISIONREQUIREDABORTING ), MIN_LIBRARY_REV);  // "FATAL ERROR: Intuition.library revision %d required. Aborting.\n"
  } /* else */
 
+if(CyberGfxBase) // if we could open CyberGfx we have also to close at the end...
+{
+	CloseLibrary(CyberGfxBase);
+	CyberGfxBase=NULL;
+}
 if(P96Base) // if we could open P96 we have also to close at the end...
 {
 	CloseLibrary(P96Base);

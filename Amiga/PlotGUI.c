@@ -6,9 +6,14 @@
 #include "WCS.h"
 #ifndef __AROS__
    #include <proto/Picasso96.h>
+   #include <cybergraphx/cybergraphics.h>
+   #include <proto/cybergraphics.h>
 #else
+   #include <cybergraphx/cybergraphics.h>
    #include <proto/cybergraphics.h>
 #endif
+
+extern struct Library *CyberGfxBase;
 
 #define RENDER_SCREEN_DITHER_SIZE 4096
 
@@ -109,42 +114,79 @@ void BayerDither8ColorsScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 	WritePixel(win->RPort, x, y);
 }
 
-//void ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
-//{
-//short Col;
-//double FloatCol;
-//
-//#ifdef AF_COLOR_TEST
-//if(1)  // Use Color ordered Bayer Dithering for Render Window?
-//{
-//	BayerDither8ColorsScreenPixelPlot(win, Bitmap, x, y, zip);
-//	return;
-//}
-//#endif
-// FloatCol = 8.0 + 7.999 * (765 - Bitmap[0][zip] - Bitmap[1][zip] - Bitmap[2][zip]) / 765.0;
-// Col = FloatCol + ROUNDING_KLUDGE;
-// if ((x + y) & 0x01)
-//  {
-//  if((FloatCol - (double)Col) > .5)
-//   {
-//   if (Col < 15)
-//    Col++;
-//   } /* if color less than max for specific gradient range */
-//  } /* if */
-// SetAPen(win->RPort, Col);
-// WritePixel(win->RPort, x, y);
-//
-//} /* PixelPlot */
+void ScreenPixelPlotClassic(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+{
+short Col;
+double FloatCol;
+
+#ifdef AF_COLOR_TEST
+if(1)  // Use Color ordered Bayer Dithering for Render Window?
+{
+	BayerDither8ColorsScreenPixelPlot(win, Bitmap, x, y, zip);
+	return;
+}
+#endif
+ FloatCol = 8.0 + 7.999 * (765 - Bitmap[0][zip] - Bitmap[1][zip] - Bitmap[2][zip]) / 765.0;
+ Col = FloatCol + ROUNDING_KLUDGE;
+ if ((x + y) & 0x01)
+  {
+  if((FloatCol - (double)Col) > .5)
+   {
+   if (Col < 15)
+    Col++;
+   } /* if color less than max for specific gradient range */
+  } /* if */
+ SetAPen(win->RPort, Col);
+ WritePixel(win->RPort, x, y);
+
+} /* PixelPlot */
 
 // RGB-Test
 void ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
 {
 #ifndef __AROS__
-	p96WritePixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
-#else
-	// No need to open CyberGraphics.library? Auto-Open?
-	WriteRGBPixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
+	if(P96Base)
+	{
+		if(p96GetBitMapAttr(win->RPort->BitMap, P96BMA_ISP96))
+		{
+			if(p96GetBitMapAttr(win->RPort->BitMap, P96BMA_BITSPERPIXEL)>=15)
+			{
+				p96WritePixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
+			}
+			else
+			{
+				ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
+			}
+		}
+		else
+		{
+			ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
+		}
+	}
+	else
 #endif
+	if(CyberGfxBase)
+	{
+		if(GetCyberMapAttr(win->RPort->BitMap,CYBRMATTR_ISCYBERGFX))
+		{
+			if(GetCyberMapAttr(win->RPort->BitMap, CYBRMATTR_DEPTH)>=15)
+			{
+				WriteRGBPixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
+			}
+			else
+			{
+				ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
+			}
+		}
+		else
+		{
+			ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
+		}
+	}
+	else
+	{
+		ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
+	}
 }
 
 /***********************************************************************/
