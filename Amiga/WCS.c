@@ -491,36 +491,9 @@ if ((IntuitionBase = (struct IntuitionBase *)
 
       if(WCSScrn)
        {
-#ifndef __AROS__
-    	  if(P96Base)
-    	  {
-    		  ULONG IsP96Screen=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_ISP96);
-    		  printf("Screen is %s a P96 Screen\n",IsP96Screen? "" : "not ");
-    		  if(IsP96Screen)
-    		  {
-    			  ULONG Value=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BITSPERPIXEL);
-    			  printf("Screen has %d Bits per Pixel\n",Value);
-    			  Value=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BYTESPERPIXEL);
-    			  printf("Screen has %d Bytes per Pixel\n",Value);
-    		  }
-    	  }
-    	  else
-        	  if(CyberGfxBase)
-        	  {
-        		  ULONG IsCgfxScreen=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_ISCYBERGFX);
-        		  printf("Screen is %s a CGFX Screen\n",IsCgfxScreen? "" : "not ");
-        		  if(IsCgfxScreen)
-        		  {
-        			  ULONG Value=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_DEPTH);
-        			  printf("Screen has %d Bits per Pixel\n",Value);
-        			  Value=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_BPPIX);
-        			  printf("Screen has %d Bytes per Pixel\n",Value);
-        		  }
-        	  }
-#endif
+    	  getGfxInformation();  // Alexander Prints info about RTG, depth etc
 
-
-    DTable = DitherTable_New(DITHER_TABLE_SIZE);
+       DTable = DitherTable_New(DITHER_TABLE_SIZE);
        PubScreenStatus(WCSScrn, 0);
 
        if (DTable)

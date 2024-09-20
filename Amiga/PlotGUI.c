@@ -192,6 +192,38 @@ void ScreenPixelPlotNew(struct Window *win, UBYTE **Bitmap, short x, short y, lo
 }
 
 /***********************************************************************/
+void getGfxInformation(void)
+{
+	printf("WCSScrn->RastPort.BitMap->Depth=%d\n",WCSScrn->RastPort.BitMap->Depth);
+#ifndef __AROS__
+    	  if(P96Base)
+    	  {
+    		  ULONG IsP96Screen=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_ISP96);
+    		  printf("Screen is %s a P96 Screen\n",IsP96Screen? "" : "not ");
+    		  if(IsP96Screen)
+    		  {
+    			  ULONG Value=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BITSPERPIXEL);
+    			  printf("Screen has %d Bits per Pixel\n",Value);
+    			  Value=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BYTESPERPIXEL);
+    			  printf("Screen has %d Bytes per Pixel\n",Value);
+    		  }
+    	  }
+    	  else
+#endif
+    		  if(CyberGfxBase)
+    		  {
+    			  ULONG IsCgfxScreen=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_ISCYBERGFX);
+    			  printf("Screen is %s a CGFX Screen\n",IsCgfxScreen? "" : "not ");
+    			  if(IsCgfxScreen)
+    			  {
+    				  ULONG Value=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_DEPTH);
+    				  printf("Screen has %d Bits per Pixel\n",Value);
+    				  Value=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_BPPIX);
+    				  printf("Screen has %d Bytes per Pixel\n",Value);
+    			  }
+    		  }
+}
+
 // AF, initis the ScreenPixelPlot function pointer to original function (gray scaled)
 void initScreenPixelPlotFnct()
 {
@@ -199,12 +231,27 @@ void initScreenPixelPlotFnct()
 	ScreenPixelPlot=ScreenPixelPlotClassic;
 }
 
+// P96 high/True color
+void ScreenPixelPlotP96(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+{
+#ifndef __AROS__
+	p96WritePixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
+#endif
+}
+
+// CyberGraphX high/True color
+void ScreenPixelPlotCGFX(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+{
+	WriteRGBPixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
+}
+
+
 // AF, set ScreenPixelPlot function pointer to old function, new color-dithered function or RTG function
 void setScreenPixelPlotFnct(struct Settings settings)
 {
 	printf("Alexander: %s %s()called\n",__FILE__,__func__);
 	printf("settings.renderopts=%04x",settings.renderopts);
-	switch(settings.renderopts&=0x30)
+	switch(settings.renderopts & 0x30)
 	{
 		case 0x10:  // render Screen, gray
 			printf("should plot gray scaled\n");
@@ -214,7 +261,84 @@ void setScreenPixelPlotFnct(struct Settings settings)
 		case 0x30:   // render screen gray + color
 			printf("should plot colored\n");
 			// check if RTG screen and if 256 colors
-			ScreenPixelPlot=ScreenPixelPlotNew;
+#ifndef __AROS__
+    	  if(P96Base)
+    	  {
+    		  ULONG IsP96Screen=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_ISP96);
+    		  printf("Screen is %s a P96 Screen\n",IsP96Screen? "" : "not ");
+    		  if(IsP96Screen)
+    		  {
+    			  ULONG BitsPerPixel, BytesPerPixel;
+
+    			  BitsPerPixel=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BITSPERPIXEL);
+    			  printf("Screen has %d Bits per Pixel\n",BitsPerPixel);
+    			  BytesPerPixel=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BYTESPERPIXEL);
+    			  printf("Screen has %d Bytes per Pixel\n",BytesPerPixel);
+
+				  if(BitsPerPixel<=8)  // 8-Bit CyberGraphX screen
+				  {
+					  printf("ScreenPixelPlotP96Dither256\n");
+					  //ScreenPixelPlot=ScreenPixelPlotP96Dither256;
+				  }
+				  else            // true or high color CyberGraphX screen
+				  {
+					  printf("ScreenPixelPlotP96 full color\n");
+					  ScreenPixelPlot=ScreenPixelPlotP96;
+				  }
+			  }
+    		  else
+    		  {
+				  printf("ScreenPixelPlotDither8\n");
+				  // Palette noch setzen!
+				  ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
+    		  }
+    	  }
+    	  else
+#endif
+    		  if(CyberGfxBase)
+    		  {
+       			  ULONG IsCgfxScreen=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_ISCYBERGFX);
+    			  printf("Screen is %s a CGFX Screen\n",IsCgfxScreen? "" : "not ");
+    			  if(IsCgfxScreen)
+    			  {
+    				  ULONG BitsPerPixel, BytesPerPixel;
+    				  BitsPerPixel=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_DEPTH);
+    				  printf("Screen has %d Bits per Pixel\n",BitsPerPixel);
+    				  BytesPerPixel=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_BPPIX);
+    				  printf("Screen has %d Bytes per Pixel\n",BytesPerPixel);
+
+    				  if(BitsPerPixel==8)  // 8-Bit CyberGraphX screen
+    				  {
+    					  printf("ScreenPixelPlotCgfxDither256\n");
+    					  //ScreenPixelPlot=ScreenPixelPlotCgfxDither256;
+    				  }
+    				  else            // true or high color CyberGraphX screen
+    				  {
+    					  printf("ScreenPixelPlotCgfx full color\n");
+    					  ScreenPixelPlot=ScreenPixelPlotCGFX;
+    				  }
+    			  }
+        		  else
+        		  {
+    				  printf("ScreenPixelPlotDither8\n");
+    				  // Palette noch setzen!
+    				  ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
+        		  }
+    		  }
+    		  else // no RTG system installed
+    		  {
+    			  printf("Nono-RTG Screen\n");
+    			  if (WCSScrn->RastPort.BitMap->Depth==8)  // 256 colors
+    			  {
+    				  printf("ScreenPixelPlotDither128\n");
+    				  //ScreenPixelPlot=ScreenPixelPlotDither128;  //dither 322 (128 colors in upper half of 256 color table)
+    			  }
+    			  else
+    			  {
+    				  printf("ScreenPixelPlotDither8\n");
+    				  ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
+    			  }
+    		  }
 			break;
 		default:
 			// don't touch
