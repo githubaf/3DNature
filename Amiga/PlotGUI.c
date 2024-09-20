@@ -13,6 +13,8 @@
    #include <proto/cybergraphics.h>
 #endif
 
+#include <Proto.h>
+
 extern struct Library *CyberGfxBase;
 
 #define RENDER_SCREEN_DITHER_SIZE 4096
@@ -142,7 +144,7 @@ if(1)  // Use Color ordered Bayer Dithering for Render Window?
 } /* PixelPlot */
 
 // RGB-Test
-void ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+void ScreenPixelPlotNew(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
 {
 #ifndef __AROS__
 	if(P96Base)
@@ -189,6 +191,39 @@ void ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long 
 	}
 }
 
+/***********************************************************************/
+// AF, initis the ScreenPixelPlot function pointer to original function (gray scaled)
+void initScreenPixelPlotFnct()
+{
+	printf("Alexander: %s %s()called\n",__FILE__,__func__);
+	ScreenPixelPlot=ScreenPixelPlotClassic;
+}
+
+// AF, set ScreenPixelPlot function pointer to old function, new color-dithered function or RTG function
+void setScreenPixelPlotFnct(struct Settings settings)
+{
+	printf("Alexander: %s %s()called\n",__FILE__,__func__);
+	printf("settings.renderopts=%04x",settings.renderopts);
+	switch(settings.renderopts&=0x30)
+	{
+		case 0x10:  // render Screen, gray
+			printf("should plot gray scaled\n");
+			ScreenPixelPlot=ScreenPixelPlotClassic;
+			break;
+		case 0x20:   // render Screen, color
+		case 0x30:   // render screen gray + color
+			printf("should plot colored\n");
+			// check if RTG screen and if 256 colors
+			ScreenPixelPlot=ScreenPixelPlotNew;
+			break;
+		default:
+			// don't touch
+			printf("should not plot at all\n");
+	}
+}
+
+
+/***********************************************************************/
 /***********************************************************************/
 
 void NoRGBScreenPixelPlot(struct Window *win,

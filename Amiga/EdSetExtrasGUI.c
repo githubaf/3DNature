@@ -76,7 +76,7 @@ void Set_ES_Window(void)
   set(ES_Win->Cycle[0], MUIA_Cycle_Active, (settings.renderopts & 0x01)); /* Render RGB */
   //set(ES_Win->Cycle[1], MUIA_Cycle_Active, 1); // (settings.renderopts & 0x10));    /* Render Screen */
   if(settings.renderopts & 0x10) {set(ES_Win->Cycle[1], MUIA_Cycle_Active, 1);}       /* Render Screen Gray Scale */
-  else if(settings.renderopts & 0x20) {set(ES_Win->Cycle[1], MUIA_Cycle_Active, 2);}  /* Render Screen Colored */
+  if(settings.renderopts & 0x20) {set(ES_Win->Cycle[1], MUIA_Cycle_Active, 2);}       /* Render Screen Colored */
 
   set(ES_Win->Cycle[2], MUIA_Cycle_Active, (settings.renderopts & 0x100)); /* Render Data */
   set(ES_Win->Cycle[3], MUIA_Cycle_Active, settings.worldmap); /* Global Gradients */

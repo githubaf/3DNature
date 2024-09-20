@@ -117,7 +117,7 @@ short makesky(short renderseg, struct Window *win)
 	return 0;
 }
 
-void ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+void ScreenPixelPlotClassic(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
 {
 	if(printMessages)
 	{
@@ -1866,6 +1866,8 @@ int rmtree(const char path[])
     return 1;
 }
 // #############################################################
+
+ScreenPixelPlotFnctPtr ScreenPixelPlot=ScreenPixelPlotClassic;  // function pointer;
 
 #define WCS_TEST
 //#define  ELEV_TEST_ONLY

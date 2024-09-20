@@ -149,6 +149,8 @@ char *LocaleExtCreditText=NULL;  // here we add ExtCreditText and an optional "t
 struct Library	*P96Base=NULL;
 struct Library *CyberGfxBase=NULL;
 
+ScreenPixelPlotFnctPtr ScreenPixelPlot; // function pointer to specific ScreenPixelPlot()-function
+
 int main(void)
 {
     short ResetScrn = 0;
@@ -165,6 +167,8 @@ int main(void)
         printf((char*)GetString( MSG_WCS_PLEASESETSTACKTOUBYTES ),(unsigned long)MinStack);  // "Please set Stack to %lu Bytes!\n"
         return 20;
     }
+
+    initScreenPixelPlotFnct(); // set function pointer to original gray function for drawing into render window
 
     Locale_Open("WCS.catalog",1,1);  // Version, revision  - Simplecat Doc says: There is no need to check any result.
 
