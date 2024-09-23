@@ -2246,8 +2246,7 @@ WCS: Tryb Ekranu
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
-Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt \
-ausführen?
+Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt ausführen?
 Per ripristinare la modalità schermo, WCS dovrà essere chiuso e riaperto. Qualsiasi lavoro in corso deve essere salvato prima di invocare questo comando.\n Volete procedere ora?
 
 Om de schermmodus te resetten zal WCS moeten worden gesloten en heropend. Werk in uitvoering moet worden opgeslagen voordat deze opdracht wordt uitgevoerd.\n Wilt u nu doorgaan?
@@ -5980,12 +5979,10 @@ B³±d odczytu pliku Nadrzêdnego Objektu!\nOperacja anulowana.
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
-Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus \
-einzelnen Dateien geladen
+Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus einzelnen Dateien geladen
 
 
-Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van \
-individuele bestanden
+Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van individuele bestanden
 
 
 
@@ -6651,7 +6648,7 @@ MSG_DATAOPSGUI_TWOVALUEEQUIVALENCE
 
 
 
-
+\0334 Równowa¿no¶æ Dwóch Warto¶ci
 ;
 MSG_DATAOPSGUI_ONEVALUEEQUIVALENCE
 \0334One Value Equivalence
@@ -6662,7 +6659,7 @@ MSG_DATAOPSGUI_ONEVALUEEQUIVALENCE
 
 
 
-
+\0334 Równowa¿no¶æ Jednej Warto¶ci
 ;
 MSG_DATAOPSGUI_MAXMINSTRETCH
 \0334Max-Min Stretch
@@ -6673,7 +6670,7 @@ MSG_DATAOPSGUI_MAXMINSTRETCH
 
 
 
-
+\0344 Max-Min Rozci±gniêcie
 ;
 MSG_DATAOPSGUI_MAXOUT
 Max Out
@@ -6717,7 +6714,7 @@ MSG_DATAOPSGUI_DEMREGISTRATION
 
 
 
-
+\0334 Rejestracja DEM
 ;
 MSG_DATAOPSGUI_VALUEFORMATSAMPLING
 \0334Value Format & Sampling
@@ -6728,7 +6725,7 @@ MSG_DATAOPSGUI_VALUEFORMATSAMPLING
 
 
 
-
+\0334 Format Warto¶ci i Sampli
 ;
 MSG_DATAOPSGUI_VALUEFORMATCOLORED
 \0334Value Format
@@ -6739,7 +6736,7 @@ MSG_DATAOPSGUI_VALUEFORMATCOLORED
 
 
 
-
+\0334 Format Warto¶ci
 ;
 MSG_DATAOPSGUI_PREPROCESS
 \0334Pre-Process
@@ -6761,7 +6758,7 @@ DEM Converter
 
 
 
-
+DEM Konwerter
 ;
 MSG_DATAOPSGUI_INPUTFORMAT
  Input Format
@@ -6772,7 +6769,7 @@ Invoer formaat
 
 
 
-
+Format Wej¶ciowy
 ;
 MSG_DATAOPSGUI_INPUTFILESIZE
 Input File Size
@@ -6783,7 +6780,7 @@ Invoerbestandsgrootte
 
 
 
-
+Rozmiar Pliku Wej¶ciowego
 ;
 MSG_DATAOPSGUI_HEADERBYTES
 Header Bytes
@@ -6805,7 +6802,7 @@ Waardeformaat
 
 
 
-
+Format Warto¶ci
 ;
 MSG_DATAOPSGUI_VALUEBYTES
  Value Bytes
@@ -6827,7 +6824,7 @@ Bytevolgorde
 
 
 
-
+Kolejno¶æ Bajtów
 ;
 MSG_DATAOPSGUI_READORDER
   Read Order
@@ -6893,7 +6890,7 @@ Vervangen
 
 
 
-
+Wymieñ
 ;
 ; DEM COnverter: Replace value1 "by" value2 
 MSG_DATAOPSGUI_BY
@@ -6916,7 +6913,7 @@ Links bijsnijden
 
 
 
-
+Przytnij z Lewej
 ;
 MSG_DATAOPSGUI_RIGHT
     Right
@@ -6927,7 +6924,7 @@ Rechts
 
 
 
-
+   Prawa
 ;
 MSG_DATAOPSGUI_CROPTOP
  Crop Top
@@ -6938,7 +6935,7 @@ Boven bijsnijden
 
 
 
-
+ Przytynij u góry
 ;
 MSG_DATAOPSGUI_BOTTOM
    Bottom
@@ -6949,7 +6946,7 @@ Onder
 
 
 
-
+  Dó³
 ;
 MSG_DATAOPSGUI_INPUTCOLS
 Input Cols
@@ -6960,7 +6957,7 @@ Invoer kolommen
 
 
 
-
+Kolumny Wej¶ciowe
 ;
 MSG_DATAOPSGUI_INPUTROWS
 Input Rows
@@ -6971,7 +6968,7 @@ Invoerrijen
 
 
 
-
+Wiersze Wej¶ciowe
 ;
 MSG_DATAOPSGUI_WRAPLONGITUDE
 Wrap Longitude
@@ -6982,7 +6979,7 @@ Lengtegraad omslaan
 
 
 
-
+Zawiñ D³ugo¶æ
 ;
 MSG_DATAOPSGUI_TEST
 \33cTest
@@ -7026,7 +7023,7 @@ Uitvoer formaat
 
 
 
-
+Format Wyj¶ciowy
 ;
 MSG_DATAOPSGUI_OUTDIR
 Out Dir
@@ -7037,7 +7034,7 @@ Uitvoer directory
 
 
 
-
+Katalog Wyj¶ciowy
 ;
 MSG_DATAOPSGUI_NAME
 Name
@@ -7048,7 +7045,7 @@ Naam
 
 
 
-
+Nazwa
 ;
 MSG_DATAOPSGUI_DEMSROWWISEEW
 DEMs Row-Wise E/W
@@ -7059,7 +7056,7 @@ DEMs rijgewijs O/W
 
 
 
-
+DEMy Rzêdami W/Z
 ;
 MSG_DATAOPSGUI_COLUMNWISENS
   Column-Wise N/S
@@ -7070,7 +7067,7 @@ Kolomgewijs N/Z
 
 
 
-
+  Kolumnami Pó/Po
 ;
 MSG_DATAOPSGUI_HIGHLAT
 High Lat
@@ -7147,7 +7144,7 @@ Spline beperking
 
 
 
-
+Wi±zanie Splajnów
 ;
 MSG_DATAOPSGUI_INPUT
 \0334  Input\x20\x20
@@ -7158,7 +7155,7 @@ MSG_DATAOPSGUI_INPUT
 
 
 
-
+\0334 Wej¶cie\x20\x20
 ;
 MSG_DATAOPSGUI_OUTPUT
 \0334  Output\x20
@@ -7169,7 +7166,7 @@ MSG_DATAOPSGUI_OUTPUT
 
 
 
-
+\0334 Wej¶cie\x20
 ;
 MSG_DATAOPSGUI_VALUE1
 Value 1
@@ -7180,7 +7177,7 @@ Waarde 1
 
 
 
-
+Warto¶æ 1
 ;
 MSG_DATAOPSGUI_VALUE2
 Value 2
@@ -7191,7 +7188,7 @@ Waarde 2
 
 
 
-
+Warto¶æ 2
 ;
 MSG_DATAOPSGUI_MAXOUTVAL
 Max Out Val
@@ -7202,7 +7199,7 @@ Max uitvoerwaarde
 
 
 
-
+Max War Wyj
 ;
 MSG_DATAOPSGUI_MINOUTVAL
 Min Out Val
@@ -7213,7 +7210,7 @@ Min uitvoerwaarde
 
 
 
-
+Min War Wyj
 ;
 MSG_DATAOPSGUI_CONVERT
 \33cConvert
@@ -7224,7 +7221,7 @@ MSG_DATAOPSGUI_CONVERT
 
 
 
-
+\33cKonwersja
 ;
 MSG_DATAOPSGUI_OUTPUTDIRECTORY
 Output Directory
@@ -7235,7 +7232,7 @@ Uitvoer directory
 
 
 
-
+Katalog Wyj¶ciowy
 ;
 MSG_DATAOPSGUI_FILETOCONVERT
 File to Convert
@@ -7246,7 +7243,7 @@ Bestand om te converteren
 
 
 
-
+Plik do Konwersji
 ;
 MSG_DATAOPSGUI_UNABLETOOPENFILEFORINPUT
 Unable to open file for input!\n
@@ -7257,7 +7254,7 @@ Kan bestand niet openen voor invoer!\n
 
 
 
-
+Nie mo¿na otworzyæ pliku wej¶ciowego!\n
 ;
 MSG_DATAOPSGUI_UNABLETOREADFILESIZE
 Unable to read file size!\n
@@ -7268,7 +7265,7 @@ Kan bestandsgrootte niet lezen!\n
 
 
 
-
+Nie mo¿na odczytaæ rozmiaru pliku!\n
 ;
 MSG_DATAOPSGUI_DATAOPSCONVERT
 Data Ops: Convert
@@ -7290,7 +7287,7 @@ Waarschuwing!\nBestand is geen WCS DEM bestand.
 
 
 
-
+Uwaga\nPlik nie jest typu WCS DEM.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFZBUFFERFILE
 Warning!\nFile is not an IFF Z Buffer file.
@@ -7301,7 +7298,7 @@ Waarschuwing!\nBestand is geen IFF Z Buffer bestand.
 
 
 
-
+Uwaga\nPlik nie jest typu IFF Z Bufor.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTAVISTADEMFILE
 Warning\nFile is not a Vista DEM file.
@@ -7312,7 +7309,7 @@ Waarschuwing\nBestand is geen Vista DEM bestand.
 
 
 
-
+Uwaga\nPlink nie jest typu Vista DEM.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTACOMPRESSEDVISTAFILEANDCANNOTBEIM
 Warning\nFile is not a compressed Vista file and cannot be imported.
@@ -7323,7 +7320,7 @@ Waarschuwing\nBestand is geen gecomprimeerd Vista bestand en kan niet worden geï
 
 
 
-
+Uwaga\nPlik nie jest skompresowanym plikiem typu Vista i nie mo¿e byæ zaimportowany.
 ;
 MSG_DATAOPSGUI_ISTHISASMALLLARGEORHUGEVISTAFILE
 Is this a Small, Large or Huge Vista file?
@@ -7334,7 +7331,7 @@ Is dit een klein, groot of extra groot Vista bestand?
 
 
 
-
+To jest Ma³y, Du¿y czy Wielki plik Vista?
 ;
 MSG_DATAOPSGUI_SMALLLARGEHUGE
 Small|Large|Huge
@@ -7345,7 +7342,7 @@ Klein|Groot|Extra groot
 
 
 
-
+Ma³y|Du¿y|Wielki
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFFILE
 Warning\nFile is not an IFF file.
@@ -7356,7 +7353,7 @@ Waarschuwing\nBestand is geen IFF bestand.
 
 
 
-
+Uwaga\nPlik nie jest typu IFF.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFIMAGEFILE
 Warning\nFile is not an IFF image file.
@@ -7367,7 +7364,7 @@ Waarschuwing\nBestand is geen IFF afbeelding.
 
 
 
-
+UWAGA\n Plik nie jest typu IFF.
 ;
 MSG_DATAOPSGUI_ERRORREADINGBITMAPHEADER
 Error reading bitmap header.
@@ -7378,7 +7375,7 @@ Fout bij lezen van bitmap header.
 
 
 
-
+B³±d odczytu nag³ówka bitmap.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTRECOGNIZEDASADTEDFILE
 Warning\nFile is not recognized as a DTED file.
@@ -7389,7 +7386,7 @@ Waarschuwing\nBestand wordt niet herkend als een DTED bestand.
 
 
 
-
+Uwaga\nPlik nie rozpoznany jako DTED.
 ;
 MSG_DATAOPSGUI_DATAOPSINTERPDEM
 Data Ops: Interp DEM
@@ -7422,7 +7419,7 @@ MSG_DATAOPSGUI_SELECTFILES
 
 
 
-
+\33cWybór Plików
 ;
 MSG_DATAOPSGUI_SELECTED
  Selected
@@ -7433,7 +7430,7 @@ Geselecteerd
 
 
 
-
+Wybrane
 ;
 MSG_DATAOPSGUI_ELEVATIONVAR
 Elevation Var %
@@ -7444,7 +7441,7 @@ Hoogte Var %
 
 
 
-
+War Uniesienia %
 ;
 MSG_DATAOPSGUI_MAXFLATVAR
    Max Flat Var
@@ -7455,7 +7452,7 @@ Max Vlak Var
 
 
 
-
+  Maks P³as War
 ;
 MSG_DATAOPSGUI_INTERPOLATE
 \33cInterpolate
@@ -7488,7 +7485,7 @@ Omgevingslicht
 
 
 
-
+Otoczenie
 ;
 MSG_DEFPARM_SUN
 Sun
@@ -7499,7 +7496,7 @@ Zon
 
 
 
-
+S³oñce
 ;
 MSG_DEFPARM_HAZE
 Haze
@@ -7510,7 +7507,7 @@ Nevel
 
 
 
-
+Mg³a
 ;
 MSG_DEFPARM_HORIZON
 Horizon
@@ -7521,7 +7518,7 @@ Horizon
 
 
 
-
+Horyzont
 ;
 MSG_DEFPARM_ZENITH
 Zenith
@@ -7532,7 +7529,7 @@ Zenit
 
 
 
-
+Zenit
 ;
 MSG_DEFPARM_SURFACEGRID
 Surface Grid
@@ -7543,7 +7540,7 @@ Oppervlak raster
 
 
 
-
+Siatka Powierzchni
 ;
 MSG_DEFPARM_SURFACE1
 Surface 1
@@ -7554,7 +7551,7 @@ Oppervlak 1
 
 
 
-
+Powierzchnia 1
 ;
 MSG_DEFPARM_SURFACE2
 Surface 2
@@ -7565,7 +7562,7 @@ Oppervlak 2
 
 
 
-
+Powierzchnia 2
 ;
 MSG_DEFPARM_SURFACE3
 Surface 3
@@ -7576,7 +7573,7 @@ Oppervlak 3
 
 
 
-
+Powierzchnia 3
 ;
 MSG_DEFPARM_SURFACE4
 Surface 4
@@ -7587,7 +7584,7 @@ Oppervlak 4
 
 
 
-
+Powierzchnia 4
 ;
 MSG_DEFPARM_WATER
 Water
@@ -7598,7 +7595,7 @@ Water
 
 
 
-
+Woda
 ;
 MSG_DEFPARM_SNOW
 Snow
@@ -7609,7 +7606,7 @@ Sneeuw
 
 
 
-
+¦nieg
 ;
 MSG_DEFPARM_TUNDRA
 Tundra
@@ -7631,7 +7628,7 @@ Moeras
 
 
 
-
+Mokrad³o
 ;
 MSG_DEFPARM_GRASS
 Grass
@@ -7642,7 +7639,7 @@ Gras
 
 
 
-
+Trawa
 ;
 MSG_DEFPARM_DECIDUOUS
 Deciduous
@@ -7653,7 +7650,7 @@ Loofbomen
 
 
 
-
+Li¶ciasty
 ;
 MSG_DEFPARM_CONIFER
 Conifer
@@ -7664,7 +7661,7 @@ Pijnbomen
 
 
 
-
+Drzewostan
 ;
 MSG_DEFPARM_GRANITE
 Granite
@@ -7675,7 +7672,7 @@ Graniet
 
 
 
-
+Granit
 ;
 MSG_DEFPARM_GROUND
 Ground
@@ -7686,7 +7683,7 @@ Bodem
 
 
 
-
+Grunt
 ;
 MSG_DEFPARM_RIPARIAN
 Riparian
@@ -7697,7 +7694,7 @@ Oever
 
 
 
-
+Nabrze¿e
 ;
 MSG_DEFPARM_ROCK
 Rock
@@ -7708,7 +7705,7 @@ Rots
 
 
 
-
+Ska³a
 ;
 MSG_DEFPARM_BAREGROUND
 Bare Ground
@@ -7719,7 +7716,7 @@ Kale bodem
 
 
 
-
+Puste Pole
 ;
 MSG_DEFPARM_PARAMETERSMODULEDEFAULTS
 Parameters Module: Defaults
@@ -7730,7 +7727,7 @@ Parameter Module: Standaardinstellingen
 
 
 
-
+Parametry Modu³u: Domy¶lne
 ;
 MSG_DEFPARM_PLEASEENABLEATLEASTONETOPODEMANDTRYAGAIN
 Please enable at least one topo DEM and try again.
@@ -7741,7 +7738,7 @@ Schakel minstens één topo DEM in en probeer het opnieuw.
 
 
 
-
+Proszê aktywowaæ przynajmniej jeden topograficzny DEM i spróbowaæ ponownie.
 ;
 MSG_DEFPARM_PLEASECLOSEALLTIMELINESWINDOWSANDTRYAGAIN
 Please close all Time Lines windows and try again.
@@ -10801,8 +10798,7 @@ Error writing to Parameter file!\nThe output file has been modified and may no l
 
 
 
-Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla \
-opnieuw op.
+Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla opnieuw op.
 
 
 
@@ -15572,12 +15568,10 @@ Fout bij opslaan van de LW-scene.\nAls een bestand is gemaakt, is het niet compl
 ;
 MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA
 The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created.
-Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt \
-dargestellt.
+Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt dargestellt.
 
 
-De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte \
-scènebestand.
+De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte scènebestand.
 
 
 
@@ -18596,8 +18590,7 @@ At least one end control point for the line segment just drawn could not be foun
 
 
 
-Minstens één eindcontrolepunt voor het zojuist getekende lijnsegment kon niet worden gevonden!\nWilt u de huidige en minimale schuifregelaarhoogten voor dit segment gebruiken of de bewerking \
-annuleren?
+Minstens één eindcontrolepunt voor het zojuist getekende lijnsegment kon niet worden gevonden!\nWilt u de huidige en minimale schuifregelaarhoogten voor dit segment gebruiken of de bewerking annuleren?
 
 
 
@@ -23235,8 +23228,7 @@ Kaarweergave: Raster DEM
 ;
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOLA
 The ratio of vertical to horizontal map dimensions is too large for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
-Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu groß für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne \
-Gradientenschätzung fortfahren?
+Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu groß für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne Gradientenschätzung fortfahren?
 
 
 De verhouding van verticale tot horizontale kaartdimensies is te groot voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
@@ -23247,8 +23239,7 @@ De verhouding van verticale tot horizontale kaartdimensies is te groot voor grad
 ;
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM
 The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
-Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu klein für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne \
-Gradientenschätzung fortfahren?
+Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu klein für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne Gradientenschätzung fortfahren?
 
 
 De verhouding van verticale tot horizontale kaartdimensies is te klein voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
@@ -23258,14 +23249,11 @@ De verhouding van verticale tot horizontale kaartdimensies is te klein voor grad
 
 ;
 MSG_NNCRUNCH_THERATIOOFWIDTHTOLENGTHOFTHISGRIDDEDREGIONMAYBETOO
-The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now \
-with the present dimensions?
-Das Verhältnis von Breite zu Länge dieses Gitternetzbereichs könnte zu extrem für eine gute Interpolation sein.\nEs könnte eine gute Idee sein, die Blockproportionen zu ändern oder die x- oder \
-y-Koordinate neu zu skalieren.\nMöchten Sie jetzt mit den aktuellen Abmessungen fortfahren?
+The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now with the present dimensions?
+Das Verhältnis von Breite zu Länge dieses Gitternetzbereichs könnte zu extrem für eine gute Interpolation sein.\nEs könnte eine gute Idee sein, die Blockproportionen zu ändern oder die x- oder y-Koordinate neu zu skalieren.\nMöchten Sie jetzt mit den aktuellen Abmessungen fortfahren?
 
 
-De verhouding van breedte tot lengte van dit gerasterde gebied kan te extreem zijn voor goede interpolatie.\nHet veranderen van de blokverhoudingen, of het herschalen van de x- of y-coördinaat kan een \
-goed idee zijn.\nWilt u nu doorgaan met de huidige afmetingen?
+De verhouding van breedte tot lengte van dit gerasterde gebied kan te extreem zijn voor goede interpolatie.\nHet veranderen van de blokverhoudingen, of het herschalen van de x- of y-coördinaat kan een goed idee zijn.\nWilt u nu doorgaan met de huidige afmetingen?
 
 
 
