@@ -121,6 +121,15 @@ Version 2.031 (Emerald-Caesar)
                  Dutch catalog (leof)
         *BugFix: Fixed incorrect alignement of "Exag" im MapGUI window .
                  (This bug existed already in last original version 2.04)
+        *Feature:Colored Render Window
+                 You can select additionally "Colored" in Render Settings.
+                 This will bring full color render preview on P96 and
+                 CybergraphiX GFX Boards in 15/16/24 Screen Modes,
+                 ditherred color display on native Amiga Screens and
+                 better dithered color display on 8Bit GFX-Borad screens.
+                 Emulator-Users: Match emulated Amiga-Resolution to displayed
+                 resolution for dithered color display, otherwize disturbing
+                 scaling artifacts could appear!
 
 
 Deutsch

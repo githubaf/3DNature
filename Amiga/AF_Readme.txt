@@ -3855,7 +3855,12 @@ path=sc:c,L:
 [icon.library]
 mode=fake
 
-20-Sep-2024
+20-Sep.2024
 -----------
 Funktionszeiger fuer ScreenPixelPlot eingefueht. Ich will nicht bei jedem Pixel viele Bedingungen testen. (RTG, COlor, 8 Bit)
 - Dither und mehrere neue ScreenPixelPlot-Funktionen fehler noch. Grau und RTG 15/16/24 Bit geht und laesst sich umschalten.
+
+23.Sep.2024
+-----------
+Rendering in Color-Dither-Mode:
+Achtung WinUAE User: Das Display sollte nicht auf scale geschaltet sein sondern die Aufloesung sollte dem gewaehlten Native Mode entsprechen! Sonst gibt es stoerende Sclaing-Artefakte. (WinUAE Anzeige-"Problem")

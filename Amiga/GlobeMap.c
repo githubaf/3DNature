@@ -157,11 +157,14 @@ void globemap(void)
    goto Cleanup2;
    }
 
-  printf("Alexander: %s %s() Line %d render=0x%02x\n",render,__FILE__,__func__,__LINE__);  // Test auf none/gray/color
-  setScreenPixelPlotFnct(settings);  // set ScreenPixelPlot function pointer to old function, new color-dithered function or RTG function
+  //LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
+  //SetRast(RenderWind0->RPort, 8);
 
-  LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
-  SetRast(RenderWind0->RPort, 8);
+  printf("Alexander: %s %s() Line %d render=0x%02x\n",__FILE__,__func__,__LINE__);  // Test auf none/gray/color
+  setScreenPixelPlotFnct(settings);  // AF: 23.Sep.24 set ScreenPixelPlot function pointer to old function, new color-dithered function or RTG function
+                                     // also sets Palette according to gray or color-dither mode
+                                     // also clears screen to white with SetRast() according to gray or color/dither mode
+
   ModifyIDCMP(RenderWind0, IDCMP_CLOSEWINDOW | IDCMP_ACTIVEWINDOW | IDCMP_MOUSEBUTTONS);
   RenderWind0_Sig = 1L << RenderWind0->UserPort->mp_SigBit;
   WCS_Signals |= RenderWind0_Sig;

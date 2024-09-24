@@ -39,6 +39,37 @@ int BAYER_PATTERN_16X16[16][16] =   {   //  16x16 Bayer Dithering Matrix.  Color
 		{   169, 106, 153,  90, 165, 102, 149,  86, 168, 105, 152,  89, 164, 101, 148,  85  }
 };
 
+USHORT AltDither8Colors[16]
+={
+#ifndef DAVE_WARNER
+ 0x89b,	/* 0, gray-blue */
+ 0x000,	/* 1, black */
+ 0xddd,	/* 2, almost white */
+#else /* DAVE_WARNER */
+ 0x000,	/* 0, gray-blue, now black */
+ 0xfff,	/* 1, black, now white */
+ 0xbbb,	/* 2, almost white, now greyish */
+#endif /* DAVE_WARNER */
+ 0xb10, /* 3, red */
+ 0x348,	/* 4, dark blue */
+ 0x392,	/* 5, green */
+ 0x37c,	/* 6, med blue */
+ 0xdd2,	/* 7, yellow */
+ 0xfff,	/* 8-15, 3 BPpP Dither colors */  //     Red+Blue+Green
+ 0xff0, //    Red+Green
+ 0xf0f, //    Red+Blue
+ 0xf00, //    Red
+ 0x0ff, //    Blue+Green
+ 0x0f0, //    Green
+ 0x00f, //    Blue
+ 0x000  //    Black
+ };
+
+// Fuellen mit AltColors[16], dann 128-155 mit 7Bit Dithercolors fuellen
+USHORT AltDither128Colors[256];
+
+
+
 //  Color ordered dither using 3 bits per pixel (1 bit per color plane)
 //void makeDitherBayerRgb3bpp( unsigned char* pixels, int width, int height )
 //{
@@ -79,25 +110,26 @@ unsigned char makeDitherBayerRgb1bpp( unsigned char pixel, int x, int y )
 #include <intuition/intuition.h>
 void BayerDither8ColorsScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
 {
-	static int Init=TRUE;
+//	static int Init=TRUE;
 	unsigned char PixelComponenR;
 	unsigned char PixelComponenG;
 	unsigned char PixelComponenB;
     short Col;
 
-	if(Init==TRUE)
-	{
-        int x=0,y=0;
-		Init=FALSE;
-        for(y=0;y<16;y++)
-        {
-                for(x=0;x<16;x++)
-                {
-                //      BAYER_PATTERN_16X16[x][y]=(BAYER_PATTERN_16X16[x][y]/255.0*BAYER_PATTERN_16X16[x][y]/255.0)*255;
-                BAYER_PATTERN_16X16[x][y]=pow(BAYER_PATTERN_16X16[x][y]/255.0,0.5)*255;
-                }
-        }
-	}
+// Experiment Gamma Correction
+//	if(Init==TRUE)
+//	{
+//        int x=0,y=0;
+//		Init=FALSE;
+//        for(y=0;y<16;y++)
+//        {
+//                for(x=0;x<16;x++)
+//                {
+//                //      BAYER_PATTERN_16X16[x][y]=(BAYER_PATTERN_16X16[x][y]/255.0*BAYER_PATTERN_16X16[x][y]/255.0)*255;
+//                BAYER_PATTERN_16X16[x][y]=pow(BAYER_PATTERN_16X16[x][y]/255.0,0.5)*255;
+//                }
+//        }
+//	}
 
 	PixelComponenR=makeDitherBayerRgb1bpp(Bitmap[0][zip],x,y);
 	PixelComponenG=makeDitherBayerRgb1bpp(Bitmap[1][zip],x,y);
@@ -110,7 +142,7 @@ void BayerDither8ColorsScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 		 ((PixelComponenB == 255) ? 1:0);
 
 
-	Col=Col+8; // Pens 8...15 are for render window
+	Col=15-Col; // Pens 8...15 are for render window
 
 	SetAPen(win->RPort, Col);
 	WritePixel(win->RPort, x, y);
@@ -121,13 +153,6 @@ void ScreenPixelPlotClassic(struct Window *win, UBYTE **Bitmap, short x, short y
 short Col;
 double FloatCol;
 
-#ifdef AF_COLOR_TEST
-if(1)  // Use Color ordered Bayer Dithering for Render Window?
-{
-	BayerDither8ColorsScreenPixelPlot(win, Bitmap, x, y, zip);
-	return;
-}
-#endif
  FloatCol = 8.0 + 7.999 * (765 - Bitmap[0][zip] - Bitmap[1][zip] - Bitmap[2][zip]) / 765.0;
  Col = FloatCol + ROUNDING_KLUDGE;
  if ((x + y) & 0x01)
@@ -144,52 +169,52 @@ if(1)  // Use Color ordered Bayer Dithering for Render Window?
 } /* PixelPlot */
 
 // RGB-Test
-void ScreenPixelPlotNew(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
-{
-#ifndef __AROS__
-	if(P96Base)
-	{
-		if(p96GetBitMapAttr(win->RPort->BitMap, P96BMA_ISP96))
-		{
-			if(p96GetBitMapAttr(win->RPort->BitMap, P96BMA_BITSPERPIXEL)>=15)
-			{
-				p96WritePixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
-			}
-			else
-			{
-				ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
-			}
-		}
-		else
-		{
-			ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
-		}
-	}
-	else
-#endif
-	if(CyberGfxBase)
-	{
-		if(GetCyberMapAttr(win->RPort->BitMap,CYBRMATTR_ISCYBERGFX))
-		{
-			if(GetCyberMapAttr(win->RPort->BitMap, CYBRMATTR_DEPTH)>=15)
-			{
-				WriteRGBPixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
-			}
-			else
-			{
-				ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
-			}
-		}
-		else
-		{
-			ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
-		}
-	}
-	else
-	{
-		ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
-	}
-}
+//void ScreenPixelPlotNew(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+//{
+//#ifndef __AROS__
+//	if(P96Base)
+//	{
+//		if(p96GetBitMapAttr(win->RPort->BitMap, P96BMA_ISP96))
+//		{
+//			if(p96GetBitMapAttr(win->RPort->BitMap, P96BMA_BITSPERPIXEL)>=15)
+//			{
+//				p96WritePixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
+//			}
+//			else
+//			{
+//				ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
+//			}
+//		}
+//		else
+//		{
+//			ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
+//		}
+//	}
+//	else
+//#endif
+//	if(CyberGfxBase)
+//	{
+//		if(GetCyberMapAttr(win->RPort->BitMap,CYBRMATTR_ISCYBERGFX))
+//		{
+//			if(GetCyberMapAttr(win->RPort->BitMap, CYBRMATTR_DEPTH)>=15)
+//			{
+//				WriteRGBPixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
+//			}
+//			else
+//			{
+//				ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
+//			}
+//		}
+//		else
+//		{
+//			ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
+//		}
+//	}
+//	else
+//	{
+//		ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
+//	}
+//}
 
 /***********************************************************************/
 void getGfxInformation(void)
@@ -256,6 +281,8 @@ void setScreenPixelPlotFnct(struct Settings settings)
 		case 0x10:  // render Screen, gray
 			printf("should plot gray scaled\n");
 			ScreenPixelPlot=ScreenPixelPlotClassic;
+			LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
+			SetRast(RenderWind0->RPort, 8); // 8=white
 			break;
 		case 0x20:   // render Screen, color
 		case 0x30:   // render screen gray + color
@@ -284,13 +311,16 @@ void setScreenPixelPlotFnct(struct Settings settings)
 				  {
 					  printf("ScreenPixelPlotP96 full color\n");
 					  ScreenPixelPlot=ScreenPixelPlotP96;
+					  LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
+    				  SetRast(RenderWind0->RPort, 8); // 8=white
 				  }
 			  }
     		  else
     		  {
 				  printf("ScreenPixelPlotDither8\n");
-				  // Palette noch setzen!
 				  ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
+				  LoadRGB4(&WCSScrn->ViewPort, &AltDither8Colors[0], 16);
+				  SetRast(RenderWind0->RPort, 8); // 8=white
     		  }
     	  }
     	  else
@@ -316,6 +346,8 @@ void setScreenPixelPlotFnct(struct Settings settings)
     				  {
     					  printf("ScreenPixelPlotCgfx full color\n");
     					  ScreenPixelPlot=ScreenPixelPlotCGFX;
+    					  LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
+        				  SetRast(RenderWind0->RPort, 8);
     				  }
     			  }
         		  else
@@ -323,6 +355,8 @@ void setScreenPixelPlotFnct(struct Settings settings)
     				  printf("ScreenPixelPlotDither8\n");
     				  // Palette noch setzen!
     				  ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
+    				  LoadRGB4(&WCSScrn->ViewPort, &AltDither8Colors[0], 16);
+    				  SetRast(RenderWind0->RPort, 8); // 8color dithered -> 8=white
         		  }
     		  }
     		  else // no RTG system installed
@@ -337,6 +371,8 @@ void setScreenPixelPlotFnct(struct Settings settings)
     			  {
     				  printf("ScreenPixelPlotDither8\n");
     				  ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
+    				  LoadRGB4(&WCSScrn->ViewPort, &AltDither8Colors[0], 16);
+    				  SetRast(RenderWind0->RPort, 8); // 8color dithered -> 8=white
     			  }
     		  }
 			break;
