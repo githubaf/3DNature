@@ -111,8 +111,10 @@ struct WCSScreenMode *ModeList_Choose(struct WCSScreenMode *This,
 {
 static const char *Cycle_OSCAN[6];
 
+static const char *Cycle_Colors[11];
+
 struct WCSScreenMode *Scan, *Selected;
-APTR ModeSelWin, SM_Save, SM_Use, SM_Exit, SM_Width, SM_Height, SM_List, SM_Text, SM_OSCAN;
+APTR ModeSelWin, SM_Save, SM_Use, SM_Exit, SM_Width, SM_Height, SM_List, SM_Text, SM_OSCAN, SM_COLORS;
 ULONG Signalz, Finished, ReturnID;
 int CheckVal, Update;
 char *ModeText, ModeInfo[255];
@@ -123,6 +125,20 @@ Cycle_OSCAN[2]= (const char*)GetString( MSG_SCNRMODGUI_STANDARD );
 Cycle_OSCAN[3]= (const char*)GetString( MSG_SCNRMODGUI_MAX );
 Cycle_OSCAN[4]= (const char*)GetString( MSG_SCNRMODGUI_VIDEO );
 Cycle_OSCAN[5]=NULL;
+
+Cycle_Colors[ 0]="   2";   // not allowed by WCS
+Cycle_Colors[ 1]="   4";   // not allowed by WCS
+Cycle_Colors[ 2]="   8";   // not allowed by WCS
+Cycle_Colors[ 3]="  16";  // default
+Cycle_Colors[ 4]="  32";
+Cycle_Colors[ 5]="  64";
+Cycle_Colors[ 6]=" 128";
+Cycle_Colors[ 7]=" 256";
+Cycle_Colors[ 8]=" 32k"; // RTG
+Cycle_Colors[ 9]=" 64k"; // RTG
+Cycle_Colors[10]=" 16M"; // RTG
+
+
 
 ModeSelWin = WindowObject,
  MUIA_Window_Title,  GetString( MSG_SCNRMODGUI_WORLDCONSTRUCTIONSETSCREENMODE ) ,
@@ -143,7 +159,14 @@ ModeSelWin = WindowObject,
     Child, SM_Text = FloattextObject, ReadListFrame,
      MUIA_Floattext_Text,  GetString( MSG_SCNRMODGUI_MODEESUTOCANNATTRIBUTESN ) , End,
     End,
-   Child, HGroup,
+
+	/////////////  AF: We need numbers of colors
+//   Child, HGroup,
+//    Child, Label2( "Farben: " /*GetString( MSG_SCNRMODGUI_OVERSCAN )*/ ),
+//    Child, SM_COLORS = CycleObject, MUIA_Cycle_Entries, Cycle_Colors, End,
+//	End,
+//   	/////////////
+	Child, HGroup,
     Child, Label2( GetString( MSG_SCNRMODGUI_OVERSCAN ) ),
     Child, SM_OSCAN = CycleObject, MUIA_Cycle_Entries, Cycle_OSCAN, End,
     End,
