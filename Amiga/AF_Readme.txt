@@ -3864,3 +3864,8 @@ Funktionszeiger fuer ScreenPixelPlot eingefueht. Ich will nicht bei jedem Pixel 
 -----------
 Rendering in Color-Dither-Mode:
 Achtung WinUAE User: Das Display sollte nicht auf scale geschaltet sein sondern die Aufloesung sollte dem gewaehlten Native Mode entsprechen! Sonst gibt es stoerende Sclaing-Artefakte. (WinUAE Anzeige-"Problem")
+
+25.Sep.2024
+-----------
+Problem der 8Bit-RTG Screens beim Dithererd-Color Render wWindow ist, dass der WCS-Screen immer mit Depth=4 geoeffnet wird.
+- Ich muss den ScreenModerequester aendern, so dass er eine Auswahl der Farbanzahl/Bitanzahl zulaesst und diese dann bei OpenScreen() benutzt.

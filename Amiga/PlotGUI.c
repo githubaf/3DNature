@@ -93,7 +93,7 @@ USHORT AltDither128Colors[256];
 //    }
 //}
 
-unsigned char makeDitherBayerRgb1bpp( unsigned char pixel, int x, int y )
+unsigned char makeDitherBayerRgb1BitPerPlane( unsigned char pixel, int x, int y )
 {
     int col = 0;
     int row = 0;
@@ -131,9 +131,9 @@ void BayerDither8ColorsScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 //        }
 //	}
 
-	PixelComponenR=makeDitherBayerRgb1bpp(Bitmap[0][zip],x,y);
-	PixelComponenG=makeDitherBayerRgb1bpp(Bitmap[1][zip],x,y);
-	PixelComponenB=makeDitherBayerRgb1bpp(Bitmap[2][zip],x,y);
+	PixelComponenR=makeDitherBayerRgb1BitPerPlane(Bitmap[0][zip],x,y);
+	PixelComponenG=makeDitherBayerRgb1BitPerPlane(Bitmap[1][zip],x,y);
+	PixelComponenB=makeDitherBayerRgb1BitPerPlane(Bitmap[2][zip],x,y);
 
 	// We have 8 RGB-Colors. Each RGs is either 255 or 0 after Bayer-Mapping. Convert that value to pen-Number 8...15
 	// 123 321 132 213 231 312
@@ -146,6 +146,94 @@ void BayerDither8ColorsScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 
 	SetAPen(win->RPort, Col);
 	WritePixel(win->RPort, x, y);
+}
+
+
+#ifndef MIN
+#define MIN(a,b)            (((a) < (b)) ? (a) : (b))
+#endif
+
+#ifndef MAX
+#define MAX(a,b)            (((a) > (b)) ? (a) : (b))
+#endif
+
+#ifndef CLAMP
+//  This produces faster code without jumps
+#define     CLAMP( x, xmin, xmax )      (x) = MAX( (xmin), (x) );   \
+                                        (x) = MIN( (xmax), (x) )
+#define     CLAMPED( x, xmin, xmax )    MAX( (xmin), MIN( (xmax), (x) ) )
+#endif
+
+unsigned char makeDitherBayerRgbnBitsPerPlane( unsigned char pixel, int x, int y, int BitsPerPlane )
+{
+    int row = 0;
+    //unsigned char NewValue;
+
+    const int   col = x & 15;   //  x % 16
+
+    const int   t       = BAYER_PATTERN_16X16[col][row];
+    const int   corr    = (t / BitsPerPlane);
+
+    int ncolors = (1 << BitsPerPlane) -1;
+    int divider = 256 / ncolors;
+
+    int i1  = (pixel   + corr) / divider; CLAMP( i1, 0, ncolors );
+
+    //  If you want to compress the image, use the values of i1,i2,i3
+    //  they have values in the range 0..ncolors
+    //  So if the ncolors is 4 - you have values: 0,1,2,3 which is encoded in 2 bits
+    //  2 bits for 3 planes == 6 bits per pixel
+
+    return i1;
+    //NewValue   = CLAMPED( i1 * divider, 0, 255 );  //  red
+
+    //return NewValue;
+}
+
+void BayerDither128ColorsScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+{
+//	static int Init=TRUE;
+	unsigned char PixelComponentR;
+	unsigned char PixelComponentG;
+	unsigned char PixelComponentB;
+    unsigned char Col;
+
+	PixelComponentR=makeDitherBayerRgbnBitsPerPlane(Bitmap[0][zip],x,y,2);  // 2 Bit Red
+	PixelComponentG=makeDitherBayerRgbnBitsPerPlane(Bitmap[1][zip],x,y,3);  // 3 Bit Green
+	PixelComponentB=makeDitherBayerRgbnBitsPerPlane(Bitmap[2][zip],x,y,2);  // 2 Bit Blue
+
+	// We have 128 RGB-Colors. Convert that value to pen-Number 128...255
+	Col= (PixelComponentR << 5)+    // 2 Bit
+	     (PixelComponentG << 2)+    // 3 Bit
+		  PixelComponentB;          // 2 Bit
+
+
+	Col=128+Col; // Pens 0...15 are used by the original program, 15...127 are left free
+
+	//SetAPen(win->RPort, Col);
+	//UBYTE Pixel=128;
+	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
+	//WriteChunkyPixels(win->RPort, x, y,x,y,&Pixel,4);  // Only one pixel, so BytesPerRow is irrelevant
+}
+
+// fills 256 entries color table with 16 original WCS colors 0-15 and 128 Dither colors 128-255 format "232"
+void fill256ColorsPalette(USHORT *ColorTable256, USHORT *ColorTable16)
+{
+	unsigned int i;
+	unsigned int r,g,b;
+	unsigned char ColorComponent2Bit[]={0,5,10,15};  // n x 15/3,  4 Values == 3 segements
+	unsigned char ColorComponent3Bit[]={0,2,4,6,8,10,12,15};  // n x 15/7,  8 Values == 7 segements
+
+	memcpy(ColorTable256,ColorTable16,16*sizeof(USHORT));  // 16 entries a 2 bytes
+	i=128;
+	for (r=0;r<4;r++)
+		for(g=0;g<8;g++)
+			for(b=0;b<4;b++)
+			{
+				// 4 bit Color entries
+				ColorTable256[i]=(ColorComponent2Bit[r]<<8)+(ColorComponent3Bit[g]<<4)+ColorComponent2Bit[b];
+				i++;
+			}
 }
 
 void ScreenPixelPlotClassic(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
@@ -276,6 +364,9 @@ void setScreenPixelPlotFnct(struct Settings settings)
 {
 	printf("Alexander: %s %s()called\n",__FILE__,__func__);
 	printf("settings.renderopts=%04x",settings.renderopts);
+
+	fill256ColorsPalette(AltDither128Colors, AltColors);  // prepare Color Table  for 8Bit-Screens
+
 	switch(settings.renderopts & 0x30)
 	{
 		case 0x10:  // render Screen, gray
@@ -302,10 +393,12 @@ void setScreenPixelPlotFnct(struct Settings settings)
     			  BytesPerPixel=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BYTESPERPIXEL);
     			  printf("Screen has %d Bytes per Pixel\n",BytesPerPixel);
 
-				  if(BitsPerPixel<=8)  // 8-Bit CyberGraphX screen
+				  if(BitsPerPixel<=8)  // 8-Bit P96 screen
 				  {
 					  printf("ScreenPixelPlotP96Dither256\n");
-					  //ScreenPixelPlot=ScreenPixelPlotP96Dither256;
+					  ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
+					  LoadRGB4(&WCSScrn->ViewPort, &AltDither128Colors[0], 256);
+					  SetRast(RenderWind0->RPort, 8); // 8=white
 				  }
 				  else            // true or high color CyberGraphX screen
 				  {
@@ -337,10 +430,12 @@ void setScreenPixelPlotFnct(struct Settings settings)
     				  BytesPerPixel=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_BPPIX);
     				  printf("Screen has %d Bytes per Pixel\n",BytesPerPixel);
 
-    				  if(BitsPerPixel==8)  // 8-Bit CyberGraphX screen
+    				  if(BitsPerPixel<=8)  // 8-Bit CyberGraphX screen
     				  {
     					  printf("ScreenPixelPlotCgfxDither256\n");
-    					  //ScreenPixelPlot=ScreenPixelPlotCgfxDither256;
+    					  ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
+    					  LoadRGB4(&WCSScrn->ViewPort, &AltDither128Colors[0], 256);
+    					  SetRast(RenderWind0->RPort, 8); // 8=white
     				  }
     				  else            // true or high color CyberGraphX screen
     				  {
@@ -365,7 +460,9 @@ void setScreenPixelPlotFnct(struct Settings settings)
     			  if (WCSScrn->RastPort.BitMap->Depth==8)  // 256 colors
     			  {
     				  printf("ScreenPixelPlotDither128\n");
-    				  //ScreenPixelPlot=ScreenPixelPlotDither128;  //dither 322 (128 colors in upper half of 256 color table)
+    				  ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;  //dither 322 (128 colors in upper half of 256 color table)
+					  LoadRGB4(&WCSScrn->ViewPort, &AltDither128Colors[0], 256);
+					  SetRast(RenderWind0->RPort, 8); // 8=white
     			  }
     			  else
     			  {
