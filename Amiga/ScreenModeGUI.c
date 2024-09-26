@@ -111,10 +111,10 @@ struct WCSScreenMode *ModeList_Choose(struct WCSScreenMode *This,
 {
 static const char *Cycle_OSCAN[6];
 
-static const char *Cycle_Colors[11];
+static const char *Cycle_Colors[9];
 
 struct WCSScreenMode *Scan, *Selected;
-APTR ModeSelWin, SM_Save, SM_Use, SM_Exit, SM_Width, SM_Height, SM_List, SM_Text, SM_OSCAN, SM_COLORS;
+APTR ModeSelWin, SM_Save, SM_Use, SM_Exit, SM_Width, SM_Height, SM_List, SM_Text, SM_OSCAN, SM_COLORS,SM_COLORS_TEXT;
 ULONG Signalz, Finished, ReturnID;
 int CheckVal, Update;
 char *ModeText, ModeInfo[255];
@@ -126,17 +126,16 @@ Cycle_OSCAN[3]= (const char*)GetString( MSG_SCNRMODGUI_MAX );
 Cycle_OSCAN[4]= (const char*)GetString( MSG_SCNRMODGUI_VIDEO );
 Cycle_OSCAN[5]=NULL;
 
-Cycle_Colors[ 0]="   2";   // not allowed by WCS
-Cycle_Colors[ 1]="   4";   // not allowed by WCS
-Cycle_Colors[ 2]="   8";   // not allowed by WCS
-Cycle_Colors[ 3]="  16";  // default
-Cycle_Colors[ 4]="  32";
-Cycle_Colors[ 5]="  64";
-Cycle_Colors[ 6]=" 128";
-Cycle_Colors[ 7]=" 256";
-Cycle_Colors[ 8]=" 32k"; // RTG
-Cycle_Colors[ 9]=" 64k"; // RTG
-Cycle_Colors[10]=" 16M"; // RTG
+Cycle_Colors[ 0]= "  16";  // default
+Cycle_Colors[ 1]= "  32";
+Cycle_Colors[ 2]= "  64";
+Cycle_Colors[ 3]= " 128";
+Cycle_Colors[ 4]= " 256";
+Cycle_Colors[ 5]= " 32k"; // RTG
+Cycle_Colors[ 6]= " 64k"; // RTG
+Cycle_Colors[ 7]= " 16M"; // RTG
+Cycle_Colors[ 8]=   NULL;
+
 
 
 
@@ -161,15 +160,22 @@ ModeSelWin = WindowObject,
     End,
 
 	/////////////  AF: We need numbers of colors
-//   Child, HGroup,
-//    Child, Label2( "Farben: " /*GetString( MSG_SCNRMODGUI_OVERSCAN )*/ ),
-//    Child, SM_COLORS = CycleObject, MUIA_Cycle_Entries, Cycle_Colors, End,
-//	End,
-//   	/////////////
+Child,VGroup,
+   Child, HGroup, // "Overscan: "
+    Child, Label2(   "  Farben: " /*GetString( MSG_SCNRMODGUI_OVERSCAN )*/ ),
+	Child, SM_COLORS_TEXT=TextObject,NoFrame, MUIA_Text_Contents, Cycle_Colors[ 0], MUIA_FixWidthTxt, Cycle_Colors[ 0], End,
+    Child, SM_COLORS = PropObject, PropFrame,
+        	MUIA_Prop_Horiz, TRUE,
+        	MUIA_Prop_Entries, 7,
+        //	MUIA_Prop_Visible, 7,     // Alexander: Change this according depending on max colors of Screenmode
+        	MUIA_Prop_First, 0, End,
+        	End,
+    //   	/////////////
 	Child, HGroup,
     Child, Label2( GetString( MSG_SCNRMODGUI_OVERSCAN ) ),
     Child, SM_OSCAN = CycleObject, MUIA_Cycle_Entries, Cycle_OSCAN, End,
     End,
+End,
    Child, HGroup,
     Child, RectangleObject, End,
     Child, HGroup, MUIA_Group_HorizSpacing, 0,
@@ -207,6 +213,14 @@ ModeSelWin = WindowObject,
 
 if(ModeSelWin)
  {
+ // Colors-Slider should change numbers of Colors text
+	// we use a ReturnID and handle it below
+	 DoMethod(SM_COLORS,MUIM_Notify,MUIA_Prop_First, MUIV_EveryTime,
+			 app, 2, MUIM_Application_ReturnID, ID_SM_COLORS);
+
+
+
+
  DoMethod(ModeSelWin, MUIM_Notify, MUIA_Window_CloseRequest, TRUE,
   app, 2, MUIM_Application_ReturnID, ID_SM_EXIT);
 
@@ -421,6 +435,18 @@ for(Finished = 0; !Finished;)
     return(NULL);
     break;
     } /* ID_SM_EXIT */
+   case ID_SM_COLORS:
+    {
+    	// Alexander
+    	static char String[16];
+    	char ColorDepth[]={4,5,6,7,8,15,16,24};
+       get(SM_COLORS, MUIA_Prop_First, &CheckVal);
+//  printf("Alexander: Colors: %ld\n",CheckVal);
+	   snprintf(String,8,"%s",Cycle_Colors[CheckVal]);
+	   set(SM_COLORS_TEXT, MUIA_Text_Contents,String);
+	   printf("Alexander: ColorDepth=%d\n",ColorDepth[CheckVal]);
+	   break;
+    }
    } /* switch */
   } /* if */
  else
