@@ -55,6 +55,7 @@ while (DInfoID != INVALID_ID)
       ThisMode->OScans[3].y = Sizes.VideoOScan.MaxY - Sizes.VideoOScan.MinY + 1;
       ThisMode->MaxX = Sizes.MaxRasterWidth;
       ThisMode->MaxY = Sizes.MaxRasterHeight;
+      ThisMode->MaxDepth = Sizes.MaxDepth;
       if(GetDisplayInfoData(NULL, (UBYTE *)&Properties, sizeof(Properties),
        DTAG_DISP, DInfoID))
        {
@@ -111,7 +112,7 @@ struct WCSScreenMode *ModeList_Choose(struct WCSScreenMode *This,
 {
 static const char *Cycle_OSCAN[6];
 
-static const char *Cycle_Colors[9];
+static const char *NumColorsStrings[8];
 
 struct WCSScreenMode *Scan, *Selected;
 APTR ModeSelWin, SM_Save, SM_Use, SM_Exit, SM_Width, SM_Height, SM_List, SM_Text, SM_OSCAN, SM_COLORS,SM_COLORS_TEXT;
@@ -126,15 +127,14 @@ Cycle_OSCAN[3]= (const char*)GetString( MSG_SCNRMODGUI_MAX );
 Cycle_OSCAN[4]= (const char*)GetString( MSG_SCNRMODGUI_VIDEO );
 Cycle_OSCAN[5]=NULL;
 
-Cycle_Colors[ 0]= "  16";  // default
-Cycle_Colors[ 1]= "  32";
-Cycle_Colors[ 2]= "  64";
-Cycle_Colors[ 3]= " 128";
-Cycle_Colors[ 4]= " 256";
-Cycle_Colors[ 5]= " 32k"; // RTG
-Cycle_Colors[ 6]= " 64k"; // RTG
-Cycle_Colors[ 7]= " 16M"; // RTG
-Cycle_Colors[ 8]=   NULL;
+NumColorsStrings[ 0]= "    16";  // default
+NumColorsStrings[ 1]= "    32";
+NumColorsStrings[ 2]= "    64";
+NumColorsStrings[ 3]= "   128";
+NumColorsStrings[ 4]= "   256";
+NumColorsStrings[ 5]= " 32768"; // RTG
+NumColorsStrings[ 6]= " 65536"; // RTG
+NumColorsStrings[ 7]= "   16M"; // RTG
 
 
 
@@ -163,7 +163,7 @@ ModeSelWin = WindowObject,
 Child,VGroup,
    Child, HGroup, // "Overscan: "
     Child, Label2(   "  Farben: " /*GetString( MSG_SCNRMODGUI_OVERSCAN )*/ ),
-	Child, SM_COLORS_TEXT=TextObject,NoFrame, MUIA_Text_Contents, Cycle_Colors[ 0], MUIA_FixWidthTxt, Cycle_Colors[ 0], End,
+	Child, SM_COLORS_TEXT=TextObject,NoFrame, MUIA_Text_Contents, NumColorsStrings[ 0], MUIA_FixWidthTxt, NumColorsStrings[ 0], End,
     Child, SM_COLORS = PropObject, PropFrame,
         	MUIA_Prop_Horiz, TRUE,
         	MUIA_Prop_Entries, 7,
@@ -308,6 +308,42 @@ for(Finished = 0; !Finished;)
      Selected->UY = Selected->OY;
      } /* if */
 
+    printf("Alexander MaxDepth= %d\n", Selected->MaxDepth);
+    switch(Selected->MaxDepth)
+    {
+    	case 15:
+    		set(SM_COLORS,MUIA_Prop_Entries,5); // limit slide range
+    		set(SM_COLORS,MUIA_Prop_First,0);   // force notification
+    		set(SM_COLORS,MUIA_Prop_First,5);   // 32k Colors
+    		set(SM_COLORS,MUIA_Disabled, TRUE);
+    		break;
+    	case 16:
+    		set(SM_COLORS,MUIA_Prop_Entries,6); // limit slide range
+    		set(SM_COLORS,MUIA_Prop_First,0);   // force notification
+    		set(SM_COLORS,MUIA_Prop_First,6);   // 64k Colors
+    		set(SM_COLORS,MUIA_Disabled, TRUE);
+    		break;
+    	case 24:
+    		set(SM_COLORS,MUIA_Prop_Entries,7); // full slide range
+    		set(SM_COLORS,MUIA_Prop_First,0);   // force notification
+    		set(SM_COLORS,MUIA_Prop_First,7);   // 16M Colors
+    		set(SM_COLORS,MUIA_Disabled, TRUE);
+    		break;
+    	default:
+    		set(SM_COLORS,MUIA_Prop_First,0);   // 16 Colors default
+    		if(Selected->MaxDepth<=8)
+    		{
+    			set(SM_COLORS,MUIA_Disabled, FALSE);
+    			set(SM_COLORS,MUIA_Prop_Entries,Selected->MaxDepth-4);  // limit range of slider to MaxDepth
+    		}
+    		else
+    		{
+    			printf("Invalid MaxDepth %d!\n",Selected->MaxDepth);
+    			set(SM_COLORS,MUIA_Prop_First,0);  // 16 Colors default  // strange! ->  permit only Depth = 4
+    			set(SM_COLORS,MUIA_Disabled, TRUE);
+    		}
+    }
+
     sprintf(ModeInfo,  GetString( MSG_SCNRMODGUI_MODE0XESXXUTOXCANNSNATTRIBUTES ) ,
      Selected->ModeID, Selected->X, Selected->Y, Selected->OX, Selected->OY,
      Selected->MaxX, Selected->MaxY, Selected->PixelSpeed);
@@ -337,6 +373,11 @@ for(Finished = 0; !Finished;)
     
     set(SM_Width, MUIA_String_Integer, Selected->UX);
     set(SM_Height, MUIA_String_Integer, Selected->UY);
+
+    // Alexander Depth-Slider auf 4 oder 15/16/24 Bit setzen.
+    // bei 15/16/24 Bit Slider sperren
+    // slider-Bereich anpassen
+
     
     break;
     } /* ID_SM_LIST */
@@ -385,6 +426,7 @@ for(Finished = 0; !Finished;)
     ScrnData->ModeID = Selected->ModeID;
     ScrnData->Width = Selected->UX;
     ScrnData->Height = Selected->UY;
+    ScrnData->Depth=Selected->Depth;
     /* Do something more here */
     } /* ID_SM_SAVE */
    case ID_SM_USE:
@@ -442,9 +484,10 @@ for(Finished = 0; !Finished;)
     	char ColorDepth[]={4,5,6,7,8,15,16,24};
        get(SM_COLORS, MUIA_Prop_First, &CheckVal);
 //  printf("Alexander: Colors: %ld\n",CheckVal);
-	   snprintf(String,8,"%s",Cycle_Colors[CheckVal]);
+	   snprintf(String,8,"%s",NumColorsStrings[CheckVal]);
 	   set(SM_COLORS_TEXT, MUIA_Text_Contents,String);
 	   printf("Alexander: ColorDepth=%d\n",ColorDepth[CheckVal]);
+	   Selected->Depth=ColorDepth[CheckVal];
 	   break;
     }
    } /* switch */

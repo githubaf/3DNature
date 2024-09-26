@@ -307,7 +307,8 @@ double FloatCol;
 /***********************************************************************/
 void getGfxInformation(void)
 {
-	printf("WCSScrn->RastPort.BitMap->Depth=%d\n",WCSScrn->RastPort.BitMap->Depth);
+	printf("WCSScrn->RastPort.BitMap->Depth = %d\n",WCSScrn->RastPort.BitMap->Depth);
+
 #ifndef __AROS__
     	  if(P96Base)
     	  {

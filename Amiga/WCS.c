@@ -151,6 +151,9 @@ struct Library *CyberGfxBase=NULL;
 
 ScreenPixelPlotFnctPtr ScreenPixelPlot; // function pointer to specific ScreenPixelPlot()-function
 
+struct WCSScreenData ScrnData;
+
+
 int main(void)
 {
     short ResetScrn = 0;
@@ -460,7 +463,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
           } /* else */
          WCSScrn = OpenScreenTags(NULL, SA_DisplayID, ModeSelect->ModeID,
           SA_Width, ModeSelect->UX, SA_Height, ModeSelect->UY,
-          SA_Depth, 4, SA_Title, (IPTR)APP_TITLE, SA_Type, CUSTOMSCREEN,
+          SA_Depth, ModeSelect->Depth, SA_Title, (IPTR)APP_TITLE, SA_Type, CUSTOMSCREEN,
           ScrnData.OTag, ScrnData.OVal, ScrnData.AutoTag, (ULONG)ScrnData.AutoVal, SA_Colors, (IPTR)NewAltColors,
           SA_Pens, (IPTR)PenSpec, SA_PubName, (IPTR)AppBaseName, TAG_END);
          } /* if */
@@ -484,7 +487,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
        {
        WCSScrn = OpenScreenTags(NULL, SA_DisplayID, ScrnData.ModeID,
         SA_Width, ScrnData.Width, SA_Height, ScrnData.Height,
-        SA_Depth, 4, SA_Title, (IPTR)APP_TITLE, SA_Type, CUSTOMSCREEN,
+        SA_Depth, ScrnData.Depth, SA_Title, (IPTR)APP_TITLE, SA_Type, CUSTOMSCREEN,
         ScrnData.OTag, ScrnData.OVal, ScrnData.AutoTag, ScrnData.AutoVal, SA_Colors, (IPTR)NewAltColors,
         SA_Pens, (IPTR)PenSpec, SA_PubName, (IPTR)AppBaseName, TAG_END);
        } /* else read screen data from prefs file */

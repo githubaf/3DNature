@@ -144,23 +144,46 @@ EXTERN struct IntuiMessage Event;
 
 EXTERN struct ARexxContext *RexxAp;
 
-/*EXTERN*/ struct WCSScreenMode
+///*EXTERN*/ struct WCSScreenMode
+//	{
+//	struct WCSScreenMode *Next;
+//	ULONG ModeID;
+//	char ModeName[32];
+//	int X, Y, OX, OY, MaxX, MaxY, UX, UY;
+//	struct tPoint OScans[4]; /* By order: Text, Std, Max, Video */
+//	ULONG PropertyFlags;
+//	UWORD PixelSpeed;
+//	}; /* struct WCSScreenMode */
+//
+// copied from AmigaScreenMode.h -> Todo: should be defined only once
+struct WCSScreenMode
 	{
 	struct WCSScreenMode *Next;
 	ULONG ModeID;
-	char ModeName[32];
+	char ModeName[40];
+	char Depth;
 	int X, Y, OX, OY, MaxX, MaxY, UX, UY;
 	struct tPoint OScans[4]; /* By order: Text, Std, Max, Video */
 	ULONG PropertyFlags;
 	UWORD PixelSpeed;
+	UWORD MaxDepth;
 	}; /* struct WCSScreenMode */
 
-EXTERN struct WCSScreenData
-	{
-        ULONG ModeID, OTag, OVal, AutoTag, AutoVal;
-	long Width, Height;
-	} ScrnData;
 
+//EXTERN struct WCSScreenData
+//	{
+//        ULONG ModeID, OTag, OVal, AutoTag, AutoVal;
+//	long Width, Height;
+//	} ScrnData;
+//
+
+// copied from AmigaScreenMode.h -> Todo: should be defined only once
+struct WCSScreenData
+	{
+	ULONG ModeID, OTag, OVal, AutoTag, AutoVal;
+	long Width, Height;
+	char Depth;
+	};
 
 #ifdef __AROS__
    #define PACKED __attribute__((__packed__))

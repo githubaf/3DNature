@@ -21,6 +21,7 @@ struct WCSScreenMode
 	struct tPoint OScans[4]; /* By order: Text, Std, Max, Video */
 	ULONG PropertyFlags;
 	UWORD PixelSpeed;
+	UWORD MaxDepth;
 	}; /* struct WCSScreenMode */
 
 struct WCSScreenData
