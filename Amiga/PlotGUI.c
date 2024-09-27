@@ -379,107 +379,104 @@ void setScreenPixelPlotFnct(struct Settings settings)
 		case 0x20:   // render Screen, color
 		case 0x30:   // render screen gray + color
 			printf("should plot colored\n");
-			// check if RTG screen and if 256 colors
-#ifndef __AROS__
-    	  if(P96Base)
-    	  {
-    		  ULONG IsP96Screen=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_ISP96);
-    		  printf("Screen is %s a P96 Screen\n",IsP96Screen? "" : "not ");
-    		  if(IsP96Screen)
-    		  {
-    			  ULONG BitsPerPixel, BytesPerPixel;
 
-    			  BitsPerPixel=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BITSPERPIXEL);
-    			  printf("Screen has %d Bits per Pixel\n",BitsPerPixel);
-    			  BytesPerPixel=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BYTESPERPIXEL);
-    			  printf("Screen has %d Bytes per Pixel\n",BytesPerPixel);
+			switch(WCSScrn->RastPort.BitMap->Depth)
+			{
+				case 4:
+				case 5:
+				case 6:
+				case 7:
+				{
+					printf("ScreenPixelPlotDither8\n");
+					ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
+					LoadRGB4(&WCSScrn->ViewPort, &AltDither8Colors[0], 16);
+					SetRast(RenderWind0->RPort, 8); // 8=white
 
-				  if(BitsPerPixel<=8)  // 8-Bit P96 screen
-				  {
-					  printf("ScreenPixelPlotP96Dither256\n");
-					  ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
-					  LoadRGB4(&WCSScrn->ViewPort, &AltDither128Colors[0], 256);
-					  SetRast(RenderWind0->RPort, 8); // 8=white
-				  }
-				  else            // true or high color CyberGraphX screen
-				  {
-					  printf("ScreenPixelPlotP96 full color\n");
-					  ScreenPixelPlot=ScreenPixelPlotP96;
-					  LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
-    				  SetRast(RenderWind0->RPort, 8); // 8=white
-				  }
-			  }
-    		  else
-    		  {
-				  printf("ScreenPixelPlotDither8\n");
-				  ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
-				  LoadRGB4(&WCSScrn->ViewPort, &AltDither8Colors[0], 16);
-				  SetRast(RenderWind0->RPort, 8); // 8=white
-    		  }
-    	  }
-    	  else
-#endif
-    		  if(CyberGfxBase)
-    		  {
-       			  ULONG IsCgfxScreen=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_ISCYBERGFX);
-    			  printf("Screen is %s a CGFX Screen\n",IsCgfxScreen? "" : "not ");
-    			  if(IsCgfxScreen)
-    			  {
-    				  ULONG BitsPerPixel, BytesPerPixel;
-    				  BitsPerPixel=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_DEPTH);
-    				  printf("Screen has %d Bits per Pixel\n",BitsPerPixel);
-    				  BytesPerPixel=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_BPPIX);
-    				  printf("Screen has %d Bytes per Pixel\n",BytesPerPixel);
+					break;
+				}
+				case 8:
+				{
+                    #ifndef __AROS__
+					if(P96Base)
+					{
+						ULONG IsP96Screen=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_ISP96);
+						printf("Screen is %s a P96 Screen\n",IsP96Screen? "" : "not ");
+						if(IsP96Screen)
+						{
+							ULONG BitsPerPixel, BytesPerPixel;
 
-    				  if(BitsPerPixel<=8)  // 8-Bit CyberGraphX screen
-    				  {
-    					  printf("ScreenPixelPlotCgfxDither256\n");
-    					  ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
-    					  LoadRGB4(&WCSScrn->ViewPort, &AltDither128Colors[0], 256);
-    					  SetRast(RenderWind0->RPort, 8); // 8=white
-    				  }
-    				  else            // true or high color CyberGraphX screen
-    				  {
-    					  printf("ScreenPixelPlotCgfx full color\n");
-    					  ScreenPixelPlot=ScreenPixelPlotCGFX;
-    					  LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
-        				  SetRast(RenderWind0->RPort, 8);
-    				  }
-    			  }
-        		  else
-        		  {
-    				  printf("ScreenPixelPlotDither8\n");
-    				  // Palette noch setzen!
-    				  ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
-    				  LoadRGB4(&WCSScrn->ViewPort, &AltDither8Colors[0], 16);
-    				  SetRast(RenderWind0->RPort, 8); // 8color dithered -> 8=white
-        		  }
-    		  }
-    		  else // no RTG system installed
-    		  {
-    			  printf("Nono-RTG Screen\n");
-    			  if (WCSScrn->RastPort.BitMap->Depth==8)  // 256 colors
-    			  {
-    				  printf("ScreenPixelPlotDither128\n");
-    				  ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;  //dither 322 (128 colors in upper half of 256 color table)
-					  LoadRGB4(&WCSScrn->ViewPort, &AltDither128Colors[0], 256);
-					  SetRast(RenderWind0->RPort, 8); // 8=white
-    			  }
-    			  else
-    			  {
-    				  printf("ScreenPixelPlotDither8\n");
-    				  ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
-    				  LoadRGB4(&WCSScrn->ViewPort, &AltDither8Colors[0], 16);
-    				  SetRast(RenderWind0->RPort, 8); // 8color dithered -> 8=white
-    			  }
-    		  }
-			break;
-		default:
-			// don't touch
-			printf("should not plot at all\n");
-	}
+							BitsPerPixel=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BITSPERPIXEL);
+							printf("Screen has %d Bits per Pixel\n",BitsPerPixel);
+							BytesPerPixel=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BYTESPERPIXEL);
+							printf("Screen has %d Bytes per Pixel\n",BytesPerPixel);
+
+							if(BitsPerPixel==8)  // 8-Bit P96 screen
+							{
+								printf("ScreenPixelPlotP96Dither256\n");
+								ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
+								LoadRGB4(&WCSScrn->ViewPort, &AltDither128Colors[0], 256);
+								SetRast(RenderWind0->RPort, 8); // 8=white
+							}
+							else
+							{
+								// High/true color
+								printf("ScreenPixelPlotP96 full color\n");
+								ScreenPixelPlot=ScreenPixelPlotP96;
+								LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
+								SetRast(RenderWind0->RPort, 8); // 8=white
+							}
+							break;
+						}
+        				default:
+        				{
+        					printf("Invalid WCSScrn->RastPort.BitMap->Depth=%d\n",WCSScrn->RastPort.BitMap->Depth);
+        					printf("ScreenPixelPlotDither8\n");
+        					ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
+        					LoadRGB4(&WCSScrn->ViewPort, &AltDither8Colors[0], 16);
+        					SetRast(RenderWind0->RPort, 8); // 8=white
+        				}
+					}
+					else
+                    #endif
+					if(CyberGfxBase)
+					{
+						ULONG IsCgfxScreen=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_ISCYBERGFX);
+						printf("Screen is %s a CGFX Screen\n",IsCgfxScreen? "" : "not ");
+						if(IsCgfxScreen)
+						{
+							ULONG BitsPerPixel, BytesPerPixel;
+							BitsPerPixel=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_DEPTH);
+							printf("Screen has %d Bits per Pixel\n",BitsPerPixel);
+							BytesPerPixel=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_BPPIX);
+							printf("Screen has %d Bytes per Pixel\n",BytesPerPixel);
+
+							if(BitsPerPixel==8)  // 8-Bit CyberGraphX screen
+							{
+								printf("ScreenPixelPlotCgfxDither256\n");
+								ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
+								LoadRGB4(&WCSScrn->ViewPort, &AltDither128Colors[0], 256);
+								SetRast(RenderWind0->RPort, 8); // 8=white
+							}
+							else            // true or high color CyberGraphX screen
+							{
+								printf("ScreenPixelPlotCgfx full color\n");
+								ScreenPixelPlot=ScreenPixelPlotCGFX;
+								LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
+								SetRast(RenderWind0->RPort, 8);
+							}
+						}
+						else // neither P96 nor CyberGraphiX, i.e. Amiga 8-Bit Screen
+						{
+							printf("ScreenPixelPlotP96Dither256\n");
+							ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
+							LoadRGB4(&WCSScrn->ViewPort, &AltDither128Colors[0], 256);
+							SetRast(RenderWind0->RPort, 8); // 8=white
+						}
+					} // if(CyberGfxBase)
+				} // case 8:
+			} // switch(WCSScrn->RastPort.BitMap->Depth)
+	} // switch(settings.renderopts & 0x30)
 }
-
 
 /***********************************************************************/
 /***********************************************************************/

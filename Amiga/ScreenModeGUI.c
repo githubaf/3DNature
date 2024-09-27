@@ -218,9 +218,6 @@ if(ModeSelWin)
 	 DoMethod(SM_COLORS,MUIM_Notify,MUIA_Prop_First, MUIV_EveryTime,
 			 app, 2, MUIM_Application_ReturnID, ID_SM_COLORS);
 
-
-
-
  DoMethod(ModeSelWin, MUIM_Notify, MUIA_Window_CloseRequest, TRUE,
   app, 2, MUIM_Application_ReturnID, ID_SM_EXIT);
 
@@ -335,6 +332,8 @@ for(Finished = 0; !Finished;)
     		{
     			set(SM_COLORS,MUIA_Disabled, FALSE);
     			set(SM_COLORS,MUIA_Prop_Entries,Selected->MaxDepth-4);  // limit range of slider to MaxDepth
+    			Selected->Depth=4;
+
     		}
     		else
     		{
