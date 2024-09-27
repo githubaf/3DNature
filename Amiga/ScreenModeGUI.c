@@ -161,8 +161,8 @@ ModeSelWin = WindowObject,
 
 	/////////////  AF: We need numbers of colors
 Child,VGroup,
-   Child, HGroup, // "Overscan: "
-    Child, Label2(   "  Farben: " /*GetString( MSG_SCNRMODGUI_OVERSCAN )*/ ),
+   Child, HGroup,
+    Child, Label2( GetString( MSG_SCNRMODGUI_COLORS )),
 	Child, SM_COLORS_TEXT=TextObject,NoFrame, MUIA_Text_Contents, NumColorsStrings[ 0], MUIA_FixWidthTxt, NumColorsStrings[ 0], End,
     Child, SM_COLORS = PropObject, PropFrame,
         	MUIA_Prop_Horiz, TRUE,

@@ -1414,6 +1414,17 @@ Overscan:\x20
 
 
 
+; Todo: Dutch
+MSG_SCNRMODGUI_COLORS
+  Colors:\x20
+  Farben:\x20
+
+
+
+
+
+
+
 ;
 MSG_SCNRMODGUI_WIDTH
 Width\x20
@@ -2246,7 +2257,8 @@ WCS: Tryb Ekranu
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
-Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt ausführen?
+Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt \
+ausführen?
 Per ripristinare la modalità schermo, WCS dovrà essere chiuso e riaperto. Qualsiasi lavoro in corso deve essere salvato prima di invocare questo comando.\n Volete procedere ora?
 
 Om de schermmodus te resetten zal WCS moeten worden gesloten en heropend. Werk in uitvoering moet worden opgeslagen voordat deze opdracht wordt uitgevoerd.\n Wilt u nu doorgaan?
@@ -5979,10 +5991,12 @@ B³±d odczytu pliku Nadrzêdnego Objektu!\nOperacja anulowana.
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
-Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus einzelnen Dateien geladen
+Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus \
+einzelnen Dateien geladen
 
 
-Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van individuele bestanden
+Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van \
+individuele bestanden
 
 
 
@@ -10798,7 +10812,8 @@ Error writing to Parameter file!\nThe output file has been modified and may no l
 
 
 
-Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla opnieuw op.
+Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla \
+opnieuw op.
 
 
 
@@ -10947,7 +10962,7 @@ Geen scherm
 
 
 
-;
+; Todo: Dutch
 MSG_EDSETGUI_SCREEN_GRAYSCALE
 \338Screen (Gray Scale)
 \338Bildschirm (Graustufen)
@@ -10958,7 +10973,7 @@ MSG_EDSETGUI_SCREEN_GRAYSCALE
 
 
 
-;
+; Todo: Dutch
 MSG_EDSETGUI_SCREEN_COLORED
 \338Screen (Colored)
 \338Bildschirm (Farbig)
@@ -15568,10 +15583,12 @@ Fout bij opslaan van de LW-scene.\nAls een bestand is gemaakt, is het niet compl
 ;
 MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA
 The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created.
-Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt dargestellt.
+Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt \
+dargestellt.
 
 
-De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte scènebestand.
+De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte \
+scènebestand.
 
 
 
@@ -18590,7 +18607,8 @@ At least one end control point for the line segment just drawn could not be foun
 
 
 
-Minstens één eindcontrolepunt voor het zojuist getekende lijnsegment kon niet worden gevonden!\nWilt u de huidige en minimale schuifregelaarhoogten voor dit segment gebruiken of de bewerking annuleren?
+Minstens één eindcontrolepunt voor het zojuist getekende lijnsegment kon niet worden gevonden!\nWilt u de huidige en minimale schuifregelaarhoogten voor dit segment gebruiken of de bewerking \
+annuleren?
 
 
 
@@ -23228,7 +23246,8 @@ Kaarweergave: Raster DEM
 ;
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOLA
 The ratio of vertical to horizontal map dimensions is too large for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
-Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu groß für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne Gradientenschätzung fortfahren?
+Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu groß für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne \
+Gradientenschätzung fortfahren?
 
 
 De verhouding van verticale tot horizontale kaartdimensies is te groot voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
@@ -23239,7 +23258,8 @@ De verhouding van verticale tot horizontale kaartdimensies is te groot voor grad
 ;
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM
 The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
-Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu klein für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne Gradientenschätzung fortfahren?
+Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu klein für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne \
+Gradientenschätzung fortfahren?
 
 
 De verhouding van verticale tot horizontale kaartdimensies is te klein voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
@@ -23249,11 +23269,14 @@ De verhouding van verticale tot horizontale kaartdimensies is te klein voor grad
 
 ;
 MSG_NNCRUNCH_THERATIOOFWIDTHTOLENGTHOFTHISGRIDDEDREGIONMAYBETOO
-The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now with the present dimensions?
-Das Verhältnis von Breite zu Länge dieses Gitternetzbereichs könnte zu extrem für eine gute Interpolation sein.\nEs könnte eine gute Idee sein, die Blockproportionen zu ändern oder die x- oder y-Koordinate neu zu skalieren.\nMöchten Sie jetzt mit den aktuellen Abmessungen fortfahren?
+The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now \
+with the present dimensions?
+Das Verhältnis von Breite zu Länge dieses Gitternetzbereichs könnte zu extrem für eine gute Interpolation sein.\nEs könnte eine gute Idee sein, die Blockproportionen zu ändern oder die x- oder \
+y-Koordinate neu zu skalieren.\nMöchten Sie jetzt mit den aktuellen Abmessungen fortfahren?
 
 
-De verhouding van breedte tot lengte van dit gerasterde gebied kan te extreem zijn voor goede interpolatie.\nHet veranderen van de blokverhoudingen, of het herschalen van de x- of y-coördinaat kan een goed idee zijn.\nWilt u nu doorgaan met de huidige afmetingen?
+De verhouding van breedte tot lengte van dit gerasterde gebied kan te extreem zijn voor goede interpolatie.\nHet veranderen van de blokverhoudingen, of het herschalen van de x- of y-coördinaat kan een \
+goed idee zijn.\nWilt u nu doorgaan met de huidige afmetingen?
 
 
 

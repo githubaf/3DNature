@@ -3802,7 +3802,7 @@ SimpleCat >  Export > C Source(.c)
 
 9.Sep.2024
 ----------
-Im MapGUI-Fenster war "Exag" nich richtig aligned. Fehler war schon in WCS2.04. Fixed.
+Im MapGUI-Fenster war "Exag" nicht richtig aligned. Fehler war schon in WCS2.04. Fixed.
 
 10.Sep.2024
 -----------
@@ -3869,3 +3869,7 @@ Achtung WinUAE User: Das Display sollte nicht auf scale geschaltet sein sondern 
 -----------
 Problem der 8Bit-RTG Screens beim Dithererd-Color Render wWindow ist, dass der WCS-Screen immer mit Depth=4 geoeffnet wird.
 - Ich muss den ScreenModerequester aendern, so dass er eine Auswahl der Farbanzahl/Bitanzahl zulaesst und diese dann bei OpenScreen() benutzt.
+
+27.Sep.24
+---------
+Der Screenmoderequester hat jetzt einen Schieberegler fuer die Farbantiefe. OpenScreen() wird jetzt damit statt mit der festen Depth=4 gemacht.
