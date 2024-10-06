@@ -34,7 +34,7 @@ Marmes_Project
 Projekt
 jjsaenz1969_project
 Projekt
-
+Projekt
 ;
 MSG_MENU_PR_NEW
 New...
@@ -46,7 +46,7 @@ Marmes_New...
 Ny...
 jjsaenz1969_New...
 Nowy...
-NovÃ½...
+Nový...
 ;
 MSG_MENU_PR_EDIT
 Edit...
@@ -58,7 +58,7 @@ Marmes_Edit...
 Rediger...
 jjsaenz1969_Edit...
 Edycja...
-
+Upravit...
 ;
 MSG_MENU_PR_OPEN
 Open...
@@ -70,7 +70,7 @@ Mamrmes_Open...
 Åbn...
 
 Otwórz...
-
+Otevøít...
 ;
 MSG_MENU_PR_SAVE
 Save
@@ -82,7 +82,7 @@ Marmes_Save
 Gem
 
 Zapisz
-
+Ulo¾it
 ;
 MSG_MENU_PR_SAVEAS
 Save As...
@@ -94,7 +94,7 @@ Opslaan als...
 Gem som...
 
 Zapisz Jako...
-
+Ulo¾it jako...
 ;
 MSG_MENU_PR_LOADCONFIG
 Load Config
@@ -106,7 +106,7 @@ Laad Configuratie
 
 
 Wczytaj Ustawienia
-
+Nahrát nastavení
 ;
 MSG_MENU_PR_SAVECONFIG
 Save Config
@@ -118,7 +118,7 @@ Bewaar Configuratie
 
 
 Zapisz Ustawienia
-
+Ulo¾it nastavení
 ;
 MSG_MENU_PR_SAVESCREEN
 Save Screen...
@@ -130,7 +130,7 @@ Beeldscherm Bewaren...
 Gem skærmbillede...
 
 Zapisz Ekran...
-
+Ulo¾it obrázek...
 ;
 MSG_MENU_PR_INFO
 Info...
@@ -142,7 +142,7 @@ Informatie...
 Information...
 
 Info...
-
+Zdroje...
 ;
 MSG_MENU_PR_VERSION
 Version...
@@ -154,7 +154,7 @@ Versie...
 Version...
 
 Wersja...
-
+Verze programu...
 ;
 MSG_MENU_PR_CREDITS
 Credits...
@@ -166,7 +166,7 @@ Over...
 
 
 Podziêkowania...
-
+O autorech...
 ;
 MSG_MENU_PR_LOG
 Log...
@@ -178,7 +178,7 @@ Log...
 Log...
 
 Przedgl±d Zdarzeñ...
-
+Záznam...
 ;
 MSG_MENU_PR_QUIT
 Quit...
@@ -190,7 +190,7 @@ Afsluiten...
 Afslut...
 
 Wyjd¼...
-
+Ukonèit...
 ;
 MSG_MENU_PR_ICONIFY
 Iconify...
@@ -202,7 +202,7 @@ Iconificeren...
 Ikonificér...
 
 Minimalizuj...
-
+Iconifikovat...
 ;
 MSG_MENU_MODULES
 Modules
@@ -214,7 +214,7 @@ Modules
 Moduler
 
 Modu³y
-
+Okna
 ;
 MSG_MENU_MOD_DATABASE
 DataBase
@@ -226,7 +226,7 @@ Database
 Database
 
 Baza Danych
-
+Okno vstupu a výstupu
 ;
 MSG_MENU_MOD_DATAOPS
 Data Ops
@@ -238,7 +238,7 @@ Data Ops
 Data Ops
 
 
-
+Okno mo¾ností exportu
 ;
 MSG_MAPGUI_MAPVIEW
 Map View
@@ -250,7 +250,7 @@ Kaartweergave
 Kortvisning
 
 Widok Mapy
-
+Nastavení mapy
 ;
 MSG_MENU_MOD_PARAMETERS
 Parameters
@@ -262,7 +262,7 @@ Parameters
 Parametre
 
 Parametry
-
+Okno mo¾ností
 ;
 MSG_MENU_MOD_RENDER
 Render
@@ -274,7 +274,7 @@ Render
 Beregn
 
 Renderowanie
-
+Výpoèet
 ;
 MSG_EDMOGUI_MOTIONEDITOR
 Motion Editor
@@ -286,7 +286,7 @@ Beweging Editor
 Bevægelsesredigering
 
 Edytor Ruchu
-
+Nastavení pohybu
 ;
 MSG_EDITGUI_COLOREDITOR
 Color Editor
@@ -298,7 +298,7 @@ Kleur Editor
 Farveindstillinger
 
 Edytor Kolorów
-
+Nastavení barev
 ;
 MSG_MENU_MOD_ECOSYSEDITOR
 Ecosys Editor
@@ -310,7 +310,7 @@ Ecosysteem Editor
 Redigering af økosystem
 
 Edytor Ekosystemu
-
+Nastavení krajiny
 ;
 MSG_MENU_PREFS
 Preferences
@@ -322,7 +322,7 @@ Voorkeuren
 Indstillinger
 
 Preferencje
-
+Obecná nastavení
 ;
 MSG_MENU_PREF_PREFERENCES
 Preferences...
@@ -334,7 +334,7 @@ Voorkeuren...
 Indstillinger...
 
 Preferencje...
-
+Nastavení...
 ;
 MSG_MENU_PREF_SCREENMODE
 Screen Mode...
@@ -346,7 +346,7 @@ Schermmodus...
 Skærmopsætning...
 
 Prametry Obrazu...
-
+Rozli¹ení obrazovky...
 ;
 MSG_MENU_PARAMETERS
 Parameters
@@ -358,7 +358,7 @@ Parameters
 Parametre
 
 Parametry
-
+Hodnoty
 ;
 MSG_MENU_PAR_LOADALL
 Load All...
@@ -370,7 +370,7 @@ Laad Alles...
 Indlæs alle...
 
 Wczytaj wszystko...
-
+Nahrát v¹e...
 ;
 MSG_MENU_PAR_SAVEALL
 Save All...
@@ -382,7 +382,7 @@ Alles Opslaan...
 Gem alt...
 
 Zapisz Wszystko...
-
+Ulo¾it v¹e...
 ;
 MSG_MENU_PAR_FREEZE
 Freeze
@@ -394,7 +394,7 @@ Vastleggen voor herstel
 Frys
 
 Zatrzymaj
-
+Zastavení
 ;
 MSG_MENU_PAR_RESTORE
 Restore
@@ -406,7 +406,7 @@ Herstellen
 Genskab
 
 Wznów
-
+Obnovení
 ;
 ; --- Ecosystem Editor -> Class --- 
 MSG_TYPENAME_WATER
@@ -2461,8 +2461,7 @@ WCS: Tryb Ekranu
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
-Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt \
-ausführen?
+Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt ausführen?
 Per ripristinare la modalità schermo, WCS dovrà essere chiuso e riaperto. Qualsiasi lavoro in corso deve essere salvato prima di invocare questo comando.\n Volete procedere ora?
 
 Om de schermmodus te resetten zal WCS moeten worden gesloten en heropend. Werk in uitvoering moet worden opgeslagen voordat deze opdracht wordt uitgevoerd.\n Wilt u nu doorgaan?
@@ -6533,12 +6532,10 @@ B³±d odczytu pliku Nadrzêdnego Objektu!\nOperacja anulowana.
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
-Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus \
-einzelnen Dateien geladen
+Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus einzelnen Dateien geladen
 
 
-Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van \
-individuele bestanden
+Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van individuele bestanden
 
 
 
@@ -11791,8 +11788,7 @@ Error writing to Parameter file!\nThe output file has been modified and may no l
 
 
 
-Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla \
-opnieuw op.
+Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla opnieuw op.
 
 
 
@@ -16995,12 +16991,10 @@ Fout bij opslaan van de LW-scene.\nAls een bestand is gemaakt, is het niet compl
 ;
 MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA
 The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created.
-Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt \
-dargestellt.
+Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt dargestellt.
 
 
-De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte \
-scènebestand.
+De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte scènebestand.
 
 
 
@@ -20293,8 +20287,7 @@ At least one end control point for the line segment just drawn could not be foun
 
 
 
-Minstens één eindcontrolepunt voor het zojuist getekende lijnsegment kon niet worden gevonden!\nWilt u de huidige en minimale schuifregelaarhoogten voor dit segment gebruiken of de bewerking \
-annuleren?
+Minstens één eindcontrolepunt voor het zojuist getekende lijnsegment kon niet worden gevonden!\nWilt u de huidige en minimale schuifregelaarhoogten voor dit segment gebruiken of de bewerking annuleren?
 
 
 
@@ -25352,8 +25345,7 @@ Kaarweergave: Raster DEM
 ;
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOLA
 The ratio of vertical to horizontal map dimensions is too large for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
-Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu groß für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne \
-Gradientenschätzung fortfahren?
+Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu groß für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne Gradientenschätzung fortfahren?
 
 
 De verhouding van verticale tot horizontale kaartdimensies is te groot voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
@@ -25365,8 +25357,7 @@ De verhouding van verticale tot horizontale kaartdimensies is te groot voor grad
 ;
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM
 The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
-Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu klein für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne \
-Gradientenschätzung fortfahren?
+Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu klein für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne Gradientenschätzung fortfahren?
 
 
 De verhouding van verticale tot horizontale kaartdimensies is te klein voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
@@ -25377,14 +25368,11 @@ De verhouding van verticale tot horizontale kaartdimensies is te klein voor grad
 
 ;
 MSG_NNCRUNCH_THERATIOOFWIDTHTOLENGTHOFTHISGRIDDEDREGIONMAYBETOO
-The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now \
-with the present dimensions?
-Das Verhältnis von Breite zu Länge dieses Gitternetzbereichs könnte zu extrem für eine gute Interpolation sein.\nEs könnte eine gute Idee sein, die Blockproportionen zu ändern oder die x- oder \
-y-Koordinate neu zu skalieren.\nMöchten Sie jetzt mit den aktuellen Abmessungen fortfahren?
+The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now with the present dimensions?
+Das Verhältnis von Breite zu Länge dieses Gitternetzbereichs könnte zu extrem für eine gute Interpolation sein.\nEs könnte eine gute Idee sein, die Blockproportionen zu ändern oder die x- oder y-Koordinate neu zu skalieren.\nMöchten Sie jetzt mit den aktuellen Abmessungen fortfahren?
 
 
-De verhouding van breedte tot lengte van dit gerasterde gebied kan te extreem zijn voor goede interpolatie.\nHet veranderen van de blokverhoudingen, of het herschalen van de x- of y-coördinaat kan een \
-goed idee zijn.\nWilt u nu doorgaan met de huidige afmetingen?
+De verhouding van breedte tot lengte van dit gerasterde gebied kan te extreem zijn voor goede interpolatie.\nHet veranderen van de blokverhoudingen, of het herschalen van de x- of y-coördinaat kan een goed idee zijn.\nWilt u nu doorgaan met de huidige afmetingen?
 
 
 

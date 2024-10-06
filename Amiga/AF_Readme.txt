@@ -3878,3 +3878,11 @@ Der Screenmoderequester hat jetzt einen Schieberegler fuer die Farbantiefe. Open
 ----------
 Die Dither-Anzeige mit anderen Varianten vergleichen: Siehe af_dithering_test Repository.
 * Es scheint so, als ob nur die 111 und 222 Varianten gut aussehen. Wenn man z.B. 121 oder 232 als RGB Farbtiefe waehlt, weil genuegend Farben im ausgeaehlten Modus vorhanden sind, hat das Ergebnisbild einen Farbstich. Das scheint kein Programmierfehler zu sein. Der dierekte Test mit ImageMagic bringt gleiche Ergebnisse.
+
+6.10.2024
+----------
+Tschechisch hinzugefuegt.
+#Anzeige der fehlenden tschechischen Uebersetzungen:
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; getline; POLISH=$0; getline; CZECH=$0; if(CZECH==""){print ENGLISH;}else{CZECHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Czech:  %4d\n",CZECHCOUNT);printf("%d%%\n",CZECHCOUNT*100/MSGCOUNT++);}'
+
+
