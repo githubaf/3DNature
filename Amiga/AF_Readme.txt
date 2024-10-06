@@ -3873,3 +3873,8 @@ Problem der 8Bit-RTG Screens beim Dithererd-Color Render wWindow ist, dass der W
 27.Sep.24
 ---------
 Der Screenmoderequester hat jetzt einen Schieberegler fuer die Farbantiefe. OpenScreen() wird jetzt damit statt mit der festen Depth=4 gemacht.
+
+2.Oct.2024
+----------
+Die Dither-Anzeige mit anderen Varianten vergleichen: Siehe af_dithering_test Repository.
+* Es scheint so, als ob nur die 111 und 222 Varianten gut aussehen. Wenn man z.B. 121 oder 232 als RGB Farbtiefe waehlt, weil genuegend Farben im ausgeaehlten Modus vorhanden sind, hat das Ergebnisbild einen Farbstich. Das scheint kein Programmierfehler zu sein. Der dierekte Test mit ImageMagic bringt gleiche Ergebnisse.
