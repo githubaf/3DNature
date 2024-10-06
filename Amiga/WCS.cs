@@ -8462,7 +8462,7 @@ Sluit alle Tijdlijn vensters en probeer het opnieuw.
 
 
 
-
+Zamknij wszystkie okna Linii Czasu i spróbuj ponownie.
 
 ;
 ;
@@ -8475,7 +8475,7 @@ Diagnostische gegevens
 
 
 
-
+Informacje Diagnostyczne
 
 ;
 MSG_DIAG_DISTANCE
@@ -8487,7 +8487,7 @@ MSG_DIAG_DISTANCE
 
 
 
-
+ Odleg³o¶æ
 
 ;
 MSG_DIAG_ELEVATION
@@ -8499,7 +8499,7 @@ MSG_DIAG_ELEVATION
 
 
 
-
+ Podniesienie
 
 ;
 MSG_DIAG_OVERSTORY
@@ -8528,14 +8528,14 @@ Understory??
 ;
 MSG_DIAG_RELEL
     Rel El
-    Rel El??
+    Rel HÖhe
 
 
   Relatieve hgt
 
 
 
-
+  Rel. Pod
 
 ;
 MSG_DIAG_ASPECT
@@ -8547,7 +8547,7 @@ MSG_DIAG_ASPECT
 
 
 
-
+  Aspekt
 
 ;
 MSG_DIAG_SLOPE
@@ -8559,7 +8559,7 @@ MSG_DIAG_SLOPE
 
 
 
-
+  Nachyelenie
 
 ;
 MSG_DIAG_SUNANGLE
@@ -8571,7 +8571,7 @@ Sonnenwinkel
 
 
 
-
+ K±t S³oñca
 
 ;
 MSG_DIAG_LATITUDE
@@ -8583,7 +8583,7 @@ MSG_DIAG_LATITUDE
 
 
 
-
+ Szeroko¶æ
 
 ;
 MSG_DIAG_LONGITUDE
@@ -8595,7 +8595,7 @@ MSG_DIAG_LONGITUDE
 
 
 
-
+ Szeroko¶æ
 
 ;
 MSG_DIAG_DATABASE
@@ -8607,7 +8607,7 @@ MSG_DIAG_DATABASE
 
 
 
-
+\33cBaza Danych
 
 ;
 MSG_DIAG_DIGITIZE
@@ -8619,7 +8619,7 @@ MSG_DIAG_DIGITIZE
 
 
 
-
+\33cDigitalizuj
 
 ;
 MSG_DIAG_RENDERDATA
@@ -8631,7 +8631,7 @@ Render Data
 
 
 
-
+Renderuj Dane
 
 ;
 MSG_DIAG_QUITDIG
@@ -8643,7 +8643,7 @@ MSG_DIAG_QUITDIG
 
 
 
-
+\33cWyjd¼ z Dig
 
 ;
 MSG_DIAG_SURFACE
@@ -8655,7 +8655,7 @@ Oppervlak
 
 
 
-
+Powierzchnia
 
 ;
 MSG_DIAG_NONE
@@ -8667,7 +8667,7 @@ Geen
 
 
 
-
+Nie
 
 ;
 ;
@@ -8680,7 +8680,7 @@ Dit de standaard object directory maken?
 
 
 
-
+Wybraæ ten katalog jako dom¶lny dla objektów?
 
 ;
 MSG_DISPGUI_DATABASELOAD
@@ -8692,7 +8692,7 @@ Database: Laden
 
 
 
-
+Baza Danych: Czytanie
 
 ;
 MSG_DISPGUI_ERROROPENINGDATABASEFILEPERATIONTERMINATED
@@ -8704,7 +8704,7 @@ Fout bij openen van Database bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d otwarcia pliku Bazy Danych!\nOperacja przerwana.
 
 ;
 MSG_DISPGUI_UNSUPPORTEDDATABASEFILEFORMAT
@@ -8716,7 +8716,7 @@ Nie-ondersteund Database bestandsformaat.
 
 
 
-
+Niewspierany format pliku Bazy Danych.
 
 ;
 MSG_DISPGUI_NOTAWCSDATABASEFILEPERATIONTERMINATED
@@ -8728,7 +8728,7 @@ Geen WCS Database bestand!\nOperatie afgebroken.
 
 
 
-
+To nie jest plik Bazy Danych WCS!\nOperacja przerwana.
 
 ;
 MSG_DISPGUI_ERRORREADINGDATABASEFILEPERATIONTERMINATED
@@ -8740,7 +8740,7 @@ Fout bij lezen van Database bestand!\nOperatie afgebroken.
 
 
 
-
+B³±d odczytu Bazy Danych!\nOperacja anulowana.
 
 ;
 MSG_DISPGUI_DATABASEMODULELOAD
@@ -8752,11 +8752,11 @@ Database Module: Laden
 
 
 
-
+Modu³ Bazy Danych: Czytaj
 
 ;
 MSG_DISPGUI_OUTOFMEMORYALLOCATINGDATABASEPERATIONTERMINATED
-fOut of memory allocating Database!\nOperation terminated.
+Out of memory allocating Database!\nOperation terminated.
 Nicht genügend Speicher für die Datenbank!\nVorgang abgebrochen.
 
 
@@ -8764,7 +8764,7 @@ Te weinig geheugen voor toewijzen van Database!\nOperatie afgebroken.
 
 
 
-
+Brak pamiêci dla Bazy Danych!\nOperacja przerwana.
 
 ;
 ;
@@ -8777,7 +8777,7 @@ Punt
 
 
 
-
+Punkt
 
 ;
 MSG_EDDB_CIRCLE
@@ -8789,7 +8789,7 @@ Circel
 
 
 
-
+Okrêg
 
 ;
 MSG_EDDB_SQUARE
@@ -8801,7 +8801,7 @@ Vierkant
 
 
 
-
+Kwadrat
 
 ;
 MSG_EDDB_CROSS
@@ -8813,7 +8813,7 @@ Kruis
 
 
 
-
+Krzy¿
 
 ;
 MSG_EDDB_SOLID
@@ -8825,7 +8825,7 @@ Gevuld
 
 
 
-
+Pe³ny
 
 ;
 MSG_EDDB_DOTTED
@@ -8837,7 +8837,7 @@ Gespikkeld
 
 
 
-
+Kropkowany
 
 ;
 MSG_EDDB_DASHED
@@ -8849,7 +8849,7 @@ Gestreept
 
 
 
-
+Przerywany
 
 ;
 MSG_EDDB_BROKEN
@@ -8861,7 +8861,7 @@ Gebroken
 
 
 
-
+£amany
 
 ;
 MSG_EDDB_TOPO
@@ -8885,7 +8885,7 @@ Oppervlak
 
 
 
-
+Powierzchnia
 
 ;
 MSG_EDDB_VECTOR
@@ -8945,7 +8945,7 @@ Database Editor
 
 
 
-
+Edytor Bazy Danych
 
 ;
 MSG_EDDB_YOUMUSTFIRSTLOADORCREATEADATABASEBEFOREOPENINGTHEEDITO
@@ -8957,7 +8957,7 @@ Laad of maak eerst een database voordat u de editor opent.
 
 
 
-
+Przed otwarciem edytora powiniene¶ utworzyæ lub wczytaæ bazê danych.
 
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDATABASEWINDOW
@@ -8969,7 +8969,7 @@ Te weinig geheugen!\nKan database venster niet openen.
 
 
 
-
+Brak pamiêci!\nNie mo¿na otworzyæ okna bazy danych.
 
 ;
 MSG_EDDB_OPTIONS
@@ -8981,7 +8981,7 @@ Opties
 
 
 
-
+Opcje
 
 ;
 MSG_EDDB_VECTORS
@@ -9005,7 +9005,7 @@ MSG_EDDB_SURFACES
 
 
 
-
+\33cPowierzchnie
 
 ;
 MSG_EDDB_FRACTALS
@@ -9017,7 +9017,7 @@ MSG_EDDB_FRACTALS
 
 
 
-
+\33cFraktale
 
 ;
 MSG_EDDB_NAME
@@ -9029,7 +9029,7 @@ MSG_EDDB_NAME
 
 
 
-
+\33cNazwa
 
 ;
 MSG_EDDB_ENABLED
@@ -9053,7 +9053,7 @@ Punten
 
 
 
-
+Punkty
 
 ;
 MSG_EDDB_CLASS
@@ -9065,7 +9065,7 @@ Klasse
 
 
 
-
+Klasa
 
 ;
 MSG_EDDB_LAYER1
@@ -9077,7 +9077,7 @@ Laag 1\x20
 
 
 
-
+Warstwa 1\x20
 
 ;
 MSG_EDDB_SEL
@@ -9089,7 +9089,7 @@ Sel
 
 
 
-
+Wyb
 
 ;
 MSG_EDDB_ON
@@ -9101,7 +9101,7 @@ Aan
 
 
 
-
+W³
 
 ;
 MSG_EDDB_OFF
@@ -9113,7 +9113,7 @@ Uit
 
 
 
-
+Wy³
 
 ;
 MSG_EDDB_LAYER2
@@ -9125,7 +9125,7 @@ Laag 2\x20
 
 
 
-
+Warstwa 2\x20
 
 ;
 MSG_EDDB_LABEL
@@ -9161,7 +9161,7 @@ Lijnstijl
 
 
 
-
+Styl Linii
 
 ;
 MSG_EDDB_LINEWEIGHT
@@ -9173,7 +9173,7 @@ Lijndikte\x20
 
 
 
-
+ Grubo¶æ Lini\x20
 
 ;
 MSG_EDDB_DRAWPEN
@@ -9245,7 +9245,7 @@ MSG_EDDB_NEWOBJ
 
 
 
-
+\33cNowy Objekt
 
 ;
 MSG_EDDB_ADDOBJ
@@ -9257,7 +9257,7 @@ MSG_EDDB_ADDOBJ
 
 
 
-
+\33cDodaj Objekt
 
 ;
 MSG_EDDB_REMOVE_SPACE
@@ -9269,7 +9269,7 @@ MSG_EDDB_REMOVE_SPACE
 
 
 
-
+\33cUsuñ\x20
 
 ;
 MSG_EDDB_SEARCH
@@ -9281,7 +9281,7 @@ MSG_EDDB_SEARCH
 
 
 
-
+\33cSzukaj\x20
 
 ;
 MSG_EDDB_SORT
@@ -9293,7 +9293,7 @@ MSG_EDDB_SORT
 
 
 
-
+\33cSortuj
 
 ;
 MSG_EDDB_SAVE
@@ -9305,7 +9305,7 @@ MSG_EDDB_SAVE
 
 
 
-
+\33cZapisz\x20
 
 ;
 MSG_EDDB_LOAD_SAPCE
@@ -9317,7 +9317,7 @@ MSG_EDDB_LOAD_SAPCE
 
 
 
-
+\33cCzytaj\x20
 
 ;
 MSG_EDDB_APPEND
@@ -9329,7 +9329,7 @@ MSG_EDDB_APPEND
 
 
 
-
+\33cDodaj\x20
 
 ;
 MSG_EDDB_CREATE
@@ -9341,7 +9341,7 @@ MSG_EDDB_CREATE
 
 
 
-
+\33cUtwórz\x20
 
 ;
 MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME
@@ -9353,7 +9353,7 @@ Objectnaam is al aanwezig in database!\nEen nieuwe naam proberen?
 
 
 
-
+Nazwa objektu wystêpuje ju¿ w bazie danych!\nSpróbowaæ inn± nazwê?
 
 ;
 MSG_EDDB_ENTERSEARCHSTRING
@@ -9365,7 +9365,7 @@ Zoektekst invoeren.
 
 
 
-
+Wprowad¼ poszukiwany ci±g.
 
 ;
 MSG_EDDB_SORTING
@@ -9377,7 +9377,7 @@ Sorteren
 
 
 
-
+Sortowanie
 
 ;
 MSG_EDDB_DATABASEMODULEREMOVEITEM
@@ -9389,7 +9389,7 @@ Database Module: Verwijder item
 
 
 
-
+Modu³ Bazy Danych: Usuñ element
 
 ;
 MSG_EDDB_FROMDISKDATABASEONLYCANCEL
@@ -9401,7 +9401,7 @@ Van schijf|Alleen database|Annuleren
 
 
 
-
+Z Dysku|Tylko Baza Danych|Porzuæ
 
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDATABASELIST
@@ -9413,7 +9413,7 @@ Te weinig geheugen!\nKan database lijst niet openen.
 
 
 
-
+Brak pamiêci\nNie mo¿na otworzyæ listy baz danych.
 
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDIRECTORYLISTWINDOW
@@ -9425,7 +9425,7 @@ Te weinig geheugen!\nKan directory lijst venster niet openen.
 
 
 
-
+Brak pamiêci!\nNie mo¿na otworzyæ listy okien.
 
 ;
 MSG_EDDB_DIRECTORYLISTEDITOR
@@ -9437,7 +9437,7 @@ Directory lijst editor
 
 
 
-
+Edytor Listy Katalogów
 
 ;
 MSG_EDDB_DEFAULTDIRECTORY
@@ -9449,7 +9449,7 @@ MSG_EDDB_DEFAULTDIRECTORY
 
 
 
-
+\33cDomy¶lny Katalog
 
 ;
 MSG_EDDB_ADD
@@ -9461,7 +9461,7 @@ MSG_EDDB_ADD
 
 
 
-
+\33cDodaj...
 
 ;
 MSG_EDDB_SWAP
@@ -9473,7 +9473,7 @@ MSG_EDDB_SWAP
 
 
 
-
+\33cWymieñ...
 
 ;
 MSG_EDDB_MOVE
@@ -9485,7 +9485,7 @@ MSG_EDDB_MOVE
 
 
 
-
+\33cPrzenie¶...
 
 ;
 MSG_EDDB_REMOVE
@@ -9497,7 +9497,7 @@ MSG_EDDB_REMOVE
 
 
 
-
+\33cUsuñ
 
 ;
 MSG_EDDB_READONLY
@@ -9509,7 +9509,7 @@ MSG_EDDB_READONLY
 
 
 
-
+\33c*Tylko Odczyt
 
 ;
 MSG_EDDB_KEEP
@@ -9521,7 +9521,7 @@ MSG_EDDB_KEEP
 
 
 
-
+\33cZachowaj
 
 ;
 MSG_EDDB_LOAD
@@ -9533,7 +9533,7 @@ MSG_EDDB_LOAD
 
 
 
-
+\33cCzytaj
 
 ;
 MSG_EDDB_DIRECTORYLIST
@@ -9545,7 +9545,7 @@ Directory lijst
 
 
 
-
+Lista Katalogów
 
 ;
 ;
@@ -9558,7 +9558,7 @@ Object verwijderen, hoogte en relatieve hoogte bestanden van schijf verwijderen 
 
 
 
-
+Usuniêcie objektu, pliki podniesienia i relatywnego podniesienia z dysku oraz ich nazw z Bazy Danych?
 
 ;
 MSG_EDECOGUI_BRUSHSTAMP
@@ -9582,7 +9582,7 @@ Geschaalde afbeeldingen
 
 
 
-
+Skalowane obrazy
 
 ;
 MSG_EDECOGUI_PROCEDURAL
@@ -9606,7 +9606,7 @@ Geen
 
 
 
-
+Nie
 
 ;
 MSG_EDECOGUI_ECOSYSTEMEDITOR
@@ -9618,7 +9618,7 @@ Ecosysteem editor
 
 
 
-
+Edytor Ekosystemu
 
 ;
 MSG_EDITGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENING
@@ -9630,7 +9630,7 @@ Maak eerst een parameter bestand of laad er een voordat u de editor opent.
 
 
 
-
+Wczytaj lub utwórz plik parametrów przed  otwarciem edytora.
 
 ;
 MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM
@@ -9642,7 +9642,7 @@ Parameter Module: Ecosysteem
 
 
 
-
+Parameetry Modu³u: Ekosystem
 
 ;
 MSG_EDECOGUI_OUTOFMEMORYANTOPENECOSYSTEMEDITOR
@@ -9654,7 +9654,7 @@ Te weinig geheugen!\nKan Ecosysteem editor niet openen.
 
 
 
-
+Brak pamiêci!\nNie mo¿na otworzyæ edytora ekosystemu.
 
 ;
 MSG_EDECOGUI_UNUSED
@@ -9666,7 +9666,7 @@ Ongebruikt
 
 
 
-
+Nieu¿ywane
 
 ;
 MSG_EDECOGUI_OPTIONS
@@ -9678,7 +9678,7 @@ Opties
 
 
 
-
+Opcje
 
 ;
 MSG_EDECOGUI_CMAPS
@@ -9702,7 +9702,7 @@ MSG_EDECOGUI_SURFACE
 
 
 
-
+\33cPowierzchnie
 
 ;
 MSG_EDECOGUI_FRACTALS
@@ -9714,7 +9714,7 @@ MSG_EDECOGUI_FRACTALS
 
 
 
-
+\33cFraktale
 
 ;
 MSG_EDECOGUI_ECOSYSTEMS
@@ -9726,7 +9726,7 @@ MSG_EDECOGUI_ECOSYSTEMS
 
 
 
-
+\33cEkosystemu
 
 ;
 MSG_EDECOGUI_STRATA_COLOR
@@ -9750,7 +9750,7 @@ MSG_EDECOGUI_TIDES
 
 
 
-
+\33cP³ywy
 
 ;
 MSG_EDECOGUI_NAME
@@ -9762,7 +9762,7 @@ Naam
 
 
 
-
+Nazwa
 
 ;
 MSG_EDECOGUI_EXTURE
@@ -9774,7 +9774,7 @@ MSG_EDECOGUI_EXTURE
 
 
 
-
+\33c\0334Textury
 
 ;
 MSG_EDECOGUI_CLASS
@@ -9786,7 +9786,7 @@ Klasse
 
 
 
-
+Klasy
 
 ;
 MSG_EDECOGUI_DETAILMODEL
@@ -9798,7 +9798,7 @@ MSG_EDECOGUI_DETAILMODEL
 
 
 
-
+\33cSzczegó³y Modelu
 
 ;
 MSG_EDECOGUI_DESIGN
@@ -9822,7 +9822,7 @@ Afbeeldingen
 
 
 
-
+Obrazy
 
 ;
 MSG_EDECOGUI_MAXHT
@@ -9858,7 +9858,7 @@ MSG_EDECOGUI_EDITIMAGES
 
 
 
-
+\33cEdycja Obrazów...
 
 ;
 MSG_EDECOGUI_STRATA
@@ -9918,7 +9918,7 @@ MSG_EDECOGUI_OLORMAP
 
 
 
-
+\33c\0334Mapa Kolorów
 
 ;
 MSG_EDECOGUI_MATCHRED
@@ -9930,7 +9930,7 @@ MSG_EDECOGUI_MATCHRED
 
 
 
-
+Dopasuj Czerwony\x20
 
 ;
 MSG_EDECOGUI_MATCHGRN
@@ -9942,7 +9942,7 @@ Gelijk aan Groen\x20
 
 
 
-
+Dopasuj Zielony\x20
 
 ;
 MSG_EDECOGUI_MATCHBLU
@@ -9954,7 +9954,7 @@ Gelijk aan Blauw\x20
 
 
 
-
+Dopasuj Niebieski\x20
 
 ;
 MSG_EDECOGUI_EYFRAMES
@@ -9966,7 +9966,7 @@ MSG_EDECOGUI_EYFRAMES
 
 
 
-
+\33c\0334Kluczowe Klatki
 
 ;
 MSG_EDECOGUI_PREV
@@ -9978,7 +9978,7 @@ MSG_EDECOGUI_PREV
 
 
 
-
+\33cPoprzedni
 
 ;
 MSG_EDECOGUI_FRAME
@@ -9990,7 +9990,7 @@ Frame
 
 
 
-
+Klatka
 
 ;
 MSG_EDECOGUI_NEXT
@@ -10002,7 +10002,7 @@ MSG_EDECOGUI_NEXT
 
 
 
-
+\33cNastêpny
 
 ;
 MSG_EDECOGUI_MAKEKEY
@@ -10014,7 +10014,7 @@ MSG_EDECOGUI_MAKEKEY
 
 
 
-
+\33cUtwórz Klucz
 
 ;
 MSG_EDECOGUI_UPDATE
@@ -10026,7 +10026,7 @@ MSG_EDECOGUI_UPDATE
 
 
 
-
+\33cAktualizuj
 
 ;
 MSG_EDECOGUI_ALL0
@@ -10038,7 +10038,7 @@ MSG_EDECOGUI_ALL0
 
 
 
-
+\33cWszystko (0)
 
 ;
 MSG_EDECOGUI_DELETE
@@ -10050,7 +10050,7 @@ MSG_EDECOGUI_DELETE
 
 
 
-
+\33c\33uUsuñ
 
 ;
 MSG_EDECOGUI_DELETEALL
@@ -10062,7 +10062,7 @@ MSG_EDECOGUI_DELETEALL
 
 
 
-
+\33cUsuñ Wszystko
 
 ;
 MSG_EDECOGUI_TIMELINES
@@ -10098,7 +10098,7 @@ MSG_EDECOGUI_COPY
 
 
 
-
+\33cKopia
 
 ;
 MSG_EDECOGUI_SWAP
@@ -10110,7 +10110,7 @@ MSG_EDECOGUI_SWAP
 
 
 
-
+\33cZamieñ
 
 ;
 MSG_EDECOGUI_INSERT
@@ -10122,7 +10122,7 @@ MSG_EDECOGUI_INSERT
 
 
 
-
+\33cWstaw
 
 ;
 MSG_EDECOGUI_REMOVE
@@ -10134,7 +10134,7 @@ MSG_EDECOGUI_REMOVE
 
 
 
-
+\33cUsuñ
 
 ;
 MSG_EDECOGUI_SORTLIST (//16)
@@ -10146,7 +10146,7 @@ MSG_EDECOGUI_SORTLIST (//16)
 
 
 
-
+\33cSortuj Listê
 
 ;
 MSG_EDECOGUI_KEEP
@@ -10158,7 +10158,7 @@ MSG_EDECOGUI_KEEP
 
 
 
-
+\33cZachowaj
 
 ;
 MSG_GLOBAL_NUMERICPADENTER
@@ -10170,7 +10170,7 @@ Numeriek blok invoer
 
 
 
-
+enter klawiatury numerycznej
 
 ;
 MSG_EDECOGUI_ELEVLINE
