@@ -659,7 +659,7 @@ Zichtboog
 Betragsningsvinkel
 
 K±t Widzenia
-Zobrazit oblak
+Zobrazit oblaka
 ;
 MSG_VARNAME_FLATTENING
 Flattening
@@ -767,7 +767,7 @@ Nevel Start
 
 
 Pocz±tek Zamglenia
-Zaèátek Haze
+Zaèátek mlhy
 ;
 MSG_VARNAME_HAZERANGE
 Haze Range
@@ -959,7 +959,7 @@ MSG_STDMESG_WRITINGTOFILEFAILED
  Skrivning af fil fejlede!
 
 B³±d zapisu pliku!
-Chyba pøi zápisu do zouboru!
+Chyba pøi zápisu do souboru!
 ;
 MSG_STDMESG_WRONGFILETYPE
  Wrong file type!
@@ -1347,7 +1347,7 @@ Geen
 Ingen
 
 Nie
-Nic
+®ádný
 ;
 MSG_SCNRMODGUI_TEXT
 Text
@@ -1359,7 +1359,7 @@ Tekst
 Tekst
 
 Tekst
-Text
+Textový
 ;
 MSG_SCNRMODGUI_STANDARD
 Standard
@@ -1371,7 +1371,7 @@ Standaard
 Standard
 
 Standardowy
-Standard
+Standardní
 ;
 MSG_SCNRMODGUI_MAX
 Max
@@ -1383,7 +1383,7 @@ Maximum
 Maximum
 
 Max
-Max
+Maximální
 ;
 MSG_SCNRMODGUI_VIDEO
 Video
@@ -1395,7 +1395,7 @@ Video
 Video
 
 Video
-Obraz
+Obrazovkový
 ;
 MSG_SCNRMODGUI_WORLDCONSTRUCTIONSETSCREENMODE
 World Construction Set Screenmode
@@ -1505,7 +1505,7 @@ Interlace\x20
 
 
 Interlace\x20
-Prokládání\x20
+Prokládaný\x20
 ;
 MSG_SCNRMODGUI_GENLOCKABLE
 Genlockable\x20
@@ -2530,7 +2530,7 @@ DataOps Module
 
 
 Modu³ DataOps
-dataops modul prelozit
+Modul exportu
 ;
 MSG_AGUI_EXTRACTDEM
 \33l Extract DEM\x20
@@ -2638,7 +2638,7 @@ Status Log
 
 
 Log Zdarzeñ
-Stav záznamù
+Okno záznamù
 ;
 MSG_AGUI_ERR
 ERR:
@@ -2674,7 +2674,7 @@ Melding:
 
 
 
-
+Zpráva
 ;
 MSG_AGUI_DTA
 DTA:
@@ -2746,7 +2746,7 @@ MSG_AGUI_ALL0
 
 
 \33cWszystko (0)
-
+\33cV¹e
 ;
 MSG_AGUI_NOOTHERKEYS
 No Other Keys
@@ -2758,7 +2758,7 @@ Geen andere Keys
 
 
 Bez Innych Kluczy
-
+prelozit
 ;
 ; PK="Previous Key"
 MSG_AGUI_PK
@@ -2808,7 +2808,7 @@ Gebruik
 
 
 U¿yj
-Pouzit
+Pou¾ít
 ;
 MSG_AGUI_LOADACTIVE
 Load Active...
@@ -3109,7 +3109,7 @@ Fout bij lezen van Z Buffer bestand!\nGeen enkele precisie drijvende komma.\nOpe
 
 
 B³±d odczytu pliku bufora Z!\nNie s± pojedyñczej precyzji warto¶ciami zmienno przecinkowymi.\nOperacja anluowana.
-
+Chyba pøi ètení ze souboru Z Buffer v datech s plovoucí desetinnou èárkou!\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBODCHUNKPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated.
@@ -3121,7 +3121,7 @@ Fout bij lezen van Z Buffer bestand!\nZBOD chunk ontbreekt.\nOperatie afgebroken
 
 
 B³±d odczytu pliku bufora Z!\nNie ma ZBOD chunk.\nOperacja anulowana.
-
+Chyba pøi ètení ze souboru Z Buffer!\nÚsek ZBOD nenalezen.\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBUFCHUNKPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated.
@@ -3133,7 +3133,7 @@ Fout bij lezen van Z Buffer bestand!\nZBUF chunk ontbreekt.\nOperatie afgebroken
 
 
 B³±d odczytu pliku bufora Z!\nBrak ZBUF chunk.\nOperacja anulowana.
-
+Chyba pøi ètení ze souboru Z Buffer!\nÚsek ZBUF nenalezen.\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILERONGSIZEPERATIONTERMINATED
 Error reading Z Buffer file!\nWrong Size.\nOperation terminated.
@@ -3145,7 +3145,7 @@ Fout bij lezen van Z Buffer bestand!\nAfmetingen onjuist.\nOperatie afgebroken.
 
 
 B³±d odczytu pliku bufora Z!\nNiew³a¶ciwy Rozmiar\nOperacja anulowana.
-
+Chyba pøi ètení ze souboru Z Buffer!\n©patná velikost.\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_ERRORLOADINGBACKGROUNDIMAGEPERATIONTERMINATED
 Error loading background image!\nOperation terminated.
@@ -3157,7 +3157,7 @@ Fout bij laden van achtergrond afbeelding!\nOperatie afgebroken.
 
 
 B³±d odczytu obrazu t³a!\nOperacja anulowana.
-
+Chyba pøi naèítání obrazku pozadí!\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_OUTOFMEMORYMERGINGBACKGROUNDPERATIONTERMINATED
 Out of memory merging background!\nOperation terminated.
@@ -3169,7 +3169,7 @@ Te weinig geheugen voor samenvoegen met achtergrond!\nOperatie afgebroken.
 
 
 Brak pamiêci dla do³±czenia t³a!\nOperacja anulowana.
-
+Nedostatek pamìti pro slouèení pozadí!\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_ERROROPENINGBACKGROUNDFILEFORINPUTPERATIONTERMINATE
 Error opening Background file for input!\nOperation terminated.
@@ -3181,7 +3181,7 @@ Fout bij openen van achtergrond bestand voor invoer!\nOperatie afgebroken.
 
 
 B³±d otwarcia pliku t³a!\n Operacja anulowana.
-
+Chyba pøi pokusu otevøít soubor pozadí!\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILERONGSIZEPERATIONTERMINATE
 Error reading Background file!\nWrong Size.\nOperation terminated.
@@ -3193,7 +3193,7 @@ Afmetingen van achtergrond bestand onjuist!\nOperatie afgebroken.
 
 
 B³±d odczytu pliku t³a!\nNiew³a¶ciwy Rozmiar.\nPoracja anulowana.
-
+Chyba pøi naèítání souboru pozadi!\n©patná velikost.\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBODYCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BODY Chunk.\nOperation terminated.
@@ -3205,7 +3205,7 @@ Fout bij lezen van achtergrond bestand!\nBODY chunk ontbreekt.\nOperatie afgebro
 
 
 B³±d odczytu pliku t³a!\nBrak BODU-Chunk.\nOperacja anlulowana.
-
+Chyba pøi naèítání souboru pozadí!\nÚsek BODY nenalezen.\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBMHDCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BMHD Chunk.\nOperation terminated.
@@ -3217,7 +3217,7 @@ Fout bij lezen van achtergrond bestand!\nBMHD chunk ontbreekt.\nOperatie afgebro
 
 
 B³±d oczytu pliu t³a!\nBrak BMHD Chunk.\nOperacja anulowana.
-
+Chyba pøi naèítání souboru pozadí!\nÚsek BMHD nenalezen.\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOMPRESSIONERRORPERATIONTE
 Error reading Background file!\nCompression error.\nOperation terminated.
@@ -3229,7 +3229,7 @@ Fout bij lezen van achtergrond bestand!\nCompressie fout.\nOperatie afgebroken.
 
 
 B³±d odczytu pliku t³a!\nB³±d Dekompresji.\nOperacja anulowana.
-
+Chyba pøi naèítání souboru pozadí!\nChyba komprese..\nOperace bude ukonèena.
 ;
 MSG_CLOUD_CLOUDEDITORSETBOUNDS
 Cloud Editor:Set Bounds
@@ -3241,7 +3241,7 @@ Wolken Editor:Grenzen instellen
 
 
 Edytor Chmur: Ustwieni Granic
-
+Editor oblak: Nastav ohranièení
 ;
 MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN
 Map View Module must be open in order to use this function. Would you like to open it now?
@@ -3253,7 +3253,7 @@ Kaartweergave Module moet geopend zijn om deze functie te gebruiken. Wilt u het 
 
 
 Modu³ przegl±du map musi byæ otwarty aby mó u¿yæ tej funkcji. Czy chesz otworzyæ go teraz?
-
+Pro pou¾ití této funkce musí být otevøen mapový modul.Chcete jej nyní otevøít?
 ;
 MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
 \0338Set northwest corner with mouse.
@@ -3265,7 +3265,7 @@ MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
 
 
 \0338Ustaw pó³nocno-zachodni naro¿nik za pomoc± myszy.
-
+\0338Nastavte severozápadní roh pomocí mysi.
 ;
 MSG_CLOUD_SETNORTHWESTCORNER
 Set northwest corner
@@ -3277,7 +3277,7 @@ Stel noord-west hoek in
 
 
 Ustaw pó³nocno-zachodni naro¿nik
-
+Nastavení severozápadního rohu
 ;
 MSG_CLOUD_ETSOUTHEASTCORNERESCABORT
 \0338Set southeast corner. ESC=abort
@@ -3289,7 +3289,7 @@ MSG_CLOUD_ETSOUTHEASTCORNERESCABORT
 
 
 \0338Ustaw pó³nocno-wschodni naro¿nik. ESC=przerwij
-
+\0338Nastavte jihovýchodní roh. ESC=Pøeru¹ení
 ;
 MSG_CLOUD_SETSOUTHEASTCORNER
 Set southeast corner
@@ -3301,7 +3301,7 @@ Stel zuid-oost hoek in
 
 
 Ustaw pó³nocno-wschodni naro¿nik
-
+Nastavení jihovýchodního rohu
 ;
 MSG_MAPGUI_MAPPINGMODULEALIGN
 Mapping Module: Align
@@ -3313,7 +3313,7 @@ Mapping Module: Uitlijnen
 
 
 Modu³ Mapowania: Wyrówmamie
-
+Mapový modul: Zarovnání
 ;
 MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET
 Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?
@@ -3325,7 +3325,7 @@ Ongeldige waarden!\nEr moet minstens één pixel offset zijn op beide assen.\nOpni
 
 
 Niew³a¶ciwe warto¶ci!\nMusi byæ przynajmniej jeden piksel przesuniêcia dla obu k±tów\nSpróbowaæ ponownie?
-
+Nepovolená hodnota!\nNa obou stranách musí být rozdíl alespoò jednoho bodu.\nChcete to zkusit znovu?
 ;
 MSG_CLOUD_ENTERFRAMENUMBER
 Enter Frame Number.
@@ -3337,7 +3337,7 @@ Voer Frame Nummer in.
 
 
 Worowad¼ numer klatki.
-
+Zadej poèet snímkù.
 ;
 MSG_GLOBAL_COMPUTING
 Computing...
@@ -3349,7 +3349,7 @@ Berekenen...
 
 
 Obliczenia...
-
+Zpracovávám...
 ;
 MSG_GLOBAL_DRAWING
 Drawing...
@@ -3361,7 +3361,7 @@ Tekenen...
 
 
 Rysowanie...
-
+Vykreslování...
 ;
 ; ------ CloudGUI.c -------
 ;
@@ -3423,7 +3423,7 @@ Wolken Editor
 
 
 Edytor Chmur
-
+Editor nastavení oblak
 ;
 MSG_CLOUDGUI_OPTIONS
 Options
@@ -3435,7 +3435,7 @@ Opties
 
 
 Opcje
-
+Mo¾nosti
 ;
 MSG_CLOUDGUI_CLOUDS
 \33cClouds
@@ -3447,7 +3447,7 @@ MSG_CLOUDGUI_CLOUDS
 
 
 \33cChmury
-
+\33cOblaka
 ;
 MSG_CLOUDGUI_CLOUDSHADOWS
 \33cCloud Shadows
@@ -3459,7 +3459,7 @@ MSG_CLOUDGUI_CLOUDSHADOWS
 
 
 \33cCienie Chmur
-
+\33cStíny oblak
 ;
 MSG_CLOUDGUI_CLOUDTYPE
 Cloud Type
@@ -3471,7 +3471,7 @@ Wolken type
 
 
 Typ Chmury
-
+Typ oblak
 ;
 MSG_CLOUDGUI_SEED
 Seed
@@ -3495,7 +3495,7 @@ MSG_CLOUDGUI_CLOUDWAVES
 
 
 \33c\0334Fale Chmur
-
+\33c\0334Zvlnìní oblak
 ;
 MSG_CLOUDGUI_WAVES
 Waves
@@ -3507,7 +3507,7 @@ Golven
 
 
 Fale
-
+Zvlnìní
 ;
 MSG_CLOUDGUI_MAPADD
 \33cMap Add...
@@ -3519,7 +3519,7 @@ MSG_CLOUDGUI_MAPADD
 
 
 \33cDodaj Mapê...
-
+\33cPøidání mapy...
 ;
 MSG_CLOUDGUI_EDIT
 \33cEdit...
@@ -3531,7 +3531,7 @@ MSG_CLOUDGUI_EDIT
 
 
 \33cEdycja...
-
+Upravit...
 ;
 MSG_CLOUDGUI_ANIMATE
 Animate
@@ -3543,7 +3543,7 @@ Animeren
 
 
 Animacja
-
+Animuj
 ;
 MSG_CLOUDGUI_LOUDMAPSIZERANGE
 \33c\0334Cloud Map Size & Range
@@ -3555,7 +3555,7 @@ MSG_CLOUDGUI_LOUDMAPSIZERANGE
 
 
 \33c\0334Mapa Chmur Rozmiar i Zasiêg
-
+\33c\0334Mapa velikosti a rozsahu oblak
 ;
 MSG_CLOUDGUI_ROWS
 Rows
@@ -3567,7 +3567,7 @@ Rijen
 
 
 Rzêdy
-
+Øádky
 ;
 MSG_CLOUDGUI_COLS
 Cols
@@ -3579,7 +3579,7 @@ Kolommen
 
 
 Kolumny
-
+Sloupce
 ;
 MSG_CLOUDGUI_LATMAX
 Lat Max
@@ -3591,7 +3591,7 @@ Max Lat
 
 
 Najwy¿sza Wysoko¶æ
-
+Vý¹ka Max
 ;
 MSG_CLOUDGUI_MIN
 Min
@@ -3603,7 +3603,7 @@ Min
 
 
 Najni¿sza
-
+Min
 ;
 MSG_CLOUDGUI_LONMAX
 Lon Max
@@ -3615,7 +3615,7 @@ Max Long
 
 
 Najwiêksza Szeroko¶æ
-
+Vzdálenost Max
 ;
 MSG_CLOUDGUI_ANIMATION
 \33c\0334Animation
@@ -3627,7 +3627,7 @@ MSG_CLOUDGUI_ANIMATION
 
 
 \33c\0334Animacja
-
+\33c\0334Animace
 ;
 MSG_CLOUDGUI_COVERAGE
 Coverage
@@ -3639,7 +3639,7 @@ Bedekkingsgraad
 
 
 Pokrycie
-
+Pokrytí
 ;
 MSG_CLOUDGUI_DENSITY
 Density
@@ -3651,7 +3651,7 @@ Dichtheid
 
 
 Gêsto¶æ
-
+Hustota
 ;
 MSG_CLOUDGUI_ROUGHNESS
 Roughness
@@ -3663,7 +3663,7 @@ Ruwheid
 
 
 Szorstko¶æ
-
+Zvrásnìní
 ;
 MSG_CLOUDGUI_FRACTDIM
 Fract Dim
@@ -3675,7 +3675,7 @@ Deeltjes afmetingen
 
 
 
-
+Velikost fraktálù
 ;
 MSG_CLOUDGUI_MOVELAT
 Move Lat
@@ -3687,7 +3687,7 @@ Verplaats Lat
 
 
 Wysoko¶æ Ruchu
-
+Posun vý¹ky
 ;
 MSG_CLOUDGUI_LON
 Lon
@@ -3699,7 +3699,7 @@ Long
 
 
 Szeroko¶æ
-
+Délka
 ;
 MSG_CLOUDGUI_ALTITUDE
 Altitude
@@ -3711,7 +3711,7 @@ Hoogte
 
 
 Wysoko¶æ
-
+Nadmoøská vý¹ka
 ;
 MSG_CLOUDGUI_EYFRAMES
 \33c\0334Key Frames
@@ -3723,7 +3723,7 @@ MSG_CLOUDGUI_EYFRAMES
 
 
 \33c\0334Kluczowe Klatki
-
+\33c\0334Klíèové snímky
 ;
 MSG_CLOUDGUI_PREV
 \33cPrev
@@ -3735,7 +3735,7 @@ MSG_CLOUDGUI_PREV
 
 
 \33cPoprzedni
-
+\33cPøedchozí
 ;
 MSG_CLOUDGUI_FRAME
 Frame
@@ -3747,7 +3747,7 @@ Frame
 
 
 Klatka
-
+Snímek
 ;
 MSG_CLOUDGUI_NEXT
 \33cNext
@@ -3759,7 +3759,7 @@ MSG_CLOUDGUI_NEXT
 
 
 Nastêpny
-
+\33cDal¹í
 ;
 MSG_CLOUDGUI_MAKEKEY
 \33cMake Key
@@ -3771,7 +3771,7 @@ MSG_CLOUDGUI_MAKEKEY
 
 
 \33cStwórz Klucz
-
+\33cVytvoø klíèový snímek
 ;
 MSG_CLOUDGUI_UPDATE
 \33cUpdate
@@ -3783,7 +3783,7 @@ MSG_CLOUDGUI_UPDATE
 
 
 \33cAktualizuj
-
+Obnovit
 ;
 MSG_CLOUDGUI_DELETE
 \33c\33uDel\33nete
@@ -3795,7 +3795,7 @@ MSG_CLOUDGUI_DELETE
 
 
 \33cUsuñ
-
+\33cSmazat
 ;
 MSG_CLOUDGUI_DELETEALL
 \33cDelete All
@@ -3807,7 +3807,7 @@ MSG_CLOUDGUI_DELETEALL
 
 
 \33cUsuñ Wszystko
-
+\33cSmazat v¹e
 ;
 MSG_CLOUDGUI_TIMELINES
 \33cTime Lines\x20
@@ -3819,7 +3819,7 @@ MSG_CLOUDGUI_TIMELINES
 
 
 \33cLInia Czasu\x20
-
+\33cÈasová osa\x20
 ;
 MSG_CLOUDGUI_SCALEKEYS
 \33cScale Keys\x20
@@ -3831,7 +3831,7 @@ MSG_CLOUDGUI_SCALEKEYS
 
 
 \33cSkala\x20
-
+\33cRozestup snímku\x20
 ;
 MSG_CLOUDGUI_DRAWCLOUD
 \33cDraw Cloud
@@ -3843,7 +3843,7 @@ MSG_CLOUDGUI_DRAWCLOUD
 
 
 \33cRysowanie Chmur
-
+\33cVykreslit oblaka
 ;
 MSG_CLOUDGUI_SETBOUNDS
 \33cSet Bounds
