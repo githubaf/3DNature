@@ -154,7 +154,7 @@ Versie...
 Version...
 
 Wersja...
-Verze programu...
+O programu...
 ;
 MSG_MENU_PR_CREDITS
 Credits...
@@ -214,7 +214,7 @@ Modules
 Moduler
 
 Modu³y
-Okna
+Moduly
 ;
 MSG_MENU_MOD_DATABASE
 DataBase
@@ -226,7 +226,7 @@ Database
 Database
 
 Baza Danych
-Okno vstupu a výstupu
+Modul database
 ;
 MSG_MENU_MOD_DATAOPS
 Data Ops
@@ -238,7 +238,7 @@ Data Ops
 Data Ops
 
 
-Okno mo¾ností exportu
+Modul exportu
 ;
 MSG_MAPGUI_MAPVIEW
 Map View
@@ -250,7 +250,7 @@ Kaartweergave
 Kortvisning
 
 Widok Mapy
-Nastavení mapy
+Mapový modul
 ;
 MSG_MENU_MOD_PARAMETERS
 Parameters
@@ -262,7 +262,7 @@ Parameters
 Parametre
 
 Parametry
-Okno mo¾ností
+Modul nastavení
 ;
 MSG_MENU_MOD_RENDER
 Render
@@ -419,7 +419,7 @@ Water
 Vand
 
 Woda
-
+Voda
 ;
 MSG_TYPENAME_SNOW
 Snow
@@ -431,7 +431,7 @@ Sneeuw
 Sne
 
 ¦nieg
-
+Snih
 ;
 MSG_TYPENAME_ROCK
 Rock
@@ -443,7 +443,7 @@ Rots
 Sten
 
 Ska³a
-
+Hory
 ;
 MSG_TYPENAME_GROUND
 Ground
@@ -455,7 +455,7 @@ Terrein
 Terræn
 
 Grunt
-
+Zem
 ;
 MSG_TYPENAME_CONIFER
 Conifer
@@ -467,7 +467,7 @@ Naaldboom
 Nåletræer
 
 Drzewostan
-
+Jehliènany
 ;
 MSG_TYPENAME_DECID
 Decid
@@ -491,7 +491,7 @@ Ondergroei
 Lav Vegation
 
 Niska Ro¶linno¶æ
-
+Nízká vegetace
 ;
 MSG_TYPENAME_SNAG
 Snag
@@ -515,7 +515,7 @@ Boomstronk
 Træstub
 
 Pieñ drzewa
-
+Ro¹tí
 ;
 MSG_VARNAME_CAMERAALTITUDE
 Camera Altitude
@@ -527,7 +527,7 @@ Camera Hoogte
 Kamera Højde
 
 Kamera - Wysoko¶æ
-
+Nadmoøská vý¹ka
 ;
 MSG_VARNAME_CAMERALATITUDE
 Camera Latitude
@@ -539,7 +539,7 @@ Camera Breedtegraad
 Kamera breddegrad
 
 Kamera - Szeroko¶æ
-
+Zemìpisná vý¹ka
 ;
 MSG_VARNAME_CAMERALONGITUDE
 Camera Longitude
@@ -551,7 +551,7 @@ Camera Lengtegraad
 Kamera længdegrad
 
 Kamera - D³ugo¶æ
-
+Zemìpisná délka
 ;
 MSG_VARNAME_FOCUSALTITUDE
 Focus Altitude
@@ -563,7 +563,7 @@ Focus Hoogte
 Focu Højde
 
 Focus Kamery - Wysoko¶æ
-
+Zamìøení nadmoøské vý¹ky
 ;
 MSG_VARNAME_FOCUSLATITUDE
 Focus Latitude
@@ -575,7 +575,7 @@ Focus Breedtegraad
 Focus breddegrad
 
 Focus Kamery - Szeroko¶æ
-
+Zamìøení zemìpisné vý¹ky
 ;
 MSG_VARNAME_FOCUSLONGITUDE
 Focus Longitude
@@ -587,7 +587,7 @@ Focus Lengtegraad
 Fokus længdegrad
 
 Focus Kamery - D³ugo¶æ
-
+Zamìøení zemìpisné délky
 ;
 MSG_VARNAME_CENTERX
 Center X
@@ -599,7 +599,7 @@ Midden X
 Centrum X
 
 ¦rodek X
-
+Centrování X
 ;
 MSG_VARNAME_CENTERY
 Center Y
@@ -611,7 +611,7 @@ Midden Y
 Centrum Y
 
 ¦rodek Y
-
+Centrování Y
 ;
 MSG_VARNAME_BANK
 Bank
@@ -623,7 +623,7 @@ Helling
 
 
 Nachylenie
-
+Bank
 ;
 MSG_VARNAME_EARTHROTATION
 Earth Rotation
@@ -635,7 +635,7 @@ Aardrotatie
 Jordrotation
 
 Obrót Ziemii
-
+Zemská rotace
 ;
 MSG_VARNAME_SCALE
 Scale
@@ -647,7 +647,7 @@ Schaal
 
 
 Skala
-
+Mìøítko
 ;
 MSG_VARNAME_VIEWARC
 View Arc
@@ -659,7 +659,7 @@ Zichtboog
 Betragsningsvinkel
 
 K±t Widzenia
-
+Zobrazit oblak
 ;
 MSG_VARNAME_FLATTENING
 Flattening
@@ -671,7 +671,7 @@ Afvlakking
 Udfladning
 
 Sp³aszczenie
-
+Zplo¹tìní
 ;
 MSG_VARNAME_DATUM
 Datum
@@ -683,7 +683,7 @@ Datum
 Dato
 
 Punkt Wyj¶ciowy
-
+Datum
 ;
 MSG_VARNAME_VERTICALEXAG
 Vertical Exag
@@ -695,7 +695,7 @@ Verticale Overdr
 
 
 Przesuniêcie Pionowe
-
+Vertikalni Exag
 ;
 MSG_VARNAME_SUNLIGHTLAT
 Sun Light Lat
@@ -707,7 +707,7 @@ Zonlicht Lat
 
 
 ¦wiat³o S³oñca Wys
-
+Vý¹ka slunce
 ;
 MSG_VARNAME_SUNLIGHTLON
 Sun Light Lon
@@ -719,7 +719,7 @@ Zonlicht Long
 
 
 ¦wiat³o S³oñca Szer
-
+Vzdálenost slunce
 ;
 MSG_VARNAME_HORIZONLINE
 Horizon Line
@@ -731,7 +731,7 @@ Horizon Lijn
 Horizontallinje
 
 Linia Horyzontu
-
+Úroveò horizontu
 ;
 MSG_VARNAME_HORIZONPOINT
 Horizon Point
@@ -743,7 +743,7 @@ Horizon Punt
 Horizontalpunkt
 
 Punkt Na Horyzoncie
-
+Bod horizontu
 ;
 MSG_VARNAME_HORIZONSTRETCH
 Horizon Stretch
@@ -755,7 +755,7 @@ Horizon Uitrekken
 
 
 Rozci±gniêcie Horyzontu
-
+Rozta¾ení horizontu
 ;
 MSG_VARNAME_HAZESTART
 Haze Start
@@ -767,7 +767,7 @@ Nevel Start
 
 
 Pocz±tek Zamglenia
-
+Zaèátek Haze
 ;
 MSG_VARNAME_HAZERANGE
 Haze Range
@@ -779,7 +779,7 @@ Nevel Bereik
 
 
 Zasiêg Mg³y
-
+Úroveò mlhy
 ;
 MSG_VARNAME_SHADEFACTOR
 Shade Factor
@@ -791,7 +791,7 @@ Schaduw Factor
 Skyggefaktor
 
 Stopieñ Cienia
-
+Úroveò stínování
 ;
 MSG_VARNAME_FOGNONE
 Fog None
@@ -803,7 +803,7 @@ Geen Mist
 Ingen tåge
 
 Bez Mg³y
-
+Fog None
 ;
 MSG_VARNAME_FOGFULL
 Fog Full
@@ -815,7 +815,7 @@ Volledige Mist
 Fuld tåge
 
 Pe³na Mg³a
-
+Fog Full
 ;
 MSG_VARNAME_ZMINIMUM
 Z Minimum
@@ -827,7 +827,7 @@ Z Minimum
 Z Minimum
 
 Z Minimalne
-
+Z Minimum
 ;
 MSG_VARNAME_SUNLAT
 Sun Lat
@@ -839,7 +839,7 @@ Zon Lat
 
 
 Wys. S³oñca
-
+Vý¹ka slunce
 ;
 MSG_VARNAME_SUNLON
 Sun Lon
@@ -851,7 +851,7 @@ Zon Long
 
 
 D³ug. S³oñca
-
+Vzdálenost slunce
 ;
 MSG_VARNAME_SUNSIZE
 Sun Size
@@ -863,7 +863,7 @@ Zon Grootte
 Solstørrelse
 
 Rozmiar S³oñca
-
+Velikost slunce
 ;
 MSG_VARNAME_MOONLAT
 Moon Lat
@@ -875,7 +875,7 @@ Maan Lat
 
 
 Wys. Ksiê¿yca
-
+Vý¹ka mìsíce
 ;
 MSG_VARNAME_MOONLON
 Moon Lon
@@ -887,7 +887,7 @@ Maan Long
 
 
 D³ug. Ksiê¿yca
-
+Vzdálenost mìsíce
 ;
 MSG_VARNAME_MOONSIZE
 Moon Size
@@ -899,7 +899,7 @@ Maan Grootte
 Månestørrelse
 
 Rozmiar Ksiê¿yca
-
+Velikost mìsíce
 ;
 MSG_VARNAME_REFLECTION
 Reflection %
@@ -911,7 +911,7 @@ Reflectie %
 Reflektion %
 
 Odbicie %
-
+Odrazivost %
 ;
 MSG_STDMESG_OUTOFMEMORY
  Out of memory!
@@ -923,7 +923,7 @@ MSG_STDMESG_OUTOFMEMORY
 
 
 Brak Pamiêci!
-
+Nedostatek pamìti!
 ;
 MSG_STDMESG_OPENFILEFAILED
  Open file failed!
@@ -935,7 +935,7 @@ MSG_STDMESG_OPENFILEFAILED
  Åbning af fil fejlede!
 
 Nie mo¿na otworzyæ pliku!
-
+Chyba pøi otevírání souboru!
 ;
 MSG_STDMESG_READFILEFAILED
  Read file failed!
@@ -947,7 +947,7 @@ MSG_STDMESG_READFILEFAILED
  Læsning af fil fejlede!
 
 B³±d odczytu pliku!
-
+Chyba pøi naèítání souboru!
 ;
 MSG_STDMESG_WRITINGTOFILEFAILED
  Writing to file failed!
@@ -959,7 +959,7 @@ MSG_STDMESG_WRITINGTOFILEFAILED
  Skrivning af fil fejlede!
 
 B³±d zapisu pliku!
-
+Chyba pøi zápisu do zouboru!
 ;
 MSG_STDMESG_WRONGFILETYPE
  Wrong file type!
@@ -971,7 +971,7 @@ MSG_STDMESG_WRONGFILETYPE
  Forkert filtype!
 
 Niew³a¶ciwy typ pliku!
-
+Neznámý typ souboru!
 ;
 MSG_STDMESG_ILLEGALINSTRUCTION
  Illegal instruction!
@@ -983,7 +983,7 @@ MSG_STDMESG_ILLEGALINSTRUCTION
  Ugyldig instruktion!
 
 Nieznanza instrukcja!
-
+Neznámý pøíkaz!
 ;
 MSG_STDMESG_ILLEGALVALUE
  Illegal value!
@@ -995,7 +995,7 @@ MSG_STDMESG_ILLEGALVALUE
  Ugyldig værdi!
 
 Niew³±¶ciwa warto¶æ!
-
+Neznámá hodnota!
 ;
 MSG_STDMESG_FILENOTLOADED
  File not loaded!
@@ -1007,7 +1007,7 @@ MSG_STDMESG_FILENOTLOADED
  Fil ikke indlæst!
 
 Plik niewczytany!
-
+Soubor nebyl naèten!
 ;
 MSG_STDMESG_MODULENOTIMPLEMENTED
  Module not implemented.
@@ -1019,7 +1019,7 @@ MSG_STDMESG_MODULENOTIMPLEMENTED
  Module er ikke implementeret.
 
 Modu³ nie jest zaimplementowany.
-
+Èást programu nebyla pøidána.
 ;
 MSG_STDMESG_GUINOTIMPLEMENTED
  GUI not implemented.
@@ -1031,7 +1031,7 @@ MSG_STDMESG_GUINOTIMPLEMENTED
  GUI er ikke implementeret.
 
 GUI nie zaimplementowane.
-
+U¾ivatelské rozhraní nebylo pøidáno.
 ;
 MSG_STDMESG_PARAMETERFILELOADED
  Parameter file loaded.
@@ -1043,7 +1043,7 @@ MSG_STDMESG_PARAMETERFILELOADED
  Parameter fil indlæst.
 
 Plik z parametrami wczytany.
-
+Soubor parametrù byl úspì¹nì naèten.
 ;
 MSG_STDMESG_PARAMETERFILESAVED
  Parameter file saved.
@@ -1055,7 +1055,7 @@ MSG_STDMESG_PARAMETERFILESAVED
  Parameter fil gemt.
 
 Plik z parametrami zapisany.
-
+Soubor parametrù byl úspì¹nì ulo¾en.
 ;
 MSG_STDMESG_DATABASEFILELOADED
  Database file loaded.
@@ -1067,7 +1067,7 @@ MSG_STDMESG_DATABASEFILELOADED
  Database fil indlæst.
 
 Plik bazy danych wczytany.
-
+Soubor databáze byl úspì¹nì naèten.
 ;
 MSG_STDMESG_DATABASEFILESAVED
  Database file saved.
@@ -1079,7 +1079,7 @@ MSG_STDMESG_DATABASEFILESAVED
  Database fil gemt.
 
 Plik bazy danych zapisany.
-
+Soubor databáze byl úspì¹nì ulo¾en.
 ;
 MSG_STDMESG_DEMFILELOADED
  DEM file loaded.
@@ -1091,7 +1091,7 @@ MSG_STDMESG_DEMFILELOADED
  DEM fil indlæst.
 
 Plik DEM wczytany.
-
+Soubor DEM byl úspì¹nì naèten.
 ;
 MSG_STDMESG_DEMFILESAVED
  DEM file saved.
@@ -1103,7 +1103,7 @@ MSG_STDMESG_DEMFILESAVED
  DEM fil gemt.
 
 Plik DEM zapisany.
-
+Soubor DEM byl úspì¹nì ulo¾en.
 ;
 MSG_STDMESG_VECTORFILELOADED
  Vector file loaded.
@@ -1115,7 +1115,7 @@ MSG_STDMESG_VECTORFILELOADED
  Vektor fil indlæst.
 
 Plik z wektorami wczytany.
-
+Soubo vektoru byl úspì¹nì naèten.
 ;
 MSG_STDMESG_VECTORFILESAVED
  Vector file saved.
@@ -1127,7 +1127,7 @@ MSG_STDMESG_VECTORFILESAVED
  Vektor fil gemt.
 
 Plik z wektorami zapisany.
-
+Soubor vectoru byl úspì¹nì ulo¾en.
 ;
 MSG_STDMESG_IMAGEFILELOADED
  Image file loaded.
@@ -1139,7 +1139,7 @@ MSG_STDMESG_IMAGEFILELOADED
  Billedefil indlæst.
 
 Plik obrazu wczytany.
-
+Soubor obrazku byl úspì¹nì naèten.
 ;
 MSG_STDMESG_IMAGEFILESAVED
  Image file saved.
@@ -1151,7 +1151,7 @@ MSG_STDMESG_IMAGEFILESAVED
  Billedefil gemt.
 
 Plik obrazu zapisany.
-
+Soubor obrazku byl úspì¹nì ulo¾en.
 ;
 MSG_STDMESG_COLORMAPFILELOADED
  Color Map file loaded.
@@ -1163,7 +1163,7 @@ MSG_STDMESG_COLORMAPFILELOADED
  Farvekort indlæst.
 
 Plik mapy kolorów wczytany.
-
+Soubor barevné mapy byl úspì¹nì naèten.
 ;
 MSG_STDMESG_COLORMAPFILESAVED
  Color Map file saved.
@@ -1175,7 +1175,7 @@ MSG_STDMESG_COLORMAPFILESAVED
  Farvekort gemt.
 
 Plik mapy kolorów zapisany.
-
+Soubor barevné mapy byl úspì¹nì ulo¾en.
 ;
 MSG_STDMESG_ENABLE_SOFT_OUTLINE_STYLE
 \33t
@@ -1187,7 +1187,7 @@ MSG_STDMESG_ENABLE_SOFT_OUTLINE_STYLE
 
 
 \33t
-
+\33t
 ;
 MSG_STDMESG_MAPPINGMODULE
  Mapping Module.
@@ -1199,7 +1199,7 @@ Mapping Modul.
  Mapningsmodul.
 
 Modu³ Mapowania.
-
+Modul barevné mapy.
 ;
 MSG_STDMESG_DIRECTORYNOTFOUND
  Directory not found!
@@ -1211,7 +1211,7 @@ MSG_STDMESG_DIRECTORYNOTFOUND
  Bibliotek blev ikke fundet!
 
 Katalog nieznaleziony!
-
+Adresáø nenalezen!
 ;
 MSG_STDMESG_OPENWINDOWFAILED
  Open window failed!
@@ -1223,7 +1223,7 @@ MSG_STDMESG_OPENWINDOWFAILED
  Åbning af vindue fejlede!
 
 B³±d otwarcia okna!
-
+Chyba pøi otevírání okna!
 ;
 MSG_STDMESG_INCORRECTFILESIZE
  Incorrect file size!
@@ -1235,7 +1235,7 @@ MSG_STDMESG_INCORRECTFILESIZE
  Forkert filstørrelse!
 
 Niew³a¶ciwy rozmiar pliku!
-
+Nesprávná délka souboru!
 ;
 MSG_STDMESG_INCORRECTFILEVERSION
  Incorrect file version!
@@ -1247,7 +1247,7 @@ MSG_STDMESG_INCORRECTFILEVERSION
  Forkert fil version!
 
 Niew³a¶ciwa wersja pliku!
-
+Nesprávná verze souboru!
 ;
 MSG_STDMESG_RELATIVEELEVATIONFILESAVED
  Relative Elevation File Saved.
@@ -1259,7 +1259,7 @@ MSG_STDMESG_RELATIVEELEVATIONFILESAVED
  Relativ højdefil gemt.
 
 Plik wzglêdnej wysoko¶ci zapisany.
-
+Soubor vý¹kových úrovní byl úspì¹nì ulo¾en.
 ;
 MSG_STDMESG_VECTOROBJECTSLOADED
  Vector objects loaded.
@@ -1271,7 +1271,7 @@ MSG_STDMESG_VECTOROBJECTSLOADED
  Vektor objekter indlæst.
 
 Objekty wektorów wczytane.
-
+Soubor vektorových objektù byl úspì¹nì naèten.
 ;
 MSG_STDMESG_PROJECTFILELOADED
  Project file loaded.
@@ -1283,7 +1283,7 @@ MSG_STDMESG_PROJECTFILELOADED
  Projekt fil indlæst.
 
 Plik projektu wczytany.
-
+Soubor projektu byl úspì¹nì naèten.
 ;
 MSG_STDMESG_PROJECTFILESAVED
  Project file saved.
@@ -1295,7 +1295,7 @@ MSG_STDMESG_PROJECTFILESAVED
  Projekt fil gemt.
 
 Plik porojektu zapisany.
-
+Soubor projektu byl úspì¹nì ulo¾en.
 ;
 MSG_STDMESG_DIRECTORYLISTLOADED
  Directory List loaded
@@ -1307,7 +1307,7 @@ MSG_STDMESG_DIRECTORYLISTLOADED
  Biblioteksliste indlæst
 
 Lista katalogów wczytana
-
+Obsah adresáøe byl úspì¹nì naèten
 ;
 MSG_STDMESG_RENDERTIMEFORFRAME
  Render time for frame
@@ -1319,7 +1319,7 @@ MSG_STDMESG_RENDERTIMEFORFRAME
  Beregningstid for skærmbillede
 
 Czas renderowania na klatkê
-
+Èas výpoètu snímku
 ;
 MSG_STDMESG_RENDERTIMEFORANIM
  Render time for anim,
@@ -1331,7 +1331,7 @@ MSG_STDMESG_RENDERTIMEFORANIM
  Beregningstid for animation,
 
 Czas renderowania animacji
-
+Èas výpoètu animace
 ;
 ;
 ; ---- ScreenModeGui.c ----
@@ -1347,7 +1347,7 @@ Geen
 Ingen
 
 Nie
-
+Nic
 ;
 MSG_SCNRMODGUI_TEXT
 Text
@@ -1359,7 +1359,7 @@ Tekst
 Tekst
 
 Tekst
-
+Text
 ;
 MSG_SCNRMODGUI_STANDARD
 Standard
@@ -1371,7 +1371,7 @@ Standaard
 Standard
 
 Standardowy
-
+Standard
 ;
 MSG_SCNRMODGUI_MAX
 Max
@@ -1383,7 +1383,7 @@ Maximum
 Maximum
 
 Max
-
+Max
 ;
 MSG_SCNRMODGUI_VIDEO
 Video
@@ -1395,7 +1395,7 @@ Video
 Video
 
 Video
-
+Obraz
 ;
 MSG_SCNRMODGUI_WORLDCONSTRUCTIONSETSCREENMODE
 World Construction Set Screenmode
@@ -1407,7 +1407,7 @@ World Construction Set Beeldschermmodus
 World Construction Set Skærmopsætning
 
 World Construction Set Parametry Ekranu
-
+World Construction Set Rozli¹ení obrazovky
 ;
 MSG_SCNRMODGUI_DISPLAYMODE
 \33cDisplay Mode
@@ -1419,7 +1419,7 @@ MSG_SCNRMODGUI_DISPLAYMODE
 \33cSkærmmodus
 
 \33c Tryb Ekranu
-
+\33cMod zobrazení
 ;
 MSG_SCNRMODGUI_MODEINFORMATION
 \33cMode Information
@@ -1431,7 +1431,7 @@ MSG_SCNRMODGUI_MODEINFORMATION
 \33cModus information
 
 \33cInformacje o trybie
-
+\33c Mod informací
 ;
 ; Check Screenmode-Requester for correct alignement!
 MSG_SCNRMODGUI_MODEESUTOCANNATTRIBUTESN
@@ -1456,7 +1456,7 @@ MSG_SCNRMODGUI_SAVE
 \33cGem
 
 \33cZapisz
-
+\33cUlo¾it
 ;
 MSG_SCNRMODGUI_USE
 \33cUse
@@ -1468,7 +1468,7 @@ MSG_SCNRMODGUI_USE
 \33cAnvend
 
 \33cU¿yj
-
+\33cPou¾ít
 ;
 MSG_SCNRMODGUI_EXIT
 \33cExit
@@ -1480,7 +1480,7 @@ MSG_SCNRMODGUI_EXIT
 \33cAfslut
 
 \33cWyjd¼
-
+\33cOdejít
 ;
 ; Check Screenmode-Requester for correct alignement!
 MSG_SCNRMODGUI_MODE0XESXXUTOXCANNSNATTRIBUTES
@@ -1505,7 +1505,7 @@ Interlace\x20
 
 
 Interlace\x20
-
+Prokládání\x20
 ;
 MSG_SCNRMODGUI_GENLOCKABLE
 Genlockable\x20
@@ -1517,7 +1517,7 @@ Ondersteunt Genlock\x20
 Understøtter Genlock\x20
 
 Obs³uguje Genlock\x20
-
+Kompatibilní s genlokem\x20
 ;
 MSG_SCNRMODGUI_DRAGGABLE
 Draggable\x20
@@ -1529,7 +1529,7 @@ Sleepbaar\x20
 
 
 Przesuwalny\x20
-
+Posouvatelný\x20
 ;
 MSG_SCNRMODGUI_OVERSCAN
 Overscan:\x20
@@ -1541,7 +1541,7 @@ Overscan:\x20
 
 
 
-
+Overscan:\x20
 ; Todo: Dutch
 MSG_SCNRMODGUI_COLORS
   Colors:\x20
@@ -1553,7 +1553,7 @@ MSG_SCNRMODGUI_COLORS
 
 
 
-
+Barev:\x20
 ;
 MSG_SCNRMODGUI_WIDTH
 Width\x20
@@ -1565,7 +1565,7 @@ Breedte\x20
 
 
 Szeroko¶æ\x20
-
+Vý¹ka\x20
 ;
 MSG_SCNRMODGUI_HEIGHT
 Height\x20
@@ -1577,7 +1577,7 @@ Hoogte\x20
 
 
 Wysoko¶æ\x20
-
+©íøka\x20
 ;
 ; ------- AGUI.c ----------
 ; see Project -> Module -> Parameters for Alignement
@@ -1592,7 +1592,7 @@ Parameter Module
 
 
 Modu³ Parametrów
-
+Modul nastavení
 ;
 MSG_AGUI_MOTION
 \33l Motion\x20
@@ -1604,7 +1604,7 @@ MSG_AGUI_MOTION
 
 
 \33l Animacja\x20
-
+Nastavení pohybu
 ;
 MSG_AGUI_COLOR
 \33l Color\x20
@@ -1616,7 +1616,7 @@ MSG_AGUI_COLOR
 
 
 \33l Kolor\x20
-
+Nastavení barev
 ;
 MSG_AGUI_ECOSYSTEM
 \33l Ecosystem\x20
@@ -1628,7 +1628,7 @@ MSG_AGUI_ECOSYSTEM
 
 
 \33l Ekosystem\x20
-
+Nastavení krajiny
 ;
 MSG_AGUI_CLOUDS
 \33l Clouds\x20
@@ -1640,7 +1640,7 @@ MSG_AGUI_CLOUDS
 
 
 \33l Chmury\x20
-
+Nastavení oblak
 ;
 MSG_AGUI_WAVES
 \33l Waves\x20
@@ -1652,7 +1652,7 @@ MSG_AGUI_WAVES
 
 
 \33l Fale\x20
-
+Nastavení vln
 ;
 MSG_AGUI_DEFAULTS
 \33l Defaults\x20
@@ -1664,7 +1664,7 @@ MSG_AGUI_DEFAULTS
 
 
 \33l Domy¶lne \x20
-
+\33l Pùvodní nastavení\x20
 ;
 MSG_AGUI_PARAMETERSMODULE
 Parameters Module
@@ -1676,7 +1676,7 @@ Parameters Module
 
 
 Modu³ Parametrów
-
+Modul parametrù
 ;
 MSG_AGUI_OUTOFMEMORY
 Out of Memory!
@@ -1688,7 +1688,7 @@ Te weinig Geheugen!
 
 
 Brak Pamiêci
-
+Nedostatek pamìti!
 ;
 MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS
 Create Default Parameters for Database %s? All current Parameters will be overwritten.
@@ -1700,7 +1700,7 @@ Standaard Parameters maken voor Database %s? Alle huidige Parameters zullen word
 
 
 Czy utworzyæ domy¶lne parametry dla Bazy Danych %s? Wszystkie aktualne ustawienia zostan± nadpisane.
-
+Opravdu chcete vrátit v¹echna nastavení databáze %s na výchozí hodnoty ? Va¹e souèasná nastavení tímto krokem budou ztracena.
 ;
 MSG_AGUI_PARAMETEREDITINGDEFAULTS
 Parameter Editing: Defaults
@@ -1712,7 +1712,7 @@ Parameter bewerken: Standaard
 
 
 Edycja Parametrów: Domy¶lne
-
+Nastavení pùvodních hodnot
 ;
 MSG_GLOBAL_OKCANCEL
 OK|Cancel
@@ -1736,7 +1736,7 @@ Laad eerst een Database voordat Standaard Parameters kunnen worden berekend.
 
 
 Musisz wczytaæ Bazê Danych zanim Domy¶lne Warto¶ci zostan± przeliczone.
-
+Nejprve je tøeba naèíst soubor databáze.
 ;
 MSG_GLOBAL_OK
 OK
@@ -1760,7 +1760,7 @@ Staand
 
 
 Uk³ad Pionowy
-
+Na vý¹ku
 ;
 MSG_AGUI_LAYDOWN
 Lay Down
@@ -1772,7 +1772,7 @@ Liggend
 
 
 Uk³ad Poziomy
-
+Na ¹íøku
 ;
 MSG_AGUI_LOAD
 \33l Load\x20
@@ -1784,7 +1784,7 @@ MSG_AGUI_LOAD
 
 
 \33l Wczytaj\x20
-
+\33l Naèíst\x20
 ;
 MSG_AGUI_APPEND
 \33l Append\x20
@@ -1796,7 +1796,7 @@ MSG_AGUI_APPEND
 
 
 \33l Do³±cz\x20
-
+\33l Pøipojit\x20
 ;
 MSG_AGUI_CREATE
 \33l Create\x20
@@ -1808,7 +1808,7 @@ MSG_AGUI_CREATE
 
 
 \33l Utwórz\x20
-
+\33l Vytvoøit\x20
 ;
 MSG_AGUI_EDIT
 \33l Edit\x20
@@ -1820,7 +1820,7 @@ MSG_AGUI_EDIT
 
 
 \33l Edytuj\x20
-
+\33l Upravit\x20
 ;
 MSG_AGUI_SAVE
 \33l Save\x20
@@ -1832,7 +1832,7 @@ MSG_AGUI_SAVE
 
 
 \33l Zapisz\x20
-
+\33l Ulo¾it\x20
 ;
 MSG_AGUI_DIRLIST
 \33l Dir List\x20
@@ -1844,7 +1844,7 @@ MSG_AGUI_DIRLIST
 
 
 \33l Lista katalogów\x20
-
+\33l Výpis adresáøe\x20
 ;
 MSG_AGUI_DATAOPSIMPORTDLG
 Data Ops: Import DLG
@@ -1856,7 +1856,7 @@ Data Ops: Importeer DLG
 
 
 Data Ops: Import DLG
-
+Vlo¾it soubor DLG
 ;
 MSG_AGUI_DATAOPSIMPORTDXF
 Data Ops: Import DXF
@@ -1868,7 +1868,7 @@ Data Ops: Importeer DXF
 
 
 Data Ops: Import DXF
-
+Vlo¾it soubor DXF
 ;
 MSG_DLG_DATAOPSIMPORTWDB
 Data Ops: Import WDB
@@ -1880,7 +1880,7 @@ Data Ops: Importeer WDB
 
 
 
-
+Vlo¾it soubor WDB
 ;
 MSG_AGUI_DATAOPSMODULEINTERPDEM
 Data Ops Module: Interp DEM
@@ -1892,7 +1892,7 @@ Data Ops Modulo: Interp DEM
 
 
 
-
+Vyhodnotit DEM
 ;
 MSG_AGUI_DATAOPSMODULEEXTRACTDEM
 Data Ops Module: Extract DEM
@@ -1904,7 +1904,7 @@ Data Ops Modulo: Extract DEM
 
 
 
-
+Extrahovat soubor DEM
 ;
 MSG_AGUI_RENDERMODULE
 Render Module
@@ -1916,7 +1916,7 @@ Render Module
 
 
 Modu³ Renderowania
-
+Renderovací modul
 ;
 MSG_AGUI_ADATABASEANDPARAMETERFILE
 a Database and Parameter file
@@ -1928,7 +1928,7 @@ Database en Parameter Bestand
 
 
 Plik Bazy Danych i Parametrów
-
+Soubor databáze a hodnot
 ;
 MSG_AGUI_MODULECONTROLPANEL
 Module Control Panel
@@ -1940,7 +1940,7 @@ Module Controle Paneel
 
 
 Modu³ Panelu Kontrolnego
-
+Výchozí ovládací panel
 ;
 MSG_AGUI_VERSION
 Version
@@ -1952,7 +1952,7 @@ Versie
 
 
 Wersja
-
+Informace o programu
 ;
 MSG_AGUI_OKAY
 \33cOkay
@@ -1964,7 +1964,7 @@ MSG_AGUI_OKAY
 
 
 
-
+\33cOk
 ;
 MSG_AGUI_EXTRASMODULE
 Extras Module
@@ -1976,7 +1976,7 @@ Extras Module
 
 
 Modu³y Dodatkowe
-
+Modul Extras
 ;
 MSG_AGUI_PUBLICSCREENSTILLHASVISITORSTRYCLOSINGAGAIN
 Public Screen still has visitors. Try closing again?
@@ -1988,7 +1988,7 @@ Publiek Scherm heeft nog Gebruikers. Nogmaals proberen te sluiten?
 
 
 Ekran wci±¿ zawiera okna. Spróbowaæ ponownie?
-
+Obrazovku stále nìkdo pou¾ívá. Chcete se pokusit ji uzavøít znovu?
 ;
 MSG_AGUI_CLOSEWARNCANCEL
 Close|Warn|Cancel
@@ -2000,7 +2000,7 @@ Sluiten|Waarschuwen|Annuleren
 
 
 Zamknij|Ostrze¿|Anuluj
-
+Ukonèit|Potvrdit|Zru¹it
 ;
 MSG_AGUI_QUITPROGRAMREYOUSURE
 Quit Program\nAre you sure?
@@ -2012,7 +2012,7 @@ Programma Afsluiten\nWeet U het zeker?
 
 
 Opu¶æ Program\nJeste¶ pewien?
-
+Jste si jisti, ¾e chcete ukonèit program?
 ;
 MSG_AGUI_WCSPROJECT
 WCS Project
@@ -2024,7 +2024,7 @@ WCS Project
 
 
 WCS Projekt
-
+WCS Projekt
 ;
 MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Project paths have been modified. Save them before closing?
@@ -2036,7 +2036,7 @@ Projectpaden zijn gewijzigd. Paden opslaan voordat u afsluit?
 
 
 ¦cie¿ki projektu zosta³y zmodyfikowane. Czy zapisaæ zmiany przed zamkniêciem?
-
+Cesty projektových souborù byly zmìnìny. Chcete je nejprve ulo¾it?
 ;
 MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING
 Parameters have been modified. Save them before closing?
@@ -2048,7 +2048,7 @@ Parameters zijn gewijzigd. Wijzigingen opslaan voordat u afsluit?
 
 
 Parametry zosta³y zmodyfikowane. Czy zapisaæ je przed zamkniêciem?
-
+Hodnoty byly zmìnìny. Chcete je nejprve ulo¾it?
 ;
 MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING
 Database has been modified. Save it before closing?
@@ -2060,7 +2060,7 @@ De database is gewijzigd. Database opslaan voordat u afsluit?
 
 
 Baza danych zosta³a zmodyfikowana. Czy zapisaæ j± przed zamkniêciem?
-
+Databáze byla zmìnìna. Chcete ji nejprve ulo¾it?
 ;
 MSG_AGUI_MESSAGE
 Message
@@ -2072,7 +2072,7 @@ Melding
 
 
 Komunikat
-
+Zpráva
 ;
 MSG_AGUI_NOTYETIMPLEMENTEDTAYTUNED
 Not yet implemented.\nStay Tuned!
@@ -2084,7 +2084,7 @@ Nog niet geïmplementeerd.\nStay Tuned!
 
 
 Jeszcze nie zaimplementowane.\nProszê nie regulowaæ odbiornika!
-
+Zatím se nepou¾ívá.\nZùstaòte s námi!
 ;
 MSG_AGUI_KEEPCHANGES
 Keep changes?
@@ -2096,7 +2096,7 @@ Wijzigingen behouden?
 
 
 Zachowaæ zmiany?
-
+Zachovat zmìny?
 ;
 MSG_AGUI_KEEPCANCEL
 Keep|Cancel
@@ -2108,7 +2108,7 @@ Behouden|Annuleren
 
 
 Zachowaj|Porzuæ
-
+Zachovat|Zru¹it
 ;
 MSG_AGUI_SORRYOUMUSTFIRSTLOAD338NBEFOREUSINGTHISFEATURE
 Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature.
@@ -2120,7 +2120,7 @@ Sorry!\nLaad eerst\n\338%s\0332\n voordat u deze functie kunt gebruiken.
 
 
 Przykro mi!\nNajpierw musisz za³adowaæ\n\336%s\0332\nzanim u¿yjesz tej funkcji.
-
+Promiòte,\nale nejprve musíte naèíst\n\336%s\0332\npøed pou¾itím této funkce.
 ;
 MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT
 File already exists.\nDo you wish to overwrite it?
@@ -2132,7 +2132,7 @@ Het bestand bestaat al.\nWilt u het overschrijven?
 
 
 Plik ju¿ istnieje.\nCzy chcesz go nadpisaæ?
-
+Soubor ji¾ existuje.\nChcete jej pøepsat?
 ;
 MSG_AGUI_INPUTREQUEST
 Input Request
@@ -2144,7 +2144,7 @@ Invoer Verzoek
 
 
 Wprowad¼ Dane
-
+Vstupní po¾adavek
 ;
 MSG_GLOBAL_33CCANCEL
 \33cCancel
@@ -2156,7 +2156,7 @@ MSG_GLOBAL_33CCANCEL
 
 
 \33cAnuluj
-
+\33cZru¹it
 ;
 MSG_AGUI_LOGSTATUSMODULE
 Log Status Module
@@ -2168,7 +2168,7 @@ Log Status Module
 
 
 Modu³ Log Zdarzeñ
-
+Modul záznamù
 ;
 MSG_AGUI_CANTOPENLOGSTATUSWINDOW
 Can't Open Log Status Window!
@@ -2180,7 +2180,7 @@ Kan Log Status Venster niet openen!
 
 
 NIe Mogê Otworzyæ Okna Logu Wydarzeñ
-
+Nemohu otevøít okno záznamu!
 ;
 MSG_AGUI_CLEAR
 \33cClear
@@ -2192,7 +2192,7 @@ MSG_AGUI_CLEAR
 
 
 \33cWyczy¶æ
-
+\33cVyèistit
 ;
 MSG_AGUI_HIDE
 \33cHide
@@ -2204,7 +2204,7 @@ MSG_AGUI_HIDE
 
 
 \33cUkryj
-
+\33cSchovat
 ;
 MSG_AGUI_CLOSE
 \33cClose
@@ -2216,7 +2216,7 @@ MSG_AGUI_CLOSE
 
 
 \33cZamknij
-
+\33cUzavøít
 ;
 MSG_AGUI_LOGWINDOW
 Log Window
@@ -2228,7 +2228,7 @@ Log Venster
 
 
 Okno Logu
-
+Okno záznamù
 ;
 MSG_AGUI_LOGWINDOWOPENED
 Log window opened.
@@ -2240,7 +2240,7 @@ Log Venster geopend.
 
 
 Okno Logu Otwarte.
-
+Okno záznamu bylo otevøeno.
 ;
 ; - Info Window -
 MSG_AGUI_INFO
@@ -2253,7 +2253,7 @@ Informatie
 
 
 Informacje
-
+Informace
 ;
 MSG_AGUI_TIME
 \33rTime\x20
@@ -2265,7 +2265,7 @@ MSG_AGUI_TIME
 
 
 \33rCzas\x20
-
+\33rÈas\x20
 ;
 MSG_AGUI_DATE
 \33rDate\x20
@@ -2277,7 +2277,7 @@ MSG_AGUI_DATE
 
 
 \33rData\x20
-
+\33rDatum\x20
 ;
 MSG_AGUI_MEMORY
 \33rMemory:
@@ -2289,7 +2289,7 @@ MSG_AGUI_MEMORY
 
 
 \33rPamiêæ:
-
+\33rPamìt:
 ;
 MSG_AGUI_AVAILABLE
 \33rAvailable\x20
@@ -2301,7 +2301,7 @@ MSG_AGUI_AVAILABLE
 
 
 \33rDostêpne\x20
-
+\33rCelková\x20
 ;
 MSG_AGUI_LARGEST
 \33rLargest\x20
@@ -2313,7 +2313,7 @@ MSG_AGUI_LARGEST
 
 
 \33rNajwiêkszy\x20
-
+\33rNejvìt¹í blok\x20
 ;
 MSG_AGUI_CHIP
 \33cChip
@@ -2349,7 +2349,7 @@ MSG_AGUI_TOPOMAPS
 
 
 \33rMapa Topograficzna\x20
-
+\33rTopologické mapy\x20
 ;
 MSG_AGUI_INTER
 \33cInter
@@ -2361,7 +2361,7 @@ MSG_AGUI_INTER
 
 
 
-
+\33cVnitøní
 ;
 MSG_AGUI_MAP
 \33cMap
@@ -2373,7 +2373,7 @@ MSG_AGUI_MAP
 
 
 \33cMapa
-
+\33cMapa
 ;
 MSG_AGUI_AREXXPORT
 \33rARexx Port\x20
@@ -2385,7 +2385,7 @@ MSG_AGUI_AREXXPORT
 
 
 
-
+\33rARexx Port\x20
 ;
 MSG_AGUI_DATABASE
 \33rDatabase\x20
@@ -2397,7 +2397,7 @@ MSG_AGUI_DATABASE
 
 
 \33rBaza Danych\x20
-
+\33rDatabáze\x20
 ;
 MSG_AGUI_PARFILE
 \33rPar File\x20
@@ -2409,7 +2409,7 @@ MSG_AGUI_PARFILE
 
 
 
-
+\33rSoubor hodnot\x20
 ;
 MSG_AGUI_SCREENMODE
 \33rScreenMode\x20
@@ -2421,7 +2421,7 @@ MSG_AGUI_SCREENMODE
 
 
 \33rTryb Ekranu\x20
-
+\33rRozli¹ení\x20
 ;
 MSG_AGUI_FLUSH
 \33cFlush
@@ -2433,7 +2433,7 @@ MSG_AGUI_FLUSH
 
 
 \33cWyczy¶æ
-
+\33cVyèistit
 ;
 MSG_AGUI_CREDITS
 Credits
@@ -2445,7 +2445,7 @@ Over
 
 
 Podziêkowania
-
+O autorech
 ;
 MSG_AGUI_WCSSCREENMODE
 WCS: Screen Mode
@@ -2457,7 +2457,7 @@ WCS: Schermmodus
 
 
 WCS: Tryb Ekranu
-
+WCS: Rozli¹ení obrazovky
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
@@ -2469,7 +2469,7 @@ Om de schermmodus te resetten zal WCS moeten worden gesloten en heropend. Werk i
 
 
 Aby zresetowaæ tyb wy¶wietlania WCS chce zakoñczyæ pracê i uruchomiæ siê ponownie. Powiniene¶ teraz zapisa¶ swoj± pracê aby unikn±æ strat zanim wykonasz to polecenie.\nCzy chesz kontynuowaæ?
-
+Chcete-li obnovit re¾im obrazovky, musíte systém WCS zavøít a znovu otevøít. Pøed vyvoláním tohoto pøíkazu by mìla být ulo¾ena ve¹kerá probíhající práce.\nPøejete si nyní pokraèovat?
 ;
 MSG_AGUI_DATABASEMODULE
 Database Module
@@ -2481,7 +2481,7 @@ Database Module
 
 
 Modu³ Bazy Danych
-
+Modul databáze
 ;
 MSG_AGUI_DATABASEMODULEAPPEND
 Database Moldule: Append
@@ -2493,7 +2493,7 @@ Database Module: Toevoegen
 
 
 Modu³ Bazy Danych: Dopisz
-
+Modul databáze: Pøipojení
 ;
 ;This is a %s-String for NoLoad_Message() "Sorry!\nYou must first load\n\338%s\0332\nbefore using this feature."
 MSG_DATAOPSGUI_ADATABASE
@@ -2506,7 +2506,7 @@ een Database
 
 
 Baza Danych
-
+Databáze
 ;
 MSG_DB_DATABASEMODULESAVE
 Database Module: Save
@@ -2518,7 +2518,7 @@ Database Module: Opslaan
 
 
 Modu³ Bazy Danych: Zapisz
-
+Modul databáze: Ulo¾ení
 ;
 MSG_AGUI_DATAOPSMODULE
 DataOps Module
@@ -2530,7 +2530,7 @@ DataOps Module
 
 
 Modu³ DataOps
-
+dataops modul prelozit
 ;
 MSG_AGUI_EXTRACTDEM
 \33l Extract DEM\x20
@@ -2542,7 +2542,7 @@ MSG_AGUI_EXTRACTDEM
 
 
 \33l Rozpakuj DEM\x20
-
+\33l Extrahovat DEM\x20
 ;
 MSG_AGUI_CONVERTDEM
 \33l Convert DEM\x20
@@ -2554,7 +2554,7 @@ MSG_AGUI_CONVERTDEM
 
 
 \33l Conversja DEM\x20
-
+\33l Pøevést DEM\x20
 ;
 MSG_AGUI_INTERPDEM
 \33l Interp DEM\x20
@@ -2566,7 +2566,7 @@ MSG_AGUI_INTERPDEM
 
 
 \33l Interpolacja DEM\x20
-
+\33l Vyhodnotit DEM\x20
 ;
 MSG_AGUI_IMPORTDLG
 \33l Import DLG\x20
@@ -2578,7 +2578,7 @@ MSG_AGUI_IMPORTDLG
 
 
 \33l Import DLG\x20
-
+\33l Naèíst DLG\x20
 ;
 MSG_AGUI_IMPORTDXF
 \33l Import DXF
@@ -2590,7 +2590,7 @@ MSG_AGUI_IMPORTDXF
 
 
 \33l Import DXF\x20
-
+\33l Naèíst DXF
 ;
 MSG_AGUI_IMPORTWDB
 \33l Import WDB\x20
@@ -2602,7 +2602,7 @@ MSG_AGUI_IMPORTWDB
 
 
 \33l Import WDB\x20
-
+\33l Naèíst WDB
 ;
 MSG_AGUI_EXPORTLW
 \33l Export LW\x20
@@ -2614,7 +2614,7 @@ MSG_AGUI_EXPORTLW
 
 
 \33l Eksport LW\x2-
-
+\33l Extrahovat LW\x20
 ;
 MSG_AGUI_MOTIONIO
 \33l Motion I/O\x20
@@ -2626,7 +2626,7 @@ MSG_AGUI_MOTIONIO
 
 
 \33l Animacja\x20
-
+\33l Pohyb vstup/výstup\x20
 ;
 MSG_AGUI_STATUSLOG
 Status Log
@@ -2638,7 +2638,7 @@ Status Log
 
 
 Log Zdarzeñ
-
+Stav záznamù
 ;
 MSG_AGUI_ERR
 ERR:
@@ -2698,7 +2698,7 @@ MSG_AGUI_PREV
 
 
 \33cPoprzedni
-
+\33cPøedchozí
 ;
 MSG_AGUI_NEXT
 \33cNext
@@ -2710,7 +2710,7 @@ MSG_AGUI_NEXT
 
 
 \33cNastêpny
-
+\33cDal¹í
 ;
 MSG_AGUI_ALL
 All (%d)
@@ -2722,7 +2722,7 @@ Alles (%d)
 
 
 Wszystko (%d)
-
+V¹e (%d)
 ;
 MSG_AGUI_KEYSEXIST
 Keys Exist (%d)
@@ -2808,7 +2808,7 @@ Gebruik
 
 
 U¿yj
-
+Pouzit
 ;
 MSG_AGUI_LOADACTIVE
 Load Active...
@@ -2844,7 +2844,7 @@ Laad Beweging...
 
 
 Wczytaj Animacjê...
-
+Naèíst pohybová nastavení...
 ;
 MSG_AGUI_SAVEMOTION
 Save Motion...
@@ -2856,7 +2856,7 @@ Sla Beweging op...
 
 
 Zapisz Animacjê...
-
+Ulo¾it pohybová nastavení...
 ;
 MSG_AGUI_LOADCOLOR
 Load Color...
@@ -2868,7 +2868,7 @@ Laad Kleuren...
 
 
 Wczytaj Kolor...
-
+Naèíst nastavení barev...
 ;
 MSG_AGUI_SAVECOLOR
 Save Color...
@@ -2880,7 +2880,7 @@ Sla Kleuren op...
 
 
 Zapisz Kolor...
-
+Ulo¾it nastavení barev...
 ;
 MSG_AGUI_LOADECO
 Load Eco...
@@ -2892,7 +2892,7 @@ Laad Eco...
 
 
 Wczytaj Ekosystem...
-
+Naèíst nastavení krajiny...
 ;
 MSG_AGUI_SAVEECO
 Save Eco...
@@ -2904,7 +2904,7 @@ Sla Eco op...
 
 
 Zapisz Ekosystem...
-
+Ulo¾it nastavení krajiny...
 ;
 MSG_AGUI_LOADSETTINGS
 Load Settings...
@@ -2916,7 +2916,7 @@ Laad Instellingen...
 
 
 Wczytaj Ustawienia...
-
+Naèíst nastavení...
 ;
 MSG_AGUI_SAVESETTINGS
 Save Settings...
@@ -2928,7 +2928,7 @@ Bewaar Instellingen...
 
 
 Zapisz Ustawienia...
-
+Ulo¾it nastavení...
 ;
 ; ----- BitMaps.c --------
 MSG_BITMAPS_IFFFILEPATHNAME
@@ -2953,7 +2953,7 @@ Bestand bestaat al!\nOverschrijven?
 
 
 Plik ju¿ istnieje\nCzy nadpisaæ?
-
+Soubor ji¾ existuje!Chcete jej pøepsat?
 ;
 MSG_BITMAPS_CANTOPENIMAGEFILEFOROUTPUTPERATIONTERMINATED
 Can't open image file for output!\nOperation terminated.
@@ -2965,7 +2965,7 @@ Kan afbeeldingbestand niet openen voor uitvoer!\nOperatie afgebroken.
 
 
 Nie mogê utowrzyæ pliku obrazu dla wyj¶cia!\nOperacja anulowana.
-
+Nemohu otevøít soubor obrázku pro zápis!Operace bude ukonèena.
 ;
 MSG_BITMAPS_SAVINGIMAGE
 Saving Image
@@ -2977,7 +2977,7 @@ Afbeelding Opslaan
 
 
 Zapisywanie Obrazu
-
+Ukládám obrázek
 ;
 MSG_BITMAPS_YES
 YES
@@ -2989,7 +2989,7 @@ Ja
 
 
 Tak
-
+Ano
 ;
 MSG_BITMAPS_NO
 NO
@@ -3001,7 +3001,7 @@ Nee
 
 
 Nie
-
+Ne
 ;
 MSG_BITMAPS_ERRORSAVINGIMAGEPERATIONTERMINATED
 Error saving image!\nOperation terminated.
@@ -3013,7 +3013,7 @@ Fout bij opslaan van de afbeelding!\nOperatie afgebroken.
 
 
 B³±d zapisu obrazu!\nOperacja anulowana.
-
+Chyba pøi ukládání obrazku!\nOpreace bude ukonèena.
 ;
 MSG_BITMAPS_LOADINGIMAGE
 Loading Image
@@ -3025,7 +3025,7 @@ Afbeelding Laden
 
 
 Wczytaj obraz
-
+Naèítání obrázku
 ;
 MSG_BITMAPS_WRONGIMAGESIZE
 Wrong image size
@@ -3037,7 +3037,7 @@ Afmetingen afbeelding onjuist
 
 
 Niew³a¶ciwy rozmiar obrazu
-
+©patná velikosti obrázku
 ;
 MSG_BITMAPS_WRONGIMAGEDEPTH
 Wrong image depth
@@ -3049,7 +3049,7 @@ Kleurdiepte afbeelding onjuist
 
 
 Niew³a¶ciwa g³êboko¶æ obrazu
-
+©patná barevná hloubka obrázku
 ;
 MSG_BITMAPS_BACKGROUND
 Background
@@ -3061,7 +3061,7 @@ Achtergrond
 
 
 T³o
-
+Pozadí
 ;
 MSG_BITMAPS_ERRORLOADINGZBUFFERPERATIONTERMINATED
 Error loading Z Buffer!\nOperation terminated.
@@ -3073,7 +3073,7 @@ Fout bij laden van Z Buffer!\nOperatie afgebroken.
 
 
 B³±d ³adowania bufora Z!\nOperacja anulowana.
-
+Chyba pøi naèítání Z Buffer!\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_OUTOFMEMORYMERGINGZBUFFERPERATIONTERMINATED
 Out of memory merging Z Buffer!\nOperation terminated.
@@ -3085,7 +3085,7 @@ Te weinig geheugen voor samenvoegen van Z Buffer!\nOperatie afgebroken.
 
 
 Brak pamiêci dla ³±czenia bufora Z!\n Operacja Anulowana.
-
+Nedostatek pamìti pro sluèování Z Buffer!\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_ERROROPENINGZBUFFERFILEFORINPUTPERATIONTERMINATED
 Error opening Z Buffer file for input!\nOperation terminated.
@@ -3097,7 +3097,7 @@ Fout bij openen van Z Buffer bestand voor invoer!\nOperatie afgebroken.
 
 
 B³±d otwrcia pliku bufora Z dla wej¶cia!\nOperacja anulowana.
-
+Chyba pøi otevírání souboru Z Buffer!\nOperace bude ukonèena.
 ;
 MSG_BITMAPS_ERRORREADINGZBUFFERFILEOTSINGLEPRECISIONFLOATINGPOI
 Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated.
