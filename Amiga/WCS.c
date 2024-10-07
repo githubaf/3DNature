@@ -153,6 +153,11 @@ ScreenPixelPlotFnctPtr ScreenPixelPlot; // function pointer to specific ScreenPi
 
 struct WCSScreenData ScrnData;
 
+// for debug-output
+#include <libraries/locale.h>
+extern struct LocaleBase  *LocaleBase;
+extern struct Locale      *locale_locale;
+extern struct Catalog     *locale_catalog;
 
 int main(void)
 {
@@ -174,6 +179,35 @@ int main(void)
     initScreenPixelPlotFnct(); // set function pointer to original gray function for drawing into render window
 
     Locale_Open("WCS.catalog",1,1);  // Version, revision  - Simplecat Doc says: There is no need to check any result.
+
+    // some locale Debug output
+    if(LocaleBase)
+    {
+    	if(locale_locale)
+    	{
+    		printf("Alexander: LocaleName:   %s\n",locale_locale->loc_LocaleName);
+    		printf("Alexander: LanguageName: %s\n",locale_locale->loc_LanguageName);
+    		if(locale_catalog)
+    		{
+    			printf("Alexander: cat_Language: %s\n",locale_catalog->cat_Language);
+    			printf("Alexander: cat_Version:  %u\n",locale_catalog->cat_Version);
+    			printf("Alexander: cat_Revision: %u\n",locale_catalog->cat_Revision);
+
+    		}
+    		else
+    		{
+    			printf("Alexander: Catalog is NULL!\n");
+    		}
+    	}
+    	else
+    	{
+    		printf("Alexander: Locale is NULL!\n");
+    	}
+    }
+    else
+    {
+    	printf("Alexander: LocaleBase is NULL!\n");
+    }
 
     asprintf(&LocaleExtCreditText,"%s%s",ExtCreditText,GetString(MSG_MENU_PR_CREDITSTRANSLATION)); // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
 

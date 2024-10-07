@@ -52,8 +52,9 @@ struct LocaleIFace *ILocale;
 struct LocaleBase  *LocaleBase;
 #endif
 
-static struct Locale      *locale_locale;
-static struct Catalog     *locale_catalog;
+// debug output in WCS.c, therefore not static
+/*static*/ struct Locale      *locale_locale;
+/*static*/ struct Catalog     *locale_catalog;
 
 /*************************************************************************/
 
