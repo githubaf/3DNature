@@ -10170,7 +10170,7 @@ Numeriek blok invoer
 
 
 
-enter klawiatury numerycznej
+wprowad¼ z klawiatury numerycznej
 
 ;
 MSG_EDECOGUI_ELEVLINE
@@ -10182,7 +10182,7 @@ Hoogtelijn\x20
 
 
 
-
+linia wysoko¶ci\x20
 
 ;
 MSG_EDECOGUI_ELEVSKEW
@@ -10278,7 +10278,7 @@ MSG_EDECOGUI_DENSITY
 
 
 
-
+   Gêsto¶æ\x20
 
 ;
 MSG_EDECOGUI_HEIGHT
@@ -10290,7 +10290,7 @@ MSG_EDECOGUI_HEIGHT
 
 
 
-
+  Wysoko¶æ\x20
 
 ;
 MSG_EDECOGUI_ECOSYSTEMCOLOR
@@ -10302,7 +10302,7 @@ MSG_EDECOGUI_ECOSYSTEMCOLOR
 
 
 
-
+\33c\0334Kolor Ecosystemu
 
 ;
 MSG_EDECOGUI_UNDERSTORYECOSYSTEM
@@ -10326,7 +10326,7 @@ Alle %s key frames verwijderen?
 
 
 
-
+Usun±æ wszystkie %s Klatki Kluczowe?
 
 ;
 MSG_EDECOGUI_ECOSYSTEMPARAMETERSSWAP
@@ -10338,7 +10338,7 @@ Ecosystem Parameter: Wisselen
 
 
 
-
+Parametry Ekosystemu: Zamieñ
 
 ;
 MSG_EDECOGUI_CANTSWAPWITHFIRST12ECOSYSTEMSPERATIONTERMINATED
@@ -10350,7 +10350,7 @@ Kan niet wisselen met de eerste 12 ecosystemen!\nOperatie afgebroken.
 
 
 
-
+Nie mo¿na zemieniaæ z pierwszymi 12 ekosystemami!\nOperacja przerwana.
 
 ;
 MSG_EDECOGUI_SEALEVEL
@@ -10362,7 +10362,7 @@ MSG_EDECOGUI_SEALEVEL
 
 
 
-
+Poziom morza\x20
 
 ;
 MSG_EDECOGUI_SEADEPTH
@@ -10374,7 +10374,7 @@ MSG_EDECOGUI_SEADEPTH
 
 
 
-
+G³êboko¶æ morza\x20
 
 ;
 MSG_EDECOGUI_WINDAZ
@@ -10386,7 +10386,7 @@ MSG_EDECOGUI_WINDAZ
 
 
 
-
+Kie. Wiatru\x20
 
 ;
 ;
@@ -10399,7 +10399,7 @@ Opties
 
 
 
-
+Opcje
 
 ;
 MSG_EDMOGUI_PATHS
@@ -10411,7 +10411,7 @@ MSG_EDMOGUI_PATHS
 
 
 
-
+\33c¦cie¿ki
 
 ;
 MSG_EDMOGUI_FRACTAL
@@ -10435,7 +10435,7 @@ MSG_EDMOGUI_HORIZON
 
 
 
-
+\33cHoryzont
 
 ;
 MSG_EDMOGUI_CELESTIAL
@@ -10447,7 +10447,7 @@ MSG_EDMOGUI_CELESTIAL
 
 
 
-
+\33cNiebosk³on
 
 ;
 MSG_EDMOGUI_REFLECTION
@@ -10459,7 +10459,7 @@ MSG_EDMOGUI_REFLECTION
 
 
 
-
+\33cRefleksy
 
 ;
 MSG_EDMOGUI_PARAMETERLIST
@@ -10471,7 +10471,7 @@ MSG_EDMOGUI_PARAMETERLIST
 
 
 
-
+\33c\0334Lista Parametrów
 
 ;
 MSG_EDMOGUI_INTERACTIVEGROUP
@@ -10483,7 +10483,7 @@ MSG_EDMOGUI_INTERACTIVEGROUP
 
 
 
-
+\33c\0334Grupa Interaktywna
 
 ;
 MSG_EDMOGUI_FOCALAZIMUTH
@@ -10519,7 +10519,7 @@ Gevoeligheid\x20
 
 
 
-
+Czu³o¶æ\x20
 
 ;
 MSG_EDMOGUI_LOW
@@ -10567,7 +10567,7 @@ MSG_EDMOGUI_KEYFRAMES
 
 
 
-
+\33c\0334Klatki Kluczowe
 
 ;
 MSG_EDMOGUI_PREV
