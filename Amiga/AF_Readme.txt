@@ -3885,4 +3885,4 @@ Tschechisch hinzugefuegt.
 #Anzeige der fehlenden tschechischen Uebersetzungen:
 cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; getline; POLISH=$0; getline; CZECH=$0; if(CZECH==""){print ENGLISH;}else{CZECHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Czech:  %4d\n",CZECHCOUNT);printf("%d%%\n",CZECHCOUNT*100/MSGCOUNT++);}'
 
-
+Milo nutzt prelozit (uebersetzen) als Todo-Merker

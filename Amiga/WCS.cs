@@ -1431,7 +1431,7 @@ MSG_SCNRMODGUI_MODEINFORMATION
 \33cModus information
 
 \33cInformacje o trybie
-\33c Mod informací
+\33c Okno informací
 ;
 ; Check Screenmode-Requester for correct alignement!
 MSG_SCNRMODGUI_MODEESUTOCANNATTRIBUTESN
@@ -1493,7 +1493,7 @@ Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAttributen\n
 Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAtributter\n
 
 Tryb: 0x%08lx\nRoz : %dx%d - %dx%d\nAuto: %dx%d\nScan: %dns\n\nAttributy\n
-
+Mode: 0x%08lx\nRes : %dx%d - %dx%d\nAuto: %dx%d\nScan: %dns\n\nVlastnosti:\n
 ;
 MSG_SCNRMODGUI_LACED
 Laced\x20
@@ -1565,7 +1565,7 @@ Breedte\x20
 
 
 Szeroko¶æ\x20
-Vý¹ka\x20
+©íøka\x20
 ;
 MSG_SCNRMODGUI_HEIGHT
 Height\x20
@@ -1577,7 +1577,7 @@ Hoogte\x20
 
 
 Wysoko¶æ\x20
-©íøka\x20
+Vý¹ka\x20
 ;
 ; ------- AGUI.c ----------
 ; see Project -> Module -> Parameters for Alignement
@@ -1700,7 +1700,7 @@ Standaard Parameters maken voor Database %s? Alle huidige Parameters zullen word
 
 
 Czy utworzyæ domy¶lne parametry dla Bazy Danych %s? Wszystkie aktualne ustawienia zostan± nadpisane.
-Opravdu chcete vrátit v¹echna nastavení databáze %s na výchozí hodnoty ? Va¹e souèasná nastavení tímto krokem budou ztracena.
+Opravdu chcete vrátit v¹echna nastavení databáze %s na výchozí hodnoty? Va¹e souèasná nastavení tímto krokem budou ztracena.
 ;
 MSG_AGUI_PARAMETEREDITINGDEFAULTS
 Parameter Editing: Defaults
@@ -3265,7 +3265,7 @@ MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
 
 
 \0338Ustaw pó³nocno-zachodni naro¿nik za pomoc± myszy.
-\0338Nastavte severozápadní roh pomocí mysi.
+\0338Nastavte severozápadní roh pomocí my¹i.
 ;
 MSG_CLOUD_SETNORTHWESTCORNER
 Set northwest corner
@@ -3855,7 +3855,7 @@ MSG_CLOUDGUI_SETBOUNDS
 
 
 \33cUstaw Granice
-
+\33cNastavení ohranièení
 ;
 MSG_CLOUDGUI_SAVE
 \33cSave
@@ -3867,7 +3867,7 @@ MSG_CLOUDGUI_SAVE
 
 
 \33cZapisz
-
+\33cUlo¾it
 ;
 MSG_CLOUDGUI_LOAD
 \33cLoad
@@ -3879,7 +3879,7 @@ MSG_CLOUDGUI_LOAD
 
 
 \33cWczytaj
-
+\33cNaèíst
 ;
 MSG_CLOUDGUI_MAPVIEWCLOUDS
 Map View: Clouds
@@ -3891,7 +3891,7 @@ Map View: Wolken
 
 
 Podgl±d Mapy: Chmury
-
+Zobrazeni mapy: Oblaka
 ;
 MSG_GLOBAL_OUTOFMEMORY
 Out of memory!
@@ -3903,7 +3903,7 @@ Te weinig geheugen!
 
 
 Brak Pamiêci
-
+Nedostatek pamìti!
 ;
 MSG_PARGUI_PARAMETERSMODULEMODEL
 Parameters Module: Model
@@ -3915,7 +3915,7 @@ Parameters Module: Model
 
 
 Parametry Modu³u: Model
-
+Modul hodnot: Model
 ;
 MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE
 The current Cloud Model has been modified. Do you wish to save it before closing?
@@ -3927,7 +3927,7 @@ Het huidige Wolken Model is gewijzigd. Wilt u het opslaan voordat u het sluit?
 
 
 Aktualny model chmur zosta³ zmodyfikowany. Czy chcesz zapisaæ przed zamniêciem?
-
+Hodnoty modelu oblak byly zmìnìny. Chcete je nejprve ulo¾it pøed uzavøením?
 ;
 MSG_GLOBAL_YESNO
 Yes|No
@@ -3939,7 +3939,7 @@ Ja|Nee
 
 
 Tak|Nie
-
+Ano|Ne
 ;
 MSG_CLOUDGUI_CLOUDPATHFILE
 Cloud Path/File
@@ -3951,7 +3951,7 @@ Wolken Pad/Bestand
 
 
 Chmura ¦cie¿ka/Plik
-
+Oblaka cesta/soubor
 ;
 MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE
 Make this file the Project Cloud File?
@@ -3963,7 +3963,7 @@ Van dit bestand het Project Wolken Bestand maken?
 
 
 Wybraæ plik jako plik chmur dla projektu?
-
+Vytvoøit z tohoto nastavení soubor projektu oblak?
 ;
 MSG_CLOUDGUI_CLOUDWAVEEDITOR
 Cloud Wave Editor
@@ -3975,7 +3975,7 @@ Wolken Golf Editor
 
 
 Edytor pofalowania chmur
-
+Oblaka - Editor zvlnìní
 ;
 MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR
 Enter frame to make key for.
@@ -3987,7 +3987,7 @@ Voer frame in om Key voor te maken.
 
 
 Wybierz klatkê dla której chesz utworzyæ klucz.
-
+Èíslo klíèového snímku.
 ;
 MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES
 Delete all cloud key frames?
@@ -3999,7 +3999,7 @@ Alle wolken key frames verwijderen?
 
 
 Usun±æ wszystkie klucze ramek dla chmur?
-
+Smazat v¹echny klíèové snímky oblak?
 ;
 MSG_CLOUDGUI_FRACTALDIMENSION
 Fractal Dimension
@@ -4011,7 +4011,7 @@ Fractale Afmetingen
 
 
 Rozmiar Fractali
-
+Velikost fraktalu
 ;
 MSG_CLOUDGUI_MOVELATITUDE
 Move Latitude
@@ -4023,7 +4023,7 @@ Verplaats in Latitudinale richting
 
 
 Wysoko¶æ Ruchu
-
+Posun vý¹ky
 ;
 MSG_CLOUDGUI_MOVELONGITUDE
 Move Longitude
@@ -4035,7 +4035,7 @@ Verplaats in Longitudinale richting
 
 
 
-
+Posun délky
 ;
 MSG_CLOUDGUI_CLOUDTIMELINES
 Cloud Time Lines
@@ -4047,7 +4047,7 @@ Wolken Tijdlijnen
 
 
 Linia Czasu dla Chmur
-
+Èasová osa oblak
 ;
 MSG_CLOUDGUI_CLOUDFILE
 Cloud File
@@ -4059,7 +4059,7 @@ Wolken Bestand
 
 
 Plik Chmur
-
+Soubor oblak
 ;
 ; ------- DEM.c ----------
 ;
@@ -4073,7 +4073,7 @@ Maken van Relatieve Hoogte Model
 
 
 Tworzenie Relatywnego Wzniesienia Modelu
-
+Vytvoøení modelu relativní vý¹ky
 ;
 MSG_DEM_RELATIVEELEVATION
 Relative elevation
@@ -4085,7 +4085,7 @@ Relatieve hoogte
 
 
 Relatywnegpo wzniesienia
-
+Relativní vý¹ka
 ;
 MSG_DEM_COMPUTING
 Computing
@@ -4097,7 +4097,7 @@ Berekenen
 
 
 Obliczenia
-
+Zpracovávám
 ;
 MSG_DEM_FILES
 Files
@@ -4109,7 +4109,7 @@ Bestanden
 
 
 Pliki
-
+Soubory
 ;
 MSG_DEM_DATAOPSDEMINTERPOLATE
 Data Ops: DEM Interpolate
@@ -4121,7 +4121,7 @@ Data Ops: DEM Interpoleren
 
 
 
-
+Modul exportu: DEM Interpolace
 ;
 MSG_DEM_NOFILESSELECTED
 No file(s) selected!
@@ -4133,7 +4133,7 @@ Geen bestand(en) geselecteerd!
 
 
 Nie wybrano pliku(ów)!
-
+®ádný soubor nebyl vybrán!
 ;
 MSG_DEM_ERROROPENINGFILEFORINTERPOLATIONILENOTDEMORREMONTINUE
 Error opening file for interpolation!\nFile not DEM or REM\nContinue?
@@ -4145,7 +4145,7 @@ Fout bij openen van bestand voor interpolatie!\nBestand is geen DEM of REM\nDoor
 
 
 B³±d otwarcia pliku dla interpolacji!\nPlik DEM lub REM nie istnieje\nKontynuowaæ?
-
+Chyba pøi otevírání souboru interpolací!\nSoubor není formátu DEM/REM\nPokraèovat?
 ;
 MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER
 DEM name is too long to add an extra character to. Do you wish to enter a new base name for the DEM or abort the interpolation?
@@ -4157,7 +4157,7 @@ DEM naam is te lang om een extra karakter toe te voegen. Wilt u een nieuwe basis
 
 
 Nazwa DEM jest zbyt d³uga aby dodaæ dodatkowe znaki. Czy chcesz podaæ now± nazwê bazow± dla DEM czy chcesz wolisz anulowaæ interpolacjê?
-
+Soubor interpolací má pøíli¹ dlouhý název. Chcete mu zadat nové jméno, nebo pøeru¹it jeho ukládání?
 ;
 MSG_DEM_NEWNAMEABORT
 New Name|Abort
@@ -4169,7 +4169,7 @@ Nieuwe Naam|Afbreken
 
 
 Nowa Nazwa|Anuluj
-
+Nové jméno|Pøeru¹it
 ;
 MSG_DB_ENTERNEWOBJECTNAME
 Enter new object name.
@@ -4181,7 +4181,7 @@ Voer nieuwe objectnaam in.
 
 
 Wprowad¼ now± nazwê objektu.
-
+Zadej nové jméno objektu.
 ;
 MSG_DEM_DATAOPSINTERPOLATEDEM
 Data Ops: Interpolate DEM
@@ -4193,7 +4193,7 @@ Data Ops: DEM Interpoleren
 
 
 Data Ops: Interpolacja DEM
-
+Modul exportu: Interpolace
 ;
 MSG_DEM_ERRORREADINGELEVATIONFILEONTINUE
 Error reading elevation file!\nContinue?
@@ -4205,7 +4205,7 @@ Fout bij lezen van hoogte bestand!\nDoorgaan?
 
 
 B³±d odczytu pliku wzniesienia!\nKontynuowaæ?
-
+Chyba pøi naèítání souboru vý¹kových hodnot!\nPokraèovat?
 ;
 MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED
 Out of memory!\nOperation terminated.
@@ -4217,7 +4217,7 @@ Te weinig geheugen!\nOperatie afgebroken.
 
 
 Brak Pamiêci\nOperacja anulowana.
-
+Nedostatek pamìti!\nOperace bude ukonèena.
 ;
 MSG_DEM_ERROROPENINGDEMFILEFOROUTPUTPERATIONTERMINATED
 Error opening DEM file for output!\nOperation terminated.
@@ -4229,7 +4229,7 @@ Fout bij openen van DEM bestand voor uitvoer!\nOperatie afgebroken.
 
 
 B³±d otwarcia pliku DEM dla wyj¶cia\nOperacja anulowana.
-
+Chyba pøi pokusu otevøít DEM sobor pro zápis!\nOperace bude ukonèena.
 ;
 MSG_DEM_ERRORWRITINGDEMFILEPERATIONTERMINATED
 Error writing DEM file!\nOperation terminated.
@@ -4241,7 +4241,7 @@ Fout bij schrijven van DEM bestand!\nOperatie afgebroken.
 
 
 B³±d zapisu pliku DEM\nOperacja anulowana.
-
+Chyba pøi zápisu souboru DEM!\nOperace bude ukonèena.
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE
 Out of memory expanding Database Editor List!\nOperation terminated.
@@ -4253,7 +4253,7 @@ Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nOperatie afgebrok
 
 
 Brak pamiêci na rozszerzenie bazy danych o edytowane dane\nOperacja anulowana.
-
+Nedostatek pamìti pro výpis Databáze!\nOperace bude ukonèena.
 ;
 MSG_DEM_ERROROPENINGOBJECTFILEFOROUTPUTPERATIONTERMINATED
 Error opening Object file for output!\nOperation terminated.
@@ -4265,7 +4265,7 @@ Fout bij openen van Object bestand voor uitvoer!\nOperatie afgebroken.
 
 
 B³±d otwarcia pliku objektu dla wyj¶cia!\nOperacja anulowana.
-
+Chyba pøi pokusu otevøít soubor objektu pro zápis!\nOperace bude ukonèena.
 ;
 ; ------ DEMGUI.c ---------
 ;
@@ -4279,7 +4279,7 @@ Data Ops: DEM Extract
 
 
 Data Ops: DEM wypakowane
-
+Modul exportu: Extrakce DEM
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED
 Out of memory allocating DEM Info Header!\nOperation terminated.
@@ -4291,7 +4291,7 @@ Te weinig geheugen voor toewijzen van DEM Info Header!\nOperatie afgebroken.
 
 
 Brak pamiêci dla nag³ówka informacjynego pliku DEM!\nOperacja anulowana.
-
+Nedostatek pamìti pro hlavièku DEM souboru!\nOperace bude ukonèena.
 ;
 MSG_DEM_75MINUTEDEMSDONOTALLLIEWITHINSAMEUTMZONEPERATIONTERMINA
 7.5 Minute DEMs do not all lie within same UTM Zone!\nOperation terminated.
@@ -4303,7 +4303,7 @@ I DEM da 7,5 minuti non si trovano tutti nella stessa zona UTM!\nOperazione term
 
 
 7,5 minutowe DEMy nie mieszcz± siê w strefie czasowej UTM!\nOperation termiated.
-
+Sedm a pùl minutové DEM musí být ze stejného èasového pásma UTM!\nOperace bude ukonèena.
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGDEMARRAYSPERATIONTERMINATED
 Out of memory allocating DEM Arrays!\nOperation terminated.
@@ -4315,7 +4315,7 @@ Te weinig geheugen voor toewijzen van DEM Reeksen!\nOperatie afgebroken.
 
 
 Brak pamiêci na alokacjê tablic DEM!\nOperacja anulowana.
-
+Nedostatek pamìti pro alokaci DEM polí!nOperace bude ukonèena.
 ;
 MSG_DEM_75MINUTE
 7.5 Minute
@@ -4327,7 +4327,7 @@ MSG_DEM_75MINUTE
 
 
 7,5 minut
-
+7.5 minuty
 ;
 MSG_DEM_READING
 Reading
@@ -4339,7 +4339,7 @@ Lezen
 
 
 Odczyt
-
+Naèítání
 ;
 MSG_DEM_CANTREADDEMPROFILEHEADERPERATIONTERMINATED
 Can't read DEM profile header!\nOperation terminated.
@@ -4351,7 +4351,7 @@ Kan DEM profiel kop niet lezen!\nOperatie afgebroken.
 
 
 Nie mo¿na odczytaæ nag³ówka profilu DEM!\nOperacja anulowana.
-
+Hlavièku DEM profilu se nepodaøilo naèíst!\nOperace bude ukonèena.
 ;
 MSG_DEM_ERRORREADINGDEMPROFILEHEADERPERATIONTERMINATED
 Error reading DEM profile header!\nOperation terminated.
@@ -4363,7 +4363,7 @@ Fout bij lezen van DEM profiel kop!\nOperatie afgebroken.
 
 
 B³±d odczytu nag³ówka profilu DEM!\nOperacja anulowana.
-
+Chyba pøi ètení hlavièky DEM profilu!\nOperace bude ukonèena.
 ;
 MSG_DEM_BLANKPATCH
 Blank Patch
@@ -4375,7 +4375,7 @@ Lege Patch
 
 
 Pusta ¦cie¿ka
-
+prelozit
 ;
 MSG_DEM_RESAMPLE
 Resample
@@ -4387,7 +4387,7 @@ Herberekenen
 
 
 
-
+Pøepoèítat
 ;
 MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT
 Enter a name for the 30 meter DEM object.
@@ -4399,7 +4399,7 @@ Voer een naam in voor het 30 meter DEM object.
 
 
 Wprowad¼ nazwê dla 30m objektów DEM.
-
+Zatej název 30ti metrového objektu DEM.
 ;
 MSG_DEM_ONEDEGREE
 One Degree
@@ -4411,7 +4411,7 @@ Een graad
 
 
 Jeden Stopieñ
-
+Jeden stupeò
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGTEMPORARYBUFFERPERATIONTERMINATED
 Out of memory allocating temporary buffer!\nOperation terminated.
@@ -4423,7 +4423,7 @@ Te weinig geheugen voor toewijzen van tijdelijke buffer!\nOperatie afgebroken.
 
 
 Brak pamiêci dla alokacji tymczasowego bufora!\nOperacja anulowana.
-
+Nedostatek pamìti pro alokování bufferu!\nOperace bude ukonèena.
 ;
 MSG_DEM_ERRORREADINGDEMPROFILEPERATIONTERMINATED
 Error reading DEM profile!\nOperation terminated.
@@ -4435,7 +4435,7 @@ Fout bij lezen van DEM profiel!\nOperatie afgebroken.
 
 
 B³±d odczytu profilu DEM!\nOperacja anulowana.
-
+Chyba pøi ètení DEM profilu!\nOperace bude ukonèena.
 ;
 MSG_DEM_IMPROPERDEMPROFILELENGTHPERATIONTERMINATED
 Improper DEM profile length!\nOperation terminated.
@@ -4447,7 +4447,7 @@ Ongeldige lengte van DEM profiel!\nOperatie afgebroken.
 
 
 Niew³a¶ciwa d³ugo¶æ profilu DEM!\nOperacja anulowana.
-
+Nesprávná délka DEM profilu!\nOperace bude ukonèena.
 ;
 MSG_DEM_OUTOFMEMORYALLOCATINGMAPBUFFERPERATIONTERMINATED
 Out of memory allocating map buffer!\nOperation terminated.
@@ -4459,7 +4459,7 @@ Te weinig geheugen voor toewijzen van kaart buffer!\nOperatie afgebroken.
 
 
 Brak pamiêci dla bufora map!\nOperacja anulowana.
-
+Nedostatek pamìti pro alokování mapoveho bufferu!\n Operace bude ukonèena.
 ;
 MSG_DEM_ERRORCREATINGOUTPUTFILEPERATIONTERMINATED
 Error creating output file!\nOperation terminated.
@@ -4471,7 +4471,7 @@ Fout bij maken van uitvoer bestand!\nOperatie afgebroken.
 
 
 B³±d tworzenia pliku wyj¶ciowego!\nOperacja anulowana.
-
+Chyba pøi vytváøení výstupního souboru!\nOperace bude ukonèena.
 ;
 MSG_DEM_CANTOPENDEMFILEFORINPUTPERATIONTERMINATED
 Can't open DEM file for input!\nOperation terminated.
@@ -4483,7 +4483,7 @@ Kan DEM bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
 Nie mo¿na otworzyæ pliku DEM dla wej¶cia!\nOperacja anulowana.
-
+Nemohu otevøít soubor DEM pro ètení!\nOperace bude ukonèena.
 ;
 MSG_DEM_CANTREADDEMFILEHEADERPERATIONTERMINATED
 Can't read DEM file header!\nOperation terminated.
@@ -4495,7 +4495,7 @@ Kan DEM bestand kop niet lezen!\nOperatie afgebroken.
 
 
 Nie mogê odczytaæ nag³ówka pliku DEM!\nOperacja anulowana.
-
+Chyba pøi ètení hlavièky soubory DEM!\nOperace bude ukonèena.
 ;
 MSG_DEM_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
@@ -4507,7 +4507,7 @@ Fout bij openen van uitvoer bestand!\nOperatie afgebroken.
 
 
 B³±d otwracia pliku pkliku wyj¶ciiowgo!\nOperacja anulowana.
-
+Chyba pøi pokusu otevøít soubor pro zápis!\nOperace bude ukonèena.
 ;
 MSG_DEM_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED
 Error writing to output file!\nOperation terminated.
@@ -4519,7 +4519,7 @@ Fout bij schrijven naar uitvoer bestand!\nOperatie afgebroken.
 
 
 B³±d zapisu pliku wyj¶ciowego!\nOpercja anulowana.
-
+Chyba pøi zápisu do výstupního souboru!\nOperace bude ukonèena.
 ;
 MSG_DEM_OUTOFMEMORYEXPANDINGDATABASEEDITORLIST
 Out of memory expanding Database Editor List!
@@ -4531,7 +4531,7 @@ Te weinig geheugen voor uitbreiden van Database Editor Lijst!
 
 
 Brak pamieci dla rozszerzenia bazy danych o edycjê!
-
+Nedostatek pamìti pro výpis databáze!
 ;
 MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS
 Mapping Module: Fix Flats
@@ -4543,7 +4543,7 @@ Mapping Module: Corrigeer Platte Stukken
 
 
 
-
+Mapový modul: Fixní plochy
 ;
 MSG_DEM_BADARRAYDIMENSIONSSOMETHINGDOESNTCOMPUTEPERATIONTERMINA
 Bad array dimensions! Something doesn't compute.\nOperation terminated.
@@ -4555,7 +4555,7 @@ Onjuiste reeks dimensies! Iets klopt niet.\nOperatie afgebroken.
 
 
 Niew³a¶ciwe wymiary tablicy! Czego¶ nie uda siê przeliczyæ.\nOperacja anulowana.
-
+©patný rozmìr pole!\nOperace bude ukonèena.
 ;
 MSG_DEM_NOFLATSPOTSTOOPERATEONPERATIONTERMINATED
 No flat spots to operate on!\nOperation terminated.
@@ -4567,7 +4567,7 @@ Geen vlakke plekken om op te werken!\nOperatie afgebroken.
 
 
 Nie ma p³askim miejsc na których mo¿na pracowaæ!\nOperacja anulowana.
-
+®ádná data pro výpoèet plochy!\nOperace bude ukonèena.
 ;
 ; ------ DEMGUI.c ---------
 ;
@@ -4581,7 +4581,7 @@ Database Objecten
 
 
 Obiekty Bazy Danych
-
+Objekty databáze
 ;
 MSG_DEMGUI_XYZLATLON
 XYZ Lat/Lon
@@ -4593,7 +4593,7 @@ XYZ Lat/Long
 
 
 XYZ Wys/Szer
-
+XYZ Vý¹ka/Délka
 ;
 MSG_DEMGUI_XYZUTM
 XYZ UTM
@@ -4605,7 +4605,7 @@ XYZ UTM
 
 
 
-
+XYZ Pásmo UTM
 ;
 MSG_DEMGUI_DXFLATLON
 DXF Lat/Lon
@@ -4617,7 +4617,7 @@ DXF Lat/Long
 
 
 DXF Wys/Szer
-
+DXF Vý¹ka/Délka
 ;
 MSG_DEMGUI_DXFUTM
 DXF UTM
@@ -4629,7 +4629,7 @@ DXF UTM
 
 
 
-
+DXF Pásmo UTM
 ;
 MSG_DEMGUI_SLIDER
 Slider
@@ -4641,7 +4641,7 @@ Schuifbalk
 
 
 Suwak
-
+Posuvník
 ;
 MSG_DEMGUI_ENDPOINTS
 End Points
@@ -4653,7 +4653,7 @@ Eindpunten
 
 
 Punk Koñcowy
-
+Body konce
 ;
 MSG_DEMGUI_DEM
 DEM
@@ -4677,7 +4677,7 @@ Numeriek
 
 
 Numeryczne
-
+Èíselnì
 ;
 MSG_DEMGUI_ISOLINE
 Isoline
@@ -4737,7 +4737,7 @@ Geen
 
 
 Nie
-
+®ádný
 ;
 MSG_DEMGUI_LINESPOINTS
 Lines/Points
@@ -4749,7 +4749,7 @@ Lijnen/Punten
 
 
 Linie/Punkty
-
+Linky/Body
 ;
 MSG_DEMGUI_LINESONLY
 Lines Only
@@ -4761,7 +4761,7 @@ Alleen Lijnen
 
 
 Tylko Linie
-
+Pouze linky
 ;
 MSG_DEMGUI_POINTSONLY
 Points Only
@@ -4773,7 +4773,7 @@ Alleen Punten
 
 
 Tylko Punkty
-
+Pouze body
 ;
 MSG_DATAOPSGUI_KILOMETERS
 Kilometers
@@ -4785,7 +4785,7 @@ Kilometers
 
 
 Kilometry
-
+Kilometry
 ;
 MSG_DATAOPSGUI_METERS
 Meters
@@ -4797,7 +4797,7 @@ Meters
 
 
 Metry
-
+Metry
 ;
 MSG_DATAOPSGUI_CENTIMETERS
 Centimeters
@@ -4809,7 +4809,7 @@ Centimeters
 
 
 Centymetry
-
+Centimetry
 ;
 MSG_DATAOPSGUI_MILES
 Miles
@@ -4821,7 +4821,7 @@ Mijlen
 
 
 Mile
-
+Míle
 ;
 MSG_DATAOPSGUI_FEET
 Feet
@@ -4833,7 +4833,7 @@ Voeten
 
 
 Stopy
-
+Stopy
 ;
 MSG_DEMGUI_DEMDESIGNER
 DEM Designer
@@ -4845,7 +4845,7 @@ DEM Designer
 
 
 DEM Desiner
-
+DEM návrháø prelozit
 ;
 MSG_DEMGUI_CONTROLPTS
 Control Pts
@@ -4869,7 +4869,7 @@ MSG_DEMGUI_MAP
 
 
 \33cMapa
-
+\33cMapa
 ;
 MSG_DEMGUI_ADD
 \33cAdd
@@ -4881,7 +4881,7 @@ MSG_DEMGUI_ADD
 
 
 \33cDodaj
-
+\33cPøidat
 ;
 MSG_DEMGUI_MOVE
 \33cMove
@@ -4893,7 +4893,7 @@ MSG_DEMGUI_MOVE
 
 
 \33cPrzenie¶
-
+\33cPøesunout
 ;
 MSG_DEMGUI_DEL
 \33cDel
@@ -4905,7 +4905,7 @@ MSG_DEMGUI_DEL
 
 
 \33cUsuñ
-
+\33cSmazat
 ;
 MSG_DEMGUI_PTINFO
 \33cPt Info
@@ -4917,7 +4917,7 @@ MSG_DEMGUI_PTINFO
 
 
 \33cPunkt Informacyjny
-
+\33cPt Info
 ;
 MSG_DEMGUI_SETEL
 \33cSet El
@@ -4929,7 +4929,7 @@ MSG_DEMGUI_SETEL
 
 
 \33cUstawieni Elementu
-
+\33cNastav Vý¹ky
 ;
 MSG_DEMGUI_ELEVSOURCE
 Elev Source
@@ -4941,7 +4941,7 @@ Hgt Bron
 
 
 ¬ród³o Wzniesienia
-
+Zdroje vý¹ek
 ;
 MSG_DEMGUI_ELEVUNITS
  Elev Units
@@ -4953,7 +4953,7 @@ Hgt Eenheden
 
 
 Jednostki Wzniesienia
-
+Jednotka vý¹ky
 ;
 MSG_DEMGUI_DISPLACE
    Displace
@@ -4965,7 +4965,7 @@ Verschuiven
 
 
 Przemieszczenie
-
+Vytlaèit prelozit
 ;
 MSG_DEMGUI_DRAWMODE
   Draw Mode
@@ -4977,7 +4977,7 @@ Teken Modus
 
 
 Tryb Rysowania
-
+Mód vykreslování
 ;
 MSG_DEMGUI_NOGRADIENTREVERSAL
 \33cNo Gradient Reversal
@@ -4989,7 +4989,7 @@ MSG_DEMGUI_NOGRADIENTREVERSAL
 
 
 \33cBrak Odwrócenia Nachylenia
-
+\33c®ádné obrácení sklonu
 ;
 MSG_DEMGUI_MINIMUMSPACING
 Minimum Spacing \x20
@@ -5001,7 +5001,7 @@ Spazio Minimo \x20
 
 
 Minimalny Odstêp \x20
-
+Minimální odsazení \x20
 ;
 MSG_DEMGUI_STDDEVIATION
   Std Deviation\x20
@@ -5013,7 +5013,7 @@ Standaard Afwijking\x20
 
 
 Standardowe Odchylenie
-
+Standardní odchylka\x20
 ;
 MSG_DEMGUI_NONLINEARITY
   Non-linearity\x20
@@ -5025,7 +5025,7 @@ MSG_DEMGUI_NONLINEARITY
 
 
 Nieliniowo¶æ \x20
-
+Nelineární\x20
 ;
 MSG_DEMGUI_THISWINDOWMUSTREMAINOPENWHILETHEDEMGRIDDERISOPENOYOU
 This window must remain open while the DEM Gridder is open!\nDo you wish to close them both?
@@ -5037,7 +5037,7 @@ Dit venster moet open blijven terwijl de DEM Gridder open is!\nWilt u ze beide s
 
 
 To okno muai pozostaæ otwarty gdy otwarte jest okno siatki DEM\nCzy ¿yczysz sobie zamkn±æ oba?
-
+Toto okno musí zùstat otevøené, dokud je otevøen DEM Gridder!\nChcete je obì uzavøít?
 ;
 MSG_DEMGUI_DEMBUILDER
 DEM Builder
@@ -5049,7 +5049,7 @@ DEM Bouwer
 
 
 Budowanie DEM
-
+prelozit
 ;
 MSG_DEMGUI_ELEVATIONMODELGRID
 \33c\0334Elevation Model Grid
@@ -5061,7 +5061,7 @@ MSG_DEMGUI_ELEVATIONMODELGRID
 
 
 \33c\0334Model Siatki Elevawcji
-
+\33c\0334Møí¾ka vý¹kového modelu
 ;
 MSG_DEMGUI_OPTIONS
 \33c\0334Options
@@ -5073,7 +5073,7 @@ MSG_DEMGUI_OPTIONS
 
 
 \33c\0334Opcje
-
+\33c\0334Mo¾nosti
 ;
 MSG_DEMGUI_GRADIENTS
 Gradients\x20\x20
@@ -5085,7 +5085,7 @@ Gradiënten\x20\x20
 
 
 Nachylenia\x20\x20
-
+Gradienty\x20\x20
 ;
 MSG_DEMGUI_CHOROPLETH
 Choropleth\x20
@@ -5097,7 +5097,7 @@ Choropleth\x20\x20
 
 
 Kartogram\x20\x20
-
+prelozit \x20
 ;
 MSG_DEMGUI_DENSITY
 Density\x20\x20\x20\x20
@@ -5109,7 +5109,7 @@ Dichtheid\x20\x20\x20\x20
 
 
  Gêsto¶æ\x20\x20\x20\x20
-
+Hustota\x20\x20\x20\x20
 ;
 MSG_DEMGUI_EXTRAPOLATE
 Extrapolate
@@ -5121,7 +5121,7 @@ Extrapoleren
 
 
 Ekstrapolacja
-
+Extrapolace
 ;
 MSG_DEMGUI_SOUTHHEMI
 South Hemi.
@@ -5133,7 +5133,7 @@ Zuid. Halfrond.
 
 
 Pó³kula Po³udniowa.
-
+Ji¾ní polokoule.
 ;
 MSG_DEMGUI_BOUNDARIES
 \33c\0334Boundaries
@@ -5145,7 +5145,7 @@ MSG_DEMGUI_BOUNDARIES
 
 
 \33c\0334Granice
-
+\33c\0334Ohranièení
 ;
 MSG_DEMGUI_NORTH
 North
@@ -5157,7 +5157,7 @@ Noord
 
 
 Pó³noc
-
+Sever
 ;
 MSG_DEMGUI_SOUTH
 South
@@ -5169,7 +5169,7 @@ Zuid
 
 
 Po³udnie
-
+Jih
 ;
 MSG_DEMGUI_EAST
 East
@@ -5181,7 +5181,7 @@ Oost
 
 
 Wschód
-
+Východ
 ;
 MSG_DEMGUI_WEST
 West
@@ -5193,7 +5193,7 @@ West
 
 
 Zachód
-
+Západ
 ;
 MSG_DEMGUI_ELLOVERLAP
 \33c\0334Cell Overlap
@@ -5205,7 +5205,7 @@ MSG_DEMGUI_ELLOVERLAP
 
 
 \33c\0334Nak³adanie siê komórek
-
+\33c\0334Pøekrývání bunìk
 ;
 MSG_DEMGUI_HORIZ
 Horiz
@@ -5241,7 +5241,7 @@ MSG_DEMGUI_SURFACETAUTNESS
 
 
 \33c\0334Napiêcie Powierzchniowe
-
+\33c\0334Povrchová rozta¾nost
 ;
 MSG_DEMGUI_SCALE
 \33c\0334Scale
@@ -5253,7 +5253,7 @@ MSG_DEMGUI_SCALE
 
 
 \33c\0334Skala
-
+\33c\0334Mìøítko
 ;
 MSG_DEMGUI_NULL
 Null
@@ -5265,7 +5265,7 @@ Nul
 
 
 Nic
-
+®ádná
 ;
 MSG_DEMGUI_DELTA
 Delta
@@ -5289,7 +5289,7 @@ MSG_DEMGUI_GRID
 
 
 \33cSiatka
-
+\33cMrizka
 ;
 MSG_DEMGUI_NOISE
 \33cNoise
@@ -5301,7 +5301,7 @@ MSG_DEMGUI_NOISE
 
 
 \33cSzum
-
+\33c©um
 ;
 MSG_DEMGUI_DRAW
 \33cDraw
@@ -5313,7 +5313,7 @@ MSG_DEMGUI_DRAW
 
 
 \33cRysowanie
-
+\33cVykreslit
 ;
 MSG_DEMGUI_SAVE
 \33cSave
@@ -5325,7 +5325,7 @@ MSG_DEMGUI_SAVE
 
 
 \33cZapisz
-
+\33cUlo¾it
 ;
 MSG_DEMGUI_MAPVIEWDEMGRIDDER
 Map View: DEM Gridder
@@ -5337,7 +5337,7 @@ Map View: DEM Raster
 
 
 Podgl±d Mapy: Siatka DEM
-
+Zobrazeni mapy: DEM Gridder
 ;
 MSG_DEMGUI_NEWDEM
 NewDEM
@@ -5349,7 +5349,7 @@ Nieuw DEM
 
 
 Nowy DEM
-
+Nový DEM
 ;
 MSG_DEMGUI_IMPORT
 \33cImport
@@ -5361,7 +5361,7 @@ MSG_DEMGUI_IMPORT
 
 
 \33cImport
-
+\33cPøipojit
 ;
 MSG_DEMGUI_SAVEPTS
 \33cSave Pts
@@ -5373,7 +5373,7 @@ MSG_DEMGUI_SAVEPTS
 
 
 \33cZapisz Punkty
-
+\33cUlo¾it Pts
 ;
 MSG_DEMGUI_BUILD
 \33cBuild...
@@ -5385,7 +5385,7 @@ MSG_DEMGUI_BUILD
 
 
 \33cBuduj...
-
+\33cVytvoøit...
 ;
 MSG_DEMGUI_DRAWPTS
 \33cDraw Pts
@@ -5397,7 +5397,7 @@ MSG_DEMGUI_DRAWPTS
 
 
 \33cRysuj Punkty
-
+\33cVykreslit Pts
 ;
 MSG_DEMGUI_CLEARPTS
 \33cClear Pts
@@ -5409,7 +5409,7 @@ MSG_DEMGUI_CLEARPTS
 
 
 \33cUsuñ Punkty
-
+\33cSmazat Pts
 ;
 MSG_DEMGUI_NONNEG
 Non-Neg\x20\x20\x20\x20
@@ -5421,7 +5421,7 @@ Non-Negatief\x20\x20\x20\x20
 
 
 Nie-Negacja\x20\x20\x20\x20
-
+Pozitivní\x20\x20\x20\x20
 ;
 MSG_DEMGUI_OUTPUT
 \33c\0334Output
@@ -5433,7 +5433,7 @@ MSG_DEMGUI_OUTPUT
 
 
 \33c\0334Wyj¶cie
-
+\33c\0334Výstup
 ;
 MSG_DEMGUI_COLS
 Cols
@@ -5445,7 +5445,7 @@ Kolommen
 
 
 Kolumny
-
+Sloupce
 ;
 MSG_DEMGUI_ROWS
 Rows
@@ -5457,7 +5457,7 @@ Regels
 
 
 Rzêdy
-
+Øádky
 ;
 MSG_DEMGUI_OPTIONALNOISEMAP
 \33c\0334Optional Noise Map
@@ -5469,7 +5469,7 @@ MSG_DEMGUI_OPTIONALNOISEMAP
 
 
 \33c\0334Opcjonalna Mapa Szumu
-
+\33c\0334OVolitelná mapa ¹umu
 ;
 MSG_DEMGUI_SEED
 Seed
@@ -5493,7 +5493,7 @@ Fract
 
 
 U³amek
-
+Fraktál
 ;
 MSG_DEMGUI_OFFSETX
 Offset X
@@ -5517,7 +5517,7 @@ Scope
 
 
 Zakres
-
+Pole pùsobnosti
 ;
 MSG_DEMGUI_APPLYNOISEMAP
 \33cApply Noise Map
@@ -5529,7 +5529,7 @@ MSG_DEMGUI_APPLYNOISEMAP
 
 
 \33cZastosuj Mapê Szumu
-
+\33cAplikuj mapu ¹umu
 ;
 MSG_DEMGUI_OUTPUTDEMNAME
 Output DEM Name\x20
@@ -5541,7 +5541,7 @@ Uitvoer DEM Naam\x20
 
 
 Wyj¶ciowa nazwa DEM\x20
-
+Jméno DEM pro ulo¾ení\x20
 ;
 MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT
 Select contour objects to import and reselect "Import" when done.
@@ -5553,7 +5553,7 @@ Selecteer contour objecten om te importeren en selecteer opnieuw "Importeren" wa
 
 
 Wybierz kontur objektu do importu i ponownie wybierz import po zakoñczeniu.
-
+Vyberte obrysové objekty, které chcete pøipojovat, a po dokonèení znovu vyberte mo¾nost "Pøipojit".
 ;
 MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED
 Can't open Database Editor window!\nOperation terminated.
@@ -5565,7 +5565,7 @@ Kan Database Editor venster niet openen!\nOperatie afgebroken.
 
 
 Nie mogê otworzyæ okna edycji bazy danych!\nOperacja Anulowana.
-
+Nemohu otevøít okno databázového editoru!\nOperace bude ukonèena.
 ;
 MSG_DEMGUI_EXTRACTELEVATIONVALUESFROMOBJECTNAMESLABELFIELDSORUS
 Extract elevation values from Object Names, Label fields or use the values embedded in the Objects themselves?
@@ -5577,7 +5577,7 @@ Extraheer hoogte waarden uit Object Namen, Labelvelden of de waarden ingebed in 
 
 
 Czy chesz pobraæ warto¶ci wysoko¶ci z nazw obiektów, etykiet pól, czy te¿ u¿yæ warto¶ci osadzonych bezpo¶rednio w samych obiektach?
-
+Extrahovat výskové hodnoty z názvù objektù, popiskù, nebo pouzít hodnoty vlo¾ené v samotných objektech?
 ;
 MSG_DEMGUI_MAPVIEWEXPORTCONTOURS
 Map View: Export Contours
@@ -5589,7 +5589,7 @@ Map View: Contouren Exporteren
 
 
 Widok Mapy: Export Konturów
-
+Zobrazení mapy: Export ohranièení
 ;
 MSG_DEMGUI_NAMELABELEMBEDDED
 Name|Label|Embedded
@@ -5601,7 +5601,7 @@ Naam|Label|Ingebed
 
 
 Nazwa|Etykieta|Osadzone
-
+Z názvù|Z popiskù|Z vlo¾ených
 ;
 MSG_DEMGUI_ERRORIMPORTINGCONTOURDATAPERATIONTERMINATED
 Error importing contour data!\nOperation terminated.
@@ -5613,7 +5613,7 @@ Fout bij importeren van contour data!\nOperatie afgebroken.
 
 
 B³±d importu danych konturu!\nOperacja Anulowana.
-
+Chyba pøi pøidávání dat ohranièení!\nOperace bude ukonèena.
 ;
 MSG_DEMGUI_ATLEASTONEOBJECTFAILEDTOLOADANDCOULDNOTBEIMPORTED
 At least one Object failed to load and could not be imported.
