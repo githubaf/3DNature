@@ -9,7 +9,7 @@
 ## Codeset dansk 0
 ## Codeset español 0
 ## Codeset polski 0
-## Codeset czech 0
+## Codeset czech 5
 ## SimpleCatConfig CharsPerLine 200
 ## Header WCS_STRINGS_H
 ## TARGET CATALOG deutsch "WCS_CATALOGSPATH:deutsch"
@@ -1724,7 +1724,7 @@ OK|Annuleren
 
 
 OK|Anuluj
-
+Potvrdit|Zru¹it
 ;
 MSG_AGUI_YOUMUSTFIRSTLOADADATABASEBEFOREDEFAULTPARAMETERSCANBEC
 You must first load a Database before Default Parameters can be computed.
@@ -1748,7 +1748,7 @@ OK
 
 
 OK
-
+Potvrdit
 ;
 MSG_AGUI_STANDUP
 Stand Up
@@ -1880,7 +1880,7 @@ Data Ops: Importeer WDB
 
 
 
-Vlo¾it soubor WDB
+Modul exportu: Vlo¾ení souboru WDB
 ;
 MSG_AGUI_DATAOPSMODULEINTERPDEM
 Data Ops Module: Interp DEM
@@ -1892,7 +1892,7 @@ Data Ops Modulo: Interp DEM
 
 
 
-Vyhodnotit DEM
+Modul exportu: Vyhodnocení DEM
 ;
 MSG_AGUI_DATAOPSMODULEEXTRACTDEM
 Data Ops Module: Extract DEM
@@ -1904,7 +1904,7 @@ Data Ops Modulo: Extract DEM
 
 
 
-Extrahovat soubor DEM
+Modul exportu: Extrakce souboru DEM
 ;
 MSG_AGUI_RENDERMODULE
 Render Module
@@ -1940,7 +1940,7 @@ Module Controle Paneel
 
 
 Modu³ Panelu Kontrolnego
-Výchozí ovládací panel
+Hlavní ovládací panel
 ;
 MSG_AGUI_VERSION
 Version
@@ -2650,7 +2650,7 @@ FOUT:
 
 
 
-
+Chyba:
 ;
 MSG_AGUI_WNG
 WNG:
@@ -3013,7 +3013,7 @@ Fout bij opslaan van de afbeelding!\nOperatie afgebroken.
 
 
 B³±d zapisu obrazu!\nOperacja anulowana.
-Chyba pøi ukládání obrazku!\nOpreace bude ukonèena.
+Chyba pøi ukládání obrázku!\nOpreace bude ukonèena.
 ;
 MSG_BITMAPS_LOADINGIMAGE
 Loading Image
@@ -3229,7 +3229,7 @@ Fout bij lezen van achtergrond bestand!\nCompressie fout.\nOperatie afgebroken.
 
 
 B³±d odczytu pliku t³a!\nB³±d Dekompresji.\nOperacja anulowana.
-Chyba pøi naèítání souboru pozadí!\nChyba komprese..\nOperace bude ukonèena.
+Chyba pøi naèítání souboru pozadí!\nChyba komprese.\nOperace bude ukonèena.
 ;
 MSG_CLOUD_CLOUDEDITORSETBOUNDS
 Cloud Editor:Set Bounds
@@ -3891,7 +3891,7 @@ Map View: Wolken
 
 
 Podgl±d Mapy: Chmury
-Zobrazeni mapy: Oblaka
+Zobrazení mapy: Oblaka
 ;
 MSG_GLOBAL_OUTOFMEMORY
 Out of memory!
@@ -4459,7 +4459,7 @@ Te weinig geheugen voor toewijzen van kaart buffer!\nOperatie afgebroken.
 
 
 Brak pamiêci dla bufora map!\nOperacja anulowana.
-Nedostatek pamìti pro alokování mapoveho bufferu!\n Operace bude ukonèena.
+Nedostatek pamìti pro alokování mapového bufferu!\n Operace bude ukonèena.
 ;
 MSG_DEM_ERRORCREATINGOUTPUTFILEPERATIONTERMINATED
 Error creating output file!\nOperation terminated.
@@ -5289,7 +5289,7 @@ MSG_DEMGUI_GRID
 
 
 \33cSiatka
-\33cMrizka
+\33cMøí¾ka
 ;
 MSG_DEMGUI_NOISE
 \33cNoise
@@ -5553,7 +5553,7 @@ Selecteer contour objecten om te importeren en selecteer opnieuw "Importeren" wa
 
 
 Wybierz kontur objektu do importu i ponownie wybierz import po zakoñczeniu.
-Vyberte obrysové objekty, které chcete pøipojovat, a po dokonèení znovu vyberte mo¾nost "Pøipojit".
+Vyberte obrysové objekty, které chcete pøipojovat a po dokonèení znovu vyberte mo¾nost "Pøipojit".
 ;
 MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED
 Can't open Database Editor window!\nOperation terminated.
@@ -5577,7 +5577,7 @@ Extraheer hoogte waarden uit Object Namen, Labelvelden of de waarden ingebed in 
 
 
 Czy chesz pobraæ warto¶ci wysoko¶ci z nazw obiektów, etykiet pól, czy te¿ u¿yæ warto¶ci osadzonych bezpo¶rednio w samych obiektach?
-Extrahovat výskové hodnoty z názvù objektù, popiskù, nebo pouzít hodnoty vlo¾ené v samotných objektech?
+Extrahovat výskové hodnoty z názvù objektù, popiskù, nebo pou¾ít hodnoty vlo¾ené v samotných objektech?
 ;
 MSG_DEMGUI_MAPVIEWEXPORTCONTOURS
 Map View: Export Contours
@@ -5625,7 +5625,7 @@ Minstens één Object kon niet geladen en geïmporteerd worden.
 
 
 B³±d odczytu przynajmniej jednego objektu i nie zosta³ importowany.
-
+Nepodaøilo se naèíst ¾ádný objekt, který by bylo mo¾no pøipojit.
 ;
 MSG_DEMGUI_MAPVIEWIMPORTCONTOURS
 Map View: Import Contours
@@ -5637,7 +5637,7 @@ Map View: Contouren Importeren
 
 
 Widok Mapy: Import Konturów
-
+Zobrazení mapy: Pøipojit ohranièení
 ;
 MSG_DEMGUI_XYZPATHFILE
 XYZ Path/File
@@ -5649,7 +5649,7 @@ XYZ Pad/Bestand
 
 
 XYZ ¦cie¿ka/Plik
-
+XYZ Cesta/Soubor
 ;
 MSG_DEMGUI_YOUDIDNOTSELECTAFILETOIMPORTPERATIONTERMINATED
 You did not select a file to import!\nOperation terminated.
@@ -5661,7 +5661,7 @@ U heeft geen bestand geselecteerd om te importeren!\nOperatie afgebroken.
 
 
 Nie wybra³e¶/a¶ pliku do importu\nOperacja Anulowana.
-
+Nebyl vybrán ¾ádný soubor, který by bylo mo¾no pøipojit!\nOperace bude ukonèena.
 ;
 MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR
 Enter the UTM zone number (0-60) for the data you are about to import.
@@ -5673,7 +5673,7 @@ Voer het UTM zone nummer (0-60) in voor de data die u gaat importeren.
 
 
 Wprowad¼ numer strwfy UTM (0-60) dla danych które importujesz.
-
+Zadej èíslo èasové zony UTM (0-60) pro data, která chce¹ pøipojit.
 ;
 MSG_MAPGUI_MAPVIEWBUILDDEM
 Map View: Build DEM
@@ -5685,7 +5685,7 @@ Map View: DEM Creëren
 
 
 Widok Mapy: Budowa DEM
-
+Zobrazení mapy: Vytvoøení DEM
 ;
 MSG_DEMGUI_UTMZONESMAYBEFROM0TO60THESELECTEDZONEISOUTOFRANGEPER
 UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated.
@@ -5697,7 +5697,7 @@ UTM zones mogen van 0 tot 60 zijn! De geselecteerde zone ligt buiten bereik.\nOp
 
 
 Strefy UTM powinny byæ w zakresie id 0 do 60! Wybrana strefa jest poza zakresem.\nOperacja anulowana.
-
+Èíslo èasové zóny UTM musí být v rozsahu 0 a¾ 60! Zadané èíslo je mimo rozsah!\nOperace bude ukonèena.
 ;
 MSG_DEMGUI_ERROROPENINGXYZFILETOIMPORTPERATIONTERMINATED
 Error opening XYZ file to import!\nOperation terminated.
@@ -5709,7 +5709,7 @@ Fout bij openen van XYZ bestand om te importeren!\nOperatie afgebroken.
 
 
 B³±d otwarcia pliku XYZ do importu!\nOperacja Anulowana.
-
+Chyba pøi otevírání souboru souøadnic XYZ pro ètení!\nOperace bude ukonèena.
 ;
 MSG_DEMGUI_MAPVIEWXYZEXPORT
 Map View: XYZ Export
@@ -5721,7 +5721,7 @@ Map View: XYZ Export
 
 
 
-
+Zobrazeni mapy: Export souøadnic XYZ
 ;
 MSG_DEMGUI_ERRORWRITINGTOXYZFILEPARTIALFILEWRITTENPERATIONTERMI
 Error writing to XYZ file! Partial file written.\nOperation terminated.
@@ -5733,7 +5733,7 @@ Fout bij schrijven naar XYZ bestand! Deel van bestand geschreven.\nOperatie afge
 
 
 B³±d zapisu do pliku danych XYZ! Dane zpisane czê¶ciowo.\n Operacja anulowana.
-
+Chyba pøi zápisu do souboru souøadnic XYZ! Soubor byl zapsán pouze èásteènì.\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
 You must specify an output file name!\nOperation terminated.
@@ -5745,7 +5745,7 @@ Specificeer een uitvoer bestandsnaam!\nOperatie afgebroken.
 
 
 Musisz wskazaæ nazwê pliku wyj¶ciowego!\n Operacja anulowana.
-
+Nezadali jste jméno výstupního souboru!\nOperace bude ukonèena.
 ;
 MSG_DEMGUI_UNABLETOOPENXYZFILEFOREXPORTPERATIONTERMINATED
 Unable to open XYZ file for export!\nOperation terminated.
@@ -5757,7 +5757,7 @@ Kan XYZ bestand niet openen voor export!\nOperatie afgebroken.
 
 
 Nie mo¿na otworzyæ pliku danych XYZ dla exportu!\nOperacja anulowana.
-
+Nepodaøilo se otevøít soubor souøadnic XYZ k exportu!\nOperace bude ukonèena.
 ;
 ; -------- DLG.c ----------
 ;
@@ -5771,7 +5771,7 @@ Data Ops Module: Import DLG
 
 
 Modu³ Data Ops: Import DLG
-
+Modul exportu: Pøipojení DLG
 ;
 MSG_DLG_OUTOFMEMORYALLOCATINGTEMPORARYARRAYSPERATIONTERMINATED
 Out of memory allocating temporary arrays!\nOperation terminated.
@@ -5783,7 +5783,7 @@ Te weinig geheugen voor toewijzen van tijdelijke reeksen!\nOperatie afgebroken.
 
 
 Brak pamiêci dla alokacji tymczasowych tabel!\nOperacja anulowana.
-
+Nedostatek pamìti pro pomocná pole!\nOperace bude ukonèena.
 ;
 MSG_DLG_DLGFILE
 DLG File
@@ -5795,7 +5795,7 @@ DLG-Bestand
 
 
 Plik DLG
-
+Soubor DLG
 ;
 MSG_DLG_NOFILESSELECTED
 No file(s) selected!
@@ -5807,7 +5807,7 @@ Geen bestand(en) geselecteerd!
 
 
 Nie wybrano pliku!
-
+Nebyl vybrán ¾ádný soubor!
 ;
 MSG_DLG_CANTOPENDLGFILEFORINPUTPERATIONTERMINATED
 Can't open DLG file for input!\nOperation terminated.
@@ -5819,7 +5819,7 @@ Kan DLG bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
 Nie mogê otworzyæ pliku DLG dla wej¶cia\nOperacja anulowana.
-
+Nepodaøilo se otevøít soubor DLG pro ètení!\nOperace bude ukonèena.
 ;
 MSG_DLG_FILENOTAUSGSOPTIONALDLGPERATIONTERMINATED
 File not a USGS Optional DLG!\nOperation terminated.
@@ -5831,7 +5831,7 @@ Bestand is geen USGS Optionele DLG!\nOperatie afgebroken.
 
 
 Plik nie zawiera danych USGS opcjonalnych dla DLG!\nOperacja anulowana.
-
+Soubor není správného typu (USGS/DLG)!\nOperace bude ukonèena.
 ;
 MSG_DLG_INAPPROPRIATEUTMZONEPERATIONTERMINATED
 Inappropriate UTM Zone!\nOperation terminated.
@@ -5843,7 +5843,7 @@ Ongeldige UTM Zone!\nOperatie afgebroken.
 
 
 Niew³a¶ciwa strefa UTM!\nOperacja anulowana.
-
+Nevhodnì zvolená zóna UTM!\nOperace bude ukonèena.
 ;
 MSG_DLG_THISFILECONTAINSDATAINANUNSUPPORTEDREFERENCESYSTEMPERAT
 This file contains data in an unsupported Reference System!\nOperation terminated.
@@ -5855,7 +5855,7 @@ Dit bestand bevat data in een niet ondersteund Referentie Systeem!\nOperatie afg
 
 
 Ten plik zawira dane zapisane w niewspieranym systemie!\nOperacja anulowana.
-
+Vybraný soubor obsahuje data v nepodporovaném referenèním systemu!\nOperace bude ukonèena.
 ;
 MSG_DLG_READING
 Reading
@@ -5867,7 +5867,7 @@ Lezen
 
 
 Czytam
-
+Ètení
 ;
 MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE
 Enter up to 3 characters as a prefix for this DLG set if you desire.
@@ -5879,7 +5879,7 @@ Voer maximaal 3 karakters in als een prefix voor deze DLG set als u dat wenst.
 
 
 Wprowad¿ do trzech liter prefiksu dla tego DLG ustaw je¶li potrzebujesz.
-
+Mù¾ete zadat a¾ 3 znaky dlouhou pøedponu pro tuto DLG sestavu.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEOPERATIONTERMINATED
 Out of memory expanding database!\nOperation terminated.
@@ -5891,7 +5891,7 @@ Te weinig geheugen voor uitbreiden van database!\nOperatie afgebroken.
 
 
 Brak pamiêci dla rozszerzenia bazy danych!\nOperacja anulowana.
-
+Nedostatek pamìti pro rozvinutí database!\nOperace bude ukonèena.
 ;
 MSG_DLG_ERRORSAVINGOBJECTFILEPERATIONTERMINATED
 Error saving object file!\nOperation terminated.
@@ -5903,7 +5903,7 @@ Fout bij opslaan van object bestand!\nOperatie afgebroken.
 
 
 B³±d zapisu pliku objektu!\nOperacja anulowana.
-
+Chyba pøi ukládání souboru objektu!\nOperace bude ukonèena.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTDXF
 Data Ops Module: Import DXF
@@ -5915,7 +5915,7 @@ Data Ops Module: Importeer DXF
 
 
 Modu³ Data Ops: Importuj DXF
-
+Modul exportu: Pøipojení DXF
 ;
 MSG_DLG_DXFFILE
 DXF File
@@ -5927,7 +5927,7 @@ DXF-Bestand
 
 
 Plik DXF
-
+Soubor DXF
 ;
 MSG_DLG_CANTOPENDXFFILEFORINPUTPERATIONTERMINATED
 Can't open DXF file for input!\nOperation terminated.
@@ -5939,7 +5939,7 @@ Kan DXF bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
 Nie mogê otworzyæ pliku DXF dla wej¶cia!\nOperacja anulowana.
-
+Nemohu otevøít soubor DXF pro ètení!\nOperace bude ukonèena.
 ;
 MSG_DLG_IMPROPERCODEVALUEFOUNDPERATIONTERMINATEDPREMATURELY
 Improper Code value found!\nOperation terminated prematurely.
@@ -5951,7 +5951,7 @@ Ongeldige Code waarde gevonden!\nOperatie voortijdig afgebroken.
 
 
 Znaleziona niew³a¶ciwa warto¶æ Kodu.\nOperacja anulowana przedwcze¶nie.
-
+Nalezena nesprávná hodnota kódu!\nOperace byla ukonèena pøedèasnì.
 ;
 MSG_DLG_ERRORSAVINGOBJECTPERATIONTERMINATED
 Error saving object!\nOperation terminated.
@@ -5963,7 +5963,7 @@ Fout bij opslaan van object!\nOperatie afgebroken.
 
 
 B³±d zapisu objektu!\nOperacja anulowana.
-
+Chyba pøi ukládání objektu!\nOperace bude ukonèena.
 ;
 MSG_DLG_ANENTITYHASBEENFOUNDWITHNONAMEIDENTIFIERPLEASEENTERADEF
 An entity has been found with no name identifier. Please enter a default name.
@@ -5975,7 +5975,7 @@ Er is een entiteit gevonden zonder naam identificatie. Voer een standaard naam i
 
 
 Cia³o nie ma nazwy. Wprowad¼ domy¶ln± nazwê.
-
+Byla nalezena èást bez názvu. Prosím, zadejte výchozí název.
 ;
 MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTASTITEMDOESNOTAPP
 Out of memory expanding Database Editor List!\nLast item does not appear in list view.
@@ -5987,7 +5987,7 @@ Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nLaatste item vers
 
 
 Brak pamieci dla rozszerzenia bazy danych o listê edytorów!\nOstatnia pozycja nie zostanie wy¶wietlona.
-
+Nedostatek pamìti pro rozvinutí seznamu databáze!\nPoslední polo¾ka se v seznamu nezobrazí.
 ;
 MSG_DLG_ERRORSAVINGLASTOBJECTPERATIONTERMINATED
 Error saving last object!\nOperation terminated.
@@ -5999,7 +5999,7 @@ Foout bij opslaan van laatste object!\nOperatie afgebroken.
 
 
 B³±dd zapisu ostaniego objektu!\nOperacja anulowana.
-
+Chyba pøi ukládání posledního objektu!\nOperace bude ukonèena.
 ;
 MSG_DLG_DATAOPSMODULEIMPORTWDB
 Data Ops Module: Import WDB
@@ -6011,7 +6011,7 @@ Data Ops Module: Importeer WDB
 
 
 Modu³ Data Ops: Import WDB
-
+Modul exportu: Pøipojení WDB
 ;
 MSG_DLG_WDBFILE
 WDB File
@@ -6023,7 +6023,7 @@ WDB-Bestand
 
 
 Plik WDB
-
+Soubor WDB
 ;
 MSG_DLG_CANTOPENWDBFILEFORINPUTPERATIONTERMINATED
 Can't open WDB file for input!\nOperation terminated.
@@ -6035,7 +6035,7 @@ Kan WDB bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
 Nie mogê otworzyæ pliku WDB dla wej¶cia!\nOperacja anulowana.
-
+Nemohu otevøít soubor WDB pro ètení!\nOperace bude ukonèena.
 ;
 MSG_DLG_ERROROPENINGSOURCEFILEPERATIONTERMINATED
 Error opening source file!\nOperation terminated.
@@ -6047,7 +6047,7 @@ Fout bij openen van bron bestand!\nOperatie afgebroken.
 
 
 B³±d otwarcia pliku ¼ród³owego!\nOperacja anulowana.
-
+Chyba pøi otevírání zdrojového souboru!\nOperace bude ukonèena.
 ;
 MSG_DLG_ERROROPENINGOUTPUTFILEPERATIONTERMINATED
 Error opening output file!\nOperation terminated.
@@ -6059,7 +6059,7 @@ Fout bij openen van uitvoer bestand!\nOperatie afgebroken.
 
 
 B³±d otwrcia pliku dla wyj¶cia.\nOperacja anulowana.
-
+Chyba pøi otevírání souboru pro zápis!\nOperace bude ukonèena.
 ;
 MSG_DLG_UNSUPPORTEDATTRIBUTECODEPERATIONTERMINATED
 Unsupported attribute code!\nOperation terminated.
@@ -6071,7 +6071,7 @@ Niet ondersteunde attribuut code!\nOperatie afgebroken.
 
 
 Niewspierany kod atrybutu!\nOperacja anulowana.
-
+Nepodporovaný pøíznak kódu!\nOperace bude ukonèena.
 ;
 MSG_DLG_OBJECTCONTAINSTOOMANYPOINTSPERATIONTERMINATED
 Object contains too many points!\nOperation terminated.
@@ -6083,7 +6083,7 @@ Het object bevat te veel punten!\nOperatie afgebroken.
 
 
 Objekt zawiera zbyt wielu punktów!\nOperacja anulowana.
-
+Objekt obsahuje pøíli¹ mnoho bodù\nOperace bude ukonèena.
 ;
 ;
 MSG_DB_NEWDATABASECREATED
@@ -6096,7 +6096,7 @@ Nieuwe database aangemaakt: %s
 
 
 Utworzono now± bazê danych: %s
-
+Vytvoøena nová databáze: %s
 ;
 MSG_DB_ERRORSAVINGDATABASEELECTANEWDIRECTORY
 Error saving database!\nSelect a new directory?
@@ -6108,7 +6108,7 @@ Fout bij opslaan van database!\nEen nieuwe directory selecteren?
 
 
 B³±d zapisu bazy danych!
-
+Chyba pøi ukládání databáze!\nChcete vybrat nový adresáø?
 ;
 MSG_DB_OKCANCEL
 OK|Cancel
@@ -6120,7 +6120,7 @@ OK|Annuleren
 
 
 OK|Anuluj
-
+Potvrdit|Zru¹it
 ;
 MSG_DB_DATABASE
 Database
@@ -6132,7 +6132,7 @@ Database
 
 
 Baza danych
-
+Databáze
 ;
 MSG_DB_NUMBEROFOBJECTS
 Number of objects = %d
@@ -6144,7 +6144,7 @@ Aantal objecten = %d
 
 
 Ilo¶æ objektów = %d
-
+Poèet objektù = %d
 ;
 MSG_DB_DIRECTORYCREATED
 Directory Created: %s
@@ -6156,7 +6156,7 @@ Directory aangemaakt: %s
 
 
 Katalog Utworzony: %s
-
+Adresáø %s byl vytvoøen
 ;
 MSG_DB_NEWDIRECTORYCREATEDMAKEITTHEDEFAULTDIRECTORY
 New directory created: %s. Make it the default directory?
@@ -6168,7 +6168,7 @@ Nieue directory aangemaakt: %s. Wilt u het het standaard directory maken?
 
 
 Nowy katalog utworzony: %s. Czy ma byæ domy¶lnym katalogiem?
-
+Nový adresáø %s byl vytvoøen. Chcete jej pou¾ít jako výchozí?
 ;
 MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA
 Illegal number of database records: less than one!\nOperation terminated.
@@ -6180,7 +6180,7 @@ Ongeldig aantal database records: minder dan één!\nOperatie afgebroken.
 
 
 Niew³a¶ciwa ilo¶æ rekordów bazy danych: mniej ni¿ jeden!\nOperacja anulowana.
-
+Nepovolený poèet záznamù v databázi: Ménì ne¾ jeden!\nOperace bude ukonèena.
 ;
 MSG_DB_OUTOFMEMORYANTUPDATEDATABASELIST
 Out of memory!\nCan't update database list.
@@ -6192,7 +6192,7 @@ Te weinig geheugen!\nKan database lijst niet bijwerken.
 
 
 Brak pamiêci!\nNie mogê zaktualizowaæ listy baz danych.
-
+Nedostatek pamìti pro obnovení seznamu databáze.
 ;
 MSG_DB_VECTORLOAD
 Vector Load
@@ -6204,7 +6204,7 @@ Laad Vector
 
 
 £adowanie wektora
-
+Vektor naèten
 ;
 MSG_DB_OBJECTS
 %d objects
@@ -6216,7 +6216,7 @@ MSG_DB_OBJECTS
 
 
 %d Objekty
-
+%d objektù
 ;
 MSG_DB_ATLEASTONEVECTORFILEWASFOUNDTOCONTAINANUMBEROFPOINTSDIFF
 At least one vector file was found to contain a number of points different from that in its Database record!\nThe record has been updated.\nDatabase should be re-saved.
@@ -6228,7 +6228,7 @@ Ten minste één vector bestand bevatte een aantal punten dat verschilde van dat i
 
 
 Przynajmniej jeden plik vektorów zawiera liczbê punków ró¿n± od warto¶ci zapisanej w bazie danych!\nWpis w bazie zostanie zaktualizowany.\nBaza danych powinna zostaæ ponownie zapisana.
-
+Bylo zji¹tìno, ¾e alespoò jeden vektorový soubor obsahuje jiný poèet bodù, ne¾ je uveden v jeho záznamech v Databázi!\nZáznam byl aktualizován.\nDatabáze by mìla být znovu ulo¾ena.
 ;
 MSG_DB_MAPVIEWLOAD
 Map View: Load
@@ -6240,7 +6240,7 @@ Map View: Laden
 
 
 Widok Mapy: Wczytaj
-
+Zobrazení mapy: Naèítání
 ;
 MSG_DB_ERRORREADINGELEVATIONSOBJECTNOTLOADED
 Error reading elevations! Object not loaded.
@@ -6252,7 +6252,7 @@ Fout bij lezen van hoogten! Object niet geladen.
 
 
 B³±d odczytu wzniesieñ! Objekt nie wczytany.
-
+Chyba pøi naèítání vý¹kových záznamù! Objekt nebyl nahrán.
 ;
 MSG_DB_ERRORREADINGLATITUDESOBJECTNOTLOADED
 Error reading latitudes! Object not loaded.
@@ -6264,7 +6264,7 @@ Fout bij lezen van breedtes! Object niet geladen.
 
 
 B³±d odczytu wysoko¶ci! Objekt nie wczytany.
-
+Chyba pøi naèítání záznamù zemìpisné vý¹ky! Objekt nebyl nahrán.
 ;
 MSG_DB_ERRORREADINGLONGITUDESOBJECTNOTLOADED
 Error reading longitudes! Object not loaded.
@@ -6276,7 +6276,7 @@ Fout bij lezen van lengtegraden! Object niet geladen.
 
 
 B³±d odczytu szeroko¶ci! Objekt nie wczytany.
-
+Chyba pøi naèítání záznamù zemìpisné délky! Objekt nebyl nahrán.
 ;
 MSG_DB_OUTOFMEMORYOBJECTNOTLOADED
 Out of memory! Object not loaded.
@@ -6288,7 +6288,7 @@ Te weinig geheugen! Object niet geladen.
 
 
 Brak pamiêci! Objekt nie wczytany.
-
+Nedostatek pamìti pro nahrání objektu! Objekt nebyl nahrán.
 ;
 MSG_DB_ERRORREADINGHEADEROBJECTNOTLOADED
 Error reading header! Object not loaded.
@@ -6300,7 +6300,7 @@ Fout bij lezen van header! Object niet geladen.
 
 
 B³±d odczytu nag³ówka! Objekt nie wczytany.
-
+Chyba pøi ètení dat hlavièky objektu! Objekt nebyl nahrán.
 ;
 MSG_DB_UNSUPPORTEDFILEVERSIONOBJECTNOTLOADED
 Unsupported file version! Object not loaded.
@@ -6312,7 +6312,7 @@ Niet ondersteunde bestandsversie! Object niet geladen.
 
 
 Niewspierana wersja pliku! Objekt niewczytany.
-
+Nepodporovaná verze souboru! Objekt nebyl nahrán.
 ;
 MSG_DB_OBJECTDIRECTORY
 Object Directory
@@ -6324,7 +6324,7 @@ Object Directory
 
 
 Katalog Objektów
-
+Adresáø objektù
 ;
 MSG_DB_DATABASEMODULENAME
 Database Module: Name
@@ -6336,7 +6336,7 @@ Database Module: Naam
 
 
 Modu³ Bazy Danych: Nazwa
-
+Databázový modul: Název
 ;
 MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME
 Vector name already present in database!\nTry a new name?
@@ -6348,7 +6348,7 @@ De vector naam is al aanwezig in de database!\nEen nieuwe naam proberen?
 
 
 Wektor ju¿ wystêpuje w bazie danych!\nU¿yæ inn± nazwê?
-
+Tento název vektoru se ji¾ v databázi nachází!\nPøejete si zadat nové jméno?
 ;
 MSG_DB_DATABASEMODULEEDITOR
 Database Module: Editor
@@ -6360,7 +6360,7 @@ Database Module: Editor
 
 
 Modu³ Bazy Danych: Edytor
-
+Databázový modul: Editor
 ;
 MSG_DB_NOMEMORYFORVECTORCOORDINATESEWOBJECTHASBEENCREATEDBUTCAN
 No memory for vector coordinates!\nNew object has been created but can not be edited until memory is available.
@@ -6372,7 +6372,7 @@ Te weinig geheugen voor vector coördinaten!\nNieuw object is aangemaakt maar kan
 
 
 Brak pamiêci na koordynaty wektora!\nObjekt zosta³ utworzony ale nie mo¿e byæ edytowany do czasu gdy bêdziedostêpna pamiêæ.
-
+Nedostatek pamìti pro vektorové souøadnice!\nNový objekt byl vytvoøen, ale pro nedostatek pamìti jej nelze upravovat.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE
 Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.
@@ -6384,7 +6384,7 @@ Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is a
 
 
 Brak pamiêci dla rozszerzenia Bazy Danych Listy Edycji!\nNowy objekt zosta³ utworzony, ale nie pojawi siê na li¶cie.
-
+Nedostatek pamìti pro rozvinutí seznamu databáze!\nNový objekt byl sice vytvoøen, ale v seznamu se nezobrazí.
 ;
 MSG_DB_ADDOBJECT
 Add Object
@@ -6396,7 +6396,7 @@ Object toevoegen
 
 
 Dodaj Objekt
-
+Pøidání objektu
 ;
 MSG_DB_DATABASEADDOBJECT
 Database: Add Object
@@ -6408,7 +6408,7 @@ Database: Object toevoegen
 
 
 Baza Danych: Dodaj Objekt
-
+Databáze: Pøidání objektu
 ;
 MSG_DB_NOFILESSELECTED
 No file(s) selected!
@@ -6420,7 +6420,7 @@ Geen bestand(en) geselecteerd!
 
 
 Nie wybrano pliku(ów)!
-
+®ádný soubor nebyl vybrán!
 ;
 MSG_DB_OBJECTMUSTENDINSUFFIXOBJ
 Object must end in suffix "Obj"!
@@ -6432,7 +6432,7 @@ Het object moet eindigen op suffix "Obj"!
 
 
 Objekt musi byæ zakoñczony przyrostkiem "Obj"!
-
+Název objektu musí konèit pøíponou "Obj"!
 ;
 MSG_DB_OBJECTNAMEALREADYPRESENTINDATABASEUPLICATEITEMSWILLBESKI
 Object name already present in database!\nDuplicate items will be skipped.
@@ -6444,7 +6444,7 @@ De object naam is al aanwezig in de database!\nDubbele items zullen worden geneg
 
 
 Nazwa objektu wystêpuje ju¿ w bazie danych!\nDuplikaty zostan± ominiête.
-
+Tento název objektu je ji¾ v databázi obsa¾en!\nDuplicitní záznamy budou vynechány.
 ;
 MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENADD
 Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.
@@ -6456,7 +6456,7 @@ Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is t
 
 
 Brak pamiêci dla roszerzenie Listy Edycji w bazie danych!\nNowy objekt zosta³ dodany, ale nie zostanie wy¶wietlony na li¶cie.
-
+Nedostatek pamìti pro rozvinutí seznamu databáze!\nNový objekt byl sice pøidán, ale v seznamu se nezobrazí.
 ;
 MSG_DB_ERRORLOADINGTHISOBJECTPERATIONTERMINATED
 Error loading this Object!\nOperation terminated.
@@ -6468,7 +6468,7 @@ Fout bij laden van dit object!\nOperatie afgebroken.
 
 
 B³±d wczytania objektu!\nOperacja anulowana.
-
+Chyba pøi naèítání tohoto objektu!\nOperace bude ukonèena.
 ;
 MSG_DB_MAPVIEWSAVEALL
 Map View: Save All
@@ -6480,7 +6480,7 @@ Map View: Alles Opslaan
 
 
 Widok Map: Zapisz Wszystko
-
+Zobrazení mapy: Ve¹kerá ulo¾ení
 ;
 MSG_DB_ERRORWRITINGMASTEROBJECTFILEPERATIONTERMINATED
 Error writing Master Object file!\nOperation terminated.
@@ -6492,7 +6492,7 @@ Foout bij schrijven van Master Object bestand!\nOperatie afgebroken.
 
 
 B³±d zapisu Nadrzêdnego Objektu do pliku!\nOperacja anulowana.
-
+Chyba pøi zápisu dat výchozího objektu do souboru!\nOperace bude ukonèena.
 ;
 MSG_DB_WCSMASTEROBJECT
 WCSMasterObject
@@ -6504,7 +6504,7 @@ WCSMasterObject
 
 
 WCSObjektNadrzêdny
-
+Výchozí objekt WCS
 ;
 MSG_DB_OUTOFMEMORYLOADINGMASTEROBJECTFILENABLEDOBJECTSWILLBELOA
 Out of memory loading Master Object File!\nEnabled Objects will be loaded individually.
@@ -6516,7 +6516,7 @@ Te weinig geheugen voor laden van Master Object bestand!\nIngeschakelde objecten
 
 
 Brak pamieci dla wczytania pliku Objektu Nadrzêdnego!\nAktywne objekty bêd± ³adowane indywidualnie.
-
+Nedostatek pamìti pro naètení dat v¹ech výchozích objektù!\nVybrané objekty budou muset být nahrávány jednotlivì.
 ;
 MSG_DB_ERRORREADINGMASTEROBJECTFILEPERATIONTERMINATED
 Error reading Master Object file!\nOperation terminated.
@@ -6528,7 +6528,7 @@ Foout bij lezen van Master Object bestand!\nOperatie afgebroken.
 
 
 B³±d odczytu pliku Nadrzêdnego Objektu!\nOperacja anulowana.
-
+Chyba ètení dat ze souboru výchozích objektù!\nOperace bude ukonèena.
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
@@ -6540,7 +6540,7 @@ Aantal objecten in het Master Object bestand komt niet overeen met het aantal ob
 
 
 Liczba objektów w pliku Objektu Nadrzêdnego nie zgadza siê z liczb± Objektów w aktualnej Bazie Danych! Plik Objektu Nadrzêdnego nie zostanie u¿yty. Objekty zostan± wczytane indywidualnie z plików
-
+Poèet vybraných objektù, neodpovídá poètu objektù v aktuálnì pou¾ívané databázi! Soubor výchozích objektù nebude pou¾it! Objekty budou muset být nahrávány z jednotlivých souborù
 ;
 MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 .MDB is not a WCS Master Object file!
@@ -6552,7 +6552,7 @@ MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 
 
 MDB nie jest plikiem Objektu Ndarzêdnego WCS!
-
+Soubor s pøíponou MDB není souborem výchozích objektù WCS!
 ;
 MSG_DB_RECORDSMARKED
 Records = %d, Marked = %d
@@ -6564,7 +6564,7 @@ Records = %d, Gemarkeerd = %d
 
 
 Rekordy = %d, Zaznaczone = %d
-
+Záznamù = %d, Oznaèených = %d
 ;
 MSG_DATAOPSGUI_DATAOPSCONVERTDEM
 Data Ops: Convert DEM
@@ -6576,7 +6576,7 @@ Data Ops: DEM converteren
 
 
 Data Ops: Konwersja DEM
-
+Modul exportu: Pøevod DEM
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYAFILETOCONVERTPERATIONTERMINATED
 You must specify a file to convert!\nOperation terminated.
@@ -6588,7 +6588,7 @@ Specificeer een bestand om te converteren!\nOperatie afgebroken.
 
 
 Musisz wskazaæ plik do konwersji!\nOperacja anulowana.
-
+Nejprve je tøeba vybrat soubor k pøevodu!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_YOUMUSTSPECIFYINPUTROWSANDCOLUMNSPERATIONTERMINATED
 You must specify input rows and columns!\nOperation terminated.
@@ -6600,7 +6600,7 @@ Specificeer invoer rijen en kolommen!\nOperatie afgebroken.
 
 
 Musisz zdefiniowaæ ilo¶æ wierszy i kolumn!\nOperacja anulowana.
-
+Nejprve je tøeba vybrat vstupní øádky a sloupce!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_THEREISNODATABASETODIRECTOUTPUTENTITIESTOPERATIONTE
 There is no Database to direct output entities to!\nOperation terminated.
@@ -6612,7 +6612,7 @@ Er is geen Database om uitvoer entiteiten naar te leiden!\nOperatie afgebroken.
 
 
 Nie ma bazy danych do której mo¿na kierowaæ wyniki!\nOperacja anulowana.
-
+Není mo¾no ukládat do neexistující databáze!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_INPUTDATACANNOTBEEQUALLYDIVIDEDAMONGOUTPUTMAPSASTCO
 Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows.
@@ -6624,7 +6624,7 @@ Invuldata kan niet gelijk verdeeld worden over uitvoer kaarten.\nLaatste kolom v
 
 
 Dane wej¶ciowe nie mog± byæ równo podzielone na wyj¶ciowe mapy.\nOstatnia Kolumna map ma %ld kolumn\nOstatni rz±d map ma %ld rows.
-
+Vstupní data není mo¾no rovnomìrnì rozdìlit do výstupních map.\nPoslední sloupec map bude mít %ld sloupcù.\nPoslední øádek map bude mít %ld øádkù.
 ;
 MSG_DATAOPS_CONTINUETRUNCATECANCEL
 Continue|Truncate|Cancel
@@ -6636,7 +6636,7 @@ Doorgaan|Afbreken|Annuleren
 
 
 Kontynuuj|Przytnij|Anuluj
-
+Pokraèovat|Zkrátit|Zru¹it
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTRO
 Incorrect file size for specified header, width and height!\nProceed anyway?
@@ -6648,7 +6648,7 @@ Bestandsgrootte klopt niet met opgegeven header, breedte en hoogte!\nToch doorga
 
 
 Niew³a¶ciwy rozmiar pliku dla wskazanego nag³ówka, szeroko¶æ i wysoko¶æ!\nMimo to kontynuowaæ?
-
+Nepovolená velikost souboru vybrané hlavièky, ¹íøky a vý¹ky!\nPøejete si pokraèovat?
 ;
 ; invert file if it is stored SE corner to NW
 MSG_DATAOPS_INVERTDATAORDER
@@ -6661,7 +6661,7 @@ Data volgorde omkeren?
 
 
 Odwróciæ kolejno¶æ Danych?
-
+Pøevrátit datovou strukturu?
 ;
 MSG_DATAOPS_INVERTING
 Inverting
@@ -6673,7 +6673,7 @@ Omkeren
 
 
 Odwracanie
-
+Pøevrácení
 ;
 MSG_DATAOPS_FLOOR
 Floor
@@ -6685,7 +6685,7 @@ Ondergrens
 
 
 Pod³oga
-
+Spodní -  prelozit
 ;
 MSG_DATAOPS_CEILING
 Ceiling
@@ -6697,7 +6697,7 @@ Bovengrens
 
 
 Sufit
-
+Horni - prelozit
 ;
 MSG_DATAOPS_REPLACE
 Replace
@@ -6709,7 +6709,7 @@ Vervangen
 
 
 Zast±p
-
+Zamìnit
 ;
 MSG_DATAOPS_RESAMPLE
 Resample
@@ -6721,7 +6721,7 @@ Herberekenen
 
 
 
-
+Pøepoèítat
 ;
 MSG_DATAOPS_EXTREMA
 Extrema
@@ -6733,7 +6733,7 @@ Extreem
 
 
 
-
+Extrémnì
 ;
 MSG_DATAOPS_CONVERT
 Convert
@@ -6745,7 +6745,7 @@ Converteren
 
 
 Konwersja
-
+Pøevést
 ;
 MSG_DATAOPS_UNABLETOOPENFILEFORINPUTPERATIONTERMINATED
 Unable to open file for input!\nOperation terminated.
@@ -6757,7 +6757,7 @@ Kan het bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
 Nie mo¿na otworzyæ pliku dla wej¶cia!\nOperacja anulowana.
-
+Nemohu otevøít soubor ètení!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_CONVERTDEMSOURCEFILE
 Convert DEM source file
@@ -6769,7 +6769,7 @@ Converteer DEM bron bestand
 
 
 Konwerja pliku ¼ród³owego DEM
-
+Pøevést zdrojový soubor DEM
 ;
 MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTPE
 Incorrect file size for specified header, width and height!\nOperation terminated.
@@ -6781,7 +6781,7 @@ Onjuiste bestandsgrootte voor opgegeven header, breedte en hoogte!\nOperatie afg
 
 
 Niew³a¶ciwy rozmiar dla wskazanaego nag³ówka, szeroko¶æ i d³ugo¶æ!\nOperacja anulowana.
-
+Nepovolená velikost souboru vybrané hlavièky, ¹íøky a vý¹ky!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_UNABLETOOPENFILEFOROUTPUTPERATIONTERMINATED
 Unable to open file for output!\nOperation terminated.
@@ -6793,7 +6793,7 @@ Kan het bestand niet openen voor uitvoer!\nOperatie afgebroken.
 
 
 Niemo¿na otworzyæ pliku dla wyj¶cia!\nOperacja anulowana.
-
+Nemohu otevøít soubor pro zápis!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_CONVERTDEMDESTINATIONFILE
 Convert DEM destination file
@@ -6805,7 +6805,7 @@ Converteer DEM doelbestand
 
 
 Konwersja DEM plik docelowy
-
+Pøevést cílový soubor DEM
 ;
 MSG_DATAOPS_ERRORWRITINGDESTINATIONFILEPERATIONTERMINATED
 Error writing destination file!\nOperation terminated.
@@ -6817,7 +6817,7 @@ Fout bij schrijven van doelbestand!\nOperatie afgebroken.
 
 
 B³±d zapisu pliku docelowego!\nOperacja anulowana.
-
+Chyba pøi zápisu do cílového souboru!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_ERRORREADINGSOURCEFILEPERATIONTERMINATED
 Error reading source file!\nOperation terminated.
@@ -6829,7 +6829,7 @@ Fout bij lezen van bronbestand!\nOperatie afgebroken.
 
 
 B³±d odczytu pliku ¼ród³owego!\nOperacja anulowana.
-
+Chyba pøi ètení zdrojového souboru!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_NOTACOMPRESSEDFILEPERATIONTERMINATED
 Not a compressed file!\nOperation terminated.
@@ -6841,7 +6841,7 @@ Bestand is niet gecomprimeerd!\nOperatie afgebroken.
 
 
 Plik nie skompresowany!\nOperacja anulowana.
-
+Toto není komprimovaný soubor!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_EXTENDEDHEADERPERATIONTERMINATED
 Extended header!\nOperation terminated.
@@ -6853,7 +6853,7 @@ Uitgebreide header!\nOperatie afgebroken.
 
 
 Rozszrzony nag³ówek!\nOperacja anulowana.
-
+Roz¹íøená hlavièka!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_INPUTFILECONFIGURATIONNOTYETSUPPORTEDPERATIONTERMIN
 Input file configuration not yet supported!\nOperation terminated.
@@ -6865,7 +6865,7 @@ Invoer bestand configuratie wordt nog niet ondersteund!\nOperatie afgebroken.
 
 
 Konfiguracja pliku wej¶ciowego nie jest jeszcze wspierana!\nOperacja anulowana.
-
+Toto nastavení pro vstupní soubor není podporováno!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_CONVERTDEMSOURCETYPE
 Convert DEM source type
@@ -6877,7 +6877,7 @@ DEM bron type converteren
 
 
 Conwerja DEM typ ¼ród³a
-
+Pøevést zdrojový typ DEM
 ;
 MSG_DATAOPS_INPUTDATAFORMATNOTSUPPORTEDHECKYOURSETTINGSPERATION
 Input data format not supported!\nCheck your settings.\nOperation terminated.
@@ -6889,7 +6889,7 @@ Invoer data formaat wordt niet ondersteund!\nControleer uw instellingen.\nOperat
 
 
 Format danych wej¶ciowych nie wspierany!\nSprawd¼ ustawienia.\nOperacja anulowana.
-
+Tento formát vstupních dat není podporován!\nZkontrolujte va¹e nastavení.\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_ERRORSAVINGOBJFILEOPERATIONTERMOINATED
 Error saving ".Obj" file!\nOperation terminated.
@@ -6901,7 +6901,7 @@ Fout bij opslaan van ".Obj" bestand!\nOperatie afgebroken.
 
 
 B³±d zapisu pliku ".Obj"!\nOperacja anulowana.
-
+Chyba pøi ukládání dat souboru objektù ".Obj"!\nOperace bude ukonèena.
 ;
 MSG_DATAOPS_INPUTFILENOTRECOGNIZEDASADTEDFILEPERATIONTERMINATED
 Input file not recognized as a DTED file!\nOperation terminated.
@@ -6913,7 +6913,7 @@ Invulbestand niet herkend als een DTED bestand!\nOperatie afgebroken.
 
 
 Plik wej¶ciowy nierozpoznany jako DTED!\nOperacja anulowana.
-
+Vstupní soubor není formátu DTED!\nOperace bude ukonèena.
 ;
 ; --- Adjust alignement with spaces before and after you translation as needed ---
 MSG_DATAOPSGUI_DTED
@@ -6938,7 +6938,7 @@ Ongeldige bronwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 
 
 !\nNielegalna kombinacja warto¶ci format/rozmiar ¿ród³a!\nOperacja anulowana.
-
+!\nNepovolená kombinace vstupních hodnot formát/velikost!\nOperace bude ukonèena.
 ;
 MSG_DATAOPSGUI_BINARRAY
 Bin Array
@@ -6950,7 +6950,7 @@ Binaire Reeks
 
 
 Tabela Binarna
-
+Bin pole
 ;
 MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 !\nIllegal target value format/size combination!\nOperation terminated.
@@ -6962,7 +6962,7 @@ MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 
 
 !\nNielegalna kombinacja warto¶ci format/rozmiar destynacji!\nOperacja anulowana.
-
+!\nNepovolená kombinace cílových hodnot format/velikost!\nOperace bude ukonèena.
 ;
 MSG_DATAOPSGUI_BINARYARRAY
 Binary Array
@@ -6974,7 +6974,7 @@ Binaire Reeks
 
 
 Tabela Binarna
-
+Binární pole
 ;
 MSG_DATAOPSGUI_WCSDEM
 WCS DEM
@@ -7010,7 +7010,7 @@ Ascii Reeks
 
 
 Tabela ASCII
-
+Ascii pole
 ;
 MSG_DATAOPSGUI_VISTADEM
 Vista DEM
@@ -7046,7 +7046,7 @@ Kleurenkaart
 
 
 Mapa Kolorów
-
+Barevná mapa
 ;
 MSG_DATAOPSGUI_GRAYIFF
 Gray IFF
@@ -7058,7 +7058,7 @@ Grijswaarden IFF
 
 
 Odcienie szaro¶ci IFF
-
+©edý IFF
 ;
 MSG_DATAOPSGUI_COLORIFF
 Color IFF
@@ -7070,7 +7070,7 @@ Kleur IFF
 
 
 Kolorowy IFF
-
+Barevný IFF
 ;
 MSG_DATAOPSGUI_SIGNEDINT
 Signed Int
@@ -7082,7 +7082,7 @@ Signed Int
 
 
 Warto¶æ ze znakiem
-
+Znaèený Int
 ;
 MSG_DATAOPSGUI_UNSIGNEDINT
 Unsigned Int
@@ -7094,7 +7094,7 @@ Unsigned Int
 
 
 Warto¶æ bez znaku
-
+Neznaèený Int
 ;
 MSG_DATAOPSGUI_FLOATINGPT
 Floating Pt
@@ -7106,7 +7106,7 @@ Drijvende komma
 
 
 zmiennoprzecinkowa
-
+Plovoucí Pt
 ;
 MSG_DATAOPSGUI_ONE
 One
@@ -7118,7 +7118,7 @@ Een
 
 
 Jeden
-
+Jeden
 ;
 MSG_DATAOPSGUI_TWO
 Two
@@ -7130,7 +7130,7 @@ Twee
 
 
 Dwa
-
+Dva
 ;
 MSG_DATAOPSGUI_FOUR
 Four
@@ -7142,7 +7142,7 @@ Vier
 
 
 Cztery
-
+Ètyøi
 ;
 MSG_DATAOPSGUI_EIGHT
 Eight
@@ -7154,7 +7154,7 @@ Acht
 
 
 Osiem
-
+Osm
 ;
 MSG_DATAOPSGUI_HIGHLOW
 High-Low
@@ -7166,7 +7166,7 @@ Hoog-Laag
 
 
 
-
+Vy¹¹í-Ni¾¹í
 ;
 MSG_DATAOPSGUI_LOWHIGH
 Low-High
@@ -7178,7 +7178,7 @@ Laag-Hoog
 
 
 
-
+Ni¾¹í-Vy¹¹í
 ;
 MSG_DATAOPSGUI_BYROW
 By Row
@@ -7190,7 +7190,7 @@ Per rij
 
 
 Co Rz±d
-
+Podle øádkù
 ;
 MSG_DATAOPSGUI_BYCOLUMN
 By Column
@@ -7202,7 +7202,7 @@ Per kolom
 
 
 Co Kolumna
-
+Podle sloupcù
 ;
 MSG_DATAOPSGUI_LATITUDE
 Latitude
@@ -7214,7 +7214,7 @@ Breedte
 
 
 Wysoko¶æ
-
+Zem. vý¹ka
 ;
 MSG_DATAOPSGUI_LONGITUDE
 Longitude
@@ -7226,7 +7226,7 @@ Lengtegraad
 
 
 Szeroko¶æ
-
+Zem. délka
 ;
 MSG_DATAOPSGUI_INCHES
 Inches
@@ -7238,7 +7238,7 @@ Inch
 
 
 Cale
-
+Palce
 ;
 MSG_DATAOPSGUI_OTHER
 Other
@@ -7250,7 +7250,7 @@ Anders
 
 
 Inne
-
+Ostatní
 ;
 MSG_DATAOPSGUI_TWOVALUEEQUIVALENCE
 \0334Two Value Equivalence
@@ -7262,7 +7262,7 @@ MSG_DATAOPSGUI_TWOVALUEEQUIVALENCE
 
 
 \0334 Równowa¿no¶æ Dwóch Warto¶ci
-
+\0334Zámìna dvou hodnot
 ;
 MSG_DATAOPSGUI_ONEVALUEEQUIVALENCE
 \0334One Value Equivalence
@@ -7274,7 +7274,7 @@ MSG_DATAOPSGUI_ONEVALUEEQUIVALENCE
 
 
 \0334 Równowa¿no¶æ Jednej Warto¶ci
-
+\0334Zámìna jedné hodnoty
 ;
 MSG_DATAOPSGUI_MAXMINSTRETCH
 \0334Max-Min Stretch
@@ -7286,7 +7286,7 @@ MSG_DATAOPSGUI_MAXMINSTRETCH
 
 
 \0344 Max-Min Rozci±gniêcie
-
+\0334Max-Min Rozta¾ení
 ;
 MSG_DATAOPSGUI_MAXOUT
 Max Out
@@ -7298,7 +7298,7 @@ Max Uit
 
 
 
-
+Max Výstup
 ;
 MSG_DATAOPSGUI_MINOUT
 Min Out
@@ -7310,7 +7310,7 @@ Min Uit
 
 
 
-
+Min Výstup
 ;
 MSG_DATAOPSGUI_IOSCALE
 I/O Scale
@@ -7322,7 +7322,7 @@ I/O Schalen
 
 
 
-
+Vstup/Výstup Mìøítko
 ;
 MSG_DATAOPSGUI_DEMREGISTRATION
 \0334DEM Registration
@@ -7334,7 +7334,7 @@ MSG_DATAOPSGUI_DEMREGISTRATION
 
 
 \0334 Rejestracja DEM
-
+\0334DEM Registrace
 ;
 MSG_DATAOPSGUI_VALUEFORMATSAMPLING
 \0334Value Format & Sampling
@@ -7346,7 +7346,7 @@ MSG_DATAOPSGUI_VALUEFORMATSAMPLING
 
 
 \0334 Format Warto¶ci i Sampli
-
+\0334Hodnota formátu a vzorkování
 ;
 MSG_DATAOPSGUI_VALUEFORMATCOLORED
 \0334Value Format
@@ -7358,7 +7358,7 @@ MSG_DATAOPSGUI_VALUEFORMATCOLORED
 
 
 \0334 Format Warto¶ci
-
+\0334Hodnota formátu
 ;
 MSG_DATAOPSGUI_PREPROCESS
 \0334Pre-Process
@@ -7370,7 +7370,7 @@ MSG_DATAOPSGUI_PREPROCESS
 
 
 
-
+\0334Pøíprava
 ;
 MSG_DATAOPSGUI_DEMCONVERTER
 DEM Converter
@@ -7382,7 +7382,7 @@ DEM Converter
 
 
 DEM Konwerter
-
+Pøevodník DEM
 ;
 MSG_DATAOPSGUI_INPUTFORMAT
  Input Format
@@ -7394,7 +7394,7 @@ Invoer formaat
 
 
 Format Wej¶ciowy
-
+Vstupní formát
 ;
 MSG_DATAOPSGUI_INPUTFILESIZE
 Input File Size
@@ -7406,7 +7406,7 @@ Invoerbestandsgrootte
 
 
 Rozmiar Pliku Wej¶ciowego
-
+Velikost vstupního souboru
 ;
 MSG_DATAOPSGUI_HEADERBYTES
 Header Bytes
@@ -7418,7 +7418,7 @@ Header bytes
 
 
 
-
+Bajty hlavièky
 ;
 MSG_DATAOPSGUI_VALUEFORMAT
 Value Format
@@ -7430,7 +7430,7 @@ Waardeformaat
 
 
 Format Warto¶ci
-
+Hodnota formátu
 ;
 MSG_DATAOPSGUI_VALUEBYTES
  Value Bytes
@@ -7442,7 +7442,7 @@ Bytes per waarde
 
 
 
-
+Hodnota bajtù
 ;
 MSG_DATAOPSGUI_BYTEORDER
   Byte Order
@@ -7454,7 +7454,7 @@ Bytevolgorde
 
 
 Kolejno¶æ Bajtów
-
+Poøadí bajtù
 ;
 MSG_DATAOPSGUI_READORDER
   Read Order
@@ -7466,7 +7466,7 @@ Leesvolgorde
 
 
 
-
+Èíst øazení
 ;
 MSG_DATAOPSGUI_ROWSEQUAL
   Rows Equal
@@ -7478,7 +7478,7 @@ Gelijk aantal rijen
 
 
 
-
+Stejné øádky
 ;
 MSG_DATAOPSGUI_DATAUNITS
   Data Units
@@ -7490,7 +7490,7 @@ Data eenheden
 
 
 
-
+Jednotky dat
 ;
 MSG_DATAOPSGUI_FLOOR
   Floor
@@ -7502,7 +7502,7 @@ Ondergrens
 
 
 
-
+Spodní - prelozit
 ;
 MSG_DATAOPSGUI_CEILING
 Ceiling
@@ -7514,7 +7514,7 @@ Bovengrens
 
 
 
-
+Horní - prelozit
 ;
 MSG_DATAOPSGUI_REPLACE
  Replace
@@ -7526,7 +7526,7 @@ Vervangen
 
 
 Wymieñ
-
+Zamìnit
 ;
 ; DEM COnverter: Replace value1 "by" value2 
 MSG_DATAOPSGUI_BY
@@ -7539,7 +7539,7 @@ door
 
 
 
-
+Podle
 ;
 MSG_DATAOPSGUI_CROPLEFT
 Crop Left
@@ -7551,7 +7551,7 @@ Links bijsnijden
 
 
 Przytnij z Lewej
-
+Oøíznout z Leva
 ;
 MSG_DATAOPSGUI_RIGHT
     Right
@@ -7563,7 +7563,7 @@ Rechts
 
 
    Prawa
-
+      Prava
 ;
 MSG_DATAOPSGUI_CROPTOP
  Crop Top
@@ -7575,7 +7575,7 @@ Boven bijsnijden
 
 
  Przytynij u góry
-
+Oøíznout Vr¹ek
 ;
 MSG_DATAOPSGUI_BOTTOM
    Bottom
@@ -7587,7 +7587,7 @@ Onder
 
 
   Dó³
-
+     Spodek
 ;
 MSG_DATAOPSGUI_INPUTCOLS
 Input Cols
@@ -7599,7 +7599,7 @@ Invoer kolommen
 
 
 Kolumny Wej¶ciowe
-
+Vstup Øádkù
 ;
 MSG_DATAOPSGUI_INPUTROWS
 Input Rows
@@ -7611,7 +7611,7 @@ Invoerrijen
 
 
 Wiersze Wej¶ciowe
-
+Vstup Sloupcù
 ;
 MSG_DATAOPSGUI_WRAPLONGITUDE
 Wrap Longitude
