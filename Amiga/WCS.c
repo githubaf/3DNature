@@ -244,20 +244,22 @@ int main(void)
 	WCSNewMenus[27].nm_Label= GetString(MSG_MENU_PREFS);
 	WCSNewMenus[28].nm_Label= GetString(MSG_MENU_PREF_PREFERENCES);
 	WCSNewMenus[29].nm_Label= GetString(MSG_MENU_PREF_SCREENMODE);
+	WCSNewMenus[30].nm_Label= GetString(MSG_MENU_PREF_MUI_SETTINGS);
 
-	WCSNewMenus[30].nm_Label= GetString(MSG_MENU_PARAMETERS);
-	WCSNewMenus[31].nm_Label= GetString(MSG_MENU_PAR_LOADALL);
-	WCSNewMenus[32].nm_Label= GetString(MSG_MENU_PAR_SAVEALL);
-	WCSNewMenus[33].nm_Label= GetString(MSG_MENU_PAR_FREEZE);
-	WCSNewMenus[34].nm_Label= GetString(MSG_MENU_PAR_RESTORE);
 
-//    WCSNewMenus[35].nm_Label=	NULL,		 0 , 0, 0, 0 },
-//	WCSNewMenus[36].nm_Label= 	NULL,		(STRPTR)"[", 0, 0, 0 },
-//	WCSNewMenus[37].nm_Label=	NULL,		(STRPTR)"]", 0, 0, 0 },
-//	WCSNewMenus[38].nm_Label= (STRPTR)"Load Active...";
-//	WCSNewMenus[39].nm_Label= (STRPTR)"Save Active...";
+	WCSNewMenus[31].nm_Label= GetString(MSG_MENU_PARAMETERS);
+	WCSNewMenus[32].nm_Label= GetString(MSG_MENU_PAR_LOADALL);
+	WCSNewMenus[33].nm_Label= GetString(MSG_MENU_PAR_SAVEALL);
+	WCSNewMenus[34].nm_Label= GetString(MSG_MENU_PAR_FREEZE);
+	WCSNewMenus[35].nm_Label= GetString(MSG_MENU_PAR_RESTORE);
 
-//    WCSNewMenus[40].nm_Label= 	NULL,		 0 , 0,	0, 0 },
+//    WCSNewMenus[365].nm_Label=	NULL,		 0 , 0, 0, 0 },
+//	WCSNewMenus[37].nm_Label= 	NULL,		(STRPTR)"[", 0, 0, 0 },
+//	WCSNewMenus[38].nm_Label=	NULL,		(STRPTR)"]", 0, 0, 0 },
+//	WCSNewMenus[39].nm_Label= (STRPTR)"Load Active...";
+//	WCSNewMenus[40].nm_Label= (STRPTR)"Save Active...";
+
+//    WCSNewMenus[41].nm_Label= 	NULL,		 0 , 0,	0, 0 },
 
 	// Ecosystem Editor -> Class
 	typename[0]=  (char*)GetString( MSG_TYPENAME_WATER );

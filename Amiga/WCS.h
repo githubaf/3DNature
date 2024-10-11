@@ -3237,6 +3237,8 @@ EXTERN struct NewMenu WCSNewMenus[]
 		{ NM_TITLE, (STRPTR)"ChangeMe",		 0 , 0, 0, 0 },                                                                // "Prefs"
 		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"P", 0, 0, (APTR)(ID_PR_WINDOW) },                                    // "Preferences..."
 		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"M", 0, 0, (APTR)(ID_SCRNRESET) },                                    // "Screen Mode..."
+		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"", 0, 0, (APTR)(ID_MUI_SETTINGS) },                                  // "MUI-Settings..."
+
 
 		{ NM_TITLE, (STRPTR)"ChangeMe",	 	 0 , 0, 0, 0 },                                                                // "Parameters"
 		{  NM_ITEM, (STRPTR)"ChangeMe",		 (STRPTR)"(", 0, 0, (APTR)(ID_EP_LOAD) },                                      // "Load All..."

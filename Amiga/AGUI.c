@@ -2591,6 +2591,11 @@ STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static
                                  (CONST_STRPTR)"oc");
         break;
 	} /* reset screen mode */
+       case ID_MUI_SETTINGS:     // AF, 11.10.2024, MUI Preferences
+       {
+           DoMethod(app,MUIM_Application_OpenConfigWindow,0);
+    	   break;
+       }
        } /* switch (WCS_ID) */
       break;
       } /* BUTTONS2 */
