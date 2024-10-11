@@ -463,6 +463,11 @@ for(Finished = 0; !Finished;)
      } /* if */
     Selected->UX = CheckVal;
     
+    printf("Alexander: UX=%d\n",Selected->UX);
+    printf("Alexander: UY=%d\n",Selected->UY);
+
+
+
     if(Finished)
      {
      DoMethod(app, OM_REMMEMBER, ModeSelWin);

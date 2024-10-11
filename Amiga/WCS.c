@@ -36,6 +36,7 @@
 #define MIN_LIBRARY_REV 37
 #define DITHER_TABLE_SIZE 4096
 
+#include <graphics/gfx.h>
 
 /*
  * AF: We use only Mui 3.8 stuff but bebbo's gcc 6 has MUI-5 SDK. So it sets MUIMASTER_VMIN=20 while 19 would be enough.
@@ -473,12 +474,13 @@ if ((IntuitionBase = (struct IntuitionBase *)
       if (ScrnData.ModeID == 0)
        {
        ModeSelect = NULL;
-       ScrnData.AutoTag = TAG_IGNORE;
-       ScrnData.AutoVal = 0;
+       ScrnData.AutoTag = SA_AutoScroll;  // TAG_IGNORE;
+       ScrnData.AutoVal = TRUE;           // 0;
        if((ScreenModes = ModeList_New()))
         {
         if((ModeSelect = ModeList_Choose(ScreenModes, &ScrnData)))
          {
+        	WORD rect[4]={0};  //{0,0,ModeSelect->X-1,ModeSelect->Y-1};
          if(ModeSelect->OX > ModeSelect->X)
           { /* Enable Oscan */
           ScrnData.OTag = SA_Overscan;
@@ -502,6 +504,13 @@ if ((IntuitionBase = (struct IntuitionBase *)
           } /* else */
 // --> Wir sind hier bei Oeffnen des Screens
          printf("Alexander: OpenScreenTags Line %d\n",__LINE__);
+         printf("Alexander: %d x %d\n",ModeSelect->X,ModeSelect->Y);
+
+
+
+         QueryOverscan( ModeSelect->ModeID, rect, ScrnData.OVal);
+         printf("Alexander: DClip-Rect %d,%d ->  %d,%d\n",rect[0],rect[1],rect[2],rect[3]);
+
          WCSScrn = OpenScreenTags(NULL,
           SA_DisplayID, ModeSelect->ModeID,
           SA_Width, ModeSelect->UX,
@@ -512,7 +521,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
           ScrnData.OTag, ScrnData.OVal,
 	  ScrnData.AutoTag, (ULONG)ScrnData.AutoVal,
 //	  SA_AutoScroll, TRUE,
-//	  SA_DClip, Rect,
+	  SA_DClip, rect,
 		  SA_Colors, (IPTR)NewAltColors,
           SA_Pens, (IPTR)PenSpec,
 		  SA_PubName, (IPTR)AppBaseName,
