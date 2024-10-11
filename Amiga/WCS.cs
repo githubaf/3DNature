@@ -226,7 +226,7 @@ Database
 Database
 
 Baza Danych
-Modul database
+Modul databáze
 ;
 MSG_MENU_MOD_DATAOPS
 Data Ops
@@ -262,7 +262,7 @@ Parameters
 Parametre
 
 Parametry
-Modul nastavení
+Modul parametrù
 ;
 MSG_MENU_MOD_RENDER
 Render
@@ -1676,7 +1676,7 @@ Parameters Module
 
 
 Modu³ Parametrów
-Modul parametrù
+Modul hodnot
 ;
 MSG_AGUI_OUTOFMEMORY
 Out of Memory!
@@ -2674,7 +2674,7 @@ Melding:
 
 
 
-Zpráva
+Zpráva:
 ;
 MSG_AGUI_DTA
 DTA:
@@ -7502,7 +7502,7 @@ Ondergrens
 
 
 
-Spodní - prelozit
+Spodní
 ;
 MSG_DATAOPSGUI_CEILING
 Ceiling
@@ -7514,7 +7514,7 @@ Bovengrens
 
 
 
-Horní - prelozit
+Vrchní
 ;
 MSG_DATAOPSGUI_REPLACE
  Replace
@@ -7623,7 +7623,7 @@ Lengtegraad omslaan
 
 
 Zawiñ D³ugo¶æ
-
+Zabalit - prelozit
 ;
 MSG_DATAOPSGUI_TEST
 \33cTest
@@ -7671,7 +7671,7 @@ Uitvoer formaat
 
 
 Format Wyj¶ciowy
-
+Výstupní formát
 ;
 MSG_DATAOPSGUI_OUTDIR
 Out Dir
@@ -7683,7 +7683,7 @@ Uitvoer directory
 
 
 Katalog Wyj¶ciowy
-
+Výst. Adr
 ;
 MSG_DATAOPSGUI_NAME
 Name
@@ -7695,7 +7695,7 @@ Naam
 
 
 Nazwa
-
+Název
 ;
 MSG_DATAOPSGUI_DEMSROWWISEEW
 DEMs Row-Wise E/W
@@ -7707,7 +7707,7 @@ DEMs rijgewijs O/W
 
 
 DEMy Rzêdami W/Z
-
+DEM Radky V/Z
 ;
 MSG_DATAOPSGUI_COLUMNWISENS
   Column-Wise N/S
@@ -7719,7 +7719,7 @@ Kolomgewijs N/Z
 
 
   Kolumnami Pó/Po
-
+Sloupce S/J
 ;
 MSG_DATAOPSGUI_HIGHLAT
 High Lat
@@ -7731,7 +7731,7 @@ Bovenste breedte
 
 
 
-
+Nejvy¹¹í Zem.vý¹
 ;
 MSG_DATAOPSGUI_LOWLAT
  Low Lat
@@ -7743,7 +7743,7 @@ Onderste breedte
 
 
 
-
+Nejni¾¹í Zem.vý¹
 ;
 MSG_DATAOPSGUI_HIGHLON
 High Lon
@@ -7755,7 +7755,7 @@ Bovenste lengte\x20
 
 
 
-
+Nejvìt¹í Zem.dél
 ;
 MSG_DATAOPSGUI_LOWLON
  Low Lon
@@ -7767,7 +7767,7 @@ Onderste lengte\x20
 
 
 
-
+Nejmen¹í Zem.Dél
 ;
 MSG_DATAOPSGUI_OUTPUTCOLS
  Output Cols
@@ -7779,7 +7779,7 @@ Uitvoer kolommen
 
 
 
-
+Výst. Sloupcù
 ;
 MSG_DATAOPSGUI_OUTPUTROWS
  Output Rows
@@ -7791,7 +7791,7 @@ Uitvoer rijen
 
 
 
-
+Výst. Øádkù
 ;
 MSG_DATAOPSGUI_SPLINECONSTRAINT
 Spline Constraint
@@ -7803,7 +7803,7 @@ Spline beperking
 
 
 Wi±zanie Splajnów
-
+Omezení køivky
 ;
 MSG_DATAOPSGUI_INPUT
 \0334  Input\x20\x20
@@ -7815,7 +7815,7 @@ MSG_DATAOPSGUI_INPUT
 
 
 \0334 Wej¶cie\x20\x20
-
+\0334  Vstup\x20\x20
 ;
 MSG_DATAOPSGUI_OUTPUT
 \0334  Output\x20
@@ -7827,7 +7827,7 @@ MSG_DATAOPSGUI_OUTPUT
 
 
 \0334 Wej¶cie\x20
-
+\0334  Výstup\x20\x20
 ;
 MSG_DATAOPSGUI_VALUE1
 Value 1
@@ -7839,7 +7839,7 @@ Waarde 1
 
 
 Warto¶æ 1
-
+Hodnota 1
 ;
 MSG_DATAOPSGUI_VALUE2
 Value 2
@@ -7851,7 +7851,7 @@ Waarde 2
 
 
 Warto¶æ 2
-
+Hodnota 2
 ;
 MSG_DATAOPSGUI_MAXOUTVAL
 Max Out Val
@@ -7863,7 +7863,7 @@ Max uitvoerwaarde
 
 
 Max War Wyj
-
+Max výst. hod
 ;
 MSG_DATAOPSGUI_MINOUTVAL
 Min Out Val
@@ -7875,7 +7875,7 @@ Min uitvoerwaarde
 
 
 Min War Wyj
-
+Min výst. hod
 ;
 MSG_DATAOPSGUI_CONVERT
 \33cConvert
@@ -7887,7 +7887,7 @@ MSG_DATAOPSGUI_CONVERT
 
 
 \33cKonwersja
-
+\33cPøevést
 ;
 MSG_DATAOPSGUI_OUTPUTDIRECTORY
 Output Directory
@@ -7899,7 +7899,7 @@ Uitvoer directory
 
 
 Katalog Wyj¶ciowy
-
+Výstupní adresáø
 ;
 MSG_DATAOPSGUI_FILETOCONVERT
 File to Convert
@@ -7911,7 +7911,7 @@ Bestand om te converteren
 
 
 Plik do Konwersji
-
+Soubor k pøevodu
 ;
 MSG_DATAOPSGUI_UNABLETOOPENFILEFORINPUT
 Unable to open file for input!\n
@@ -7923,7 +7923,7 @@ Kan bestand niet openen voor invoer!\n
 
 
 Nie mo¿na otworzyæ pliku wej¶ciowego!\n
-
+Nemohu otevøít vstupní soubor!\n
 ;
 MSG_DATAOPSGUI_UNABLETOREADFILESIZE
 Unable to read file size!\n
@@ -7935,7 +7935,7 @@ Kan bestandsgrootte niet lezen!\n
 
 
 Nie mo¿na odczytaæ rozmiaru pliku!\n
-
+Nemohu naèíst velikost souboru!\n
 ;
 MSG_DATAOPSGUI_DATAOPSCONVERT
 Data Ops: Convert
@@ -7947,7 +7947,7 @@ Data Ops: Converteren
 
 
 
-
+Modul exportu: Pøevést
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTAWCSDEMFILE
 Warning!\nFile is not a WCS DEM file.
@@ -7959,7 +7959,7 @@ Waarschuwing!\nBestand is geen WCS DEM bestand.
 
 
 Uwaga\nPlik nie jest typu WCS DEM.
-
+Varování!\nTento soubor není typu WCS DEM.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFZBUFFERFILE
 Warning!\nFile is not an IFF Z Buffer file.
@@ -7971,7 +7971,7 @@ Waarschuwing!\nBestand is geen IFF Z Buffer bestand.
 
 
 Uwaga\nPlik nie jest typu IFF Z Bufor.
-
+Varování!\nTento soubor není typu IFF Z Buffer.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTAVISTADEMFILE
 Warning\nFile is not a Vista DEM file.
@@ -7983,7 +7983,7 @@ Waarschuwing\nBestand is geen Vista DEM bestand.
 
 
 Uwaga\nPlink nie jest typu Vista DEM.
-
+Varování!\nTento soubor není typu Vista DEM.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTACOMPRESSEDVISTAFILEANDCANNOTBEIM
 Warning\nFile is not a compressed Vista file and cannot be imported.
@@ -7995,7 +7995,7 @@ Waarschuwing\nBestand is geen gecomprimeerd Vista bestand en kan niet worden geï
 
 
 Uwaga\nPlik nie jest skompresowanym plikiem typu Vista i nie mo¿e byæ zaimportowany.
-
+Varování!\nTento soubor není pakovaný soubor typu Vista a nemù¾e být pøipojen.
 ;
 MSG_DATAOPSGUI_ISTHISASMALLLARGEORHUGEVISTAFILE
 Is this a Small, Large or Huge Vista file?
@@ -8007,7 +8007,7 @@ Is dit een klein, groot of extra groot Vista bestand?
 
 
 To jest Ma³y, Du¿y czy Wielki plik Vista?
-
+Jaký je tento soubor typu Vista?
 ;
 MSG_DATAOPSGUI_SMALLLARGEHUGE
 Small|Large|Huge
@@ -8019,7 +8019,7 @@ Klein|Groot|Extra groot
 
 
 Ma³y|Du¿y|Wielki
-
+Malý|Velký|Obrovský
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFFILE
 Warning\nFile is not an IFF file.
@@ -8031,7 +8031,7 @@ Waarschuwing\nBestand is geen IFF bestand.
 
 
 Uwaga\nPlik nie jest typu IFF.
-
+Varování!\nTento soubor není typu IFF.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTANIFFIMAGEFILE
 Warning\nFile is not an IFF image file.
@@ -8043,7 +8043,7 @@ Waarschuwing\nBestand is geen IFF afbeelding.
 
 
 UWAGA\n Plik nie jest typu IFF.
-
+Varování!\nTento soubor neobsahuje ¾ádná IFF obrazová data.
 ;
 MSG_DATAOPSGUI_ERRORREADINGBITMAPHEADER
 Error reading bitmap header.
@@ -8055,7 +8055,7 @@ Fout bij lezen van bitmap header.
 
 
 B³±d odczytu nag³ówka bitmap.
-
+Chyba pøi ètení hlavièky bitmapy.
 ;
 MSG_DATAOPSGUI_WARNINGILEISNOTRECOGNIZEDASADTEDFILE
 Warning\nFile is not recognized as a DTED file.
@@ -8067,7 +8067,7 @@ Waarschuwing\nBestand wordt niet herkend als een DTED bestand.
 
 
 Uwaga\nPlik nie rozpoznany jako DTED.
-
+Varování!\nTento soubor nebyl rozpoznán jako soubor typu DTED.
 ;
 MSG_DATAOPSGUI_DATAOPSINTERPDEM
 Data Ops: Interp DEM
@@ -8079,7 +8079,7 @@ Data Ops: DEM interpoleren
 
 
 
-
+Modul exportu: Vyhodn. DEM
 ;
 MSG_DATAOPSGUI_DEMINTERPOLATE
 DEM Interpolate
@@ -8091,7 +8091,7 @@ DEM interpoleren
 
 
 
-
+DEM Prokládání
 ;
 MSG_DATAOPSGUI_SELECTFILES
 \33cSelect Files
@@ -8103,7 +8103,7 @@ MSG_DATAOPSGUI_SELECTFILES
 
 
 \33cWybór Plików
-
+\33cVyber soubory
 ;
 MSG_DATAOPSGUI_SELECTED
  Selected
@@ -8115,7 +8115,7 @@ Geselecteerd
 
 
 Wybrane
-
+Vybráno
 ;
 MSG_DATAOPSGUI_ELEVATIONVAR
 Elevation Var %
@@ -8127,7 +8127,7 @@ Hoogte Var %
 
 
 War Uniesienia %
-
+Promìnná vý¹. %
 ;
 MSG_DATAOPSGUI_MAXFLATVAR
    Max Flat Var
@@ -8139,7 +8139,7 @@ Max Vlak Var
 
 
   Maks P³as War
-
+Promò. Max Plocha
 ;
 MSG_DATAOPSGUI_INTERPOLATE
 \33cInterpolate
@@ -8151,7 +8151,7 @@ MSG_DATAOPSGUI_INTERPOLATE
 
 
 
-
+\33cProkládání
 ;
 MSG_DATAOPSGUI_DEMFILES
 DEM Files
@@ -8163,7 +8163,7 @@ DEM bestanden
 
 
 
-
+Soubory DEM
 ;
 MSG_DEFPARM_AMBIENT
 Ambient
@@ -8175,7 +8175,7 @@ Omgevingslicht
 
 
 Otoczenie
-
+Prostøedí
 ;
 MSG_DEFPARM_SUN
 Sun
@@ -8187,7 +8187,7 @@ Zon
 
 
 S³oñce
-
+Slunce
 ;
 MSG_DEFPARM_HAZE
 Haze
@@ -8199,7 +8199,7 @@ Nevel
 
 
 Mg³a
-
+Mlha
 ;
 MSG_DEFPARM_HORIZON
 Horizon
@@ -8211,7 +8211,7 @@ Horizon
 
 
 Horyzont
-
+Horizont
 ;
 MSG_DEFPARM_ZENITH
 Zenith
@@ -8223,7 +8223,7 @@ Zenit
 
 
 Zenit
-
+Obzor
 ;
 MSG_DEFPARM_SURFACEGRID
 Surface Grid
@@ -8235,7 +8235,7 @@ Oppervlak raster
 
 
 Siatka Powierzchni
-
+Møí¾ka zakøivení
 ;
 MSG_DEFPARM_SURFACE1
 Surface 1
@@ -8247,7 +8247,7 @@ Oppervlak 1
 
 
 Powierzchnia 1
-
+Zakøivení 1
 ;
 MSG_DEFPARM_SURFACE2
 Surface 2
@@ -8259,7 +8259,7 @@ Oppervlak 2
 
 
 Powierzchnia 2
-
+Zakøivení 2
 ;
 MSG_DEFPARM_SURFACE3
 Surface 3
@@ -8271,7 +8271,7 @@ Oppervlak 3
 
 
 Powierzchnia 3
-
+Zakøivení 3
 ;
 MSG_DEFPARM_SURFACE4
 Surface 4
@@ -8283,7 +8283,7 @@ Oppervlak 4
 
 
 Powierzchnia 4
-
+Zakøivení 4
 ;
 MSG_DEFPARM_WATER
 Water
@@ -8295,7 +8295,7 @@ Water
 
 
 Woda
-
+Woda
 ;
 MSG_DEFPARM_SNOW
 Snow
@@ -8307,7 +8307,7 @@ Sneeuw
 
 
 ¦nieg
-
+Sníh
 ;
 MSG_DEFPARM_TUNDRA
 Tundra
@@ -8319,7 +8319,7 @@ Toendra
 
 
 
-
+Tundra
 ;
 MSG_DEFPARM_WETLAND
 Wetland
@@ -8331,7 +8331,7 @@ Moeras
 
 
 Mokrad³o
-
+Mokøad
 ;
 MSG_DEFPARM_GRASS
 Grass
@@ -8343,7 +8343,7 @@ Gras
 
 
 Trawa
-
+Tráva
 ;
 MSG_DEFPARM_DECIDUOUS
 Deciduous
@@ -8355,7 +8355,7 @@ Loofbomen
 
 
 Li¶ciasty
-
+Listnaté
 ;
 MSG_DEFPARM_CONIFER
 Conifer
@@ -8367,7 +8367,7 @@ Pijnbomen
 
 
 Drzewostan
-
+Jehliènany
 ;
 MSG_DEFPARM_GRANITE
 Granite
@@ -8379,7 +8379,7 @@ Graniet
 
 
 Granit
-
+®ula
 ;
 MSG_DEFPARM_GROUND
 Ground
@@ -8391,7 +8391,7 @@ Bodem
 
 
 Grunt
-
+Zem
 ;
 MSG_DEFPARM_RIPARIAN
 Riparian
@@ -8403,7 +8403,7 @@ Oever
 
 
 Nabrze¿e
-
+Køoviny
 ;
 MSG_DEFPARM_ROCK
 Rock
@@ -8415,7 +8415,7 @@ Rots
 
 
 Ska³a
-
+Skály
 ;
 MSG_DEFPARM_BAREGROUND
 Bare Ground
@@ -8427,7 +8427,7 @@ Kale bodem
 
 
 Puste Pole
-
+Holá zem
 ;
 MSG_DEFPARM_PARAMETERSMODULEDEFAULTS
 Parameters Module: Defaults
@@ -8439,7 +8439,7 @@ Parameter Module: Standaardinstellingen
 
 
 Parametry Modu³u: Domy¶lne
-
+Modul hodnot: Výchozí
 ;
 MSG_DEFPARM_PLEASEENABLEATLEASTONETOPODEMANDTRYAGAIN
 Please enable at least one topo DEM and try again.
@@ -8451,7 +8451,7 @@ Schakel minstens één topo DEM in en probeer het opnieuw.
 
 
 Proszê aktywowaæ przynajmniej jeden topograficzny DEM i spróbowaæ ponownie.
-
+Prosím povolte alespoò jednu topologickou mapu DEM a zkuste to znovu.
 ;
 MSG_DEFPARM_PLEASECLOSEALLTIMELINESWINDOWSANDTRYAGAIN
 Please close all Time Lines windows and try again.
@@ -8463,7 +8463,7 @@ Sluit alle Tijdlijn vensters en probeer het opnieuw.
 
 
 Zamknij wszystkie okna Linii Czasu i spróbuj ponownie.
-
+Prosím uzavøete v¹echna okna èasových os a zkuste to znovu.
 ;
 ;
 MSG_DIAG_DIAGNOSTICDATA
@@ -8476,7 +8476,7 @@ Diagnostische gegevens
 
 
 Informacje Diagnostyczne
-
+Diagnostická data
 ;
 MSG_DIAG_DISTANCE
   Distance
@@ -8488,7 +8488,7 @@ MSG_DIAG_DISTANCE
 
 
  Odleg³o¶æ
-
+    Vzdálenost
 ;
 MSG_DIAG_ELEVATION
  Elevation
@@ -8500,7 +8500,7 @@ MSG_DIAG_ELEVATION
 
 
  Podniesienie
-
+   Vý¹ka
 ;
 MSG_DIAG_OVERSTORY
  Overstory
@@ -8512,7 +8512,7 @@ Overstory???
 
 
 
-
+   prelozit
 ;
 MSG_DIAG_UNDERSTORY
 Understory
@@ -8524,7 +8524,7 @@ Understory??
 
 
 
-
+prelozit
 ;
 MSG_DIAG_RELEL
     Rel El
@@ -8548,7 +8548,7 @@ MSG_DIAG_ASPECT
 
 
   Aspekt
-
+      Aspekt
 ;
 MSG_DIAG_SLOPE
      Slope
@@ -8560,7 +8560,7 @@ MSG_DIAG_SLOPE
 
 
   Nachyelenie
-
+       Sva¾itost
 ;
 MSG_DIAG_SUNANGLE
  Sun Angle
@@ -8572,7 +8572,7 @@ Sonnenwinkel
 
 
  K±t S³oñca
-
+Úhel slun. papr
 ;
 MSG_DIAG_LATITUDE
   Latitude
@@ -8584,7 +8584,7 @@ MSG_DIAG_LATITUDE
 
 
  Szeroko¶æ
-
+    Zem. vý¹
 ;
 MSG_DIAG_LONGITUDE
  Longitude
@@ -8596,7 +8596,7 @@ MSG_DIAG_LONGITUDE
 
 
  Szeroko¶æ
-
+  Zem.dél
 ;
 MSG_DIAG_DATABASE
 \33cDatabase
@@ -8608,7 +8608,7 @@ MSG_DIAG_DATABASE
 
 
 \33cBaza Danych
-
+\33cDatabáze
 ;
 MSG_DIAG_DIGITIZE
 \33cDigitize
@@ -8620,7 +8620,7 @@ MSG_DIAG_DIGITIZE
 
 
 \33cDigitalizuj
-
+\33cDigitalizuji
 ;
 MSG_DIAG_RENDERDATA
 Render Data
@@ -8632,7 +8632,7 @@ Render Data
 
 
 Renderuj Dane
-
+Poèítám data
 ;
 MSG_DIAG_QUITDIG
 \33cQuit Dig
@@ -8644,7 +8644,7 @@ MSG_DIAG_QUITDIG
 
 
 \33cWyjd¼ z Dig
-
+\33cUkonèit dig
 ;
 MSG_DIAG_SURFACE
 Surface
@@ -8656,7 +8656,7 @@ Oppervlak
 
 
 Powierzchnia
-
+Povrchová
 ;
 MSG_DIAG_NONE
 None
@@ -8668,7 +8668,7 @@ Geen
 
 
 Nie
-
+®ádná
 ;
 ;
 MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY
@@ -8681,7 +8681,7 @@ Dit de standaard object directory maken?
 
 
 Wybraæ ten katalog jako dom¶lny dla objektów?
-
+Nastavit tento adresáø jako výchozí adresáø objektu?
 ;
 MSG_DISPGUI_DATABASELOAD
 Database: Load
@@ -8693,7 +8693,7 @@ Database: Laden
 
 
 Baza Danych: Czytanie
-
+Databáze: Nahrávání
 ;
 MSG_DISPGUI_ERROROPENINGDATABASEFILEPERATIONTERMINATED
 Error opening Database file!\nOperation terminated.
@@ -8705,7 +8705,7 @@ Fout bij openen van Database bestand!\nOperatie afgebroken.
 
 
 B³±d otwarcia pliku Bazy Danych!\nOperacja przerwana.
-
+Chyba pøi pokusu otevøít soubor databáze!\nOperace bude ukonèena.
 ;
 MSG_DISPGUI_UNSUPPORTEDDATABASEFILEFORMAT
 Unsupported Database file format.
@@ -8717,7 +8717,7 @@ Nie-ondersteund Database bestandsformaat.
 
 
 Niewspierany format pliku Bazy Danych.
-
+Nepodporovaný formát souboru databáze.
 ;
 MSG_DISPGUI_NOTAWCSDATABASEFILEPERATIONTERMINATED
 Not a WCS Database file!\nOperation terminated.
@@ -8729,7 +8729,7 @@ Geen WCS Database bestand!\nOperatie afgebroken.
 
 
 To nie jest plik Bazy Danych WCS!\nOperacja przerwana.
-
+Toto není databázový soubor typu WCS!\nOperace bude ukonèena.
 ;
 MSG_DISPGUI_ERRORREADINGDATABASEFILEPERATIONTERMINATED
 Error reading Database file!\nOperation terminated.
@@ -8741,7 +8741,7 @@ Fout bij lezen van Database bestand!\nOperatie afgebroken.
 
 
 B³±d odczytu Bazy Danych!\nOperacja anulowana.
-
+Chyba ètení dat souboru databáze!\nOperace bude ukonèena.
 ;
 MSG_DISPGUI_DATABASEMODULELOAD
 Database Module: Load
@@ -8753,7 +8753,7 @@ Database Module: Laden
 
 
 Modu³ Bazy Danych: Czytaj
-
+Modul databáze: Nahrávání
 ;
 MSG_DISPGUI_OUTOFMEMORYALLOCATINGDATABASEPERATIONTERMINATED
 Out of memory allocating Database!\nOperation terminated.
@@ -8765,7 +8765,7 @@ Te weinig geheugen voor toewijzen van Database!\nOperatie afgebroken.
 
 
 Brak pamiêci dla Bazy Danych!\nOperacja przerwana.
-
+Nedostatek pamìti pro databázi!\nOperace bude ukonèena.
 ;
 ;
 MSG_EDDB_POINT
@@ -8778,7 +8778,7 @@ Punt
 
 
 Punkt
-
+Bod
 ;
 MSG_EDDB_CIRCLE
 Circle
@@ -8790,7 +8790,7 @@ Circel
 
 
 Okrêg
-
+Kruh
 ;
 MSG_EDDB_SQUARE
 Square
@@ -8802,7 +8802,7 @@ Vierkant
 
 
 Kwadrat
-
+Ètverec
 ;
 MSG_EDDB_CROSS
 Cross
@@ -8826,7 +8826,7 @@ Gevuld
 
 
 Pe³ny
-
+Plný
 ;
 MSG_EDDB_DOTTED
 Dotted
@@ -8838,7 +8838,7 @@ Gespikkeld
 
 
 Kropkowany
-
+Teèkovaný
 ;
 MSG_EDDB_DASHED
 Dashed
@@ -8850,7 +8850,7 @@ Gestreept
 
 
 Przerywany
-
+Èárkovaný
 ;
 MSG_EDDB_BROKEN
 Broken
@@ -8862,7 +8862,7 @@ Gebroken
 
 
 £amany
-
+Rozbitý
 ;
 MSG_EDDB_TOPO
 Topo
@@ -8874,7 +8874,7 @@ Topo
 
 
 
-
+Topologický
 ;
 MSG_EDDB_SURFACE
 Surface
@@ -8886,7 +8886,7 @@ Oppervlak
 
 
 Powierzchnia
-
+Povrchový
 ;
 MSG_EDDB_VECTOR
 Vector
@@ -8898,7 +8898,7 @@ Vector
 
 
 
-
+Vektor
 ;
 MSG_EDDB_ILLUMVEC
 Illum Vec
@@ -8910,7 +8910,7 @@ Illum Vec
 
 
 
-
+Odraz. vekt
 ;
 MSG_EDDB_SEGMENTV
 Segment V
@@ -8934,7 +8934,7 @@ Illum Seg
 
 
 
-
+Odraz. Seg
 ;
 MSG_EDDB_DATABASEEDITOR
 Database Editor
@@ -8946,7 +8946,7 @@ Database Editor
 
 
 Edytor Bazy Danych
-
+Editor databáze
 ;
 MSG_EDDB_YOUMUSTFIRSTLOADORCREATEADATABASEBEFOREOPENINGTHEEDITO
 You must first load or create a database before opening the editor.
@@ -8958,7 +8958,7 @@ Laad of maak eerst een database voordat u de editor opent.
 
 
 Przed otwarciem edytora powiniene¶ utworzyæ lub wczytaæ bazê danych.
-
+Pøed otevøením databázového editoru musíte nejprve nìjakou databázi nahrát, nebo vytvoøit.
 ;
 MSG_EDDB_OUTOFMEMORYANTOPENDATABASEWINDOW
 Out of memory!\nCan't open database window.
@@ -8970,7 +8970,7 @@ Te weinig geheugen!\nKan database venster niet openen.
 
 
 Brak pamiêci!\nNie mo¿na otworzyæ okna bazy danych.
-
+Nedostatek pamìti pro otevøení okna databáze.
 ;
 MSG_EDDB_OPTIONS
 Options
@@ -8982,7 +8982,7 @@ Opties
 
 
 Opcje
-
+Mo¾nosti
 ;
 MSG_EDDB_VECTORS
 \33cVectors
@@ -8994,7 +8994,7 @@ MSG_EDDB_VECTORS
 
 
 
-
+\33cVektory
 ;
 MSG_EDDB_SURFACES
 \33cSurfaces
@@ -9006,7 +9006,7 @@ MSG_EDDB_SURFACES
 
 
 \33cPowierzchnie
-
+\33cPovrchy
 ;
 MSG_EDDB_FRACTALS
 \33cFractals
@@ -9018,7 +9018,7 @@ MSG_EDDB_FRACTALS
 
 
 \33cFraktale
-
+\33cFraktály
 ;
 MSG_EDDB_NAME
 \33cName
@@ -9030,7 +9030,7 @@ MSG_EDDB_NAME
 
 
 \33cNazwa
-
+\33cNázev
 ;
 MSG_EDDB_ENABLED
 Enabled
@@ -9042,7 +9042,7 @@ Ingeschakeld
 
 
 
-
+Vybráno
 ;
 MSG_EDDB_POINTS
 Points
@@ -9054,7 +9054,7 @@ Punten
 
 
 Punkty
-
+Body
 ;
 MSG_EDDB_CLASS
 Class
@@ -9066,7 +9066,7 @@ Klasse
 
 
 Klasa
-
+Tøídy
 ;
 MSG_EDDB_LAYER1
 Layer 1\x20
@@ -9078,7 +9078,7 @@ Laag 1\x20
 
 
 Warstwa 1\x20
-
+Vrstva 1\x20
 ;
 MSG_EDDB_SEL
 Sel
@@ -9090,7 +9090,7 @@ Sel
 
 
 Wyb
-
+Vybr
 ;
 MSG_EDDB_ON
 On
@@ -9126,7 +9126,7 @@ Laag 2\x20
 
 
 Warstwa 2\x20
-
+Vrstva 2\x20
 ;
 MSG_EDDB_LABEL
 \33cLabel
@@ -9138,7 +9138,7 @@ MSG_EDDB_LABEL
 
 
 
-
+\33cPopis
 ;
 MSG_EDDB_DEMMAXFRACTAL
 DEM Max Fractal\x20
