@@ -166,6 +166,9 @@ int main(void)
     struct WCSScreenMode *ScreenModes, *ModeSelect;
     char *AppBaseName;
 
+//    WORD Rect[]={0,0,639,399};
+
+
     struct Task *me=FindTask(NULL);
     ULONG stack=(IPTR)me->tc_SPUpper-(IPTR)me->tc_SPLower;
     //printf("Stack ist %lu Bytes\n",stack);
@@ -497,11 +500,23 @@ if ((IntuitionBase = (struct IntuitionBase *)
           ScrnData.OTag = TAG_IGNORE;
           ScrnData.OVal = 0;
           } /* else */
-         WCSScrn = OpenScreenTags(NULL, SA_DisplayID, ModeSelect->ModeID,
-          SA_Width, ModeSelect->UX, SA_Height, ModeSelect->UY,
-          SA_Depth, ModeSelect->Depth, SA_Title, (IPTR)APP_TITLE, SA_Type, CUSTOMSCREEN,
-          ScrnData.OTag, ScrnData.OVal, ScrnData.AutoTag, (ULONG)ScrnData.AutoVal, SA_Colors, (IPTR)NewAltColors,
-          SA_Pens, (IPTR)PenSpec, SA_PubName, (IPTR)AppBaseName, TAG_END);
+// --> Wir sind hier bei Oeffnen des Screens
+         printf("Alexander: OpenScreenTags Line %d\n",__LINE__);
+         WCSScrn = OpenScreenTags(NULL,
+          SA_DisplayID, ModeSelect->ModeID,
+          SA_Width, ModeSelect->UX,
+		  SA_Height, ModeSelect->UY,
+          SA_Depth, ModeSelect->Depth,
+		  SA_Title, (IPTR)APP_TITLE,
+		  SA_Type, CUSTOMSCREEN,
+          ScrnData.OTag, ScrnData.OVal,
+	  ScrnData.AutoTag, (ULONG)ScrnData.AutoVal,
+//	  SA_AutoScroll, TRUE,
+//	  SA_DClip, Rect,
+		  SA_Colors, (IPTR)NewAltColors,
+          SA_Pens, (IPTR)PenSpec,
+		  SA_PubName, (IPTR)AppBaseName,
+		  TAG_END);
          } /* if */
         else
          {
@@ -512,6 +527,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
         } /* if */
        else
         { /* Can't get screenmodes, default: NTSC-Hires-Lace */
+    	printf("Alexander: OpenScreenTags Line %d\n",__LINE__);
         WCSScrn = OpenScreenTags(NULL, SA_DisplayID, HIRESLACE_KEY,
          SA_Width, STDSCREENWIDTH, SA_Height, STDSCREENHEIGHT,
          SA_Depth, 4, SA_Title, (IPTR)APP_TITLE, SA_Type, CUSTOMSCREEN,
@@ -521,6 +537,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
        } /* if no screen data in WCS.Prefs */
       else
        {
+    printf("Alexander: OpenScreenTags Line %d\n",__LINE__);
        WCSScrn = OpenScreenTags(NULL, SA_DisplayID, ScrnData.ModeID,
         SA_Width, ScrnData.Width, SA_Height, ScrnData.Height,
         SA_Depth, ScrnData.Depth, SA_Title, (IPTR)APP_TITLE, SA_Type, CUSTOMSCREEN,

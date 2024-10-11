@@ -3896,4 +3896,5 @@ It is therefore necessary to modify the use of this font with some patch.
 There are several on aminet.
 I use "nopaz"
 
-
+- Damit Autoscroll funktioniert (Angegebene Screen-Breite/Hoehe groesser als sichtbarer Screen -> Scroll wenn Mause am Rand),
+  muss   SA_DClip, Rect mit den sichtbaren Werten des Bildschirmes gesetzt sein. Die muessen erst aus der Screenmode-Choose funktion geholt werden, da werden sie im Moment nocht nicht in der WCSScreenData Struktur gespeichert.
