@@ -593,6 +593,7 @@ void LoadConfig(void)
 #define PROJECT_SM_OVAL		104
 #define PROJECT_SM_AUTOTAG	105
 #define PROJECT_SM_AUTOVAL	106
+#define PROJECT_SM_DEPTH	107  // Alexander
 
 #define MAPPREFS_DBL_MAPSCALE	202
 #define MAPPREFS_DBL_MAPLAT	203
@@ -927,6 +928,8 @@ short SaveProject(short NewName, char *SaveName, struct WCSScreenData *ScrnData)
   fprintf(fproject, "%u\n", ScrnData->AutoTag);
   fprintf(fproject, "%d\n", PROJECT_SM_AUTOVAL);
   fprintf(fproject, "%u\n", ScrnData->AutoVal);
+  fprintf(fproject, "%d\n", PROJECT_SM_DEPTH);   // Alexander, 12.Oct 24
+  fprintf(fproject, "%u\n", ScrnData->Depth);    // Alexander, 12.Oct 24
   } /* if ScrnData */
 
  fclose(fproject);
@@ -967,6 +970,8 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
  FILE *fproject;
  char filename[256], Ptrn[32];
  long i, item, update = 0;
+
+ printf("Alexander: %s %s() Line %d Loadname=%s\n",__FILE__,__func__,__LINE__,LoadName?LoadName:"<NULL>");
 
  if (LoadName)
   {
@@ -1340,7 +1345,7 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     } /* ecosystem legend */
 
 /* Screen mode info */
-   case PROJECT_SM_MODEID:
+   case PROJECT_SM_MODEID:    // 100
     {
     if (ScrnData) fscanf(fproject, "%u", &ScrnData->ModeID);
     break;
@@ -1375,6 +1380,18 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
     if (ScrnData) fscanf(fproject, "%u", &ScrnData->AutoVal);
     break;
     } /*  */
+   case PROJECT_SM_DEPTH:                                         // Alexander: 12.Oct 24
+    {
+    if (ScrnData) fscanf(fproject, "%u", &ScrnData->Depth);       // Alexander: 12.Oct 24
+    break;
+    } /*  */
+   default:                                                       // Alexander: 12.Oct 24
+   {
+	   unsigned long Dummy;
+	   fscanf(fproject, "%u", &Dummy);
+	   printf("Unknown item %d, value %d, ignoring...\n",item, Dummy);
+   }
+
 
    } /* switch */
 

@@ -3898,3 +3898,25 @@ I use "nopaz"
 
 - Damit Autoscroll funktioniert (Angegebene Screen-Breite/Hoehe groesser als sichtbarer Screen -> Scroll wenn Mause am Rand),
   muss   SA_DClip, Rect mit den sichtbaren Werten des Bildschirmes gesetzt sein. Die muessen erst aus der Screenmode-Choose funktion geholt werden, da werden sie im Moment nocht nicht in der WCSScreenData Struktur gespeichert.
+
+12.Oct 2024
+-----------
+WCS.prefs hat alle moeglichen Einstellungen. Am Ende komme die Bildschirneinstellungen:
+
+100               PROJECT_SM_MODEID
+102404               ScreenMode-ID
+101               PROJECT_SM_WIDTH
+640                  ScrnData->Width    ???
+102               PROJECT_SM_HEIGHT
+600                                     ??? 
+103               PROJECT_SM_OTAG
+1
+104               PROJECT_SM_OVAL
+0
+105               PROJECT_SM_AUTOTAG
+2147483705
+106               PROJECT_SM_AUTOVAL
+1
+107        NEU!   PROJECT_SM_DEPTH
+5                    5 Bit = 32 Colors
+

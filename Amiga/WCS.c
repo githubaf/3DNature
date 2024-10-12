@@ -507,7 +507,6 @@ if ((IntuitionBase = (struct IntuitionBase *)
          printf("Alexander: %d x %d\n",ModeSelect->X,ModeSelect->Y);
 
 
-
          QueryOverscan( ModeSelect->ModeID, rect, ScrnData.OVal);
          printf("Alexander: DClip-Rect %d,%d ->  %d,%d\n",rect[0],rect[1],rect[2],rect[3]);
 
@@ -546,13 +545,17 @@ if ((IntuitionBase = (struct IntuitionBase *)
        } /* if no screen data in WCS.Prefs */
       else
        {
-    printf("Alexander: OpenScreenTags Line %d\n",__LINE__);
+    printf("Alexander: Read Data from Prefs-File (WCS.prefs) OpenScreenTags Line %d\n",__LINE__);
        WCSScrn = OpenScreenTags(NULL, SA_DisplayID, ScrnData.ModeID,
         SA_Width, ScrnData.Width, SA_Height, ScrnData.Height,
         SA_Depth, ScrnData.Depth, SA_Title, (IPTR)APP_TITLE, SA_Type, CUSTOMSCREEN,
         ScrnData.OTag, ScrnData.OVal, ScrnData.AutoTag, ScrnData.AutoVal, SA_Colors, (IPTR)NewAltColors,
         SA_Pens, (IPTR)PenSpec, SA_PubName, (IPTR)AppBaseName, TAG_END);
        } /* else read screen data from prefs file */
+
+
+      printf("Alexander: Line %d: ScrnData.Depth is %d\n",__LINE__,ScrnData.Depth);
+
 
       if(WCSScrn)
        {
@@ -575,6 +578,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
           WCSRootApp = NULL;
           app = NULL;
           } /* if */
+printf("Alexander: Line %d: ScrnData.Depth is %d\n",__LINE__,ScrnData.Depth);
          SaveProject(0, "WCS.Prefs", &ScrnData);
          DirList_Del(DL);
          DL = NULL;

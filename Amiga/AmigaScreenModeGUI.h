@@ -28,7 +28,7 @@ struct WCSScreenData
 	{
 	ULONG ModeID, OTag, OVal, AutoTag, AutoVal;
 	long Width, Height;
-	char Depth;
+	long Depth;
 	};
 
 #define ID_SM_LIST	10

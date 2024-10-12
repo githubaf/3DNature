@@ -56,6 +56,7 @@ while (DInfoID != INVALID_ID)
       ThisMode->MaxX = Sizes.MaxRasterWidth;
       ThisMode->MaxY = Sizes.MaxRasterHeight;
       ThisMode->MaxDepth = Sizes.MaxDepth;
+
       if(GetDisplayInfoData(NULL, (UBYTE *)&Properties, sizeof(Properties),
        DTAG_DISP, DInfoID))
        {
@@ -426,6 +427,7 @@ for(Finished = 0; !Finished;)
     ScrnData->Width = Selected->UX;
     ScrnData->Height = Selected->UY;
     ScrnData->Depth=Selected->Depth;
+    printf("Alexander: ID_SM_SAVE ScrnData->Depth=Selected->Depth=%d\n",ScrnData->Depth);
     /* Do something more here */
     } /* ID_SM_SAVE */
    case ID_SM_USE:
