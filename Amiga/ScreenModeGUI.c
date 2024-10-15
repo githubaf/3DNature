@@ -31,11 +31,12 @@ while (DInfoID != INVALID_ID)
  if(!(ModeNotAvailable(DInfoID)))
   {
   if(GetDisplayInfoData(NULL, (UBYTE *)&ModeName, sizeof(ModeName),
-   DTAG_NAME, DInfoID))
+   DTAG_NAME, DInfoID))  // (NameInfo)      - a user friendly way to refer to this mode.
    {
    if(GetDisplayInfoData(NULL, (UBYTE *)&Sizes, sizeof(Sizes),
-    DTAG_DIMS, DInfoID))
+    DTAG_DIMS, DInfoID))  // (DimensionInfo) - default dimensions and overscan info.
     {
+	// StdOScan editable via preferences   --  Screenmode at least 500x300 with at least 16 colors
     if((Sizes.StdOScan.MaxX - Sizes.StdOScan.MinX + 1 >= 500) &&
      (Sizes.StdOScan.MaxY - Sizes.StdOScan.MinY + 1 >= 300) && (Sizes.MaxDepth >= 4))
      {
@@ -53,14 +54,14 @@ while (DInfoID != INVALID_ID)
       ThisMode->OScans[2].y = Sizes.MaxOScan.MaxY - Sizes.MaxOScan.MinY + 1;
       ThisMode->OScans[3].x = Sizes.VideoOScan.MaxX - Sizes.VideoOScan.MinX + 1;
       ThisMode->OScans[3].y = Sizes.VideoOScan.MaxY - Sizes.VideoOScan.MinY + 1;
-      ThisMode->MaxX = Sizes.MaxRasterWidth;
-      ThisMode->MaxY = Sizes.MaxRasterHeight;
-      ThisMode->MaxDepth = Sizes.MaxDepth;
+      ThisMode->MaxX = Sizes.MaxRasterWidth;   // maximum width in pixels
+      ThisMode->MaxY = Sizes.MaxRasterHeight;  // maximum height in pixels
+      ThisMode->MaxDepth = Sizes.MaxDepth;     // log2( max number of colors )
 
       if(GetDisplayInfoData(NULL, (UBYTE *)&Properties, sizeof(Properties),
        DTAG_DISP, DInfoID))
        {
-       ThisMode->PropertyFlags = Properties.PropertyFlags;
+       ThisMode->PropertyFlags = Properties.PropertyFlags;  // Properties of this mode see define (DIPF_IS_LACE, DUALPF, PF2PRI, HAM...)
        ThisMode->PixelSpeed = Properties.PixelSpeed;
        } /* if */
       for(Sort = ModeList; Sort;)
@@ -284,23 +285,30 @@ for(Finished = 0; !Finished;)
      } /* for */
 
     get(SM_OSCAN, MUIA_Cycle_Active, &CheckVal);
-    Update = 1;
-    if(Selected->UX != Selected->OX)
-     Update = 0;
-    if(Selected->UY != Selected->OY)
-     Update = 0;
-    
-    if(CheckVal == 0)
+    Selected->Overscan=CheckVal;
+
+    if(CheckVal == 0)             // No Overscan
      {
-     Selected->OX = Selected->X;
+     Selected->OX = Selected->X;  // Then use default values of Screenmode: Sizes.Nominal.MaxX - Sizes.Nominal.MinX + 1
      Selected->OY = Selected->Y;
      } /* if */
     else
      {
-     Selected->OX = Selected->OScans[CheckVal - 1].x;
-     Selected->OY = Selected->OScans[CheckVal - 1].y;
+     Selected->OX = Selected->OScans[CheckVal - 1].x;  // if we have overscan, use dimesions of that Overscan Mode
+     Selected->OY = Selected->OScans[CheckVal - 1].y;  // if we have overscan, use dimesions of that Overscan Mode
      } /* else */
-    if(Update)
+
+    // Doch
+    Update = 1;
+    if((Selected->UX == Selected->OX) && (Selected->UY == Selected->OY))
+    {
+    	Update = 0;  // Width and height string gadgets do not need to be updated.
+    }
+
+
+// Selected->UX/Y have nothing to do with overscan
+//Doch
+    if(Update)  // user width/heigt string gadgets need to be updated
      {
      Selected->UX = Selected->OX;
      Selected->UY = Selected->OY;
@@ -344,6 +352,14 @@ for(Finished = 0; !Finished;)
     		}
     }
 
+
+/*
+       "Mode: 0x%08lx\n                Selected->ModeID
+        Res : %dx%d - %dx%d\n          Selected->X, Selected->Y  -  Selected->OX, Selected->OY
+		Auto: %dx%d\n                  Selected->MaxX, Selected->MaxY
+		Scan: %dns\n\n                 Selected->PixelSpeed
+		Attributes\n"                  LACED, HAM, ...
+*/
     sprintf(ModeInfo,  GetString( MSG_SCNRMODGUI_MODE0XESXXUTOXCANNSNATTRIBUTES ) ,
      Selected->ModeID, Selected->X, Selected->Y, Selected->OX, Selected->OY,
      Selected->MaxX, Selected->MaxY, Selected->PixelSpeed);
@@ -371,95 +387,91 @@ for(Finished = 0; !Finished;)
     
     set(SM_Text, MUIA_Floattext_Text, (IPTR)ModeInfo);
     
-    set(SM_Width, MUIA_String_Integer, Selected->UX);
+    set(SM_Width, MUIA_String_Integer, Selected->UX);  // SM_Width/Height are the string gadgets
     set(SM_Height, MUIA_String_Integer, Selected->UY);
 
     // Alexander Depth-Slider auf 4 oder 15/16/24 Bit setzen.
-    // bei 15/16/24 Bit Slider sperren
+    // bei 15/16/24 Bit Slider sperrenOScans
     // slider-Bereich anpassen
 
     
     break;
     } /* ID_SM_LIST */
-   case ID_SM_HEIGHT:
+   case ID_SM_HEIGHT: // user entered new height into string gadget
     {
     get(SM_Height, MUIA_String_Integer, &CheckVal);
-    if(CheckVal < Selected->OY)
+    if(CheckVal < Selected->OY)   // user entered less that Overscan resolution ?
      {
-     CheckVal = Selected->OY;
+     CheckVal = Selected->OY; // then correct the input! No less than Overscan resolution
      set(SM_Height, MUIA_String_Integer, CheckVal);
      set(ModeSelWin, MUIA_Window_ActiveObject, (IPTR)SM_Height);
      } /* if */
-    else if(CheckVal > Selected->MaxY)
+    else if(CheckVal > Selected->MaxY) // user entered value bigger than permitted for this ScreenMode
      {
-     CheckVal = Selected->MaxY;
+     CheckVal = Selected->MaxY; // then correct the input! No bigger than Max resolution
      set(SM_Height, MUIA_String_Integer, CheckVal);
      set(ModeSelWin, MUIA_Window_ActiveObject, (IPTR)SM_Height);
      } /* else if */
     else
-     set(ModeSelWin, MUIA_Window_ActiveObject, (IPTR)SM_Width);
-    Selected->UY = CheckVal;
+    {
+     set(ModeSelWin, MUIA_Window_ActiveObject, (IPTR)SM_Width);  // focus to next gadget
+    }
+    Selected->UY = CheckVal;  // take the selected (and maybe corrected) height value
     break;
     } /* ID_SM_HEIGHT */
-   case ID_SM_WIDTH:
+   case ID_SM_WIDTH: // user entered new width into string gadget
     {
     get(SM_Width, MUIA_String_Integer, &CheckVal);
-    if(CheckVal < Selected->OX)
+    if(CheckVal < Selected->OX)   // user entered less that Overscan resolution ?
      {
-     CheckVal = Selected->OX;
+     CheckVal = Selected->OX; // then correct the input! No less than Overscan resolution
      set(SM_Width, MUIA_String_Integer, CheckVal);
      set(ModeSelWin, MUIA_Window_ActiveObject, (IPTR)SM_Width);
      } /* if */
-    else if(CheckVal > Selected->MaxX)
+    else if(CheckVal > Selected->MaxX) // user entered value bigger than permitted for this ScreenMode
      {
-     CheckVal = Selected->MaxX;
+     CheckVal = Selected->MaxX; // then correct the input! No bigger than Max resolution
      set(SM_Width, MUIA_String_Integer, CheckVal);
      set(ModeSelWin, MUIA_Window_ActiveObject, (IPTR)SM_Width);
      } /* else if */
     else
+    {
      set(ModeSelWin, MUIA_Window_ActiveObject, (IPTR)SM_Height);
-    Selected->UX = CheckVal;
+    }
+    Selected->UX = CheckVal;   // take the selected (and maybe corrected) width value
     break;
     } /* ID_SM_WIDTH */
-   case ID_SM_SAVE:
-    {
-    ScrnData->ModeID = Selected->ModeID;
-    ScrnData->Width = Selected->UX;
-    ScrnData->Height = Selected->UY;
-    ScrnData->Depth=Selected->Depth;
-    printf("Alexander: ID_SM_SAVE ScrnData->Depth=Selected->Depth=%d\n",ScrnData->Depth);
-    /* Do something more here */
-    } /* ID_SM_SAVE */
    case ID_SM_USE:
+   case ID_SM_SAVE:
     {
     
     Finished = 1;
     
     get(SM_Height, MUIA_String_Integer, &CheckVal);
-    if(CheckVal < Selected->OY)
+    if(CheckVal < Selected->OY) // user entered less that Overscan resolution ?
      {
-     CheckVal = Selected->OY;
+     CheckVal = Selected->OY;  // then correct the input! No less than Overscan resolution
      set(SM_Height, MUIA_String_Integer, CheckVal);
      Finished = 0;
      } /* if */
-    if(CheckVal > Selected->MaxY)
+    if(CheckVal > Selected->MaxY) // user entered value bigger than permitted for this ScreenMode
      {
-     CheckVal = Selected->MaxY;
+     CheckVal = Selected->MaxY; // then correct the input! No bigger than Max resolution
      set(SM_Height, MUIA_String_Integer, CheckVal);
      Finished = 0;
      } /* if */
     Selected->UY = CheckVal;
 
     get(SM_Width, MUIA_String_Integer, &CheckVal);
-    if(CheckVal < Selected->OX)
+    if(CheckVal < Selected->OX) // user entered less that Overscan resolution ?
      {
-     CheckVal = Selected->OX;
+     CheckVal = Selected->OX; // then correct the input! No less than Overscan resolution
      set(SM_Width, MUIA_String_Integer, CheckVal);
      Finished = 0;
      } /* if */
-    if(CheckVal > Selected->MaxX)
+    if(CheckVal > Selected->MaxX) // user entered value bigger than permitted for this ScreenMode
      {
-     CheckVal = Selected->MaxX;
+     CheckVal = Selected->MaxX; // then correct the input! No bigger than Max resolution
      set(SM_Width, MUIA_String_Integer, CheckVal);
      Finished = 0;
      } /* if */
@@ -468,6 +480,17 @@ for(Finished = 0; !Finished;)
     printf("Alexander: UX=%d\n",Selected->UX);
     printf("Alexander: UY=%d\n",Selected->UY);
 
+    if(ReturnID==ID_SM_SAVE)  // if ID_SM_SAVE than additinally to use-code we store the use-values into ScrnData for saving at the end.
+    {
+    ScrnData->ModeID = Selected->ModeID;
+    ScrnData->Width = Selected->UX;
+    ScrnData->Height = Selected->UY;
+    ScrnData->Depth=Selected->Depth;
+    ScrnData->OTag=Selected->Overscan ? SA_Overscan : TAG_IGNORE;
+    ScrnData->OVal=Selected->Overscan;
+    printf("Alexander: ID_SM_SAVE ScrnData->Depth=Selected->Depth=%d\n",ScrnData->Depth);
+    /* Do something more here */
+    } /* ID_SM_USE, ID_SM_SAVE */
 
 
     if(Finished)
@@ -476,6 +499,7 @@ for(Finished = 0; !Finished;)
      MUI_DisposeObject(ModeSelWin);
      return(Selected);
      } /* if */
+
     break;
     } /* ID_SM_USE */
    case ID_SM_EXIT:

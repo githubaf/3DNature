@@ -22,6 +22,8 @@ struct WCSScreenMode
 	ULONG PropertyFlags;
 	UWORD PixelSpeed;
 	UWORD MaxDepth;
+	UWORD OvescanTag; // TAG_IGNORE or SA_Overscan
+	UWORD Overscan;   // selected overscan mode 0=none ... 4=video
 	}; /* struct WCSScreenMode */
 
 struct WCSScreenData

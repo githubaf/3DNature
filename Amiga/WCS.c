@@ -473,42 +473,52 @@ if ((IntuitionBase = (struct IntuitionBase *)
       {
       if (ScrnData.ModeID == 0)
        {
+          UWORD DClipTag=TAG_IGNORE;
+
        ModeSelect = NULL;
-       ScrnData.AutoTag = SA_AutoScroll;  // TAG_IGNORE;
-       ScrnData.AutoVal = TRUE;           // 0;
+       ScrnData.AutoTag = TAG_IGNORE;
+       ScrnData.AutoVal = 0;
        if((ScreenModes = ModeList_New()))
         {
         if((ModeSelect = ModeList_Choose(ScreenModes, &ScrnData)))
          {
         	WORD rect[4]={0};  //{0,0,ModeSelect->X-1,ModeSelect->Y-1};
-         if(ModeSelect->OX > ModeSelect->X)
+         if(ModeSelect->Overscan!=0)
           { /* Enable Oscan */
           ScrnData.OTag = SA_Overscan;
-          ScrnData.OVal = OSCAN_TEXT;
+          ScrnData.OVal = ModeSelect->Overscan;
           if(ModeSelect->OX == ModeSelect->OScans[1].x)
            ScrnData.OVal = OSCAN_STANDARD;
           if(ModeSelect->OX == ModeSelect->OScans[2].x)
            ScrnData.OVal = OSCAN_MAX;
           if(ModeSelect->OX == ModeSelect->OScans[3].x)
            ScrnData.OVal = OSCAN_VIDEO;
-          if(ModeSelect->UX > ModeSelect->OX)
-           {
-           ScrnData.AutoTag = SA_AutoScroll;
-           ScrnData.AutoVal = TRUE;
-           } /* if */
           } /* if */
          else
           { /* Turn off OverScan */
           ScrnData.OTag = TAG_IGNORE;
           ScrnData.OVal = 0;
           } /* else */
+
+         // User-Selected dimensions bigger than visible screen? -> Autoscroll
+         if((ModeSelect->UX > ModeSelect->OX) || (ModeSelect->UY > ModeSelect->OY))
+          {
+          ScrnData.AutoTag = SA_AutoScroll;
+          ScrnData.AutoVal = TRUE;
+          }
+
+
+         if(ScrnData.OVal==0)              // Overscan = None
+         {
+        	 if(ScrnData.AutoVal==TRUE)    // but autoscroll enabled (X or Y bigger than visible)
+        	 {
+        		 QueryOverscan( ModeSelect->ModeID, rect, ScrnData.OVal);
+        		 DClipTag=SA_DClip;        // we need to set the clip rect
+        	 }
+         }
 // --> Wir sind hier bei Oeffnen des Screens
          printf("Alexander: OpenScreenTags Line %d\n",__LINE__);
          printf("Alexander: %d x %d\n",ModeSelect->X,ModeSelect->Y);
-
-
-         QueryOverscan( ModeSelect->ModeID, rect, ScrnData.OVal);
-         printf("Alexander: DClip-Rect %d,%d ->  %d,%d\n",rect[0],rect[1],rect[2],rect[3]);
 
          WCSScrn = OpenScreenTags(NULL,
           SA_DisplayID, ModeSelect->ModeID,
@@ -518,9 +528,8 @@ if ((IntuitionBase = (struct IntuitionBase *)
 		  SA_Title, (IPTR)APP_TITLE,
 		  SA_Type, CUSTOMSCREEN,
           ScrnData.OTag, ScrnData.OVal,
-	  ScrnData.AutoTag, (ULONG)ScrnData.AutoVal,
-//	  SA_AutoScroll, TRUE,
-	  SA_DClip, rect,
+	      ScrnData.AutoTag, (ULONG)ScrnData.AutoVal,
+	      DClipTag, rect,
 		  SA_Colors, (IPTR)NewAltColors,
           SA_Pens, (IPTR)PenSpec,
 		  SA_PubName, (IPTR)AppBaseName,
@@ -528,6 +537,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
          } /* if */
         else
          {
+         printf("Could not open selected Screenmode\n");
          WCSScrn = NULL; /* This'll make it exit. */
          } /* else */
         ModeList_Del(ScreenModes);
@@ -543,14 +553,50 @@ if ((IntuitionBase = (struct IntuitionBase *)
          SA_Pens, (IPTR)PenSpec, SA_PubName, (IPTR)AppBaseName, TAG_END);
         } /* else */
        } /* if no screen data in WCS.Prefs */
-      else
+      else // read screen data from prefs file
        {
-    printf("Alexander: Read Data from Prefs-File (WCS.prefs) OpenScreenTags Line %d\n",__LINE__);
-       WCSScrn = OpenScreenTags(NULL, SA_DisplayID, ScrnData.ModeID,
-        SA_Width, ScrnData.Width, SA_Height, ScrnData.Height,
-        SA_Depth, ScrnData.Depth, SA_Title, (IPTR)APP_TITLE, SA_Type, CUSTOMSCREEN,
-        ScrnData.OTag, ScrnData.OVal, ScrnData.AutoTag, ScrnData.AutoVal, SA_Colors, (IPTR)NewAltColors,
-        SA_Pens, (IPTR)PenSpec, SA_PubName, (IPTR)AppBaseName, TAG_END);
+    	 ULONG DClipTag=TAG_IGNORE;
+    	 WORD rect[4]={0};
+
+   	    printf("Alexander: Reading Data from Prefs-File (WCS.prefs) OpenScreenTags Line %d\n",__LINE__);
+
+
+    	 if(ScrnData.OTag==TAG_IGNORE)     // Overscan = None
+         {
+        	 if(ScrnData.AutoVal==TRUE)    // but autoscroll enabled (X or Y bigger than visible)
+        	 {
+        		 QueryOverscan( ScrnData.ModeID, rect, ScrnData.OVal);
+        		 DClipTag=SA_DClip;        // we need to set the clip rect
+        		 printf("Alexander: Seetting DClipTag and rect, %d,%d -> %d,%d\n",rect[0],rect[1],rect[2],rect[3]);
+        		 printf("Alexander: SA_DClip=%08x\n",SA_DClip);
+        	 }
+         }
+    	 else
+    	 {
+    		 printf("Alexander: Overscan gesetzt\n");
+    	 }
+
+
+
+    printf("Alexander: ScrnData.OTag=%08lx\n",ScrnData.OTag);
+    printf("Alexander: ScrnData.OVal=%d\n",ScrnData.OVal);
+    printf("Alexander: ScrnData.AutoTag=%08lx\n",ScrnData.AutoTag);
+    printf("Alexander: ScrnData.AutoVal=%d\n",ScrnData.AutoVal);
+    printf("Alexander: DClipTag=%08lx\n",DClipTag);
+
+       WCSScrn = OpenScreenTags(NULL,
+    		   SA_DisplayID, ScrnData.ModeID,
+               SA_Width, ScrnData.Width,
+			   SA_Height, ScrnData.Height,
+               SA_Depth, ScrnData.Depth,
+			   SA_Title, (IPTR)APP_TITLE, SA_Type, CUSTOMSCREEN,
+               ScrnData.OTag, ScrnData.OVal,
+			   ScrnData.AutoTag, ScrnData.AutoVal,
+		       DClipTag, rect,
+		       SA_Colors, (IPTR)NewAltColors,
+               SA_Pens, (IPTR)PenSpec,
+			   SA_PubName, (IPTR)AppBaseName,
+		       TAG_END);
        } /* else read screen data from prefs file */
 
 
@@ -560,6 +606,10 @@ if ((IntuitionBase = (struct IntuitionBase *)
       if(WCSScrn)
        {
     	  getGfxInformation();  // Alexander Prints info about RTG, depth etc
+//WORD rect[4]={0};
+//    		QueryOverscan( ScrnData.ModeID, rect, ScrnData.OVal);
+//    	    printf("Alexander: Mode %d DClip-Rect %d,%d ->  %d,%d\n",WCSScrn->ViewPort.Modes, rect[0],rect[1],rect[2],rect[3]);
+
 
        DTable = DitherTable_New(DITHER_TABLE_SIZE);
        PubScreenStatus(WCSScrn, 0);
@@ -590,6 +640,10 @@ printf("Alexander: Line %d: ScrnData.Depth is %d\n",__LINE__,ScrnData.Depth);
        CloseScreen(WCSScrn);
        WCSScrn = NULL;
        } /* if */
+      else
+      {
+    	  printf("Could not open saved Screenmode\n");
+      }
       }   // beta not expired
       if(WCSRootApp) /* May have already shut down above. */
        {

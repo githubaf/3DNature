@@ -340,9 +340,11 @@ double FloatCol;
 /***********************************************************************/
 void getGfxInformation(void)
 {
+	WORD rect[4]={0};
+
 	printf("WCSScrn->RastPort.BitMap->Depth = %d\n",WCSScrn->RastPort.BitMap->Depth);
 	printf("WCSScrn->Flags=0x%04x\n",WCSScrn->Flags);
-	printf("WCSScrn->ViewPort.DWidth %d x WCSScrn->ViewPort.D %d\n",WCSScrn->ViewPort.DWidth,WCSScrn->ViewPort.DHeight);
+	printf("WCSScrn->ViewPort.DWidth %d x WCSScrn->ViewPort.DHeight %d\n",WCSScrn->ViewPort.DWidth,WCSScrn->ViewPort.DHeight);
 
 #ifndef __AROS__
     	  if(P96Base)
