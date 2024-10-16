@@ -971,8 +971,6 @@ short LoadProject(char *LoadName, struct WCSScreenData *ScrnData, short ForceLoa
  char filename[256], Ptrn[32];
  long i, item, update = 0;
 
- printf("Alexander: %s %s() Line %d Loadname=%s\n",__FILE__,__func__,__LINE__,LoadName?LoadName:"<NULL>");
-
  if (LoadName)
   {
   strcpy(filename, LoadName);
