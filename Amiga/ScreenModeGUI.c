@@ -236,7 +236,7 @@ if(ModeSelWin)
   app, 2, MUIM_Application_ReturnID, ID_SM_HEIGHT);
 
  DoMethod(ModeSelWin, MUIM_Window_SetCycleChain,
-  SM_List, SM_Save, SM_Use, SM_Exit, SM_OSCAN, SM_Width, SM_Height, NULL);
+  SM_List, SM_Save, SM_Use, SM_Exit, SM_COLORS, SM_OSCAN, SM_Width, SM_Height, NULL);  // AF: Added SM_Colors
 
  set(ModeSelWin, MUIA_Window_ActiveObject, (IPTR)SM_Save);
 
@@ -291,11 +291,13 @@ for(Finished = 0; !Finished;)
      {
      Selected->OX = Selected->X;  // Then use default values of Screenmode: Sizes.Nominal.MaxX - Sizes.Nominal.MinX + 1
      Selected->OY = Selected->Y;
+     Selected->OverscanTag=TAG_IGNORE;
      } /* if */
     else
      {
      Selected->OX = Selected->OScans[CheckVal - 1].x;  // if we have overscan, use dimesions of that Overscan Mode
      Selected->OY = Selected->OScans[CheckVal - 1].y;  // if we have overscan, use dimesions of that Overscan Mode
+     Selected->OverscanTag=SA_Overscan;
      } /* else */
 
     // Doch
@@ -480,6 +482,15 @@ for(Finished = 0; !Finished;)
     printf("Alexander: UX=%d\n",Selected->UX);
     printf("Alexander: UY=%d\n",Selected->UY);
 
+    if((Selected->UX > Selected->OX) || (Selected->UY > Selected->OY))
+     {
+   	 printf("Alexander: %s %s() Line %d\n",__FILE__,__func__,__LINE__);
+   	 Selected->AutoTag = SA_AutoScroll;
+   	 Selected->AutoVal = TRUE;
+     }
+
+
+
     if(ReturnID==ID_SM_SAVE)  // if ID_SM_SAVE than additinally to use-code we store the use-values into ScrnData for saving at the end.
     {
     ScrnData->ModeID = Selected->ModeID;
@@ -488,7 +499,20 @@ for(Finished = 0; !Finished;)
     ScrnData->Depth=Selected->Depth;
     ScrnData->OTag=Selected->Overscan ? SA_Overscan : TAG_IGNORE;
     ScrnData->OVal=Selected->Overscan;
-    printf("Alexander: ID_SM_SAVE ScrnData->Depth=Selected->Depth=%d\n",ScrnData->Depth);
+    ScrnData->AutoTag = Selected->AutoTag;
+    ScrnData->AutoVal = Selected->AutoVal;
+
+
+
+    printf("Alexander: %s %s() Saving ScrnData->ModeID=%08x\n",__FILE__,__func__,ScrnData->ModeID);
+    printf("Alexander: %s %s() Saving ScrnData->Width=%ld\n",__FILE__,__func__,ScrnData->Width);
+    printf("Alexander: %s %s() Saving ScrnData->Height=%ld\n",__FILE__,__func__,ScrnData->Height);
+	printf("Alexander: %s %s() Saving ScrnData->Depth=%d\n",__FILE__,__func__, ScrnData->Depth);
+	printf("Alexander: %s %s() Saving ScrnData->OTag=%08x\n",__FILE__,__func__, ScrnData->OTag);
+	printf("Alexander: %s %s() Saving ScrnData->OVal=%d\n",__FILE__,__func__, ScrnData->OVal);
+	printf("Alexander: %s %s() Saving ScrnData->AutoTag=%08x\n",__FILE__,__func__, ScrnData->AutoTag);
+	printf("Alexander: %s %s() Saving ScrnData->AutoVal=%d\n",__FILE__,__func__, ScrnData->AutoVal);
+
     /* Do something more here */
     } /* ID_SM_USE, ID_SM_SAVE */
 

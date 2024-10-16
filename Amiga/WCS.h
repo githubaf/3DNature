@@ -167,8 +167,11 @@ struct WCSScreenMode
 	ULONG PropertyFlags;
 	UWORD PixelSpeed;
 	UWORD MaxDepth;
-	UWORD OvescanTag; // TAG_IGNORE or SA_Overscan
-	UWORD Overscan;   // selected overscan mode 0=none ... 4=video
+	ULONG OverscanTag; // TAG_IGNORE or SA_Overscan
+	ULONG Overscan;   // selected overscan mode 0=none ... 4=video
+	ULONG AutoTag;     // TAG_IGNORE or SA_AutoScroll
+	ULONG AutoVal;     // TRUE or FALSE
+
 	}; /* struct WCSScreenMode */
 
 
@@ -184,7 +187,7 @@ struct WCSScreenData
 	{
 	ULONG ModeID, OTag, OVal, AutoTag, AutoVal;
 	long Width, Height;
-	long Depth;
+	ULONG Depth;
 	};
 
 #ifdef __AROS__
