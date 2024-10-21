@@ -131,7 +131,9 @@ Version 2.031 (Emerald-Caesar)
                  resolution for dithered color display, otherwize disturbing
                  scaling artifacts could appear!
         *Feature:MUI can be customized in Menu > Preferences > MUI
-
+        *Feature:Screens bigger than visual display area do now auto scroll.
+                 If mouse reaches a monitor border the screen scrolls to bring
+                 the invisible part into view.
 
 Deutsch
 -------
