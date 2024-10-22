@@ -3920,3 +3920,14 @@ WCS.prefs hat alle moeglichen Einstellungen. Am Ende komme die Bildschirneinstel
 107        NEU!   PROJECT_SM_DEPTH
 5                    5 Bit = 32 Colors
 
+
+21.10.2024
+----------
+Nochnmal Dither-Render Window
+
+  Screen    Dither-Farben (nicht Bits)
+ 16 Farben          2x2x2 =   8
+ 32 Farben          3*3*3 =  27 
+ 64 Farben          4*4*4 =  64 
+128 Farben          5*5*5 = 125
+256 Farben          6*6*6 = 216

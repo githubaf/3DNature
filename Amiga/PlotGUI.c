@@ -1,4 +1,4 @@
-/* PlotGUI.c
+/* PlotGUI.cvels
 ** Functions for plotting pixels.
 ** Copyright Questar Productions, October, 1995
 */
@@ -68,45 +68,6 @@ USHORT AltDither8Colors[16]
 // Fuellen mit AltColors[16], dann 128-155 mit 7Bit Dithercolors fuellen
 USHORT Alt256Colors[256];
 
-
-
-//  Color ordered dither using 3 bits per pixel (1 bit per color plane)
-//void makeDitherBayerRgb3bpp( unsigned char* pixels, int width, int height )
-//{
-//    int col = 0;
-//    int row = 0;
-//
-//    for( int y = 0; y < height; y++ )
-//    {
-//        row = y & 15;   //  y % 16
-//
-//        for( int x = 0; x < width; x++ )
-//        {
-//            col = x & 15;   //  x % 16
-//
-//            pixels[x * 3 + 0]   = (pixels[x * 3 + 0] > BAYER_PATTERN_16X16[col][row] ? 255 : 0);
-//            pixels[x * 3 + 1]   = (pixels[x * 3 + 1] > BAYER_PATTERN_16X16[col][row] ? 255 : 0);
-//            pixels[x * 3 + 2]   = (pixels[x * 3 + 2] > BAYER_PATTERN_16X16[col][row] ? 255 : 0);
-//        }
-//
-//        pixels  += width * 3;
-//    }
-//}
-
-unsigned char makeDitherBayerRgb1BitPerPlane( unsigned char pixel, int x, int y )
-{
-    int col = 0;
-    int row = 0;
-    unsigned char NewValue;
-
-        row = y & 15;   //  y % 16
-        col = x & 15;   //  x % 16
-
-            NewValue = pixel > BAYER_PATTERN_16X16[col][row] ? 255 : 0;
-
-            return NewValue;
-}
-
 #include <intuition/intuition.h>
 
 
@@ -125,129 +86,221 @@ unsigned char makeDitherBayerRgb1BitPerPlane( unsigned char pixel, int x, int y 
 #define     CLAMPED( x, xmin, xmax )    MAX( (xmin), MIN( (xmax), (x) ) )
 #endif
 
-unsigned char makeDitherBayerRgbnBitsPerPlane( unsigned char pixel, int x, int y, int BitsPerPlane )
+
+unsigned int makeDitherBayerRgbnLevels(unsigned char pixel, int x, int y, int Levels )
 {
     int row = 0;
-    //unsigned char NewValue;
+    const int col = x & 15;   //  x % 16
 
-    const int   col = x & 15;   //  x % 16
+    const int t     = BAYER_PATTERN_16X16[col][row];
+    const int corr  = t / (Levels-1);
 
-    const int   t       = BAYER_PATTERN_16X16[col][row];
-    const int   corr    = (t / BitsPerPlane);
-
-    int ncolors = (1 << BitsPerPlane) -1;
+    int ncolors = Levels-1;  //(1 << BitsPerPlane) -1;
     int divider = 256 / ncolors;
 
     int i1  = (pixel   + corr) / divider; CLAMP( i1, 0, ncolors );
 
-    //  If you want to compress the image, use the values of i1,i2,i3
-    //  they have values in the range 0..ncolors
-    //  So if the ncolors is 4 - you have values: 0,1,2,3 which is encoded in 2 bits
-    //  2 bits for 3 planes == 6 bits per pixel
-
     return i1;
-    //NewValue   = CLAMPED( i1 * divider, 0, 255 );  //  red
-
-    //return NewValue;
 }
 
-void BayerDither8ColorsScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+// ALEXANDER: 21_Oct Make Color table for 2x2x2 (8 colors) ... 6x6x6 Levels (216 colors) RGB
+void Make_N_Levels_Palette4( USHORT *NewColorTable, unsigned int Levels, USHORT *OldTable16)
 {
-//	static int Init=TRUE;
-	unsigned char PixelComponenR;
-	unsigned char PixelComponenG;
-	unsigned char PixelComponenB;
-    short Col;
-
-	PixelComponenR=makeDitherBayerRgb1BitPerPlane(Bitmap[0][zip],x,y);
-	PixelComponenG=makeDitherBayerRgb1BitPerPlane(Bitmap[1][zip],x,y);
-	PixelComponenB=makeDitherBayerRgb1BitPerPlane(Bitmap[2][zip],x,y);
-
-	// We have 8 RGB-Colors. Each RGs is either 255 or 0 after Bayer-Mapping. Convert that value to pen-Number 8...15
-	// 123 321 132 213 231 312
-	Col=((PixelComponenR == 255) ? 4:0) +
-	     ((PixelComponenG == 255) ? 2:0) +
-		 ((PixelComponenB == 255) ? 1:0);
-
-
-	Col=15-Col; // Pens 8...15 are for render window
-
-	SetAPen(win->RPort, Col);
-	WritePixel(win->RPort, x, y);
-}
-
-void BayerDither16ColorsScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
-{
-    // identical to 16 color screen function but 8 dithercolors shiftet to 16...23. Do not disturb original colors
-	unsigned char PixelComponenR;
-	unsigned char PixelComponenG;
-	unsigned char PixelComponenB;
-    short Col;
-
-	PixelComponenR=makeDitherBayerRgb1BitPerPlane(Bitmap[0][zip],x,y);
-	PixelComponenG=makeDitherBayerRgb1BitPerPlane(Bitmap[1][zip],x,y);
-	PixelComponenB=makeDitherBayerRgb1BitPerPlane(Bitmap[2][zip],x,y);
-
-	// We have 8 RGB-Colors. Each RGs is either 255 or 0 after Bayer-Mapping. Convert that value to pen-Number 8...15
-	// 123 321 132 213 231 312
-	Col=((PixelComponenR == 255) ? 4:0) +
-	     ((PixelComponenG == 255) ? 2:0) +
-		 ((PixelComponenB == 255) ? 1:0);
-
-
-	Col=16+Col; // Pens 8...15 are for render window
-
-	SetAPen(win->RPort, Col);
-	WritePixel(win->RPort, x, y);
-}
-
-
-void BayerDither128ColorsScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
-{
-//	static int Init=TRUE;
-	unsigned char PixelComponentR;
-	unsigned char PixelComponentG;
-	unsigned char PixelComponentB;
-    unsigned char Col;
-
-	PixelComponentR=makeDitherBayerRgbnBitsPerPlane(Bitmap[0][zip],x,y,2);  // 2 Bit Red
-	PixelComponentG=makeDitherBayerRgbnBitsPerPlane(Bitmap[1][zip],x,y,3);  // 3 Bit Green
-	PixelComponentB=makeDitherBayerRgbnBitsPerPlane(Bitmap[2][zip],x,y,2);  // 2 Bit Blue
-
-	// We have 128 RGB-Colors. Convert that value to pen-Number 128...255
-	Col= (PixelComponentR << 5)+    // 2 Bit
-	     (PixelComponentG << 2)+    // 3 Bit
-		  PixelComponentB;          // 2 Bit
-
-
-	Col=128+Col; // Pens 0...15 are used by the original program, 15...127 are left free
-
-	//SetAPen(win->RPort, Col);
-	//UBYTE Pixel=128;
-	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
-	//WriteChunkyPixels(win->RPort, x, y,x,y,&Pixel,4);  // Only one pixel, so BytesPerRow is irrelevant
-}
-
-// fills 256 entries color table with 16 original WCS colors 0-15 and 16 Dither colors 16-31 format "121"
-void fill256ColorsPalette32(USHORT *ColorTable256, USHORT *ColorTable16)
-{
-	unsigned int i;
+	unsigned int i=0;
 	unsigned int r,g,b;
-	unsigned char ColorComponent1Bit[]={0,15};
-//	unsigned char ColorComponent2Bit[]={0,5,10,15};  // n x 15/3,  4 Values == 3 segements
+	unsigned int Offset;
 
-	memcpy(ColorTable256,ColorTable16,16*sizeof(USHORT));  // 16 entries a 2 bytes
-	i=16;
-	for (r=0;r<2;r++)          // 1 Bit -> 0..1
-		for(g=0;g<2;g++)       // 1 Bit -> 0..3
-			for(b=0;b<2;b++)   // 1 Bit -> 0..1
+	memcpy(NewColorTable,OldTable16,16*sizeof(USHORT));  // copy old 16-Color table to begin of new color table
+
+	switch (Levels)
+	{
+		case 2: Offset= 8; break;   //  8/16 original colors, new table with   8 colors offset  8... 15
+		case 3: Offset= 5; break;   //  5/16 original Colors, new table with  27 colors offset  5... 31
+		case 4: Offset= 0; break;   //  0/16 original colors, new table with  74 colors offset  0... 63
+		case 5: Offset= 3; break;   //  3/16 original colors, new table with 125 colors offset  3...127
+		case 6: Offset=16; break;   // 16/16 original colors, new table with 216 colors offset 16...231
+		default:Offset= 0; printf("Illegal Levels value!\n");
+	}
+
+	for (r=0;r<Levels;r++)
+		for(g=0;g<Levels;g++)
+			for(b=0;b<Levels;b++)
 			{
-				// 4 bit Color entries
-				ColorTable256[i]=(ColorComponent1Bit[r]<<8)+(ColorComponent1Bit[g]<<4)+ColorComponent1Bit[b];
+				NewColorTable[i+Offset]= ((r*(255/(Levels-1))) /16)   << 8 |
+						                 ((g*(255/(Levels-1))) /16)   << 4 |
+						                  (b*(255/(Levels-1))  /16);
+//				KPrintF("Colors[%ld]=0x%08lx\n",i,NewColorTable[i+Offset]);
 				i++;
 			}
 }
 
+// ALEXANDER: 21_Oct Dithers to 2x2x2 RGB-levels (Levels, not bits), i.e. 8 colors
+void BayerDither_2_2_2_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+{
+	static int Init=TRUE;
+	unsigned char PixelComponentR;
+	unsigned char PixelComponentG;
+	unsigned char PixelComponentB;
+    UBYTE Col;
+
+    if(Init)
+    {
+    	printf("using %s()...\n",__func__);
+    	Init=FALSE;
+    }
+
+	PixelComponentR=makeDitherBayerRgbnLevels(Bitmap[0][zip],x,y,2);  // 2 Levels Red
+	PixelComponentG=makeDitherBayerRgbnLevels(Bitmap[1][zip],x,y,2);  // 2 Levels Green
+	PixelComponentB=makeDitherBayerRgbnLevels(Bitmap[2][zip],x,y,2);  // 2 Levels Blue
+
+	// 1 Bit per RGB component
+	// We have 8 RGB-Colors. Convert that value to pen-Number 8...15
+
+	Col=  4*PixelComponentR +
+	      2*PixelComponentG +
+		    PixelComponentB;
+
+	Col=7+Col; // no Pens are used by the original program, dither colors start with offset 0
+
+	//KPrintF("0x%08lx\n",Col);
+
+	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
+}
+
+
+
+// ALEXANDER: 21_Oct Dithers to 3x3x3 RGB-levels (Levels, not bits), i.e. 27 colors
+void BayerDither_3_3_3_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+{
+	static int Init=TRUE;
+	unsigned char PixelComponentR;
+	unsigned char PixelComponentG;
+	unsigned char PixelComponentB;
+    UBYTE Col;
+
+    if(Init)
+    {
+    	printf("using %s()...\n",__func__);
+    	Init=FALSE;
+    }
+
+	PixelComponentR=makeDitherBayerRgbnLevels(Bitmap[0][zip],x,y,3);  // 3 Levels Red
+	PixelComponentG=makeDitherBayerRgbnLevels(Bitmap[1][zip],x,y,3);  // 3 Levels Green
+	PixelComponentB=makeDitherBayerRgbnLevels(Bitmap[2][zip],x,y,3);  // 3 Levels Blue
+
+	// 2 Bits per RGB component
+	// We have 27 RGB-Colors. Convert that value to pen-Number 5...31
+
+	Col=  9*PixelComponentR +
+	      3*PixelComponentG +
+		    PixelComponentB;
+
+	Col=5+Col; // no Pens are used by the original program, dither colors start with offset 0
+
+	//KPrintF("0x%08lx\n",Col);
+
+	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
+}
+
+// ALEXANDER: 21_Oct Dithers to 4x4x4 RGB-levels (Levels, not bits), i.e. 64 colors
+void BayerDither_4_4_4_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+{
+	static int Init=TRUE;
+	unsigned char PixelComponentR;
+	unsigned char PixelComponentG;
+	unsigned char PixelComponentB;
+    UBYTE Col;
+
+    if(Init)
+    {
+    	printf("using %s()...\n",__func__);
+    	Init=FALSE;
+    }
+
+	PixelComponentR=makeDitherBayerRgbnLevels(Bitmap[0][zip],x,y,4);  // 4 Levels Red
+	PixelComponentG=makeDitherBayerRgbnLevels(Bitmap[1][zip],x,y,4);  // 4 Levels Green
+	PixelComponentB=makeDitherBayerRgbnLevels(Bitmap[2][zip],x,y,4);  // 4 Levels Blue
+
+	// 2 Bits per RGB component
+	// We have 64 RGB-Colors. Convert that value to pen-Number 0...63
+
+	Col= 16*PixelComponentR +
+	      4*PixelComponentG +
+		    PixelComponentB;
+
+	Col=0+Col; // no Pens are used by the original program, dither colors start with offset 0
+
+	//KPrintF("0x%08lx\n",Col);
+
+	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
+}
+
+
+// ALEXANDER: 21_Oct Dithers to 5x5x5 RGB-levels (Levels, not bits), i.e. 125 colors
+void BayerDither_5_5_5_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+{
+	static int Init=TRUE;
+	unsigned char PixelComponentR;
+	unsigned char PixelComponentG;
+	unsigned char PixelComponentB;
+    UBYTE Col;
+
+    if(Init)
+    {
+    	printf("using %s()...\n",__func__);
+    	Init=FALSE;
+    }
+
+	PixelComponentR=makeDitherBayerRgbnLevels(Bitmap[0][zip],x,y,5);  // 5 Levels Red
+	PixelComponentG=makeDitherBayerRgbnLevels(Bitmap[1][zip],x,y,5);  // 5 Levels Green
+	PixelComponentB=makeDitherBayerRgbnLevels(Bitmap[2][zip],x,y,5);  // 5 Levels Blue
+
+	// 3 Bits per RGB component (for 5 levels, 3 Bits are needed. 3 values not used
+	// We have 125 RGB-Colors. Convert that value to pen-Number 3...127
+
+	Col= 25*PixelComponentR +
+	      5*PixelComponentG +
+		    PixelComponentB;
+
+	Col=3+Col; // Pens 0.1 are used by the original program, dither colors start with offset 16
+
+	//KPrintF("0x%08lx\n",Col);
+
+	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
+}
+
+// ALEXANDER: 21_Oct Dithers to 6x6x6 RGB-levels (Levels, not bits), i.e. 216 colors
+void BayerDither_6_6_6_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
+{
+	static int Init=TRUE;
+	unsigned char PixelComponentR;
+	unsigned char PixelComponentG;
+	unsigned char PixelComponentB;
+    UBYTE Col;
+
+    if(Init)
+    {
+    	printf("using %s()...\n",__func__);
+    	Init=FALSE;
+    }
+
+	PixelComponentR=makeDitherBayerRgbnLevels(Bitmap[0][zip],x,y,6);  // 6 Levels Red
+	PixelComponentG=makeDitherBayerRgbnLevels(Bitmap[1][zip],x,y,6);  // 6 Levels Green
+	PixelComponentB=makeDitherBayerRgbnLevels(Bitmap[2][zip],x,y,6);  // 6 Levels Blue
+
+	// 3 Bits per RGB component (for 6 levels, 3 Bits are needed. 2 values not used
+	// We have 216 RGB-Colors. Convert that value to pen-Number 16 + 0...215
+
+	Col= 36*PixelComponentR +
+	      6*PixelComponentG +
+		    PixelComponentB;
+
+	Col=16+Col; // Pens 0...15 are used by the original program, dither colors start with offset 16
+
+	//KPrintF("0x%08lx\n",Col);
+
+	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
+}
 
 // fills 256 entries color table with 16 original WCS colors 0-15 and 128 Dither colors 128-255 format "232"
 void fill256ColorsPalette128(USHORT *ColorTable256, USHORT *ColorTable16)
@@ -289,53 +342,6 @@ double FloatCol;
 
 } /* PixelPlot */
 
-// RGB-Test
-//void ScreenPixelPlotNew(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
-//{
-//#ifndef __AROS__
-//	if(P96Base)
-//	{
-//		if(p96GetBitMapAttr(win->RPort->BitMap, P96BMA_ISP96))
-//		{
-//			if(p96GetBitMapAttr(win->RPort->BitMap, P96BMA_BITSPERPIXEL)>=15)
-//			{
-//				p96WritePixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
-//			}
-//			else
-//			{
-//				ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
-//			}
-//		}
-//		else
-//		{
-//			ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
-//		}
-//	}
-//	else
-//#endif
-//	if(CyberGfxBase)
-//	{
-//		if(GetCyberMapAttr(win->RPort->BitMap,CYBRMATTR_ISCYBERGFX))
-//		{
-//			if(GetCyberMapAttr(win->RPort->BitMap, CYBRMATTR_DEPTH)>=15)
-//			{
-//				WriteRGBPixel(win->RPort, x, y,(Bitmap[0][zip]<<16) + (Bitmap[1][zip]<<8) + Bitmap[2][zip]);
-//			}
-//			else
-//			{
-//				ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
-//			}
-//		}
-//		else
-//		{
-//			ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
-//		}
-//	}
-//	else
-//	{
-//		ScreenPixelPlotClassic(win, Bitmap, x, y, zip);  // the old way
-//	}
-//}
 
 /***********************************************************************/
 void getGfxInformation(void)
@@ -419,27 +425,41 @@ void setScreenPixelPlotFnct(struct Settings settings)
 			{
 				case 4:
 				{
-					printf("ScreenPixelPlotDither8\n");
-					ScreenPixelPlot=BayerDither8ColorsScreenPixelPlot; //dither 111 (8 colors in upper half of 16 color color table)
-					LoadRGB4(&WCSScrn->ViewPort, &AltDither8Colors[0], 16);
+					Make_N_Levels_Palette4(Alt256Colors,2,AltColors);  // prepare Color Table  for 4-Bit-Screens 2x2x2 leves = 8 colors // ALEXANDER
+					ScreenPixelPlot=BayerDither_2_2_2_ScreenPixelPlot; //dither 222 (8 colors 8...15), original color 0..7 unchanged
+					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 					SetRast(RenderWind0->RPort, 8); // 8=white
 					break;
 				}
+
 				case 5:
+				{
+					Make_N_Levels_Palette4(Alt256Colors,3,AltColors);  // prepare Color Table  for 5-Bit-Screens 3x3x3 leves = 27 colors // ALEXANDER
+					ScreenPixelPlot=BayerDither_3_3_3_ScreenPixelPlot; //dither 333 (27 colors 5...31), original color 0..4 unchanged
+					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
+					SetRast(RenderWind0->RPort, 8); // 8=white
+					break;
+				}
 				case 6:
+				{
+					Make_N_Levels_Palette4(Alt256Colors,4,AltColors);  // // prepare Color Table  for 6-Bit-Screens 4x4x4 leves = 64 colors // ALEXANDER
+					ScreenPixelPlot=BayerDither_4_4_4_ScreenPixelPlot; //dither 444 (64 colors 0...63), no original colors kept
+					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
+					SetRast(RenderWind0->RPort, 8); // 8=white
+					break;
+				}
 				case 7:
 				{
-					printf("ScreenPixelPlotDither16\n");
-					fill256ColorsPalette32(Alt256Colors, AltColors);  // prepare Color Table  for 32-Color-Screens
-					ScreenPixelPlot=BayerDither16ColorsScreenPixelPlot; //dither 111 (16 colors in upper half of 32 color color table)
-					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 32);
+					Make_N_Levels_Palette4(Alt256Colors,5,AltColors);  // // prepare Color Table  for 7-Bit-Screens 5x5x5 leves = 125 colors // ALEXANDER
+					ScreenPixelPlot=BayerDither_5_5_5_ScreenPixelPlot; //dither 555 (125 colors 3...127) original color 0..2 unchanged
+					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 					SetRast(RenderWind0->RPort, 8); // 8=white
 					break;
 				}
 				case 8:
 				{
-					printf("Alexander: case WCSScrn->RastPort.BitMap->Depth=%d\n",WCSScrn->RastPort.BitMap->Depth);
-					fill256ColorsPalette128(Alt256Colors, AltColors);  // prepare Color Table  for 8-Bit-Screens
+					KPrintF("Alexander: case WCSScrn->RastPort.BitMap->Depth=%ld\n",WCSScrn->RastPort.BitMap->Depth);
+					Make_N_Levels_Palette4(Alt256Colors,6,AltColors);  // // prepare Color Table  for 8-Bit-Screens 6x6x6 leves = 216 colors // ALEXANDER
                     #ifndef __AROS__
 					if(P96Base)
 					{
@@ -456,8 +476,9 @@ void setScreenPixelPlotFnct(struct Settings settings)
 
 							if(BitsPerPixel==8)  // 8-Bit P96 screen
 							{
-								printf("ScreenPixelPlotP96Dither256\n");
-								ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
+								printf("BayerDither_6_6_6_ScreenPixelPlot\n");
+								//ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
+								ScreenPixelPlot=BayerDither_6_6_6_ScreenPixelPlot;
 								LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 								SetRast(RenderWind0->RPort, 8); // 8=white
 							}
@@ -475,9 +496,14 @@ void setScreenPixelPlotFnct(struct Settings settings)
         				{
         					printf("Alexander: Amiga 256 Color Screen\n");
         					printf("ScreenPixelPlotDither256\n");
-        					ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot; //dither 232 (128 colors in upper half of 256 color color table)
-        					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
+        					AF_DEBUG("default: setze BayerDither_6_6_6_ScreenPixelPlot()\n");
+        					//ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot; //dither 232 (128 colors in upper half of 256 color color table)
+        					ScreenPixelPlot=BayerDither_6_6_6_ScreenPixelPlot;
+        					AF_DEBUG("default: BayerDither_6_6_6_ScreenPixelPlot() gesetzt");
+        					AF_DEBUG("ScreenPixelPlotDither256 gesetzt\n");
+        					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);  // ALEXANDER
         					SetRast(RenderWind0->RPort, 8); // 8=white
+        					AF_DEBUG("LoadRGB4() und SetRast() aufgerufen.\n");
         				}
 					}
 					else
@@ -496,8 +522,9 @@ void setScreenPixelPlotFnct(struct Settings settings)
 
 							if(BitsPerPixel==8)  // 8-Bit CyberGraphX screen
 							{
-								printf("ScreenPixelPlotCgfxDither256\n");
-								ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
+								printf("BayerDither_6_6_6_ScreenPixelPlot\n");
+								//ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
+								ScreenPixelPlot=BayerDither_6_6_6_ScreenPixelPlot;
 								LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 								SetRast(RenderWind0->RPort, 8); // 8=white
 							}
@@ -513,7 +540,8 @@ void setScreenPixelPlotFnct(struct Settings settings)
 						{
 							printf("Alexander: Amiga 256 Color Screen\n");
 							printf("ScreenPixelPlotP96Dither256\n");
-							ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
+							//ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
+							ScreenPixelPlot=BayerDither_6_6_6_ScreenPixelPlot;
 							LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 							SetRast(RenderWind0->RPort, 8); // 8=white
 						}

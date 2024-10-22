@@ -22,7 +22,7 @@
 #define AF_DEBUG_ld_ld(s,x,y)      {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %ld %ld\n",    __FILE__,__func__,__LINE__,s,x,y);} }
 #define AF_DEBUG_ld_ld_ld(s,x,y,z) {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %ld %ld %ld\n",__FILE__,__func__,__LINE__,s,x,y,z);} }
 #define AF_DEBUG_lu(s,x)           {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %lu\n",        __FILE__,__func__,__LINE__,s,x);} }
-#define AF_DEBUG_lx(s,x)           {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %lx\n",        __FILE__,__func__,__LINE__,s,x);} }
+#define AF_DEBUG_lx(s,x)           {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %x\n",        __FILE__,__func__,__LINE__,s,x);} }
 #define AF_DEBUG_s(s,x)            {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %s\n",         __FILE__,__func__,__LINE__,s,x);} }
 #define AF_DEBUG_float_hex(s,x)    {static int i; if(i++<DEB_MAX) \
         { \

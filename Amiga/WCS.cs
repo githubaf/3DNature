@@ -2473,8 +2473,7 @@ WCS: Rozli¹ení obrazovky
 ;
 MSG_AGUI_INORDERTORESETTHESCREENMODEWCSWILLHAVETOCLOSEANDREOPEN
 In order to reset the screen mode WCS will have to close and re-open. Any work in progress should be saved before invoking this command.\n Do you wish to proceed now?
-Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt \
-ausführen?
+Um den Bildschirm zurückzusetzen muss WCS geschlossen und neu geöffnet werden. Der aktuelle Arbeitsstand sollte gespeichert worden sein, bevor dieser Befehl ausgeführt wird.\n Bildschirmreset jetzt ausführen?
 Per ripristinare la modalità schermo, WCS dovrà essere chiuso e riaperto. Qualsiasi lavoro in corso deve essere salvato prima di invocare questo comando.\n Volete procedere ora?
 
 Om de schermmodus te resetten zal WCS moeten worden gesloten en heropend. Werk in uitvoering moet worden opgeslagen voordat deze opdracht wordt uitgevoerd.\n Wilt u nu doorgaan?
@@ -6545,12 +6544,10 @@ Chyba ètení dat ze souboru výchozích objektù!\nOperace bude ukonèena.
 ;
 MSG_DB_NUMBEROFOBJECTSINTHEMASTEROBJECTFILEDOESNOTMATCHTHENUMBE
 Number of Objects in the Master Object file does not match the number of Objects in the current Database! Master Object file cannot be used. Objects will be loaded from individual files
-Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus \
-einzelnen Dateien geladen
+Die Anzahl der Objekte in der Master-Objektdatei stimmt nicht mit der Anzahl der Objekte in der aktuellen Datenbank überein! Die Master-Objektdatei kann nicht verwendet werden. Die Objekte werden aus einzelnen Dateien geladen
 
 
-Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van \
-individuele bestanden
+Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van individuele bestanden
 
 
 
@@ -10365,7 +10362,7 @@ Kan niet wisselen met de eerste 12 ecosystemen!\nOperatie afgebroken.
 
 
 
-Nie mo¿na zemieniaæ z pierwszymi 12 ekosystemami!\nOperacja przerwana.
+Nie mo¿na zamieniaæ z pierwszymi 12 ekosystemami!\nOperacja przerwana.
 
 ;
 MSG_EDECOGUI_SEALEVEL
@@ -10546,7 +10543,7 @@ MSG_EDMOGUI_LOW
 
 
 
-
+\33cNisk
 
 ;
 MSG_EDMOGUI_MED
@@ -10558,7 +10555,7 @@ MSG_EDMOGUI_MED
 
 
 
-
+\33c¦red
 
 ;
 MSG_EDMOGUI_HIGH
@@ -10570,7 +10567,7 @@ MSG_EDMOGUI_HIGH
 
 
 
-
+\33cWys
 
 ;
 MSG_EDMOGUI_KEYFRAMES
@@ -10594,7 +10591,7 @@ MSG_EDMOGUI_PREV
 
 
 
-
+\33cPoprzedni
 
 ;
 MSG_EDMOGUI_FRAME
@@ -10606,7 +10603,7 @@ Frame
 
 
 
-
+Klatka
 
 ;
 MSG_EDMOGUI_NEXT
@@ -10618,7 +10615,7 @@ MSG_EDMOGUI_NEXT
 
 
 
-
+\33cNastêpny
 
 ;
 MSG_EDMOGUI_MAKEKEY
@@ -10630,7 +10627,7 @@ MSG_EDMOGUI_MAKEKEY
 
 
 
-
+\33cUtwórz Klucz
 
 ;
 MSG_EDMOGUI_GROUP
@@ -10642,7 +10639,7 @@ MSG_EDMOGUI_GROUP
 
 
 
-
+\33cGrupa
 
 ;
 MSG_EDMOGUI_UPDATE
@@ -10654,7 +10651,7 @@ MSG_EDMOGUI_UPDATE
 
 
 
-
+\33cAktualizuj
 
 ;
 MSG_EDMOGUI_ALL0
@@ -10678,7 +10675,7 @@ MSG_EDMOGUI_DELETE
 
 
 
-
+\33cUsuñ
 
 ;
 MSG_EDMOGUI_DELETEALL
@@ -10690,7 +10687,7 @@ MSG_EDMOGUI_DELETEALL
 
 
 
-
+\33cUsuñ Wszystko
 
 ;
 MSG_EDMOGUI_TIMELINES
@@ -10702,7 +10699,7 @@ MSG_EDMOGUI_TIMELINES
 
 
 
-
+\33cLinie Czasu\x20
 
 ;
 MSG_EDMOGUI_BANK
@@ -10714,7 +10711,7 @@ MSG_EDMOGUI_BANK
 
 
 
-
+\33cBerzeg\x20
 
 ;
 MSG_EDMOGUI_SCALE
@@ -10726,7 +10723,7 @@ MSG_EDMOGUI_SCALE
 
 
 
-
+\33cSkala\x20
 
 ;
 MSG_EDMOGUI_SUN
@@ -10738,7 +10735,7 @@ MSG_EDMOGUI_SUN
 
 
 
-
+\33cS³oñce\x20
 
 ;
 MSG_EDMOGUI_KEEP
@@ -10750,7 +10747,7 @@ MSG_EDMOGUI_KEEP
 
 
 
-
+\33cZachowaj
 
 ;
 MSG_EDMOGUI_LISTWIN
@@ -10762,7 +10759,7 @@ MSG_EDMOGUI_LISTWIN
 
 
 
-
+\33cLista Okien\x20
 
 ;
 MSG_EDMOGUI_CAMVIEW
@@ -10774,7 +10771,7 @@ MSG_EDMOGUI_CAMVIEW
 
 
 
-
+\33cWidok Kamery\x20
 
 ;
 MSG_EDMOGUI_MOTIONEDITORAUTOCENTER
@@ -10786,7 +10783,7 @@ Bewegingseditor: Centreren
 
 
 
-
+Edytor Ruchu: Centruj
 
 ;
 MSG_EDMOGUI_INTERACTIVEMODULEMUSTBEOPENBEFOREAUTOCENTERING
@@ -10798,7 +10795,7 @@ Interactieve module moet geopend zijn voor het centreren!
 
 
 
-
+Modu³ interaktywny musi zostaæ otwarty przed wycentrowaniem!
 
 ;
 MSG_EDMOGUI_PARAMETERSMODULEMOTION
@@ -10810,7 +10807,7 @@ Parameter Module: Beweging
 
 
 
-
+Modu³ Parametrów: Ruch
 
 ;
 MSG_EDMOGUI_MAKEKEYFRAMESFORFOCUSPARAMETERSALSO
@@ -10822,7 +10819,7 @@ Ook key frames maken voor Focus Parameters?
 
 
 
-
+Utworzyæ klatki kluczowe tak¿e dla Focusu?
 
 ;
 MSG_EDMOGUI_MAKEKEYFRAMESFORCAMERAPARAMETERSALSO
@@ -10834,7 +10831,7 @@ Ook key frames maken voor Camera Parameters?
 
 
 
-
+Utworzyæ klatki kluczowe tka¿e dla parametrów kamery?
 
 ;
 MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY
@@ -10846,7 +10843,7 @@ Parameter Module: Key maken
 
 
 
-
+Modu³ Parametrów: Tworzenie Klucza
 
 ;
 MSG_EDMOGUI_DRAW
@@ -10858,7 +10855,7 @@ MSG_EDMOGUI_DRAW
 
 
 
-
+\0334Rysuj
 
 ;
 MSG_EDMOGUI_BOUNDS
@@ -10870,7 +10867,7 @@ MSG_EDMOGUI_BOUNDS
 
 
 
-
+\0334Powi±zania
 
 ;
 MSG_EDMOGUI_RADIAL
@@ -10882,7 +10879,7 @@ Radiaal
 
 
 
-
+Promieñ
 
 ;
 MSG_EDMOGUI_RECTANG
@@ -10894,7 +10891,7 @@ Vierkant
 
 
 
-
+Prostok±t
 
 ;
 MSG_EDMOGUI_SOLID
@@ -10906,7 +10903,7 @@ Gevuld
 
 
 
-
+Wype³nienie
 
 ;
 MSG_EDMOGUI_WIRE
@@ -10918,7 +10915,7 @@ Draad
 
 
 
-
+Kontur
 
 ;
 MSG_EDMOGUI_CAMVC
@@ -10942,7 +10939,7 @@ MSG_EDMOGUI_TERRAIN
 
 
 
-
+\33cTeren
 
 ;
 MSG_EDMOGUI_ELSHADE
@@ -10954,7 +10951,7 @@ MSG_EDMOGUI_ELSHADE
 
 
 
-
+\33cCieniowanie
 
 ;
 MSG_EDMOGUI_SUNSHADE
@@ -10966,7 +10963,7 @@ MSG_EDMOGUI_SUNSHADE
 
 
 
-
+\33cCienie
 
 ;
 MSG_EDMOGUI_ECOSYS
@@ -10978,7 +10975,7 @@ MSG_EDMOGUI_ECOSYS
 
 
 
-
+\33cEkosystem\x20
 
 ;
 MSG_EDMOGUI_DIAG
@@ -11002,7 +10999,7 @@ MSG_EDMOGUI_VECTORS
 
 
 
-
+\33cWektory
 
 ;
 MSG_EDMOGUI_ANIM
@@ -11014,7 +11011,7 @@ MSG_EDMOGUI_ANIM
 
 
 
-
+\33cAnimacje\x20
 
 ;
 MSG_EDMOGUI_COMPASS
@@ -11026,7 +11023,7 @@ MSG_EDMOGUI_COMPASS
 
 
 
-
+\33cKompas
 
 ;
 MSG_EDMOGUI_LAND
@@ -11038,7 +11035,7 @@ MSG_EDMOGUI_LAND
 
 
 
-
+\33cGrunt
 
 ;
 MSG_EDMOGUI_TARGET
@@ -11050,7 +11047,7 @@ MSG_EDMOGUI_TARGET
 
 
 
-
+\33cCel
 
 ;
 MSG_EDMOGUI_BOX
@@ -11074,7 +11071,7 @@ MSG_EDMOGUI_PROFILE
 
 
 
-
+\33cProfil
 
 ;
 MSG_EDMOGUI_PROFDENS
@@ -11098,7 +11095,7 @@ MSG_EDMOGUI_AUTODRAW
 
 
 
-
+\33cAutomatyczne Rysowanie
 
 ;
 MSG_EDMOGUI_GRID
@@ -11110,7 +11107,7 @@ MSG_EDMOGUI_GRID
 
 
 
-
+\33c\0334Siatka
 
 ;
 MSG_EDMOGUI_MOVEMENT
@@ -11122,7 +11119,7 @@ MSG_EDMOGUI_MOVEMENT
 
 
 
-
+\33c\0334Ruch
 
 ;
 MSG_EDMOGUI_FRAME_COLOR
@@ -11134,7 +11131,7 @@ MSG_EDMOGUI_FRAME_COLOR
 
 
 
-
+\33c\0334Klatka
 
 ;
 MSG_EDMOGUI_CENTERFOC
@@ -11218,7 +11215,7 @@ Berekende hoogte is groter dan de huidige schermhoogte. Wilt u de schermhoogte g
 
 
 
-
+Wyliczona wysoko¶æ jest wiêksza ni¿ aktualna wysoko¶æ ekranu. Czy chcesz u¿yæ wysoko¶ci ekranu?
 
 ;
 ;
@@ -11803,8 +11800,7 @@ Error writing to Parameter file!\nThe output file has been modified and may no l
 
 
 
-Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla \
-opnieuw op.
+Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla opnieuw op.
 
 
 
@@ -17007,12 +17003,10 @@ Fout bij opslaan van de LW-scene.\nAls een bestand is gemaakt, is het niet compl
 ;
 MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA
 The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created.
-Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt \
-dargestellt.
+Die Ausgabebildgröße entspricht nicht der Standardgröße von LightWave-Bildern. Der Zoomfaktor und die Bildabmessungen werden in der soeben erstellten Szenendatei möglicherweise nicht korrekt dargestellt.
 
 
-De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte \
-scènebestand.
+De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte scènebestand.
 
 
 
@@ -20305,8 +20299,7 @@ At least one end control point for the line segment just drawn could not be foun
 
 
 
-Minstens één eindcontrolepunt voor het zojuist getekende lijnsegment kon niet worden gevonden!\nWilt u de huidige en minimale schuifregelaarhoogten voor dit segment gebruiken of de bewerking \
-annuleren?
+Minstens één eindcontrolepunt voor het zojuist getekende lijnsegment kon niet worden gevonden!\nWilt u de huidige en minimale schuifregelaarhoogten voor dit segment gebruiken of de bewerking annuleren?
 
 
 
@@ -25364,8 +25357,7 @@ Kaarweergave: Raster DEM
 ;
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOLA
 The ratio of vertical to horizontal map dimensions is too large for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
-Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu groß für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne \
-Gradientenschätzung fortfahren?
+Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu groß für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne Gradientenschätzung fortfahren?
 
 
 De verhouding van verticale tot horizontale kaartdimensies is te groot voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
@@ -25377,8 +25369,7 @@ De verhouding van verticale tot horizontale kaartdimensies is te groot voor grad
 ;
 MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM
 The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
-Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu klein für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne \
-Gradientenschätzung fortfahren?
+Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu klein für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne Gradientenschätzung fortfahren?
 
 
 De verhouding van verticale tot horizontale kaartdimensies is te klein voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
@@ -25389,14 +25380,11 @@ De verhouding van verticale tot horizontale kaartdimensies is te klein voor grad
 
 ;
 MSG_NNCRUNCH_THERATIOOFWIDTHTOLENGTHOFTHISGRIDDEDREGIONMAYBETOO
-The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now \
-with the present dimensions?
-Das Verhältnis von Breite zu Länge dieses Gitternetzbereichs könnte zu extrem für eine gute Interpolation sein.\nEs könnte eine gute Idee sein, die Blockproportionen zu ändern oder die x- oder \
-y-Koordinate neu zu skalieren.\nMöchten Sie jetzt mit den aktuellen Abmessungen fortfahren?
+The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now with the present dimensions?
+Das Verhältnis von Breite zu Länge dieses Gitternetzbereichs könnte zu extrem für eine gute Interpolation sein.\nEs könnte eine gute Idee sein, die Blockproportionen zu ändern oder die x- oder y-Koordinate neu zu skalieren.\nMöchten Sie jetzt mit den aktuellen Abmessungen fortfahren?
 
 
-De verhouding van breedte tot lengte van dit gerasterde gebied kan te extreem zijn voor goede interpolatie.\nHet veranderen van de blokverhoudingen, of het herschalen van de x- of y-coördinaat kan een \
-goed idee zijn.\nWilt u nu doorgaan met de huidige afmetingen?
+De verhouding van breedte tot lengte van dit gerasterde gebied kan te extreem zijn voor goede interpolatie.\nHet veranderen van de blokverhoudingen, of het herschalen van de x- of y-coördinaat kan een goed idee zijn.\nWilt u nu doorgaan met de huidige afmetingen?
 
 
 
