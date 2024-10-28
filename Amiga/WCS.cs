@@ -11240,7 +11240,7 @@ Key frames bestaan al voor de "Neiging" Parameter. Overschrijven?
 
 
 
-
+Klatka kluczowa dla parametrów 'Brzegu' ju¿ istnieje. Czy j± nadpisaæ?
 
 ;
 MSG_EDPAR_ENTERKEYFRAMEINTERVALORKFORCURRENTKEYFRAMES
@@ -11264,7 +11264,7 @@ Parameter Module: Export
 
 
 
-
+Modu³ Parametrów: Eksport
 
 ;
 MSG_EDPAR_ERRORCREATINGKEYFRAMEPERATIONTERMINATED
@@ -11276,7 +11276,7 @@ Fout bij maken van key frame!\nOperatie afgebroken.
 
 
 
-
+B³±d tworzenia Klatki Kluczowej!\nOperacja przerwana.
 
 ;
 MSG_EDPAR_NOCAMERAPATHLATLONKEYFRAMESPERATIONTERMINATED
@@ -11288,7 +11288,7 @@ Geen Camera Pad Lat/Long key Frames!\nOperatie afgebroken.
 
 
 
-
+¦cie¿ka kamery Wys/Szerj w klatkach kluczowych nie istnieje!\nOperacja przerwana.
 
 ;
 MSG_EDPAR_UNUSED
@@ -11300,7 +11300,7 @@ Ongebruikt
 
 
 
-
+Nieu¿yte
 
 ;
 MSG_EDPAR_LOADPARAMETERFILE
@@ -11324,7 +11324,7 @@ Versie < 1.0
 
 
 
-
+Wersja < 1.0
 
 ;
 MSG_EDPAR_PARAMETERMODULELOAD
@@ -11348,7 +11348,7 @@ Niet ondersteund Parameter bestandstype of versie!\nOperatie afgebroken.
 
 
 
-
+Plik parametrów jest w niewspiranym typie lub wersji!\nOperacja przerwana.
 
 ;
 MSG_EDPAR_THISISANOLDV1FORMATFILEWOULDYOULIKETORESAVEITINTHENEW
@@ -11360,7 +11360,7 @@ Dit is een oud V1 formaat bestand! Wilt u het nu opslaan in het nieuwe formaat?
 
 
 
-
+To jest plik w starym formacie V1!Czy chesz teraz zapisaæ ten plik w nowym formacie?
 
 ;
 MSG_EDPAR_THEPARAMETERFILEFORMATHASBEENCHANGEDSLIGHTLYSINCETHIS
@@ -11420,7 +11420,7 @@ Ecosysteem item %s niet gevonden in dit bestand!\nOperatie afgebroken.
 
 
 
-
+Element  %s ekosystemu nie znaleziony w tym pliku!\nOperacja przerwana.
 
 ;
 MSG_EDPAR_ECOSYSTEMEDITORLOADCURRENT
@@ -11432,7 +11432,7 @@ Ecossysteem Editor: Huidige laden
 
 
 
-
+Edytor Ekosystemu: Wczytaj Aktualny
 
 ;
 MSG_EDPAR_MOTIONVERF
@@ -11504,7 +11504,7 @@ Water schuim
 
 
 
-
+Spienienie Wody
 
 ;
 MSG_EDPAR_BEACHSAND
@@ -11516,7 +11516,7 @@ Strand zand
 
 
 
-
+Pla¿a Piaszczysta
 
 ;
 MSG_EDPAR_BEACHROCK
@@ -11528,7 +11528,7 @@ Strand rots
 
 
 
-
+Pla¿a Kamienista
 
 ;
 MSG_EDPAR_STRATA1
@@ -11588,7 +11588,7 @@ Zon
 
 
 
-
+S³oñce
 
 ;
 MSG_EDPAR_MOON
@@ -11600,7 +11600,7 @@ Maan
 
 
 
-
+Ksiê¿yc
 
 ;
 MSG_EDPAR_CLOUDS
@@ -11612,7 +11612,7 @@ Wolken
 
 
 
-
+Chmury
 
 ;
 MSG_EDPAR_SAVEPARAMETERFILE

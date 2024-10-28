@@ -89,7 +89,7 @@ USHORT Alt256Colors[256];
 
 unsigned int makeDitherBayerRgbnLevels(unsigned char pixel, int x, int y, int Levels )
 {
-    int row = 0;
+    int row = y & 15;
     const int col = x & 15;   //  x % 16
 
     const int t     = BAYER_PATTERN_16X16[col][row];
@@ -160,7 +160,7 @@ void BayerDither_2_2_2_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 	      2*PixelComponentG +
 		    PixelComponentB;
 
-	Col=7+Col; // no Pens are used by the original program, dither colors start with offset 0
+	Col=8+Col; // no Pens are used by the original program, dither colors start with offset 0
 
 	//KPrintF("0x%08lx\n",Col);
 
@@ -269,6 +269,7 @@ void BayerDither_5_5_5_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
 }
 
+
 // ALEXANDER: 21_Oct Dithers to 6x6x6 RGB-levels (Levels, not bits), i.e. 216 colors
 void BayerDither_6_6_6_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
 {
@@ -300,6 +301,7 @@ void BayerDither_6_6_6_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 	//KPrintF("0x%08lx\n",Col);
 
 	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
+
 }
 
 // fills 256 entries color table with 16 original WCS colors 0-15 and 128 Dither colors 128-255 format "232"
@@ -458,7 +460,6 @@ void setScreenPixelPlotFnct(struct Settings settings)
 				}
 				case 8:
 				{
-					KPrintF("Alexander: case WCSScrn->RastPort.BitMap->Depth=%ld\n",WCSScrn->RastPort.BitMap->Depth);
 					Make_N_Levels_Palette4(Alt256Colors,6,AltColors);  // // prepare Color Table  for 8-Bit-Screens 6x6x6 leves = 216 colors // ALEXANDER
                     #ifndef __AROS__
 					if(P96Base)
