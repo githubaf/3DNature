@@ -68,6 +68,11 @@ USHORT AltDither8Colors[16]
 // Fuellen mit AltColors[16], dann 128-155 mit 7Bit Dithercolors fuellen
 USHORT Alt256Colors[256];
 
+
+// we shuffle the colors a bit to fit the dithercolortable better to the original 16 colors.This table translates the access
+// of the Plot-Functions to the sfuffled table
+USHORT DitherColorTranslationTable[256]={0};
+
 #include <intuition/intuition.h>
 
 
@@ -109,6 +114,7 @@ void Make_N_Levels_Palette4( USHORT *NewColorTable, unsigned int Levels, USHORT 
 	unsigned int i=0;
 	unsigned int r,g,b;
 	unsigned int Offset;
+	unsigned int LastColor;
 
 	memcpy(NewColorTable,OldTable16,16*sizeof(USHORT));  // copy old 16-Color table to begin of new color table
 
@@ -132,6 +138,26 @@ void Make_N_Levels_Palette4( USHORT *NewColorTable, unsigned int Levels, USHORT 
 //				KPrintF("Colors[%ld]=0x%08lx\n",i,NewColorTable[i+Offset]);
 				i++;
 			}
+	LastColor=Offset+i-1;
+
+	for (i=0;i<256;i++)
+	{
+		DitherColorTranslationTable[i]=i;   // initialise for 1:1 translation
+	}
+
+	// swap color 8 and last color (white)
+	{
+		USHORT Temp;
+		Temp=NewColorTable[8];
+		NewColorTable[8]=NewColorTable[LastColor];  // Color 8 should be white, Last color in new Colortable is white. Exchange them
+		NewColorTable[LastColor]=Temp;
+
+		// swap indices in translation table as well so that access to last color is translated to color 8 now
+		Temp=DitherColorTranslationTable[8];
+		DitherColorTranslationTable[8]=DitherColorTranslationTable[LastColor];  // Color 8 should be white, Last color in new Colortable is white. Exchange them
+		DitherColorTranslationTable[LastColor]=Temp;
+	}
+
 }
 
 // ALEXANDER: 21_Oct Dithers to 2x2x2 RGB-levels (Levels, not bits), i.e. 8 colors
@@ -161,6 +187,7 @@ void BayerDither_2_2_2_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 		    PixelComponentB;
 
 	Col=8+Col; // no Pens are used by the original program, dither colors start with offset 0
+	Col=DitherColorTranslationTable[Col];  // and translate in case Colortable has been shuffled to match original 16 colors better
 
 	//KPrintF("0x%08lx\n",Col);
 
@@ -196,6 +223,7 @@ void BayerDither_3_3_3_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 		    PixelComponentB;
 
 	Col=5+Col; // no Pens are used by the original program, dither colors start with offset 0
+	Col=DitherColorTranslationTable[Col];  // and translate in case Colortable has been shuffled to match original 16 colors better
 
 	//KPrintF("0x%08lx\n",Col);
 
@@ -229,6 +257,7 @@ void BayerDither_4_4_4_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 		    PixelComponentB;
 
 	Col=0+Col; // no Pens are used by the original program, dither colors start with offset 0
+	Col=DitherColorTranslationTable[Col];  // and translate in case Colortable has been shuffled to match original 16 colors better
 
 	//KPrintF("0x%08lx\n",Col);
 
@@ -263,6 +292,7 @@ void BayerDither_5_5_5_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 		    PixelComponentB;
 
 	Col=3+Col; // Pens 0.1 are used by the original program, dither colors start with offset 16
+	Col=DitherColorTranslationTable[Col];  // and translate in case Colortable has been shuffled to match original 16 colors better
 
 	//KPrintF("0x%08lx\n",Col);
 
@@ -297,6 +327,7 @@ void BayerDither_6_6_6_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 		    PixelComponentB;
 
 	Col=16+Col; // Pens 0...15 are used by the original program, dither colors start with offset 16
+	Col=DitherColorTranslationTable[Col];  // and translate in case Colortable has been shuffled to match original 16 colors better
 
 	//KPrintF("0x%08lx\n",Col);
 
