@@ -3931,3 +3931,85 @@ Nochnmal Dither-Render Window
  64 Farben          4*4*4 =  64 
 128 Farben          5*5*5 = 125
 256 Farben          6*6*6 = 216
+
+29.10.2024
+----------
+Finden guter Farbtabellen fuer die Dithermodes:
+
+cat LoadRGB4.c
+
+// -------------------------------------------------------------------
+
+/*
+
+m68k-amigaos-gcc LoadRGB4.c -o LoadRGB4 -noixemul
+
+Mit Farbtabelle in laufendem WCS spielen, um passende Farbzusammenstellung fuer die Colored-Render-Display Dithermodes zu finden.
+AF, 29.Okt.2024
+in WCS:
+   printf("WCSScrn->ViewPort = 0x%08x\n",&WCSScrn->ViewPort);
+   oder mit Scout ermitteln
+
+colortable.txt 1 RGB-Wert in Hex pro Zeile
+
+89b
+000
+0f0
+0ff
+f00
+f0f   Die ersten 8 eigenen Farben vom 2x2x2 Dithermode, ueberschreiben die Originalfarben, anpassen
+ff0
+fff
+fff
+ddd
+bbb
+999   Die anderen 8 Farben sind die originalen Grauwerte vom WCS. Moeglichst erhalten.
+777
+555
+333
+111
+
+*/
+
+
+#include <stdio.h>
+#include <intuition/intuition.h>
+#include <proto/graphics.h>
+
+
+int main(int argc, char **argv)
+{
+   FILE *ColorTableFile;
+   struct ViewPort *Vp;
+   USHORT ColorTable[256];
+   int i;
+
+   if(argc!=2)
+   {
+      printf("Usage: %s Viewport-Adddress\n",argv[0]);
+      return 1;
+   }
+
+   sscanf(argv[1],"%x",&Vp);
+
+   ColorTableFile=fopen("colortable.txt","rb");
+   if(!ColorTableFile)
+   {
+      printf("unable to open colortable.txt\n");
+      return 2;
+   }
+
+   for(i=0;i<16;i++)   // up to 256
+   {
+      fscanf(ColorTableFile,"%hx",&ColorTable[i]);
+      printf("%3x\n",ColorTable[i]);
+   }
+
+   fclose(ColorTableFile);
+
+   LoadRGB4(Vp, ColorTable, 256);
+
+   return 0;
+}
+
+// -------------------------------------------------------------------
