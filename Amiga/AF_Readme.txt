@@ -4013,3 +4013,34 @@ int main(int argc, char **argv)
 }
 
 // -------------------------------------------------------------------
+
+4.Now.2024
+-----------
+Der Mauspfeil hat im Moment falsche Farben in den Dither-Render- Modi
+http://amigadev.elowar.com/read/ADCD_2.1/Hardware_Manual_guide/node00B7.html
+
+                 00  Unused
+                 01  Unused
+                       ·
+                       ·
+                       ·         _
+                 16  Unused   00  |
+                 17  Color 1  01  |
+                 18  Color 2  10  |-- Sprites 0 and 1
+                 19  Color 3  11 _|
+                 20  Unused   00  |
+                 21  Color 1  01  |
+                 22  Color 2  10  |-- Sprites 2 and 3
+                 23  Color 3  11 _|
+                 24  Unused   00  |
+                 25  Color 1  01  |
+                 26  Color 2  10  |-- Sprites 4 and 5
+                 27  Color 3  11 _|
+                 28  Unused   00  |
+                 29  Color 1  01  |
+                 30  Color 2  10  |-- Sprites 6 and 7
+                 31  Color 3  11 _|
+
+
+               Figure 4-6: Color Register Assignments
+

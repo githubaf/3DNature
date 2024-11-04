@@ -236,7 +236,7 @@ unsigned int makeDitherBayerRgbnLevels(unsigned char pixel, int x, int y, int Le
 
 
 // ALEXANDER: 21_Oct Make Color table for 2x2x2 (8 colors) ... 6x6x6 Levels (216 colors) RGB
-void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned int Offset, USHORT *OldTable16)
+void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned int AvailColors, unsigned int Offset, USHORT *OldTable16)
 {
 	unsigned int i=0;
 	unsigned int r,g,b;
@@ -258,7 +258,7 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 				NewColorTable[i+Offset]= ((r*(255/(Levels-1))) /16)   << 8 |
 						                 ((g*(255/(Levels-1))) /16)   << 4 |
 						                  (b*(255/(Levels-1))  /16);
-//				KPrintF("Colors[%ld]=0x%03lx\n",i,NewColorTable[i+Offset]);
+				//KPrintF("Colors[%ld]=0x%03lx\n",i,NewColorTable[i+Offset]);
 				i++;
 			}
 //	LastColor=Offset+i-1;
@@ -315,6 +315,84 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 			};
 			memcpy(NewColorTable,TempTargetDitherColorTable,sizeof(TempTargetDitherColorTable));
 			memcpy(DitherColorTranslationTable,TempDitherColorTranslationTable,sizeof(TempDitherColorTranslationTable));
+			break;
+		}
+		case 3:
+		{
+			if(AvailColors<64)
+			{
+				USHORT TempTargetDitherColorTable[]={
+						0x89b,    //  0 soll: gray-blue
+						0x000,    //  1       black
+						0xf0f,    //  2       almost white
+						0xf00,    //  3       red
+						0x0ff,    //  4       dark blue
+						0x0f0,    //  5       green
+						0x70f,    //  6       med blue
+						0xff0,    //  7       yellow
+
+						0xfff,    //  8  gray scale
+						0xddd,    //  9
+						0xbbb,    // 10
+						0x999,    // 11
+						0x777,    // 12
+						0x555,    // 13
+						0x00f,    // 14 original 333
+						0x007,    // 15 original 111
+
+						0x070,    // 16
+						0x077,    // 17
+						0x07f,    // 18
+						0x0f7,    // 19
+						0x700,    // 20
+						0x707,    // 21
+						0x770,    // 22
+						0x77f,    // 23
+						0x7f0,    // 24
+						0x7f7,    // 25
+						0x7ff,    // 26
+						0xf07,    // 27
+						0xf70,    // 28
+						0xf77,    // 29
+						0xf7f,    // 30
+						0xff7,    // 31
+				};
+
+				USHORT TempDitherColorTranslationTable[]={
+						1,   //  0  must point to 000
+						15,   //  1                007
+						14,   //  2                00f
+						16,   //  3                070
+						17,   //  4                077
+						10,   //  5                07f
+						5,   //  6                0f0
+						19,   //  7                0f7
+
+						4,   //  8                0ff
+						20,   //  9                700
+						21,   // 10                707
+						6,   // 11                70f
+						22,   // 12                770
+						12,   // 13                777
+						23,   // 14                77f
+						24,   // 15                7f0
+						25,   // 16                7f7
+						26,	  // 17				   7ff
+						3,   // 18                f00
+						27,   // 19                f07
+						2,   // 20                f0f
+						28,   // 21                f70
+						29,   // 22                f77
+						30,   // 23                f7f
+						7,   // 24                ff0
+						31,   // 25                ff7
+						8    // 26                fff
+				};
+
+
+				memcpy(NewColorTable,TempTargetDitherColorTable,sizeof(TempTargetDitherColorTable));
+				memcpy(DitherColorTranslationTable,TempDitherColorTranslationTable,sizeof(TempDitherColorTranslationTable));
+			}
 			break;
 		}
 
@@ -622,7 +700,7 @@ void setScreenPixelPlotFnct(struct Settings settings)
 			{
 				case 4:
 				{
-					Make_N_Levels_Palette4(Alt256Colors,2,0,AltColors);  // prepare Color Table  for 4-Bit-Screens 2x2x2 leves = 8 colors // ALEXANDER
+					Make_N_Levels_Palette4(Alt256Colors,2,8,0,AltColors);  // prepare Color Table  for 4-Bit-Screens 2x2x2 leves = 8 colors // ALEXANDER
 					ScreenPixelPlot=BayerDither_2_2_2_ScreenPixelPlot; //dither 222 (8 colors 0...7), original gray colors 8..15 unchanged
 					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 					SetRast(RenderWind0->RPort, 8); // 8=white
@@ -631,7 +709,7 @@ void setScreenPixelPlotFnct(struct Settings settings)
 
 				case 5:
 				{
-					Make_N_Levels_Palette4(Alt256Colors,3,0,AltColors);  // prepare Color Table  for 5-Bit-Screens 3x3x3 leves = 27 colors // ALEXANDER
+					Make_N_Levels_Palette4(Alt256Colors,3,32,0,AltColors);  // prepare Color Table  for 5-Bit-Screens 3x3x3 leves = 27 colors // ALEXANDER
 					ScreenPixelPlot=BayerDither_3_3_3_ScreenPixelPlot; //dither 333 (27 colors 5...31), original color 0..4 unchanged
 					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 					SetRast(RenderWind0->RPort, 8); // 8=white
@@ -639,7 +717,7 @@ void setScreenPixelPlotFnct(struct Settings settings)
 				}
 				case 6:
 				{
-					Make_N_Levels_Palette4(Alt256Colors,3,16,AltColors);  // // prepare Color Table  for 6-Bit-Screens 3x3x3 leves = 27 colors, keep original 16 colors unchanged // ALEXANDER
+					Make_N_Levels_Palette4(Alt256Colors,3,64,16,AltColors);  // // prepare Color Table  for 6-Bit-Screens 3x3x3 leves = 27 colors, keep original 16 colors unchanged // ALEXANDER
 					ScreenPixelPlot=BayerDither_3_3_3_ScreenPixelPlot; //dither 333 (64 colors 16...43), all original colors kept
 					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 					SetRast(RenderWind0->RPort, 8); // 8=white
@@ -647,7 +725,7 @@ void setScreenPixelPlotFnct(struct Settings settings)
 				}
 				case 7:
 				{
-					Make_N_Levels_Palette4(Alt256Colors,4,16,AltColors);  // // prepare Color Table  for 7-Bit-Screens 4x4x4 leves = 64 colors // ALEXANDER
+					Make_N_Levels_Palette4(Alt256Colors,4,128,16,AltColors);  // // prepare Color Table  for 7-Bit-Screens 4x4x4 leves = 64 colors // ALEXANDER
 					ScreenPixelPlot=BayerDither_4_4_4_ScreenPixelPlot; //dither 444 (125 colors) original color 0...16 unchanged
 					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 					SetRast(RenderWind0->RPort, 8); // 8=white
@@ -655,7 +733,7 @@ void setScreenPixelPlotFnct(struct Settings settings)
 				}
 				case 8:
 				{
-					Make_N_Levels_Palette4(Alt256Colors,6,16,AltColors);  // // prepare Color Table  for 8-Bit-Screens 6x6x6 leves = 216 colors, original remain unchanged // ALEXANDER
+					Make_N_Levels_Palette4(Alt256Colors,6,256,16,AltColors);  // // prepare Color Table  for 8-Bit-Screens 6x6x6 leves = 216 colors, original remain unchanged // ALEXANDER
                     #ifndef __AROS__
 					if(P96Base)
 					{
