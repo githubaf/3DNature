@@ -3938,8 +3938,6 @@ Finden guter Farbtabellen fuer die Dithermodes:
 
 cat LoadRGB4.c
 
-// -------------------------------------------------------------------
-
 /*
 
 m68k-amigaos-gcc LoadRGB4.c -o LoadRGB4 -noixemul
@@ -3981,27 +3979,35 @@ int main(int argc, char **argv)
 {
    FILE *ColorTableFile;
    struct ViewPort *Vp;
-   USHORT ColorTable[256];
+   USHORT ColorTable[256]={0};
    int i;
+   char *ColorTableFileName;
+   int Result;
 
-   if(argc!=2)
+   if(argc!=3)
    {
-      printf("Usage: %s Viewport-Adddress\n",argv[0]);
+      printf("Usage: %s Viewport-Adddress colortabe-file\n",argv[0]);
       return 1;
    }
 
    sscanf(argv[1],"%x",&Vp);
+   ColorTableFileName=argv[2];
 
-   ColorTableFile=fopen("colortable.txt","rb");
+   ColorTableFile=fopen(ColorTableFileName,"rb");
    if(!ColorTableFile)
    {
-      printf("unable to open colortable.txt\n");
+      printf("unable to open file %s\n",ColorTableFileName);
       return 2;
    }
 
-   for(i=0;i<16;i++)   // up to 256
+   for(i=0;i<256;i++)   // up to 256, if there are less in colortable file, ignore that
    {
-      fscanf(ColorTableFile,"%hx",&ColorTable[i]);
+      Result=fscanf(ColorTableFile,"%hx ",&ColorTable[i]);
+      if(Result==0 || Result==EOF)
+      {
+         break;
+      }
+      
       printf("%3x\n",ColorTable[i]);
    }
 
@@ -4012,18 +4018,17 @@ int main(int argc, char **argv)
    return 0;
 }
 
-// -------------------------------------------------------------------
 
 4.Now.2024
 -----------
-Der Mauspfeil hat im Moment falsche Farben in den Dither-Render- Modi
-http://amigadev.elowar.com/read/ADCD_2.1/Hardware_Manual_guide/node00B7.html
+Der Mauspfeil hat im Moment falsche Farben in den Dither-Render- ModI
+http://amigadev.elowar.com/read/ADCD_2.1/Hardware_Manual_guide/node00B7.htmL
 
                  00  Unused
                  01  Unused
-                       ·
-                       ·
-                       ·         _
+                       .
+                       .
+                       .         _
                  16  Unused   00  |
                  17  Color 1  01  |
                  18  Color 2  10  |-- Sprites 0 and 1
