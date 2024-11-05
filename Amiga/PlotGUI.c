@@ -261,6 +261,7 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 				//KPrintF("Colors[%ld]=0x%03lx\n",i,NewColorTable[i+Offset]);
 				i++;
 			}
+
 //	LastColor=Offset+i-1;
 //
 	for (i=0;i<Levels*Levels*Levels;i++)
@@ -270,6 +271,20 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 //
 //    // adapt new Dithered Color Table to original 16 Color table . Windows/Icons/Gray-Images should look similar
 //	SortColorTable(NewColorTable,OldTable16,DitherColorTranslationTable,LastColor);
+
+	if((AvailColors==256 && Levels==6 && Offset>=32) ||  // 256 Colors, 6x6x6 (216 colors dithering)
+	   (AvailColors==128 && Levels==4 && Offset>=32))    // 128 Colors, 4x4x4 ( 64 colors dithering)
+	{
+		// put original Sprite Colors into this table, too (e.g. Mouse pointer) if there is free space enough
+		int i;
+		for (i=16;i<32;i++)
+		{
+			NewColorTable[i]=GetRGB4(WCSScrn->ViewPort.ColorMap,i);
+		}
+	}
+
+
+
 
 	switch (Levels)
 	{
@@ -731,15 +746,15 @@ void setScreenPixelPlotFnct(struct Settings settings)
 				}
 				case 7:
 				{
-					Make_N_Levels_Palette4(Alt256Colors,4,128,16,AltColors);  // // prepare Color Table  for 7-Bit-Screens 4x4x4 leves = 64 colors // ALEXANDER
-					ScreenPixelPlot=BayerDither_4_4_4_ScreenPixelPlot; //dither 444 (125 colors) original color 0...16 unchanged
+					Make_N_Levels_Palette4(Alt256Colors,4,128,32,AltColors);  // // prepare Color Table  for 7-Bit-Screens 4x4x4 leves = 64 colors
+					ScreenPixelPlot=BayerDither_4_4_4_ScreenPixelPlot; //dither 444 (64 colors) , original 16 Colors + Sprite Colors remain unchanged
 					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 					SetRast(RenderWind0->RPort, 8); // 8=white
 					break;
 				}
 				case 8:
 				{
-					Make_N_Levels_Palette4(Alt256Colors,6,256,16,AltColors);  // // prepare Color Table  for 8-Bit-Screens 6x6x6 leves = 216 colors, original remain unchanged // ALEXANDER
+					Make_N_Levels_Palette4(Alt256Colors,6,256,32,AltColors);  // prepare Color Table  for 8-Bit-Screens 6x6x6 leves = 216 colors, original 16 Colors + Sprite Colors remain unchanged
                     #ifndef __AROS__
 					if(P96Base)
 					{
