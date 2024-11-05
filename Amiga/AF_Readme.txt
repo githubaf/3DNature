@@ -4049,3 +4049,4 @@ http://amigadev.elowar.com/read/ADCD_2.1/Hardware_Manual_guide/node00B7.htmL
 
                Figure 4-6: Color Register Assignments
 
+Die Maus ist Sprite 0, also Color 16 (transparent) bis Color 19

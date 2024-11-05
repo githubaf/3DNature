@@ -622,10 +622,16 @@ void getGfxInformation(void)
 {
 	WORD rect[4]={0};
 
+
 	printf("WCSScrn->ViewPort = 0x%08x\n",&WCSScrn->ViewPort);
 	printf("WCSScrn->RastPort.BitMap->Depth = %d\n",WCSScrn->RastPort.BitMap->Depth);
 	printf("WCSScrn->Flags=0x%04x\n",WCSScrn->Flags);
 	printf("WCSScrn->ViewPort.DWidth %d x WCSScrn->ViewPort.DHeight %d\n",WCSScrn->ViewPort.DWidth,WCSScrn->ViewPort.DHeight);
+
+	printf("Mouse Color 16 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,16));
+	printf("Mouse Color 17 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,17));
+	printf("Mouse Color 18 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,18));
+	printf("Mouse Color 19 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,19));
 
 #ifndef __AROS__
     	  if(P96Base)
@@ -702,7 +708,7 @@ void setScreenPixelPlotFnct(struct Settings settings)
 				{
 					Make_N_Levels_Palette4(Alt256Colors,2,8,0,AltColors);  // prepare Color Table  for 4-Bit-Screens 2x2x2 leves = 8 colors // ALEXANDER
 					ScreenPixelPlot=BayerDither_2_2_2_ScreenPixelPlot; //dither 222 (8 colors 0...7), original gray colors 8..15 unchanged
-					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
+					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 16);
 					SetRast(RenderWind0->RPort, 8); // 8=white
 					break;
 				}
