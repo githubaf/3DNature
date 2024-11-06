@@ -273,7 +273,9 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 //	SortColorTable(NewColorTable,OldTable16,DitherColorTranslationTable,LastColor);
 
 	if((AvailColors==256 && Levels==6 && Offset>=32) ||  // 256 Colors, 6x6x6 (216 colors dithering)
-	   (AvailColors==128 && Levels==4 && Offset>=32))    // 128 Colors, 4x4x4 ( 64 colors dithering)
+	   (AvailColors==128 && Levels==4 && Offset>=32) ||  // 128 Colors, 4x4x4 ( 64 colors dithering)
+	   (AvailColors== 64 && Levels==3 && Offset>=32))    //  64 Colors, 3x3x3 ( 27 colors dithering)
+
 	{
 		// put original Sprite Colors into this table, too (e.g. Mouse pointer) if there is free space enough
 		int i;
@@ -738,9 +740,9 @@ void setScreenPixelPlotFnct(struct Settings settings)
 				}
 				case 6:
 				{
-					Make_N_Levels_Palette4(Alt256Colors,3,64,16,AltColors);  // // prepare Color Table  for 6-Bit-Screens 3x3x3 leves = 27 colors, keep original 16 colors unchanged // ALEXANDER
+					Make_N_Levels_Palette4(Alt256Colors,3,64,32,AltColors);  // // prepare Color Table  for 6-Bit-Screens 3x3x3 leves = 27 colors, keep original 32 colors unchanged (i.e. keep also sprite colors)
 					ScreenPixelPlot=BayerDither_3_3_3_ScreenPixelPlot; //dither 333 (64 colors 16...43), all original colors kept
-					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
+					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 64);
 					SetRast(RenderWind0->RPort, 8); // 8=white
 					break;
 				}
