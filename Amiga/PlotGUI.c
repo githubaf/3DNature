@@ -374,34 +374,34 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 				};
 
 				USHORT TempDitherColorTranslationTable[]={
-						1,   //  0  must point to 000
+						1,    //  0  must point to 000
 						15,   //  1                007
 						14,   //  2                00f
 						16,   //  3                070
 						17,   //  4                077
-						10,   //  5                07f
-						5,   //  6                0f0
+						18,   //  5                07f   !
+						5,    //  6                0f0
 						19,   //  7                0f7
 
-						4,   //  8                0ff
+						4,    //  8                0ff
 						20,   //  9                700
 						21,   // 10                707
-						6,   // 11                70f
+						6,    // 11                70f
 						22,   // 12                770
 						12,   // 13                777
 						23,   // 14                77f
 						24,   // 15                7f0
 						25,   // 16                7f7
 						26,	  // 17				   7ff
-						3,   // 18                f00
+						3,    // 18                f00
 						27,   // 19                f07
-						2,   // 20                f0f
+						2,    // 20                f0f
 						28,   // 21                f70
 						29,   // 22                f77
 						30,   // 23                f7f
-						7,   // 24                ff0
+						7,    // 24                ff0
 						31,   // 25                ff7
-						8    // 26                fff
+						8     // 26                fff
 				};
 
 
