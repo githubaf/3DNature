@@ -357,10 +357,10 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 						0x00f,    // 14 original 333
 						0x007,    // 15 original 111
 
-						0x070,    // 16
-						0x077,    // 17
-						0x07f,    // 18
-						0x0f7,    // 19
+						0x07f,    // 16  also Mouse transparent (ignored by sprite)
+						0xf70,    // 17  also Mouse Red   (e44)
+						0x070,    // 18  also mouse black (000)
+						0xff7,    // 19  also mouse white (eec)
 						0x700,    // 20
 						0x707,    // 21
 						0x770,    // 22
@@ -369,21 +369,21 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 						0x7f7,    // 25
 						0x7ff,    // 26
 						0xf07,    // 27
-						0xf70,    // 28
+						0x077,    // 28
 						0xf77,    // 29
 						0xf7f,    // 30
-						0xff7,    // 31
+						0x0f7     // 31
 				};
 
 				USHORT TempDitherColorTranslationTable[]={
 						1,    //  0  must point to 000
 						15,   //  1                007
 						14,   //  2                00f
-						16,   //  3                070
-						17,   //  4                077
-						18,   //  5                07f   !
+						18,   //  3                070
+						28,   //  4                077
+						16,   //  5                07f   !
 						5,    //  6                0f0
-						19,   //  7                0f7
+						31,   //  7                0f7
 
 						4,    //  8                0ff
 						20,   //  9                700
@@ -398,11 +398,11 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 						3,    // 18                f00
 						27,   // 19                f07
 						2,    // 20                f0f
-						28,   // 21                f70
+						17,   // 21                f70
 						29,   // 22                f77
 						30,   // 23                f7f
 						7,    // 24                ff0
-						31,   // 25                ff7
+						19,   // 25                ff7
 						8     // 26                fff
 				};
 
