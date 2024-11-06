@@ -28,6 +28,8 @@ STATIC_FCN void FreeTrigTables(void); // used locally only -> static, AF 26.7.20
 STATIC_FCN short InitCloudMap(struct Window *win, struct CloudData *CD); // used locally only -> static, AF 26.7.2021
 
 
+
+
 void globemap(void)
 {
  ULONG flags, iflags, lmemblock;
@@ -48,6 +50,10 @@ void globemap(void)
  struct Task *ThisTask;
  struct CloudData *CD = NULL;
  float RenderScale;
+
+ UWORD Mouse17=0;
+ UWORD Mouse18=0;
+ UWORD Mouse19=0;
 
  ThisTask = FindTask(NULL);
  SetTaskPri(ThisTask, RenderTaskPri);
@@ -147,6 +153,15 @@ void globemap(void)
   RenderWind0 = (struct Window *)
 	make_window(0, 0, WinWidth, WinHeight, (char*)GetString( MSG_GLMP_WCSRENDERWINDOW ),  // "WCS Render Window"
 	flags, iflags, c0, c1, WCSScrn);
+
+  Mouse17=GetRGB4(WCSScrn->ViewPort.ColorMap,17);  // Alexander: save current mouse colors, will be restored when window is closed
+  Mouse18=GetRGB4(WCSScrn->ViewPort.ColorMap,18);  // Colors 17,18,19 can be altered if colored render window is used
+  Mouse19=GetRGB4(WCSScrn->ViewPort.ColorMap,19);
+
+  printf("Mouse17=%03x\n",Mouse17);
+  printf("Mouse18=%03x\n",Mouse18);
+  printf("Mouse19=%03x\n",Mouse19);
+
   if (!RenderWind0)
    {
    Log(ERR_WIN_FAIL, GetString( MSG_GLMP_RENDERWINDOW ));                          // "Render window."
@@ -1006,6 +1021,14 @@ Cleanup2:
 #ifdef AMIGA_GUI
   if (RenderWind0) Close_Render_Window();
   LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
+  SetRGB4(&WCSScrn->ViewPort,17,(Mouse17&0xf00)>>8,(Mouse17&0x0f0)>>4,(Mouse17&0x00f)>>0);  // Restore mouse colors, could have been altered if color dithering Render Window was used
+  SetRGB4(&WCSScrn->ViewPort,18,(Mouse18&0xf00)>>8,(Mouse18&0x0f0)>>4,(Mouse18&0x00f)>>0);  // Restore mouse colors, could have been altered if color dithering Render Window was used
+  SetRGB4(&WCSScrn->ViewPort,19,(Mouse19&0xf00)>>8,(Mouse19&0x0f0)>>4,(Mouse19&0x00f)>>0);  // Restore mouse colors, could have been altered if color dithering Render Window was used
+  RethinkDisplay();  // update Sprite-Colors to hardware
+  printf("Nachher Mouse17=%03x\n",Mouse17);
+  printf("Nachher Mouse18=%03x\n",Mouse18);
+  printf("Nachher Mouse19=%03x\n",Mouse19);
+  // Alexander: We need a refresh for the mouse colors!
 #endif /* AMIGA_GUI */
   } /* if no diagnostics */
 
