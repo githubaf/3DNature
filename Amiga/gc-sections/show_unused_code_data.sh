@@ -3,7 +3,7 @@
 # to be used in directory gc-sections
 # shows the size of all parts that where removed by --gcsections
 # data.toolchain_ver is ignored in counting unused bytes.
-
+# is called from makefile in post-build-step (Eclipse-> Properties-> C/C++ Build -> Settings -> Build Steps ->Post Build Steps)
 
 set -e # exit on error
 
@@ -48,4 +48,11 @@ BEGIN{
 END{
 print "Total: " Summe;
 }'
+
+# there are 13 unused-lines. (for instance Minstack...). Some Endian functions are used in external tests
+EXPECTED_REMOVALS=13
+if [ $(cat $1 | grep "removing unused section" | wc -l) -ne "$EXPECTED_REMOVALS" ]; then
+   # "Error:" makes the Eclipse Post-Build Step aborting, otherwise the error is ignored, regardless of any exit code
+   echo "Error: Number of unused functions/data has changed! Check sources and modify $0 if this was really intended!"
+fi
 

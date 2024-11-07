@@ -132,21 +132,20 @@ EXTERN struct DEMConvertData {
 #define DUPROW			1
 
 // AF, 3.Nov23, DebugStrings
-const char *VALUE_FORMAT_Strings[]={
-"DEM_DATA_FORMAT_SIGNEDINT",
-"DEM_DATA_FORMAT_UNSIGNEDINT",
-"DEM_DATA_FORMAT_FLOAT",
-"DEM_DATA_FORMAT_UNKNOWN"
+//const char *VALUE_FORMAT_Strings[]={
+//"DEM_DATA_FORMAT_SIGNEDINT",
+//"DEM_DATA_FORMAT_UNSIGNEDINT",
+//"DEM_DATA_FORMAT_FLOAT",
+//"DEM_DATA_FORMAT_UNKNOWN"
+//};
 
-};
-
-const char *VALUE_Bytes[]={
-"DEM_DATA_VALSIZE_BYTE",
-"DEM_DATA_VALSIZE_SHORT",
-"DEM_DATA_VALSIZE_LONG",
-"DEM_DATA_VALSIZE_DOUBLE",
-"DEM_DATA_VALSIZE_UNKNOWN"
-};
+//const char *VALUE_Bytes[]={
+//"DEM_DATA_VALSIZE_BYTE",
+//"DEM_DATA_VALSIZE_SHORT",
+//"DEM_DATA_VALSIZE_LONG",
+//"DEM_DATA_VALSIZE_DOUBLE",
+//"DEM_DATA_VALSIZE_UNKNOWN"
+//};
 
 // AF 18.Sep.2023
 #define INPUT_REPLACE	data->Replace[0]
@@ -3650,7 +3649,7 @@ STATIC_FCN short SaveConvertOutput(struct DEMConvertData *data, struct elmaphead
 			} /* if open fail */
 			// AF: old: if ((write(fOutput, (char *)OutputData, OutputDataSize)) != OutputDataSize)
 			// AF, 20.Mar23 writes the Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
-			//  printf("\nALEXANDER: OutputDataSize=%ld, OUTVALUE_FORMAT=%ld, OUTVALUE_SIZE=%d\n",OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE);
+			//printf("\nALEXANDER: OutputDataSize=%ld, OUTVALUE_FORMAT=%ld, OUTVALUE_SIZE=%d\n",OutputDataSize,OUTVALUE_FORMAT,OUTVALUE_SIZE);
 			//printf("\nALEXANDER: OutputDataSize=%ld, OUTVALUE_FORMAT=%s, OUTVALUE_SIZE=%s\n",OutputDataSize,VALUE_FORMAT_Strings[OUTVALUE_FORMAT],VALUE_Bytes[OUTVALUE_SIZE]);
 			//printf("\nALEXANDER: INVALUE_FORMAT=%s, INVALUE_SIZE=%s\n",VALUE_FORMAT_Strings[INVALUE_FORMAT],VALUE_Bytes[INVALUE_SIZE]);
 

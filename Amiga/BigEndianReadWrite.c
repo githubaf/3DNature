@@ -643,6 +643,7 @@ ssize_t fwrite_SHORT_Array_BE(SHORT *SHORTArray, size_t size, FILE *file) // AF,
 
 // size in Bytes, not doubles!
 // returns number of Bytes written
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 ssize_t write_double_Array_BE(int filehandle, double *DoubleArray, size_t size) // AF, HGW, 20.Mar23
 {
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
@@ -684,6 +685,7 @@ ssize_t write_double_Array_BE(int filehandle, double *DoubleArray, size_t size) 
 #error "Unsupported Byte-Order"
 #endif
 }
+#endif
 
 // the fwrite version
 ssize_t fwrite_double_Array_BE(double *DoubleArray, size_t size, FILE *file) // AF, HGW, 22.Feb23
@@ -770,6 +772,7 @@ long write_short_Array_BE(int filehandle, short *ShortArray, size_t size) // AF,
 #endif
 }
 
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 long write_ushort_Array_BE(int filehandle, short *UShortArray, size_t size) // AF, HGW, 20.Mar23
 {
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
@@ -811,9 +814,11 @@ long write_ushort_Array_BE(int filehandle, short *UShortArray, size_t size) // A
 #error "Unsupported Byte-Order"
 #endif
 }
+#endif
 
 // size in Bytes, not LONG!
 // returns number of Bytes written
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 long write_LONG_Array_BE(int filehandle, LONG *LongArray, size_t size) // AF, HGW, 20.Mar23
 {
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
@@ -855,9 +860,11 @@ long write_LONG_Array_BE(int filehandle, LONG *LongArray, size_t size) // AF, HG
 #error "Unsupported Byte-Order"
 #endif
 }
+#endif
 
 // size in Bytes, not ULONG!
 // returns number of Bytes written
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 long write_ULONG_Array_BE(int filehandle, ULONG *ULongArray, size_t size) // AF, HGW, 20.Mar23
 {
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
@@ -899,7 +906,7 @@ long write_ULONG_Array_BE(int filehandle, ULONG *ULongArray, size_t size) // AF,
 #error "Unsupported Byte-Order"
 #endif
 }
-
+#endif
 
 // AF, 20.Mar23 writes the DEM-Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
 long writeDemArray_BE(long fOutput,void *OutputData,long OutputDataSize,short outvalue_format,short outvalue_size)
@@ -1169,6 +1176,7 @@ int fread_short_BE(short *Value, FILE *file)
 }
 
 // AF, HGW, 19.Oct23
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 int fread_LONG_BE(LONG *Value, FILE *file)
 {
     int Result=fread(Value, sizeof (LONG),1,file);
@@ -1179,6 +1187,7 @@ int fread_LONG_BE(LONG *Value, FILE *file)
 #endif
     return Result;
 }
+#endif
 
 // AF, HGW, 19.Oct23
 int fread_SHORT_Array_BE(SHORT *ShortArray, ssize_t size, ssize_t cnt,FILE *file)
@@ -1228,6 +1237,7 @@ ssize_t read_float_Array_BE(int filehandle, float *FloatArray, ssize_t size)
 }
 
 // AF, HGW, 10.Oct23
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 ssize_t read_double_Array_BE(int filehandle, double *DoubleArray, ssize_t size)
 {
 
@@ -1249,8 +1259,10 @@ ssize_t read_double_Array_BE(int filehandle, double *DoubleArray, ssize_t size)
 #error "Unsupported Byte-Order"
 #endif
 }
+#endif
 
 // AF, HGW, 10.Oct23
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 ssize_t read_int_Array_BE(int filehandle, int *IntArray, ssize_t size)
 {
 
@@ -1272,8 +1284,10 @@ ssize_t read_int_Array_BE(int filehandle, int *IntArray, ssize_t size)
 #error "Unsupported Byte-Order"
 #endif
 }
+#endif
 
 // AF, HGW, 10.Oct23
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 ssize_t read_short_Array_BE(int filehandle, short *ShortArray, ssize_t size)
 {
 
@@ -1295,8 +1309,9 @@ ssize_t read_short_Array_BE(int filehandle, short *ShortArray, ssize_t size)
 #error "Unsupported Byte-Order"
 #endif
 }
-
+#endif
 // AF, HGW, 10.Oct23
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 ssize_t read_ushort_Array_BE(int filehandle, unsigned short *UShortArray, ssize_t size)
 {
 
@@ -1318,8 +1333,10 @@ ssize_t read_ushort_Array_BE(int filehandle, unsigned short *UShortArray, ssize_
 #error "Unsupported Byte-Order"
 #endif
 }
+#endif
 
 // AF, HGW, 11.Oct23
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 ssize_t read_long_Array_BE(int filehandle, LONG *LongArray, ssize_t size)
 {
 
@@ -1341,8 +1358,10 @@ ssize_t read_long_Array_BE(int filehandle, LONG *LongArray, ssize_t size)
 #error "Unsupported Byte-Order"
 #endif
 }
+#endif
 
 // AF, HGW, 11.Oct23
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 ssize_t read_ulong_Array_BE(int filehandle, ULONG *ULongArray, ssize_t size)
 {
 
@@ -1364,6 +1383,7 @@ ssize_t read_ulong_Array_BE(int filehandle, ULONG *ULongArray, ssize_t size)
 #error "Unsupported Byte-Order"
 #endif
 }
+#endif
 
 // AF, 11.Oct23 reads the DEM-Buffer in Big Endian Format, cares for int, unsigned and float, 1,2,4,8 Bytes size
 long readDemArray_BE(long fInput,void *InputData,long InputDataSize,short invalue_format,short invalue_size)

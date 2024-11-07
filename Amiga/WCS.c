@@ -713,60 +713,6 @@ if(P96Base) // if we could open P96 we have also to close at the end...
 
 
 
-
-
-
-void SimpleEndianFlip64 (            double Source64, double *Dest64)  // AF, 12Dec22 for i386-aros
-{
-    double retVal;
-    char *doubleToConvert = ( char* ) & Source64;
-    char *returnDouble = ( char* ) & retVal;
-
-    // swap the bytes into a temporary buffer
-    returnDouble[0] = doubleToConvert[7];
-    returnDouble[1] = doubleToConvert[6];
-    returnDouble[2] = doubleToConvert[5];
-    returnDouble[3] = doubleToConvert[4];
-    returnDouble[4] = doubleToConvert[3];
-    returnDouble[5] = doubleToConvert[2];
-    returnDouble[6] = doubleToConvert[1];
-    returnDouble[7] = doubleToConvert[0];
-
-    *Dest64=retVal;
-
-}
-
-void SimpleEndianFlip32F(             float Source32, float  *Dest32)  // AF, 10Dec22 for i386-aros
-       {
-           float retVal;
-           char *floatToConvert = ( char* ) & Source32;
-           char *returnFloat = ( char* ) & retVal;
-
-           // swap the bytes into a temporary buffer
-           returnFloat[0] = floatToConvert[3];
-           returnFloat[1] = floatToConvert[2];
-           returnFloat[2] = floatToConvert[1];
-           returnFloat[3] = floatToConvert[0];
-
-           *Dest32=retVal;
-       }
-void SimpleEndianFlip32U( unsigned long int Source32, unsigned long int *Dest32)  // AF, 10Dec22 for i386-aros
-       {
-           (*Dest32) = (unsigned long int)( ((Source32 & 0x00ff) << 24) | ((Source32 & 0xff00) << 8) |
-                       (unsigned long int)( ((Source32 & 0xff0000) >> 8) | ((Source32 & 0xff000000) >> 24)));
-       }
-
-
-void SimpleEndianFlip32S(   signed long int Source32, signed long int   *Dest32)  //AF, 10Dec22 for i386-aros
-       {
-           (*Dest32) = ( long int)( ((Source32 & 0x00ff) << 24) | ((Source32 & 0xff00) << 8) |
-                       ( long int)( ((Source32 & 0xff0000) >> 8) | ((Source32 & 0xff000000) >> 24)));
-       }
-
-void SimpleEndianFlip16U(unsigned short int Source16, unsigned short int *Dest16) {(*Dest16) = (unsigned short int)( ((Source16 & 0x00ff) << 8) | ((Source16 & 0xff00) >> 8) );}
-void SimpleEndianFlip16S(  signed short int Source16, signed short int   *Dest16) {(*Dest16) = (  signed short int)( ((Source16 & 0x00ff) << 8) | ((Source16 & 0xff00) >> 8) );}
-
-
 // AF, 4.Feb.2024: currently remove() contains an unwanted puts() (leftiver from libnix debugging?) So we overwrite is here without this puts()
 // copied from ./libnix/sources/nix/stdio/remove.c to overwrite the libnix-remove() function.
 // delete as soon as libnix has been fixed.

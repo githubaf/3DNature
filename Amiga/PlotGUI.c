@@ -39,36 +39,9 @@ int BAYER_PATTERN_16X16[16][16] =   {   //  16x16 Bayer Dithering Matrix.  Color
 		{   169, 106, 153,  90, 165, 102, 149,  86, 168, 105, 152,  89, 164, 101, 148,  85  }
 };
 
-USHORT AltDither8Colors[16]
-={
-#ifndef DAVE_WARNER
- 0x89b,	/* 0, gray-blue */
- 0x000,	/* 1, black */
- 0xddd,	/* 2, almost white */
-#else /* DAVE_WARNER */
- 0x000,	/* 0, gray-blue, now black */
- 0xfff,	/* 1, black, now white */
- 0xbbb,	/* 2, almost white, now greyish */
-#endif /* DAVE_WARNER */
- 0xb10, /* 3, red */
- 0x348,	/* 4, dark blue */
- 0x392,	/* 5, green */
- 0x37c,	/* 6, med blue */
- 0xdd2,	/* 7, yellow */
- 0xfff,	/* 8-15, 3 BPpP Dither colors */  //     Red+Blue+Green
- 0xff0, //    Red+Green
- 0xf0f, //    Red+Blue
- 0xf00, //    Red
- 0x0ff, //    Blue+Green
- 0x0f0, //    Green
- 0x00f, //    Blue
- 0x000  //    Black
- };
 
 // Fuellen mit AltColors[16], dann 128-155 mit 7Bit Dithercolors fuellen
 WORD Alt256Colors[256];
-
-USHORT Used[256]={0};  // Table of used colors, i.e. color has already been used for color sorings
 
 // we shuffle the colors a bit to fit the dithercolortable better to the original 16 colors.This table translates the access
 // of the Plot-Functions to the sfuffled table
@@ -109,130 +82,6 @@ unsigned int makeDitherBayerRgbnLevels(unsigned char pixel, int x, int y, int Le
     return i1;
 }
 
-//// Alexander: Find best matching color
-//// returns index to best matching free color in AltDitherColors
-//unsigned int FindBestColor(USHORT *AltColors, SHORT *AltDitherColors, USHORT *Used, USHORT Index)
-//{
-//	unsigned int i;
-//	unsigned int MinDiff2=USHRT_MAX;
-//	unsigned int MinI=0;
-//	unsigned int Diff2;
-//
-//	unsigned int  Red1,Grn1,Blu1,Red2,Grn2,Blu2;
-//	Red1=(AltColors[Index] & 0xf00) >>8;
-//	Grn1=(AltColors[Index] & 0x0f0) >>4;
-//	Blu1=(AltColors[Index] & 0x00f) >>0;
-//
-////	printf("Index=%2d AltColors[%d]=%03x Red1 = %x Grn1=%x Blu1=%x\n",Index,Index,AltColors[Index],Red1,Grn1,Blu1);
-//
-//	for(i=0;i<256;i++)
-//	{
-//		if(AltDitherColors[i]==-1)	break;    // end of table reached
-//		Red2=(AltDitherColors[i] & 0xf00) >>8;
-//		Grn2=(AltDitherColors[i] & 0x0f0) >>4;
-//		Blu2=(AltDitherColors[i] & 0x00f) >>0;
-//
-//
-//		Diff2=(Red1-Red2)*(Red1-Red2)+(Grn1-Grn2)*(Grn1-Grn2)+(Blu1-Blu2)*(Blu1-Blu2);
-//
-////		printf("i=%2d Red2 = %x Grn2=%x Blue=%x Diff2=%d\n",i,Red2,Grn2,Blu2,Diff2);
-//
-//		if(Diff2<MinDiff2 && Used[i]!=TRUE)
-//		{
-//			MinDiff2=Diff2;
-//			MinI=i;
-//		}
-//	}
-//
-//	Used[MinI]=TRUE;
-//
-//
-//	Red2=(AltDitherColors[MinI] & 0xf00) >>8;
-//	Grn2=(AltDitherColors[MinI] & 0x0f0) >>4;
-//	Blu2=(AltDitherColors[MinI] & 0x00f) >>0;
-//
-//	//printf("Soll: %2d: %x %x %x  --- Bester %3d: %x %x %x --- Diff2: %2d\n",Index,Red1,Grn1,Blu1,MinI,Red2,Grn2,Blu2, MinDiff2);
-//	return MinI;
-//}
-
-
-//void SortColorTable(SHORT *TargetDitherColorTable,USHORT *OriginalColorTable,SHORT *DitherColorTranslationTable, UWORD LastColor)
-//{
-////	USHORT Temp;
-////	Temp=TargetDitherColorTable[8];
-////	// Color 8 should be white, Last color in new Colortable is white. Exchange them
-////	TargetDitherColorTable[8]=TargetDitherColorTable[LastColor];
-////	TargetDitherColorTable[LastColor]=Temp;
-////
-////	// swap indices in translation table as well so that access to last color is translated to color 8 now
-////	Temp=DitherColorTranslationTable[8];
-////	DitherColorTranslationTable[8]=DitherColorTranslationTable[LastColor];  // Color 8 should be white, Last color in new Colortable is white. Exchange them
-////	DitherColorTranslationTable[LastColor]=Temp;
-////
-////	// Colors 8-15 grayscale should remain unchanged.
-////	Used[ 8]=TRUE;
-////
-////    // Test for 16-Color-Screeen, first 8 colors need to be matched
-////	{
-////	int i;
-////	for (i=0;i<7;i++)
-////	{
-////		unsigned int BestColor=FindBestColor(OriginalColorTable, TargetDitherColorTable, Used, i);
-////		printf("Color %d: %03x   Best match: Color %d %03x \n",i,OriginalColorTable[i],BestColor, TargetDitherColorTable[BestColor]);
-////
-////		Temp=DitherColorTranslationTable[BestColor];
-////		DitherColorTranslationTable[BestColor]=DitherColorTranslationTable[i];
-////		DitherColorTranslationTable[i]=Temp;
-////
-////		// swap indices in translation table as well so that access to color points to the right one
-////		Temp=DitherColorTranslationTable[BestColor];
-////		DitherColorTranslationTable[BestColor]=DitherColorTranslationTable[i];
-////		DitherColorTranslationTable[i]=Temp;
-////
-////	}
-////	}
-//	// fixed and hand crafted for 2x2x2
-//	USHORT TempTargetDitherColorTable[]={
-//			0x89b,  //  0 soll: gray-blue
-//			0x000,  //  1       black
-//			0xf0f,  //  2       almost white !bad!
-//			0xf00,  //  3       red
-//			0x0ff,  //  4       dark blue
-//			0x0f0,  //  5       green
-//			0x00f,  //  6       med blue
-//			0xff0,  //  7       yellow    000 -> 111 und fff -> 8 fff
-//
-//			0xfff,  //  8  gray scale, don't move
-//			0xddd,  //  9
-//			0xbbb,  // 10
-//			0x999,  // 11
-//			0x777,  // 12
-//			0x555,  // 13
-//			0x333,  // 14
-//			0x111   // 15
-//	};
-//	USHORT TempDitherColorTranslationTable[]={
-//			1,    //  0  must point to 000
-//			6,    //  1                00f
-//			5,    //  2                0f0
-//			4,    //  3                0ff
-//			3,    //  4                f00
-//	     	2,    //  5                f0f
-//			7,    //  6                ff0
-//			8,    //  7                fff  0k
-//
-//			8,    //  8                fff grauwerte ab hier, dont move
-//			9,    //  9                ddd
-//			10,   // 10                bbb
-//			11,   // 11                999
-//			12,   // 12                777
-//			13,   // 13                444
-//			14,   // 14                333
-//			15    // 15                111
-//	};
-//	memcpy(TargetDitherColorTable,TempTargetDitherColorTable,sizeof(TempTargetDitherColorTable));
-//	memcpy(DitherColorTranslationTable,TempDitherColorTranslationTable,sizeof(TempDitherColorTranslationTable));
-//}
 
 
 // ALEXANDER: 21_Oct Make Color table for 2x2x2 (8 colors) ... 6x6x6 Levels (216 colors) RGB
@@ -262,15 +111,10 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 				i++;
 			}
 
-//	LastColor=Offset+i-1;
-//
 	for (i=0;i<Levels*Levels*Levels;i++)
 	{
 		DitherColorTranslationTable[i]=i+Offset;
 	}
-//
-//    // adapt new Dithered Color Table to original 16 Color table . Windows/Icons/Gray-Images should look similar
-//	SortColorTable(NewColorTable,OldTable16,DitherColorTranslationTable,LastColor);
 
 	if((AvailColors==256 && Levels==6 && Offset>=32) ||  // 256 Colors, 6x6x6 (216 colors dithering)
 	   (AvailColors==128 && Levels==4 && Offset>=32) ||  // 128 Colors, 4x4x4 ( 64 colors dithering)
@@ -284,9 +128,6 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 			NewColorTable[i]=GetRGB4(WCSScrn->ViewPort.ColorMap,i);
 		}
 	}
-
-
-
 
 	switch (Levels)
 	{
@@ -405,17 +246,12 @@ void Make_N_Levels_Palette4( WORD *NewColorTable, unsigned int Levels, unsigned 
 						19,   // 25                ff7
 						8     // 26                fff
 				};
-
-
 				memcpy(NewColorTable,TempTargetDitherColorTable,sizeof(TempTargetDitherColorTable));
 				memcpy(DitherColorTranslationTable,TempDitherColorTranslationTable,sizeof(TempDitherColorTranslationTable));
 			}
 			break;
 		}
-
-
 	}
-
 }
 
 // ALEXANDER: 21_Oct Dithers to 2x2x2 RGB-levels (Levels, not bits), i.e. 8 colors
@@ -522,7 +358,8 @@ void BayerDither_4_4_4_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
 }
 
-
+// This dithermode is not used
+#ifdef USE_BayerDither_5_5_5_ScreenPixelPlot
 // ALEXANDER: 21_Oct Dithers to 5x5x5 RGB-levels (Levels, not bits), i.e. 125 colors
 void BayerDither_5_5_5_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
 {
@@ -556,7 +393,7 @@ void BayerDither_5_5_5_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 
 	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
 }
-
+#endif
 
 // ALEXANDER: 21_Oct Dithers to 6x6x6 RGB-levels (Levels, not bits), i.e. 216 colors
 void BayerDither_6_6_6_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
@@ -593,25 +430,6 @@ void BayerDither_6_6_6_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 
 }
 
-// fills 256 entries color table with 16 original WCS colors 0-15 and 128 Dither colors 128-255 format "232"
-void fill256ColorsPalette128(USHORT *ColorTable256, USHORT *ColorTable16)
-{
-	unsigned int i;
-	unsigned int r,g,b;
-	unsigned char ColorComponent2Bit[]={0,5,10,15};  // n x 15/3,  4 Values == 3 segements
-	unsigned char ColorComponent3Bit[]={0,2,4,6,8,10,12,15};  // n x 15/7,  8 Values == 7 segements
-
-	memcpy(ColorTable256,ColorTable16,16*sizeof(USHORT));  // 16 entries a 2 bytes
-	i=128;
-	for (r=0;r<4;r++)
-		for(g=0;g<8;g++)
-			for(b=0;b<4;b++)
-			{
-				// 4 bit Color entries
-				ColorTable256[i]=(ColorComponent2Bit[r]<<8)+(ColorComponent3Bit[g]<<4)+ColorComponent2Bit[b];
-				i++;
-			}
-}
 
 void ScreenPixelPlotClassic(struct Window *win, UBYTE **Bitmap, short x, short y, long zip)
 {

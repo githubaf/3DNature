@@ -2850,6 +2850,7 @@ Cleanup:
 } /* LoadVistaDEM() */
 
 /**********************************************************************/
+#ifdef USE_DteddDataCheckSum
 long DteddDataCheckSum(short *DataPtr, unsigned int ColSize)
 {
 	long Sum=0;
@@ -2861,7 +2862,7 @@ long DteddDataCheckSum(short *DataPtr, unsigned int ColSize)
 	}
 	return Sum;
 }
-
+#endif
 
 short LoadDTED(char *filename, short *Output, long OutputSize)
 {

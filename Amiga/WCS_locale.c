@@ -141,7 +141,6 @@ LONG    l_content;
 UWORD  *w;
 UWORD   w_content;
 STRPTR  builtin;
-static int i=0;
 
 	l = (LONG *)CatCompBlock;
 

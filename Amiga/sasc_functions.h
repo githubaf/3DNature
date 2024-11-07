@@ -34,8 +34,6 @@ inline void swmem(void *a, void *b, unsigned n)  // SAS/C function, needs to be 
     (__builtin_constant_p(n) && n==1) ? swmem_1(a,b) :  \
         ((__builtin_constant_p(n) && n==8) ? swmem_8(a,b) : swmem_other(a,b,n))
 
-
-
 inline void swmem_1(void *a, void *b)
 {
     unsigned char temp, *p1=(unsigned char *)a, *p2=(unsigned char *)b;
@@ -69,7 +67,6 @@ inline void swmem_other(void *a, void *b, unsigned n)
         *p1++=temp;
     }
 }
-
 #else
     void swmem(void *a, void *b, unsigned n);  // SAS/C function, needs to be re-implemented for gcc, Swap two memory blocks
 #endif
