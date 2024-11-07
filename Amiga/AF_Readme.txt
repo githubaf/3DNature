@@ -4053,13 +4053,13 @@ Die Maus ist Sprite 0, also Color 16 (transparent) bis Color 19
 
 7.Now.2024
 ----------
-Alle Farbenprobleme sind gelöst. Damit nach SetRGB4() die Spritefarben sofort refreshed werden, muss anschliessend RethinkDisplay() aufgerufen werden.
+Alle Farbenprobleme sind geloest. Damit nach SetRGB4() die Spritefarben sofort refreshed werden, muss anschliessend RethinkDisplay() aufgerufen werden.
 
-Ungenutzte Funktionen/Daten entfernt oderauskommentiert-
+Ungenutzte Funktionen/Daten entfernt oder auskommentiert.
 
 Test auf Anzahl unused functions/data im Eclipse Post Build Step
-* Da kann man z.B. Scripte ausführen. Bei Fehlern wird der Build aber nicht als Failed gemeldet, unabhängig vom Return Code.
-* Damit ein Fehler auch zum Fehlschlag des Builds führt, muss das Script "Error: irgendwas" ausgeben. Der Errorparser wertet das dann aus.
+* Da kann man z.B. Scripte ausfuehren. Bei Fehlern wird der Build aber nicht als Failed gemeldet, unabhaengig vom Return Code.
+* Damit ein Fehler auch zum Fehlschlag des Builds fuehrt, muss das Script "Error: irgendwas" ausgeben. Der Errorparser wertet das dann aus.
   Bei gc_sections wird jetzt getestet, ob neue ungenutzte Sachen aufgetreten sind. 10 Zeilen werden aktuell erwartet. (Siehe gc-sections/show_unused_code_data.sh)
 
 
