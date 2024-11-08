@@ -4062,4 +4062,7 @@ Test auf Anzahl unused functions/data im Eclipse Post Build Step
 * Damit ein Fehler auch zum Fehlschlag des Builds fuehrt, muss das Script "Error: irgendwas" ausgeben. Der Errorparser wertet das dann aus.
   Bei gc_sections wird jetzt getestet, ob neue ungenutzte Sachen aufgetreten sind. 10 Zeilen werden aktuell erwartet. (Siehe gc-sections/show_unused_code_data.sh)
 
-
+8.Now.2024
+----------
+Test auf WinUAE in pre-commit eingebaut.
+* Auf WinUAE muss amisshd laufen. (amisshd -p 22222) fuer Port 22222

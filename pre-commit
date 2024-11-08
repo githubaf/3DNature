@@ -2,8 +2,8 @@
 # rejects commits of UTF-8 text files. 
 # copy this file to .git/hooks
 
-set -e  # Abort on Errors
-set -x  # show commands
+#set -e  # Abort on Errors
+#set -x  # show commands
 
 FILE_LIST="$(git diff --cached --name-only)"
 
@@ -25,10 +25,45 @@ if [ $? -ne 0 ]; then
    exit 1
 fi
 
+#check if we can ssh to WinUAE
+#We want to run test on WinUAE later below in this script after building all. Check ssh to WinUAE now and abort before wasting time on building all configurations
+WINUAEIP=$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;}}')
+sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'
+if [ $? -ne 0 ]; then
+   echo "Local pre-commit hook"
+   echo "Cannot ssh to WinUAE ("$WINUAEIP"). amigasshd started?"
+   echo "Commit aborted."
+   exit 1
+fi
+
 #check, if WCS is still compileable with SAS/C
 cd /home/developer/Desktop/SelcoGit/3DNature/Amiga/
 ./build_wcs_sasc.sh
+if [ $? -ne 0 ]; then
+   echo "Local pre-commit hook"
+   echo "build_wcs_sasc.sh failed!"
+   echo "Commit refused."
+   exit 1
+fi
 
 #check if all eclipse build configurations can be build
 cd /home/developer/Desktop/SelcoGit/3DNature/Amiga/
 ./make_all_configurations.sh
+if [ $? -ne 0 ]; then
+   echo "Local pre-commit hook"
+   echo "make_all_configurations.sh"
+   echo "Commit refused."
+   exit 1
+fi
+
+# Run tests on WinUAE
+# ack is like grep but with output
+# we need grep (ack) "All tests passed." at the end to get a return code
+sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && test_68020/wcs_test_68020" | ack --passthru  "All tests passed."
+if [ $? -ne 0 ]; then
+   echo "Local pre-commit hook"
+   echo "test_68020/wcs_test_68020 failed!"
+   echo "Commit refused."
+   exit 1
+fi
+
