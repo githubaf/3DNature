@@ -67,3 +67,37 @@ if [ $? -ne 0 ]; then
    exit 1
 fi
 
+#Run Tests on AROS i386
+# Samba does not work on AROS so far (first char of all names missing), so copy all files
+mkdir -p ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga
+rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/
+
+# create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
+echo "assign VBOX: Sys:VBox"                            > ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+#echo "; BEGIN WCS"                                     >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+#echo "assign WCS: Sys:WCS"                            >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+#echo "assign WCSFrames: WCS:WCSFRAMES"                 >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+#echo "assign WCSProjects: WCS:WCSProjects"             >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+#echo "assign locale: VBox:SelcoGit/3DNature/Amiga add" >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+#echo "; END WCS"                                       >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo ";-------------------"                            >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "; run test tests"                                >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "stack 100000"                                    >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "cd VBox:SelcoGit/3DNature/Amiga"                 >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+# all stuff written to Debug: goes to the Linux console (stderr, i.e. use 2>&1)
+echo "test_i386-aros/WCS_test_i386-aros > Debug:"      >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo ";-------------------"                            >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo ";exit AROS when done"                            >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "shutdown"                                        >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+# now fire up AROS and let it do the tests.
+
+pushd . 
+cd ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS
+Arch/linux/AROSBootstrap 2>&1 | ack --passthru  "All tests passed."
+if [ $? -ne 0 ]; then
+   echo "Local pre-commit hook"
+   echo "test_i386-aros/WCS_test_i386-aros failed!"
+   echo "Commit refused."
+   exit 1
+fi
+popd

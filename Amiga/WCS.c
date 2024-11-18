@@ -713,6 +713,21 @@ if(P96Base) // if we could open P96 we have also to close at the end...
 
 
 
+void SimpleEndianFlip32F(             float Source32, float  *Dest32)  // AF, 10Dec22 for i386-aros
+       {
+           float retVal;
+           char *floatToConvert = ( char* ) & Source32;
+           char *returnFloat = ( char* ) & retVal;
+
+           // swap the bytes into a temporary buffer
+           returnFloat[0] = floatToConvert[3];
+           returnFloat[1] = floatToConvert[2];
+           returnFloat[2] = floatToConvert[1];
+           returnFloat[3] = floatToConvert[0];
+
+           *Dest32=retVal;
+       }
+
 // AF, 4.Feb.2024: currently remove() contains an unwanted puts() (leftiver from libnix debugging?) So we overwrite is here without this puts()
 // copied from ./libnix/sources/nix/stdio/remove.c to overwrite the libnix-remove() function.
 // delete as soon as libnix has been fixed.

@@ -4066,3 +4066,8 @@ Test auf Anzahl unused functions/data im Eclipse Post Build Step
 ----------
 Test auf WinUAE in pre-commit eingebaut.
 * Auf WinUAE muss amisshd laufen. (amisshd -p 22222) fuer Port 22222
+
+18.Now.2024
+----------
+-Test mit i386_aros in pre-commit eingebaut. mit rsync und direktem Start des Tests aus der user-startup. (Weil Samba nicht funktioniert und ssh nicht verfuegbar ist)
+
