@@ -150,7 +150,7 @@ return(0);
 
 STATIC_FCN void DemoFunc(struct CmdContext *Call, char *FromZone) // used locally only -> static, AF 19.7.2021
 {
-char TextMsg[250];
+char TextMsg[264]; // was 250, but sprintf(TextMsg, "     Arg=%s", Call->ArgStr); could write up to 264 Bytes! AF, 19.Nov24  -Werror=format-overflow
 short i = 0;
 
 while (Call->WordToken[i] && i < 10)

@@ -17,7 +17,7 @@
 #ifdef THIS_IS_NOT_USED
 STATIC_VAR struct DateTime PocketWatch;
 #endif
-STATIC_VAR char PWDate[26], Today[26], ProjDate[26];
+STATIC_VAR char PWDate[26], Today[26], ProjDate[28]; // was ProjDate[26], but sprintf(ProjDate, "\0332%19s", PWDate); could write up to 27 Bytes! AF, 19.Nov24, -Werror=format-overflow
 STATIC_VAR struct FileRequester *frbase,
 // Not used, AF, 21.Jun22, found with --gc-sections,--print-gc-sections
 #ifdef THIS_IS_NOT_USED
@@ -461,7 +461,7 @@ void Log_ElapsedTime(ULONG StartSecs, ULONG FirstSecs, long Frames)
 {
 ULONG NowSecs, Elapsed;
 UBYTE ElapHrs, ElapMin, ElapSec;
-char FrameStr[16], TotalFrames[16];
+char FrameStr[16], TotalFrames[21]; // was TotalFrames[16], but sprintf(TotalFrames, "%1ld", Frames / 2); could write up t0 21 bytes! AF, 19.Nov.24, -Werror=format-overflow
 
 if(StartSecs)
 	{

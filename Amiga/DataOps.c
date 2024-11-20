@@ -445,6 +445,7 @@ RepeatRGB:
      } /* unsigned byte */
     case DEM_DATA_FORMAT_SIGNEDINT:
      {
+printf("%s() Line %d InputDataSize=%ld\n",__func__,__LINE__,InputDataSize); // Hier ist der Crash!
      if ((InputData1S = (BYTE *)get_Memory(InputDataSize, MEMF_ANY)) == NULL)
       {
       error = 1;

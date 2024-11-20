@@ -46,7 +46,7 @@ SaveRepeat:
 NewFileRequest:
    if (getfilename(1,(char*)GetString( MSG_MAPLINO_NEWLINESAVEPATH ), linepath, linefile))  // "New Line Save Path"
     {
-    char filename[255];
+    char filename[262]; // was 255, but sprintf(filename,"%s%d", str, frame); could write up to 262 bytes! AF, 19. Nov 24, Werror=format-overflow
 
     strmfp(str, linepath, linefile);
     sprintf(filename,"%s%d", str, frame);

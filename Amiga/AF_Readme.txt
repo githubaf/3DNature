@@ -4071,3 +4071,8 @@ Test auf WinUAE in pre-commit eingebaut.
 ----------
 -Test mit i386_aros in pre-commit eingebaut. mit rsync und direktem Start des Tests aus der user-startup. (Weil Samba nicht funktioniert und ssh nicht verfuegbar ist)
 
+19.Nov.24
+---------
+- Added -Werror=format-overflow to Eclipse setting for x86-64 (not supported fro all others)
+- fixed compiler complaints regarding format-overflow
+

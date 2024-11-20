@@ -5,6 +5,9 @@
 #set -e  # Abort on Errors
 #set -x  # show commands
 
+#if false; then // jump directly to x86_64 test
+if true; then 
+
 FILE_LIST="$(git diff --cached --name-only)"
 
 for FILE in $FILE_LIST; do
@@ -31,7 +34,7 @@ WINUAEIP=$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;}}')
 sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'
 if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
-   echo "Cannot ssh to WinUAE ("$WINUAEIP"). amigasshd started?"
+   echo "Cannot ssh to WinUAE ("$WINUAEIP"). amigasshd -p22222 started?"
    echo "Commit aborted."
    exit 1
 fi
@@ -57,6 +60,9 @@ if [ $? -ne 0 ]; then
 fi
 
 # Run tests on WinUAE
+echo "------------------"
+echo "| Test on WinUAE |"
+echo "------------------"
 # ack is like grep but with output
 # we need grep (ack) "All tests passed." at the end to get a return code
 sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && test_68020/wcs_test_68020" | ack --passthru  "All tests passed."
@@ -67,7 +73,12 @@ if [ $? -ne 0 ]; then
    exit 1
 fi
 
+############################################################################################################################################
+
 #Run Tests on AROS i386
+echo "--------------------"
+echo "| Test on AROS 386 |"
+echo "--------------------"
 # Samba does not work on AROS so far (first char of all names missing), so copy all files
 mkdir -p ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga
 rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/
@@ -101,3 +112,49 @@ if [ $? -ne 0 ]; then
    exit 1
 fi
 popd
+
+fi
+
+############################################################################################################################################
+
+
+if [ false ]; then
+#Run Tests on AROS x86-64
+echo "-----------------------"
+echo "| Test on AROS x86-64 |"
+echo "-----------------------"
+# Samba does not work on AROS x86-64 so far at all, so copy all files
+mkdir -p ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
+rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
+
+# create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
+echo "assign VBOX: Sys:VBox"                             > ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+#echo "; BEGIN WCS"                                     >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+#echo "assign WCS: Sys:WCS"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+#echo "assign WCSFrames: WCS:WCSFRAMES"                 >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+#echo "assign WCSProjects: WCS:WCSProjects"             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+#echo "assign locale: VBox:SelcoGit/3DNature/Amiga add" >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+#echo "; END WCS"                                       >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo ";-------------------"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "; run test tests"                                 >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "stack 100000"                                     >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "cd VBox:SelcoGit/3DNature/Amiga"                  >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+# all stuff written to Debug: goes to the Linux console (stderr, i.e. use 2>&1)
+echo "test_x86_64-aros/WCS_test_x86_64-aros.unstripped > Debug:"   >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo ";-------------------"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo ";exit AROS when done"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo ";shutdown"                                         >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+# now fire up AROS and let it do the tests.
+
+pushd . 
+cd ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS
+boot/linux/AROSBootstrap --config-debug=mungwall 2>&1 | ack --passthru  "All tests passed."
+if [ $? -ne 0 ]; then
+   echo "Local pre-commit hook"
+   echo "test_x86_64-aros/WCS_test_x86_64-aros failed!"
+   echo "Commit refused."
+#   exit 1
+fi
+popd
+
+fi

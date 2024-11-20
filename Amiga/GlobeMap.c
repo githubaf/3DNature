@@ -40,7 +40,7 @@ void globemap(void)
  long elct;
  char extension[32];
 #endif /* ENABLE_STATISTICS */
- char filename[256];
+ char filename[262]; // was 256, but sprintf(filename, "%s%d", str, frame); could write up to 262 bytes! AF, 19. Nov 24, Werror=format-overflow
  short i, error = 0, altscrnheight, renderseg, altframe, altcomposite,
 	altsaveIFF, WinWidth, WinHeight, EvenField;
  long savebmapsize, ct;
