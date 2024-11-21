@@ -4076,3 +4076,16 @@ Test auf WinUAE in pre-commit eingebaut.
 - Added -Werror=format-overflow to Eclipse setting for x86-64 (not supported fro all others)
 - fixed compiler complaints regarding format-overflow
 
+21.Nov.24
+---------
+Corrected some compiler-Settings for aors x86-64 and i386.
+Test aros-x86_64-Test runs if compiled AROS and compiler is build with an old commit from deadw00d, but crashes with the current one!
+
+* HEAD detached at ad37a20acc  Sat Apr 13 15:51:39 2024 +0200   --> aros x86_64-test passes (but WCS itself runs only with rnmp-anim and gray scale display!)
+* HEAD detached at 659a6d6fc8  Mon Sep 30 17:07:41 2024 +0200   --> aros x86_64-test passes (but WCS itself runs only with rnmp-anim and gray scale display!)
+* HEAD detached at c92d5bb031  Fri Oct 25 12:16:24 2024 +0200   --> aros x86_64-test passes (but WCS itself runs only with rnmp-anim and gray scale display!)
+* HEAD detached at e47423d0b4  Tue Nov  5 13:57:06 2024 +0100   --> aros x86_64-test passes (but WCS itself runs only with rnmp-anim and gray scale display --  was an printf-error on my side!) 
+
+
+
+

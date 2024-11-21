@@ -1921,7 +1921,7 @@ void Handle_ES_Window(ULONG WCS_ID)
       } /* renderopts RGB */
      case 1:
       {
-    	  printf("Alexander: %s %s() Line %d data=%d\n",data,__FILE__,__func__,__LINE__);     // <-- 0=No Screen / 1=Screen Gray / 2=Screen Color
+    	  printf("Alexander: %d %s() Line %d data=%d\n",data,__FILE__,__func__,__LINE__);     // <-- 0=No Screen / 1=Screen Gray / 2=Screen Color
    	  settings.renderopts &=0xffcf;                        // clear 0x10 (gray) and 0x20 (color) bits
       if (data==1) {settings.renderopts |= 0x10;}          // set gray
       else if (data==2) {settings.renderopts |= 0x30;}     // set color (and also gray to stay backward compatible -> old versions see gray)

@@ -520,12 +520,12 @@ void ScreenPixelPlotCGFX(struct Window *win, UBYTE **Bitmap, short x, short y, l
 
 
 // AF, set ScreenPixelPlot function pointer to old function, new color-dithered function or RTG function
-void setScreenPixelPlotFnct(struct Settings settings)
+void setScreenPixelPlotFnct(struct Settings *settings)
 {
 	printf("Alexander: %s %s()called\n",__FILE__,__func__);
-	printf("settings.renderopts=%04x",settings.renderopts);
+	printf("settings.renderopts=%04x",settings->renderopts);
 
-	switch(settings.renderopts & 0x30)
+	switch(settings->renderopts & 0x30)
 	{
 		case 0x10:  // render Screen, gray
 			printf("should plot gray scaled\n");

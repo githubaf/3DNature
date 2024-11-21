@@ -687,7 +687,7 @@ extern void Play_Colors(void);
 //extern void ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short x, short y, long zip);
 
 void initScreenPixelPlotFnct(); // set ScreenPixelPlot function pointer to ScreenPixelPlotClassic()
-void setScreenPixelPlotFnct(struct Settings settings); // set ScreenPixelPlot function pointer to old function, new color-dithered function or RTG function
+void setScreenPixelPlotFnct(struct Settings *settings); // set ScreenPixelPlot function pointer to old function, new color-dithered function or RTG function
 void ScreenPixelPlotClassic(struct Window *win, UBYTE **Bitmap, short x, short y, long zip);
 typedef void (*ScreenPixelPlotFnctPtr)(struct Window *win, UBYTE **Bitmap, short x, short y, long zip);
 extern ScreenPixelPlotFnctPtr ScreenPixelPlot;

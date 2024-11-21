@@ -5,8 +5,8 @@
 #set -e  # Abort on Errors
 #set -x  # show commands
 
-#if false; then // jump directly to x86_64 test
-if true; then 
+if false; then // jump directly to x86_64 test
+#if true; then 
 
 FILE_LIST="$(git diff --cached --name-only)"
 
@@ -80,17 +80,20 @@ echo "--------------------"
 echo "| Test on AROS 386 |"
 echo "--------------------"
 # Samba does not work on AROS so far (first char of all names missing), so copy all files
+# copy Amiga WCS-Install-Dir
+rsync -avz /home/developer/Desktop/WCS/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/WCS
+# copy Build/Test-Files
 mkdir -p ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga
 rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/
 
 # create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
 echo "assign VBOX: Sys:VBox"                            > ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
-#echo "; BEGIN WCS"                                     >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
-#echo "assign WCS: Sys:WCS"                            >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
-#echo "assign WCSFrames: WCS:WCSFRAMES"                 >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
-#echo "assign WCSProjects: WCS:WCSProjects"             >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
-#echo "assign locale: VBox:SelcoGit/3DNature/Amiga add" >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
-#echo "; END WCS"                                       >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "; BEGIN WCS"                                     >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "assign WCS: Sys:WCS"                            >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "assign WCSFrames: WCS:WCSFRAMES"                 >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "assign WCSProjects: WCS:WCSProjects"             >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "assign locale: VBox:SelcoGit/3DNature/Amiga add" >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "; END WCS"                                       >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
 echo ";-------------------"                            >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
 echo "; run test tests"                                >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
 echo "stack 100000"                                    >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
@@ -118,23 +121,26 @@ fi
 ############################################################################################################################################
 
 
-if [ false ]; then
+if [ true ]; then
 #Run Tests on AROS x86-64
 echo "-----------------------"
 echo "| Test on AROS x86-64 |"
 echo "-----------------------"
 # Samba does not work on AROS x86-64 so far at all, so copy all files
+# copy Amiga WCS-Install-Dir
+rsync -avz /home/developer/Desktop/WCS/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS
+# copy Build/Test-Files 
 mkdir -p ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
 rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
 
 # create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
 echo "assign VBOX: Sys:VBox"                             > ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
-#echo "; BEGIN WCS"                                     >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
-#echo "assign WCS: Sys:WCS"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
-#echo "assign WCSFrames: WCS:WCSFRAMES"                 >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
-#echo "assign WCSProjects: WCS:WCSProjects"             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
-#echo "assign locale: VBox:SelcoGit/3DNature/Amiga add" >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
-#echo "; END WCS"                                       >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "; BEGIN WCS"                                     >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "assign WCS: Sys:WCS"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "assign WCSFrames: WCS:WCSFRAMES"                 >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "assign WCSProjects: WCS:WCSProjects"             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "assign locale: VBox:SelcoGit/3DNature/Amiga add" >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "; END WCS"                                       >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
 echo ";-------------------"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
 echo "; run test tests"                                 >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
 echo "stack 100000"                                     >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup

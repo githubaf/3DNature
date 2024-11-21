@@ -1928,7 +1928,7 @@
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
 									<listOptionValue builtIn="false" value="__far="/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
-									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
+									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 									<listOptionValue builtIn="false" value="USHORT=UWORD"/>
 									<listOptionValue builtIn="false" value="SHORT=int16_t"/>
 									<listOptionValue builtIn="false" value="__stdargs="/>
@@ -1941,9 +1941,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WCS}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.dialect.std.212636882" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.misc.other.458808313" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -funsigned-char" valueType="string"/>
+								<option id="gnu.c.compiler.option.misc.other.458808313" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -funsigned-char -fno-common" valueType="string"/>
 								<option id="gnu.c.compiler.option.optimization.flags.1419252426" name="Other optimization flags" superClass="gnu.c.compiler.option.optimization.flags" useByScannerDiscovery="false" value="" valueType="string"/>
-								<option id="gnu.c.compiler.option.misc.otherExcludedFromScannerDiscovery.1201424376" name="Other flags (excluded from discovery)" superClass="gnu.c.compiler.option.misc.otherExcludedFromScannerDiscovery" useByScannerDiscovery="false" value="-Werror=format-overflow" valueType="string"/>
+								<option id="gnu.c.compiler.option.misc.otherExcludedFromScannerDiscovery.1201424376" name="Other flags (excluded from discovery)" superClass="gnu.c.compiler.option.misc.otherExcludedFromScannerDiscovery" useByScannerDiscovery="false" value="" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.612613336" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.372204567" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
@@ -2154,7 +2154,7 @@
 									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
 									<listOptionValue builtIn="false" value="__far="/>
 									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
-									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
+									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
 									<listOptionValue builtIn="false" value="USHORT=UWORD"/>
 									<listOptionValue builtIn="false" value="SHORT=int16_t"/>
 									<listOptionValue builtIn="false" value="__stdargs="/>

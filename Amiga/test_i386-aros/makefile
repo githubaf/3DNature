@@ -55,7 +55,7 @@ pre-build:
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS_test_i386-aros && cp WCS_test_i386-aros WCS_test_i386-aros.unstripped && x86_64-aros-strip --strip-unneeded -R.comment  WCS_test_i386-aros && ls -la WCS_test_i386-aros && x86_64-aros-size WCS_test_i386-aros && cp  ../WCS.info WCS_test_i386-aros.info && ../check_pre-commit-hook
+	-cp WCS WCS_test_i386-aros && cp WCS_test_i386-aros WCS_test_i386-aros.unstripped && i386-aros-strip --strip-unneeded -R.comment  WCS_test_i386-aros && ls -la WCS_test_i386-aros && i386-aros-size WCS_test_i386-aros && cp  ../WCS.info WCS_test_i386-aros.info && ../check_pre-commit-hook
 	-@echo ' '
 
 .PHONY: all clean dependents main-build pre-build post-build

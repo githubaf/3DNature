@@ -308,182 +308,182 @@ OBJS += \
 AGUI.o: ../AGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 %.o: ../%.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -O3 -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -O3 -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 CloudGUI.o: ../CloudGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 DEMGUI.o: ../DEMGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 DataOpsGUI.o: ../DataOpsGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 DiagnosticGUI.o: ../DiagnosticGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 DispatchGUI.o: ../DispatchGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 EdDBaseGUI.o: ../EdDBaseGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 EdEcoGUI.o: ../EdEcoGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 EdMoGUI.o: ../EdMoGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 EdSetExtrasGUI.o: ../EdSetExtrasGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 EdSetGUI.o: ../EdSetGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 EditGui.o: ../EditGui.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 EvenMoreGUI.o: ../EvenMoreGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 FoliageGUI.o: ../FoliageGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 GenericTLGUI.o: ../GenericTLGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 HelpGUI.o: ../HelpGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 MapGUI.o: ../MapGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 MoreGUI.o: ../MoreGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 ParamsGUI.o: ../ParamsGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 PlotGUI.o: ../PlotGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 RequesterGUI.o: ../RequesterGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 ScreenModeGUI.o: ../ScreenModeGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 TLSupportGUI.o: ../TLSupportGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 TimeLinesGUI.o: ../TimeLinesGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
 WaveGUI.o: ../WaveGUI.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -Werror=format-overflow -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	x86_64-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh master | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -Os -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
