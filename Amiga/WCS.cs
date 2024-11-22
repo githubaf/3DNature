@@ -353,7 +353,7 @@ Mui...
 MUI...
 
 
-
+Mui...
 
 
 
@@ -1560,7 +1560,7 @@ MSG_SCNRMODGUI_COLORS
   Farben:\x20
 
 
-
+  Kleuren:\x20
 
 
 
@@ -6463,8 +6463,8 @@ Out of memory expanding Database Editor List!\nNew object has been added but wil
 Nicht genügend Speicher um die Datenbankeditor-Liste zu erweitern. Ein neues Objekt wurde hinzugefügt, erscheint aber nicht in der Listenansicht.
 
 
-
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is toegevoegd maar zal niet verschijnen in lijst weergave.
+
 
 
 Brak pamiêci dla roszerzenie Listy Edycji w bazie danych!\nNowy objekt zosta³ dodany, ale nie zostanie wy¶wietlony na li¶cie.
@@ -11963,25 +11963,23 @@ Geen scherm
 
 
 
-; Todo: Dutch
 MSG_EDSETGUI_SCREEN_GRAYSCALE
 \338Screen (Gray Scale)
 \338Bildschirm (Graustufen)
 
 
-\338Scherm
+\338Scherm (Grijswaarden)
 
 
 
 
 
-; Todo: Dutch
 MSG_EDSETGUI_SCREEN_COLORED
 \338Screen (Colored)
 \338Bildschirm (Farbig)
 
 
-\338Scherm
+\338Scherm (Kleur)
 
 
 

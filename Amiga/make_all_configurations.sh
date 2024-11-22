@@ -11,6 +11,7 @@ for BUILDCONFIG in $(find . -name "makefile" -exec dirname {} \;); do
 	echo Making $BUILDCONFIG
         echo "******************************"
 	cd $BUILDCONFIG
+        make clean
 	make all
 	cd $STARTDIR
 done

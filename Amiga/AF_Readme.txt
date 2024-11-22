@@ -3718,7 +3718,7 @@ Also kuerzerer Text oder besserer Screenmode oder damit leben!
 
 22.Juli 2024
 ------------
-Simplecat scheint Backslashe in lange Strngs zu machen. Dadurch werden mehrzeilig. Das bringt meine AWK-Scripte durcheinander. Die Backslashe wieder entfernen:
+Simplecat scheint Backslashe in lange Strings zu machen. Dadurch werden mehrzeilig. Das bringt meine AWK-Scripte durcheinander. Die Backslashe wieder entfernen:
 
 awk '{if (sub(/\\$/, "")) printf "%s", $0; else print $0}' WCS.cs >aaa.tmp && cp aaa.tmp WCS.cs
 
@@ -4086,6 +4086,17 @@ Test aros-x86_64-Test runs if compiled AROS and compiler is build with an old co
 * HEAD detached at c92d5bb031  Fri Oct 25 12:16:24 2024 +0200   --> aros x86_64-test passes (but WCS itself runs only with rnmp-anim and gray scale display!)
 * HEAD detached at e47423d0b4  Tue Nov  5 13:57:06 2024 +0100   --> aros x86_64-test passes (but WCS itself runs only with rnmp-anim and gray scale display --  was an printf-error on my side!) 
 
+* HEAD detached at c00671d77e  Thu Nov 14 12:12:23 2024 +0100   -> aros x86_64-test crashes!  "Default to -mno-red-zone"
+* HEAD detached at ad347e505e  Thu Nov 14 11:25:49 2024 +0100   -> aros x86_64-test crashes!  "Add translation of EBADF error"
+* HEAD detached at a590ee31fe  Tue Nov 5 17:54:59 2024 +0100    -> aros x86_64-test crashes!  "Add cast needed for GDB > 12"
+* HEAD detached at 8aa8c4171c  Fri Nov 1 19:33:44 2024 +0100    -> aros x86_64-test crashes!  "x86 and x86-64: Let -mno-red-zone be the default setting."
+* HEAD detached at bf40b86b7a  Mon Oct 7 22:01:20 2024 +0200    -> AROS scrashes!  Software Failure Exec Bootstrap Task "Added memory to clobber list and made the operands for args 1-6 read-write."
+* HEAD detached at d7749c3894  Sat Nov 2 09:02:40 2024 +0100    --> aros x86_64-test passes, everything OK "Add missed dependency to enable test during build"
 
+-> I will use AROS d7749c3894 for the moment!
+
+
+#Fehlende hollaendische Texte (mit Zeilennummer):
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; getline; POLISH=$0; getline; CZECH=$0; if(DUTCH==""){print "Line " NR ": " ENGLISH;}else{DUTCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Dutch:  %4d\n",DUTCHCOUNT);printf("%d%%\n",DUTCHCOUNT*100/MSGCOUNT++);}'
 
 

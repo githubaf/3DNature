@@ -5,8 +5,8 @@
 #set -e  # Abort on Errors
 #set -x  # show commands
 
-if false; then // jump directly to x86_64 test
-#if true; then 
+#if false; then // jump directly to x86_64 test
+if true; then 
 
 FILE_LIST="$(git diff --cached --name-only)"
 
@@ -80,7 +80,7 @@ echo "--------------------"
 echo "| Test on AROS 386 |"
 echo "--------------------"
 # Samba does not work on AROS so far (first char of all names missing), so copy all files
-# copy Amiga WCS-Install-Dir
+# copy Amiga WCS-Install-Dir in case we want to do manual testing...
 rsync -avz /home/developer/Desktop/WCS/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/WCS
 # copy Build/Test-Files
 mkdir -p ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga
@@ -120,16 +120,14 @@ fi
 
 ############################################################################################################################################
 
-
-if [ true ]; then
 #Run Tests on AROS x86-64
 echo "-----------------------"
 echo "| Test on AROS x86-64 |"
 echo "-----------------------"
 # Samba does not work on AROS x86-64 so far at all, so copy all files
-# copy Amiga WCS-Install-Dir
+# copy Amiga WCS-Install-Dir in case we want to do manual testing... 
 rsync -avz /home/developer/Desktop/WCS/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS
-# copy Build/Test-Files 
+# copy Build/Test-Files
 mkdir -p ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
 rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
 
@@ -149,7 +147,7 @@ echo "cd VBox:SelcoGit/3DNature/Amiga"                  >> ~/Desktop/SelcoGit/co
 echo "test_x86_64-aros/WCS_test_x86_64-aros.unstripped > Debug:"   >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
 echo ";-------------------"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
 echo ";exit AROS when done"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
-echo ";shutdown"                                         >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "shutdown"                                         >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
 # now fire up AROS and let it do the tests.
 
 pushd . 
@@ -163,4 +161,3 @@ if [ $? -ne 0 ]; then
 fi
 popd
 
-fi
