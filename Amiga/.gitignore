@@ -11,3 +11,4 @@ x86_64-aros
 /gc-sections/
 /test_x86_64-aros/
 /test_x86-64-aros/
+/test_68020_render/
