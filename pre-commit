@@ -5,9 +5,6 @@
 #set -e  # Abort on Errors
 #set -x  # show commands
 
-#if false; then // jump directly to x86_64 test
-if true; then 
-
 FILE_LIST="$(git diff --cached --name-only)"
 
 for FILE in $FILE_LIST; do
@@ -116,7 +113,7 @@ if [ $? -ne 0 ]; then
 fi
 popd
 
-fi
+
 
 ############################################################################################################################################
 
@@ -157,7 +154,68 @@ if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
    echo "test_x86_64-aros/WCS_test_x86_64-aros failed!"
    echo "Commit refused."
-#   exit 1
+   exit 1
 fi
 popd
+
+
+################################################################
+# Render-Test 68020
+rm -rf ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
+mkdir -p ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
+
+# This runs the complete program. At the end we have the rendered example images that need to be checked.
+Error=0
+ErrorString=""
+sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && test_68020_render/wcs_test_68020_render"
+
+for file in "RMNP000" "CanyonSet000" "DemoFrame001" "WorldTest001"
+do
+  #  cmp ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file ~/Desktop/SelcoGit/3DNature/Amiga/test_files/reference/ref_$file
+  display ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file  # just diplay each rendered file for now
+    LastError=$?
+    Error=$(expr $Error + $LastError)
+    
+    if [ $LastError -ne 0 ]; then
+        ErrorString="$ErrorString $file"
+    fi
+done
+
+# Wenn Fehler aufgetreten sind, gebe eine Fehlermeldung aus
+if [ $Error -ne 0 ]; then
+   echo "Local pre-commit hook"
+   echo "test_68020_render/wcs_test_68020_render failed ($ErrorString)!"
+   echo "Commit refused."
+   exit 1
+fi
+
+################################################################
+# Render-Test 68060
+rm -rf ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
+mkdir -p ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
+
+# This runs the complete program. At the end we have the rendered example images that need to be checked.
+Error=0
+ErrorString=""
+sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && test_68060_render/wcs_test_68060_render"
+
+for file in "RMNP000" "CanyonSet000" "DemoFrame001" "WorldTest001"
+do
+  #    cmp ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file ~/Desktop/SelcoGit/3DNature/Amiga/test_files/reference/ref_$file
+  display ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file  # just diplay each rendered file for now
+    LastError=$?
+    Error=$(expr $Error + $LastError)
+
+    if [ $LastError -ne 0 ]; then
+        ErrorString="$ErrorString $file"
+    fi
+done
+
+# Wenn Fehler aufgetreten sind, gebe eine Fehlermeldung aus
+if [ $Error -ne 0 ]; then
+   echo "Local pre-commit hook"
+   echo "test_68060_render/wcs_test_68060_render failed ($ErrorString)!"
+   echo "Commit refused."
+   exit 1
+fi
 

@@ -1186,4 +1186,7 @@ long writeElMapHeaderV101_BE(int fh, struct elmapheaderV101 *Hdr);
 
 long write_short_Array_BE(int filehandle, short *ShortArray, size_t size); // AF, HGW, 20.Mar23
 
+// AF: 02.Dec.24 prints some information about Screenmode, colors etc
+void getGfxInformation(void);
+
 #endif

@@ -42,7 +42,7 @@
 #define CATCOMP_BLOCK 1     /* enable CATCOMP_BLOCK */
 #include "WCS_locale.h" /* prototypes and catcomp block */
 
-#include <BigEndianReadWrite.h>
+#include "BigEndianReadWrite.h"
 /*************************************************************************/
 
 #ifdef __amigaos4__
@@ -134,6 +134,7 @@ static int is_empty_or_whitespace(const char *str) {
   return TRUE;
 }
 
+#ifdef GetString_ORG
 STRPTR GetString(long id)
 {
 LONG   *l;
@@ -190,4 +191,107 @@ STRPTR  builtin;
     return(builtin);  // AF: if string is empty, return builtin
 }
 /* \\\ GetString */
+#else
 
+STRPTR GetString(long id)
+{
+    LONG   *l;
+    LONG    l_content;
+    UWORD  *w;
+    UWORD   w_content;
+    STRPTR  builtin;
+
+    // Annahme: Drei Teile des CatCompBlocks, die mit ihren Endadressen bekannt sind
+    LONG *l_part1 = (LONG *)CatCompBlockPart1;
+    LONG *l_part2 = (LONG *)CatCompBlockPart2;
+    LONG *l_part3 = (LONG *)CatCompBlockPart3;
+
+    // Groessen der drei Teile des Blocks (muessen bekannt sein oder berechnet werden)
+    LONG *end_part1 = (LONG *)((ULONG)l_part1 + sizeof(CatCompBlockPart1));
+    LONG *end_part2 = (LONG *)((ULONG)l_part2 + sizeof(CatCompBlockPart2));
+    LONG *end_part3 = (LONG *)((ULONG)l_part3 + sizeof(CatCompBlockPart3));
+
+    static int Init=TRUE;
+    if(Init)
+    {
+    	Init=FALSE;
+    	printf("ALEXANDER: sizeof(CatCompBlockPart1)=%d\n",sizeof(CatCompBlockPart1));
+    	printf("ALEXANDER: sizeof(CatCompBlockPart2)=%d\n",sizeof(CatCompBlockPart2));
+    	printf("ALEXANDER: sizeof(CatCompBlockPart3)=%d\n",sizeof(CatCompBlockPart3));
+    }
+
+
+    // Zuerst den ersten Block durchsuchen
+    l = l_part1;
+    l_content = *l;
+    ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32S(l_content, &l_content);)
+
+    // Suche im ersten Block
+    while (l_content != id) {
+        // Wenn das Ende des ersten Blocks erreicht ist, wechseln wir zum zweiten Block
+        if (l >= end_part1) {
+            l = l_part2; // Wechsel zu Part2
+            l_content = *l;
+            ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32S(l_content, &l_content);)
+            break; // Break, um die weitere Suche im zweiten Block fortzusetzen
+        }
+
+        w = (UWORD *)((ULONG)l + 4);
+        w_content = *w;
+        ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16U(w_content, &w_content);)
+
+        l = (LONG *)((ULONG)l + (ULONG)w_content + 6); // zum naechsten Eintrag
+        l_content = *l;
+        ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32S(l_content, &l_content);)
+    }
+
+    // Falls wir immer noch nicht die ID gefunden haben, weiter suchen im zweiten Block
+    while (l_content != id) {
+        // Sicherstellen, dass wir nicht ueber das Ende des zweiten Blocks hinauslesen
+        if (l >= end_part2) {
+            l = l_part3; // Wechsel zu Part3
+            l_content = *l;
+            ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32S(l_content, &l_content);)
+            break; // Break, um die weitere Suche im dritten Block fortzusetzen
+        }
+
+        w = (UWORD *)((ULONG)l + 4);
+        w_content = *w;
+        ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16U(w_content, &w_content);)
+
+        l = (LONG *)((ULONG)l + (ULONG)w_content + 6); // zum naechsten Eintrag
+        l_content = *l;
+        ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32S(l_content, &l_content);)
+    }
+
+    // Falls wir immer noch nicht die ID gefunden haben, weiter suchen im dritten Block
+    while (l_content != id) {
+        // Sicherstellen, dass wir nicht ueber das Ende des dritten Blocks hinauslesen
+        if (l >= end_part3) {
+            break; // Ende des dritten Blocks erreicht, keine weitere Suche
+        }
+
+        w = (UWORD *)((ULONG)l + 4);
+        w_content = *w;
+        ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip16U(w_content, &w_content);)
+
+        l = (LONG *)((ULONG)l + (ULONG)w_content + 6); // zum naechsten Eintrag
+        l_content = *l;
+        ENDIAN_CHANGE_IF_NEEDED(SimpleEndianFlip32S(l_content, &l_content);)
+    }
+
+    // Der String befindet sich nun an (l + 6), wie zuvor
+    builtin = (STRPTR)((ULONG)l + 6);
+
+    // Lokalisierte Version des Strings abrufen, falls verfuegbar
+    if (locale_catalog && LocaleBase) {
+        APTR string = GetCatalogStr(locale_catalog, id, builtin);
+        if (!is_empty_or_whitespace(string)) {
+            return string;
+        }
+    }
+
+    return(builtin); // Rueckgabe des Standardstrings, falls nichts Uebersetztes gefunden wurde
+}
+
+#endif

@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include vgl/subdir.mk
 -include subdir.mk
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(strip $(C_DEPS)),)
@@ -41,7 +42,7 @@ main-build: WCS
 WCS: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
-	x86_64-aros-gcc  -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS)  -fno-omit-frame-pointer  -lm -lmui -DSTATIC_FCN=static -DSTATIC_VAR=static  -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_test_x86_64-aros.map  && ../check_wcs_aros_x86_64.sh WCS
+	m68k-amigaos-gcc -pg -ftest-coverage -fprofile-arcs -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68060 -m68881 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_test_68060_render.map  -ftest-coverage -fprofile-arcs -fprofile-dir=/Coverage -lmui -lgcov -lm && ../check_wcs_amigaos_m68k.sh WCS
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -51,11 +52,11 @@ clean:
 	-@echo ' '
 
 pre-build:
-	-realpath $$(which x86_64-aros-gcc) &&   rm -fv Version.o; rm -fv WCS_test_x86_64-aros*
+	-realpath $$(which m68k-amigaos-gcc) &&  find . \( -name "*.gcno" -o -name "*.gcda" -o -name "gmon.out" \) -exec rm -f {} \; ; rm -fv Version.o; rm -fv WCS_test_68060_render*
 	-@echo ' '
 
 post-build:
-	-cp WCS WCS_test_x86_64-aros && cp WCS_test_x86_64-aros WCS_test_x86_64-aros.unstripped && x86_64-aros-strip --strip-unneeded -R.comment  WCS_test_x86_64-aros && ls -la WCS_test_x86_64-aros && x86_64-aros-size WCS_test_x86_64-aros && cp  ../WCS.info WCS_test_x86_64-aros.info && ../check_pre-commit-hook
+	-cp WCS WCS_test_68060_render && cp WCS_test_68060_render WCS_test_68060_render.unstripped && m68k-amigaos-strip WCS_test_68060_render && ls -la WCS_test_68060_render && m68k-amigaos-size WCS_test_68060_render && cp  ../WCS.info WCS_test_68060_render.info && ../check_pre-commit-hook
 	-@echo ' '
 
 .PHONY: all clean dependents main-build pre-build post-build

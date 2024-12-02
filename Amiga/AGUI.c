@@ -37,47 +37,47 @@ STATIC_FCN void Handle_DO_Window(ULONG WCS_ID); // used locally only -> static, 
 STATIC_FCN void Status_Log(STRPTR logtext, int Severity); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Make_Log_Window(int Severity); // used locally only -> static, AF 26.7.2021
 
-// SAS/C and deadw00d's gcc for AROS x86_64/i386 do not have asprintf()
-#if defined __SASC || defined __AROS__
-// chatgpt suggested the following:
-int asprintf(char **strp, const char *fmt, ...) {
-    va_list args;
-    va_list args_copy;
-    int len;
-
-    // Initialize the variable argument list
-    va_start(args, fmt);
-
-    // Copy the argument list to measure the length
-    va_copy(args_copy, args);
-    len = vsnprintf(NULL, 0, fmt, args_copy);
-    va_end(args_copy);
-
-    if (len < 0) {
-        va_end(args);
-        return -1;
-    }
-
-    // Allocate memory for the resulting string
-    *strp = (char *)malloc(len + 1);
-    if (!*strp) {
-        va_end(args);
-        return -1;
-    }
-
-    // Format the string
-    len = vsnprintf(*strp, len + 1, fmt, args);
-    va_end(args);
-
-    if (len < 0) {
-        free(*strp);
-        return -1;
-    }
-
-    return len;
-}
-
-#endif
+//// SAS/C and deadw00d's gcc for AROS x86_64/i386 do not have asprintf()
+//#if defined __SASC || defined __AROS__
+//// chatgpt suggested the following:
+//int asprintf(char **strp, const char *fmt, ...) {
+//    va_list args;
+//    va_list args_copy;
+//    int len;
+//
+//    // Initialize the variable argument list
+//    va_start(args, fmt);
+//
+//    // Copy the argument list to measure the length
+//    va_copy(args_copy, args);
+//    len = vsnprintf(NULL, 0, fmt, args_copy);
+//    va_end(args_copy);
+//
+//    if (len < 0) {
+//        va_end(args);
+//        return -1;
+//    }
+//
+//    // Allocate memory for the resulting string
+//    *strp = (char *)malloc(len + 1);
+//    if (!*strp) {
+//        va_end(args);
+//        return -1;
+//    }
+//
+//    // Format the string
+//    len = vsnprintf(*strp, len + 1, fmt, args);
+//    va_end(args);
+//
+//    if (len < 0) {
+//        free(*strp);
+//        return -1;
+//    }
+//
+//    return len;
+//}
+//
+//#endif
 
 void Make_EP_Window(short hor_win)
 {

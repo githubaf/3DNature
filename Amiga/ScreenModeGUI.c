@@ -524,7 +524,7 @@ struct WCSScreenMode *ModeList_Choose(struct WCSScreenMode *This,
 						static char String[16];
 						char ColorDepth[]={4,5,6,7,8,15,16,24};
 						get(SM_COLORS, MUIA_Prop_First, &CheckVal);
-						snprintf(String,8,"%s",NumColorsStrings[CheckVal]);
+						strncpy(String,NumColorsStrings[CheckVal],sizeof(String));
 						set(SM_COLORS_TEXT, MUIA_Text_Contents,(ULONG)String);
 						Selected->Depth=ColorDepth[CheckVal];
 						break;

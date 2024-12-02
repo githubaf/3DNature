@@ -10,7 +10,7 @@
 #ifndef BIGENDIANREADWRITE_H_
 #define BIGENDIANREADWRITE_H_
 
-#include <WCS.h>
+#include "WCS.h"
 
 // ########################################################################################################################
 // swap primitives

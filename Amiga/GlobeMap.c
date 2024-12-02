@@ -158,9 +158,9 @@ void globemap(void)
   Mouse18=GetRGB4(WCSScrn->ViewPort.ColorMap,18);  // Colors 17,18,19 can be altered if colored render window is used
   Mouse19=GetRGB4(WCSScrn->ViewPort.ColorMap,19);
 
-  printf("Mouse17=%03x\n",Mouse17);
-  printf("Mouse18=%03x\n",Mouse18);
-  printf("Mouse19=%03x\n",Mouse19);
+  // printf("Mouse17=%03x\n",Mouse17);
+  // printf("Mouse18=%03x\n",Mouse18);
+  // printf("Mouse19=%03x\n",Mouse19);
 
   if (!RenderWind0)
    {
@@ -175,7 +175,7 @@ void globemap(void)
   //LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
   //SetRast(RenderWind0->RPort, 8);
 
-  printf("Alexander: %s %s() Line %d render=0x%02x\n",__FILE__,__func__,__LINE__);  // Test auf none/gray/color
+  //printf("Alexander: %s %s() Line %d render=0x%02x\n",__FILE__,__func__,__LINE__);  // Test auf none/gray/color
   setScreenPixelPlotFnct(&settings);  // AF: 23.Sep.24 set ScreenPixelPlot function pointer to old function, new color-dithered function or RTG function
                                      // also sets Palette according to gray or color-dither mode
                                      // also clears screen to white with SetRast() according to gray or color/dither mode
@@ -1025,9 +1025,9 @@ Cleanup2:
   SetRGB4(&WCSScrn->ViewPort,18,(Mouse18&0xf00)>>8,(Mouse18&0x0f0)>>4,(Mouse18&0x00f)>>0);  // Restore mouse colors, could have been altered if color dithering Render Window was used
   SetRGB4(&WCSScrn->ViewPort,19,(Mouse19&0xf00)>>8,(Mouse19&0x0f0)>>4,(Mouse19&0x00f)>>0);  // Restore mouse colors, could have been altered if color dithering Render Window was used
   RethinkDisplay();  // update Sprite-Colors to hardware
-  printf("Nachher Mouse17=%03x\n",Mouse17);
-  printf("Nachher Mouse18=%03x\n",Mouse18);
-  printf("Nachher Mouse19=%03x\n",Mouse19);
+  //printf("Nachher Mouse17=%03x\n",Mouse17);
+  //printf("Nachher Mouse18=%03x\n",Mouse18);
+  //printf("Nachher Mouse19=%03x\n",Mouse19);
   // Alexander: We need a refresh for the mouse colors!
 #endif /* AMIGA_GUI */
   } /* if no diagnostics */

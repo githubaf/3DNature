@@ -210,7 +210,13 @@ int main(void)
     	printf("Alexander: LocaleBase is NULL!\n");
     }
 
-    asprintf(&LocaleExtCreditText,"%s%s",ExtCreditText,GetString(MSG_MENU_PR_CREDITSTRANSLATION)); // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
+    //asprintf(&LocaleExtCreditText,"%s%s",ExtCreditText,GetString(MSG_MENU_PR_CREDITSTRANSLATION)); // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
+    // SAS/C does not have this function
+    LocaleExtCreditText=malloc(strlen(ExtCreditText)+strlen(GetString(MSG_MENU_PR_CREDITSTRANSLATION))+1); // strlen is without trailing \0!
+    if(LocaleExtCreditText)
+    {
+       sprintf(LocaleExtCreditText,"%s%s",ExtCreditText,GetString(MSG_MENU_PR_CREDITSTRANSLATION)); // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
+    }
 
     // set correct locale strings to the menu
 	WCSNewMenus[ 0].nm_Label= GetString(MSG_MENU_PROJECT);

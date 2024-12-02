@@ -15,6 +15,12 @@
 /****************************************************************************/
 
 
+#if !defined(FAR) && defined(__SASC)
+   #define FAR __far
+#else
+#define FAR
+#endif
+
 #ifndef EXEC_TYPES_H
 #include <exec/types.h>
 #endif
@@ -4284,7 +4290,7 @@
 
 #ifdef CATCOMP_BLOCK
 
-const char CatCompBlock[] =
+FAR const char CatCompBlockPart1[] =
 {
     "\x00\x00\x00\x00\x00\x08"
     MSG_MENU_PROJECT_STR "\x00"
@@ -6068,6 +6074,11 @@ const char CatCompBlock[] =
     MSG_EDMOGUI_SUN_STR "\x00\x00"
     "\x00\x00\x03\x7A\x00\x08"
     MSG_EDMOGUI_KEEP_STR "\x00\x00"
+};
+
+
+FAR const char CatCompBlockPart2[] =
+{
     "\x00\x00\x03\x7B\x00\x0C"
     MSG_EDMOGUI_LISTWIN_STR "\x00"
     "\x00\x00\x03\x7C\x00\x0C"
@@ -7542,6 +7553,10 @@ const char CatCompBlock[] =
     MSG_WAVGUI_WAVEEDITOR_STR "\x00"
     "\x00\x00\x06\x5B\x00\x0A"
     MSG_MAPGUI_VIEWSHED_STR "\x00\x00"
+};
+
+FAR const char CatCompBlockPart3[] =
+	{
     "\x00\x00\x06\x5C\x00\x08"
     MSG_MAPGUI_SURFACE_STR "\x00"
     "\x00\x00\x06\x5D\x00\x08"

@@ -595,11 +595,11 @@ if ((IntuitionBase = (struct IntuitionBase *)
 // ###############################################################################################################
 //          ResetScrn = WCS_App_EventLoop(WCSRootApp); /* Fa la la la la, la la la la! */
 
-//LoadProject("WCSProjects:CanyonSunset.proj", NULL, 0);    // WCSProjects:Arizona/SunsetAnim "Format of Parameterfile has been changed slightly..."
-//if(0==Database_Load(0,"WCSProjects:Arizona/SunsetAnim"))   // 0 mean no error
+LoadProject("WCSProjects:CanyonSunset.proj", NULL, 0);    // WCSProjects:Arizona/SunsetAnim "Format of Parameterfile has been changed slightly..."
+if(0==Database_Load(0,"WCSProjects:Arizona/SunsetAnim"))   // 0 mean no error
 //-----
-LoadProject("WCSProjects:RMNPAnim.proj", NULL, 0);   // WCSProjects:Colorado/RMNP.object/RMNPAnim.par "Format of Parameterfile has been changed slightly..."
-if(0==Database_Load(0,"WCSProjects:Colorado/RMNP"))   // 0 mean no error
+//LoadProject("WCSProjects:RMNPAnim.proj", NULL, 0);   // WCSProjects:Colorado/RMNP.object/RMNPAnim.par "Format of Parameterfile has been changed slightly..."
+//if(0==Database_Load(0,"WCSProjects:Colorado/RMNP"))   // 0 mean no error
 //-----
 //LoadProject("WCSProjects:ColoDemo.proj", NULL, 0);   // WCSProjects:ColoDemo/ColoDemo.object/Demo1.par "Format of Parameterfile has been changed slightly..."
 //if(0==Database_Load(0,"WCSProjects:ColoDemo/ColoDemo"))   // 0 mean no error
@@ -621,14 +621,91 @@ if (loadparams(0x1111, -1) == 1)
 
 Make_ES_Window();
 
-settings.maxframes=1;                          // simulate Max Frames setting
-settings.renderopts&=~0x20;                    // clear gray/color
-settings.renderopts|=0x20;                     // gray  0x10=gray, 0x20=color
-strncpy(framepath,"Ram:",sizeof(framepath));   // where to store the image
+settings.maxframes=1;                                              // simulate Max Frames setting
+settings.renderopts&=~0x20;                                        // clear gray/color
+settings.renderopts|=0x20;                                         // gray  0x10=gray, 0x20=color
+strncpy(framepath,"RenderTestImages",sizeof(framepath));   // where to store the image
 
-Handle_RN_Window(MO_RENDER);                   // simulate pressing Render-Button
+Handle_RN_Window(MO_RENDER);                                       // simulate pressing Render-Button
 // Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
 // Vorgabe Screenmode
+
+//------------
+LoadProject("WCSProjects:RMNPAnim.proj", NULL, 0);   // WCSProjects:Colorado/RMNP.object/RMNPAnim.par "Format of Parameterfile has been changed slightly..."
+if(0==Database_Load(0,"WCSProjects:Colorado/RMNP"))   // 0 mean no error
+{
+   dbaseloaded=1;
+}
+
+if (loadparams(0x1111, -1) == 1)
+ {
+ paramsloaded = 1;
+ FixPar(0, 0x1111);
+ FixPar(1, 0x1111);
+ }
+
+Make_ES_Window();
+
+settings.maxframes=1;                                              // simulate Max Frames setting
+settings.renderopts&=~0x20;                                        // clear gray/color
+settings.renderopts|=0x20;                                         // gray  0x10=gray, 0x20=color
+strncpy(framepath,"RenderTestImages",sizeof(framepath));   // where to store the image
+
+Handle_RN_Window(MO_RENDER);                                       // simulate pressing Render-Button
+// Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
+// Vorgabe Screenmode
+// --------------
+LoadProject("WCSProjects:ColoDemo.proj", NULL, 0);   // WCSProjects:ColoDemo/ColoDemo.object/Demo1.par "Format of Parameterfile has been changed slightly..."
+if(0==Database_Load(0,"WCSProjects:ColoDemo/ColoDemo"))   // 0 mean no error
+{
+   dbaseloaded=1;
+}
+
+if (loadparams(0x1111, -1) == 1)
+ {
+ paramsloaded = 1;
+ FixPar(0, 0x1111);
+ FixPar(1, 0x1111);
+ }
+
+Make_ES_Window();
+
+//settings.maxframes=1;                                              // simulate Max Frames setting
+settings.renderopts&=~0x20;                                        // clear gray/color
+settings.renderopts|=0x20;                                         // gray  0x10=gray, 0x20=color
+strncpy(framepath,"RenderTestImages",sizeof(framepath));   // where to store the image
+
+Handle_RN_Window(MO_RENDER);                                       // simulate pressing Render-Button
+// Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
+// Vorgabe Screenmode
+/// -----------------------------
+LoadProject("WCSProjects:WorldVector.proj", NULL, 0);   // WCSProjects:WorldVector/WorldVector.object/WorldTest.par "This is an old V1 format file!"
+if(0==Database_Load(0,"WCSProjects:WorldVector/WorldVector"))   // 0 mean no error
+
+{
+   dbaseloaded=1;
+}
+
+if (loadparams(0x1111, -1) == 1)
+ {
+ paramsloaded = 1;
+ FixPar(0, 0x1111);
+ FixPar(1, 0x1111);
+ }
+
+Make_ES_Window();
+
+//settings.maxframes=1;                                              // simulate Max Frames setting
+settings.renderopts&=~0x20;                                        // clear gray/color
+settings.renderopts|=0x20;                                         // gray  0x10=gray, 0x20=color
+strncpy(framepath,"RenderTestImages",sizeof(framepath));   // where to store the image
+
+Handle_RN_Window(MO_RENDER);                                       // simulate pressing Render-Button
+// Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
+// Vorgabe Screenmode
+
+
+
 
 ResetScrn=0;
 // ###############################################################################################################

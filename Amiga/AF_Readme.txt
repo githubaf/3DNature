@@ -1208,7 +1208,7 @@ smake
 ------------
 Die Bilder hatten oft ein Byte zuviel im Body. (Auch im original WCS204) Das habe ich inzwischen korriguert.
 Bei ungefaehr die Haelfte aller Bilder enthielt der Body-Chunk 1 Bytes zuviel.
-Ich habe iff-Tools von Thomas Rapp bekommen und fuer Linux angepasst. Damit kann man die Bilder schnell unter Linux auf IFF-Korrektheit pruefen. Ich habe ein Script geschrieben:
+Ich habe iff_tests von Thomas Rapp bekommen und fuer Linux angepasst. Damit kann man die Bilder schnell unter Linux auf IFF-Korrektheit pruefen. Ich habe ein Script geschrieben:
 
 ~/Desktop/SelcoGit/iff_tests$ cat test_wcs_bilder.sh 
 set -e  # Abort on error
@@ -4099,4 +4099,17 @@ Test aros-x86_64-Test runs if compiled AROS and compiler is build with an old co
 #Fehlende hollaendische Texte (mit Zeilennummer):
 cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; getline; POLISH=$0; getline; CZECH=$0; if(DUTCH==""){print "Line " NR ": " ENGLISH;}else{DUTCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Dutch:  %4d\n",DUTCHCOUNT);printf("%d%%\n",DUTCHCOUNT*100/MSGCOUNT++);}'
 
+28.11.2024
+----------
+cd ~/Desktop/SelcoGit/3DNature/Amiga
+mkdir RenderTestImages  # visible on WinUAE via Samba. Test will store rendered pictures there
 
+
+2.Dez.2024
+----------
+* Test and WCS for AROS X86 must currently be compiled with -fno-omit-framepointer. That is a problem of current AROS X86 gcc (SDK) Deadwood is working on that.
+* CatCompBlock split into thre smaller parts and and GetString() changed accrodingly. SAS/C compilation and linking is working again.
+* Rendertests in pre-commit do not test equality of rendered images currently - they all seem to differ!? (look identcally but compare shows almost all read)
+* Rendertests need some Mouse Clicks ATM. Needs to be addressed next.
+* Parts of pre-commit should become functions that can be called separately.
+* Test with SAS/C Version needs to be added.

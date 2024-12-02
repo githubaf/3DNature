@@ -463,10 +463,10 @@ void getGfxInformation(void)
 	printf("WCSScrn->Flags=0x%04x\n",WCSScrn->Flags);
 	printf("WCSScrn->ViewPort.DWidth %d x WCSScrn->ViewPort.DHeight %d\n",WCSScrn->ViewPort.DWidth,WCSScrn->ViewPort.DHeight);
 
-	printf("Mouse Color 16 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,16));
-	printf("Mouse Color 17 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,17));
-	printf("Mouse Color 18 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,18));
-	printf("Mouse Color 19 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,19));
+	// printf("Mouse Color 16 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,16));
+	// printf("Mouse Color 17 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,17));
+	// printf("Mouse Color 18 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,18));
+	// printf("Mouse Color 19 = 0x%03x\n",GetRGB4(WCSScrn->ViewPort.ColorMap,19));
 
 #ifndef __AROS__
     	  if(P96Base)
@@ -522,8 +522,8 @@ void ScreenPixelPlotCGFX(struct Window *win, UBYTE **Bitmap, short x, short y, l
 // AF, set ScreenPixelPlot function pointer to old function, new color-dithered function or RTG function
 void setScreenPixelPlotFnct(struct Settings *settings)
 {
-	printf("Alexander: %s %s()called\n",__FILE__,__func__);
-	printf("settings.renderopts=%04x",settings->renderopts);
+	//printf("Alexander: %s %s()called\n",__FILE__,__func__);
+	//printf("settings.renderopts=%04x",settings->renderopts);
 
 	switch(settings->renderopts & 0x30)
 	{
