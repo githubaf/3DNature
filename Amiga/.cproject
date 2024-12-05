@@ -2487,6 +2487,140 @@
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.759777619.253854407.1563810999.629588227">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.759777619.253854407.1563810999.629588227" moduleId="org.eclipse.cdt.core.settings" name="test_68020-60_render">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="automatic renders projects and checks results" errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.CWDLocator;org.eclipse.cdt.core.GCCErrorParser" id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.759777619.253854407.1563810999.629588227" name="test_68020-60_render" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.enablement=null,org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.image=null,org.eclipse.cdt.docker.launcher.containerbuild.property.connection=unix:///var/run/docker.sock" parent="cdt.managedbuild.config.gnu.cross.exe.release" postbuildStep="cp ${ProjName} ${ProjName}_${ConfigName} &amp;&amp; cp ${ProjName}_${ConfigName} ${ProjName}_${ConfigName}.unstripped &amp;&amp; m68k-amigaos-strip ${ProjName}_${ConfigName} &amp;&amp; ls -la ${ProjName}_${ConfigName} &amp;&amp; m68k-amigaos-size ${ProjName}_${ConfigName} &amp;&amp; cp  ../WCS.info ${ProjName}_${ConfigName}.info &amp;&amp; ../check_pre-commit-hook" preannouncebuildStep="" prebuildStep="realpath $$(which m68k-amigaos-gcc) &amp;&amp;  find . \( -name &quot;*.gcno&quot; -o -name &quot;*.gcda&quot; -o -name &quot;gmon.out&quot; \) -exec rm -f {} \; ; rm -fv Version.o; rm -fv ${ProjName}_${ConfigName}* ">
+					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.759777619.253854407.1563810999.629588227." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.316954010" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
+							<option id="cdt.managedbuild.option.gnu.cross.prefix.990405701" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" useByScannerDiscovery="false" value="m68k-amigaos-" valueType="string"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.1926830782" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" useByScannerDiscovery="false" value="" valueType="string"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1317722815" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/WCS}/Release" id="cdt.managedbuild.builder.gnu.cross.692699516" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -DBUILDID=\&quot;g/'$(shell git describe --always --dirty --exclude &quot;*&quot;)'\&quot; -noixemul -fprofile-dir=/Coverage -fprofile-arcs -ftest-coverage -m68020-60 -m68881 -DSTATIC_FCN= -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g" id="cdt.managedbuild.tool.gnu.cross.c.compiler.1341919397" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.1572835783" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.more" valueType="enumerated"/>
+								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.1096033744" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.default" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.807721591" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN="/>
+									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
+									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.2116493577" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WCS}&quot;"/>
+								</option>
+								<option id="gnu.c.compiler.option.dialect.std.285864194" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.misc.other.492390946" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -funsigned-char" valueType="string"/>
+								<option id="gnu.c.compiler.option.debugging.gprof.577426227" name="Generate gprof information (-pg)" superClass="gnu.c.compiler.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.debugging.codecov.1582032313" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.c.compiler.option.debugging.codecov" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.misc.otherExcludedFromScannerDiscovery.456213175" name="Other flags (excluded from discovery)" superClass="gnu.c.compiler.option.misc.otherExcludedFromScannerDiscovery" useByScannerDiscovery="false" value="" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2147480524" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.658696142" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
+								<option id="gnu.cpp.compiler.option.optimization.level.319599749" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.873027180" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+							</tool>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68020-60 -m68881 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map  -ftest-coverage -fprofile-arcs -fprofile-dir=/Coverage -lmui -lgcov -lm &amp;&amp; ../check_wcs_amigaos_m68k.sh ${ProjName}" id="cdt.managedbuild.tool.gnu.cross.c.linker.1280847941" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="gnu.c.link.option.libs.2023048786" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs"/>
+								<option id="gnu.c.link.option.debugging.gprof.1131860323" name="Generate gprof information (-pg)" superClass="gnu.c.link.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.c.link.option.debugging.codecov.55398861" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.c.link.option.debugging.codecov" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1429255487" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1184556332" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul" id="cdt.managedbuild.tool.gnu.cross.archiver.2084322360" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.964640026" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<option id="gnu.both.asm.option.flags.2003135186" name="Assembler flags" superClass="gnu.both.asm.option.flags" useByScannerDiscovery="false" value="--gstabs" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.701177756" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="WCS.c|af_cmpElevFiles.c|fliptest|test_usgs_dted|test_main.c|af_cmpObjFiles.c|deleteme|HyperKhorner4M-1.c|af_double2short_test.c|af_fast_math_test.c|deleteme_drand48_test.c|af_drand48_disassembly|af_drand48_test2.c|af_drand48.c|af_drand48_test.c|version_test.c|vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.759777619.253854407.1563810999.452909808">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.759777619.253854407.1563810999.452909808" moduleId="org.eclipse.cdt.core.settings" name="test_68040_render">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="automatic renders projects and checks results" errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.CWDLocator;org.eclipse.cdt.core.GCCErrorParser" id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.759777619.253854407.1563810999.452909808" name="test_68040_render" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.enablement=null,org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.image=null,org.eclipse.cdt.docker.launcher.containerbuild.property.connection=unix:///var/run/docker.sock" parent="cdt.managedbuild.config.gnu.cross.exe.release" postbuildStep="cp ${ProjName} ${ProjName}_${ConfigName} &amp;&amp; cp ${ProjName}_${ConfigName} ${ProjName}_${ConfigName}.unstripped &amp;&amp; m68k-amigaos-strip ${ProjName}_${ConfigName} &amp;&amp; ls -la ${ProjName}_${ConfigName} &amp;&amp; m68k-amigaos-size ${ProjName}_${ConfigName} &amp;&amp; cp  ../WCS.info ${ProjName}_${ConfigName}.info &amp;&amp; ../check_pre-commit-hook" preannouncebuildStep="" prebuildStep="realpath $$(which m68k-amigaos-gcc) &amp;&amp;  find . \( -name &quot;*.gcno&quot; -o -name &quot;*.gcda&quot; -o -name &quot;gmon.out&quot; \) -exec rm -f {} \; ; rm -fv Version.o; rm -fv ${ProjName}_${ConfigName}* ">
+					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.759777619.253854407.1563810999.452909808." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.346184512" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
+							<option id="cdt.managedbuild.option.gnu.cross.prefix.961771081" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" useByScannerDiscovery="false" value="m68k-amigaos-" valueType="string"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.1038260331" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" useByScannerDiscovery="false" value="" valueType="string"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.764729723" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/WCS}/Release" id="cdt.managedbuild.builder.gnu.cross.1925472419" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -DBUILDID=\&quot;g/'$(shell git describe --always --dirty --exclude &quot;*&quot;)'\&quot; -noixemul -fprofile-dir=/Coverage -fprofile-arcs -ftest-coverage -m68020 -m68881 -DSTATIC_FCN= -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g" id="cdt.managedbuild.tool.gnu.cross.c.compiler.1920906168" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.822416686" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.more" valueType="enumerated"/>
+								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.839404545" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.default" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.603589252" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="FORCE_MUIMASTER_VMIN=19"/>
+									<listOptionValue builtIn="false" value="STATIC_FCN="/>
+									<listOptionValue builtIn="false" value="AMIGA_GUI"/>
+									<listOptionValue builtIn="false" value="TOOLCHAIN_VER=\&quot;'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.703880131" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WCS}&quot;"/>
+								</option>
+								<option id="gnu.c.compiler.option.dialect.std.2083027614" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.misc.other.1693180725" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -funsigned-char" valueType="string"/>
+								<option id="gnu.c.compiler.option.debugging.gprof.1397747392" name="Generate gprof information (-pg)" superClass="gnu.c.compiler.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.debugging.codecov.205176277" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.c.compiler.option.debugging.codecov" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.misc.otherExcludedFromScannerDiscovery.585767633" name="Other flags (excluded from discovery)" superClass="gnu.c.compiler.option.misc.otherExcludedFromScannerDiscovery" useByScannerDiscovery="false" value="" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.660500172" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.649117804" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
+								<option id="gnu.cpp.compiler.option.optimization.level.1364957616" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.2046036276" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+							</tool>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul -m68040 -m68881 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=${ProjName}_${ConfigName}.map  -ftest-coverage -fprofile-arcs -fprofile-dir=/Coverage -lmui -lgcov -lm &amp;&amp; ../check_wcs_amigaos_m68k.sh ${ProjName}" id="cdt.managedbuild.tool.gnu.cross.c.linker.1312130750" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="gnu.c.link.option.libs.569350222" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs"/>
+								<option id="gnu.c.link.option.debugging.gprof.584063208" name="Generate gprof information (-pg)" superClass="gnu.c.link.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.c.link.option.debugging.codecov.2072484891" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.c.link.option.debugging.codecov" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.378660194" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1429126760" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -noixemul" id="cdt.managedbuild.tool.gnu.cross.archiver.1026376043" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.917318361" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<option id="gnu.both.asm.option.flags.528793466" name="Assembler flags" superClass="gnu.both.asm.option.flags" useByScannerDiscovery="false" value="--gstabs" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.700383067" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="WCS.c|af_cmpElevFiles.c|fliptest|test_usgs_dted|test_main.c|af_cmpObjFiles.c|deleteme|HyperKhorner4M-1.c|af_double2short_test.c|af_fast_math_test.c|deleteme_drand48_test.c|af_drand48_disassembly|af_drand48_test2.c|af_drand48.c|af_drand48_test.c|version_test.c|vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="WCS.cdt.managedbuild.target.gnu.cross.exe.93764662" name="Executable" projectType="cdt.managedbuild.target.gnu.cross.exe"/>
@@ -2499,6 +2633,7 @@
 		<configuration configurationName="x86_64-aros">
 			<resource resourceType="PROJECT" workspacePath="/WCS"/>
 		</configuration>
+		<configuration configurationName="test_68060_render"/>
 		<configuration configurationName="68020-60">
 			<resource resourceType="PROJECT" workspacePath="/WCS"/>
 		</configuration>
@@ -2527,6 +2662,7 @@
 		<configuration configurationName="68060">
 			<resource resourceType="PROJECT" workspacePath="/WCS"/>
 		</configuration>
+		<configuration configurationName="test_68020_render"/>
 		<configuration configurationName="no_flto"/>
 		<configuration configurationName="Debug">
 			<resource resourceType="PROJECT" workspacePath="/WCS"/>

@@ -19,11 +19,14 @@ rm -f *.o WCSGST WCS >/dev/null
 
 
 # extra Optionen fuer WCS, mit und ohne GST
-vamos -q sc MAKEGST=WCSGST WCS.c "IGNORE=51" "DEFINE=STATIC_FCN=static" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1" "DEFINE=CATCOMP_NUMBERS=1"
-vamos -q sc NOGST          WCS.c "IGNORE=51" "DEFINE=STATIC_FCN=static" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1"
+vamos -q sc MAKEGST=WCSGST WCS.c "IGNORE=51" "DEFINE=STATIC_FCN=STATIC" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1" "DEFINE=CATCOMP_NUMBERS=1"
+# the main file
+vamos -q sc NOGST          WCS.c              "IGNORE=51" "DEFINE=STATIC_FCN=STATIC" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1"
+# the main file for the render test
+vamos -q sc NOGST          wcs_test_render.c  "IGNORE=51" "DEFINE=STATIC_FCN=STATIC" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1"
 
 # Jetzt der Rest
-vamos -q sc NOOPT NODEBUG AGUI.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
+vamos -q sc NOOPT NODEBUG AGUI.c IGNORE=51 DEFINE=STATIC_FCN=        DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
 vamos -q sc NOOPT NODEBUG BitMaps.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
 vamos -q sc NOOPT NODEBUG Cloud.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
 vamos -q sc NOOPT NODEBUG CloudGUI.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
@@ -98,12 +101,14 @@ vamos -q sc NOOPT NODEBUG NOGST WCS_locale.c IGNORE=51 DEFINE=STATIC_FCN=static 
 cd vgl
 rm *.o
 rm *.a
-for FILE in "defpal.c dumb.c wuline.c dumbpoly.c pixmap.c dumbtext.c dumbbitblt.c color.c fontsmall.c clib.c"; do
+for FILE in "defpal.c dumb.c wuline.c dumbpoly.c pixmap.c fontsmall.c clib.c"; do
   vamos -q sc NOOPT NODEBUG $FILE IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
 done
-vamos oml libvgl.a a defpal.o dumb.o wuline.o dumbpoly.o pixmap.o dumbtext.o dumbbitblt.o color.o fontsmall.o clib.o
+vamos oml libvgl.a a defpal.o dumb.o wuline.o dumbpoly.o pixmap.o fontsmall.o clib.o
 cd ..
 cp vgl/libvgl.a .
 # und linken
 vamos -q slink LIB:c.o WCS.o WITH WCSObjs.lnk lib:utillib.with LIB LIB:scm881.lib libvgl.a LIB:sc.lib LIB:amiga.lib TO WCS ND
+# auch den Rendertest linken
+vamos -q slink LIB:c.o wcs_test_render.o WITH WCSObjs.lnk lib:utillib.with LIB LIB:scm881.lib libvgl.a LIB:sc.lib LIB:amiga.lib TO  wcs_test_sasc_render ND
 

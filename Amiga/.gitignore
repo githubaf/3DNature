@@ -13,3 +13,5 @@ x86_64-aros
 /test_x86-64-aros/
 /test_68020_render/
 /test_68060_render/
+/test_68020-60_render/
+/test_68040_render/

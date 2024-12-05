@@ -4113,3 +4113,24 @@ mkdir RenderTestImages  # visible on WinUAE via Samba. Test will store rendered 
 * Rendertests need some Mouse Clicks ATM. Needs to be addressed next.
 * Parts of pre-commit should become functions that can be called separately.
 * Test with SAS/C Version needs to be added.
+
+3.Dez.2024
+----------
+* SAS/C Version korrigiert. SC-Option in VGL waren nicht passend zu den in Amiga
+* Anzeige der Unterschiede von 2 Bildern:
+compare -metric AE -fuzz 0% test_files/reference/ref_CanyonSet_2.031_000 test_files/reference/ref_CanyonSet_sasc_000  DiffImage
+#printet die Anzahl der Pixel ausserhalb der Toleranz
+display DiffImage
+
+CanyonSet_sasc_000 vom frisch compiliertem SAS/C-WCS sieht genauso aus wie CanyonSet000 von WCS_2.031 (vom AlphaPixl Github-Archiv) (4 Pixel sind unterschiedlich)
+
+compare -metric AE -fuzz 0% test_files/reference/ref_CanyonSet_2.031_000 test_files/reference/tst_CanyonSet_sasc_000 DiffImage  # ->   4 Pixel unterschiedlich
+compare -metric AE -fuzz 0% test_files/reference/ref_DemoFrame_2.031_001 test_files/reference/tst_DemoFrame_sasc_001 DiffImage  # ->   3 Pixel unterschiedlich
+compare -metric AE -fuzz 0% test_files/reference/ref_RMNP_2.031_000 test_files/reference/tst_RMNP_sasc_000 DiffImage            # -> 404 Pixel unterschiedlich
+compare -metric AE -fuzz 0% test_files/reference/ref_WorldTest_2.032_001 test_files/reference/tst_WorldTest_sasc_001 DiffImage  # ->   0 Pixel unterschiedlich
+
+5.12.2024
+---------
+* Render-Test 68020 and 040 show black Sun and Moon !???
+* gcc 27Nov24 installed - same
+

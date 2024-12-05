@@ -5,6 +5,9 @@
 #set -e  # Abort on Errors
 #set -x  # show commands
 
+WINUAEIP=""   # will be set automatically in CheckSshWinUAE
+
+function CheckNoUTF8 {
 FILE_LIST="$(git diff --cached --name-only)"
 
 for FILE in $FILE_LIST; do
@@ -15,7 +18,9 @@ for FILE in $FILE_LIST; do
 	exit 1
     fi
 done
+}
 
+function CheckSimpleCat {
 # check WCS.cs (SimpleCat) is ISO-8859
 file /home/developer/Desktop/SelcoGit/3DNature/Amiga/WCS.cs | grep "ISO-8859"
 if [ $? -ne 0 ]; then
@@ -24,7 +29,9 @@ if [ $? -ne 0 ]; then
    echo "Commit refused."
    exit 1
 fi
+}
 
+function CheckSshWinUAE {
 #check if we can ssh to WinUAE
 #We want to run test on WinUAE later below in this script after building all. Check ssh to WinUAE now and abort before wasting time on building all configurations
 WINUAEIP=$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;}}')
@@ -35,8 +42,10 @@ if [ $? -ne 0 ]; then
    echo "Commit aborted."
    exit 1
 fi
+}
 
-#check, if WCS is still compileable with SAS/C
+function CheckSASC {
+#check, if WCS is still compileable with SAS/C, also builds wcs_test_sasc_render
 cd /home/developer/Desktop/SelcoGit/3DNature/Amiga/
 ./build_wcs_sasc.sh
 if [ $? -ne 0 ]; then
@@ -45,7 +54,9 @@ if [ $? -ne 0 ]; then
    echo "Commit refused."
    exit 1
 fi
+}
 
+function BuildAllEclipse {
 #check if all eclipse build configurations can be build
 cd /home/developer/Desktop/SelcoGit/3DNature/Amiga/
 ./make_all_configurations.sh
@@ -55,11 +66,18 @@ if [ $? -ne 0 ]; then
    echo "Commit refused."
    exit 1
 fi
+}
 
+function TestConvertOnWinUAE68020 {
 # Run tests on WinUAE
 echo "------------------"
 echo "| Test on WinUAE |"
 echo "------------------"
+
+if [ -z $WINUAEIP ]; then
+   CheckSshWinUAE
+fi
+
 # ack is like grep but with output
 # we need grep (ack) "All tests passed." at the end to get a return code
 sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && test_68020/wcs_test_68020" | ack --passthru  "All tests passed."
@@ -69,9 +87,11 @@ if [ $? -ne 0 ]; then
    echo "Commit refused."
    exit 1
 fi
+}
 
 ############################################################################################################################################
 
+function TestConvertOnArosI386 {
 #Run Tests on AROS i386
 echo "--------------------"
 echo "| Test on AROS 386 |"
@@ -112,11 +132,12 @@ if [ $? -ne 0 ]; then
    exit 1
 fi
 popd
-
+}
 
 
 ############################################################################################################################################
 
+function TestConvertOnArosX86_64 {
 #Run Tests on AROS x86-64
 echo "-----------------------"
 echo "| Test on AROS x86-64 |"
@@ -157,10 +178,65 @@ if [ $? -ne 0 ]; then
    exit 1
 fi
 popd
+}
 
 
 ################################################################
+function RenderTest_WinUAE_SASC {
+# Render-Test SAS/C
+
+if [ -z $WINUAEIP ]; then
+   CheckSshWinUAE
+fi
+
+rm -rf ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
+mkdir -p ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
+
+# This runs the complete program. At the end we have the rendered example images that need to be checked.
+Error=0
+ErrorString=""
+sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && wcs_test_sasc_render"
+
+montage \
+        -label SAS/C ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/CanyonSet000 \
+        -label SAS/C ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/RMNP000 \
+        -label SAS/C ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/DemoFrame001 \
+        -label SAS/C ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/WorldTest001 \
+        -geometry 752x480 -tile 2x2 BigSasC.jpg 
+eog BigSasC.jpg &
+
+
+for file in "RMNP000" "CanyonSet000" "DemoFrame001" "WorldTest001"
+do
+  #  cmp ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file ~/Desktop/SelcoGit/3DNature/Amiga/test_files/reference/ref_$file
+  # display ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file  # just diplay each rendered file for now
+    LastError=$?
+    Error=$(expr $Error + $LastError)
+
+    if [ $LastError -ne 0 ]; then
+        ErrorString="$ErrorString $file"
+    fi
+done
+
+# Wenn Fehler aufgetreten sind, gebe eine Fehlermeldung aus
+if [ $Error -ne 0 ]; then
+   echo "Local pre-commit hook"
+   echo "wcs_test_sasc_render failed ($ErrorString)!"
+   echo "Commit refused."
+   exit 1
+fi
+}
+
+
+
+################################################################
+function RenderTest_WinUAE_68020 {
 # Render-Test 68020
+
+if [ -z $WINUAEIP ]; then
+   CheckSshWinUAE
+fi
+
 rm -rf ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
 mkdir -p ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
 
@@ -169,10 +245,20 @@ Error=0
 ErrorString=""
 sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && test_68020_render/wcs_test_68020_render"
 
+montage \
+        -label 68020 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/CanyonSet000 \
+        -label 68020 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/RMNP000 \
+        -label 68020 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/DemoFrame001 \
+        -label 68020 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/WorldTest001 \
+        -geometry 752x480 -tile 2x2 Big68020.jpg
+eog Big68020.jpg &
+
+
+
 for file in "RMNP000" "CanyonSet000" "DemoFrame001" "WorldTest001"
 do
   #  cmp ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file ~/Desktop/SelcoGit/3DNature/Amiga/test_files/reference/ref_$file
-  display ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file  # just diplay each rendered file for now
+  #display ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file  # just diplay each rendered file for now
     LastError=$?
     Error=$(expr $Error + $LastError)
     
@@ -188,9 +274,109 @@ if [ $Error -ne 0 ]; then
    echo "Commit refused."
    exit 1
 fi
+}
 
 ################################################################
+function RenderTest_WinUAE_68020_60 {
+# Render-Test 68020-60
+
+if [ -z $WINUAEIP ]; then
+   CheckSshWinUAE
+fi
+
+rm -rf ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
+mkdir -p ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
+
+# This runs the complete program. At the end we have the rendered example images that need to be checked.
+Error=0
+ErrorString=""
+sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && test_68020-60_render/wcs_test_68020-60_render"
+
+montage \
+        -label 68020_60 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/CanyonSet000 \
+        -label 68020_60 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/RMNP000 \
+        -label 68020_60 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/DemoFrame001 \
+        -label 68020_60 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/WorldTest001 \
+        -geometry 752x480 -tile 2x2 Big68020_60.jpg
+eog Big68020_60.jpg &
+
+
+
+for file in "RMNP000" "CanyonSet000" "DemoFrame001" "WorldTest001"
+do
+  #  cmp ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file ~/Desktop/SelcoGit/3DNature/Amiga/test_files/reference/ref_$file
+  #display ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file  # just diplay each rendered file for now
+    LastError=$?
+    Error=$(expr $Error + $LastError)
+
+    if [ $LastError -ne 0 ]; then
+        ErrorString="$ErrorString $file"
+    fi
+done
+
+# Wenn Fehler aufgetreten sind, gebe eine Fehlermeldung aus
+if [ $Error -ne 0 ]; then
+   echo "Local pre-commit hook"
+   echo "test_68020-060_render/wcs_test_68020-60_render failed ($ErrorString)!"
+   echo "Commit refused."
+   exit 1
+fi
+}
+
+################################################################
+function RenderTest_WinUAE_68040 {
+# Render-Test 68040
+
+if [ -z $WINUAEIP ]; then
+   CheckSshWinUAE
+fi
+
+rm -rf ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
+mkdir -p ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
+
+# This runs the complete program. At the end we have the rendered example images that need to be checked.
+Error=0
+ErrorString=""
+sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && test_68040_render/wcs_test_68040_render"
+
+montage \
+        -label 68040 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/CanyonSet000 \
+        -label 68040 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/RMNP000 \
+        -label 68040 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/DemoFrame001 \
+        -label 68040 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/WorldTest001 \
+        -geometry 752x480 -tile 2x2 Big68040.jpg
+eog Big68040.jpg &
+
+for file in "RMNP000" "CanyonSet000" "DemoFrame001" "WorldTest001"
+do
+  #    cmp ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file ~/Desktop/SelcoGit/3DNature/Amiga/test_files/reference/ref_$file
+  #display ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file  # just diplay each rendered file for now
+    LastError=$?
+    Error=$(expr $Error + $LastError)
+
+    if [ $LastError -ne 0 ]; then
+        ErrorString="$ErrorString $file"
+    fi
+done
+
+# Wenn Fehler aufgetreten sind, gebe eine Fehlermeldung aus
+if [ $Error -ne 0 ]; then
+   echo "Local pre-commit hook"
+   echo "test_68040_render/wcs_test_68040_render failed ($ErrorString)!"
+   echo "Commit refused."
+   exit 1
+fi
+}
+
+
+################################################################
+function RenderTest_WinUAE_68060 {
 # Render-Test 68060
+
+if [ -z $WINUAEIP ]; then
+   CheckSshWinUAE
+fi
+
 rm -rf ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
 mkdir -p ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
 
@@ -199,10 +385,20 @@ Error=0
 ErrorString=""
 sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && test_68060_render/wcs_test_68060_render"
 
+montage \
+        -label 68060 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/CanyonSet000 \
+        -label 68060 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/RMNP000 \
+        -label 68060 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/DemoFrame001 \
+        -label 68060 ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/WorldTest001 \
+        -geometry 752x480 -tile 2x2 Big68060.jpg
+eog Big68060.jpg &
+
+
+
 for file in "RMNP000" "CanyonSet000" "DemoFrame001" "WorldTest001"
 do
   #    cmp ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file ~/Desktop/SelcoGit/3DNature/Amiga/test_files/reference/ref_$file
-  display ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file  # just diplay each rendered file for now
+  #display ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/$file  # just diplay each rendered file for now
     LastError=$?
     Error=$(expr $Error + $LastError)
 
@@ -218,4 +414,33 @@ if [ $Error -ne 0 ]; then
    echo "Commit refused."
    exit 1
 fi
+}
 
+
+#######################################################################################
+
+# Wenn Parameter uebergeben wurden, fuehre die angegebenen Funktionen aus
+if [ "$#" -gt 0 ]; then
+    for func in "$@"; do
+        if type "$func" &>/dev/null; then
+            $func
+        else
+            echo "Funktion '$func' existiert nicht!"
+        fi
+    done
+else
+    # Wenn keine Parameter uebergeben wurden, fuehre alle Funktionen aus
+    CheckNoUTF8
+    CheckSimpleCat
+    CheckSshWinUAE
+    CheckSASC
+    BuildAllEclipse
+    TestConvertOnWinUAE68020
+    TestConvertOnArosI386
+    TestConvertOnArosX86_64
+    RenderTest_WinUAE_SASC
+    RenderTest_WinUAE_68020
+    RenderTest_WinUAE_68020_60
+    RenderTest_WinUAE_68040
+    RenderTest_WinUAE_68060
+fi

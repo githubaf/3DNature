@@ -1761,6 +1761,19 @@ void UndoPar(short k, short ParUndo)
 
 /**********************************************************************/
 
+int LoadparamsForceNogetfilenameptrn=0;   // 0=normal, open Filerequester for param file in loadparams()
+                                          // 1 do not open, just leave path and file as it is
+void SetLoadparamsForceNogetfilenameptrn(int Val)
+{
+	LoadparamsForceNogetfilenameptrn=Val;
+}
+
+int GetLoadparamsForceNogetfilenameptrn(void)
+{
+	return LoadparamsForceNogetfilenameptrn;
+}
+
+
 short loadparams(USHORT loadcode, short loaditem)
 {
  short success = 1;
@@ -1772,9 +1785,16 @@ short loadparams(USHORT loadcode, short loaditem)
 
  strcpy(temppath, parampath);
  strcpy(tempfile, paramfile);
+
+ printf("ALEXANDER: temppath=%s\n",temppath);
+ printf("ALEXANDER: tempfile=%s\n",tempfile);
+
  strcpy(Ptrn, "#?.par");
- if (! getfilenameptrn(0, (char*)GetString( MSG_EDPAR_LOADPARAMETERFILE ), temppath, tempfile, Ptrn))  // "Load Parameter File"
-  return (0);
+ if(!GetLoadparamsForceNogetfilenameptrn())  // do not open the filerequester in automatic testing mode
+ {
+	 if (! getfilenameptrn(0, (char*)GetString( MSG_EDPAR_LOADPARAMETERFILE ), temppath, tempfile, Ptrn))  // "Load Parameter File"
+		 return (0);
+ }
 
  strmfp(filename, temppath, tempfile);
  if ((fparam = fopen(filename, "rb")) != NULL)

@@ -160,6 +160,10 @@ extern struct LocaleBase  *LocaleBase;
 extern struct Locale      *locale_locale;
 extern struct Catalog     *locale_catalog;
 
+extern void Handle_RN_Window(ULONG WCS_ID);  // called here for test directly
+void SetUser_Message_ForcedReturn(int Val);  // sets "forced" return code for User_Message_Def(). Do not open the requester but return the provided value for automatic tests
+void SetLoadparamsForceNogetfilenameptrn(int Val);
+
 int main(void)
 {
     short ResetScrn = 0;
@@ -210,7 +214,13 @@ int main(void)
     	printf("Alexander: LocaleBase is NULL!\n");
     }
 
-    asprintf(&LocaleExtCreditText,"%s%s",ExtCreditText,GetString(MSG_MENU_PR_CREDITSTRANSLATION)); // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
+    //asprintf(&LocaleExtCreditText,"%s%s",ExtCreditText,GetString(MSG_MENU_PR_CREDITSTRANSLATION)); // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
+    // SAS/C does not have this function
+    LocaleExtCreditText=malloc(strlen(ExtCreditText)+strlen(GetString(MSG_MENU_PR_CREDITSTRANSLATION))+1); // strlen is without trailing \0!
+    if(LocaleExtCreditText)
+    {
+       sprintf(LocaleExtCreditText,"%s%s",ExtCreditText,GetString(MSG_MENU_PR_CREDITSTRANSLATION)); // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
+    }
 
     // set correct locale strings to the menu
 	WCSNewMenus[ 0].nm_Label= GetString(MSG_MENU_PROJECT);
@@ -595,6 +605,8 @@ if ((IntuitionBase = (struct IntuitionBase *)
 // ###############################################################################################################
 //          ResetScrn = WCS_App_EventLoop(WCSRootApp); /* Fa la la la la, la la la la! */
 
+SetUser_Message_ForcedReturn(0);  // do not save Old Param-File in new Format for automatic testing
+SetLoadparamsForceNogetfilenameptrn(TRUE);  // do not open a File requester for the param file in loadparams() for automatic testing
 LoadProject("WCSProjects:CanyonSunset.proj", NULL, 0);    // WCSProjects:Arizona/SunsetAnim "Format of Parameterfile has been changed slightly..."
 if(0==Database_Load(0,"WCSProjects:Arizona/SunsetAnim"))   // 0 mean no error
 //-----
@@ -624,11 +636,9 @@ Make_ES_Window();
 settings.maxframes=1;                                              // simulate Max Frames setting
 settings.renderopts&=~0x20;                                        // clear gray/color
 settings.renderopts|=0x20;                                         // gray  0x10=gray, 0x20=color
-strncpy(framepath,"RenderTestImages",sizeof(framepath));   // where to store the image
+strncpy(framepath,"VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",sizeof(framepath));   // where to store the image
 
 Handle_RN_Window(MO_RENDER);                                       // simulate pressing Render-Button
-// Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
-// Vorgabe Screenmode
 
 //------------
 LoadProject("WCSProjects:RMNPAnim.proj", NULL, 0);   // WCSProjects:Colorado/RMNP.object/RMNPAnim.par "Format of Parameterfile has been changed slightly..."
@@ -649,10 +659,9 @@ Make_ES_Window();
 settings.maxframes=1;                                              // simulate Max Frames setting
 settings.renderopts&=~0x20;                                        // clear gray/color
 settings.renderopts|=0x20;                                         // gray  0x10=gray, 0x20=color
-strncpy(framepath,"RenderTestImages",sizeof(framepath));   // where to store the image
+strncpy(framepath,"VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",sizeof(framepath));           // where to store the image
 
 Handle_RN_Window(MO_RENDER);                                       // simulate pressing Render-Button
-// Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
 // Vorgabe Screenmode
 // --------------
 LoadProject("WCSProjects:ColoDemo.proj", NULL, 0);   // WCSProjects:ColoDemo/ColoDemo.object/Demo1.par "Format of Parameterfile has been changed slightly..."
@@ -673,7 +682,7 @@ Make_ES_Window();
 //settings.maxframes=1;                                              // simulate Max Frames setting
 settings.renderopts&=~0x20;                                        // clear gray/color
 settings.renderopts|=0x20;                                         // gray  0x10=gray, 0x20=color
-strncpy(framepath,"RenderTestImages",sizeof(framepath));   // where to store the image
+strncpy(framepath,"VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",sizeof(framepath));   // where to store the image
 
 Handle_RN_Window(MO_RENDER);                                       // simulate pressing Render-Button
 // Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
@@ -698,7 +707,7 @@ Make_ES_Window();
 //settings.maxframes=1;                                              // simulate Max Frames setting
 settings.renderopts&=~0x20;                                        // clear gray/color
 settings.renderopts|=0x20;                                         // gray  0x10=gray, 0x20=color
-strncpy(framepath,"RenderTestImages",sizeof(framepath));   // where to store the image
+strncpy(framepath,"VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",sizeof(framepath));   // where to store the image
 
 Handle_RN_Window(MO_RENDER);                                       // simulate pressing Render-Button
 // Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?

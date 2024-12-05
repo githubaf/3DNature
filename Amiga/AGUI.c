@@ -1752,151 +1752,171 @@ return(User_Message_Def(outlinetxt, message, buttons, buttonkey, 0));
 
 /************************************************************************/
 
+int User_Message_ForcedReturnValue=-1;   // 0=Cancel
+
+void SetUser_Message_ForcedReturn(int Val)
+{
+	User_Message_ForcedReturnValue=Val;
+}
+
+int getUser_Message_ForcedReturn()
+{
+	return User_Message_ForcedReturnValue;
+}
+
 USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
 	CONST_STRPTR buttonkey, int Default)
 {
- USHORT j = 0, i = 0, k = 0, error = 0, done = FALSE, numbuttons = 1;
- ULONG UM_ID, signals;
- long open;
- APTR UM_Win, UM_BTGroup, UM_BT[11];
- char buttontext[11][20];
+	if(getUser_Message_ForcedReturn()==-1)
+	{
+		 USHORT j = 0, i = 0, k = 0, error = 0, done = FALSE, numbuttons = 1;
+		 ULONG UM_ID, signals;
+		 long open;
+		 APTR UM_Win, UM_BTGroup, UM_BT[11];
+		 char buttontext[11][20];
 
- //Set_Param_Menu(10);
+		 //Set_Param_Menu(10);
 
- while (buttons[i] && numbuttons<12)
-  {
-  if (buttons[i] == '|')
-   {
-   buttontext[j][k] = 0;
-   j++;
-   i++;
-   k=0;
-   continue;
-   }
-  buttontext[j][k] = buttons[i];
-  i++;
-  k++;
-  }
- buttontext[j][k] = 0;
- numbuttons = j + 1;
+		 while (buttons[i] && numbuttons<12)
+		  {
+		  if (buttons[i] == '|')
+		   {
+		   buttontext[j][k] = 0;
+		   j++;
+		   i++;
+		   k=0;
+		   continue;
+		   }
+		  buttontext[j][k] = buttons[i];
+		  i++;
+		  k++;
+		  }
+		 buttontext[j][k] = 0;
+		 numbuttons = j + 1;
 
- if (numbuttons > 10) numbuttons = 10;
- if(Default > numbuttons) Default = 0;
+		 if (numbuttons > 10) numbuttons = 10;
+		 if(Default > numbuttons) Default = 0;
 
-     UM_Win = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_AGUI_MESSAGE ) ,  // "Message",
-      MUIA_Window_ID		, MakeID('U','M','E','S'),
-      MUIA_Window_Screen	, WCSScrn,
+		     UM_Win = WindowObject,
+		      MUIA_Window_Title		, GetString( MSG_AGUI_MESSAGE ) ,  // "Message",
+		      MUIA_Window_ID		, MakeID('U','M','E','S'),
+		      MUIA_Window_Screen	, WCSScrn,
 
-      WindowContents, VGroup,
-        Child, TextObject, TextFrame,
-		 MUIA_Text_PreParse, "\33c",
-		 MUIA_Text_Contents, outlinetxt, End,
+		      WindowContents, VGroup,
+		        Child, TextObject, TextFrame,
+				 MUIA_Text_PreParse, "\33c",
+				 MUIA_Text_Contents, outlinetxt, End,
 
-        Child, FloattextObject, ReadListFrame,
-		 MUIA_Floattext_Text, message,
-		 MUIA_List_Format, "P=\33c", End,
+		        Child, FloattextObject, ReadListFrame,
+				 MUIA_Floattext_Text, message,
+				 MUIA_List_Format, "P=\33c", End,
 
-	Child, UM_BTGroup = HGroup, MUIA_Group_SameSize, TRUE, End,
-        End, /* VGroup */
-      End; /* UM_Win */
+			Child, UM_BTGroup = HGroup, MUIA_Group_SameSize, TRUE, End,
+		        End, /* VGroup */
+		      End; /* UM_Win */
 
-  if (! UM_Win) return(0);
+		  if (! UM_Win) return(0);
 
-  for (j=0; j<numbuttons-1  && ! error; j++)
-   {
-   UM_BT[j + 1] = KeyButtonObject(buttonkey[j]),
-	MUIA_Text_PreParse, "\33c",
-	MUIA_Text_Contents, buttontext[j], End;
-   if (! UM_BT[j + 1]) error = 1;
-   else DoMethod(UM_BTGroup, OM_ADDMEMBER, UM_BT[j + 1]);
-   } /* for j=0... */
+		  for (j=0; j<numbuttons-1  && ! error; j++)
+		   {
+		   UM_BT[j + 1] = KeyButtonObject(buttonkey[j]),
+			MUIA_Text_PreParse, "\33c",
+			MUIA_Text_Contents, buttontext[j], End;
+		   if (! UM_BT[j + 1]) error = 1;
+		   else DoMethod(UM_BTGroup, OM_ADDMEMBER, UM_BT[j + 1]);
+		   } /* for j=0... */
 
-  UM_BT[0] = KeyButtonObject(buttonkey[numbuttons - 1]),
-	MUIA_Text_PreParse, "\33c",
-	MUIA_Text_Contents, buttontext[numbuttons - 1], End;
-  if (! UM_BT[0]) error = 1;
-  else DoMethod(UM_BTGroup, OM_ADDMEMBER, UM_BT[0]);
+		  UM_BT[0] = KeyButtonObject(buttonkey[numbuttons - 1]),
+			MUIA_Text_PreParse, "\33c",
+			MUIA_Text_Contents, buttontext[numbuttons - 1], End;
+		  if (! UM_BT[0]) error = 1;
+		  else DoMethod(UM_BTGroup, OM_ADDMEMBER, UM_BT[0]);
 
-  if (error)
-   {
-   MUI_DisposeObject(UM_Win);
-   return (0);
-/*   break;*/
-   } /* if error creating buttons */
+		  if (error)
+		   {
+		   MUI_DisposeObject(UM_Win);
+		   return (0);
+		/*   break;*/
+		   } /* if error creating buttons */
 
-  UM_BT[numbuttons] = NULL;
+		  UM_BT[numbuttons] = NULL;
 
-/* Add window to application */
-  DoMethod(app, OM_ADDMEMBER, UM_Win);
+		/* Add window to application */
+		  DoMethod(app, OM_ADDMEMBER, UM_Win);
 
 
-/* Install notifications */
-  DoMethod(UM_Win, MUIM_Notify, MUIA_Window_CloseRequest, TRUE,
-	app, 2, MUIM_Application_ReturnID, ID_UM_BUTTON(0));
+		/* Install notifications */
+		  DoMethod(UM_Win, MUIM_Notify, MUIA_Window_CloseRequest, TRUE,
+			app, 2, MUIM_Application_ReturnID, ID_UM_BUTTON(0));
 
-  for (j=0; j<numbuttons; j++)
-   {
-   DoMethod(UM_BT[j], MUIM_Notify, MUIA_Pressed, FALSE,
-	app, 2, MUIM_Application_ReturnID, ID_UM_BUTTON(j));
-   } /* for j=0... */
+		  for (j=0; j<numbuttons; j++)
+		   {
+		   DoMethod(UM_BT[j], MUIM_Notify, MUIA_Pressed, FALSE,
+			app, 2, MUIM_Application_ReturnID, ID_UM_BUTTON(j));
+		   } /* for j=0... */
 
-/* Set tab cycle chain */
-  DoMethod(UM_Win, MUIM_Window_SetCycleChain,
-	UM_BT[0], UM_BT[1], UM_BT[2], UM_BT[3], UM_BT[4],
-	UM_BT[5], UM_BT[6], UM_BT[7], UM_BT[8], UM_BT[9], UM_BT[10]);
-  set(UM_Win, MUIA_Window_ActiveObject, (IPTR)UM_BT[Default]);
- 
-/* Open Window and wait for button press */
-  set(UM_Win, MUIA_Window_Open, TRUE);
-  get(UM_Win, MUIA_Window_Open, &open);
-  if (! open)
-   {
-   done = 1;
-   j = 0;
-   } /* if no window */
+		/* Set tab cycle chain */
+		  DoMethod(UM_Win, MUIM_Window_SetCycleChain,
+			UM_BT[0], UM_BT[1], UM_BT[2], UM_BT[3], UM_BT[4],
+			UM_BT[5], UM_BT[6], UM_BT[7], UM_BT[8], UM_BT[9], UM_BT[10]);
+		  set(UM_Win, MUIA_Window_ActiveObject, (IPTR)UM_BT[Default]);
 
-#ifdef WCS_MUI_2_HACK
-	   MUI2_MenuCheck_Hack();
-#endif /* WCS_MUI_2_HACK */
+		/* Open Window and wait for button press */
+		  set(UM_Win, MUIA_Window_Open, TRUE);
+		  get(UM_Win, MUIA_Window_Open, &open);
+		  if (! open)
+		   {
+		   done = 1;
+		   j = 0;
+		   } /* if no window */
 
-  while (! done)
-   {
-   UM_ID = DoMethod(app, MUIM_Application_Input, &signals);
+		#ifdef WCS_MUI_2_HACK
+			   MUI2_MenuCheck_Hack();
+		#endif /* WCS_MUI_2_HACK */
 
-   switch (UM_ID & 0xff000000)
-    {
-    case MO_APPLICATION:
-     {
-     switch (UM_ID & 0x00ff0000)
-      {
-      case WI_WINDOW1:
-       {
-       switch (UM_ID & 0x0000ff00)
-        {
-        case GP_BUTTONS1:
-         {
-         j = UM_ID - ID_UM_BUTTON(0);
-         done = TRUE;
-         break;
-	 } /* BUTTONS1 */
-	} /* switch Gadget Group */
-       break;
-       } /* User Message Window */
-      } /* switch Window ID */
-     break;
-     } /* APPLICATION MODULE */
-    } /* switch Module ID */
+		  while (! done)
+		   {
+		   UM_ID = DoMethod(app, MUIM_Application_Input, &signals);
 
-   if (! done && signals) Wait(signals);
+		   switch (UM_ID & 0xff000000)
+		    {
+		    case MO_APPLICATION:
+		     {
+		     switch (UM_ID & 0x00ff0000)
+		      {
+		      case WI_WINDOW1:
+		       {
+		       switch (UM_ID & 0x0000ff00)
+		        {
+		        case GP_BUTTONS1:
+		         {
+		         j = UM_ID - ID_UM_BUTTON(0);
+		         done = TRUE;
+		         break;
+			 } /* BUTTONS1 */
+			} /* switch Gadget Group */
+		       break;
+		       } /* User Message Window */
+		      } /* switch Window ID */
+		     break;
+		     } /* APPLICATION MODULE */
+		    } /* switch Module ID */
 
-   } /* while ! done */
+		   if (! done && signals) Wait(signals);
 
-  set(UM_Win, MUIA_Window_Open, FALSE);
-  DoMethod(app, OM_REMMEMBER, UM_Win);
-  MUI_DisposeObject(UM_Win);
+		   } /* while ! done */
 
- return (j);
+		  set(UM_Win, MUIA_Window_Open, FALSE);
+		  DoMethod(app, OM_REMMEMBER, UM_Win);
+		  MUI_DisposeObject(UM_Win);
+		 return (j);
+	}
+	else  // forced behavior for automatic test. Do not show Requester, immediately return the value of getUser_Message_ForcedReturn()
+	{
+		return getUser_Message_ForcedReturn();
+	}
+
+
 
 } /* User_Message() */
 
