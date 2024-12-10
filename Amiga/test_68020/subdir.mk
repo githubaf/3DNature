@@ -80,11 +80,13 @@ O_SRCS += \
 ../Version.o \
 ../VocabTable.o \
 ../WCS.o \
+../WCS_locale.o \
 ../Wave.o \
 ../WaveGUI.o \
 ../nncrunch.o \
 ../nngridr.o \
-../sasc_functions.o 
+../sasc_functions.o \
+../wcs_test_render.o 
 
 C_DEPS += \
 ./BigEndianReadWrite.d \

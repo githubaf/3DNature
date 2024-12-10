@@ -85,7 +85,8 @@ O_SRCS += \
 ../WaveGUI.o \
 ../nncrunch.o \
 ../nngridr.o \
-../sasc_functions.o 
+../sasc_functions.o \
+../wcs_test_render.o 
 
 C_DEPS += \
 ./BigEndianReadWrite.d \

@@ -12,9 +12,12 @@ C_SRCS += \
 
 O_SRCS += \
 ../vgl/clib.o \
+../vgl/color.o \
 ../vgl/defpal.o \
 ../vgl/dumb.o \
+../vgl/dumbbitblt.o \
 ../vgl/dumbpoly.o \
+../vgl/dumbtext.o \
 ../vgl/fontsmall.o \
 ../vgl/pixmap.o \
 ../vgl/wuline.o 

@@ -4134,3 +4134,6 @@ compare -metric AE -fuzz 0% test_files/reference/ref_WorldTest_2.032_001 test_fi
 * Render-Test 68020 and 040 show black Sun and Moon !???
 * gcc 27Nov24 installed - same
 
+Der pre-commit Hook sollte ein Link auf die eingechkte Datei sein:
+cd ../.git/hooks 
+ln -s ../../pre-commit pre-commit
