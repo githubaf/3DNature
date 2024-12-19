@@ -4137,3 +4137,39 @@ compare -metric AE -fuzz 0% test_files/reference/ref_WorldTest_2.032_001 test_fi
 Der pre-commit Hook sollte ein Link auf die eingechkte Datei sein:
 cd ../.git/hooks 
 ln -s ../../pre-commit pre-commit
+
+11.Dez.2024
+-----------
+Ermittlung der Abweichung der Bilder von einer Referenz:
+
+cd RenderTestImages
+for PROJECT in CanyonSet000 DemoFrame001 RMNP000 WorldTest001; do for FILE in $(ls *$PROJECT); do echo compare $FILE ../test_files/reference/ref_wcs2.031_$PROJECT $(compare -metric RMSE $FILE ../test_files/reference/ref_wcs2.031_$PROJECT null: 2>&1 | awk /^[0-9]+/{print}); done | sort -k4 --numeric-sort; echo "-----------"; done
+
+
+-> WCS_test_68020_render_RMNP000 und WCS_test_68020_render_CanyonSet000 sind falsch, aber nicht die schlechtesten beim compare. 
+
+12.Dez.2024
+-----------
+x86_64 Aros geht wieder. Deadw00d hat das Problem geloest.
+
+Hello Alexander,
+Fix was now pushed to repository. You need to completely rebuild GCC and SDK based on latest sources. After that using
+-fomit-frame-pointer should work correctly for x86_64 target. Let me know if it does and I will close the bug.
+Best regards,
+Krzysztof
+
+18.Dez.2024
+-----------
+in WCS.h braucht SettingsV1 ein PACKED fuer AROS X86_64. Sonst crashed die WorldVector-Berechnung.  /*EXTERN*/ struct PACKED SettingsV1 {
+* Die Fehlerbenadlung in goto ReadEerror war total falsch. (falsche Speicherfreigaben)
+
+19.12.2024
+----------
+#Anzeige der Unterschiede der beiden AROS-Versionen:
+
+for IMAGE in "RMNP000" "CanyonSet000" "DemoFrame001" "WorldTest001"
+do
+rm -rf DiffImage; IMAGE=DemoFrame001 compare /home/developer/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_$IMAGE /home/developer/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_$IMAGE DiffImage; display DiffImage
+done
+
+Alle Bilder sind auch hier teils ziemlich unterschiedlich!

@@ -562,7 +562,10 @@ if ((IntuitionBase = (struct IntuitionBase *)
         } /* if */
        else
         { /* Can't get screenmodes, default: NTSC-Hires-Lace */
-        WCSScrn = OpenScreenTags(NULL, SA_DisplayID, HIRESLACE_KEY,
+        WCSScrn = OpenScreenTags(NULL,
+#ifndef __AROS__
+        		SA_DisplayID, HIRESLACE_KEY,   // ALEXANDER: AROS does not support HIRESLACE_KEY, STDSCREENHEIGHT seems to be 768 on AROS so big enough
+#endif
          SA_Width, STDSCREENWIDTH, SA_Height, STDSCREENHEIGHT,
          SA_Depth, 4, SA_Title, (IPTR)APP_TITLE, SA_Type, CUSTOMSCREEN,
          SA_Overscan, OSCAN_MAX, SA_Colors, (IPTR)NewAltColors,
@@ -874,6 +877,25 @@ if(P96Base) // if we could open P96 we have also to close at the end...
 } /* main() */
 
 
+ void SimpleEndianFlip64 (double Source64, double *Dest64)  // AF, 12Dec22 for i386-aros
+ {
+ 	double retVal;
+ 	char *doubleToConvert = ( char* ) & Source64;
+ 	char *returnDouble = ( char* ) & retVal;
+
+ 	// swap the bytes into a temporary buffer
+ 	returnDouble[0] = doubleToConvert[7];
+ 	returnDouble[1] = doubleToConvert[6];
+ 	returnDouble[2] = doubleToConvert[5];
+ 	returnDouble[3] = doubleToConvert[4];
+ 	returnDouble[4] = doubleToConvert[3];
+ 	returnDouble[5] = doubleToConvert[2];
+ 	returnDouble[6] = doubleToConvert[1];
+ 	returnDouble[7] = doubleToConvert[0];
+
+ 	*Dest64=retVal;
+
+ }
 
 void SimpleEndianFlip32F(             float Source32, float  *Dest32)  // AF, 10Dec22 for i386-aros
        {
@@ -889,6 +911,22 @@ void SimpleEndianFlip32F(             float Source32, float  *Dest32)  // AF, 10
 
            *Dest32=retVal;
        }
+
+void SimpleEndianFlip16U(USHORT Source16, USHORT *Dest16) {(*Dest16) = (USHORT)( ((Source16 & 0x00ff) << 8) | ((Source16 & 0xff00) >> 8) );}
+void SimpleEndianFlip16S(SHORT Source16, SHORT *Dest16) {(*Dest16) = ( SHORT)( ((Source16 & 0x00ff) << 8) | ((Source16 & 0xff00) >> 8) );}
+
+void SimpleEndianFlip32U( ULONG Source32, ULONG *Dest32)  // AF, 10Dec22 for i386-aros
+{
+	(*Dest32) = (ULONG)( ((Source32 & 0x00ff) << 24) | ((Source32 & 0xff00) << 8) |
+			(ULONG)( ((Source32 & 0xff0000) >> 8) | ((Source32 & 0xff000000) >> 24)));
+}
+
+
+void SimpleEndianFlip32S( LONG Source32, LONG *Dest32)  //AF, 10Dec22 for i386-aros
+{
+	(*Dest32) = ( LONG)( ((Source32 & 0x00ff) << 24) | ((Source32 & 0xff00) << 8) |
+			( LONG)( ((Source32 & 0xff0000) >> 8) | ((Source32 & 0xff000000) >> 24)));
+}
 
 // AF, 4.Feb.2024: currently remove() contains an unwanted puts() (leftiver from libnix debugging?) So we overwrite is here without this puts()
 // copied from ./libnix/sources/nix/stdio/remove.c to overwrite the libnix-remove() function.

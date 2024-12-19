@@ -12,12 +12,9 @@ C_SRCS += \
 
 O_SRCS += \
 ../vgl/clib.o \
-../vgl/color.o \
 ../vgl/defpal.o \
 ../vgl/dumb.o \
-../vgl/dumbbitblt.o \
 ../vgl/dumbpoly.o \
-../vgl/dumbtext.o \
 ../vgl/fontsmall.o \
 ../vgl/pixmap.o \
 ../vgl/wuline.o 
@@ -41,7 +38,7 @@ OBJS += \
 vgl/%.o: ../vgl/%.c vgl/subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	i386-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -O3 -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	i386-aros-gcc -DFORCE_MUIMASTER_VMIN=19 -D__far= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell ../aros_deadw00d_toolchain_hashes.sh alt-abiv0 | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -DUSHORT=UWORD -DSHORT=int16_t -D__stdargs= -D__chip= -D__saveds= -DSTACKED= -DMUI_OBSOLETE -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -O3 -Wall -c -fmessage-length=0 -funsigned-char -fno-common -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -fomit-frame-pointer -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 

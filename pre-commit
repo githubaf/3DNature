@@ -276,6 +276,94 @@ function RenderTest_WinUAE_68060 {
 }
 
 #######################################################################################
+function RenderTest_Aros_I386 {
+echo "----------------------------"
+echo "| Render-Test on AROS i386 |"
+echo "----------------------------"
+# Samba does not work on AROS so far (first char of all names missing), so copy all files
+# copy Amiga WCS-Install-Dir in case we want to do manual testing...
+rsync -avz /home/developer/Desktop/WCS/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/WCS
+# copy Build/Test-Files
+mkdir -p ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga
+rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/
+
+# create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
+echo "assign VBOX: Sys:VBox"                            > ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "; BEGIN WCS"                                     >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "assign WCS: Sys:WCS"                             >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "assign WCSFrames: WCS:WCSFRAMES"                 >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "assign WCSProjects: WCS:WCSProjects"             >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "assign locale: VBox:SelcoGit/3DNature/Amiga add" >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "; END WCS"                                       >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo ";-------------------"                            >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "; run test tests"                                >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "stack 100000"                                    >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "cd VBox:SelcoGit/3DNature/Amiga"                 >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+# all stuff written to Debug: goes to the Linux console (stderr, i.e. use 2>&1)
+echo "i386-aros/WCS_i386-aros.unstripped 7462847623 > Debug:"     >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo ";-------------------"                            >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo ";exit AROS when done"                            >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+echo "shutdown"                                        >> ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/S/user-startup
+# now fire up AROS and let it do the tests.
+
+pushd . 
+cd ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS
+Arch/linux/AROSBootstrap 2>&1 #| ack --passthru  "All tests passed."
+#if [ $? -ne 0 ]; then
+#   echo "Local pre-commit hook"
+#   echo "test_i386-aros/WCS_test_i386-aros failed!"
+#   echo "Commit refused."
+#   exit 1
+#fi
+popd
+}
+
+
+
+function RenderTest_Aros_X86_64 {
+#Run Render-Test on AROS x86-64
+echo "------------------------------"
+echo "| Render-Test on AROS x86-64 |"
+echo "------------------------------"
+# Samba does not work on AROS x86-64 so far at all, so copy all files
+# copy Amiga WCS-Install-Dir in case we want to do manual testing... 
+rsync -avz /home/developer/Desktop/WCS/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS
+# copy Build/Test-Files
+mkdir -p ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
+rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
+
+# create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
+echo "assign VBOX: Sys:VBox"                             > ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "; BEGIN WCS"                                     >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "assign WCS: Sys:WCS"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "assign WCSFrames: WCS:WCSFRAMES"                 >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "assign WCSProjects: WCS:WCSProjects"             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "assign locale: VBox:SelcoGit/3DNature/Amiga add" >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "; END WCS"                                       >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo ";-------------------"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "; run test tests"                                 >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "stack 100000"                                     >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "cd VBox:SelcoGit/3DNature/Amiga"                  >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+# all stuff written to Debug: goes to the Linux console (stderr, i.e. use 2>&1)
+echo "x86_64-aros/WCS_x86_64-aros.unstripped 7462847623 > Debug:"      >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo ";-------------------"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo ";exit AROS when done"                             >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+echo "shutdown"                                         >> ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/S/user-startup
+# now fire up AROS and let it do the tests.
+
+pushd . 
+cd ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS
+boot/linux/AROSBootstrap -m640 --config-debug=mungwall 2>&1 #| ack --passthru  "All tests passed."
+#if [ $? -ne 0 ]; then
+#   echo "Local pre-commit hook"
+#   echo "test_x86_64-aros/WCS_test_x86_64-aros failed!"
+#   echo "Commit refused."
+#   exit 1
+#fi
+popd
+
+}
+
 
 # Wenn Parameter uebergeben wurden, fuehre die angegebenen Funktionen aus
 if [ "$#" -gt 0 ]; then
@@ -301,4 +389,6 @@ else
     RenderTest_WinUAE_68020_60
     RenderTest_WinUAE_68040      # schwarze Sonne/Mond
     RenderTest_WinUAE_68060
+    RenderTest_Aros_I386
+    RenderTest_Aros_X86_64
 fi

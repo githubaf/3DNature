@@ -1847,7 +1847,9 @@ short loadparams(USHORT loadcode, short loaditem)
            fparam=NULL;
        }
     if (loadcode & 0x0100)
+    {
      DisposeEcotypes();
+    }
     if ((success = loadparamsV1(loadcode, loaditem, temppath,
 	tempfile, &TempHdr, ParHdr.KeyFrames)) > 0
 	&& loadcode == 0x1111)
@@ -3349,11 +3351,11 @@ ReadError:
  if (settingsV1)
   free_Memory(settingsV1, sizeof (struct SettingsV1));
  if (MoParV1)
-  free_Memory(settingsV1, sizeof (struct AnimationV1));
+  free_Memory(MoParV1, sizeof (struct AnimationV1));
  if (CoParV1)
-  free_Memory(settingsV1, sizeof (struct PaletteV1));
+  free_Memory(CoParV1, sizeof (struct PaletteV1));
  if (EcoParV1)
-  free_Memory(settingsV1, sizeof (union EnvironmentV1));
+  free_Memory(EcoParV1, sizeof (union EnvironmentV1));
  if (KFV1)
   free_Memory(KFV1, KFV1size);
  if (! KF)

@@ -451,7 +451,7 @@ EXTERN __far union Environment EcoPar;
 
 EXTERN __far union Environment UndoEcoPar[2];
 
-/*EXTERN*/ struct SettingsV1 {
+/*EXTERN*/ struct PACKED SettingsV1 {  // ALEXANDER: PACKED for AROS x86_64 necessary!
  short	startframe,
 	maxframes,
 	startseg,		/* formerly campath */
