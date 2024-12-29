@@ -2112,22 +2112,24 @@ Added x86_64-aros als neue Konfiguration. Benutze deadw00ds toolchain/Aros von h
 ----------
 * Fuer AROS copilieren zwei Scripte in ~/bin angelegt. Die enthalten den gcc-Aufruf mit --sysroot und -I fuer das SDI-Include-Dir.
 
-# cat i386-aros-gcc
-
+cat ~/bin/i386-aros-gcc 
 #!/bin/sh
 
 #Wrapper fuer AROS-gcc, damit man nicht manuell sysroot uebergeben muss
 
-exec /home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/toolchain-alt-abiv0-i386/i386-aros-gcc --sysroot=/home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/Development -I/home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/Development/include/SDI/ "$@"
+exec /home/developer/Desktop/SelcoGit/toolchain-alt-abiv0-i386/i386-aros-gcc --sysroot=/home/developer/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/Development -I/home/developer/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/Development/include/SDI/ "$@"
 
-#cat x86_64-aros-gcc 
-
+cat ~/bin/x86_64-aros-gcc 
 #!/bin/sh
 
 #Wrapper fuer AROS-gcc, damit man nicht manuell sysroot uebergeben muss
-exec /home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/toolchain-alt-abiv0-i386/i386-aros-gcc --sysroot=/home/developer/Desktop/SelcoGit/aros_deadw00d_32bit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/Development -I/home/developer/Desktop/SelcoGit/aros_deadw00d/core-linux-x86_64-d/bin/linux-x86_64/gen/include/SDI "$@"
+exec /home/developer/Desktop/SelcoGit/toolchain-core-x86_64/x86_64-aros-gcc --sysroot=/home/developer/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/Development -I/home/developer/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/gen/include/SDI "$@"
 
-* Laut Deadwood muss Strip fr AROS muss Strip extra Parameter bekommen.
+# Pfad setzen in .bashrc nicht vergessen!
+PATH=$PATH:/home/developer/Desktop/SelcoGit/toolchain-core-x86_64:/home/developer/Desktop/SelcoGit/toolchain-alt-abiv0-i386/::/home/developer/bin 
+
+
+* Laut Deadwood muss Strip fuer AROS extra Parameter bekommen.
 Krzysztof Smiechowicz <deadwood@onet.pl> schrieb mir am Mo 06.02.2023 19:44
 AROS executables are not full executables in ELF sense, they are more relocable objects. Due to this, default use of strip strips too much. Here is the command line which should be ok:
 
@@ -2911,7 +2913,7 @@ Vista-Dem -> Colormap                   FALSCH (90 Grad)    display -depth 8 -si
 
 2.9.2023
 --------
-ColorMap war *IMMER* um 90 Grad gedreht? berprfen!
+ColorMap war *IMMER* um 90 Grad gedreht? ueberprfen!
 - AN 3 Stellen wird auf    
 if (OUTPUT_FORMAT == DEM_DATA_OUTPUT_WCSDEM
 //	|| OUTPUT_FORMAT == DEM_DATA_OUTPUT_COLORMAP <--- Das gier ist aber falsch!
@@ -2931,7 +2933,7 @@ ASCII Array berprfen!
 --------
 Anzeige der ASCII-Buffer-Bilder:
 Mit "imagej". Starten, File -> Import -> Text Image
-Gre oder Format mssen nicht angegeben werden. n54_e013_3arc_v2.ascarr hat 1201 Text-Zeile. Daher wei er das wohl. n54_e013_3arc_v2.ascarr ist korrekt.
+Groessew oder Format muessen nicht angegeben werden. n54_e013_3arc_v2.ascarr hat 1201 Text-Zeile. Daher weiss er das wohl. n54_e013_3arc_v2.ascarr ist korrekt.
 "imagej" kann auch 2 Bilder synchronisiert anzeigen. Dann Bewegt sich der Curso in beiden Bildern synchron und vom aktiven Cursor wird der Hoehenwert angezeigt (Im Status vom Hauptmenu)
 Dazu unter Analyze -> Tools ->Synchronize Windows auswaehlen.
 
@@ -4173,3 +4175,22 @@ rm -rf DiffImage; IMAGE=DemoFrame001 compare /home/developer/Desktop/SelcoGit/al
 done
 
 Alle Bilder sind auch hier teils ziemlich unterschiedlich!
+
+20.12.2024
+----------
+Unterschiede anzeigen mit imagej:
+* Bilder mit convert nach bmp umwandlen, iff kann das imagej nicht.
+
+imagej /home/developer/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_WorldTest001.bmp /home/developer/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_WorldTest001.bmp DiffImage.bmp
+
+* Analyze->Tools->Synchronize Windows
+* Kann man gleichzeitig die Pixel-Farben unter dem Cursor in allen Bildern anzeigen?
+
+26. Dezenber 2024
+-----------------
+*AROS fuer i386 und X86_64 auf dem HP Elitebook neu gebaut.
+
+29.12.2024
+----------
+Eclipse 2024-12 hat Properties >  C/C++ Build > Settings > Tool Settings Cross Gcc Assembler auf "gcc" gesetzt. Da muss wieder in allen Buildconfigurationen "as" hin. Dann verschwindet auch das -c und die Buildconfigurationen koennen wieder gebaut werden.
+

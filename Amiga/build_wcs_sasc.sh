@@ -99,8 +99,8 @@ vamos -q sc NOOPT NODEBUG NOGST WCS_locale.c IGNORE=51 DEFINE=STATIC_FCN=static 
 # build vgl.library
 # ...
 cd vgl
-rm *.o
-rm *.a
+rm -f *.o
+rm -f *.a
 for FILE in "defpal.c dumb.c wuline.c dumbpoly.c pixmap.c fontsmall.c clib.c"; do
   vamos -q sc NOOPT NODEBUG $FILE IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
 done
