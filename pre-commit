@@ -5,6 +5,13 @@
 #set -e  # Abort on Errors
 #set -x  # show commands
 
+# You should have an ENV-Variable LINUX_WCS_DIR=/home/developer/Desktop/WCS/
+if [ -z $LINUX_WCS_DIR ]; then
+   echo "You should have an ENV-Variable \"export LINUX_WCS_DIR=/home/developer/Desktop/WCS/\" (points to an Amiga-WCS Installationi Dir. Will be copied into AROS.)"
+   echo "Commit refused."
+   exit 1
+fi
+
 WINUAEIP=""   # will be set automatically in CheckSshWinUAE
 
 function CheckNoUTF8 {
@@ -97,8 +104,9 @@ echo "--------------------"
 echo "| Test on AROS 386 |"
 echo "--------------------"
 # Samba does not work on AROS so far (first char of all names missing), so copy all files
-# copy Amiga WCS-Install-Dir in case we want to do manual testing...
-rsync -avz /home/developer/Desktop/WCS/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/WCS
+# copy Amiga WCS-Install-Dir for automatic testing...
+# You should have an ENV-Variable for that!  LINUX_WCS_DIR=/home/developer/Desktop/WCS/
+rsync -avz $LINUX_WCS_DIR ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/WCS
 # copy Build/Test-Files
 mkdir -p ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga
 rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/
@@ -143,8 +151,9 @@ echo "-----------------------"
 echo "| Test on AROS x86-64 |"
 echo "-----------------------"
 # Samba does not work on AROS x86-64 so far at all, so copy all files
-# copy Amiga WCS-Install-Dir in case we want to do manual testing... 
-rsync -avz /home/developer/Desktop/WCS/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS
+# copy Amiga WCS-Install-Dir for automatic testing...
+# You should have an ENV-Variable for that!  LINUX_WCS_DIR=/home/developer/Desktop/WCS/
+rsync -avz $LINUX_WCS_DIR ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS
 # copy Build/Test-Files
 mkdir -p ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
 rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
@@ -281,8 +290,9 @@ echo "----------------------------"
 echo "| Render-Test on AROS i386 |"
 echo "----------------------------"
 # Samba does not work on AROS so far (first char of all names missing), so copy all files
-# copy Amiga WCS-Install-Dir in case we want to do manual testing...
-rsync -avz /home/developer/Desktop/WCS/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/WCS
+# copy Amiga WCS-Install-Dir for automatic testing...
+# You should have an ENV-Variable for that!  LINUX_WCS_DIR=/home/developer/Desktop/WCS/
+rsync -avz $LINUX_WCS_DIR ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/WCS
 # copy Build/Test-Files
 mkdir -p ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga
 rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/
@@ -326,8 +336,9 @@ echo "------------------------------"
 echo "| Render-Test on AROS x86-64 |"
 echo "------------------------------"
 # Samba does not work on AROS x86-64 so far at all, so copy all files
-# copy Amiga WCS-Install-Dir in case we want to do manual testing... 
-rsync -avz /home/developer/Desktop/WCS/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS
+# copy Amiga WCS-Install-Dir for automatic testing...
+# You should have an ENV-Variable for that!  LINUX_WCS_DIR=/home/developer/Desktop/WCS/
+rsync -avz $LINUX_WCS_DIR ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/WCS
 # copy Build/Test-Files
 mkdir -p ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
 rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
