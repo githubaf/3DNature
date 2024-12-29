@@ -4194,3 +4194,4 @@ imagej /home/developer/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AR
 ----------
 Eclipse 2024-12 hat Properties >  C/C++ Build > Settings > Tool Settings Cross Gcc Assembler auf "gcc" gesetzt. Da muss wieder in allen Buildconfigurationen "as" hin. Dann verschwindet auch das -c und die Buildconfigurationen koennen wieder gebaut werden.
 
+Changed Properties > C/C++ Build > Settings > Tool Settings > Cross GCC COmpiler > Include from "${workspace_loc:/WCS}" to ".." to make paths relatived in generated makefiles

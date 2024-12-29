@@ -311,7 +311,7 @@ OBJS += \
 %.o: ../%.c subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	m68k-amigaos-gcc -DFORCE_MUIMASTER_VMIN=19 -DSTATIC_FCN= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -I"/home/developer/Desktop/SelcoGit/3DNature/Amiga" -O2 -g -pg -ftest-coverage -fprofile-arcs -Wall -c -fmessage-length=0 -funsigned-char -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -noixemul -fprofile-dir=/Coverage -fprofile-arcs -ftest-coverage -m68060 -m68881 -DSTATIC_FCN= -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
+	m68k-amigaos-gcc -DFORCE_MUIMASTER_VMIN=19 -DSTATIC_FCN= -DAMIGA_GUI -DTOOLCHAIN_VER=\"'$(shell m68k-amigaos-toolchain_hashes.sh | tr '!-~' 'P-~!-O' | sed 's/\\/\\\\/g' )'\" -I".." -O2 -g -pg -ftest-coverage -fprofile-arcs -Wall -c -fmessage-length=0 -funsigned-char -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<" -DBUILDID=\"g/'$(shell git describe --always --dirty --exclude "*")'\" -noixemul -fprofile-dir=/Coverage -fprofile-arcs -ftest-coverage -m68060 -m68881 -DSTATIC_FCN= -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g
 	@echo 'Finished building: $<'
 	@echo ' '
 
