@@ -56,14 +56,22 @@ fi
 function CheckSshWinUAE {
 #check if we can ssh to WinUAE
 #We want to run test on WinUAE later below in this script after building all. Check ssh to WinUAE now and abort before wasting time on building all configurations
-WINUAEIP=$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;}}')
+#  Virtual Box NAT bill be 10.0. xxx
+WINUAEIP=$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;}}') # shows line starting with an IP Address and Gataway != 0.0.0.0
 sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'
 if [ $? -ne 0 ]; then
-   echo "Local pre-commit hook"
-   echo "Cannot ssh to WinUAE ("$WINUAEIP"). amigasshd -p22222 started?"
-   echo "Commit aborted."
-   exit 1
+   WINUAEIP=0.0.0.0  # try local host
+   echo "ssh $WINUAEIP did not work, trying 0.0.0.0 ..."
+else
+   sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'
+   if [ $? -ne 0 ]; then
+      echo "Local pre-commit hook"
+      echo "Cannot ssh to WinUAE. amigasshd -p22222 started?"
+      echo "Commit aborted."
+      exit 1
+   fi
 fi
+echo "OK, WINUAEIP=$WINUAEIP"
 }
 
 function CheckSASC {
@@ -259,7 +267,7 @@ echo "Diff zu gross"
             ErrorString="$ErrorString $file"
         fi
 else
-echo "Diff nicht gruesser 10"
+echo "Diff nicht groesser 10"
       fi
 #set +x
     done
