@@ -26,6 +26,13 @@ if [ -z $AROS_CORE_LINUX_X86_64 ]; then
    exit 1
 fi
 
+# You should have an ENV-Variable AROS_CORE_LINUX_X86_64=~/Desktop/SelcoGit/core-linux-x86_64-d/
+if [ -z $NATURE3D_DIR ]; then
+   echo "You should have an ENV-Variable \"export NATURE3D_DIR=/home/developer/Desktop/SelcoGit/3DNature/\" (points to the 3DNature dir)"
+   echo "Commit refused."
+   exit 1
+fi
+
 
 WINUAEIP=""   # will be set automatically in CheckSshWinUAE
 
@@ -44,7 +51,7 @@ done
 
 function CheckSimpleCat {
 # check WCS.cs (SimpleCat) is ISO-8859
-file /home/developer/Desktop/SelcoGit/3DNature/Amiga/WCS.cs | grep "ISO-8859"
+file $NATURE3D_DIR/Amiga/WCS.cs | grep "ISO-8859"
 if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
    echo "Error: File $FILE is not ISO-8859 encoded. Change that to ISO 8859-1 for Amiga and try again!"
@@ -60,9 +67,8 @@ function CheckSshWinUAE {
 WINUAEIP=$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;}}') # shows line starting with an IP Address and Gataway != 0.0.0.0
 sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'
 if [ $? -ne 0 ]; then
-   WINUAEIP=0.0.0.0  # try local host
    echo "ssh $WINUAEIP did not work, trying 0.0.0.0 ..."
-else
+   WINUAEIP=0.0.0.0  # try local host
    sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'
    if [ $? -ne 0 ]; then
       echo "Local pre-commit hook"
@@ -76,7 +82,7 @@ echo "OK, WINUAEIP=$WINUAEIP"
 
 function CheckSASC {
 #check, if WCS is still compileable with SAS/C, also builds wcs_test_sasc_render
-cd /home/developer/Desktop/SelcoGit/3DNature/Amiga/
+cd $NATURE3D_DIR/Amiga/
 ./build_wcs_sasc.sh
 if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
@@ -88,7 +94,7 @@ fi
 
 function BuildAllEclipse {
 #check if all eclipse build configurations can be build
-cd /home/developer/Desktop/SelcoGit/3DNature/Amiga/
+cd $NATURE3D_DIR/Amiga/
 ./make_all_configurations.sh
 if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
@@ -132,7 +138,7 @@ echo "--------------------"
 rsync -avz $LINUX_WCS_DIR $AROS_ALT_ABI_V0/bin/linux-i386/AROS/WCS
 # copy Build/Test-Files
 mkdir -p $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga
-rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/
+rsync -avz $NATURE3D_DIR/Amiga/ $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/
 
 # create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
 echo "assign VBOX: Sys:VBox"                            > $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
@@ -179,7 +185,7 @@ echo "-----------------------"
 rsync -avz $LINUX_WCS_DIR $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/WCS
 # copy Build/Test-Files
 mkdir -p $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
-rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
+rsync -avz $NATURE3D_DIR/Amiga/ $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
 
 # create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
 echo "assign VBOX: Sys:VBox"                             > $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
@@ -227,8 +233,8 @@ function RenderTest_Generic {
 
 
     # Verzeichnis vorbereiten
-    rm -rf ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
-    mkdir -p ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages
+    rm -rf $NATURE3D_DIR/Amiga/RenderTestImages
+    mkdir -p $NATURE3D_DIR/Amiga/RenderTestImages
 
     # Remote-Ausfuehrung
     Error=0
@@ -237,10 +243,10 @@ function RenderTest_Generic {
 
     # Montage der Bilder
     montage \
-        -label $LABEL ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/CanyonSet000 \
-        -label $LABEL ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/RMNP000 \
-        -label $LABEL ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/DemoFrame001 \
-        -label $LABEL ~/Desktop/SelcoGit/3DNature/Amiga/RenderTestImages/WorldTest001 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/CanyonSet000 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/RMNP000 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/DemoFrame001 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/WorldTest001 \
         -geometry 752x480 -tile 2x2 $IMAGE_PREFIX.jpg
     eog $IMAGE_PREFIX.jpg &
 
@@ -318,7 +324,7 @@ echo "----------------------------"
 rsync -avz $LINUX_WCS_DIR $AROS_ALT_ABI_V0/bin/linux-i386/AROS/WCS
 # copy Build/Test-Files
 mkdir -p $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga
-rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/
+rsync -avz $NATURE3D_DIR/Amiga/ $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/
 
 # create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
 echo "assign VBOX: Sys:VBox"                            > $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
@@ -364,7 +370,7 @@ echo "------------------------------"
 rsync -avz $LINUX_WCS_DIR $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/WCS
 # copy Build/Test-Files
 mkdir -p $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
-rsync -avz ~/Desktop/SelcoGit/3DNature/Amiga/ $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
+rsync -avz $NATURE3D_DIR/Amiga/ $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
 
 # create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
 echo "assign VBOX: Sys:VBox"                             > $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
