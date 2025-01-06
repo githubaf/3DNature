@@ -17,7 +17,7 @@ fi
 # | tee /dev/stderr prints the vamos output to stderr before sending it to grep, so we will see can always see it
 
 # vamos -C00 -s8 -m8000 $1 2>&1 | tee /dev/stderr | grep "CALL:  108 Alert( alertNum\[d7\]=00068020 )" >/dev/null
-vamos -C00 -s8 -m8000 $1 2>&1 | tee /dev/stderr | grep "CALL: .*  108 Alert( alertNum\[d7\]=00068020 )" >/dev/null # vamos writes (exec.library) in new versions
+vamos -C00 -s8 -m8000 $1 2>&1 | tee /dev/stderr | grep "CALL: .* 108 Alert( alertNum\[d7\]=00068020 )" >/dev/null # vamos writes (exec.library) in new versions
 RET=$?
 if [ $RET -ne 0 ]; then
  echo "ERROR: Check for 68020 failed!"
@@ -41,7 +41,7 @@ fi
 # | tee /dev/stderr prints the vamos output to stderr before sending it to grep, so we will see can always see it
 
 # vamos -C20 -s8 -m8000 $1 2>&1 | tee /dev/stderr | grep "CALL:  108 Alert( alertNum\[d7\]=00068881 )" >/dev/null
-vamos -C20 -s8 -m8000 $1 2>&1 | tee /dev/stderr | grep "CALL: .*  108 Alert( alertNum\[d7\]=00068881 )" >/dev/null # vamos writes (exec.library) in new versions
+vamos -C20 -s8 -m8000 $1 2>&1 | tee /dev/stderr | grep "CALL: .* 108 Alert( alertNum\[d7\]=00068881 )" >/dev/null # vamos writes (exec.library) in new versions
 if [ $? -ne 0 ]; then
  echo "ERROR: Check for FPU failed!"
  exit 1 

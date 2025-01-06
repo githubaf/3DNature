@@ -5078,7 +5078,7 @@ MSG_DEMGUI_ELEVATIONMODELGRID
 MSG_DEMGUI_OPTIONS
 \33c\0334Options
 \33c\0334Optionen
-
+\33c\0334Opzioni
 
 \33c\0334Opties
 
@@ -5090,7 +5090,7 @@ MSG_DEMGUI_OPTIONS
 MSG_DEMGUI_GRADIENTS
 Gradients\x20\x20
 Gradienten\x20
-
+Gradienti\x20\x20
 
 Gradiënten\x20\x20
 
@@ -5102,7 +5102,7 @@ Gradienty\x20\x20
 MSG_DEMGUI_CHOROPLETH
 Choropleth\x20
 
-
+Choropleth\x20
 
 Choropleth\x20\x20
 
@@ -5114,7 +5114,7 @@ prelozit \x20
 MSG_DEMGUI_DENSITY
 Density\x20\x20\x20\x20
 Dichte\x20\x20\x20\x20\x20
-
+Densità\x20\x20\x20\x20
 
 Dichtheid\x20\x20\x20\x20
 
@@ -5126,7 +5126,7 @@ Hustota\x20\x20\x20\x20
 MSG_DEMGUI_EXTRAPOLATE
 Extrapolate
 Extrapolieren
-
+Estrapolare
 
 Extrapoleren
 
@@ -5138,7 +5138,7 @@ Extrapolace
 MSG_DEMGUI_SOUTHHEMI
 South Hemi.
 Südl. Hemi.
-
+Emis. Sud.
 
 Zuid. Halfrond.
 
@@ -5150,7 +5150,7 @@ Ji¾ní polokoule.
 MSG_DEMGUI_BOUNDARIES
 \33c\0334Boundaries
 \33c\0334Grenzen
-
+\33c\0334Confini
 
 \33c\0334Grenzen
 
@@ -5162,7 +5162,7 @@ MSG_DEMGUI_BOUNDARIES
 MSG_DEMGUI_NORTH
 North
 Nord
-
+Nord
 
 Noord
 
@@ -5174,7 +5174,7 @@ Sever
 MSG_DEMGUI_SOUTH
 South
 Süd
-
+Sud
 
 Zuid
 
@@ -5186,7 +5186,7 @@ Jih
 MSG_DEMGUI_EAST
 East
 Ost
-
+Est
 
 Oost
 
@@ -5198,7 +5198,7 @@ Východ
 MSG_DEMGUI_WEST
 West
 West
-
+Ovest
 
 West
 
@@ -5209,8 +5209,8 @@ Západ
 ;
 MSG_DEMGUI_ELLOVERLAP
 \33c\0334Cell Overlap
-
-
+\33c\0334Zellenüberlappung
+\33c\0334Sovrapposizione Celle
 
 \33c\0334Cellen Overlap
 
@@ -5222,7 +5222,7 @@ MSG_DEMGUI_ELLOVERLAP
 MSG_DEMGUI_HORIZ
 Horiz
 Horiz
-
+Orizz
 
 Horiz
 
@@ -5246,7 +5246,7 @@ Pion
 MSG_DEMGUI_SURFACETAUTNESS
 \33c\0334Surface Tautness
 \33c\033fOberflächenspannung
-
+\33c\0334Tensione Superficiale
 
 \33c\0334Ruwheid Oppervlak
 
@@ -5258,7 +5258,7 @@ MSG_DEMGUI_SURFACETAUTNESS
 MSG_DEMGUI_SCALE
 \33c\0334Scale
 \33c\0334Skalieren
-
+\33c\0334Scala
 
 \33c\0334Schaal
 
@@ -5270,7 +5270,7 @@ MSG_DEMGUI_SCALE
 MSG_DEMGUI_NULL
 Null
 Null
-
+Null
 
 Nul
 
@@ -5294,7 +5294,7 @@ Delta
 MSG_DEMGUI_GRID
 \33cGrid
 \33cGitter
-
+\33cGriglia
 
 \33cRaster
 
@@ -5305,8 +5305,8 @@ MSG_DEMGUI_GRID
 ;
 MSG_DEMGUI_NOISE
 \33cNoise
-
-
+\33cRauschen
+\33cRumore
 
 \33cRuis
 
@@ -5318,7 +5318,7 @@ MSG_DEMGUI_NOISE
 MSG_DEMGUI_DRAW
 \33cDraw
 \33cZeichnen
-
+\33cDisegnare
 
 \33cTeken
 
@@ -5330,7 +5330,7 @@ MSG_DEMGUI_DRAW
 MSG_DEMGUI_SAVE
 \33cSave
 \33cSpeichern
-
+\33cSalvare
 
 \33cOpslaan
 
@@ -5341,8 +5341,8 @@ MSG_DEMGUI_SAVE
 ;
 MSG_DEMGUI_MAPVIEWDEMGRIDDER
 Map View: DEM Gridder
-
-
+Kartenansicht: DEM Raster
+Vista Mappa: DEM Gridder
 
 Map View: DEM Raster
 
@@ -5354,7 +5354,7 @@ Zobrazeni mapy: DEM Gridder
 MSG_DEMGUI_NEWDEM
 NewDEM
 Neues DEM
-
+Nuovo DEM
 
 Nieuw DEM
 
@@ -5366,7 +5366,7 @@ Nový DEM
 MSG_DEMGUI_IMPORT
 \33cImport
 \33cImportieren
-
+\33cImportare
 
 \33cImporteren
 
@@ -5378,7 +5378,7 @@ MSG_DEMGUI_IMPORT
 MSG_DEMGUI_SAVEPTS
 \33cSave Pts
 \33cPunkte speichern
-
+\33cSalva punti
 
 \33cPunten Opslaan
 
@@ -5389,8 +5389,8 @@ MSG_DEMGUI_SAVEPTS
 ;
 MSG_DEMGUI_BUILD
 \33cBuild...
-
-
+\33cBauen...
+\33cCostruire...
 
 \33cMaken...
 
@@ -5402,7 +5402,7 @@ MSG_DEMGUI_BUILD
 MSG_DEMGUI_DRAWPTS
 \33cDraw Pts
 \33cPunkte zeichnen
-
+\33cDisegnare punti
 
 \33cTeken Punten
 
@@ -5414,7 +5414,7 @@ MSG_DEMGUI_DRAWPTS
 MSG_DEMGUI_CLEARPTS
 \33cClear Pts
 \33cPunkte löschen
-
+\33cCancella punti
 
 \33cPunten Wissen
 
@@ -5426,7 +5426,7 @@ MSG_DEMGUI_CLEARPTS
 MSG_DEMGUI_NONNEG
 Non-Neg\x20\x20\x20\x20
 Nicht-Negativ\x20
-
+Non-Neg\x20\x20\x20\x20
 
 Non-Negatief\x20\x20\x20\x20
 
@@ -5438,7 +5438,7 @@ Pozitivní\x20\x20\x20\x20
 MSG_DEMGUI_OUTPUT
 \33c\0334Output
 \33c\0334Ausgabe
-
+\33c\0334Output
 
 \33c\0334Uitvoer
 
@@ -5450,7 +5450,7 @@ MSG_DEMGUI_OUTPUT
 MSG_DEMGUI_COLS
 Cols
 Spalten
-
+Colonne
 
 Kolommen
 
@@ -5462,7 +5462,7 @@ Sloupce
 MSG_DEMGUI_ROWS
 Rows
 Zeilen
-
+Righe
 
 Regels
 
@@ -5473,8 +5473,8 @@ Rzêdy
 ;
 MSG_DEMGUI_OPTIONALNOISEMAP
 \33c\0334Optional Noise Map
-
-
+\33c\0334Optionale Rauschkarte
+\33c\0334Mappa Rumore Opzionale
 
 \33c\0334Optionele Ruis Map
 
@@ -5486,7 +5486,7 @@ MSG_DEMGUI_OPTIONALNOISEMAP
 MSG_DEMGUI_SEED
 Seed
 Startwert
-
+Seme
 
 Startwaarde
 
@@ -8287,7 +8287,7 @@ Zakøivení 3
 ;
 MSG_DEFPARM_SURFACE4
 Surface 4
-Oberfläche4
+Oberfläche 4
 
 
 Oppervlak 4
@@ -25079,7 +25079,7 @@ Wolken Golf Bron Punt Instellen %d
 ;
 MSG_WAVGUI_ENTERWAVEAMPLITUDE
 Enter Wave Amplitude.
-Geen Sie die Wellenhöhe ein.
+Geben Sie die Wellenhöhe ein.
 
 
 Voer golfhoogte in.
