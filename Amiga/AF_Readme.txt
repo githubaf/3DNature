@@ -4198,5 +4198,5 @@ Changed Properties > C/C++ Build > Settings > Tool Settings > Cross GCC COmpiler
 
 8.Jan24
 -------
-Mit die Compiler-Änderung von heute kann der Compiler/Toolchain wieder gebaut werden. Die letzen Versionen seit dem 12. Dezember 24 hatten bei libnix-Bau einen Internal Compiler Erros bei mir. Bei Benny unter WSL2 konte der Compiler gebaut werden, beim Linken von WCS gabe es dann aber intere Compilerfefehler (Ewig gelinkt und allen Speicher verbraucht)
+Mit die Compiler-Aenderung von heute kann der Compiler/Toolchain wieder gebaut werden. Die letzen Versionen seit dem 12. Dezember 24 hatten bei libnix-Bau einen Internal Compiler Erros bei mir. Bei Benny unter WSL2 konte der Compiler gebaut werden, beim Linken von WCS gab es dann aber intere Compilerfefehler (Ewig gelinkt und allen Speicher verbraucht)
 
