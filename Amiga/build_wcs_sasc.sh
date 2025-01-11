@@ -22,8 +22,6 @@ rm -f *.o WCSGST WCS >/dev/null
 vamos -q sc MAKEGST=WCSGST WCS.c "IGNORE=51" "DEFINE=STATIC_FCN=STATIC" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1" "DEFINE=CATCOMP_NUMBERS=1"
 # the main file
 vamos -q sc NOGST          WCS.c              "IGNORE=51" "DEFINE=STATIC_FCN=STATIC" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1"
-# the main file for the render test
-vamos -q sc NOGST          wcs_test_render.c  "IGNORE=51" "DEFINE=STATIC_FCN=STATIC" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1"
 
 # Jetzt der Rest
 vamos -q sc NOOPT NODEBUG AGUI.c IGNORE=51 DEFINE=STATIC_FCN=        DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
@@ -108,7 +106,5 @@ vamos oml libvgl.a a defpal.o dumb.o wuline.o dumbpoly.o pixmap.o fontsmall.o cl
 cd ..
 cp vgl/libvgl.a .
 # und linken
-vamos -q slink LIB:c.o WCS.o WITH WCSObjs.lnk lib:utillib.with LIB LIB:scm881.lib libvgl.a LIB:sc.lib LIB:amiga.lib TO WCS ND
-# auch den Rendertest linken
-vamos -q slink LIB:c.o wcs_test_render.o WITH WCSObjs.lnk lib:utillib.with LIB LIB:scm881.lib libvgl.a LIB:sc.lib LIB:amiga.lib TO  wcs_test_sasc_render ND
+vamos -q slink LIB:c.o WCS.o WITH WCSObjs.lnk lib:utillib.with LIB LIB:scm881.lib libvgl.a LIB:sc.lib LIB:amiga.lib TO WCS_68020_SASC ND
 

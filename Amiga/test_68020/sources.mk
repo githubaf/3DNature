@@ -15,4 +15,12 @@ OBJS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 . \
+test_68020-60_render \
+test_68020-60_render/vgl \
+test_68020_render \
+test_68020_render/vgl \
+test_68040_render \
+test_68040_render/vgl \
+test_68060_render \
+test_68060_render/vgl \
 

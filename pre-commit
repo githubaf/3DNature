@@ -81,7 +81,7 @@ echo "OK, WINUAEIP=$WINUAEIP"
 }
 
 function CheckSASC {
-#check, if WCS is still compileable with SAS/C, also builds wcs_test_sasc_render
+#check, if WCS is still compileable with SAS/C
 cd $NATURE3D_DIR/Amiga/
 ./build_wcs_sasc.sh
 if [ $? -ne 0 ]; then
@@ -223,7 +223,7 @@ popd
 ################################################################
 function RenderTest_Generic {
     local LABEL=$1
-    local SSH_COMMAND=$2
+    local SSH_COMMAND="$2 7462847623"  # magic param
     local IMAGE_PREFIX=$3
     local MAX_PIXEL_DIFFER=$4
 
@@ -243,10 +243,10 @@ function RenderTest_Generic {
 
     # Montage der Bilder
     montage \
-        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/CanyonSet000 \
-        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/RMNP000 \
-        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/DemoFrame001 \
-        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/WorldTest001 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$2_CanyonSet000 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$2_RMNP000 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$2_DemoFrame001 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$2_WorldTest001 \
         -geometry 752x480 -tile 2x2 $IMAGE_PREFIX.jpg
     eog $IMAGE_PREFIX.jpg &
 
@@ -290,27 +290,27 @@ echo "Diff nicht groesser 10"
 
 ################################################################
 function RenderTest_WinUAE_SASC {
-    RenderTest_Generic "SAS/C" "wcs_test_sasc_render" "BigSasC" "ref"
+    RenderTest_Generic "SAS/C" "WCS_68020_SASC" "BigSasC" "ref"
 }
 
 ################################################################
 function RenderTest_WinUAE_68020 {
-    RenderTest_Generic "68020" "test_68020_render/wcs_test_68020_render" "Big68020" "ref"
+    RenderTest_Generic "68020" "68020/WCS_68020" "Big68020" "ref"
 }
 
 ################################################################
 function RenderTest_WinUAE_68020_60 {
-    RenderTest_Generic "68020_60" "test_68020-60_render/wcs_test_68020-60_render" "Big68020_60" "ref"
+    RenderTest_Generic "68020_60" "68020-60/wcs_68020-60" "Big68020_60" "ref"
 }
 
 ################################################################
 function RenderTest_WinUAE_68040 {
-    RenderTest_Generic "68040" "test_68040_render/wcs_test_68040_render" "Big68040" "ref"
+    RenderTest_Generic "68040" "68040/wcs_68040" "Big68040" "ref"
 }
 
 ################################################################
 function RenderTest_WinUAE_68060 {
-    RenderTest_Generic "68060" "test_68060_render/wcs_test_68060_render" "Big68060" "ref"
+    RenderTest_Generic "68060" "68060/wcs_68060" "Big68060" "ref"
 }
 
 #######################################################################################

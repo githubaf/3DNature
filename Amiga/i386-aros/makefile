@@ -9,6 +9,14 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include vgl/subdir.mk
+-include test_68060_render/vgl/subdir.mk
+-include test_68060_render/subdir.mk
+-include test_68040_render/vgl/subdir.mk
+-include test_68040_render/subdir.mk
+-include test_68020_render/vgl/subdir.mk
+-include test_68020_render/subdir.mk
+-include test_68020-60_render/vgl/subdir.mk
+-include test_68020-60_render/subdir.mk
 -include subdir.mk
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(strip $(C_DEPS)),)
