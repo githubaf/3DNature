@@ -5498,7 +5498,7 @@ Warto¶æ Pocz±tkowa
 MSG_DEMGUI_FRACT
 Fract
 Frakt
-
+Frattura
 
 Fract
 
@@ -5522,7 +5522,7 @@ Przesuniêcie X
 MSG_DEMGUI_SCOPE
 Scope
 
-
+Ambito
 
 Scope
 
@@ -5534,7 +5534,7 @@ Pole pùsobnosti
 MSG_DEMGUI_APPLYNOISEMAP
 \33cApply Noise Map
 
-
+\33cApplica mappa del rumore
 
 \33cRuis Map Toepassen
 
@@ -5546,7 +5546,7 @@ MSG_DEMGUI_APPLYNOISEMAP
 MSG_DEMGUI_OUTPUTDEMNAME
 Output DEM Name\x20
 Ausgabe-DEM Name\x20
-
+Nome DEM di uscita\x20
 
 Uitvoer DEM Naam\x20
 
@@ -5557,8 +5557,8 @@ Jméno DEM pro ulo¾ení\x20
 ;
 MSG_DEMGUI_SELECTCONTOUROBJECTSTOIMPORTANDRESELECT
 Select contour objects to import and reselect "Import" when done.
-
-
+Wählen Sie die zu importierenden Umrissobjekte aus und wählen Sie "Importieren" erneut, wenn Sie fertig sind.
+Selezionare gli oggetti di contorno da importare e riselezionare "Importa" quando terminato.
 
 Selecteer contour objecten om te importeren en selecteer opnieuw "Importeren" wanneer klaar.
 
@@ -5570,7 +5570,7 @@ Vyberte obrysové objekty, které chcete pøipojovat a po dokonèení znovu vyberte m
 MSG_DEMGUI_CANTOPENDATABASEEDITORWINDOWPERATIONTERMINATED
 Can't open Database Editor window!\nOperation terminated.
 Das Datenbank-Editorfenster konnte nicht geöffnet werden!\nVorgang abgebrochen.
-
+Impossibile aprire la finestra dell'Editor del Database!\nOperazione terminata.
 
 Kan Database Editor venster niet openen!\nOperatie afgebroken.
 
@@ -5582,7 +5582,7 @@ Nemohu otevøít okno databázového editoru!\nOperace bude ukonèena.
 MSG_DEMGUI_EXTRACTELEVATIONVALUESFROMOBJECTNAMESLABELFIELDSORUS
 Extract elevation values from Object Names, Label fields or use the values embedded in the Objects themselves?
 
-
+Estrarre i valori di elevazione dai nomi degli oggetti, dai campi delle etichette o usare i valori incorporati negli oggetti stessi?
 
 Extraheer hoogte waarden uit Object Namen, Labelvelden of de waarden ingebed in de Objecten zelf gebruiken?
 
@@ -5593,8 +5593,8 @@ Extrahovat výskové hodnoty z názvù objektù, popiskù, nebo pou¾ít hodnoty vlo¾ené
 ;
 MSG_DEMGUI_MAPVIEWEXPORTCONTOURS
 Map View: Export Contours
-
-
+Kartenansicht: Konturen exportieren
+Vista mappa: Esporta contorni
 
 Map View: Contouren Exporteren
 
@@ -5606,7 +5606,7 @@ Zobrazení mapy: Export ohranièení
 MSG_DEMGUI_NAMELABELEMBEDDED
 Name|Label|Embedded
 
-
+Nome|Etichetta|Incorporato
 
 Naam|Label|Ingebed
 
@@ -5618,7 +5618,7 @@ Z názvù|Z popiskù|Z vlo¾ených
 MSG_DEMGUI_ERRORIMPORTINGCONTOURDATAPERATIONTERMINATED
 Error importing contour data!\nOperation terminated.
 Fehler beim Importieren der Konturdaten!\nVorgang abgebrochen.
-
+Errore durante l'importazione dei dati di contorno!\nOperazione terminata.
 
 Fout bij importeren van contour data!\nOperatie afgebroken.
 
@@ -5630,7 +5630,7 @@ Chyba pøi pøidávání dat ohranièení!\nOperace bude ukonèena.
 MSG_DEMGUI_ATLEASTONEOBJECTFAILEDTOLOADANDCOULDNOTBEIMPORTED
 At least one Object failed to load and could not be imported.
 Mindestens ein Objekt konnte nicht geladen und importiert werden.
-
+Almeno un oggetto non è riuscito a caricare e non è stato possibile importarlo.
 
 Minstens één Object kon niet geladen en geïmporteerd worden.
 
@@ -5641,8 +5641,8 @@ Nepodaøilo se naèíst ¾ádný objekt, který by bylo mo¾no pøipojit.
 ;
 MSG_DEMGUI_MAPVIEWIMPORTCONTOURS
 Map View: Import Contours
-
-
+Kartenansicht: Konturen importieren
+Vista mappa: Importa contorni
 
 Map View: Contouren Importeren
 
@@ -5654,7 +5654,7 @@ Zobrazení mapy: Pøipojit ohranièení
 MSG_DEMGUI_XYZPATHFILE
 XYZ Path/File
 XYZ Pfad/Datei
-
+Percorso/file XYZ
 
 XYZ Pad/Bestand
 
@@ -5666,7 +5666,7 @@ XYZ Cesta/Soubor
 MSG_DEMGUI_YOUDIDNOTSELECTAFILETOIMPORTPERATIONTERMINATED
 You did not select a file to import!\nOperation terminated.
 Sie haben keine Datei zum Importieren angegeben!\nVorgang abgebrochen.
-
+Non hai selezionato un file da importare!\nOperazione terminata.
 
 U heeft geen bestand geselecteerd om te importeren!\nOperatie afgebroken.
 
@@ -5678,7 +5678,7 @@ Nebyl vybrán ¾ádný soubor, který by bylo mo¾no pøipojit!\nOperace bude ukonèena.
 MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR
 Enter the UTM zone number (0-60) for the data you are about to import.
 Geben Sie die UTM-Zonennummer (0-60) für die zu importierenden Daten ein.
-
+Inserisci il numero della zona UTM (0-60) per i dati che stai per importare.
 
 Voer het UTM zone nummer (0-60) in voor de data die u gaat importeren.
 
@@ -5689,8 +5689,8 @@ Zadej èíslo èasové zony UTM (0-60) pro data, která chce¹ pøipojit.
 ;
 MSG_MAPGUI_MAPVIEWBUILDDEM
 Map View: Build DEM
-
-
+Kartenansicht: DEM erstellen
+Vista mappa: Costruisci DEM
 
 Map View: DEM Creëren
 
@@ -5702,7 +5702,7 @@ Zobrazení mapy: Vytvoøení DEM
 MSG_DEMGUI_UTMZONESMAYBEFROM0TO60THESELECTEDZONEISOUTOFRANGEPER
 UTM zones may be from 0 to 60! The selected zone is out of range.\nOperation terminated.
 Die UTM-Zone muss im Bereich 0-60 liegen! Die ausgewählte Zone liegt nicht in diesem Bereich!\nVorgang abgebrochen.
-
+Le zone UTM possono essere da 0 a 60! La zona selezionata è fuori intervallo.\nOperazione terminata.
 
 UTM zones mogen van 0 tot 60 zijn! De geselecteerde zone ligt buiten bereik.\nOperatie afgebroken.
 
@@ -5714,7 +5714,7 @@ Strefy UTM powinny byæ w zakresie id 0 do 60! Wybrana strefa jest poza zakresem.
 MSG_DEMGUI_ERROROPENINGXYZFILETOIMPORTPERATIONTERMINATED
 Error opening XYZ file to import!\nOperation terminated.
 Fehler beim Öffnen der XYZ-Datei zum importieren!\nVorganng abgebrochen.
-
+Errore nell'aprire il file XYZ da importare!\nOperazione terminata.
 
 Fout bij openen van XYZ bestand om te importeren!\nOperatie afgebroken.
 
@@ -5725,7 +5725,7 @@ Chyba pøi otevírání souboru souøadnic XYZ pro ètení!\nOperace bude ukonèena.
 ;
 MSG_DEMGUI_MAPVIEWXYZEXPORT
 Map View: XYZ Export
-
+Vista Mappa: Esportazione XYZ
 
 
 Map View: XYZ Export
@@ -5738,7 +5738,7 @@ Zobrazeni mapy: Export souøadnic XYZ
 MSG_DEMGUI_ERRORWRITINGTOXYZFILEPARTIALFILEWRITTENPERATIONTERMI
 Error writing to XYZ file! Partial file written.\nOperation terminated.
 Fehler beim Schreiben der XYZ-Datei! Datei wurde nur teilweise geschrieben.\nVorgang abgebrochen.
-
+Errore durante la scrittura del file XYZ! File parzialmente scritto.\nOperazione terminata.
 
 Fout bij schrijven naar XYZ bestand! Deel van bestand geschreven.\nOperatie afgebroken.
 
@@ -5750,7 +5750,7 @@ Chyba pøi zápisu do souboru souøadnic XYZ! Soubor byl zapsán pouze èásteènì.\nOp
 MSG_DATAOPS_YOUMUSTSPECIFYANOUTPUTFILENAMEPERATIONTERMINATED
 You must specify an output file name!\nOperation terminated.
 Sie müssen einen Namen für die Ausgabedatei angeben!\nVorgang abgebrochen.
-
+Devi specificare un nome per il file di output!\nOperazione terminata.
 
 Specificeer een uitvoer bestandsnaam!\nOperatie afgebroken.
 
@@ -5762,7 +5762,7 @@ Nezadali jste jméno výstupního souboru!\nOperace bude ukonèena.
 MSG_DEMGUI_UNABLETOOPENXYZFILEFOREXPORTPERATIONTERMINATED
 Unable to open XYZ file for export!\nOperation terminated.
 Die XYZ-Datei konnte nicht zum Exportieren geöffnet werden!\nVorgang abgebrochen.
-
+Impossibile aprire il file XYZ per l'esportazione!\nOperazione terminata.
 
 Kan XYZ bestand niet openen voor export!\nOperatie afgebroken.
 
@@ -5776,7 +5776,7 @@ Nepodaøilo se otevøít soubor souøadnic XYZ k exportu!\nOperace bude ukonèena.
 MSG_DLG_DATAOPSMODULEIMPORTDLG
 Data Ops Module: Import DLG
 Data Ops Modul: Importiere DLG
-
+Modulo Data Ops: Importazione DLG
 
 Data Ops Module: Import DLG
 
@@ -5788,7 +5788,7 @@ Modul exportu: Pøipojení DLG
 MSG_DLG_OUTOFMEMORYALLOCATINGTEMPORARYARRAYSPERATIONTERMINATED
 Out of memory allocating temporary arrays!\nOperation terminated.
 Nicht genügend Speicher zum Anlegen der temporären Felder!\nVorgang abgebrochen.
-
+Memoria esaurita durante l'allocazione di array temporanei!\nOperazione terminata.
 
 Te weinig geheugen voor toewijzen van tijdelijke reeksen!\nOperatie afgebroken.
 
@@ -5800,7 +5800,7 @@ Nedostatek pamìti pro pomocná pole!\nOperace bude ukonèena.
 MSG_DLG_DLGFILE
 DLG File
 DLG-Datei
-
+File DLG
 
 DLG-Bestand
 
@@ -5812,7 +5812,7 @@ Soubor DLG
 MSG_DLG_NOFILESSELECTED
 No file(s) selected!
 Keine Datei(en) ausgewählt!
-
+Nessun file selezionato!
 
 Geen bestand(en) geselecteerd!
 
@@ -5824,7 +5824,7 @@ Nebyl vybrán ¾ádný soubor!
 MSG_DLG_CANTOPENDLGFILEFORINPUTPERATIONTERMINATED
 Can't open DLG file for input!\nOperation terminated.
 Die DLG-Datei konnte nicht zum Lesen geöffnet werden!\nVorgang abgebrochen.
-
+Impossibile aprire il file DLG per la lettura!\nOperazione terminata.
 
 Kan DLG bestand niet openen voor invoer!\nOperatie afgebroken.
 
@@ -5836,7 +5836,7 @@ Nepodaøilo se otevøít soubor DLG pro ètení!\nOperace bude ukonèena.
 MSG_DLG_FILENOTAUSGSOPTIONALDLGPERATIONTERMINATED
 File not a USGS Optional DLG!\nOperation terminated.
 Datei ist kein USGS Optionales DLG!\nVorgang abgebrochen.
-
+File non è un DLG opzionale USGS!\nOperazione terminata.
 
 Bestand is geen USGS Optionele DLG!\nOperatie afgebroken.
 
@@ -5848,7 +5848,7 @@ Soubor není správného typu (USGS/DLG)!\nOperace bude ukonèena.
 MSG_DLG_INAPPROPRIATEUTMZONEPERATIONTERMINATED
 Inappropriate UTM Zone!\nOperation terminated.
 Unzulässige UTM-Zone!\nVorgang abgebrochen.
-
+Zona UTM non appropriata!\nOperazione terminata.
 
 Ongeldige UTM Zone!\nOperatie afgebroken.
 
@@ -5860,7 +5860,7 @@ Nevhodnì zvolená zóna UTM!\nOperace bude ukonèena.
 MSG_DLG_THISFILECONTAINSDATAINANUNSUPPORTEDREFERENCESYSTEMPERAT
 This file contains data in an unsupported Reference System!\nOperation terminated.
 Diese Datei enthält Daten in einem nicht unterstützten Referenzsystem!\nVorgang abgebrochen.
-
+Questo file contiene dati in un sistema di riferimento non supportato!\nOperazione terminata.
 
 Dit bestand bevat data in een niet ondersteund Referentie Systeem!\nOperatie afgebroken.
 
@@ -5872,7 +5872,7 @@ Vybraný soubor obsahuje data v nepodporovaném referenèním systemu!\nOperace bude
 MSG_DLG_READING
 Reading
 Lesen
-
+Lettura
 
 Lezen
 
@@ -5884,7 +5884,7 @@ Czytam
 MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE
 Enter up to 3 characters as a prefix for this DLG set if you desire.
 Wenn Sie möchten können Sie bis zu 3 Zeichen als Präfix für diesen DLG-Satz vergeben.
-
+Inserisci fino a 3 caratteri come prefisso per questo set DLG, se desideri.
 
 Voer maximaal 3 karakters in als een prefix voor deze DLG set als u dat wenst.
 
@@ -5908,7 +5908,7 @@ Nedostatek pamìti pro rozvinutí database!\nOperace bude ukonèena.
 MSG_DLG_ERRORSAVINGOBJECTFILEPERATIONTERMINATED
 Error saving object file!\nOperation terminated.
 Fehler beim Speichern der Objektdatei!\nVorgang abgebrochen.
-
+Errore durante il salvataggio del file oggetto!\nOperazione terminata.
 
 Fout bij opslaan van object bestand!\nOperatie afgebroken.
 
@@ -5920,7 +5920,7 @@ Chyba pøi ukládání souboru objektu!\nOperace bude ukonèena.
 MSG_DLG_DATAOPSMODULEIMPORTDXF
 Data Ops Module: Import DXF
 Data Ops Modul: Importiere DXF
-
+Modulo Data Ops: Importazione DXF
 
 Data Ops Module: Importeer DXF
 
