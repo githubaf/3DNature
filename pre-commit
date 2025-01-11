@@ -243,10 +243,10 @@ function RenderTest_Generic {
 
     # Montage der Bilder
     montage \
-        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$2_CanyonSet000 \
-        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$2_RMNP000 \
-        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$2_DemoFrame001 \
-        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$2_WorldTest001 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$(basename $2)_CanyonSet000 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$(basename $2)_RMNP000 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$(basename $2)_DemoFrame001 \
+        -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$(basename $2)_WorldTest001 \
         -geometry 752x480 -tile 2x2 $IMAGE_PREFIX.jpg
     eog $IMAGE_PREFIX.jpg &
 
@@ -424,10 +424,10 @@ else
     TestConvertOnWinUAE68020
     TestConvertOnArosI386
     TestConvertOnArosX86_64
-    RenderTest_WinUAE_SASC       # 6%
-    RenderTest_WinUAE_68020      # schwarze Sonne/Mond
+    RenderTest_WinUAE_SASC
+    RenderTest_WinUAE_68020
     RenderTest_WinUAE_68020_60
-    RenderTest_WinUAE_68040      # schwarze Sonne/Mond
+    RenderTest_WinUAE_68040
     RenderTest_WinUAE_68060
     RenderTest_Aros_I386
     RenderTest_Aros_X86_64
