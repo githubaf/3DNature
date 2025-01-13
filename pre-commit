@@ -369,6 +369,18 @@ Arch/linux/AROSBootstrap 2>&1 #| ack --passthru  "All tests passed."
 #   exit 1
 #fi
 popd
+
+# Montage der Bilder
+montage \
+        -label $LABEL i386-AROS $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_CanyonSet000 \
+        -label $LABEL i386-AROS $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_RMNP000 \
+        -label $LABEL i386-AROS $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_DemoFrame001 \
+        -label $LABEL i386-AROS $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_WorldTest001 \
+        -geometry 752x480 -tile 2x2 WCS_i386-aros.unstripped.jpg
+eog WCS_i386-aros.unstripped.jpg &
+
+
+
 }
 
 
@@ -415,6 +427,15 @@ boot/linux/AROSBootstrap -m640 --config-debug=mungwall 2>&1 #| ack --passthru  "
 #   exit 1
 #fi
 popd
+
+ Montage der Bilder
+montage \
+        -label $LABEL x86_64-AROS $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_CanyonSet000 \
+        -label $LABEL x86_64-AROS $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_RMNP000 \
+        -label $LABEL x86_64-AROS $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_DemoFrame001 \
+        -label $LABEL x86_64-AROS $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_WorldTest001 \
+        -geometry 752x480 -tile 2x2 WCS_x86_64-aros.unstripped.jpg
+eog WCS_x86_64-aros.unstripped.jpg &
 
 }
 
