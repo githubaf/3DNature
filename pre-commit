@@ -34,7 +34,7 @@ if [ -z $NATURE3D_DIR ]; then
 fi
 
 function CheckTools {
-# checks, if all the used tools are available
+# Checks, if all the used tools are available
  TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc"
 
    for TOOL in $TOOLS; do

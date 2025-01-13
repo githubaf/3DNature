@@ -9,6 +9,7 @@ if [ -f ../../.git/hooks/pre-commit ]; then  # will be called from Buildconfigur
   echo pre-commit hook ok 
 else
   echo !!!! pre-commit hook not installed !!!
+  echo "Do 'ln -s ../../pre-commit pre-commit' in .git/hooks!"
   for i in {1..3}; do
     printf '\e[?5h'; sleep 0.2 ; printf '\e[?5l'; sleep 0.2  # flashes the screen
   done
