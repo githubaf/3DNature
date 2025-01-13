@@ -33,6 +33,20 @@ if [ -z $NATURE3D_DIR ]; then
    exit 1
 fi
 
+function CheckTools {
+# checks, if all the used tools are available
+ TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc"
+
+   for TOOL in $TOOLS; do
+      which $TOOL 1>/dev/null
+      if [ $? -ne 0 ]; then
+         echo "Tool $TOOL not installed. Please install!"
+         echo "Commit refused."
+         exit 1
+      fi
+   done
+   echo "CheckTools successful."
+}
 
 WINUAEIP=""   # will be set automatically in CheckSshWinUAE
 
@@ -416,6 +430,7 @@ if [ "$#" -gt 0 ]; then
     done
 else
     # Wenn keine Parameter uebergeben wurden, fuehre alle Funktionen aus
+    CheckTools
     CheckNoUTF8
     CheckSimpleCat
     CheckSshWinUAE
