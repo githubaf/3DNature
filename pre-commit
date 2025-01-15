@@ -327,118 +327,80 @@ function RenderTest_WinUAE_68060 {
     RenderTest_Generic "68060" "68060/wcs_68060" "Big68060" "ref"
 }
 
-#######################################################################################
+################################################################
+# Generische Funktion zum Render-Test auf AROS
+function RenderTest_Aros {
+    local arch=$1
+    local AROS_DIR=$2
+    local AROS_BOOT_DIR=$3  # Arch/linux (i386 or boot/linux (x86_64)
+    local LINUX_WCS_DIR=$4
+    local NATURE3D_DIR=$5
+    local LABEL=$6
+
+    echo "-------------------------------"
+    echo "| Render-Test on AROS $arch    |"
+    echo "-------------------------------"
+
+    # Samba funktioniert nicht, also alle Dateien manuell kopieren
+    rsync -avz $LINUX_WCS_DIR $AROS_DIR/AROS/WCS
+
+    # Kopiere Build/Test-Files
+    mkdir -p $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga
+    rsync -avz $NATURE3D_DIR/Amiga/ $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga
+
+    # ev. noch vorhandene alte Bilder loeschen
+    rm -rf   $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages
+    mkdir -p $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages
+
+    # Erstelle ein 'assign VBox:', identisch mit WinUAE-Tests, und eine user-startup fuer die Tests
+    echo "assign VBOX: Sys:VBox"                             > $AROS_DIR/AROS/S/user-startup
+    echo "; BEGIN WCS"                                      >> $AROS_DIR/AROS/S/user-startup
+    echo "assign WCS: Sys:WCS"                              >> $AROS_DIR/AROS/S/user-startup
+    echo "assign WCSFrames: WCS:WCSFRAMES"                  >> $AROS_DIR/AROS/S/user-startup
+    echo "assign WCSProjects: WCS:WCSProjects"              >> $AROS_DIR/AROS/S/user-startup
+    echo "assign locale: VBox:SelcoGit/3DNature/Amiga add"  >> $AROS_DIR/AROS/S/user-startup
+    echo "; END WCS"                                        >> $AROS_DIR/AROS/S/user-startup
+    echo ";-------------------"                             >> $AROS_DIR/AROS/S/user-startup
+    echo "; run test tests"                                 >> $AROS_DIR/AROS/S/user-startup
+    echo "stack 100000"                                     >> $AROS_DIR/AROS/S/user-startup
+    echo "cd VBox:SelcoGit/3DNature/Amiga"                  >> $AROS_DIR/AROS/S/user-startup
+    echo "$arch-aros/WCS_${arch}-aros.unstripped 7462847623 > Debug:" >> $AROS_DIR/AROS/S/user-startup
+    echo ";-------------------"                             >> $AROS_DIR/AROS/S/user-startup
+    echo ";exit AROS when done"                             >> $AROS_DIR/AROS/S/user-startup
+    echo "shutdown"                                         >> $AROS_DIR/AROS/S/user-startup
+
+    # Starte AROS und fuehre die Tests aus
+    pushd .
+    cd $AROS_DIR/AROS/
+    $AROS_BOOT_DIR/AROSBootstrap 2>&1
+
+    popd
+
+    rm -rf WCS_${arch}-aros.unstripped.jpg  # altes Montagebild loeschen
+
+    # Montage der Bilder
+    montage \
+        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_CanyonSet000 \
+        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_RMNP000 \
+        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_DemoFrame001 \
+        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_WorldTest001 \
+        -geometry 752x480 -tile 2x2 WCS_${arch}-aros.unstripped.jpg
+    eog WCS_${arch}-aros.unstripped.jpg &
+}
+
+################################################################
+# Funktion fuer den i386-Render-Test
 function RenderTest_Aros_I386 {
-echo "----------------------------"
-echo "| Render-Test on AROS i386 |"
-echo "----------------------------"
-# Samba does not work on AROS so far (first char of all names missing), so copy all files
-# copy Amiga WCS-Install-Dir for automatic testing...
-# You should have an ENV-Variable for that!  LINUX_WCS_DIR=/home/developer/Desktop/WCS/
-rsync -avz $LINUX_WCS_DIR $AROS_ALT_ABI_V0/bin/linux-i386/AROS/WCS
-# copy Build/Test-Files
-mkdir -p $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga
-rsync -avz $NATURE3D_DIR/Amiga/ $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/
-
-# create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
-echo "assign VBOX: Sys:VBox"                            > $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo "; BEGIN WCS"                                     >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo "assign WCS: Sys:WCS"                             >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo "assign WCSFrames: WCS:WCSFRAMES"                 >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo "assign WCSProjects: WCS:WCSProjects"             >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo "assign locale: VBox:SelcoGit/3DNature/Amiga add" >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo "; END WCS"                                       >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo ";-------------------"                            >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo "; run test tests"                                >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo "stack 100000"                                    >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo "cd VBox:SelcoGit/3DNature/Amiga"                 >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-# all stuff written to Debug: goes to the Linux console (stderr, i.e. use 2>&1)
-echo "i386-aros/WCS_i386-aros.unstripped 7462847623 > Debug:"     >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo ";-------------------"                            >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo ";exit AROS when done"                            >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-echo "shutdown"                                        >> $AROS_ALT_ABI_V0/bin/linux-i386/AROS/S/user-startup
-# now fire up AROS and let it do the tests.
-
-pushd . 
-cd $AROS_ALT_ABI_V0/bin/linux-i386/AROS
-Arch/linux/AROSBootstrap 2>&1 #| ack --passthru  "All tests passed."
-#if [ $? -ne 0 ]; then
-#   echo "Local pre-commit hook"
-#   echo "test_i386-aros/WCS_test_i386-aros failed!"
-#   echo "Commit refused."
-#   exit 1
-#fi
-popd
-
-# Montage der Bilder
-montage \
-        -label $LABEL i386-AROS $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_CanyonSet000 \
-        -label $LABEL i386-AROS $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_RMNP000 \
-        -label $LABEL i386-AROS $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_DemoFrame001 \
-        -label $LABEL i386-AROS $AROS_ALT_ABI_V0/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_WorldTest001 \
-        -geometry 752x480 -tile 2x2 WCS_i386-aros.unstripped.jpg
-eog WCS_i386-aros.unstripped.jpg &
-
-
-
+    RenderTest_Aros i386   $AROS_ALT_ABI_V0/bin/linux-i386          Arch/linux $LINUX_WCS_DIR $NATURE3D_DIR Aros_i386
 }
 
-
-
+################################################################
+# Funktion fuer den x86_64-Render-Test
 function RenderTest_Aros_X86_64 {
-#Run Render-Test on AROS x86-64
-echo "------------------------------"
-echo "| Render-Test on AROS x86-64 |"
-echo "------------------------------"
-# Samba does not work on AROS x86-64 so far at all, so copy all files
-# copy Amiga WCS-Install-Dir for automatic testing...
-# You should have an ENV-Variable for that!  LINUX_WCS_DIR=/home/developer/Desktop/WCS/
-rsync -avz $LINUX_WCS_DIR $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/WCS
-# copy Build/Test-Files
-mkdir -p $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
-rsync -avz $NATURE3D_DIR/Amiga/ $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga
-
-# create an assign VBox: to be identical with WinUAE-Tests and create a user-startup that runs our tests and exits afterwards
-echo "assign VBOX: Sys:VBox"                             > $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo "; BEGIN WCS"                                      >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo "assign WCS: Sys:WCS"                              >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo "assign WCSFrames: WCS:WCSFRAMES"                  >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo "assign WCSProjects: WCS:WCSProjects"              >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo "assign locale: VBox:SelcoGit/3DNature/Amiga add"  >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo "; END WCS"                                        >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo ";-------------------"                             >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo "; run test tests"                                 >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo "stack 100000"                                     >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo "cd VBox:SelcoGit/3DNature/Amiga"                  >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-# all stuff written to Debug: goes to the Linux console (stderr, i.e. use 2>&1)
-echo "x86_64-aros/WCS_x86_64-aros.unstripped 7462847623 > Debug:"      >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo ";-------------------"                             >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo ";exit AROS when done"                             >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-echo "shutdown"                                         >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
-# now fire up AROS and let it do the tests.
-
-pushd . 
-cd $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS
-boot/linux/AROSBootstrap -m640 --config-debug=mungwall 2>&1 #| ack --passthru  "All tests passed."
-#if [ $? -ne 0 ]; then
-#   echo "Local pre-commit hook"
-#   echo "test_x86_64-aros/WCS_test_x86_64-aros failed!"
-#   echo "Commit refused."
-#   exit 1
-#fi
-popd
-
- Montage der Bilder
-montage \
-        -label $LABEL x86_64-AROS $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_CanyonSet000 \
-        -label $LABEL x86_64-AROS $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_RMNP000 \
-        -label $LABEL x86_64-AROS $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_DemoFrame001 \
-        -label $LABEL x86_64-AROS $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_WorldTest001 \
-        -geometry 752x480 -tile 2x2 WCS_x86_64-aros.unstripped.jpg
-eog WCS_x86_64-aros.unstripped.jpg &
-
+    RenderTest_Aros x86_64 $AROS_CORE_LINUX_X86_64/bin/linux-x86_64 boot/linux $LINUX_WCS_DIR $NATURE3D_DIR Aros_x86_64
 }
 
+################################################################
 
 # Wenn Parameter uebergeben wurden, fuehre die angegebenen Funktionen aus
 if [ "$#" -gt 0 ]; then
