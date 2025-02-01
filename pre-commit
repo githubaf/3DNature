@@ -35,7 +35,7 @@ fi
 
 function CheckTools {
 # Checks, if all the used tools are available
- TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc"
+ TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc ack"
 
    for TOOL in $TOOLS; do
       which $TOOL 1>/dev/null
@@ -94,7 +94,7 @@ fi
 echo "OK, WINUAEIP=$WINUAEIP"
 }
 
-function CheckSASC {
+function BuildSASC {
 #check, if WCS is still compileable with SAS/C
 cd $NATURE3D_DIR/Amiga/
 ./build_wcs_sasc.sh
@@ -130,7 +130,8 @@ fi
 
 # ack is like grep but with output
 # we need grep (ack) "All tests passed." at the end to get a return code
-sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && test_68020/wcs_test_68020" | ack --passthru  "All tests passed."
+# "list test_68020" seems to be necessary to make the wcs_test_68020 program visible to the Amiga!? WCS2-issue? Worked under virtualbox/Samba on Windows7/10 perfectly. Here we need test_68020/wcs_test_68020, otherwise we get a  unknown command error from the WinUAE Amiga. AF, 1.Feb25
+sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga &&  stack 100000 && list test_68020 >NIL: && test_68020/wcs_test_68020" | ack --passthru  "All tests passed."
 if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
    echo "test_68020/wcs_test_68020 failed!"
@@ -417,7 +418,7 @@ else
     CheckNoUTF8
     CheckSimpleCat
     CheckSshWinUAE
-    CheckSASC
+    BuildSASC
     BuildAllEclipse
     TestConvertOnWinUAE68020
     TestConvertOnArosI386

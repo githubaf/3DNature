@@ -17,6 +17,8 @@
 #include <clib/exec_protos.h>
 
 #include <errno.h>
+#include <stdio.h>
+#include <stdarg.h>
 
 unsigned int printMessages=0;
 unsigned int Verbose=0;
@@ -518,6 +520,9 @@ int CompareAsciiFileDelta(char *FileName1, char *FileName2, unsigned int delta)
 		long Size2=0;
 		char *p1=NULL;
 		char *p2=NULL;
+                char *token1, *token2;
+                char delimiter[] = " \n\r\t";
+                char *saveptr1, *saveptr2;
 
 		int Error=0;
 
@@ -592,9 +597,6 @@ int CompareAsciiFileDelta(char *FileName1, char *FileName2, unsigned int delta)
 //		}
 
 		// read and compare the the ascii numbers. Accept tolerance.
-		char *token1, *token2;
-		char delimiter[] = " \n\r\t";
-		char *saveptr1, *saveptr2;
 		token1 = strtok_r( p1, delimiter,&saveptr1 );
 		token2 = strtok_r( p2, delimiter,&saveptr2 );
 		while( token1 && token2)
@@ -684,6 +686,12 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 	int Error=0;
 	FILE *File1=NULL;
 	FILE *File2=NULL;
+	long Size1=0, Size2=0;
+        char Filetype1[10]={0}; // inkl abschliessender 0 fuer printf
+	char Filetype2[10]={0}; // inkl abschliessender 0 fuer printf
+	float Version1, Version2;
+	struct vectorheaderV100 Hdr1, Hdr2;
+	unsigned int i;
 
 	File1=fopen(FileName1,"rb");
 	if(!File1)
@@ -701,14 +709,14 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 	}
 
 	// compare filesizes
-	long Size1=GetFileSize(File1);
+	Size1=GetFileSize(File1);
 	if(Size1<0)
 	{
 		Error=FILESIZE1_ERROR;
 		goto Cleanup;
 	}
 
-	long Size2=GetFileSize(File2);
+	Size2=GetFileSize(File2);
 	if(Size2<0)
 	{
 		Error=FILESIZE2_ERROR;
@@ -722,7 +730,6 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 	}
 
 
-	char Filetype1[10]={0}; // inkl abschliessender 0 fuer printf
 	if(fread(Filetype1,9,1,File1)!=1)
 	{
 		printf("File1 error reading Filetype1\n");
@@ -730,15 +737,12 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 		goto Cleanup;
 	}
 
-	char Filetype2[10]={0};  // inkl abschliessender 0 fuer printf
 	if(fread(Filetype2,9,1,File2)!=1)
 	{
 		printf("File1 error reading Filetype2\n");
 		Error=1;
 		goto Cleanup;
 	}
-
-	float Version1, Version2;
 
 	if(fread(&Version1,sizeof(float),1,File1)!=1)
 	{
@@ -756,8 +760,6 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 		goto Cleanup;
 	}
 
-
-	struct vectorheaderV100 Hdr1, Hdr2;
 
 	if(freadVectorheaderV100_BE(&Hdr1, File1)!=1)
 	{
@@ -799,7 +801,6 @@ int CmpObjFiles(char *FileName1, char *FileName2)
 	my_printf(Error || Verbose,"MaxEl:    %d       %d (ignored, not initialized in original WCS)\n",Hdr1.MaxEl,Hdr2.MaxEl);
 	my_printf(Error || Verbose,"MinEl:    %d       %d (ignored, not initialized in original WCS)\n",Hdr1.MinEl,Hdr2.MinEl);
 
-	unsigned int i;
 	my_printf(Error || Verbose,"----- End of Header ------\n");
 	for(i=0;i<Hdr1.points+1;i++)
 	{
@@ -891,6 +892,13 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 	int Error=0;
 	FILE *File1=NULL;
 	FILE *File2=NULL;
+        float Version1=0;
+        float Version2=0;
+        struct elmapheaderV101 Hdr1={0};
+        struct elmapheaderV101 Hdr2={0};
+	long Size1=-1, Size2=-1;
+	unsigned int i;
+
 
 	//printf("Compare <%s> and <%s>\n",FileName1,FileName2);
 
@@ -910,14 +918,14 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 	}
 
 	// compare filesizes
-	long Size1=GetFileSize(File1);
+	Size1=GetFileSize(File1);
 	if(Size1<0)
 	{
 		Error=FILESIZE1_ERROR;
 		goto Cleanup;
 	}
 
-	long Size2=GetFileSize(File2);
+	Size2=GetFileSize(File2);
 	if(Size2<0)
 	{
 		Error=FILESIZE2_ERROR;
@@ -931,11 +939,6 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 		goto Cleanup;
 	}
 
-
-	float Version1=0;
-	float Version2=0;
-	struct elmapheaderV101 Hdr1={0};
-	struct elmapheaderV101 Hdr2={0};
 
 	if(fread_float_BE(&Version1,File1)!=1)
 	{
@@ -1013,7 +1016,6 @@ int CmpElevFiles(char *FileName1, char *FileName2)
 	//printf("Hdr1.rows*Hdr1.columns=%d\n",Hdr1.rows*Hdr1.columns);
 
 	// now the elev data array
-	unsigned int i;
 	for(i=0;i<(Hdr1.rows+1)*Hdr1.columns;i++)
 	{
 		short Elev1,Elev2;
@@ -1747,9 +1749,9 @@ int Test_ConvertDem(char *Testcase)
 				default:
 				{
 					// now compare the resulting file against a WCS.204 reference file
+					int CompareResult=1;
 					snprintf(tstFileName,256,"%s%s%s",ConverDemTestData[testIndex].outDir,ConverDemTestData[testIndex].outNameBase,tstFileEnding);
 
-					int CompareResult=1;
 					if(ConverDemTestData[testIndex].CmpFkt==CmpBinaryExactly)
 					{
 						CompareResult=CompareFileExactly(ConverDemTestData[testIndex].refFileName,tstFileName);
@@ -1875,20 +1877,22 @@ ScreenPixelPlotFnctPtr ScreenPixelPlot=ScreenPixelPlotClassic;  // function poin
 #ifdef WCS_TEST
 __stdargs int main(int argc, char **argv)   // I compile with -mregparm. Then __stdargs is needed to get real argc/argv
 {
-	/* init used global(!) variables */
-	dbaseloaded = 1;    // must be 1 if destination format is WCS DEM
+    int Errors=0;
+    int arg=0;
+    int Res;
+
+    /* init used global(!) variables */
+    dbaseloaded = 1;    // must be 1 if destination format is WCS DEM
     paramsloaded = 0;   // ?
     length[0] = 10;     // set in ./DataBase.c:342, seems to be fixed length of filename (without extension) for Obj and elev files (and reg/grn/blu)
 
-    int Errors=0;
 
-    int arg=0;
 
     printf("ERROR_ARRAY_SIZE=%u\n",(unsigned int)ERROR_ARRAY_SIZE);
 
     //rmtree("Ram:WCS_Test");
 
-    int Res=Mkdir("Ram:WCS_Test");
+    Res=Mkdir("Ram:WCS_Test");
     if(Res!=0)
     {
     	printf("Res=%d! MKdir failed!\n",Res);

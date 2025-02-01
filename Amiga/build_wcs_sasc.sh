@@ -108,3 +108,25 @@ cp vgl/libvgl.a .
 # und linken
 vamos -q slink LIB:c.o WCS.o WITH WCSObjs.lnk lib:utillib.with LIB LIB:scm881.lib libvgl.a LIB:sc.lib LIB:amiga.lib TO WCS_68020_SASC ND
 
+
+
+# und auch den Convert-Test bauen
+# Das GST macht Aerger, wenn ich jetzt ein anderes main-File habe. Also neu bauen.
+rm -f *.o WCSGST WCS >/dev/null
+
+# extra Optionen fuer WCS, mit und ohne GST
+vamos -q sc MAKEGST=WCSGST test_main.c "DATA=FAR" "IGNORE=51" "DEFINE=STATIC_FCN=STATIC" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1" "DEFINE=CATCOMP_NUMBERS=1"
+# the main file
+vamos -q sc NOGST          test_main.c "DATA=FAR" "IGNORE=51" "DEFINE=STATIC_FCN=STATIC" "DEFINE=STATIC_VAR=static" "DEFINE=__BYTE_ORDER__=1" "DEFINE=__ORDER_BIG_ENDIAN__=1"
+
+vamos -q sc NOOPT NODEBUG "DATA=FAR" BigEndianReadWrite.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
+vamos -q sc NOOPT NODEBUG "DATA=FAR" BitMaps.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
+vamos -q sc NOOPT NODEBUG "DATA=FAR" DEM.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
+vamos -q sc NOOPT NODEBUG "DATA=FAR" DataOps.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
+vamos -q sc NOOPT NODEBUG "DATA=FAR" MapSupport.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
+vamos -q sc NOOPT NODEBUG "DATA=FAR" Memory.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
+vamos -q sc NOOPT NODEBUG "DATA=FAR" NOGST WCS_locale.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
+vamos -q sc NOOPT NODEBUG "DATA=FAR" sasc_functions.c IGNORE=51 DEFINE=STATIC_FCN=static DEFINE=STATIC_VAR=static DEFINE=__BYTE_ORDER__=1 DEFINE=__ORDER_BIG_ENDIAN__=1
+# und linken ->snprintf... fehlt, in test_main.c hinzufuegen
+#vamos -q slink LIB:c.o BigEndianReadWrite.o  BitMaps.o  DEM.o  DataOps.o  MapSupport.o  Memory.o  WCS_locale.o  sasc_functions.o  test_main.o  WITH lib:utillib.with LIB LIB:scm881.lib libvgl.a LIB:sc.lib LIB:amiga.lib TO WCS_68020_SASC_AAAAAA ND
+

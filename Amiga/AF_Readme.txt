@@ -4205,4 +4205,35 @@ Mit die Compiler-Aenderung von heute kann der Compiler/Toolchain wieder gebaut w
 - Neuer GCC 9Jan25
 - weitere italienische Uebersetzungen
 
+22.1.2025
+---------
+Windows11-Umzug...
+* aktueller i386/x86-64 AROS gcc und AROS gebaut
+* ConvertTest geht nicht mit Aros I386
+[X11host] x11_hostlib_load_so: failed to open 'libXxf86vm.so.1': libXxf86vm.so.1: cannot open shared object file: No such file or directory
 
+23.1.2025
+---------
+Die Vamos-Installation muss jetzt (Ubuntu 24.04??) in einem VirtualEnv erfolgen.
+
+cd ~                                                           # hier gibt es schon ".virtualenv"
+virtualenv virtualenvs/vamos
+. virtualenvs/vamos/bin/activate
+pip3 install -U git+https://github.com/cnvogelg/machine68k.git # Installation laut https://github.com/cnvogelg/amitools
+pip3 install -U git+https://github.com/cnvogelg/amitools.git   # Installation laut https://github.com/cnvogelg/amitools
+deactivate
+ln -s ~/virtualenvs/cython/bin/cython ~/bin/vamos              # Link in meinem ~/bin anlegen. (Das ist auch im Suchpfad) Mirko nimmt ~/.local/bin/vamos)
+
+U.A. sas/c muss auf der Linux-Maschine installiert sein, damit meine vamosrc funktioniert. (~/Desktop/AmigaFiles)
+
+-> gcc vom 09Jan25 neu gebaut.
+* Damit Aros i386 startet, musste folgende Istallation ausgefuehrt werden:
+sudo apt-get install libxcursor-dev:i386 libxxf86vm1:i386
+
+1.Feb. 2025
+-----------
+*In pre-commit wird ein "list test_68020 >NIL: gebraucht, sonst wird das Programm wcs_test_68020 auf dem Amiga nicht gefunden!? Ev. WSL2-Problem? Mit Virtualbox/Samba gab es das Problem nicht.
+
+* Damit die ssh-Verbindung WSL2 -> WinUAE funktioniert, musste im Windows-Fireall fuer das private Netzwerk eine Erlaubnis fuer Port 22222 tcp eingerichtet werden. Im Firmennetz gab es das Problem nicht.
+
+- Der Convert-Test ist im Moment noch nicht mit dem SAS/C compiler baubar. (Es fehlen Funktionen, u.A. snprintf().)
