@@ -1154,7 +1154,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
    if (! CheckIFF(fh, &Hdr))
     {
     User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),         // "Data Ops: Convert DEM"
-    		 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTANIFFFILE ),  // "Warning\nFile is not an IFF file."
+    		 GetString( MSG_DATAOPSGUI_WRNFILENOTIFF ),  // "Warning\nFile is not an IFF file."
                  GetString( MSG_GLOBAL_OK ),                        // "OK"
                  (CONST_STRPTR)"o");
     break;
@@ -1162,7 +1162,7 @@ STATIC_FCN void Get_DC_InputFile(void) // used locally only -> static, AF 25.7.2
    if (! FindIFFChunk(fh, &Hdr, "BMHD"))
     {
     User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),              // "Data Ops: Convert DEM"
-    		 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTANIFFIMAGEFILE ),  // "Warning\nFile is not an IFF image file."
+    		 GetString( MSG_DATAOPSGUI_WRNFILENOTIFFIMAGFILE ),  // "Warning\nFile is not an IFF image file."
                  GetString( MSG_GLOBAL_OK ),                             // "OK"
                  (CONST_STRPTR)"o");
     break;

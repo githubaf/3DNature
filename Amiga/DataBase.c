@@ -1281,7 +1281,7 @@ NewName2:
   if (! Add_DE_NewItem())
    {
    User_Message(GetString( MSG_DB_DATABASEMODULEEDITOR ),                                      // "Database Module: Editor"
-                GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE ),  // "Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view."
+                GetString( MSG_DB_OUTOFMEXPDBASEEDITORLSTNEWOBJECTHASBEENCRE ),  // "Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view."
                 GetString( MSG_GLOBAL_OK ),  // "OK"
                 (CONST_STRPTR)"o");
    } /* if no new list item */
@@ -1431,7 +1431,7 @@ short DBaseObject_Add(void)
    if (! Add_DE_NewItem())
     {
     User_Message(GetString( MSG_DB_DATABASEMODULEEDITOR ),                                      // "Database Module: Editor"
-                 GetString( MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENADD ),  // "Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.",
+                 GetString( MSG_DB_OUTOFMEMEXPDBEDITLSTNEWOBJADDED ),  // "Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.",
                  GetString( MSG_GLOBAL_OK ),                                                        // "OK"
                  (CONST_STRPTR)"o");
     } /* if no new list item */

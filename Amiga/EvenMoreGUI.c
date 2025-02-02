@@ -1044,7 +1044,7 @@ EndNewProj:
     } /* saving wave */
    case 10:
     {
-    strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORSAVINGTHECLONEDCLOUDFILE ) );  // "Error saving the cloned Cloud file."
+    strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRSAVECLONEDCLOUDFILE ) );  // "Error saving the cloned Cloud file."
     break;
     } /* saving cloud */
    case 20:

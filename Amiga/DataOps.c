@@ -3140,7 +3140,7 @@ Cleanup:
   case 3:
    {
    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),                                    // "Data Ops: Convert DEM"
-                GetString( MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTPE ),  // "Incorrect file size for specified header, width and height!\nOperation terminated."
+                GetString( MSG_DATAOPS_INCORRFILSIZFORSPECIFHEADERWDTHANDHIGHTPE ),  // "Incorrect file size for specified header, width and height!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_SIZE, GetString( MSG_DATAOPS_CONVERTDEMSOURCEFILE ));  // "Convert DEM source file"

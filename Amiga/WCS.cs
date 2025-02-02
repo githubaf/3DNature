@@ -3111,7 +3111,7 @@ Fout bij openen van Z Buffer bestand voor invoer!\nOperatie afgebroken.
 B³±d otwrcia pliku bufora Z dla wej¶cia!\nOperacja anulowana.
 Chyba pøi otevírání souboru Z Buffer!\nOperace bude ukonèena.
 ;
-MSG_BITMAPS_ERRORREADINGZBUFFERFILEOTSINGLEPRECISIONFLOATINGPOI
+MSG_BITMAPS_ERREADZBUFFILENOTSINGLEPRECISIONFLOATINGPOI
 Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated.
 Fehler beim Lesen der Z-Puffer-Datei!\nFormat ist nicht Fließkomma mit einfacher Genauigkeit.\nVorgang abgebrochen.
 Errore nella lettura del file Z Buffer!\nNon in virgola mobile a precisione singola.\nOperazione Terminata.
@@ -3123,7 +3123,7 @@ Fout bij lezen van Z Buffer bestand!\nGeen enkele precisie drijvende komma.\nOpe
 B³±d odczytu pliku bufora Z!\nNie s± pojedyñczej precyzji warto¶ciami zmienno przecinkowymi.\nOperacja anluowana.
 Chyba pøi ètení ze souboru Z Buffer v datech s plovoucí desetinnou èárkou!\nOperace bude ukonèena.
 ;
-MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBODCHUNKPERATIONTERMINATED
+MSG_BITMAPS_ERREADZBUFFILENOZBODCHUNKOPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated.
 Fehler beim Lesen der Z-Puffer-Datei!\nZBOD-Chunk fehlt.\nVorgang abgebrochen.
 Errore nella lettura del file Z Buffer!\nNessun ZBOD chunk.\nOperazione terminata.
@@ -3135,7 +3135,7 @@ Fout bij lezen van Z Buffer bestand!\nZBOD chunk ontbreekt.\nOperatie afgebroken
 B³±d odczytu pliku bufora Z!\nNie ma ZBOD chunk.\nOperacja anulowana.
 Chyba pøi ètení ze souboru Z Buffer!\nÚsek ZBOD nenalezen.\nOperace bude ukonèena.
 ;
-MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBUFCHUNKPERATIONTERMINATED
+MSG_BITMAPS_ERREADZBUFFILENOZBUFCHUNKOPERATIONTERMINATED
 Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated.
 Fehler beim Lesen der Z-Puffer-Datei!\nZBUF-Chunk fehlt.\nVorgang abgebrochen.
 Errore nella lettura del file Z Buffer!\nNessun ZBUF chunk.\nOperazione terminata.
@@ -3195,7 +3195,7 @@ Fout bij openen van achtergrond bestand voor invoer!\nOperatie afgebroken.
 B³±d otwarcia pliku t³a!\n Operacja anulowana.
 Chyba pøi pokusu otevøít soubor pozadí!\nOperace bude ukonèena.
 ;
-MSG_BITMAPS_ERRORREADINGBACKGROUNDFILERONGSIZEPERATIONTERMINATE
+MSG_BITMAPS_ERREADBCKGRNDWRONGSIZEPERATIONTERMINATE
 Error reading Background file!\nWrong Size.\nOperation terminated.
 Fehler beim Lesen der Hintergrunddatei!\nFalsche Größe.\nVorgang abgebrochen.
 Errore nell'apertura del file di sfondo!\nDimensione errata.\nOperazione terminata.
@@ -3207,7 +3207,7 @@ Afmetingen van achtergrond bestand onjuist!\nOperatie afgebroken.
 B³±d odczytu pliku t³a!\nNiew³a¶ciwy Rozmiar.\nPoracja anulowana.
 Chyba pøi naèítání souboru pozadi!\n©patná velikost.\nOperace bude ukonèena.
 ;
-MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBODYCHUNKPERATIONTERMINA
+MSG_BITMAPS_ERREADBCKGRNDNOBODYCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BODY Chunk.\nOperation terminated.
 Fehler beim Lesen der Hintergrunddatei!\nBODY-Chunk fehlt.\nVorgang abgebrochen.
 Errore nell'apertura del file di sfondo!\nNessun Corpo Chunk.\nOperazione terminata.
@@ -3219,7 +3219,7 @@ Fout bij lezen van achtergrond bestand!\nBODY chunk ontbreekt.\nOperatie afgebro
 B³±d odczytu pliku t³a!\nBrak BODU-Chunk.\nOperacja anlulowana.
 Chyba pøi naèítání souboru pozadí!\nÚsek BODY nenalezen.\nOperace bude ukonèena.
 ;
-MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBMHDCHUNKPERATIONTERMINA
+MSG_BITMAPS_ERREADBCKGRNDNOBMHDCHUNKPERATIONTERMINA
 Error reading Background file!\nNo BMHD Chunk.\nOperation terminated.
 Fehler beim Lesen der Hintergrunddatei!\nBMHD-Chunk fehlt.\nVorgang abgebrochen.
 Errore nell'apertura del file di sfondo!\nNessun BMHD Chunk.\nOperazione terminata.
@@ -4255,7 +4255,7 @@ Fout bij schrijven van DEM bestand!\nOperatie afgebroken.
 B³±d zapisu pliku DEM\nOperacja anulowana.
 Chyba pøi zápisu souboru DEM!\nOperace bude ukonèena.
 ;
-MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE
+MSG_DLG_OUTOFMEMXPDBEDITORLISTOPERATIONTERMINATE
 Out of memory expanding Database Editor List!\nOperation terminated.
 Nicht genügend Speicher zum Erweitern der Datenbank-Editor-Liste!\nVorgang abgebrochen.
 Memoria esaurita per l'espansione dell'elenco dell'editor di database!\nOperazione terminata.
@@ -4293,7 +4293,7 @@ Data Ops: DEM Extract
 Data Ops: DEM wypakowane
 Modul exportu: Extrakce DEM
 ;
-MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED
+MSG_DEM_OUTOFMEMALLOCDEMINFOHEADERPERATIONTERMINATED
 Out of memory allocating DEM Info Header!\nOperation terminated.
 Nicht genügend Speicher für die Anforderung des DEM Info Headers!\nVorgang abgebrochen.
 Memoria esaurita per l'allocazione dell'intestazione delle informazioni DEM!\nOperazione terminata.
@@ -6386,7 +6386,7 @@ Te weinig geheugen voor vector coördinaten!\nNieuw object is aangemaakt maar kan
 Brak pamiêci na koordynaty wektora!\nObjekt zosta³ utworzony ale nie mo¿e byæ edytowany do czasu gdy bêdziedostêpna pamiêæ.
 Nedostatek pamìti pro vektorové souøadnice!\nNový objekt byl vytvoøen, ale pro nedostatek pamìti jej nelze upravovat.
 ;
-MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENCRE
+MSG_DB_OUTOFMEXPDBASEEDITORLSTNEWOBJECTHASBEENCRE
 Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.
 Nicht genügend Speicher um die Datenbankeditor-Liste zu erweitern. Ein neues Objekt wurde erstellt, erscheint aber nicht in der Listenansicht.
 
@@ -6458,7 +6458,7 @@ De object naam is al aanwezig in de database!\nDubbele items zullen worden geneg
 Nazwa objektu wystêpuje ju¿ w bazie danych!\nDuplikaty zostan± ominiête.
 Tento název objektu je ji¾ v databázi obsa¾en!\nDuplicitní záznamy budou vynechány.
 ;
-MSG_DB_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTEWOBJECTHASBEENADD
+MSG_DB_OUTOFMEMEXPDBEDITLSTNEWOBJADDED
 Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.
 Nicht genügend Speicher um die Datenbankeditor-Liste zu erweitern. Ein neues Objekt wurde hinzugefügt, erscheint aber nicht in der Listenansicht.
 
@@ -6783,7 +6783,7 @@ Converteer DEM bron bestand
 Konwerja pliku ¼ród³owego DEM
 Pøevést zdrojový soubor DEM
 ;
-MSG_DATAOPS_INCORRECTFILESIZEFORSPECIFIEDHEADERWIDTHANDHEIGHTPE
+MSG_DATAOPS_INCORRFILSIZFORSPECIFHEADERWDTHANDHIGHTPE
 Incorrect file size for specified header, width and height!\nOperation terminated.
 Falsche Dateigröße für den angegebenen Header, Breite und Höhe!\nVorgang abgebrochen.
 
@@ -8033,7 +8033,7 @@ Klein|Groot|Extra groot
 Ma³y|Du¿y|Wielki
 Malý|Velký|Obrovský
 ;
-MSG_DATAOPSGUI_WARNINGILEISNOTANIFFFILE
+MSG_DATAOPSGUI_WRNFILENOTIFF
 Warning\nFile is not an IFF file.
 Warnung\nDie Datei ist keine IFF-Datei.
 
@@ -8045,7 +8045,7 @@ Waarschuwing\nBestand is geen IFF bestand.
 Uwaga\nPlik nie jest typu IFF.
 Varování!\nTento soubor není typu IFF.
 ;
-MSG_DATAOPSGUI_WARNINGILEISNOTANIFFIMAGEFILE
+MSG_DATAOPSGUI_WRNFILENOTIFFIMAGFILE
 Warning\nFile is not an IFF image file.
 Warnung\nDie Datei ist keine IFF-Bilddatei.
 
@@ -9416,7 +9416,7 @@ Van schijf|Alleen database|Annuleren
 Z Dysku|Tylko Baza Danych|Porzuæ
 
 ;
-MSG_EDDB_OUTOFMEMORYANTOPENDATABASELIST
+MSG_EDDB_OUTOFMEMCANTOPENDBLIST
 Out of memory!\nCan't open database list.
 
 
@@ -14819,7 +14819,7 @@ Fout bij opslaan van het gedupliceerde Golfbestand.
 
 
 ;
-MSG_EVMORGUI_ERRORSAVINGTHECLONEDCLOUDFILE
+MSG_EVMORGUI_ERRSAVECLONEDCLOUDFILE
 Error saving the cloned Cloud file.
 
 

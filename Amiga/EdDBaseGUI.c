@@ -1485,8 +1485,8 @@ void Set_DE_List(short update)
   if (! DBList_New(NoOfObjects + 20))
    {
    User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                  // "Database Module"
-                GetString( MSG_EDDB_OUTOFMEMORYANTOPENDATABASELIST ),  // "Out of memory!\nCan't open database list."
-                GetString( MSG_GLOBAL_OK ),                              // "OK"
+                GetString( MSG_EDDB_OUTOFMEMCANTOPENDBLIST ),          // "Out of memory!\nCan't open database list."
+                GetString( MSG_GLOBAL_OK ),                            // "OK"
                 (CONST_STRPTR)"o");
    } /* if out of memory */
   } /* if need more list space */

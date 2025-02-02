@@ -277,7 +277,7 @@ RepeatReadAttrs:
     if (! Add_DE_NewItem())
      {
      User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                                             // "Database Module"
-                  GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE ) ,  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                  GetString( MSG_DLG_OUTOFMEMXPDBEDITORLISTOPERATIONTERMINATE ) ,  // "Out of memory expanding Database Editor List!\nOperation terminated."
                   GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                   (CONST_STRPTR)"o");
      break;
@@ -447,7 +447,7 @@ struct BusyWindow *BWDL;
        if (! Add_DE_NewItem())
         {
         User_Message(GetString( MSG_AGUI_DATABASEMODULE ) ,                                           // "Database Module"
-                     GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                     GetString( MSG_DLG_OUTOFMEMXPDBEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
                      GetString( MSG_GLOBAL_OK ),                                                     // "OK
                      (CONST_STRPTR)"o");
         done = 1;
@@ -1994,7 +1994,7 @@ struct BusyWindow *BWDL = NULL;
      if (! Add_DE_NewItem())
       {
       User_Message(GetString( MSG_AGUI_DATABASEMODULE ),  // "Database Module"
-                   GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                   GetString( MSG_DLG_OUTOFMEMXPDBEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
                    GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                    (CONST_STRPTR)"o");
       break;
@@ -2119,7 +2119,7 @@ struct BusyWindow *BWDL = NULL;
       if (! Add_DE_NewItem())
        {
        User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                                                       // "Database Module"
-                               GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                               GetString( MSG_DLG_OUTOFMEMXPDBEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
                                GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                                (CONST_STRPTR)"o");
        break;
@@ -2188,7 +2188,7 @@ struct BusyWindow *BWDL = NULL;
    if (! Add_DE_NewItem())
     {
     User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                                            // "Database Module"
-                 GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                 GetString( MSG_DLG_OUTOFMEMXPDBEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
                  GetString( MSG_GLOBAL_OK ),                                                     // "OK"
                  (CONST_STRPTR)"o");
     } /* if new list fails */

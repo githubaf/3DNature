@@ -757,7 +757,7 @@ RelelRepeat:
         if (! Add_DE_NewItem())
          {
          User_Message(GetString( MSG_AGUI_DATABASEMODULE ) ,                                           // "Database Module"
-                      GetString( MSG_DLG_OUTOFMEMORYEXPANDINGDATABASEEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
+                      GetString( MSG_DLG_OUTOFMEMXPDBEDITORLISTOPERATIONTERMINATE ),  // "Out of memory expanding Database Editor List!\nOperation terminated."
                       GetString( MSG_GLOBAL_OK ),                                                     // "OK",
                       (CONST_STRPTR)"o");
          error = 1;
@@ -966,7 +966,7 @@ short ExtractDEM(struct DEMExtractData *DEMExtract)
 	== NULL)
   {
   User_Message((CONST_STRPTR)MsgHdr,
-          GetString( MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED ) ,  // "Out of memory allocating DEM Info Header!\nOperation terminated."
+          GetString( MSG_DEM_OUTOFMEMALLOCDEMINFOHEADERPERATIONTERMINATED ) ,  // "Out of memory allocating DEM Info Header!\nOperation terminated."
           GetString( MSG_GLOBAL_OK ) ,                                                    // "OK"
           (CONST_STRPTR)"o");
   return (0);
@@ -976,7 +976,7 @@ short ExtractDEM(struct DEMExtractData *DEMExtract)
 	== NULL)
   {
   User_Message((CONST_STRPTR)MsgHdr,
-          GetString( MSG_DEM_OUTOFMEMORYALLOCATINGDEMINFOHEADERPERATIONTERMINATED ) ,  // "Out of memory allocating DEM Info Header!\nOperation terminated."
+          GetString( MSG_DEM_OUTOFMEMALLOCDEMINFOHEADERPERATIONTERMINATED ) ,  // "Out of memory allocating DEM Info Header!\nOperation terminated."
           (CONST_STRPTR) GetString( MSG_GLOBAL_OK ) ,                                     // "OK"
           (CONST_STRPTR)"o");
   goto EndExtract;

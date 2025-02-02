@@ -2172,19 +2172,19 @@ EndMerge:
   case 4:
    {
    User_Message((CONST_STRPTR)GetString( MSG_AGUI_RENDERMODULE ),  // "Render Module"
-           GetString( MSG_BITMAPS_ERRORREADINGZBUFFERFILEOTSINGLEPRECISIONFLOATINGPOI ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated." "OK"
+           GetString( MSG_BITMAPS_ERREADZBUFFILENOTSINGLEPRECISIONFLOATINGPOI ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Z Buffer file!\nNot single precision floating point.\nOperation terminated." "OK"
    break;
    }
   case 5:
    {
    User_Message((CONST_STRPTR)GetString( MSG_AGUI_RENDERMODULE ),  // "Render Module"
-           GetString( MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBODCHUNKPERATIONTERMINATED ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated." "OK"
+           GetString( MSG_BITMAPS_ERREADZBUFFILENOZBODCHUNKOPERATIONTERMINATED ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Z Buffer file!\nNo ZBOD chunk.\nOperation terminated." "OK"
    break;
    }
   case 6:
    {
    User_Message((CONST_STRPTR)GetString( MSG_AGUI_RENDERMODULE ),  // "Render Module"
-           GetString( MSG_BITMAPS_ERRORREADINGZBUFFERFILEOZBUFCHUNKPERATIONTERMINATED ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated." "OK"
+           GetString( MSG_BITMAPS_ERREADZBUFFILENOZBUFCHUNKOPERATIONTERMINATED ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Z Buffer file!\nNo ZBUF chunk.\nOperation terminated." "OK"
    break;
    }
   case 7:
@@ -2214,19 +2214,19 @@ EndMerge:
   case 11:
    {
    User_Message((CONST_STRPTR)GetString( MSG_AGUI_RENDERMODULE ),  // "Render Module"
-           GetString( MSG_BITMAPS_ERRORREADINGBACKGROUNDFILERONGSIZEPERATIONTERMINATE ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Background file!\nWrong Size.\nOperation terminated." "OK"
+           GetString( MSG_BITMAPS_ERREADBCKGRNDWRONGSIZEPERATIONTERMINATE ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Background file!\nWrong Size.\nOperation terminated." "OK"
    break;
    }
   case 12:
    {
    User_Message((CONST_STRPTR)GetString( MSG_AGUI_RENDERMODULE ),  // "Render Module"
-           GetString( MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBODYCHUNKPERATIONTERMINA ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Background file!\nNo BODY Chunk.\nOperation terminated." "OK"
+           GetString( MSG_BITMAPS_ERREADBCKGRNDNOBODYCHUNKPERATIONTERMINA ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Background file!\nNo BODY Chunk.\nOperation terminated." "OK"
    break;
    }
   case 13:
    {
    User_Message((CONST_STRPTR)GetString( MSG_AGUI_RENDERMODULE ),  // "Render Module"
-           GetString( MSG_BITMAPS_ERRORREADINGBACKGROUNDFILEOBMHDCHUNKPERATIONTERMINA ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Background file!\nNo BMHD Chunk.\nOperation terminated." "OK"
+           GetString( MSG_BITMAPS_ERREADBCKGRNDNOBMHDCHUNKPERATIONTERMINA ) , GetString( MSG_GLOBAL_OK ) , (CONST_STRPTR)"o");  // "Error reading Background file!\nNo BMHD Chunk.\nOperation terminated." "OK"
    break;
    }
   case 14:
