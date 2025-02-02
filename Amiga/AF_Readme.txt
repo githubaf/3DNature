@@ -4237,3 +4237,9 @@ sudo apt-get install libxcursor-dev:i386 libxxf86vm1:i386
 * Damit die ssh-Verbindung WSL2 -> WinUAE funktioniert, musste im Windows-Fireall fuer das private Netzwerk eine Erlaubnis fuer Port 22222 tcp eingerichtet werden. Im Firmennetz gab es das Problem nicht.
 
 - Der Convert-Test ist im Moment noch nicht mit dem SAS/C compiler baubar. (Es fehlen Funktionen, u.A. snprintf().)
+
+2. Feb.25
+----------
+* make_all_configurations.sh benutzt jetzt alle CPU-Cores. (kann optional als Parameter angegeben werden.
+* bei Benny war sudo dpkg --add-architecture i386 && sudo apt-get update noetig, um libxcursor-dev:i386 fuer AROS i386 installieren zu koennen.
+

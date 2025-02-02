@@ -35,7 +35,7 @@ fi
 
 function CheckTools {
 # Checks, if all the used tools are available
- TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc ack"
+ TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc ack lscpu"
 
    for TOOL in $TOOLS; do
       which $TOOL 1>/dev/null
