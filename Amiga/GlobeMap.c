@@ -1415,7 +1415,7 @@ RetryFractal:
    if (! Edge1 || ! Edge2 || ! SubPix)
     {
     User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
-                 GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
+                 GetString( MSG_GLMP_OUTOFMEMALLOCANTIALIASEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
                  GetString( MSG_GLOBAL_OK ),                                                      // "OK"
                  (CONST_STRPTR)"o");
     error = 1;
@@ -1739,7 +1739,7 @@ RepeatAlloc3:
   if (! CD->Map.scrnptrx || ! CD->Map.scrnptry || ! CD->Map.scrnptrq)
    {
    if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
-                        GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAP ),  // "Out of memory creating Cloud Map!"
+                        GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
                         GetString( MSG_INTVIEW_RETRYCANCEL ),                  // "Retry|Cancel"
                         (CONST_STRPTR)"rc", 1))
     {
@@ -1795,7 +1795,7 @@ RepeatAlloc2:
       if (! CD->Map.map || ! CD->Map.scrnptrx || ! CD->Map.scrnptry || ! CD->Map.scrnptrq)
        {
        if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
-                            GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAP ),  // "Out of memory creating Cloud Map!"
+                            GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
                             GetString( MSG_INTVIEW_RETRYCANCEL ),                  // "Retry|Cancel"
                             (CONST_STRPTR)"rc", 1))
         {

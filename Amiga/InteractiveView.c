@@ -620,7 +620,7 @@ RepeatAllocate:
    if ((elmap[i].face = (struct faces *)get_Memory(NumPoints * sizeof (struct faces) , MEMF_ANY)) == NULL)
     {
     if (User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                           // "Camera View"
-                     GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
+                     GetString( MSG_INTVIEW_OUTOFMEMALLOCPOLYSMOOTHARRAYCONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
                      GetString( MSG_GLOBAL_OKCANCEL ),                                             // "OK|Cancel"
                     (CONST_STRPTR)"oc"))
      {
@@ -663,7 +663,7 @@ RepeatAllocate:
   if (! Edge1 || ! Edge2 || ! SubPix)
    {
    User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                         // "Render Module"
-                GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
+                GetString( MSG_GLMP_OUTOFMEMALLOCANTIALIASEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    error = 1;
@@ -1169,7 +1169,7 @@ void smallwindow(short diagnostics)
 	get_Memory(NumPoints * sizeof (struct faces), MEMF_ANY)) == NULL)
     {
     if (User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                           // "Camera View"
-                     GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
+                     GetString( MSG_INTVIEW_OUTOFMEMALLOCPOLYSMOOTHARRAYCONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
                      GetString( MSG_GLOBAL_OKCANCEL ),                                             // "OK|Cancel"
                      (CONST_STRPTR)"oc"))
      {
@@ -1319,7 +1319,7 @@ void smallwindow(short diagnostics)
   if (! Edge1 || ! Edge2 || ! SubPix || ! TreePix)
    {
    User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                         // "Render Module"
-                GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
+                GetString( MSG_GLMP_OUTOFMEMALLOCANTIALIASEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    abort = 1;

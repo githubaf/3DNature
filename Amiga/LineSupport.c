@@ -778,7 +778,7 @@ NewName:
  if (! allocvecarray(OBN, Frames, 1))
   {
   User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
-               GetString( MSG_LINESPRT_OUTOFMEMORYCREATINGNEWVECTOROBJECTPERATIONTERMINAT ),  // "Out of memory creating new vector object!\nOperation terminated."
+               GetString( MSG_LINESPRT_OUTOFMEMCREATNEWVECTOROBJECTPERATIONTERMINAT ),  // "Out of memory creating new vector object!\nOperation terminated."
                GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                (CONST_STRPTR)"o");
   return (0);

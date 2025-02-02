@@ -16215,7 +16215,7 @@ Te weinig geheugen bij toewijzen van anti-alias buffer!\nBewerking afgebroken.
 
 
 ;
-MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASANDEDGEBUFFERSPERATIONTE
+MSG_GLMP_OUTOFMEMALLOCANTIALIASEDGEBUFFERSPERATIONTE
 Out of memory allocating antialias and edge buffers!\nOperation terminated.
 
 
@@ -16251,7 +16251,7 @@ Te weinig geheugen bij toewijzen van polygoonrandbuffers!
 
 
 ;
-MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAP
+MSG_GLMP_OUTOFMEMCREATCLOUDMAP
 Out of memory creating Cloud Map!
 
 
@@ -16806,7 +16806,7 @@ Parameters die gebruikt zijn voor het maken van dit voorbeeld herstellen?
 
 
 ;
-MSG_INTVIEW_OUTOFMEMORYALLOCATINGPOLYGONSMOOTHINGARRAYONTINUEWI
+MSG_INTVIEW_OUTOFMEMALLOCPOLYSMOOTHARRAYCONTINUEWI
 Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?
 
 
@@ -16903,7 +16903,7 @@ Fout bij laden van DEM-object!\nBewerking afgebroken.
 
 
 ;
-MSG_LWSPRT_ERRORLOADINGDEMOBJECTBJECTNOTSAVED
+MSG_LWSPRT_ERRLOADDEMOBJOBJNOTSAVED
 Error loading DEM Object!\nObject not saved.
 Fehler beim Laden des DEM-Objekts!\nObjekt wurde nicht gespeichert.
 
@@ -17324,7 +17324,7 @@ Te weinig geheugen bij uitbreiden van Database!\nBewerking afgebroken.
 
 
 ;
-MSG_LINESPRT_OUTOFMEMORYCREATINGNEWVECTOROBJECTPERATIONTERMINAT
+MSG_LINESPRT_OUTOFMEMCREATNEWVECTOROBJECTPERATIONTERMINAT
 Out of memory creating new vector object!\nOperation terminated.
 Nicht genügend Speicher zum Erzeugen des neuen Vektorobjekts!\nVorgang abgebrochen.
 

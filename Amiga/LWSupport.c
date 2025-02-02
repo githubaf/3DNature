@@ -410,7 +410,7 @@ struct coords DP;
    {
    Log(WNG_OPEN_FAIL, (CONST_STRPTR)DEMName);
    User_Message_Def((CONST_STRPTR)DEMName,
-                    GetString( MSG_LWSPRT_ERRORLOADINGDEMOBJECTBJECTNOTSAVED ),  // "Error loading DEM Object!\nObject not saved."
+                    GetString( MSG_LWSPRT_ERRLOADDEMOBJOBJNOTSAVED ),  // "Error loading DEM Object!\nObject not saved."
                     GetString( MSG_GLOBAL_OK ),                                  // "OK"
                     (CONST_STRPTR)"o",
                     0);
