@@ -2011,7 +2011,7 @@ HandleEvent:
         } /* if ! error */
        else
         {
-        sprintf(str, (char*)GetString( MSG_MAPGUI_VECTORTOPOCONFORMATIONABORTEDOBJECTSCOMPLETED ),i);  // "Vector topo conformation aborted! %d objects completed."
+        sprintf(str, (char*)GetString( MSG_MAPGUI_VECTTOPOCONFABORTEDOBJECTSCOMPLETED ),i);  // "Vector topo conformation aborted! %d objects completed."
         Log(MSG_NULL, (CONST_STRPTR)str);
         } /* else aborted */
        } /* if topos loaded OK */

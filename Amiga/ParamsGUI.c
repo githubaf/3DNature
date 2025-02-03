@@ -1384,7 +1384,7 @@ STATIC_FCN short Load_FM_Win(void) // used locally only -> static, AF 24.7.2021
  if (FM_Win->Mod)
   {
   if ((SaveOld = User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
-                                  GetString( MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2 ),  //" The current Ecosystem Model has been modified. Do you wish to save it before proceeding?"
+                                  GetString( MSG_PARGUI_CURRECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2 ),  //" The current Ecosystem Model has been modified. Do you wish to save it before proceeding?"
                                   GetString( MSG_PARGUI_YESNOCANCEL ),                                           // "Yes|No|Cancel"
                                   (CONST_STRPTR)"ync", 1)) == 0)
    return (0);
@@ -1602,7 +1602,7 @@ EndSave:
   case 1:
    {
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
-                GetString( MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFOROUTPUTPERATIONTERMI ),  // "Error opening Ecosystem Model file for output!\nOperation terminated."
+                GetString( MSG_PARGUI_ERROPENCOSYSMODELFILEFOROUTPUTPERATIONTERMI ),  // "Error opening Ecosystem Model file for output!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                 (CONST_STRPTR)"o");
    Log(ERR_OPEN_FAIL, (CONST_STRPTR)name);
@@ -1620,7 +1620,7 @@ EndSave:
   case 5:
    {
    User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
-                GetString( MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT ),  // "You have not selected a file name for output!\nOperation terminated."
+                GetString( MSG_PARGUI_NOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT ),  // "You have not selected a file name for output!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                                    // "OK"
                 (CONST_STRPTR)"o");
    break;

@@ -20177,7 +20177,7 @@ Alle ingeschakelde vectoren aangepast aan topografie.
 
 
 ;
-MSG_MAPGUI_VECTORTOPOCONFORMATIONABORTEDOBJECTSCOMPLETED
+MSG_MAPGUI_VECTTOPOCONFABORTEDOBJECTSCOMPLETED
 Vector topo conformation aborted! %d objects completed.
 
 
@@ -23192,7 +23192,7 @@ Laag
 
 
 ;
-MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2
+MSG_PARGUI_CURRECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2
 The current Ecosystem Model has been modified. Do you wish to save it before proceeding?
 Das aktuelle Ökosystem-Modell wurde verändert. Soll es vor dem Weiterarbeiten gespeichert werden?
 
@@ -23288,7 +23288,7 @@ Opslaan Model Pad/Naam
 
 
 ;
-MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFOROUTPUTPERATIONTERMI
+MSG_PARGUI_ERROPENCOSYSMODELFILEFOROUTPUTPERATIONTERMI
 Error opening Ecosystem Model file for output!\nOperation terminated.
 Fehler beim Öffnen der Ökosystem Modelldatei zum Schreiben!\nVorgang abgebrochen.
 
@@ -23312,7 +23312,7 @@ Fout bij schrijven naar Ecosysteemmodelbestand!\nBewerking afgebroken.
 
 
 ;
-MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT
+MSG_PARGUI_NOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT
 You have not selected a file name for output!\nOperation terminated.
 Es wurde kein Dateiname zum Schreiben ausgewählt!\nVorgang abgebrochen.
 
@@ -25373,7 +25373,7 @@ De verhouding van verticale tot horizontale kaartdimensies is te groot voor grad
 
 
 ;
-MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM
+MSG_NNCRUNCH_RATIOOFVERTTOHORIZMAPDIMENSIONSISTOOSM
 The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?
 Das Verhältnis der vertikalen zu den horizontalen Kartenabmessungen ist zu klein für die Gradientenschätzung. Skalieren Sie die Daten, wenn Gradienten benötigt werden.\nMöchten Sie ohne \
 Gradientenschätzung fortfahren?

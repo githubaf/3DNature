@@ -1696,7 +1696,7 @@ STATIC_FCN short TooShallow(struct NNGrid *NNG) // used locally only -> static, 
 {
 
    if (User_Message(GetString( MSG_NNCRUNCH_MAPVIEWGRIDDEM ) ,                                     // "Map View: Grid DEM"
-                    GetString( MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOSM ),  // "The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?"
+                    GetString( MSG_NNCRUNCH_RATIOOFVERTTOHORIZMAPDIMENSIONSISTOOSM ),  // "The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?"
                     GetString( MSG_GLOBAL_CONTINUECANCEL ),                                      // "Continue|Cancel"
                     (CONST_STRPTR)"oc"))
     {
