@@ -169,7 +169,7 @@ void SetLoadparamsForceNogetfilenameptrn(int Val);
 static void MakeNewframefileName(char *argv0)  // AF, 12.Dec.24, WCSname_image -> adds wcs_68020_ in front of CanyonSet for automatic testing
 {
 
-	 static char temp[64];
+	 static char temp[128];
 	 {  // simulation of basename(), sets pointer to the beginning of the file name, i.e. skips path
 		 char *progname = argv0+strlen(argv0)-1;   // pointer to the end of the progname
 		 while(progname>=argv0 && *progname !='/' &&  *progname !=':')
@@ -179,8 +179,8 @@ static void MakeNewframefileName(char *argv0)  // AF, 12.Dec.24, WCSname_image -
 		 progname++;
 
 		 sprintf(temp,"%s_%s",progname,framefile);
-		 strncpy(framefile,temp,32-1);
-		 framefile[32-1]='\0';
+		 strncpy(framefile,temp,256-1);
+		 framefile[256-1]='\0';
 		 printf("New framefile is now <%s>\n",framefile);
 	 }
 }

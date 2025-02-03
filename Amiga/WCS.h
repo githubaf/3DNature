@@ -1589,7 +1589,7 @@ EXTERN __far char str[256],paramfile[32],
 	statname[32],statpath[256],linepath[256],linefile[32],
 	backgroundpath[256], zbufferpath[256], backgroundfile[32],
 	zbufferfile[32], colormappath[256], colormapfile[32], projectpath[256],
-	projectname[32], framefile[32], tempfile[32], modelpath[256],
+	projectname[32], framefile[64], tempfile[32], modelpath[256],
 	cloudpath[256], cloudfile[32], wavepath[256], wavefile[32],
 	deformpath[256], deformfile[32], imagepath[256], sunfile[32],
 	moonfile[32], pcprojectpath[256], pcframespath[256], altobjectpath[256];
