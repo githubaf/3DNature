@@ -642,7 +642,7 @@ void FindDistance(void)
   goto EndShift;
 
  MapGUI_Message(0, (char*)GetString( MSG_MAPEXTRA_SETDESTINATIONPOINTESCABORT ));        // "\0338Set destination point. ESC=abort"
- SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SETDESTINATIONPOINT ), (UBYTE *)-1);  // "Set destination point"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SETDESTINATIONPT ), (UBYTE *)-1);  // "Set destination point"
 	
  if (! MousePtSet(&Bx.High, &Bx.Low, 1))
   goto EndShift;
@@ -803,12 +803,12 @@ void matchpoints(void)
  firstobj = OBN;
 
  MapGUI_Message(0, (char*)GetString( MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT ));  // "\0338Select first source vertex. Q=done Uu=up Dd=down ESC=abort"
- SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEX ), (UBYTE *)-1);           // "Select first source vertex"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SELECTFIRSTSRCVERTEX ), (UBYTE *)-1);           // "Select first source vertex"
  if ((matchC = modpoints(0)) == 0)
   goto AbortMatch;
 
  MapGUI_Message(0, (char*)GetString( MSG_MAPEXTRA_SELECTLASTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT ));  // "\0338Select last source vertex. Q=done Uu=up Dd=down ESC=abort"
- SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SELECTLASTSOURCEVERTEX ), (UBYTE *)-1);           // "Select last source vertex"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SELECTLASTSRCVERTEX ), (UBYTE *)-1);           // "Select last source vertex"
  if ((matchD = modpoints(0)) == 0)
   goto AbortMatch;
  match2 = matchD - matchC;
@@ -1279,7 +1279,7 @@ void makestream(short lowj)
  if (lowj == 0)
   {
   MapGUI_Message(0, (char*)GetString( MSG_MAPEXTRA_SELECTSTREAMSTARTPOINTESCABORT ));        // "\0338Select stream start point. ESC=abort"
-  SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SELECTSTREAMSTARTPOINT ), (UBYTE *)-1);  // "Select stream start point"
+  SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SELSTREAMSTARTPT ), (UBYTE *)-1);  // "Select stream start point"
 
   SetAPen(MapWind0->RPort, 1);
 
@@ -1299,7 +1299,7 @@ void makestream(short lowj)
   } /* else */
 
  MapGUI_Message(0, (char*)GetString( MSG_MAPEXTRA_SELECTAPPROXIMATESTREAMENDPOINTESCABORT ));        // "\0338Select approximate stream end point. ESC=abort"
- SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SELECTAPPROXIMATESTREAMENDPOINT ), (UBYTE *)-1);  // "Select approximate stream end point"
+ SetWindowTitles(MapWind0, GetString( MSG_MAPEXTRA_SELAPPRSTREAMENDPT ), (UBYTE *)-1);  // "Select approximate stream end point"
  strcpy(str,(char*)GetString( MSG_MAPEXTRA_MAKINGSTREAMCLICKONSTREAMENDPOINTESCABORT ));             // "Making Stream: click on stream end point. ESC=abort"
  if (! MousePtSet(&Bx.High, &Bx.Low, 1))
   {
@@ -1384,7 +1384,7 @@ void makestream(short lowj)
 	! allocvecarray(OBN, MAXOBJPTS, 0) )
    {
    User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),                            // "Mapping Module: Follow Stream"
-                GetString( MSG_MAPEXTRA_OUTOFMEMORYOTENOUGHFORTEMPORARYTOPOARRAYPERATIONFAIL ), // "Out of memory!\nNot enough for temporary topo array.\nOperation failed."
+                GetString( MSG_MAPEXTRA_OUTOFMEMNOTENOUGHFORTEMPTOPOARRAYPERATIONFAIL ), // "Out of memory!\nNot enough for temporary topo array.\nOperation failed."
                 GetString( MSG_GLOBAL_OK ),                                                   // "OK"
                 (CONST_STRPTR)"o");
    goto EndModify;
@@ -1691,7 +1691,7 @@ void SetSurface_Map(ULONG surface)
 
  sprintf(str, (char*)GetString( MSG_MAPEXTRA_SELECTSURFACEUELEVATIONESCABORT ), surface + 1);  // "\0338Select Surface %lu Elevation. ESC=Abort"
  MapGUI_Message(0, str);
- sprintf(str, (char*)GetString( MSG_MAPEXTRA_SELECTSURFACEUELEVATION ), surface + 1);          // "Select Surface %lu Elevation"
+ sprintf(str, (char*)GetString( MSG_MAPEXTRA_SELSURFELEVATION ), surface + 1);          // "Select Surface %lu Elevation"
  SetWindowTitles(MapWind0, (STRPTR) str, (UBYTE *)-1);
 
  if (MousePtSet(&Vtx, NULL, 0))
@@ -2058,7 +2058,7 @@ EndFix:
   case 4:
    {
    User_Message( GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),                               // "Mapping Module: Fix Flats"
-                 GetString( MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINSAMEDEMPERATIONTERMINAT ),  // "All corner points must be within same DEM!\nOperation terminated."
+                 GetString( MSG_MAPEXTRA_ALLCORNERPNTSMUSTBEWITHINSAMEDEMPERATIONTERMINAT ),  // "All corner points must be within same DEM!\nOperation terminated."
                  GetString( MSG_GLOBAL_OK ),                                                  // "OK"
                  (CONST_STRPTR)"o");
    break;

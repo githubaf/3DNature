@@ -69,7 +69,7 @@ void alignmap(struct Box *Bx)
 
 StartAlign:
  MapGUI_Message(0, (char*)GetString( MSG_MAP_SETNORTHWESTREFERENCEPOINTWITHMOUSE ));       // "\0338Set northwest reference point with mouse."
- SetWindowTitles(MapWind0, GetString( MSG_MAP_SETNORTHWESTREFERENCEPOINT ), (UBYTE *)-1);  // "Set northwest reference point"
+ SetWindowTitles(MapWind0, GetString( MSG_MAP_SETNORTHWESTREFPOINT ), (UBYTE *)-1);  // "Set northwest reference point"
 
  if (! MousePtSet(&Bx->Low, NULL, 0))
   {
@@ -78,7 +78,7 @@ StartAlign:
   } /* if aborted */
 
  MapGUI_Message(0, (char*)GetString( MSG_MAP_SETSOUTHEASTREFERENCEPOINTESCABORT ));        // "\0338Set southeast reference point. ESC=abort"
- SetWindowTitles(MapWind0, GetString( MSG_MAP_SETSOUTHEASTREFERENCEPOINT ), (UBYTE *)-1);  // "Set southeast reference point"
+ SetWindowTitles(MapWind0, GetString( MSG_MAP_SETSOUTHEASTREFPOINT ), (UBYTE *)-1);  // "Set southeast reference point"
 
  if (! MousePtSet(&Bx->High, &Bx->Low, 2))
   {
