@@ -404,6 +404,21 @@ function RenderTest_Aros_X86_64 {
 }
 
 ################################################################
+function CheckLocaleRedfinitions {
+# Check some locale messages. On SAS/C only 31 characters of macro names are relevant. (Some have manually been shorztened therefore)
+echo "Checking some locale strings..."
+
+rm -rf test_locale_redefinitions.o WCS_locale.o test_locale_gcc
+m68k-amigaos-gcc -noixemul test_locale_redefinitions.c WCS_locale.c -o test_locale_gcc -I .
+vamos test_locale_gcc
+
+rm -rf test_locale_redefinitions.o WCS_locale.o test_locale_sasc
+vamos -q sc NOGST NOOPT NODEBUG DATA=FAR test_locale_redefinitions.c WCS_locale.c IGNORE=51 
+vamos -q slink LIB:c.o test_locale_redefinitions.o  WCS_locale.o  WITH lib:utillib.with LIB LIB:sc.lib LIB:amiga.lib TO test_locale_sasc ND
+vamos test_locale_sasc
+}
+
+
 
 # Wenn Parameter uebergeben wurden, fuehre die angegebenen Funktionen aus
 if [ "$#" -gt 0 ]; then
@@ -422,6 +437,7 @@ else
     CheckSshWinUAE
     BuildSASC
     BuildAllEclipse
+    CheckLocaleRedfinitions
     TestConvertOnWinUAE68020
     TestConvertOnArosI386
     TestConvertOnArosX86_64

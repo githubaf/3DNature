@@ -180,7 +180,7 @@ static void MakeNewframefileName(char *argv0)  // AF, 12.Dec.24, WCSname_image -
 
 		 sprintf(temp,"%s_%s",progname,framefile);
 		 strncpy(framefile,temp,256-1);
-		 framefile[256-1]='\0';
+		 framefile[64-1]='\0';
 		 printf("New framefile is now <%s>\n",framefile);
 	 }
 }
