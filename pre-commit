@@ -99,7 +99,7 @@ fi
 function CheckTools {
 # Checks, if all the used tools are available
  print_frame "${FUNCNAME[0]}"
- TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc ack lscpu"
+ TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc ack lscpu gcovr"
 
    for TOOL in $TOOLS; do
       which $TOOL 1>/dev/null
@@ -413,6 +413,19 @@ function RenderTest_WinUAE_68060 {
     RenderTest_Generic "68060" "68060/WCS_68060" "Big68060" "ref"
 }
 
+
+################################################################
+function RenderTest_WinUAE_Coverage {
+    print_frame "${FUNCNAME[0]}"
+    echo "RenderTest gcc 68020 version with coverage"
+    RenderTest_Generic "Coverage" "Coverage/WCS_Coverage" "BigCoverage" "ref"
+    # Now we have *.gcda-files in directory Coverage
+    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=Coverage -r .. --html --html-details -o coverage.html && xdg-open coverage.html&
+}
+
+
+
+
 ################################################################
 # Generische Funktion zum Render-Test auf AROS
 function RenderTest_Aros {
@@ -536,6 +549,7 @@ else
     RenderTest_WinUAE_68060
     RenderTest_Aros_I386
     RenderTest_Aros_X86_64
+    RenderTest_WinUAE_Coverage
 fi
 
 print_ok "Everything passed."
