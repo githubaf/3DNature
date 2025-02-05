@@ -2,81 +2,150 @@
 # rejects commits of UTF-8 text files. 
 # copy this file to .git/hooks
 
-#set -e  # Abort on Errors
+set -e  # Abort on Errors
 #set -x  # show commands
+
+## Prints a Text (Argument) and draws a frame around that text
+#function print_frame {
+#    local func_name=$1
+#    local length=${#func_name}
+#    local border=$(printf -- '-%.0s' $(seq 1 $((length + 4))))
+#    local brown='\033[0;33m'
+#    local reset='\033[0m'
+#
+#    echo -e "${brown}${border}${reset}"
+#    echo -e "${brown}# $func_name #${reset}"
+#    echo -e "${brown}${border}${reset}"
+#}
+#
+################################################
+
+function set_color {
+    local color=$1
+    case $color in
+        "brown")
+            echo -e '\033[0;33m'
+            ;;
+        "red")
+            echo -e '\033[0;31m'
+            ;;
+        "green")
+            echo -e '\033[0;32m'
+            ;;
+        "reset")
+            echo -e '\033[0m'
+            ;;
+        *)
+            echo -e '\033[0m' # Standardmaessig zuruecksetzen
+            ;;
+    esac
+}
+
+function print_frame {
+    local func_name=$1
+    local length=${#func_name}
+    local border=$(printf -- '-%.0s' $(seq 1 $((length + 4))))
+    local color=$(set_color "brown")
+    local reset=$(set_color "reset")
+
+    echo -e "${color}${border}${reset}"
+    echo -e "${color}# $func_name #${reset}"
+    echo -e "${color}${border}${reset}"
+}
+
+function print_error {
+    local color=$(set_color "red")
+    local reset=$(set_color "reset")
+    echo -e "${color}$1${reset}"
+}
+
+function print_ok {
+    local color=$(set_color "green")
+    local reset=$(set_color "reset")
+    echo -e "${color}$1${reset}"
+}
+
+#################################################
+
 
 # You should have an ENV-Variable LINUX_WCS_DIR=/home/developer/Desktop/WCS/
 if [ -z $LINUX_WCS_DIR ]; then
    echo "You should have an ENV-Variable \"export LINUX_WCS_DIR=/home/developer/Desktop/WCS/\" (points to an Amiga-WCS Installationi Dir. Will be copied into AROS.)"
-   echo "Commit refused."
+   print_error "Commit refused."
    exit 1
 fi
 
 # You should have an ENV-Variable AROS_ALT_ABI_V0=~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/
 if [ -z $AROS_ALT_ABI_V0 ]; then
    echo "You should have an ENV-Variable \"export AROS_ALT_ABI_V0=~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/\" (points to an AROS alt-abiv0)"
-   echo "Commit refused."
+   print_error "Commit refused."
    exit 1
 fi
 
 # You should have an ENV-Variable AROS_CORE_LINUX_X86_64=~/Desktop/SelcoGit/core-linux-x86_64-d/
 if [ -z $AROS_CORE_LINUX_X86_64 ]; then
    echo "You should have an ENV-Variable \"export AROS_CORE_LINUX_X86_64=~/Desktop/SelcoGit/core-linux-x86_64-d/\" (points to an AROS core-linux-x86_64-d)"
-   echo "Commit refused."
+   print_error "Commit refused."
    exit 1
 fi
 
 # You should have an ENV-Variable AROS_CORE_LINUX_X86_64=~/Desktop/SelcoGit/core-linux-x86_64-d/
 if [ -z $NATURE3D_DIR ]; then
    echo "You should have an ENV-Variable \"export NATURE3D_DIR=/home/developer/Desktop/SelcoGit/3DNature/\" (points to the 3DNature dir)"
-   echo "Commit refused."
+   print_error "Commit refused."
    exit 1
 fi
 
 function CheckTools {
 # Checks, if all the used tools are available
+ print_frame "${FUNCNAME[0]}"
  TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc ack lscpu"
 
    for TOOL in $TOOLS; do
       which $TOOL 1>/dev/null
       if [ $? -ne 0 ]; then
          echo "Tool $TOOL not installed. Please install!"
-         echo "Commit refused."
+         print_error "Commit refused."
          exit 1
       fi
    done
-   echo "CheckTools successful."
+   print_ok "Passed."
 }
 
 WINUAEIP=""   # will be set automatically in CheckSshWinUAE
 
 function CheckNoUTF8 {
+print_frame "${FUNCNAME[0]}"
 FILE_LIST="$(git diff --cached --name-only)"
 
 for FILE in $FILE_LIST; do
     if [ $(file "$FILE" | grep -c "UTF-8") -ne "0" ]; then
         echo "Local pre-commit hook"
         echo "Error: File $FILE is UTF-8 encoded. Change that to ISO 8859-1 for Amiga and try again!"
-        echo "Commit refused."
+        print_error "Commit refused."
 	exit 1
     fi
 done
+print_ok "Passed."
 }
 
 function CheckSimpleCat {
 # check WCS.cs (SimpleCat) is ISO-8859
+print_frame "${FUNCNAME[0]}"
 file $NATURE3D_DIR/Amiga/WCS.cs | grep "ISO-8859"
 if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
    echo "Error: File $FILE is not ISO-8859 encoded. Change that to ISO 8859-1 for Amiga and try again!"
-   echo "Commit refused."
+   print_error "Commit refused."
    exit 1
 fi
+print_ok "Passed."
 }
 
 function CheckSshWinUAE {
 #check if we can ssh to WinUAE
 #We want to run test on WinUAE later below in this script after building all. Check ssh to WinUAE now and abort before wasting time on building all configurations
+print_frame "${FUNCNAME[0]}"
 #  Virtual Box NAT bill be 10.0. xxx
 WINUAEIP=$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;exit(0);}}') # shows line starting with an IP Address and Gataway != 0.0.0.0
 sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'
@@ -87,43 +156,45 @@ if [ $? -ne 0 ]; then
    if [ $? -ne 0 ]; then
       echo "Local pre-commit hook"
       echo "Cannot ssh to WinUAE. amigasshd -p22222 started?"
-      echo "Commit aborted."
+      print_error "Commit aborted."
       exit 1
    fi
 fi
 echo "OK, WINUAEIP=$WINUAEIP"
+print_ok "Passed."
 }
 
 function BuildSASC {
 #check, if WCS is still compileable with SAS/C
+print_frame "${FUNCNAME[0]}"
 cd $NATURE3D_DIR/Amiga/
 ./build_wcs_sasc.sh
 if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
    echo "build_wcs_sasc.sh failed!"
-   echo "Commit refused."
+   print_error "Commit refused."
    exit 1
 fi
+print_ok "Passed."
 }
 
 function BuildAllEclipse {
 #check if all eclipse build configurations can be build
+print_frame "${FUNCNAME[0]}"
 cd $NATURE3D_DIR/Amiga/
 ./make_all_configurations.sh
 if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
    echo "make_all_configurations.sh"
-   echo "Commit refused."
+   print_error "Commit refused."
    exit 1
 fi
+print_ok "Passed."
 }
 
 function TestConvertOnWinUAE68020 {
 # Run tests on WinUAE
-echo "------------------"
-echo "| Test on WinUAE |"
-echo "------------------"
-
+print_frame "${FUNCNAME[0]}"
 if [ -z $WINUAEIP ]; then
    CheckSshWinUAE
 fi
@@ -135,18 +206,17 @@ sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amig
 if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
    echo "test_68020/wcs_test_68020 failed!"
-   echo "Commit refused."
+   print_error "Commit refused."
    exit 1
 fi
+print_ok "Passed."
 }
 
 ############################################################################################################################################
 
 function TestConvertOnArosI386 {
 #Run Tests on AROS i386
-echo "--------------------"
-echo "| Test on AROS 386 |"
-echo "--------------------"
+print_frame "${FUNCNAME[0]}"
 # Samba does not work on AROS so far (first char of all names missing), so copy all files
 # copy Amiga WCS-Install-Dir for automatic testing...
 # You should have an ENV-Variable for that!  LINUX_WCS_DIR=/home/developer/Desktop/WCS/
@@ -180,10 +250,11 @@ Arch/linux/AROSBootstrap 2>&1 | ack --passthru  "All tests passed."
 if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
    echo "test_i386-aros/WCS_test_i386-aros failed!"
-   echo "Commit refused."
+   print_error "Commit refused."
    exit 1
 fi
 popd
+print_ok "Passed."
 }
 
 
@@ -191,9 +262,7 @@ popd
 
 function TestConvertOnArosX86_64 {
 #Run Tests on AROS x86-64
-echo "-----------------------"
-echo "| Test on AROS x86-64 |"
-echo "-----------------------"
+print_frame "${FUNCNAME[0]}"
 # Samba does not work on AROS x86-64 so far at all, so copy all files
 # copy Amiga WCS-Install-Dir for automatic testing...
 # You should have an ENV-Variable for that!  LINUX_WCS_DIR=/home/developer/Desktop/WCS/
@@ -227,10 +296,11 @@ boot/linux/AROSBootstrap --config-debug=mungwall 2>&1 | ack --passthru  "All tes
 if [ $? -ne 0 ]; then
    echo "Local pre-commit hook"
    echo "test_x86_64-aros/WCS_test_x86_64-aros failed!"
-   echo "Commit refused."
+   print_error "Commit refused."
    exit 1
 fi
 popd
+print_ok "Passed."
 }
 
 
@@ -240,6 +310,11 @@ function RenderTest_Generic {
     local LABEL=$1
     local SSH_COMMAND="$2 7462847623"  # magic param
     local BUILDDIR=$(dirname $2)
+    if [ "$BUILDDIR" == "." ]; then
+       BUILDDIR=""   # SAS/C wird im Verzeichnis "." gebaut. Damit WinUAE list ausfuehren kann, muss das durch "" ersetzt werden.
+    fi
+
+
     local IMAGE_PREFIX=$3
     local MAX_PIXEL_DIFFER=$4
 
@@ -256,7 +331,9 @@ function RenderTest_Generic {
     Error=0
     ErrorString=""
     # "list $BASENAME" seems to be necessary to make the executable visible to WinUAE???
+    echo sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && list $BUILDDIR >NIL: && $SSH_COMMAND"
     sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" "vbox:SelcoGit/3DNature/amiga && stack 100000 && list $BUILDDIR >NIL: && $SSH_COMMAND"
+    #SAS/C" "WCS_68020_SASC" "BigSasC" "ref
 
     # Montage der Bilder
     montage \
@@ -303,30 +380,36 @@ function RenderTest_Generic {
 #         echo "ignored for now, test will move later."
 ##        exit 1
 #    fi
+echo "Done." # no print_ok as we have no check here...
 }
 
 ################################################################
 function RenderTest_WinUAE_SASC {
+    print_frame "${FUNCNAME[0]}"
     RenderTest_Generic "SAS/C" "WCS_68020_SASC" "BigSasC" "ref"
 }
 
 ################################################################
 function RenderTest_WinUAE_68020 {
+    print_frame "${FUNCNAME[0]}"
     RenderTest_Generic "68020" "68020/WCS_68020" "Big68020" "ref"
 }
 
 ################################################################
 function RenderTest_WinUAE_68020_60 {
+    print_frame "${FUNCNAME[0]}"
     RenderTest_Generic "68020_60" "68020-60/WCS_68020-60" "Big68020_60" "ref"
 }
 
 ################################################################
 function RenderTest_WinUAE_68040 {
+    print_frame "${FUNCNAME[0]}"
     RenderTest_Generic "68040" "68040/WCS_68040" "Big68040" "ref"
 }
 
 ################################################################
 function RenderTest_WinUAE_68060 {
+    print_frame "${FUNCNAME[0]}"
     RenderTest_Generic "68060" "68060/WCS_68060" "Big68060" "ref"
 }
 
@@ -389,23 +472,27 @@ function RenderTest_Aros {
         -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_WorldTest001 \
         -geometry 752x480 -tile 2x2 WCS_${arch}-aros.unstripped.jpg
     eog WCS_${arch}-aros.unstripped.jpg &
+    echo "Done." # no print_ok as we have no check here...
 }
 
 ################################################################
 # Funktion fuer den i386-Render-Test
 function RenderTest_Aros_I386 {
+    print_frame "${FUNCNAME[0]}"
     RenderTest_Aros i386   $AROS_ALT_ABI_V0/bin/linux-i386          Arch/linux $LINUX_WCS_DIR $NATURE3D_DIR Aros_i386
 }
 
 ################################################################
 # Funktion fuer den x86_64-Render-Test
 function RenderTest_Aros_X86_64 {
+    print_frame "${FUNCNAME[0]}"
     RenderTest_Aros x86_64 $AROS_CORE_LINUX_X86_64/bin/linux-x86_64 boot/linux $LINUX_WCS_DIR $NATURE3D_DIR Aros_x86_64
 }
 
 ################################################################
 function CheckLocaleRedfinitions {
 # Check some locale messages. On SAS/C only 31 characters of macro names are relevant. (Some have manually been shorztened therefore)
+print_frame "${FUNCNAME[0]}"
 echo "Checking some locale strings..."
 
 rm -rf test_locale_redefinitions.o WCS_locale.o test_locale_gcc
@@ -416,6 +503,7 @@ rm -rf test_locale_redefinitions.o WCS_locale.o test_locale_sasc
 vamos -q sc NOGST NOOPT NODEBUG DATA=FAR test_locale_redefinitions.c WCS_locale.c IGNORE=51 
 vamos -q slink LIB:c.o test_locale_redefinitions.o  WCS_locale.o  WITH lib:utillib.with LIB LIB:sc.lib LIB:amiga.lib TO test_locale_sasc ND
 vamos test_locale_sasc
+print_ok "Passed."
 }
 
 
@@ -449,3 +537,5 @@ else
     RenderTest_Aros_I386
     RenderTest_Aros_X86_64
 fi
+
+print_ok "Everything passed."
