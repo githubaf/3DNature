@@ -199,6 +199,14 @@ if [ -z $WINUAEIP ]; then
    CheckSshWinUAE
 fi
 
+    # wcs_test_68020 is build with coverage enabled. 
+    rm -rf test_68020/*.gcda    # delete old Coverage Files first
+
+if [ ! -e "test_68020/test_main.gcno" ]; then
+	print_error "${FUNCNAME[0]} not built at all or not built for coverage!"
+	return 1
+fi
+
 # ack is like grep but with output
 # we need grep (ack) "All tests passed." at the end to get a return code
 # "list test_68020" seems to be necessary to make the wcs_test_68020 program visible to the Amiga!? WCS2-issue? Worked under virtualbox/Samba on Windows7/10 perfectly. Here we need test_68020/wcs_test_68020, otherwise we get a  unknown command error from the WinUAE Amiga. AF, 1.Feb25
@@ -418,8 +426,14 @@ function RenderTest_WinUAE_68060 {
 function RenderTest_WinUAE_Coverage {
     print_frame "${FUNCNAME[0]}"
     echo "RenderTest gcc 68020 version with coverage"
+
+    rm -rf Coverage/*.gcda    # delete old Coverage Files
+    rm -f  coverage.*\.html   # generate old coverage html-Files
+    rm -f  coverage.html      # and the starting html File
+
     RenderTest_Generic "Coverage" "Coverage/WCS_Coverage" "BigCoverage" "ref"
     # Now we have *.gcda-files in directory Coverage
+    # following gcov command uses all gcda files is finds in any directory, i.e. including test_68020/ (convert-data-test)
     gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=Coverage -r .. --html --html-details -o coverage.html && xdg-open coverage.html&
 }
 

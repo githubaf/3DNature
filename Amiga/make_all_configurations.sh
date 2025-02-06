@@ -22,6 +22,8 @@ for BUILDCONFIG in $(find . -name "makefile" -exec dirname {} \;); do
         echo "******************************"
 	cd $BUILDCONFIG
         make clean
+	rm -rf *.gcda      # remove also coverage files created by running the executable
+	rm -rf *.gcno      # remove also coverage files created by running the compiler
 	make all -j $CORES
 	cd $STARTDIR
 done
