@@ -192,7 +192,7 @@ fi
 print_ok "Passed."
 }
 
-function TestConvertOnWinUAE68020 {
+function TestConvertOnWinUAE68020_Coverage {
 # Run tests on WinUAE
 print_frame "${FUNCNAME[0]}"
 if [ -z $WINUAEIP ]; then
@@ -435,6 +435,9 @@ function RenderTest_WinUAE_Coverage {
     # Now we have *.gcda-files in directory Coverage
     # following gcov command uses all gcda files is finds in any directory, i.e. including test_68020/ (convert-data-test)
     gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=Coverage -r .. --html --html-details -o coverage.html && xdg-open coverage.html&
+    # and also in text form for easy comparision
+    # There are several warnings if I do both gcovr calls !?
+    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=Coverage -r .. | awk '{print $1 " " $2 " " $3 " " $4}' # do not print all the lines
 }
 
 
@@ -553,7 +556,7 @@ else
     BuildSASC
     BuildAllEclipse
     CheckLocaleRedfinitions
-    TestConvertOnWinUAE68020
+    TestConvertOnWinUAE68020_Coverage
     TestConvertOnArosI386
     TestConvertOnArosX86_64
     RenderTest_WinUAE_SASC
