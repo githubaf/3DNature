@@ -112,8 +112,6 @@ function CheckTools {
    print_ok "Passed."
 }
 
-WINUAEIP=""   # will be set automatically in CheckSshWinUAE
-
 function CheckNoUTF8 {
 print_frame "${FUNCNAME[0]}"
 FILE_LIST="$(git diff --cached --name-only)"
@@ -146,20 +144,41 @@ function CheckSshWinUAE {
 #check if we can ssh to WinUAE
 #We want to run test on WinUAE later below in this script after building all. Check ssh to WinUAE now and abort before wasting time on building all configurations
 print_frame "${FUNCNAME[0]}"
-#  Virtual Box NAT bill be 10.0. xxx
-WINUAEIP=$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;exit(0);}}') # shows line starting with an IP Address and Gataway != 0.0.0.0
-sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'
-if [ $? -ne 0 ]; then
-   echo "ssh $WINUAEIP did not work, trying 0.0.0.0 ..."
-   WINUAEIP=0.0.0.0  # try local host
-   sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'
-   if [ $? -ne 0 ]; then
-      echo "Local pre-commit hook"
-      echo "Cannot ssh to WinUAE. amigasshd -p22222 started?"
-      print_error "Commit aborted."
-      exit 1
-   fi
+
+local success=false
+
+# Liste der moeglichen IP-Adressen
+# $(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;exit(0);}}') # shows line starting with an IP Address and Gataway != 0.0.0.0 #(works on my Dell)
+# 0.0.0.0 works for BF
+# af-hp works for AF HP
+IP_ADDRESSES=( "$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;exit(0);}}')"   "af-hp"   "0.0.0.0")
+
+if [ -n "$WINUAEIP" ]; then
+    # Wenn die Environment-Variable WINUAEIP in der shell gesetzt ist, nur diese IP-Adresse verwenden
+    echo "trying $WINUAEIP..."
+    if timeout 2s sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'; then
+        success=true
+    fi
+else
+    # Wenn die Environment-Variable WINUAEIP nicht gesetzt war, dann durch die List der moeglichen IP-Adressen iterieren
+    for WINUAEIP in "${IP_ADDRESSES[@]}"; do
+	    echo "trying $WINUAEIP..."
+        if timeout 2s sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'; then
+            success=true
+            break
+        fi
+    done
 fi
+
+# Ueberpruefen, ob das Kommando erfolgreich ausgefuehrt wurde
+if [ "$success" = false ]; then
+    echo "Cannot ssh to WinUAE!"
+    echo "amigasshd -p22222 started on the Amiga?" 
+    echo "You may also try setting WINUAEIP=<xxx.xxx.xxx.xxx> or WINUAEIP=<WinUAE-hostname> on the shell..."
+    print_error "Commit refused."
+    exit 1
+fi
+
 echo "OK, WINUAEIP=$WINUAEIP"
 print_ok "Passed."
 }
