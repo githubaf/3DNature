@@ -434,10 +434,11 @@ function RenderTest_WinUAE_Coverage {
     RenderTest_Generic "Coverage" "Coverage/WCS_Coverage" "BigCoverage" "ref"
     # Now we have *.gcda-files in directory Coverage
     # following gcov command uses all gcda files is finds in any directory, i.e. including test_68020/ (convert-data-test)
-    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=Coverage -r .. --html --html-details -o coverage.html && xdg-open coverage.html&
+    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=Coverage --object-directory=test_68020 -r . --html --html-details -o coverage.html
+    xdg-open coverage.html &
     # and also in text form for easy comparision
     # There are several warnings if I do both gcovr calls !?
-    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=Coverage -r .. | awk '{print $1 " " $2 " " $3 " " $4}' # do not print all the lines
+    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=Coverage --object-directory=test_68020 -r . | awk '{print $1 " " $2 " " $3 " " $4}' # do not print all the lines
 }
 
 

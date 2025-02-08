@@ -4243,3 +4243,6 @@ sudo apt-get install libxcursor-dev:i386 libxxf86vm1:i386
 * make_all_configurations.sh benutzt jetzt alle CPU-Cores. (kann optional als Parameter angegeben werden.
 * bei Benny war sudo dpkg --add-architecture i386 && sudo apt-get update noetig, um libxcursor-dev:i386 fuer AROS i386 installieren zu koennen.
 
+8.Feb. 2025
+-----------
+* More work on pre-commit. Coverage is now generated without gcovr-warning nor gcovt-errors in html and text format. 21.9% coverage.
