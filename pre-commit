@@ -442,7 +442,7 @@ function RenderTest_WinUAE_68060 {
 
 
 ################################################################
-function RenderTest_WinUAE_Coverage {
+function RenderTest_WinUAE_68020_Coverage {
     print_frame "${FUNCNAME[0]}"
     echo "RenderTest gcc 68020 version with coverage"
 
@@ -450,7 +450,7 @@ function RenderTest_WinUAE_Coverage {
     rm -f  coverage.*\.html   # generate old coverage html-Files
     rm -f  coverage.html      # and the starting html File
 
-    RenderTest_Generic "Coverage" "Coverage/WCS_Coverage" "BigCoverage" "ref"
+    RenderTest_Generic "Coverage" "Coverage/WCS_Coverage" "Big68020Coverage" "ref"
     # Now we have *.gcda-files in directory Coverage
     # following gcov command uses all gcda files is finds in any directory, i.e. including test_68020/ (convert-data-test)
     gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=Coverage --object-directory=test_68020 -r . --html --html-details -o coverage.html
@@ -586,7 +586,7 @@ else
     RenderTest_WinUAE_68060
     RenderTest_Aros_I386
     RenderTest_Aros_X86_64
-    RenderTest_WinUAE_Coverage
+    RenderTest_WinUAE_68020_Coverage
 fi
 
 print_ok "Everything passed."
