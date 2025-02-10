@@ -446,18 +446,21 @@ function RenderTest_WinUAE_68020_Coverage {
     print_frame "${FUNCNAME[0]}"
     echo "RenderTest gcc 68020 version with coverage"
 
-    rm -rf Coverage/*.gcda    # delete old Coverage Files
+    rm -rf 68020_Coverage/*.gcda    # delete old Coverage Files
     rm -f  coverage.*\.html   # generate old coverage html-Files
     rm -f  coverage.html      # and the starting html File
 
-    RenderTest_Generic "Coverage" "Coverage/WCS_Coverage" "Big68020Coverage" "ref"
-    # Now we have *.gcda-files in directory Coverage
+    cp -rfv test_68020/*.gcda     68020_Coverage/
+#    cp -v test_68020/vgl/*.gcda 68020_Coverage/vgl/
+
+    RenderTest_Generic "68020_Coverage" "68020_Coverage/WCS_68020_Coverage" "Big68020Coverage" "ref"
+    # Now we have *.gcda-files in directory 68020_Coverage
     # following gcov command uses all gcda files is finds in any directory, i.e. including test_68020/ (convert-data-test)
-    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=Coverage --object-directory=test_68020 -r . --html --html-details -o coverage.html
+    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=68020_Coverage -r . --html --html-details -o coverage.html
     xdg-open coverage.html &
     # and also in text form for easy comparision
     # There are several warnings if I do both gcovr calls !?
-    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=Coverage --object-directory=test_68020 -r . | awk '{print $1 " " $2 " " $3 " " $4}' # do not print all the lines
+    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=68020_Coverage -r . | awk '{print $1 " " $2 " " $3 " " $4}' # do not print all the lines
 }
 
 

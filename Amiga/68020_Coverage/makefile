@@ -9,8 +9,6 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include vgl/subdir.mk
--include Coverage/vgl/subdir.mk
--include Coverage/subdir.mk
 -include subdir.mk
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(strip $(C_DEPS)),)
@@ -44,7 +42,7 @@ main-build: WCS
 WCS: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross GCC Linker'
-	m68k-amigaos-gcc -pg -ftest-coverage -fprofile-arcs -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68040 -m68881 -fomit-frame-pointer -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_68020_Coverage.map  -ftest-coverage -fprofile-arcs -fprofile-dir=/Coverage -lmui -lgcov -lm && ../check_wcs_amigaos_m68k.sh WCS
+	m68k-amigaos-gcc -pg -ftest-coverage -fprofile-arcs -o "WCS" $(OBJS) $(USER_OBJS) $(LIBS) -noixemul -m68020 -m68881 -lm -ftest-coverage -fprofile-arcs -fprofile-dir=68020_Coverage -lmui -lgcov -DSTATIC_FCN=static -DSTATIC_VAR=static -Winline -DSWMEM_FAST_INLINE -g -ldebug  -Wl,-Map=WCS_68020_Coverage.map  && ../check_wcs_amigaos_m68k.sh WCS
 	@echo 'Finished building target: $@'
 	@echo ' '
 
