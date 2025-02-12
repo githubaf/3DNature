@@ -20,6 +20,17 @@ set -e  # Abort on Errors
 #
 ################################################
 
+
+# Checks, if called from git (env-variable set) or from shell (emv-variable empty)
+function is_called_by_git() {
+    if [ -n "$GIT_PREFIX" ]; then
+        return 0  # yes!
+    else
+	return 1  # no
+    fi
+}
+
+
 function set_color {
     local color=$1
     case $color in
@@ -99,7 +110,7 @@ fi
 function CheckTools {
 # Checks, if all the used tools are available
  print_frame "${FUNCNAME[0]}"
- TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc ack lscpu gcovr"
+ TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc ack lscpu gcovr gnuplot"
 
    for TOOL in $TOOLS; do
       which $TOOL 1>/dev/null
@@ -450,17 +461,14 @@ function RenderTest_WinUAE_68020_Coverage {
     rm -f  coverage.*\.html   # generate old coverage html-Files
     rm -f  coverage.html      # and the starting html File
 
-    cp -rfv test_68020/*.gcda     68020_Coverage/
-#    cp -v test_68020/vgl/*.gcda 68020_Coverage/vgl/
-
     RenderTest_Generic "68020_Coverage" "68020_Coverage/WCS_68020_Coverage" "Big68020Coverage" "ref"
     # Now we have *.gcda-files in directory 68020_Coverage
     # following gcov command uses all gcda files is finds in any directory, i.e. including test_68020/ (convert-data-test)
-    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=68020_Coverage -r . --html --html-details -o coverage.html
+    gcovr --gcov-executable=m68k-amigaos-gcov  --html --html-details -o coverage.html
     xdg-open coverage.html &
     # and also in text form for easy comparision
     # There are several warnings if I do both gcovr calls !?
-    gcovr --gcov-executable=m68k-amigaos-gcov --object-directory=68020_Coverage -r . | awk '{print $1 " " $2 " " $3 " " $4}' # do not print all the lines
+    gcovr --gcov-executable=m68k-amigaos-gcov | awk '{print $1 " " $2 " " $3 " " $4}' # do not print all the lines
 }
 
 
@@ -559,6 +567,27 @@ vamos test_locale_sasc
 print_ok "Passed."
 }
 
+################################################################
+
+function MakeCoverageHistoryGraph() {
+   COVERAGE_HISTORY_FILE=coverage_history.txt
+
+   if is_called_by_git; then
+       echo "Das Skript wurde von Git aufgerufen."
+       rm -rf $COVERAGE_HISTORY_FILE
+       git checkout $COVERAGE_HISTORY_FILE  # remove entries from "local" (not commited) gcovr history
+       printf "$(date +"%Y-%m-%d %H:%M:%S") $(gcovr --gcov-executable=m68k-amigaos-gcov | awk '/TOTAL/{print $4"%\\n"}')" >>$COVERAGE_HISTORY_FILE # print only tolal percentage >history-file
+       git add $COVERAGE_HISTORY_FILE       # mark history-file for check-in
+   else
+       echo "Das Skript wurde direkt von der Shell aufgerufen."
+       # no checkout before. During development the "local" (not commited) history is intersting, too
+       printf "$(date +"%Y-%m-%d %H:%M:%S") $(gcovr --gcov-executable=m68k-amigaos-gcov | awk '/TOTAL/{print $4"%\\n"}')" >>$COVERAGE_HISTORY_FILE # print only tolal percentage >history-file
+   fi
+        gnuplot coverage.gnuplot 
+   
+}
+
+################################################################
 
 
 # Wenn Parameter uebergeben wurden, fuehre die angegebenen Funktionen aus
@@ -590,6 +619,8 @@ else
     RenderTest_Aros_I386
     RenderTest_Aros_X86_64
     RenderTest_WinUAE_68020_Coverage
+    MakeCoverageHistoryGraph
+
 fi
 
 print_ok "Everything passed."
