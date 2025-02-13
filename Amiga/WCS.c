@@ -658,10 +658,10 @@ if ((IntuitionBase = (struct IntuitionBase *)
 // -------------------------------------------------------
 //               50 lines more Coverage in AGUI.c when active
 //               Window: "Parameter Module"
-//        		 Make_EP_Window(0);  // stand up
-//        		 Close_EP_Window();
-//        		 Make_EP_Window(1);
-//        		 Close_EP_Window();  // lay down
+        		 Make_EP_Window(0);  // stand up
+        		 Close_EP_Window();
+        		 Make_EP_Window(1);
+        		 Close_EP_Window();  // lay down
 // -------------------------------------------------------
 
         		 Make_ES_Window();

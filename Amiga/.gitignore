@@ -16,3 +16,4 @@ x86_64-aros
 /test_68020-60_render/
 /test_68040_render/
 /68020_Coverage/
+*.html
