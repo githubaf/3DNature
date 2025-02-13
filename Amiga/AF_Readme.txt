@@ -4251,5 +4251,5 @@ sudo apt-get install libxcursor-dev:i386 libxxf86vm1:i386
 13.Feb.2025
 -----------
 *pre-commit erzeugt jetzt ein Coverage-history und checkt die mit ein. Mit gnuplot wird der Verlauf der Abdeckung angezeigt.
-*Die Coverage-Geschichte funktioniert auf meinem Dell mit Ubuntu nobel und WSL2, Aber nicht bei Benny und nicht báuf HP (Ubunti Folcal)
+*Die Coverage-Geschichte funktioniert auf meinem Dell mit Ubuntu nobel und WSL2, aber nicht bei Benny und nicht auf HP (Ubuntu Folcal)
 *Die berechneten Bilder sehen alle gut aus, unterscheiden sich aber ...
