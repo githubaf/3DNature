@@ -26,7 +26,7 @@ extern char* LocaleExtCreditText; // in allocated iand intialized in WCS.c
 /*STATIC_FCN*/ void Handle_RN_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Handle_DB_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Close_DB_Window(void); // used locally only -> static, AF 25.7.2021
-STATIC_FCN void Close_EP_Window(void); // used locally only -> static, AF 25.7.2021
+void Close_EP_Window(void); // needed in WCS.c for automatic testing...
 STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void NoMod_Message(STRPTR mod); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Close_Log_Window(int StayClosed); // used locally only -> static, AF 25.7.2021
@@ -180,7 +180,7 @@ void Make_EP_Window(short hor_win)
 
 /************************************************************************/
 
-STATIC_FCN void Close_EP_Window(void) // used locally only -> static, AF 25.7.2021
+void Close_EP_Window(void) // needed in WCS.c for automatic testing, so no longer static AF, 13.Feb.2025
 {
  if (EP_Win)
   {

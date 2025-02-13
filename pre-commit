@@ -571,20 +571,33 @@ print_ok "Passed."
 
 function MakeCoverageHistoryGraph() {
    COVERAGE_HISTORY_FILE=coverage_history.txt
+   COVERAGE_TEXT_FILE=coverage_text.txt
 
    if is_called_by_git; then
        echo "Das Skript wurde von Git aufgerufen."
-       rm -rf $COVERAGE_HISTORY_FILE
-       git checkout $COVERAGE_HISTORY_FILE  # remove entries from "local" (not commited) gcovr history
-       printf "$(date +"%Y-%m-%d %H:%M:%S") $(gcovr --gcov-executable=m68k-amigaos-gcov | awk '/TOTAL/{print $4"%\\n"}')" >>$COVERAGE_HISTORY_FILE # print only tolal percentage >history-file
+       rm -rf $COVERAGE_HISTORY_FILE 
+       git checkout $COVERAGE_HISTORY_FILE # remove entries from "local" (not commited) gcovr history
+
+       # store text summary 
+       date +"%Y-%m-%d %H:%M:%S" >>$COVERAGE_TEXT_FILE
+       gcovr --gcov-executable=m68k-amigaos-gcov --print-summary >$COVERAGE_TEXT_FILE
+       git add $COVERAGE_TEXT_FILE       # mark history-file for check-in
+
+       #store total percentage of covarage for gnuplot-display (only with --print-summary we get decimals like "lines: 21.5% (10134 out of 47090)"
+       printf "$(date +"%Y-%m-%d %H:%M:%S") $(gcovr --gcov-executable=m68k-amigaos-gcov --print-summary | awk '/^lines/{print $2"%\\n"}')" >>$COVERAGE_HISTORY_FILE # print only tolal percentage >history-file
        git add $COVERAGE_HISTORY_FILE       # mark history-file for check-in
    else
        echo "Das Skript wurde direkt von der Shell aufgerufen."
        # no checkout before. During development the "local" (not commited) history is intersting, too
-       printf "$(date +"%Y-%m-%d %H:%M:%S") $(gcovr --gcov-executable=m68k-amigaos-gcov | awk '/TOTAL/{print $4"%\\n"}')" >>$COVERAGE_HISTORY_FILE # print only tolal percentage >history-file
+
+       date +"%Y-%m-%d %H:%M:%S" >$COVERAGE_TEXT_FILE
+       gcovr --gcov-executable=m68k-amigaos-gcov --print-summary >>$COVERAGE_TEXT_FILE
+
+       printf "$(date +"%Y-%m-%d %H:%M:%S") $(gcovr --gcov-executable=m68k-amigaos-gcov --print-summary | awk '/^lines/{print $2"%\\n"}')" >>$COVERAGE_HISTORY_FILE # print only tolal percentage >history-file
+
    fi
-        gnuplot coverage.gnuplot 
-   
+echo starte gnuplot   
+       gnuplot coverage.gnuplot 
 }
 
 ################################################################

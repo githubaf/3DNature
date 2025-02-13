@@ -655,6 +655,15 @@ if ((IntuitionBase = (struct IntuitionBase *)
         		  FixPar(1, 0x1111);
         		  }
 
+// -------------------------------------------------------
+//               50 lines more Coverage in AGUI.c when active
+//               Window: "Parameter Module"
+//        		 Make_EP_Window(0);  // stand up
+//        		 Close_EP_Window();
+//        		 Make_EP_Window(1);
+//        		 Close_EP_Window();  // lay down
+// -------------------------------------------------------
+
         		 Make_ES_Window();
 
         		 settings.maxframes=1;                                              // simulate Max Frames setting
