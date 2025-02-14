@@ -23,7 +23,7 @@ extern struct WaveWindow *WV_Win;
 
 extern char* LocaleExtCreditText; // in allocated iand intialized in WCS.c
 
-/*STATIC_FCN*/ void Handle_RN_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
+void Handle_RN_Window(ULONG WCS_ID);
 STATIC_FCN void Handle_DB_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Close_DB_Window(void); // used locally only -> static, AF 25.7.2021
 void Close_EP_Window(void); // needed in WCS.c for automatic testing...

@@ -232,7 +232,7 @@ fi
     # wcs_test_68020 is build with coverage enabled. 
     rm -rf test_68020/*.gcda    # delete old Coverage Files first
 
-if [ ! -e "test_68020/test_main.gcno" ]; then
+    if [ ! -e "test_68020/DataOps.gcno" ]; then  # check for one the gcno-Files.
 	print_error "${FUNCNAME[0]} not built at all or not built for coverage!"
 	return 1
 fi

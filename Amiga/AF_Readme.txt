@@ -4253,3 +4253,7 @@ sudo apt-get install libxcursor-dev:i386 libxxf86vm1:i386
 *pre-commit erzeugt jetzt ein Coverage-history und checkt die mit ein. Mit gnuplot wird der Verlauf der Abdeckung angezeigt.
 *Die Coverage-Geschichte funktioniert auf meinem Dell mit Ubuntu nobel und WSL2, aber nicht bei Benny und nicht auf HP (Ubuntu Folcal)
 *Die berechneten Bilder sehen alle gut aus, unterscheiden sich aber ...
+
+14.Feb.2025
+-----------
+Moved AutoSelfTest from WCS.c to a new file AutoSelfTest.c/h for crealer structure. That file is excluded from coverage. test_main.c is also excluded from coverage.
