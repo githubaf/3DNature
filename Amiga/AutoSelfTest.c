@@ -65,6 +65,19 @@ short AutoSelfTest(char **argv)
 	Make_EP_Window(1);
 	Close_EP_Window(); // lay down
 	// -------------------------------------------------------
+	//               Window: "Database Module"
+	Make_DB_Window(0); // stand up
+	Close_DB_Window();
+	Make_DB_Window(1);
+	Close_DB_Window(); // lay down
+	// -------------------------------------------------------
+	//               Window: "DataOps Module"
+	Make_DO_Window(0); // stand up
+	Close_DO_Window();
+	Make_DO_Window(0);
+	Close_DO_Window(); // lay down
+	// -------------------------------------------------------
+
 	Make_ES_Window();
 	settings.maxframes = 1; // simulate Max Frames setting
 	settings.renderopts &= ~0x20; // clear gray/color

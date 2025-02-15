@@ -5,19 +5,6 @@
 set -e  # Abort on Errors
 #set -x  # show commands
 
-## Prints a Text (Argument) and draws a frame around that text
-#function print_frame {
-#    local func_name=$1
-#    local length=${#func_name}
-#    local border=$(printf -- '-%.0s' $(seq 1 $((length + 4))))
-#    local brown='\033[0;33m'
-#    local reset='\033[0m'
-#
-#    echo -e "${brown}${border}${reset}"
-#    echo -e "${brown}# $func_name #${reset}"
-#    echo -e "${brown}${border}${reset}"
-#}
-#
 ################################################
 
 
@@ -230,7 +217,7 @@ if [ -z $WINUAEIP ]; then
 fi
 
     # wcs_test_68020 is build with coverage enabled. 
-    rm -rf test_68020/*.gcda    # delete old Coverage Files first
+    find test_68020/ -name "*.gcda" -exec rm -f {} \;    # delete old Coverage Files first
 
     if [ ! -e "test_68020/DataOps.gcno" ]; then  # check for one the gcno-Files.
 	print_error "${FUNCNAME[0]} not built at all or not built for coverage!"
@@ -457,9 +444,8 @@ function RenderTest_WinUAE_68020_Coverage {
     print_frame "${FUNCNAME[0]}"
     echo "RenderTest gcc 68020 version with coverage"
 
-    rm -rf 68020_Coverage/*.gcda    # delete old Coverage Files
-    rm -f  coverage.*\.html   # generate old coverage html-Files
-    rm -f  coverage.html      # and the starting html File
+    find 68020_Coverage/ -name "*.gcda" -exec rm -f {} \;    # delete old Coverage Files
+    find . -name "*.html" -exec rm -f {} \;                  # delete old HTML-Files
 
     RenderTest_Generic "68020_Coverage" "68020_Coverage/WCS_68020_Coverage" "Big68020Coverage" "ref"
     # Now we have *.gcda-files in directory 68020_Coverage

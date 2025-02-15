@@ -972,10 +972,10 @@ extern void Make_EP_Window(short hor_win);
 extern void Close_EP_Window(void); // needed in WCS.c for automatic testing, so no longer static, AF 13.Feb.2025
 // extern void Handle_EP_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 extern void Make_DB_Window(short hor_win);
-// extern void Close_DB_Window(void); // used locally only -> static, AF 25.7.2021
+extern void Close_DB_Window(void);
 // extern void Handle_DB_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 extern void Make_DO_Window(short hor_win);
-// extern void Close_DO_Window(void); // used locally only -> static, AF 25.7.2021
+extern void Close_DO_Window(void);
 // extern void Handle_DO_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 extern void Make_RN_Window(short hor_win);
 extern void Close_RN_Window(void);

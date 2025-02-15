@@ -25,12 +25,12 @@ extern char* LocaleExtCreditText; // in allocated iand intialized in WCS.c
 
 void Handle_RN_Window(ULONG WCS_ID);
 STATIC_FCN void Handle_DB_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
-STATIC_FCN void Close_DB_Window(void); // used locally only -> static, AF 25.7.2021
+void Close_DB_Window(void); // needed in WCS.c for automatic testing...
 void Close_EP_Window(void); // needed in WCS.c for automatic testing...
 STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void NoMod_Message(STRPTR mod); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Close_Log_Window(int StayClosed); // used locally only -> static, AF 25.7.2021
-STATIC_FCN void Close_DO_Window(void); // used locally only -> static, AF 25.7.2021
+void Close_DO_Window(void); // needed in WCS.c for automatic testing...
 STATIC_FCN void Handle_EP_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void InfoWin_Update(int flush); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Handle_DO_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
@@ -645,7 +645,7 @@ void Make_DB_Window(short hor_win)
 
 /************************************************************************/
 
-STATIC_FCN void Close_DB_Window(void) // used locally only -> static, AF 25.7.2021
+/*STATIC_FCN*/ void Close_DB_Window(void) // needed in WCS.c for automatic testing, so no longer static AF, 14.Feb.2025
 {
  if (DB_Win)
   {
@@ -916,7 +916,7 @@ void Make_DO_Window(short hor_win)
 
 /************************************************************************/
 
-STATIC_FCN void Close_DO_Window(void) // used locally only -> static, AF 25.7.2021
+/*STATIC_FCN*/ void Close_DO_Window(void) // needed in WCS.c for automatic testing, so no longer static AF, 13.Feb.2025
 {
  if (DO_Win)
   {
