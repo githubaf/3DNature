@@ -100,12 +100,11 @@ function CheckTools {
  TOOLS="git grep netstat awk sshpass ssh rsync montage eog compare m68k-amigaos-gcc i386-aros-gcc x86_64-aros-gcc ack lscpu gcovr gnuplot"
 
    for TOOL in $TOOLS; do
-      which $TOOL 1>/dev/null
-      if [ $? -ne 0 ]; then
+	   which $TOOL 1>/dev/null || {    # we did "set -e", therefore we cannot evaluate $? as the program is exited as soon a program (which) failes. Use || instead
          echo "Tool $TOOL not installed. Please install!"
          print_error "Commit refused."
          exit 1
-      fi
+ 	}
    done
    print_ok "Passed."
 }
@@ -517,8 +516,8 @@ function RenderTest_Aros {
         -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_RMNP000 \
         -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_DemoFrame001 \
         -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_WorldTest001 \
-        -geometry 752x480 -tile 2x2 WCS_${arch}-aros.unstripped.jpg
-    eog WCS_${arch}-aros.unstripped.jpg &
+        -geometry 752x480 -tile 2x2 Big_${arch}-aros.unstripped.jpg
+    eog Big_${arch}-aros.unstripped.jpg &
     echo "Done." # no print_ok as we have no check here...
 }
 

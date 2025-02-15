@@ -4257,3 +4257,13 @@ sudo apt-get install libxcursor-dev:i386 libxxf86vm1:i386
 14.Feb.2025
 -----------
 Moved AutoSelfTest from WCS.c to a new file AutoSelfTest.c/h for crealer structure. That file is excluded from coverage. test_main.c is also excluded from coverage.
+
+15.Feb.2025
+-----------
+* renamed Aros-Pictures to start with "Big" as all the others.
+* Die Bilder sind ja immer noch unterschiedlich.
+rm -f DiffImage.jpg; compare Big68020.jpg Big68020Coverage.jpg DiffImage.jpg; display DiffImage.jpg
+* Sogar Big68020.jpg Big68020Coverage.jpg unterscheiden sich! Wenigstens diese beiden sollten doch gleich sein!
+* 01 und 02 direkt nacheinander. Ganz kleine Unterschiede.
+* WinUAE neu gestartet: 03 Auch kleine Unterschiede zu den ersten beiden
+* Noch ein Lauf: wieder andere kleine Unterschiede
