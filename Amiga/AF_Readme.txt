@@ -4264,6 +4264,31 @@ Moved AutoSelfTest from WCS.c to a new file AutoSelfTest.c/h for crealer structu
 * Die Bilder sind ja immer noch unterschiedlich.
 rm -f DiffImage.jpg; compare Big68020.jpg Big68020Coverage.jpg DiffImage.jpg; display DiffImage.jpg
 * Sogar Big68020.jpg Big68020Coverage.jpg unterscheiden sich! Wenigstens diese beiden sollten doch gleich sein!
+
+ Jetzt immer nur 68020Coverage berechnen:  time ../pre-commit RenderTest_WinUAE_68020_Coverage
+-----------------------------------------------------------------------------------------------
 * 01 und 02 direkt nacheinander. Ganz kleine Unterschiede.
 * WinUAE neu gestartet: 03 Auch kleine Unterschiede zu den ersten beiden
-* Noch ein Lauf: wieder andere kleine Unterschiede
+* Noch ein Lauf 04: wieder andere kleine Unterschiede
+* Noch ein Lauf 05: mit MMU, kein JIT, mit MuForce/Guardian Angel -> Sehr grosse Unterschiede!
+* Noch ein Lauf 06: mit MMU, kein JIT, mit MuForce/Guardian Angel  -> Identisch mit 06
+* Neustart, Noch ein Lauf 07: mit MMU, kein JIT, mit MuForce/Guardian Angel  -> Identisch mit 05 und 06      Dauer: real	317m46.836s (Auf Dell)
+* Jeweils keine MuForce-Hits
+* Neustart WinUAE, Kein Jit, keine MMU, keine Muforce/Guardian-Angel Identisch mit 05, 06 und 07             Dauer: real	36m45.362s
+* Neustart WinUAE, mit Jit.  09. Das Erd-Vektorbild ist identisch, die anderen 3 sind total unterschiedlich! Dauer: real	6m41.524s
+
+-> Jit ist das Problem?
+
+Jetzt nochmal alle Varianten ohne Jit (!), also ../pre-commit. Sind die Varianten dann gleich oder wieder unterschiedlich?
+---------------------------------------------------------------------------------------------------------------------------
+* Neustart WinUAE: Kein Jit, keine MMU, keine Muforce/Guardian-Angel Identisch mit 05, 06, 07 und 08
+-> Also Jit ist das Problem!
+
+Bilder gespeichert in ohne_jit_01 Dauer: real 188m39.182s
+
+18.2.2025
+---------
+* Die Unterschiede sind immer quadratische Kaestchen. Das koennte an jpg liegen. Jetzt benutze ich png, das ist verlustfrei und sollte deshalb keine Kacheln erzeugen.
+* Adie Anzeide der Differenzen kann man ohne temp. Bild direkt mit miff:- machen:  
+compare Big68020.png Big68020Coverage.png miff:- | display miff:-
+

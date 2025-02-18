@@ -365,8 +365,8 @@ function RenderTest_Generic {
         -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$(basename $2)_RMNP000 \
         -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$(basename $2)_DemoFrame001 \
         -label $LABEL $NATURE3D_DIR/Amiga/RenderTestImages/$(basename $2)_WorldTest001 \
-        -geometry 752x480 -tile 2x2 $IMAGE_PREFIX.jpg
-    eog $IMAGE_PREFIX.jpg &
+        -geometry 752x480 -tile 2x2 $IMAGE_PREFIX.png 
+    eog $IMAGE_PREFIX.png &
 
 #    # Fehlerueberpruefung fuer jede Datei
 #    for file in "RMNP000" "CanyonSet000" "DemoFrame001" "WorldTest001"
@@ -508,7 +508,7 @@ function RenderTest_Aros {
 
     popd
 
-    rm -rf WCS_${arch}-aros.unstripped.jpg  # altes Montagebild loeschen
+    rm -rf WCS_${arch}-aros.unstripped.png  # altes Montagebild loeschen
 
     # Montage der Bilder
     montage \
@@ -516,8 +516,8 @@ function RenderTest_Aros {
         -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_RMNP000 \
         -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_DemoFrame001 \
         -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_WorldTest001 \
-        -geometry 752x480 -tile 2x2 Big_${arch}-aros.unstripped.jpg
-    eog Big_${arch}-aros.unstripped.jpg &
+        -geometry 752x480 -tile 2x2 Big_${arch}-aros.unstripped.png
+    eog Big_${arch}-aros.unstripped.png &
     echo "Done." # no print_ok as we have no check here...
 }
 
