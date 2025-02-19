@@ -27,7 +27,7 @@ void Handle_RN_Window(ULONG WCS_ID);
 STATIC_FCN void Handle_DB_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 void Close_DB_Window(void); // needed in WCS.c for automatic testing...
 void Close_EP_Window(void); // needed in WCS.c for automatic testing...
-STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
+/*STATIC_FCN*/ short Handle_APP_Windows(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void NoMod_Message(STRPTR mod); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Close_Log_Window(int StayClosed); // used locally only -> static, AF 25.7.2021
 void Close_DO_Window(void); // needed in WCS.c for automatic testing...
@@ -2240,7 +2240,7 @@ if(Log_Win)
 
 /************************************************************************/
 
-STATIC_FCN short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static, AF 25.7.2021
+/*STATIC_FCN*/ short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static, AF 25.7.2021
 {
  short ResetScrn = 0;
 

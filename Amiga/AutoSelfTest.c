@@ -77,6 +77,9 @@ short AutoSelfTest(char **argv)
 	Make_DO_Window(0);
 	Close_DO_Window(); // lay down
 	// -------------------------------------------------------
+	Handle_APP_Windows( WI_WINDOW0 | GP_ACTIVEWIN );
+	// -------------------------------------------------------
+
 
 	Make_ES_Window();
 	settings.maxframes = 1; // simulate Max Frames setting

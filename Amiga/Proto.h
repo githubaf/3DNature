@@ -1000,7 +1000,7 @@ extern short GetInputString(char *message, char *reject,
 // extern void Status_Log(STRPTR logtext, int Severity); // used locally only -> static, AF 25.7.2021
 // extern void Make_Log_Window(int Severity); // used locally only -> static, AF 26.7.2021
 // extern void Close_Log_Window(int Sticky); // used locally only -> static, AF 25.7.2021
-// extern short Handle_APP_Windows(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
+extern short Handle_APP_Windows(ULONG WCS_ID); // now also used in AutoSelfTest // used locally only -> static, AF 25.7.2021
 extern void Log(USHORT StdMesgNum, CONST_STRPTR LogTag);
 extern void DisableKeyButtons(short group);
 extern void Set_Param_Menu(short Group);
