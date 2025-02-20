@@ -20,7 +20,9 @@ plot "coverage_history.txt" using 1:3 with linespoints title "Total Coverage"
 # Wenn man das Script mit -p startet, bleibt das Fenster auf, aber das Script ist
 # zu Ende und damit ist die mouseformat.Einstellung wieder weg. 
 # (Koordinatenanzeige Zeit und Wert unten links)
-pause -1  "<Enter> zum beenden\n"
+
+#pause -1  "<Enter> zum beenden\n"  -1 == Warte auf Enter
+pause 10
 
 
 

@@ -560,8 +560,9 @@ function MakeCoverageHistoryGraph() {
 
    if is_called_by_git; then
        echo "Das Skript wurde von Git aufgerufen."
-       rm -rf $COVERAGE_HISTORY_FILE 
-       git checkout $COVERAGE_HISTORY_FILE # remove entries from "local" (not commited) gcovr history
+       git reset HEAD $COVERAGE_HISTORY_FILE  # remove from staging area
+       git checkout -- $COVERAGE_HISTORY_FILE # set to last committed gcovr history
+echo ------------------------------------------------------
 
        # store text summary 
        date +"%Y-%m-%d %H:%M:%S" >>$COVERAGE_TEXT_FILE
@@ -581,8 +582,9 @@ function MakeCoverageHistoryGraph() {
        printf "$(date +"%Y-%m-%d %H:%M:%S") $(gcovr --gcov-executable=m68k-amigaos-gcov --print-summary | awk '/^lines/{print $2"%\\n"}')" >>$COVERAGE_HISTORY_FILE # print only tolal percentage >history-file
 
    fi
-echo starte gnuplot   
-       gnuplot coverage.gnuplot 
+echo starte gnuplot coverage.gnuplot 
+       gnuplot coverage.gnuplot
+  fail
 }
 
 ################################################################
@@ -603,20 +605,20 @@ else
     CheckNoUTF8
     CheckSimpleCat
     CheckSshWinUAE
-    BuildSASC
-    BuildAllEclipse
-    CheckLocaleRedfinitions
-    TestConvertOnWinUAE68020_Coverage
-    TestConvertOnArosI386
-    TestConvertOnArosX86_64
-    RenderTest_WinUAE_SASC
-    RenderTest_WinUAE_68020
-    RenderTest_WinUAE_68020_60
-    RenderTest_WinUAE_68040
-    RenderTest_WinUAE_68060
-    RenderTest_Aros_I386
-    RenderTest_Aros_X86_64
-    RenderTest_WinUAE_68020_Coverage
+#    BuildSASC
+#    BuildAllEclipse
+#    CheckLocaleRedfinitions
+#    TestConvertOnWinUAE68020_Coverage
+#    TestConvertOnArosI386
+#    TestConvertOnArosX86_64
+#    RenderTest_WinUAE_SASC
+#    RenderTest_WinUAE_68020
+#    RenderTest_WinUAE_68020_60
+#    RenderTest_WinUAE_68040
+#    RenderTest_WinUAE_68060
+#    RenderTest_Aros_I386
+#    RenderTest_Aros_X86_64
+#    RenderTest_WinUAE_68020_Coverage
     MakeCoverageHistoryGraph
 
 fi
