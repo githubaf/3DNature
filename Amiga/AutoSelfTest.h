@@ -8,6 +8,6 @@
 #ifndef AUTOSELFTEST_H_
 #define AUTOSELFTEST_H_
 
-short AutoSelfTest(char **argv);
+void AutoSelfTest(char **argv);
 
 #endif /* AUTOSELFTEST_H_ */

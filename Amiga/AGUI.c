@@ -2246,9 +2246,10 @@ if(Log_Win)
 
   switch (WCS_ID & 0x00ff0000)
    {
-   case WI_WINDOW0:
+   case WI_WINDOW0:   // 0x00000000
     {
-    switch (WCS_ID & 0x0000ff00)
+
+     switch (WCS_ID & 0x0000ff00)
      {
      case GP_ACTIVEWIN:
       {
@@ -2258,15 +2259,17 @@ if(Log_Win)
      } /* switch gadget group */
     break;
     } /* MCPWindow */
-   case WI_WINDOW2: /* Log module and misc menus */
+    // -----------------------------------------------------------
+   case WI_WINDOW2: // 0x00020000 /* Log module and misc menus */
     {
+
     switch (WCS_ID & 0x0000ff00)
      {
-     case GP_BUTTONS1:
+     case GP_BUTTONS1:  // 0x00000100
       {
       switch (WCS_ID)
        {
-       case ID_MCP_ACTIVATE:
+       case ID_MCP_ACTIVATE:  // 0x01002800  ??? impossible!?
         {
         LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
         break;
@@ -2622,6 +2625,7 @@ if(Log_Win)
      } /* switch gadget group */
     break;
     } /* Log Module Window and misc menus */
+
    case WI_WINDOW6:
     {
     Handle_PJ_Window(WCS_ID);

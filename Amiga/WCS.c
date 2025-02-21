@@ -167,14 +167,24 @@ extern struct Catalog     *locale_catalog;
 extern void Handle_RN_Window(ULONG WCS_ID);  // called here for test directly
 void SetLoadparamsForceNogetfilenameptrn(int Val);
 
-
-
- int __stdargs main(int argc, char **argv)   // __stdargs needed because we compile with gcc and -mregparm
+int WCS_ReturnCode=0;  // return code for main
+int Get_WCS_ReturnCode(void)
 {
-    short ResetScrn = 0;
-    struct WCSApp *WCSRootApp;
-    struct WCSScreenMode *ScreenModes, *ModeSelect;
-    char *AppBaseName;
+	return WCS_ReturnCode;
+}
+void Set_WCS_ReturnCode(int RetCode)
+{
+	WCS_ReturnCode=RetCode;
+}
+
+
+
+int __stdargs main(int argc, char **argv)   // __stdargs needed because we compile with gcc and -mregparm
+{
+short ResetScrn = 0;
+struct WCSApp *WCSRootApp;
+struct WCSScreenMode *ScreenModes, *ModeSelect;
+char *AppBaseName;
 
     struct Task *me=FindTask(NULL);
     ULONG stack=(IPTR)me->tc_SPUpper-(IPTR)me->tc_SPLower;
@@ -741,7 +751,7 @@ if(P96Base) // if we could open P96 we have also to close at the end...
 
  Locale_Close();
 
- return 0;
+ return WCS_ReturnCode;
 
 
 

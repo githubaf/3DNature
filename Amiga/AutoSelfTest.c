@@ -5,7 +5,97 @@
  *      Author: afritsch
  */
 
+#define CATCOMP_NUMBERS 1
+#include "WCS_locale.h"
+
 #include "WCS.h"
+#include <unistd.h> // for sleep()
+
+#ifdef __SASC
+/* There is no sleep() in SAS/C */
+#include <dos/dos.h>
+#include <proto/dos.h>
+
+int sleep(int seconds) {
+    Delay(seconds * 50); // 1 Sekunde = 50 Ticks
+    return 0;
+}
+#endif
+
+
+struct Window* FindWindow(STRPTR WindowName)
+{
+   struct Window *Window;
+   struct Window *Result=NULL;
+
+   // Forbid multitasking to safely traverse the Window list
+   Forbid();
+
+//   // for debug
+//   printf("Open Windows: ");
+//   for (Window = WCSScrn->FirstWindow; Window->NextWindow != NULL; Window=Window->NextWindow)
+//   {
+//	  printf("<%s> ",(char*)Window->Title);
+//   }
+//   printf("\n\n");
+//   // end for debug
+
+
+   // Traverse the chain of open windows
+   for (Window = WCSScrn->FirstWindow; Window->NextWindow != NULL; Window=Window->NextWindow)
+   {
+      if (strcmp((char*)Window->Title, (char*)WindowName) == 0)
+      {
+    	  Result=Window;
+          break;
+      }
+
+      if (Window->NextWindow == NULL)
+      {
+
+         break;
+      }
+
+   }
+
+   // Permit multitasking again
+   Permit();
+   return Result;
+}
+
+int CheckWindowOpen(STRPTR WindowTitle, unsigned int Line)
+{
+	if(FindWindow(WindowTitle))
+	{
+		// OK
+		return 1;
+	}
+	else
+	{
+		printf("Window <%s> not open in Line %u!!!\n",WindowTitle, Line);
+		// NOT OPEN!!!!, False
+		return 0;
+	}
+}
+
+
+int CheckWindowClosed(STRPTR WindowTitle, unsigned int Line)
+{
+	if(FindWindow(WindowTitle))
+	{
+		printf("Window <%s> is still open in Line %u!!!\n",WindowTitle,Line);
+		// OPEN!!!, False
+		return 0;
+	}
+	else
+	{
+		// NOT OPEN!, OK
+		return 1;
+	}
+}
+
+
+
 
 void Handle_RN_Window(ULONG WCS_ID);
 void SetLoadparamsForceNogetfilenameptrn(int Val);
@@ -31,11 +121,81 @@ static void MakeNewframefileName(char *argv0)  // AF, 12.Dec.24, WCSname_image -
 }
 
 
-short AutoSelfTest(char **argv)
+void AutoSelfTest(char **argv)
 {
 	// ###############################################################################################################
 	SetUser_Message_ForcedReturn(0); // do not save Old Param-File in new Format for automatic testing
 	SetLoadparamsForceNogetfilenameptrn(TRUE); // do not open a File requester for the param file in loadparams() for automatic testing
+
+	//-------------------------------------------------------------------------------
+	// initial checks
+/*
+	Handle_APP_Windows( WI_WINDOW0 | GP_ACTIVEWIN );
+	printf("WI_WINDOW0 | GP_ACTIVEWIN done. sleeping a moment...\n"); sleep (5);
+*/
+	//	Handle_APP_Windows( WI_WINDOW2 | GP_ACTIVEWIN| GP_BUTTONS1 | ID_MCP_ACTIVATE ); impossible case in AGUI.c
+	//printf("WI_WINDOW2 | GP_ACTIVEWIN| GP_BUTTONS1 | ID_MCP_ACTIVATE done. sleeping a moment...\n"); sleep (5);
+
+	if(!CheckWindowClosed(GetString (MSG_AGUI_STATUSLOG ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+	Handle_APP_Windows( WI_WINDOW2 | GP_BUTTONS1 | ID_LOG );
+	//printf("WI_WINDOW2 | GP_BUTTONS1 | ID_LOG  done. sleeping a moment...\n"); sleep (5);
+	if(!CheckWindowOpen(GetString (MSG_AGUI_STATUSLOG ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+
+	Handle_APP_Windows( WI_WINDOW2 | GP_BUTTONS1 | ID_LOG_HIDE );
+	//printf("WI_WINDOW2 | GP_BUTTONS1 | ID_LOG_HIDE done. sleeping a moment...\n"); sleep (5);
+	if(!CheckWindowClosed(GetString (MSG_AGUI_STATUSLOG ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+
+	Handle_APP_Windows( WI_WINDOW2 | GP_BUTTONS1 | ID_LOG );
+	//printf("WI_WINDOW2 | GP_BUTTONS1 | ID_LOG  done. sleeping a moment...\n"); sleep (5);
+	if(!CheckWindowOpen(GetString (MSG_AGUI_STATUSLOG ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+
+	if(!CheckWindowClosed(GetString( MSG_AGUI_INFO ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+	Handle_APP_Windows( WI_WINDOW2 | GP_BUTTONS2 | ID_INFO );
+	//printf("WI_WINDOW2 | GP_BUTTONS2 | ID_INFO done. sleeping a moment...\n"); sleep (5);
+	if(!CheckWindowOpen(GetString( MSG_AGUI_INFO ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+
+	Handle_APP_Windows( WI_WINDOW2 | GP_BUTTONS2 | ID_INFO_FLUSH );  // flush button in Info Window
+	//printf("WI_WINDOW2 | GP_BUTTONS2 | ID_INFO_FLUSH done. sleeping a moment...\n"); sleep (5);
+	if(!CheckWindowOpen(GetString( MSG_AGUI_INFO ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+
+	Handle_APP_Windows( WI_WINDOW2 | GP_BUTTONS2 | ID_INFO_ACTIVATE );
+	//printf("WI_WINDOW2 | GP_BUTTONS2 | ID_INFO_ACTIVATE...\n"); sleep (5);
+	if(!CheckWindowOpen(GetString( MSG_AGUI_INFO ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+
+	Handle_APP_Windows( WI_WINDOW2 | GP_BUTTONS2 | ID_INFO );  // toggle?
+	//printf("WI_WINDOW2 | GP_BUTTONS2 | ID_INFO done. Info sollte geschlossen sein. sleeping a moment...\n"); sleep (5);
+	if(!CheckWindowClosed(GetString( MSG_AGUI_INFO ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+
+
+	if(!CheckWindowOpen(GetString( MSG_AGUI_VERSION ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+	Handle_APP_Windows( WI_WINDOW2 | GP_BUTTONS2 | ID_VERSION );  // toggle Version, i.e. close it it
+	//printf("WI_WINDOW2 | GP_BUTTONS2 | ID_VERSION done. Should have closed now.  sleeping a moment...\n"); sleep (5);
+	if(!CheckWindowClosed(GetString( MSG_AGUI_VERSION ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+
+	Handle_APP_Windows( WI_WINDOW2 | GP_BUTTONS2 | ID_VERSION );  // toggle Version, i.e. open it again
+	//printf("WI_WINDOW2 | GP_BUTTONS2 | ID_VERSION done. Should have opened now.  sleeping a moment...\n"); sleep (5);
+	if(!CheckWindowOpen(GetString( MSG_AGUI_VERSION ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+
+
+	if(!CheckWindowClosed(GetString( MSG_AGUI_CREDITS ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+	Handle_APP_Windows( WI_WINDOW2 | GP_BUTTONS2 | ID_CREDITS );  // toggle Credits. i.e. open it
+	//printf("WI_WINDOW2 | GP_BUTTONS2 | ID_CREDITS done. Credits sollte ausgegenagen sein. sleeping a moment...\n"); sleep (5);
+	if(!CheckWindowOpen(GetString( MSG_AGUI_CREDITS ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+
+	Handle_APP_Windows( WI_WINDOW2 | GP_BUTTONS2 | ID_CREDITS );  // toggle Credits. i.e. close it
+	//printf("WI_WINDOW2 | GP_BUTTONS2 | ID_CREDITS done. Credits sollte zugegangen sein. sleeping a moment...\n"); sleep (5);
+	if(!CheckWindowClosed(GetString( MSG_AGUI_CREDITS ),__LINE__)) {Set_WCS_ReturnCode(1); return;}
+
+// Das Modul Control Pannel ich anscheinend (noch) nicht automatisch geoeffnet worden...
+//	printf("Nach %s schauen!",GetString( MSG_AGUI_MODULECONTROLPANEL ));
+//	//printf("Module Control Panel should have been opened automatically. sleeping a moment...\n"); sleep (5);
+//	if(!CheckWindowOpen(GetString( MSG_AGUI_MODULECONTROLPANEL ),__LINE__)) {Set_WCS_ReturnCode(1); return;} // Module Control Panel should have been opened automatically
+//	sleep(20);
+//// -------------------------------------------------------------------------------------------
+
+
+
+
 	LoadProject("WCSProjects:CanyonSunset.proj", NULL, 0); // WCSProjects:Arizona/SunsetAnim "Format of Parameterfile has been changed slightly..."
 	if (0 == Database_Load(0, "WCSProjects:Arizona/SunsetAnim")) // 0 mean no error
 	//-----
@@ -77,7 +237,6 @@ short AutoSelfTest(char **argv)
 	Make_DO_Window(0);
 	Close_DO_Window(); // lay down
 	// -------------------------------------------------------
-	Handle_APP_Windows( WI_WINDOW0 | GP_ACTIVEWIN );
 	// -------------------------------------------------------
 
 
@@ -154,4 +313,5 @@ short AutoSelfTest(char **argv)
 	Handle_RN_Window(MO_RENDER); // simulate pressing Render-Button
 	// Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
 	// Vorgabe Screenmode
+
 }

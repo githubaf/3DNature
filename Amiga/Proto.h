@@ -1189,4 +1189,9 @@ long write_short_Array_BE(int filehandle, short *ShortArray, size_t size); // AF
 // AF: 02.Dec.24 prints some information about Screenmode, colors etc
 void getGfxInformation(void);
 
+// AF: 21.Feb25. Set and get current Return Code for main(). Used for setting AutoSelfTest-Result
+int Get_WCS_ReturnCode(void);
+void Set_WCS_ReturnCode(int RetCode);
+
+
 #endif
