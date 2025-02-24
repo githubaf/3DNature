@@ -11,6 +11,8 @@
 #include "WCS.h"
 #include <unistd.h> // for sleep()
 
+#include <time.h>
+
 #ifdef __SASC
 /* There is no sleep() in SAS/C */
 #include <dos/dos.h>
@@ -120,9 +122,24 @@ static void MakeNewframefileName(char *argv0)  // AF, 12.Dec.24, WCSname_image -
 	 }
 }
 
+// returns a static string HH:MM:SS containing the time elapsed since StartTime
+static char* MakeTimeString(time_t StartTime)
+{
+	static char time_string[12];  // space for HHHH:MM:SS (should be enough ;-)
+	int hours,minutes, seconds;
+	time_t elapsed_time = time(NULL) - StartTime;
+
+	hours = elapsed_time / 3600;
+	minutes = (elapsed_time % 3600) / 60;
+	seconds = elapsed_time % 60;
+	sprintf(time_string,"%02d:%02d:%02d",hours,minutes,seconds);
+	return time_string;
+}
 
 void AutoSelfTest(char **argv)
 {
+	unsigned int TotalStartTime =time(NULL);
+
 	// ###############################################################################################################
 	SetUser_Message_ForcedReturn(0); // do not save Old Param-File in new Format for automatic testing
 	SetLoadparamsForceNogetfilenameptrn(TRUE); // do not open a File requester for the param file in loadparams() for automatic testing
@@ -193,30 +210,6 @@ void AutoSelfTest(char **argv)
 //	sleep(20);
 //// -------------------------------------------------------------------------------------------
 
-
-
-
-	LoadProject("WCSProjects:CanyonSunset.proj", NULL, 0); // WCSProjects:Arizona/SunsetAnim "Format of Parameterfile has been changed slightly..."
-	if (0 == Database_Load(0, "WCSProjects:Arizona/SunsetAnim")) // 0 mean no error
-	//-----
-	//LoadProject("WCSProjects:RMNPAnim.proj", NULL, 0);   // WCSProjects:Colorado/RMNP.object/RMNPAnim.par "Format of Parameterfile has been changed slightly..."
-	//if(0==Database_Load(0,"WCSProjects:Colorado/RMNP"))   // 0 mean no error
-	//-----
-	//LoadProject("WCSProjects:ColoDemo.proj", NULL, 0);   // WCSProjects:ColoDemo/ColoDemo.object/Demo1.par "Format of Parameterfile has been changed slightly..."
-	//if(0==Database_Load(0,"WCSProjects:ColoDemo/ColoDemo"))   // 0 mean no error
-	//-----
-	// very slow!
-	//LoadProject("WCSProjects:LargeWorld.proj", NULL, 0);   // WCSProjects:LargeWorld/LargeWorld.object/WorldTest.par "This is an old V1 format file!"
-	//if(0==Database_Load(0,"WCSProjects:LargeWorld/LargeWorld"))   // 0 mean no error
-	{
-		dbaseloaded = 1;
-	}
-	if (loadparams(0x1111, -1) == 1)
-	{
-		paramsloaded = 1;
-		FixPar(0, 0x1111);
-		FixPar(1, 0x1111);
-	}
 	// -------------------------------------------------------
 	//               50 lines more Coverage in AGUI.c when active
 	//               Window: "Parameter Module"
@@ -237,81 +230,120 @@ void AutoSelfTest(char **argv)
 	Make_DO_Window(0);
 	Close_DO_Window(); // lay down
 	// -------------------------------------------------------
-	// -------------------------------------------------------
 
 
-	Make_ES_Window();
-	settings.maxframes = 1; // simulate Max Frames setting
-	settings.renderopts &= ~0x20; // clear gray/color
-	settings.renderopts |= 0x20; // gray  0x10=gray, 0x20=color
-	strncpy(framepath, "VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",
-			sizeof(framepath)); // where to store the image
-	MakeNewframefileName(argv[0]); // WCSname_image -> adds wcs_68020_ in front of CanyonSet for automatic testing
-	Handle_RN_Window(MO_RENDER); // simulate pressing Render-Button
-	//------------
-	LoadProject("WCSProjects:RMNPAnim.proj", NULL, 0); // WCSProjects:Colorado/RMNP.object/RMNPAnim.par "Format of Parameterfile has been changed slightly..."
-	if (0 == Database_Load(0, "WCSProjects:Colorado/RMNP")) // 0 mean no error
 	{
-		dbaseloaded = 1;
-	}
-	if (loadparams(0x1111, -1) == 1)
-	{
-		paramsloaded = 1;
-		FixPar(0, 0x1111);
-		FixPar(1, 0x1111);
-	}
-	Make_ES_Window();
-	settings.maxframes = 1; // simulate Max Frames setting
-	settings.renderopts &= ~0x20; // clear gray/color
-	settings.renderopts |= 0x20; // gray  0x10=gray, 0x20=color
-	strncpy(framepath, "VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",
-			sizeof(framepath)); // where to store the image
-	MakeNewframefileName(argv[0]); // WCSname_image -> adds wcs_68020_ in front of RMNP for automatic testing
-	Handle_RN_Window(MO_RENDER); // simulate pressing Render-Button
-	// Vorgabe Screenmode
-	// --------------
-	LoadProject("WCSProjects:ColoDemo.proj", NULL, 0); // WCSProjects:ColoDemo/ColoDemo.object/Demo1.par "Format of Parameterfile has been changed slightly..."
-	if (0 == Database_Load(0, "WCSProjects:ColoDemo/ColoDemo")) // 0 mean no error
-	{
-		dbaseloaded = 1;
-	}
-	if (loadparams(0x1111, -1) == 1)
-	{
-		paramsloaded = 1;
-		FixPar(0, 0x1111);
-		FixPar(1, 0x1111);
-	}
-	Make_ES_Window();
-	//settings.maxframes=1;                                              // simulate Max Frames setting
-	settings.renderopts &= ~0x20; // clear gray/color
-	settings.renderopts |= 0x20; // gray  0x10=gray, 0x20=color
-	strncpy(framepath, "VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",
-			sizeof(framepath)); // where to store the image
-	MakeNewframefileName(argv[0]); // WCSname_image -> adds wcs_68020_ in front of DemoFrame for automatic testing
-	Handle_RN_Window(MO_RENDER); // simulate pressing Render-Button
-	// Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
-	// Vorgabe Screenmode
-	/// -----------------------------
-	LoadProject("WCSProjects:WorldVector.proj", NULL, 0); // WCSProjects:WorldVector/WorldVector.object/WorldTest.par "This is an old V1 format file!"
-	if (0 == Database_Load(0, "WCSProjects:WorldVector/WorldVector")) // 0 mean no error
-	{
-		dbaseloaded = 1;
-	}
-	if (loadparams(0x1111, -1) == 1)
-	{
-		paramsloaded = 1;
-		FixPar(0, 0x1111);
-		FixPar(1, 0x1111);
-	}
-	Make_ES_Window();
-	//settings.maxframes=1;                                              // simulate Max Frames setting
-	settings.renderopts &= ~0x20; // clear gray/color
-	settings.renderopts |= 0x20; // gray  0x10=gray, 0x20=color
-	strncpy(framepath, "VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",
-			sizeof(framepath)); // where to store the image
-	MakeNewframefileName(argv[0]); // WCSname_image -> adds wcs_68020_ in front of WorldTest for automatic testing
-	Handle_RN_Window(MO_RENDER); // simulate pressing Render-Button
-	// Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
-	// Vorgabe Screenmode
+		{
+			unsigned int SingleTestStartTime=time(NULL);
 
+		LoadProject("WCSProjects:CanyonSunset.proj", NULL, 0); // WCSProjects:Arizona/SunsetAnim "Format of Parameterfile has been changed slightly..."
+		if (0 == Database_Load(0, "WCSProjects:Arizona/SunsetAnim")) // 0 mean no error
+			//-----
+			//LoadProject("WCSProjects:RMNPAnim.proj", NULL, 0);   // WCSProjects:Colorado/RMNP.object/RMNPAnim.par "Format of Parameterfile has been changed slightly..."
+			//if(0==Database_Load(0,"WCSProjects:Colorado/RMNP"))   // 0 mean no error
+			//-----
+			//LoadProject("WCSProjects:ColoDemo.proj", NULL, 0);   // WCSProjects:ColoDemo/ColoDemo.object/Demo1.par "Format of Parameterfile has been changed slightly..."
+			//if(0==Database_Load(0,"WCSProjects:ColoDemo/ColoDemo"))   // 0 mean no error
+			//-----
+			// very slow!
+			//LoadProject("WCSProjects:LargeWorld.proj", NULL, 0);   // WCSProjects:LargeWorld/LargeWorld.object/WorldTest.par "This is an old V1 format file!"
+			//if(0==Database_Load(0,"WCSProjects:LargeWorld/LargeWorld"))   // 0 mean no error
+		{
+			dbaseloaded = 1;
+		}
+		if (loadparams(0x1111, -1) == 1)
+		{
+			paramsloaded = 1;
+			FixPar(0, 0x1111);
+			FixPar(1, 0x1111);
+		}
+		// -------------------------------------------------------
+
+
+		Make_ES_Window();
+		settings.maxframes = 1; // simulate Max Frames setting
+		settings.renderopts &= ~0x20; // clear gray/color
+		settings.renderopts |= 0x20; // gray  0x10=gray, 0x20=color
+		strncpy(framepath, "VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",
+				sizeof(framepath)); // where to store the image
+		MakeNewframefileName(argv[0]); // WCSname_image -> adds wcs_68020_ in front of CanyonSet for automatic testing
+		Handle_RN_Window(MO_RENDER); // simulate pressing Render-Button
+		printf("WCSProjects:CanyonSunset.proj finished after %s\n",MakeTimeString(SingleTestStartTime));
+		}
+		//------------
+		{
+			unsigned int SingleTestStartTime=time(NULL);
+			LoadProject("WCSProjects:RMNPAnim.proj", NULL, 0); // WCSProjects:Colorado/RMNP.object/RMNPAnim.par "Format of Parameterfile has been changed slightly..."
+			if (0 == Database_Load(0, "WCSProjects:Colorado/RMNP")) // 0 mean no error
+			{
+				dbaseloaded = 1;
+			}
+			if (loadparams(0x1111, -1) == 1)
+			{
+				paramsloaded = 1;
+				FixPar(0, 0x1111);
+				FixPar(1, 0x1111);
+			}
+			Make_ES_Window();
+			settings.maxframes = 1; // simulate Max Frames setting
+			settings.renderopts &= ~0x20; // clear gray/color
+			settings.renderopts |= 0x20; // gray  0x10=gray, 0x20=color
+			strncpy(framepath, "VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",
+					sizeof(framepath)); // where to store the image
+			MakeNewframefileName(argv[0]); // WCSname_image -> adds wcs_68020_ in front of RMNP for automatic testing
+			Handle_RN_Window(MO_RENDER); // simulate pressing Render-Button
+			printf("WCSProjects:RMNPAnim.proj finished after %s\n",MakeTimeString(SingleTestStartTime));
+		}
+		// --------------
+		{
+			unsigned int SingleTestStartTime=time(NULL);
+			LoadProject("WCSProjects:ColoDemo.proj", NULL, 0);   // WCSProjects:ColoDemo/ColoDemo.object/Demo1.par "Format of Parameterfile has been changed slightly..."
+			if (0 == Database_Load(0, "WCSProjects:ColoDemo/ColoDemo")) // 0 mean no error
+			{
+				dbaseloaded = 1;
+			}
+			if (loadparams(0x1111, -1) == 1)
+			{
+				paramsloaded = 1;
+				FixPar(0, 0x1111);
+				FixPar(1, 0x1111);
+			}
+			Make_ES_Window();
+			//settings.maxframes=1;                                              // simulate Max Frames setting
+			settings.renderopts &= ~0x20; // clear gray/color
+			settings.renderopts |= 0x20; // gray  0x10=gray, 0x20=color
+			strncpy(framepath, "VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",
+					sizeof(framepath)); // where to store the image
+			MakeNewframefileName(argv[0]); // WCSname_image -> adds wcs_68020_ in front of DemoFrame for automatic testing
+			Handle_RN_Window(MO_RENDER); // simulate pressing Render-Button
+			// Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
+			printf("WCSProjects:ColoDemo.proj finished after %s\n",MakeTimeString(SingleTestStartTime));
+		}
+//		/// -----------------------------
+		{
+			unsigned int SingleTestStartTime=time(NULL);
+			LoadProject("WCSProjects:WorldVector.proj", NULL, 0); // WCSProjects:WorldVector/WorldVector.object/WorldTest.par "This is an old V1 format file!"
+			if (0 == Database_Load(0, "WCSProjects:WorldVector/WorldVector")) // 0 mean no error
+			{
+				dbaseloaded = 1;
+			}
+			if (loadparams(0x1111, -1) == 1)
+			{
+				paramsloaded = 1;
+				FixPar(0, 0x1111);
+				FixPar(1, 0x1111);
+			}
+			Make_ES_Window();
+			//settings.maxframes=1;                                              // simulate Max Frames setting
+			settings.renderopts &= ~0x20; // clear gray/color
+			settings.renderopts |= 0x20; // gray  0x10=gray, 0x20=color
+			strncpy(framepath, "VBox:SelcoGit/3DNature/Amiga/RenderTestImages/",
+					sizeof(framepath)); // where to store the image
+			MakeNewframefileName(argv[0]); // WCSname_image -> adds wcs_68020_ in front of WorldTest for automatic testing
+			Handle_RN_Window(MO_RENDER); // simulate pressing Render-Button
+			// Press button bei Parameter-Loading -> extra parameter fuer Filenamen einbauen?
+			printf("WCSProjects:WorldVector.proj finished after %s\n",MakeTimeString(SingleTestStartTime));
+		}
+		printf("All tests finished after %s\n",MakeTimeString(TotalStartTime));
+	}
 }

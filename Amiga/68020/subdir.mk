@@ -83,14 +83,11 @@ C_SRCS += \
 ../sasc_functions.c 
 
 O_SRCS += \
-../BigEndianReadWrite.o \
+../AGUI.o \
 ../BitMaps.o \
-../DEM.o \
-../DataOps.o \
-../MapSupport.o \
-../Memory.o \
-../WCS_locale.o \
-../sasc_functions.o 
+../Cloud.o \
+../CloudGUI.o \
+../WCS.o 
 
 C_DEPS += \
 ./AGUI.d \

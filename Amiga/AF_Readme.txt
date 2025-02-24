@@ -4292,3 +4292,12 @@ Bilder gespeichert in ohne_jit_01 Dauer: real 188m39.182s
 * Adie Anzeide der Differenzen kann man ohne temp. Bild direkt mit miff:- machen:  
 compare Big68020.png Big68020Coverage.png miff:- | display miff:-
 
+24.2.2025
+---------
+; Das Project-Verzeichnis vom WinUAE auf den A4000T kopieren:
+; Auf WinUAE
+cd Work: WCS
+lha a -r WCSProjects.lha WCSProjects
+
+Dann per sshfs auf den A4000T bringen
+
