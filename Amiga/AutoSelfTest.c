@@ -136,6 +136,9 @@ static char* MakeTimeString(time_t StartTime)
 	return time_string;
 }
 
+unsigned long AF_DrandCounter=0;   // for display, how often drand48 was called
+
+
 void AutoSelfTest(char **argv)
 {
 	unsigned int TotalStartTime =time(NULL);
@@ -143,6 +146,17 @@ void AutoSelfTest(char **argv)
 	// ###############################################################################################################
 	SetUser_Message_ForcedReturn(0); // do not save Old Param-File in new Format for automatic testing
 	SetLoadparamsForceNogetfilenameptrn(TRUE); // do not open a File requester for the param file in loadparams() for automatic testing
+
+	printf("sizeof(SHORT)=%d  (Amiga: 2)\n",sizeof(SHORT));
+	printf("sizeof(short)=%d  (Amiga: 2)\n",sizeof(short));
+	printf("sizeof(WORD)=%d   (Amiga: 2)\n",sizeof(WORD));
+	printf("sizeof(int)=%d    (Amiga: 4)\n",sizeof(int));
+	printf("sizeof(LONG)=%d   (Amiga: 4)\n",sizeof(LONG));
+	printf("sizeof(long)=%d   (Amiga: 4)\n",sizeof(long));
+	printf("sizeof(float)=%d  (Amiga: 4)\n",sizeof(float));
+	printf("sizeof(double)=%d (Amiga: 8)\n",sizeof(double));
+
+
 
 	//-------------------------------------------------------------------------------
 	// initial checks
@@ -346,4 +360,7 @@ void AutoSelfTest(char **argv)
 		}
 		printf("All tests finished after %s\n",MakeTimeString(TotalStartTime));
 	}
+
+	printf("ALEXANDER: drand48() called %lu times.\n",AF_DrandCounter);
+
 }

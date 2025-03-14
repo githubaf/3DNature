@@ -4301,3 +4301,17 @@ lha a -r WCSProjects.lha WCSProjects
 
 Dann per sshfs auf den A4000T bringen
 
+11.Maerz 2025
+--------------
+Untersuchung der Unterschiede zwischen i386 und x86-64: Der Himmel wird in GlobeMapSupport.c makesky() erzeugt. Der unteschiedet sich nach einem gleichen Stueck deutlich bei RNMP und WorldVector.
+
+Bei sizeof() ist nur "long" anders: 8 Byte auf x86-64, 4 Bytes bei Amiga und i386
+
+
+
+13.Maerz 2025
+-------------
+Immernoch Suche nach der Ursache fuer die Unterschiede im Himmel bei AROS i386<->x86-64
+
+meld  /home/afritsch/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/i386-aros/WCS_i386-aros.unstripped_drand48.txt  /home/afritsch/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/x86_64-aros/WCS_x86_64-aros.unstripped_drand48.txt
+

@@ -626,11 +626,15 @@ __stdargs void srand48(long int seedval)  // __stdargs  -> same prototype as in 
     AF_Drand48Seed=seedval*65536LL+0x330e;
 }
 
+extern unsigned long AF_DrandCounter;
+
 double drand48()
 {
     AF_Drand48Seed = (0x5DEECE66DL * AF_Drand48Seed + 0xBL) & ((1LL << 48) - 1);
     unsigned short seed_0= AF_Drand48Seed&0xffff;
     unsigned short seed_1=(AF_Drand48Seed&0xffff0000) >> 16;
+
+    AF_DrandCounter++;
 
     //printf("            Seed_0=%04hx, Seed_1=%04hx\n",seed_0, seed_1);
 

@@ -619,6 +619,10 @@ short makesky(short renderseg, struct Window *win)
        ReflectionMap[zip] = 0;
       } /* if */
     } /* if bytemap[zip] not full */
+   else
+   {
+	   drand48();   // ALEXANDER: 14.Mar25  Ensure always same amount of calls to drand48(). Fixed differences in sky between 68020/40/i386/x86_64
+   }
    } /* for x=0... */
   if (CheckInput_ID() == ID_BW_CLOSE)
    {

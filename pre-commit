@@ -605,7 +605,7 @@ function MakeDiffImages() {
    #
    compare Big68020.png Big68020Coverage.png DiffBig020_020Coverage.png || true; eog DiffBig020_020Coverage.png &
    compare Big68020.png Big68040.png DiffBig020-040.png || true; eog DiffBig020-040.png &
-  compare Big68020.png Big68060.png DiffBig020-060.png || true; eog DiffBig020-060.png &
+   compare Big68020.png Big68060.png DiffBig020-060.png || true; eog DiffBig020-060.png &
    compare Big68020.png Big68020_60.png DiffBig020-020_60.png || true; eog DiffBig020-020_60.png &
    compare Big68020.png Big_i386-aros.unstripped.png DiffBig020-i386-aros.png || true; eog DiffBig020-i386-aros.png &
    compare Big68020.png Big_x86_64-aros.unstripped.png DiffBig020-x86_64-aros.png || true; eog DiffBig020-x86_64-aros.png &

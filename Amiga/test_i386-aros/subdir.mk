@@ -15,11 +15,15 @@ C_SRCS += \
 ../test_main.c 
 
 O_SRCS += \
-../AGUI.o \
+../BigEndianReadWrite.o \
 ../BitMaps.o \
-../Cloud.o \
-../CloudGUI.o \
-../WCS.o 
+../DEM.o \
+../DataOps.o \
+../MapSupport.o \
+../Memory.o \
+../WCS_locale.o \
+../sasc_functions.o \
+../test_main.o 
 
 C_DEPS += \
 ./BigEndianReadWrite.d \
