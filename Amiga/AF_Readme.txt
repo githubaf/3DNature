@@ -4315,3 +4315,31 @@ Immernoch Suche nach der Ursache fuer die Unterschiede im Himmel bei AROS i386<-
 
 meld  /home/afritsch/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/i386-aros/WCS_i386-aros.unstripped_drand48.txt  /home/afritsch/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/x86_64-aros/WCS_x86_64-aros.unstripped_drand48.txt
 
+14.Maerz 2025
+-------------
+GlobMapSupport.c number of calls if  made equal else -> Big improvement. The crear Sky is now almost identical
+Fractal.c drand48()  number of calls if  made equal else -> no change, I reverstetd it.
+Dem.c drand48() seems not be a problem here, not in if/else
+
+17.Maerz 2025
+-------------
+Warum ist der Mond bei x86_64 etwas anders als bei i386?
+
+cd i386-aros/ && make all && cd .. && cd x86_64-aros/ && make all && cd .. && ../pre-commit
+
+meld /home/afritsch/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/WCS_i386-aros.unstripped_compose /home/afritsch/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/WCS_x86_64-aros.unstripped_compose
+
+# Die Unterschiede kommen durch floating-Point und sind winzig!  unsigned short = 100*double. Double ist 1.0000 (x86-64) und 0.9999999... bei i386. Damit kommt 99 oder 100 raus.
+bytemap[zip] = 100 * PixWt;  // GlobMapSupport.c ImageComposite()
+
+Mit disem compare sieht man keine Unterschiede im Mond mehr!
+compare -metric AE -fuzz 0.4% Big_i386-aros.unstripped.png Big_x86_64-aros.unstripped.png miff:- | display miff:-
+
+Solution seems to explicit rounding instead of just cutting decimals off.
+     bytemap[zip] = (USHORT)round(100 * PixWt);  // ALEXANDER
+     Wt = (long)round(PixWt * PixVal);  // ALEXANDER
+
+18.Maerz 2025
+-------------
+* added own round() function in case of SAS/C (not available there)
+* use round() in GlobMapSupportc Image_Composite() -> Moon is now idetical in all build variants

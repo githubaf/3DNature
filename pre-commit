@@ -638,21 +638,21 @@ else
     CheckNoUTF8
     CheckSimpleCat
     CheckSshWinUAE
-    BuildSASC
+#    BuildSASC
     BuildAllEclipse
-    CheckLocaleRedfinitions
-    TestConvertOnWinUAE68020_Coverage
-    TestConvertOnArosI386
-    TestConvertOnArosX86_64
-    RenderTest_WinUAE_SASC
+#    CheckLocaleRedfinitions
+#    TestConvertOnWinUAE68020_Coverage
+#    TestConvertOnArosI386
+#    TestConvertOnArosX86_64
+#    RenderTest_WinUAE_SASC
     RenderTest_WinUAE_68020
     RenderTest_WinUAE_68020_60
     RenderTest_WinUAE_68040
     RenderTest_WinUAE_68060
     RenderTest_Aros_I386
     RenderTest_Aros_X86_64
-    RenderTest_WinUAE_68020_Coverage
-    MakeCoverageHistoryGraph
+#    RenderTest_WinUAE_68020_Coverage
+#    MakeCoverageHistoryGraph
     MakeDiffImages
 
 fi

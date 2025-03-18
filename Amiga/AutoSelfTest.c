@@ -122,6 +122,28 @@ static void MakeNewframefileName(char *argv0)  // AF, 12.Dec.24, WCSname_image -
 	 }
 }
 
+FILE*composefile=NULL;
+
+static char* MakeNewcomposefileName(char *argv0)
+{
+
+	 static char temp[128];
+	 {  // simulation of basename(), sets pointer to the beginning of the file name, i.e. skips path
+		 char *progname = argv0+strlen(argv0)-1;   // pointer to the end of the progname
+		 while(progname>=argv0 && *progname !='/' &&  *progname !=':')
+		 {
+			 progname--;
+		 }
+		 progname++;
+
+		 sprintf(temp,"%s_%s",progname,"compose");
+		 printf("New composefile is now <%s>\n",temp);
+	 }
+	 return temp;
+}
+
+
+
 // returns a static string HH:MM:SS containing the time elapsed since StartTime
 static char* MakeTimeString(time_t StartTime)
 {
@@ -137,11 +159,15 @@ static char* MakeTimeString(time_t StartTime)
 }
 
 unsigned long AF_DrandCounter=0;   // for display, how often drand48 was called
+extern char *ProjectName;   // for compose debugging
 
 
 void AutoSelfTest(char **argv)
 {
 	unsigned int TotalStartTime =time(NULL);
+
+	composefile=fopen(MakeNewcomposefileName(argv[0]),"w");
+	if(!composefile) { printf("Unable to open composfile!\n");}
 
 	// ###############################################################################################################
 	SetUser_Message_ForcedReturn(0); // do not save Old Param-File in new Format for automatic testing
@@ -155,8 +181,6 @@ void AutoSelfTest(char **argv)
 	printf("sizeof(long)=%d   (Amiga: 4)\n",sizeof(long));
 	printf("sizeof(float)=%d  (Amiga: 4)\n",sizeof(float));
 	printf("sizeof(double)=%d (Amiga: 8)\n",sizeof(double));
-
-
 
 	//-------------------------------------------------------------------------------
 	// initial checks
@@ -362,5 +386,5 @@ void AutoSelfTest(char **argv)
 	}
 
 	printf("ALEXANDER: drand48() called %lu times.\n",AF_DrandCounter);
-
+if(composefile) {fclose(composefile);}
 }

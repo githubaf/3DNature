@@ -91,4 +91,10 @@ const char * stpblk(const char *p); // SAS/C function, needs to be re-implemente
 long tell(int fh); // SAS/C function, needs to be re-implemented for gcc, Get the level 1 file position
 #endif
 
+// AF: 18.Mar25. There is no round() in SAS/C, but we need it to get identical results on all platforms/CPU-Versions
+#ifdef __SASC
+int round(double);
+#endif
+
+
 #endif /* SASC_FUNCTIONS_H_ */
