@@ -177,6 +177,8 @@ void Set_WCS_ReturnCode(int RetCode)
 	WCS_ReturnCode=RetCode;
 }
 
+extern char *ProjectName="empty";
+
 int __stdargs main(int argc, char **argv)   // __stdargs needed because we compile with gcc and -mregparm
 {
 short ResetScrn = 0;

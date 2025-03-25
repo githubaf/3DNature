@@ -1670,7 +1670,7 @@ EXTERN LONG __stack
 ;
 EXTERN LONG /*long*/ *QCmap[3];  // AF, 3.Apr.23  32 Bit values!
 
-EXTERN long extrarand,maxfract,fracount[10],
+EXTERN LONG extrarand,maxfract,fracount[10],   // ALEXANDER; 21.3.205 LONG instead of long for less differences in clouds on x86_84
  //lastfacect,  static AF
      xx[3],yy[3],pts,hseed,b,randomint,
      redrand,greenrand,bluerand,CamPathPts,FocPathPts,

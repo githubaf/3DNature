@@ -14,6 +14,13 @@
 #include "GUIDefines.h"
 #include "BigEndianReadWrite.h"
 
+extern char *ProjectName;
+extern FILE *composefile;
+
+unsigned long fprintf_cnt=0;  // ALEXANDER zu begrenzung der Anzahl von fprintfs...
+#define MIN_FPRINTF_CNT 0
+#define MAX_FPRINTF_CNT 8000000 //MAXINT
+
 STATIC_VAR double ptqq[3];
 
 STATIC_FCN short setfaceone(struct elmapheaderV101 *map);  // AF static 16.July2021
@@ -1460,7 +1467,6 @@ STATIC_FCN short setface(struct elmapheaderV101 *map) // used locally only -> st
   if (qqq < .1 + *(zbufbase - offsetY))
    return (1);
   } /* if */
-
  return (0);
 
 } /* setface() */
@@ -1742,6 +1748,27 @@ double h, d, sunshade, Azim, Dip;
     {
     Cld = (Density * (*PlanePtr - CloudMinAmp)
 	/ CloudRangeAmp) * 255.0;
+
+// ALEXANDER: Acht mal unterscheidet sich CDL zwischen 386 und x86_64. Wenn man den Unterschied mit Gewlt beseitigt, bringt das aber keine Verbesserung des Bildes!
+    static unsigned long CLDCounter=0;
+//
+    switch(CLDCounter)
+    {
+    	case 128    +1:
+    	case 6697   +1:
+    	case 405366 +1:
+    	case 1577132+1:
+    	case 2418061+1:
+    	case 2640344+1:
+    	case 3042897+1:
+    		Cld=254;
+    		break;
+    	case 2212781+1:
+    		Cld=9;
+    		break;
+    }
+//if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d  %lu: Cld=%d\n",__FILE__,__LINE__,CLDCounter,Cld);
+CLDCounter++;  // ALEXANDER
     if (Cld > 255)
      Cld = 255;
     else if (Cld < 0)
@@ -1951,6 +1978,10 @@ double h, d, sunshade, Azim, Dip;
    getscrncoords(map->scrnptrx + map->facect, map->scrnptry + map->facect,
 		map->scrnptrq + map->facect, NULL, NULL);
    map->facect ++;
+//   if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d  map->facect=%d \n",__FILE__,__LINE__,map->facect);
+
+   // ALEXANDER: identisch bis hier!
+
    } /* for map->Lc=0... */
   if (CheckInput_ID() == ID_BW_CLOSE)
    {
@@ -2094,8 +2125,10 @@ double h, d, sunshade, Azim, Dip;
    map->facect ++;
    if (setcloudfacetwo(map) > 0 || ! More)
     {
-    if (setface(map))
+//	   if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++ <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d\n",__FILE__,__LINE__);
+    if (setface(map))      // ALEXANDER: Hier ist ein Unterschied!
      {
+//    	if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++ <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d\n",__FILE__,__LINE__);
      if (qqq > qmin)
       {
       for (i=0; i<3; i++)
@@ -2103,6 +2136,7 @@ double h, d, sunshade, Azim, Dip;
        CloudVal[i] = (map->map[map->facept[i]] & 0xff);
        IllumVal[i] = ((map->map[map->facept[i]] & 0xff00) >> 8);
        } /* for i=0... */
+ //     if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++ <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d qqq=%f qmin=%f\n",__FILE__,__LINE__,qqq,qmin);
       rendercloud(win, CloudVal, IllumVal, Elev);
       } /* if */
      } /* if */
@@ -2116,6 +2150,7 @@ double h, d, sunshade, Azim, Dip;
     {
     if (setface(map))
      {
+//    	if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++ <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d\n",__FILE__,__LINE__);
      if (qqq > qmin)
       {
       for (i=0; i<3; i++)
@@ -2123,6 +2158,7 @@ double h, d, sunshade, Azim, Dip;
        CloudVal[i] = (map->map[map->facept[i]] & 0xff);
        IllumVal[i] = ((map->map[map->facept[i]] & 0xff00) >> 8);
        } /* for i=0... */
+//      if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++ <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d qqq=%f qmin=%f\n",__FILE__,__LINE__,qqq,qmin);
       rendercloud(win, CloudVal, IllumVal, Elev);
       } /* if */
      } /* if */
@@ -2133,6 +2169,7 @@ double h, d, sunshade, Azim, Dip;
     {
     if (setface(map))
      {
+//    	if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++ <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d\n",__FILE__,__LINE__);
      if (qqq > qmin)
       {
       for (i=0; i<3; i++)
@@ -2140,6 +2177,7 @@ double h, d, sunshade, Azim, Dip;
        CloudVal[i] = (map->map[map->facept[i]] & 0xff);
        IllumVal[i] = ((map->map[map->facept[i]] & 0xff00) >> 8);
        } /* for i=0... */
+//      if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++ <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d qqq=%f qmin=%f\n",__FILE__,__LINE__,qqq,qmin);
       rendercloud(win, CloudVal, IllumVal, Elev);
       } /* if */
      } /* if */

@@ -4325,9 +4325,7 @@ Dem.c drand48() seems not be a problem here, not in if/else
 -------------
 Warum ist der Mond bei x86_64 etwas anders als bei i386?
 
-cd i386-aros/ && make all && cd .. && cd x86_64-aros/ && make all && cd .. && ../pre-commit
-
-meld /home/afritsch/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/WCS_i386-aros.unstripped_compose /home/afritsch/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/WCS_x86_64-aros.unstripped_compose
+cd i386-aros/ && make all && cd .. && cd x86_64-aros/ && make all && cd .. && ../pre-commit && nice -n 30 meld /home/afritsch/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/WCS_i386-aros.unstripped_compose /home/afritsch/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/WCS_x86_64-aros.unstripped_compose
 
 # Die Unterschiede kommen durch floating-Point und sind winzig!  unsigned short = 100*double. Double ist 1.0000 (x86-64) und 0.9999999... bei i386. Damit kommt 99 oder 100 raus.
 bytemap[zip] = 100 * PixWt;  // GlobMapSupport.c ImageComposite()
@@ -4343,3 +4341,28 @@ Solution seems to explicit rounding instead of just cutting decimals off.
 -------------
 * added own round() function in case of SAS/C (not available there)
 * use round() in GlobMapSupportc Image_Composite() -> Moon is now idetical in all build variants
+
+
+22.Mar 25
+---------
+Zeile 175765
+../MapTopoObject.c         1469      avgX=746 width=752 qqq=15.307111 (avgY - offsetY) * width=100016
+../MapTopoObject.c 1472 .1 + zbufbase[(avgY - offsetY) * width]=3.4e+38
+
+Hier ist FLT_MAX beim x86-64 und 10 beim 386 !?
+
+* Also Breakpoint beim i386 setzen, wenn hier die 10 gesetzt wird in Aros386 ?
+
+
+Nachschauen, wo in zbufbase, also in zbuf geschrieben wird.
+* Getestet, es liegt nicht LineSupport.c
+* Es liegt nicht a Tree.c
+
+find . -name "*.c" -exec grep -nHs "zbuf.*=" {} \; | grep -v zbufbase | grep -v LineSupport\.c | grep -v EdPar\.c | grep -v DiagnosticGUI\.c | grep -v EdSetGUI.c | grep -v EvenMoreGUI.c | grep -v MapSfc\.c | grep -v OldMapTopo\.c
+
+24.3.35
+-------
+* Ich habe in CanyonSet Refelktionen, Mond ausgeschaltet und alle DEMS entfernt. Jetzt wird also nur noch der Himmel mit Sonne und Wolken gezeichnet.
+* ANzeige der unterschiedlichen Pixel der beiden AROS Canyon-Bilder:
+
+compare -metric AE /home/afritsch/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_CanyonSet000 /home/afritsch/Desktop/SelcoGit/core-linux-x86_64-d//bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_CanyonSet000 null: 2>&1 | grep -o '^[0-9]*'

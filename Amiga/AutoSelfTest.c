@@ -273,7 +273,7 @@ void AutoSelfTest(char **argv)
 	{
 		{
 			unsigned int SingleTestStartTime=time(NULL);
-
+ProjectName="CanyonSunset.proj";
 		LoadProject("WCSProjects:CanyonSunset.proj", NULL, 0); // WCSProjects:Arizona/SunsetAnim "Format of Parameterfile has been changed slightly..."
 		if (0 == Database_Load(0, "WCSProjects:Arizona/SunsetAnim")) // 0 mean no error
 			//-----
@@ -311,6 +311,7 @@ void AutoSelfTest(char **argv)
 		//------------
 		{
 			unsigned int SingleTestStartTime=time(NULL);
+			ProjectName="RMNPAnim.proj";
 			LoadProject("WCSProjects:RMNPAnim.proj", NULL, 0); // WCSProjects:Colorado/RMNP.object/RMNPAnim.par "Format of Parameterfile has been changed slightly..."
 			if (0 == Database_Load(0, "WCSProjects:Colorado/RMNP")) // 0 mean no error
 			{
@@ -336,6 +337,7 @@ void AutoSelfTest(char **argv)
 		{
 			unsigned int SingleTestStartTime=time(NULL);
 			LoadProject("WCSProjects:ColoDemo.proj", NULL, 0);   // WCSProjects:ColoDemo/ColoDemo.object/Demo1.par "Format of Parameterfile has been changed slightly..."
+			ProjectName="ColoDemo.proj";
 			if (0 == Database_Load(0, "WCSProjects:ColoDemo/ColoDemo")) // 0 mean no error
 			{
 				dbaseloaded = 1;
@@ -360,6 +362,7 @@ void AutoSelfTest(char **argv)
 //		/// -----------------------------
 		{
 			unsigned int SingleTestStartTime=time(NULL);
+			ProjectName="WorldVector.proj";
 			LoadProject("WCSProjects:WorldVector.proj", NULL, 0); // WCSProjects:WorldVector/WorldVector.object/WorldTest.par "This is an old V1 format file!"
 			if (0 == Database_Load(0, "WCSProjects:WorldVector/WorldVector")) // 0 mean no error
 			{

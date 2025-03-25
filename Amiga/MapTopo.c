@@ -13,6 +13,15 @@
 #define MODE_REPLACE 0
 #define MODE_AVERAGE 1
 
+
+extern char *ProjectName;
+extern FILE *composefile;
+extern unsigned long fprintf_cnt;  // ALEXANDER zu begrenzung der Anzahl von fprintfs...
+#define MIN_FPRINTF_CNT 0
+#define MAX_FPRINTF_CNT 8000000 //MAXINT
+
+//#define round(x) x
+
 void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 	short MakeWater, short Visible, double *Elev)
 {
@@ -32,7 +41,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
  double ElX, ElY, LatX, LatY, LonX, LonY, QX, QY,
 	 ElStart, LatStart, LonStart, QStart, ElPt, LatPt, LonPt, QPt,
 	Temp, X5, Y5, Y4, X3, El3, EloQY;
-
+ if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
 /* initialize */
 
  Reflections = 0; /* enabled in WaterEco_Set() */
@@ -1032,6 +1041,7 @@ StartDraw:
 	 } /* else first value */
         } /* if render to bitmaps */
 
+//       if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d zip=%ld QPt=%.4g dist=%.4g\n",__FILE__,__LINE__,zip,QPt,dist);
        if (QPt < dist)
         {
         if (render & 0x10)
@@ -1054,6 +1064,8 @@ StartDraw:
          *(QCcoords[1] + zip) = facelong;
          } /* if render & 0x100 */
         *(zbuf + zip) = QPt;
+// Das hier taucht machmal oefter auf!
+//if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d zip=%ld QPt=%.2g\n",__FILE__,__LINE__,zip,QPt);
         if (Reflections && ReflectionMap)
           ReflectionMap[zip] = Reflections;
         if (ElevationMap)
@@ -1102,6 +1114,8 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
  long ct, elct;
 #endif /* ENABLE_STATISTICS */
  double ecoline;
+
+ if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
 
 /* determine number of points falling on color map */
 
@@ -1427,6 +1441,10 @@ short x, y, ScanOrder = SCAN_NORMAL, Edge2aHt, Edge2bHt, Edge1Ht;
 long scrnrow, zip;
 double m, EdgeVal, ValCX, ValCY, dCX, dCY, ValIX, ValIY, dIX, dIY;
 
+//if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
+
+if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d %s()\n",__FILE__,__LINE__,__func__);
+
  if (! CloudVal)
   return;
 
@@ -1461,7 +1479,7 @@ double m, EdgeVal, ValCX, ValCY, dCX, dCY, ValIX, ValIY, dIX, dIY;
   }
  EdgeVal = xx[0];
  for (y=0; y<=Edge1Ht; y++, EdgeVal += m)
-  Edge1[y] = EdgeVal;
+  Edge1[y] = round(EdgeVal);  // ALEXANDER round()
 
  if (Edge2aHt)
   m = ((float)xx[1] - xx[0]) / (Edge2aHt);
@@ -1469,7 +1487,7 @@ double m, EdgeVal, ValCX, ValCY, dCX, dCY, ValIX, ValIY, dIX, dIY;
   m = 0.0;
  EdgeVal = xx[0];
  for (y=0; y<=Edge2aHt; y++, EdgeVal += m)
-  Edge2[y] = EdgeVal;
+  Edge2[y] = round(EdgeVal); // ALEXANDER round()
 
  if (Edge2bHt)
   m = ((float)xx[2] - xx[1]) / (Edge2bHt);
@@ -1477,7 +1495,7 @@ double m, EdgeVal, ValCX, ValCY, dCX, dCY, ValIX, ValIY, dIX, dIY;
   m = 0.0;
  EdgeVal = xx[1];
  for (y=Edge2aHt; y<=Edge1Ht; y++, EdgeVal += m)
-  Edge2[y] = EdgeVal;
+  Edge2[y] = round(EdgeVal); // ALEXANDER round()
 
  if (Edge1[Edge2aHt] > Edge2[Edge2aHt])
   ScanOrder = SCAN_REVERSE;
@@ -1527,9 +1545,10 @@ double m, EdgeVal, ValCX, ValCY, dCX, dCY, ValIX, ValIY, dIX, dIY;
       ValIX = 0.0;
      else if (ValIX > 255.0)
       ValIX = 255.0;
-     *(bytemap + zip) = (USHORT)ValCX;
-     *(bytemap + zip) += (((USHORT)ValIX) << 8);
+     *(bytemap + zip) = (USHORT)round(ValCX);
+     *(bytemap + zip) += (((USHORT)round(ValIX)) << 8);
      *(zbuf + zip) = qqq;
+if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d zip=%ld (USHORT)ValCX=%d (((USHORT)ValIX) << 8)=%d\n",__FILE__,__LINE__,zip, (USHORT)ValCX, (((USHORT)ValIX) << 8));
      if (ElevationMap)
          ElevationMap[zip] = Elev;
      } /* if */
@@ -1563,9 +1582,12 @@ double m, EdgeVal, ValCX, ValCY, dCX, dCY, ValIX, ValIY, dIX, dIY;
       ValIX = 0.0;
      else if (ValIX > 255.0)
       ValIX = 255.0;
-     *(bytemap + zip) = (USHORT)ValCX;
-     *(bytemap + zip) += (((USHORT)ValIX) << 8);
+     *(bytemap + zip) = (USHORT)round(ValCX);           // ALEXANDER: 23.3.25 round
+     *(bytemap + zip) += (((USHORT)round(ValIX)) << 8); // ALEXANDER: 23.3.25 round
+//ALEXANDER: Ich muss die Anzahl der unt5erschiedlichen Pixel wissen! compare anschauen!
+
      *(zbuf + zip) = qqq;
+     if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d zip=%ld (USHORT)ValCX=%d (((USHORT)ValIX) << 8)=%d\n",__FILE__,__LINE__,zip, (USHORT)ValCX, (((USHORT)ValIX) << 8));
      if (ElevationMap)
       ElevationMap[zip] = Elev;
      } /* if */
@@ -1579,6 +1601,10 @@ double m, EdgeVal, ValCX, ValCY, dCX, dCY, ValIX, ValIY, dIX, dIY;
 
 double CloudCover_Set(struct CloudData *CD, double Lat, double Lon)
 {
+
+	 if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
+
+	if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d %s()\n",__FILE__,__LINE__,__func__);
 
  return(DEM_InterpPt(&CD->Map, Lat, Lon) / 510.0);
 

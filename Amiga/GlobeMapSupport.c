@@ -1247,12 +1247,6 @@ long Px, Py, Pxp1, Pyp1, x, y, DRows, DCols, DxStart, DyStart, PixVal,
 	zip, SourceZip, i, j, PtsSeen = 0, PtsExist = 0, Wt;
 struct BusyWindow *BWDE;
 
-fprintf(composefile,"ALEXANDER: %s Iw=%ld  Ih=%ld Sw=%d Sh=%d Dr=%f Dx=%f Dy= %f Distance=%f Visible=%f Luminosity=%f\n",__func__,
-		Iw, Ih,
-		Sw, Sh,
-		Dr, Dx, Dy, Distance,
-		*Visible, *Luminosity);
-
  if (Dr <= 0.0 || Sw == 0 || Sh == 0)
   {
   *Visible = *Luminosity = 0.0;
@@ -1279,45 +1273,34 @@ fprintf(composefile,"ALEXANDER: %s Iw=%ld  Ih=%ld Sw=%d Sh=%d Dr=%f Dx=%f Dy= %f
 
  BWDE = BusyWin_New(NameStr, DRows, 0, MakeID('B','W','D','E'));
 
- fprintf(composefile,"ALEXANDER: %s Dox=%f Dex=%f Doy=%f Dey=%f dX=%f dY=%f MaxWt=%f Sox=%f Soy=%f DxStart=%ld DyStart=%ld DCols=%ld DRows=%ld\n",NameStr,
-		 Dox,Dex,Doy,Dey,dX,dY,MaxWt,Sox,Soy,
-		 DxStart,DyStart,DCols,DRows);
-
- // ALEXANDER: i386 und x86-64 identisch bis hier
 
  for (y=DyStart, Coy=Soy, Cey=Soy+dY, j=0, PixWt = 0, PixVal=0.0; j<DRows;
 	j++, y++, Coy+=dY, Cey+=dY)
   {
   if (y < 0)
   {
-	  fprintf(composefile,"%d continue\n",__LINE__);
    continue;
   }
   if (y >= Ih)
   {
-	  fprintf(composefile,"%d break\n",__LINE__);
    break;
   }
   zip = y * Iw + DxStart;
-  fprintf(composefile,"%d zip=%ld\n",__LINE__,zip);
   for (x=DxStart, Cox=Sox, Cex=Sox+dX, i=0; i<DCols;
 	i++, x++, Cox+=dX, Cex+=dX, PixVal=0, PixWt=0.0, zip++)
    {
    if (x < 0)
    {
-		  fprintf(composefile,"%d continue\n",__LINE__);
     continue;
    }
    if (x >= Iw)
    {
-		  fprintf(composefile,"%d break\n",__LINE__);
     break;
    }
    for (Py=Coy, Pyp1=Coy+1; Py<Cey && Py<Sh; Py++, Pyp1++)
     {
     if (Py < 0)
     {
-  	  fprintf(composefile,"%d continue\n",__LINE__);
      continue;
     }
     wtys = Py > Coy ? 1.0: Pyp1 - Coy; 
@@ -1327,7 +1310,6 @@ fprintf(composefile,"ALEXANDER: %s Iw=%ld  Ih=%ld Sw=%d Sh=%d Dr=%f Dx=%f Dy= %f
      {
      if (Px < 0)
      {
-   	  fprintf(composefile,"%d continue\n",__LINE__);
       continue;
      }
      wtxs = Px > Cox ? 1.0: Pxp1 - Cox; 
@@ -1343,24 +1325,16 @@ fprintf(composefile,"ALEXANDER: %s Iw=%ld  Ih=%ld Sw=%d Sh=%d Dr=%f Dx=%f Dy= %f
     } /* for Py=... */
    if (PixVal && PixWt > 0.0)
     {
-		  fprintf(composefile,"%d\n",__LINE__);
     PtsExist ++;
-    if (Distance < zbuf[zip]) // ALEXANDER: Das if hat nichts mit den Fehlern auf dem Mond 386<->x86-64 zu tun.
+    if (Distance < zbuf[zip])
      {
-		  fprintf(composefile,"%d\n",__LINE__);
      PtsSeen ++;
      PixVal /= PixWt;
      *Luminosity += PixVal;
-     fprintf(composefile,"%d PixVal=%ld *Luminosity=%f\n",__LINE__,PixVal,*Luminosity);
-     fprintf(composefile,"%d PixWt=%f MaxWt=%f\n",__LINE__,PixWt,MaxWt);
      PixWt /= MaxWt;
-//     fprintf(composefile,"%d many digits PixWt=%.17g\n",__LINE__,PixWt);
      zbuf[zip] = Distance;
-     fprintf(composefile,"%d zbuf[%ld]=%f\n",__LINE__,zip,zbuf[zip]);
      bytemap[zip] = (USHORT)round(100 * PixWt);  // ALEXANDER
-     fprintf(composefile,"%d bytemap[%ld]=%u\n",__LINE__,zip,bytemap[zip]);
      Wt = (long)round(PixWt * PixVal);  // ALEXANDER
-     fprintf(composefile,"%d Wt=%ld PixWt=%f PixVal=%ld\n",__LINE__,Wt,PixWt,PixVal);
      Bitmap[0][zip] += ((Wt * (CC->Red - Bitmap[0][zip])) / 255);
      Bitmap[1][zip] += ((Wt * (CC->Grn - Bitmap[1][zip])) / 255);
      Bitmap[2][zip] += ((Wt * (CC->Blu - Bitmap[2][zip])) / 255);
@@ -1382,7 +1356,6 @@ fprintf(composefile,"ALEXANDER: %s Iw=%ld  Ih=%ld Sw=%d Sh=%d Dr=%f Dx=%f Dy= %f
  *Visible = PtsExist ? (double)PtsSeen / (double)PtsExist: 0.0;
  *Luminosity = PtsSeen ? (*Luminosity / PtsSeen) / 255.0: 0.0;
 
- fprintf(composefile,"%d Visible=%f Luminosity%f\n",__LINE__,*Visible,*Luminosity);
 
 
  if (BWDE) BusyWin_Del(BWDE);
