@@ -1467,6 +1467,7 @@ STATIC_FCN short setface(struct elmapheaderV101 *map) // used locally only -> st
   if (qqq < .1 + *(zbufbase - offsetY))
    return (1);
   } /* if */
+
  return (0);
 
 } /* setface() */
@@ -1748,27 +1749,7 @@ double h, d, sunshade, Azim, Dip;
     {
     Cld = (Density * (*PlanePtr - CloudMinAmp)
 	/ CloudRangeAmp) * 255.0;
-
-// ALEXANDER: Acht mal unterscheidet sich CDL zwischen 386 und x86_64. Wenn man den Unterschied mit Gewlt beseitigt, bringt das aber keine Verbesserung des Bildes!
-    static unsigned long CLDCounter=0;
-//
-    switch(CLDCounter)
-    {
-    	case 128    +1:
-    	case 6697   +1:
-    	case 405366 +1:
-    	case 1577132+1:
-    	case 2418061+1:
-    	case 2640344+1:
-    	case 3042897+1:
-    		Cld=254;
-    		break;
-    	case 2212781+1:
-    		Cld=9;
-    		break;
-    }
 //if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d  %lu: Cld=%d\n",__FILE__,__LINE__,CLDCounter,Cld);
-CLDCounter++;  // ALEXANDER
     if (Cld > 255)
      Cld = 255;
     else if (Cld < 0)

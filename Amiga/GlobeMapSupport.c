@@ -746,9 +746,6 @@ double A, D, Alpha, Beta, dAodX, Aprpr, Apr, Dpr, AoD, dsX, dsY, oX, oY,  /* str
 	Wx[3], Wy[3], dOffset, HalfWidth, BankAngle;
 struct BusyWindow *BWDE;
 
-printf("ALEXANDER: %d Line %d: reflections disabled\n",__FILE__,__LINE__); return 0;  // no refrections for testing at the moment!
-
-
  if (! ReflectionMap || ! ElevationMap || ! bitmap[0] || ! bitmap[1] || ! bitmap[2])
   return (0);
  
@@ -1355,8 +1352,6 @@ struct BusyWindow *BWDE;
 
  *Visible = PtsExist ? (double)PtsSeen / (double)PtsExist: 0.0;
  *Luminosity = PtsSeen ? (*Luminosity / PtsSeen) / 255.0: 0.0;
-
-
 
  if (BWDE) BusyWin_Del(BWDE);
 
