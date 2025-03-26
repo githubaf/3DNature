@@ -3,12 +3,12 @@
 # Es vergleicht die beiden Dateien mit `cmp` und findet die erste unterschiedliche Zeile.
 # Es berechnet die Zeilennummer, ab der die Ausgabe beginnen soll (100 Zeilen vor dem Unterschied).
 # Es schneidet die Dateien und speichert die relevanten Zeilen in neuen Dateien.
-# Schließlich wird `meld` aufgerufen, um die neuen Dateien zu vergleichen.
+# Schliesslich wird `meld` aufgerufen, um die neuen Dateien zu vergleichen.
 
 
 #set -x
 
-# Überprüfen, ob zwei Argumente übergeben wurden
+# Überpruefen, ob zwei Argumente uebergeben wurden
 if [ "$#" -ne 2 ]; then
 echo "Usage: $0 <datei1> <datei2>"
 exit 1
@@ -26,7 +26,7 @@ echo "Die Dateien sind identisch."
 exit 0
 fi
 
-# Berechne die Zeilennummer für den Schnitt
+# Berechne die Zeilennummer fuer den Schnitt
 line_number=$(($diff_line - 100))
 
 # Erstelle die neuen Dateien
