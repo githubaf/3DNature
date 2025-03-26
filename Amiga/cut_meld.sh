@@ -8,7 +8,7 @@
 
 #set -x
 
-# Überpruefen, ob zwei Argumente uebergeben wurden
+# Ueberpruefen, ob zwei Argumente uebergeben wurden
 if [ "$#" -ne 2 ]; then
 echo "Usage: $0 <datei1> <datei2>"
 exit 1
