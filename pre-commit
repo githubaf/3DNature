@@ -605,6 +605,15 @@ count_diff_pixels() {
 
 
 function MakeDiffImages() {
+
+   DiffImagesToisplay="DiffBig68020-BigSasC.png 
+                       DiffBig68020-Big68040.png 
+		       DiffBig68020-Big68060.png 
+		       DiffBig68020-Big68020_60.png 
+		       DiffBig68020-Big_i386-aros.unstripped.png 
+		       DiffBig_i386-aros.unstripped-Big_x86_64-aros.unstripped.png
+		      "
+
    rm -f DiffBig*.png
    # Big68020.png  Big68020_60.png  Big68040.png  Big68060.png
    #
@@ -622,8 +631,10 @@ function MakeDiffImages() {
            # Vergleiche die Bilder und speichere das Differenzbild
            compare "$image1" "$image2" "$diff_image" || true
            
-           # Zeige das Differenzbild an
-           eog "$diff_image" &
+           # Zeige ausgewaehlte Differenzbilder an
+	   if echo "$DiffImagesToisplay" | grep "$diff_image"; then
+              eog "$diff_image" &
+	   fi
            
            # Zaehle die unterschiedlichen Pixel und gib die Anzahl aus
            diff_pixels=$(count_diff_pixels "$image1" "$image2") || true
