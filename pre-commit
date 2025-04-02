@@ -598,7 +598,7 @@ echo starte gnuplot coverage.gnuplot
 
 ################################################################
 
-# Funktion zum Zählen der unterschiedlichen Pixel
+# Funktion zum Zaehlen der unterschiedlichen Pixel
 count_diff_pixels() {
     compare -metric AE "$1" "$2" null: 2>&1
 }
