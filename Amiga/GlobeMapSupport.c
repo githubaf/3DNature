@@ -556,7 +556,7 @@ short makesky(short renderseg, struct Window *win)
  redsky =   (PARC_RNDR_COLOR(3, 0) - (float)PARC_RNDR_COLOR(4, 0)) / maxskyfact;
  greensky = (PARC_RNDR_COLOR(3, 1) - (float)PARC_RNDR_COLOR(4, 1)) / maxskyfact;
  bluesky =  (PARC_RNDR_COLOR(3, 2) - (float)PARC_RNDR_COLOR(4, 2)) / maxskyfact;
- srand48(1010);
+ af_srand48(1010);
  halfsky = settings.skyalias * .5;
  if (fabs(PARC_RNDR_MOTION(8)) > .0001)
   rotatesky = 1;
@@ -579,7 +579,7 @@ short makesky(short renderseg, struct Window *win)
     flred = PARC_RNDR_COLOR(3, 0) - redsky * skyfact;
     flgreen = PARC_RNDR_COLOR(3, 1) - greensky *  skyfact;
     flblue = PARC_RNDR_COLOR(3, 2) - bluesky * skyfact;
-    Random = settings.skyalias * drand48() - halfsky;
+    Random = settings.skyalias * af_drand48() - halfsky;
     aliasred = flred + Random * flred / 255.0;
     aliasgreen = flgreen + Random * flgreen / 255.0;
     aliasblue = flblue + Random * flblue / 255.0;
@@ -623,7 +623,7 @@ short makesky(short renderseg, struct Window *win)
     } /* if bytemap[zip] not full */
    else
    {
-	   drand48();   // ALEXANDER: 14.Mar25  Ensure always same amount of calls to drand48(). Fixed differences in sky between 68020/40/i386/x86_64
+	   af_drand48();   // ALEXANDER: 14.Mar25  Ensure always same amount of calls to af_drand48(). Fixed differences in sky between 68020/40/i386/x86_64
    }
    } /* for x=0... */
   if (CheckInput_ID() == ID_BW_CLOSE)

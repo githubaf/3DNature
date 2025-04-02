@@ -4362,7 +4362,15 @@ find . -name "*.c" -exec grep -nHs "zbuf.*=" {} \; | grep -v zbufbase | grep -v 
 
 24.3.35
 -------
-* Ich habe in CanyonSet Refelktionen, Mond ausgeschaltet und alle DEMS entfernt. Jetzt wird also nur noch der Himmel mit Sonne und Wolken gezeichnet.
-* ANzeige der unterschiedlichen Pixel der beiden AROS Canyon-Bilder:
+* Ich habe in CanyonSet Refelektionen, Mond ausgeschaltet und alle DEMS entfernt. Jetzt wird also nur noch der Himmel mit Sonne und Wolken gezeichnet.
+* Im Moment Anzeige der Anzahl der unterschiedlichen Pixel der beiden AROS Canyon-Bilder:
 
 compare -metric AE /home/afritsch/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_i386-aros.unstripped_CanyonSet000 /home/afritsch/Desktop/SelcoGit/core-linux-x86_64-d//bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_x86_64-aros.unstripped_CanyonSet000 null: 2>&1 | grep -o '^[0-9]*'
+
+
+1.April 2025
+------------
+# Bauen von 68020, I386 und X86-86, aufuehren und Anzeigen der Unterchiede in meinen "_trace.txt" -Dateien
+cd i386-aros/ && make all && cd .. && cd x86_64-aros/ && make all && cd .. && cd 68020/ && make all && cd .. &&  ../pre-commit && ./cut_meld.sh /home/afritsch/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/WCS_i386-aros.unstripped_trace.txt /home/afritsch/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/WCS_x86_64-aros.unstripped_trace.txt
+
+2x round() in Fractal.c FractPoly_Divide(), bevor der Wert als Seed verwendet wird. i386 und x86-65 RMNP_Anim stimmt viel besser ueberein.

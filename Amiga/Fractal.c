@@ -65,10 +65,10 @@ void Recurse(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
    diplat = (polydiplat[b][0] + polydiplat[b][1] + polydiplat[b][2]) / 3.0;
    diplong = (polydiplon[b][0] + polydiplon[b][1] + polydiplon[b][2]) / 3.0;
    cloudcover = (polycld[b][0] + polycld[b][1] + polycld[b][2]) / 3.0;
-   treerand4 = drand48();
-   treerand3 = drand48();
-   treerand2 = drand48();
-   treerand = drand48();
+   treerand4 = af_drand48();
+   treerand3 = af_drand48();
+   treerand2 = af_drand48();
+   treerand = af_drand48();
    Random = -.2 * treerand + .1;
    Data->El[0] = polyel[0][0];
    Data->El[1] = polyel[0][1];
@@ -228,11 +228,11 @@ void FractRecurse(struct Window *win, struct elmapheaderV101 *map, short MapAsSF
    swmem(&SeedBytes[2], &SeedBytes[3], 1);
    Seed += hseed;
 
-   srand48(Seed);
-   treerand4 = drand48();
-   treerand3 = drand48();
-   treerand2 = drand48();
-   treerand = drand48();
+   af_srand48(Seed);
+   treerand4 = af_drand48();
+   treerand3 = af_drand48();
+   treerand2 = af_drand48();
+   treerand = af_drand48();
    Random = -.2 * treerand + .1;
 
 /* shading calculation */
@@ -453,14 +453,20 @@ STATIC_FCN void FractPoly_Divide(struct elmapheaderV101 *map, struct VertexIndex
     ElDif[i] = MaxDif;
 	/* dispslopefact = 1.2 for grand canyon, 1.5 for RMNP area */
 /* high 16 bits for random seed composed of latitude, low 16 of longitude */
-   Seed = (fabs((map->lolong - polylon[b][i]) / map->LonRange) * USHRT_MAX);
+   Seed = round((fabs((map->lolong - polylon[b][i]) / map->LonRange) * USHRT_MAX));  // ALEXANDER: round()
+if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%ld\n",__FILE__,__func__,__LINE__,Seed);}
    Seed <<= 16;
-   Seed += fabs((polylat[b][i] - map->lolat) / map->LatRange) * USHRT_MAX;
+   if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%d\n",__FILE__,__func__,__LINE__,Seed);}
+   Seed += round(fabs((polylat[b][i] - map->lolat) / map->LatRange) * USHRT_MAX);  // ALEXANDER round()
+   if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%d\n",__FILE__,__func__,__LINE__,Seed);}
    SeedBytes = (char *)&Seed;
+   if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%d\n",__FILE__,__func__,__LINE__,Seed);}
    swmem(&SeedBytes[0], &SeedBytes[1], 1);
+   if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%d\n",__FILE__,__func__,__LINE__,Seed);}
    swmem(&SeedBytes[2], &SeedBytes[3], 1);
+   if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%d\n",__FILE__,__func__,__LINE__,Seed);}
 
-   srand48(Seed);
+   af_srand48(Seed);
    polyel[b][i] += (GaussRand() * fractperturb[b]);
    if (ElDif[i] != 0.0)
     polyel[b][i] += (GaussRand() * ElDif[i]);
@@ -538,7 +544,7 @@ double sum = 0.0;
 
  for (i=0; i<4; i++)
   {
-  sum += drand48();
+  sum += af_drand48();
   } /* for i=0... */
 
  return (1.73205 * sum - 3.46410);
@@ -729,10 +735,10 @@ void recurse(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
    facelat = (polylat[b][0] + polylat[b][1] + polylat[b][2]) / 3.0;
    facelong = (polylon[b][0] + polylon[b][1] + polylon[b][2]) / 3.0;
    cloudcover = (polycld[b][0] + polycld[b][1] + polycld[b][2]) / 3.0;
-   treerand4 = drand48();
-   treerand3 = drand48();
-   treerand2 = drand48();
-   treerand = drand48();
+   treerand4 = af_drand48();
+   treerand3 = af_drand48();
+   treerand2 = af_drand48();
+   treerand = af_drand48();
    Random = -.2 * treerand + .1;
    Data->El[0] = polyel[0][0];
    Data->El[1] = polyel[0][1];

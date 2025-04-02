@@ -7,6 +7,8 @@
 #ifndef _WCS_H_
 #define _WCS_H_
 
+#define FPRINTPRJNAME "RMNPAnim.proj"  // debug-fprintfs fuer dieses Projekt
+
 #define DEB_MAX 100000
 #define AF_DEBUG(s)                {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s\n",            __FILE__,__func__,__LINE__,s);} }
 #define AF_DEBUG_d(s,x)            {static int i; if(i++<DEB_MAX) {printf("%s %s() Line %d: %s %d\n",         __FILE__,__func__,__LINE__,s,x);} }
@@ -53,12 +55,22 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#ifndef __SASC
+//#ifndef __SASC
    #include "sasc_functions.h"   // own implemtation of SAS/C specific functions
-#else
+//#else
    int Mkdir(const char *name); // AF:  a wrapper for mkdir()
-#endif
+//#endif
 
+
+// in sasc_functions.c
+
+#ifdef __SASC
+//   stdargs void my_srand48(const char *file, int line, LONG /*long int*/ seedval);
+//   double my_drand48(const char *file, int line);
+#else
+   __stdargs void my_srand48(const char *file, int line, LONG /*long int*/ seedval);
+   double my_drand48(const char *file, int line);
+#endif
 
 //#define O_RDONLY 0               /* ALEXANDER */
 //#define O_WRONLY 1
@@ -83,6 +95,16 @@
 #include "GUIExtras.h"
 #include "Defines.h"
 #include "GUIDefines.h"
+
+// ALEXANDER
+extern char *ProjectName;
+extern FILE *composefile;
+double my_drand48(const char *file, int line);
+#define af_drand48() my_drand48(__FILE__,__LINE__)
+__stdargs void my_srand48(const char *file, int line, LONG /*long int*/ seedval);
+#define af_srand48(seedval) my_srand48(__FILE__,__LINE__, seedval)
+
+
 
 #ifdef AMIGA_GUI
 EXTERN struct IntuitionBase *IntuitionBase

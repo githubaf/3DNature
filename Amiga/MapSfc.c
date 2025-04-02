@@ -205,7 +205,7 @@ void MapSFC(struct Window *win)
         } /* if */
       else
         {
-        if (colordif > drand48())  
+        if (colordif > af_drand48())  
           drawcol ++;
         } /* else */
 #else

@@ -2381,7 +2381,7 @@ HandleEvent:
              {
              ElCalcDif = ElCalc - LastElCalc;
              Displacement =
-		(1.0 - ((drand48() + drand48() + drand48() + drand48()) / 2.0))
+		(1.0 - ((af_drand48() + af_drand48() + af_drand48() + af_drand48()) / 2.0))
 		* MD_Win->StdDev;
              LastEl = DT->values[2] = LastEl + ElCalcDif + Displacement;
              LastElCalc = ElCalc;

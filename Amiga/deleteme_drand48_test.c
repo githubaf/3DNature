@@ -7,7 +7,7 @@
 unsigned short Drand48SeedBuffer[]={0,0,0};                /* gcc, SAS/C */
 
 /*
-void sasc_srand48(long int seedval)
+void sasc_af_srand48(long int seedval)
 {
     Drand48SeedBuffer[0]=0x330e;
     Drand48SeedBuffer[1]=((unsigned long)seedval) & 0xFFFF;
@@ -16,7 +16,7 @@ void sasc_srand48(long int seedval)
 */
 
 /*
-double sasc_drand48(void)
+double sasc_af_drand48(void)
 {
     double Random;
     Random=erand48(Drand48SeedBuffer);
@@ -26,8 +26,8 @@ double sasc_drand48(void)
 }
 */
 
-#define drand48 sasc_drand48
-#define srand48 sasc_srand48
+#define af_drand48 sasc_af_drand48
+#define af_srand48 sasc_af_srand48
 
 #endif
 
@@ -52,7 +52,7 @@ double sasc_drand48(void)
 
 static unsigned x[3] = { /*X0, X1, X2*/ 0,0,0 }, a[3] = { A0, A1, A2 }, c = C;
 
-void sasc_srand48(long seedval)
+void sasc_af_srand48(long seedval)
 {
     SEED(X0, LOW(seedval), HIGH(seedval));
 }
@@ -72,7 +72,7 @@ static void next()
    x[0] = LOW(p[0]);
 }
 
-double sasc_drand48(void)
+double sasc_af_drand48(void)
 {
    double Result;
    static double two16m = 1.0 / (1L << N);
@@ -97,34 +97,34 @@ double x;
 
    /* start with default seed */
    printf("\ndefault seed  --------\n");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.000000) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.000985) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.568917) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.767175) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.081369) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.000000) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.000985) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.568917) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.767175) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.081369) < 0.001 ?  "ok" : "wrong");
    
    /* manually set seed */
    printf("\nsrand(0) -------------\n");
-   srand48(0);
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.170828) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.017026) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.366464) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.309560) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.229357) < 0.001 ?  "ok" : "wrong");
+   af_srand48(0);
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.170828) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.017026) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.366464) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.309560) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.229357) < 0.001 ?  "ok" : "wrong");
 
    /* manually set seed */
    printf("\nsrand(11111) ---------\n");
-   srand48(11111);
+   af_srand48(11111);
 
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.655280) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.833024) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.451051) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.487438) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.655280) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.833024) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.451051) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.487438) < 0.001 ?  "ok" : "wrong");
    
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.449567) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.840612) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.781184) < 0.001 ?  "ok" : "wrong");
-   x=drand48(); printf("%f %s\n", x, fabs (x- 0.217187) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.449567) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.840612) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.781184) < 0.001 ?  "ok" : "wrong");
+   x=af_drand48(); printf("%f %s\n", x, fabs (x- 0.217187) < 0.001 ?  "ok" : "wrong");
 
    return 0;
 }

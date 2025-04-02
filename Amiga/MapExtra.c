@@ -2463,7 +2463,7 @@ STATIC_FCN void InitGauss(struct Gauss *Gauss) // used locally only -> static, A
  Gauss->Add = sqrt(3.0 * Gauss->Nrand);				/* = 3.46410 */
  Gauss->Fac = 2.0 * Gauss->Add / (Gauss->Nrand * Gauss->Arand); /* = 1.73205 */
 
- srand48(Gauss->Seed);
+ af_srand48(Gauss->Seed);
 
 } /* InitGauss() */
 
@@ -2476,7 +2476,7 @@ double sum = 0.0;
 
  for (i=0; i<Gauss->Nrand; i++)
   {
-  sum += drand48();
+  sum += af_drand48();
   } /* for i=0... */
 
  return (Gauss->Fac * sum - Gauss->Add);
@@ -2796,14 +2796,14 @@ struct lineseg ls;
 /* find start point and initial angle */
 
    BR->ScrnX = (MapWind0->Width / 2);
-   BR->ScrnX += (BR->ScrnX * (2 * drand48() - 1.0));
+   BR->ScrnX += (BR->ScrnX * (2 * af_drand48() - 1.0));
 
    BR->ScrnY = MapWind0->Height - 1 - MapWind0->BorderBottom;
    ScrnBaseX = BR->ScrnX;
    ScrnBaseY = BR->ScrnY;
    BR->N[0] = BR->N[1] = BR->N[2] = 0.0;
    BR->Ad = RandomizeDimension(TR.NodeDivg, TR.RangeVar, HalfPi / 2.0, 0.0);
-   BR->Ar = TwoPi * drand48();
+   BR->Ar = TwoPi * af_drand48();
    BR->D = RandomizeDimension(TR.BaseDiam, TR.RangeVar, 1000.0, 0.0);
    BR->A = BR->D * .5;
    BR->A = BR->A * BR->A * Pi;
@@ -2853,7 +2853,7 @@ short i, BranchAlive;
 
    AreaRem = BR->A;
 
-   Fork = (drand48() < TR->ForkTend);
+   Fork = (af_drand48() < TR->ForkTend);
 
    for (i=0; i<TR->Branches; i++)
     {
@@ -2862,9 +2862,9 @@ short i, BranchAlive;
      TB->A = RandomizeDimension(BR->A * (1.0 - TR->Attrition), TR->RangeVar,
 		AreaRem, .5 * AreaRem);
      AreaRem -= TB->A;
-     if (BranchAlive = (drand48() > TR->DieOff * .1))
+     if (BranchAlive = (af_drand48() > TR->DieOff * .1))
       {
-      TB->Ar = TwoPi * drand48();
+      TB->Ar = TwoPi * af_drand48();
       TB->Ad = RandomizeDimension(TR->NodeDivg, TR->RangeVar,
 		HalfPi, 0.0);
       } /* if */
@@ -2874,9 +2874,9 @@ short i, BranchAlive;
      TB->A = RandomizeDimension(AreaRem, TR->RangeVar,
 		AreaRem, 0.0);
      AreaRem -= TB->A;
-     if (BranchAlive = (drand48() > TR->DieOff))
+     if (BranchAlive = (af_drand48() > TR->DieOff))
       {
-      TB->Ar = TwoPi * drand48();
+      TB->Ar = TwoPi * af_drand48();
       TB->Ad = RandomizeDimension(TR->BranchAngle, TR->RangeVar,
 		HalfPi, 5.0);
       } /* if */

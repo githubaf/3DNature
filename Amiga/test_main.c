@@ -25,7 +25,10 @@ unsigned int Verbose=0;
 unsigned int Compare_SumElDifSq=0;     // The value of Compare_SumElDifSq seems to be compiler and/or operating-system-dependant... !!!??? AF, 30.6.2023
 
 
-unsigned long AF_DrandCounter=0;   // for display, how often drand48 was called
+unsigned long AF_DrandCounter=0;   // for display, how often af_drand48 was called
+char *ProjectName="";       // for fprintf-debugging, here not used, ALEXANDER
+FILE*composefile=NULL;      // for fprintf-debugging, here not used, ALEXANDER
+
 
 // the inline functions. exactly once with extern and without inline.
 #if defined  __AROS__ && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
@@ -1948,7 +1951,7 @@ __stdargs int main(int argc, char **argv)   // I compile with -mregparm. Then __
 	   printf("\nAll tests passed.\n");
 	}
 
-	printf("ALEXANDER: drand48() called %lu times.\n",AF_DrandCounter);
+	printf("ALEXANDER: af_drand48() called %lu times.\n",AF_DrandCounter);
 
 	return 0;
 }

@@ -1,6 +1,6 @@
 /*
 AF, selco, 25. Juli 2022,HGW
-drand48() behaves on SAS/C differently than on gcc/m68k-amigaos-gcc
+af_drand48() behaves on SAS/C differently than on gcc/m68k-amigaos-gcc
 Even m68k-amigaos-gcc with and without -noixemul result in different values.
 
 gcc af_drand48.c -DSASC_DRAND48_TEST -o af_drand48_linux && ./af_drand48_linux
@@ -11,7 +11,7 @@ m68k-amigaos-gcc af_drand48.c -DSASC_DRAND48_TEST -noixemul -o af_drand48_amiga 
 unsigned long long seed=0;
 
 
-void af_srand48(long int seedval)
+void af_af_srand48(long int seedval)
 {
     seed=seedval*65536LL+0x330e;
 }
@@ -129,7 +129,7 @@ int main(void)
 {
    int i;
 
-   /* initial seed, i.e. without call to srand48() */
+   /* initial seed, i.e. without call to af_srand48() */
    printf("---- initial seed ---- \n");
    for(i=0;i<8;i++)
    {  
@@ -139,7 +139,7 @@ int main(void)
    
    printf("---- srand(11111) ---- \n");
 
-   af_srand48(11111);
+   af_af_srand48(11111);
    for(i=0;i<8;i++)
    {
       double af_rnd=af_drand48();
@@ -148,7 +148,7 @@ int main(void)
 
    printf("---- srand(5282870) ---- \n");
 
-   af_srand48(5282870);
+   af_af_srand48(5282870);
    for(i=0;i<8;i++)
    {
       double af_rnd=af_drand48();

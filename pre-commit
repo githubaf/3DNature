@@ -336,8 +336,6 @@ print_ok "Passed."
 ################################################################
 ################################################################
 function RenderTest_Generic {
-set -x
-
     local LABEL=$1
     local SSH_COMMAND="$2 7462847623"  # magic param
     local BUILDDIR=$(dirname $2)
@@ -599,25 +597,39 @@ echo starte gnuplot coverage.gnuplot
 }
 
 ################################################################
+
+# Funktion zum Zählen der unterschiedlichen Pixel
+count_diff_pixels() {
+    compare -metric AE "$1" "$2" null: 2>&1
+}
+
+
 function MakeDiffImages() {
    rm -f DiffBig*.png
    # Big68020.png  Big68020_60.png  Big68040.png  Big68060.png
    #
-   compare Big68020.png Big68020Coverage.png DiffBig020_020Coverage.png || true; eog DiffBig020_020Coverage.png &
-   compare Big68020.png Big68040.png DiffBig020-040.png || true; eog DiffBig020-040.png &
-   compare Big68020.png Big68060.png DiffBig020-060.png || true; eog DiffBig020-060.png &
-   compare Big68020.png Big68020_60.png DiffBig020-020_60.png || true; eog DiffBig020-020_60.png &
-   compare Big68020.png Big_i386-aros.unstripped.png DiffBig020-i386-aros.png || true; eog DiffBig020-i386-aros.png &
-   compare Big68020.png Big_x86_64-aros.unstripped.png DiffBig020-x86_64-aros.png || true; eog DiffBig020-x86_64-aros.png &
+   #
+   local image_directory="."
+   local image_files=($(ls $image_directory/Big*.png))
 
-   compare Big68040.png Big68060.png DiffBig040-060.png || true; eog DiffBig040-060.png &
-   compare Big68040.png Big68020_60.png DiffBig040-020_60.png || true; eog DiffBig040-020_60.png &
-   compare Big68040.png Big_i386-aros.unstripped.png DiffBig040-i386-aros.png || true; eog DiffBig040-i386-aros.png &
-
-
-   compare Big_i386-aros.unstripped.png Big_x86_64-aros.unstripped.png DiffBigi386-aros.unstripped-x86_64-aros.unstripped.png || true; eog DiffBigi386-aros.unstripped-x86_64-aros.unstripped.png & 
-
-   # AROS fehlt noch
+   # Vergleiche jedes Bild mit jedem anderen Bild
+   for ((i=0; i<${#image_files[@]}; i++)); do
+       for ((j=i+1; j<${#image_files[@]}; j++)); do
+           image1="${image_files[i]}"
+           image2="${image_files[j]}"
+           diff_image="Diff$(basename ${image1%.*})-$(basename ${image2%.*}).png"
+           
+           # Vergleiche die Bilder und speichere das Differenzbild
+           compare "$image1" "$image2" "$diff_image" || true
+           
+           # Zeige das Differenzbild an
+           eog "$diff_image" &
+           
+           # Zaehle die unterschiedlichen Pixel und gib die Anzahl aus
+           diff_pixels=$(count_diff_pixels "$image1" "$image2") || true
+           echo "Number of different pixels between $(basename $image1) and $(basename $image2): $diff_pixels"
+       done
+   done
 }
 
 ################################################################
@@ -638,21 +650,21 @@ else
     CheckNoUTF8
     CheckSimpleCat
     CheckSshWinUAE
-#    BuildSASC
+    BuildSASC
     BuildAllEclipse
-#    CheckLocaleRedfinitions
-#    TestConvertOnWinUAE68020_Coverage
-#    TestConvertOnArosI386
-#    TestConvertOnArosX86_64
-#    RenderTest_WinUAE_SASC
+    CheckLocaleRedfinitions
+    TestConvertOnWinUAE68020_Coverage
+    TestConvertOnArosI386
+    TestConvertOnArosX86_64
+    RenderTest_WinUAE_SASC
     RenderTest_WinUAE_68020
     RenderTest_WinUAE_68020_60
     RenderTest_WinUAE_68040
     RenderTest_WinUAE_68060
     RenderTest_Aros_I386
     RenderTest_Aros_X86_64
-#    RenderTest_WinUAE_68020_Coverage
-#    MakeCoverageHistoryGraph
+    RenderTest_WinUAE_68020_Coverage
+    MakeCoverageHistoryGraph
     MakeDiffImages
 
 fi

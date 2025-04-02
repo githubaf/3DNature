@@ -9,6 +9,14 @@
 
 #define	MAX_EDGE	128
 
+
+// ALEXANDER
+double my_drand48(const char *file, int line);
+#define af_drand48() my_drand48(__FILE__,__LINE__)
+__stdargs void my_srand48(const char *file, int line, long int seedval);
+#define af_srand48(seedval) my_srand48(__FILE__,__LINE__, seedval)
+
+
 struct edge
   {
     int x1, y1, x2, y2;
@@ -513,10 +521,10 @@ vgl_dumb_fillpoly_convex (PIXMAP * p, int n_vert, struct vgl_coord *vert)
         {
         if((p->DitherTable = vgl_malloc(VGL_DITHERTABLE_SIZE)))
           {
-          srand48(time(NULL)); /* set top 32 bits of seed to current time */
+          af_srand48(time(NULL)); /* set top 32 bits of seed to current time */
           for(init_dtable = 0; init_dtable < VGL_DITHERTABLE_SIZE; init_dtable++)
             {
-              p->DitherTable[init_dtable] = (int)(255 * drand48());
+              p->DitherTable[init_dtable] = (int)(255 * af_drand48());
             } /* for */
           p->DTableSize = VGL_DITHERTABLE_SIZE;
           } /* if */

@@ -31,7 +31,7 @@ line_number=$(($diff_line - 100))
 
 # Erstelle die neuen Dateien
 start_line=$((line_number < 1 ? 1 : line_number))
-end_line=$(($diff_line + 2000000))
+end_line=$(($diff_line + 10000))
 
 # Schneide die Dateien und speichere sie in neuen Dateien
 sed -n "${start_line},${end_line}p" "$file1" > "neue_datei1.txt"

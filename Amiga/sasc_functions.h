@@ -5,6 +5,14 @@
  *      Author: AF
  */
 
+// ALEXANDER
+#include <exec/types.h>
+double my_drand48(const char *file, int line);
+#define af_drand48() my_drand48(__FILE__,__LINE__)
+__stdargs void my_srand48(const char *file, int line, LONG /*long int*/ seedval);
+#define af_srand48(seedval) my_srand48(__FILE__,__LINE__, seedval)
+
+
 #ifndef SASC_FUNCTIONS_H_
 #define SASC_FUNCTIONS_H_
 
@@ -95,6 +103,10 @@ long tell(int fh); // SAS/C function, needs to be re-implemented for gcc, Get th
 #ifdef __SASC
 int round(double);
 #endif
+
+
+__stdargs void my_srand48(const char *file, int line, LONG /*long int*/ seedval);
+double my_drand48(const char *file, int line);
 
 
 #endif /* SASC_FUNCTIONS_H_ */

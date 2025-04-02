@@ -910,8 +910,8 @@ STATIC_FCN void Face_Render(struct elmapheaderV101 *map, struct faces *Vertex,
 
  fracount[maxfract] ++;
 
- srand48(hseed);
- dir = 3.99 * drand48() + ROUNDING_KLUDGE;
+ af_srand48(hseed);
+ dir = 3.99 * af_drand48() + ROUNDING_KLUDGE;
 
  PtrnOffset = map->steplat * LATSCALE / (maxfract + 1);
  HalfPtrnOffset = PtrnOffset * .5;	/* this used to be .75 */
@@ -936,10 +936,10 @@ STATIC_FCN void Face_Render(struct elmapheaderV101 *map, struct faces *Vertex,
   diplat = (polydiplat[0][0] + polydiplat[0][1] + polydiplat[0][2]) / 3.0;
   diplong = (polydiplon[0][0] + polydiplon[0][1] + polydiplon[0][2]) / 3.0;
   cloudcover = (polycld[0][0] + polycld[0][1] + polycld[0][2]) / 3.0;
-  treerand4 = drand48();
-  treerand3 = drand48();
-  treerand2 = drand48();
-  treerand = drand48();
+  treerand4 = af_drand48();
+  treerand3 = af_drand48();
+  treerand2 = af_drand48();
+  treerand = af_drand48();
   Random = -.2 * treerand + .1;
   Data.El[0] = polyel[0][0];
   Data.El[1] = polyel[0][1];
@@ -1004,9 +1004,9 @@ STATIC_FCN void FractFace_Render(struct elmapheaderV101 *map,
   SeedBytes = (char *)&Seed;
   swmem(&SeedBytes[0], &SeedBytes[1], 1);
   swmem(&SeedBytes[2], &SeedBytes[3], 1);
-  srand48(Seed);
-  latface[b] += ((drand48() - .5) * OffsetLat);
-  longface[b] += ((drand48() - .5) * OffsetLon);
+  af_srand48(Seed);
+  latface[b] += ((af_drand48() - .5) * OffsetLat);
+  longface[b] += ((af_drand48() - .5) * OffsetLon);
  end test */
   polylat[0][b] = latface[b];
   polylon[0][b] = longface[b];
@@ -1034,8 +1034,8 @@ STATIC_FCN void FractFace_Render(struct elmapheaderV101 *map,
 
  fracount[maxfract] ++;
 
- srand48(hseed);
- dir = 3.99 * drand48() + ROUNDING_KLUDGE;
+ af_srand48(hseed);
+ dir = 3.99 * af_drand48() + ROUNDING_KLUDGE;
 
  PtrnOffset = map->steplat * LATSCALE / (maxfract + 1);
  HalfPtrnOffset = PtrnOffset * .5;	/* this used to be .75 */
@@ -1142,10 +1142,10 @@ STATIC_FCN void FractFace_Render(struct elmapheaderV101 *map,
   aspect = Face.aspect;
   diplat = Face.diplat;
   diplong = Face.diplong;
-  treerand4 = drand48();
-  treerand3 = drand48();
-  treerand2 = drand48();
-  treerand = drand48();
+  treerand4 = af_drand48();
+  treerand3 = af_drand48();
+  treerand2 = af_drand48();
+  treerand = af_drand48();
   Random = -.2 * treerand + .1;
 
   sunangle = VectorAngle(&PP[0], &SP);
@@ -1310,8 +1310,8 @@ STATIC_FCN void renderface(struct elmapheaderV101 *map, struct Window *win, stru
 
  fracount[maxfract] ++;
 
- srand48(hseed);
- dir = 3.99 * drand48() + ROUNDING_KLUDGE;
+ af_srand48(hseed);
+ dir = 3.99 * af_drand48() + ROUNDING_KLUDGE;
  PtrnOffset = map->steplat * LATSCALE / (maxfract + 1);	/* used to not add 1 */
  HalfPtrnOffset = PtrnOffset * .5;	/* this used to be .75 */
  PtrnOffset *= 2.0;
@@ -1328,10 +1328,10 @@ STATIC_FCN void renderface(struct elmapheaderV101 *map, struct Window *win, stru
   facelat = (polylat[0][0] + polylat[0][1] + polylat[0][2]) / 3.0;
   facelong = (polylon[0][0] + polylon[0][1] + polylon[0][2]) / 3.0;
   cloudcover = (polycld[0][0] + polycld[0][1] + polycld[0][2]) / 3.0;
-  treerand4 = drand48();
-  treerand3 = drand48();
-  treerand2 = drand48();
-  treerand = drand48();
+  treerand4 = af_drand48();
+  treerand3 = af_drand48();
+  treerand2 = af_drand48();
+  treerand = af_drand48();
   Random = -.2 * treerand + .1;
   Data.El[0] = polyel[0][0];
   Data.El[1] = polyel[0][1];

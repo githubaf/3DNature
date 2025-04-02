@@ -12,6 +12,10 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+extern char *ProjectName;
+extern FILE *composefile;
+
+
 #include "sasc_functions.h"
 
 #ifndef max
@@ -21,7 +25,7 @@
    #define min(a,b) ((a)<=(b)?(a):(b))  // SAS/C library reference 347
 #endif
 
-
+#include "WCS.h"  // fuer FPRINTPRJNAME "CanyonSunset.proj"  // ALEXANDER
 
 /***
 *
@@ -578,14 +582,14 @@ long tell(int fh)
 
 /*
  * 25.July2022, AF, selco, HGW
- * drand48() behaves differently on SAS/C compared to gcc and m68k-amigaos-gcc.
+ * af_drand48() behaves differently on SAS/C compared to gcc and m68k-amigaos-gcc.
  * We need the same random values if we want to create pixel-identical pictures.
  *(Dithering, Clouds...)
  * After a long disassembling and debugging session it turned out, that after
  * the calculation of a random value,SAS/C adds  the last two 16bit values of
  * the seed together to and store that as the last seed word.
  * So we have to do that in gcc, too. We use erand48() from gcc to provide an
- * own seed-buffer. Therefore we must provide an srand48() function as well.
+ * own seed-buffer. Therefore we must provide an af_srand48() function as well.
  *
  */
 
@@ -594,14 +598,16 @@ long tell(int fh)
 // I had problems with this one
 unsigned short Drand48SeedBuffer[3]={0,0,0x330e};
 
-void srand48(long int seedval)
+//void af_srand48(long int seedval)
+void my_srand48(const char *file, int line, LONG /*long int*/ seedval)
 {
     Drand48SeedBuffer[3]=(seedval&0xffff0000)>>16;
     Drand48SeedBuffer[2]=(seedval&0xffff);
     Drand48SeedBuffer[3]=0x330e;
 }
 
-double drand48(void)
+//double af_drand48(void)
+double my_drand48(const char *file, int line
 {
     double Random;
     Random=erand48(Drand48SeedBuffer);
@@ -612,7 +618,7 @@ double drand48(void)
 #else
 /*
 AF, selco, 25. Juli 2022,HGW
-drand48() behaves on SAS/C differently than on gcc/m68k-amigaos-gcc
+af_drand48() behaves on SAS/C differently than on gcc/m68k-amigaos-gcc
 Even m68k-amigaos-gcc with and without -noixemul result in different values.
 
 gcc af_drand48.c -DSASC_DRAND48_TEST -o af_drand48_linux && ./af_drand48_linux
@@ -621,14 +627,15 @@ m68k-amigaos-gcc af_drand48.c -DSASC_DRAND48_TEST -noixemul -o af_drand48_amiga 
 unsigned long long AF_Drand48Seed=0;
 
 
-__stdargs void srand48(long int seedval)  // __stdargs  -> same prototype as in stdlib.h
+__stdargs void my_srand48(const char *file, int line, LONG /*long int*/ seedval)  // __stdargs  -> same prototype as in stdlib.h
 {
     AF_Drand48Seed=seedval*65536LL+0x330e;
+    if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s() called from %s Line %d, %d %llu\n",__func__,file,line,seedval,AF_Drand48Seed);}
 }
 
 extern unsigned long AF_DrandCounter;
 
-double drand48()
+double my_drand48(const char *file, int line)
 {
     AF_Drand48Seed = (0x5DEECE66DL * AF_Drand48Seed + 0xBL) & ((1LL << 48) - 1);
     unsigned short seed_0= AF_Drand48Seed&0xffff;
@@ -641,6 +648,9 @@ double drand48()
     seed_0=(short)seed_0+(short)seed_1;
     AF_Drand48Seed=(AF_Drand48Seed&0xffffffff0000)+ seed_0;
     //printf("SASC-Fixed: Seed_0=%04hx, Seed_1=%04hx\n",seed_0, seed_1);
+
+    if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s() called from %s Line %d, return %f\n",__func__,file,line,(double)AF_Drand48Seed / (1LL << 48));}
+
 
     return (double)AF_Drand48Seed / (1LL << 48);
 }
@@ -1050,5 +1060,13 @@ int main(void)
 
 #endif
 
-
-
+#ifdef __SASC
+__stdargs void my_srand48(const char *file, int line, LONG /*long int*/ seedval)
+{
+	srand48(seedval);
+}
+double my_drand48(const char *file, int line)
+{
+	return drand48();
+}
+#endif

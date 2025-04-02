@@ -888,7 +888,7 @@ STATIC_FCN short SplineMap(short *map, short Xrows, short Ycols,
    else if (TempVal < P1 && TempVal < P2) TempVal = min(P1, P2);
    RandVar = elvar * fabs(P2 - P1);
    if (RandVar < flatmax) RandVar = flatmax;
-   RandVar *= (2.0 * (.5 - drand48()));
+   RandVar *= (2.0 * (.5 - af_drand48()));
    rowptr[CurPt + 1] = (short)(TempVal + RandVar);
    } /* for j=0... */
   rowptr += rowsize;
@@ -923,7 +923,7 @@ STATIC_FCN short SplineMap(short *map, short Xrows, short Ycols,
    else if (TempVal < P1 && TempVal < P2) TempVal = min(P1, P2);
    RandVar = elvar * fabs(P2 - P1);
    if (RandVar < flatmax) RandVar = flatmax;
-   RandVar *= (2.0 * (.5 - drand48()));
+   RandVar *= (2.0 * (.5 - af_drand48()));
    rowptr[CurPt + Ycols] = (short)(TempVal + RandVar);
    } /* for j=0... */
   rowptr ++;
@@ -3101,13 +3101,13 @@ FILE *fOutput;
   } /* if abort */
  Data[Poly[0][3][0]] = atoi(str);
 
- srand48(Data[Poly[0][0][0]] * Data[Poly[0][3][0]] + Rows + Cols);
+ af_srand48(Data[Poly[0][0][0]] * Data[Poly[0][3][0]] + Rows + Cols);
 
  MinEl = min(Data[Poly[0][0][0]], Data[Poly[0][3][0]]);
  RangeEl = abs(Data[Poly[0][0][0]] - Data[Poly[0][3][0]]);
 
- Data[Poly[0][1][0]] = MinEl + RangeEl * drand48();
- Data[Poly[0][2][0]] = MinEl + RangeEl * drand48();
+ Data[Poly[0][1][0]] = MinEl + RangeEl * af_drand48();
+ Data[Poly[0][2][0]] = MinEl + RangeEl * af_drand48();
 
  SubDivide(Data, 1, Cols);
 
@@ -3167,7 +3167,7 @@ void SubDivide(short *Data, long b, long Cols)
    ElMin = min(Data[Poly[d][0][0]], Data[Poly[d][1][0]]);
    ElRange =  abs(Data[Poly[d][0][0]] - Data[Poly[d][1][0]]);
 
-   NewVal[0] = ElMin + ElRange * drand48();
+   NewVal[0] = ElMin + ElRange * af_drand48();
    Data[NewPt[0]] = NewVal[0];
    }
   NewPt[1] = NewRow * Cols + Poly[d][0][2];
@@ -3176,7 +3176,7 @@ void SubDivide(short *Data, long b, long Cols)
    ElMin = min(Data[Poly[d][0][0]], Data[Poly[d][2][0]]);
    ElRange =  abs(Data[Poly[d][0][0]] - Data[Poly[d][2][0]]);
 
-   NewVal[1] = ElMin + ElRange * drand48();
+   NewVal[1] = ElMin + ElRange * af_drand48();
    Data[NewPt[1]] = NewVal[1];
    }
   NewPt[2] = NewRow * Cols + Poly[d][1][2];
@@ -3185,7 +3185,7 @@ void SubDivide(short *Data, long b, long Cols)
    ElMin = min(Data[Poly[d][1][0]], Data[Poly[d][3][0]]);
    ElRange =  abs(Data[Poly[d][1][0]] - Data[Poly[d][3][0]]);
 
-   NewVal[1] = ElMin + ElRange * drand48();
+   NewVal[1] = ElMin + ElRange * af_drand48();
    Data[NewPt[2]] = NewVal[1];
    }
   NewPt[3] = Poly[d][2][1] * Cols + NewCol;
@@ -3194,7 +3194,7 @@ void SubDivide(short *Data, long b, long Cols)
    ElMin = min(Data[Poly[d][2][0]], Data[Poly[d][3][0]]);
    ElRange =  abs(Data[Poly[d][2][0]] - Data[Poly[d][3][0]]);
 
-   NewVal[0] = ElMin + ElRange * drand48();
+   NewVal[0] = ElMin + ElRange * af_drand48();
    Data[NewPt[3]] = NewVal[0];
    }
 
@@ -3208,7 +3208,7 @@ void SubDivide(short *Data, long b, long Cols)
   if (ElMin + ElRange > 32767)
    ElRange = 32767 - ElMin;
 
-  NewVal[4] = ElMin + ElRange * drand48();
+  NewVal[4] = ElMin + ElRange * af_drand48();
   Data[NewPt[4]] = NewVal[4];
 
   for (ct=0; ct<4; ct++)

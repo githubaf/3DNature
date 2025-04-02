@@ -41,7 +41,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
  double ElX, ElY, LatX, LatY, LonX, LonY, QX, QY,
 	 ElStart, LatStart, LonStart, QStart, ElPt, LatPt, LonPt, QPt,
 	Temp, X5, Y5, Y4, X3, El3, EloQY;
- if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
+ //if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
 /* initialize */
 
  Reflections = 0; /* enabled in WaterEco_Set() */
@@ -1115,7 +1115,7 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
 #endif /* ENABLE_STATISTICS */
  double ecoline;
 
- if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
+ //if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
 
 /* determine number of points falling on color map */
 
@@ -1443,7 +1443,7 @@ double m, EdgeVal, ValCX, ValCY, dCX, dCY, ValIX, ValIY, dIX, dIY;
 
 //if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
 
-if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d %s()\n",__FILE__,__LINE__,__func__);
+//if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d %s()\n",__FILE__,__LINE__,__func__);
 
  if (! CloudVal)
   return;
@@ -1548,7 +1548,7 @@ if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && f
      *(bytemap + zip) = (USHORT)round(ValCX);
      *(bytemap + zip) += (((USHORT)round(ValIX)) << 8);
      *(zbuf + zip) = qqq;
-if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d zip=%ld (USHORT)ValCX=%d (((USHORT)ValIX) << 8)=%d\n",__FILE__,__LINE__,zip, (USHORT)ValCX, (((USHORT)ValIX) << 8));
+//if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d zip=%ld (USHORT)ValCX=%d (((USHORT)ValIX) << 8)=%d\n",__FILE__,__LINE__,zip, (USHORT)ValCX, (((USHORT)ValIX) << 8));
      if (ElevationMap)
          ElevationMap[zip] = Elev;
      } /* if */
@@ -1587,7 +1587,7 @@ if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && f
 //ALEXANDER: Ich muss die Anzahl der unt5erschiedlichen Pixel wissen! compare anschauen!
 
      *(zbuf + zip) = qqq;
-     if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d zip=%ld (USHORT)ValCX=%d (((USHORT)ValIX) << 8)=%d\n",__FILE__,__LINE__,zip, (USHORT)ValCX, (((USHORT)ValIX) << 8));
+//     if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d zip=%ld (USHORT)ValCX=%d (((USHORT)ValIX) << 8)=%d\n",__FILE__,__LINE__,zip, (USHORT)ValCX, (((USHORT)ValIX) << 8));
      if (ElevationMap)
       ElevationMap[zip] = Elev;
      } /* if */
@@ -1602,9 +1602,9 @@ if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && f
 double CloudCover_Set(struct CloudData *CD, double Lat, double Lon)
 {
 
-	 if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
+//	 if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
 
-	if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d %s()\n",__FILE__,__LINE__,__func__);
+//	if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d %s()\n",__FILE__,__LINE__,__func__);
 
  return(DEM_InterpPt(&CD->Map, Lat, Lon) / 510.0);
 

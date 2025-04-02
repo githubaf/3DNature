@@ -545,7 +545,7 @@ void globemap(void)
   } /* if deformation map */
  if ((NoiseMap = (UBYTE *)get_Memory(65536, MEMF_ANY)))
   {
-  srand48(11111);
+  af_srand48(11111);
   for (ct=0; ct<65536; ct++)
   {
 #ifdef __GNUC__  /* AF: we need to rebuild the SAS/C behaviour here */

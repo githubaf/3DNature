@@ -2248,7 +2248,7 @@ if((This = (double *)get_Memory(sizeof(double) * size, MEMF_ANY)))
 	{
 	for(randloop = 0; randloop < size; randloop++)
 		{
-		This[randloop] = drand48();
+		This[randloop] = af_drand48();
 		} /* for */
 	return(This);
 	} /* if */

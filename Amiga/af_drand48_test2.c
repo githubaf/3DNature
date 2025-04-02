@@ -1,5 +1,5 @@
 /*
-https://github.com/UW-Hydro/DHSVM-RBM/blob/master/DHSVM3.1.2/sourcecode/drand48.c
+https://github.com/UW-Hydro/DHSVM-RBM/blob/master/DHSVM3.1.2/sourcecode/af_drand48.c
 
 gcc af_drand48_test2.c  -DDRIVER -o af_drand48_test2_linux
 m68k-amigaos-gcc af_drand48_test2.c  -DDRIVER -noixemul -o af_drand48_test2_amiga -lm
@@ -7,10 +7,10 @@ sc af_drand48_test2.c DEFINE=DRIVER LINK MATH=STANDARD TO af_drand48_test2_sasc
 
 */
 
-/*	@(#)drand48.c	2.2	*/
+/*	@(#)af_drand48.c	2.2	*/
 /*LINTLIBRARY*/
 /*
- *	drand48, etc. pseudo-random number generator
+ *	af_drand48, etc. pseudo-random number generator
  *	This implementation assumes unsigned short integers of at least
  *	16 bits, long integers of at least 32 bits, and ignores
  *	overflows on adding or multiplying two unsigned integers.
@@ -54,7 +54,7 @@ static void next();
 
 #if HAVEFP
 double
-drand48()
+af_drand48()
 {
 #if pdp11
 	static double two16m; /* old pdp11 cc can't compile an expression */
@@ -67,7 +67,7 @@ drand48()
 	return (two16m * (two16m * (two16m * x[0] + x[1]) + x[2]));
 }
 
-NEST(double, erand48, drand48);
+NEST(double, erand48, af_drand48);
 
 #else
 
@@ -144,7 +144,7 @@ next()
 }
 
 void
-srand48(seedval)
+af_srand48(seedval)
 long seedval;
 {
 	SEED(X0, LOW(seedval), HIGH(seedval));
@@ -184,14 +184,14 @@ NEST(long, jrand48, mrand48);
 int main(void)
 {
 	int i;
-        srand48(11111);
+        af_srand48(11111);
 
-//		printf("%4d ", (int)(4096 * drand48()));
+//		printf("%4d ", (int)(4096 * af_drand48()));
 //		printf("%.4X%.4X%.4X\n", x[2], x[1], x[0]);
-        printf("%f (soll: 0.655280)\n",drand48());
-        printf("%f (soll: 0.454550)\n",drand48());
-        printf("%f (soll: 0.965017)\n",drand48());
-        printf("%f (soll: 0.272109)\n",drand48());
+        printf("%f (soll: 0.655280)\n",af_drand48());
+        printf("%f (soll: 0.454550)\n",af_drand48());
+        printf("%f (soll: 0.965017)\n",af_drand48());
+        printf("%f (soll: 0.272109)\n",af_drand48());
 
 {
 unsigned short seed[3];
