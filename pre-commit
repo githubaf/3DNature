@@ -148,7 +148,7 @@ local success=false
 # $(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;exit(0);}}') # shows line starting with an IP Address and Gataway != 0.0.0.0 #(works on my Dell)
 # 0.0.0.0 works for BF
 # af-hp works for AF HP
-IP_ADDRESSES=( "$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;exit(0);}}')"   "af-hp"   "0.0.0.0")
+IP_ADDRESSES=( "$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;exit(0);}}')"   "af-hp"   "0.0.0.0"  )
 
 if [ -n "$WINUAEIP" ]; then
     # Wenn die Environment-Variable WINUAEIP in der shell gesetzt ist, nur diese IP-Adresse verwenden
@@ -313,7 +313,7 @@ echo "; run test tests"                                 >> $AROS_CORE_LINUX_X86_
 echo "stack 100000"                                     >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
 echo "cd VBox:SelcoGit/3DNature/Amiga"                  >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
 # all stuff written to Debug: goes to the Linux console (stderr, i.e. use 2>&1)
-echo "test_x86_64-aros/WCS_test_x86_64-aros.unstripped > Debug:"   >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
+echo "test_x86_64-aros/WCS_test_x86_64-aros > Debug:"   >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
 echo ";-------------------"                             >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
 echo ";exit AROS when done"                             >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
 echo "shutdown"                                         >> $AROS_CORE_LINUX_X86_64/bin/linux-x86_64/AROS/S/user-startup
@@ -507,7 +507,7 @@ function RenderTest_Aros {
     echo "; run test tests"                                 >> $AROS_DIR/AROS/S/user-startup
     echo "stack 100000"                                     >> $AROS_DIR/AROS/S/user-startup
     echo "cd VBox:SelcoGit/3DNature/Amiga"                  >> $AROS_DIR/AROS/S/user-startup
-    echo "$arch-aros/WCS_${arch}-aros.unstripped 7462847623 > Debug:" >> $AROS_DIR/AROS/S/user-startup
+    echo "$arch-aros/WCS_${arch}-aros 7462847623 > Debug:"  >> $AROS_DIR/AROS/S/user-startup
     echo ";-------------------"                             >> $AROS_DIR/AROS/S/user-startup
     echo ";exit AROS when done"                             >> $AROS_DIR/AROS/S/user-startup
     echo "shutdown"                                         >> $AROS_DIR/AROS/S/user-startup
@@ -519,16 +519,16 @@ function RenderTest_Aros {
 
     popd
 
-    rm -rf WCS_${arch}-aros.unstripped.png  # altes Montagebild loeschen
+    rm -rf WCS_${arch}-aros.png  # altes Montagebild loeschen
 
     # Montage der Bilder
     montage \
-        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_CanyonSet000 \
-        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_RMNP000 \
-        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_DemoFrame001 \
-        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros.unstripped_WorldTest001 \
-        -geometry 752x480 -tile 2x2 Big_${arch}-aros.unstripped.png
-    eog Big_${arch}-aros.unstripped.png &
+        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros_CanyonSet000 \
+        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros_RMNP000 \
+        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros_DemoFrame001 \
+        -label $LABEL $AROS_DIR/AROS/VBox/SelcoGit/3DNature/Amiga/RenderTestImages/WCS_${arch}-aros_WorldTest001 \
+        -geometry 752x480 -tile 2x2 Big_${arch}-aros.png
+    eog Big_${arch}-aros.png &
     echo "Done." # no print_ok as we have no check here...
 }
 
@@ -603,15 +603,71 @@ count_diff_pixels() {
     compare -metric AE "$1" "$2" null: 2>&1
 }
 
+# Funktion zum Test, ob sich die Anzahl unterschiedlicher Pixel erhoeht hat
+function ChangedDiffPixelCount() {
+   local diff_image_name=$1
+   local diff_image_pixelcount=$2
+
+   RED='\033[0;31m'
+   GREEN='\033[0;32m'
+   YELLOW='\033[0;33m'
+   NC='\033[0m' # Keine Farbe
+
+PIXEL_DIFF_GROWN="ALEXANDER"
+   # Reference Values for different pixels
+   local DiffBig68020_Big68020Coverage_cnt=8857  
+   local DiffBig68020_Big68020_60_cnt=508335
+   local DiffBig68020_Big68040_cnt=506940
+   local DiffBig68020_Big68060_cnt=837
+   local DiffBig68020_BigSasC_cnt=145953
+   local DiffBig68020_Big_i386_aros_cnt=138759
+   local DiffBig68020_Big_x86_64_aros_cnt=146891
+   local DiffBig68020Coverage_Big68020_60_cnt=509346
+   local DiffBig68020Coverage_Big68040_cnt=509177
+   local DiffBig68020Coverage_Big68060_cnt=9330
+   local DiffBig68020Coverage_BigSasC_cnt=150225
+   local DiffBig68020Coverage_Big_i386_aros_cnt=142634
+   local DiffBig68020Coverage_Big_x86_64_aros_cnt=150543
+   local DiffBig68020_60_Big68040_cnt=4959
+   local DiffBig68020_60_Big68060_cnt=508461
+   local DiffBig68020_60_BigSasC_cnt=585652
+   local DiffBig68020_60_Big_i386_aros_cnt=586139
+   local DiffBig68020_60_Big_x86_64_aros_cnt=585958
+   local DiffBig68040_Big68060_cnt=507010
+   local DiffBig68040_BigSasC_cnt=585195
+   local DiffBig68040_Big_i386_aros_cnt=586021
+   local DiffBig68040_Big_x86_64_aros_cnt=585830
+   local DiffBig68060_BigSasC_cnt=145794
+   local DiffBig68060_Big_i386_aros_cnt=138686
+   local DiffBig68060_Big_x86_64_aros_cnt=146822
+   local DiffBigSasC_Big_i386_aros_cnt=12779
+   local DiffBigSasC_Big_x86_64_aros_cnt=4308
+   local DiffBig_i386_aros_Big_x86_64_aros_cnt=14920
+
+   # make Reference variable name from parameter diff_image_name
+
+   diff_image_cnt_name=$(echo "$diff_image_name"     | sed 's/\.png/_cnt/')  # replace     ".png" by "_cnt"
+   diff_image_cnt_name=$(echo "$diff_image_cnt_name" | sed 's/-/_/g')        # replace all "-"    by "_"
+
+
+   # "${!diff_image_cnt_name}" is indirect reference to for instance $DiffBig68020Coverage-BigSasC.cnt
+   # i.e. we made a variable name from a string
+   if [ "$diff_image_pixelcount" -gt "${!diff_image_cnt_name}" ]; then # "${!diff_image_cnt_name}" is indirect reference
+      printf "${RED}new:old %6d > %d worse!${NC}\n" "$diff_image_pixelcount" "${!diff_image_cnt_name}"
+   elif [ "$diff_image_pixelcount" -lt "${!diff_image_cnt_name}" ]; then
+       printf "${GREEN}new:old %6d < %d improved!${NC}\n" "$diff_image_pixelcount" "${!diff_image_cnt_name}"
+   else  # equal
+      printf "        %6d not changed.\n" "$diff_image_pixelcount"
+   fi
+}
 
 function MakeDiffImages() {
-
    DiffImagesToisplay="DiffBig68020-BigSasC.png 
                        DiffBig68020-Big68040.png 
 		       DiffBig68020-Big68060.png 
 		       DiffBig68020-Big68020_60.png 
-		       DiffBig68020-Big_i386-aros.unstripped.png 
-		       DiffBig_i386-aros.unstripped-Big_x86_64-aros.unstripped.png
+		       DiffBig68020-Big_i386-aros.png 
+		       DiffBig_i386-aros-Big_x86_64-aros.png
 		      "
 
    rm -f DiffBig*.png
@@ -632,17 +688,29 @@ function MakeDiffImages() {
            compare "$image1" "$image2" "$diff_image" || true
            
            # Zeige ausgewaehlte Differenzbilder an
-	   if echo "$DiffImagesToisplay" | grep "$diff_image"; then
+	   if echo "$DiffImagesToisplay" | grep "$diff_image" >/dev/null; then
               eog "$diff_image" &
 	   fi
            
            # Zaehle die unterschiedlichen Pixel und gib die Anzahl aus
-           diff_pixels=$(count_diff_pixels "$image1" "$image2") || true
-           echo "Number of different pixels between $(basename $image1) and $(basename $image2): $diff_pixels"
+           diff_image_pixelcount=$(count_diff_pixels "$image1" "$image2") || true
+	   ChangedDiffPixelCountText=$(ChangedDiffPixelCount $diff_image $diff_image_pixelcount)
+
+	   Images="$(basename $image1) and $(basename $image2)"
+	   printf "Differences between %-50s: %s\n" "$Images" "$ChangedDiffPixelCountText"
+
+           if echo "$ChangedDiffPixelCountText" | grep "worse" >/dev/null; then
+              PIXEL_DIFF_GROWN="YES"
+	   fi
+
        done
    done
-}
 
+   if [ "$PIXEL_DIFF_GROWN" = "YES" ]; then 
+	   echo "Pixel differences have grown! Aborted...  (ALEXANDER: pass anyway)"
+#      exit $(false)
+   fi
+}
 ################################################################
 
 
