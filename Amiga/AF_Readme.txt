@@ -4374,3 +4374,6 @@ compare -metric AE /home/afritsch/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/li
 cd i386-aros/ && make all && cd .. && cd x86_64-aros/ && make all && cd .. && cd 68020/ && make all && cd .. &&  ../pre-commit && ./cut_meld.sh /home/afritsch/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/SelcoGit/3DNature/Amiga/WCS_i386-aros.unstripped_trace.txt /home/afritsch/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/SelcoGit/3DNature/Amiga/WCS_x86_64-aros.unstripped_trace.txt
 
 2x round() in Fractal.c FractPoly_Divide(), bevor der Wert als Seed verwendet wird. i386 und x86-65 RMNP_Anim stimmt viel besser ueberein.
+
+7.April 2025
+Big_i386-aros.png and Big_x86_64-aros.png Pixeldifferenz ist konstant, aner sind nach jedem Durchlauf anderes!

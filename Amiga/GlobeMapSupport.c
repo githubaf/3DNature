@@ -567,7 +567,7 @@ short makesky(short renderseg, struct Window *win)
   {
   for (x=0; x<settings.scrnwidth; x++, zip++)
    {
-   if (((unsigned int)round(bytemap[zip])) < 100)  // ALEXANDER: round()
+   if (((unsigned int)bytemap[zip]) < 100)
     {
     DP.y = (double)y + renderseg - horline;
     DP.x = (double)x - horpt;
@@ -590,14 +590,14 @@ short makesky(short renderseg, struct Window *win)
     green = aliasgreen < 0 ? 0: aliasgreen;
     blue = aliasblue < 0 ? 0: aliasblue;
 
-    if (((unsigned int)round(bytemap[zip])) > 0) // ALEXANDER: 18.Mar25 round()
+    if (((unsigned int)bytemap[zip]) > 0)
      {
-     MergePts = 100 - (unsigned int)round(bytemap[zip]);  // ALEXANDER: 18.Mar25 round()
-     colval = (*(bitmap[0] + zip) * (unsigned int)round(bytemap[zip]) + red * MergePts) / 100;   // ALEXANDER: 18.Mar25 round()
+     MergePts = 100 - (unsigned int)bytemap[zip];
+     colval = (*(bitmap[0] + zip) * (unsigned int)bytemap[zip] + red * MergePts) / 100;
      *(bitmap[0] + zip) = (UBYTE)colval;
-     colval = (*(bitmap[1] + zip) * (unsigned int)round(bytemap[zip]) + green * MergePts) / 100; // ALEXANDER: 18.Mar25 round()
+     colval = (*(bitmap[1] + zip) * (unsigned int)bytemap[zip] + green * MergePts) / 100;
      *(bitmap[1] + zip) = (UBYTE)colval;
-     colval = (*(bitmap[2] + zip) * (unsigned int)round(bytemap[zip]) + blue * MergePts) / 100;  // ALEXANDER: 18.Mar25 round()
+     colval = (*(bitmap[2] + zip) * (unsigned int)bytemap[zip] + blue * MergePts) / 100;
      *(bitmap[2] + zip) = (UBYTE)colval;
      } /* values already present */
     else
