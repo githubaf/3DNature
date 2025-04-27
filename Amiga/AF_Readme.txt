@@ -4377,3 +4377,89 @@ cd i386-aros/ && make all && cd .. && cd x86_64-aros/ && make all && cd .. && cd
 
 7.April 2025
 Big_i386-aros.png and Big_x86_64-aros.png Pixeldifferenz ist konstant, aner sind nach jedem Durchlauf anderes!
+
+15.April 2025
+-------------
+Unterschied 68020/68040 RMNPAnim.proj  MapTopoObject.c 527 maptopoobject() :   if (setfaceone(map)) liefert bei 68020 0 und bei 68040 eine 1 zurueck.
+
+16.April 2025
+-------------
+Setface hat hier eine grossen Unterschied:
+../MapTopoObject.c 1492 setface() 
+(avgY - offsetY)*width=66960
+68020: .1+zbufbase[(avgY - offsetY) * width]=3.235692
+68040: .1+zbufbase[(avgY - offsetY) * width]=340282346638528698790000000000000000000.000000 // Das ist groesser als FLT_MAX???
+
+Der Wert ist jedenfalls FLT_MAX, 7f7fffff
+
+Test:
+
+// m68k-amigaos-gcc -m68040 -m68881 flt_max_test.c -o flt_max_test -noixemul -lm
+#include <stdio.h>
+#include <float.h>
+
+int main() {
+    // FLT_MAX ausgeben
+    printf("FLT_MAX: %.9e\n", FLT_MAX);
+
+    // FLT_MAX in hexadezimaler Darstellung ausgeben
+    union {
+        float f;
+        unsigned int i;
+    } u;
+    u.f = FLT_MAX;
+    printf("FLT_MAX in hexadezimaler Darstellung: 0x%x\n", u.i);
+
+    return 0;
+}
+
+Ergibt mit gcc unter Linux und auf WinUAE
+FLT_MAX: 3.402823466e+38
+FLT_MAX in hexadezimaler Darstellung: 0x7f7fffff
+
+19.April.2025
+-------------
+* Adresse von zbuf ausgegeben. Offset aus des unterschiedlichen zbuf-Wertes 3.2 vs 340282346638528698790000000000000000000 drauf. (als float, also &(zbuf[offset])
+* Da watchpoint drauf. 
+w 0 adresse 4 W
+g
+
+JIT ausschalten!
+
+Beim Fuellen des zbuffers mit FLT_MAX haelt WinUAE an, assemblercode zeigt
+07cdbe9a 20fc 7f7f ffff           move.l #$7f7fffff,(a0)+ [7f7fffff]
+7f7fffff ist FLT_MAX, also richtig.
+
+Segtracker find adresse_vom_winuae_debugger  # im Beispiel 07cdbe9a
+
+segtracker find 7cdbe9a 
+$07CDBE9A - 68020/WCS_68020.unstripped : Hunk 0, Offset $00060CDA, SegList $07C7B1BC
+5.VBox:gccfindhit/bin> 
+
+
+
+Jetzt zugehoerige C-Zeile Mit dem Offset suchen.
+
+https://aminet.net/dev/gg/GccFindHit-bin.lha
+
+VBox:gccfindhit/bin/GccFindHit  vbox:SelcoGit/3DNature/Amiga/68020/WCS_68020.unstripped 0:60cda 
+../GlobeMap.c: line 695, offset 0x60cc8
+
+Richtig! Hier wird der Puffer mit FLT_MAX initialisiert.
+ 
+ 
+24.4.25
+-------
+Vergleich Jit/no-Jit
+
+Ich habe die Bilder in RenderTestImages_01_jit, RenderTestImages_02_jit, RenderTestImages_03_jit und RenderTestImages_01_nojit, RenderTestImages_02_nojit, RenderTestImages_03_nojit abgelegt.
+
+Anzahl unterschiedlicher Pixel:
+for IMAGE in $(ls RenderTestImages_01_nojit/Big*.png); do IMAGENAME=$(basename $IMAGE); printf $IMAGENAME:;compare -metric AE RenderTestImages_01_jit/$IMAGENAME RenderTestImages_02_jit/$IMAGENAME  miff:- | display miff:-; echo ; done
+
+26.Mai.2025
+-----------
+Untersuchung der vorhandenen FPU-Opcodes:
+
+fpu_commands.sh             * Disassembiert und sucht nach FPU-Befehlen
+fpu_commands_combined.py    * mach ein CSV-File aus den Ergebnissen von fpu_commands.sh
