@@ -4,6 +4,8 @@
 # or
 # sudo apt install python3-pandas
 
+# Show Resulting file for instance with
+# column -s, -t < combined_file.csv #| less -#2 -N -S
 
 import pandas as pd
 
@@ -36,7 +38,14 @@ df4 = pd.read_csv(file4)
 # Combine the DataFrames into a new column for each file, with missing rows left empty
 df_combined = pd.merge(df1, df2, on='Opcode', how='outer', suffixes=(suffix1, suffix2))
 df_combined = pd.merge(df_combined, df3, on='Opcode', how='outer', suffixes=('', suffix3))
-df_combined = pd.merge(df_combined, df4, on='Opcode', how='outer', suffixes=('', suffix4))
+df_combined = pd.merge(df_combined, df4, on='Opcode', how='outer', suffixes=(suffix3, suffix4))
+
+
+# Convert the 'Count' columns to integers
+count_columns = [col for col in df_combined.columns if 'Count' in col]
+for col in count_columns:
+    df_combined[col] = df_combined[col].astype('Int64')  # Use 'Int64' to handle NaNs if present
+
 
 # Save the combined DataFrame to a new CSV file
 df_combined.to_csv('combined_file.csv', index=False)
