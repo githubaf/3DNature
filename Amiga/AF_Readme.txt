@@ -4494,3 +4494,6 @@ AE RenderTestImages_01/2/3_jit_morecomp_80_nofpujit    Pixel perfekt identical i
 
 --> As soon as JIT is jit is used for FPU, the resulta is (a little bit) random. RUnning the same executable again with the same WinUAE settings produces lightly differnt results.
 
+
+
+- Versehentlich alle Aenderungen mit den vielen fprintfs eingecheckt...
