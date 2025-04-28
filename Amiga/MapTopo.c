@@ -1044,6 +1044,7 @@ StartDraw:
 //       if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d zip=%ld QPt=%.4g dist=%.4g\n",__FILE__,__LINE__,zip,QPt,dist);
        if (QPt < dist)
         {
+//           if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() dist=%f QPt=%f\n",__FILE__,__LINE__,__func__,dist,QPt);}
         if (render & 0x10)
          {
          if (render & 0x01)
@@ -1064,6 +1065,7 @@ StartDraw:
          *(QCcoords[1] + zip) = facelong;
          } /* if render & 0x100 */
         *(zbuf + zip) = QPt;
+//        if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() QPt=%f\n",__FILE__,__LINE__,__func__,QPt);}
 // Das hier taucht machmal oefter auf!
 //if(!strcmp(ProjectName,"CanyonSunset.proj")&& fprintf_cnt++>MIN_FPRINTF_CNT && fprintf_cnt <MAX_FPRINTF_CNT) fprintf(composefile,"%s %d zip=%ld QPt=%.2g\n",__FILE__,__LINE__,zip,QPt);
         if (Reflections && ReflectionMap)
@@ -1073,6 +1075,10 @@ StartDraw:
         if (SlopeMap)
          SlopeMap[zip] = EloQY;
         } /* if lower QPt value */
+//       else
+//       {
+//           if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: else %s %d %s() dist=%f QPt=%f\n",__FILE__,__LINE__,__func__,dist,QPt);}
+//       }
        bytemap[zip] += sum;
        } /* if at least one point */
       } /* if QPt */

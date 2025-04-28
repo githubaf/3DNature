@@ -91,6 +91,7 @@ O_SRCS += \
 ../Memory.o \
 ../WCS_locale.o \
 ../sasc_functions.o \
+../test_locale_redefinitions.o \
 ../test_main.o 
 
 C_DEPS += \

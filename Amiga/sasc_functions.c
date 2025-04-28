@@ -649,7 +649,7 @@ double my_drand48(const char *file, int line)
     AF_Drand48Seed=(AF_Drand48Seed&0xffffffff0000)+ seed_0;
     //printf("SASC-Fixed: Seed_0=%04hx, Seed_1=%04hx\n",seed_0, seed_1);
 
-    if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s() called from %s Line %d, return %f\n",__func__,file,line,(double)AF_Drand48Seed / (1LL << 48));}
+    if(!strcmp(ProjectName,FPRINTPRJNAME) ) {fprintf(composefile,"ALEXANDER: %s() called from %s Line %d, return %f\n",__func__,file,line,(double)AF_Drand48Seed / (1LL << 48));}
 
 
     return (double)AF_Drand48Seed / (1LL << 48);

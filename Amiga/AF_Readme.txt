@@ -4457,9 +4457,40 @@ Ich habe die Bilder in RenderTestImages_01_jit, RenderTestImages_02_jit, RenderT
 Anzahl unterschiedlicher Pixel:
 for IMAGE in $(ls RenderTestImages_01_nojit/Big*.png); do IMAGENAME=$(basename $IMAGE); printf $IMAGENAME:;compare -metric AE RenderTestImages_01_jit/$IMAGENAME RenderTestImages_02_jit/$IMAGENAME  miff:- | display miff:-; echo ; done
 
-26.Mai.2025
------------
+26.April.2025
+-------------
 Untersuchung der vorhandenen FPU-Opcodes:
 
 fpu_commands.sh             * Disassembiert und sucht nach FPU-Befehlen
 fpu_commands_combined.py    * mach ein CSV-File aus den Ergebnissen von fpu_commands.sh
+
+
+28.April 2025
+-------------
+
+
+RenderTestImages_01/2/3_nojit     Pixel perfekt identical in 3 runs
+
+-------------------------------------------------------
+
+RenderTestImages_01/2/3_jit 
+Big68020_60.png:0
+others have differences
+
+-------------------------------------------------------
+
+RenderTestImages_01_jit_morecomp_80/
+Big68020.png:0
+Big68020Coverage.png:0
+Big68020_60.png:0
+BigSasC.png:0
+others have differences
+
+-------------------------------------------------------
+
+AE RenderTestImages_01/2/3_jit_morecomp_80_nofpujit    Pixel perfekt identical in 3 runs
+
+------------------------------------------------------
+
+--> As soon as JIT is jit is used for FPU, the resulta is (a little bit) random. RUnning the same executable again with the same WinUAE settings produces lightly differnt results.
+

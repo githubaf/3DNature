@@ -177,8 +177,8 @@ RetrySmooth:
  else if (ColLat > map->columns - 1) ColLat = map->columns - 1;
 
  stepct = map->rows + 1;
-
- if (Smoothing)
+ if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() ReducedLon=%.8f RowLon=%ld ColLat=%ld stepct=%ld\n",__FILE__,__LINE__,__func__,ReducedLon,RowLon,ColLat,stepct);}
+  if (Smoothing)
   {
   OldLightingModel = 1;
   SmoothFace_ColSet(map, Face, FaceColSize);
@@ -381,6 +381,7 @@ NextFace4:
       {
       FractFaceOne_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 191);
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
       FractFace_Render(map, win, 0, CD);
       } /* if */
      } /* if */
@@ -397,6 +398,7 @@ NextFace5:
       {
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
       FractFace_Render(map, win, 1, CD);
       } /* if */
      } /* if */
@@ -415,6 +417,7 @@ NextFace5:
       {
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
       FractFace_Render(map, win, 1, CD);
       } /* if */
      } /* if */
@@ -431,6 +434,7 @@ NextFace6:
       {
       FractFaceOne_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 191);
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
       FractFace_Render(map, win, 0, CD);
       } /* if */
      } /* if */
@@ -462,6 +466,7 @@ NextFace6:
       {
       FractFaceOne_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 191);
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
       FractFace_Render(map, win, 0, CD);
       } /* if */
      } /* if */
@@ -478,6 +483,7 @@ NextFace7:
       {
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
       FractFace_Render(map, win, 1, CD);
       } /* if */
      } /* if */
@@ -489,13 +495,17 @@ NextFace7:
     {
     if (map->fractal)
      if (map->fractal[map->fracct] < 0)
+     {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() map->fracct=%d goto NextFace8\n",__FILE__,__LINE__,__func__,map->fracct);}
       goto NextFace8;
+     }
     if (setfacetwo(map))
      {
      if (qqq > qmin)
       {
       FractFaceTwo_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 120);
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
       FractFace_Render(map, win, 1, CD);
       } /* if */
      } /* if */
@@ -503,15 +513,26 @@ NextFace8:
     map->Lc --;
     map->facect --;
     map->fracct --;
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called qqq=%.0f qmin=%.8f\n",__FILE__,__LINE__,__func__,qqq,qmin);}
     if (map->fractal)
+    {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called qqq=%.0f qmin=%.8f\n",__FILE__,__LINE__,__func__,qqq,qmin);}
      if (map->fractal[map->fracct] < 0)
+     {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called qqq=%.0f qmin=%.8f\n",__FILE__,__LINE__,__func__,qqq,qmin);}
       continue;
+     }
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called qqq=%.0f qmin=%.8f\n",__FILE__,__LINE__,__func__,qqq,qmin);}
+    }
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called qqq=%.0f qmin=%.8f setfaceone(map)=%d\n",__FILE__,__LINE__,__func__,qqq,qmin,setfaceone(map));}
     if (setfaceone(map))
      {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called qqq=%.8f qmin=%.8f\n",__FILE__,__LINE__,__func__,qqq,qmin);}
      if (qqq > qmin)
       {
       FractFaceOne_Setup(map, map->Lr, map->Lc);
       hseed = map->facect + map->facect * (map->facect % 191);
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called qqq=%.8f qmin=%.8f\n",__FILE__,__LINE__,__func__,qqq,qmin);}
       FractFace_Render(map, win, 0, CD);
       } /* if */
      } /* if */
@@ -1401,30 +1422,38 @@ STATIC_FCN short setface(struct elmapheaderV101 *map) // used locally only -> st
   ptqq[y] = map->scrnptrq[map->facept[y]];
   if (ptqq[y] < 0.0)
    {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    j = 3;
    break;
    } /* if */
   ptx[y] = map->scrnptrx[map->facept[y]];
   pty[y] = map->scrnptry[map->facept[y]];
   if (ptqq[y] < qqq)
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    qqq = ptqq[y];
+  }
   if (ptx[y] < 0)
    {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    ptx[y] = 0;
    j += 1;
    }
-  else if (ptx[y] > wide)
+  else if (ptx[y] > wide)  // double > short
    {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    ptx[y] = wide;
    j += 1;
    }
   if (pty[y] < -10)
    {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    pty[y] = -10;
    k += 1;
    }
   else if (pty[y] > oshigh)
    {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    pty[y] = oshigh;
    k +=1;
    }
@@ -1432,6 +1461,7 @@ STATIC_FCN short setface(struct elmapheaderV101 *map) // used locally only -> st
 
  if (j<3 && k<3)
   {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
 /* I think this is OK now, uncomment this if undrawn polygons appear in SFC's
   if (map->MapAsSFC)
    return (1);
@@ -1441,33 +1471,69 @@ STATIC_FCN short setface(struct elmapheaderV101 *map) // used locally only -> st
   avgY = (pty[0] + pty[1] + pty[2]) / 3.0;
   offsetY = 4.0 * (treehtfact + 2.0);
   if (avgY - offsetY < 0)
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    return (1);
+  }
   avgX = (ptx[0] + ptx[1] + ptx[2]) / 3.0;
   if (avgX < 0)
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    avgX = 0;
+  }
   else if (avgX > wide)
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    avgX = wide;
+  }
   zbufbase = zbuf + avgX;
   width = wide + 1;
+  // ALEXANDER: Hier haben wir einen grossen Unterschied 68020/68040
+//  /*ALEXANDER*/float float_val=zbufbase[(avgY - offsetY) * width];
+//  if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called avgX=%d width=%d (avgY - offsetY)*width=%d  .1+zbufbase[(avgY - offsetY) * width]=%f  %02x %02x %02x %02x \n",__FILE__,__LINE__,__func__,avgX, width,(avgY - offsetY) * width,.1 + zbufbase[(avgY - offsetY) * width], ((char*)&float_val)[0],((char*)&float_val)[1],((char*)&float_val)[2],((char*)&float_val)[3]);}
   if (qqq < .1 + zbufbase[(avgY - offsetY) * width])
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    return (1);
+  }
   if (avgY + offsetY > oshigh)
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    return (1);
+  }
   if (qqq < .1 + zbufbase[(avgY + offsetY) * width])
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    return (1);
+  }
   zbufbase += (avgY * width); 
   if (qqq < .1 + *(zbufbase))
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    return (1);
+  }
   if (avgX + offsetY > wide)
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    return (1);
+  }
   if (qqq < .1 + zbufbase[offsetY])
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    return (1);
+  }
   if (avgX - offsetY < 0)
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    return (1);
+  }
   if (qqq < .1 + *(zbufbase - offsetY))
+  {
+if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
    return (1);
+  }
   } /* if */
-
+ if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() called\n",__FILE__,__LINE__,__func__);}
  return (0);
 
 } /* setface() */

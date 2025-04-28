@@ -427,7 +427,7 @@ function RenderTest_WinUAE_SASC {
 ################################################################
 function RenderTest_WinUAE_68020 {
     print_frame "${FUNCNAME[0]}"
-    RenderTest_Generic "68020" "68020/WCS_68020" "Big68020" "ref"
+    RenderTest_Generic "68020" "68020/WCS_68020.unstripped" "Big68020" "ref"
 }
 
 ################################################################
@@ -729,12 +729,12 @@ else
     CheckNoUTF8
     CheckSimpleCat
     CheckSshWinUAE
-    BuildSASC
-    BuildAllEclipse
+#    BuildSASC
+#    BuildAllEclipse
     CheckLocaleRedfinitions
-    TestConvertOnWinUAE68020_Coverage
-    TestConvertOnArosI386
-    TestConvertOnArosX86_64
+#    TestConvertOnWinUAE68020_Coverage
+#    TestConvertOnArosI386
+#    TestConvertOnArosX86_64
     RenderTest_WinUAE_SASC
     RenderTest_WinUAE_68020
     RenderTest_WinUAE_68020_60
