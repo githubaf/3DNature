@@ -729,12 +729,12 @@ else
     CheckNoUTF8
     CheckSimpleCat
     CheckSshWinUAE
-#    BuildSASC
-#    BuildAllEclipse
+    BuildSASC
+    BuildAllEclipse
     CheckLocaleRedfinitions
-#    TestConvertOnWinUAE68020_Coverage
-#    TestConvertOnArosI386
-#    TestConvertOnArosX86_64
+    TestConvertOnWinUAE68020_Coverage
+    TestConvertOnArosI386
+    TestConvertOnArosX86_64
     RenderTest_WinUAE_SASC
     RenderTest_WinUAE_68020
     RenderTest_WinUAE_68020_60
