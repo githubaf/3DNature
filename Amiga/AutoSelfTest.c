@@ -166,6 +166,8 @@ void AutoSelfTest(char **argv)
 {
 	unsigned int TotalStartTime =time(NULL);
 
+	Disable();
+
 	composefile=fopen(MakeNewcomposefileName(argv[0]),"w");
 	if(!composefile) { printf("Unable to open composfile!\n");}
 
@@ -391,4 +393,6 @@ ProjectName="CanyonSunset.proj";
 
 	printf("ALEXANDER: af_drand48() called %lu times.\n",AF_DrandCounter);
 if(composefile) {fclose(composefile);}
+
+  Enable();
 }
