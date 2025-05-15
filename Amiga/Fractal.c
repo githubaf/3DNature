@@ -454,17 +454,11 @@ STATIC_FCN void FractPoly_Divide(struct elmapheaderV101 *map, struct VertexIndex
 	/* dispslopefact = 1.2 for grand canyon, 1.5 for RMNP area */
 /* high 16 bits for random seed composed of latitude, low 16 of longitude */
    Seed = round((fabs((map->lolong - polylon[b][i]) / map->LonRange) * USHRT_MAX));  // ALEXANDER: round()
-if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%ld\n",__FILE__,__func__,__LINE__,Seed);}
    Seed <<= 16;
-   if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%d\n",__FILE__,__func__,__LINE__,Seed);}
    Seed += round(fabs((polylat[b][i] - map->lolat) / map->LatRange) * USHRT_MAX);  // ALEXANDER round()
-   if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%d\n",__FILE__,__func__,__LINE__,Seed);}
    SeedBytes = (char *)&Seed;
-   if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%d\n",__FILE__,__func__,__LINE__,Seed);}
    swmem(&SeedBytes[0], &SeedBytes[1], 1);
-   if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%d\n",__FILE__,__func__,__LINE__,Seed);}
    swmem(&SeedBytes[2], &SeedBytes[3], 1);
-   if(!strcmp(ProjectName,FPRINTPRJNAME)) {fprintf(composefile,"ALEXANDER: %s  %s()  Line %d, seed=%d\n",__FILE__,__func__,__LINE__,Seed);}
 
    af_srand48(Seed);
    polyel[b][i] += (GaussRand() * fractperturb[b]);

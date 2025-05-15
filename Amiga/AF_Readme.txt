@@ -4497,3 +4497,16 @@ AE RenderTestImages_01/2/3_jit_morecomp_80_nofpujit    Pixel perfekt identical i
 
 
 - Versehentlich alle Aenderungen mit den vielen fprintfs eingecheckt...
+
+12.Mai 2025
+-----------
+fprinttf wieder entfernt. Test neuer WinUAE mit experimetal FMOVEM fuer Jit von Toni Willen. Meine aktuelle WinUAE-Version war 4.9.1 (2222.02.02) 64 Bit.
+
+13.5.2025
+---------
+Python script zum Auflisten gleicher und ungleicher Bilder (md5). Verzeichnis und Dateinamen koennen regulaere Ausdruecke enthalten.
+Es werden also mehrere Verzeichnisse durchsucht und die MD5 Summen der Bilder berechnet. Wenn die Summen einer Datei in allen Verzeichnissen gleich ist, wird
+die Datei gruen ausgegeben. Sonst schwarz. Die Datei muss in jedem Verzeichnis vorkommen.
+
+python3 list_image_md5.py 'RenderTestImages_JitWinUAEBeta_.*' '^Big.*'       # alle Bilder in den Verzeichnissen RenderTestImages_JitWinUAEBeta_.* die mit Big beginnen.
+python3 list_image_md5.py 'RenderTestImages_JitWinUAEBeta_.*' '^(?!Diff).*'  # alle Bilder in den Verzeichnissen RenderTestImages_JitWinUAEBeta_.* die nicht mit Diff beginnen.

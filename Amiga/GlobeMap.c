@@ -221,17 +221,6 @@ void globemap(void)
                (CONST_STRPTR)"o");
   goto Cleanup2;
   } /* if */
-// ALEXANDER
-//#ifdef __GNUC__
-// if(!strcmp(ProjectName,FPRINTPRJNAME))
-// {
-//     printf("ALEXANDER: %s %d %s() zbuf=%p MemWatchPoint auf zbuf + 66970 (avgX +( avgY - offsetY)*width)) = %p setzen!\n",__FILE__,__LINE__,__func__,zbuf, &(zbuf[66970]));
-//     printf("Shift F12\nw 0 %p 4 W\ng\n",&(zbuf[66970]));
-//     printf("Hier <Enter>, wenn fertig\n");
-//     getchar();
-// }
-//#endif
-
  if (render & 0x01)
   {
   if ((error = openbitmaps(bitmap, bmapsize)) == 1)
@@ -1432,7 +1421,6 @@ RetryFractal:
     error = 1;
     goto MapCleanup;
     } /* if memory fail */
-   if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s %d %s() calling maptopoobject()\n",__FILE__,__LINE__,__func__);}
    error = maptopoobject(&map, win, objectcount + 1, objectlimit, CD);
    if (error) goto MapCleanup;
    fract = 0;

@@ -630,7 +630,6 @@ unsigned long long AF_Drand48Seed=0;
 __stdargs void my_srand48(const char *file, int line, LONG /*long int*/ seedval)  // __stdargs  -> same prototype as in stdlib.h
 {
     AF_Drand48Seed=seedval*65536LL+0x330e;
-    if(!strcmp(ProjectName,FPRINTPRJNAME)){fprintf(composefile,"ALEXANDER: %s() called from %s Line %d, %d %llu\n",__func__,file,line,seedval,AF_Drand48Seed);}
 }
 
 extern unsigned long AF_DrandCounter;
@@ -649,7 +648,6 @@ double my_drand48(const char *file, int line)
     AF_Drand48Seed=(AF_Drand48Seed&0xffffffff0000)+ seed_0;
     //printf("SASC-Fixed: Seed_0=%04hx, Seed_1=%04hx\n",seed_0, seed_1);
 
-    if(!strcmp(ProjectName,FPRINTPRJNAME) ) {fprintf(composefile,"ALEXANDER: %s() called from %s Line %d, return %f\n",__func__,file,line,(double)AF_Drand48Seed / (1LL << 48));}
 
 
     return (double)AF_Drand48Seed / (1LL << 48);
