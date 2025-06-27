@@ -4510,3 +4510,95 @@ die Datei gruen ausgegeben. Sonst schwarz. Die Datei muss in jedem Verzeichnis v
 
 python3 list_image_md5.py 'RenderTestImages_JitWinUAEBeta_.*' '^Big.*'       # alle Bilder in den Verzeichnissen RenderTestImages_JitWinUAEBeta_.* die mit Big beginnen.
 python3 list_image_md5.py 'RenderTestImages_JitWinUAEBeta_.*' '^(?!Diff).*'  # alle Bilder in den Verzeichnissen RenderTestImages_JitWinUAEBeta_.* die nicht mit Diff beginnen.
+
+15.5.2025
+---------
+Haben die Puffer irgendwo unterschiedliche Inhalte? Ich schaue jetzt stückweise von vorne auf moegliche Unterschiede. Die Reihenfolge bei meinem AutoSelfTest ist
+
+LoadProject()    laedt ein ASCII File (*.proj) und liest jede Menge Einstellungen (z.B. Dateipfade daraus aus)
+Database_Load()  laedt ein anderes ASCII File
+loadparams()
+  loadparamsV1()
+  loadparamsV2()
+
+FixPar()
+Handle_RN_Window(MO_RENDER); // simulate pressing Render-Button
+  globemap()
+    initmopar();
+    initpar();
+
+27.5.2025
+---------
+RenderTestImages_xx_Jit80BitWinUAE4.0.0.0 sind alle indentisch. (1x 3 Pixel Unterschied in 7 Durchlaeufen)
+RenderTestImages_xx_Jit64BitWinUAE4.0.0.0 haben in jedem Durchluf Unterschieded, aber nicht sehr viele.
+
+
+* jetzt mit WinUAE 4.4.0 
+
+
+
+2.Juni 2025
+-----------
+Laut Copilot hat der i386 (x87) 80 Bit Genauigkeit, der x86_64 aber nur 64 Bit Genauigkeit. Das fuehrt zu Rundungsfehlern.
+
+Motorola 68020 / 68030
+Ohne FPU: Diese CPUs haben keine integrierte Fliesskommaeinheit. Fliesskommaoperationen muessen entweder per Software oder mit einem externen FPU-Coprozessor durchgefuehrt werden.
+Mit FPU (68881 oder 68882):
+Unterstuetzen IEEE 754 Standard.
+Genauigkeit:
+Single Precision: 32 Bit
+Double Precision: 64 Bit
+Extended Precision: 80 Bit (intern verwendet)
+
+Motorola 68040
+Integrierte FPU (aber ohne Unterstuetzung fuer Extended Precision oder Transzendentale Funktionen wie sin, cos, exp):
+Unterstuetzt IEEE 754.
+Genauigkeit:
+Single Precision: 32 Bit
+Double Precision: 64 Bit
+Kein Extended Precision: Im Gegensatz zur 68881/68882 wird 80-Bit-Precision nicht unterstuetzt.
+
+Motorola 68060
+Integrierte FPU, aber eingeschraenkt:
+Unterstuetzt nur grundlegende Fliesskommaoperationen (Addition, Subtraktion, Multiplikation, Division, Vergleich).
+Keine Unterstuetzung fuer Transzendentale Funktionen oder Extended Precision.
+Genauigkeit:
+Single Precision: 32 Bit
+Double Precision: 64 Bit
+
+Das Ziel, identische Bilder mit einem Raytracingprogramm auf 68020/68881, 68040 und 68060 zu erzeugen, ist anspruchsvoll, aber machbar. 
+Der Schluessel liegt darin, numerische Konsistenz ueber unterschiedliche FPU-Implementierungen hinweg sicherzustellen. Hier sind die wichtigsten Massnahmen:
+
+* 1. Verwendung eines konsistenten Fliesskomma-Modus
+Stelle sicher, dass das Programm nur Double Precision (64 Bit) verwendet, da:
+68040 und 68060 kein Extended Precision unterstuetzen.
+68881/68882 intern mit 80 Bit rechnen, was zu minimalen Abweichungen fuehren kann.
+Loesung: Compiler-Flags oder explizite Casts verwenden, um alle Berechnungen auf Double zu beschraenken.
+
+* 2. Vermeidung von Extended Precision
+Auf 68020/68881 kann der Compiler intern 80-Bit-Register verwenden.
+Loesung: Verwende Compiler-Optionen wie -ffloat-store (bei GCC), um temporaere Ergebnisse im Speicher zu halten und so auf 64 Bit zu begrenzen.
+* 3. Deterministische Mathematik
+Vermeide Funktionen wie sin, cos, exp, log, wenn sie nicht exakt gleich implementiert sind.
+Loesung: Verwende eine eigene, plattformunabhaengige Implementierung dieser Funktionen oder eine gepruefte mathematische Bibliothek mit deterministischem Verhalten.
+
+* 4. Compiler und Optimierung
+Unterschiedliche Compiler oder Optimierungsstufen koennen zu unterschiedlichen Ergebnissen fuehren.
+Loesung:
+Verwende denselben Compiler (z. B. GCC fuer m68k) mit denselben Flags.
+Vermeide aggressive Optimierungen wie -ffast-math.
+
+* 5. Initialisierung und Rundung
+Stelle sicher, dass alle Variablen explizit initialisiert sind.
+Setze den Rundungsmodus der FPU explizit (z. B. auf "round to nearest").
+
+Beispiel-Compileraufruf:
+m68k-gcc -O2 -ffloat-store -fno-fast-math -mfpu=68881 
+
+17.6.2025
+---------
+Nochmal Ausgabe der fehlenden Strings (Italienisch) mit richtigen Zeilennummnern
+
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; LINENR=NR; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; getline; POLISH=$0; getline; CZECH=$0; if(ITALIAN==""){print "Line " LINENR ": " ENGLISH;}else{ITALIANCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Italian:  %4d\n",ITALIANCOUNT);printf("%d%%\n",ITALIANCOUNT*100/MSGCOUNT++);}'
+
+

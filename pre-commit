@@ -148,12 +148,12 @@ local success=false
 # $(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;exit(0);}}') # shows line starting with an IP Address and Gataway != 0.0.0.0 #(works on my Dell)
 # 0.0.0.0 works for BF
 # af-hp works for AF HP
-IP_ADDRESSES=( "$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;exit(0);}}')"   "af-hp"   "0.0.0.0"  )
+IP_ADDRESSES=( "172.20.56.220" "$(netstat -rn | awk '/^[0-9]+/{ if($2!="0.0.0.0") {print $2;exit(0);}}')"   "af-hp"   "0.0.0.0"  )
 
 if [ -n "$WINUAEIP" ]; then
     # Wenn die Environment-Variable WINUAEIP in der shell gesetzt ist, nur diese IP-Adresse verwenden
     echo "trying $WINUAEIP..."
-    if timeout 2s sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'; then
+    if timeout 3s sshpass -p amigarulez! ssh -p 22222 ich@"$WINUAEIP" 'Ram:'; then
         success=true
     fi
 else
