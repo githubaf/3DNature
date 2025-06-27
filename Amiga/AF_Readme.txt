@@ -4513,7 +4513,7 @@ python3 list_image_md5.py 'RenderTestImages_JitWinUAEBeta_.*' '^(?!Diff).*'  # a
 
 15.5.2025
 ---------
-Haben die Puffer irgendwo unterschiedliche Inhalte? Ich schaue jetzt stückweise von vorne auf moegliche Unterschiede. Die Reihenfolge bei meinem AutoSelfTest ist
+Haben die Puffer irgendwo unterschiedliche Inhalte? Ich schaue jetzt stueckweise von vorne auf moegliche Unterschiede. Die Reihenfolge bei meinem AutoSelfTest ist
 
 LoadProject()    laedt ein ASCII File (*.proj) und liest jede Menge Einstellungen (z.B. Dateipfade daraus aus)
 Database_Load()  laedt ein anderes ASCII File
