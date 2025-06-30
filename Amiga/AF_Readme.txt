@@ -4585,12 +4585,12 @@ Loesung: Verwende eine eigene, plattformunabhaengige Implementierung dieser Funk
 * 4. Compiler und Optimierung
 Unterschiedliche Compiler oder Optimierungsstufen koennen zu unterschiedlichen Ergebnissen fuehren.
 Loesung:
-Verwende denselben Compiler (z. B. GCC fuer m68k) mit denselben Flags.
+Verwende denselben Compiler (z.B. GCC fuer m68k) mit denselben Flags.
 Vermeide aggressive Optimierungen wie -ffast-math.
 
 * 5. Initialisierung und Rundung
 Stelle sicher, dass alle Variablen explizit initialisiert sind.
-Setze den Rundungsmodus der FPU explizit (z. B. auf "round to nearest").
+Setze den Rundungsmodus der FPU explizit (z.B. auf "round to nearest").
 
 Beispiel-Compileraufruf:
 m68k-gcc -O2 -ffloat-store -fno-fast-math -mfpu=68881 
@@ -4601,4 +4601,6 @@ Nochmal Ausgabe der fehlenden Strings (Italienisch) mit richtigen Zeilennummnern
 
 cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; LINENR=NR; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; getline; POLISH=$0; getline; CZECH=$0; if(ITALIAN==""){print "Line " LINENR ": " ENGLISH;}else{ITALIANCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Italian:  %4d\n",ITALIANCOUNT);printf("%d%%\n",ITALIANCOUNT*100/MSGCOUNT++);}'
 
-
+30.Juni2025
+-----------
+Italienische Uebersetzung fertig. Muss noch mit Leerzeichen etc auf richtige Laengen getrimmt werden.
