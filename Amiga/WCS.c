@@ -2551,27 +2551,1186 @@ void Test_User_Message(void)
 //	  User_Message(str, (char *)GadMesgCycle[i], "OK", "o");
 
 
-     //.InteractiveDraw.c/                       ./DataOpsGUI.c-914-                GetString( MSG_GLOBAL_OK ),                          // "OK"                                                                                                                                                                                                                       --
-     //.InteractiveView.c/                       ./DataOpsGUI.c-915-                (CONST_STRPTR)"o");                                                                                                                                                                                                                                                                ./DataBase.c:473:  if (User_Message((CONST_STRPTR)dbasename, GetString( MSG_DB_ERRORSAVINGDATABASEELECTANEWDIRECTORY ),  //"Error saving database!\nSelect a new directory?"
-     //.LWSupport.c/                             --                                                                                                                                                                                                                                                                                                                    ./DataBase.c-474-          GetString( MSG_DB_OKCANCEL ),  // "OK|CANCEL"
-     //.LineSupport.c/                           ./DataOpsGUI.c:1071:    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERT ),                   // "Data Ops: Convert"                                                                                                                                                                                             ./DataBase.c-475-          (CONST_STRPTR)"oc"))
-     //.Map.c/                                   ./DataOpsGUI.c-1072-                 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTANIFFZBUFFERFILE ),  // "Warning!\nFile is not an IFF Z Buffer file."                                                                                                                                                                   ./DataBase.c-476-   {
-     //.MapExtra.c/                              ./DataOpsGUI.c-1073-                 GetString( MSG_GLOBAL_OK ),                               // "OK"                                                                                                                                                                                                                --
-     //.MapGUI.c/                                ./DataOpsGUI.c-1074-                 (CONST_STRPTR)"o");                                                                                                                                                                                                                                                              ./DataBase.c:503:  if (User_Message_Def(GetString( MSG_DB_DATABASEMODULESAVE ), (CONST_STRPTR)str,                   // "Database Module: Save"
-     //.MapLineObject.c/                         --                                                                                                                                                                                                                                                                                                                    ./DataBase.c-504-                       GetString( MSG_DB_OKCANCEL ),                                                // "OK|Cancel"
-     //.MapSupport.c/                            ./DataOpsGUI.c:1088:    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),             // "Data Ops: Convert DEM"                                                                                                                                                                                            ./DataBase.c-505-                       (CONST_STRPTR)"oc", 1))
-     //.MapTopoObject.c/                         ./DataOpsGUI.c-1089-                 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTAVISTADEMFILE ),  // "Warning\nFile is not a Vista DEM file."                                                                                                                                                                           ./DataBase.c-506-   strcpy(dirname, filename);
-     //.Memory.c/                                ./DataOpsGUI.c-1090-                 GetString( MSG_GLOBAL_OK ),                            // "OK"                                                                                                                                                                                                                   --
-     //.MoreGUI.c/                               ./DataOpsGUI.c-1091-                 (CONST_STRPTR)"o");                                                                                                                                                                                                                                                              ./DataBase.c:535: User_Message(GetString( MSG_AGUI_DATABASEMODULE ),  // "Database Module"
-     //.Params.c/                                                                                                                                                         ./DataBase.c-536-              GetString( MSG_DB_ILLEGALNUMBEROFDATABASERECORDSLESSTHANONEPERATIONTERMINA ), // "Illegal number of database records: less than one!\nOperation terminated."--
-     //.ParamsGUI.c/                                                                                                                                                      ./DataBase.c-537-         GetString( MSG_GLOBAL_OK ),  // "OK"./DataOpsGUI.c:1101:    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),  // "Data Ops: Convert DEM"
-     //.Support.c/                                                                                                                                                        ./DataBase.c-538-         (CONST_STRPTR)"o");./DataOpsGUI.c-1102-                 GetString( MSG_DATAOPSGUI_WARNINGILEISNOTACOMPRESSEDVISTAFILEANDCANNOTBEIM ),  // "Warning\nFile is not a compressed Vista file and cannot be imported."
-     //.TimeLinesGUI.c/                                                                                                                                                   --./DataOpsGUI.c-1103-                 GetString( MSG_GLOBAL_OK ),                                                // "OK"
-     //.Tree.c/                                                                                                                                                           ./DataBase.c:592:    User_Message(GetString( MSG_AGUI_DATABASEMODULE ),  // "Database Module"./DataOpsGUI.c-1104-                 (CONST_STRPTR)"o");
-     //.WCS.c/                                                                                                                                                            ./DataBase.c-593-            GetString( MSG_DB_OUTOFMEMORYANTUPDATEDATABASELIST ),  // "Out of memory!\nCan't update database list."--
-     //.Wave.c/                                                                                                                                                           ./DataBase.c-594-            GetString( MSG_GLOBAL_OK ),  // "OK"./DataOpsGUI.c:1109:    HeaderType = User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),                 // "Data Ops: Convert DEM"
-     //.WaveGUI.c/                               ./DataOpsGUI.c-1110-                              GetString( MSG_DATAOPSGUI_ISTHISASMALLLARGEORHUGEVISTAFILE ),  // "Is this a Small, Large or Huge Vista file?"
-     //.nncrunch.c/                              ./DataOpsGUI.c-1111-                              GetString( MSG_DATAOPSGUI_SMALLLARGEHUGE ),                    // "Small|Large|Huge"
-     //.nngridr.c/                               ./DataOpsGUI.c-1112-                              (CONST_STRPTR)"slh");
+     //.InteractiveDraw.c
+	  //find . -name "InteractiveDraw.c" -exec grep -A3 -nHis "User_Message" {} \;
+	  User_Message(GetString( MSG_INTDRW_INTERACTIVEMOTIONMODULE ),                  // "Interactive Motion Module"
+	               GetString( MSG_INTDRW_OUTOFMEMORYIDDENLINEREMOVALNOTAVAILABLE ),  // "Out of memory!\nHidden line removal not available."
+	               GetString( MSG_GLOBAL_OK ),                                       // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_INTDRW_PARAMETERSMODULEPATH ),                               // "Parameters Module: Path"
+	               GetString( MSG_GLMP_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening key frame table!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                                 // "OK"
+	               (CONST_STRPTR)"o");
+
+     //.InteractiveView.c
+	  // find . -name "InteractiveView.c" -exec grep -A3 -nHis "User_Message" {} \;
+	  User_Message(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),              // "Parameters Module: Camera View"
+	               GetString( MSG_INTVIEW_YOUMUSTFIRSTLOADACOMPLETEPARAMETERFILE ),  // "You must first load a complete Parameter file!"
+	               GetString( MSG_GLOBAL_OK ),                                      // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),                         // "Parameters Module: Camera View"
+	               GetString( MSG_INTVIEW_THEREARENOOBJECTSINTHISDATABASEPERATIONTERMINATED ),  // "There are no objects in this Database!\nOperation terminated"
+	               GetString( MSG_GLOBAL_OK ),                                                 // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_INTVIEW_EDITINGMODULEINTERACTIVE ),                  // "Editing Module: Interactive"
+	               GetString( MSG_INTVIEW_CAMERAVIEWFAILEDTOOPENPERATIONTERMINATED ),  // "Camera View failed to open!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                        // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),                      // "Parameters Module: Camera View"
+	               GetString( MSG_INTVIEW_OUTOFMEMORYOPENINGCAMERAVIEWPERATIONTERMINATED ),  // "Out of memory opening Camera View!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                              // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message_Def(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),             // "Parameters Module: Camera View"
+	                   GetString( MSG_INTVIEW_OUTOFMEMORYLOADINGDEMSNCREASEGRIDSIZE ),  // "Out of memory loading DEMs!\nIncrease grid size?"
+	                   GetString( MSG_GLOBAL_OKCANCEL ),                               // "OK|Cancel"
+	                   (CONST_STRPTR)"oc", 1);
+
+	  User_Message(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),            // "Parameters Module: Camera View"
+	               GetString( MSG_INTVIEW_NODEMOBJECTSACTIVEPERATIONTERMINATED ),  // "No DEM objects active!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                    // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                   // "Camera View"
+	               GetString( MSG_GLMP_OUTOFMEMORYOPENINGZBUFFERPERATIONTERMINATED ),  // "Out of memory opening Z buffer!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                           // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                           // "Camera View"
+	               GetString( MSG_INTVIEW_OUTOFMEMORYOPENINGANTIALIASBUFFERPERATIONTERMINATED ),  // "Out of memory opening Antialias buffer!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                                   // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message_Def(GetString( MSG_EDMOGUI_CAMERAVIEW ),                     // "Camera View"
+	                   GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGDEMARRAY ),  // "Out of memory allocating DEM array!\n"
+	                   GetString( MSG_INTVIEW_RETRYCANCEL ),                    // "Retry|Cancel"
+	                   (CONST_STRPTR)"rc", 1);
+
+	  User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                           // "Camera View"
+	               GetString( MSG_INTVIEW_OUTOFMEMALLOCPOLYSMOOTHARRAYCONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
+	               GetString( MSG_GLOBAL_OKCANCEL ),                                             // "OK|Cancel"
+	              (CONST_STRPTR)"oc");
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                         // "Render Module"
+	               GetString( MSG_GLMP_OUTOFMEMALLOCANTIALIASEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                                   // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                // "Camera View"
+	               GetString( MSG_INTVIEW_GRIDMUSTBEPRESENTPLEASEREDRAWANDTRYAGAIN ),  // "Grid must be present, please redraw and try again."
+	               GetString( MSG_GLOBAL_OK ),                                        // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                          // "Camera View"
+	               GetString( MSG_INTVIEW_ERROROPENINGSMALLRENDERINGWINDOWPERATIONTERMINATED ),  // "Error opening Small Rendering Window!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message((CONST_STRPTR)str,
+	               GetString( MSG_INTVIEW_ERROROPENINGDEMFILEFORINPUTPERATIONTERMINATED ),  // "Error opening DEM file for input!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                             // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message((CONST_STRPTR)str,
+	               GetString( MSG_INTVIEW_OUTOFMEMORYTRYASMALLERPREVIEWSIZEPERATIONTERMINATED ),  // "Out of memory! Try a smaller preview size.\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                                   // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_EDMOGUI_CAMERAVIEW ),                                           // "Camera View"
+	               GetString( MSG_INTVIEW_OUTOFMEMALLOCPOLYSMOOTHARRAYCONTINUEWI ),  // "Out of memory allocating Polygon Smoothing array!\nContinue without Polygon Smoothing?"
+	               GetString( MSG_GLOBAL_OKCANCEL ),                                             // "OK|Cancel"
+	               (CONST_STRPTR)"oc");
+
+	  User_Message((CONST_STRPTR)str,
+	               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                             // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                         // "Render Module"
+	               GetString( MSG_GLMP_OUTOFMEMALLOCANTIALIASEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                                   // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message_Def(GetString( MSG_INTVIEW_PARAMETERSMODULEPREVIEW ),                      // "Parameters Module: Preview"
+	                   GetString( MSG_INTVIEW_RESTORETHEPARAMETERSUSEDTOCREATETHISPREVIEW ),  // "Restore the Parameters used to create this preview?"
+	                   GetString( MSG_GLOBAL_OKCANCEL ),                                     // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
+	                   (CONST_STRPTR)"oc", 1);
+
+     //.LWSupport.c
+		  //find . -name "LWSupport.c" -exec grep -A3 -nHis "User_Message" {} \;
+		  User_Message(GetString( MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT ),                  // "LightWave Motion: Export"
+		               GetString( MSG_LWSPRT_NOKEYFRAMESTOEXPORTPERATIONTERMINATED ),  // "No Key Frames to export!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                     // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT ),          // "LightWave Motion: Export"
+		               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                             // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT ),                        // "LightWave Motion: Export"
+		               GetString( MSG_LWSPRT_ERROROPENINGFILEFOROUTPUTPERATIONTERMINATED ),  // "Error opening file for output!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                           // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_LWSPRT_LIGHTWAVEMOTIONEXPORT ),                            // "LightWave Motion: Export"
+		               GetString( MSG_LWSPRT_ERRORWRITINGTOFILEPERATIONTERMINATEDPREMATURELY ),  // "Error writing to file!\nOperation terminated prematurely."
+		               GetString( MSG_GLOBAL_OK ),                                               // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def((CONST_STRPTR)"Example DEMName",
+		                   GetString( MSG_LWSPRT_ERRORLOADINGDEMOBJECTPERATIONTERMINATED ),  // "Error loading DEM Object!\nOperation terminated."
+		                   GetString( MSG_GLOBAL_OK ),                                       // "OK"
+		                   (CONST_STRPTR)"o", 0);
+
+		  User_Message_Def((CONST_STRPTR)"Example DEMName",
+		                   GetString( MSG_LWSPRT_ERRLOADDEMOBJOBJNOTSAVED ),  // "Error loading DEM Object!\nObject not saved."
+		                   GetString( MSG_GLOBAL_OK ),                                  // "OK"
+		                   (CONST_STRPTR)"o", 0);
+
+		  User_Message_Def(GetString( MSG_LWSPRT_LWOBJECTEXPORT ),                 // "LW Object Export"
+		                   GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+		                   GetString( MSG_GLOBAL_OK ),                             // "OK"
+		                   (CONST_STRPTR)"o", 0);
+
+		  User_Message_Def(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+		                   GetString( MSG_LWSPRT_APROBLEMOCCURREDSAVINGTHELWSCENEFAFILEWASCREATEDITWILLNOTBE ),  // "A problem occurred saving the LW scene.\nIf a file was created it will not be complete and may not load properly into LightWave."
+		                   GetString( MSG_GLOBAL_OK ),                                                           // "OK"
+		                   (CONST_STRPTR)"o", 0);
+
+		  User_Message_Def(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+		                   GetString( MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA ),  // "The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created."
+		                   GetString( MSG_GLOBAL_OK ),                                                           // "OK"
+		                   (CONST_STRPTR)"o", 0);
+
+     //.LineSupport.c
+		  // find . -name "LineSupport.c" -exec grep -A3 -nHis "User_Message" {} \;
+		  User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+		                   GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),  // "Digitize new points for the active vector object or create a new object?"
+		                   GetString( MSG_GLOBAL_ACTIVENEWCANCEL ),                                     // "Active|New|Cancel"
+		                   (CONST_STRPTR)"anc", 1);
+
+		  User_Message(GetString( MSG_LINESPRT_DIAGNOSTICDIGITIZE ),                                  // "Diagnostic: Digitize"
+		               GetString( MSG_MAP_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIO ),  // "Active object is a DEM and may not be digitized!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_LINESPRT_INTERACTIVEMODULEADDPOINTS ),    // "Interactive Module: Add Points"
+		               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ), // "Out of memory!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ) ,                           // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+		                   GetString( MSG_LINESPRT_SAVEOBJECTPOINTS ),  // "Save object points?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),          // "OK|CANCEL"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                     // "Mapping Module: Path"
+		               GetString( MSG_MAP_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED),  // "Error loading vector object!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                      // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message("Mapping Module: Path",
+		  "Motion Time Line window must be closed for this operation. Please close and try again.",
+		  "OK", "o");
+
+		  User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+		               GetString( MSG_LINESPRT_CAMERAKEYFRAMESEXISTPROCEEDINGWILLDELETECURRENTVAL ),  // "Camera Key Frames exist. Proceeding will delete current values!"
+		               GetString( MSG_MOREGUI_PROCEEDCANCEL ),                                       // "Proceed|Cancel"
+		               (CONST_STRPTR)"pc");
+
+		  User_Message("Mapping Module: Path",
+		  "Motion Time Line window must be closed for this operation. Please close and try again.",
+		  "OK", "o");
+
+		  User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+		               GetString( MSG_LINESPRT_FOCUSKEYFRAMESEXISTPROCEEDINGWILLDELETECURRENTVALU ),  // "Focus Key Frames exist. Proceeding will delete current values!"
+		               GetString( MSG_MOREGUI_PROCEEDCANCEL ) ,                                      // "Proceed|Cancel"
+		               (CONST_STRPTR)"pc");
+
+		  User_Message_Def((CONST_STRPTR)str, GetString( MSG_LINESPRT_USEELEVATIONDATA ),  // "Use elevation data?"
+		                   GetString( MSG_GLOBAL_YESNO ),                                // "Yes|No"
+		                   (CONST_STRPTR)"yn", 1);
+
+		  User_Message_Def(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+		                   GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current flattening, datum and vertical exaggeration?"
+		                   GetString( MSG_GLOBAL_YESNO ),                                               // "Yes|No"
+		                   (CONST_STRPTR)"yn", 1);
+
+		  User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                               // "Mapping Module: Path"
+		               GetString( MSG_LINESPRT_OUTOFMEMORYCREATINGKEYFRAMESPERATIONTERMINATED ),  // "Out of memory creating Key Frames!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                              // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                   // "Mapping Module: Path"
+		               GetString( MSG_LINESPRT_USEALLSPLINEDPOINTSORONLYKEYFRAMES ),  // "Use all splined points or only Key Frames?"
+		               GetString( MSG_LINESPRT_ALLSPLINEDKEYFRAMES ),                 // "All Splined|Key Frames"
+		               (CONST_STRPTR)"ak");
+
+		  User_Message_Def(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+		                   GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current Flattening, Datum and Vertical Exaggeration?"
+		                   GetString( MSG_GLOBAL_YESNO ),                                               // "Yes|No"
+		                   (CONST_STRPTR)"yn", 1);
+
+		  User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                  // "Mapping Module: Path"
+		               GetString( MSG_LINESPRT_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening Key Frame table!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),  // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+		               GetString( MSG_LINESPRT_THEREAREMOREFRAMESTHANALLOWABLEVECTORPOINTSPATHWIL ),  // "There are more frames than allowable vector points! Path will be truncated."
+		               GetString( MSG_GLOBAL_OKCANCEL ),                                            // "OK|Cancel"
+		               (CONST_STRPTR)"oc");
+
+		  User_Message_Def(GetString( MSG_AGUI_DATABASEMODULE ),                                      // "Database Module"
+		                   GetString( MSG_LINESPRT_VECTORNAMEALREADYPRESENTINDATABASEVERWRITEITORTRYA ),  // "Vector name already present in Database!\nOverwrite it or try a new name?"
+		                   GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ),                                  // "Overwrite|New|Cancel"
+		                   (CONST_STRPTR)"onc", 2);
+
+		  User_Message(GetString( MSG_AGUI_DATABASEMODULE ),                                  // "Database Module"
+		               GetString( MSG_LINESPRT_OUTOFMEMORYEXPANDINGDATABASEPERATIONTERMINATED ),  // "Out of memory expanding Database!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                              // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+		               GetString( MSG_LINESPRT_OUTOFMEMCREATNEWVECTOROBJECTPERATIONTERMINAT ),  // "Out of memory creating new vector object!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+		               (CONST_STRPTR)"o");
+
+     //.Map.c
+		  // find . -name "Map.c" -exec grep -A3 -nHis "User_Message" {} \;
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
+		               GetString( MSG_MAP_FIRSTSETOFALIGNMENTLATLONCOORDINATESMUSTBELAR ),  // "First set of alignment lat/lon coordinates must be larger than second and map scale must be greater than zero!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                             // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
+		                   GetString( MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                                       // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message(GetString( MSG_MAP_MAPVIEWECOSYSTEMS ),                              // "Map View: Ecosystems"
+		               GetString( MSG_MAP_THEREARENOPARAMETERSLOADEDECOSYSTEMMAPPINGISN ),  // "There are no Parameters loaded! Ecosystem mapping is not available until you load a Parameter file or create Default Parameters."
+		               GetString( MSG_GLOBAL_OK ),                                             // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def(GetString( MSG_MAP_MAPVIEWTOPODRAW ),                                // "Map View: Topo Draw"
+		                   GetString( MSG_MAP_MEMORYALLOCATIONFAILURECANNOTDRAWTOPOCONTINUE ),  // "Memory allocation failure, cannot draw topo. Continue?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                                       // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message(GetString( MSG_MAP_MAPVIEWECOSYSTEMS ),                              // "Map View: Ecosystems"
+		               GetString( MSG_MAP_OUTOFMEMORYLOADINGRELATIVEELEVATIONFILEECOSYS ),  // "Out of memory loading Relative Elevation file. Ecosystem mapping not available?"
+		               GetString( MSG_GLOBAL_OK ),                                             // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def((CONST_STRPTR)"DBase[i].Name",
+		                   GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),  // "Is this the correct object?"
+		                   GetString( MSG_GLOBAL_YESNO ),                   // "YES|NO"
+		                   (CONST_STRPTR)"yn", 1);
+
+		  User_Message_Def((CONST_STRPTR)"DBase[i].Name", GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),   // "Is this the correct object?"
+		                   GetString( MSG_GLOBAL_YESNO ),                                                 // "YES|NO"
+		                   (CONST_STRPTR)"yn", 1);
+
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULE ),   // "Mapping Module"
+		               GetString( MSG_MAP_OBJECTNOTFOUND ),  // "Object not found!"
+		               GetString( MSG_GLOBAL_OK ),              // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def(GetString( MSG_MAP_MAPVIEWMULTISELECT ),     // "Map View: Multi-Select"
+		                   GetString( MSG_MAP_SELECTORDESELECTITEMS ),  // "Select or de-select items?"
+		                   GetString( MSG_MAP_SELECTDESELECTCANCEL ),   // "Select|De-select|Cancel"
+		                   (CONST_STRPTR)"sdc", 1);
+
+		  User_Message_Def((CONST_STRPTR)"DBase[OBN].Name",
+		      GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),   // "Digitize new points for the active vector object or create a new object?"
+		      GetString( MSG_GLOBAL_ACTIVENEWCANCEL ), (CONST_STRPTR)"anc", 1);     // "Active|New|Cancel"
+
+		  User_Message(GetString( MSG_MAP_MAPVIEWDIGITIZE ),                                // "Map View: Digitize"
+		               GetString( MSG_MAP_ACTIVEOBJECTISADEMANDMAYNOTBEDIGITIZEDPERATIO ),  // "Active object is a DEM and may not be digitized!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                             // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
+		                   GetString( MSG_MAP_ACCEPTNEWPOINTS ),         // "Accept new points?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                           // "Mapping Module: Digitize"
+		               GetString( MSG_MAP_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTE ),   // "Out of memory allocating new vector array!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                              // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+		                   GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message(GetString( MSG_MAP_MAPPINGMODULEINSERTPOINTS ),   // "Mapping Module: Insert Points"
+		               GetString( MSG_MAP_OUTOFMEMORYOPERATIONFAILED ),  // "Out of memory! Operation failed."
+		               GetString( MSG_GLOBAL_OK ),                          // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+		                   GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+		                   GetString( MSG_MAP_CREATEVISUALSENSITIVITYMAPFORTHISOBJECT ),  // "Create Visual Sensitivity map for this object?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                                 // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message(GetString( MSG_MAP_DBASEOBNNAME ),                                // "DBase[OBN].Name"
+		               GetString( MSG_MAP_ERRORLOADINGVECTOROBJECTPERATIONTERMINATED ),  // "Error loading vector object!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                       // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULE ),                                 // "Mapping Module"
+		               GetString( MSG_MAP_ERROROPENINGVIEWSHEDWINDOWXECUTIONTERMINATED ),  // "Error opening viewshed window!\nExecution terminated."
+		               GetString( MSG_GLOBAL_OK ),                                            // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),          // "Mapping Module: Viewshed"
+		               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                             // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),          // "Mapping Module: Viewshed"
+		               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                             // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),                   // "Mapping Module: Viewshed"
+		               GetString( MSG_MAP_ERRORREADINGTOPOMAPSPERATIONTERMINATED ),  // "Error reading topo maps!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                      // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),                // "Mapping Module: Viewshed"
+		               GetString( MSG_MAP_SMOOTHTHEMAPBEFORECOMPUTINGVIEWSHED ),  // "Smooth the map before computing viewshed?"
+		               GetString( MSG_GLOBAL_OKCANCEL ),                             // "OK|CANCEL"
+		               (CONST_STRPTR)"oc");
+
+		  User_Message(GetString( MSG_MAP_MAPPINGMODULEVIEWSHED ),           // "Mapping Module: Viewshed"
+		               GetString( MSG_MAP_DRAWVECTORSONVIEWSHEDRENDERING ),  // "Draw vectors on viewshed rendering?"
+		               GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+		               (CONST_STRPTR)"yn");
+
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+		               GetString( MSG_MAP_CANTOPENSERIALDEVICEPERATIONTERMINATED ),  // "Can't open serial device!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                      // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
+		               GetString( MSG_MAP_DIGITIZENEWREGISTRATIONPOINTS ),  // "Digitize new registration points?"
+		               GetString( MSG_GLOBAL_YESNO ),                          // "YES|NO"
+		               (CONST_STRPTR)"yn");
+
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                          // "Mapping Module: Digitize"
+		               GetString( MSG_MAP_ILLEGALVALUEWOREGISTRATIONPOINTSMAYNOTBECOINC ),  // "Illegal value!\nTwo registration points may not be coincident.\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                             // "OK
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
+		               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                             // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),          // "Mapping Module: Digitize"
+		               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                             // "OK"
+		               (CONST_STRPTR)"o");
+
+     //.MapExtra.c
+		  //find . -name "MapExtra.c" -exec grep -A3 -nHis "User_Message" {} \;
+		  User_Message(statname, "Can't open file!", "OK", "o");
+
+		  User_Message(statname, "File not a WCS statistics file!\nSelect another?",
+		     "OK|CANCEL", "oc");
+
+		  User_Message(statname, "File is of incorrect size!\nOperation terminated.",
+		  	"OK", "o");
+
+		  User_Message(statname, "Out of memory!\n Operation terminated.", "OK", "o");
+
+		  User_Message("Mapping Module: Statistics",
+		  	"No statistical data has been loaded to normalize!", "OK", "o");
+
+		  User_Message("Mapping Module: Statistics",
+		  		"Load new normalizing data?", "YES|NO", "yn");
+
+		  User_Message("Mapping Module: Statistics",
+		     "Out of memory!\n Operation failed.", "OK", "o");
+
+		  User_Message("Mapping Module: Statistics",
+  		     "Out of memory!\nOperation failed.", "OK", "o");
+
+		  User_Message("Mapping Module: Statistics",
+		     "No statistical data has been loaded to graph!", "OK", "o");
+
+		  User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+		                   GetString( MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX ),  // "Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                                            // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+		                   GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message((CONST_STRPTR)DBase[OBN].Name,
+		                GetString( MSG_MAPEXTRA_OBJECTRESULTINGFROMTHISMATCHWOULDBELARGERTHANTHEMA ),  // "Object resulting from this match would be larger than the maximum of MAXOBJPTS !\nOperation terminated."
+		                GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+		                (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),                             // "Mapping Module: Point Match"
+		               GetString( MSG_MAPEXTRA_ILLEGALNUMBEROFPOINTSFFIRSTANDLASTDESTINATIONPOINT ),  // "Illegal number of points!\nIf first and last destination points are the same, source points must be larger than zero.\nOperation terminated.",
+		               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),  // "Mapping Module: Point Match"
+		                   GetString( MSG_MAPEXTRA_PROCEEDWITHRELOCATION ),    // "Proceed with relocation?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                 // "OK|CANCEL"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),                        // "Mapping Module: Point Match"
+		               GetString( MSG_MAPEXTRA_OUTOFMEMORYOTENOUGHFORNEWPOINTSPERATIONFAILED ),  // "Out of memory!\nNot enough for new points.\nOperation failed."
+		               GetString( MSG_GLOBAL_OK ),                                             // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+		                   GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ) ,                               // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+		                   GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+		                   GetString( MSG_MAPEXTRA_DUPLICATETHISOBJECT ),  // "Duplicate this object?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),             // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),                            // "Mapping Module: Follow Stream"
+		               GetString( MSG_MAPEXTRA_OUTOFMEMNOTENOUGHFORTEMPTOPOARRAYPERATIONFAIL ), // "Out of memory!\nNot enough for temporary topo array.\nOperation failed."
+		               GetString( MSG_GLOBAL_OK ),                                                   // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),                   // "Mapping Module: Follow Stream"
+		               GetString( MSG_MAPEXTRA_POINTMAXIMUMHASBEENREACHEDAPPINGTERMINATED ),  // "Point maximum has been reached!\nMapping terminated"
+		               GetString( MSG_GLOBAL_OK ),                                          // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ), (CONST_STRPTR)str,  // "Mapping Module: Follow Stream"
+		        GetString( MSG_GLOBAL_OKCANCEL ),  // "OK|CANCEL"
+		        (CONST_STRPTR)"oc");
+
+		  User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),                           // "Mapping Module: Follow Stream"
+		               GetString( MSG_MAPEXTRA_INITIALPOINTNOTWITHINCURRENTLYLOADEDTOPOBOUNDARIES ),  // "Initial point not within currently loaded topo boundaries!\nObject points reduced to 1."
+		               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),                           // "Mapping Module: Follow Stream"
+		               GetString( MSG_MAPEXTRA_INITIALPOINTNOTWITHINCURRENTLYLOADEDTOPOBOUNDARIES ),  // "Initial point not within currently loaded topo boundaries!\nObject points reduced to 1."
+		               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),  // "Mapping Module: Follow Stream"
+		                   GetString( MSG_MAPEXTRA_SAVEVECTOROBJECTNOW ),        // "Save vector object now?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULESPLINE ),                       // "Mapping Module: Spline"
+		                   (CONST_STRPTR)str,
+		                   GetString( MSG_MAPEXTRA_OKRESETCANCEL ),                             // "OK|Reset|Cancel"
+		                   (CONST_STRPTR)"orc", 1);
+
+		  User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize",
+		                   GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save object now?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+		  User_Message(GetString( MSG_MAPEXTRA_MAPVIEWMODULEINTERPOLATE ),                            // "Map View Module: Interpolate"
+		               GetString( MSG_MAPEXTRA_OUTOFMEMORYCANTALLOCATENEWVECTORPERATIONTERMINATED ),  // "Out of memory! Can't allocate new vector.\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),  // "Mapping Module: Fix Flats"
+		                   GetString( MSG_MAPEXTRA_PROCEEDORRESETPOINTS ),   // "Proceed or reset points?"
+		                   GetString( MSG_MAPEXTRA_PROCEEDRESETCANCEL ),     // "Proceed|Reset|Cancel"
+		                   (CONST_STRPTR)"prc", 1);
+
+		  User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),           // "Mapping Module: Fix Flats"
+		                   GetString( MSG_MAPEXTRA_KEEPORSAVEDEMORRESETPARAMETERS ),  // "Keep or save DEM or reset parameters?"
+		                   GetString( MSG_MAPEXTRA_KEEPSAVERESETCANCEL ),             // "Keep|Save|Reset|Cancel"
+		                   (CONST_STRPTR)"ksrc", 1);
+
+		  User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),          // "Mapping Module: Fix Flats"
+		               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                             // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),                               // "Mapping Module: Fix Flats"
+		               GetString( MSG_MAPEXTRA_ALLCORNERPOINTSMUSTBEWITHINTOPOMAPBOUNDARIESPERATI ),  // "All corner points must be within topo map boundaries!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),                          // "Mapping Module: Fix Flats"
+		          GetString( MSG_MAPEXTRA_ILLEGALDIMENSIONSTRYMAKINGTHERECTANGLELARGERPERATI ),  // "Illegal dimensions! Try making the rectangle larger.\nOperation terminated."
+		          GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+		          (CONST_STRPTR)"o");
+
+		  User_Message( GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),                               // "Mapping Module: Fix Flats"
+		                GetString( MSG_MAPEXTRA_ALLCORNERPNTSMUSTBEWITHINSAMEDEMPERATIONTERMINAT ),  // "All corner points must be within same DEM!\nOperation terminated."
+		                GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+		                (CONST_STRPTR)"o");
+
+		  User_Message((CONST_STRPTR)"DBase[TopoOBN[i]].Name",
+		               GetString( MSG_MAPEXTRA_ERROROPENINGOUTPUTFILEPERATIONTERMINATED ),  // "Error opening output file!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                        // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message((CONST_STRPTR)"DBase[TopoOBN[i]].Name",
+		               GetString( MSG_MAPEXTRA_ERRORWRITINGTOOUTPUTFILEPERATIONTERMINATED ),  // "Error writing to output file!\nOperation terminated."
+		               GetString( MSG_GLOBAL_OK ),                                          // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def("Particle Tree", "Do another tree?", "Yes|No", "yn", 1);
+
+		  User_Message_Def("Particle Tree",
+		  "Out of memory allocating new branch!\nOperation terminated.",
+		  "OK", "o", 0);
+
+
+     //.MapGUI.c
+		  // find . -name "MapGUI.c" -exec grep -A3 -nHis "User_Message" {} \;
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULE ),                                           // "Mapping Module"
+		  	  GetString( MSG_MAPGUI_OUTOFMEMORYANTINITIALIZEMAPWINDOWPERATIONTERMINATED ),  // "Out of memory!\nCan't initialize map window!\nOperation terminated."
+		  	  GetString( MSG_GLOBAL_OK ), (CONST_STRPTR)"o");                               // "OK"
+
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),  // "Mapping Module: Align"
+		               GetString( MSG_MAPGUI_ILLEGALREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUA ),  // "Illegal registration values! High and low X or Y values are equal."
+		               GetString( MSG_GLOBAL_OK ), (CONST_STRPTR)"o");  // "OK"
+
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),     // "Mapping Module: Digitize"
+		               GetString( MSG_MAPGUI_SETDIGITIZINGINPUTSOURCE ),  // "Set digitizing input source."
+		               GetString( MSG_MAPGUI_BITPADSUMMAGRIDMOUSE ),      // "Bitpad|Summagrid|Mouse"
+		               (CONST_STRPTR)"bsm");
+
+		  User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                                                      // "Map View: Build DEM"
+		               (CONST_STRPTR) GetString( MSG_MAPGUI_ATLEASTONEENDCONTROLPOINTFORTHELINESEGMENTJUSTDRAWNC ),  // "At least one end control point for the line segment just drawn could not be found!\nDo you wish to use the current and minimum slider elevations for this segment or abort the operation?",
+		               GetString( MSG_MAPGUI_SLIDERABORT ),                                                          // "Slider|Abort"
+		               (CONST_STRPTR)"sa");
+
+		  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                                    // "Mapping Module: Align"
+		               GetString( MSG_MAPGUI_ILLEGALREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUA ),  // "Illegal registration values! High and low X or Y values are equal.
+		               GetString( MSG_GLOBAL_OK ),                                                    // "OK"
+		             (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPGUI_DATABASESAVE ),                                          // "Database: Save"
+		               GetString( MSG_MAPGUI_THEDATABASEHASBEENMODIFIEDSINCEITWASLOADEDOYOUWISHTO ),  // "The Database has been modified since it was loaded.\nDo you wish to save it or a Master Object file now?",
+		               GetString( MSG_MAPGUI_DBASEOBJECTBOTHNEITHER ),                                // "D'base|Object|Both|Neither"
+		               (CONST_STRPTR)"dmbn");
+
+		  User_Message(GetString( MSG_MAPGUI_ECOSYSTEMLEGEND ),  // "Ecosystem Legend"
+		               GetString( MSG_MAPGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREOPENINGT ),  // "You must first load or create a parameter file before opening the Legend."
+		               GetString( MSG_GLOBAL_OK ),                                                    // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPGUI_MAPVIEWECOSYSTEMLEGEND ),              // "Map View: Ecosystem Legend"
+		  	GetString( MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND ),  // "Out of memory!\nCan't open Ecosystem Legend."
+		                GetString( MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND ),  // "OK"
+		                (CONST_STRPTR)"o");
+
+		  User_Message(GetString( MSG_MAPGUI_ECOSYSTEMLEGEND ),  // "Ecosystem Legend"
+		               GetString( MSG_GLOBAL_OUTOFMEMORY ),      // "Out of memory!"
+		               GetString( MSG_GLOBAL_OK ),               // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message("Map View: Export Contours",
+		     "Select contour objects to export and reselect Export Contours\
+		      from the menu  when done.",
+		     "OK", "o");
+
+		  User_Message("Map View: Export Contours",
+		     "Can't open Database Editor window!\nOperation terminated.","OK", "o");
+
+		  User_Message("Map View: Export Contours",
+		     "Extract elevation values from Object Names, Label fields\
+		      or use the values embedded in the Objects themselves?",
+		  	 "Name|Label|Embedded", "nle");
+
+		  User_Message("Map View: Export Contours",
+		  "Error writing to file!\nOperation terminated.","OK", "o");
+
+          User_Message("Map View: Export Contours",
+          "Error writing to XYZ header file!","OK", "o");
+
+		  User_Message("Map View: Export Contours",
+		  	"Error opening XYZ header file for output!","OK", "o");
+
+		  User_Message("Map View: Export Contours",
+		  	"Error opening XYZ file for output!\nOperation terminated.","OK", "o");
+
+     //.MapLineObject.c
+		  // find . -name "MapLineObject.c" -exec grep -A3 -nHis "User_Message" {} \;
+		  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                               // "Render Module"
+		               GetString( MSG_MAPLINO_ERRORSAVINGLINEVERTICESTOFILEELECTNEWPATH ),  // "Error saving line vertices to file!\nSelect new path."
+		               GetString( MSG_GLOBAL_OK ),                                         // "OK"
+		               (CONST_STRPTR)"o");
+
+		  User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
+		                   GetString( MSG_MAPLINO_ERROROPENINGLINESAVEFILEELECTNEWPATH ),  // "Error opening line save file!\nSelect new path?"
+		                   GetString( MSG_GLOBAL_OKCANCEL ),                              // "OK|Cancel"
+		                   (CONST_STRPTR)"oc", 1);
+
+     //.MapSupport.c
+			  // find . -name "MapSupport.c" -exec grep -A3 -nHis "User_Message" {} \;
+			  User_Message((CONST_STRPTR)DBase[OBN].Name, GetString( MSG_MAPSUPRT_CANTOPENOBJECTFILEBJECTNOTSAVED ),  // "Can't open object file!\nObject not saved."
+			               GetString( MSG_GLOBAL_OK ),                                                              // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message((CONST_STRPTR)DBase[OBN].Name, GetString( MSG_MAPSUPRT_ERRORSAVINGOBJECTFILEBJECTNOTSAVED ),  // "Error saving object file!\nObject not saved."
+			               GetString( MSG_MAPSUPRT_ERRORSAVINGOBJECTFILEBJECTNOTSAVED ),                                 // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_MAPSUPRT_MAPPINGMODULETOPOMAPPING ),                            // "Mapping Module: Topo Mapping"
+			               GetString( MSG_MAPSUPRT_NOTOPOMAPSFOUNDHECKOBJECTENABLEDSTATUSANDCLASSINDA ),  // "No topo maps found!\nCheck object Enabled Status and Class in database."
+			               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_MAPSUPRT_MAPVIEWLOADTOPOS ),               // "Map View: Load Topos"
+			               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+			               GetString( MSG_GLOBAL_OK ),                             // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message((CONST_STRPTR)str, GetString( MSG_MAPSUPRT_ERRORLOADINGTOPOMAPCHECKSTATUSLOGTOSEEIFOUTOFMEMOR ),  // "Error loading topo map! Check Status Log to see if out of memory.\nOperation terminated."
+			               GetString( MSG_GLOBAL_OK ),                                                                     // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_MAPSUPRT_MAPVIEWLOADTOPOS ),            // "Map View: Load Topos"
+			               GetString( MSG_MAPSUPRT_ERRORLOADINGDEMSNONELOADED ),  // "Error loading DEMs! None loaded."
+			               GetString( MSG_GLOBAL_OK ),                          // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULE ),                                       // "Mapping Module"
+			               GetString( MSG_MAP_OUTOFMEMORYALLOCATINGNEWVECTORARRAYPERATIONTE ),  // "Out of memory allocating new vector array!\nOperation terminated."
+			               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message_Def((CONST_STRPTR)"DBase[i].Name",
+			                   GetString( MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING ),  // "Vector object has been modified!\nSave it before closing?"
+			                   GetString( MSG_MAPSUPRT_SAVECANCEL ),                                     // "SAVE|CANCEL"
+			                   (CONST_STRPTR)"sc", 1);
+
+			  User_Message(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
+			               GetString( MSG_MAPSUPRT_SELECTEDOBJECTMUSTBEATOPODEMEECLASSFIELDINDATABASE ),  // "Selected object must be a Topo DEM!\nSee Class field in Database Editor.\nOperation terminated."
+			               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message_Def(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
+			                   GetString( MSG_MAPSUPRT_SELECTEDMAPISNOTCURRENTLYLOADEDOYOUWISHTOLOADTOPOM ),  // "Selected map is not currently loaded!\nDo you wish to load topo maps?",
+			                   GetString( MSG_GLOBAL_OKCANCEL ),                                            // "OK|CANCEL"
+			                   (CONST_STRPTR)"oc", 1);
+
+			  User_Message(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                               // "Map View: Color Map"
+			               GetString( MSG_MAPSUPRT_OUTOFMEMORYCREATINGBITMAPSPERATIONTERMINATED ),  // "Out of memory creating bitmaps!\nOperation terminated."
+			               GetString( MSG_GLOBAL_OK ),                                            // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message_Def(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                    // "Map View: Color Map"
+			                   GetString( MSG_MAPSUPRT_INCLUDEDEMELEVATIONDATAINCOLORMAP ),  // "Include DEM elevation data in Color Map?"
+			                   GetString( MSG_GLOBAL_YESNO ),                              // "Yes|No"
+			                   (CONST_STRPTR)"yn", 1);
+
+     //.MapTopoObject.c
+	// find . -name "MapTopoObject.c" -exec grep -A3 -nHis "User_Message" {} \;
+			  User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
+			                   GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
+			                   GetString( MSG_INTVIEW_RETRYCANCEL ),                               // "Retry|Cancel"
+			                   (CONST_STRPTR)"rc", 1);
+
+			  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                       // "Render Module"
+			               GetString( MSG_MAPTOPOOB_ERRORALLOCATINGORREADINGFRACTALINDEXARRAYSCONTINU ),  // "Error allocating or reading Fractal Index arrays!\nContinue without Fractal Displacement Mapping?"
+			               GetString( MSG_GLOBAL_OKCANCEL ),                                           // "OK|Cancel"
+			               (CONST_STRPTR)"oc");
+
+			  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                     // "Render Module"
+			               GetString( MSG_MAPTOPOOB_ERRORSAVINGVECTORVERTICESTOFILE ),  // "Error saving vector vertices to file!"
+			               GetString( MSG_GLOBAL_OK ),                               // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                 // "Render Module"
+			               GetString( MSG_MAPTOPOOB_CANTOPENVECTORFILEFOROUTPUT ),  // "Can't open vector file for output!"
+			               GetString( MSG_GLOBAL_OK ),                           // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message("Render Module: Clouds",
+			  "Out of memory initializing Cloud Map!\nContinue without clouds or cancel rendering?",
+			  "Continue|Cancel", "oc");
+
+			  User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                        // "Render Module: Topo"
+			                   (CONST_STRPTR)str,
+			                   GetString( MSG_INTVIEW_RETRYCANCEL ),                             //"Retry|Cancel",
+			                   (CONST_STRPTR)"rc", 1);
+
+			  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                       // "Render Module"
+			               GetString( MSG_GLMP_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),  // "Out of memory opening key frame table!\nOperation terminated."
+			               GetString( MSG_GLOBAL_OK ),                                                 // "OK"
+			               (CONST_STRPTR)"o");
+
+     //.Memory.c
+				  // find . -name "Memory.c" -exec grep -A3 -nHis "User_Message" {} \;
+				  User_Message("Memory Alloc Fail", str, "OK", "o");
+
+
+     //.MoreGUI.c
+				  // find . -name "MoreGUI.c" -exec grep -A3 -nHis "User_Message" {} \;
+				  User_Message(GetString( MSG_MOREGUI_DEMEXTRACT ),   // "DEM Extract"
+				               GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
+				               GetString( MSG_GLOBAL_OK ),           // "OK"
+				               (CONST_STRPTR)"o");
+
+				  User_Message(GetString( MSG_MOREGUI_DATAOPSMODULEDEMEXTRACT ),                       // "Data Ops Module: DEM Extract"
+				   GetString( MSG_MOREGUI_PLEASEENTERTHELATITUDEANDLONGITUDEVALUESFORTHESOUTH ),  // "Please enter the latitude and longitude values for the southeast corner of the current DEM in the string gadgets near the top of the DEM Extract Window."
+				   GetString( MSG_MOREGUI_PROCEEDCANCEL ), (CONST_STRPTR)"pc");                   // "Proceed|Cancel"
+
+
+				  User_Message(GetString( MSG_MOREGUI_PROJECTNEWEDIT ),  // "Project: New/Edit"
+				               GetString( MSG_GLOBAL_OUTOFMEMORY ),     // "Out of memory!"
+				               GetString( MSG_GLOBAL_OK ),              //"OK"
+				               (CONST_STRPTR)"o");
+
+				  User_Message(GetString( MSG_MOREGUI_PARAMETERSIMAGESCALE ),  // "Parameters: Image Scale"
+				               GetString( MSG_GLOBAL_OUTOFMEMORY ),           // "Out of memory!"
+				               GetString( MSG_GLOBAL_OK ),                    // "OK"
+				               (CONST_STRPTR)"o");
+
+				  User_Message(GetString( MSG_MOREGUI_PARAMETERSIMAGESCALE ),  // "Parameters: Image Scale"
+				               GetString( MSG_MOREGUI_APPLYCHANGES ),          // "Apply changes?"
+				               GetString( MSG_GLOBAL_OKCANCEL ),              // "OK|Cancel"
+				               (CONST_STRPTR)"oc");
+
+				  User_Message(GetString( MSG_MENU_PREFS ),  // "Preferences"
+				               GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
+				               GetString( MSG_GLOBAL_OK ),           // "OK"
+				               (CONST_STRPTR)"o");
+
+
+     //.Params.c
+				  // find . -name "Params.c" -exec grep -A3 -nHis "User_Message" {} \;
+				  User_Message(GetString( MSG_PARAMS_KEYFRAMECANCEL ),  // "Key Frame: Cancel"
+				               (CONST_STRPTR)str,
+				               GetString( MSG_GLOBAL_OK ),               // "OK"
+				               (CONST_STRPTR)"o");
+
+				  User_Message(GetString( MSG_PARAMS_KEYFRAMEMODULE ) ,                                     // "Key Frame Module"
+				               GetString( MSG_PARAMS_OUTOFMEMORYALLOCATINGNEWKEYFRAMEPERATIONTERMINATED ),  // "Out of memory allocating new key frame!\nOperation terminated."
+				               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+				               (CONST_STRPTR)"o");
+
+				  User_Message(GetString( MSG_PARAMS_PARAMETERSMODULEVELOCITYDISTRIBUTION ),                 // "Parameters Module: Velocity Distribution"
+				               GetString( MSG_PARAMS_EASEINPLUSEASEOUTFRAMEVALUESEXCEEDTOTALNUMBEROFANIMA ),  // "\"Ease In\" plus \"Ease Out\" frame values exceed total number of animated frames.\nThis is illegal! Do you wish to continue without Velocity Distribution?"
+				               GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
+				               (CONST_STRPTR)"oc");
+
+     //.ParamsGUI.c
+					  // find . -name "ParamsGUI.c" -exec grep -A3 -nHis "User_Message" {} \;
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),          // "Parameters Module: Scale"
+			               GetString( MSG_PARGUI_OUTOFMEMORYANTOPENSCALEWINDOW ),  // "Out of memory!\nCan't open Scale window."
+			               GetString( MSG_GLOBAL_OK ),                             // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),          // "Parameters Module: Scale"
+			               GetString( MSG_PARGUI_OUTOFMEMORYANTOPENSCALEWINDOW ),  // "Out of memory!\nCan't open Scale window."
+			               GetString( MSG_GLOBAL_OK ),                             // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),  // "Parameters Module: Scale"
+			               GetString( MSG_PARGUI_NOKEYFRAMESTOSCALE ),     // "No key frames to scale!"
+			               GetString( MSG_GLOBAL_OK ),                     // "OK"
+			                (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULESCALE ),          // "Parameters Module: Scale"
+			               GetString( MSG_PARGUI_OUTOFMEMORYANTOPENSCALEWINDOW ),  // "Out of memory!\nCan't open Scale window."
+			               GetString( MSG_GLOBAL_OK ),                             // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_SCALEKEYS ),    // "Scale Keys"
+			               GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
+			               GetString( MSG_GLOBAL_OK ),           // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_LIGHTWAVEMOTIONIO ),                                     // "LightWave Motion I/O"
+			               GetString( MSG_PARGUI_YOUMUSTFIRSTLOADORCREATEAPARAMETERFILEBEFOREUSINGTHI ),  // "You must first load or create a parameter file before using this feature."
+			               GetString( MSG_GLOBAL_OK ),                                                    // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_LIGHTWAVEMOTIONIO ),                                // "LightWave Motion I/O"
+			               GetString( MSG_PARGUI_ERRORBUILDINGMOTIONVALUETABLEPERATIONTERMINATED ),  // "Error building motion value table\nOperation terminated",
+			               GetString( MSG_GLOBAL_OK ),                                               // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_LIGHTWAVEIO ),  // "LightWave I/O"
+			               GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
+			               GetString( MSG_GLOBAL_OK ),           // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                // "Parameters Module: Model"
+			               GetString( MSG_PARGUI_OUTOFMEMORYANTOPENMODELDESIGNWINDOW ),  // "Out of memory!\nCan't open model design window."
+			               GetString( MSG_GLOBAL_OK ),                                   // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),  // "Parameters Module: Model"
+			               GetString( MSG_GLOBAL_OUTOFMEMORY ),            // "Out of memory!"
+			               GetString( MSG_GLOBAL_OK ),                     // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+			                   GetString( MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_1 ),  // "The current Ecosystem Model has been modified. Do you wish to save it before closing?"
+			                   GetString( MSG_PARGUI_YESNOCANCEL ),                                           // "Yes|No|Cancel"
+			                   (CONST_STRPTR)"ync", 1);
+
+			  User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+			                   GetString( MSG_PARGUI_CURRECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2 ),  //" The current Ecosystem Model has been modified. Do you wish to save it before proceeding?"
+			                   GetString( MSG_PARGUI_YESNOCANCEL ),                                           // "Yes|No|Cancel"
+			                   (CONST_STRPTR)"ync", 1);
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+			               GetString( MSG_PARGUI_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMI ),   // "Error opening Ecosystem Model file for input!\nOperation terminated." // AF: fixed, was "output"
+			               GetString( MSG_GLOBAL_OK ),                                                    // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+			               GetString( MSG_PARGUI_ERRORREADINGFROMECOSYSTEMMODELFILEPERATIONTERMINATEDPR ),  // "Error reading from Ecosystem Model file!\nOperation terminated prematurely.", // AF: fixed, was "writing to"
+			               GetString( MSG_GLOBAL_OK ),                                                      // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
+			               GetString( MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED ),  // "Not a WCS Ecosystem Model file!\nOperation terminated."
+			               GetString( MSG_GLOBAL_OK ),                                           // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+			               GetString( MSG_PARGUI_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMI ),  // "Unsupported WCS Ecosystem Model file version!\nOperation terminated.",
+			               GetString( MSG_GLOBAL_OK ),                                                    // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),  // "Parameters Module: Model"
+			               GetString( MSG_PARGUI_YOUHAVENOTSELECTEDAFILENAMEFORINPUTPERATIONTERMINATE ),  // "You have not selected a file name for input!\nOperation terminated."
+			               GetString( MSG_GLOBAL_OK ),                                                    // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+			               GetString( MSG_PARGUI_ERROPENCOSYSMODELFILEFOROUTPUTPERATIONTERMI ),  // "Error opening Ecosystem Model file for output!\nOperation terminated."
+			               GetString( MSG_GLOBAL_OK ),                                                    // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                  // "Parameters Module: Model"
+			               GetString( MSG_PARGUI_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPR ),   // "Error writing to Ecosystem Model file!\nOperation terminated prematurely.",
+			               GetString( MSG_GLOBAL_OK ),                                                     // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+			               GetString( MSG_PARGUI_NOTSELECTEDAFILENAMEFOROUTPUTPERATIONTERMINAT ),  // "You have not selected a file name for output!\nOperation terminated."
+			               GetString( MSG_GLOBAL_OK ),                                                    // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEANIM ),  // "Parameters Module: Anim"
+			               GetString( MSG_GLOBAL_OUTOFMEMORY ),           // "Out of memory!"
+			               GetString( MSG_GLOBAL_OK ),                    // "OK"
+			               (CONST_STRPTR)"o");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEANIM ),                                 // "Parameters Module: Anim"
+			              GetString( MSG_PARGUI_SPECIFIEDWIDTHISLARGERTHANTHECURRENTSCREENWIDTHDOYOU ),  // "Specified width is larger than the current screen width. Do you wish to use the screen width?"
+			              GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
+			              (CONST_STRPTR)"oc");
+
+			  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEANIM ),                                  // "Parameters Module: Anim"
+			               GetString( MSG_PARGUI_SPECIFIEDORCOMPUTEDHEIGHTISLARGERTHANTHECURRENTSCREE ),  // "Specified or computed height is larger than the current screen height. Do you wish to use the screen height?
+			               GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
+			               (CONST_STRPTR)"oc");
+
+     //.Support.c
+						  // find . -name "Support.c" -exec grep -A3 -nHis "User_Message" {} \;
+						  User_Message(GetString( MSG_SUPPORT_WCSCONFIGURATIONSAVE ),                         // "WCS Configuration: Save"
+						               GetString( MSG_SUPPORT_CANTOPENCONFIGURATIONFILEPERATIONTERMINATED ),  // "Can't open configuration file!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                           // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_SUPPORT_WCSCONFIGURATIONLOAD ),                         // "WCS Configuration: Load"
+						               GetString( MSG_SUPPORT_CANTOPENCONFIGURATIONFILEPERATIONTERMINATED ),  // "Can't open configuration file!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                           // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_SUPPORT_WCSPROJECTSAVE ),                         // "WCS Project: Save"
+						               GetString( MSG_SUPPORT_CANTOPENPROJECTFILEPERATIONTERMINATED ),  // "Can't open project file!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                     // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message_Def(GetString( MSG_SUPPORT_PROJECTSAVE ),                          // "Project: Save"
+						                   GetString( MSG_SUPPORT_SAVEDATABASEANDPARAMETERFILESASWELL ),  // "Save Database and Parameter files as well?"
+						  			GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ),                    // "Both|D'base|Params|No",
+						                   (CONST_STRPTR)"bdpn", 1);
+
+						  User_Message(GetString( MSG_SUPPORT_WCSPROJECTLOAD ),                         // "WCS Project: Load"
+						               GetString( MSG_SUPPORT_CANTOPENPROJECTFILEPERATIONTERMINATED ),  // "Can't open project file!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                     // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_SUPPORT_PROJECTLOAD ),                           // "Project: Load"
+						               GetString( MSG_SUPPORT_NOTAWCSPROJECTFILEPERATIONTERMINATED ),  // "Not a WCS Project file!\nOperation terminated.",
+						               GetString( MSG_GLOBAL_OK ),                                    // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                                        // "Mapping Module: Align"
+						               GetString( MSG_SUPPORT_ILLEGALMAPREGISTRATIONVALUESHIGHANDLOWXORYVALUESAREEQUAL ),  // "Illegal map registration values! High and low X or Y values are equal."
+						               GetString( MSG_GLOBAL_OK ),                                                        // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_SUPPORT_DIRECTORYLISTLOAD ),                      // "Directory List: Load"
+						               GetString( MSG_SUPPORT_CANTOPENPROJECTFILEPERATIONTERMINATED ),  // "Can't open project file!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                     // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_SUPPORT_DIRECTORYLISTLOAD ),                     // "Directory List: Load"
+						               GetString( MSG_SUPPORT_NOTAWCSPROJECTFILEPERATIONTERMINATED ),  // "Not a WCS Project file!\nOperation terminated.",
+						               GetString( MSG_GLOBAL_OK ),                                    // "OK"
+						               (CONST_STRPTR)"o");
+
+     //.TimeLinesGUI.c
+						  // find . -name "TimeLinesGUI.c" -exec grep -A3 -nHis "User_Message" {} \;
+						  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                // "Parameters: Time Line"
+						               GetString( MSG_TLGUI_OUTOFMEMORYANTOPENTIMELINEWINDOW ),  // "Out of memory!\nCan't open Time Line window."
+						               GetString( MSG_GLOBAL_OK ),                                // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                                     // "Parameters: Time Line"
+						               GetString( MSG_TLGUI_NOMOTIONPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONTERM ),  // "No Motion Parameters with more than one Key Frame!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                                     // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_TLGUI_MOTIONTIMELINE ),  // "Motion Time Line"
+						               GetString( MSG_GLOBAL_OUTOFMEMORY ),     // "Out of memory!"
+						               GetString( MSG_GLOBAL_OK ),              // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_TLGUI_MOTIONEDITORTIMELINES ),                                  // "Motion Editor: Time Lines"
+						               GetString( MSG_TLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPRIOR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
+						               GetString( MSG_GLOBAL_OK ),                                                     // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                // "Parameters: Time Line"
+						               GetString( MSG_TLGUI_OUTOFMEMORYANTOPENTIMELINEWINDOW ),  // "Out of memory!\nCan't open Time Line window."
+						               GetString( MSG_GLOBAL_OK ),                                // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                                     // "Parameters: Time Line"
+						               GetString( MSG_TLGUI_NOCOLORPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONTERMI ),  // "No Color Parameters with more than one Key Frame!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                                     // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_TLGUI_COLORTIMELINE ),  // "Color Time Line"
+						               GetString( MSG_GLOBAL_OUTOFMEMORY ),    // "Out of memory!"
+						               GetString( MSG_GLOBAL_OK ),             // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_TLGUI_COLOREDITORTIMELINES ),                                   // "Color Editor: Time Lines"
+						               GetString( MSG_TLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPRIOR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
+						               GetString( MSG_GLOBAL_OK ),                                                     // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                // "Parameters: Time Line"
+						               GetString( MSG_TLGUI_OUTOFMEMORYANTOPENTIMELINEWINDOW ),  // "Out of memory!\nCan't open Time Line window."
+						               GetString( MSG_GLOBAL_OK ),                                // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_TLGUI_PARAMETERSTIMELINE ),                                     // "Parameters: Time Line"
+						               GetString( MSG_TLGUI_NOECOSYSTEMPARAMETERSWITHMORETHANONEKEYFRAMEPERATIONT ),  // "No Ecosystem Parameters with more than one Key Frame!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                                     // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_TLGUI_ECOSYSTEMTIMELINE ),  // "Ecosystem Time Line"
+						               GetString( MSG_GLOBAL_OUTOFMEMORY ),        // "Out of memory!"
+						               GetString( MSG_GLOBAL_OK ),                 // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_TLGUI_ECOSYSTEMEDITORTIMELINES ),                               // "Ecosystem Editor: Time Lines"
+						               GetString( MSG_TLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPRIOR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
+						               GetString( MSG_GLOBAL_OK ),                                                     // "OK"
+						               (CONST_STRPTR)"o");
+
+     //.Tree.c
+						  // find . -name "Tree.c" -exec grep -A3 -nHis "User_Message" {} \;
+						  User_Message("Tree Convert", "Error opening file for input!\nOperation terminated.", "OK", "c");
+
+						  User_Message("Tree Convert", "Out of memory!\nOperation terminated.", "OK", "c");
+
+						  User_Message("Tree Convert", "Error reading file!\nOperation terminated.", "OK", "c");
+
+
+						  User_Message("Tree Convert", "Error opening file for output!\nOperation terminated.", "OK", "c");
+
+						  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+						               GetString( MSG_TREE_ERROROPENINGECOSYSTEMMODELFILEFORINPUTPERATIONTERMINAT ),  // "Error opening Ecosystem Model file for input!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                                      // "OK",
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+						               GetString( MSG_TREE_ERRORWRITINGTOECOSYSTEMMODELFILEPERATIONTERMINATEDPREM ),  // "Error writing to Ecosystem Model file!\nOperation terminated prematurely."
+						               GetString( MSG_GLOBAL_OK ),                                                      // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
+						               GetString( MSG_PARGUI_NOTAWCSECOSYSTEMMODELFILEPERATIONTERMINATED ),  // "Not a WCS Ecosystem Model file!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                           // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+						               GetString( MSG_PARGUI_UNSUPPORTEDWCSECOSYSTEMMODELFILEVERSIONPERATIONTERMI ),  // "Unsupported WCS Ecosystem Model file version!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                                      // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                   // "Parameters Module: Model"
+						               GetString( MSG_TREE_OUTOFMEMORYALLOCATINGECOSYSTEMMODELSPERATIONTERMINATED ),  // "Out of memory allocating Ecosystem Models!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                                      // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                        // "Parameters Module: Model"
+						               GetString( MSG_TREE_NODATAINWCSECOSYSTEMMODELPERATIONTERMINATED ),  // "No data in WCS Ecosystem Model!\nOperation terminated."
+						               GetString( MSG_GLOBAL_OK ),                                           // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message((CONST_STRPTR)PAR_NAME_ECO(0), GetString( MSG_TREE_APROBLEMOCCURREDLOADINGATLEASTONEIMAGEFORTHISECOSYSTEM ),  // "A problem occurred loading at least one image for this ecosystem!\nContinue without it or them?"
+						               GetString( MSG_GLOBAL_OKCANCEL ),   // "OK|Cancel"
+						               (CONST_STRPTR)"oc");
+
+						  User_Message(PAR_NAME_ECO(0), "No images found for this ecosystem!\n\
+						     ./Tree.c-1347-Continue without them?", "OK|Cancel", "oc");
+
+     //.WCS.c  // ALEXANDER
+     // find . -name "WCS.c" -exec grep -A3 -nHis "User_Message" {} \;
+						  User_Message((CONST_STRPTR)"World Construction set",
+						               GetString( MSG_WCS_BETAPERIODEXPIRED ),     // "Beta period expired..."
+						               GetString( MSG_GLOBAL_OK ),                    // "OK"
+						               (CONST_STRPTR)"o");
+
+     //.Wave.c
+						  // find . -name "Wave.c" -exec grep -A3 -nHis "User_Message" {} \;
+						  User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),          // "Wave: Set Defaults"
+						                   GetString( MSG_WAV_SELECTGENERALWAVECENTER ),  // "Select general wave center."
+						                   GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ),    // "Focus Point|Camera Point"
+						                   (CONST_STRPTR)"fc", 0);
+
+						  User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Wave: Set Defaults"
+						                   GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Select wave speed."
+						                   GetString( MSG_WAV_FASTVERYFASTSLOW ),  //"Fast|Very Fast|Slow"
+						                   (CONST_STRPTR)"fvs", 1);
+
+						  User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Wave: Set Defaults"
+						                   GetString( MSG_WAV_SELECTWAVEDIRECTION ),  // "Select wave direction."
+						                   GetString( MSG_WAV_SPREADINGCONVERGING ),  // "Spreading|Converging"
+						                   (CONST_STRPTR)"sc", 1);;
+
+
+     //.WaveGUI.c
+						  // find . -name "WaveGUI.c" -exec grep -A3 -nHis "User_Message" {} \;
+						  User_Message(GetString( MSG_WAVGUI_MAPVIEWWAVES ),  // "Map View: Waves"
+						               GetString( MSG_GLOBAL_OUTOFMEMORY ),   // "Out of memory!"
+						               GetString( MSG_GLOBAL_OK ),            // "OK"
+						               (CONST_STRPTR)"o");
+
+						  User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),  // "Wave Editor"
+						                   GetString( MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB ),  // "The current Wave Model has been modified. Do you wish to save it before closing?"
+						                   GetString( MSG_GLOBAL_YESNO ),  // "Yes|No"
+						                   (CONST_STRPTR)"yn", 1);
+
+						  User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+						                   GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
+						                   GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+						                   (CONST_STRPTR)"yn", 1);
+
+						  User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
+						                   GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
+						                   GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
+						                   (CONST_STRPTR)"oc", 1);
+
+						  User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+						                   GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
+						                   GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+						                   (CONST_STRPTR)"yn", 1);
+
+						  User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+						                   GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
+						                   GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+						                   (CONST_STRPTR)"yn", 1);
+
+						  User_Message_Def(GetString( MSG_WAVGUI_ADDWAVE ),                                               // "Add Wave"
+						                   GetString( MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY ),  // "Map View Module must be open in order\ to use this function. Would you like to open it now?"
+						                   GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
+						                   (CONST_STRPTR)"oc",1);
+
+						  User_Message(GetString( MSG_WAVGUI_MAPVIEWWAVEADD ),                                     // "Map View: Wave Add"
+						               GetString( MSG_WAVGUI_REMOVEALLCURRENTLYDEFINEDWAVESBEFOREADDINGNEWONES ),  // "Remove all currently defined waves before adding new ones?"
+						               GetString( MSG_GLOBAL_YESNO ),                                              // "Yes|No"
+						               (CONST_STRPTR)"yn");
+
+
+     //.nncrunch.c
+							  // find . -name "nncrunch.c" -exec grep -A3 -nHis "User_Message" {} \;
+							  User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                                     // "Map View: Build DEM"
+							               GetString( MSG_NNCRUNCH_INSUFFICIENTDATAINGRIDDEDREGIONTOTRIANGULATEINCREA ),  // "Insufficient data in gridded region to triangulate! Increase the size of the gridded region or add more control points."
+							               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+							               (CONST_STRPTR)"o");
+
+							  User_Message("Map View: Build DEM",
+							     "Unable to open data file.", "OK", "o");
+
+							  User_Message("Map View: Build DEM",
+							     "Insufficient data in gridded region to triangulate!\
+							     Increase the size of the gridded region or add more control points", "OK", "o");
+
+							  User_Message(GetString( MSG_NNCRUNCH_MAPVIEWGRIDDEM ),                                      // "Map View: Grid DEM"
+							               GetString( MSG_NNCRUNCH_THERATIOOFVERTICALTOHORIZONTALMAPDIMENSIONSISTOOLA ),  // "The ratio of vertical to horizontal map dimensions is too large for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?"
+							               GetString( MSG_GLOBAL_CONTINUECANCEL ),                                      // "Continue|Cancel"
+							               (CONST_STRPTR)"oc");
+
+							  User_Message(GetString( MSG_NNCRUNCH_MAPVIEWGRIDDEM ) ,                                     // "Map View: Grid DEM"
+							               GetString( MSG_NNCRUNCH_RATIOOFVERTTOHORIZMAPDIMENSIONSISTOOSM ),  // "The ratio of vertical to horizontal map dimensions is too small for gradient estimation. Scale the data if gradients are required.\nDo you wish to continue without gradient estimation?"
+							               GetString( MSG_GLOBAL_CONTINUECANCEL ),                                      // "Continue|Cancel"
+							               (CONST_STRPTR)"oc");
+
+							  User_Message(GetString( MSG_NNCRUNCH_MAPVIEWGRIDDEM ),                                      // "Map View: Grid DEM"
+							               GetString( MSG_NNCRUNCH_THERATIOOFWIDTHTOLENGTHOFTHISGRIDDEDREGIONMAYBETOO ),  // "The ratio of width to length of this gridded region may be too extreme for good interpolation.\nChanging the block proportions, or rescaling the x or y coordinate may be a good idea.\nContinue now with the present dimensions?"
+							               GetString( MSG_GLOBAL_CONTINUECANCEL ),                                      // "Continue|Cancel"
+							               (CONST_STRPTR)"oc");
+
+							  User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                            // "Map View: Build DEM",
+							               GetString( MSG_NNCRUNCH_OUTOFMEMORYDOUBLEMATRIXPERATIONTERMINATED ),  // "Out of memory Double Matrix!\nOperation terminated."
+							               GetString( MSG_GLOBAL_OK ),                                         // "OK"
+							               (CONST_STRPTR)"o");
+
+							  User_Message(GetString( MSG_MAPGUI_MAPVIEWBUILDDEM ),                                     // "Map View: Build DEM"
+							               GetString( MSG_NNCRUNCH_OUTOFMEMORYALLOCATINGDOUBLEMATRIXPERATIONTERMINATE ),  // "Out of memory allocating Double Matrix!\nOperation terminated."
+							               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+							               (CONST_STRPTR)"o");
+
+
+     //.nngridr.c
+							  // find . -name "nngridr.c" -exec grep -A3 -nHis "User_Message" {} \;
+							  User_Message(GetString( MSG_NNGRIDR_MAPVIEWGRIDDEM ),                // "Map View: Grid DEM"
+							               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+							               GetString( MSG_GLOBAL_OK ),                             // "OK"
+							               (CONST_STRPTR)"o");
+
+
+
 
 }
