@@ -2260,12 +2260,297 @@ void Test_User_Message(void)
 	                   GetString( MSG_GLOBAL_OK ),                                        // "OK"
 	                   (CONST_STRPTR)"o", 0);
 
-     //./GUI.c                                   ./DataOpsGUI.c-812-               GetString( MSG_DATAOPSGUI_UNABLETOREADFILESIZE ),  // "Unable to read file size!\n"                                                                                                                                                                                                 ./DataBase.c-104-   fclose(fname);
-     //.GenericParams.c/                         ./DataOpsGUI.c-813-               GetString( MSG_GLOBAL_OK ),                    // "OK"                                                                                                                                                                                                                              --
-     //.GenericTLGUI.c/                          ./DataOpsGUI.c-814-               (CONST_STRPTR)"o");                                                                                                                                                                                                                                                                 ./DataBase.c:168:   if (User_Message_Def(str,
-     //.GlobeMap.c/                              --                                                                                                                                                                                                                                                                                                                    ./DataBase.c-169-	"Make this the default object directory?", "OK|Cancel", "oc", 1))
-     //.GlobeMapSupport.c/                       ./DataOpsGUI.c:912:    User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERT ) ,            // "Data Ops: Convert"                                                                                                                                                                                                    ./DataBase.c-170-    {
-     //.HelpGUI.c/                               ./DataOpsGUI.c-913-    		GetString( MSG_DATAOPSGUI_WARNINGILEISNOTAWCSDEMFILE ),  // "Warning!\nFile is not a WCS DEM file."                                                                                                                                                                                          ./DataBase.c-171-    strmfp(dirname, dbasepath, str);
+     //./GUI.c
+	  // find . -name "GUI.c" -exec grep -A3 -nHis "User_Message" {} \;
+// all not used
+//	  User_Message("Parameters Module", "Out of memory!", "OK", "o");
+//
+//	  User_Message_Def("Parameter Editing: Defaults", str, "OK|Cancel", "oc", 1);
+//
+//	  User_Message("Parameter Editing: Defaults",
+//	  "You must first load a Database before Default Parameters can be computed.", "OK", "o");
+//
+//	  User_Message("Database Module", "Out of memory!", "OK", "o");
+//
+//	  User_Message("DataOps Module", "Out of memory!", "OK", "o");
+//
+//	  User_Message_Def("World Construction Set",
+//	   "Public Screen still has visitors. Try closing again?",
+//	   "Close|Warn|Cancel", "owc", 2);
+//
+//	  User_Message_Def("World Construction Set",
+//	   "Quit Program\nAre you sure?",
+//	   "Close|Warn|Cancel", "owc", 2);
+//
+//	  User_Message_Def("WCS Project",
+//	    "Project paths have been modified. Save them before closing?",
+//	    "OK|Cancel", "oc", 1);
+//
+//	  User_Message_Def("Parameter Module",
+//	    "Parameters have been modified. Save them before closing?",
+//	    "OK|Cancel", "oc", 1);
+//
+//	  User_Message_Def("Database Module",
+//	    "Database has been modified. Save it before closing?",
+//	    "OK|Cancel", "oc", 1);
+//
+//	  User_Message("Example-mod", "Not yet implemented.\nStay Tuned!", "OK","o");
+//
+//	  User_Message_Def("Example-Win", "Keep changes?", "Keep|Cancel", "kc", 1);
+//
+//	  User_Message("Example-mod", loadmesg, "OK","o");
+//
+//	  User_Message_Def("Example-existsfile", "File already exists.\nDo you wish to overwrite it?",
+//	    "OK|CANCEL", "oc", 1);
+//
+//	  User_Message("Log Status Module", "Can't Open Log Status Window!",
+//	    "OK", "o");
+//
+//	  User_Message("Log Window", "Out of memory!", "OK", "o");
+//
+//	  User_Message("WCS: Screen Mode",
+//	    "In order to reset the screen mode WCS will have to close and re-open.\
+//	     Any work in progress should be saved before invoking this command.\n\
+//	     Do you wish to proceed now?", "OK|Cancel", "oc");
+//
+     //.GenericParams.c
+	  // find . -name "GenericParams.c" -exec grep -A3 -nHis "User_Message" {} \;
+	  User_Message("Key Frame: Cancel", str, "OK", "o");
+
+	  User_Message(GetString( MSG_PARAMS_KEYFRAMEMODULE ),                                      // "Key Frame Module"
+	               GetString( MSG_PARAMS_OUTOFMEMORYALLOCATINGNEWKEYFRAMEPERATIONTERMINATED ),  // "Out of memory allocating new key frame!\nOperation terminated."
+	              GetString( MSG_GLOBAL_OK ),                                                   // "OK"
+	              (CONST_STRPTR)"o");
+
+     //.GenericTLGUI.c
+	// find . -name "GenericTLGUI.c" -exec grep -A3 -nHis "User_Message" {} \;
+	  User_Message(GetString( MSG_GENTLGUI_TIMELINES ),                                           // "Time Lines"
+	        GetString( MSG_GENTLGUI_OKGARYYOUKNOWYOUCANTHAVEMORETHANTENVALUESPERTIMELI ),  // "OK, Gary! You know you can't have more than ten values per Time Line. Maybe now you will concede the value of dynamic allocation."
+	               GetString( MSG_GENTLGUI_SUREANYTHINGYOUSAY ),                                  // "Sure, anything you say!"
+	               (CONST_STRPTR)"s");
+
+	  User_Message(GetString( MSG_GENTLGUI_TIMELINES ),                                              // "Time Lines"
+	        GetString( MSG_GENTLGUI_YOUVEREACHEDTHELIMITOFOPENTIMELINEWINDOWSPLEASECLO ),  // "You've reached the limit of open Time Line windows. Please close one and try again."
+	        GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_GENTLGUI_TIMELINE ),     // "Time Line"
+	               GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
+	               GetString( MSG_GLOBAL_OK ),           // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_GENTLGUI_TIMELINES ),                                              // "Time Lines"
+	  GetString( MSG_GENTLGUI_ATLEASTTWOKEYFRAMESFORTHISPARAMETERMUSTBECREATEDPR ),  // "At least two key frames for this parameter must be created prior to opening the time line window"
+	  GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+	               (CONST_STRPTR)"o");
+
+
+     //.GlobeMap.c
+	  // find . -name "GlobeMap.c" -exec grep -A3 -nHis "User_Message" {} \;
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                   // "Render Module"
+	               GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                             // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                // "Render Module"
+	               GetString( MSG_GLMP_ERROROPENINGRENDERWINDOWPERATIONTERMINATED ),  // "Error opening render window!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                          // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                 // "Render Module"
+	               GetString( MSG_GLMP_OUTOFMEMORYOPENINGZBUFFERPERATIONTERMINATED ),  // "Out of memory opening Z buffer!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                           // "OK",
+	               (CONST_STRPTR)"o");
+
+	   User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                  // "Render Module"
+	                GetString( MSG_GLMP_OUTOFMEMORYOPENINGBITMAPSPERATIONTERMINATED ),   // "Out of memory opening bitmaps!\nOperation terminated."
+	                GetString( MSG_GLOBAL_OK ),                                            // "OK"
+	                (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                         // "Render Module"
+	               GetString( MSG_GLMP_OUTOFMEMORYOPENINGANTIALIASBUFFERPERATIONTERMINATED ),  // "Out of memory opening anti-alias buffer!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                                   //"OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+	               GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGREFLECTIONBUFFERCONTINUEWITHOUTRE ),  // "Out of memory allocating Reflection buffer!\n\Continue without Reflections?"
+	               GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
+	               (CONST_STRPTR)"oc");
+
+	  User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module
+	                   GetString( MSG_GLMP_DIAGNOSTICBUFFERSCANTBEGENERATEDFORMULTIPLESEGMENTORMU ),  // "Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?"
+	                   GetString( MSG_GLOBAL_OKCANCEL ),                                                // "OK|CANCEL"
+	                   (CONST_STRPTR)"oc", 1);
+
+	  User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+	                   GetString( MSG_GLMP_OUTOFMEMORYOPENINGDIAGNOSTICBUFFERSPROCEEDRENDERINGWIT ),  // "Out of memory opening Diagnostic buffers! Proceed rendering without them?"
+	                   GetString( MSG_GLOBAL_OKCANCEL ),                                                // "OK|CANCEL"
+	                   (CONST_STRPTR)"oc", 1);
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ) ,                                       // "Render Module"
+	               GetString( MSG_GLMP_OUTOFMEMORYOPENINGKEYFRAMETABLEPERATIONTERMINATED ),   // "Out of memory opening key frame table!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                          // "Render Module"
+	               GetString( MSG_GLMP_ERRORLOADINGWAVEFILECONSTSTRPTRCONTINUEWITHOUTWAVES ),   // "Error loading Wave File!\n\Continue without Waves?"
+	               GetString( MSG_GLOBAL_CONTINUECANCEL ),                                        // "Continue|Cancel"
+	               (CONST_STRPTR)"oc");
+
+	  User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                  // "Render Module: Clouds"
+	                   GetString( MSG_GLMP_ERRORLOADINGCLOUDMAPFILEONTINUEWITHOUTCLOUDSHADOWS ),  // "Error loading Cloud Map file!\nContinue without cloud shadows?"
+	                   GetString( MSG_GLOBAL_CONTINUECANCEL ),                                      // "Continue|Cancel"
+	                   (CONST_STRPTR)"oc", 1);
+
+	  User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                      // "Render Module: Clouds"
+	                   GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAPONTINUEWITHOUTCLOUDSHADOWS ),   // "Out of memory creating Cloud Map!\nContinue without cloud shadows?"
+	                   GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
+	                   (CONST_STRPTR)"oc", 1);
+
+	  User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+	                   GetString( MSG_GLMP_ERRORLOADINGMASTERCOLORMAPSEESTATUSLOGFORMOREINFORMATI ),  // "Error loading Master Color Map! See Status Log for more information.\n\Continue rendering without Color Map?"
+	                   GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
+	                   (CONST_STRPTR)"oc", 1);
+
+	  User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+	                   GetString( MSG_GLMP_ERRORLOADINGSTRATADEFORMATIONMAPCONTINUERENDERINGWITHO ),  // "Error loading Strata Deformation Map!\n\Continue rendering without Deformation Map?"
+	                   GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
+	                   (CONST_STRPTR)"oc", 1);
+
+	  User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+	                   GetString( MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX ),  // "Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?"
+	                   GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
+	                   (CONST_STRPTR)"oc", 1);
+
+	  User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+	                   GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
+	                   GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
+	                   (CONST_STRPTR)"rc", 1);
+
+	  User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+	                   GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
+	                   GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
+	                   (CONST_STRPTR)"rc", 1);
+
+	  User_Message((CONST_STRPTR)linefile,
+	               GetString( MSG_GLMP_CANTOPENVECTORFILEFOROUTPUTONTINUERENDERINGWITHOUTVECT ),  // "Can't open vector file for output!\nContinue rendering without vectors?"
+	               GetString( MSG_GLOBAL_OKCANCEL ),                                                // "OK|CANCEL"
+	               (CONST_STRPTR)"oc");
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                               // "Render Module"
+	               GetString( MSG_GLMP_ERRORINTERLACINGFIELDSPERATIONTERMINATED ) ,  // "Error interlacing fields!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                         // "OK"
+	               (CONST_STRPTR)"o");
+
+      User_Message_Def(GetString( MSG_GLMP_RENDERMODULESAVE ),                           // "Render Module: Save"
+                       GetString( MSG_GLMP_ERRORSAVINGBITMAPPEDIMAGETRYANOTHERDEVICE ),  // "Error saving bitmapped image! Try another device?"
+                       GetString( MSG_GLOBAL_OKCANCEL ),                                   // "OK|Cancel"
+                       (CONST_STRPTR)"oc", 1);
+
+      User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),              // "Render Module"
+                       GetString( MSG_GLMP_OUTOFMEMORYSAVINGZBUFFER ),  // "Out of memory saving Z Buffer!\n"
+                       GetString( MSG_INTVIEW_RETRYCANCEL ),               // "Retry|Cancel"
+                       (CONST_STRPTR)"rc", 1);
+
+      User_Message_Def(GetString( MSG_GLMP_RENDERMODULESAVE ),                    // "Render Module: Save"
+                       GetString( MSG_GLMP_ERRORSAVINGZBUFFERTRYANOTHERDEVICE ),  // "Error saving Z Buffer! Try another device?"
+                       GetString( MSG_GLOBAL_OKCANCEL ),                            // "OK|Cancel"
+                       (CONST_STRPTR)"oc", 1);
+
+	  User_Message("Render Module: Statistics",
+	    "Save statistical data to file?", "YES|NO", "yn");
+
+	  User_Message("Render Module: Statistics",
+	    "Can't open statistics file! Try another?", "OK|CANCEL", "oc");
+
+	  User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                 // "Render Module: Topo"
+	                   (CONST_STRPTR)str,
+	                   GetString( MSG_INTVIEW_RETRYCANCEL ) ,                     // "Retry|Cancel"
+	                   (CONST_STRPTR)"rc", 1);
+
+	  User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
+	                   GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
+	                   GetString( MSG_INTVIEW_RETRYCANCEL ),                               // "Retry|Cancel"
+	                   (CONST_STRPTR)"rc", 1);
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+	               GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGFRACTALMAPARRAYCONTINUEWITHOUTFRA ),  // "Out of memory allocating Fractal Map array!\n\Continue without Fractal Maps or retry?"
+	               GetString( MSG_GLMP_CONTINUERETRYCANCEL ),                                     // "Continue|Retry|Cancel"
+	               (CONST_STRPTR)"orc");
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+	               GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGANTIALIASBUFFERPERATIONTERMINATED ),  // "Out of memory allocating antialias buffer!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                                      // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+	               GetString( MSG_GLMP_OUTOFMEMALLOCANTIALIASEDGEBUFFERSPERATIONTE ),  // "Out of memory allocating antialias and edge buffers!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                                      // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                       // "Render Module: Clouds"
+	                   GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS ),  // "Out of memory allocating polygon edge buffers!",
+	                   GetString( MSG_INTVIEW_RETRYCANCEL ),                              // "Retry|Cancel"
+	                   (CONST_STRPTR)"rc", 1);
+
+	  User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+	                   GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
+	                   GetString( MSG_INTVIEW_RETRYCANCEL ),                  // "Retry|Cancel"
+	                   (CONST_STRPTR)"rc", 1);
+
+	  User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+	                   GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
+	                   GetString( MSG_INTVIEW_RETRYCANCEL ),                  // "Retry|Cancel"
+	                   (CONST_STRPTR)"rc", 1);
+
+	  User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+	                   GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
+	                   GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
+	                   (CONST_STRPTR)"rc", 1);
+
+	  User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                     // "Render Module: Clouds"
+	                   GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGCLOUDKEYFRAMESPERATIONTERMINATED ),  // "Out of memory allocating Cloud Key Frames!\nOperation terminated"
+	                   GetString( MSG_GLOBAL_OK ),                                                     // "OK"
+	                   (CONST_STRPTR)"o", 0);
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),  // "Render Module"
+			  GetString( MSG_GLMP_ERRORREADINGPAGEDOUTFILECANTRESTOREREFLECTIONBUFFERSOP),  // original in GlobeMap.c:1974 (CONST_STRPTR)ErrStr,
+	               GetString( MSG_GLOBAL_OK ),            // "OK"
+	               (CONST_STRPTR)"o");
+
+     //.GlobeMapSupport.c
+	 // find . -name "GlobeMapSupport.c" -exec grep -A3 -nHis "User_Message" {} \;
+	//  User_Message("Parameters Module",
+	//   "Warning!\nCamera and focus at same latitude\
+	//   and longitude coordinates (possibly a result of \"Look Ahead\" Render Setting\
+	//   enabled).\n\
+	//   View may be different than expected.", "OK|Cancel", "oc");
+	  
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                            // "Render Module"
+	               GetString( MSG_GLMPSPRT_ERRORLOADINGSUNIMAGEPERATIONTERMINATED ),  // "Error loading Sun Image!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                      // "OK"
+	               (CONST_STRPTR)"o");
+
+	  User_Message(GetString( MSG_AGUI_RENDERMODULE ),                             // "Render Module"
+	               GetString( MSG_GLMPSPRT_ERRORLOADINGMOONIMAGEPERATIONTERMINATED ),  // "Error loading Moon Image!\nOperation terminated."
+	               GetString( MSG_GLOBAL_OK ),                                       // "OK"
+	               (CONST_STRPTR)"o");
+
+
+     //.HelpGUI.c
+	  // find . -name "HelpGUI.c" -exec grep -A3 -nHis "User_Message" {} \;
+// all not used
+//	  User_Message(str, (CONST_STRPTR)"No help available at this time.", (CONST_STRPTR)"OK", (CONST_STRPTR)"o");
+//
+//	  User_Message(str, (char *)GadMesgStr[i], "OK", "o");
+//
+//	  User_Message(str, (char *)GadMesgIntStr[i], "OK", "o");
+//
+//	  User_Message(str, (char *)GadMesgFloatStr[i], "OK", "o");
+//
+//	  User_Message(str, (char *)GadMesgCycle[i], "OK", "o");
+
+
      //.InteractiveDraw.c/                       ./DataOpsGUI.c-914-                GetString( MSG_GLOBAL_OK ),                          // "OK"                                                                                                                                                                                                                       --
      //.InteractiveView.c/                       ./DataOpsGUI.c-915-                (CONST_STRPTR)"o");                                                                                                                                                                                                                                                                ./DataBase.c:473:  if (User_Message((CONST_STRPTR)dbasename, GetString( MSG_DB_ERRORSAVINGDATABASEELECTANEWDIRECTORY ),  //"Error saving database!\nSelect a new directory?"
      //.LWSupport.c/                             --                                                                                                                                                                                                                                                                                                                    ./DataBase.c-474-          GetString( MSG_DB_OKCANCEL ),  // "OK|CANCEL"
