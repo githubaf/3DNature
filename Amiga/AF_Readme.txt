@@ -4604,3 +4604,11 @@ cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEU
 30.Juni2025
 -----------
 Italienische Uebersetzung fertig. Muss noch mit Leerzeichen etc auf richtige Laengen getrimmt werden.
+
+1.Juli 2025
+-----------
+Mit AWK noch ein grosses switch case gebau, damit man den User_Message-Test an beliebiger Stelle beginnen kann.
+
+etwa so, dann das switch drumrum und die Einrueckungen korrigieren.
+cat WCS.c | awk 'BEGIN{Count=0;} /IncAndShowTestNumbers/{printf ("case %u:\n%s\n",Count++,$0);next;} //{print $0}' > WCS_temp.c
+
