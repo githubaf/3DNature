@@ -3169,7 +3169,7 @@ Cleanup:
                 GetString( MSG_DATAOPS_ERRORREADINGSOURCEFILEPERATIONTERMINATED ),  // "Error reading source file!\nOperation terminated."
                 GetString( MSG_GLOBAL_OK ),                                        // "OK"
                 (CONST_STRPTR)"o");
-   Log(ERR_WRONG_SIZE, (CONST_STRPTR)"Convert DEM source file");
+   Log(ERR_WRONG_SIZE, (CONST_STRPTR)MSG_DATAOPS_CONVERTDEMSOURCEFILE);          // "Convert DEM source file"
    break;
    } /* file open fail */
   case 7:
@@ -3183,9 +3183,9 @@ Cleanup:
    } /* file open fail */
   case 8:
    {
-   User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),              // "Data Ops: Convert DEM"
-                (CONST_STRPTR)"Extended header!\nOperation terminated.",
-                GetString( MSG_GLOBAL_OK ),                             // "OK",
+   User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),                // "Data Ops: Convert DEM"
+                (CONST_STRPTR)MSG_DATAOPS_EXTENDEDHEADEROPERATIONTERMINATED,  // "Extended header!\nOperation terminated.",
+                GetString( MSG_GLOBAL_OK ),                                   // "OK",
                 (CONST_STRPTR)"o");
    Log(ERR_WRONG_SIZE, GetString( MSG_DATAOPS_CONVERTDEMSOURCEFILE ) );  // "Convert DEM source file"
    break;

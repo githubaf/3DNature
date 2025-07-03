@@ -4612,3 +4612,6 @@ Mit AWK noch ein grosses switch case gebau, damit man den User_Message-Test an b
 etwa so, dann das switch drumrum und die Einrueckungen korrigieren.
 cat WCS.c | awk 'BEGIN{Count=0;} /IncAndShowTestNumbers/{printf ("case %u:\n%s\n",Count++,$0);next;} //{print $0}' > WCS_temp.c
 
+3.Juli 2025
+-----------
+Achtung: Ev. Fehler in EvenMoreGUI.c! Dow ist am Ende ev. str und Str falsche. Das soll sicher immer klein Str sein!?

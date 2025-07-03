@@ -27539,6 +27539,19 @@ Kaartweergave: Raster DEM
 
 
 ;
+MSG_DATAOPS_EXTENDEDHEADEROPERATIONTERMINATED
+Extended header!\nOperation terminated.
+Erweiterter Header!\nVorgang abgebrochen.
+Intestazione estesa!\nOperazione terminata.
+
+Uitgebreide header!\nBewerking afgebroken.
+
+
+
+
+
+
+;
 ; --- Here you can credit yourself to the end of the hard coded Menu->Project->Credits text
 ; (English remains empty)
 MSG_MENU_PR_CREDITSTRANSLATION

@@ -895,7 +895,8 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 2:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
-            User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) , (CONST_STRPTR)"Some default values", (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1);  // "Parameter Editing: Defaults", str, "OK|Cancel"
+            sprintf(str, (char*)GetString( MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS ) , "dbasename");  // "Create Default Parameters for Database %s? All current Parameters will be overwritten."
+            User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) , (CONST_STRPTR)str, (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1);  // "Parameter Editing: Defaults", str, "OK|Cancel"
 
 
         case 3:
@@ -1743,6 +1744,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 130:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_DB_ATLEASTONEVECTORFILEWASFOUNDTOCONTAINANUMBEROFPOINTSDIFF ));  // "At least one vector file was found to contain a number of points different from that in its Database record!\nThe record has been updated.\nDatabase should be re-saved."
             User_Message(GetString( MSG_DB_MAPVIEWLOAD ),  // "Map View: Load"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OK ),           // "OK",
@@ -1833,6 +1835,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 144:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str,"DBase[j].Name");
             User_Message_Def((CONST_STRPTR)str,
                     GetString( MSG_DB_OBJECTNAMEALREADYPRESENTINDATABASEUPLICATEITEMSWILLBESKI ),  // "Object name already present in database!\nDuplicate items will be skipped."
                     GetString( MSG_GLOBAL_OK ),                                                        // "OK"
@@ -1926,6 +1929,8 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 157:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_DATAOPS_INPUTDATACANNOTBEEQUALLYDIVIDEDAMONGOUTPUTMAPSASTCO ),  // "Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows."
+                      320, 200);  // Example values for columns and rows
             User_Message_Def(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),     // "Data Ops: Convert DEM"
                     (CONST_STRPTR)str,
                     GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ),   // "Continue|Truncate|Cancel"
@@ -1997,7 +2002,7 @@ void Test_User_Message(unsigned int StartTestNumber)
         case 167:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
             User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),              // "Data Ops: Convert DEM"
-                    (CONST_STRPTR)"Extended header!\nOperation terminated.",
+                    (CONST_STRPTR)MSG_DATAOPS_EXTENDEDHEADEROPERATIONTERMINATED,  // "Extended header!\nOperation terminated."
                     GetString( MSG_GLOBAL_OK ),                             // "OK",
                     (CONST_STRPTR)"o");
 
@@ -2181,6 +2186,7 @@ void Test_User_Message(unsigned int StartTestNumber)
             //find . -name "DispatchGUI.c" -exec grep -A3 -nHis "User_Message" {} \;
         case 192:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str,"exampledirectory");
             User_Message_Def((CONST_STRPTR)str,
                     GetString( MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY ),  // "Make this the default object directory?"
                     GetString( MSG_GLOBAL_OKCANCEL ),                           // "OK|Cancel"
@@ -2311,6 +2317,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 210:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), PAR_NAME_ECO(EE_Win->EcoItem));  // "Delete all %s Key Frames?"
             User_Message_Def(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                          // "Parameters Module: Ecosystem"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OKCANCEL ),                                           // "OK|Cancel",
@@ -2348,6 +2355,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 215:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), varname[EM_Win->MoItem]);  // "Delete all %s Key Frames?"
             User_Message_Def(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                       // "Parameters Module: Motion"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OKCANCEL ),                                     // "OK|Cancel"
@@ -2355,6 +2363,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 216:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            strcpy(str, (char*)GetString( MSG_EDMOGUI_MAKEKEYFRAMESFORCAMERAPARAMETERSALSO ) );  // "Make key frames for Camera Parameters also?"
             User_Message_Def(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),  // "Parameters Module: Make Key"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_YESNO ),                    // "Yes|No"
@@ -2448,6 +2457,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 229:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_COLOR(0));  // "Color item %s not found in this file!\nOperation terminated."
             User_Message(GetString( MSG_EDPAR_COLOREDITORLOADCURRENT ),  // "Color Editor: Load Current"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OK ),                      // "OK"
@@ -2455,6 +2465,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 230:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EDPAR_ECOSYSTEMITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_ECO(0));  // "Ecosystem item %s not found in this file!\nOperation terminated."
             User_Message(GetString( MSG_EDPAR_ECOSYSTEMEDITORLOADCURRENT ),                                                  // "Ecosystem Editor: Load Current"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OK ),                                                                          // "OK"
@@ -2483,6 +2494,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 234:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ),PAR_NAME_COLOR(0));  // "Color item %s not found in this file!\nOperation terminated."
             User_Message(GetString( MSG_EDPAR_COLOREDITORLOADCURRENT ),                                                   // "Color Editor: Load Current"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OK ),                                                                       // "OK",
@@ -2490,6 +2502,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 235:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_COLOR(0));  // "Color item %s not found in this file!\nOperation terminated."
             User_Message(GetString( MSG_EDPAR_COLOREDITORLOADCURRENT ),                                                    // "Color Editor: Load Current"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OK ),                                                                        // "OK"
@@ -2497,6 +2510,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 236:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EDPAR_ECOSYSTEMITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_ECO(0));  // "Ecosystem item %s not found in this file!\nOperation terminated."
             User_Message(GetString( MSG_EDPAR_ECOSYSTEMEDITORLOADCURRENT ),                                                  // "Ecosystem Editor: Load Current"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OK ),                                                                          // "OK"
@@ -2504,6 +2518,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 237:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EDPAR_ECOSYSTEMITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_ECO(0));  // "Ecosystem item %s not found in this file!\nOperation terminated."
             User_Message(GetString( MSG_EDPAR_ECOSYSTEMEDITORLOADCURRENT ),                                                  // "Ecosystem Editor: Load Current"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OK ),                                                                          // "OK"
@@ -2539,6 +2554,8 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 242:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EDPAR_COLORITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ),  // "Color item %s not found in this file!\nOperation terminated."
+                    PAR_NAME_COLOR(0));
             User_Message(GetString( MSG_EDPAR_COLOREDITORSAVECURRENT ),                         // "Color Editor: Save Current"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OK ),                                             // "OK"
@@ -2546,6 +2563,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 243:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EDPAR_ECOSYSTEMITEMNOTFOUNDINTHISFILEPERATIONTERMINATED ), PAR_NAME_ECO(0));  // "Ecosystem item %s not found in this file!\nOperation terminated."
             User_Message(GetString( MSG_EDPAR_ECOSYSTEMEDITORSAVECURRENT ),  // "Ecosystem Editor: Save Current"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OK ),                          // "OK"
@@ -2599,6 +2617,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 250:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), PAR_NAME_COLOR(EC_Win->PalItem));  // "Delete all %s Key Frames?"
             User_Message_Def(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OKCANCEL ),               // "OK|Cancel"
@@ -2642,11 +2661,84 @@ void Test_User_Message(unsigned int StartTestNumber)
                     (CONST_STRPTR)"o");
 
         case 256:
+
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            strcpy(str, (char*)GetString( MSG_EVMORGUI_YOUMUSTSUPPLYANEWPROJECTNAME ));  // "You must supply a new project name."
             User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OK ),          // "OK"
                     (CONST_STRPTR)"o", 0);
+
+            IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORLOADINGPROJECTFILETOCLONE ) );  // "Error loading Project file to clone."
+            User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                    (CONST_STRPTR)str,
+                    GetString( MSG_GLOBAL_OK ),          // "OK"
+                    (CONST_STRPTR)"o", 0);
+
+            IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORLOADINGWAVEFILETOCLONE ) );  // "Error loading Wave file to clone."
+            User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                    (CONST_STRPTR)str,
+                    GetString( MSG_GLOBAL_OK ),          // "OK"
+                    (CONST_STRPTR)"o", 0);
+
+            IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORLOADINGCLOUDFILETOCLONE ) );  // "Error loading Cloud file to clone."
+            User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                    (CONST_STRPTR)str,
+                    GetString( MSG_GLOBAL_OK ),          // "OK"
+                    (CONST_STRPTR)"o", 0);
+
+            IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString ( MSG_EVMORGUI_ERRORCREATINGNEWPROJECTDIRECTORYITMAYALREADYEXISTO ), "examplefilename");  // "Error creating new Project Directory: %s. It may already exist or there may be a file with that name."
+            User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                    (CONST_STRPTR)str,
+                    GetString( MSG_GLOBAL_OK ),          // "OK"
+                    (CONST_STRPTR)"o", 0);
+
+            IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EVMORGUI_ERRORCREATINGNEWDATABASEDIRECTORYITMAYALREADYEXIST ), "examplefilename");  // "Error creating new Database Directory: %s. It may already exist or there may be a file with that name."
+            User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                    (CONST_STRPTR)str,
+                    GetString( MSG_GLOBAL_OK ),          // "OK"
+                    (CONST_STRPTR)"o", 0);
+
+            IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_EVMORGUI_ERRORCREATINGNEWDEFAULTDIRECTORYITMAYALREADYEXISTO ), "examplefilename");  // "Error creating new Default Directory: %s. It may already exist or there may be a file with that name."
+            User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                    (CONST_STRPTR)str,
+                    GetString( MSG_GLOBAL_OK ),          // "OK"
+                    (CONST_STRPTR)"o", 0);
+
+            IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORSAVINGTHENEWPROJECTFILE ) );  // "Error saving the new Project file."
+            User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                    (CONST_STRPTR)str,
+                    GetString( MSG_GLOBAL_OK ),          // "OK"
+                    (CONST_STRPTR)"o", 0);
+
+            IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORSAVINGTHECLONEDWAVEFILE ) );  // "Error saving the cloned Wave file."
+            User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                    (CONST_STRPTR)str,
+                    GetString( MSG_GLOBAL_OK ),          // "OK"
+                    (CONST_STRPTR)"o", 0);
+
+            IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRSAVECLONEDCLOUDFILE ) );  // "Error saving the cloned Cloud file."
+            User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                    (CONST_STRPTR)str,
+                    GetString( MSG_GLOBAL_OK ),          // "OK"
+                    (CONST_STRPTR)"o", 0);
+
+            IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            strcpy(str, (char*)GetString( MSG_GLOBAL_OUTOFMEMORY ) );  // "Out of memory."
+            User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                    (CONST_STRPTR)str,
+                    GetString( MSG_GLOBAL_OK ),          // "OK"
+                    (CONST_STRPTR)"o", 0);
+
 
             //./FoliageGUI.c
             // find . -name "FoliageGUI.c" -exec grep -A3 -nHis "User_Message" {} \;
