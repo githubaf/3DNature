@@ -3058,6 +3058,7 @@ case 308:
 
 case 309:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_GLMP_OUTOFMEMORYREADINGMAP ), "DBase[OBN].Name");  // "Out of memory reading map %s!"
             User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                 // "Render Module: Topo"
                     (CONST_STRPTR)str,
                     GetString( MSG_INTVIEW_RETRYCANCEL ) ,                     // "Retry|Cancel"
@@ -3262,6 +3263,7 @@ case 336:
 
 case 337:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, "%s.elev", "DBase[MapOBN].Name");
             User_Message((CONST_STRPTR)str,
                     GetString( MSG_INTVIEW_ERROROPENINGDEMFILEFORINPUTPERATIONTERMINATED ),  // "Error opening DEM file for input!\nOperation terminated."
                     GetString( MSG_GLOBAL_OK ),                                             // "OK"
@@ -3269,6 +3271,7 @@ case 337:
 
 case 338:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, "%s.elev", "DBase[MapOBN].Name");
             User_Message((CONST_STRPTR)str,
                     GetString( MSG_INTVIEW_OUTOFMEMORYTRYASMALLERPREVIEWSIZEPERATIONTERMINATED ),  // "Out of memory! Try a smaller preview size.\nOperation terminated."
                     GetString( MSG_GLOBAL_OK ),                                                   // "OK"
@@ -3283,6 +3286,7 @@ case 339:
 
 case 340:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, "%s.relel", "DBase[MapOBN].Name");
             User_Message((CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
                     GetString( MSG_GLOBAL_OK ),                             // "OK"
@@ -3420,6 +3424,7 @@ case 358:
 
 case 359:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, "%s.elev", "DBase[OBN].Name");
             User_Message_Def((CONST_STRPTR)str, GetString( MSG_LINESPRT_USEELEVATIONDATA ),  // "Use elevation data?"
                     GetString( MSG_GLOBAL_YESNO ),                                // "Yes|No"
                     (CONST_STRPTR)"yn", 1);
@@ -3772,6 +3777,8 @@ case 408:
 
 case 409:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str,
+             (char*)GetString( MSG_MAPEXTRA_REACHEDEDGEOFCURRENTMAPOINTSONTINUETONEXTMAP ), pts);                  // "Reached edge of current map!\nPoints = %d\nContinue to next map?"
             User_Message(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ), (CONST_STRPTR)str,  // "Mapping Module: Follow Stream"
                     GetString( MSG_GLOBAL_OKCANCEL ),  // "OK|CANCEL"
                     (CONST_STRPTR)"oc");
@@ -3799,6 +3806,7 @@ case 412:
 
 case 413:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_MAPEXTRA_SPLINELENGTHFKILOMETERSNTERVALFKMSEGMENT ), 20, 5);  // "Spline length = %f kilometers\nInterval = %f km/segment"
             User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULESPLINE ),                       // "Mapping Module: Spline"
                     (CONST_STRPTR)str,
                     GetString( MSG_MAPEXTRA_OKRESETCANCEL ),                             // "OK|Reset|Cancel"
@@ -3984,6 +3992,7 @@ case 438:
 
 case 439:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, "%s.elev", "DBase[i].Name");
             User_Message((CONST_STRPTR)str, GetString( MSG_MAPSUPRT_ERRORLOADINGTOPOMAPCHECKSTATUSLOGTOSEEIFOUTOFMEMOR ),  // "Error loading topo map! Check Status Log to see if out of memory.\nOperation terminated."
                     GetString( MSG_GLOBAL_OK ),                                                                     // "OK"
                     (CONST_STRPTR)"o");
@@ -4069,6 +4078,7 @@ case 450:
 
 case 451:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str, (char*)GetString( MSG_GLMP_OUTOFMEMORYREADINGMAP ), DBase[OBN].Name);  // "Out of memory reading map %s!"
             User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                        // "Render Module: Topo"
                     (CONST_STRPTR)str,
                     GetString( MSG_INTVIEW_RETRYCANCEL ),                             //"Retry|Cancel",
@@ -4133,6 +4143,9 @@ case 458:
             // find . -name "Params.c" -exec grep -A3 -nHis "User_Message" {} \;
 case 459:
             IncAndShowTestNumbers(StartTestNumber++,TotalTests);
+            sprintf(str,
+                    (char*)GetString( MSG_PARAMS_OUTOFMEMORYRESTORINGOLDKEYFRAMESOMEKEYSMAYBELOST ),  // "Out of memory restoring old key frames!\nSome %s keys may be lost."
+                    "groupname");  // "groupname" should be replaced with the actual group name variable
             User_Message(GetString( MSG_PARAMS_KEYFRAMECANCEL ),  // "Key Frame: Cancel"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OK ),               // "OK"
