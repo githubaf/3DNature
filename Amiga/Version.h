@@ -9,7 +9,7 @@
 #define APP_VERS    "2"
 //#define APP_REV    "031"
 #define APP_REV    "00 beta"  // Beta timeout (see BETA_DAYS) applies if the word "beta" is found here. See WCS.c AF, 23.Jan.23
-#define BETA_USER_MESSAGE_TEST  //enable code for display of all catalo MSG_ strings
+#define BETA_USER_MESSAGE_TEST  //enable code for display of all catalog MSG_ strings
 
 #define APP_FLAVOR "(Emerald-Caesar)"
 #define APP_TLA    "WCS"
@@ -19,7 +19,7 @@
 
 /* Don't mess with these. */
 #define APP_VERSION		APP_TLA " " APP_VERS "." APP_REV " " __DATE__
-#define APP_COPYR			"�1992-1996"
+#define APP_COPYR			"©1992-1996"
 #define APP_COPYRIGHT	APP_COPYR", "APP_AUTHOR
 
 #define BETA_DAYS 61  // two months for Beta testing
