@@ -18,9 +18,9 @@
 #define APP_DESCRIPTION  "Unleash your terraforming urges!"
 
 /* Don't mess with these. */
-#define APP_VERSION		APP_TLA " " APP_VERS "." APP_REV " " __DATE__
-#define APP_COPYR			"Â©1992-1996"
-#define APP_COPYRIGHT	APP_COPYR", "APP_AUTHOR
+#define APP_VERSION     APP_TLA " " APP_VERS "." APP_REV " " __DATE__
+#define APP_COPYR       "©1992-1996"
+#define APP_COPYRIGHT   APP_COPYR", "APP_AUTHOR
 
 #define BETA_DAYS 61  // two months for Beta testing
 
@@ -29,7 +29,7 @@ extern char ExtVersion[], ExtAboutVers[], ExtAboutBuild[], ExtCreditText[];
 #endif /* EXTERNAL_VERSION_HACK */
 
 /* Sapphire 2.00, 2.01, 2.02
-   Emerald  2.03		Feb 2, 1996
+   Emerald  2.03     Feb 2, 1996
 */
 
 #endif
