@@ -3838,4 +3838,227 @@ void Test_User_Message(unsigned int StartTestNumber)
                     (CONST_STRPTR)"o");
     }
 }
+
+APTR  AF_MakeModControlWin (APTR BT_Database, APTR BT_DataOps, APTR BT_Mapping, APTR BT_Editing,
+                         APTR BT_Render); // extracted from ModControl.c
+APTR AF_Make_Credits_Window(void);
+APTR AF_MakeAboutWin (APTR BT_AboutOK);
+APTR AF_Make_Info_Window(void);
+APTR AF_Make_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message,APTR UM_BTGroup);
+APTR AF_Make_IS_Win(char *message, char *reject, char *string, APTR InputStr, APTR BT_OK, APTR BT_Cancel);
+void Make_Log_Window(int Severity);
+void Close_Log_Window(int StayClosed);
+
+void waitForRightClick(Object *MuiWindow)
+{
+    struct IntuiMessage *msg;
+    BOOL waiting = TRUE;
+    struct Window *winptr;
+    get(MuiWindow, MUIA_Window_Window, &winptr);
+
+    while (waiting) {
+        WaitPort(winptr->UserPort);
+        while ((msg = (struct IntuiMessage *)GetMsg(winptr->UserPort))) {
+            if (msg->Class == IDCMP_MENUPICK /*&& msg->Code == 0xffff*/) {
+                waiting = FALSE;
+            }
+            ReplyMsg((struct Message *)msg);
+        }
+    }
+}
+
+void Test_IS_Win(STRPTR message)
+{
+    // Input String Window
+    // should this called with all possible strings? (look for all latFixer() calls in the code)
+    APTR InputStr=NULL, BT_OK=NULL, BT_Cancel=NULL, IS_Win=NULL;
+    // Example strings from MapExtra.c void FlatFixer(struct Box *Bx)
+    IS_Win=AF_Make_IS_Win(message, "+-.,abcdefghijklmnopqrstuvwxyz9", "", InputStr, BT_OK, BT_Cancel);
+    DoMethod(app, OM_ADDMEMBER, IS_Win);
+    set(IS_Win,MUIA_Window_Open, TRUE);
+    waitForRightClick(IS_Win); // Wait for right mouse button to be pressed
+    set(IS_Win,MUIA_Window_Open, FALSE);
+    }
+
+
+
+void Test_WindowObject(void)
+{
+    APTR BT_Database=NULL, BT_DataOps=NULL, BT_Mapping=NULL, BT_Editing=NULL,BT_Render=NULL, BT_AboutOK=NULL;
+    APTR UM_BTGroup=NULL;
+    APTR UM_Win;
+
+    // AF_CASE
+//    set(ModControlWin, MUIA_Window_Open, FALSE); // close ModControl window if open
+    // ------------------------------------------------------------------------------
+
+//    ModControlWin=AF_MakeModControlWin(&BT_Database, &BT_DataOps, &BT_Mapping, &BT_Editing, &BT_Render);
+//    DoMethod(app, OM_ADDMEMBER, ModControlWin);
+//    set(ModControlWin, MUIA_Window_Open, TRUE);
+    waitForRightClick(ModControlWin); // Wait for right mouse button to be pressed
+    set(ModControlWin,MUIA_Window_Open, FALSE);
+
+    // AF_CASE
+    Make_EP_Window(0);   // Edit Parameters Window
+    waitForRightClick(EP_Win->EditWindow); // Wait for right mouse button to be pressed
+    Close_EP_Window();
+
+    // AF_CASE
+    Make_DB_Window(0); // Database Window
+    waitForRightClick(DB_Win->DatabaseWindow); // Wait for right mouse button to be pressed
+    Close_DB_Window();
+
+    // AF_CASE
+    Make_DO_Window(0); // Data Operations Window
+    waitForRightClick(DO_Win->DataOpsWindow); // Wait for right mouse button to be pressed
+    Close_DO_Window();
+
+    // AF_CASE
+    CreditWin=AF_Make_Credits_Window(); // Credits Window
+    DoMethod(app, OM_ADDMEMBER, CreditWin);
+    set(CreditWin,MUIA_Window_Open, TRUE);
+    waitForRightClick(CreditWin); // Wait for right mouse button to be pressed
+    set(CreditWin,MUIA_Window_Open, FALSE);
+
+    // AF_CASE
+    AboutWin=AF_MakeAboutWin(&BT_AboutOK);
+    DoMethod(app, OM_ADDMEMBER, AboutWin);
+    set(AboutWin,MUIA_Window_Open, TRUE);
+    waitForRightClick(AboutWin); // Wait for right mouse button to be pressed
+    set(AboutWin,MUIA_Window_Open, FALSE);
+
+    // AF_CASE
+    InfoWin=AF_Make_Info_Window();
+    DoMethod(app, OM_ADDMEMBER, InfoWin);
+    set(InfoWin,MUIA_Window_Open, TRUE);
+    waitForRightClick(InfoWin); // Wait for right mouse button to be pressed
+    set(InfoWin,MUIA_Window_Open, FALSE);
+
+    // AF_CASE
+    UM_Win=AF_Make_UM_Win("Some outline text", "A message...\n(Not to be translated in this demo.)", UM_BTGroup);
+    DoMethod(app, OM_ADDMEMBER, UM_Win);
+    set(UM_Win,MUIA_Window_Open, TRUE);
+    waitForRightClick(UM_Win); // Wait for right mouse button to be pressed
+    set(UM_Win,MUIA_Window_Open, FALSE);
+
+    // AF_CASE
+    {
+    // Input String Window
+    // should this called with all possible strings? (look for all latFixer() calls in the code)
+    APTR InputStr=NULL, BT_OK=NULL, BT_Cancel=NULL, IS_Win=NULL;
+    // Example strings from MapExtra.c void FlatFixer(struct Box *Bx)
+    IS_Win=AF_Make_IS_Win(GetString( MSG_MAPEXTRA_ENTERMINIMUMMATCHINGPOINTS ), "+-.,abcdefghijklmnopqrstuvwxyz9", "2", InputStr, BT_OK, BT_Cancel);
+    DoMethod(app, OM_ADDMEMBER, IS_Win);
+    set(IS_Win,MUIA_Window_Open, TRUE);
+    waitForRightClick(IS_Win); // Wait for right mouse button to be pressed
+    set(IS_Win,MUIA_Window_Open, FALSE);
+    }
+
+    //###################
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_MAPEXTRA_ENTERNUMBEROFOUTPUTVERTICES ));  // "Enter number of output vertices."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_MAPEXTRA_ENTERMINIMUMMATCHINGPOINTS ));  // "Enter minimum matching points."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_MAPEXTRA_ENTERELEVATIONTOLERANCE ));  // "Enter elevation tolerance."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ));  // "Enter new object name."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_EDDB_ENTERSEARCHSTRING ));  // "Enter search string."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_CLOUD_ENTERFRAMENUMBER ));  // "Enter Frame Number."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEMAXIMUMPIXELSIZEFORAPOLYGONTHESMALLERTHEN ));  // "Enter the maximum pixel size for a polygon. The smaller the number the longer image rendering will take!"
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEFIRSTFRAMETOSCAN ));  // "Enter the first frame to scan."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHELASTFRAMETOSCAN ));  // "Enter the last frame to scan."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEFRAMEINTERVALTOSCANTHESMALLERTHENUMBERTHE ));  // "Enter the frame interval to scan. The smaller the number the longer this process will take!"
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR ));  // "Enter the UTM zone number (0-60) for the data you are about to import."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_MAPGUI_ENTERELEVATIONVALUEFORNEWCONTROLPOINT ));  // "Enter elevation value for new control point."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_LINESPRT_ENTERFRAMEINTERVALTOREPRESENTEACHVECTORSEGMENT ));  // "Enter frame interval to represent each vector segment."
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED ));  // "Enter name of vector to be created."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVEAMPLITUDE ));  // "Enter Wave Amplitude."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVELENGTHKM ));  // "Enter Wave Length (km)."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVEVELOCITYKMHR ));  // "Enter Wave Velocity (km/hr)."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE ));  // ,"Enter up to 3 characters as a prefix for this DLG set if you desire."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_DLG_ANENTITYHASBEENFOUNDWITHNONAMEIDENTIFIERPLEASEENTERADEF ));  // "An entity has been found with no name identifier. Please enter a default name."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ));  // "Enter new object name."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ));  // "Enter new object name."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT ));  // "Enter a name for the 30 meter DEM object."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_MAP_ENTERVERTICALOFFSETINMETERS ));  // "Enter vertical offset in meters."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWGROUPNAME ));  // "Enter new group name."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWIMAGEPATHANDNAME ));  // "Enter new image path and name."
+
+    // AF_CASE
+    Test_IS_Win(GetString( MSG_EDPAR_ENTERKEYFRAMEINTERVALORKFORCURRENTKEYFRAMES ));  // "Enter Key Frame interval or 'K' for current Key Frames."
+
+// ###################################
+
+    // AF_CASE
+    Make_Log_Window(128); // Log Window, 128, if >127, stays open
+    waitForRightClick(Log_Win->LogWindow); // Wait for right mouse button to be pressed
+    Close_Log_Window(2);  // Close Log Window, 2 = Shutdown, kill it all! */
+
+}
+
 #endif // MSG_TESTING
+

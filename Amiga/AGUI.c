@@ -7,7 +7,7 @@
 
 #include <time.h>
 #include "GUIDefines.h"
-#include "WCS.h"
+#include "WCS.h"f
 #include "GUIExtras.h"
 #include "Version.h"
 #include <stdarg.h>
@@ -21,7 +21,7 @@ STATIC_FCN void MUI2_MenuCheck_Hack(void); // used locally only -> static, AF 25
 
 extern struct WaveWindow *WV_Win;
 
-extern char* LocaleExtCreditText; // in allocated iand intialized in WCS.c
+extern char* LocaleExtCreditText; // is allocated and intialized in WCS.c
 
 void Handle_RN_Window(ULONG WCS_ID);
 STATIC_FCN void Handle_DB_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
@@ -29,13 +29,13 @@ void Close_DB_Window(void); // needed in WCS.c for automatic testing...
 void Close_EP_Window(void); // needed in WCS.c for automatic testing...
 /*STATIC_FCN*/ short Handle_APP_Windows(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void NoMod_Message(STRPTR mod); // used locally only -> static, AF 25.7.2021
-STATIC_FCN void Close_Log_Window(int StayClosed); // used locally only -> static, AF 25.7.2021
+/*STATIC_FCN*/ void Close_Log_Window(int StayClosed); // used locally only -> static, AF 25.7.2021
 void Close_DO_Window(void); // needed in WCS.c for automatic testing...
 STATIC_FCN void Handle_EP_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void InfoWin_Update(int flush); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Handle_DO_Window(ULONG WCS_ID); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Status_Log(STRPTR logtext, int Severity); // used locally only -> static, AF 25.7.2021
-STATIC_FCN void Make_Log_Window(int Severity); // used locally only -> static, AF 26.7.2021
+/*STATIC_FCN*/ void Make_Log_Window(int Severity); // used locally only -> static, AF 26.7.2021
 
 //// SAS/C and deadw00d's gcc for AROS x86_64/i386 do not have asprintf()
 //#if defined __SASC || defined __AROS__
@@ -1153,70 +1153,81 @@ struct WCSApp *WCS_App_New(void)
 
 /**************************************************************************/
 
+// extracted window creation for locale testing purposes, AF 25.7.2021
+APTR  AF_MakeModControlWin (APTR BT_Database, APTR BT_DataOps, APTR BT_Mapping, APTR BT_Editing,
+        APTR BT_Render)
+{
+    WindowObject,
+    MUIA_Window_Title      , GetString( MSG_AGUI_MODULECONTROLPANEL ) ,  // "Module Control Panel",
+    MUIA_Window_ID         , MakeID('W','C','S','M'),
+    MUIA_Window_SizeGadget , FALSE,
+    MUIA_Window_Screen     , WCSScrn,
+
+    WindowContents, ColGroup(7),
+    Child, BT_Database = FixedImgObject, MUIA_Image_OldImage, &DatabaseMod,
+    MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
+    Child, BT_DataOps = FixedImgObject, MUIA_Image_OldImage, &DataOpsMod,
+    MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
+    Child, BT_Mapping = FixedImgObject, MUIA_Image_OldImage, &MappingMod,
+    MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
+    Child, BT_Editing = FixedImgObject, MUIA_Image_OldImage, &EditingMod,
+    MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
+    Child, BT_Render = FixedImgObject, MUIA_Image_OldImage, &RenderMod,
+    MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
+    End, /* ColGroup */
+
+    End; /* ModControlWin */
+}
+
+// extracted window creation for locale testing purposes, AF 25.7.2021
+APTR AF_MakeAboutWin (APTR BT_AboutOK)
+{
+    return WindowObject,
+            MUIA_Window_Title      ,  GetString( MSG_AGUI_VERSION ) ,  // "Version"
+            MUIA_Window_ID         , MakeID('A','B','U','T'),
+            MUIA_Window_SizeGadget  , FALSE,
+            MUIA_Window_Screen    , WCSScrn,
+
+            WindowContents, VGroup,
+            Child, HGroup,
+            Child, ImageObject, MUIA_Image_OldImage, &CompRose,
+            MUIA_Weight, 1, End,
+            Child, ImageObject, MUIA_Frame, MUIV_Frame_Text,
+            MUIA_Image_OldImage, &AboutScape, MUIA_Weight, 1,
+            MUIA_InnerRight, 0, MUIA_InnerLeft, 0,
+            MUIA_InnerTop, 0, MUIA_InnerBottom, 0, End,
+            End, /* HGroup */
+            Child, VSpace(5),
+            Child, TextObject, MUIA_Text_Contents,
+            "\33c" APP_TITLE "", End,                              // \33c == center text
+            Child, TextObject, MUIA_Text_Contents,
+            ExtAboutVers, End,
+            Child, TextObject, MUIA_Text_Contents,
+            ExtAboutBuild, End,
+            Child, TextObject, MUIA_Text_Contents,
+            "\33cCopyright "APP_COPYR, End,
+            Child, TextObject, MUIA_Text_Contents,
+            "\33cby Questar Productions", End,
+            Child, VSpace(5),
+            Child, BT_AboutOK = KeyButtonFunc('o', (char*)GetString( MSG_AGUI_OKAY ) ),  // "\33cOkay"
+            End, /* VGroup */
+          End; /* SubWindow AboutWin */
+} /* AF_MakeAboutWin() */
+
 struct WCSApp *WCS_App_Startup(struct WCSApp *This)
 {
- APTR BT_Database, BT_DataOps, BT_Mapping, BT_Editing,
-	 BT_Render;
- APTR BT_AboutOK;
+ APTR BT_Database=NULL, BT_DataOps=NULL, BT_Mapping=NULL, BT_Editing=NULL,
+	 BT_Render=NULL;
+ APTR BT_AboutOK=NULL;
 
- ModControlWin = WindowObject,
-      MUIA_Window_Title      , GetString( MSG_AGUI_MODULECONTROLPANEL ) ,  // "Module Control Panel",
-      MUIA_Window_ID         , MakeID('W','C','S','M'),
-      MUIA_Window_SizeGadget , FALSE,
-      MUIA_Window_Screen     , WCSScrn,
-
-      WindowContents, ColGroup(7),
-        Child, BT_Database = FixedImgObject, MUIA_Image_OldImage, &DatabaseMod,
-         MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
-        Child, BT_DataOps = FixedImgObject, MUIA_Image_OldImage, &DataOpsMod,
-         MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
-        Child, BT_Mapping = FixedImgObject, MUIA_Image_OldImage, &MappingMod,
-         MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
-        Child, BT_Editing = FixedImgObject, MUIA_Image_OldImage, &EditingMod,
-         MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
-        Child, BT_Render = FixedImgObject, MUIA_Image_OldImage, &RenderMod,
-         MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
-        End, /* ColGroup */
-
-      End; /* ModControlWin */
-
+ ModControlWin = AF_MakeModControlWin(BT_Database, BT_DataOps, BT_Mapping, BT_Editing, BT_Render);
  if(ModControlWin)
   {
   DoMethod(app, OM_ADDMEMBER, ModControlWin);
 
   /* Don't think we need MUI2_MenuCheck_Hack() here */
  
-  AboutWin =  WindowObject,
-      MUIA_Window_Title      ,  GetString( MSG_AGUI_VERSION ) ,  // "Version"
-      MUIA_Window_ID         , MakeID('A','B','U','T'),
-      MUIA_Window_SizeGadget  , FALSE,
-      MUIA_Window_Screen    , WCSScrn,
-
-      WindowContents, VGroup,
-        Child, HGroup,
-          Child, ImageObject, MUIA_Image_OldImage, &CompRose,
-           MUIA_Weight, 1, End,
-          Child, ImageObject, MUIA_Frame, MUIV_Frame_Text,
-           MUIA_Image_OldImage, &AboutScape, MUIA_Weight, 1,
-           MUIA_InnerRight, 0, MUIA_InnerLeft, 0,
-           MUIA_InnerTop, 0, MUIA_InnerBottom, 0, End,
-          End, /* HGroup */
-        Child, VSpace(5),
-        Child, TextObject, MUIA_Text_Contents,
-		 "\33c" APP_TITLE "", End,                              // \33c == center text
-        Child, TextObject, MUIA_Text_Contents,
-		 ExtAboutVers, End,
-        Child, TextObject, MUIA_Text_Contents,
-		 ExtAboutBuild, End,
-        Child, TextObject, MUIA_Text_Contents,
-		 "\33cCopyright "APP_COPYR, End,
-        Child, TextObject, MUIA_Text_Contents,
-		 "\33cby Questar Productions", End,
-        Child, VSpace(5),
-        Child, BT_AboutOK = KeyButtonFunc('o', (char*)GetString( MSG_AGUI_OKAY ) ),  // "\33cOkay"
-        End, /* VGroup */
-      End; /* SubWindow AboutWin */
- 
+  AboutWin = AF_MakeAboutWin(BT_AboutOK);
 	if(AboutWin)
 		{
 		DoMethod(app, OM_ADDMEMBER, AboutWin);
@@ -1764,6 +1775,27 @@ int getUser_Message_ForcedReturn()
 	return User_Message_ForcedReturnValue;
 }
 
+APTR AF_Make_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message,APTR UM_BTGroup)
+{
+    return WindowObject,
+                  MUIA_Window_Title     , GetString( MSG_AGUI_MESSAGE ) ,  // "Message",
+                  MUIA_Window_ID        , MakeID('U','M','E','S'),
+                  MUIA_Window_Screen    , WCSScrn,
+
+                  WindowContents, VGroup,
+                    Child, TextObject, TextFrame,
+                     MUIA_Text_PreParse, "\33c",
+                     MUIA_Text_Contents, outlinetxt, End,
+
+                    Child, FloattextObject, ReadListFrame,
+                     MUIA_Floattext_Text, message,
+                     MUIA_List_Format, "P=\33c", End,
+
+                Child, UM_BTGroup = HGroup, MUIA_Group_SameSize, TRUE, End,
+                    End, /* VGroup */
+                  End; /* UM_Win */
+}
+
 USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
 	CONST_STRPTR buttonkey, int Default)
 {
@@ -1797,24 +1829,7 @@ USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STR
 		 if (numbuttons > 10) numbuttons = 10;
 		 if(Default > numbuttons) Default = 0;
 
-		     UM_Win = WindowObject,
-		      MUIA_Window_Title		, GetString( MSG_AGUI_MESSAGE ) ,  // "Message",
-		      MUIA_Window_ID		, MakeID('U','M','E','S'),
-		      MUIA_Window_Screen	, WCSScrn,
-
-		      WindowContents, VGroup,
-		        Child, TextObject, TextFrame,
-				 MUIA_Text_PreParse, "\33c",
-				 MUIA_Text_Contents, outlinetxt, End,
-
-		        Child, FloattextObject, ReadListFrame,
-				 MUIA_Floattext_Text, message,
-				 MUIA_List_Format, "P=\33c", End,
-
-			Child, UM_BTGroup = HGroup, MUIA_Group_SameSize, TRUE, End,
-		        End, /* VGroup */
-		      End; /* UM_Win */
-
+		     UM_Win = AF_Make_UM_Win(outlinetxt, message, &UM_BTGroup);
 		  if (! UM_Win) return(0);
 
 		  for (j=0; j<numbuttons-1  && ! error; j++)
@@ -1966,37 +1981,41 @@ USHORT FileExists_Message(STRPTR existsfile)
 } /* FileExists_Message() */
 #endif
 /************************************************************************/
+APTR AF_Make_IS_Win(char *message, char *reject, char *string, APTR InputStr, APTR BT_OK, APTR BT_Cancel)
+{
+    return WindowObject,
+      MUIA_Window_Title     , GetString( MSG_AGUI_INPUTREQUEST ) ,  // "Input Request",
+      MUIA_Window_ID        , MakeID('I','S','R','Q'),
+      MUIA_Window_Screen    , WCSScrn,
+
+      WindowContents, VGroup,
+        Child, FloattextObject, ReadListFrame,
+         MUIA_Floattext_Text, message,
+         MUIA_List_Format, "P=\33c", End,
+
+    Child, InputStr = StringObject, StringFrame,
+        MUIA_String_Reject, reject,
+        MUIA_String_Contents, string,
+        MUIA_String_BufferPos, strlen(string), End,
+
+    Child, HGroup,
+      Child, BT_OK = KeyButtonFunc('o', (char*)GetString( MSG_GLOBAL_OK ) ),          // "\33cOK"
+      Child, BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
+      End, /* HGroup */
+        End, /* VGroup */
+      End; /* IS_Win */
+}
 
 short GetInputString(char *message, char *reject, char *string)
 {
  char *outstring;
- APTR IS_Win, InputStr, BT_OK, BT_Cancel;
+ APTR IS_Win, InputStr=NULL, BT_OK, BT_Cancel;
  short done = 0, retval;
  ULONG IS_ID, signals;
 
  Set_Param_Menu(10);
 
-     IS_Win = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_AGUI_INPUTREQUEST ) ,  // "Input Request",
-      MUIA_Window_ID		, MakeID('I','S','R','Q'),
-      MUIA_Window_Screen	, WCSScrn,
-
-      WindowContents, VGroup,
-        Child, FloattextObject, ReadListFrame,
-		 MUIA_Floattext_Text, message,
-		 MUIA_List_Format, "P=\33c", End,
-
-	Child, InputStr = StringObject, StringFrame,
-		MUIA_String_Reject, reject,
-		MUIA_String_Contents, string,
-		MUIA_String_BufferPos, strlen(string), End,
-
-	Child, HGroup,
-	  Child, BT_OK = KeyButtonFunc('o', (char*)GetString( MSG_GLOBAL_OK ) ),          // "\33cOK"
-	  Child, BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
-	  End, /* HGroup */
-        End, /* VGroup */
-      End; /* IS_Win */
+     IS_Win = AF_Make_IS_Win(message, reject, string, InputStr, &BT_OK, &BT_Cancel);
 
   if (! IS_Win) return(0);
 
@@ -2109,7 +2128,7 @@ STATIC_FCN void Status_Log(STRPTR logtext, int Severity) // used locally only ->
 /***********************************************************************/
 
 
-STATIC_FCN void Make_Log_Window(int Severity) // used locally only -> static, AF 26.7.2021
+/*STATIC_FCN*/ void Make_Log_Window(int Severity) // used locally only -> static, AF 26.7.2021, but used in MSG_Test.c now
 {
  long open;
 
@@ -2216,7 +2235,7 @@ STATIC_FCN void Make_Log_Window(int Severity) // used locally only -> static, AF
 ** If Log_Win is still there, just set() the Window back open. If Log_Win
 ** is not there, send a Log() message, and it'll open if it can.
 */
-STATIC_FCN void Close_Log_Window(int StayClosed) // used locally only -> static, AF 25.7.2021
+/*STATIC_FCN*/ void Close_Log_Window(int StayClosed) // used locally only -> static, AF 25.7.2021, but used in MSG_Test.c now
 {
 if(Log_Win)
   {
@@ -2239,103 +2258,57 @@ if(Log_Win)
 } /* Close_Log_Window() */
 
 /************************************************************************/
-
-/*STATIC_FCN*/ short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static, AF 25.7.2021
+APTR AF_Make_Credits_Window(void)
 {
- short ResetScrn = 0;
+return WindowObject,
+            MUIA_Window_Title       , GetString( MSG_AGUI_CREDITS ),  // "Credits"
+            MUIA_Window_ID      , MakeID('C','R','E','D'),
+            MUIA_Window_Screen  , WCSScrn,
+          WindowContents, VGroup,
+            Child, HGroup,
+             Child, RectangleObject, End,
+             Child, VGroup,
+              Child, ImageObject, MUIA_Frame, MUIV_Frame_Text,
+               MUIA_Image_OldImage, &Gary, MUIA_Weight, 1,
+               MUIA_InnerRight, 0, MUIA_InnerLeft, 0,
+               MUIA_InnerTop, 0, MUIA_InnerBottom, 0,
+               End,
+            Child, TextObject, MUIA_Text_Contents, "\33cGary",
+             End,
+              End,
+             Child, RectangleObject, End,
+             Child, VGroup,
+                Child, ImageObject, MUIA_Frame, MUIV_Frame_Text,
+                 MUIA_Image_OldImage, &Xenon, MUIA_Weight, 1,
+                 MUIA_InnerRight, 0, MUIA_InnerLeft, 0,
+                 MUIA_InnerTop, 0, MUIA_InnerBottom, 0, End,
+              Child, TextObject, MUIA_Text_Contents, "\33cXenon",
+               End,
+              End,
+             Child, RectangleObject, End,
+             End,
+            Child, CreditList = ListviewObject, MUIA_Listview_Input, FALSE,
+             MUIA_Listview_List,
+              FloattextObject, ReadListFrame,
+                MUIA_Floattext_Text, LocaleExtCreditText?LocaleExtCreditText:ExtCreditText,
+                MUIA_List_Format, "P=\33c",
+                End,
+               End,
+#ifdef XENON_DOESNT_LIKE_THIS
+              Child, CreditWinOK = KeyButtonObject('O'), MUIA_Text_Contents, GetString( MSG_AGUI_OKAY ) ,  // "\33cOkay"
+               End,
+#endif /* XENON_DOESNT_LIKE_THIS */
+              End,
+            End;
+}
 
-  switch (WCS_ID & 0x00ff0000)
-   {
-   case WI_WINDOW0:   // 0x00000000
-    {
 
-     switch (WCS_ID & 0x0000ff00)
-     {
-     case GP_ACTIVEWIN:
-      {
-      LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
-      break;
-      } /* ID_MCP_ACTIVEWIN */
-     } /* switch gadget group */
-    break;
-    } /* MCPWindow */
-    // -----------------------------------------------------------
-   case WI_WINDOW2: // 0x00020000 /* Log module and misc menus */
-    {
-
-    switch (WCS_ID & 0x0000ff00)
-     {
-     case GP_BUTTONS1:  // 0x00000100
-      {
-      switch (WCS_ID)
-       {
-       case ID_MCP_ACTIVATE:  // 0x01002800  ??? impossible!?
-        {
-        LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
-        break;
-        } /* ID_MCP_ACTIVEWIN */
-       case ID_LOG:
-        {
-        LONG Open;
-        
-        if (Log_Win)
-          {
-          get(Log_Win->LogWindow, MUIA_Window_Open, &Open);
-          if(Open)
-            {
-            Close_Log_Window(1);
-            } /* if */
-          else
-            {
-            set(Log_Win->LogWindow, MUIA_Window_Open, TRUE);
-#ifdef WCS_MUI_2_HACK
-	   MUI2_MenuCheck_Hack();
-#endif /* WCS_MUI_2_HACK */
-            } /* else */
-          } /* if window already exists */
-        else
-          { /* need to create log window */
-          Log(32, (CONST_STRPTR)GetString( MSG_AGUI_LOGWINDOWOPENED ) );  // "Log window opened."
-          } /* else */
-        get(Log_Win->LogWindow, MUIA_Window_Open, &Open);
-        DoMethod(app, MUIM_Application_SetMenuCheck, ID_LOG, Open);
-        break;
-        } /* ID_LOG */
-       case ID_LOG_HIDE:
-        {
-        Close_Log_Window(0);
-        break;
-        } /* ID_LOG_HIDE */
-       } /* switch gadget ID */
-      break;
-      } /* BUTTONS1 */
-     case GP_BUTTONS2:
-      { /* BUTTONS2 */
-      switch(WCS_ID)
-       {
-       case ID_INFO:
-        {
-        long open;
-
-        if(InfoWin)
-          {
-          set(InfoWin, MUIA_Window_Open, FALSE);
-          DoMethod(app, OM_REMMEMBER, InfoWin);
-          MUI_DisposeObject(InfoWin);
-/*          DoMethod(app, MUIM_Application_SetMenuCheck, ID_INFO, FALSE); */
-          InfoWin = NULL;
-#ifdef WCS_MUI_2_HACK
-	   MUI2_MenuCheck_Hack();
-#endif /* WCS_MUI_2_HACK */
-          } /* if */
-        else
-          {
-          Set_Param_Menu(10);
-
-          InfoWin = WindowObject,
-            MUIA_Window_Title		, GetString( MSG_AGUI_INFO ),  // "Info"
-            MUIA_Window_ID		, MakeID('I','N','F','O'),
-            MUIA_Window_Screen	, WCSScrn,
+APTR AF_Make_Info_Window(void)
+{
+WindowObject,
+            MUIA_Window_Title       , GetString( MSG_AGUI_INFO ),  // "Info"
+            MUIA_Window_ID      , MakeID('I','N','F','O'),
+            MUIA_Window_Screen  , WCSScrn,
             MUIA_Window_SizeGadget  , FALSE,
 
             WindowContents, VGroup,
@@ -2433,6 +2406,101 @@ if(Log_Win)
 #endif /* XENON_DOESNT_LIKE_THIS */
               End,
              End;
+}
+
+/*STATIC_FCN*/ short Handle_APP_Windows(ULONG WCS_ID) // used locally only -> static, AF 25.7.2021
+{
+ short ResetScrn = 0;
+
+  switch (WCS_ID & 0x00ff0000)
+   {
+   case WI_WINDOW0:   // 0x00000000
+    {
+
+     switch (WCS_ID & 0x0000ff00)
+     {
+     case GP_ACTIVEWIN:
+      {
+      LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
+      break;
+      } /* ID_MCP_ACTIVEWIN */
+     } /* switch gadget group */
+    break;
+    } /* MCPWindow */
+    // -----------------------------------------------------------
+   case WI_WINDOW2: // 0x00020000 /* Log module and misc menus */
+    {
+
+    switch (WCS_ID & 0x0000ff00)
+     {
+     case GP_BUTTONS1:  // 0x00000100
+      {
+      switch (WCS_ID)
+       {
+       case ID_MCP_ACTIVATE:  // 0x01002800  ??? impossible!?
+        {
+        LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
+        break;
+        } /* ID_MCP_ACTIVEWIN */
+       case ID_LOG:
+        {
+        LONG Open;
+        
+        if (Log_Win)
+          {
+          get(Log_Win->LogWindow, MUIA_Window_Open, &Open);
+          if(Open)
+            {
+            Close_Log_Window(1);
+            } /* if */
+          else
+            {
+            set(Log_Win->LogWindow, MUIA_Window_Open, TRUE);
+#ifdef WCS_MUI_2_HACK
+	   MUI2_MenuCheck_Hack();
+#endif /* WCS_MUI_2_HACK */
+            } /* else */
+          } /* if window already exists */
+        else
+          { /* need to create log window */
+          Log(32, (CONST_STRPTR)GetString( MSG_AGUI_LOGWINDOWOPENED ) );  // "Log window opened."
+          } /* else */
+        get(Log_Win->LogWindow, MUIA_Window_Open, &Open);
+        DoMethod(app, MUIM_Application_SetMenuCheck, ID_LOG, Open);
+        break;
+        } /* ID_LOG */
+       case ID_LOG_HIDE:
+        {
+        Close_Log_Window(0);
+        break;
+        } /* ID_LOG_HIDE */
+       } /* switch gadget ID */
+      break;
+      } /* BUTTONS1 */
+     case GP_BUTTONS2:
+      { /* BUTTONS2 */
+      switch(WCS_ID)
+       {
+       case ID_INFO:
+        {
+        long open;
+
+        if(InfoWin)
+          {
+          set(InfoWin, MUIA_Window_Open, FALSE);
+          DoMethod(app, OM_REMMEMBER, InfoWin);
+          MUI_DisposeObject(InfoWin);
+/*          DoMethod(app, MUIM_Application_SetMenuCheck, ID_INFO, FALSE); */
+          InfoWin = NULL;
+#ifdef WCS_MUI_2_HACK
+	   MUI2_MenuCheck_Hack();
+#endif /* WCS_MUI_2_HACK */
+          } /* if */
+        else
+          {
+          Set_Param_Menu(10);
+
+          InfoWin =AF_Make_Info_Window();
           if(InfoWin)
           	{
 #ifdef XENON_DOESNT_LIKE_THIS
@@ -2515,46 +2583,7 @@ if(Log_Win)
           {
           Set_Param_Menu(10);
 
-          CreditWin = WindowObject,
-            MUIA_Window_Title		, GetString( MSG_AGUI_CREDITS ),  // "Credits"
-            MUIA_Window_ID		, MakeID('C','R','E','D'),
-            MUIA_Window_Screen	, WCSScrn,
-            WindowContents, VGroup,
-              Child, HGroup,
-               Child, RectangleObject, End,
-               Child, VGroup,
-                Child, ImageObject, MUIA_Frame, MUIV_Frame_Text,
-                 MUIA_Image_OldImage, &Gary, MUIA_Weight, 1,
-                 MUIA_InnerRight, 0, MUIA_InnerLeft, 0,
-                 MUIA_InnerTop, 0, MUIA_InnerBottom, 0,
-                 End,
-                Child, TextObject, MUIA_Text_Contents, "\33cGary",
-                 End,
-                End,
-               Child, RectangleObject, End,
-               Child, VGroup,
-                Child, ImageObject, MUIA_Frame, MUIV_Frame_Text,
-                 MUIA_Image_OldImage, &Xenon, MUIA_Weight, 1,
-                 MUIA_InnerRight, 0, MUIA_InnerLeft, 0,
-                 MUIA_InnerTop, 0, MUIA_InnerBottom, 0, End,
-                Child, TextObject, MUIA_Text_Contents, "\33cXenon",
-                 End,
-                End,
-               Child, RectangleObject, End,
-               End,
-              Child, CreditList = ListviewObject, MUIA_Listview_Input, FALSE,
-               MUIA_Listview_List,
-                FloattextObject, ReadListFrame,
-                MUIA_Floattext_Text, LocaleExtCreditText?LocaleExtCreditText:ExtCreditText,
-                MUIA_List_Format, "P=\33c",
-                End,
-               End,
-#ifdef XENON_DOESNT_LIKE_THIS
-              Child, CreditWinOK = KeyButtonObject('O'), MUIA_Text_Contents, GetString( MSG_AGUI_OKAY ) ,  // "\33cOkay"
-               End,
-#endif /* XENON_DOESNT_LIKE_THIS */
-              End,
-            End;
+          CreditWin = AF_Make_Credits_Window();
           if(CreditWin)
           	{
 #ifdef XENON_DOESNT_LIKE_THIS

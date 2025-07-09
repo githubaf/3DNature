@@ -91,7 +91,8 @@ O_SRCS += \
 ../MapSupport.o \
 ../Memory.o \
 ../WCS_locale.o \
-../sasc_functions.o 
+../sasc_functions.o \
+../test_main.o 
 
 C_DEPS += \
 ./AGUI.d \

@@ -179,6 +179,7 @@ void Set_WCS_ReturnCode(int RetCode)
 }
 
 void Test_User_Message(unsigned int StartTestNumber);  // Test all user Messages
+void Test_WindowObject(void);  // Test WindowObject() and WindowContents()
 
 char *ProjectName="empty";
 
@@ -628,7 +629,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
             ResetScrn = 0;
             // ##########################################
            }
-#if defined BETA_USER_MESSAGE_TEST && defined __SASC__ // set in Version.h
+#if defined BETA_USER_MESSAGE_TEST && !defined __SASC__ // set in Version.h
            else if (argc>=2 && !strcmp(argv[1],"Test_User_Message"))
            {
                unsigned int StartTestNumber;
@@ -643,6 +644,12 @@ if ((IntuitionBase = (struct IntuitionBase *)
                set(AboutWin,MUIA_Window_Open,FALSE); // close About window if open
         	   Test_User_Message(StartTestNumber);  // Test all user Messages
            }
+           else if (argc>=2 && !strcmp(argv[1],"Test_WindowObject"))
+           {
+               set(AboutWin,MUIA_Window_Open,FALSE); // close About window if open
+               Test_WindowObject();  // Test all user Window Creates
+           }
+
 #endif
            else
            {

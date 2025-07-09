@@ -22568,7 +22568,7 @@ Wolk %d
 ;
 MSG_MAPTOPOOB_ENTERTHEMAXIMUMPIXELSIZEFORAPOLYGONTHESMALLERTHEN
 Enter the maximum pixel size for a polygon. The smaller the number the longer image rendering will take!
-Maximale Pixel-Größe für ei Polygon eingeben. Kleinere Werte erhöhen die Berechnungsdauer!
+Maximale Pixel-Größe für ein Polygon eingeben. Kleinere Werte erhöhen die Berechnungsdauer!
 Inserisci la dimensione massima in pixel per un poligono. Più piccolo è il numero, più tempo richiederà il rendering dell'immagine!
 
 Voer de maximale pixelgrootte voor een veelhoek in. Hoe kleiner het getal, hoe langer het renderen van de afbeelding duurt!
