@@ -1180,7 +1180,7 @@ APTR  AF_MakeModControlWin (APTR BT_Database, APTR BT_DataOps, APTR BT_Mapping, 
 }
 
 // extracted window creation for locale testing purposes, AF 25.7.2021
-APTR AF_MakeAboutWin (APTR BT_AboutOK)
+APTR AF_MakeAboutWin (APTR *BT_AboutOK)
 {
     return WindowObject,
             MUIA_Window_Title      ,  GetString( MSG_AGUI_VERSION ) ,  // "Version"
@@ -1209,7 +1209,7 @@ APTR AF_MakeAboutWin (APTR BT_AboutOK)
             Child, TextObject, MUIA_Text_Contents,
             "\33cby Questar Productions", End,
             Child, VSpace(5),
-            Child, BT_AboutOK = KeyButtonFunc('o', (char*)GetString( MSG_AGUI_OKAY ) ),  // "\33cOkay"
+            Child, *BT_AboutOK = KeyButtonFunc('o', (char*)GetString( MSG_AGUI_OKAY ) ),  // "\33cOkay"
             End, /* VGroup */
           End; /* SubWindow AboutWin */
 } /* AF_MakeAboutWin() */
@@ -1227,7 +1227,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
 
   /* Don't think we need MUI2_MenuCheck_Hack() here */
  
-  AboutWin = AF_MakeAboutWin(BT_AboutOK);
+  AboutWin = AF_MakeAboutWin(&BT_AboutOK);
 	if(AboutWin)
 		{
 		DoMethod(app, OM_ADDMEMBER, AboutWin);
@@ -1775,7 +1775,7 @@ int getUser_Message_ForcedReturn()
 	return User_Message_ForcedReturnValue;
 }
 
-APTR AF_Make_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message,APTR UM_BTGroup)
+APTR AF_Make_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message,APTR *UM_BTGroup)
 {
     return WindowObject,
                   MUIA_Window_Title     , GetString( MSG_AGUI_MESSAGE ) ,  // "Message",
@@ -1791,7 +1791,7 @@ APTR AF_Make_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message,APTR UM_BTGrou
                      MUIA_Floattext_Text, message,
                      MUIA_List_Format, "P=\33c", End,
 
-                Child, UM_BTGroup = HGroup, MUIA_Group_SameSize, TRUE, End,
+                Child, *UM_BTGroup = HGroup, MUIA_Group_SameSize, TRUE, End,
                     End, /* VGroup */
                   End; /* UM_Win */
 }
@@ -1981,7 +1981,7 @@ USHORT FileExists_Message(STRPTR existsfile)
 } /* FileExists_Message() */
 #endif
 /************************************************************************/
-APTR AF_Make_IS_Win(char *message, char *reject, char *string, APTR InputStr, APTR BT_OK, APTR BT_Cancel)
+APTR AF_Make_IS_Win(char *message, char *reject, char *string, APTR *InputStr, APTR *BT_OK, APTR *BT_Cancel)
 {
     return WindowObject,
       MUIA_Window_Title     , GetString( MSG_AGUI_INPUTREQUEST ) ,  // "Input Request",
@@ -1993,14 +1993,14 @@ APTR AF_Make_IS_Win(char *message, char *reject, char *string, APTR InputStr, AP
          MUIA_Floattext_Text, message,
          MUIA_List_Format, "P=\33c", End,
 
-    Child, InputStr = StringObject, StringFrame,
+    Child, *InputStr = StringObject, StringFrame,
         MUIA_String_Reject, reject,
         MUIA_String_Contents, string,
         MUIA_String_BufferPos, strlen(string), End,
 
     Child, HGroup,
-      Child, BT_OK = KeyButtonFunc('o', (char*)GetString( MSG_GLOBAL_OK ) ),          // "\33cOK"
-      Child, BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
+      Child, *BT_OK = KeyButtonFunc('o', (char*)GetString( MSG_GLOBAL_OK ) ),          // "\33cOK"
+      Child, *BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
       End, /* HGroup */
         End, /* VGroup */
       End; /* IS_Win */
