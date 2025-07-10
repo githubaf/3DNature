@@ -19,7 +19,7 @@ STATIC_FCN void GUICloudKey_SetGads(struct CloudWindow *CL_Win,
 STATIC_FCN void GUICloud_SetGads(struct CloudWindow *CL_Win,
         struct CloudData *CD); // used locally only -> static, AF 26.7.2021
 
-STATIC_FCN void Make_CL_Window(void) // used locally only -> static, AF 26.7.2021
+/*STATIC_FCN*/ void Make_CL_Window(void) // used locally only -> static, AF 26.7.2021 ( but now also in test)
 {
  char filename[256];
  long i, open;

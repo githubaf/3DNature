@@ -4627,7 +4627,7 @@ Das sind 79 Stellen.
 OK	./AGUI.c:105:      EP_Win->EditWindow = WindowObject,
 OK	./AGUI.c:1162: ModControlWin = WindowObject,
 OK	./AGUI.c:1189:  AboutWin =  WindowObject,
-OK 	./AGUI.c:1800:	   UM_Win = WindowObject,
+OK 	./AGUI.c:1800:	   UM_Win = WindowObject,    (User_Message_Def() Alle Strings getestet)
 OK	./AGUI.c:1979:     IS_Win = WindowObject,    (Alle Strings getestet)
 OK	./AGUI.c:2143:     Log_Win->LogWindow = WindowObject,
 OK	./AGUI.c:2335:          InfoWin = WindowObject,
@@ -4635,7 +4635,7 @@ OK	./AGUI.c:2518:          CreditWin = WindowObject,
 OK	./AGUI.c:573:     DB_Win->DatabaseWindow = WindowObject,
 OK	./AGUI.c:844:     DO_Win->DataOpsWindow = WindowObject,
 
-./CloudGUI.c:62:     CL_Win->CloudWin = WindowObject,
+OK	./CloudGUI.c:62:     CL_Win->CloudWin = WindowObject,
 
 ./DEMGUI.c:116:     MD_Win->MakeDEMWin = WindowObject,
 ./DEMGUI.c:744:     GR_Win->NNGridWin = WindowObject,

@@ -3848,6 +3848,7 @@ APTR AF_Make_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message,APTR *UM_BTGro
 APTR AF_Make_IS_Win(char *message, char *reject, char *string, APTR InputStr, APTR BT_OK, APTR BT_Cancel);
 void Make_Log_Window(int Severity);
 void Close_Log_Window(int StayClosed);
+void Make_CL_Window(void);
 
 void waitForRightClick(Object *MuiWindow)
 {
@@ -3873,7 +3874,7 @@ void Test_IS_Win(CONST STRPTR message)
     // should this called with all possible strings? (look for all latFixer() calls in the code)
     APTR InputStr=NULL, BT_OK=NULL, BT_Cancel=NULL, IS_Win=NULL;
     // Example strings from MapExtra.c void FlatFixer(struct Box *Bx)
-    IS_Win=AF_Make_IS_Win(message, (CONST_STRPTR)"+-.,abcdefghijklmnopqrstuvwxyz9", "", &InputStr, &BT_OK, &BT_Cancel);
+    IS_Win=AF_Make_IS_Win((CONST_STRPTR)message, (CONST_STRPTR)"+-.,abcdefghijklmnopqrstuvwxyz9", "", &InputStr, &BT_OK, &BT_Cancel);
     DoMethod(app, OM_ADDMEMBER, IS_Win);
     set(IS_Win,MUIA_Window_Open, TRUE);
     waitForRightClick(IS_Win); // Wait for right mouse button to be pressed
@@ -3960,7 +3961,7 @@ void Test_WindowObject(void)
 //    set(ModControlWin, MUIA_Window_Open, TRUE);
     waitForRightClick(ModControlWin); // Wait for right mouse button to be pressed
     set(ModControlWin,MUIA_Window_Open, FALSE);
-
+goto END_LABEL;
     // AF_CASE
     Make_EP_Window(0);   // Edit Parameters Window
     waitForRightClick(EP_Win->EditWindow); // Wait for right mouse button to be pressed
@@ -5104,6 +5105,13 @@ Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
     Make_Log_Window(128); // Log Window, 128, if >127, stays open
     waitForRightClick(Log_Win->LogWindow); // Wait for right mouse button to be pressed
     Close_Log_Window(2);  // Close Log Window, 2 = Shutdown, kill it all! */
+
+END_LABEL:
+  // ####### CloudGui.c ##############
+    // AF_CASE
+    Make_CL_Window();   // ALEXANDER: Auch im normalen Test aufrufen!
+    waitForRightClick(CL_Win->CloudWin); // Wait for right mouse button to be pressed
+    Close_CL_Window();  // Close Cloud Window
 
 }
 
