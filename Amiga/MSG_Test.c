@@ -3867,19 +3867,81 @@ void waitForRightClick(Object *MuiWindow)
     }
 }
 
-void Test_IS_Win(STRPTR message)
+void Test_IS_Win(CONST STRPTR message)
 {
     // Input String Window
     // should this called with all possible strings? (look for all latFixer() calls in the code)
     APTR InputStr=NULL, BT_OK=NULL, BT_Cancel=NULL, IS_Win=NULL;
     // Example strings from MapExtra.c void FlatFixer(struct Box *Bx)
-    IS_Win=AF_Make_IS_Win(message, "+-.,abcdefghijklmnopqrstuvwxyz9", "", &InputStr, &BT_OK, &BT_Cancel);
+    IS_Win=AF_Make_IS_Win(message, (CONST_STRPTR)"+-.,abcdefghijklmnopqrstuvwxyz9", "", &InputStr, &BT_OK, &BT_Cancel);
     DoMethod(app, OM_ADDMEMBER, IS_Win);
     set(IS_Win,MUIA_Window_Open, TRUE);
     waitForRightClick(IS_Win); // Wait for right mouse button to be pressed
     set(IS_Win,MUIA_Window_Open, FALSE);
     }
 
+void Test_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons)
+{
+    APTR UM_Win;
+    APTR UM_BTGroup;
+
+    APTR UM_BT[11];
+    USHORT numbuttons = 1, j = 0, i = 0, k = 0, error = 0;
+    char buttontext[11][20];
+    CONST_STRPTR buttonkey="abcdefghijklmno"; // 12 keys, 11 buttons
+
+    while (buttons[i] && numbuttons<12)
+    {
+        if (buttons[i] == '|')
+        {
+            buttontext[j][k] = 0;
+            j++;
+            i++;
+            k=0;
+            continue;
+        }
+        buttontext[j][k] = buttons[i];
+        i++;
+        k++;
+    }
+    buttontext[j][k] = 0;
+    numbuttons = j + 1;
+
+    if (numbuttons > 10) numbuttons = 10;
+
+    UM_Win=AF_Make_UM_Win(outlinetxt,
+            message,
+            &UM_BTGroup);
+
+
+    for (j=0; j<numbuttons-1  && ! error; j++)
+    {
+        UM_BT[j + 1] = KeyButtonObject(buttonkey[j]),
+                MUIA_Text_PreParse, "\33c",
+                MUIA_Text_Contents, buttontext[j], End;
+        if (! UM_BT[j + 1]) error = 1;
+        else DoMethod(UM_BTGroup, OM_ADDMEMBER, UM_BT[j + 1]);
+    } /* for j=0... */
+
+    UM_BT[0] = KeyButtonObject(buttonkey[numbuttons - 1]),
+            MUIA_Text_PreParse, "\33c",
+            MUIA_Text_Contents, buttontext[numbuttons - 1], End;
+    if (! UM_BT[0]) error = 1;
+    else DoMethod(UM_BTGroup, OM_ADDMEMBER, UM_BT[0]);
+
+    if (error)
+    {
+        MUI_DisposeObject(UM_Win);
+        printf("Error in %s %s Line %d!\n",__FILE__,__func__,__LINE__);
+        return; // exit if error creating buttons
+        /*   break;*/
+    } /* if error creating buttons */
+
+    DoMethod(app, OM_ADDMEMBER, UM_Win);
+    set(UM_Win,MUIA_Window_Open, TRUE);
+    waitForRightClick(UM_Win); // Wait for right mouse button to be pressed
+    set(UM_Win,MUIA_Window_Open, FALSE);
+}
 
 
 void Test_WindowObject(void)
@@ -3943,1095 +4005,1002 @@ void Test_WindowObject(void)
 //    set(UM_Win,MUIA_Window_Open, FALSE);
 
     //####### User Message Window ############
-    {
-    APTR UM_BTGroup;
 
+    // AF_CASE
+    Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
+            GetString( MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX ),  // "Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?"
+            GetString( MSG_GLOBAL_OKCANCEL ));
 
-    CONST_STRPTR buttons=GetString( MSG_GLOBAL_OKCANCEL );
-    APTR UM_BT[11];
-    USHORT numbuttons = 1, j = 0, i = 0, k = 0, error = 0;
-    char buttontext[11][20];
-    CONST_STRPTR buttonkey="abcdefghijklmno"; // 12 keys, 11 buttons
-
-    while (buttons[i] && numbuttons<12)
-     {
-     if (buttons[i] == '|')
-      {
-      buttontext[j][k] = 0;
-      j++;
-      i++;
-      k=0;
-      continue;
-      }
-     buttontext[j][k] = buttons[i];
-     i++;
-     k++;
-     }
-    buttontext[j][k] = 0;
-    numbuttons = j + 1;
-
-    if (numbuttons > 10) numbuttons = 10;
-
-    printf("Creating %d buttons...\n", numbuttons);
-
-    UM_Win=AF_Make_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
-                         GetString( MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX ),  // "Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?"
-                         &UM_BTGroup);
-
-
-    for (j=0; j<numbuttons-1  && ! error; j++)
-     {
-     UM_BT[j + 1] = KeyButtonObject(buttonkey[j]),
-      MUIA_Text_PreParse, "\33c",
-      MUIA_Text_Contents, buttontext[j], End;
-     if (! UM_BT[j + 1]) error = 1;
-     else DoMethod(UM_BTGroup, OM_ADDMEMBER, UM_BT[j + 1]);
-     } /* for j=0... */
-
-    UM_BT[0] = KeyButtonObject(buttonkey[numbuttons - 1]),
-      MUIA_Text_PreParse, "\33c",
-      MUIA_Text_Contents, buttontext[numbuttons - 1], End;
-    if (! UM_BT[0]) error = 1;
-    else DoMethod(UM_BTGroup, OM_ADDMEMBER, UM_BT[0]);
-
-    if (error)
-     {
-     MUI_DisposeObject(UM_Win);
-     printf("Error in %s %s Line %d!\n",__FILE__,__func__,__LINE__);
-     return; // exit if error creating buttons
-  /*   break;*/
-     } /* if error creating buttons */
-
-    DoMethod(app, OM_ADDMEMBER, UM_Win);
-    set(UM_Win,MUIA_Window_Open, TRUE);
-    waitForRightClick(UM_Win); // Wait for right mouse button to be pressed
-    set(UM_Win,MUIA_Window_Open, FALSE);
-    }
-
-    return;
-
-
-#ifdef HHAHAHAH
-  --
-   if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+    // AF_CASE
+   Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                         GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                        GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
-  --
-   if (! User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),  // "Mapping Module: Point Match"
+                        GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+
+   // AF_CASE
+Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),  // "Mapping Module: Point Match"
                           GetString( MSG_MAPEXTRA_PROCEEDWITHRELOCATION ),    // "Proceed with relocation?"
-                          GetString( MSG_GLOBAL_OKCANCEL ),                 // "OK|CANCEL"
-  --
-   if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+                          GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|CANCEL"
+
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                         GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                        GetString( MSG_GLOBAL_OKCANCEL ) ,                               // "OK|Cancel"
-  --
-    if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+                        GetString( MSG_GLOBAL_OKCANCEL ));                               // "OK|Cancel"
+
+  // AF_CASE
+    Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                          GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                         GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
-  --
-   if (! User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+                         GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+
+    // AF_CASE
+   Test_UM_Win((CONST_STRPTR)DBase[OBN].Name,
                           GetString( MSG_MAPEXTRA_DUPLICATETHISOBJECT ),  // "Duplicate this object?"
-                          GetString( MSG_GLOBAL_OKCANCEL ),             // "OK|Cancel"
-  --
-   if (User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),  // "Mapping Module: Follow Stream"
+                          GetString( MSG_GLOBAL_OKCANCEL ));             // "OK|Cancel"
+
+   // AF_CASE
+   Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),  // "Mapping Module: Follow Stream"
                         GetString( MSG_MAPEXTRA_SAVEVECTOROBJECTNOW ),        // "Save vector object now?"
-                        GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
-  --
-   if ((UseResult = User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULESPLINE ),                       // "Mapping Module: Spline"
+                        GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+
+   // AF_CASE
+   Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULESPLINE ),                       // "Mapping Module: Spline"
                                      (CONST_STRPTR)str,
-                                     GetString( MSG_MAPEXTRA_OKRESETCANCEL ),                             // "OK|Reset|Cancel"
-  --
-    if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize",
+                                     GetString( MSG_MAPEXTRA_OKRESETCANCEL ));                             // "OK|Reset|Cancel"
+
+   // AF_CASE
+    Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize",
                          GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save object now?"
-                         GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
-  --
-   if ((ans = User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),  // "Mapping Module: Fix Flats"
+                         GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+
+    // AF_CASE
+   Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),  // "Mapping Module: Fix Flats"
                                GetString( MSG_MAPEXTRA_PROCEEDORRESETPOINTS ),   // "Proceed or reset points?"
-                               GetString( MSG_MAPEXTRA_PROCEEDRESETCANCEL ),     // "Proceed|Reset|Cancel"
-  --
-    if ((ans = User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),           // "Mapping Module: Fix Flats"
+                               GetString( MSG_MAPEXTRA_PROCEEDRESETCANCEL ));     // "Proceed|Reset|Cancel"
+
+   // AF_CASE
+Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),           // "Mapping Module: Fix Flats"
                                 GetString( MSG_MAPEXTRA_KEEPORSAVEDEMORRESETPARAMETERS ),  // "Keep or save DEM or reset parameters?"
-                                GetString( MSG_MAPEXTRA_KEEPSAVERESETCANCEL ),             // "Keep|Save|Reset|Cancel"
-  --
-     if (! User_Message_Def("Particle Tree", "Do another tree?", "Yes|No", "yn", 1))
-      break;
-     } /* while */
-  --
-    User_Message_Def("Particle Tree",
-      "Out of memory allocating new branch!\nOperation terminated.",
-      "OK", "o", 0);
-       if (User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
+                                GetString( MSG_MAPEXTRA_KEEPSAVERESETCANCEL ));             // "Keep|Save|Reset|Cancel"
+
+// AF_CASE
+Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
                             GetString( MSG_MAPLINO_ERROROPENINGLINESAVEFILEELECTNEWPATH ),  // "Error opening line save file!\nSelect new path?"
-                            GetString( MSG_GLOBAL_OKCANCEL ),                              // "OK|Cancel"
-        if (User_Message_Def(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                          // "Parameters Module: Ecosystem"
+                            GetString( MSG_GLOBAL_OKCANCEL ));                              // "OK|Cancel"
+
+// AF_CASE
+Test_UM_Win(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                          // "Parameters Module: Ecosystem"
                              (CONST_STRPTR)str,
-                             GetString( MSG_GLOBAL_OKCANCEL ),                                           // "OK|Cancel",
-     if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module
+                             GetString( MSG_GLOBAL_OKCANCEL ));                                           // "OK|Cancel",
+
+// AF_CASE
+Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module
                             GetString( MSG_GLMP_DIAGNOSTICBUFFERSCANTBEGENERATEDFORMULTIPLESEGMENTORMU ),  // "Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?"
-                            GetString( MSG_GLOBAL_OKCANCEL ),                                                // "OK|CANCEL"
-  --
-      if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+                            GetString( MSG_GLOBAL_OKCANCEL ));                                                // "OK|CANCEL"
+// AF_CASE
+Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                              GetString( MSG_GLMP_OUTOFMEMORYOPENINGDIAGNOSTICBUFFERSPROCEEDRENDERINGWIT ),  // "Out of memory opening Diagnostic buffers! Proceed rendering without them?"
-                             GetString( MSG_GLOBAL_OKCANCEL ),                                                // "OK|CANCEL"
-  --
-      if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                  // "Render Module: Clouds"
+                             GetString( MSG_GLOBAL_OKCANCEL ));                                                // "OK|CANCEL"
+// AF_CASE
+Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                  // "Render Module: Clouds"
                            GetString( MSG_GLMP_ERRORLOADINGCLOUDMAPFILEONTINUEWITHOUTCLOUDSHADOWS ),  // "Error loading Cloud Map file!\nContinue without cloud shadows?"
-                           GetString( MSG_GLOBAL_CONTINUECANCEL ),                                      // "Continue|Cancel"
-  --
-     if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                      // "Render Module: Clouds"
+                           GetString( MSG_GLOBAL_CONTINUECANCEL ));                                      // "Continue|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                      // "Render Module: Clouds"
                           GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAPONTINUEWITHOUTCLOUDSHADOWS ),   // "Out of memory creating Cloud Map!\nContinue without cloud shadows?"
-                          GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
-  --
-     if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+                          GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                             GetString( MSG_GLMP_ERRORLOADINGMASTERCOLORMAPSEESTATUSLOGFORMOREINFORMATI ),  // "Error loading Master Color Map! See Status Log for more information.\n\Continue rendering without Color Map?"
-                            GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
-  --
-     if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+                            GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                             GetString( MSG_GLMP_ERRORLOADINGSTRATADEFORMATIONMAPCONTINUERENDERINGWITHO ),  // "Error loading Strata Deformation Map!\n\Continue rendering without Deformation Map?"
-                            GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
-  --
-    if (! User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+                            GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                            GetString( MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX ),  // "Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?"
-                           GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
-  --
-       if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+                           GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
                             GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                            GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
-  --
-      if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+                            GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
                            GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                           GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
-  --
-       if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULESAVE ),                           // "Render Module: Save"
+                           GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                           // "Render Module: Save"
                             GetString( MSG_GLMP_ERRORSAVINGBITMAPPEDIMAGETRYANOTHERDEVICE ),  // "Error saving bitmapped image! Try another device?"
-                            GetString( MSG_GLOBAL_OKCANCEL ),                                   // "OK|Cancel"
-  --
-       if (User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),              // "Render Module"
+                            GetString( MSG_GLOBAL_OKCANCEL ));                                   // "OK|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),              // "Render Module"
                             GetString( MSG_GLMP_OUTOFMEMORYSAVINGZBUFFER ),  // "Out of memory saving Z Buffer!\n"
-                            GetString( MSG_INTVIEW_RETRYCANCEL ),               // "Retry|Cancel"
-  --
-       if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULESAVE ),                    // "Render Module: Save"
+                            GetString( MSG_INTVIEW_RETRYCANCEL ));               // "Retry|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                    // "Render Module: Save"
                             GetString( MSG_GLMP_ERRORSAVINGZBUFFERTRYANOTHERDEVICE ),  // "Error saving Z Buffer! Try another device?"
-                            GetString( MSG_GLOBAL_OKCANCEL ),                            // "OK|Cancel"
-  --
-      if (User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                 // "Render Module: Topo"
+                            GetString( MSG_GLOBAL_OKCANCEL ));                            // "OK|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                 // "Render Module: Topo"
                            (CONST_STRPTR)str,
-                           GetString( MSG_INTVIEW_RETRYCANCEL ) ,                     // "Retry|Cancel"
-  --
-       if (User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
+                           GetString( MSG_INTVIEW_RETRYCANCEL ));                     // "Retry|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
                             GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
-                            GetString( MSG_INTVIEW_RETRYCANCEL ),                               // "Retry|Cancel"
-  --
-    if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                       // "Render Module: Clouds"
+                            GetString( MSG_INTVIEW_RETRYCANCEL ));                               // "Retry|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                       // "Render Module: Clouds"
                          GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS ),  // "Out of memory allocating polygon edge buffers!",
-                         GetString( MSG_INTVIEW_RETRYCANCEL ),                              // "Retry|Cancel"
-  --
-     if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+                         GetString( MSG_INTVIEW_RETRYCANCEL ));                              // "Retry|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
                           GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                          GetString( MSG_INTVIEW_RETRYCANCEL ),                  // "Retry|Cancel"
-  --
-         if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+                          GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
                               GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                              GetString( MSG_INTVIEW_RETRYCANCEL ),                  // "Retry|Cancel"
-  --
-        if (User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+                              GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
                              GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                             GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
-  --
-       User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                     // "Render Module: Clouds"
+                             GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                     // "Render Module: Clouds"
                         GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGCLOUDKEYFRAMESPERATIONTERMINATED ),  // "Out of memory allocating Cloud Key Frames!\nOperation terminated"
-                        GetString( MSG_GLOBAL_OK ),                                                     // "OK"
-         if (! User_Message_Def(GetString( MSG_DB_DATABASEMODULENAME ),                             // "Database Module: Name"
+                        GetString( MSG_GLOBAL_OK ));                                                     // "OK"
+
+// AF_CASE
+Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                             // "Database Module: Name"
                                 GetString( MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME ) ,  // "Object name already present in database!\nTry a new name?"
-                    GetString( MSG_GLOBAL_OKCANCEL ),                                       // "OK|Cancel"
-  --
-        if ((Remove = User_Message_Def(GetString( MSG_EDDB_DATABASEMODULEREMOVEITEM ),                                          // "Database Module: Remove Item
+                    GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+
+// AF_CASE
+Test_UM_Win(GetString( MSG_EDDB_DATABASEMODULEREMOVEITEM ),                                          // "Database Module: Remove Item
                                        GetString( MSG_EDDB_DELETEOBJECTELEVATIONANDRELATIVEELEVATIONFILESFROMDISKASWELL ),      // "Delete object, elevation and relative elevation files from disk as well as remove their names from the Database?"
-                                       GetString( MSG_EDDB_FROMDISKDATABASEONLYCANCEL ),                                        // "From Disk|Database Only|Cancel",
-    if (User_Message_Def((CONST_STRPTR) GetString( MSG_CLOUD_CLOUDEDITORSETBOUNDS ) ,     // "Cloud Editor:Set Bounds"
+                                       GetString( MSG_EDDB_FROMDISKDATABASEONLYCANCEL ));                                        // "From Disk|Database Only|Cancel",
+
+// AF_CASE
+Test_UM_Win((CONST_STRPTR) GetString( MSG_CLOUD_CLOUDEDITORSETBOUNDS ) ,     // "Cloud Editor:Set Bounds"
                          (CONST_STRPTR) GetString( MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN ) ,  // "Map View Module must be open in order to use this function. Would you like to open it now?"
-                         (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) ,                 // "OK|Cancel"
-  --
-    if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),               // "Mapping Module: Align"
+                         (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),               // "Mapping Module: Align"
             GetString( MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
-            GetString( MSG_GLOBAL_OKCANCEL ),                                      // "OK|Cancel"
-     if (User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
+            GetString( MSG_GLOBAL_OKCANCEL ));                                      // "OK|Cancel"
+
+// AF_CASE
+Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
                           GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
-                          GetString( MSG_INTVIEW_RETRYCANCEL ),                               // "Retry|Cancel"
-  --
-              if (User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                        // "Render Module: Topo"
+                          GetString( MSG_INTVIEW_RETRYCANCEL ));                               // "Retry|Cancel"
+
+// AF_CASE
+Test_UM_Win(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                        // "Render Module: Topo"
                                    (CONST_STRPTR)str,
-                                   GetString( MSG_INTVIEW_RETRYCANCEL ),                             //"Retry|Cancel",
-      if (User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ) ,  // "Parameters Module: Model"
+                                   GetString( MSG_INTVIEW_RETRYCANCEL ));                             //"Retry|Cancel",
+
+// AF_CASE
+Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ) ,  // "Parameters Module: Model"
                        GetString( MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE ) ,  // "The current Cloud Model has been modified. Do you wish to save it before closing?"
-                   GetString( MSG_GLOBAL_YESNO ) ,  // "Yes|No"
-  --
-          if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,               // "Cloud Editor"
+                   GetString( MSG_GLOBAL_YESNO ));  // "Yes|No"
+
+// AF_CASE
+Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,               // "Cloud Editor"
                   GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ), // "Make this file the Project Cloud File?"
-                          GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
-  --
-        if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,     // "Cloud Editor"
+                          GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+// AF_CASE
+Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,     // "Cloud Editor"
                 GetString( MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES ) ,  // "Delete all cloud key frames?"
-                    GetString( MSG_GLOBAL_OKCANCEL ) ,                 // "OK|Cancel"
-  --
-           if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
+                    GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
+// AF_CASE
+Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
                    GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
-                           GetString( MSG_GLOBAL_YESNO ),                             // "Yes|No"
-  --
-           if (User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
+                           GetString( MSG_GLOBAL_YESNO ));                             // "Yes|No"
+// AF_CASE
+Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
                    GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
-                           GetString( MSG_GLOBAL_YESNO ) ,                            // "Yes|No",
-              User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) , (CONST_STRPTR)str, (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1);  // "Parameter Editing: Defaults", str, "OK|Cancel"
+                           GetString( MSG_GLOBAL_YESNO ));                            // "Yes|No",
 
+// AF_CASE
+Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
+                      (CONST_STRPTR)str,
+                      (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "Parameter Editing: Defaults", str, "OK|Cancel"
 
-  --
-              User_Message_Def((CONST_STRPTR)"World Construction Set",
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)"World Construction Set",
                       (CONST_STRPTR) GetString( MSG_AGUI_PUBLICSCREENSTILLHASVISITORSTRYCLOSINGAGAIN ) ,  // "Public Screen still has visitors. Try closing again?"
-                      (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ) , (CONST_STRPTR)"owc", 2);  // "Close|Warn|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR)"World Construction Set",
+                      (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)"World Construction Set",
                       (CONST_STRPTR) GetString( MSG_AGUI_QUITPROGRAMREYOUSURE ) ,  // )"Quit Program\nAre you sure?"
-                      (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ) , (CONST_STRPTR)"owc", 2);  // "Close|Warn|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_WCSPROJECT ) ,  // "WCS Project"
+                      (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_WCSPROJECT ) ,  // "WCS Project"
                       (CONST_STRPTR) GetString( MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Project paths have been modified. Save them before closing?"
-                      (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1);  // "OK|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERMODULE ) ,  // "Parameter Module"
+                      (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERMODULE ) ,  // "Parameter Module"
                       (CONST_STRPTR) GetString( MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Parameters have been modified. Save them before closing?"
-                      (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1);  // "OK|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) ,  // "Database Module"
+                      (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) ,  // "Database Module"
                       (CONST_STRPTR) GetString( MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING ) ,  // "Database has been modified. Save it before closing?"
-                      (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1);  // "OK|Cancel"
-  --
-              User_Message_Def("", (CONST_STRPTR) GetString( MSG_AGUI_KEEPCHANGES ) , (CONST_STRPTR) GetString( MSG_AGUI_KEEPCANCEL ) , (CONST_STRPTR)"kc", 1);  // "Keep changes?", "Keep|Cancel"
+                      (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win("", (CONST_STRPTR) GetString( MSG_AGUI_KEEPCHANGES ) , (CONST_STRPTR) GetString( MSG_AGUI_KEEPCANCEL ));  // "Keep changes?", "Keep|Cancel"
 
-          case 13:
-  --
-              User_Message_Def("",  GetString( MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT ) ,  // "File already exists.\nDo you wish to overwrite it?"
-                      GetString( MSG_GLOBAL_OKCANCEL ) , "oc", 1);  // "OK|CANCEL"
+// AF_CASE
+  Test_UM_Win("",  GetString( MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT ) ,  // "File already exists.\nDo you wish to overwrite it?"
+                      GetString( MSG_GLOBAL_OKCANCEL )); // "OK|CANCEL"
 
-  --
-              User_Message_Def((CONST_STRPTR) GetString( MSG_CLOUD_CLOUDEDITORSETBOUNDS ) ,     // "Cloud Editor:Set Bounds"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR) GetString( MSG_CLOUD_CLOUDEDITORSETBOUNDS ) ,     // "Cloud Editor:Set Bounds"
                       (CONST_STRPTR) GetString( MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN ) ,  // "Map View Module must be open in order to use this function. Would you like to open it now?"
-                      (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) ,                 // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),               // "Mapping Module: Align"
+                      (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),               // "Mapping Module: Align"
                       GetString( MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                      // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ) ,  // "Parameters Module: Model"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                      // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ) ,  // "Parameters Module: Model"
                       GetString( MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE ) ,  // "The current Cloud Model has been modified. Do you wish to save it before closing?"
-                      GetString( MSG_GLOBAL_YESNO ) ,  // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,               // "Cloud Editor"
+                      GetString( MSG_GLOBAL_YESNO ));  // "Yes|No"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,               // "Cloud Editor"
                       GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ), // "Make this file the Project Cloud File?"
-                      GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,     // "Cloud Editor"
+                      GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,     // "Cloud Editor"
                       GetString( MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES ) ,  // "Delete all cloud key frames?"
-                      GetString( MSG_GLOBAL_OKCANCEL ) ,                 // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
                       GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
-                      GetString( MSG_GLOBAL_YESNO ),                             // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
+                      GetString( MSG_GLOBAL_YESNO ));                             // "Yes|No"
+
+// AF_CASE
+  Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
                       GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
-                      GetString( MSG_GLOBAL_YESNO ) ,                            // "Yes|No",
-  --
-              User_Message_Def((CONST_STRPTR)"rootfile",
+                      GetString( MSG_GLOBAL_YESNO ));                            // "Yes|No",
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)"rootfile",
                       GetString( MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER ) ,  // "DEM name is too long to add an extra character to. Do you wish to enter a new base name for the DEM or abort the interpolation?"
-                      GetString( MSG_DEM_NEWNAMEABORT ),                                              // "New Name|Abort"
-  --
-              User_Message_Def(GetString( MSG_DB_DATABASEMODULESAVE ), (CONST_STRPTR)"Database-File",                   // "Database Module: Save"
-                      GetString( MSG_DB_OKCANCEL ),                                                // "OK|Cancel"
-                      (CONST_STRPTR)"oc", 1);
-  --
-              User_Message_Def(GetString( MSG_DB_DATABASEMODULENAME ),                            // "Database Module: Name"
+                      GetString( MSG_DEM_NEWNAMEABORT ));                                              // "New Name|Abort"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_DB_DATABASEMODULESAVE ), (CONST_STRPTR)"Database-File",                   // "Database Module: Save"
+                      GetString( MSG_DB_OKCANCEL ));                                                // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                            // "Database Module: Name"
                       GetString( MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME ),  // "Vector name already present in database!\nTry a new name?"
-                      GetString( MSG_DB_OKCANCEL ),                                      // "OK|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR)str,
+                      GetString( MSG_DB_OKCANCEL ));                                      // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)str,
                       GetString( MSG_DB_OBJECTNAMEALREADYPRESENTINDATABASEUPLICATEITEMSWILLBESKI ),  // "Object name already present in database!\nDuplicate items will be skipped."
-                      GetString( MSG_GLOBAL_OK ),                                                        // "OK"
-  --
-              User_Message_Def(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),     // "Data Ops: Convert DEM"
+                      GetString( MSG_GLOBAL_OK ));                                                        // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),     // "Data Ops: Convert DEM"
                       (CONST_STRPTR)str,
-                      GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ),   // "Continue|Truncate|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR)str,
+                      GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ));   // "Continue|Truncate|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)str,
                       GetString( MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY ),  // "Make this the default object directory?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                           // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_DB_DATABASEMODULENAME ),                             // "Database Module: Name"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                           // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                             // "Database Module: Name"
                       GetString( MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME ) ,  // "Object name already present in database!\nTry a new name?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                       // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_EDDB_DATABASEMODULEREMOVEITEM ),                                          // "Database Module: Remove Item
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EDDB_DATABASEMODULEREMOVEITEM ),                                          // "Database Module: Remove Item
                       GetString( MSG_EDDB_DELETEOBJECTELEVATIONANDRELATIVEELEVATIONFILESFROMDISKASWELL ),      // "Delete object, elevation and relative elevation files from disk as well as remove their names from the Database?"
-                      GetString( MSG_EDDB_FROMDISKDATABASEONLYCANCEL ),                                        // "From Disk|Database Only|Cancel",
-  --
-              User_Message_Def(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                          // "Parameters Module: Ecosystem"
+                      GetString( MSG_EDDB_FROMDISKDATABASEONLYCANCEL ));                                        // "From Disk|Database Only|Cancel",
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                          // "Parameters Module: Ecosystem"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                           // "OK|Cancel",
-  --
-              User_Message_Def(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                       // "Parameters Module: Motion"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                           // "OK|Cancel",
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                       // "Parameters Module: Motion"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                     // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),  // "Parameters Module: Make Key"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                     // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),  // "Parameters Module: Make Key"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_YESNO ),                    // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
+                      GetString( MSG_GLOBAL_YESNO ));                    // "Yes|No"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
                       GetString( MSG_EDPAR_THISISANOLDV1FORMATFILEWOULDYOULIKETORESAVEITINTHENEW ),  // "This is an old V1 format file! Would you like to re-save it in the new format now?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                               // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
                       GetString( MSG_EDPAR_THEPARAMETERFILEFORMATHASBEENCHANGEDSLIGHTLYSINCETHIS ),  // "The Parameter File format has been changed slightly since this file was saved. Would you like to re-save it in the new format now?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                               // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
                       GetString( MSG_EDPAR_LOADALLKEYFRAMES ),     //  "Load all key frames?"
-                      GetString( MSG_GLOBAL_YESNO),                 // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
+                      GetString( MSG_GLOBAL_YESNO));                 // "Yes|No"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
                       GetString( MSG_EDPAR_LOADALLKEYFRAMES ),     // "Load all key frames?"
-                      GetString( MSG_GLOBAL_YESNO ),                // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
+                      GetString( MSG_GLOBAL_YESNO ));                // "Yes|No"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OKCANCEL ),               // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_EDITGUI_COLOREDITORCOPY ) ,  // "Color Editor: Copy"
+                      GetString( MSG_GLOBAL_OKCANCEL ));               // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EDITGUI_COLOREDITORCOPY ) ,  // "Color Editor: Copy"
                       GetString( MSG_EDITGUI_COPYKEYFRAMESTOO ),   // "Copy Key Frames too?"
-                      GetString( MSG_GLOBAL_YESNO ),              // "Yes|No"
-  --
-              User_Message_Def((CONST_STRPTR)PAR_NAME_ECO(1),
+                      GetString( MSG_GLOBAL_YESNO ));              // "Yes|No"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)PAR_NAME_ECO(1),
                       GetString( MSG_EDITGUI_THECURRENTCOLORISBEINGUSEDREMOVEITANYWAY ),  // "The current color is being used. Remove it anyway?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                  // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                  // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OK ),          // "OK"
-  --
-              User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                      GetString( MSG_GLOBAL_OK ));          // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OK ),          // "OK"
-  --
-              User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                      GetString( MSG_GLOBAL_OK ));          // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OK ),          // "OK"
-  --
-              User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                      GetString( MSG_GLOBAL_OK ));          // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OK ),          // "OK"
-  --
-              User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                      GetString( MSG_GLOBAL_OK ));          // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OK ),          // "OK"
-  --
-              User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                      GetString( MSG_GLOBAL_OK ));          // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OK ),          // "OK"
-  --
-              User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                      GetString( MSG_GLOBAL_OK ));          // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OK ),          // "OK"
-  --
-              User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                      GetString( MSG_GLOBAL_OK ));          // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OK ),          // "OK"
-  --
-              User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                      GetString( MSG_GLOBAL_OK ));          // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OK ),          // "OK"
-  --
-              User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                      GetString( MSG_GLOBAL_OK ));          // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OK ),          // "OK"
-  --
-              User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                      GetString( MSG_GLOBAL_OK ));          // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                       (CONST_STRPTR)str,
-                      GetString( MSG_GLOBAL_OK ),          // "OK"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
+                      GetString( MSG_GLOBAL_OK ));          // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
                       GetString( MSG_AGUI_KEEPCHANGES ),    // "Keep changes?"
-                      GetString( MSG_GLOBAL_YESNO ),          // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
+                      GetString( MSG_GLOBAL_YESNO ));          // "Yes|No"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
                       GetString( MSG_FOLIGUI_UNABLETOLOADIMAGEFILEFORVIEWINGPERATIONTERMINATED ),   // "Unable to load image file for viewing!\nOperation terminated.",
-                      GetString( MSG_GLOBAL_OK ),                                                  // "OK"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE ),                   // "Foliage Editor: Load Ecotype"
+                      GetString( MSG_GLOBAL_OK ));                                                  // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE ),                   // "Foliage Editor: Load Ecotype"
                       GetString( MSG_FOLIGUI_ERRORLOADINGECOTYPEFILEPERATIONTERMINATED ),  // "Error loading Ecotype file!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                         // "OK"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                            // "Foliage Editor: Add Group"
+                      GetString( MSG_GLOBAL_OK ));                                         // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                            // "Foliage Editor: Add Group"
                       GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                               // "OK"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                           // "Foliage Editor: Add Group"
+                      GetString( MSG_GLOBAL_OK ));                                               // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                           // "Foliage Editor: Add Group"
                       GetString( MSG_FOLIGUI_ERRORLOADINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error loading Foliage Group file!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                              // "OK"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
+                      GetString( MSG_GLOBAL_OK ));                                              // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
                       GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                               // "OK"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
+                      GetString( MSG_GLOBAL_OK ));                                               // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
                       GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ) ,                                              // "OK"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP ),                         // "Foliage Editor: Save Group"
+                      GetString( MSG_GLOBAL_OK ));                                              // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP ),                         // "Foliage Editor: Save Group"
                       GetString( MSG_FOLIGUI_ERRORSAVINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error saving Foliage Group file!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                             // "OK"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                             // "Foliage Editor: Add Image"
+                      GetString( MSG_GLOBAL_OK ));                                             // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                             // "Foliage Editor: Add Image"
                       GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ) ,  // "Out of memory allocating new group!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                                // "OK"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                    // "Foliage Editor: Add Image"
+                      GetString( MSG_GLOBAL_OK ));                                                // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                    // "Foliage Editor: Add Image"
                       GetString( MSG_FOLIGUI_ERRORLOADINGIMAGEFILEPERATIONTERMINATED ),  // "Error loading image file!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                       // "OK"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
+                      GetString( MSG_GLOBAL_OK ));                                       // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
                       GetString( MSG_FOLIGUI_THEIMAGELOADEDPROPERLYMAYBESOMEDAYTHEREWILLEVENBEAW ),  // "The image loaded properly. Maybe some day there will even be a way for you to see it!\n"
-                      GetString( MSG_FOLIGUI_THATWOULDBENICE ), (CONST_STRPTR)"t", 0);               // "That would be nice"
-  --
-              User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEECOTYPE ),                  // "Foliage Editor: Save Ecotype"
+                      GetString( MSG_FOLIGUI_THATWOULDBENICE ));               // "That would be nice"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEECOTYPE ),                  // "Foliage Editor: Save Ecotype"
                       GetString( MSG_FOLIGUI_ERRORSAVINGECOTYPEFILEPERATIONTERMINATED ),  // "Error saving Ecotype file!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                        // "OK"
-  --
-              User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module
+                      GetString( MSG_GLOBAL_OK ));                                        // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module
                       GetString( MSG_GLMP_DIAGNOSTICBUFFERSCANTBEGENERATEDFORMULTIPLESEGMENTORMU ),  // "Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                                // "OK|CANCEL"
-  --
-              User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                                // "OK|CANCEL"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                       GetString( MSG_GLMP_OUTOFMEMORYOPENINGDIAGNOSTICBUFFERSPROCEEDRENDERINGWIT ),  // "Out of memory opening Diagnostic buffers! Proceed rendering without them?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                                // "OK|CANCEL"
-  --
-              User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                  // "Render Module: Clouds"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                                // "OK|CANCEL"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                  // "Render Module: Clouds"
                       GetString( MSG_GLMP_ERRORLOADINGCLOUDMAPFILEONTINUEWITHOUTCLOUDSHADOWS ),  // "Error loading Cloud Map file!\nContinue without cloud shadows?"
-                      GetString( MSG_GLOBAL_CONTINUECANCEL ),                                      // "Continue|Cancel"
-  --
-              User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                      // "Render Module: Clouds"
+                      GetString( MSG_GLOBAL_CONTINUECANCEL ));                                      // "Continue|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                      // "Render Module: Clouds"
                       GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAPONTINUEWITHOUTCLOUDSHADOWS ),   // "Out of memory creating Cloud Map!\nContinue without cloud shadows?"
-                      GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
-  --
-              User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+                      GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                       GetString( MSG_GLMP_ERRORLOADINGMASTERCOLORMAPSEESTATUSLOGFORMOREINFORMATI ),  // "Error loading Master Color Map! See Status Log for more information.\n\Continue rendering without Color Map?"
-                      GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
-  --
-              User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+                      GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                       GetString( MSG_GLMP_ERRORLOADINGSTRATADEFORMATIONMAPCONTINUERENDERINGWITHO ),  // "Error loading Strata Deformation Map!\n\Continue rendering without Deformation Map?"
-                      GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
-  --
-              User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+                      GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                       GetString( MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX ),  // "Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?"
-                      GetString( MSG_GLOBAL_CONTINUECANCEL ),                                          // "Continue|Cancel"
-  --
-              User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+                      GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
                       GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                      GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
-  --
-              User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
                       GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                      GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
-  --
-              User_Message_Def(GetString( MSG_GLMP_RENDERMODULESAVE ),                           // "Render Module: Save"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                           // "Render Module: Save"
                       GetString( MSG_GLMP_ERRORSAVINGBITMAPPEDIMAGETRYANOTHERDEVICE ),  // "Error saving bitmapped image! Try another device?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                   // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),              // "Render Module"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                   // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),              // "Render Module"
                       GetString( MSG_GLMP_OUTOFMEMORYSAVINGZBUFFER ),  // "Out of memory saving Z Buffer!\n"
-                      GetString( MSG_INTVIEW_RETRYCANCEL ),               // "Retry|Cancel"
-  --
-              User_Message_Def(GetString( MSG_GLMP_RENDERMODULESAVE ),                    // "Render Module: Save"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));               // "Retry|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                    // "Render Module: Save"
                       GetString( MSG_GLMP_ERRORSAVINGZBUFFERTRYANOTHERDEVICE ),  // "Error saving Z Buffer! Try another device?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                            // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                 // "Render Module: Topo"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                            // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                 // "Render Module: Topo"
                       (CONST_STRPTR)str,
-                      GetString( MSG_INTVIEW_RETRYCANCEL ) ,                     // "Retry|Cancel"
-  --
-              User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));                     // "Retry|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
                       GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
-                      GetString( MSG_INTVIEW_RETRYCANCEL ),                               // "Retry|Cancel"
-  --
-              User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                       // "Render Module: Clouds"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));                               // "Retry|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                       // "Render Module: Clouds"
                       GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS ),  // "Out of memory allocating polygon edge buffers!",
-                      GetString( MSG_INTVIEW_RETRYCANCEL ),                              // "Retry|Cancel"
-  --
-              User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));                              // "Retry|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
                       GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                      GetString( MSG_INTVIEW_RETRYCANCEL ),                  // "Retry|Cancel"
-  --
-              User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
                       GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                      GetString( MSG_INTVIEW_RETRYCANCEL ),                  // "Retry|Cancel"
-  --
-              User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
                       GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                      GetString( MSG_INTVIEW_RETRYCANCEL ),                                          // "Retry|Cancel"
-  --
-              User_Message_Def(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                     // "Render Module: Clouds"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                     // "Render Module: Clouds"
                       GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGCLOUDKEYFRAMESPERATIONTERMINATED ),  // "Out of memory allocating Cloud Key Frames!\nOperation terminated"
-                      GetString( MSG_GLOBAL_OK ),                                                     // "OK"
-  --
-              User_Message_Def(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),             // "Parameters Module: Camera View"
+                      GetString( MSG_GLOBAL_OK ));                                                     // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),             // "Parameters Module: Camera View"
                       GetString( MSG_INTVIEW_OUTOFMEMORYLOADINGDEMSNCREASEGRIDSIZE ),  // "Out of memory loading DEMs!\nIncrease grid size?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                               // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_EDMOGUI_CAMERAVIEW ),                     // "Camera View"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                               // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_EDMOGUI_CAMERAVIEW ),                     // "Camera View"
                       GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGDEMARRAY ),  // "Out of memory allocating DEM array!\n"
-                      GetString( MSG_INTVIEW_RETRYCANCEL ),                    // "Retry|Cancel"
-  --
-              User_Message_Def(GetString( MSG_INTVIEW_PARAMETERSMODULEPREVIEW ),                      // "Parameters Module: Preview"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));                    // "Retry|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULEPREVIEW ),                      // "Parameters Module: Preview"
                       GetString( MSG_INTVIEW_RESTORETHEPARAMETERSUSEDTOCREATETHISPREVIEW ),  // "Restore the Parameters used to create this preview?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                     // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR)"Example DEMName",
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                     // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)"Example DEMName",
                       GetString( MSG_LWSPRT_ERRORLOADINGDEMOBJECTPERATIONTERMINATED ),  // "Error loading DEM Object!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                       // "OK"
-  --
-              User_Message_Def((CONST_STRPTR)"Example DEMName",
+                      GetString( MSG_GLOBAL_OK ));                                       // "OK"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)"Example DEMName",
                       GetString( MSG_LWSPRT_ERRLOADDEMOBJOBJNOTSAVED ),  // "Error loading DEM Object!\nObject not saved."
-                      GetString( MSG_GLOBAL_OK ),                                  // "OK"
-  --
-              User_Message_Def(GetString( MSG_LWSPRT_LWOBJECTEXPORT ),                 // "LW Object Export"
+                      GetString( MSG_GLOBAL_OK ));                                  // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_LWSPRT_LWOBJECTEXPORT ),                 // "LW Object Export"
                       GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                             // "OK"
-  --
-              User_Message_Def(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+                      GetString( MSG_GLOBAL_OK ));                             // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
                       GetString( MSG_LWSPRT_APROBLEMOCCURREDSAVINGTHELWSCENEFAFILEWASCREATEDITWILLNOTBE ),  // "A problem occurred saving the LW scene.\nIf a file was created it will not be complete and may not load properly into LightWave."
-                      GetString( MSG_GLOBAL_OK ),                                                           // "OK"
-  --
-              User_Message_Def(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+                      GetString( MSG_GLOBAL_OK ));                                                           // "OK"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
                       GetString( MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA ),  // "The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created."
-                      GetString( MSG_GLOBAL_OK ),                                                           // "OK"
-  --
-              User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+                      GetString( MSG_GLOBAL_OK ));                                                           // "OK"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)DBase[OBN].Name,
                       GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),  // "Digitize new points for the active vector object or create a new object?"
-                      GetString( MSG_GLOBAL_ACTIVENEWCANCEL ),                                     // "Active|New|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+                      GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));                                     // "Active|New|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)DBase[OBN].Name,
                       GetString( MSG_LINESPRT_SAVEOBJECTPOINTS ),  // "Save object points?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),          // "OK|CANCEL"
-  --
-              User_Message_Def((CONST_STRPTR)str, GetString( MSG_LINESPRT_USEELEVATIONDATA ),  // "Use elevation data?"
-                      GetString( MSG_GLOBAL_YESNO ),                                // "Yes|No"
-                      (CONST_STRPTR)"yn", 1);
-  --
-              User_Message_Def(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+                      GetString( MSG_GLOBAL_OKCANCEL ));          // "OK|CANCEL"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)str, GetString( MSG_LINESPRT_USEELEVATIONDATA ),  // "Use elevation data?"
+                      GetString( MSG_GLOBAL_YESNO ));                                // "Yes|No"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
                       GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current flattening, datum and vertical exaggeration?"
-                      GetString( MSG_GLOBAL_YESNO ),                                               // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+                      GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
                       GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current Flattening, Datum and Vertical Exaggeration?"
-                      GetString( MSG_GLOBAL_YESNO ),                                               // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_AGUI_DATABASEMODULE ),                                      // "Database Module"
+                      GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_AGUI_DATABASEMODULE ),                                      // "Database Module"
                       GetString( MSG_LINESPRT_VECTORNAMEALREADYPRESENTINDATABASEVERWRITEITORTRYA ),  // "Vector name already present in Database!\nOverwrite it or try a new name?"
-                      GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ),                                  // "Overwrite|New|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
+                      GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ));                                  // "Overwrite|New|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
                       GetString( MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                       // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAP_MAPVIEWTOPODRAW ),                                // "Map View: Topo Draw"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAP_MAPVIEWTOPODRAW ),                                // "Map View: Topo Draw"
                       GetString( MSG_MAP_MEMORYALLOCATIONFAILURECANNOTDRAWTOPOCONTINUE ),  // "Memory allocation failure, cannot draw topo. Continue?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                       // "OK|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR)"DBase[i].Name",
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)"DBase[i].Name",
                       GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),  // "Is this the correct object?"
-                      GetString( MSG_GLOBAL_YESNO ),                   // "YES|NO"
-  --
-              User_Message_Def((CONST_STRPTR)"DBase[i].Name", GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),   // "Is this the correct object?"
-                      GetString( MSG_GLOBAL_YESNO ),                                                 // "YES|NO"
-                      (CONST_STRPTR)"yn", 1);
-  --
-              User_Message_Def(GetString( MSG_MAP_MAPVIEWMULTISELECT ),     // "Map View: Multi-Select"
+                      GetString( MSG_GLOBAL_YESNO ));                   // "YES|NO"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)"DBase[i].Name", GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),   // "Is this the correct object?"
+                      GetString( MSG_GLOBAL_YESNO ));                                                 // "YES|NO"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAP_MAPVIEWMULTISELECT ),     // "Map View: Multi-Select"
                       GetString( MSG_MAP_SELECTORDESELECTITEMS ),  // "Select or de-select items?"
-                      GetString( MSG_MAP_SELECTDESELECTCANCEL ),   // "Select|De-select|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR)"DBase[OBN].Name",
+                      GetString( MSG_MAP_SELECTDESELECTCANCEL ));   // "Select|De-select|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                       GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),   // "Digitize new points for the active vector object or create a new object?"
-                      GetString( MSG_GLOBAL_ACTIVENEWCANCEL ), (CONST_STRPTR)"anc", 1);     // "Active|New|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
+                      GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));     // "Active|New|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
                       GetString( MSG_MAP_ACCEPTNEWPOINTS ),         // "Accept new points?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
                       GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
                       GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+                      GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)DBase[OBN].Name,
                       GetString( MSG_MAP_CREATEVISUALSENSITIVITYMAPFORTHISOBJECT ),  // "Create Visual Sensitivity map for this object?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                 // "OK|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                 // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)DBase[OBN].Name,
                       GetString( MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX ),  // "Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                            // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                            // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                       GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),  // "Mapping Module: Point Match"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),  // "Mapping Module: Point Match"
                       GetString( MSG_MAPEXTRA_PROCEEDWITHRELOCATION ),    // "Proceed with relocation?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                 // "OK|CANCEL"
-  --
-              User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|CANCEL"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                       GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                      GetString( MSG_GLOBAL_OKCANCEL ) ,                               // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                               // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
                       GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win((CONST_STRPTR)DBase[OBN].Name,
                       GetString( MSG_MAPEXTRA_DUPLICATETHISOBJECT ),  // "Duplicate this object?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),             // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),  // "Mapping Module: Follow Stream"
+                      GetString( MSG_GLOBAL_OKCANCEL ));             // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),  // "Mapping Module: Follow Stream"
                       GetString( MSG_MAPEXTRA_SAVEVECTOROBJECTNOW ),        // "Save vector object now?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULESPLINE ),                       // "Mapping Module: Spline"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULESPLINE ),                       // "Mapping Module: Spline"
                       (CONST_STRPTR)str,
-                      GetString( MSG_MAPEXTRA_OKRESETCANCEL ),                             // "OK|Reset|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize",
+                      GetString( MSG_MAPEXTRA_OKRESETCANCEL ));                             // "OK|Reset|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize",
                       GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save object now?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),  // "Mapping Module: Fix Flats"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+// AF_CASE
+  Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),  // "Mapping Module: Fix Flats"
                       GetString( MSG_MAPEXTRA_PROCEEDORRESETPOINTS ),   // "Proceed or reset points?"
-                      GetString( MSG_MAPEXTRA_PROCEEDRESETCANCEL ),     // "Proceed|Reset|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),           // "Mapping Module: Fix Flats"
+                      GetString( MSG_MAPEXTRA_PROCEEDRESETCANCEL ));     // "Proceed|Reset|Cancel"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),           // "Mapping Module: Fix Flats"
                       GetString( MSG_MAPEXTRA_KEEPORSAVEDEMORRESETPARAMETERS ),  // "Keep or save DEM or reset parameters?"
-                      GetString( MSG_MAPEXTRA_KEEPSAVERESETCANCEL ),             // "Keep|Save|Reset|Cancel"
-  --
-              User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
+                      GetString( MSG_MAPEXTRA_KEEPSAVERESETCANCEL ));             // "Keep|Save|Reset|Cancel"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
                       GetString( MSG_MAPLINO_ERROROPENINGLINESAVEFILEELECTNEWPATH ),  // "Error opening line save file!\nSelect new path?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                              // "OK|Cancel"
-  --
-              User_Message_Def((CONST_STRPTR)"DBase[i].Name",
+                      GetString( MSG_GLOBAL_OKCANCEL ));                              // "OK|Cancel"
+// AF_CASE
+              Test_UM_Win((CONST_STRPTR)"DBase[i].Name",
                       GetString( MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING ),  // "Vector object has been modified!\nSave it before closing?"
-                      GetString( MSG_MAPSUPRT_SAVECANCEL ),                                     // "SAVE|CANCEL"
-  --
-              User_Message_Def(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
+                      GetString( MSG_MAPSUPRT_SAVECANCEL ));                                     // "SAVE|CANCEL"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
                       GetString( MSG_MAPSUPRT_SELECTEDMAPISNOTCURRENTLYLOADEDOYOUWISHTOLOADTOPOM ),  // "Selected map is not currently loaded!\nDo you wish to load topo maps?",
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                            // "OK|CANCEL"
-  --
-              User_Message_Def(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                    // "Map View: Color Map"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                            // "OK|CANCEL"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                    // "Map View: Color Map"
                       GetString( MSG_MAPSUPRT_INCLUDEDEMELEVATIONDATAINCOLORMAP ),  // "Include DEM elevation data in Color Map?"
-                      GetString( MSG_GLOBAL_YESNO ),                              // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
+                      GetString( MSG_GLOBAL_YESNO ));                              // "Yes|No"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
                       GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
-                      GetString( MSG_INTVIEW_RETRYCANCEL ),                               // "Retry|Cancel"
-  --
-              User_Message_Def(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                        // "Render Module: Topo"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));                               // "Retry|Cancel"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                        // "Render Module: Topo"
                       (CONST_STRPTR)str,
-                      GetString( MSG_INTVIEW_RETRYCANCEL ),                             //"Retry|Cancel",
-  --
-              User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+                      GetString( MSG_INTVIEW_RETRYCANCEL ));                             //"Retry|Cancel",
+// AF_CASE
+              Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
                       GetString( MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_1 ),  // "The current Ecosystem Model has been modified. Do you wish to save it before closing?"
-                      GetString( MSG_PARGUI_YESNOCANCEL ),                                           // "Yes|No|Cancel"
-  --
-              User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+                      GetString( MSG_PARGUI_YESNOCANCEL ));                                           // "Yes|No|Cancel"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
                       GetString( MSG_PARGUI_CURRECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2 ),  //" The current Ecosystem Model has been modified. Do you wish to save it before proceeding?"
-                      GetString( MSG_PARGUI_YESNOCANCEL ),                                           // "Yes|No|Cancel"
-  --
-              User_Message_Def(GetString( MSG_SUPPORT_PROJECTSAVE ),                          // "Project: Save"
+                      GetString( MSG_PARGUI_YESNOCANCEL ));                                           // "Yes|No|Cancel"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_SUPPORT_PROJECTSAVE ),                          // "Project: Save"
                       GetString( MSG_SUPPORT_SAVEDATABASEANDPARAMETERFILESASWELL ),  // "Save Database and Parameter files as well?"
-                      GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ),                    // "Both|D'base|Params|No",
-  --
-              User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),          // "Wave: Set Defaults"
+                      GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ));                    // "Both|D'base|Params|No",
+// AF_CASE
+              Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),          // "Wave: Set Defaults"
                       GetString( MSG_WAV_SELECTGENERALWAVECENTER ),  // "Select general wave center."
-                      GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ),    // "Focus Point|Camera Point"
-  --
-              User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Wave: Set Defaults"
+                      GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ));    // "Focus Point|Camera Point"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Wave: Set Defaults"
                       GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Select wave speed."
-                      GetString( MSG_WAV_FASTVERYFASTSLOW ),  //"Fast|Very Fast|Slow"
-  --
-              User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Wave: Set Defaults"
+                      GetString( MSG_WAV_FASTVERYFASTSLOW ));  //"Fast|Very Fast|Slow"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Wave: Set Defaults"
                       GetString( MSG_WAV_SELECTWAVEDIRECTION ),  // "Select wave direction."
-                      GetString( MSG_WAV_SPREADINGCONVERGING ),  // "Spreading|Converging"
-  --
-              User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),  // "Wave Editor"
+                      GetString( MSG_WAV_SPREADINGCONVERGING ));  // "Spreading|Converging"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),  // "Wave Editor"
                       GetString( MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB ),  // "The current Wave Model has been modified. Do you wish to save it before closing?"
-                      GetString( MSG_GLOBAL_YESNO ),  // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                      GetString( MSG_GLOBAL_YESNO ));  // "Yes|No"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
                       GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                      GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
+                      GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
                       GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
-  --
-              User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
                       GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                      GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                      GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
                       GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                      GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
-  --
-              User_Message_Def(GetString( MSG_WAVGUI_ADDWAVE ),                                               // "Add Wave"
+                      GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+// AF_CASE
+              Test_UM_Win(GetString( MSG_WAVGUI_ADDWAVE ),                                               // "Add Wave"
                       GetString( MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY ),  // "Map View Module must be open in order\ to use this function. Would you like to open it now?"
-                      GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
-     if (User_Message_Def(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),             // "Parameters Module: Camera View"
+                      GetString( MSG_GLOBAL_OKCANCEL ));                                              // "OK|Cancel"
+// AF_CASE
+     Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),             // "Parameters Module: Camera View"
                           GetString( MSG_INTVIEW_OUTOFMEMORYLOADINGDEMSNCREASEGRIDSIZE ),  // "Out of memory loading DEMs!\nIncrease grid size?"
-                          GetString( MSG_GLOBAL_OKCANCEL ),                               // "OK|Cancel"
-  --
-     if (User_Message_Def(GetString( MSG_EDMOGUI_CAMERAVIEW ),                     // "Camera View"
+                          GetString( MSG_GLOBAL_OKCANCEL ));                               // "OK|Cancel"
+// AF_CASE
+     Test_UM_Win(GetString( MSG_EDMOGUI_CAMERAVIEW ),                     // "Camera View"
                           GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGDEMARRAY ),  // "Out of memory allocating DEM array!\n"
-                          GetString( MSG_INTVIEW_RETRYCANCEL ),                    // "Retry|Cancel"
-  --
-        if (User_Message_Def(GetString( MSG_INTVIEW_PARAMETERSMODULEPREVIEW ),                      // "Parameters Module: Preview"
+                          GetString( MSG_INTVIEW_RETRYCANCEL ));                    // "Retry|Cancel"
+// AF_CASE
+     Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULEPREVIEW ),                      // "Parameters Module: Preview"
                              GetString( MSG_INTVIEW_RESTORETHEPARAMETERSUSEDTOCREATETHISPREVIEW ),  // "Restore the Parameters used to create this preview?"
-                             GetString( MSG_GLOBAL_OKCANCEL ),                                     // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
-           if (User_Message_Def("Parameter Editing: Defaults", str, "OK|Cancel", "oc", 1))
-            {
-            paramsloaded = DefaultParams();
-  --
-              if ((ans = User_Message_Def("World Construction Set",
-               "Public Screen still has visitors. Try closing again?",
-               "Close|Warn|Cancel", "owc", 2)) > 0)
-  --
-      if ((ans = User_Message_Def("World Construction Set",
-               "Quit Program\nAre you sure?",
-               "Close|Warn|Cancel", "owc", 2)) > 0)
-  --
-          if (User_Message_Def("WCS Project",
-          "Project paths have been modified. Save them before closing?",
-          "OK|Cancel", "oc", 1))
-  --
-          if (User_Message_Def("Parameter Module",
-          "Parameters have been modified. Save them before closing?",
-          "OK|Cancel", "oc", 1))
-  --
-          if (User_Message_Def("Database Module",
-          "Database has been modified. Save it before closing?",
-          "OK|Cancel", "oc", 1))
-  --
-  return(User_Message_Def(outlinetxt, message, buttons, buttonkey, 0));
-
-  } /* User_Message() */
-  --
-  USHORT User_Message_Def(STRPTR outlinetxt, STRPTR message, STRPTR buttons,
-      STRPTR buttonkey, int Default)
-  {
-  --
-   return (User_Message_Def(win, "Keep changes?", "Keep|Cancel", "kc", 1));
-
-  } /* CloseWindow_Query() */
-  --
-    return(User_Message_Def(existsfile, "File already exists.\nDo you wish to overwrite it?",
-      "OK|CANCEL", "oc", 1));
-
-    if ((ans = User_Message_Def(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),     // "Data Ops: Convert DEM"
+                             GetString( MSG_GLOBAL_OKCANCEL ));                                     // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
+  // AF_CASE
+    Test_UM_Win(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),     // "Data Ops: Convert DEM"
                                 (CONST_STRPTR)str,
-                                GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ),   // "Continue|Truncate|Cancel"
-        if (User_Message_Def(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
+                                GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ));   // "Continue|Truncate|Cancel"
+// AF_CASE
+        Test_UM_Win(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
                              (CONST_STRPTR)str,
-                             GetString( MSG_GLOBAL_OKCANCEL ),               // "OK|Cancel"
-  --
-          if (User_Message_Def(GetString( MSG_EDITGUI_COLOREDITORCOPY ) ,  // "Color Editor: Copy"
+                             GetString( MSG_GLOBAL_OKCANCEL ));               // "OK|Cancel"
+// AF_CASE
+          Test_UM_Win(GetString( MSG_EDITGUI_COLOREDITORCOPY ) ,  // "Color Editor: Copy"
                       GetString( MSG_EDITGUI_COPYKEYFRAMESTOO ),   // "Copy Key Frames too?"
-                              GetString( MSG_GLOBAL_YESNO ),              // "Yes|No"
-  --
-         Remove = User_Message_Def((CONST_STRPTR)PAR_NAME_ECO(Eco),
+                              GetString( MSG_GLOBAL_YESNO ));              // "Yes|No"
+// AF_CASE
+         Test_UM_Win((CONST_STRPTR)"PAR_NAME_ECO(Eco)",
                                GetString( MSG_EDITGUI_THECURRENTCOLORISBEINGUSEDREMOVEITANYWAY ),  // "The current color is being used. Remove it anyway?"
-                                   GetString( MSG_GLOBAL_OKCANCEL ),                                  // "OK|Cancel"
-     if (User_Message_Def((CONST_STRPTR)DBase[i].Name,
+                                   GetString( MSG_GLOBAL_OKCANCEL ));                                  // "OK|Cancel"
+// AF_CASE
+     Test_UM_Win((CONST_STRPTR)"DBase[i].Name",
                           GetString( MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING ),  // "Vector object has been modified!\nSave it before closing?"
-                          GetString( MSG_MAPSUPRT_SAVECANCEL ),                                     // "SAVE|CANCEL"
-  --
-    if (User_Message_Def(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
+                          GetString( MSG_MAPSUPRT_SAVECANCEL ));                                     // "SAVE|CANCEL"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
                          GetString( MSG_MAPSUPRT_SELECTEDMAPISNOTCURRENTLYLOADEDOYOUWISHTOLOADTOPOM ),  // "Selected map is not currently loaded!\nDo you wish to load topo maps?",
-                         GetString( MSG_GLOBAL_OKCANCEL ),                                            // "OK|CANCEL"
-  --
-   if (User_Message_Def(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                    // "Map View: Color Map"
+                         GetString( MSG_GLOBAL_OKCANCEL ));                                            // "OK|CANCEL"
+// AF_CASE
+   Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                    // "Map View: Color Map"
                         GetString( MSG_MAPSUPRT_INCLUDEDEMELEVATIONDATAINCOLORMAP ),  // "Include DEM elevation data in Color Map?"
-                        GetString( MSG_GLOBAL_YESNO ),                              // "Yes|No"
-     User_Message_Def((CONST_STRPTR)DEMName,
+                        GetString( MSG_GLOBAL_YESNO ));                              // "Yes|No"
+     Test_UM_Win((CONST_STRPTR)"DEMName",
                       GetString( MSG_LWSPRT_ERRORLOADINGDEMOBJECTPERATIONTERMINATED ),  // "Error loading DEM Object!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                       // "OK"
-  --
-     User_Message_Def((CONST_STRPTR)DEMName,
+                      GetString( MSG_GLOBAL_OK ));                                       // "OK"
+// AF_CASE
+     Test_UM_Win((CONST_STRPTR)"DEMName",
                       GetString( MSG_LWSPRT_ERRLOADDEMOBJOBJNOTSAVED ),  // "Error loading DEM Object!\nObject not saved."
-                      GetString( MSG_GLOBAL_OK ),                                  // "OK"
-  --
-    User_Message_Def(GetString( MSG_LWSPRT_LWOBJECTEXPORT ),                 // "LW Object Export"
+                      GetString( MSG_GLOBAL_OK ));                                  // "OK"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_LWSPRT_LWOBJECTEXPORT ),                 // "LW Object Export"
                      GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-                     GetString( MSG_GLOBAL_OK ),                             // "OK"
-  --
-    User_Message_Def(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+                     GetString( MSG_GLOBAL_OK ));                             // "OK"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
                      GetString( MSG_LWSPRT_APROBLEMOCCURREDSAVINGTHELWSCENEFAFILEWASCREATEDITWILLNOTBE ),  // "A problem occurred saving the LW scene.\nIf a file was created it will not be complete and may not load properly into LightWave."
-                     GetString( MSG_GLOBAL_OK ),                                                           // "OK"
-  --
-    User_Message_Def(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+                     GetString( MSG_GLOBAL_OK ));                                                           // "OK"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
                      GetString( MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA ),  // "The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created."
-                     GetString( MSG_GLOBAL_OK ),                                                           // "OK"
-     SaveParts = User_Message_Def(GetString( MSG_SUPPORT_PROJECTSAVE ),                          // "Project: Save"
+                     GetString( MSG_GLOBAL_OK ));                                                           // "OK"
+    // AF_CASE
+     Test_UM_Win(GetString( MSG_SUPPORT_PROJECTSAVE ),                          // "Project: Save"
                                   GetString( MSG_SUPPORT_SAVEDATABASEANDPARAMETERFILESASWELL ),  // "Save Database and Parameter files as well?"
-                                  GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ),                    // "Both|D'base|Params|No",
-    User_Message_Def(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+                                  GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ));                    // "Both|D'base|Params|No",
+// AF_CASE
+    Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                      (CONST_STRPTR)str,
-                     GetString( MSG_GLOBAL_OK ),          // "OK"
-  USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
-      CONST_STRPTR buttonkey, int Default)
-  {
-       SetDefault = User_Message_Def((CONST_STRPTR)str,
+                     GetString( MSG_GLOBAL_OK ));          // "OK"
+
+// AF_CASE
+     Test_UM_Win((CONST_STRPTR)str,
                                      GetString( MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY ),  // "Make this the default object directory?"
-                                     GetString( MSG_GLOBAL_OKCANCEL ),                           // "OK|Cancel"
-   if ((NewObj = User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+                                     GetString( MSG_GLOBAL_OKCANCEL ));                           // "OK|Cancel"
+// AF_CASE
+   Test_UM_Win((CONST_STRPTR)DBase[OBN].Name,
                                   GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),  // "Digitize new points for the active vector object or create a new object?"
-                                  GetString( MSG_GLOBAL_ACTIVENEWCANCEL ),                                     // "Active|New|Cancel"
-  --
-   if (User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+                                  GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));                                     // "Active|New|Cancel"
+// AF_CASE
+   Test_UM_Win((CONST_STRPTR)DBase[OBN].Name,
                         GetString( MSG_LINESPRT_SAVEOBJECTPOINTS ),  // "Save object points?"
-                        GetString( MSG_GLOBAL_OKCANCEL ),          // "OK|CANCEL"
-  --
-   if (User_Message_Def((CONST_STRPTR)str, GetString( MSG_LINESPRT_USEELEVATIONDATA ),  // "Use elevation data?"
-                        GetString( MSG_GLOBAL_YESNO ),                                // "Yes|No"
-                        (CONST_STRPTR)"yn", 1))
-  --
-    Flatten = User_Message_Def(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+                        GetString( MSG_GLOBAL_OKCANCEL ));          // "OK|CANCEL"
+// AF_CASE
+   Test_UM_Win((CONST_STRPTR)str, GetString( MSG_LINESPRT_USEELEVATIONDATA ),  // "Use elevation data?"
+                        GetString( MSG_GLOBAL_YESNO ));                                // "Yes|No"
+// AF_CASE
+   Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
                                GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current flattening, datum and vertical exaggeration?"
-                               GetString( MSG_GLOBAL_YESNO ),                                               // "Yes|No"
-  --
-   Flatten = User_Message_Def(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+                               GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
+// AF_CASE
+   Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
                               GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current Flattening, Datum and Vertical Exaggeration?"
-                              GetString( MSG_GLOBAL_YESNO ),                                               // "Yes|No"
-  --
-     ans = User_Message_Def(GetString( MSG_AGUI_DATABASEMODULE ),                                      // "Database Module"
+                              GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
+// AF_CASE
+   Test_UM_Win(GetString( MSG_AGUI_DATABASEMODULE ),                                      // "Database Module"
                             GetString( MSG_LINESPRT_VECTORNAMEALREADYPRESENTINDATABASEVERWRITEITORTRYA ),  // "Vector name already present in Database!\nOverwrite it or try a new name?"
-                            GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ),                                  // "Overwrite|New|Cancel"
-      if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),  // "Wave Editor"
+                            GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ));                                  // "Overwrite|New|Cancel"
+// AF_CASE
+   Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),  // "Wave Editor"
                            GetString( MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB ),  // "The current Wave Model has been modified. Do you wish to save it before closing?"
-                           GetString( MSG_GLOBAL_YESNO ),  // "Yes|No"
-  --
-          if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                           GetString( MSG_GLOBAL_YESNO ));  // "Yes|No"
+// AF_CASE
+   Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
                                GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                               GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
-  --
-        if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
+                               GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+// AF_CASE
+   Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
                              GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
-                             GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
-  --
-           if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                             GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+// AF_CASE
+           Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
                                 GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                                GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
-  --
-           if (User_Message_Def(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                                GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+// AF_CASE
+           Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
                                 GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                                GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
-  --
-    if (User_Message_Def(GetString( MSG_WAVGUI_ADDWAVE ),                                               // "Add Wave"
+                                GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_WAVGUI_ADDWAVE ),                                               // "Add Wave"
                          GetString( MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY ),  // "Map View Module must be open in order\ to use this function. Would you like to open it now?"
-                         GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
-        if (User_Message_Def(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                       // "Parameters Module: Motion"
+                         GetString( MSG_GLOBAL_OKCANCEL ));                                              // "OK|Cancel"
+// AF_CASE
+        Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                       // "Parameters Module: Motion"
                              (CONST_STRPTR)str,
-                             GetString( MSG_GLOBAL_OKCANCEL ),                                     // "OK|Cancel"
-  --
-      if (User_Message_Def(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),  // "Parameters Module: Make Key"
+                             GetString( MSG_GLOBAL_OKCANCEL ));                                     // "OK|Cancel"
+// AF_CASE
+      Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),  // "Parameters Module: Make Key"
                            (CONST_STRPTR)str,
-                           GetString( MSG_GLOBAL_YESNO ),                    // "Yes|No"
-     if (User_Message_Def(str,
-      "Make this the default object directory?", "OK|Cancel", "oc", 1))
-      {
-  --
-    if (User_Message_Def(GetString( MSG_DB_DATABASEMODULESAVE ), (CONST_STRPTR)str,                   // "Database Module: Save"
-                         GetString( MSG_DB_OKCANCEL ),                                                // "OK|Cancel"
-                         (CONST_STRPTR)"oc", 1))
-  --
-    if (! User_Message_Def(GetString( MSG_DB_DATABASEMODULENAME ),                            // "Database Module: Name"
+                           GetString( MSG_GLOBAL_YESNO ));                    // "Yes|No"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_DB_DATABASEMODULESAVE ), (CONST_STRPTR)str,                   // "Database Module: Save"
+                         GetString( MSG_DB_OKCANCEL ));                                                // "OK|Cancel"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                            // "Database Module: Name"
                            GetString( MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME ),  // "Vector name already present in database!\nTry a new name?"
-                           GetString( MSG_DB_OKCANCEL ),                                      // "OK|Cancel"
-  --
-     User_Message_Def((CONST_STRPTR)str,
+                           GetString( MSG_DB_OKCANCEL ));                                      // "OK|Cancel"
+// AF_CASE
+     Test_UM_Win((CONST_STRPTR)str,
                       GetString( MSG_DB_OBJECTNAMEALREADYPRESENTINDATABASEUPLICATEITEMSWILLBESKI ),  // "Object name already present in database!\nDuplicate items will be skipped."
-                      GetString( MSG_GLOBAL_OK ),                                                        // "OK"
-           if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) , (CONST_STRPTR)str, (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "Parameter Editing: Defaults", str, "OK|Cancel"
-            {
-            paramsloaded = DefaultParams();
-  --
-              if ((ans = User_Message_Def((CONST_STRPTR)"World Construction Set",
+                      GetString( MSG_GLOBAL_OK ));                                                        // "OK"
+// AF_CASE
+     Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) , (CONST_STRPTR)str, (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "Parameter Editing: Defaults", str, "OK|Cancel"
+// AF_CASE
+              Test_UM_Win((CONST_STRPTR)"World Construction Set",
                       (CONST_STRPTR) GetString( MSG_AGUI_PUBLICSCREENSTILLHASVISITORSTRYCLOSINGAGAIN ) ,  // "Public Screen still has visitors. Try closing again?"
-                      (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ) , (CONST_STRPTR)"owc", 2)) > 0)  // "Close|Warn|Cancel"
-  --
-      if ((ans = User_Message_Def((CONST_STRPTR)"World Construction Set",
+                      (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
+// AF_CASE
+      Test_UM_Win((CONST_STRPTR)"World Construction Set",
               (CONST_STRPTR) GetString( MSG_AGUI_QUITPROGRAMREYOUSURE ) ,  // )"Quit Program\nAre you sure?"
-              (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ) , (CONST_STRPTR)"owc", 2)) > 0)  // "Close|Warn|Cancel"
-  --
-          if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_WCSPROJECT ) ,  // "WCS Project"
+              (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
+// AF_CASE
+         Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_WCSPROJECT ) ,  // "WCS Project"
                   (CONST_STRPTR) GetString( MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Project paths have been modified. Save them before closing?"
-                  (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
-  --
-          if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERMODULE ) ,  // "Parameter Module"
+                  (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+// AF_CASE
+          Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERMODULE ) ,  // "Parameter Module"
                   (CONST_STRPTR) GetString( MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Parameters have been modified. Save them before closing?"
-                  (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
-  --
-          if (User_Message_Def((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) ,  // "Database Module"
+                  (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+// AF_CASE
+          Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) ,  // "Database Module"
                   (CONST_STRPTR) GetString( MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING ) ,  // "Database has been modified. Save it before closing?"
-                  (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ) , (CONST_STRPTR)"oc", 1))  // "OK|Cancel"
-  --
-  return(User_Message_Def(outlinetxt, message, buttons, buttonkey, 0));
+                  (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+// AF_CASE
+   Test_UM_Win((CONST_STRPTR)"example-win", (CONST_STRPTR) GetString( MSG_AGUI_KEEPCHANGES ) , (CONST_STRPTR) GetString( MSG_AGUI_KEEPCANCEL ));  // "Keep changes?", "Keep|Cancel"
+// AF_CASE
+    Test_UM_Win((CONST_STRPTR)"example existsfile",  GetString( MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT ) ,  // "File already exists.\nDo you wish to overwrite it?"
+       GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|CANCEL"
 
-  } /* User_Message() */
-  --
-  USHORT User_Message_Def(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons,
-      CONST_STRPTR buttonkey, int Default)
-  {
-  --
-   return (User_Message_Def(win, (CONST_STRPTR) GetString( MSG_AGUI_KEEPCHANGES ) , (CONST_STRPTR) GetString( MSG_AGUI_KEEPCANCEL ) , (CONST_STRPTR)"kc", 1));  // "Keep changes?", "Keep|Cancel"
-
-  } /* CloseWindow_Query() */
-  --
-    return(User_Message_Def(existsfile,  GetString( MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT ) ,  // "File already exists.\nDo you wish to overwrite it?"
-       GetString( MSG_GLOBAL_OKCANCEL ) , "oc", 1));  // "OK|CANCEL"
-
-      if (User_Message_Def((CONST_STRPTR)rootfile,
+      Test_UM_Win((CONST_STRPTR)"example rootfile",
               GetString( MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER ) ,  // "DEM name is too long to add an extra character to. Do you wish to enter a new base name for the DEM or abort the interpolation?"
-              GetString( MSG_DEM_NEWNAMEABORT ),                                              // "New Name|Abort"
-    if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
+              GetString( MSG_DEM_NEWNAMEABORT ));                                              // "New Name|Abort"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
                          GetString( MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
-                         GetString( MSG_GLOBAL_OKCANCEL ),                                       // "OK|Cancel"
-  --
-         UserAbort += (!User_Message_Def(GetString( MSG_MAP_MAPVIEWTOPODRAW ),                                // "Map View: Topo Draw"
+                         GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+// AF_CASE
+         Test_UM_Win(GetString( MSG_MAP_MAPVIEWTOPODRAW ),                                // "Map View: Topo Draw"
                                          GetString( MSG_MAP_MEMORYALLOCATIONFAILURECANNOTDRAWTOPOCONTINUE ),  // "Memory allocation failure, cannot draw topo. Continue?"
-                                         GetString( MSG_GLOBAL_OKCANCEL ),                                       // "OK|Cancel"
-  --
-     if (User_Message_Def((CONST_STRPTR)DBase[i].Name,
+                                         GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+// AF_CASE
+     Test_UM_Win((CONST_STRPTR)"DBase[i].Name",
                           GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),  // "Is this the correct object?"
-                          GetString( MSG_GLOBAL_YESNO ),                   // "YES|NO"
-  --
-      if (User_Message_Def((CONST_STRPTR)DBase[i].Name, GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),   // "Is this the correct object?"
-                           GetString( MSG_GLOBAL_YESNO ),                                                 // "YES|NO"
-                           (CONST_STRPTR)"yn", 1))
-  --
-   SelState = User_Message_Def(GetString( MSG_MAP_MAPVIEWMULTISELECT ),     // "Map View: Multi-Select"
+                          GetString( MSG_GLOBAL_YESNO ));                   // "YES|NO"
+// AF_CASE
+      Test_UM_Win((CONST_STRPTR)"DBase[i].Name", GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),   // "Is this the correct object?"
+                           GetString( MSG_GLOBAL_YESNO ));                                                 // "YES|NO"
+// AF_CASE
+   Test_UM_Win(GetString( MSG_MAP_MAPVIEWMULTISELECT ),     // "Map View: Multi-Select"
                                GetString( MSG_MAP_SELECTORDESELECTITEMS ),  // "Select or de-select items?"
-                               GetString( MSG_MAP_SELECTDESELECTCANCEL ),   // "Select|De-select|Cancel"
-  --
-   if ((newobj = User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+                               GetString( MSG_MAP_SELECTDESELECTCANCEL ));   // "Select|De-select|Cancel"
+// AF_CASE
+   Test_UM_Win((CONST_STRPTR)DBase[OBN].Name,
            GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),   // "Digitize new points for the active vector object or create a new object?"
-           GetString( MSG_GLOBAL_ACTIVENEWCANCEL ), (CONST_STRPTR)"anc", 1)) == 0)  // "Active|New|Cancel"
-  --
-     if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
+           GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));  // "Active|New|Cancel"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
                           GetString( MSG_MAP_ACCEPTNEWPOINTS ),         // "Accept new points?"
-                          GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
-  --
-     if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+                          GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+// AF_CASE
+     Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
                           GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
-                          GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
-  --
-      if (User_Message_Def(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+                          GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+// AF_CASE
+      Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
                            GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
-                           GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
-  --
-   if (! User_Message_Def((CONST_STRPTR)DBase[OBN].Name,
+                           GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+// AF_CASE
+   Test_UM_Win((CONST_STRPTR)DBase[OBN].Name,
                           GetString( MSG_MAP_CREATEVISUALSENSITIVITYMAPFORTHISOBJECT ),  // "Create Visual Sensitivity map for this object?"
-                          GetString( MSG_GLOBAL_OKCANCEL ),                                 // "OK|Cancel"
-        apply = FE_Win->Mod && User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
+                          GetString( MSG_GLOBAL_OKCANCEL ));                                 // "OK|Cancel"
+   // AF_CASE
+        Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
                                                 GetString( MSG_AGUI_KEEPCHANGES ),    // "Keep changes?"
-                                                GetString( MSG_GLOBAL_YESNO ),          // "Yes|No"
-  --
-         User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
+                                                GetString( MSG_GLOBAL_YESNO ));          // "Yes|No"
+// AF_CASE
+         Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
                       GetString( MSG_FOLIGUI_UNABLETOLOADIMAGEFILEFORVIEWINGPERATIONTERMINATED ),   // "Unable to load image file for viewing!\nOperation terminated.",
-                          GetString( MSG_GLOBAL_OK ),                                                  // "OK"
-  --
-      User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE ),                   // "Foliage Editor: Load Ecotype"
+                          GetString( MSG_GLOBAL_OK ));                                                  // "OK"
+// AF_CASE
+      Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE ),                   // "Foliage Editor: Load Ecotype"
                        GetString( MSG_FOLIGUI_ERRORLOADINGECOTYPEFILEPERATIONTERMINATED ),  // "Error loading Ecotype file!\nOperation terminated."
-                   GetString( MSG_GLOBAL_OK ),                                         // "OK"
-  --
-       User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                            // "Foliage Editor: Add Group"
+                   GetString( MSG_GLOBAL_OK ));                                         // "OK"
+// AF_CASE
+       Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                            // "Foliage Editor: Add Group"
                         GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                        GetString( MSG_GLOBAL_OK ),                                               // "OK"
-  --
-      User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                           // "Foliage Editor: Add Group"
+                        GetString( MSG_GLOBAL_OK ));                                               // "OK"
+// AF_CASE
+      Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                           // "Foliage Editor: Add Group"
                        GetString( MSG_FOLIGUI_ERRORLOADINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error loading Foliage Group file!\nOperation terminated."
-                   GetString( MSG_GLOBAL_OK ),                                              // "OK"
-  --
-     User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
+                   GetString( MSG_GLOBAL_OK ));                                              // "OK"
+// AF_CASE
+     Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
                       GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                               // "OK"
-  --
-    User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
+                      GetString( MSG_GLOBAL_OK ));                                               // "OK"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
              GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                     GetString( MSG_GLOBAL_OK ) ,                                              // "OK"
-  --
-       User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP ),                         // "Foliage Editor: Save Group"
+                     GetString( MSG_GLOBAL_OK ));                                              // "OK"
+// AF_CASE
+       Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP ),                         // "Foliage Editor: Save Group"
                         GetString( MSG_FOLIGUI_ERRORSAVINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error saving Foliage Group file!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ),                                             // "OK"
-  --
-      User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                             // "Foliage Editor: Add Image"
+                    GetString( MSG_GLOBAL_OK ));                                             // "OK"
+// AF_CASE
+      Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                             // "Foliage Editor: Add Image"
                    GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ) ,  // "Out of memory allocating new group!\nOperation terminated."
-                       GetString( MSG_GLOBAL_OK ),                                                // "OK"
-  --
-     User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                    // "Foliage Editor: Add Image"
+                       GetString( MSG_GLOBAL_OK ));                                                // "OK"
+// AF_CASE
+     Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                    // "Foliage Editor: Add Image"
               GetString( MSG_FOLIGUI_ERRORLOADINGIMAGEFILEPERATIONTERMINATED ),  // "Error loading image file!\nOperation terminated."
-                      GetString( MSG_GLOBAL_OK ),                                       // "OK"
-  --
-   User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
+                      GetString( MSG_GLOBAL_OK ));                                       // "OK"
+// AF_CASE
+   Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
            GetString( MSG_FOLIGUI_THEIMAGELOADEDPROPERLYMAYBESOMEDAYTHEREWILLEVENBEAW ),  // "The image loaded properly. Maybe some day there will even be a way for you to see it!\n"
-           GetString( MSG_FOLIGUI_THATWOULDBENICE ), (CONST_STRPTR)"t", 0);               // "That would be nice"
-  --
-       User_Message_Def(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEECOTYPE ),                  // "Foliage Editor: Save Ecotype"
+           GetString( MSG_FOLIGUI_THATWOULDBENICE ));               // "That would be nice"
+// AF_CASE
+       Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEECOTYPE ),                  // "Foliage Editor: Save Ecotype"
                         GetString( MSG_FOLIGUI_ERRORSAVINGECOTYPEFILEPERATIONTERMINATED ),  // "Error saving Ecotype file!\nOperation terminated."
-                        GetString( MSG_GLOBAL_OK ),                                        // "OK"
-    if (! User_Message_Def("LightWave Motion: Import",
-      "Key Frames exist for Motion Parameters!\nOverwrite them?",
-      "OK|Cancel", "oc", 1))
-  --
-        if (User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
+                        GetString( MSG_GLOBAL_OK ));                                        // "OK"
+// AF_CASE
+        Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
                              GetString( MSG_EDPAR_THISISANOLDV1FORMATFILEWOULDYOULIKETORESAVEITINTHENEW ),  // "This is an old V1 format file! Would you like to re-save it in the new format now?"
-                         GetString( MSG_GLOBAL_OKCANCEL ),                                               // "OK|Cancel"
-  --
-        if (User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
+                         GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
+// AF_CASE
+        Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
                              GetString( MSG_EDPAR_THEPARAMETERFILEFORMATHASBEENCHANGEDSLIGHTLYSINCETHIS ),  // "The Parameter File format has been changed slightly since this file was saved. Would you like to re-save it in the new format now?"
-                             GetString( MSG_GLOBAL_OKCANCEL ),                                               // "OK|Cancel"
-  --
-     LoadKeys = User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
+                             GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
+// AF_CASE
+     Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
                                  GetString( MSG_EDPAR_LOADALLKEYFRAMES ),     //  "Load all key frames?"
-                                 GetString( MSG_GLOBAL_YESNO),                 // "Yes|No"
-  --
-     LoadKeys = User_Message_Def(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
+                                 GetString( MSG_GLOBAL_YESNO));                 // "Yes|No"
+// AF_CASE
+     Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
                                  GetString( MSG_EDPAR_LOADALLKEYFRAMES ),     // "Load all key frames?"
-                                 GetString( MSG_GLOBAL_YESNO ),                // "Yes|No"
-      if ((SaveOld = User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+                                 GetString( MSG_GLOBAL_YESNO ));                // "Yes|No"
+
+     Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
                                       GetString( MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_1 ),  // "The current Ecosystem Model has been modified. Do you wish to save it before closing?"
-                                      GetString( MSG_PARGUI_YESNOCANCEL ),                                           // "Yes|No|Cancel"
-  --
-    if ((SaveOld = User_Message_Def(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+                                      GetString( MSG_PARGUI_YESNOCANCEL ));                                           // "Yes|No|Cancel"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
                                     GetString( MSG_PARGUI_CURRECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2 ),  //" The current Ecosystem Model has been modified. Do you wish to save it before proceeding?"
-                                    GetString( MSG_PARGUI_YESNOCANCEL ),                                           // "Yes|No|Cancel"
-    Focus = User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),          // "Wave: Set Defaults"
+                                    GetString( MSG_PARGUI_YESNOCANCEL ));                                           // "Yes|No|Cancel"
+    Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),          // "Wave: Set Defaults"
                              GetString( MSG_WAV_SELECTGENERALWAVECENTER ),  // "Select general wave center."
-                             GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ),    // "Focus Point|Camera Point"
-  --
-    Speed = User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Wave: Set Defaults"
+                             GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ));    // "Focus Point|Camera Point"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Wave: Set Defaults"
                              GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Select wave speed."
-                             GetString( MSG_WAV_FASTVERYFASTSLOW ),  //"Fast|Very Fast|Slow"
-  --
-    Direction = User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Wave: Set Defaults"
+                             GetString( MSG_WAV_FASTVERYFASTSLOW ));  //"Fast|Very Fast|Slow"
+// AF_CASE
+    Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Wave: Set Defaults"
                                  GetString( MSG_WAV_SELECTWAVEDIRECTION ),  // "Select wave direction."
-                                 GetString( MSG_WAV_SPREADINGCONVERGING ),  // "Spreading|Converging"
-#endif
+                                 GetString( MSG_WAV_SPREADINGCONVERGING ));  // "Spreading|Converging"
+
     //####### Input String Window ############
 
     // AF_CASE

@@ -1981,7 +1981,7 @@ USHORT FileExists_Message(STRPTR existsfile)
 } /* FileExists_Message() */
 #endif
 /************************************************************************/
-APTR AF_Make_IS_Win(char *message, char *reject, char *string, APTR *InputStr, APTR *BT_OK, APTR *BT_Cancel)
+APTR AF_Make_IS_Win(CONST_STRPTR message, CONST_STRPTR reject, CONST_STRPTR string, APTR *InputStr, APTR *BT_OK, APTR *BT_Cancel)
 {
     return WindowObject,
       MUIA_Window_Title     , GetString( MSG_AGUI_INPUTREQUEST ) ,  // "Input Request",
