@@ -3855,6 +3855,7 @@ void Make_DI_Window(void);
 void Make_DC_Window(void);
 void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle);
 
+
 void waitForRightClick(Object *MuiWindow)
 {
     struct IntuiMessage *msg;
@@ -3956,6 +3957,11 @@ void Test_WindowObject(void)
     APTR BT_AboutOK=NULL;
  //   APTR UM_BTGroup=NULL;
     APTR UM_Win;
+
+    dbaseloaded=1; // Set dbaseloaded to 1, so that the Windows do not complain
+    paramsloaded=1; // Set paramsloaded to 1, so that the Windows do not complain
+
+
 
     // AF_CASE
 //    set(ModControlWin, MUIA_Window_Open, FALSE); // close ModControl window if open
@@ -5106,31 +5112,39 @@ Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
 
 // ###################################
 
+
     // AF_CASE
+
+    printf("Line %d\n", __LINE__);
     Make_Log_Window(128); // Log Window, 128, if >127, stays open
     waitForRightClick(Log_Win->LogWindow); // Wait for right mouse button to be pressed
     Close_Log_Window(2);  // Close Log Window, 2 = Shutdown, kill it all! */
 
+
+
+
 // AF_CASE
 // ####### CloudGui.c ##############
+    printf("Line %d\n", __LINE__);
     Make_CL_Window();   // ALEXANDER: Auch im normalen Test aufrufen!
     waitForRightClick(CL_Win->CloudWin); // Wait for right mouse button to be pressed
     Close_CL_Window();  // Close Cloud Window
 
-// AF_CASE
-    // ####### DEMGui.c ##############
-    Make_MD_Window();
-    waitForRightClick(MD_Win->MakeDEMWin); // Wait for right mouse button to be pressed
-    Close_MD_Window();  // Close DEM Window
 
 // AF_CASE
+    // ####### DEMGui.c ##############
+    Make_MD_Window();   // Under Construction Window is opened automatically, too
+    waitForRightClick(MD_Win->MakeDEMWin); // Wait for right mouse button to be pressed
+    Close_MD_Window();  // Close DEM Window
+    UnderConst_Del(); // Delete the Under Construction Window, too
+
+    // AF_CASE
     Make_GR_Window();
     waitForRightClick(GR_Win->NNGridWin); // Wait for right mouse button to be pressed
     Close_GR_Window();  // Close Grid Window
 
 // AF_CASE
     // ####### DataOpsGui.c ##############
-END_LABEL:
     Make_DI_Window();  // Make Dialog Window
     // eigener Message-Handler, OK klicken!
 
@@ -5169,7 +5183,28 @@ END_LABEL:
             waitForRightClick(DIAG_Win->DiagnosticWin); // Wait for right mouse button to be pressed
             Close_Diagnostic_Window();  // Close Diagnostic Window
             }
+
+            // ###### EdBaseGui.c ##############
+            // AF_CASE
+            Make_DL_Window();  // Make DirList Window
+            waitForRightClick(DL_Win->DirListWin); // Wait for right mouse button to be pressed
+            Close_DL_Window(DL_Win->DLCopy);  // Close Dialog Window
+
+
+
+            // AF_CASE
+            Make_DE_Window();
+            waitForRightClick(DE_Win->DatabaseEditWin); // Wait for right mouse button to be pressed
+            Close_DE_Window();  // Close DatabaseEditWin
+
+END_LABEL:
+
+            // ############ EdEcoGui.c ##############
+            // AF_CASE
+            KFsize = (/*ParHdr.KeyFrames*/0 + 20) * (sizeof (union KeyFrame));  // we need a valid size
+            EE_Win=NULL;
+            Make_EE_Window();
+            waitForRightClick(EE_Win->EcosystemWin); // Wait for right mouse button to be pressed
+            Close_EE_Window(0);  // Close Edit Ecosystem Window
 }
-
-#endif // MSG_TESTING
-
+#endif

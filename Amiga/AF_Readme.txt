@@ -4645,10 +4645,10 @@ OK	./DataOpsGUI.c:173:     DC_Win->ConvertWin = WindowObject,
 
 OK	./DiagnosticGUI.c:23:     DIAG_Win->DiagnosticWin = WindowObject,
 
-./EdDBaseGUI.c:1686:     DL_Win->DirListWin = WindowObject,
-./EdDBaseGUI.c:90:     DE_Win->DatabaseEditWin = WindowObject,
+OK	./EdDBaseGUI.c:1686:     DL_Win->DirListWin = WindowObject,
+OK	./EdDBaseGUI.c:90:     DE_Win->DatabaseEditWin = WindowObject,
 
-./EdEcoGUI.c:86:     EE_Win->EcosystemWin = WindowObject,
+OK	./EdEcoGUI.c:86:     EE_Win->EcosystemWin = WindowObject,
 ./EdMoGUI.c:1410:     EMIA_Win->IAMotionWin = WindowObject,
 ./EdMoGUI.c:2090:     EMPL_Win->ParListWin = WindowObject,
 ./EdMoGUI.c:52:     EM_Win->MotionWin = WindowObject,
