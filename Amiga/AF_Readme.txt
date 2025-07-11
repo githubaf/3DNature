@@ -4643,7 +4643,7 @@ OK 	./DEMGUI.c:744:     GR_Win->NNGridWin = WindowObject,
 OK	./DataOpsGUI.c:1422:     DI_Win->InterpWin = WindowObject,
 OK	./DataOpsGUI.c:173:     DC_Win->ConvertWin = WindowObject,
 
-./DiagnosticGUI.c:23:     DIAG_Win->DiagnosticWin = WindowObject,
+OK	./DiagnosticGUI.c:23:     DIAG_Win->DiagnosticWin = WindowObject,
 
 ./EdDBaseGUI.c:1686:     DL_Win->DirListWin = WindowObject,
 ./EdDBaseGUI.c:90:     DE_Win->DatabaseEditWin = WindowObject,

@@ -3853,7 +3853,7 @@ void Make_MD_Window(void);
 void Make_GR_Window(void);
 void Make_DI_Window(void);
 void Make_DC_Window(void);
-
+void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle);
 
 void waitForRightClick(Object *MuiWindow)
 {
@@ -5162,7 +5162,13 @@ END_LABEL:
             waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
             Close_DC_Window();  // Close Convert Window
 
-
+            // AF_CASE
+            {
+            DIAG_Win=NULL;
+            Open_Diagnostic_Window(NULL, "ExampleWinTitle");
+            waitForRightClick(DIAG_Win->DiagnosticWin); // Wait for right mouse button to be pressed
+            Close_Diagnostic_Window();  // Close Diagnostic Window
+            }
 }
 
 #endif // MSG_TESTING
