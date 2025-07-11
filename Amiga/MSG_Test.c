@@ -3849,6 +3849,11 @@ APTR AF_Make_IS_Win(char *message, char *reject, char *string, APTR InputStr, AP
 void Make_Log_Window(int Severity);
 void Close_Log_Window(int StayClosed);
 void Make_CL_Window(void);
+void Make_MD_Window(void);
+void Make_GR_Window(void);
+void Make_DI_Window(void);
+void Make_DC_Window(void);
+
 
 void waitForRightClick(Object *MuiWindow)
 {
@@ -5106,12 +5111,57 @@ Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
     waitForRightClick(Log_Win->LogWindow); // Wait for right mouse button to be pressed
     Close_Log_Window(2);  // Close Log Window, 2 = Shutdown, kill it all! */
 
-END_LABEL:
-  // ####### CloudGui.c ##############
-    // AF_CASE
+// AF_CASE
+// ####### CloudGui.c ##############
     Make_CL_Window();   // ALEXANDER: Auch im normalen Test aufrufen!
     waitForRightClick(CL_Win->CloudWin); // Wait for right mouse button to be pressed
     Close_CL_Window();  // Close Cloud Window
+
+// AF_CASE
+    // ####### DEMGui.c ##############
+    Make_MD_Window();
+    waitForRightClick(MD_Win->MakeDEMWin); // Wait for right mouse button to be pressed
+    Close_MD_Window();  // Close DEM Window
+
+// AF_CASE
+    Make_GR_Window();
+    waitForRightClick(GR_Win->NNGridWin); // Wait for right mouse button to be pressed
+    Close_GR_Window();  // Close Grid Window
+
+// AF_CASE
+    // ####### DataOpsGui.c ##############
+END_LABEL:
+    Make_DI_Window();  // Make Dialog Window
+    // eigener Message-Handler, OK klicken!
+
+// AF_CASE
+    Make_DC_Window();
+    waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
+    Close_DC_Window();  // Close Convert Window
+
+// AF_CASE
+    Make_DC_Window();
+    set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
+    set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
+    waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
+    Close_DC_Window();  // Close Convert Window
+
+    // AF_CASE
+        Make_DC_Window();
+        set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
+        set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
+        set(DC_Win->VSRegister, MUIA_Group_ActivePage, 1);  // Output Format "One Value"
+        waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
+        Close_DC_Window();  // Close Convert Window
+
+        // AF_CASE
+            Make_DC_Window();
+            set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
+            set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
+            set(DC_Win->VSRegister, MUIA_Group_ActivePage, 2);  // Output Format "Max-Min"
+            waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
+            Close_DC_Window();  // Close Convert Window
+
 
 }
 

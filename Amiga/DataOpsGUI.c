@@ -197,7 +197,7 @@ void Make_DC_Window(void)
 	      Child, DC_Win->FormatIntStr[0] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789", End,
 	      End, /* HGroup */
-	    Child, RegisterGroup(InputPages),
+	    Child, DC_Win->IPRegister =RegisterGroup(InputPages),
 	      Child, VGroup,
 	        Child, HGroup,
 	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEFORMAT ) ),  // "Value Format"
@@ -355,7 +355,7 @@ void Make_DC_Window(void)
 	        End, /* HGroup */
 	      End, /* HGroup */
 
-	    Child, RegisterGroup(ProcessPages),
+	    Child, DC_Win->PGRegister =RegisterGroup(ProcessPages),
 	      Child, VGroup,
 	        Child, HGroup,
 	          Child, Label2(GetString( MSG_DATAOPSGUI_HIGHLAT ) ),  // "High Lat"

@@ -13,7 +13,7 @@ STATIC_FCN short Grid_Save(struct NNGrid *NNG, short Units); // used locally onl
 STATIC_FCN short Noise_Init(void); // used locally only -> static, AF 20.7.2021
 STATIC_FCN short Contour_Import(void); // used locally only -> static, AF 20.7.2021
 STATIC_FCN short XYZ_Export(struct datum *DT); // used locally only -> static, AF 20.7.2021
-STATIC_FCN void Make_GR_Window(void); // used locally only -> static, AF 20.7.2021
+/*STATIC_FCN*/ void Make_GR_Window(void); // used locally only -> static, AF 20.7.2021 (but now also in test)
 STATIC_FCN short DEMBuild_Import(short FileType); // used locally only -> static, AF 20.7.2021
 STATIC_FCN short Grid_Draw(struct NNGrid *NNG); // used locally only -> static, AF 20.7.2021
 STATIC_FCN void MD_Window_Init(void); // used locally only -> static, AF 20.7.2021
@@ -724,7 +724,7 @@ STATIC_FCN void MD_Window_Init(void) // used locally only -> static, AF 20.7.202
 
 /***********************************************************************/
 
-STATIC_FCN void Make_GR_Window(void) // used locally only -> static, AF 20.7.2021
+/*STATIC_FCN*/ void Make_GR_Window(void) // used locally only -> static, AF 20.7.2021 (but now also in test)
 {
 long open;
 

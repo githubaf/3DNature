@@ -2078,7 +2078,7 @@ EXTERN struct DataOpsModWindow {
 } *DO_Win;
 
 EXTERN struct DEMConvertWindow {
-  APTR ConvertWin, Cycle[10], VSRegister, FileSizeTxt, FileNameStr, DBaseNameStr,
+  APTR ConvertWin, Cycle[10], VSRegister, IPRegister,PGRegister, FileSizeTxt, FileNameStr, DBaseNameStr,
 	FormatIntStr[5], LatScaleStr[4], VertScaleStr[9], OutputMapStr[2],
 	FloatStr[2], FloorCeilingCheck[2],ReplaceCheck[1],CropStr[4],ReplaceStr[2], MinValTxt, MaxValTxt, // AF: 18.Sep.23, added ReplaceStr
 	OutputMapArrow[2][2], ScaleCycle, BT_GetFile, BT_Convert,

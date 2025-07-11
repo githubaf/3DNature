@@ -4637,43 +4637,29 @@ OK	./AGUI.c:844:     DO_Win->DataOpsWindow = WindowObject,
 
 OK	./CloudGUI.c:62:     CL_Win->CloudWin = WindowObject,
 
-./DEMGUI.c:116:     MD_Win->MakeDEMWin = WindowObject,
-./DEMGUI.c:744:     GR_Win->NNGridWin = WindowObject,
-./DEMGUI.c:910:      End; /* WindowObject */
+OK	./DEMGUI.c:116:     MD_Win->MakeDEMWin = WindowObject,
+OK 	./DEMGUI.c:744:     GR_Win->NNGridWin = WindowObject,
 
-./DataOpsGUI.c:1422:     DI_Win->InterpWin = WindowObject,
-./DataOpsGUI.c:1459:      End; /* WindowObject */
-./DataOpsGUI.c:173:     DC_Win->ConvertWin = WindowObject,
-./DataOpsGUI.c:491:      End; /* WindowObject */
+OK	./DataOpsGUI.c:1422:     DI_Win->InterpWin = WindowObject,
+OK	./DataOpsGUI.c:173:     DC_Win->ConvertWin = WindowObject,
 
 ./DiagnosticGUI.c:23:     DIAG_Win->DiagnosticWin = WindowObject,
-./DiagnosticGUI.c:87:      End; /* WindowObject */
 
 ./EdDBaseGUI.c:1686:     DL_Win->DirListWin = WindowObject,
-./EdDBaseGUI.c:1718:      End; /* WindowObject DL_Win->DirListWin */
-./EdDBaseGUI.c:274:      End; /* WindowObject DE_Win->DatabaseEditWin */
 ./EdDBaseGUI.c:90:     DE_Win->DatabaseEditWin = WindowObject,
 
-./EdEcoGUI.c:271:      End; /* WindowObject EE_Win->EcosystemWin */
 ./EdEcoGUI.c:86:     EE_Win->EcosystemWin = WindowObject,
 ./EdMoGUI.c:1410:     EMIA_Win->IAMotionWin = WindowObject,
-./EdMoGUI.c:1529:      End; /* WindowObject */
 ./EdMoGUI.c:2090:     EMPL_Win->ParListWin = WindowObject,
-./EdMoGUI.c:2104:      End; /* WindowObject EMPL_Win->ParListWin */
-./EdMoGUI.c:219:      End; /* WindowObject EM_Win->MotionWin */
 ./EdMoGUI.c:52:     EM_Win->MotionWin = WindowObject,
 
 ./EdSetGUI.c:312:     ES_Win->SettingsWin = WindowObject,
-./EdSetGUI.c:929:      End; /* WindowObject */
 
-./EditGui.c:255:      End; /* WindowObject EC_Win->EcoPalWin */
 ./EditGui.c:63:     EC_Win->EcoPalWin = WindowObject,
 
-./EvenMoreGUI.c:130:      End; /* WindowObject */
 ./EvenMoreGUI.c:606:     PN_Win->NewProjWin = WindowObject,
 ./EvenMoreGUI.c:79:     TS_Win->TimeSetWin = WindowObject,
 
-./FoliageGUI.c:220:      End; /* WindowObject FE_Win->FoliageWin */
 ./FoliageGUI.c:97:     FE_Win->FoliageWin = WindowObject,
 
 ./GUI.c:1079: ModControlWin = WindowObject,
@@ -4688,45 +4674,33 @@ OK	./CloudGUI.c:62:     CL_Win->CloudWin = WindowObject,
 ./GUI.c:765:     DO_Win->DataOpsWindow = WindowObject,
 
 ./GenericTLGUI.c:455:     TL_Win->TimeLineWin = WindowObject,
-./GenericTLGUI.c:553:      End; /* WindowObject TL_Win->TimeLineWin */
 
 ./MSG_Test.c:3844:Test_WindowObject()
 
 ./MUIFloatInt.c:256:	get(data->string, MUIA_WindowObject, &MyWin);
 
 ./MapGUI.c:2832:     EL_Win->EcoLegendWin = WindowObject,
-./MapGUI.c:2876:      End; /* WindowObject EL_Win->EcoLegendWin */
 ./MapGUI.c:408: MP->MAPC = WindowObject,
 ./MapGUI.c:713: MP->AlignWin = WindowObject,
 ./MapGUI.c:909:	UnderConst = WindowObject,
 
 ./MoreGUI.c:1451:     SC_Win->ScaleWin = WindowObject,
 ./MoreGUI.c:1724:     PR_Win->PrefsWin = WindowObject,
-./MoreGUI.c:315:      End; /* WindowObject */
 ./MoreGUI.c:51:     DM_Win->ExtractWin = WindowObject,
 ./MoreGUI.c:652:     PJ_Win->ProjWin = WindowObject,
 
 ./ParamsGUI.c:120:     PS_Win->ScaleWin = WindowObject,
 ./ParamsGUI.c:1659:     AN_Win->AnimWin = WindowObject,
-./ParamsGUI.c:212:      End; /* WindowObject PS_Win->ScaleWin */
 ./ParamsGUI.c:670:     LW_Win->IOWin = WindowObject,
-./ParamsGUI.c:720:      End; /* WindowObject LW_Win->IOWin */
 ./ParamsGUI.c:940:     FM_Win->ModelWin = WindowObject,
 
 ./RequesterGUI.c:316:	This->BusyWin = WindowObject,
 
 ./ScreenModeGUI.c:143:		ModeSelWin = WindowObject,
 
-./TimeLinesGUI.c:1101:      End; /* WindowObject ECTL_Win->TimeLineWin */
 ./TimeLinesGUI.c:1746:     EETL_Win->TimeLineWin = WindowObject,
-./TimeLinesGUI.c:1891:      End; /* WindowObject EETL_Win->TimeLineWin */
-./TimeLinesGUI.c:204:      End; /* WindowObject EMTL_Win->TimeLineWin */
 ./TimeLinesGUI.c:986:     ECTL_Win->TimeLineWin = WindowObject,
 ./TimeLinesGUI.c:99:     EMTL_Win->TimeLineWin = WindowObject,
-
-./WCS.c:182:void Test_WindowObject(void);  // Test WindowObject() and WindowContents()
-./WCS.c:647:           else if (argc>=2 && !strcmp(argv[1],"Test_WindowObject"))
-./WCS.c:650:               Test_WindowObject();  // Test all user Window Creates
 
 ./WaveGUI.c:98:    WV_Win->WaveWin = WindowObject,
 
