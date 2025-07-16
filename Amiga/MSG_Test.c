@@ -3854,6 +3854,7 @@ void Make_GR_Window(void);
 void Make_DI_Window(void);
 void Make_DC_Window(void);
 void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle);
+void Close_EMPL_Window(void);
 
 
 void waitForRightClick(Object *MuiWindow)
@@ -5197,8 +5198,6 @@ Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
             waitForRightClick(DE_Win->DatabaseEditWin); // Wait for right mouse button to be pressed
             Close_DE_Window();  // Close DatabaseEditWin
 
-END_LABEL:
-
             // ############ EdEcoGui.c ##############
             // AF_CASE
             KFsize = (/*ParHdr.KeyFrames*/0 + 20) * (sizeof (union KeyFrame));  // we need a valid size
@@ -5206,5 +5205,163 @@ END_LABEL:
             Make_EE_Window();
             waitForRightClick(EE_Win->EcosystemWin); // Wait for right mouse button to be pressed
             Close_EE_Window(0);  // Close Edit Ecosystem Window
+
+
+            // ############ EdEcoGui.c ##############
+            // AF_CASE
+           {
+            AN_Win=NULL;  // Close_EMIA_Window() crashes if EMIA_Win is not NULL
+            KFsize = (/*ParHdr.KeyFrames*/0 + 20) * (sizeof (union KeyFrame));  // we need a valid size
+            Make_EMIA_Window();  // Make Edit Model Image Attributes Window
+            waitForRightClick(EMIA_Win->IAMotionWin); // Wait for right mouse button to be pressed
+            Close_EMIA_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+           }
+
+           // AF_CASE
+           {
+           // show 2nd Tab
+           AN_Win=NULL;  // Close_EMIA_Window() crashes if EMIA_Win is not NULL
+           KFsize = (/*ParHdr.KeyFrames*/0 + 20) * (sizeof (union KeyFrame));  // we need a valid size
+           Make_EMIA_Window();  // Make Edit Model Image Attributes Window
+           set(EMIA_Win->Register_Cycle_Page, MUIA_Group_ActivePage, 2);
+           waitForRightClick(EMIA_Win->IAMotionWin); // Wait for right mouse button to be pressed
+           Close_EMIA_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+          }
+
+           // AF_CASE
+           {
+               // this window ist empty in this test ?!
+               Make_EMPL_Window();  // Make Edit Motion Parameter List Window
+               waitForRightClick(EMPL_Win->ParListWin); // Wait for right mouse button to be pressed
+               Close_EMPL_Window();  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+           }
+
+           // AF_CASE
+           {
+               Make_EM_Window();  // Make Edit Motion Window
+               waitForRightClick(EM_Win->MotionWin ); // Wait for right mouse button to be pressed
+               Close_EMPL_Window();  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+           }
+
+END_LABEL:
+           // ############ EdSetGUI.c ##############
+           // AF_CASE
+           {
+               memset(&settings, 0, sizeof(settings)); // Clear settings structure
+               settings.scrnwidth = 640;  // Set a valid screen width
+               settings.scrnheight = 480; // Set a valid screen height
+               settings.overscan = 1;
+               settings.rendersegs=1; // Set a valid number of render segments
+
+               Make_ES_Window();
+               waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+               Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+           }
+
+           // AF_CASE
+           {
+               // Image Tab
+               memset(&settings, 0, sizeof(settings)); // Clear settings structure
+               settings.scrnwidth = 640;  // Set a valid screen width
+               settings.scrnheight = 480; // Set a valid screen height
+               settings.overscan = 1;
+               settings.rendersegs=1; // Set a valid number of render segments
+
+               Make_ES_Window();
+               set(ES_Win->Pages , MUIA_Group_ActivePage, 1);
+               waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+               Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+           }
+
+           // AF_CASE
+           {
+               // Motion Tab
+               memset(&settings, 0, sizeof(settings)); // Clear settings structure
+               settings.scrnwidth = 640;  // Set a valid screen width
+               settings.scrnheight = 480; // Set a valid screen height
+               settings.overscan = 1;
+               settings.rendersegs=1; // Set a valid number of render segments
+
+               Make_ES_Window();
+               set(ES_Win->Pages , MUIA_Group_ActivePage, 2);
+               waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+               Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+           }
+
+           // AF_CASE
+           {
+               // Color Tab
+               memset(&settings, 0, sizeof(settings)); // Clear settings structure
+               settings.scrnwidth = 640;  // Set a valid screen width
+               settings.scrnheight = 480; // Set a valid screen height
+               settings.overscan = 1;
+               settings.rendersegs=1; // Set a valid number of render segments
+
+               Make_ES_Window();
+               set(ES_Win->Pages , MUIA_Group_ActivePage, 3);
+               waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+               Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+           }
+
+           // AF_CASE
+           {
+               // Surfaces Tab
+               memset(&settings, 0, sizeof(settings)); // Clear settings structure
+               settings.scrnwidth = 640;  // Set a valid screen width
+               settings.scrnheight = 480; // Set a valid screen height
+               settings.overscan = 1;
+               settings.rendersegs=1; // Set a valid number of render segments
+
+               Make_ES_Window();
+               set(ES_Win->Pages , MUIA_Group_ActivePage, 4);
+               waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+               Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+           }
+
+           // AF_CASE
+           {
+               // Fractal Tab Tab
+               memset(&settings, 0, sizeof(settings)); // Clear settings structure
+               settings.scrnwidth = 640;  // Set a valid screen width
+               settings.scrnheight = 480; // Set a valid screen height
+               settings.overscan = 1;
+               settings.rendersegs=1; // Set a valid number of render segments
+
+               Make_ES_Window();
+               set(ES_Win->Pages , MUIA_Group_ActivePage, 5);
+               waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+               Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+           }
+
+           // AF_CASE
+           {
+               // EcoSys Tab
+               memset(&settings, 0, sizeof(settings)); // Clear settings structure
+               settings.scrnwidth = 640;  // Set a valid screen width
+               settings.scrnheight = 480; // Set a valid screen height
+               settings.overscan = 1;
+               settings.rendersegs=1; // Set a valid number of render segments
+
+               Make_ES_Window();
+               set(ES_Win->Pages , MUIA_Group_ActivePage, 6);
+               waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+               Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+           }
+
+           // AF_CASE
+           {
+               // Misc Tab
+               memset(&settings, 0, sizeof(settings)); // Clear settings structure
+               settings.scrnwidth = 640;  // Set a valid screen width
+               settings.scrnheight = 480; // Set a valid screen height
+               settings.overscan = 1;
+               settings.rendersegs=1; // Set a valid number of render segments
+
+               Make_ES_Window();
+               set(ES_Win->Pages , MUIA_Group_ActivePage, 7);
+               waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+               Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
+           }
+
 }
 #endif

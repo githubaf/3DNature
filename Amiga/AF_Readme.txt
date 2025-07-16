@@ -4649,11 +4649,11 @@ OK	./EdDBaseGUI.c:1686:     DL_Win->DirListWin = WindowObject,
 OK	./EdDBaseGUI.c:90:     DE_Win->DatabaseEditWin = WindowObject,
 
 OK	./EdEcoGUI.c:86:     EE_Win->EcosystemWin = WindowObject,
-./EdMoGUI.c:1410:     EMIA_Win->IAMotionWin = WindowObject,
-./EdMoGUI.c:2090:     EMPL_Win->ParListWin = WindowObject,
-./EdMoGUI.c:52:     EM_Win->MotionWin = WindowObject,
+OK	./EdMoGUI.c:1410:     EMIA_Win->IAMotionWin = WindowObject,
+OK	./EdMoGUI.c:2090:     EMPL_Win->ParListWin = WindowObject,      Empty Window???
+OK	./EdMoGUI.c:52:     EM_Win->MotionWin = WindowObject,
 
-./EdSetGUI.c:312:     ES_Win->SettingsWin = WindowObject,
+OK	./EdSetGUI.c:312:     ES_Win->SettingsWin = WindowObject,    All Tabs
 
 ./EditGui.c:63:     EC_Win->EcoPalWin = WindowObject,
 

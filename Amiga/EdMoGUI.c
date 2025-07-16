@@ -10,7 +10,7 @@
 #include "GUIExtras.h"
 
 STATIC_FCN void Update_EMTL_Item(void); // used locally only -> static, AF 19.7.2021
-STATIC_FCN void Close_EMPL_Window(void); // used locally only -> static, AF 26.7.2021
+/*STATIC_FCN*/ void Close_EMPL_Window(void); // used locally only -> static, AF 26.7.2021, but used in test now, too
 
 void Make_EM_Window(void)
 {
@@ -1414,7 +1414,7 @@ void Make_EMIA_Window(void)
       MUIA_Window_Menu		, WCSNewMenus,
 
       WindowContents, VGroup,
-	Child, RegisterGroup(EMIA_Cycle_Page),
+      Child, EMIA_Win->Register_Cycle_Page=RegisterGroup(EMIA_Cycle_Page),
 	  Child, VGroup, 
 /*	    Child, TextObject, MUIA_Text_Contents, "\33cDraw", End,*/
             Child, EMIA_Win->BT_Grid = KeyButtonFunc('t', (char*)GetString( MSG_EDMOGUI_TERRAIN )),       // "\33cTerrain"
@@ -2156,7 +2156,7 @@ void Make_EMPL_Window(void)
 
 /*********************************************************************/
 
-STATIC_FCN void Close_EMPL_Window(void) // used locally only -> static, AF 26.7.2021
+/*STATIC_FCN*/ void Close_EMPL_Window(void) // used locally only -> static, AF 26.7.2021, but used for testing now
 {
  
  if (EMPL_Win)

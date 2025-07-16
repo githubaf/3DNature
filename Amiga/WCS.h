@@ -2154,7 +2154,8 @@ EXTERN struct IAMotionWindow {
 	BT_Grid, BT_ElShade, BT_SunShade, BT_EcoRender, BT_DiagRender, BT_Vector,
 	BT_Anim, BT_CompassBounds, BT_LandBounds, BT_ProfileBounds, BT_BoxBounds,
 	BT_GridBounds, BT_ShowLat, BT_ShowLon, BT_MoveX, BT_MoveY, BT_MoveZ,
-	BT_AutoCenter, BT_Aspect, BT_MakeKey, BT_Apply, BT_Cancel;
+	BT_AutoCenter, BT_Aspect, BT_MakeKey, BT_Apply, BT_Cancel,
+    Register_Cycle_Page;
   short GridStrBlock;
   short AltKeyFrames;
   union KeyFrame *AltKF;
