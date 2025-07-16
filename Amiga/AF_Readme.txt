@@ -4655,7 +4655,7 @@ OK	./EdMoGUI.c:52:     EM_Win->MotionWin = WindowObject,
 
 OK	./EdSetGUI.c:312:     ES_Win->SettingsWin = WindowObject,    All Tabs
 
-./EditGui.c:63:     EC_Win->EcoPalWin = WindowObject,
+OK	./EditGui.c:63:     EC_Win->EcoPalWin = WindowObject,
 
 ./EvenMoreGUI.c:606:     PN_Win->NewProjWin = WindowObject,
 ./EvenMoreGUI.c:79:     TS_Win->TimeSetWin = WindowObject,

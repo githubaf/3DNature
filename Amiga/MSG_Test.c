@@ -5243,7 +5243,6 @@ Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
                Close_EMPL_Window();  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
            }
 
-END_LABEL:
            // ############ EdSetGUI.c ##############
            // AF_CASE
            {
@@ -5363,5 +5362,14 @@ END_LABEL:
                Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
            }
 
+END_LABEL:
+           // ############ EdSetGUI.c ##############
+           // AF_CASE
+           {
+               KFsize = (/*ParHdr.KeyFrames*/0 + 20) * (sizeof (union KeyFrame));  // we need a valid size
+               Make_EC_Window(); // Make Edit Color Window
+               waitForRightClick(EC_Win->EcoPalWin); // Wait for right mouse button to be pressed
+               Close_EC_Window(1); // Close Edit Color Window, 1= Shutdown, kill it all!
+           }
 }
 #endif

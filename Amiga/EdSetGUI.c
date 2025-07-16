@@ -927,7 +927,7 @@ ES_Cycle_Data[2]=NULL;
 
 	End, /* VGroup Window Contents */
       End; /* WindowObject */
-printf("ALEXANDER: Line %d\n\n",__LINE__);
+
   if (! ES_Win->SettingsWin)
    {
    Close_ES_Window(1);
@@ -937,7 +937,7 @@ printf("ALEXANDER: Line %d\n\n",__LINE__);
                 (CONST_STRPTR)"o");
    return;
    } /* out of memory */
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
+
   DoMethod(app, OM_ADDMEMBER, ES_Win->SettingsWin);
 #ifdef WCS_MUI_2_HACK
 	   MUI2_MenuCheck_Hack();
@@ -951,14 +951,12 @@ printf("ALEXANDER: Line %d\n\n",__LINE__);
    ES_Win->BT_FractalSet, ID_ES_FRACTALSET,
    ES_Win->BT_Apply, ID_ES_APPLY, ES_Win->BT_Render, MO_RENDER,
    ES_Win->BT_Cancel, ID_ES_CLOSE, NULL);
-  KPrintF("ALEXANDER: Line %d\n\n",__LINE__);
+
 /* set values in gadgets */
-//  Set_ES_Window();
-  KPrintF("ALEXANDER: Line %ld\n\n",__LINE__);
+  Set_ES_Window();
   SetMemoryReqTxt();
-  KPrintF("ALEXANDER: Line %ld\n\n",__LINE__);
   SetRenderSpeedGauge();
-  KPrintF("ALEXANDER: Line %ld\n\n",__LINE__);
+
 /* set notifications */
 /* STRING1 */
   for (i=0; i<23; i++)
@@ -969,8 +967,6 @@ printf("ALEXANDER: Line %d\n\n",__LINE__);
 				  app, 2, MUIM_Application_ReturnID, ID_ES_INTSTR(i));
 	  }
    } /* for i=0... */
-
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
 /* ARROW1 */
   for (i=0; i<23; i++)
    MUI_DoNotiPresFal(app, ES_Win->IntStrArrow[i][0], ID_ES_INTSTRARROWLEFT(i), NULL);
@@ -979,16 +975,12 @@ printf("ALEXANDER: Line %d\n\n",__LINE__);
   for (i=0; i<23; i++)
    MUI_DoNotiPresFal(app, ES_Win->IntStrArrow[i][1], ID_ES_INTSTRARROWRIGHT(i), NULL);
 
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
-
 /* STRING2 */
   for (i=0; i<16; i++)
    {
    DoMethod(ES_Win->FloatStr[i], MUIM_Notify, MUIA_String_Contents, MUIV_EveryTime,
 	app, 2, MUIM_Application_ReturnID, ID_ES_FLOATSTR(i));
    } /* for i=0... */
-
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
 /* ARROW3-6 */
   for (i=0; i<16; i++)
    MUI_DoNotiPresFal(app, ES_Win->FloatStrArrow[i][0], ID_ES_FLOATSTRARROWLEFT(i),
@@ -996,7 +988,7 @@ printf("ALEXANDER: Line %d\n\n",__LINE__);
   MUI_DoNotiPresFal(app,
    ES_Win->TxtArrow[0][0], ID_ES_TEXTARROWLEFT(0),
    ES_Win->TxtArrow[0][1], ID_ES_TEXTARROWRIGHT(0), NULL);
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
+
 /* CYCLE1 */
   for (i=0; i<51; i++)
    {
@@ -1006,7 +998,7 @@ printf("ALEXANDER: Line %d\n\n",__LINE__);
 				  app, 2, MUIM_Application_ReturnID, ID_ES_CYCLE(i));
 	  }
    } /* for i=0... */
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
+
 /* BUTTONS2 */
   for (i=0; i<8; i++)
    MUI_DoNotiPresFal(app, ES_Win->BT_Get[i], ID_ES_GETPATH(i), NULL);
@@ -1020,7 +1012,7 @@ printf("ALEXANDER: Line %d\n\n",__LINE__);
 				  app, 2, MUIM_Application_ReturnID, ID_ES_PATHSTR(i));
 	  }
    } /* for i=0... */
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
+
 /* set tab cycle chain */
   DoMethod(ES_Win->SettingsWin, MUIM_Window_SetCycleChain,
 /* Render & Size*/
@@ -1080,7 +1072,7 @@ printf("ALEXANDER: Line %d\n\n",__LINE__);
 #endif /* ENABLE_SCALING */
 /* Buttons at bottom */
    ES_Win->BT_Apply, ES_Win->BT_Render, ES_Win->BT_Cancel, NULL);
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
+
 /* set return cycle chain */
 /* Render & Size*/
   DoMethod(ES_Win->IntStr[4], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
@@ -1208,23 +1200,17 @@ printf("ALEXANDER: Line %d\n\n",__LINE__);
    ES_Win->SettingsWin, 3, MUIM_Set, MUIA_Window_ActiveObject, ES_Win->FloatStr[7]);
   DoMethod(ES_Win->FloatStr[7], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
    ES_Win->SettingsWin, 3, MUIM_Set, MUIA_Window_ActiveObject, ES_Win->IntStr[15]);
-
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
-
   if(ES_Win->IntStr[15])
   {
 	  DoMethod(ES_Win->IntStr[15], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
 			  ES_Win->SettingsWin, 3, MUIM_Set, MUIA_Window_ActiveObject, ES_Win->IntStr[16]);
   }
-
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
   if(ES_Win->IntStr[15])
   {
 	  DoMethod(ES_Win->IntStr[16], MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
 			  ES_Win->SettingsWin, 3, MUIM_Set, MUIA_Window_ActiveObject, ES_Win->IntStr[14]);
   }
 
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
 #ifdef USE_WCS_HELP
 #ifdef USE_SETTINGS_HELP
   DoMethod(ES_Win->SettingsWin, MUIM_Notify,
@@ -1239,14 +1225,11 @@ printf("ALEXANDER: Line %d\n\n",__LINE__);
   set(ES_Win->SettingsWin, MUIA_Window_Open, TRUE);
   get(ES_Win->SettingsWin, MUIA_Window_Open, &open);
 
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
   if (! open)
    {
    Close_ES_Window(1);
    return;
    } /* out of memory */
-
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
 
 #ifdef WCS_MUI_2_HACK
 	   MUI2_MenuCheck_Hack();
@@ -1258,7 +1241,7 @@ printf("ALEXANDER: Line %d\n\n",__LINE__);
 
 /* Get Window structure pointer */
   get(ES_Win->SettingsWin, MUIA_Window_Window, &ES_Win->Win);
-  printf("ALEXANDER: Line %d\n\n",__LINE__);
+
 } /* Make_ES_Window() */
 
 /**********************************************************************/
