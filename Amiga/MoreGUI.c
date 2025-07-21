@@ -655,7 +655,7 @@ void Make_PJ_Window(void)
       MUIA_Window_Screen	, WCSScrn,
 
       WindowContents, VGroup,
-	Child, RegisterGroup(PageNames),
+	Child, PJ_Win->RegGrp=RegisterGroup(PageNames),
 	  Child, VGroup,
 	  Child, HGroup,
 	    Child, Label2(GetString( MSG_MOREGUI_PROJECTPATH_SPACES )),  // "Project Path        "
@@ -1534,8 +1534,16 @@ void Make_SC_Window(void)  // Scale-Window, Menu -> Modules -> Render -> Render 
   set(SC_Win->ScaleWin, MUIA_Window_ActiveObject, (IPTR)SC_Win->Str[0]);
 
 /* set aspect string */
-  get(ES_Win->FloatStr[0], MUIA_String_Contents, &floatdata);
-  set(SC_Win->Str[2], MUIA_String_Contents, (IPTR)floatdata);
+
+  if(ES_Win && ES_Win->FloatStr[0])
+  {
+      get(ES_Win->FloatStr[0], MUIA_String_Contents, &floatdata);
+      set(SC_Win->Str[2], MUIA_String_Contents, (IPTR)floatdata);
+  }
+  else
+  {
+      set(SC_Win->Str[2], MUIA_String_Contents, (IPTR)"1.0");  // needed for MSG_Test.c, when ES_Win is not set
+  }
 
 /* Open window */
   set(SC_Win->ScaleWin, MUIA_Window_Open, TRUE);

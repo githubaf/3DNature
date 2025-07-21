@@ -2301,7 +2301,7 @@ EXTERN struct AnimWindow {
 } *AN_Win;
 
 EXTERN struct ProjectWindow {
-  APTR ProjWin, Str[32], BT_Get[20], BT_DirList, BT_Apply, BT_Save, BT_Cancel;
+  APTR ProjWin, Str[32], BT_Get[20], BT_DirList, BT_Apply, BT_Save, BT_Cancel, RegGrp;
 } *PJ_Win;
 
 EXTERN struct NewProjectWindow {

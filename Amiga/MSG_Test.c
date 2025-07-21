@@ -5484,7 +5484,38 @@ END_LABEL:
 // ############ MoreGUI.c ##############
 // AF_CASE
 {
+    Make_SC_Window();
+    waitForRightClick(SC_Win->ScaleWin); // Wait for right mouse button to be pressed
+    Close_SC_Window();
+}
 
+// AF_CASE
+{
+    Make_PR_Window();
+    waitForRightClick(PR_Win->PrefsWin); // Wait for right mouse button to be pressed
+    Close_PR_Window();
+}
+
+// AF_CASE
+{
+    Make_DM_Window();
+    waitForRightClick(DM_Win->ExtractWin); // Wait for right mouse button to be pressed
+    Close_DM_Window();
+}
+
+// AF_CASE
+{
+    Make_PJ_Window();  // Page 1
+    waitForRightClick(PJ_Win->ProjWin); // Wait for right mouse button to be pressed
+    Close_PJ_Window(1);
+}
+
+// AF_CASE
+{
+    Make_PJ_Window();  // Page 2
+    set(PJ_Win->RegGrp, MUIA_Group_ActivePage, 1);  // Set to Page 2
+    waitForRightClick(PJ_Win->ProjWin); // Wait for right mouse button to be pressed
+    Close_PJ_Window(1);
 }
 
 }
