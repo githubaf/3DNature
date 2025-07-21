@@ -4674,10 +4674,10 @@ OK	./MoreGUI.c:1724:     PR_Win->PrefsWin = WindowObject,
 OK	./MoreGUI.c:51:     DM_Win->ExtractWin = WindowObject,
 OK	./MoreGUI.c:652:     PJ_Win->ProjWin = WindowObject,
 
-./ParamsGUI.c:120:     PS_Win->ScaleWin = WindowObject,
-./ParamsGUI.c:1659:     AN_Win->AnimWin = WindowObject,
-./ParamsGUI.c:670:     LW_Win->IOWin = WindowObject,
-./ParamsGUI.c:940:     FM_Win->ModelWin = WindowObject,
+OK	./ParamsGUI.c:120:     PS_Win->ScaleWin = WindowObject,
+OK	./ParamsGUI.c:1659:     AN_Win->AnimWin = WindowObject,
+OK	./ParamsGUI.c:670:     LW_Win->IOWin = WindowObject,
+OK	./ParamsGUI.c:940:     FM_Win->ModelWin = WindowObject,
 
 ./RequesterGUI.c:316:	This->BusyWin = WindowObject,
 

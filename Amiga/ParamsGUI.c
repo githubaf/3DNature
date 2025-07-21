@@ -22,7 +22,104 @@ STATIC_FCN short Save_FM_Win(void); // used locally only -> static, AF 24.7.2021
 STATIC_FCN void Set_FM_List(short Update, short ActiveItem); // used locally only -> static, AF 24.7.2021
 
 
-STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 24.7.2021
+APTR AF_MakeScaleWinObject(struct ScaleWindow *PS_Win)
+{
+    return WindowObject,
+            MUIA_Window_Title     , GetString( MSG_PARGUI_SCALEKEYS ),  // "Scale Keys"
+            MUIA_Window_ID        , MakeID('P','S','S','C'),
+            MUIA_Window_Screen    , WCSScrn,
+
+            WindowContents, VGroup,
+            Child, HGroup,
+              Child, Label2(GetString( MSG_PARGUI_PARAM )),  // "Param"
+              Child, PS_Win->ItemCycle = Cycle(PS_Win->PSList),
+              Child, Label2(GetString( MSG_PARGUI_FRAME )),  // "Frame"
+              Child, PS_Win->IntStr[0] = StringObject, StringFrame,
+                  MUIA_FixWidthTxt, "0123456",
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_String_Integer, PS_Win->Frame, End,
+              End, /* HGroup */
+            Child, HGroup, MUIA_Group_SameWidth, TRUE,
+                  Child, PS_Win->BT_Group[0] = KeyButtonObject('i'),
+               MUIA_InputMode, MUIV_InputMode_Toggle,
+               MUIA_Text_Contents, GetString( MSG_PARGUI_MOTION ), End,  // "\33cMotion"
+                  Child, PS_Win->BT_Group[1] = KeyButtonObject('l'),
+               MUIA_InputMode, MUIV_InputMode_Toggle,
+               MUIA_Text_Contents, GetString( MSG_PARGUI_COLOR ), End,  // "\33cColor"
+                  Child, PS_Win->BT_Group[2] = KeyButtonObject('e'),
+               MUIA_InputMode, MUIV_InputMode_Toggle,
+               MUIA_Text_Contents, GetString( MSG_PARGUI_ECOSYSTEM ), End,  // "\33cEcosystem"
+              End, /* HGroup */
+            Child, HGroup,
+                  Child, PS_Win->BT_AllFrames = KeyButtonObject('f'),
+               MUIA_InputMode, MUIV_InputMode_Toggle,
+               MUIA_Selected, TRUE,
+               MUIA_Text_Contents, GetString( MSG_PARGUI_ALLFRAMES ), End,  // "\33cAll Frames"
+                  Child, PS_Win->BT_OneFrame = KeyButtonObject('t'),
+               MUIA_InputMode, MUIV_InputMode_Toggle,
+               MUIA_Text_Contents, GetString( MSG_PARGUI_THISFRAME ), End,  // "\33cThis Frame"
+              End, /* HGroup */
+            Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
+            Child, HGroup,
+              Child, VGroup,
+                Child, TextObject, MUIA_Text_Contents, GetString( MSG_PARGUI_CALE ), End,  // "\33c\0334Scale"
+                Child, HGroup,
+                      Child, PS_Win->BT_FrameScale = KeyButtonObject('r'),
+                  MUIA_InputMode, MUIV_InputMode_Toggle,
+                  MUIA_Text_Contents, GetString( MSG_PARGUI_FRAMES ), End,  // "\33cFrame(s)"
+              Child, Label2("x"),
+                  Child, PS_Win->FloatStr[0] = StringObject, StringFrame,
+                  MUIA_FixWidthTxt, "0123456",
+                  MUIA_String_Accept, "+-.0123456789",
+                  MUIA_String_Contents, "1.0", End,
+              End, /* HGroup */
+                Child, HGroup,
+                      Child, PS_Win->BT_ValueScale = KeyButtonObject('v'),
+                  MUIA_InputMode, MUIV_InputMode_Toggle,
+                  MUIA_Text_Contents, GetString( MSG_PARGUI_VALUES ), End,  // "\33cValue(s)"
+              Child, Label2("x"),
+                  Child, PS_Win->FloatStr[1] = StringObject, StringFrame,
+                  MUIA_FixWidthTxt, "0123456",
+                  MUIA_String_Accept, "+-.0123456789",
+                  MUIA_String_Contents, "1.0", End,
+              End, /* HGroup */
+                End, /* VGroup */
+              Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
+              Child, VGroup,
+                Child, TextObject, MUIA_Text_Contents, GetString( MSG_PARGUI_HIFT ), End,  // "\33c\0334Shift"
+                Child, HGroup,
+                      Child, PS_Win->BT_FrameShift = KeyButtonObject('m'),
+                  MUIA_InputMode, MUIV_InputMode_Toggle,
+                  MUIA_Text_Contents, GetString( MSG_PARGUI_FRAMES ), End,  // "\33cFrame(s)"
+              Child, Label2("+"),
+                  Child, PS_Win->IntStr[1] = StringObject, StringFrame,
+                  MUIA_FixWidthTxt, "0123456",
+                  MUIA_String_Accept, "+-0123456789",
+                  MUIA_String_Contents, "0", End,
+              End, /* HGroup */
+                Child, HGroup,
+                      Child, PS_Win->BT_ValueShift = KeyButtonObject('u'),
+                  MUIA_InputMode, MUIV_InputMode_Toggle,
+                  MUIA_Text_Contents, GetString( MSG_PARGUI_VALUES ), End,  // "\33cValue(s)"
+              Child, Label2("+"),
+                  Child, PS_Win->FloatStr[2] = StringObject, StringFrame,
+                  MUIA_FixWidthTxt, "0123456",
+                  MUIA_String_Accept, "+-.0123456789",
+                  MUIA_String_Contents, "0.0", End,
+              End, /* HGroup */
+                End, /* VGroup */
+              End, /* HGroup */
+            Child, HGroup,
+                  Child, PS_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_PARGUI_KEEP )),       // "\33cKeep"
+                  Child, PS_Win->BT_Operate = KeyButtonFunc('o', (char*)GetString( MSG_PARGUI_OPERATE )),  // "\33cOperate"
+                  Child, PS_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),    // "\33cCancel"
+                  End, /* HGroup */
+            End, /* VGroup */
+
+            End; /* WindowObject PS_Win->ScaleWin */
+}
+
+/*STATIC_FCN*/ void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 24.7.2021 -> now used in MSG_Test.c
 {
  long open;
 
@@ -117,100 +214,7 @@ STATIC_FCN void Make_PS_Window(ULONG WCS_ID) // used locally only -> static, AF 
 
   Set_Param_Menu(10);
 
-     PS_Win->ScaleWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_PARGUI_SCALEKEYS ),  // "Scale Keys"
-      MUIA_Window_ID		, MakeID('P','S','S','C'),
-      MUIA_Window_Screen	, WCSScrn,
-
-      WindowContents, VGroup,
-	  Child, HGroup,
-	    Child, Label2(GetString( MSG_PARGUI_PARAM )),  // "Param"
-	    Child, PS_Win->ItemCycle = Cycle(PS_Win->PSList),
-	    Child, Label2(GetString( MSG_PARGUI_FRAME )),  // "Frame"
-	    Child, PS_Win->IntStr[0] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "0123456",
-			MUIA_String_Accept, "0123456789",
-			MUIA_String_Integer, PS_Win->Frame, End,
-	    End, /* HGroup */ 
-	  Child, HGroup, MUIA_Group_SameWidth, TRUE,
-            Child, PS_Win->BT_Group[0] = KeyButtonObject('i'),
-		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, GetString( MSG_PARGUI_MOTION ), End,  // "\33cMotion"
-            Child, PS_Win->BT_Group[1] = KeyButtonObject('l'),
-		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, GetString( MSG_PARGUI_COLOR ), End,  // "\33cColor"
-            Child, PS_Win->BT_Group[2] = KeyButtonObject('e'),
-		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, GetString( MSG_PARGUI_ECOSYSTEM ), End,  // "\33cEcosystem"
-	    End, /* HGroup */
-	  Child, HGroup, 
-            Child, PS_Win->BT_AllFrames = KeyButtonObject('f'),
-		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Selected, TRUE,
-		 MUIA_Text_Contents, GetString( MSG_PARGUI_ALLFRAMES ), End,  // "\33cAll Frames"
-            Child, PS_Win->BT_OneFrame = KeyButtonObject('t'),
-		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, GetString( MSG_PARGUI_THISFRAME ), End,  // "\33cThis Frame"
-	    End, /* HGroup */
-	  Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-	  Child, HGroup,
-	    Child, VGroup,
-	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_PARGUI_CALE ), End,  // "\33c\0334Scale"
-	      Child, HGroup,
-                Child, PS_Win->BT_FrameScale = KeyButtonObject('r'),
-		 	MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, GetString( MSG_PARGUI_FRAMES ), End,  // "\33cFrame(s)"
-		Child, Label2("x"),
-	        Child, PS_Win->FloatStr[0] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "0123456",
-			MUIA_String_Accept, "+-.0123456789",
-			MUIA_String_Contents, "1.0", End,
-		End, /* HGroup */
-	      Child, HGroup,
-                Child, PS_Win->BT_ValueScale = KeyButtonObject('v'),
-		 	MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, GetString( MSG_PARGUI_VALUES ), End,  // "\33cValue(s)"
-		Child, Label2("x"),
-	        Child, PS_Win->FloatStr[1] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "0123456",
-			MUIA_String_Accept, "+-.0123456789",
-			MUIA_String_Contents, "1.0", End,
-		End, /* HGroup */
-	      End, /* VGroup */
-	    Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
-	    Child, VGroup,
-	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_PARGUI_HIFT ), End,  // "\33c\0334Shift"
-	      Child, HGroup,
-                Child, PS_Win->BT_FrameShift = KeyButtonObject('m'),
-		 	MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, GetString( MSG_PARGUI_FRAMES ), End,  // "\33cFrame(s)"
-		Child, Label2("+"),
-	        Child, PS_Win->IntStr[1] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "0123456",
-			MUIA_String_Accept, "+-0123456789",
-			MUIA_String_Contents, "0", End,
-		End, /* HGroup */
-	      Child, HGroup,
-                Child, PS_Win->BT_ValueShift = KeyButtonObject('u'),
-		 	MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, GetString( MSG_PARGUI_VALUES ), End,  // "\33cValue(s)"
-		Child, Label2("+"),
-	        Child, PS_Win->FloatStr[2] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "0123456",
-			MUIA_String_Accept, "+-.0123456789",
-			MUIA_String_Contents, "0.0", End,
-		End, /* HGroup */
-	      End, /* VGroup */
-	    End, /* HGroup */
-	  Child, HGroup,
-            Child, PS_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_PARGUI_KEEP )),       // "\33cKeep"
-            Child, PS_Win->BT_Operate = KeyButtonFunc('o', (char*)GetString( MSG_PARGUI_OPERATE )),  // "\33cOperate"
-            Child, PS_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),    // "\33cCancel"
-            End, /* HGroup */
-	  End, /* VGroup */
-
-      End; /* WindowObject PS_Win->ScaleWin */
-
+     PS_Win->ScaleWin = AF_MakeScaleWinObject(PS_Win);
   if (! PS_Win->ScaleWin)
    {
    Close_PS_Window(1);
@@ -1042,8 +1046,15 @@ void Make_FM_Window(void)
 /* Set active gadget */
   set(FM_Win->ModelWin, MUIA_Window_ActiveObject, (IPTR)FM_Win->IntStr[0]);
 
+  if(EE_Win && EE_Win->ModelStr)
+  {
   get(EE_Win->ModelStr, MUIA_String_Contents, &Name);
   set(FM_Win->NameStr, MUIA_String_Contents, (IPTR)Name);
+  }
+  else
+  {
+      set(FM_Win->NameStr, MUIA_String_Contents, (IPTR)"test... empty");
+  }
 
 /* Create directory list */
   strcpy(&FM_Win->ItemStr[0][0],

@@ -3861,6 +3861,8 @@ void Make_FE_Window(void);
 int MapGUI_New(struct MapData *MP);
 void MapGUI_Del(struct MapData *MP);
 void Close_MA_Window(struct MapData *MP);
+APTR AF_MakeScaleWinObject(struct ScaleWindow *PS_Win);
+
 
 void waitForRightClick(Object *MuiWindow)
 {
@@ -5480,7 +5482,7 @@ Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
     UnderConst_Del();
 }
 
-END_LABEL:
+
 // ############ MoreGUI.c ##############
 // AF_CASE
 {
@@ -5518,5 +5520,42 @@ END_LABEL:
     Close_PJ_Window(1);
 }
 
+// ################### ParamsGui.c ####################
+
+// AF_CASE
+{
+    struct ScaleWindow PS_Win= {0};    // Param ist leer ??
+    PS_Win.ScaleWin=AF_MakeScaleWinObject(&PS_Win);
+    if(PS_Win.ScaleWin == NULL)
+    {
+        printf("AF_MakeScaleWinObject() failed!\n");
+        return; // Exit if the Scale Window could not be created
+    }
+    DoMethod(app, OM_ADDMEMBER, PS_Win.ScaleWin);
+    set(PS_Win.ScaleWin,MUIA_Window_Open, TRUE);
+    waitForRightClick(PS_Win.ScaleWin); // Wait for right mouse button to be pressed
+    set(PS_Win.ScaleWin,MUIA_Window_Open, FALSE);
+}
+
+// AF_CASE
+{
+    Make_AN_Window();
+    waitForRightClick(AN_Win->AnimWin); // Wait for right mouse button to be pressed
+    Close_AN_Window();
+}
+
+// AF_CASE
+{
+    Make_LW_Window();
+    waitForRightClick(LW_Win->IOWin); // Wait for right mouse button to be pressed
+    Close_LW_Window();
+}
+END_LABEL:
+// AF_CASE
+{
+    Make_FM_Window();
+    waitForRightClick(FM_Win->ModelWin); // Wait for right mouse button to be pressed
+    Close_FM_Window();
+}
 }
 #endif
