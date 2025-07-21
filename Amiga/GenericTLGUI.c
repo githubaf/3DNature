@@ -405,7 +405,10 @@ void Make_TL_Window(char *NameStr, char **Titles,
 
  if ((TLWin[WinNum] = (struct TimeLineWindow *)
 	get_Memory(sizeof (struct TimeLineWindow), MEMF_CLEAR)) == NULL)
+ {
+     KPrintF("ALEXANDER Line %ld, Make_TL_Window: Out of memory for TLWin[%d]\n", __LINE__, WinNum);
   return;
+ }
 
  TL_Win = TLWin[WinNum];
  TL_Win->TLPtr = TLPtr;
@@ -415,33 +418,49 @@ void Make_TL_Window(char *NameStr, char **Titles,
  if ((TL_Win->AltKF = (union KeyFrame *)
 	get_Memory(*KFSizePtr, MEMF_ANY)) == NULL)
   {
+     KPrintF("ALEXANDER Line %ld, Make_TL_Window: Out of memory for TL_Win->AltKF\n", __LINE__);
   Close_TL_Window(&TLWin[WinNum], 1);
   return;
   } /* if out of memory */
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: Allocated %ld bytes for TL_Win->AltKF\n", __LINE__, *KFSizePtr);
  memcpy(TL_Win->AltKF, *KFPtr, *KFSizePtr);
  TL_Win->AltKFsize = *KFSizePtr;
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->AltKFsize = %ld\n", __LINE__, TL_Win->AltKFsize);
  TL_Win->AltKeyFrames = *KeyFramesPtr;
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->AltKeyFrames = %d\n", __LINE__, TL_Win->AltKeyFrames);
  TL_Win->KFPtr = KFPtr;
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->KFPtr = %lx\n", __LINE__, TL_Win->KFPtr);
  TL_Win->KFSizePtr = KFSizePtr;
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->KFSizePtr = %lx\n", __LINE__, TL_Win->KFSizePtr);
  TL_Win->KeyFramesPtr = KeyFramesPtr;
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->KeyFramesPtr = %lx\n", __LINE__, TL_Win->KeyFramesPtr);
  TL_Win->DblValue = DblValue;
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->DblValue = %lx\n", __LINE__, TL_Win->DblValue);
  TL_Win->FltValue = FltValue;
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->FltValue = %lx\n", __LINE__, TL_Win->FltValue);
  TL_Win->ShortValue = ShortValue;
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->ShortValue = %lx\n", __LINE__, TL_Win->ShortValue);
  TL_Win->PrntValStr = ValStringGads;
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->PrntValStr = %lx\n", __LINE__, TL_Win->PrntValStr);
  TL_Win->WKS = WKS;
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->WKS = %lx\n", __LINE__, TL_Win->WKS);
  TL_Win->GKS = GKS;
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->GKS = %lx\n", __LINE__, TL_Win->GKS);
 
  if ( ! (TL_Win->SuperClass = MUI_GetClass(MUIC_Area)))
   {
+     KPrintF("ALEXANDER Line %ld, Make_TL_Window: Out of memory for TL_Win->SuperClass\n", __LINE__);
   Close_TL_Window(&TLWin[WinNum], 1);
   return;
   } /* if out of memory */
-
+KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->SuperClass = %lx\n", __LINE__, TL_Win->SuperClass);
 /* create the new class */
  if (!(TL_Win->TL_Class =
 	 MakeClass(NULL, NULL, TL_Win->SuperClass, sizeof(struct Data), 0)))
   {
+     KPrintF("ALEXANDER Line %ld, Make_TL_Window: Out of memory for TL_Win->TL_Class\n", __LINE__);
   MUI_FreeClass(TL_Win->SuperClass);
+  KPrintF("ALEXANDER Line %ld, Make_TL_Window: Freed TL_Win->SuperClass\n", __LINE__);
   return;
   } /* if */
 
@@ -450,6 +469,7 @@ void Make_TL_Window(char *NameStr, char **Titles,
  TL_Win->TL_Class->cl_Dispatcher.h_SubEntry = NULL;
  TL_Win->TL_Class->cl_Dispatcher.h_Data     = NULL;
 
+ KPrintF("ALEXANDER Line %ld, Make_TL_Window: Set TL_Win->TL_Class-\n", __LINE__);
   Set_Param_Menu(2);
 
      TL_Win->TimeLineWin = WindowObject,
@@ -551,10 +571,12 @@ void Make_TL_Window(char *NameStr, char **Titles,
 	  End, /* HGroup */ 
 	End, /* VGroup */
       End; /* WindowObject TL_Win->TimeLineWin */
-
+KPrintF("ALEXANDER Line %ld, Make_TL_Window: Created TL_Win->TimeLineWin = %lx\n", __LINE__, TL_Win->TimeLineWin);
   if (! TL_Win->TimeLineWin)
    {
+      KPrintF("ALEXANDER Line %ld, Make_TL_Window: Out of memory for TL_Win->TimeLineWin\n", __LINE__);
    Close_TL_Window(&TLWin[WinNum], 1);
+   KPrintF("ALEXANDER Line %ld, Make_TL_Window: Freed TLWin[%d]\n", __LINE__, WinNum);
    User_Message(GetString( MSG_GENTLGUI_TIMELINE ),     // "Time Line"
                 GetString( MSG_GLOBAL_OUTOFMEMORY ),  // "Out of memory!"
                 GetString( MSG_GLOBAL_OK ),           // "OK"

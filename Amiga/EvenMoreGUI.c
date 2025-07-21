@@ -13,7 +13,7 @@
 
 STATIC_FCN void Set_TS_Reverse(short reverse); // used locally only -> static, AF 25.7.2021
 STATIC_FCN void Set_TS_Position(void); // used locally only -> static, AF 25.7.2021
-STATIC_FCN void Make_PN_Window(void); // used locally only -> static, AF 25.7.2021
+/*STATIC_FCN*/ void Make_PN_Window(void); // used locally only -> static, AF 25.7.2021, but now used in test, too
 STATIC_FCN short CreateNewProject(char *NewProjName, char *CloneProjName); // used locally only -> static, AF 25.7.2021
 
 
@@ -586,7 +586,7 @@ double FloatDays, RefLon, SunTime;
 
 /************************************************************************/
 
-STATIC_FCN void Make_PN_Window(void) // used locally only -> static, AF 25.7.2021
+/*STATIC_FCN*/ void Make_PN_Window(void) // used locally only -> static, AF 25.7.2021, but now used in test, too
 {
  long open, i;
 

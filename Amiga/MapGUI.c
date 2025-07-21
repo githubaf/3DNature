@@ -105,10 +105,10 @@ STATIC_VAR USHORT PrintColors[16]=
 ;
 
 
-STATIC_FCN void MapGUI_Del(struct MapData *MP); // used locally only -> static, AF 20.7.2021
+/*STATIC_FCN*/ void MapGUI_Del(struct MapData *MP); // used locally only -> static, AF 20.7.2021 -> now also used in MSG_Test.c
 STATIC_FCN short Make_Map_Menu(void); // used locally only -> static, AF 20.7.2021
-STATIC_FCN void Close_MA_Window(struct MapData *MP); // used locally only -> static, AF 20.7.2021
-STATIC_FCN int MapGUI_New(struct MapData *MP); // used locally only -> static, AF 20.7.2021
+/*STATIC_FCN*/ void Close_MA_Window(struct MapData *MP); // used locally only -> static, AF 20.7.2021 -> now also used in MSG_Test.c
+/*STATIC_FCN*/ int MapGUI_New(struct MapData *MP); // used locally only -> static, AF 20.7.2021 -> now also used in MSG_Test.c
 
 
 extern void ParticleTree(void);
@@ -367,7 +367,7 @@ void MapIDCMP_Restore(struct Window *win)
 
 /***********************************************************************/
 
-STATIC_FCN int MapGUI_New(struct MapData *MP) // used locally only -> static, AF 20.7.2021
+/*STATIC_FCN*/ int MapGUI_New(struct MapData *MP) // used locally only -> static, AF 20.7.2021  -> but now used in MSG_Test.c
 {
  long open;
  static const char *StyleCycle[7]={NULL};// = {GetString( MSG_MAPGUI_SINGLE ),   // "Single"
@@ -680,7 +680,7 @@ return;
 
 /***********************************************************************/
 
-STATIC_FCN void MapGUI_Del(struct MapData *MP) // used locally only -> static, AF 20.7.2021
+/*STATIC_FCN*/ void MapGUI_Del(struct MapData *MP) // used locally only -> static, AF 20.7.2021 -> but now used in MSG_Test.c
 {
 if(MP->MAPC)
 	{
@@ -847,7 +847,7 @@ short Make_MA_Window(struct MapData *MP)
 
 /*************************************************************************/
 
-STATIC_FCN void Close_MA_Window(struct MapData *MP) // used locally only -> static, AF 20.7.2021
+/*STATIC_FCN*/ void Close_MA_Window(struct MapData *MP) // used locally only -> static, AF 20.7.2021 -> but now used in MSG_Test.c
 {
 
 if (MP->AlignWin)

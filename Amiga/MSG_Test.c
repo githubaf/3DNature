@@ -10,6 +10,7 @@
 #include "WCS.h"
 #include "WCS_locale.h"
 #include "Version.h"
+#include "GenericParams.h"
 
 #ifdef BETA_USER_MESSAGE_TEST   // is set in Version.h
 void IncAndShowTestNumbers(unsigned int TestNumber, unsigned int TotalNumber)
@@ -3855,7 +3856,11 @@ void Make_DI_Window(void);
 void Make_DC_Window(void);
 void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle);
 void Close_EMPL_Window(void);
-
+void Make_PN_Window(void);
+void Make_FE_Window(void);
+int MapGUI_New(struct MapData *MP);
+void MapGUI_Del(struct MapData *MP);
+void Close_MA_Window(struct MapData *MP);
 
 void waitForRightClick(Object *MuiWindow)
 {
@@ -5362,7 +5367,6 @@ Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
                Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
            }
 
-END_LABEL:
            // ############ EdSetGUI.c ##############
            // AF_CASE
            {
@@ -5371,5 +5375,117 @@ END_LABEL:
                waitForRightClick(EC_Win->EcoPalWin); // Wait for right mouse button to be pressed
                Close_EC_Window(1); // Close Edit Color Window, 1= Shutdown, kill it all!
            }
+
+           // ############ EvenMoreGUI.c ###########
+           // AF_CASE
+           Make_PN_Window(); // Project New Window
+           waitForRightClick(PN_Win->NewProjWin); // Wait for right mouse button to be pressed
+           Close_PN_Window(1);
+
+           // AF_CASE
+           {
+           KFsize = (/*ParHdr.KeyFrames*/0 + 20) * (sizeof (union KeyFrame));  // we need a valid size
+           Make_TS_Window();
+           waitForRightClick(TS_Win->TimeSetWin); // Wait for right mouse button to be pressed
+           Close_TS_Window(1);  // Close Time Set Window, 1= Shutdown, kill it all!
+           }
+
+           // ####### FoliageGUI.c ##############
+           // AF_CASE
+           {
+               Make_FE_Window();
+               waitForRightClick(FE_Win->FoliageWin); // Wait for right mouse button to be pressed
+               Close_FE_Window(1);
+           }
+
+
+//           // AF_CASE
+//           {
+//               // Dies hier funktioniert gerade so... nicht aendern!
+//               static const char *Titles[8];
+//               struct TimeLineWindow *TL=NULL;
+//               APTR FloatStr[7];
+//               struct WindowKeyStuff WKS;
+//               struct GUIKeyStuff GKS;
+//               union KeyFrame * CloudKey=NULL;
+//               long KFsize = (/*ParHdr.KeyFrames*/0 + 20) * (sizeof (union KeyFrame));  // we need a valid size
+//               short NumKeys=0;
+//               double Coverage=0;
+//
+//                WKS.Group = 3;
+//                WKS.Item = 0;
+//                WKS.NumValues = 7;
+//                WKS.Precision = WCS_KFPRECISION_FLOAT;
+//
+//
+//               memset(&GKS, 0, sizeof(GKS)); // Clear GUIKeyStuff structure
+//
+//               Titles[0] = (const char*)GetString( MSG_CLOUDGUI_COVERAGE );          // "Coverage"
+//               Titles[1] = (const char*)GetString( MSG_CLOUDGUI_DENSITY );           // "Density"
+//               Titles[2] = (const char*)GetString( MSG_CLOUDGUI_ROUGHNESS );         // "Roughness"
+//               Titles[3] = (const char*)GetString( MSG_CLOUDGUI_FRACTALDIMENSION );  // "Fractal Dimension"
+//               Titles[4] = (const char*)GetString( MSG_CLOUDGUI_ALTITUDE );          // "Altitude"
+//               Titles[5] = (const char*)GetString( MSG_CLOUDGUI_MOVELATITUDE );      // "Move Latitude"
+//               Titles[6] = (const char*)GetString( MSG_CLOUDGUI_MOVELONGITUDE );     // "Move Longitude"
+//               Titles[7] = NULL;
+//
+//               Make_TL_Window((char*)GetString( MSG_CLOUDGUI_CLOUDTIMELINES ),
+//                              (char **)Titles,
+//                              &TL,
+//                              FloatStr,
+//                              &WKS,
+//                              &GKS,
+//                              &CloudKey,
+//                              &KFsize,
+//                              &NumKeys,
+//                              &Coverage,
+//                              NULL, NULL);
+//
+//               // All Register pages look identically, no need to show them all
+//
+//               waitForRightClick(TL->TimeLineWin); // Wait for right mouse button to be pressed
+////               Close_TL_Window(&TL, 0);  // Close Time Line Window, 1= Shutdown, kill it all! - It is closed automatically at the end of the program, so don't free twice!
+//           }
+
+// ################### MapGui.c ####################
+// AF_CASE
+{
+    Make_EL_Window();    // Window mit leeren Cyclebuttons
+    waitForRightClick(EL_Win->EcoLegendWin); // Wait for right mouse button to be pressed
+    Close_EL_Window();
+}
+
+// AF_CASE
+{
+    struct MapData MP;
+    MapGUI_New(&MP);
+    waitForRightClick(MP.MAPC); // Wait for right mouse button to be pressed
+    MapGUI_Del(&MP);
+
+}
+
+// AF_CASE
+{
+    struct MapData MP;
+    Make_MA_Window(&MP);
+    waitForRightClick(MP.AlignWin); // Wait for right mouse button to be pressed
+    Close_MA_Window(&MP);  // Close Map Align Window
+
+}
+
+// AF_CASE
+{
+    UnderConst_New();
+    waitForRightClick(UnderConst); // Wait for right mouse button to be pressed
+    UnderConst_Del();
+}
+
+END_LABEL:
+// ############ MoreGUI.c ##############
+// AF_CASE
+{
+
+}
+
 }
 #endif

@@ -4657,32 +4657,17 @@ OK	./EdSetGUI.c:312:     ES_Win->SettingsWin = WindowObject,    All Tabs
 
 OK	./EditGui.c:63:     EC_Win->EcoPalWin = WindowObject,
 
-./EvenMoreGUI.c:606:     PN_Win->NewProjWin = WindowObject,
-./EvenMoreGUI.c:79:     TS_Win->TimeSetWin = WindowObject,
+OK	./EvenMoreGUI.c:606:     PN_Win->NewProjWin = WindowObject,
+OK	./EvenMoreGUI.c:79:     TS_Win->TimeSetWin = WindowObject,
 
-./FoliageGUI.c:97:     FE_Win->FoliageWin = WindowObject,
-
-./GUI.c:1079: ModControlWin = WindowObject,
-./GUI.c:1106:  AboutWin =  WindowObject,
-./GUI.c:1703:     UM_Win = WindowObject,
-./GUI.c:1876:     IS_Win = WindowObject,
-./GUI.c:2040:     Log_Win->LogWindow = WindowObject,
-./GUI.c:2229:          InfoWin = WindowObject,
-./GUI.c:2413:          CreditWin = WindowObject,
-./GUI.c:43:     EP_Win->EditWindow = WindowObject,
-./GUI.c:502:     DB_Win->DatabaseWindow = WindowObject,
-./GUI.c:765:     DO_Win->DataOpsWindow = WindowObject,
+OK	./FoliageGUI.c:97:     FE_Win->FoliageWin = WindowObject,
 
 ./GenericTLGUI.c:455:     TL_Win->TimeLineWin = WindowObject,
 
-./MSG_Test.c:3844:Test_WindowObject()
-
-./MUIFloatInt.c:256:	get(data->string, MUIA_WindowObject, &MyWin);
-
-./MapGUI.c:2832:     EL_Win->EcoLegendWin = WindowObject,
-./MapGUI.c:408: MP->MAPC = WindowObject,
-./MapGUI.c:713: MP->AlignWin = WindowObject,
-./MapGUI.c:909:	UnderConst = WindowObject,
+OK	./MapGUI.c:2832:     EL_Win->EcoLegendWin = WindowObject,   leeres Window
+OK	./MapGUI.c:408: MP->MAPC = WindowObject,
+OK	./MapGUI.c:713: MP->AlignWin = WindowObject,
+OK	./MapGUI.c:909:	UnderConst = WindowObject,
 
 ./MoreGUI.c:1451:     SC_Win->ScaleWin = WindowObject,
 ./MoreGUI.c:1724:     PR_Win->PrefsWin = WindowObject,

@@ -33,7 +33,7 @@ STATIC_FCN short GUIFoliageGroup_Save(void); // used locally only -> static, AF 
 STATIC_FCN void FoliageGroupDefaultColors(struct FoliageGroup *FolGp, short Color); // used locally only -> static, AF 19.7.2021
 STATIC_FCN void FoliageDefaultColors(struct Foliage *Fol, short Color); // used locally only -> static, AF 19.7.2021
 
-STATIC_FCN void Make_FE_Window(void) // used locally only -> static, AF 19.7.2021
+/*STATIC_FCN*/ void Make_FE_Window(void) // used locally only -> static, AF 19.7.2021, but now used in test, too
 {
  long i, open;
 
