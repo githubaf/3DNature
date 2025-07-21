@@ -1053,7 +1053,7 @@ void Make_FM_Window(void)
   }
   else
   {
-      set(FM_Win->NameStr, MUIA_String_Contents, (IPTR)"test... empty");
+      set(FM_Win->NameStr, MUIA_String_Contents, (IPTR)"test... ");
   }
 
 /* Create directory list */

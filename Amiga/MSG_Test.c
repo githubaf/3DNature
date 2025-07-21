@@ -5557,5 +5557,25 @@ END_LABEL:
     waitForRightClick(FM_Win->ModelWin); // Wait for right mouse button to be pressed
     Close_FM_Window();
 }
+// ####################### Requester_GUI.c #######################
+// AF_CASE
+{
+    struct BusyWindow *BW;
+    BW=BusyWin_New((char*)GetString( MSG_NNCRUNCH_CHOROPLETH ), 10, 60, MakeID('B','W','G','R'));  // Busy Window
+    waitForRightClick(BW->BusyWin); // Wait for right mouse button to be pressed
+    BusyWin_Del(BW);
+}
+
+
+// ############ ScreenModeGUI.c ##############
+// AF_CASE
+{
+
+        struct WCSScreenMode *ScreenModes = ModeList_New();
+        struct WCSScreenData *ScrnData={0};
+    ModeList_Choose(ScreenModes,ScrnData);
+    ModeList_Del(ScreenModes);
+}
+
 }
 #endif

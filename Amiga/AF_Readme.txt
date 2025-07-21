@@ -4679,9 +4679,9 @@ OK	./ParamsGUI.c:1659:     AN_Win->AnimWin = WindowObject,
 OK	./ParamsGUI.c:670:     LW_Win->IOWin = WindowObject,
 OK	./ParamsGUI.c:940:     FM_Win->ModelWin = WindowObject,
 
-./RequesterGUI.c:316:	This->BusyWin = WindowObject,
+OK	./RequesterGUI.c:316:	This->BusyWin = WindowObject,
 
-./ScreenModeGUI.c:143:		ModeSelWin = WindowObject,
+OK	./ScreenModeGUI.c:143:		ModeSelWin = WindowObject,
 
 ./TimeLinesGUI.c:1746:     EETL_Win->TimeLineWin = WindowObject,
 ./TimeLinesGUI.c:986:     ECTL_Win->TimeLineWin = WindowObject,
