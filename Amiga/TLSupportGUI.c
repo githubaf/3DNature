@@ -96,9 +96,12 @@ __saveds ULONG TL_Draw(struct IClass *cl, Object *obj, struct MUIP_Draw *msg)
  data->valpixgrid = data->valgrid * data->valpixpt;
  data->textzero = data->bottom - (-data->textlowval) * data->valpixpt;
 
+if(data->group)   // necessary for MSG_Test.c
+{
  if (data->group == 0) data->activekey = EMTL_Win->ActiveKey;
  else if (data->group == 1) data->activekey = ECTL_Win->ActiveKey;
  else if (data->group == 2) data->activekey = EETL_Win->ActiveKey;
+}
 
  /*
  ** if MADF_DRAWOBJECT isn't set, we shouldn't draw anything.
@@ -242,7 +245,10 @@ __saveds ULONG TL_Draw(struct IClass *cl, Object *obj, struct MUIP_Draw *msg)
    } /* for j=data->baseitem... */
 
   SetAPen(_rp(obj), 7);
+  if(data->SKT)  // necessary for MSG_Test.c
+  {
   frame = data->SKT->Key[data->activekey]->MoKey.KeyFrame;
+  }
   lr_offset = data->left + data->framepixpt * (frame - data->lowframe);
   tb_offset = data->bottom - data->valpixpt * 
 	(data->SKT->Val[data->activeitem][frame] - data->textlowval);

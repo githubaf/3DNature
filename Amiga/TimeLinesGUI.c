@@ -1645,35 +1645,188 @@ void Set_ECTL_Data(short subitem)
 /***********************************************************************/
 /* Ecosystem Time Lines */
 
+APTR AF_MakeEETLWindow(struct TimeLineWindow *EETL_Win)
+{
+    static const char *EETL_TimeLines[11] = {NULL};
+    static const char *EETL_Cycle_TCB[3] = {NULL};
+
+     static int Init=TRUE;
+
+     if(Init)
+     {
+         Init=FALSE;
+
+         EETL_Cycle_TCB[0] = (char*)GetString( MSG_TLGUI_TENS );  // "Tens"
+         EETL_Cycle_TCB[1] = (char*)GetString( MSG_TLGUI_CONT );  // "Cont"
+         EETL_Cycle_TCB[2] = (char*)GetString( MSG_TLGUI_BIAS );  // "Bias"
+
+         EETL_TimeLines[0] = (char*)GetString( MSG_TLGUI_ELEVATIONLINE );            // "\0334Elevation Line"
+         EETL_TimeLines[1] = (char*)GetString( MSG_TLGUI_SKEW );                     // "\0334Skew"
+         EETL_TimeLines[2] = (char*)GetString( MSG_TLGUI_AZIMUTH );                  // "\0334Azimuth"
+         EETL_TimeLines[3] = (char*)GetString( MSG_TLGUI_RELATIVEELEVATIONEFFECT );  // "\0334Relative Elevation Effect"
+         EETL_TimeLines[4] = (char*)GetString( MSG_TLGUI_MXRELATIVEELEVATION );      // "\0334Mx Relative Elevation"
+         EETL_TimeLines[5] = (char*)GetString( MSG_TLGUI_MNRELATIVEELEVATION );      // "\0334Mn Relative Elevation"
+         EETL_TimeLines[6] = (char*)GetString( MSG_TLGUI_MXSLOPE );                  // "\0334Mx Slope"
+         EETL_TimeLines[7] = (char*)GetString( MSG_TLGUI_MNSLOPE );                  // "\0334Mn Slope"
+         EETL_TimeLines[8] = (char*)GetString( MSG_TLGUI_DENSITY );                  // "\0334Density"
+         EETL_TimeLines[9] = (char*)GetString( MSG_TLGUI_HEIGHT );                   // "\0334Height"
+     }
+
+
+    return WindowObject,
+          MUIA_Window_Title     , GetString( MSG_TLGUI_ECOSYSTEMTIMELINE ),  // "Ecosystem Time Line"
+          MUIA_Window_ID        , MakeID('E','E','T','L'),
+          MUIA_Window_Screen    , WCSScrn,
+          MUIA_Window_Menu      , WCSNewMenus,
+
+          WindowContents, VGroup,
+            Child, HGroup, MUIA_Group_HorizSpacing, 0,
+          Child, RectangleObject, End,
+          Child, EETL_Win->ParCycle = CycleObject,
+            MUIA_Cycle_Entries, EETL_Win->List, End,
+          Child, RectangleObject, End,
+          Child, EETL_Win->ValStr[0] = StringObject, StringFrame,
+            MUIA_FixWidthTxt, "012345",
+            MUIA_String_Accept, ".-0123456789", End,
+          Child, RectangleObject, End,
+              End, /* HGroup */
+
+      Child, EETL_Win->TimeLineGroup = RegisterGroup(EETL_TimeLines),
+        Child, EETL_Win->TimeLineObj[0] = NewObject(EETL_Win->TL_Class, NULL,
+          InputListFrame,
+          InnerSpacing(0, 0),
+          TAG_DONE),
+        Child, EETL_Win->TimeLineObj[1] = NewObject(EETL_Win->TL_Class, NULL,
+          InputListFrame,
+          InnerSpacing(0, 0),
+          TAG_DONE),
+          Child, EETL_Win->TimeLineObj[2] = NewObject(EETL_Win->TL_Class, NULL,
+            InputListFrame,
+            InnerSpacing(0, 0),
+            TAG_DONE),
+          Child, EETL_Win->TimeLineObj[3] = NewObject(EETL_Win->TL_Class, NULL,
+            InputListFrame,
+            InnerSpacing(0, 0),
+            TAG_DONE),
+          Child, EETL_Win->TimeLineObj[4] = NewObject(EETL_Win->TL_Class, NULL,
+            InputListFrame,
+            InnerSpacing(0, 0),
+            TAG_DONE),
+          Child, EETL_Win->TimeLineObj[5] = NewObject(EETL_Win->TL_Class, NULL,
+            InputListFrame,
+            InnerSpacing(0, 0),
+            TAG_DONE),
+          Child, EETL_Win->TimeLineObj[6] = NewObject(EETL_Win->TL_Class, NULL,
+            InputListFrame,
+            InnerSpacing(0, 0),
+            TAG_DONE),
+          Child, EETL_Win->TimeLineObj[7] = NewObject(EETL_Win->TL_Class, NULL,
+            InputListFrame,
+            InnerSpacing(0, 0),
+            TAG_DONE),
+          Child, EETL_Win->TimeLineObj[8] = NewObject(EETL_Win->TL_Class, NULL,
+            InputListFrame,
+            InnerSpacing(0, 0),
+            TAG_DONE),
+          Child, EETL_Win->TimeLineObj[9] = NewObject(EETL_Win->TL_Class, NULL,
+            InputListFrame,
+            InnerSpacing(0, 0),
+            TAG_DONE),
+          End, /* RegisterGroup */
+
+              Child, HGroup,
+          Child, HGroup, MUIA_Group_HorizSpacing, 0,
+            Child, VGroup,
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label1(GetString( MSG_TLGUI_PAN )),  // "  Pan "
+                    Child, EETL_Win->Prop[0] = PropObject, PropFrame,
+                MUIA_HorizWeight, 400,
+                MUIA_Prop_Horiz, TRUE,
+                MUIA_Prop_Entries, 100,
+                MUIA_Prop_First, 100,
+                MUIA_Prop_Visible, 100, End,
+                End, /* HGroup */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label1(GetString( MSG_TLGUI_ZOOM )),  // " Zoom "
+                    Child, EETL_Win->Prop[1] = PropObject, PropFrame,
+                MUIA_HorizWeight, 400,
+                MUIA_Prop_Horiz, TRUE,
+                MUIA_Prop_Entries, 102,
+                MUIA_Prop_First, 100,
+                MUIA_Prop_Visible, 2, End,
+                End, /* HGroup */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label1(GetString( MSG_TLGUI_FRAME_SPACE )),  // "Frame "
+                    Child, EETL_Win->Prop[2] = PropObject, PropFrame,
+                MUIA_HorizWeight, 400,
+                MUIA_Prop_Horiz, TRUE,
+                MUIA_Prop_Entries, 102,
+                MUIA_Prop_First, 100,
+                MUIA_Prop_Visible, 2, End,
+                End, /* HGroup */
+              End, /* VGroup */
+            End, /* HGroup */
+          Child, VGroup,
+            Child, HGroup, MUIA_Group_HorizSpacing, 0,
+            MUIA_Group_SameWidth, TRUE,
+              Child, EETL_Win->BT_PrevKey = KeyButtonObject('v'),
+            MUIA_FixWidthTxt, "0123456",
+            MUIA_Text_Contents, GetString( MSG_TLGUI_PREV ), End,  // "\33cPrev"
+              Child, EETL_Win->BT_NextKey = KeyButtonObject('x'),
+            MUIA_FixWidthTxt, "0123456",
+            MUIA_Text_Contents, GetString( MSG_TLGUI_NEXT ), End,  // "\33cNext"
+              End, /* HGroup */
+            Child, HGroup, MUIA_Group_HorizSpacing, 0,
+            MUIA_Group_SameWidth, TRUE,
+              Child, EETL_Win->BT_AddKey = KeyButtonFunc('a', (char*)GetString( MSG_TLGUI_ADDKEY )),  // "\33cAdd Key"
+              Child, EETL_Win->BT_DelKey = KeyButtonFunc(127, (char*)GetString( MSG_TLGUI_DELKEY )),  // "\33c\33uDel\33n Key"
+              End, /* HGroup */
+            Child, EETL_Win->KeysExistTxt = TextObject, TextFrame, End,
+            End, /* VGroup */
+          End, /* HGroup */
+
+        Child, HGroup,
+          Child, EETL_Win->BT_Linear = KeyButtonObject('l'),
+             MUIA_InputMode, MUIV_InputMode_Toggle,
+             MUIA_Text_Contents, GetString( MSG_TLGUI_LINEAR ), End,  // "\33cLinear"
+          Child, EETL_Win->TCB_Cycle = Cycle(EETL_Cycle_TCB),
+          Child, HGroup, MUIA_Group_HorizSpacing, 0,
+            Child, EETL_Win->CycleStr = StringObject, StringFrame,
+            MUIA_FixWidthTxt, "012345", End,
+                Child, EETL_Win->StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, EETL_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+          Child, RectangleObject, End,
+          Child, EETL_Win->FrameTxtLbl = Label1(GetString( MSG_TLGUI_FRAME )),  // "Frame"
+          Child, HGroup, MUIA_Group_HorizSpacing, 0,
+            Child, EETL_Win->FrameTxt = TextObject, TextFrame,
+            MUIA_FixWidthTxt, "01234", End,
+                Child, EETL_Win->TxtArrowLg[0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, EETL_Win->TxtArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, EETL_Win->TxtArrow[1] = ImageButtonWCS(MUII_ArrowRight),
+                Child, EETL_Win->TxtArrowLg[1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+          End, /* HGroup */
+        Child, HGroup,
+          Child, EETL_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_TLGUI_KEEP )),  // "\33cKeep"
+          Child, EETL_Win->BT_Grid = KeyButtonObject('g'),
+             MUIA_InputMode, MUIV_InputMode_Toggle,
+             MUIA_Selected, TRUE,
+             MUIA_Text_Contents, GetString( MSG_TLGUI_GRID ), End,  // "\33cGrid"
+    /* No way to play yet devised but we'll find one!!
+          Child, EETL_Win->BT_Play = KeyButtonObject('p'),
+             MUIA_Text_Contents, "\33cPlay", End,
+    */
+          Child, EETL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
+          End, /* HGroup */
+        End, /* VGroup */
+          End; /* WindowObject EETL_Win->TimeLineWin */
+}
+
 void Make_EETL_Window(void)
 {
  short i;
  long open;
- static const char *EETL_Cycle_TCB[3] = {NULL};
-
- static const char *EETL_TimeLines[11] = {NULL};
-
- static int Init=TRUE;
-
- if(Init)
- {
-	 Init=FALSE;
-
-	 EETL_Cycle_TCB[0] = (char*)GetString( MSG_TLGUI_TENS );  // "Tens"
-	 EETL_Cycle_TCB[1] = (char*)GetString( MSG_TLGUI_CONT );  // "Cont"
-	 EETL_Cycle_TCB[2] = (char*)GetString( MSG_TLGUI_BIAS );  // "Bias"
-
-	 EETL_TimeLines[0] = (char*)GetString( MSG_TLGUI_ELEVATIONLINE );            // "\0334Elevation Line"
-	 EETL_TimeLines[1] = (char*)GetString( MSG_TLGUI_SKEW );                     // "\0334Skew"
-	 EETL_TimeLines[2] = (char*)GetString( MSG_TLGUI_AZIMUTH );                  // "\0334Azimuth"
-	 EETL_TimeLines[3] = (char*)GetString( MSG_TLGUI_RELATIVEELEVATIONEFFECT );  // "\0334Relative Elevation Effect"
-	 EETL_TimeLines[4] = (char*)GetString( MSG_TLGUI_MXRELATIVEELEVATION );      // "\0334Mx Relative Elevation"
-	 EETL_TimeLines[5] = (char*)GetString( MSG_TLGUI_MNRELATIVEELEVATION );      // "\0334Mn Relative Elevation"
-	 EETL_TimeLines[6] = (char*)GetString( MSG_TLGUI_MXSLOPE );                  // "\0334Mx Slope"
-	 EETL_TimeLines[7] = (char*)GetString( MSG_TLGUI_MNSLOPE );                  // "\0334Mn Slope"
-	 EETL_TimeLines[8] = (char*)GetString( MSG_TLGUI_DENSITY );                  // "\0334Density"
-	 EETL_TimeLines[9] = (char*)GetString( MSG_TLGUI_HEIGHT );                   // "\0334Height"
- }
 
  if (EETL_Win)
   {
@@ -1743,153 +1896,7 @@ void Make_EETL_Window(void)
 
   Set_Param_Menu(2);
 
-     EETL_Win->TimeLineWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_TLGUI_ECOSYSTEMTIMELINE ),  // "Ecosystem Time Line"
-      MUIA_Window_ID		, MakeID('E','E','T','L'),
-      MUIA_Window_Screen	, WCSScrn,
-      MUIA_Window_Menu		, WCSNewMenus,
-
-      WindowContents, VGroup,
-        Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	  Child, RectangleObject, End,
-	  Child, EETL_Win->ParCycle = CycleObject,
-		MUIA_Cycle_Entries, EETL_Win->List, End,
-	  Child, RectangleObject, End,
-	  Child, EETL_Win->ValStr[0] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "012345",
-		MUIA_String_Accept, ".-0123456789", End,
-	  Child, RectangleObject, End,
-          End, /* HGroup */
-	Child, EETL_Win->TimeLineGroup = RegisterGroup(EETL_TimeLines),
-	  Child, EETL_Win->TimeLineObj[0] = NewObject(EETL_Win->TL_Class, NULL,
-		InputListFrame,
-		InnerSpacing(0, 0),
-		TAG_DONE),
-	  Child, EETL_Win->TimeLineObj[1] = NewObject(EETL_Win->TL_Class, NULL,
-		InputListFrame,
-		InnerSpacing(0, 0),
-		TAG_DONE),
-	  Child, EETL_Win->TimeLineObj[2] = NewObject(EETL_Win->TL_Class, NULL,
-		InputListFrame,
-		InnerSpacing(0, 0),
-		TAG_DONE),
-	  Child, EETL_Win->TimeLineObj[3] = NewObject(EETL_Win->TL_Class, NULL,
-		InputListFrame,
-		InnerSpacing(0, 0),
-		TAG_DONE),
-	  Child, EETL_Win->TimeLineObj[4] = NewObject(EETL_Win->TL_Class, NULL,
-		InputListFrame,
-		InnerSpacing(0, 0),
-		TAG_DONE),
-	  Child, EETL_Win->TimeLineObj[5] = NewObject(EETL_Win->TL_Class, NULL,
-		InputListFrame,
-		InnerSpacing(0, 0),
-		TAG_DONE),
-	  Child, EETL_Win->TimeLineObj[6] = NewObject(EETL_Win->TL_Class, NULL,
-		InputListFrame,
-		InnerSpacing(0, 0),
-		TAG_DONE),
-	  Child, EETL_Win->TimeLineObj[7] = NewObject(EETL_Win->TL_Class, NULL,
-		InputListFrame,
-		InnerSpacing(0, 0),
-		TAG_DONE),
-	  Child, EETL_Win->TimeLineObj[8] = NewObject(EETL_Win->TL_Class, NULL,
-		InputListFrame,
-		InnerSpacing(0, 0),
-		TAG_DONE),
-	  Child, EETL_Win->TimeLineObj[9] = NewObject(EETL_Win->TL_Class, NULL,
-		InputListFrame,
-		InnerSpacing(0, 0),
-		TAG_DONE),
-	  End, /* RegisterGroup */
-	Child, HGroup,
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, VGroup,
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1(GetString( MSG_TLGUI_PAN )),  // "  Pan "
-                Child, EETL_Win->Prop[0] = PropObject, PropFrame,
-			MUIA_HorizWeight, 400,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 100,
-			MUIA_Prop_First, 100,
-			MUIA_Prop_Visible, 100, End,
-	        End, /* HGroup */
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1(GetString( MSG_TLGUI_ZOOM )),  // " Zoom "
-                Child, EETL_Win->Prop[1] = PropObject, PropFrame,
-			MUIA_HorizWeight, 400,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 102,
-			MUIA_Prop_First, 100,
-			MUIA_Prop_Visible, 2, End,
-	        End, /* HGroup */
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1(GetString( MSG_TLGUI_FRAME_SPACE )),  // "Frame "
-                Child, EETL_Win->Prop[2] = PropObject, PropFrame,
-			MUIA_HorizWeight, 400,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 102,
-			MUIA_Prop_First, 100,
-			MUIA_Prop_Visible, 2, End,
-	        End, /* HGroup */
-	      End, /* VGroup */
-	    End, /* HGroup */
-	  Child, VGroup,
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-		MUIA_Group_SameWidth, TRUE,
-	      Child, EETL_Win->BT_PrevKey = KeyButtonObject('v'),
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, GetString( MSG_TLGUI_PREV ), End,  // "\33cPrev"
-	      Child, EETL_Win->BT_NextKey = KeyButtonObject('x'),
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, GetString( MSG_TLGUI_NEXT ), End,  // "\33cNext"
-	      End, /* HGroup */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-		MUIA_Group_SameWidth, TRUE,
-	      Child, EETL_Win->BT_AddKey = KeyButtonFunc('a', (char*)GetString( MSG_TLGUI_ADDKEY )),  // "\33cAdd Key"
-	      Child, EETL_Win->BT_DelKey = KeyButtonFunc(127, (char*)GetString( MSG_TLGUI_DELKEY )),  // "\33c\33uDel\33n Key"
-	      End, /* HGroup */
-	    Child, EETL_Win->KeysExistTxt = TextObject, TextFrame, End,
-	    End, /* VGroup */
-	  End, /* HGroup */
-
-	Child, HGroup,
-	  Child, EETL_Win->BT_Linear = KeyButtonObject('l'),
-		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, GetString( MSG_TLGUI_LINEAR ), End,  // "\33cLinear"
-	  Child, EETL_Win->TCB_Cycle = Cycle(EETL_Cycle_TCB),
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, EETL_Win->CycleStr = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "012345", End,
-            Child, EETL_Win->StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
-            Child, EETL_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
-            End, /* HGroup */
-	  Child, RectangleObject, End,
-	  Child, EETL_Win->FrameTxtLbl = Label1(GetString( MSG_TLGUI_FRAME )),  // "Frame"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, EETL_Win->FrameTxt = TextObject, TextFrame,
-		MUIA_FixWidthTxt, "01234", End,
-            Child, EETL_Win->TxtArrowLg[0] = ImageButtonWCS(MUII_ArrowLeft),
-            Child, EETL_Win->TxtArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
-            Child, EETL_Win->TxtArrow[1] = ImageButtonWCS(MUII_ArrowRight),
-            Child, EETL_Win->TxtArrowLg[1] = ImageButtonWCS(MUII_ArrowRight),
-            End, /* HGroup */
-	  End, /* HGroup */
-	Child, HGroup,
-	  Child, EETL_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_TLGUI_KEEP )),  // "\33cKeep"
-	  Child, EETL_Win->BT_Grid = KeyButtonObject('g'),
-	 	 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Selected, TRUE,
-	 	 MUIA_Text_Contents, GetString( MSG_TLGUI_GRID ), End,  // "\33cGrid"
-/* No way to play yet devised but we'll find one!!
-	  Child, EETL_Win->BT_Play = KeyButtonObject('p'),
-		 MUIA_Text_Contents, "\33cPlay", End, 
-*/
-	  Child, EETL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
-	  End, /* HGroup */ 
-	End, /* VGroup */
-      End; /* WindowObject EETL_Win->TimeLineWin */
-
+     EETL_Win->TimeLineWin = AF_MakeEETLWindow(EETL_Win);
   if (! EETL_Win->TimeLineWin)
    {
    Close_EETL_Window(1);

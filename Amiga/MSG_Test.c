@@ -11,6 +11,7 @@
 #include "WCS_locale.h"
 #include "Version.h"
 #include "GenericParams.h"
+#include "TimeLinesGUI.h"
 
 #ifdef BETA_USER_MESSAGE_TEST   // is set in Version.h
 void IncAndShowTestNumbers(unsigned int TestNumber, unsigned int TotalNumber)
@@ -3862,7 +3863,7 @@ int MapGUI_New(struct MapData *MP);
 void MapGUI_Del(struct MapData *MP);
 void Close_MA_Window(struct MapData *MP);
 APTR AF_MakeScaleWinObject(struct ScaleWindow *PS_Win);
-
+APTR AF_MakeEETLWindow(struct TimeLineWindow *EETL_Win);
 
 void waitForRightClick(Object *MuiWindow)
 {
@@ -5550,7 +5551,7 @@ Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
     waitForRightClick(LW_Win->IOWin); // Wait for right mouse button to be pressed
     Close_LW_Window();
 }
-END_LABEL:
+
 // AF_CASE
 {
     Make_FM_Window();
@@ -5577,5 +5578,67 @@ END_LABEL:
     ModeList_Del(ScreenModes);
 }
 
+END_LABEL:
+// ############ TimeLinesGUI.c ##############
+// AF_CASE
+{
+    struct TimeLineWindow EETL_Win={0};
+    APTR TimeLineWin=NULL;
+
+    struct Data
+    {
+     short x, y, sx, sy;
+     short left, right, top, bottom, textbottom, textzero, lowframe, highframe,
+         textwidthtop, textwidthbottom, textwidthzero, framegrid,
+         framegridfirst, framegridlg, drawgrid;
+     float texthighval, textlowval, valgrid, valgridfirst, framepixgrid,
+         valpixgrid, valpixpt, framepixpt;
+     struct KeyTable *SKT;
+     short group, activekey, activeitem, dataitems, baseitem;
+     long inputflags;
+     struct TimeLineWindow *win;
+    };
+
+
+    if ( ! (EETL_Win.SuperClass = MUI_GetClass(MUIC_Area)))
+     {
+        printf("MUI_GetClass(MUIC_Area) failed!\n");
+        return;
+     }
+
+   /* create the new class */
+    if (!(EETL_Win.TL_Class =
+        MakeClass(NULL, NULL, EETL_Win.SuperClass, sizeof(struct Data), 0)))
+    {
+        printf("MakeClass() failed!\n");
+     return;
+    }
+    /* set the dispatcher for the new class */
+     EETL_Win.TL_Class->cl_Dispatcher.h_Entry    = (APTR)TL_Dispatcher;
+     EETL_Win.TL_Class->cl_Dispatcher.h_SubEntry = NULL;
+     EETL_Win.TL_Class->cl_Dispatcher.h_Data     = NULL;
+
+
+    TimeLineWin=AF_MakeEETLWindow(&EETL_Win);
+    if(TimeLineWin == NULL)
+    {
+        printf("AF_MakeEETLWindow() failed!\n");
+        return; // Exit if the Time Line Window could not be created
+    }
+    DoMethod(app, OM_ADDMEMBER, TimeLineWin);
+    set(TimeLineWin,MUIA_Window_Open, TRUE);
+    waitForRightClick(TimeLineWin); // Wait for right mouse button to be pressed
+    set(TimeLineWin,MUIA_Window_Open, FALSE);
+    DoMethod(app, OM_REMMEMBER, TimeLineWin);
+    MUI_FreeClass(EETL_Win.SuperClass);
+    MUI_DisposeObject(TimeLineWin);
 }
+
+// AF_CASE
+//{
+//    Make_ECTL_Window();
+//    waitForRightClick(ECTL_Win->TimeLineWin ); // Wait for right mouse button to be pressed
+//    Close_ECTL_Window(1);  // Close Ecosystem Time Line Window, 1= Shutdown, kill it all!
+//}
+//}
 #endif
