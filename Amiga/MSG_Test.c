@@ -3864,6 +3864,8 @@ void MapGUI_Del(struct MapData *MP);
 void Close_MA_Window(struct MapData *MP);
 APTR AF_MakeScaleWinObject(struct ScaleWindow *PS_Win);
 APTR AF_MakeEETLWindow(struct TimeLineWindow *EETL_Win);
+APTR AF_MakeECTLWindow(struct TimeLineWindow  *ECTL_Win);
+APTR AF_MakeEMTLWindow(struct TimeLineWindow  *EMTL_Win);
 
 void waitForRightClick(Object *MuiWindow)
 {
@@ -5635,10 +5637,85 @@ END_LABEL:
 }
 
 // AF_CASE
-//{
-//    Make_ECTL_Window();
-//    waitForRightClick(ECTL_Win->TimeLineWin ); // Wait for right mouse button to be pressed
-//    Close_ECTL_Window(1);  // Close Ecosystem Time Line Window, 1= Shutdown, kill it all!
-//}
-//}
+{
+    struct TimeLineWindow ECTL_Win={0};
+    APTR Window=NULL;
+
+    if ( ! (ECTL_Win.SuperClass = MUI_GetClass(MUIC_Area)))
+      {
+         printf("MUI_GetClass(MUIC_Area) failed!\n");
+         return;
+      }
+
+    /* create the new class */
+     if (!(ECTL_Win.TL_Class =
+         MakeClass(NULL, NULL, ECTL_Win.SuperClass, sizeof(struct Data), 0)))
+     {
+         printf("MakeClass() failed!\n");
+      return;
+     }
+     /* set the dispatcher for the new class */
+     ECTL_Win.TL_Class->cl_Dispatcher.h_Entry    = (APTR)TL_Dispatcher;
+     ECTL_Win.TL_Class->cl_Dispatcher.h_SubEntry = NULL;
+     ECTL_Win.TL_Class->cl_Dispatcher.h_Data     = NULL;
+
+
+
+    Window=AF_MakeECTLWindow(&ECTL_Win);  // Make Ecosystem Time Line Window
+    if(Window == NULL)
+    {
+        printf("AF_MakeECTL_Window() failed!\n");
+        return; // Exit if the Ecosystem Time Line Window could not be created
+    }
+    DoMethod(app, OM_ADDMEMBER, Window);
+    set(Window,MUIA_Window_Open, TRUE);
+    waitForRightClick(Window); // Wait for right mouse button to be pressed
+    set(Window,MUIA_Window_Open, FALSE);
+    DoMethod(app, OM_REMMEMBER, Window);
+    MUI_FreeClass(ECTL_Win.SuperClass);
+    MUI_DisposeObject(Window);
+}
+
+// AF_CASE
+{
+    struct TimeLineWindow EMTL_Win={0};
+    APTR Window=NULL;
+
+    if ( ! (EMTL_Win.SuperClass = MUI_GetClass(MUIC_Area)))
+      {
+         printf("MUI_GetClass(MUIC_Area) failed!\n");
+         return;
+      }
+
+    /* create the new class */
+     if (!(EMTL_Win.TL_Class =
+         MakeClass(NULL, NULL, EMTL_Win.SuperClass, sizeof(struct Data), 0)))
+     {
+         printf("MakeClass() failed!\n");
+      return;
+     }
+     /* set the dispatcher for the new class */
+     EMTL_Win.TL_Class->cl_Dispatcher.h_Entry    = (APTR)TL_Dispatcher;
+     EMTL_Win.TL_Class->cl_Dispatcher.h_SubEntry = NULL;
+     EMTL_Win.TL_Class->cl_Dispatcher.h_Data     = NULL;
+
+
+
+    Window=AF_MakeEMTLWindow(&EMTL_Win);  // Make Ecosystem Motion Time Line Window
+    if(Window == NULL)
+    {
+        printf("AF_MakeEMTL_Window() failed!\n");
+        return; // Exit if the Ecosystem Motion Time Line Window could not be created
+    }
+    DoMethod(app, OM_ADDMEMBER, Window);
+    set(Window,MUIA_Window_Open, TRUE);
+    waitForRightClick(Window); // Wait for right mouse button to be pressed
+    set(Window,MUIA_Window_Open, FALSE);
+    DoMethod(app, OM_REMMEMBER, Window);
+    MUI_FreeClass(EMTL_Win.SuperClass);
+    MUI_DisposeObject(Window);
+}
+
+
+}
 #endif

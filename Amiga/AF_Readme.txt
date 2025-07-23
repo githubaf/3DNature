@@ -4684,8 +4684,8 @@ OK	./RequesterGUI.c:316:	This->BusyWin = WindowObject,
 OK	./ScreenModeGUI.c:143:		ModeSelWin = WindowObject,
 
 OK	./TimeLinesGUI.c:1746:     EETL_Win->TimeLineWin = WindowObject,
-./TimeLinesGUI.c:986:     ECTL_Win->TimeLineWin = WindowObject,
-./TimeLinesGUI.c:99:     EMTL_Win->TimeLineWin = WindowObject,
+OK	./TimeLinesGUI.c:986:     ECTL_Win->TimeLineWin = WindowObject,
+OK	./TimeLinesGUI.c:99:     EMTL_Win->TimeLineWin = WindowObject,
 
 ./WaveGUI.c:98:    WV_Win->WaveWin = WindowObject,
 
