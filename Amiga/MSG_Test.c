@@ -12,6 +12,7 @@
 #include "Version.h"
 #include "GenericParams.h"
 #include "TimeLinesGUI.h"
+#include "Wave.h"
 
 #ifdef BETA_USER_MESSAGE_TEST   // is set in Version.h
 void IncAndShowTestNumbers(unsigned int TestNumber, unsigned int TotalNumber)
@@ -3866,6 +3867,7 @@ APTR AF_MakeScaleWinObject(struct ScaleWindow *PS_Win);
 APTR AF_MakeEETLWindow(struct TimeLineWindow *EETL_Win);
 APTR AF_MakeECTLWindow(struct TimeLineWindow  *ECTL_Win);
 APTR AF_MakeEMTLWindow(struct TimeLineWindow  *EMTL_Win);
+APTR AF_MakeWV_Win(struct WaveWindow *WV_Win, short WinNum, char *NameStr, ULONG WinID);
 
 void waitForRightClick(Object *MuiWindow)
 {
@@ -5580,7 +5582,7 @@ Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
     ModeList_Del(ScreenModes);
 }
 
-END_LABEL:
+
 // ############ TimeLinesGUI.c ##############
 // AF_CASE
 {
@@ -5716,6 +5718,57 @@ END_LABEL:
     MUI_DisposeObject(Window);
 }
 
+END_LABEL:
+// ############ WaveGUI.c ##############
+// AF_CASE
+{
+    struct WaveWindow WV_Win={0};
+    short WinNum=0; // 0 = Wave Edit Window, 1 = Wave Control Window
+    char *NameStr=(char*)GetString( MSG_WAVGUI_WAVEEDITOR ); // "Wave Editor"
+    ULONG WinID = WinNum == 0 ? MakeID('W','V','E','D'): MakeID('W','V','E','C');
+
+    APTR Window=NULL;
+
+    Window=AF_MakeWV_Win(&WV_Win, WinNum, NameStr, WinID);  // Make Wave Window
+    if(Window == NULL)
+    {
+        printf("AF_MakeWV_Win() failed!\n");
+        return; // Exit if the Wave Window could not be created
+    }
+
+    DoMethod(app, OM_ADDMEMBER, Window);
+    set(Window,MUIA_Window_Open, TRUE);
+    waitForRightClick(Window); // Wait for right mouse button to be pressed
+    set(Window,MUIA_Window_Open, FALSE);
+    DoMethod(app, OM_REMMEMBER, Window);
+    MUI_DisposeObject(Window);
+
+}
+
+// AF_CASE
+{
+    struct WaveWindow WV_Win={0};
+    short WinNum=1; // 0 = Wave Edit Window, 1 = Wave Control Window
+    char *NameStr=(char*)GetString( MSG_CLOUDGUI_CLOUDWAVEEDITOR ); // "Cloud Wave Editor"
+    ULONG WinID = WinNum == 0 ? MakeID('W','V','E','D'): MakeID('W','V','E','C');
+
+    APTR Window=NULL;
+
+    Window=AF_MakeWV_Win(&WV_Win, WinNum, NameStr, WinID);  // Make Wave Window
+    if(Window == NULL)
+    {
+        printf("AF_MakeWV_Win() failed!\n");
+        return; // Exit if the Wave Window could not be created
+    }
+
+    DoMethod(app, OM_ADDMEMBER, Window);
+    set(Window,MUIA_Window_Open, TRUE);
+    waitForRightClick(Window); // Wait for right mouse button to be pressed
+    set(Window,MUIA_Window_Open, FALSE);
+    DoMethod(app, OM_REMMEMBER, Window);
+    MUI_DisposeObject(Window);
+
+}
 
 }
 #endif

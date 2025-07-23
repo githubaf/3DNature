@@ -29,6 +29,88 @@ STATIC_FCN void GUIWaveKey_SetGads(struct WaveWindow *WV_Win, struct WaveData *W
 STATIC_FCN APTR Make_WVAnim_Group(struct WaveWindow *WV_Win, short WinNum); // used locally only -> static, AF 24.7.2021
 
 
+APTR AF_MakeWV_Win(struct WaveWindow *WV_Win, short WinNum, char *NameStr, ULONG WinID)
+{
+    return WindowObject,
+            MUIA_Window_Title     , NameStr,
+            MUIA_Window_ID        , WinID,
+            MUIA_Window_Screen    , WCSScrn,
+
+            WindowContents, VGroup,
+          Child, Make_WVOption_Group(WV_Win, WinNum),
+          Child, HGroup,
+            Child, VGroup,
+              Child, Label(GetString( MSG_WAVGUI_33C0334CWAVES )),  // "\33c\0334Waves"
+                  Child, WV_Win->LS_WaveList = ListviewObject,
+              MUIA_Listview_Input, TRUE,
+                      MUIA_Listview_List, ListObject, ReadListFrame, End,
+                    End, /* ListviewObject */
+              End, /* VGroup */
+            Child, VGroup,
+              Child, Label(GetString( MSG_WAVGUI_ACTIVEWAVE )),  // "\33c\0334Active Wave"
+              Child, ColGroup(2),
+                Child, Label2(GetString( MSG_WAVGUI_LATITUDE )),  // "Latitude"
+                Child, HGroup, MUIA_Group_HorizSpacing, 0,
+              Child, WV_Win->WaveStr[0] = StringObject, StringFrame,
+                  MUIA_FixWidthTxt, "01234567",
+                  MUIA_String_Accept, "-.0123456789", End,
+              Child, WV_Win->WaveArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, WV_Win->WaveArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
+              End, /* HGroup */
+                Child, Label2(GetString( MSG_WAVGUI_LONGITUDE )),  // "Longitude"
+                Child, HGroup, MUIA_Group_HorizSpacing, 0,
+              Child, WV_Win->WaveStr[1] = StringObject, StringFrame,
+                  MUIA_FixWidthTxt, "01234567",
+                  MUIA_String_Accept, "-.0123456789", End,
+              Child, WV_Win->WaveArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, WV_Win->WaveArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
+              End, /* HGroup */
+                Child, Label2(GetString( MSG_WAVGUI_AMPLITUDEM )),  // "Amplitude (m)"
+                Child, HGroup, MUIA_Group_HorizSpacing, 0,
+              Child, WV_Win->WaveStr[2] = StringObject, StringFrame,
+                  MUIA_FixWidthTxt, "01234567",
+                  MUIA_String_Accept, "-.0123456789", End,
+              Child, WV_Win->WaveArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, WV_Win->WaveArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
+              End, /* HGroup */
+                Child, Label2(GetString( MSG_WAVGUI_WAVELENGTHKM )),  // "Wave Length (km)"
+                Child, HGroup, MUIA_Group_HorizSpacing, 0,
+              Child, WV_Win->WaveStr[3] = StringObject, StringFrame,
+                  MUIA_FixWidthTxt, "01234567",
+                  MUIA_String_Accept, "-.0123456789", End,
+              Child, WV_Win->WaveArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, WV_Win->WaveArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
+              End, /* HGroup */
+                Child, Label2(GetString( MSG_WAVGUI_VELOCITYKMHR )),  // "Velocity (km/hr)"
+                Child, HGroup, MUIA_Group_HorizSpacing, 0,
+              Child, WV_Win->WaveStr[4] = StringObject, StringFrame,
+                  MUIA_FixWidthTxt, "01234567",
+                  MUIA_String_Accept, "-.0123456789", End,
+              Child, WV_Win->WaveArrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, WV_Win->WaveArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
+              End, /* HGroup */
+                End, /* ColGroup */
+              Child, HGroup,
+                Child, WV_Win->BT_AddWave    = KeyButtonFunc('a', (char*)GetString( MSG_WAVGUI_ADD )),     // "\33cAdd..."
+                Child, WV_Win->BT_MapAddWave = KeyButtonFunc('p', (char*)GetString( MSG_WAVGUI_MAPADD )),  // "\33cMap Add..."
+                Child, WV_Win->BT_RemoveWave = KeyButtonFunc('r', (char*)GetString( MSG_WAVGUI_REMOVE )),  // "\33cRemove"
+                End, /* HGroup */
+
+              Child, Make_WVAnim_Group(WV_Win, WinNum),
+
+              End, /* VGroup */
+            End, /* HGroup */
+
+          Child, Make_WVTL_Group(WV_Win, WinNum),
+
+          Child, HGroup, MUIA_Group_SameWidth, TRUE,
+                Child, WV_Win->BT_Load = KeyButtonFunc('l', (char*)GetString( MSG_WAVGUI_LOAD )),  // "\33cLoad"
+                Child, WV_Win->BT_Save = KeyButtonFunc('e', (char*)GetString( MSG_WAVGUI_SAVE )),  // "\33cSave"
+                End, /* HGroup */
+
+          End, /* VGroup */
+             End; /* Window object */
+}
 
 
 void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static, AF 24.7.2021
@@ -95,86 +177,7 @@ void Make_WV_Window(short WinNum, char *NameStr) // used locally only -> static,
   sprintf(WV_Win->WaveNames[i], "%ld", i);
   } /* for i=... */
 
-    WV_Win->WaveWin = WindowObject,
-      MUIA_Window_Title		, NameStr,
-      MUIA_Window_ID		, WinID,
-      MUIA_Window_Screen	, WCSScrn,
-
-      WindowContents, VGroup,
-	Child, Make_WVOption_Group(WV_Win, WinNum),
-	Child, HGroup,
-	  Child, VGroup,
-	    Child, Label(GetString( MSG_WAVGUI_33C0334CWAVES )),  // "\33c\0334Waves"
-            Child, WV_Win->LS_WaveList = ListviewObject,
-		MUIA_Listview_Input, TRUE,
-               	MUIA_Listview_List, ListObject, ReadListFrame, End,
-              End, /* ListviewObject */
-	    End, /* VGroup */
-	  Child, VGroup,
-	    Child, Label(GetString( MSG_WAVGUI_ACTIVEWAVE )),  // "\33c\0334Active Wave"
-	    Child, ColGroup(2),
-	      Child, Label2(GetString( MSG_WAVGUI_LATITUDE )),  // "Latitude"
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-		Child, WV_Win->WaveStr[0] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "01234567",
-			MUIA_String_Accept, "-.0123456789", End,
-		Child, WV_Win->WaveArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
-		Child, WV_Win->WaveArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
-		End, /* HGroup */
-	      Child, Label2(GetString( MSG_WAVGUI_LONGITUDE )),  // "Longitude"
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-		Child, WV_Win->WaveStr[1] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "01234567",
-			MUIA_String_Accept, "-.0123456789", End,
-		Child, WV_Win->WaveArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
-		Child, WV_Win->WaveArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
-		End, /* HGroup */
-	      Child, Label2(GetString( MSG_WAVGUI_AMPLITUDEM )),  // "Amplitude (m)"
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-		Child, WV_Win->WaveStr[2] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "01234567",
-			MUIA_String_Accept, "-.0123456789", End,
-		Child, WV_Win->WaveArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
-		Child, WV_Win->WaveArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
-		End, /* HGroup */
-	      Child, Label2(GetString( MSG_WAVGUI_WAVELENGTHKM )),  // "Wave Length (km)"
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-		Child, WV_Win->WaveStr[3] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "01234567",
-			MUIA_String_Accept, "-.0123456789", End,
-		Child, WV_Win->WaveArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
-		Child, WV_Win->WaveArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
-		End, /* HGroup */
-	      Child, Label2(GetString( MSG_WAVGUI_VELOCITYKMHR )),  // "Velocity (km/hr)"
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-		Child, WV_Win->WaveStr[4] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "01234567",
-			MUIA_String_Accept, "-.0123456789", End,
-		Child, WV_Win->WaveArrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
-		Child, WV_Win->WaveArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
-		End, /* HGroup */
-	      End, /* ColGroup */
-	    Child, HGroup,
-	      Child, WV_Win->BT_AddWave    = KeyButtonFunc('a', (char*)GetString( MSG_WAVGUI_ADD )),     // "\33cAdd..."
-	      Child, WV_Win->BT_MapAddWave = KeyButtonFunc('p', (char*)GetString( MSG_WAVGUI_MAPADD )),  // "\33cMap Add..."
-	      Child, WV_Win->BT_RemoveWave = KeyButtonFunc('r', (char*)GetString( MSG_WAVGUI_REMOVE )),  // "\33cRemove"
-	      End, /* HGroup */
-
-	    Child, Make_WVAnim_Group(WV_Win, WinNum),
-
-	    End, /* VGroup */
-	  End, /* HGroup */
-
-	Child, Make_WVTL_Group(WV_Win, WinNum),
-
-	Child, HGroup, MUIA_Group_SameWidth, TRUE,
-	      Child, WV_Win->BT_Load = KeyButtonFunc('l', (char*)GetString( MSG_WAVGUI_LOAD )),  // "\33cLoad"
-	      Child, WV_Win->BT_Save = KeyButtonFunc('e', (char*)GetString( MSG_WAVGUI_SAVE )),  // "\33cSave"
-	      End, /* HGroup */
-
-	End, /* VGroup */    
-       End; /* Window object */
-
+  WV_Win->WaveWin = AF_MakeWV_Win(WV_Win, WinNum, NameStr, WinID);
   if (! WV_Win->WaveWin)
    {
    Close_WV_Window(&WVWin[WinNum]);

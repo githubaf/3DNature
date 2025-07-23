@@ -4687,5 +4687,5 @@ OK	./TimeLinesGUI.c:1746:     EETL_Win->TimeLineWin = WindowObject,
 OK	./TimeLinesGUI.c:986:     ECTL_Win->TimeLineWin = WindowObject,
 OK	./TimeLinesGUI.c:99:     EMTL_Win->TimeLineWin = WindowObject,
 
-./WaveGUI.c:98:    WV_Win->WaveWin = WindowObject,
+OK	./WaveGUI.c:98:    WV_Win->WaveWin = WindowObject,
 
