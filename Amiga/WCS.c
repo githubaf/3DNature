@@ -179,7 +179,7 @@ void Set_WCS_ReturnCode(int RetCode)
 }
 
 void Test_User_Message(unsigned int StartTestNumber);  // Test all user Messages
-void Test_WindowObject(void);  // Test WindowObject() and WindowContents()
+void Test_WindowObject(unsigned int StartTestNumber);  // Test WindowObject() and WindowContents()
 
 char *ProjectName="empty";
 
@@ -646,8 +646,18 @@ if ((IntuitionBase = (struct IntuitionBase *)
            }
            else if (argc>=2 && !strcmp(argv[1],"Test_WindowObject"))
            {
+               unsigned int StartTestNumber;
+               if(argc==3)
+                {
+                   StartTestNumber=atoi(argv[2]);
+                }
+               else
+                {
+                   StartTestNumber=1;
+                } /* else */
+
                set(AboutWin,MUIA_Window_Open,FALSE); // close About window if open
-               Test_WindowObject();  // Test all user Window Creates
+               Test_WindowObject(StartTestNumber);  // Test all user Window Creates
            }
 
 #endif
