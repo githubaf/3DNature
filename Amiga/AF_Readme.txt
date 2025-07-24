@@ -4689,3 +4689,8 @@ OK	./TimeLinesGUI.c:99:     EMTL_Win->TimeLineWin = WindowObject,
 
 OK	./WaveGUI.c:98:    WV_Win->WaveWin = WindowObject,
 
+Jetzt neues switch/case
+cat MSG_Test.c | awk 'BEGIN{Count=1;Start=0;} /Test_WindowObject/{Start=1; print $0; next;} /^.*\/\/.*AF_CASE/{if(Start==1){printf ("case %u:\n",Count++);next;}} //{print $0}' > MSG_Test_temp.
+
+ Cases neu nummerieren:
+cat MSG_Test.c | awk 'BEGIN{Count=1;Start=0;} /Test_WindowObject/{Start=1; print $0; next;} /case [0-9]+:/{if(Start==1){printf ("        case %u:\n",Count++);next;}} //{print $0}' > MSG_Test_temp.

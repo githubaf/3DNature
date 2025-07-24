@@ -9,7 +9,7 @@
 #define MSG_TEST_H_
 
 // #############################################
-void IncAndShowTestNumbers(unsigned int TestNumber, unsigned int TotalNumber);
+void ShowTestNumbers(unsigned int TestNumber, unsigned int TotalNumber);
 
 void Test_User_Message(unsigned int StartTestNumber);
 
