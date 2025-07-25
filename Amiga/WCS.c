@@ -179,7 +179,7 @@ void Set_WCS_ReturnCode(int RetCode)
 }
 
 void Test_User_Message(unsigned int StartTestNumber);  // Test all user Messages
-void Test_WindowObject(unsigned int StartTestNumber);  // Test WindowObject() and WindowContents()
+void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak);  // Test WindowObject() and WindowContents()
 
 char *ProjectName="empty";
 
@@ -644,20 +644,38 @@ if ((IntuitionBase = (struct IntuitionBase *)
                set(AboutWin,MUIA_Window_Open,FALSE); // close About window if open
         	   Test_User_Message(StartTestNumber);  // Test all user Messages
            }
-           else if (argc>=2 && !strcmp(argv[1],"Test_WindowObject"))
+           else if ((argc>=2) && !strcmp(argv[1],"Test_WindowObject"))
            {
                unsigned int StartTestNumber;
-               if(argc==3)
-                {
-                   StartTestNumber=atoi(argv[2]);
-                }
-               else
-                {
+               if(argc==2)
+               {
                    StartTestNumber=1;
-                } /* else */
+                   set(AboutWin,MUIA_Window_Open,FALSE); // close About window if open
+                   Test_WindowObject(StartTestNumber,FALSE);  // Test all user Window Creates beginning from StartTestNumber
+               }
+               else if(argc==3)
+               {
+                   StartTestNumber=atoi(argv[2]);
+                   Test_WindowObject(StartTestNumber,FALSE);  // Test all user Window Creates beginning from StartTestNumber
+               }
+               else
+               {
+                   int i;
+                   set(AboutWin,MUIA_Window_Open,FALSE); // close About window if open
 
-               set(AboutWin,MUIA_Window_Open,FALSE); // close About window if open
-               Test_WindowObject(StartTestNumber);  // Test all user Window Creates
+                   for(i=2;i<argc;i++)
+                   {
+                       if(argv[i][0]=='-') // AF: -1 is the first test, -2 the second etc.
+                       {
+                           StartTestNumber=atoi(argv[i]+1); // skip the minus
+                       }
+                       else
+                       {
+                           StartTestNumber=atoi(argv[i]);
+                           Test_WindowObject(StartTestNumber,TRUE);  // Test only given TestNumber
+                       }
+                   }
+               }
            }
 
 #endif

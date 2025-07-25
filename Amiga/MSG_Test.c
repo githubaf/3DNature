@@ -3964,7 +3964,7 @@ void Test_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR but
 }
 
 
-void Test_WindowObject(unsigned int StartTestNumber)
+void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 {
     unsigned int TotalTests=332; // TotalTests is the number of cases here
 
@@ -3972,8 +3972,6 @@ void Test_WindowObject(unsigned int StartTestNumber)
     APTR BT_AboutOK=NULL;
     //   APTR UM_BTGroup=NULL;
     APTR UM_Win;
-
-    int ShouldBreak=0;
 
     dbaseloaded=1; // Set dbaseloaded to 1, so that the Windows do not complain
     paramsloaded=1; // Set paramsloaded to 1, so that the Windows do not complain
@@ -4053,13 +4051,11 @@ void Test_WindowObject(unsigned int StartTestNumber)
             set(AboutWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, AboutWin);
             MUI_DisposeObject(AboutWin);
-
             if(ShouldBreak) break;
         }
+
         case 7:
         {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
             ShowTestNumbers(StartTestNumber++,TotalTests);
             InfoWin=AF_Make_Info_Window();
             DoMethod(app, OM_ADDMEMBER, InfoWin);
@@ -4082,7 +4078,7 @@ void Test_WindowObject(unsigned int StartTestNumber)
             //    set(UM_Win,MUIA_Window_Open, FALSE);
 
             //####### User Message Window ############
-            if(ShouldBreak) break;
+//            if(ShouldBreak) break;
         }
         case 9:
         {
