@@ -21,7 +21,7 @@ STATIC_FCN __saveds ULONG GNTL_HandleInput(struct IClass *cl, Object *obj,
 STATIC_FCN void Set_TL_Data(struct TimeLineWindow *TL_Win, short subitem); // used locally only -> static, AF 25.7.2021
 STATIC_FCN APTR Make_TLRegisterGroup(struct TimeLineWindow *TL_Win, short NumValues,
         char **Titles); // used locally only -> static, AF 25.7.2021
-STATIC_FCN SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG( a2, Object *obj), REG(a1, Msg msg)); // used locally only -> static, AF 25.7.2021
+/*STATIC_FCN*/ SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG( a2, Object *obj), REG(a1, Msg msg)); // used locally only -> static, AF 25.7.2021
 STATIC_FCN short Set_TL_Item(struct TimeLineWindow *TL_Win, short item); // used locally only -> static, AF 25.7.2021
 
 
@@ -152,7 +152,7 @@ STATIC_FCN __saveds ULONG GNTL_HandleInput(struct IClass *cl, Object *obj,
 ** Unknown/unused methods are passed to the superclass immediately.
 */
 
-STATIC_FCN SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG( a2, Object *obj), REG(a1, Msg msg)) // used locally only -> static, AF 25.7.2021
+/*STATIC_FCN*/ SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG( a2, Object *obj), REG(a1, Msg msg))
 {
 
  switch (msg->MethodID)
@@ -338,6 +338,121 @@ void Update_TL_Win(struct TimeLineWindow *TL_Win, short subitem)
 
 /***********************************************************************/
 
+APTR AF_MakeTimeLinWin(struct TimeLineWindow *TL_Win, const char *NameStr, char **Titles, short NumValues)
+{
+    static const char *TL_Cycle_TCB[4];
+    static int Init = TRUE;
+
+    if(Init)
+    {
+        Init = FALSE;
+        TL_Cycle_TCB[0] = (char*) GetString( MSG_GENTLGUI_TENS);  // "Tens"
+        TL_Cycle_TCB[1] = (char*) GetString( MSG_GENTLGUI_CONT);  // "Cont"
+        TL_Cycle_TCB[2] = (char*) GetString( MSG_GENTLGUI_BIAS);  // "Bias"
+        TL_Cycle_TCB[3] = NULL;
+    }
+
+    return WindowObject,
+          MUIA_Window_Title     , NameStr,
+          MUIA_Window_ID        , MakeID('G','N','T','L'),
+          MUIA_Window_Screen    , WCSScrn,
+          MUIA_Window_Menu      , WCSNewMenus,
+
+          WindowContents, VGroup,
+            Child, HGroup, MUIA_Group_HorizSpacing, 0,
+          Child, RectangleObject, End,
+          Child, TL_Win->ValStr[0] = StringObject, StringFrame,
+            MUIA_FixWidthTxt, "012345678",
+            MUIA_String_Accept, ".-0123456789", End,
+          Child, RectangleObject, End,
+              End, /* HGroup */
+        Child, TL_Win->TimeLineGroup = Make_TLRegisterGroup(TL_Win,
+            NumValues, Titles),
+        Child, HGroup,
+          Child, HGroup, MUIA_Group_HorizSpacing, 0,
+            Child, VGroup,
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label1(GetString( MSG_GENTLGUI_PAN )),  // "  Pan "
+                    Child, TL_Win->Prop[0] = PropObject, PropFrame,
+                MUIA_HorizWeight, 400,
+                MUIA_Prop_Horiz, TRUE,
+                MUIA_Prop_Entries, 100,
+                MUIA_Prop_First, 100,
+                MUIA_Prop_Visible, 100, End,
+                End, /* HGroup */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label1(GetString( MSG_GENTLGUI_ZOOM )),  // " Zoom "
+                    Child, TL_Win->Prop[1] = PropObject, PropFrame,
+                MUIA_HorizWeight, 400,
+                MUIA_Prop_Horiz, TRUE,
+                MUIA_Prop_Entries, 102,
+                MUIA_Prop_First, 100,
+                MUIA_Prop_Visible, 2, End,
+                End, /* HGroup */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label1(GetString( MSG_GENTLGUI_FRAME )),  // "Frame "
+                    Child, TL_Win->Prop[2] = PropObject, PropFrame,
+                MUIA_HorizWeight, 400,
+                MUIA_Prop_Horiz, TRUE,
+                MUIA_Prop_Entries, 102,
+                MUIA_Prop_First, 100,
+                MUIA_Prop_Visible, 2, End,
+                End, /* HGroup */
+              End, /* VGroup */
+            End, /* HGroup */
+          Child, VGroup,
+            Child, HGroup, MUIA_Group_HorizSpacing, 0,
+            MUIA_Group_SameWidth, TRUE,
+              Child, TL_Win->BT_PrevKey = KeyButtonObject('v'),
+            MUIA_FixWidthTxt, "0123456",
+            MUIA_Text_Contents, GetString( MSG_GENTLGUI_PREV ), End,  // "\33cPrev"
+              Child, TL_Win->BT_NextKey = KeyButtonObject('x'),
+            MUIA_FixWidthTxt, "0123456",
+            MUIA_Text_Contents, GetString( MSG_GENTLGUI_NEXT ), End,  // "\33cNext"
+              End, /* HGroup */
+            Child, HGroup, MUIA_Group_HorizSpacing, 0,
+            MUIA_Group_SameWidth, TRUE,
+              Child, TL_Win->BT_AddKey = KeyButtonFunc('a', (char*)GetString( MSG_GENTLGUI_ADDKEY )),  // "\33cAdd Key"
+              Child, TL_Win->BT_DelKey = KeyButtonFunc(127, (char*)GetString( MSG_GENTLGUI_DELKEY )),  // "\33c\33uDel\33n Key"
+              End, /* HGroup */
+            Child, TL_Win->KeysExistTxt = TextObject, TextFrame, End,
+            End, /* VGroup */
+          End, /* HGroup */
+
+        Child, HGroup,
+          Child, TL_Win->BT_Linear = KeyButtonObject('l'),
+             MUIA_InputMode, MUIV_InputMode_Toggle,
+             MUIA_Text_Contents, GetString( MSG_GENTLGUI_LINEAR ), End,  // "\33cLinear"
+          Child, TL_Win->TCB_Cycle = Cycle(TL_Cycle_TCB),
+          Child, HGroup, MUIA_Group_HorizSpacing, 0,
+            Child, TL_Win->CycleStr = StringObject, StringFrame,
+            MUIA_FixWidthTxt, "012345", End,
+                Child, TL_Win->StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, TL_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+          Child, RectangleObject, End,
+          Child, TL_Win->FrameTxtLbl = Label1(GetString( MSG_GENTLGUI_FRAME )),  // "Frame"
+          Child, HGroup, MUIA_Group_HorizSpacing, 0,
+            Child, TL_Win->FrameTxt = TextObject, TextFrame,
+            MUIA_FixWidthTxt, "01234", End,
+                Child, TL_Win->TxtArrowLg[0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, TL_Win->TxtArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, TL_Win->TxtArrow[1] = ImageButtonWCS(MUII_ArrowRight),
+                Child, TL_Win->TxtArrowLg[1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+          End, /* HGroup */
+        Child, HGroup,
+          Child, TL_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_GENTLGUI_KEEP )),  // "\33cKeep"
+          Child, TL_Win->BT_Grid = KeyButtonObject('g'),
+             MUIA_InputMode, MUIV_InputMode_Toggle,
+             MUIA_Selected, TRUE,
+             MUIA_Text_Contents, GetString( MSG_GENTLGUI_GRID ), End,  // "\33cGrid"
+          Child, TL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
+          End, /* HGroup */
+        End, /* VGroup */
+          End; /* WindowObject TL_Win->TimeLineWin */
+}
+
 void Make_TL_Window(char *NameStr, char **Titles,
 	struct TimeLineWindow **TLPtr, APTR *ValStringGads,
 	struct WindowKeyStuff *WKS, struct GUIKeyStuff *GKS,
@@ -347,17 +462,6 @@ void Make_TL_Window(char *NameStr, char **Titles,
  struct TimeLineWindow *TL_Win = NULL;
  short i, WinNum = -1;
  long open;
- static const char *TL_Cycle_TCB[4];
- static int Init = TRUE;
-
- if(Init)
- {
-	 Init = FALSE;
-	 TL_Cycle_TCB[0] = (char*) GetString( MSG_GENTLGUI_TENS);  // "Tens"
-	 TL_Cycle_TCB[1] = (char*) GetString( MSG_GENTLGUI_CONT);  // "Cont"
-	 TL_Cycle_TCB[2] = (char*) GetString( MSG_GENTLGUI_BIAS);  // "Bias"
-	 TL_Cycle_TCB[3] = NULL;
- }
 
  for (i=0; i<WCS_MAX_TLWINDOWS; i++)
   {
@@ -472,106 +576,8 @@ KPrintF("ALEXANDER Line %ld, Make_TL_Window: TL_Win->SuperClass = %lx\n", __LINE
  KPrintF("ALEXANDER Line %ld, Make_TL_Window: Set TL_Win->TL_Class-\n", __LINE__);
   Set_Param_Menu(2);
 
-     TL_Win->TimeLineWin = WindowObject,
-      MUIA_Window_Title		, NameStr,
-      MUIA_Window_ID		, MakeID('G','N','T','L'),
-      MUIA_Window_Screen	, WCSScrn,
-      MUIA_Window_Menu		, WCSNewMenus,
-
-      WindowContents, VGroup,
-        Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	  Child, RectangleObject, End,
-	  Child, TL_Win->ValStr[0] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "012345678",
-		MUIA_String_Accept, ".-0123456789", End,
-	  Child, RectangleObject, End,
-          End, /* HGroup */
-	Child, TL_Win->TimeLineGroup = Make_TLRegisterGroup(TL_Win,
-		WKS->NumValues, Titles),
-	Child, HGroup,
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, VGroup,
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1(GetString( MSG_GENTLGUI_PAN )),  // "  Pan "
-                Child, TL_Win->Prop[0] = PropObject, PropFrame,
-			MUIA_HorizWeight, 400,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 100,
-			MUIA_Prop_First, 100,
-			MUIA_Prop_Visible, 100, End,
-	        End, /* HGroup */
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1(GetString( MSG_GENTLGUI_ZOOM )),  // " Zoom "
-                Child, TL_Win->Prop[1] = PropObject, PropFrame,
-			MUIA_HorizWeight, 400,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 102,
-			MUIA_Prop_First, 100,
-			MUIA_Prop_Visible, 2, End,
-	        End, /* HGroup */
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, Label1(GetString( MSG_GENTLGUI_FRAME )),  // "Frame "
-                Child, TL_Win->Prop[2] = PropObject, PropFrame,
-			MUIA_HorizWeight, 400,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 102,
-			MUIA_Prop_First, 100,
-			MUIA_Prop_Visible, 2, End,
-	        End, /* HGroup */
-	      End, /* VGroup */
-	    End, /* HGroup */
-	  Child, VGroup,
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-		MUIA_Group_SameWidth, TRUE,
-	      Child, TL_Win->BT_PrevKey = KeyButtonObject('v'),
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, GetString( MSG_GENTLGUI_PREV ), End,  // "\33cPrev"
-	      Child, TL_Win->BT_NextKey = KeyButtonObject('x'),
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_Text_Contents, GetString( MSG_GENTLGUI_NEXT ), End,  // "\33cNext"
-	      End, /* HGroup */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-		MUIA_Group_SameWidth, TRUE,
-	      Child, TL_Win->BT_AddKey = KeyButtonFunc('a', (char*)GetString( MSG_GENTLGUI_ADDKEY )),  // "\33cAdd Key"
-	      Child, TL_Win->BT_DelKey = KeyButtonFunc(127, (char*)GetString( MSG_GENTLGUI_DELKEY )),  // "\33c\33uDel\33n Key"
-	      End, /* HGroup */
-	    Child, TL_Win->KeysExistTxt = TextObject, TextFrame, End,
-	    End, /* VGroup */
-	  End, /* HGroup */
-
-	Child, HGroup,
-	  Child, TL_Win->BT_Linear = KeyButtonObject('l'),
-		 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Text_Contents, GetString( MSG_GENTLGUI_LINEAR ), End,  // "\33cLinear"
-	  Child, TL_Win->TCB_Cycle = Cycle(TL_Cycle_TCB),
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, TL_Win->CycleStr = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "012345", End,
-            Child, TL_Win->StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
-            Child, TL_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
-            End, /* HGroup */
-	  Child, RectangleObject, End,
-	  Child, TL_Win->FrameTxtLbl = Label1(GetString( MSG_GENTLGUI_FRAME )),  // "Frame"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, TL_Win->FrameTxt = TextObject, TextFrame,
-		MUIA_FixWidthTxt, "01234", End,
-            Child, TL_Win->TxtArrowLg[0] = ImageButtonWCS(MUII_ArrowLeft),
-            Child, TL_Win->TxtArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
-            Child, TL_Win->TxtArrow[1] = ImageButtonWCS(MUII_ArrowRight),
-            Child, TL_Win->TxtArrowLg[1] = ImageButtonWCS(MUII_ArrowRight),
-            End, /* HGroup */
-	  End, /* HGroup */
-	Child, HGroup,
-	  Child, TL_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_GENTLGUI_KEEP )),  // "\33cKeep"
-	  Child, TL_Win->BT_Grid = KeyButtonObject('g'),
-	 	 MUIA_InputMode, MUIV_InputMode_Toggle,
-		 MUIA_Selected, TRUE,
-	 	 MUIA_Text_Contents, GetString( MSG_GENTLGUI_GRID ), End,  // "\33cGrid"
-	  Child, TL_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
-	  End, /* HGroup */ 
-	End, /* VGroup */
-      End; /* WindowObject TL_Win->TimeLineWin */
-KPrintF("ALEXANDER Line %ld, Make_TL_Window: Created TL_Win->TimeLineWin = %lx\n", __LINE__, TL_Win->TimeLineWin);
+     TL_Win->TimeLineWin = AF_MakeTimeLinWin(TL_Win,NameStr, Titles, WKS->NumValues);
+     KPrintF("ALEXANDER Line %ld, Make_TL_Window: Created TL_Win->TimeLineWin = %lx\n", __LINE__, TL_Win->TimeLineWin);
   if (! TL_Win->TimeLineWin)
    {
       KPrintF("ALEXANDER Line %ld, Make_TL_Window: Out of memory for TL_Win->TimeLineWin\n", __LINE__);

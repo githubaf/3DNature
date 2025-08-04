@@ -696,6 +696,73 @@ if(MP->MAPC)
 
 /***********************************************************************/
 
+APTR AF_MakeAlignWin (struct MapData *MP)
+{
+    return WindowObject,
+            MUIA_Window_Title      , GetString( MSG_MAPGUI_MAPALIGNMENT ),  // "Map Alignment"
+            MUIA_Window_ID         , MakeID('M','A','A','L'),
+            MUIA_Window_Screen    , WCSScrn,
+            MUIA_Window_Menu , MapNewMenus,
+
+            WindowContents, VGroup,
+              Child, TextObject, MUIA_Text_Contents, GetString( MSG_MAPGUI_EOGRAPHICCOORDS ), End,  // "\33c\0334Geographic Coords"
+                  Child, HGroup,
+
+                    Child, Label2(GetString( MSG_MAPGUI_NWLAT )),  // "NW Lat"
+                    Child, MP->FloatStr[0] = StringObject, StringFrame,
+                     MUIA_String_Accept, "-.0123456789",
+                 MUIA_FixWidthTxt, "012345789012", End,
+                    Child, Label2(GetString( MSG_MAPGUI_LON )),  // " Lon"
+                    Child, MP->FloatStr[1] = StringObject, StringFrame,
+                     MUIA_String_Accept, "-.0123456789",
+                 MUIA_FixWidthTxt, "012345789012", End,
+                    End, /* HGroup */
+
+                  Child, HGroup,
+
+                    Child, Label2(GetString( MSG_MAPGUI_SELAT )),  // "SE Lat"
+                    Child, MP->FloatStr[2] = StringObject, StringFrame,
+                     MUIA_String_Accept, "-.0123456789",
+                 MUIA_FixWidthTxt, "012345789012", End,
+                    Child, Label2(GetString( MSG_MAPGUI_LON )),  // " Lon"
+                    Child, MP->FloatStr[3] = StringObject, StringFrame,
+                     MUIA_String_Accept, "-.0123456789",
+                 MUIA_FixWidthTxt, "012345789012", End,
+                    End, /* HGroup */
+
+              Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
+
+              Child, TextObject, MUIA_Text_Contents, GetString( MSG_MAPGUI_CREENCOORDS ), End,  // "\33c\0334Screen Coords"
+                  Child, HGroup,
+
+                    Child, Label2(GetString( MSG_MAPGUI_UPPERLEFTX )),  // " Upper Left X"
+                    Child, MP->IntStr[0] = StringObject, StringFrame,
+                     MUIA_String_Accept, "0123456789",
+                 MUIA_FixWidthTxt, "012345", End,
+                    Child, Label2("   Y"),
+                    Child, MP->IntStr[1] = StringObject, StringFrame,
+                     MUIA_String_Accept, "0123456789",
+                 MUIA_FixWidthTxt, "012345", End,
+                    End, /* HGroup */
+
+                  Child, HGroup,
+
+                    Child, Label2(GetString( MSG_MAPGUI_LOWERRIGHTX )),  // "Lower Right X"
+                    Child, MP->IntStr[2] = StringObject, StringFrame,
+                     MUIA_String_Accept, "0123456789",
+                 MUIA_FixWidthTxt, "012345", End,
+                    Child, Label2("   Y"),
+                    Child, MP->IntStr[3] = StringObject, StringFrame,
+                     MUIA_String_Accept, "0123456789",
+                 MUIA_FixWidthTxt, "012345", End,
+                    End, /* HGroup */
+
+                  Child, MP->Register = KeyButtonFunc('r', (char*)GetString( MSG_MAPGUI_SETREGISTRATION )),  // "\33cSet Registration"
+
+              End, /* VGroup */
+            End; /* Window object */
+}
+
 short Make_MA_Window(struct MapData *MP)
 {
  short i;
@@ -710,70 +777,7 @@ short Make_MA_Window(struct MapData *MP)
 
  Set_Param_Menu(10);
 
- MP->AlignWin = WindowObject,
-   MUIA_Window_Title      , GetString( MSG_MAPGUI_MAPALIGNMENT ),  // "Map Alignment"
-   MUIA_Window_ID         , MakeID('M','A','A','L'),
-   MUIA_Window_Screen    , WCSScrn,
-   MUIA_Window_Menu	, MapNewMenus,
-
-   WindowContents, VGroup,
-	 Child, TextObject, MUIA_Text_Contents, GetString( MSG_MAPGUI_EOGRAPHICCOORDS ), End,  // "\33c\0334Geographic Coords"
-         Child, HGroup,
-
-           Child, Label2(GetString( MSG_MAPGUI_NWLAT )),  // "NW Lat"
-           Child, MP->FloatStr[0] = StringObject, StringFrame,
-        	MUIA_String_Accept, "-.0123456789",
-		MUIA_FixWidthTxt, "012345789012", End,
-           Child, Label2(GetString( MSG_MAPGUI_LON )),  // " Lon"
-           Child, MP->FloatStr[1] = StringObject, StringFrame,
-        	MUIA_String_Accept, "-.0123456789",
-		MUIA_FixWidthTxt, "012345789012", End,
-           End, /* HGroup */
-
-         Child, HGroup,
-
-           Child, Label2(GetString( MSG_MAPGUI_SELAT )),  // "SE Lat"
-           Child, MP->FloatStr[2] = StringObject, StringFrame,
-        	MUIA_String_Accept, "-.0123456789",
-		MUIA_FixWidthTxt, "012345789012", End,
-           Child, Label2(GetString( MSG_MAPGUI_LON )),  // " Lon"
-           Child, MP->FloatStr[3] = StringObject, StringFrame,
-        	MUIA_String_Accept, "-.0123456789",
-		MUIA_FixWidthTxt, "012345789012", End,
-           End, /* HGroup */
-
-	 Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-
-	 Child, TextObject, MUIA_Text_Contents, GetString( MSG_MAPGUI_CREENCOORDS ), End,  // "\33c\0334Screen Coords"
-         Child, HGroup,
-
-           Child, Label2(GetString( MSG_MAPGUI_UPPERLEFTX )),  // " Upper Left X"
-           Child, MP->IntStr[0] = StringObject, StringFrame,
-        	MUIA_String_Accept, "0123456789",
-		MUIA_FixWidthTxt, "012345", End,
-           Child, Label2("   Y"),
-           Child, MP->IntStr[1] = StringObject, StringFrame,
-        	MUIA_String_Accept, "0123456789",
-		MUIA_FixWidthTxt, "012345", End,
-           End, /* HGroup */
-
-         Child, HGroup,
-
-           Child, Label2(GetString( MSG_MAPGUI_LOWERRIGHTX )),  // "Lower Right X"
-           Child, MP->IntStr[2] = StringObject, StringFrame,
-        	MUIA_String_Accept, "0123456789",
-		MUIA_FixWidthTxt, "012345", End,
-           Child, Label2("   Y"),
-           Child, MP->IntStr[3] = StringObject, StringFrame,
-        	MUIA_String_Accept, "0123456789",
-		MUIA_FixWidthTxt, "012345", End,
-           End, /* HGroup */
-
-         Child, MP->Register = KeyButtonFunc('r', (char*)GetString( MSG_MAPGUI_SETREGISTRATION )),  // "\33cSet Registration"
-
-     End, /* VGroup */
-   End; /* Window object */
- 
+ MP->AlignWin = AF_MakeAlignWin(MP);
  if(! MP->AlignWin)
   {
   Close_MA_Window(MP);

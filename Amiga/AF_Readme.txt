@@ -4690,7 +4690,46 @@ OK	./TimeLinesGUI.c:99:     EMTL_Win->TimeLineWin = WindowObject,
 OK	./WaveGUI.c:98:    WV_Win->WaveWin = WindowObject,
 
 Jetzt neues switch/case
-cat MSG_Test.c | awk 'BEGIN{Count=1;Start=0;} /Test_WindowObject/{Start=1; print $0; next;} /^.*\/\/.*AF_CASE/{if(Start==1){printf ("case %u:\n",Count++);next;}} //{print $0}' > MSG_Test_temp.
+cat MSG_Test.c | awk 'BEGIN{Count=1;Start=0;} /Test_WindowObject/{Start=1; print $0; next;} /^.*\/\/.*AF_CASE/{if(Start==1){printf ("case %u:\n",Count++);next;}} //{print $0}' > MSG_Test_temp.c
 
  Cases neu nummerieren:
-cat MSG_Test.c | awk 'BEGIN{Count=1;Start=0;} /Test_WindowObject/{Start=1; print $0; next;} /case [0-9]+:/{if(Start==1){printf ("        case %u:\n",Count++);next;}} //{print $0}' > MSG_Test_temp.
+cat MSG_Test.c | awk 'BEGIN{Count=1;Start=0;} /Test_WindowObject/{Start=1; print $0; next;} /case [0-9]+:/{if(Start==1){printf ("        case %u:\n",Count++);next;}} //{print $0}' > MSG_Test_temp.c
+
+# Tests nochmal anschauen: Kein Titel. Crash bei 283?
+
+68020/WCS_68020 Test_WindowObject 283 58 59 70 72 84 137 196 199 283 213 284 
+
+ 31.7.2025
+----------
+Kann ich vernuenftig Kommas und Punkte in Float/Double Zahlenausgaben machen in loalisierten Strings? 
+
+// Buffer muss gross genug fuer alle Fliesskommavarianten sein!
+
+#include <stdio.h>
+#include <string.h>
+#include <libraries/locale.h>
+#include <proto/locale.h>
+
+char *FormatFloatLocale(double value, const char *format, struct Locale *locale) {
+    static char buffer[64]; // ausreichend groß für typische Formate
+    char decimal = locale->loc_DecimalPoint[0];
+
+    // Zuerst mit Standardpunkt formatieren
+    snprintf(buffer, sizeof(buffer), format, value);
+
+    // Ersetze nur das erste Vorkommen von '.' durch das lokale Dezimalzeichen
+    for (int i = 0; buffer[i]; i++) {
+        if (buffer[i] == '.') {
+            buffer[i] = decimal;
+            break;
+        }
+    }
+
+    return buffer;
+}
+
+
+
+* Ausgabe aller Floatingpoint Format-Anweisungen
+grep -nH -E '%[0-9\.\-]*[eEfFgG]' *.c
+

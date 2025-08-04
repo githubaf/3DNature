@@ -18,9 +18,204 @@ STATIC_FCN long max3(long a, long b, long c); // used locally only -> static, AF
 STATIC_FCN void SetColorRequester(short row); // used locally only -> static, AF 20.7.2021
 STATIC_FCN void Compute_EcoPal(struct PaletteItem *Pal, short comp_mode); // used locally only -> static, AF 20.7.2021
 STATIC_FCN long min3(long a, long b, long c); // used locally only -> static, AF 24.7.2021
-STATIC_FCN APTR Make_EC_Group(void); // used locally only -> static, AF 24.7.2021
+STATIC_FCN APTR Make_EC_Group(struct EcoPalWindow *EC_Win); // used locally only -> static, AF 24.7.2021
 
+APTR AF_MakeEcoPalWin(struct EcoPalWindow *EC_Win)
+{
+    return WindowObject,
+            MUIA_Window_Title     , GetString( MSG_EDITGUI_COLOREDITOR ),  // "Color Editor"
+            MUIA_Window_ID        , MakeID('E','D','C','O'),
+            MUIA_Window_Screen    , WCSScrn,
+            MUIA_Window_Menu      , WCSNewMenus,
 
+            WindowContents, VGroup,
+          Child, HGroup,
+            Child, Label2(GetString( MSG_EDITGUI_OPTIONS ) ),  // "Options"
+                Child, EC_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDITGUI_SURFACES ) ),   // "\33cSurfaces"
+                Child, EC_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDITGUI_STRATA ) ),     // "\33cStrata"
+                Child, EC_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDITGUI_CELESTIAL ) ),  // "\33cCelestial"
+            End, /* HGroup */
+              Child, HGroup,
+      /* group on the left */
+                Child, VGroup,
+      /* four rows of colors */
+                  Child, Make_EC_Group(EC_Win),
+      /* list of color names */
+                  Child, EC_Win->LS_List = ListviewObject,
+              MUIA_Listview_Input, TRUE,
+                    MUIA_Listview_List, ListObject, ReadListFrame, End,
+                    End, /* ListviewObject */
+                  End, /* VGroup */
+
+                Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, MUIA_InnerBottom, 0,
+                 MUIA_HorizWeight, 0, End,
+      /* Stuff on the right */
+                Child, VGroup, MUIA_Group_SameWidth, TRUE,
+      /* Palette modifying prop gadgets, etc. */
+                  Child, VGroup,
+                    Child, hcenter((EC_Win->Str[5] = StringObject, StringFrame,
+                  MUIA_String_Contents," ",
+                  MUIA_String_MaxLen, 21,
+                  MUIA_FixWidthTxt, "012345678901234567890", End)),
+
+                    Child, ColGroup(5), MUIA_Group_HorizSpacing, 0,
+                      Child, EC_Win->CoStr[0] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "0123", End,
+                      Child, EC_Win->PropArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+                      Child, EC_Win->PropArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
+                      Child, EC_Win->Prop[0] = PropObject, PropFrame,
+                  MUIA_Prop_Horiz, TRUE,
+                  MUIA_Prop_Entries, 260,
+                  MUIA_Prop_Visible, 5,
+                  MUIA_Prop_First, 0, End,
+                      Child, TextObject, MUIA_Text_Contents, " R",
+                   MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
+
+                      Child, EC_Win->CoStr[1] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "0123", End,
+                      Child, EC_Win->PropArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
+                      Child, EC_Win->PropArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
+                      Child, EC_Win->Prop[1] = PropObject, PropFrame,
+                  MUIA_Prop_Horiz, TRUE,
+                  MUIA_Prop_Entries, 260,
+                  MUIA_Prop_Visible, 5,
+                  MUIA_Prop_First, 0, End,
+                      Child, TextObject, MUIA_Text_Contents, " G",
+                   MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
+
+                      Child, EC_Win->CoStr[2] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "0123", End,
+                      Child, EC_Win->PropArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
+                      Child, EC_Win->PropArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
+                      Child, EC_Win->Prop[2] = PropObject, PropFrame,
+                  MUIA_Prop_Horiz, TRUE,
+                  MUIA_Prop_Entries, 260,
+                  MUIA_Prop_Visible, 5,
+                  MUIA_Prop_First, 0, End,
+                      Child, TextObject, MUIA_Text_Contents, " B",
+                   MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
+                      End, /* ColGroup */
+      /*
+                    Child, hcenter((ImageObject, MUIA_Frame, MUIV_Frame_Text,
+                   MUIA_Image_OldImage, &EC_PalGrad, End)),
+      */
+
+                Child, HGroup,
+              Child, ImageObject, MUIA_Frame, MUIV_Frame_Text,
+                  MUIA_InnerTop, 0, MUIA_InnerBottom, 0,
+                  MUIA_InnerLeft, 0, MUIA_InnerRight, 0,
+                  MUIA_Image_OldImage, &EC_PalGrad, End,
+              Child, RectangleObject, End,
+              End, /* HGroup */
+                    Child, ColGroup(5), MUIA_Group_HorizSpacing, 0,
+                      Child, EC_Win->CoStr[3] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "0123", End,
+                      Child, EC_Win->PropArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
+                      Child, EC_Win->PropArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
+                      Child, EC_Win->Prop[3] = PropObject, PropFrame,
+                  MUIA_Prop_Horiz, TRUE,
+                  MUIA_Prop_Entries, 367,
+                  MUIA_Prop_Visible, 7,
+                  MUIA_Prop_First, 0, End,
+                      Child, TextObject, MUIA_Text_Contents, " H",
+                   MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
+
+                      Child, EC_Win->CoStr[4] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "0123", End,
+                      Child, EC_Win->PropArrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
+                      Child, EC_Win->PropArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
+                      Child, EC_Win->Prop[4] = PropObject, PropFrame,
+                  MUIA_Prop_Horiz, TRUE,
+                  MUIA_Prop_Entries, 102,
+                  MUIA_Prop_Visible, 2,
+                  MUIA_Prop_First, 0, End,
+                      Child, TextObject, MUIA_Text_Contents, " S",
+                   MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
+
+                      Child, EC_Win->CoStr[5] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "0123", End,
+                      Child, EC_Win->PropArrow[5][0] = ImageButtonWCS(MUII_ArrowLeft),
+                      Child, EC_Win->PropArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
+                      Child, EC_Win->Prop[5] = PropObject, PropFrame,
+                  MUIA_Prop_Horiz, TRUE,
+                  MUIA_Prop_Entries, 102,
+                  MUIA_Prop_Visible, 2,
+                  MUIA_Prop_First, 0, End,
+                      Child, TextObject, MUIA_Text_Contents, " V",
+                   MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
+                      End, /* ColGroup */
+                    End, /* VGroup */
+
+              Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, MUIA_InnerLeft, 0, End,
+
+      /* Frame stuff */
+                  Child, VGroup,
+                Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDITGUI_EYFRAMES ), End,    // "\33c\0334Key Frames"
+                    Child, HGroup,
+                      Child, EC_Win->BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_EDITGUI_PREV )),  // "\33cPrev"
+                      Child, Label2(GetString( MSG_EDITGUI_FRAME ) ),(char*)                                 // "Frame"
+                      Child, HGroup, MUIA_Group_HorizSpacing, 0,     (char*)
+                        Child, EC_Win->Str[0] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "012345", End,
+                        Child, EC_Win->StrArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+                        Child, EC_Win->StrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
+                        End, /* HGroup */
+                      Child, EC_Win->BT_NextKey = KeyButtonFunc('x', (char*)GetString( MSG_EDITGUI_NEXT )),  // "\33cNext"
+                      End, /* HGroup */
+
+                Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                      Child, EC_Win->BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_EDITGUI_MAKEKEY )),    // "\33cMake Key"
+                      Child, EC_Win->BT_UpdateKeys = KeyButtonFunc('u', (char*)GetString( MSG_EDITGUI_UPDATE )),  // "\33cUpdate"
+                      Child, EC_Win->BT_UpdateAll = KeyButtonObject('('),
+                  MUIA_InputMode, MUIV_InputMode_Toggle,
+                  MUIA_Text_Contents, GetString( MSG_EDITGUI_ALL0 ), End,  // "\33cAll (0)"
+              End, /* HGroup */
+                    Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                      Child, EC_Win->BT_DeleteKey = KeyButtonFunc(127, (char*)GetString( MSG_EDITGUI_DELETE ) ),    // "\33c\33uDel\33nete"
+                      Child, EC_Win->BT_DeleteAll = KeyButtonFunc('d', (char*)GetString( MSG_EDITGUI_DELETEALL )),  // "\33cDelete All"
+                  End, /* HGroup */
+
+                Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                  Child, EC_Win->FramePages = VGroup,
+                        Child, EC_Win->BT_TimeLines = KeyButtonFunc('t', (char*)GetString( MSG_EDITGUI_TIMELINES ) ),  // "\33cTime Lines "
+                    End, /* VGroup */
+                      Child, EC_Win->BT_KeyScale = KeyButtonFunc('s', (char*)GetString( MSG_EDITGUI_SCALEKEYS ) ),  // "\33cScale Keys "
+              End, /* HGroup */
+                End, /* VGroup */
+
+                  End, /* VGroup */
+                End, /* HGroup */
+      /* Buttons at bottom */
+              Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, MUIA_VertWeight, 0, End,
+              Child, VGroup,
+                Child, HGroup,
+                  Child, EC_Win->BT_Copy = KeyButtonFunc('o',  (char*)GetString( MSG_EDITGUI_COPY ) ),     // "\33cCopy"
+                  Child, EC_Win->BT_Swap = KeyButtonFunc('w', (char*)GetString( MSG_EDITGUI_SWAP ) ),      // "\33cSwap"
+                  Child, EC_Win->BT_Insert = KeyButtonFunc('i', (char*)GetString( MSG_EDITGUI_INSERT ) ),  // "\33cInsert"
+                  Child, EC_Win->BT_Remove = KeyButtonFunc('r', (char*)GetString( MSG_EDITGUI_REMOVE ) ),  // "\33cRemove"
+                  End, /* HGroup */
+                Child, HGroup, MUIA_Group_SameWidth, TRUE,
+                  Child, EC_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDITGUI_KEEP ) ),      // "\33cKeep"
+                  Child, EC_Win->BT_Cancel = KeyButtonFunc('c',  (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
+                  End, /* HGroup */
+                End, /* VGroup */
+              End, /* VGroup */
+            End; /* WindowObject EC_Win->EcoPalWin */
+}
 
 void Make_EC_Window(void)
 {
@@ -60,200 +255,7 @@ void Make_EC_Window(void)
 
   Set_Param_Menu(1);
 
-     EC_Win->EcoPalWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_EDITGUI_COLOREDITOR ),  // "Color Editor"
-      MUIA_Window_ID		, MakeID('E','D','C','O'),
-      MUIA_Window_Screen	, WCSScrn,
-      MUIA_Window_Menu		, WCSNewMenus,
-
-      WindowContents, VGroup,
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_EDITGUI_OPTIONS ) ),  // "Options"
-          Child, EC_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDITGUI_SURFACES ) ),   // "\33cSurfaces"
-          Child, EC_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDITGUI_STRATA ) ),     // "\33cStrata"
-          Child, EC_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDITGUI_CELESTIAL ) ),  // "\33cCelestial"
-	  End, /* HGroup */
-        Child, HGroup,
-/* group on the left */
-          Child, VGroup,
-/* four rows of colors */
-            Child, Make_EC_Group(),
-/* list of color names */
-            Child, EC_Win->LS_List = ListviewObject,
-		MUIA_Listview_Input, TRUE,
-              MUIA_Listview_List, ListObject, ReadListFrame, End,
-              End, /* ListviewObject */
-            End, /* VGroup */
-
-          Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, MUIA_InnerBottom, 0,
-           MUIA_HorizWeight, 0, End,
-/* Stuff on the right */
-          Child, VGroup, MUIA_Group_SameWidth, TRUE,
-/* Palette modifying prop gadgets, etc. */
-            Child, VGroup, 
-              Child, hcenter((EC_Win->Str[5] = StringObject, StringFrame,
-			MUIA_String_Contents," ",
-			MUIA_String_MaxLen, 21,
-			MUIA_FixWidthTxt, "012345678901234567890", End)),
-
-              Child, ColGroup(5), MUIA_Group_HorizSpacing, 0,
-                Child, EC_Win->CoStr[0] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-                Child, EC_Win->PropArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
-                Child, EC_Win->PropArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
-                Child, EC_Win->Prop[0] = PropObject, PropFrame,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 260,
-			MUIA_Prop_Visible, 5,
-			MUIA_Prop_First, 0, End,
-                Child, TextObject, MUIA_Text_Contents, " R",
-			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
-
-                Child, EC_Win->CoStr[1] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-                Child, EC_Win->PropArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
-                Child, EC_Win->PropArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
-                Child, EC_Win->Prop[1] = PropObject, PropFrame,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 260,
-			MUIA_Prop_Visible, 5,
-			MUIA_Prop_First, 0, End,
-                Child, TextObject, MUIA_Text_Contents, " G",
-			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
-
-                Child, EC_Win->CoStr[2] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-                Child, EC_Win->PropArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
-                Child, EC_Win->PropArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
-                Child, EC_Win->Prop[2] = PropObject, PropFrame,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 260,
-			MUIA_Prop_Visible, 5,
-			MUIA_Prop_First, 0, End,
-                Child, TextObject, MUIA_Text_Contents, " B",
-			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
-                End, /* ColGroup */
-/*
-              Child, hcenter((ImageObject, MUIA_Frame, MUIV_Frame_Text,
-			 MUIA_Image_OldImage, &EC_PalGrad, End)),
-*/
-
-	      Child, HGroup,
-		Child, ImageObject, MUIA_Frame, MUIV_Frame_Text,
-			MUIA_InnerTop, 0, MUIA_InnerBottom, 0,
-			MUIA_InnerLeft, 0, MUIA_InnerRight, 0,
-			MUIA_Image_OldImage, &EC_PalGrad, End,
-		Child, RectangleObject, End,
-		End, /* HGroup */
-              Child, ColGroup(5), MUIA_Group_HorizSpacing, 0,
-                Child, EC_Win->CoStr[3] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-                Child, EC_Win->PropArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
-                Child, EC_Win->PropArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
-                Child, EC_Win->Prop[3] = PropObject, PropFrame,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 367,
-			MUIA_Prop_Visible, 7,
-			MUIA_Prop_First, 0, End,
-                Child, TextObject, MUIA_Text_Contents, " H",
-			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
-
-                Child, EC_Win->CoStr[4] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-                Child, EC_Win->PropArrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
-                Child, EC_Win->PropArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
-                Child, EC_Win->Prop[4] = PropObject, PropFrame,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 102,
-			MUIA_Prop_Visible, 2,
-			MUIA_Prop_First, 0, End,
-                Child, TextObject, MUIA_Text_Contents, " S",
-			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
-
-                Child, EC_Win->CoStr[5] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-                Child, EC_Win->PropArrow[5][0] = ImageButtonWCS(MUII_ArrowLeft),
-                Child, EC_Win->PropArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
-                Child, EC_Win->Prop[5] = PropObject, PropFrame,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 102,
-			MUIA_Prop_Visible, 2,
-			MUIA_Prop_First, 0, End,
-                Child, TextObject, MUIA_Text_Contents, " V",
-			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
-                End, /* ColGroup */
-              End, /* VGroup */
-
-	    Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, MUIA_InnerLeft, 0, End,
-
-/* Frame stuff */
-            Child, VGroup,
-	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDITGUI_EYFRAMES ), End,    // "\33c\0334Key Frames"
-              Child, HGroup,
-                Child, EC_Win->BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_EDITGUI_PREV )),  // "\33cPrev"
-                Child, Label2(GetString( MSG_EDITGUI_FRAME ) ),(char*)                                 // "Frame"
-                Child, HGroup, MUIA_Group_HorizSpacing, 0,     (char*)
-                  Child, EC_Win->Str[0] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "012345", End,
-                  Child, EC_Win->StrArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
-                  Child, EC_Win->StrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
-                  End, /* HGroup */
-                Child, EC_Win->BT_NextKey = KeyButtonFunc('x', (char*)GetString( MSG_EDITGUI_NEXT )),  // "\33cNext"
-                End, /* HGroup */
-
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, EC_Win->BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_EDITGUI_MAKEKEY )),    // "\33cMake Key"
-                Child, EC_Win->BT_UpdateKeys = KeyButtonFunc('u', (char*)GetString( MSG_EDITGUI_UPDATE )),  // "\33cUpdate"
-                Child, EC_Win->BT_UpdateAll = KeyButtonObject('('),
-			MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, GetString( MSG_EDITGUI_ALL0 ), End,  // "\33cAll (0)"
-		End, /* HGroup */
-              Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, EC_Win->BT_DeleteKey = KeyButtonFunc(127, (char*)GetString( MSG_EDITGUI_DELETE ) ),    // "\33c\33uDel\33nete"
-                Child, EC_Win->BT_DeleteAll = KeyButtonFunc('d', (char*)GetString( MSG_EDITGUI_DELETEALL )),  // "\33cDelete All"
-	        End, /* HGroup */
-
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, EC_Win->FramePages = VGroup,
-                  Child, EC_Win->BT_TimeLines = KeyButtonFunc('t', (char*)GetString( MSG_EDITGUI_TIMELINES ) ),  // "\33cTime Lines "
-	          End, /* VGroup */
-                Child, EC_Win->BT_KeyScale = KeyButtonFunc('s', (char*)GetString( MSG_EDITGUI_SCALEKEYS ) ),  // "\33cScale Keys "
-		End, /* HGroup */
-	      End, /* VGroup */
-
-            End, /* VGroup */
-          End, /* HGroup */
-/* Buttons at bottom */
-        Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, MUIA_VertWeight, 0, End,
-        Child, VGroup,
-          Child, HGroup,
-            Child, EC_Win->BT_Copy = KeyButtonFunc('o',  (char*)GetString( MSG_EDITGUI_COPY ) ),     // "\33cCopy"
-            Child, EC_Win->BT_Swap = KeyButtonFunc('w', (char*)GetString( MSG_EDITGUI_SWAP ) ),      // "\33cSwap"
-            Child, EC_Win->BT_Insert = KeyButtonFunc('i', (char*)GetString( MSG_EDITGUI_INSERT ) ),  // "\33cInsert"
-            Child, EC_Win->BT_Remove = KeyButtonFunc('r', (char*)GetString( MSG_EDITGUI_REMOVE ) ),  // "\33cRemove"
-            End, /* HGroup */
-          Child, HGroup, MUIA_Group_SameWidth, TRUE,
-            Child, EC_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDITGUI_KEEP ) ),      // "\33cKeep"
-            Child, EC_Win->BT_Cancel = KeyButtonFunc('c',  (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
-            End, /* HGroup */
-          End, /* VGroup */
-        End, /* VGroup */
-      End; /* WindowObject EC_Win->EcoPalWin */
-
+     EC_Win->EcoPalWin = AF_MakeEcoPalWin(EC_Win);
   if (! EC_Win->EcoPalWin)
    {
    Close_EC_Window(1);
@@ -422,7 +424,7 @@ void Make_EC_Window(void)
 
 /*********************************************************************/
 
-STATIC_FCN APTR Make_EC_Group(void) // used locally only -> static, AF 24.7.2021
+STATIC_FCN APTR Make_EC_Group(struct EcoPalWindow *EC_Win) // used locally only -> static, AF 24.7.2021
 {
   APTR obj;
   short i, error = 0;

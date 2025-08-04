@@ -13,39 +13,231 @@ STATIC_FCN void Set_DL_List(struct DirList *DLItem, short Update, short ActiveIt
 STATIC_FCN void Remove_DE_Item(short OBN, short Remove); // used locally only -> static, AF 26.7.2021
 
 
+APTR AF_MakeDE_Win(struct DatabaseEditWindow *DE_Win)
+{
+    static const char *DE_LineCycle[9];
+    static const char *DE_SpecCycle[7];
+    static int Init=TRUE;
+
+     if(Init)
+     {
+        Init=FALSE;
+        DE_LineCycle[0]=(char*)GetString( MSG_EDDB_POINT );   // "Point"
+        DE_LineCycle[1]=(char*)GetString( MSG_EDDB_CIRCLE );  // "Circle"
+        DE_LineCycle[2]=(char*)GetString( MSG_EDDB_SQUARE );  // "Square"
+        DE_LineCycle[3]=(char*)GetString( MSG_EDDB_CROSS );   // "Cross"
+        DE_LineCycle[4]=(char*)GetString( MSG_EDDB_SOLID );   // "Solid"
+        DE_LineCycle[5]=(char*)GetString( MSG_EDDB_DOTTED );  // "Dotted"
+        DE_LineCycle[6]=(char*)GetString( MSG_EDDB_DASHED );  // "Dashed"
+        DE_LineCycle[7]=(char*)GetString( MSG_EDDB_BROKEN );  // "Broken"
+        DE_LineCycle[8]=(char*)NULL;
+
+        DE_SpecCycle[0]=(char*)GetString( MSG_EDDB_TOPO );     // "Topo"
+        DE_SpecCycle[1]=(char*)GetString( MSG_EDDB_SURFACE );  // "Surface"
+        DE_SpecCycle[2]=(char*)GetString( MSG_EDDB_VECTOR );   // "Vector"
+        DE_SpecCycle[3]=(char*)GetString( MSG_EDDB_ILLUMVEC ); // "Illum Vec"
+        DE_SpecCycle[4]=(char*)GetString( MSG_EDDB_SEGMENTV ); // "Segment V"
+        DE_SpecCycle[5]=(char*)GetString( MSG_EDDB_ILLUMSEG );     // "Illum Seg"
+        DE_SpecCycle[6]=NULL;
+     }
+
+    return WindowObject,
+            MUIA_Window_Title     , GetString( MSG_EDDB_DATABASEEDITOR ),  // "Database Editor"
+            MUIA_Window_ID        , MakeID('D','B','E','D'),
+            MUIA_Window_Screen    , WCSScrn,
+
+            WindowContents, VGroup,
+          Child, HGroup,
+            Child, Label2(GetString( MSG_EDDB_OPTIONS ) ),                                                  // "Options"
+                Child, DE_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDDB_VECTORS )),   // "\33cVectors"
+                Child, DE_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDDB_SURFACES )),  // "\33cSurfaces"
+                Child, DE_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDDB_FRACTALS )),  // "\33cFractals"
+            End, /* HGroup */
+              Child, HGroup,
+      /* group on the left */
+                Child, VGroup,
+          /* object ID number (OBN) */
+      #ifdef dfgdhfgdhfh
+                  Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label2("Object ID "),
+                Child, DE_Win->IntStr[0] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "01234", End,
+                    Child, DE_Win->LgArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
+                    Child, DE_Win->Arrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+                    Child, DE_Win->Arrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
+                    Child, DE_Win->LgArrow[1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+      #endif
+          /* object name */
+              Child, HGroup,
+                Child, DE_Win->BT_Name = KeyButtonFunc('n', (char*)GetString( MSG_EDDB_NAME ) ),  // "\33cName"
+                Child, DE_Win->Str[0] = TextObject, TextFrame,
+              MUIA_FixWidthTxt, "01234567890", End,
+                Child, DE_Win->Check = CheckMark(0),
+                Child, Label2(GetString( MSG_EDDB_ENABLED ) ),  // "Enabled"
+                End, /* HGroup */
+          /* vector points */
+              Child, HGroup,
+                Child, Label2(GetString( MSG_EDDB_POINTS ) ),  // "Points"
+                Child, DE_Win->PointTxt = TextObject, TextFrame,
+              MUIA_FixWidthTxt, "0123", End,
+                Child, Label2(GetString( MSG_EDDB_CLASS ) ),  // "Class"
+                Child, DE_Win->CY_Spec = Cycle(DE_SpecCycle),
+                End, /* HGroup */
+          /* layer 1 */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label2(GetString( MSG_EDDB_LAYER1 ) ),  // "Layer 1 "
+                    Child, DE_Win->Str[1] = StringObject, StringFrame,
+              MUIA_FixWidthTxt, "0123", End,
+                Child, DE_Win->BT_LayerSel[0] = SimpleButton(GetString( MSG_EDDB_SEL )),  // "Sel"
+                Child, DE_Win->BT_LayerOn[0] = SimpleButton(GetString( MSG_EDDB_ON )),    // "On"
+                Child, DE_Win->BT_LayerOff[0] = SimpleButton(GetString( MSG_EDDB_OFF )),  // "Off"
+                End, /* HGroup */
+          /* layer 2 */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label2(GetString( MSG_EDDB_LAYER2 ) ),  // "Layer 2 "
+                    Child, DE_Win->Str[2] = StringObject, StringFrame,
+              MUIA_FixWidthTxt, "0123", End,
+                Child, DE_Win->BT_LayerSel[1] = SimpleButton(GetString( MSG_EDDB_SEL )),  // "Sel"
+                Child, DE_Win->BT_LayerOn[1] = SimpleButton(GetString( MSG_EDDB_ON )),    // "On"
+                Child, DE_Win->BT_LayerOff[1] = SimpleButton(GetString( MSG_EDDB_OFF )),  // "Off"
+                End, /* HGroup */
+          /* object label */
+              Child, HGroup,
+                Child, DE_Win->BT_Label = KeyButtonFunc('b', (char*)GetString( MSG_EDDB_LABEL )),  // "\33cLabel"
+                Child, DE_Win->Str[3] = StringObject, StringFrame,
+              MUIA_FixWidthTxt, "0123456789012345", End,
+                End, /* HGroup */
+          /* maximum fractal depth for topos */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, RectangleObject, End,
+                Child, Label2(GetString( MSG_EDDB_DEMMAXFRACTAL ) ),  // "DEM Max Fractal "
+                Child, DE_Win->IntStr[6] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "012", End,
+                    Child, DE_Win->Arrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
+                    Child, DE_Win->Arrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+          /* line type */
+              Child, HGroup,
+                Child, RectangleObject, End,
+                Child, Label2(GetString( MSG_EDDB_LINESTYLE ) ),  // "Line Style"
+                Child, DE_Win->CY_Line = Cycle(DE_LineCycle),
+                End, /* HGroup */
+          /* line width */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, RectangleObject, End,
+                Child, Label2(GetString( MSG_EDDB_LINEWEIGHT ) ),  // "Line Weight "
+                Child, DE_Win->IntStr[1] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "012", End,
+                    Child, DE_Win->Arrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
+                    Child, DE_Win->Arrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+          /* draw pen */
+              Child, HGroup,
+                Child, RectangleObject, End,
+                Child, Label2(GetString( MSG_EDDB_DRAWPEN ) ),  // "Draw Pen "
+                Child, SmallImageDisplay(&EC_Button8),
+                Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                  Child, DE_Win->IntStr[2] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "012", End,
+                      Child, DE_Win->Arrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
+                      Child, DE_Win->Arrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
+              End, /* HGroup */
+                End, /* HGroup */
+          /* RGB render values */
+              Child, HGroup,
+                Child, Label2(GetString( MSG_EDDB_RGB ) ),  // "RGB"
+                Child, SmallImageDisplay(&EC_Button9),
+                Child, VGroup,
+              Child, HGroup,
+                    Child, DE_Win->IntStr[3] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "0123", End,
+                        Child, DE_Win->Prop[0] = PropObject, PropFrame,
+                  MUIA_Prop_Horiz, TRUE,
+                  MUIA_Prop_Entries, 260,
+                  MUIA_Prop_Visible, 5,
+                  MUIA_Prop_First, 0, End,
+                        Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDDB_R ) ,  // "R"
+                   MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
+                End, /* HGroup */
+              Child, HGroup,
+                    Child, DE_Win->IntStr[4] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "0123", End,
+                        Child, DE_Win->Prop[1] = PropObject, PropFrame,
+                  MUIA_Prop_Horiz, TRUE,
+                  MUIA_Prop_Entries, 260,
+                  MUIA_Prop_Visible, 5,
+                  MUIA_Prop_First, 0, End,
+                        Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDDB_G ) ,  // "G"
+                   MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
+                End, /* HGroup */
+              Child, HGroup,
+                    Child, DE_Win->IntStr[5] = StringObject, StringFrame,
+                  MUIA_String_Integer, 0,
+                  MUIA_String_Accept, "0123456789",
+                  MUIA_FixWidthTxt, "0123", End,
+                        Child, DE_Win->Prop[2] = PropObject, PropFrame,
+                  MUIA_Prop_Horiz, TRUE,
+                  MUIA_Prop_Entries, 260,
+                  MUIA_Prop_Visible, 5,
+                  MUIA_Prop_First, 0, End,
+                        Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDDB_B ) ,  // "B"
+                   MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
+                End, /* HGroup */
+
+              End, /* VGroup */
+                End, /* HGroup */
+              End, /* VGroup */
+      /* list of database entries */
+            Child, DE_Win->LS_List = ListviewObject,
+                MUIA_Listview_Input, TRUE,
+                MUIA_Listview_MultiSelect, TRUE,
+                    MUIA_Listview_List, ListObject, ReadListFrame, End,
+              End,
+
+            End, /* HGroup */
+      /* Buttons at bottom */
+              Child, HGroup, MUIA_Group_SameWidth, TRUE,
+                Child, DE_Win->BT_New = KeyButtonFunc('o',    (char*)GetString( MSG_EDDB_NEWOBJ )),  // "\33cNew Obj"
+                Child, DE_Win->BT_Add = KeyButtonFunc('d',    (char*)GetString( MSG_EDDB_ADDOBJ )),  // "\33cAdd Obj"
+                Child, DE_Win->BT_Remove = KeyButtonFunc('m', (char*)GetString( MSG_EDDB_REMOVE )),  // "\33cRemove "
+                Child, DE_Win->BT_Search = KeyButtonFunc('h', (char*)GetString( MSG_EDDB_SEARCH )),  // "\33cSearch "
+                Child, DE_Win->BT_Sort = KeyButtonFunc('r',   (char*)GetString( MSG_EDDB_SORT )),    // "\33cSort"
+                End, /* HGroup */
+
+              Child, HGroup, MUIA_Group_SameWidth, TRUE,
+                Child, DE_Win->BT_Save = KeyButtonFunc('s',   (char*)GetString( MSG_EDDB_SAVE ) ),    // "\33cSave "
+                Child, DE_Win->BT_Load = KeyButtonFunc('l',   (char*)GetString( MSG_EDDB_LOAD ) ),    // "\33cLoad "
+                Child, DE_Win->BT_Append = KeyButtonFunc('a', (char*)GetString( MSG_EDDB_APPEND ) ),  // "\33cAppend "
+                Child, DE_Win->BT_Create = KeyButtonFunc('t', (char*)GetString( MSG_EDDB_CREATE ) ),  // "\33cCreate "
+                End, /* HGroup */
+
+              End, /* VGroup */
+            End; /* WindowObject DE_Win->DatabaseEditWin */
+}
+
 void Make_DE_Window(void)
 {
  short i;
  long open;
- static const char *DE_LineCycle[9];
- static const char *DE_SpecCycle[7];
- static int Init=TRUE;
 
- if(Init)
- {
-	Init=FALSE;
-	DE_LineCycle[0]=(char*)GetString( MSG_EDDB_POINT );   // "Point"
-	DE_LineCycle[1]=(char*)GetString( MSG_EDDB_CIRCLE );  // "Circle"
-	DE_LineCycle[2]=(char*)GetString( MSG_EDDB_SQUARE );  // "Square"
-	DE_LineCycle[3]=(char*)GetString( MSG_EDDB_CROSS );   // "Cross"
-	DE_LineCycle[4]=(char*)GetString( MSG_EDDB_SOLID );   // "Solid"
-	DE_LineCycle[5]=(char*)GetString( MSG_EDDB_DOTTED );  // "Dotted"
-	DE_LineCycle[6]=(char*)GetString( MSG_EDDB_DASHED );  // "Dashed"
-	DE_LineCycle[7]=(char*)GetString( MSG_EDDB_BROKEN );  // "Broken"
-	DE_LineCycle[8]=(char*)NULL;
-
-	DE_SpecCycle[0]=(char*)GetString( MSG_EDDB_TOPO );     // "Topo"
-	DE_SpecCycle[1]=(char*)GetString( MSG_EDDB_SURFACE );  // "Surface"
-	DE_SpecCycle[2]=(char*)GetString( MSG_EDDB_VECTOR );   // "Vector"
-	DE_SpecCycle[3]=(char*)GetString( MSG_EDDB_ILLUMVEC ); // "Illum Vec"
-	DE_SpecCycle[4]=(char*)GetString( MSG_EDDB_SEGMENTV ); // "Segment V"
-	DE_SpecCycle[5]=(char*)GetString( MSG_EDDB_ILLUMSEG );     // "Illum Seg"
-#ifdef ENABLE_VECTOR_PATHS
+ #ifdef ENABLE_VECTOR_PATHS
 			 "Cam Path",
 			 "Foc Path",
 #endif /* ENABLE_VECTOR_PATHS */
-	DE_SpecCycle[5]=NULL;
- }
+
 
  if (DE_Win)
   {
@@ -87,192 +279,7 @@ void Make_DE_Window(void)
 
   Set_Param_Menu(10);
 
-     DE_Win->DatabaseEditWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_EDDB_DATABASEEDITOR ),  // "Database Editor"
-      MUIA_Window_ID		, MakeID('D','B','E','D'),
-      MUIA_Window_Screen	, WCSScrn,
-
-      WindowContents, VGroup,
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_EDDB_OPTIONS ) ),                                                  // "Options"
-          Child, DE_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDDB_VECTORS )),   // "\33cVectors"
-          Child, DE_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDDB_SURFACES )),  // "\33cSurfaces"
-          Child, DE_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDDB_FRACTALS )),  // "\33cFractals"
-	  End, /* HGroup */
-        Child, HGroup,
-/* group on the left */
-          Child, VGroup,
-	/* object ID number (OBN) */
-#ifdef dfgdhfgdhfh
-            Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2("Object ID "),
-	      Child, DE_Win->IntStr[0] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "01234", End,
-              Child, DE_Win->LgArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
-              Child, DE_Win->Arrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
-              Child, DE_Win->Arrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
-              Child, DE_Win->LgArrow[1] = ImageButtonWCS(MUII_ArrowRight),
-	      End, /* HGroup */
-#endif
-	/* object name */
-	    Child, HGroup,
-	      Child, DE_Win->BT_Name = KeyButtonFunc('n', (char*)GetString( MSG_EDDB_NAME ) ),  // "\33cName"
-	      Child, DE_Win->Str[0] = TextObject, TextFrame,
-		MUIA_FixWidthTxt, "01234567890", End,
-	      Child, DE_Win->Check = CheckMark(0),
-	      Child, Label2(GetString( MSG_EDDB_ENABLED ) ),  // "Enabled"
-	      End, /* HGroup */
-	/* vector points */
-	    Child, HGroup,
-	      Child, Label2(GetString( MSG_EDDB_POINTS ) ),  // "Points"
-	      Child, DE_Win->PointTxt = TextObject, TextFrame,
-		MUIA_FixWidthTxt, "0123", End,
-	      Child, Label2(GetString( MSG_EDDB_CLASS ) ),  // "Class"
-	      Child, DE_Win->CY_Spec = Cycle(DE_SpecCycle),
-	      End, /* HGroup */
-	/* layer 1 */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDDB_LAYER1 ) ),  // "Layer 1 "
-              Child, DE_Win->Str[1] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123", End,
-	      Child, DE_Win->BT_LayerSel[0] = SimpleButton(GetString( MSG_EDDB_SEL )),  // "Sel"
-	      Child, DE_Win->BT_LayerOn[0] = SimpleButton(GetString( MSG_EDDB_ON )),    // "On"
-	      Child, DE_Win->BT_LayerOff[0] = SimpleButton(GetString( MSG_EDDB_OFF )),  // "Off"
-	      End, /* HGroup */
-	/* layer 2 */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDDB_LAYER2 ) ),  // "Layer 2 "
-              Child, DE_Win->Str[2] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123", End,
-	      Child, DE_Win->BT_LayerSel[1] = SimpleButton(GetString( MSG_EDDB_SEL )),  // "Sel"
-	      Child, DE_Win->BT_LayerOn[1] = SimpleButton(GetString( MSG_EDDB_ON )),    // "On"
-	      Child, DE_Win->BT_LayerOff[1] = SimpleButton(GetString( MSG_EDDB_OFF )),  // "Off"
-	      End, /* HGroup */
-	/* object label */
-	    Child, HGroup,
-	      Child, DE_Win->BT_Label = KeyButtonFunc('b', (char*)GetString( MSG_EDDB_LABEL )),  // "\33cLabel"
-	      Child, DE_Win->Str[3] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456789012345", End,
-	      End, /* HGroup */
-	/* maximum fractal depth for topos */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, RectangleObject, End,
-	      Child, Label2(GetString( MSG_EDDB_DEMMAXFRACTAL ) ),  // "DEM Max Fractal "
-	      Child, DE_Win->IntStr[6] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "012", End,
-              Child, DE_Win->Arrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
-              Child, DE_Win->Arrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
-	      End, /* HGroup */
-	/* line type */
-	    Child, HGroup,
-	      Child, RectangleObject, End,
-	      Child, Label2(GetString( MSG_EDDB_LINESTYLE ) ),  // "Line Style"
-	      Child, DE_Win->CY_Line = Cycle(DE_LineCycle),
-	      End, /* HGroup */
-	/* line width */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, RectangleObject, End,
-	      Child, Label2(GetString( MSG_EDDB_LINEWEIGHT ) ),  // "Line Weight "
-	      Child, DE_Win->IntStr[1] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "012", End,
-              Child, DE_Win->Arrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
-              Child, DE_Win->Arrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
-	      End, /* HGroup */
-	/* draw pen */
-	    Child, HGroup,
-	      Child, RectangleObject, End,
-	      Child, Label2(GetString( MSG_EDDB_DRAWPEN ) ),  // "Draw Pen "
-	      Child, SmallImageDisplay(&EC_Button8),
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, DE_Win->IntStr[2] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "012", End,
-                Child, DE_Win->Arrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
-                Child, DE_Win->Arrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
-		End, /* HGroup */
-	      End, /* HGroup */
-	/* RGB render values */
-	    Child, HGroup,
-	      Child, Label2(GetString( MSG_EDDB_RGB ) ),  // "RGB"
-	      Child, SmallImageDisplay(&EC_Button9),
-	      Child, VGroup,
-		Child, HGroup,
-	          Child, DE_Win->IntStr[3] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-                  Child, DE_Win->Prop[0] = PropObject, PropFrame,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 260,
-			MUIA_Prop_Visible, 5,
-			MUIA_Prop_First, 0, End,
-                  Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDDB_R ) ,  // "R"
-			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
-		  End, /* HGroup */
-		Child, HGroup,
-	          Child, DE_Win->IntStr[4] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-                  Child, DE_Win->Prop[1] = PropObject, PropFrame,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 260,
-			MUIA_Prop_Visible, 5,
-			MUIA_Prop_First, 0, End,
-                  Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDDB_G ) ,  // "G"
-			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
-		  End, /* HGroup */
-		Child, HGroup,
-	          Child, DE_Win->IntStr[5] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-                  Child, DE_Win->Prop[2] = PropObject, PropFrame,
-			MUIA_Prop_Horiz, TRUE,
-			MUIA_Prop_Entries, 260,
-			MUIA_Prop_Visible, 5,
-			MUIA_Prop_First, 0, End,
-                  Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDDB_B ) ,  // "B"
-			 MUIA_Text_SetMin, TRUE, MUIA_Text_SetMax, TRUE, End,
-		  End, /* HGroup */
-
-		End, /* VGroup */
-	      End, /* HGroup */
-	    End, /* VGroup */
-/* list of database entries */
-	  Child, DE_Win->LS_List = ListviewObject,
-	      MUIA_Listview_Input, TRUE,
-	      MUIA_Listview_MultiSelect, TRUE,
-              MUIA_Listview_List, ListObject, ReadListFrame, End,
-	    End,
-
-	  End, /* HGroup */
-/* Buttons at bottom */
-        Child, HGroup, MUIA_Group_SameWidth, TRUE,
-          Child, DE_Win->BT_New = KeyButtonFunc('o',    (char*)GetString( MSG_EDDB_NEWOBJ )),  // "\33cNew Obj"
-          Child, DE_Win->BT_Add = KeyButtonFunc('d',    (char*)GetString( MSG_EDDB_ADDOBJ )),  // "\33cAdd Obj"
-          Child, DE_Win->BT_Remove = KeyButtonFunc('m', (char*)GetString( MSG_EDDB_REMOVE )),  // "\33cRemove "
-          Child, DE_Win->BT_Search = KeyButtonFunc('h', (char*)GetString( MSG_EDDB_SEARCH )),  // "\33cSearch "
-          Child, DE_Win->BT_Sort = KeyButtonFunc('r',   (char*)GetString( MSG_EDDB_SORT )),    // "\33cSort"
-          End, /* HGroup */
-
-        Child, HGroup, MUIA_Group_SameWidth, TRUE,
-          Child, DE_Win->BT_Save = KeyButtonFunc('s',   (char*)GetString( MSG_EDDB_SAVE ) ),    // "\33cSave "
-          Child, DE_Win->BT_Load = KeyButtonFunc('l',   (char*)GetString( MSG_EDDB_LOAD ) ),    // "\33cLoad "
-          Child, DE_Win->BT_Append = KeyButtonFunc('a', (char*)GetString( MSG_EDDB_APPEND ) ),  // "\33cAppend "
-          Child, DE_Win->BT_Create = KeyButtonFunc('t', (char*)GetString( MSG_EDDB_CREATE ) ),  // "\33cCreate "
-          End, /* HGroup */
-
-        End, /* VGroup */
-      End; /* WindowObject DE_Win->DatabaseEditWin */
-
+     DE_Win->DatabaseEditWin = AF_MakeDE_Win(DE_Win);
   if (! DE_Win->DatabaseEditWin)
    {
    Close_DE_Window();

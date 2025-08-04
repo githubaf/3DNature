@@ -144,7 +144,7 @@ short Focus, Speed, Direction;
                            (CONST_STRPTR)"fc", 0);
 
   Speed = User_Message_Def(GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Wave: Set Defaults"
-                           GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Select wave speed."
+                           GetString( MSG_WAV_SELECTWAVESPEED ),   // "Select wave speed."
                            GetString( MSG_WAV_FASTVERYFASTSLOW ),  //"Fast|Very Fast|Slow"
                            (CONST_STRPTR)"fvs", 1);
 

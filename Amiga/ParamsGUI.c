@@ -1650,6 +1650,75 @@ and saving them to disk, also for sizing the Camera View window and
 giving it the correct aspect ratio based on Image width and height
 specified in Settings Editor.
 */
+
+APTR AF_MakeAnimWin(struct AnimWindow *AN_Win,  struct Window *InterWind0)
+{
+    return WindowObject,
+            MUIA_Window_Title     , GetString( MSG_PARGUI_ANIMCONTROLWINDOW ),  // "Anim Control Window"
+            MUIA_Window_ID        , MakeID('A','N','I','M'),
+            MUIA_Window_Screen    , WCSScrn,
+
+            WindowContents, VGroup,
+      /* save path and disk icon */
+            Child, HGroup,
+              Child, Label2(GetString( MSG_PARGUI_ANIMPATH )),  // "Anim Path"
+              Child, AN_Win->Str[0] = StringObject, StringFrame,
+              MUIA_FixWidthTxt, "0123456789012345",
+              MUIA_String_Contents, graphpath, End,
+              Child, AN_Win->BT_GetPath = ImageButtonWCS(MUII_Disk),
+              End, /* HGroup */
+      /* save name */
+            Child, HGroup,
+              Child, Label2(GetString( MSG_PARGUI_ANIMNAME )),  // "Anim Name"
+              Child, AN_Win->Str[1] = StringObject, StringFrame,
+              MUIA_FixWidthTxt, "0123456789012345",
+              MUIA_String_Contents, graphname, End,
+              End, /* HGroup */
+      /* frame start, end strings */
+            Child, HGroup,
+              Child, Label2(GetString( MSG_PARGUI_FRAME )),  // "Frame"
+              Child, AN_Win->IntStr[0] = StringObject, StringFrame,
+              MUIA_String_Accept, "0123456789",
+              MUIA_String_Integer, IA_AnimStart,
+              MUIA_FixWidthTxt, "01234", End,
+              Child, Label2(GetString( MSG_PARGUI_TO )),  // "To"
+              Child, AN_Win->IntStr[1] = StringObject, StringFrame,
+              MUIA_String_Accept, "0123456789",
+              MUIA_String_Integer, (IA_AnimEnd ? IA_AnimEnd: KT_MaxFrames),
+              MUIA_FixWidthTxt, "01234", End,
+              Child, Label2(GetString( MSG_PARGUI_BY )),  // "By"
+              Child, AN_Win->IntStr[4] = StringObject, StringFrame,
+              MUIA_String_Accept, "0123456789",
+              MUIA_String_Integer, IA_AnimStep ? IA_AnimStep: abs(settings.stepframes),
+              MUIA_FixWidthTxt, "01234", End,
+              End, /* HGroup */
+      /* window width, height strings */
+            Child, HGroup,
+              Child, Label2(GetString( MSG_PARGUI_WINDOWWIDTH )),  // "Window Width"
+              Child, AN_Win->IntStr[2] = StringObject, StringFrame,
+              MUIA_String_Accept, "0123456789",
+              MUIA_FixWidthTxt, "01234",
+              MUIA_String_Integer, InterWind0->Width, End,
+              Child, Label2(GetString( MSG_PARGUI_HEIGHT )),  // " Height"
+              Child, AN_Win->IntStr[3] = StringObject, StringFrame,
+              MUIA_String_Accept, "0123456789",
+              MUIA_FixWidthTxt, "01234",
+              MUIA_String_Integer, InterWind0->Height, End,
+              End, /* HGroup */
+      /* aspect check box */
+            Child, HGroup,
+              Child, AN_Win->AspectCheck = CheckMark(FALSE),
+              Child, Label2(GetString( MSG_PARGUI_USERENDERIMAGEASPECT )),  // "Use Render Image Aspect"
+              End, /* HGroup */
+      /* render only, render & save */
+            Child, HGroup,
+              Child, AN_Win->BT_Render = KeyButtonFunc('r', (char*)GetString( MSG_PARGUI_RENDERONLY )),  // "\33cRender Only"
+              Child, AN_Win->BT_Save   = KeyButtonFunc('s', (char*)GetString( MSG_PARGUI_RENDERSAVE )),  // "\33cRender & Save"
+              End, /* HGroup */
+            End, /* VGroup */
+          End; /* Window object */
+}
+
 void Make_AN_Window(void)
 {
  long open;
@@ -1667,71 +1736,7 @@ void Make_AN_Window(void)
 
  Set_Param_Menu(10);
 
-     AN_Win->AnimWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_PARGUI_ANIMCONTROLWINDOW ),  // "Anim Control Window"
-      MUIA_Window_ID		, MakeID('A','N','I','M'),
-      MUIA_Window_Screen	, WCSScrn,
-
-      WindowContents, VGroup,
-/* save path and disk icon */
-	  Child, HGroup,
-	    Child, Label2(GetString( MSG_PARGUI_ANIMPATH )),  // "Anim Path"
-	    Child, AN_Win->Str[0] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456789012345",
-		MUIA_String_Contents, graphpath, End,
-	    Child, AN_Win->BT_GetPath = ImageButtonWCS(MUII_Disk),
-	    End, /* HGroup */
-/* save name */
-	  Child, HGroup,
-	    Child, Label2(GetString( MSG_PARGUI_ANIMNAME )),  // "Anim Name"
-	    Child, AN_Win->Str[1] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456789012345",
-		MUIA_String_Contents, graphname, End,
-	    End, /* HGroup */
-/* frame start, end strings */
-	  Child, HGroup,
-	    Child, Label2(GetString( MSG_PARGUI_FRAME )),  // "Frame"
-	    Child, AN_Win->IntStr[0] = StringObject, StringFrame,
-		MUIA_String_Accept, "0123456789",
-		MUIA_String_Integer, IA_AnimStart,
-		MUIA_FixWidthTxt, "01234", End,
-	    Child, Label2(GetString( MSG_PARGUI_TO )),  // "To"
-	    Child, AN_Win->IntStr[1] = StringObject, StringFrame,
-		MUIA_String_Accept, "0123456789",
-		MUIA_String_Integer, (IA_AnimEnd ? IA_AnimEnd: KT_MaxFrames),
-		MUIA_FixWidthTxt, "01234", End,
-	    Child, Label2(GetString( MSG_PARGUI_BY )),  // "By"
-	    Child, AN_Win->IntStr[4] = StringObject, StringFrame,
-		MUIA_String_Accept, "0123456789",
-		MUIA_String_Integer, IA_AnimStep ? IA_AnimStep: abs(settings.stepframes),
-		MUIA_FixWidthTxt, "01234", End,
-	    End, /* HGroup */
-/* window width, height strings */
-	  Child, HGroup,
-	    Child, Label2(GetString( MSG_PARGUI_WINDOWWIDTH )),  // "Window Width"
-	    Child, AN_Win->IntStr[2] = StringObject, StringFrame,
-		MUIA_String_Accept, "0123456789",
-		MUIA_FixWidthTxt, "01234",
-		MUIA_String_Integer, InterWind0->Width, End,
-	    Child, Label2(GetString( MSG_PARGUI_HEIGHT )),  // " Height"
-	    Child, AN_Win->IntStr[3] = StringObject, StringFrame,
-		MUIA_String_Accept, "0123456789",
-		MUIA_FixWidthTxt, "01234",
-		MUIA_String_Integer, InterWind0->Height, End,
-	    End, /* HGroup */
-/* aspect check box */
-	  Child, HGroup,
-	    Child, AN_Win->AspectCheck = CheckMark(FALSE),
-	    Child, Label2(GetString( MSG_PARGUI_USERENDERIMAGEASPECT )),  // "Use Render Image Aspect"
-	    End, /* HGroup */
-/* render only, render & save */
-	  Child, HGroup,
-	    Child, AN_Win->BT_Render = KeyButtonFunc('r', (char*)GetString( MSG_PARGUI_RENDERONLY )),  // "\33cRender Only"
-	    Child, AN_Win->BT_Save   = KeyButtonFunc('s', (char*)GetString( MSG_PARGUI_RENDERSAVE )),  // "\33cRender & Save"
-	    End, /* HGroup */
-	  End, /* VGroup */
-	End; /* Window object */
-
+     AN_Win->AnimWin = AF_MakeAnimWin(AN_Win,InterWind0);
   if (! AN_Win->AnimWin)
    {
    Close_AN_Window();

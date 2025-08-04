@@ -1389,6 +1389,48 @@ STATIC_FCN void Set_DC_Data(void) // used locally only -> static, AF 25.7.2021
 
 /********************************************************************/
 
+APTR AK_MakeInterpWin(struct DEMInterpolateWindow *DI_Win)
+{
+    return WindowObject,
+            MUIA_Window_Title     , GetString( MSG_DATAOPSGUI_DEMINTERPOLATE ) ,  // "DEM Interpolate"
+            MUIA_Window_ID        , MakeID('D','O','I','N'),
+            MUIA_Window_Screen    , WCSScrn,
+
+            WindowContents, VGroup,
+          Child, DI_Win->DirTxt = TextObject, TextFrame, End,
+          Child, HGroup,
+            Child, DI_Win->BT_GetFiles = KeyButtonFunc('S', (char*)GetString( MSG_DATAOPSGUI_SELECTFILES ) ),  // "\33cSelect Files"
+            Child, Label2(GetString( MSG_DATAOPSGUI_SELECTED ) ),                                       // " Selected"
+            Child, DI_Win->SumFilesTxt = TextObject, TextFrame,
+              MUIA_FixWidthTxt, "01234", End,
+            End, /* HGroup */
+          Child, HGroup,
+            Child, RectangleObject, End,
+            Child, Label2(GetString( MSG_DATAOPSGUI_ELEVATIONVAR ) ),  // "Elevation Var %"
+            Child, DI_Win->ElVarStr = StringObject, StringFrame,
+              MUIA_FixWidthTxt, "0123456",
+              MUIA_String_Contents, "2.0",
+              MUIA_String_Accept, "-.0123456789", End,
+            Child, RectangleObject, End,
+            End, /* HGroup */
+          Child, HGroup,
+            Child, RectangleObject, End,
+            Child, Label2(GetString( MSG_DATAOPSGUI_MAXFLATVAR ) ),  // "   Max Flat Var"
+            Child, DI_Win->FlatMaxStr = StringObject, StringFrame,
+              MUIA_FixWidthTxt, "0123456",
+              MUIA_String_Contents, "2.0",
+              MUIA_String_Accept, ".0123456789", End,
+            Child, RectangleObject, End,
+            End, /* HGroup */
+          Child, HGroup,
+            Child, RectangleObject, End,
+            Child, DI_Win->BT_Interpolate = KeyButtonFunc('I', (char*)GetString( MSG_DATAOPSGUI_INTERPOLATE ) ),  // "\33cInterpolate"
+            Child, RectangleObject, End,
+            End, /* HGroup */
+              End, /* VGroup */
+            End; /* WindowObject */
+}
+
 void Make_DI_Window(void)
 {
  long open=FALSE;
@@ -1419,45 +1461,7 @@ void Make_DI_Window(void)
 
   Set_Param_Menu(10);
 
-     DI_Win->InterpWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_DATAOPSGUI_DEMINTERPOLATE ) ,  // "DEM Interpolate"
-      MUIA_Window_ID		, MakeID('D','O','I','N'),
-      MUIA_Window_Screen	, WCSScrn,
-
-      WindowContents, VGroup,
-	Child, DI_Win->DirTxt = TextObject, TextFrame, End,
-	Child, HGroup,
-	  Child, DI_Win->BT_GetFiles = KeyButtonFunc('S', (char*)GetString( MSG_DATAOPSGUI_SELECTFILES ) ),  // "\33cSelect Files"
-	  Child, Label2(GetString( MSG_DATAOPSGUI_SELECTED ) ),                                       // " Selected"
-	  Child, DI_Win->SumFilesTxt = TextObject, TextFrame,
-		MUIA_FixWidthTxt, "01234", End,
-	  End, /* HGroup */
-	Child, HGroup,
-	  Child, RectangleObject, End,
-	  Child, Label2(GetString( MSG_DATAOPSGUI_ELEVATIONVAR ) ),  // "Elevation Var %"
-	  Child, DI_Win->ElVarStr = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Contents, "2.0",
-		MUIA_String_Accept, "-.0123456789", End,
-	  Child, RectangleObject, End,
-	  End, /* HGroup */
-	Child, HGroup,
-	  Child, RectangleObject, End,
-	  Child, Label2(GetString( MSG_DATAOPSGUI_MAXFLATVAR ) ),  // "   Max Flat Var"
-	  Child, DI_Win->FlatMaxStr = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Contents, "2.0",
-		MUIA_String_Accept, ".0123456789", End,
-	  Child, RectangleObject, End,
-	  End, /* HGroup */
-	Child, HGroup,
-	  Child, RectangleObject, End,
-	  Child, DI_Win->BT_Interpolate = KeyButtonFunc('I', (char*)GetString( MSG_DATAOPSGUI_INTERPOLATE ) ),  // "\33cInterpolate"
-	  Child, RectangleObject, End,
-	  End, /* HGroup */
-        End, /* VGroup */
-      End; /* WindowObject */
-
+     DI_Win->InterpWin = AK_MakeInterpWin(DI_Win);
   if (! DI_Win->InterpWin)
    {
    Close_DI_Window();

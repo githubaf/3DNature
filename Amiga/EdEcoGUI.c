@@ -9,27 +9,218 @@
 #include "WCS.h"
 #include "GUIExtras.h"
 
-STATIC_FCN APTR Make_EE_Group(void); // used locally only -> static, AF 26.7.2021
+STATIC_FCN APTR Make_EE_Group(struct EcosystemWindow *EE_Win); // used locally only -> static, AF 26.7.2021
 STATIC_FCN void UnSet_EE_Item(short item, double data); // used locally only -> static, AF 26.7.2021
 STATIC_FCN void Set_EcoLimits(void); // used locally only -> static, AF 26.7.2021
 
+APTR AF_Make_EcosystemWin(struct EcosystemWindow *EE_Win)
+{
+    static const char *TexClass[5]={NULL};
+     static int Init=TRUE;
+
+     if(Init)
+     {
+         Init=FALSE;
+         TexClass[0]=(char*)GetString( MSG_EDECOGUI_BRUSHSTAMP );    // "Brush Stamp"
+         TexClass[1]=(char*)GetString( MSG_EDECOGUI_SCALEDIMAGES );  // "Scaled Images"
+         TexClass[2]=(char*)GetString( MSG_EDECOGUI_PROCEDURAL );    // "Procedural"
+         TexClass[3]=(char*)GetString( MSG_EDECOGUI_NONE );          // "None"
+         TexClass[4]=(char*)NULL;
+     }
+
+     return WindowObject,
+           MUIA_Window_Title     , GetString( MSG_EDECOGUI_ECOSYSTEMEDITOR ),  // "Ecosystem Editor"
+           MUIA_Window_ID        , MakeID('E','D','E','C'),
+           MUIA_Window_Screen    , WCSScrn,
+           MUIA_Window_Menu      , WCSNewMenus,
+
+           WindowContents, VGroup,
+         Child, HGroup,
+           Child, Label2(GetString( MSG_EDECOGUI_OPTIONS )),                                          // "Options"
+               Child, EE_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDECOGUI_CMAPS )),       // "\33cCMaps"
+               Child, EE_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDECOGUI_SURFACE )),     // "\33cSurface"
+               Child, EE_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDECOGUI_FRACTALS )),    // "\33cFractals"
+               Child, EE_Win->BT_Settings[3] = KeyButtonFunc('4', (char*)GetString( MSG_EDECOGUI_ECOSYSTEMS )),  // "\33cEcosystems"
+               Child, EE_Win->BT_Settings[4] = KeyButtonFunc('5', (char*)GetString( MSG_EDECOGUI_STRATA )),      // "\33cStrata"
+               Child, EE_Win->BT_Settings[5] = KeyButtonFunc('6', (char*)GetString( MSG_EDECOGUI_TIDES )),       // "\33cTides"
+           End, /* HGroup */
+             Child, HGroup,
+     /* group on the left */
+           Child, VGroup,
+             Child, HGroup,
+               Child, VGroup,
+             Child, HGroup,
+                   Child, Label2(GetString( MSG_EDECOGUI_NAME )),  // "Name"
+                   Child, EE_Win->NameStr = StringObject, StringFrame,
+                 MUIA_FixWidthTxt, "0123456789012", End,
+               End, /* HGroup */
+                     Child, EE_Win->LS_List = ListviewObject,
+                 MUIA_Listview_Input, TRUE,
+                         MUIA_Listview_List, ListObject, ReadListFrame, End,
+                       End, /* ListviewObject */
+             End, /* VGroup */
+               Child, VGroup,
+                 Child, Label(GetString( MSG_EDECOGUI_EXTURE )),  // "\33c\0334Texture"
+                 Child, EE_Win->TexClassCycle = CycleObject,
+                 MUIA_Cycle_Entries, TexClass, End,
+     /* begin Texture class page group */
+             Child, EE_Win->TexPageGrp = GroupObject, MUIA_Group_PageMode, TRUE,
+               Child, VGroup,
+                 Child, HGroup,
+                       Child, Label(GetString( MSG_EDECOGUI_CLASS )),  // "Class"
+                       Child, EE_Win->ClassCycle = CycleObject,
+                 MUIA_Cycle_Entries, typename, End,
+                   End, /* HGroup */
+                     Child, Label2(GetString( MSG_EDECOGUI_DETAILMODEL )),  // "\33cDetail Model"
+                     Child, EE_Win->ModelStr = StringObject, StringFrame,
+                 MUIA_FixWidthTxt, "012345678901",
+                 MUIA_String_Reject, ":;*/?`#%", End,
+                     Child, EE_Win->BT_MakeModel = KeyButtonFunc('g', (char*)GetString( MSG_EDECOGUI_DESIGN )),  // "\33cDesign..."
+                 End, /* VGroup - Page 0 */
+               Child, VGroup,
+                 Child, ColGroup(2),
+                       Child, Label(GetString( MSG_EDECOGUI_IMAGES )),  // "Images"
+                       Child, EE_Win->TextureText[0] = TextObject, TextFrame,
+                 MUIA_FixWidthTxt, "01234", End,
+                       Child, Label(GetString( MSG_EDECOGUI_MAXHT )),  // "Max Ht %"
+                       Child, EE_Win->TextureText[1] = TextObject, TextFrame,
+                 MUIA_FixWidthTxt, "01234", End,
+                       Child, Label(GetString( MSG_EDECOGUI_MAXIMGHT )),  // "Max Img Ht"
+                       Child, EE_Win->TextureText[2] = TextObject, TextFrame,
+                 MUIA_FixWidthTxt, "01234", End,
+                   End, /* ColGroup */
+                     Child, EE_Win->BT_Edit[0] = KeyButtonFunc('a', (char*)GetString( MSG_EDECOGUI_EDITIMAGES )),  // "\33cEdit Images..."
+                 End, /* VGroup - Page 1 */
+               Child, VGroup,
+                 Child, HGroup,
+                       Child, EE_Win->ProcCheck[0] = CheckMark(0),
+                   Child, Label2(GetString( MSG_EDECOGUI_STRATA )),  // "Strata"
+                   Child, RectangleObject, End,
+                   End, /* HGroup */
+                 Child, HGroup,
+                       Child, EE_Win->ProcCheck[1] = CheckMark(0),
+                   Child, Label2(GetString( MSG_EDECOGUI_STRATACOLORS )),  // "Strata Colors"
+                   Child, RectangleObject, End,
+                   End, /* HGroup */
+                 Child, HGroup,
+                       Child, EE_Win->ProcCheck[2] = CheckMark(0),
+                   Child, Label2(GetString( MSG_EDECOGUI_FRACTURES )),  // "Fractures"
+                   Child, RectangleObject, End,
+                   End, /* HGroup */
+                 Child, HGroup,
+                       Child, EE_Win->ProcCheck[3] = CheckMark(0),
+                   Child, Label2(GetString( MSG_EDECOGUI_MUDCRACKS )),  // "Mud Cracks"
+                   Child, RectangleObject, End,
+                   End, /* HGroup */
+                 End, /* VGroup - Page 2 */
+               Child, VGroup,
+                   Child, RectangleObject, End,
+                 End, /* VGroup - blank page for no texture */
+               End, /* PageGroup */
+     /* end page group */
+                 Child, VGroup,
+               Child, Label(GetString( MSG_EDECOGUI_OLORMAP )),  // "\33c\0334Color Map"
+                   Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                     Child, Label2(GetString( MSG_EDECOGUI_MATCHRED )),  // " Match Red "        /* Match Red */
+                     Child, EE_Win->IntStr[12] = StringObject, StringFrame,
+                 MUIA_String_Integer, 0,
+                 MUIA_String_Accept, "0123456789",
+                 MUIA_FixWidthTxt, "0123", End,
+                     End, /* HGroup */
+                   Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                     Child, Label2(GetString( MSG_EDECOGUI_MATCHGRN )),  // " Match Grn "        /* Match Green */
+                     Child, EE_Win->IntStr[13] = StringObject, StringFrame,
+                 MUIA_String_Integer, 0,
+                 MUIA_String_Accept, "0123456789",
+                 MUIA_FixWidthTxt, "0123", End,
+                     End, /* HGroup */
+                   Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                     Child, Label2(GetString( MSG_EDECOGUI_MATCHBLU )),  // " Match Blu "        /* Match Blue */
+                     Child, EE_Win->IntStr[14] = StringObject, StringFrame,
+                 MUIA_String_Integer, 0,
+                 MUIA_String_Accept, "0123456789",
+                 MUIA_FixWidthTxt, "0123", End,
+                     End, /* HGroup */
+               Child, RectangleObject, End,
+                   End, /* VGroup */
+             End, /* VGroup */
+               End, /* HGroup */
+             Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
+
+     /* Frame stuff */
+                 Child, VGroup,
+               Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDECOGUI_EYFRAMES ), End,    // "\33c\0334Key Frames"
+                   Child, HGroup,
+                     Child, EE_Win->BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_EDECOGUI_PREV )),  // "\33cPrev"
+                     Child, Label2(GetString( MSG_EDECOGUI_FRAME )),                                  // "Frame"
+                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                       Child, EE_Win->Str[0] = StringObject, StringFrame,
+                 MUIA_String_Integer, 0,
+                 MUIA_String_Accept, "0123456789",
+                 MUIA_FixWidthTxt, "012345", End,
+                       Child, EE_Win->StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
+                       Child, EE_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
+                       End, /* HGroup */
+                     Child, EE_Win->BT_NextKey = KeyButtonFunc('x', (char*)GetString( MSG_EDECOGUI_NEXT )),  // "\33cNext"
+                     End, /* HGroup */
+
+               Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                     Child, EE_Win->BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_EDECOGUI_MAKEKEY )),    // "\33cMake Key"
+                     Child, EE_Win->BT_UpdateKeys = KeyButtonFunc('u', (char*)GetString( MSG_EDECOGUI_UPDATE )),  // "\33cUpdate"
+                     Child, EE_Win->BT_UpdateAll = KeyButtonObject('('),
+                 MUIA_InputMode, MUIV_InputMode_Toggle,
+                 MUIA_Text_Contents, (char*)GetString( MSG_EDECOGUI_ALL0 ), End,  // "\33cAll (0)"
+             End, /* HGroup */
+                   Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                     Child, EE_Win->BT_DeleteKey = KeyButtonFunc(127, (char*)GetString( MSG_EDECOGUI_DELETE )),     // "\33c\33uDel\33nete"
+                     Child, EE_Win->BT_DeleteAll = KeyButtonFunc('d', (char*)GetString( MSG_EDECOGUI_DELETEALL )),  // "\33cDelete All"
+                 End, /* HGroup */
+
+               Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                 Child, EE_Win->FramePages = VGroup,
+                       Child, EE_Win->BT_TimeLines = KeyButtonFunc('t', (char*)GetString( MSG_EDECOGUI_TIMELINES )),  // "\33cTime Lines "
+                   End, /* VGroup */
+                     Child, EE_Win->BT_KeyScale = KeyButtonFunc('s', (char*)GetString( MSG_EDECOGUI_SCALEKEYS )),     // "\33cScale Keys "
+             End, /* HGroup */
+               End, /* VGroup */
+
+                 End, /* VGroup */
+
+           Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
+
+     /* group on the right */
+               Child, VGroup,
+     /* ecosystem variables */
+                 Child, Make_EE_Group(EE_Win),     /* 12 rows of gadgets */
+             End, /*VGroup */
+
+               End, /* HGroup */
+
+         Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
+
+     /* Buttons at bottom */
+             Child, VGroup,
+               Child, HGroup, MUIA_Group_SameWidth, TRUE,
+                 Child, EE_Win->BT_Copy = KeyButtonFunc('o', (char*)GetString( MSG_EDECOGUI_COPY )),      // "\33cCopy"
+                 Child, EE_Win->BT_Swap = KeyButtonFunc('w', (char*)GetString( MSG_EDECOGUI_SWAP )),      // "\33cSwap"
+                 Child, EE_Win->BT_Insert = KeyButtonFunc('i', (char*)GetString( MSG_EDECOGUI_INSERT )),  // "\33cInsert"
+                 Child, EE_Win->BT_Remove = KeyButtonFunc('r', (char*)GetString( MSG_EDECOGUI_REMOVE )),  // "\33cRemove"
+                 Child, EE_Win->BT_Sort = KeyButtonFunc('l', (char*)GetString( MSG_EDECOGUI_SORTLIST )),  // "\33cSort List"
+                 End, /* HGroup */
+               Child, HGroup, MUIA_Group_SameWidth, TRUE,
+                 Child, EE_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDECOGUI_KEEP )),     // "\33cKeep"
+                 Child, EE_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
+                 End, /* HGroup */
+               End, /* VGroup */
+             End, /* VGroup */
+           End; /* WindowObject EE_Win->EcosystemWin */
+
+}
 
 void Make_EE_Window(void)
 {
  short i;
  long open;
- static const char *TexClass[5]={NULL};
- static int Init=TRUE;
-
- if(Init)
- {
-	 Init=FALSE;
-	 TexClass[0]=(char*)GetString( MSG_EDECOGUI_BRUSHSTAMP );    // "Brush Stamp"
-	 TexClass[1]=(char*)GetString( MSG_EDECOGUI_SCALEDIMAGES );  // "Scaled Images"
-	 TexClass[2]=(char*)GetString( MSG_EDECOGUI_PROCEDURAL );    // "Procedural"
-	 TexClass[3]=(char*)GetString( MSG_EDECOGUI_NONE );          // "None"
-	 TexClass[4]=(char*)NULL;
- }
 
  if (EE_Win)
   {
@@ -83,193 +274,7 @@ void Make_EE_Window(void)
  Set_PS_List(EE_Win->EEList, NULL, 2, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ));  //  "Unused"
  Set_PS_List(EE_Win->ECList, NULL, 1, 0, (char*)GetString( MSG_EDECOGUI_UNUSED ));  // "Unused"
 
-     EE_Win->EcosystemWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_EDECOGUI_ECOSYSTEMEDITOR ),  // "Ecosystem Editor"
-      MUIA_Window_ID		, MakeID('E','D','E','C'),
-      MUIA_Window_Screen	, WCSScrn,
-      MUIA_Window_Menu		, WCSNewMenus,
-
-      WindowContents, VGroup,
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_EDECOGUI_OPTIONS )),                                          // "Options"
-          Child, EE_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_EDECOGUI_CMAPS )),       // "\33cCMaps"
-          Child, EE_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_EDECOGUI_SURFACE )),     // "\33cSurface"
-          Child, EE_Win->BT_Settings[2] = KeyButtonFunc('3', (char*)GetString( MSG_EDECOGUI_FRACTALS )),    // "\33cFractals"
-          Child, EE_Win->BT_Settings[3] = KeyButtonFunc('4', (char*)GetString( MSG_EDECOGUI_ECOSYSTEMS )),  // "\33cEcosystems"
-          Child, EE_Win->BT_Settings[4] = KeyButtonFunc('5', (char*)GetString( MSG_EDECOGUI_STRATA )),      // "\33cStrata"
-          Child, EE_Win->BT_Settings[5] = KeyButtonFunc('6', (char*)GetString( MSG_EDECOGUI_TIDES )),       // "\33cTides"
-	  End, /* HGroup */
-        Child, HGroup,
-/* group on the left */
-	  Child, VGroup,
-	    Child, HGroup,
-	      Child, VGroup,
-		Child, HGroup,
-	          Child, Label2(GetString( MSG_EDECOGUI_NAME )),  // "Name"
-	          Child, EE_Win->NameStr = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "0123456789012", End,
-		  End, /* HGroup */
-                Child, EE_Win->LS_List = ListviewObject,
-			MUIA_Listview_Input, TRUE,
-                	MUIA_Listview_List, ListObject, ReadListFrame, End,
-                  End, /* ListviewObject */
-		End, /* VGroup */
-	      Child, VGroup,
-	        Child, Label(GetString( MSG_EDECOGUI_EXTURE )),  // "\33c\0334Texture"
-	        Child, EE_Win->TexClassCycle = CycleObject,
-			MUIA_Cycle_Entries, TexClass, End,
-/* begin Texture class page group */
-		Child, EE_Win->TexPageGrp = GroupObject, MUIA_Group_PageMode, TRUE,
-		  Child, VGroup,
-		    Child, HGroup,
-	              Child, Label(GetString( MSG_EDECOGUI_CLASS )),  // "Class"
-	              Child, EE_Win->ClassCycle = CycleObject,
-			MUIA_Cycle_Entries, typename, End,
-		      End, /* HGroup */
-	            Child, Label2(GetString( MSG_EDECOGUI_DETAILMODEL )),  // "\33cDetail Model"
-	            Child, EE_Win->ModelStr = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "012345678901",
-			MUIA_String_Reject, ":;*/?`#%", End,
-	            Child, EE_Win->BT_MakeModel = KeyButtonFunc('g', (char*)GetString( MSG_EDECOGUI_DESIGN )),  // "\33cDesign..."
-		    End, /* VGroup - Page 0 */
-		  Child, VGroup,
-		    Child, ColGroup(2),
-	              Child, Label(GetString( MSG_EDECOGUI_IMAGES )),  // "Images"
-	              Child, EE_Win->TextureText[0] = TextObject, TextFrame,
-			MUIA_FixWidthTxt, "01234", End,
-	              Child, Label(GetString( MSG_EDECOGUI_MAXHT )),  // "Max Ht %"
-	              Child, EE_Win->TextureText[1] = TextObject, TextFrame,
-			MUIA_FixWidthTxt, "01234", End,
-	              Child, Label(GetString( MSG_EDECOGUI_MAXIMGHT )),  // "Max Img Ht"
-	              Child, EE_Win->TextureText[2] = TextObject, TextFrame,
-			MUIA_FixWidthTxt, "01234", End,
-		      End, /* ColGroup */
-	            Child, EE_Win->BT_Edit[0] = KeyButtonFunc('a', (char*)GetString( MSG_EDECOGUI_EDITIMAGES )),  // "\33cEdit Images..."
-		    End, /* VGroup - Page 1 */
-		  Child, VGroup,
-		    Child, HGroup,
-	              Child, EE_Win->ProcCheck[0] = CheckMark(0),
-		      Child, Label2(GetString( MSG_EDECOGUI_STRATA )),  // "Strata"
-		      Child, RectangleObject, End,
-		      End, /* HGroup */
-		    Child, HGroup,
-	              Child, EE_Win->ProcCheck[1] = CheckMark(0),
-		      Child, Label2(GetString( MSG_EDECOGUI_STRATACOLORS )),  // "Strata Colors"
-		      Child, RectangleObject, End,
-		      End, /* HGroup */
-		    Child, HGroup,
-	              Child, EE_Win->ProcCheck[2] = CheckMark(0),
-		      Child, Label2(GetString( MSG_EDECOGUI_FRACTURES )),  // "Fractures"
-		      Child, RectangleObject, End,
-		      End, /* HGroup */
-		    Child, HGroup,
-	              Child, EE_Win->ProcCheck[3] = CheckMark(0),
-		      Child, Label2(GetString( MSG_EDECOGUI_MUDCRACKS )),  // "Mud Cracks"
-		      Child, RectangleObject, End,
-		      End, /* HGroup */
-		    End, /* VGroup - Page 2 */
-		  Child, VGroup,
-		      Child, RectangleObject, End,
-		    End, /* VGroup - blank page for no texture */
-		  End, /* PageGroup */
-/* end page group */
-	        Child, VGroup,
-		  Child, Label(GetString( MSG_EDECOGUI_OLORMAP )),  // "\33c\0334Color Map"
-	          Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	            Child, Label2(GetString( MSG_EDECOGUI_MATCHRED )),  // " Match Red "		/* Match Red */
-	            Child, EE_Win->IntStr[12] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-	            End, /* HGroup */
-	          Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	            Child, Label2(GetString( MSG_EDECOGUI_MATCHGRN )),  // " Match Grn "		/* Match Green */
-	            Child, EE_Win->IntStr[13] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-	            End, /* HGroup */
-	          Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	            Child, Label2(GetString( MSG_EDECOGUI_MATCHBLU )),  // " Match Blu "		/* Match Blue */
-	            Child, EE_Win->IntStr[14] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "0123", End,
-	            End, /* HGroup */
-		  Child, RectangleObject, End,
-	          End, /* VGroup */
-		End, /* VGroup */
-	      End, /* HGroup */
-	    Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-
-/* Frame stuff */
-            Child, VGroup,
-	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDECOGUI_EYFRAMES ), End,    // "\33c\0334Key Frames"
-              Child, HGroup,
-                Child, EE_Win->BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_EDECOGUI_PREV )),  // "\33cPrev"
-                Child, Label2(GetString( MSG_EDECOGUI_FRAME )),                                  // "Frame"
-                Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                  Child, EE_Win->Str[0] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "012345", End,
-                  Child, EE_Win->StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
-                  Child, EE_Win->StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
-                  End, /* HGroup */
-                Child, EE_Win->BT_NextKey = KeyButtonFunc('x', (char*)GetString( MSG_EDECOGUI_NEXT )),  // "\33cNext"
-                End, /* HGroup */
-
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, EE_Win->BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_EDECOGUI_MAKEKEY )),    // "\33cMake Key"
-                Child, EE_Win->BT_UpdateKeys = KeyButtonFunc('u', (char*)GetString( MSG_EDECOGUI_UPDATE )),  // "\33cUpdate"
-                Child, EE_Win->BT_UpdateAll = KeyButtonObject('('),
-			MUIA_InputMode, MUIV_InputMode_Toggle,
-		 	MUIA_Text_Contents, (char*)GetString( MSG_EDECOGUI_ALL0 ), End,  // "\33cAll (0)"
-		End, /* HGroup */
-              Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, EE_Win->BT_DeleteKey = KeyButtonFunc(127, (char*)GetString( MSG_EDECOGUI_DELETE )),     // "\33c\33uDel\33nete"
-                Child, EE_Win->BT_DeleteAll = KeyButtonFunc('d', (char*)GetString( MSG_EDECOGUI_DELETEALL )),  // "\33cDelete All"
-	        End, /* HGroup */
-
-	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	        Child, EE_Win->FramePages = VGroup,
-                  Child, EE_Win->BT_TimeLines = KeyButtonFunc('t', (char*)GetString( MSG_EDECOGUI_TIMELINES )),  // "\33cTime Lines "
-	          End, /* VGroup */
-                Child, EE_Win->BT_KeyScale = KeyButtonFunc('s', (char*)GetString( MSG_EDECOGUI_SCALEKEYS )),     // "\33cScale Keys "
-		End, /* HGroup */
-	      End, /* VGroup */
-
-            End, /* VGroup */
-
-	  Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
-
-/* group on the right */
-          Child, VGroup,
-/* ecosystem variables */
-            Child, Make_EE_Group(),		/* 12 rows of gadgets */
-	    End, /*VGroup */
-
-          End, /* HGroup */
-
-	Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-
-/* Buttons at bottom */
-        Child, VGroup,
-          Child, HGroup, MUIA_Group_SameWidth, TRUE,
-            Child, EE_Win->BT_Copy = KeyButtonFunc('o', (char*)GetString( MSG_EDECOGUI_COPY )),      // "\33cCopy"
-            Child, EE_Win->BT_Swap = KeyButtonFunc('w', (char*)GetString( MSG_EDECOGUI_SWAP )),      // "\33cSwap"
-            Child, EE_Win->BT_Insert = KeyButtonFunc('i', (char*)GetString( MSG_EDECOGUI_INSERT )),  // "\33cInsert"
-            Child, EE_Win->BT_Remove = KeyButtonFunc('r', (char*)GetString( MSG_EDECOGUI_REMOVE )),  // "\33cRemove"
-            Child, EE_Win->BT_Sort = KeyButtonFunc('l', (char*)GetString( MSG_EDECOGUI_SORTLIST )),  // "\33cSort List"
-            End, /* HGroup */
-          Child, HGroup, MUIA_Group_SameWidth, TRUE,
-            Child, EE_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EDECOGUI_KEEP )),     // "\33cKeep"
-            Child, EE_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
-            End, /* HGroup */
-          End, /* VGroup */
-        End, /* VGroup */
-      End; /* WindowObject EE_Win->EcosystemWin */
-
+     EE_Win->EcosystemWin = AF_Make_EcosystemWin(EE_Win);
   if (! EE_Win->EcosystemWin)
    {
    Close_EE_Window(1);
@@ -455,7 +460,7 @@ void Make_EE_Window(void)
 
 /*********************************************************************/
 
-STATIC_FCN APTR Make_EE_Group(void) // used locally only -> static, AF 26.7.2021
+STATIC_FCN APTR Make_EE_Group(struct EcosystemWindow *EE_Win) // used locally only -> static, AF 26.7.2021
 {
   APTR obj, morestuff;
   short i, error = 0;

@@ -33,6 +33,134 @@ STATIC_FCN short GUIFoliageGroup_Save(void); // used locally only -> static, AF 
 STATIC_FCN void FoliageGroupDefaultColors(struct FoliageGroup *FolGp, short Color); // used locally only -> static, AF 19.7.2021
 STATIC_FCN void FoliageDefaultColors(struct Foliage *Fol, short Color); // used locally only -> static, AF 19.7.2021
 
+APTR AF_MakeFoliageWin (struct FoliageWindow *FE_Win)
+{
+    return WindowObject,
+            MUIA_Window_Title     , GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
+            MUIA_Window_ID        , MakeID('E','D','F','O'),
+            MUIA_Window_Screen    , WCSScrn,
+            MUIA_Window_Menu      , WCSNewMenus,
+
+            WindowContents, VGroup,
+          Child, HGroup,
+            Child, Label1(GetString( MSG_FOLIGUI_ECOSYSTEM )),  // "Ecosystem"
+            Child, FE_Win->EcosysText = TextObject, TextFrame,
+              MUIA_FixWidthTxt, "0123456789012345",
+              MUIA_Text_Contents, PAR_NAME_ECO(FE_Win->FolEco), End,
+            End, /* HGroup */
+          Child, HGroup,
+            Child, VGroup,
+              Child, Label(GetString( MSG_FOLIGUI_GROUP )),  // "\33c\0334Group"
+                  Child, FE_Win->LS_GroupList = ListviewObject,
+              MUIA_Listview_Input, TRUE,
+                      MUIA_Listview_List, ListObject, ReadListFrame, End,
+                    End, /* ListviewObject */
+              Child, FE_Win->BT_Suggest = KeyButtonFunc('s', (char*)GetString( MSG_FOLIGUI_SUGGEST )),  // "\33cSuggest..."
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label2(GetString( MSG_FOLIGUI_MAXPICHT )),  // "Max Pic Ht "
+                Child, FE_Win->FloatStr[4] = StringObject, StringFrame,
+              MUIA_String_Accept, "0123456789",
+              MUIA_FixWidthTxt, "012345", End,
+                Child, FE_Win->Arrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, FE_Win->Arrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label2(GetString( MSG_FOLIGUI_DENSITY )),  // " Density % "
+                Child, FE_Win->FloatStr[0] = StringObject, StringFrame,
+              MUIA_String_Accept, ".0123456789",
+              MUIA_FixWidthTxt, "012345", End,
+                Child, FE_Win->Arrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, FE_Win->Arrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label2(GetString( MSG_FOLIGUI_HEIGHT )),  // "  Height % "
+                Child, FE_Win->FloatStr[1] = StringObject, StringFrame,
+              MUIA_String_Accept, ".0123456789",
+              MUIA_FixWidthTxt, "012345", End,
+                Child, FE_Win->Arrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, FE_Win->Arrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+              Child, HGroup,
+                Child, Label2(GetString( MSG_FOLIGUI_USEIMAGECOLORS )),   // "Use Image Colors"
+                Child, FE_Win->Check[0] = CheckMark(0),
+                End, /* HGroup */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, SmallImageDisplay(&EC_Button8),
+                Child, FE_Win->PalColCy[0] = CycleObject,
+                  MUIA_Cycle_Entries, FE_Win->ECList, End,
+                End, /* HGroup */
+              Child, HGroup,
+                Child, FE_Win->BT_AddGroup    = KeyButtonFunc('a', (char*)GetString( MSG_FOLIGUI_ADD )),     // "\33cAdd..."
+                Child, FE_Win->BT_RemoveGroup = KeyButtonFunc('v', (char*)GetString( MSG_FOLIGUI_REMOVE )),  // "\33cRemove"
+                Child, FE_Win->BT_NewGroup    = KeyButtonFunc('n', (char*)GetString( MSG_FOLIGUI_NEW )),     // "\33cNew..."
+                End, /* HGroup */
+              Child, FE_Win->BT_Export = KeyButtonFunc('e', (char*)GetString( MSG_FOLIGUI_EXPORT )),  // "\33cExport..."
+              End, /* VGroup */
+
+            Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
+
+            Child, VGroup,
+              Child, Label(GetString( MSG_FOLIGUI_MAGES )),  // "\33c\0334Images"
+                  Child, FE_Win->LS_ImageList = ListviewObject,
+              MUIA_Listview_Input, TRUE,
+                      MUIA_Listview_List, ListObject, ReadListFrame, End,
+                    End, /* ListviewObject */
+              Child, HGroup,
+                Child, Label1(GetString( MSG_FOLIGUI_WIDTH )),  // "Width"
+                Child, FE_Win->WidthText = TextObject, TextFrame,
+              MUIA_FixWidthTxt, "0123", End,
+                Child, Label1(GetString( MSG_FOLIGUI_HT )),  // "Ht"
+                Child, FE_Win->HeightText = TextObject, TextFrame,
+              MUIA_FixWidthTxt, "0123", End,
+                End, /* HGroup */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label2(GetString( MSG_FOLIGUI_MAXPICHT )),   // "Max Pic Ht "
+                Child, FE_Win->FloatStr[5] = StringObject, StringFrame,
+              MUIA_String_Accept, "0123456789",
+              MUIA_FixWidthTxt, "012345", End,
+                Child, FE_Win->Arrow[5][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, FE_Win->Arrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label2(GetString( MSG_FOLIGUI_DENSITY )),  // " Density % "
+                Child, FE_Win->FloatStr[2] = StringObject, StringFrame,
+              MUIA_String_Accept, ".0123456789",
+              MUIA_FixWidthTxt, "012345", End,
+                Child, FE_Win->Arrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, FE_Win->Arrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, Label2(GetString( MSG_FOLIGUI_HEIGHT )),  // "  Height % "
+                Child, FE_Win->FloatStr[3] = StringObject, StringFrame,
+              MUIA_String_Accept, ".0123456789",
+              MUIA_FixWidthTxt, "012345", End,
+                Child, FE_Win->Arrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
+                Child, FE_Win->Arrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
+                End, /* HGroup */
+              Child, HGroup,
+                Child, Label2(GetString( MSG_FOLIGUI_USEIMAGECOLORS )),  // "Use Image Colors"
+                Child, FE_Win->Check[1] = CheckMark(0),
+                End, /* HGroup */
+              Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                Child, SmallImageDisplay(&EC_Button9),
+                Child, FE_Win->PalColCy[1] = CycleObject,
+                  MUIA_Cycle_Entries, FE_Win->ECList, End,
+                End, /* HGroup */
+              Child, HGroup,
+                Child, FE_Win->BT_AddImage    = KeyButtonFunc('d', (char*)GetString( MSG_FOLIGUI_ADD )),     // "\33cAdd..."
+                Child, FE_Win->BT_RemoveImage = KeyButtonFunc('r', (char*)GetString( MSG_FOLIGUI_REMOVE )),  // "\33cRemove"
+                End, /* HGroup */
+              Child, FE_Win->BT_ViewImage = KeyButtonFunc('v', (char*)GetString( MSG_FOLIGUI_VIEW )),  // "\33cView..."
+              End, /* VGroup */
+            End, /* HGroup */
+          Child, HGroup, MUIA_Group_SameWidth, TRUE,
+            Child, FE_Win->BT_Keep = KeyButtonFunc('k',   (char*)GetString(MSG_FOLIGUI_KEEP)),    // "\33cKeep"
+            Child, FE_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString(MSG_GLOBAL_33CCANCEL)),  // "\33cCancel"
+            End, /* HGroup */
+          End, /* VGroup */
+            End; /* WindowObject FE_Win->FoliageWin */
+}
+
 /*STATIC_FCN*/ void Make_FE_Window(void) // used locally only -> static, AF 19.7.2021, but now used in test, too
 {
  long i, open;
@@ -94,131 +222,7 @@ STATIC_FCN void FoliageDefaultColors(struct Foliage *Fol, short Color); // used 
   } /* if */
   
 
-     FE_Win->FoliageWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
-      MUIA_Window_ID		, MakeID('E','D','F','O'),
-      MUIA_Window_Screen	, WCSScrn,
-      MUIA_Window_Menu		, WCSNewMenus,
-
-      WindowContents, VGroup,
-	Child, HGroup,
-	  Child, Label1(GetString( MSG_FOLIGUI_ECOSYSTEM )),  // "Ecosystem"
-	  Child, FE_Win->EcosysText = TextObject, TextFrame,
-		MUIA_FixWidthTxt, "0123456789012345",
-		MUIA_Text_Contents, PAR_NAME_ECO(FE_Win->FolEco), End,
-	  End, /* HGroup */
-	Child, HGroup,
-	  Child, VGroup,
-	    Child, Label(GetString( MSG_FOLIGUI_GROUP )),  // "\33c\0334Group"
-            Child, FE_Win->LS_GroupList = ListviewObject,
-		MUIA_Listview_Input, TRUE,
-               	MUIA_Listview_List, ListObject, ReadListFrame, End,
-              End, /* ListviewObject */
-	    Child, FE_Win->BT_Suggest = KeyButtonFunc('s', (char*)GetString( MSG_FOLIGUI_SUGGEST )),  // "\33cSuggest..."
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_FOLIGUI_MAXPICHT )),  // "Max Pic Ht "
-	      Child, FE_Win->FloatStr[4] = StringObject, StringFrame,
-		MUIA_String_Accept, "0123456789",
-		MUIA_FixWidthTxt, "012345", End,
-	      Child, FE_Win->Arrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
-	      Child, FE_Win->Arrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
-	      End, /* HGroup */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_FOLIGUI_DENSITY )),  // " Density % "
-	      Child, FE_Win->FloatStr[0] = StringObject, StringFrame,
-		MUIA_String_Accept, ".0123456789",
-		MUIA_FixWidthTxt, "012345", End,
-	      Child, FE_Win->Arrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
-	      Child, FE_Win->Arrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
-	      End, /* HGroup */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_FOLIGUI_HEIGHT )),  // "  Height % "
-	      Child, FE_Win->FloatStr[1] = StringObject, StringFrame,
-		MUIA_String_Accept, ".0123456789",
-		MUIA_FixWidthTxt, "012345", End,
-	      Child, FE_Win->Arrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
-	      Child, FE_Win->Arrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
-	      End, /* HGroup */
-	    Child, HGroup,
-	      Child, Label2(GetString( MSG_FOLIGUI_USEIMAGECOLORS )),   // "Use Image Colors"
-	      Child, FE_Win->Check[0] = CheckMark(0),
-	      End, /* HGroup */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, SmallImageDisplay(&EC_Button8),
-	      Child, FE_Win->PalColCy[0] = CycleObject,
-			MUIA_Cycle_Entries, FE_Win->ECList, End,
-	      End, /* HGroup */
-	    Child, HGroup,
-	      Child, FE_Win->BT_AddGroup    = KeyButtonFunc('a', (char*)GetString( MSG_FOLIGUI_ADD )),     // "\33cAdd..."
-	      Child, FE_Win->BT_RemoveGroup = KeyButtonFunc('v', (char*)GetString( MSG_FOLIGUI_REMOVE )),  // "\33cRemove"
-	      Child, FE_Win->BT_NewGroup    = KeyButtonFunc('n', (char*)GetString( MSG_FOLIGUI_NEW )),     // "\33cNew..."
-	      End, /* HGroup */
-	    Child, FE_Win->BT_Export = KeyButtonFunc('e', (char*)GetString( MSG_FOLIGUI_EXPORT )),  // "\33cExport..."
-	    End, /* VGroup */
-
-	  Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
-
-	  Child, VGroup,
-	    Child, Label(GetString( MSG_FOLIGUI_MAGES )),  // "\33c\0334Images"
-            Child, FE_Win->LS_ImageList = ListviewObject,
-		MUIA_Listview_Input, TRUE,
-               	MUIA_Listview_List, ListObject, ReadListFrame, End,
-              End, /* ListviewObject */
-	    Child, HGroup,
-	      Child, Label1(GetString( MSG_FOLIGUI_WIDTH )),  // "Width"
-	      Child, FE_Win->WidthText = TextObject, TextFrame,
-		MUIA_FixWidthTxt, "0123", End,
-	      Child, Label1(GetString( MSG_FOLIGUI_HT )),  // "Ht"
-	      Child, FE_Win->HeightText = TextObject, TextFrame,
-		MUIA_FixWidthTxt, "0123", End,
-	      End, /* HGroup */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_FOLIGUI_MAXPICHT )),   // "Max Pic Ht "
-	      Child, FE_Win->FloatStr[5] = StringObject, StringFrame,
-		MUIA_String_Accept, "0123456789",
-		MUIA_FixWidthTxt, "012345", End,
-	      Child, FE_Win->Arrow[5][0] = ImageButtonWCS(MUII_ArrowLeft),
-	      Child, FE_Win->Arrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
-	      End, /* HGroup */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_FOLIGUI_DENSITY )),  // " Density % "
-	      Child, FE_Win->FloatStr[2] = StringObject, StringFrame,
-		MUIA_String_Accept, ".0123456789",
-		MUIA_FixWidthTxt, "012345", End,
-	      Child, FE_Win->Arrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
-	      Child, FE_Win->Arrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
-	      End, /* HGroup */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_FOLIGUI_HEIGHT )),  // "  Height % "
-	      Child, FE_Win->FloatStr[3] = StringObject, StringFrame,
-		MUIA_String_Accept, ".0123456789",
-		MUIA_FixWidthTxt, "012345", End,
-	      Child, FE_Win->Arrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
-	      Child, FE_Win->Arrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
-	      End, /* HGroup */
-	    Child, HGroup,
-	      Child, Label2(GetString( MSG_FOLIGUI_USEIMAGECOLORS )),  // "Use Image Colors"
-	      Child, FE_Win->Check[1] = CheckMark(0),
-	      End, /* HGroup */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, SmallImageDisplay(&EC_Button9),
-	      Child, FE_Win->PalColCy[1] = CycleObject,
-			MUIA_Cycle_Entries, FE_Win->ECList, End,
-	      End, /* HGroup */
-	    Child, HGroup,
-	      Child, FE_Win->BT_AddImage    = KeyButtonFunc('d', (char*)GetString( MSG_FOLIGUI_ADD )),     // "\33cAdd..."
-	      Child, FE_Win->BT_RemoveImage = KeyButtonFunc('r', (char*)GetString( MSG_FOLIGUI_REMOVE )),  // "\33cRemove"
-	      End, /* HGroup */
-	    Child, FE_Win->BT_ViewImage = KeyButtonFunc('v', (char*)GetString( MSG_FOLIGUI_VIEW )),  // "\33cView..."
-	    End, /* VGroup */
-	  End, /* HGroup */
-	Child, HGroup, MUIA_Group_SameWidth, TRUE,
-	  Child, FE_Win->BT_Keep = KeyButtonFunc('k',   (char*)GetString(MSG_FOLIGUI_KEEP)),    // "\33cKeep"
-	  Child, FE_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString(MSG_GLOBAL_33CCANCEL)),  // "\33cCancel"
-	  End, /* HGroup */
-	End, /* VGroup */
-      End; /* WindowObject FE_Win->FoliageWin */
-
+     FE_Win->FoliageWin = AF_MakeFoliageWin(FE_Win);
   if (! FE_Win->FoliageWin)
    {
    Close_FE_Window(1);

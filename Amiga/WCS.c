@@ -656,6 +656,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
                else if(argc==3)
                {
                    StartTestNumber=atoi(argv[2]);
+                   set(AboutWin,MUIA_Window_Open,FALSE); // close About window if open
                    Test_WindowObject(StartTestNumber,FALSE);  // Test all user Window Creates beginning from StartTestNumber
                }
                else

@@ -17,39 +17,97 @@ STATIC_FCN void Set_TS_Position(void); // used locally only -> static, AF 25.7.2
 STATIC_FCN short CreateNewProject(char *NewProjName, char *CloneProjName); // used locally only -> static, AF 25.7.2021
 
 
+APTR AF_MakeTimeSetWin(struct TimeSetWindow *TS_Win)
+{
+    static const char *TS_Cycle_AMPM[3]={NULL};
+    static const char *TS_Cycle_Month[13]={NULL};
+    static const char *TS_Cycle_Date[] = {"1", "2", "3", "4", "5", "6", "7", "8",
+        "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+        "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", NULL};
+
+    static int Init=TRUE;
+
+    if(Init)
+    {
+    Init=FALSE;
+
+    TS_Cycle_AMPM[0] = (char*)GetString( MSG_EVMORGUI_AM );  // "AM"
+    TS_Cycle_AMPM[1] = (char*)GetString( MSG_EVMORGUI_PM );  // "PM"
+    TS_Cycle_AMPM[2] = NULL;
+
+    TS_Cycle_Month[ 0] = (char*)GetString( MSG_EVMORGUI_JAN );  // "Jan",
+    TS_Cycle_Month[ 1] = (char*)GetString( MSG_EVMORGUI_FEB );  // "Feb",
+    TS_Cycle_Month[ 2] = (char*)GetString( MSG_EVMORGUI_MAR );  // "Mar",
+    TS_Cycle_Month[ 3] = (char*)GetString( MSG_EVMORGUI_APR );  // "Apr",
+    TS_Cycle_Month[ 4] = (char*)GetString( MSG_EVMORGUI_MAY );  // "May",
+    TS_Cycle_Month[ 5] = (char*)GetString( MSG_EVMORGUI_JUN );  // "Jun",
+    TS_Cycle_Month[ 6] = (char*)GetString( MSG_EVMORGUI_JUL );  // "Jul",
+    TS_Cycle_Month[ 7] = (char*)GetString( MSG_EVMORGUI_AUG );  // "Aug",
+    TS_Cycle_Month[ 8] = (char*)GetString( MSG_EVMORGUI_SEP );  // "Sep",
+    TS_Cycle_Month[ 9] = (char*)GetString( MSG_EVMORGUI_OCT );  // "Oct",
+    TS_Cycle_Month[10] = (char*)GetString( MSG_EVMORGUI_NOV );  // "Nov",
+    TS_Cycle_Month[11] = (char*)GetString( MSG_EVMORGUI_DEC );  // "Dec",
+    TS_Cycle_Month[12] = NULL;
+    }
+
+    return WindowObject,
+            MUIA_Window_Title     , GetString( MSG_EVMORGUI_SUNTIME ),  // "Sun Time"
+            MUIA_Window_ID        , MakeID('E','P','T','S'),
+            MUIA_Window_Screen    , WCSScrn,
+            MUIA_Window_Menu      , WCSNewMenus,
+
+            WindowContents, VGroup,
+          Child, HGroup,
+            Child, Label2(GetString( MSG_EVMORGUI_REFLON )),  // "Ref Lon"
+            Child, TS_Win->LonStr = StringObject, StringFrame,
+              MUIA_FixWidthTxt, "01234567890",
+              MUIA_String_Accept, "-.0123456789", End,
+            End, /* HGroup */
+
+          Child, HGroup,
+            Child, Label2(GetString( MSG_EVMORGUI_DATE )),  // "Date"
+            Child, TS_Win->MonthCycle = CycleObject,
+              MUIA_Cycle_Entries, TS_Cycle_Month, End,
+            Child, TS_Win->DateCycle = CycleObject,
+              MUIA_Cycle_Entries, TS_Cycle_Date, End,
+            End, /* HGroup */
+
+          Child, HGroup,
+            Child, Label2(GetString( MSG_EVMORGUI_TIME )),  // "Time"
+            Child, TS_Win->TimeStr = StringObject, StringFrame,
+              MUIA_FixWidthTxt, "012345",
+              MUIA_String_Accept, ":.0123456789", End,
+            Child, TS_Win->AMPMCycle = CycleObject,
+              MUIA_Cycle_Entries, TS_Cycle_AMPM, End,
+            End, /* HGroup */
+
+          Child, HGroup,
+            Child, Label2(GetString( MSG_EVMORGUI_SUNLON )),  // "Sun Lon"
+            Child, TS_Win->SunLonStr = StringObject, StringFrame,
+              MUIA_FixWidthTxt, "01234567890",
+              MUIA_String_Accept, "-.0123456789", End,
+            End, /* HGroup */
+          Child, HGroup,
+            Child, Label2(GetString( MSG_EVMORGUI_SUNLAT )),  // "Sun Lat"
+            Child, TS_Win->SunLatStr = StringObject, StringFrame,
+              MUIA_FixWidthTxt, "01234567890",
+              MUIA_String_Accept, "-.0123456789", End,
+            End, /* HGroup */
+
+          Child, TS_Win->BT_Reverse = KeyButtonFunc('r', GetString( MSG_EVMORGUI_REVERSESEASONS )),  // "\33cReverse Seasons"
+
+          Child, HGroup, MUIA_Group_SameWidth, TRUE,
+            Child, TS_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EVMORGUI_KEEP )),     // "\33cKeep"
+            Child, TS_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
+            End, /* HGroup */
+              End, /* VGroup */
+            End; /* WindowObject */
+
+}
+
 void Make_TS_Window(void)
 {
  long open;
- static const char *TS_Cycle_AMPM[3]={NULL};
- static const char *TS_Cycle_Month[13]={NULL};
- static const char *TS_Cycle_Date[] = {"1", "2", "3", "4", "5", "6", "7", "8",
- 	 "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
- 	 "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", NULL};
-
- static int Init=TRUE;
-
- if(Init)
- {
- Init=FALSE;
-
- TS_Cycle_AMPM[0] = (char*)GetString( MSG_EVMORGUI_AM );  // "AM"
- TS_Cycle_AMPM[1] = (char*)GetString( MSG_EVMORGUI_PM );  // "PM"
- TS_Cycle_AMPM[2] = NULL;
-
- TS_Cycle_Month[ 0] = (char*)GetString( MSG_EVMORGUI_JAN );  // "Jan",
- TS_Cycle_Month[ 1] = (char*)GetString( MSG_EVMORGUI_FEB );  // "Feb",
- TS_Cycle_Month[ 2] = (char*)GetString( MSG_EVMORGUI_MAR );  // "Mar",
- TS_Cycle_Month[ 3] = (char*)GetString( MSG_EVMORGUI_APR );  // "Apr",
- TS_Cycle_Month[ 4] = (char*)GetString( MSG_EVMORGUI_MAY );  // "May",
- TS_Cycle_Month[ 5] = (char*)GetString( MSG_EVMORGUI_JUN );  // "Jun",
- TS_Cycle_Month[ 6] = (char*)GetString( MSG_EVMORGUI_JUL );  // "Jul",
- TS_Cycle_Month[ 7] = (char*)GetString( MSG_EVMORGUI_AUG );  // "Aug",
- TS_Cycle_Month[ 8] = (char*)GetString( MSG_EVMORGUI_SEP );  // "Sep",
- TS_Cycle_Month[ 9] = (char*)GetString( MSG_EVMORGUI_OCT );  // "Oct",
- TS_Cycle_Month[10] = (char*)GetString( MSG_EVMORGUI_NOV );  // "Nov",
- TS_Cycle_Month[11] = (char*)GetString( MSG_EVMORGUI_DEC );  // "Dec",
- TS_Cycle_Month[12] = NULL;
- }
 
  if (TS_Win)
   {
@@ -76,59 +134,7 @@ void Make_TS_Window(void)
 
   Set_Param_Menu(0);
 
-     TS_Win->TimeSetWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_EVMORGUI_SUNTIME ),  // "Sun Time"
-      MUIA_Window_ID		, MakeID('E','P','T','S'),
-      MUIA_Window_Screen	, WCSScrn,
-      MUIA_Window_Menu		, WCSNewMenus,
-
-      WindowContents, VGroup,
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_EVMORGUI_REFLON )),  // "Ref Lon"
-	  Child, TS_Win->LonStr = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "01234567890",
-		MUIA_String_Accept, "-.0123456789", End,
-	  End, /* HGroup */
-
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_EVMORGUI_DATE )),  // "Date"
-	  Child, TS_Win->MonthCycle = CycleObject,
-		MUIA_Cycle_Entries, TS_Cycle_Month, End,
-	  Child, TS_Win->DateCycle = CycleObject,
-		MUIA_Cycle_Entries, TS_Cycle_Date, End,
-	  End, /* HGroup */
-
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_EVMORGUI_TIME )),  // "Time"
-	  Child, TS_Win->TimeStr = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "012345",
-		MUIA_String_Accept, ":.0123456789", End,
-	  Child, TS_Win->AMPMCycle = CycleObject,
-		MUIA_Cycle_Entries, TS_Cycle_AMPM, End,
-	  End, /* HGroup */
-
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_EVMORGUI_SUNLON )),  // "Sun Lon"
-	  Child, TS_Win->SunLonStr = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "01234567890",
-		MUIA_String_Accept, "-.0123456789", End,
-	  End, /* HGroup */
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_EVMORGUI_SUNLAT )),  // "Sun Lat"
-	  Child, TS_Win->SunLatStr = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "01234567890",
-		MUIA_String_Accept, "-.0123456789", End,
-	  End, /* HGroup */
-
-	Child, TS_Win->BT_Reverse = KeyButtonFunc('r', GetString( MSG_EVMORGUI_REVERSESEASONS )),  // "\33cReverse Seasons"
-
-	Child, HGroup, MUIA_Group_SameWidth, TRUE,
-	  Child, TS_Win->BT_Apply = KeyButtonFunc('k', (char*)GetString( MSG_EVMORGUI_KEEP )),     // "\33cKeep"
-	  Child, TS_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL )),  // "\33cCancel"
-	  End, /* HGroup */
-        End, /* VGroup */
-      End; /* WindowObject */
-
+     TS_Win->TimeSetWin = AF_MakeTimeSetWin(TS_Win);
   if (! TS_Win->TimeSetWin)
    {
    Close_TS_Window(0);
@@ -586,6 +592,38 @@ double FloatDays, RefLon, SunTime;
 
 /************************************************************************/
 
+APTR AF_MakePN_Win(struct NewProjectWindow *PN_Win)
+{
+    WindowObject,
+          MUIA_Window_Title     , GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+          MUIA_Window_ID        , MakeID('P','R','O','N'),
+          MUIA_Window_Screen    , WCSScrn,
+
+          WindowContents, VGroup,
+          Child, HGroup,
+            Child, Label2(GetString( MSG_EVMORGUI_NEWPROJECT )),  // "New Project"
+            Child, PN_Win->Str[0] = StringObject, StringFrame,
+            MUIA_FixWidthTxt, "0123456789012345678901234567890",
+            MUIA_String_Contents, "WCSProjects:", End,
+            Child, PN_Win->BT_Get[0] = ImageButtonWCS(MUII_Disk),
+            End, /* HGroup */
+          Child, HGroup,
+            Child, Label2(GetString( MSG_EVMORGUI_CLONEPROJECT )),  // "Clone Project"
+            Child, PN_Win->Str[1] = StringObject, StringFrame,
+            MUIA_FixWidthTxt, "0123456789012345678901234567890",
+            MUIA_String_Contents, "WCSProjects:", End,
+            Child, PN_Win->BT_Get[1] = ImageButtonWCS(MUII_Disk),
+            End, /* HGroup */
+          Child, HGroup,
+            Child, RectangleObject, End,
+                Child, PN_Win->BT_Save = KeyButtonFunc('s', (char*)GetString( MSG_EVMORGUI_SAVE )),       // "\33cSave"
+                Child, PN_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
+            Child, RectangleObject, End,
+                End, /* HGroup */
+          End, /* VGroup */
+        End; /* Window object */
+}
+
 /*STATIC_FCN*/ void Make_PN_Window(void) // used locally only -> static, AF 25.7.2021, but now used in test, too
 {
  long open, i;
@@ -603,35 +641,7 @@ double FloatDays, RefLon, SunTime;
 
  Set_Param_Menu(10);
 
-     PN_Win->NewProjWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
-      MUIA_Window_ID		, MakeID('P','R','O','N'),
-      MUIA_Window_Screen	, WCSScrn,
-
-      WindowContents, VGroup,
-	  Child, HGroup,
-	    Child, Label2(GetString( MSG_EVMORGUI_NEWPROJECT )),  // "New Project"
-	    Child, PN_Win->Str[0] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456789012345678901234567890",
-		MUIA_String_Contents, "WCSProjects:", End,
-	    Child, PN_Win->BT_Get[0] = ImageButtonWCS(MUII_Disk),
-	    End, /* HGroup */
-	  Child, HGroup,
-	    Child, Label2(GetString( MSG_EVMORGUI_CLONEPROJECT )),  // "Clone Project"
-	    Child, PN_Win->Str[1] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456789012345678901234567890",
-		MUIA_String_Contents, "WCSProjects:", End,
-	    Child, PN_Win->BT_Get[1] = ImageButtonWCS(MUII_Disk),
-	    End, /* HGroup */
-	  Child, HGroup,
-	    Child, RectangleObject, End,
-            Child, PN_Win->BT_Save = KeyButtonFunc('s', (char*)GetString( MSG_EVMORGUI_SAVE )),       // "\33cSave"
-            Child, PN_Win->BT_Cancel = KeyButtonFunc('c', (char*)GetString( MSG_GLOBAL_33CCANCEL ) ),  // "\33cCancel"
-	    Child, RectangleObject, End,
-            End, /* HGroup */
-	  End, /* VGroup */
-	End; /* Window object */
-
+     PN_Win->NewProjWin = AF_MakePN_Win(PN_Win);
   if (! PN_Win->NewProjWin)
    {
    Close_PN_Window(0);

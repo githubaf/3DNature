@@ -142,7 +142,7 @@ void Close_Diagnostic_Window(void)
 {
  if (! RenderWind0)
   {
-  if (IA->Digitizing) QuitDigPerspective();
+  if (IA && IA->Digitizing) QuitDigPerspective();
   } /* if not for render window */
  set(DIAG_Win->DiagnosticWin, MUIA_Window_Open, FALSE);
 #ifdef WCS_MUI_2_HACK
