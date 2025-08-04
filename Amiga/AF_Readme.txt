@@ -4711,7 +4711,7 @@ Kann ich vernuenftig Kommas und Punkte in Float/Double Zahlenausgaben machen in 
 #include <proto/locale.h>
 
 char *FormatFloatLocale(double value, const char *format, struct Locale *locale) {
-    static char buffer[64]; // ausreichend groß für typische Formate
+    static char buffer[64]; // ausreichend gross für typische Formate
     char decimal = locale->loc_DecimalPoint[0];
 
     // Zuerst mit Standardpunkt formatieren
