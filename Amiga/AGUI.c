@@ -1154,8 +1154,8 @@ struct WCSApp *WCS_App_New(void)
 /**************************************************************************/
 
 // extracted window creation for locale testing purposes, AF 25.7.2021
-APTR  AF_MakeModControlWin (APTR BT_Database, APTR BT_DataOps, APTR BT_Mapping, APTR BT_Editing,
-        APTR BT_Render)
+APTR  AF_MakeModControlWin (APTR *BT_Database, APTR *BT_DataOps, APTR *BT_Mapping, APTR *BT_Editing,
+        APTR *BT_Render)
 {
     WindowObject,
     MUIA_Window_Title      , GetString( MSG_AGUI_MODULECONTROLPANEL ) ,  // "Module Control Panel",
@@ -1164,15 +1164,15 @@ APTR  AF_MakeModControlWin (APTR BT_Database, APTR BT_DataOps, APTR BT_Mapping, 
     MUIA_Window_Screen     , WCSScrn,
 
     WindowContents, ColGroup(7),
-    Child, BT_Database = FixedImgObject, MUIA_Image_OldImage, &DatabaseMod,
+    Child, *BT_Database = FixedImgObject, MUIA_Image_OldImage, &DatabaseMod,
     MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
-    Child, BT_DataOps = FixedImgObject, MUIA_Image_OldImage, &DataOpsMod,
+    Child, *BT_DataOps = FixedImgObject, MUIA_Image_OldImage, &DataOpsMod,
     MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
-    Child, BT_Mapping = FixedImgObject, MUIA_Image_OldImage, &MappingMod,
+    Child, *BT_Mapping = FixedImgObject, MUIA_Image_OldImage, &MappingMod,
     MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
-    Child, BT_Editing = FixedImgObject, MUIA_Image_OldImage, &EditingMod,
+    Child, *BT_Editing = FixedImgObject, MUIA_Image_OldImage, &EditingMod,
     MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
-    Child, BT_Render = FixedImgObject, MUIA_Image_OldImage, &RenderMod,
+    Child, *BT_Render = FixedImgObject, MUIA_Image_OldImage, &RenderMod,
     MUIA_InnerBottom, 0, MUIA_InnerTop, 0, MUIA_InnerLeft, 0, MUIA_InnerRight, 0, End,
     End, /* ColGroup */
 
@@ -1220,7 +1220,7 @@ struct WCSApp *WCS_App_Startup(struct WCSApp *This)
 	 BT_Render=NULL;
  APTR BT_AboutOK=NULL;
 
- ModControlWin = AF_MakeModControlWin(BT_Database, BT_DataOps, BT_Mapping, BT_Editing, BT_Render);
+ ModControlWin = AF_MakeModControlWin(&BT_Database, &BT_DataOps, &BT_Mapping, &BT_Editing, &BT_Render);
  if(ModControlWin)
   {
   DoMethod(app, OM_ADDMEMBER, ModControlWin);

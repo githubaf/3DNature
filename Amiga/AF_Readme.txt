@@ -4733,3 +4733,60 @@ char *FormatFloatLocale(double value, const char *format, struct Locale *locale)
 * Ausgabe aller Floatingpoint Format-Anweisungen
 grep -nH -E '%[0-9\.\-]*[eEfFgG]' *.c
 
+5.August 2025
+-------------
+Test_WindowObject <Start-Nr> <Weitere>  # ohne nummer oder nur mit Startnummer wird da begonnen. Sind mehrere Nummern angegeben, werden nur die angegebenen Nummern angezeigt.
+* Bei   1 beginnen User-Messages
+* Bei 247 beginnen die String-Input-Windows
+* Bei 279 beginnen die  interessanten Windows
+** 279 Log Window
+** 280 Cloud Editor
+** 281 DEM Designer / Danger-Window
+** 282 DEM Builder                                         ALIGN!
+** 283 DEM Interpoieren
+** 284 DEM Konverter /Werteformat und DEM Registation Tab
+** 285 DEM Konverter /Vorerarbeitung und Valueformat TAB
+** 286 DEM Konverter /One Value Tab
+** 287 DEM Konverter /Max-Min Tab
+** 288 Diagnosedaten                                       ALIGN!
+** 289 Ordnerlisten-Editor
+** 290 datenbank Editor
+** 291 Ökosystem Editor                                    ALIGN!
+** 292 CAM VC Draw Tab
+** 293 CAM VC Borders Tab
+** 294 Motion Editor                                       ALIGN!
+** 295 Render Settings Editor Render Tab
+** 296 Render Settings Editor Picture Tab                  ALIGN!
+** 297 Render Settings Editor Motion Tab                   ALIGN!
+** 298 Render Settings Editor Color Tab                    ALIGN!
+** 299 Render Settings Editor Surface Tab                  ALIGN!
+** 300 Render Settings Editor Fractal Tab
+** 301 Render Settings Editor Ecosystem Tab                ALIGN!
+** 302 Render Settings Editor Misc Tab                     ALIGN!
+** 303 Color Editor
+** 304 New Project
+** 305 Sun Time
+** 306 Foilage Editor                                      ALIGN!
+** 307 Map View Control
+** 308 Map Alignment                                       ALIGN!
+** 309 Danger-Window
+** 310 Scale Image
+** 311 Settings
+** 312 Extract DEM -> kleine Schrift                       ALIGN!
+** 313 Project Editor 1. Tab                               ALIGN!
+** 314 Project Editor 2. Tab                               ALIGN!
+** 315 Scale Keys
+** 316 Anim Control Window                                 ALIGN!
+** 317 Lightwave Export                                    ALIGN!
+** 318 Ecosystem Model Editor
+** 319 Busy-Window
+** 320 Screenmode Requester
+** 321 Ecosystem Timeline                                  ALIGN!
+** 322 Colors Timeline                                     ALIGN!
+** 323 Motion Timeline                                     ALIGN!
+** 324 Wave Editor
+** 325 Cloud Wave Editor
+
+* Bei etlichen Fenstern ist die Ausrichtung nur durch Leerzeichen realisiert und damit sprach- und Zeichensatzabhaengig!
+
+

@@ -3834,13 +3834,13 @@ void Test_User_Message(unsigned int StartTestNumber)
     }
 }
 
-APTR  AF_MakeModControlWin (APTR BT_Database, APTR BT_DataOps, APTR BT_Mapping, APTR BT_Editing,
-                         APTR BT_Render); // extracted from ModControl.c
+APTR  AF_MakeModControlWin (APTR *BT_Database, APTR *BT_DataOps, APTR *BT_Mapping, APTR *BT_Editing,
+                         APTR *BT_Render); // extracted from ModControl.c
 APTR AF_Make_Credits_Window(void);
 APTR AF_MakeAboutWin (APTR *BT_AboutOK);
 APTR AF_Make_Info_Window(void);
 APTR AF_Make_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message,APTR *UM_BTGroup);
-APTR AF_Make_IS_Win(char *message, char *reject, char *string, APTR InputStr, APTR BT_OK, APTR BT_Cancel);
+APTR AF_Make_IS_Win(char *message, char *reject, char *string, APTR *InputStr, APTR *BT_OK, APTR *BT_Cancel);
 void Make_Log_Window(int Severity);
 void Close_Log_Window(int StayClosed);
 void Make_CL_Window(void);
@@ -3971,12 +3971,9 @@ void Test_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR but
 
 void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 {
-    unsigned int TotalTests=329; // TotalTests is the number of cases here
+    unsigned int TotalTests=325; // TotalTests is the number of cases here
 
-    //   APTR BT_Database=NULL, BT_DataOps=NULL, BT_Mapping=NULL, BT_Editing=NULL,BT_Render=NULL,
     APTR BT_AboutOK=NULL;
-    //   APTR UM_BTGroup=NULL;
-    APTR UM_Win;
 
     dbaseloaded=1; // Set dbaseloaded to 1, so that the Windows do not complain
     paramsloaded=1; // Set paramsloaded to 1, so that the Windows do not complain
@@ -4072,7 +4069,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 9:
+        case 8:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4082,7 +4079,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 10:
+        case 9:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4092,7 +4089,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 11:
+        case 10:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4102,7 +4099,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 12:
+        case 11:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4112,7 +4109,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 13:
+        case 12:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4122,7 +4119,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 14:
+        case 13:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4132,7 +4129,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 15:
+        case 14:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4142,7 +4139,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 16:
+        case 15:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4157,7 +4154,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 17:
+        case 16:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4167,7 +4164,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 18:
+        case 17:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4177,7 +4174,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 19:
+        case 18:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4187,7 +4184,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 20:
+        case 19:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4197,7 +4194,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 21:
+        case 20:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), "varname[EM_Win->MoItem]");  // "Delete all %s Key Frames?"
@@ -4208,7 +4205,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 22:
+        case 21:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4218,7 +4215,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 23:
+        case 22:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4227,7 +4224,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                                // "OK|CANCEL"
             if(ShouldBreak) break;
         }
-        case 24:
+        case 23:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4236,7 +4233,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_CONTINUECANCEL ));                                      // "Continue|Cancel"
             if(ShouldBreak) break;
         }
-        case 25:
+        case 24:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4245,7 +4242,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
             if(ShouldBreak) break;
         }
-        case 26:
+        case 25:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4254,7 +4251,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
             if(ShouldBreak) break;
         }
-        case 27:
+        case 26:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4263,13 +4260,22 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
             if(ShouldBreak) break;
         }
-        case 28:
+        case 27:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX ),  // "Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?"
                     GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+            if(ShouldBreak) break;
+        }
+        case 28:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+                    GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
+                    GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
             if(ShouldBreak) break;
         }
         case 29:
@@ -4285,21 +4291,12 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
-                    GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
-            if(ShouldBreak) break;
-        }
-        case 31:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
             Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                           // "Render Module: Save"
                     GetString( MSG_GLMP_ERRORSAVINGBITMAPPEDIMAGETRYANOTHERDEVICE ),  // "Error saving bitmapped image! Try another device?"
                     GetString( MSG_GLOBAL_OKCANCEL ));                                   // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 32:
+        case 31:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4308,7 +4305,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_INTVIEW_RETRYCANCEL ));               // "Retry|Cancel"
             if(ShouldBreak) break;
         }
-        case 33:
+        case 32:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4317,7 +4314,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                            // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 34:
+        case 33:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4328,7 +4325,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 35:
+        case 34:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4337,13 +4334,22 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_INTVIEW_RETRYCANCEL ));                               // "Retry|Cancel"
             if(ShouldBreak) break;
         }
-        case 36:
+        case 35:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                       // "Render Module: Clouds"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS ),  // "Out of memory allocating polygon edge buffers!",
                     GetString( MSG_INTVIEW_RETRYCANCEL ));                              // "Retry|Cancel"
+            if(ShouldBreak) break;
+        }
+        case 36:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+                    GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
             if(ShouldBreak) break;
         }
         case 37:
@@ -4359,21 +4365,12 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
-                    GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
-            if(ShouldBreak) break;
-        }
-        case 39:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
             Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
                     GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
                     GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
             if(ShouldBreak) break;
         }
-        case 40:
+        case 39:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4383,7 +4380,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 41:
+        case 40:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4393,7 +4390,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 42:
+        case 41:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4403,7 +4400,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 43:
+        case 42:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4412,7 +4409,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 44:
+        case 43:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4421,7 +4418,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                      // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 45:
+        case 44:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4431,7 +4428,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 46:
+        case 45:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4443,7 +4440,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 47:
+        case 46:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4453,7 +4450,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 48:
+        case 47:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4462,7 +4459,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 49:
+        case 48:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4471,7 +4468,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 50:
+        case 49:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
@@ -4479,7 +4476,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                             // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 51:
+        case 50:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4490,7 +4487,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 52:
+        case 51:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4501,7 +4498,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 53:
+        case 52:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4510,7 +4507,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
             if(ShouldBreak) break;
         }
-        case 54:
+        case 53:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4519,7 +4516,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
             if(ShouldBreak) break;
         }
-        case 55:
+        case 54:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4528,7 +4525,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 56:
+        case 55:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4537,7 +4534,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 57:
+        case 56:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4546,7 +4543,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 58:
+        case 57:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4554,7 +4551,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 59:
+        case 58:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4563,7 +4560,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 60:
+        case 59:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4572,7 +4569,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 61:
+        case 60:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4581,7 +4578,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                      // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 62:
+        case 61:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4590,7 +4587,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));  // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 63:
+        case 62:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4599,7 +4596,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 64:
+        case 63:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4608,7 +4605,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 65:
+        case 64:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4618,7 +4615,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 66:
+        case 65:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4627,7 +4624,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                            // "Yes|No",
             if(ShouldBreak) break;
         }
-        case 67:
+        case 66:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4636,7 +4633,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_DEM_NEWNAMEABORT ));                                              // "New Name|Abort"
             if(ShouldBreak) break;
         }
-        case 68:
+        case 67:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4644,7 +4641,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_DB_OKCANCEL ));                                                // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 69:
+        case 68:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4653,7 +4650,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_DB_OKCANCEL ));                                      // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 70:
+        case 69:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4662,7 +4659,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                                        // "OK"
             if(ShouldBreak) break;
         }
-        case 71:
+        case 70:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4671,7 +4668,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ));   // "Continue|Truncate|Cancel"
             if(ShouldBreak) break;
         }
-        case 72:
+        case 71:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4680,7 +4677,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                           // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 73:
+        case 72:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4689,7 +4686,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 74:
+        case 73:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4698,7 +4695,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_EDDB_FROMDISKDATABASEONLYCANCEL ));                                        // "From Disk|Database Only|Cancel",
             if(ShouldBreak) break;
         }
-        case 75:
+        case 74:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4709,7 +4706,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 76:
+        case 75:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4719,7 +4716,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                     // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 77:
+        case 76:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4730,7 +4727,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 78:
+        case 77:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4742,7 +4739,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 79:
+        case 78:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4751,7 +4748,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 80:
+        case 79:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4760,7 +4757,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 81:
+        case 80:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4770,7 +4767,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 82:
+        case 81:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4779,7 +4776,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 83:
+        case 82:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4789,7 +4786,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));               // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 84:
+        case 83:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4798,7 +4795,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));              // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 85:
+        case 84:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4807,7 +4804,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                  // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 86:
+        case 85:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4818,7 +4815,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 87:
+        case 86:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4829,7 +4826,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 88:
+        case 87:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4840,7 +4837,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 89:
+        case 88:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4851,7 +4848,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 90:
+        case 89:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4862,7 +4859,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 91:
+        case 90:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4873,7 +4870,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 92:
+        case 91:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4884,7 +4881,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 93:
+        case 92:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4895,7 +4892,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 94:
+        case 93:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4906,7 +4903,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 95:
+        case 94:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4917,7 +4914,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 96:
+        case 95:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4929,7 +4926,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 97:
+        case 96:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4938,7 +4935,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));          // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 98:
+        case 97:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4947,7 +4944,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                                  // "OK"
             if(ShouldBreak) break;
         }
-        case 99:
+        case 98:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4956,7 +4953,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                         // "OK"
             if(ShouldBreak) break;
         }
-        case 100:
+        case 99:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4965,7 +4962,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                               // "OK"
             if(ShouldBreak) break;
         }
-        case 101:
+        case 100:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4974,7 +4971,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                              // "OK"
             if(ShouldBreak) break;
         }
-        case 102:
+        case 101:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4983,7 +4980,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                               // "OK"
             if(ShouldBreak) break;
         }
-        case 103:
+        case 102:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -4992,7 +4989,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                              // "OK"
             if(ShouldBreak) break;
         }
-        case 104:
+        case 103:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5001,7 +4998,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                             // "OK"
             if(ShouldBreak) break;
         }
-        case 105:
+        case 104:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5010,7 +5007,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                                // "OK"
             if(ShouldBreak) break;
         }
-        case 106:
+        case 105:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5019,7 +5016,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                       // "OK"
             if(ShouldBreak) break;
         }
-        case 107:
+        case 106:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5028,7 +5025,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_FOLIGUI_THATWOULDBENICE ));               // "That would be nice"
             if(ShouldBreak) break;
         }
-        case 108:
+        case 107:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5037,7 +5034,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                        // "OK"
             if(ShouldBreak) break;
         }
-        case 109:
+        case 108:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5046,7 +5043,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                                // "OK|CANCEL"
             if(ShouldBreak) break;
         }
-        case 110:
+        case 109:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5055,7 +5052,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                                // "OK|CANCEL"
             if(ShouldBreak) break;
         }
-        case 111:
+        case 110:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5064,7 +5061,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_CONTINUECANCEL ));                                      // "Continue|Cancel"
             if(ShouldBreak) break;
         }
-        case 112:
+        case 111:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5073,7 +5070,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
             if(ShouldBreak) break;
         }
-        case 113:
+        case 112:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5082,7 +5079,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
             if(ShouldBreak) break;
         }
-        case 114:
+        case 113:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5091,13 +5088,22 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
             if(ShouldBreak) break;
         }
-        case 115:
+        case 114:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX ),  // "Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?"
                     GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+            if(ShouldBreak) break;
+        }
+        case 115:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+                    GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
+                    GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
             if(ShouldBreak) break;
         }
         case 116:
@@ -5113,21 +5119,12 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
-                    GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
-            if(ShouldBreak) break;
-        }
-        case 118:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
             Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                           // "Render Module: Save"
                     GetString( MSG_GLMP_ERRORSAVINGBITMAPPEDIMAGETRYANOTHERDEVICE ),  // "Error saving bitmapped image! Try another device?"
                     GetString( MSG_GLOBAL_OKCANCEL ));                                   // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 119:
+        case 118:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5136,7 +5133,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_INTVIEW_RETRYCANCEL ));               // "Retry|Cancel"
             if(ShouldBreak) break;
         }
-        case 120:
+        case 119:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5145,7 +5142,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                            // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 121:
+        case 120:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5156,7 +5153,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 122:
+        case 121:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5165,13 +5162,22 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_INTVIEW_RETRYCANCEL ));                               // "Retry|Cancel"
             if(ShouldBreak) break;
         }
-        case 123:
+        case 122:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                       // "Render Module: Clouds"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS ),  // "Out of memory allocating polygon edge buffers!",
                     GetString( MSG_INTVIEW_RETRYCANCEL ));                              // "Retry|Cancel"
+            if(ShouldBreak) break;
+        }
+        case 123:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+                    GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
             if(ShouldBreak) break;
         }
         case 124:
@@ -5187,21 +5193,12 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
-                    GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
-            if(ShouldBreak) break;
-        }
-        case 126:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
             Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
                     GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
                     GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
             if(ShouldBreak) break;
         }
-        case 127:
+        case 126:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5210,7 +5207,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                                     // "OK"
             if(ShouldBreak) break;
         }
-        case 128:
+        case 127:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5219,7 +5216,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                               // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 129:
+        case 128:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5228,7 +5225,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_INTVIEW_RETRYCANCEL ));                    // "Retry|Cancel"
             if(ShouldBreak) break;
         }
-        case 130:
+        case 129:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5237,7 +5234,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                     // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 131:
+        case 130:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5246,7 +5243,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                       // "OK"
             if(ShouldBreak) break;
         }
-        case 132:
+        case 131:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5255,7 +5252,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                  // "OK"
             if(ShouldBreak) break;
         }
-        case 133:
+        case 132:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5264,7 +5261,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                             // "OK"
             if(ShouldBreak) break;
         }
-        case 134:
+        case 133:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5273,7 +5270,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                                           // "OK"
             if(ShouldBreak) break;
         }
-        case 135:
+        case 134:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5282,7 +5279,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                                           // "OK"
             if(ShouldBreak) break;
         }
-        case 136:
+        case 135:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5291,7 +5288,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));                                     // "Active|New|Cancel"
             if(ShouldBreak) break;
         }
-        case 137:
+        case 136:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5300,7 +5297,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));          // "OK|CANCEL"
             if(ShouldBreak) break;
         }
-        case 138:
+        case 137:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5308,7 +5305,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                                // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 139:
+        case 138:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5317,7 +5314,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 140:
+        case 139:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5326,7 +5323,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 141:
+        case 140:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5335,7 +5332,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ));                                  // "Overwrite|New|Cancel"
             if(ShouldBreak) break;
         }
-        case 142:
+        case 141:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5344,7 +5341,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 143:
+        case 142:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5353,7 +5350,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 144:
+        case 143:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5362,7 +5359,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                   // "YES|NO"
             if(ShouldBreak) break;
         }
-        case 145:
+        case 144:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5370,7 +5367,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                                                 // "YES|NO"
             if(ShouldBreak) break;
         }
-        case 146:
+        case 145:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5379,7 +5376,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_MAP_SELECTDESELECTCANCEL ));   // "Select|De-select|Cancel"
             if(ShouldBreak) break;
         }
-        case 147:
+        case 146:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5388,13 +5385,22 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));     // "Active|New|Cancel"
             if(ShouldBreak) break;
         }
-        case 148:
+        case 147:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
                     GetString( MSG_MAP_ACCEPTNEWPOINTS ),         // "Accept new points?"
                     GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+            if(ShouldBreak) break;
+        }
+        case 148:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
             if(ShouldBreak) break;
         }
         case 149:
@@ -5410,21 +5416,12 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
-                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
-            if(ShouldBreak) break;
-        }
-        case 151:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_MAP_CREATEVISUALSENSITIVITYMAPFORTHISOBJECT ),  // "Create Visual Sensitivity map for this object?"
                     GetString( MSG_GLOBAL_OKCANCEL ));                                 // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 152:
+        case 151:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5433,7 +5430,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                            // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 153:
+        case 152:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5442,7 +5439,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 154:
+        case 153:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5451,7 +5448,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|CANCEL"
             if(ShouldBreak) break;
         }
-        case 155:
+        case 154:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5460,7 +5457,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                               // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 156:
+        case 155:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5469,7 +5466,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 157:
+        case 156:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5478,7 +5475,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));             // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 158:
+        case 157:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5487,7 +5484,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 159:
+        case 158:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5496,7 +5493,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 160:
+        case 159:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5505,7 +5502,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_MAPEXTRA_PROCEEDRESETCANCEL ));     // "Proceed|Reset|Cancel"
             if(ShouldBreak) break;
         }
-        case 161:
+        case 160:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5514,7 +5511,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_MAPEXTRA_KEEPSAVERESETCANCEL ));             // "Keep|Save|Reset|Cancel"
             if(ShouldBreak) break;
         }
-        case 162:
+        case 161:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5523,7 +5520,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                              // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 163:
+        case 162:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5532,7 +5529,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_MAPSUPRT_SAVECANCEL ));                                     // "SAVE|CANCEL"
             if(ShouldBreak) break;
         }
-        case 164:
+        case 163:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5541,7 +5538,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                            // "OK|CANCEL"
             if(ShouldBreak) break;
         }
-        case 165:
+        case 164:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5550,7 +5547,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                              // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 166:
+        case 165:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5559,7 +5556,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_INTVIEW_RETRYCANCEL ));                               // "Retry|Cancel"
             if(ShouldBreak) break;
         }
-        case 167:
+        case 166:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5568,7 +5565,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_PARGUI_YESNOCANCEL ));                                           // "Yes|No|Cancel"
             if(ShouldBreak) break;
         }
-        case 168:
+        case 167:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5577,7 +5574,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_PARGUI_YESNOCANCEL ));                                           // "Yes|No|Cancel"
             if(ShouldBreak) break;
         }
-        case 169:
+        case 168:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5586,7 +5583,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ));                    // "Both|D'base|Params|No",
             if(ShouldBreak) break;
         }
-        case 170:
+        case 169:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5595,7 +5592,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ));    // "Focus Point|Camera Point"
             if(ShouldBreak) break;
         }
-        case 171:
+        case 170:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5604,7 +5601,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_WAV_FASTVERYFASTSLOW ));  //"Fast|Very Fast|Slow"
             if(ShouldBreak) break;
         }
-        case 172:
+        case 171:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5613,7 +5610,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_WAV_SPREADINGCONVERGING ));  // "Spreading|Converging"
             if(ShouldBreak) break;
         }
-        case 173:
+        case 172:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5622,7 +5619,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));  // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 174:
+        case 173:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5631,13 +5628,22 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 175:
+        case 174:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
                     GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
                     GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+            if(ShouldBreak) break;
+        }
+        case 175:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                    GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
+                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
             if(ShouldBreak) break;
         }
         case 176:
@@ -5653,21 +5659,12 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
-                    GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
-            if(ShouldBreak) break;
-        }
-        case 178:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
             Test_UM_Win(GetString( MSG_WAVGUI_ADDWAVE ),                                               // "Add Wave"
                     GetString( MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY ),  // "Map View Module must be open in order\ to use this function. Would you like to open it now?"
                     GetString( MSG_GLOBAL_OKCANCEL ));                                              // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 179:
+        case 178:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5676,7 +5673,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                               // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 180:
+        case 179:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5685,7 +5682,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_INTVIEW_RETRYCANCEL ));                    // "Retry|Cancel"
             if(ShouldBreak) break;
         }
-        case 181:
+        case 180:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5694,29 +5691,29 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                     // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 182:
+        case 181:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             sprintf(str, (char*)GetString( MSG_DATAOPS_INPUTDATACANNOTBEEQUALLYDIVIDEDAMONGOUTPUTMAPSASTCO ),  // "Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows."
-                      41, 43);  // Example values for the sprintf
+                    41, 43);  // Example values for the sprintf
             Test_UM_Win(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),     // "Data Ops: Convert DEM"
                     (CONST_STRPTR)str,
                     GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ));   // "Continue|Truncate|Cancel"
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 183:
+        case 182:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), 42));  // "Delete all %s Key Frames?"
+            sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), "Example");  // "Delete all %s Key Frames?"
             Test_UM_Win(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OKCANCEL ));               // "OK|Cancel"
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 184:
+        case 183:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5725,7 +5722,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));              // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 185:
+        case 184:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5734,7 +5731,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                  // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 186:
+        case 185:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5743,7 +5740,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_MAPSUPRT_SAVECANCEL ));                                     // "SAVE|CANCEL"
             if(ShouldBreak) break;
         }
-        case 187:
+        case 186:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5752,7 +5749,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                            // "OK|CANCEL"
             if(ShouldBreak) break;
         }
-        case 188:
+        case 187:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5764,7 +5761,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                       // "OK"
             if(ShouldBreak) break;
         }
-        case 189:
+        case 188:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5773,7 +5770,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                  // "OK"
             if(ShouldBreak) break;
         }
-        case 190:
+        case 189:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5782,7 +5779,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                             // "OK"
             if(ShouldBreak) break;
         }
-        case 191:
+        case 190:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5791,7 +5788,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                                           // "OK"
             if(ShouldBreak) break;
         }
-        case 192:
+        case 191:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5800,7 +5797,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                                           // "OK"
             if(ShouldBreak) break;
         }
-        case 193:
+        case 192:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5809,7 +5806,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ));                    // "Both|D'base|Params|No",
             if(ShouldBreak) break;
         }
-        case 195:
+        case 193:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5818,7 +5815,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));                                     // "Active|New|Cancel"
             if(ShouldBreak) break;
         }
-        case 196:
+        case 194:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5827,17 +5824,17 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));          // "OK|CANCEL"
             if(ShouldBreak) break;
         }
-        case 197:
+        case 195:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            sprintf(str, "%s.elev", "Example);
+            sprintf(str, "%s.elev", "Example");
             Test_UM_Win((CONST_STRPTR)str, GetString( MSG_LINESPRT_USEELEVATIONDATA ),  // "Use elevation data?"
                     GetString( MSG_GLOBAL_YESNO ));                                // "Yes|No"
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 198:
+        case 196:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5846,7 +5843,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 199:
+        case 197:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5855,7 +5852,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 200:
+        case 198:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5864,13 +5861,31 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ));                                  // "Overwrite|New|Cancel"
             if(ShouldBreak) break;
         }
-        case 201:
+        case 199:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),  // "Wave Editor"
                     GetString( MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB ),  // "The current Wave Model has been modified. Do you wish to save it before closing?"
                     GetString( MSG_GLOBAL_YESNO ));  // "Yes|No"
+            if(ShouldBreak) break;
+        }
+        case 200:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                    GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
+                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+            if(ShouldBreak) break;
+        }
+        case 201:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
+                    GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
+                    GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
             if(ShouldBreak) break;
         }
         case 202:
@@ -5886,30 +5901,12 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
-                    GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+                    GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
+                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
             if(ShouldBreak) break;
         }
         case 204:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
-                    GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
-            if(ShouldBreak) break;
-        }
-        case 205:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
-                    GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
-            if(ShouldBreak) break;
-        }
-        case 206:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5918,7 +5915,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                              // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 207:
+        case 205:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5929,7 +5926,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 208:
+        case 206:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5940,7 +5937,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 208:
+        case 207:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5952,7 +5949,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 209:
+        case 208:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5961,7 +5958,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_DB_OKCANCEL ));                                                // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 210:
+        case 209:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5970,7 +5967,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_DB_OKCANCEL ));                                      // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 211:
+        case 210:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5979,7 +5976,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 212:
+        case 211:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5988,7 +5985,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
             if(ShouldBreak) break;
         }
-        case 213:
+        case 212:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5997,7 +5994,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
             if(ShouldBreak) break;
         }
-        case 214:
+        case 213:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6006,7 +6003,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 215:
+        case 214:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6015,7 +6012,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 216:
+        case 215:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6024,14 +6021,14 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 217:
+        case 216:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win((CONST_STRPTR)"example-win", (CONST_STRPTR) GetString( MSG_AGUI_KEEPCHANGES ) , (CONST_STRPTR) GetString( MSG_AGUI_KEEPCANCEL ));  // "Keep changes?", "Keep|Cancel"
             if(ShouldBreak) break;
         }
-        case 218:
+        case 217:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6043,7 +6040,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_DEM_NEWNAMEABORT ));                                              // "New Name|Abort"
             if(ShouldBreak) break;
         }
-        case 219:
+        case 218:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6052,7 +6049,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 220:
+        case 219:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6061,7 +6058,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 221:
+        case 220:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6070,7 +6067,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                   // "YES|NO"
             if(ShouldBreak) break;
         }
-        case 222:
+        case 221:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6078,7 +6075,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));                                                 // "YES|NO"
             if(ShouldBreak) break;
         }
-        case 223:
+        case 222:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6087,7 +6084,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_MAP_SELECTDESELECTCANCEL ));   // "Select|De-select|Cancel"
             if(ShouldBreak) break;
         }
-        case 224:
+        case 223:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6096,13 +6093,22 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));  // "Active|New|Cancel"
             if(ShouldBreak) break;
         }
-        case 225:
+        case 224:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
                     GetString( MSG_MAP_ACCEPTNEWPOINTS ),         // "Accept new points?"
                     GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+            if(ShouldBreak) break;
+        }
+        case 225:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
+                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
             if(ShouldBreak) break;
         }
         case 226:
@@ -6118,21 +6124,12 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
-                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
-            if(ShouldBreak) break;
-        }
-        case 228:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_MAP_CREATEVISUALSENSITIVITYMAPFORTHISOBJECT ),  // "Create Visual Sensitivity map for this object?"
                     GetString( MSG_GLOBAL_OKCANCEL ));                                 // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 229:
+        case 228:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6141,7 +6138,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO ));          // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 230:
+        case 229:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6150,7 +6147,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                                  // "OK"
             if(ShouldBreak) break;
         }
-        case 231:
+        case 230:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6159,7 +6156,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                         // "OK"
             if(ShouldBreak) break;
         }
-        case 232:
+        case 231:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6168,7 +6165,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                               // "OK"
             if(ShouldBreak) break;
         }
-        case 233:
+        case 232:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6177,7 +6174,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                              // "OK"
             if(ShouldBreak) break;
         }
-        case 234:
+        case 233:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6186,7 +6183,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                               // "OK"
             if(ShouldBreak) break;
         }
-        case 235:
+        case 234:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6195,7 +6192,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                              // "OK"
             if(ShouldBreak) break;
         }
-        case 236:
+        case 235:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6204,7 +6201,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                             // "OK"
             if(ShouldBreak) break;
         }
-        case 237:
+        case 236:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6213,7 +6210,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                                // "OK"
             if(ShouldBreak) break;
         }
-        case 238:
+        case 237:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6222,7 +6219,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                       // "OK"
             if(ShouldBreak) break;
         }
-        case 239:
+        case 238:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6231,7 +6228,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_FOLIGUI_THATWOULDBENICE ));               // "That would be nice"
             if(ShouldBreak) break;
         }
-        case 240:
+        case 239:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6240,7 +6237,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OK ));                                        // "OK"
             if(ShouldBreak) break;
         }
-        case 241:
+        case 240:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6249,7 +6246,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 242:
+        case 241:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6258,7 +6255,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
             if(ShouldBreak) break;
         }
-        case 243:
+        case 242:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6267,7 +6264,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_GLOBAL_YESNO));                 // "Yes|No"
             if(ShouldBreak) break;
         }
-        case 244:
+        case 243:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6280,7 +6277,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_PARGUI_YESNOCANCEL ));                                           // "Yes|No|Cancel"
             if(ShouldBreak) break;
         }
-        case 245:
+        case 244:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6292,7 +6289,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ));    // "Focus Point|Camera Point"
             if(ShouldBreak) break;
         }
-        case 246:
+        case 245:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6301,7 +6298,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
                     GetString( MSG_WAV_FASTVERYFASTSLOW ));  //"Fast|Very Fast|Slow"
             if(ShouldBreak) break;
         }
-        case 247:
+        case 246:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6313,7 +6310,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 248:
+        case 247:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6321,7 +6318,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 249:
+        case 248:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6329,7 +6326,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 250:
+        case 249:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6337,7 +6334,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 251:
+        case 250:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6345,7 +6342,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 252:
+        case 251:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6353,7 +6350,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 253:
+        case 252:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6361,7 +6358,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 254:
+        case 253:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6369,7 +6366,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 255:
+        case 254:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6377,7 +6374,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 256:
+        case 255:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6385,7 +6382,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 257:
+        case 256:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6393,11 +6390,19 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 258:
+        case 257:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEFRAMEINTERVALTOSCANTHESMALLERTHENUMBERTHE ));  // "Enter the frame interval to scan. The smaller the number the longer this process will take!"
+
+            if(ShouldBreak) break;
+        }
+        case 258:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6413,7 +6418,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR ));  // "Enter the UTM zone number (0-60) for the data you are about to import."
 
             if(ShouldBreak) break;
         }
@@ -6421,7 +6426,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR ));  // "Enter the UTM zone number (0-60) for the data you are about to import."
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6429,7 +6434,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_MAPGUI_ENTERELEVATIONVALUEFORNEWCONTROLPOINT ));  // "Enter elevation value for new control point."
 
             if(ShouldBreak) break;
         }
@@ -6437,18 +6442,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPGUI_ENTERELEVATIONVALUEFORNEWCONTROLPOINT ));  // "Enter elevation value for new control point."
-
-            if(ShouldBreak) break;
-        }
-        case 264:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
             Test_IS_Win(GetString( MSG_LINESPRT_ENTERFRAMEINTERVALTOREPRESENTEACHVECTORSEGMENT ));  // "Enter frame interval to represent each vector segment."
             if(ShouldBreak) break;
         }
-        case 265:
+        case 264:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6456,7 +6453,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 266:
+        case 265:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6464,7 +6461,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 267:
+        case 266:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6472,7 +6469,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 268:
+        case 267:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6480,7 +6477,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 269:
+        case 268:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6488,7 +6485,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 270:
+        case 269:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6496,7 +6493,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 271:
+        case 270:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6504,11 +6501,19 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             if(ShouldBreak) break;
         }
-        case 272:
+        case 271:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+
+            if(ShouldBreak) break;
+        }
+        case 272:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ));  // "Enter new object name."
 
             if(ShouldBreak) break;
         }
@@ -6524,7 +6529,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ));  // "Enter new object name."
+            Test_IS_Win(GetString( MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT ));  // "Enter a name for the 30 meter DEM object."
 
             if(ShouldBreak) break;
         }
@@ -6532,7 +6537,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT ));  // "Enter a name for the 30 meter DEM object."
+            Test_IS_Win(GetString( MSG_MAP_ENTERVERTICALOFFSETINMETERS ));  // "Enter vertical offset in meters."
 
             if(ShouldBreak) break;
         }
@@ -6540,7 +6545,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAP_ENTERVERTICALOFFSETINMETERS ));  // "Enter vertical offset in meters."
+            Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWGROUPNAME ));  // "Enter new group name."
 
             if(ShouldBreak) break;
         }
@@ -6548,19 +6553,11 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWGROUPNAME ));  // "Enter new group name."
-
-            if(ShouldBreak) break;
-        }
-        case 278:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
             Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWIMAGEPATHANDNAME ));  // "Enter new image path and name."
 
             if(ShouldBreak) break;
         }
-        case 279:
+        case 278:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6570,7 +6567,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         // ###################################
 
 
-        case 280:
+        case 279:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6582,7 +6579,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
 
 
-        case 281:
+        case 280:
             // ####### CloudGui.c ##############
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
@@ -6594,7 +6591,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
 
-        case 282:
+        case 281:
             // ####### DEMGui.c ##############
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
@@ -6606,7 +6603,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 283:
+        case 282:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6616,7 +6613,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 284:
+        case 283:
             // ####### DataOpsGui.c ##############
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
@@ -6638,11 +6635,23 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
+        case 284:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Make_DC_Window();
+            waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
+            Close_DC_Window();  // Close Convert Window
+            if(ShouldBreak) break;
+        }
+
         case 285:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_DC_Window();
+            set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
+            set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
             waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
             Close_DC_Window();  // Close Convert Window
             if(ShouldBreak) break;
@@ -6655,6 +6664,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             Make_DC_Window();
             set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
             set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
+            set(DC_Win->VSRegister, MUIA_Group_ActivePage, 1);  // Output Format "One Value"
             waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
             Close_DC_Window();  // Close Convert Window
             if(ShouldBreak) break;
@@ -6667,26 +6677,13 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             Make_DC_Window();
             set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
             set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
-            set(DC_Win->VSRegister, MUIA_Group_ActivePage, 1);  // Output Format "One Value"
-            waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
-            Close_DC_Window();  // Close Convert Window
-            if(ShouldBreak) break;
-        }
-
-        case 288:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Make_DC_Window();
-            set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
-            set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
             set(DC_Win->VSRegister, MUIA_Group_ActivePage, 2);  // Output Format "Max-Min"
             waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
             Close_DC_Window();  // Close Convert Window
             if(ShouldBreak) break;
         }
 
-        case 289:
+        case 288:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6700,7 +6697,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ###### EdBaseGui.c ##############
-        case 290:
+        case 289:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6712,7 +6709,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
 
 
-        case 291:
+        case 290:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6737,8 +6734,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ############ EdEcoGui.c ##############
-        case 292:
+        case 291:
         {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
             struct EcosystemWindow EE_Win={0};
             EE_Win.EcosystemWin=AF_Make_EcosystemWin(&EE_Win);
             if(EE_Win.EcosystemWin == NULL)
@@ -6759,7 +6758,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
 
         // ############ EdEcoGui.c ##############
-        case 293:
+        case 292:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6775,7 +6774,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 294:
+        case 293:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6792,29 +6791,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 295:
-        {
-            // Only an empty window... (thats correct, no parameters)
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            struct ParListWindow EMPL_Win={0};
-            EMPL_Win.ParListWin=AF_MakeParListWin(&EMPL_Win);
-            if(EMPL_Win.ParListWin == NULL)
-            {
-                printf("Error creating Parameter List Window\n");
-                return;
-            }
-            DoMethod(app, OM_ADDMEMBER, EMPL_Win.ParListWin);
-            set(EMPL_Win.ParListWin,MUIA_Window_Open, TRUE);
-
-            waitForRightClick(EMPL_Win.ParListWin); // Wait for right mouse button to be pressed
-            set(EMPL_Win.ParListWin,MUIA_Window_Open, FALSE);
-            DoMethod(app, OM_REMMEMBER, EMPL_Win.ParListWin);
-            MUI_DisposeObject(EMPL_Win.ParListWin);
-            if(ShouldBreak) break;
-        }
-
-        case 296:
+        case 294:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6836,7 +6813,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ############ EdSetGUI.c ##############
-        case 297:
+        case 295:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6852,7 +6829,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 298:
+        case 296:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6870,7 +6847,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 299:
+        case 297:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6888,7 +6865,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 300:
+        case 298:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6906,7 +6883,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 301:
+        case 299:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6924,7 +6901,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 302:
+        case 300:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6942,7 +6919,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 303:
+        case 301:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6960,7 +6937,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 304:
+        case 302:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6979,7 +6956,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ############ EdSetGUI.c ##############
-        case 305:
+        case 303:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             struct EcoPalWindow EC_Win={0};
@@ -7001,8 +6978,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ############ EvenMoreGUI.c ###########
-        case 306:
+        case 304:
         {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
             struct NewProjectWindow PN_Win={0};
             PN_Win.NewProjWin=AF_MakePN_Win(&PN_Win);
             if(PN_Win.NewProjWin == NULL)
@@ -7020,7 +6998,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 307:
+        case 305:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7042,7 +7020,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ####### FoliageGUI.c ##############
-        case 308:
+        case 306:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7063,59 +7041,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 309:
-        {
-            //           ShowTestNumbers(StartTestNumber++,TotalTests);
-            //
-            //           struct TimeLineWindow TL_Win={0};
-            //           const char *NameStr=(char*)GetString( MSG_CLOUDGUI_CLOUDTIMELINES );
-            //           static const char *Titles[8];
-            //            Titles[0] = (const char*)GetString( MSG_CLOUDGUI_COVERAGE );          // "Coverage"
-            //            Titles[1] = (const char*)GetString( MSG_CLOUDGUI_DENSITY );           // "Density"
-            //            Titles[2] = (const char*)GetString( MSG_CLOUDGUI_ROUGHNESS );         // "Roughness"
-            //            Titles[3] = (const char*)GetString( MSG_CLOUDGUI_FRACTALDIMENSION );  // "Fractal Dimension"
-            //            Titles[4] = (const char*)GetString( MSG_CLOUDGUI_ALTITUDE );          // "Altitude"
-            //            Titles[5] = (const char*)GetString( MSG_CLOUDGUI_MOVELATITUDE );      // "Move Latitude"
-            //            Titles[6] = (const char*)GetString( MSG_CLOUDGUI_MOVELONGITUDE );     // "Move Longitude"
-            //            Titles[7] = NULL;
-            //
-            //            short NumValues=7;
-            //
-            //            /* set the dispatcher for the new class */
-            //             TL_Win.TL_Class->cl_Dispatcher.h_Entry    = (APTR)GNTL_Dispatcher;
-            //             TL_Win.TL_Class->cl_Dispatcher.h_SubEntry = NULL;
-            //             TL_Win.TL_Class->cl_Dispatcher.h_Data     = NULL;
-            //
-            //
-            //           TL_Win.TimeLineWin=AF_MakeTimeLinWin(&TL_Win, NameStr, Titles, NumValues);
-            //           if(TL_Win.TimeLineWin == NULL)
-            //           {
-            //               printf("Error creating TimeLine Window\n");
-            //               return;
-            //           }
-            //           DoMethod(app, OM_ADDMEMBER, TL_Win.TimeLineWin);
-            //           set(TL_Win.TimeLineWin,MUIA_Window_Open, TRUE);
-            //
-            //           waitForRightClick(TL_Win.TimeLineWin ); // Wait for right mouse button to be pressed
-            //           set(TL_Win.TimeLineWin,MUIA_Window_Open, FALSE);
-            //           DoMethod(app, OM_REMMEMBER, TL_Win.TimeLineWin);
-            //           MUI_DisposeObject(TL_Win.TimeLineWin);
-            //           // All Register pages look identically, no need to show them all
-            //          if(ShouldBreak) break;
-        }
-
         // ################### MapGui.c ####################
-        case 310:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Make_EL_Window();    // Window mit leeren Cyclebuttons
-            waitForRightClick(EL_Win->EcoLegendWin); // Wait for right mouse button to be pressed
-            Close_EL_Window();
-            if(ShouldBreak) break;
-        }
-
-        case 311:
+        case 307:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7127,7 +7054,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 312:
+        case 308:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7148,7 +7075,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 313:
+        case 309:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7160,7 +7087,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
 
         // ############ MoreGUI.c ##############
-        case 314:
+        case 310:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7170,7 +7097,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 315:
+        case 311:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7180,7 +7107,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 316:
+        case 312:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7190,7 +7117,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 317:
+        case 313:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7200,7 +7127,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 318:
+        case 314:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7213,7 +7140,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
         // ################### ParamsGui.c ####################
 
-        case 319:
+        case 315:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7232,7 +7159,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 320:
+        case 316:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7255,7 +7182,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 321:
+        case 317:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7265,17 +7192,18 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 322:
+        case 318:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Make_FM_Window();
+            Make_FM_Window();   // Make Forest Model Window
             waitForRightClick(FM_Win->ModelWin); // Wait for right mouse button to be pressed
             Close_FM_Window();
             if(ShouldBreak) break;
+
         }
         // ####################### Requester_GUI.c #######################
-        case 323:
+        case 319:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7289,7 +7217,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
 
         // ############ ScreenModeGUI.c ##############
-        case 324:
+        case 320:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7303,7 +7231,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
 
         // ############ TimeLinesGUI.c ##############
-        case 325:
+        case 321:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7360,7 +7288,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 326:
+        case 322:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7403,7 +7331,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 327:
+        case 323:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7447,7 +7375,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ############ WaveGUI.c ##############
-        case 328:
+        case 324:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7475,7 +7403,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 329:
+        case 325:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
