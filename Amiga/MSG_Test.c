@@ -23,7 +23,7 @@ void ShowTestNumbers(unsigned int TestNumber, unsigned int TotalNumber)
     SetAPen(rp, 1); // Vordergrundfarbe
 
     sprintf(TextBuffer, "%u/%u (%.2f%%)", TestNumber, TotalNumber, (float)TestNumber/TotalNumber*100.0f); // Formatierter Text
-    Move(rp, WCSScrn->Width/2-TextLength(rp,TextBuffer,12)/2, WCSScrn->BarHeight-WCSScrn->Font->ta_YSize/2 +1);
+    Move(rp, WCSScrn->Width/2-TextLength(rp,TextBuffer,12)/2, WCSScrn->BarHeight-WCSScrn->Font->ta_YSize/2 +1 + WCSScrn->Font->ta_YSize);
     Text(rp, TextBuffer, strlen(TextBuffer)); // Text ausgeben
 } /* TestNumbers() */
 
@@ -3862,7 +3862,7 @@ APTR AF_MakeEMTLWindow(struct TimeLineWindow  *EMTL_Win);
 APTR AF_MakeWV_Win(struct WaveWindow *WV_Win, short WinNum, char *NameStr, ULONG WinID);
 APTR AF_MakeDE_Win(struct DatabaseEditWindow *WE_Win);
 APTR AF_Make_EcosystemWin(struct EcosystemWindow *EE_Win);
-APTR AF_MakeIAMotionWin(struct IAMotionWindow *EMIA_Win);
+APTR AF_MakeIAMotionWin(struct IAMotionWindow *EMIA_Win,short EM_Win_Frame);
 APTR AF_MakeParListWin(struct ParListWindow *EMPL_Win);
 APTR AF_MakeMotionWin(struct MotionWindow *EM_Win);
 APTR AF_MakeEcoPalWin(struct EcoPalWindow *EC_Win);
@@ -3873,23 +3873,27 @@ SAVEDS ASM ULONG GNTL_Dispatcher(REG(a0, struct IClass *cl), REG( a2, Object *ob
 APTR AF_MakeAlignWin (struct MapData *MP);
 APTR AF_MakeAnimWin(struct AnimWindow *AN_Win,  struct Window *InterWind0);
 APTR AK_MakeInterpWin(struct DEMInterpolateWindow *DI_Win);
+APTR AF_MakeModeSelWin(struct Screen *Screen, APTR *SM_List, APTR *SM_Text, APTR *SM_COLORS_TEXT,APTR *SM_COLORS, APTR *SM_OSCAN,
+                       APTR *SM_Width, APTR *SM_Height, APTR *SM_Save, APTR *SM_Use, APTR *SM_Exit, char **NumColorsStrings);
+APTR AF_MakeCloudeWin(struct CloudWindow  *CL_Win);
 
 void waitForRightClick(Object *MuiWindow)
 {
-    struct IntuiMessage *msg;
-    BOOL waiting = TRUE;
-    struct Window *winptr;
-    get(MuiWindow, MUIA_Window_Window, &winptr);
-
-    while (waiting) {
-        WaitPort(winptr->UserPort);
-        while ((msg = (struct IntuiMessage *)GetMsg(winptr->UserPort))) {
-            if (msg->Class == IDCMP_MENUPICK /*&& msg->Code == 0xffff*/) {
-                waiting = FALSE;
-            }
-            ReplyMsg((struct Message *)msg);
-        }
-    }
+//    struct IntuiMessage *msg;
+//    BOOL waiting = TRUE;
+//    struct Window *winptr;
+//    get(MuiWindow, MUIA_Window_Window, &winptr);
+//
+//    while (waiting) {
+//        WaitPort(winptr->UserPort);
+//        while ((msg = (struct IntuiMessage *)GetMsg(winptr->UserPort))) {
+//            if (msg->Class == IDCMP_MENUPICK /*&& msg->Code == 0xffff*/) {
+//                waiting = FALSE;
+//            }
+//            ReplyMsg((struct Message *)msg);
+//        }
+//    }
+    sleep(1);
 }
 
 void Test_IS_Win(CONST STRPTR message)
@@ -6584,9 +6588,20 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Make_CL_Window();   // ALEXANDER: Auch im normalen Test aufrufen!
-            waitForRightClick(CL_Win->CloudWin); // Wait for right mouse button to be pressed
-            Close_CL_Window();  // Close Cloud Window
+            struct CloudWindow  CL_Win={0};
+            CL_Win.CloudWin = AF_MakeCloudeWin(&CL_Win);
+            if(CL_Win.CloudWin == NULL)
+            {
+                printf("Error creating Cloud Window\n");
+                return;
+            }
+            DoMethod(app, OM_ADDMEMBER, CL_Win.CloudWin );
+            set(CL_Win.CloudWin ,MUIA_Window_Open, TRUE);
+
+            waitForRightClick(CL_Win.CloudWin  ); // Wait for right mouse button to be pressed
+            set(CL_Win.CloudWin ,MUIA_Window_Open, FALSE);
+            DoMethod(app, OM_REMMEMBER, CL_Win.CloudWin );
+            MUI_DisposeObject(CL_Win.CloudWin );
             if(ShouldBreak) break;
         }
 
@@ -6763,7 +6778,13 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             struct IAMotionWindow EMIA_Win={0};
-            EMIA_Win.IAMotionWin=AF_MakeIAMotionWin(&EMIA_Win);
+            EMIA_Win.IAMotionWin=AF_MakeIAMotionWin(&EMIA_Win,42);
+            if(EMIA_Win.IAMotionWin == NULL)
+            {
+                printf("Error creating IAMotion Window\n");
+                return;
+            }
+
             DoMethod(app, OM_ADDMEMBER, EMIA_Win.IAMotionWin);
             set(EMIA_Win.IAMotionWin,MUIA_Window_Open, TRUE);
 
@@ -6779,7 +6800,12 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             struct IAMotionWindow EMIA_Win={0};
-            EMIA_Win.IAMotionWin=AF_MakeIAMotionWin(&EMIA_Win);
+            EMIA_Win.IAMotionWin=AF_MakeIAMotionWin(&EMIA_Win,42);
+            if(EMIA_Win.IAMotionWin == NULL)
+            {
+                printf("Error creating IAMotion Window\n");
+                return;
+            }
             DoMethod(app, OM_ADDMEMBER, EMIA_Win.IAMotionWin);
             set(EMIA_Win.Register_Cycle_Page, MUIA_Group_ActivePage, 1); // Show "Borders" tab
             set(EMIA_Win.IAMotionWin,MUIA_Window_Open, TRUE);
@@ -7222,10 +7248,43 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
 
-            struct WCSScreenMode *ScreenModes = ModeList_New();
-            struct WCSScreenData *ScrnData={0};
-            ModeList_Choose(ScreenModes,ScrnData);
-            ModeList_Del(ScreenModes);
+//            struct WCSScreenMode *ScreenModes = ModeList_New();
+//            struct WCSScreenData *ScrnData={0};
+//            ModeList_Choose(ScreenModes,ScrnData,WCSScrn);
+//            ModeList_Del(ScreenModes);
+//            if(ShouldBreak) break;
+            APTR ModeSelWin;
+            APTR SM_List,  SM_Text,  SM_COLORS_TEXT, SM_COLORS,  SM_OSCAN,
+            SM_Width,  SM_Height,  SM_Save,  SM_Use,  SM_Exit;
+
+            static const char *NumColorsStrings[8];
+
+                NumColorsStrings[ 0]= "    16";  // default
+                NumColorsStrings[ 1]= "    32";
+                NumColorsStrings[ 2]= "    64";
+                NumColorsStrings[ 3]= "   128";
+                NumColorsStrings[ 4]= "   256";
+                NumColorsStrings[ 5]= " 32768"; // RTG
+                NumColorsStrings[ 6]= " 65536"; // RTG
+                NumColorsStrings[ 7]= "   16M"; // RTG
+
+
+
+           ModeSelWin=AF_MakeModeSelWin(WCSScrn, &SM_List, &SM_Text, &SM_COLORS_TEXT,&SM_COLORS, &SM_OSCAN,
+                                                 &SM_Width, &SM_Height, &SM_Save, &SM_Use, &SM_Exit,NumColorsStrings);
+            if(ModeSelWin == NULL)
+                {
+                printf("AF_MakeModeSelWin() failed!\n");
+                return; // Exit if the Screen Mode Selection Window could not be created
+            }
+            DoMethod(app, OM_ADDMEMBER, ModeSelWin);
+            set(ModeSelWin,MUIA_Window_Open, TRUE);
+            waitForRightClick(ModeSelWin); // Wait for right mouse button to be pressed
+            set(ModeSelWin,MUIA_Window_Open, FALSE);
+            DoMethod(app, OM_REMMEMBER, ModeSelWin);
+            MUI_DisposeObject(ModeSelWin);
+            ScreenToFront(WCSScrn); // Bring the screen back to the front
+
             if(ShouldBreak) break;
         }
 

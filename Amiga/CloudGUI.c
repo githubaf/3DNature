@@ -19,21 +19,219 @@ STATIC_FCN void GUICloudKey_SetGads(struct CloudWindow *CL_Win,
 STATIC_FCN void GUICloud_SetGads(struct CloudWindow *CL_Win,
         struct CloudData *CD); // used locally only -> static, AF 26.7.2021
 
+APTR AF_MakeCloudeWin(struct CloudWindow  *CL_Win)
+{
+    static const char *CL_CloudTypes[5];
+    static int Init=TRUE;  // necessary only once
+    if(Init)
+    {
+        Init=FALSE;
+        CL_CloudTypes[0] = (const char*)GetString( MSG_CLOUDGUI_CIRRUS );   // "Cirrus"
+        CL_CloudTypes[1] = (const char*)GetString( MSG_CLOUDGUI_STRATUS );  // "Stratus"
+        CL_CloudTypes[2] = (const char*)GetString( MSG_CLOUDGUI_NIMBUS );   // "Nimbus"
+        CL_CloudTypes[3] = (const char*)GetString( MSG_CLOUDGUI_CUMULUS );  // "Cumulus"
+        CL_CloudTypes[4] = NULL;
+    }
+
+    return WindowObject,
+      MUIA_Window_Title     , GetString( MSG_CLOUDGUI_CLOUDEDITOR ),  // "Cloud Editor"
+      MUIA_Window_ID        , MakeID('C','L','O','D'),
+      MUIA_Window_Screen    , WCSScrn,
+
+      WindowContents, VGroup,
+    Child, HGroup,
+      Child, Label2(GetString( MSG_CLOUDGUI_OPTIONS )),                                                      // "Options"
+          Child, CL_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_CLOUDGUI_CLOUDS )),       // "\33cClouds"
+          Child, CL_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_CLOUDGUI_CLOUDSHADOWS )), // "\33cCloud Shadows"
+      End, /* HGroup */
+    Child, HGroup,
+      Child, Label2(GetString( MSG_CLOUDGUI_CLOUDTYPE )),  // "Cloud Type"
+      Child, CL_Win->Cycle = CycleObject,
+        MUIA_Cycle_Entries, CL_CloudTypes,
+        MUIA_Cycle_Active, 0, End,
+      Child, Label2( GetString( MSG_CLOUDGUI_SEED )) , // "Seed"
+      Child, CL_Win->IntStr[0] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "01234",
+        MUIA_String_Accept, "0123456789", End,
+      End, /* HGroup */
+    Child, Label(GetString( MSG_CLOUDGUI_CLOUDWAVES )),  // "\33c\0334Cloud Waves"
+    Child, HGroup,
+      Child, Label2(GetString( MSG_CLOUDGUI_WAVES )),  // "Waves"
+      Child, CL_Win->Text = TextObject, TextFrame,
+        MUIA_FixWidthTxt, "0123", End,
+      Child, CL_Win->BT_AddWave = KeyButtonFunc('a', (char*)GetString( MSG_CLOUDGUI_MAPADD )),  // "\33cMap Add..."
+      Child, CL_Win->BT_EditWave = KeyButtonFunc('e', (char*)GetString( MSG_CLOUDGUI_EDIT )),   // "\33cEdit..."
+      Child, Label2(GetString( MSG_CLOUDGUI_ANIMATE )),                                         // "Animate")
+      Child, CL_Win->Check = CheckMark(0),
+      End, /* HGroup */
+    Child, Label(GetString( MSG_CLOUDGUI_LOUDMAPSIZERANGE )),  // "\33c\0334Cloud Map Size & Range"
+    Child, ColGroup(4),
+      Child, Label2(GetString( MSG_CLOUDGUI_ROWS )),  // "Rows"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->CloudStr[0] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, "0123456789", End,
+        Child, CL_Win->CloudArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->CloudArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      Child, Label2(GetString( MSG_CLOUDGUI_COLS ) ),  // "Cols"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->CloudStr[1] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, "0123456789", End,
+        Child, CL_Win->CloudArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->CloudArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      Child, Label2(GetString( MSG_CLOUDGUI_LATMAX ) ),  // "Lat Max"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->CloudStr[2] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, "-.0123456789", End,
+        Child, CL_Win->CloudArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->CloudArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      Child, Label2(GetString( MSG_CLOUDGUI_MIN ) ),  // "Min"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->CloudStr[3] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, "-.0123456789", End,
+        Child, CL_Win->CloudArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->CloudArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      Child, Label2(GetString( MSG_CLOUDGUI_LONMAX ) ),  // "Lon Max"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->CloudStr[4] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, "-.0123456789", End,
+        Child, CL_Win->CloudArrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->CloudArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      Child, Label2(GetString( MSG_CLOUDGUI_MIN ) ),  // "Min"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->CloudStr[5] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, "-.0123456789", End,
+        Child, CL_Win->CloudArrow[5][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->CloudArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      End, /* ColGroup */
+    Child, Label(GetString( MSG_CLOUDGUI_ANIMATION ) ),  // "\33c\0334Animation"
+    Child, ColGroup(4),
+      Child, Label2(GetString( MSG_CLOUDGUI_COVERAGE ) ),  // "Coverage"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->FloatStr[0] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, ".0123456789", End,
+        Child, CL_Win->FloatArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->FloatArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      Child, Label2(GetString( MSG_CLOUDGUI_DENSITY ) ),  // "Density"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->FloatStr[1] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, ".0123456789", End,
+        Child, CL_Win->FloatArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->FloatArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      Child, Label2(GetString( MSG_CLOUDGUI_ROUGHNESS ) ),  // "Roughness"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->FloatStr[2] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, ".0123456789", End,
+        Child, CL_Win->FloatArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->FloatArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      Child, Label2(GetString( MSG_CLOUDGUI_FRACTDIM ) ),  // "Fract Dim"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->FloatStr[3] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, ".0123456789", End,
+        Child, CL_Win->FloatArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->FloatArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      Child, Label2(GetString( MSG_CLOUDGUI_MOVELAT ) ),  // "Move Lat"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->FloatStr[5] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, "-.0123456789", End,
+        Child, CL_Win->FloatArrow[5][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->FloatArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      Child, Label2(GetString( MSG_CLOUDGUI_LON ) ),  // "Lon"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->FloatStr[6] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, "-.0123456789", End,
+        Child, CL_Win->FloatArrow[6][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->FloatArrow[6][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      End, /* ColGroup */
+    Child, HGroup,
+      Child, Label2(GetString( MSG_CLOUDGUI_ALTITUDE ) ),  // "Altitude"
+      Child, HGroup, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->FloatStr[4] = StringObject, StringFrame,
+        MUIA_FixWidthTxt, "0123456",
+        MUIA_String_Accept, "-.0123456789", End,
+        Child, CL_Win->FloatArrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
+        Child, CL_Win->FloatArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
+        End, /* HGroup */
+      End, /* HGroup */
+
+    Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
+
+/* Frame stuff */
+        Child, VGroup,
+      Child, TextObject, MUIA_Text_Contents, GetString( MSG_CLOUDGUI_EYFRAMES ), End,  // "\33c\0334Key Frames"
+          Child, HGroup,
+            Child, CL_Win->GKS.BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_CLOUDGUI_PREV ) ),  // "\33cPrev"
+            Child, Label2(GetString( MSG_CLOUDGUI_FRAME ) ),  // "Frame"
+            Child, HGroup, MUIA_Group_HorizSpacing, 0,
+              Child, CL_Win->GKS.Str[0] = StringObject, StringFrame,
+            MUIA_String_Integer, 0,
+            MUIA_String_Accept, "0123456789",
+            MUIA_FixWidthTxt, "012345", End,
+              Child, CL_Win->GKS.StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
+              Child, CL_Win->GKS.StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
+              End, /* HGroup */
+            Child, CL_Win->GKS.BT_NextKey = KeyButtonFunc('x', (char*)GetString( MSG_CLOUDGUI_NEXT ) ),  // "\33cNext"
+            End, /* HGroup */
+
+      Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
+            Child, CL_Win->GKS.BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_CLOUDGUI_MAKEKEY ) ),    // "\33cMake Key"
+            Child, CL_Win->GKS.BT_UpdateKeys = KeyButtonFunc('u', (char*)GetString( MSG_CLOUDGUI_UPDATE ) ),  // "\33cUpdate"
+        End, /* HGroup */
+          Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
+            Child, CL_Win->GKS.BT_DeleteKey = KeyButtonFunc(127, (char*)GetString( MSG_CLOUDGUI_DELETE ) ),     // "\33c\33uDel\33nete"
+            Child, CL_Win->GKS.BT_DeleteAll = KeyButtonFunc('d', (char*)GetString( MSG_CLOUDGUI_DELETEALL ) ),  // "\33cDelete All"
+        End, /* HGroup */
+
+      Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
+        Child, CL_Win->GKS.FramePages = VGroup,
+              Child, CL_Win->GKS.BT_TimeLines = KeyButtonFunc('t', (char*)GetString( MSG_CLOUDGUI_TIMELINES ) ),  // "\33cTime Lines "
+          End, /* VGroup */
+            Child, CL_Win->GKS.BT_KeyScale = KeyButtonFunc('s', (char*)GetString( MSG_CLOUDGUI_SCALEKEYS ) ),     // "\33cScale Keys "
+        End, /* HGroup */
+      End, /* VGroup */
+
+    Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
+
+    Child, HGroup,
+        Child, CL_Win->BT_DrawCloud = KeyButtonFunc('r', (char*)GetString( MSG_CLOUDGUI_DRAWCLOUD ) ),  // "\33cDraw Cloud"
+        Child, CL_Win->BT_SetBounds = KeyButtonFunc('b', (char*)GetString( MSG_CLOUDGUI_SETBOUNDS ) ),  // "\33cSet Bounds"
+        End, /* HGroup */
+    Child, HGroup,
+        Child, CL_Win->BT_Save = KeyButtonFunc('s', (char*)GetString( MSG_CLOUDGUI_SAVE ) ),  // "\33cSave"
+        Child, CL_Win->BT_Load = KeyButtonFunc('l', (char*)GetString( MSG_CLOUDGUI_LOAD ) ),  // "\33cLoad"
+        End, /* HGroup */
+
+    End, /* VGroup */
+      End; /* Window object */
+}
+
 /*STATIC_FCN*/ void Make_CL_Window(void) // used locally only -> static, AF 26.7.2021 ( but now also in test)
 {
  char filename[256];
  long i, open;
- static const char *CL_CloudTypes[5];
- static int Init=TRUE;  // necessary only once
- if(Init)
- {
-	 Init=FALSE;
-	 CL_CloudTypes[0] = (const char*)GetString( MSG_CLOUDGUI_CIRRUS );   // "Cirrus"
-	 CL_CloudTypes[1] = (const char*)GetString( MSG_CLOUDGUI_STRATUS );  // "Stratus"
-	 CL_CloudTypes[2] = (const char*)GetString( MSG_CLOUDGUI_NIMBUS );   // "Nimbus"
-	 CL_CloudTypes[3] = (const char*)GetString( MSG_CLOUDGUI_CUMULUS );  // "Cumulus"
-	 CL_CloudTypes[4] = NULL;
- }
 
  if (CL_Win)
   {
@@ -59,200 +257,7 @@ STATIC_FCN void GUICloud_SetGads(struct CloudWindow *CL_Win,
  CL_Win->WKS.NumValues = 7;
  CL_Win->WKS.Precision = WCS_KFPRECISION_FLOAT;
 
-     CL_Win->CloudWin = WindowObject,
-      MUIA_Window_Title		, GetString( MSG_CLOUDGUI_CLOUDEDITOR ),  // "Cloud Editor"
-      MUIA_Window_ID		, MakeID('C','L','O','D'),
-      MUIA_Window_Screen	, WCSScrn,
-
-      WindowContents, VGroup,
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_CLOUDGUI_OPTIONS )),                                                      // "Options"
-          Child, CL_Win->BT_Settings[0] = KeyButtonFunc('1', (char*)GetString( MSG_CLOUDGUI_CLOUDS )),       // "\33cClouds"
-          Child, CL_Win->BT_Settings[1] = KeyButtonFunc('2', (char*)GetString( MSG_CLOUDGUI_CLOUDSHADOWS )), // "\33cCloud Shadows"
-	  End, /* HGroup */
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_CLOUDGUI_CLOUDTYPE )),  // "Cloud Type"
-	  Child, CL_Win->Cycle = CycleObject,
-		MUIA_Cycle_Entries, CL_CloudTypes,
-		MUIA_Cycle_Active, 0, End,
-	  Child, Label2( GetString( MSG_CLOUDGUI_SEED )) , // "Seed"
-	  Child, CL_Win->IntStr[0] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "01234",
-		MUIA_String_Accept, "0123456789", End,
-	  End, /* HGroup */
-	Child, Label(GetString( MSG_CLOUDGUI_CLOUDWAVES )),  // "\33c\0334Cloud Waves"
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_CLOUDGUI_WAVES )),  // "Waves"
-	  Child, CL_Win->Text = TextObject, TextFrame,
-		MUIA_FixWidthTxt, "0123", End,
-	  Child, CL_Win->BT_AddWave = KeyButtonFunc('a', (char*)GetString( MSG_CLOUDGUI_MAPADD )),  // "\33cMap Add..."
-	  Child, CL_Win->BT_EditWave = KeyButtonFunc('e', (char*)GetString( MSG_CLOUDGUI_EDIT )),   // "\33cEdit..."
-	  Child, Label2(GetString( MSG_CLOUDGUI_ANIMATE )),                                         // "Animate")
-	  Child, CL_Win->Check = CheckMark(0),
-	  End, /* HGroup */
-	Child, Label(GetString( MSG_CLOUDGUI_LOUDMAPSIZERANGE )),  // "\33c\0334Cloud Map Size & Range"
-	Child, ColGroup(4),
-	  Child, Label2(GetString( MSG_CLOUDGUI_ROWS )),  // "Rows"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->CloudStr[0] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, "0123456789", End,
-	    Child, CL_Win->CloudArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->CloudArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  Child, Label2(GetString( MSG_CLOUDGUI_COLS ) ),  // "Cols"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->CloudStr[1] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, "0123456789", End,
-	    Child, CL_Win->CloudArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->CloudArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  Child, Label2(GetString( MSG_CLOUDGUI_LATMAX ) ),  // "Lat Max"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->CloudStr[2] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, "-.0123456789", End,
-	    Child, CL_Win->CloudArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->CloudArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  Child, Label2(GetString( MSG_CLOUDGUI_MIN ) ),  // "Min"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->CloudStr[3] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, "-.0123456789", End,
-	    Child, CL_Win->CloudArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->CloudArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  Child, Label2(GetString( MSG_CLOUDGUI_LONMAX ) ),  // "Lon Max"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->CloudStr[4] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, "-.0123456789", End,
-	    Child, CL_Win->CloudArrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->CloudArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  Child, Label2(GetString( MSG_CLOUDGUI_MIN ) ),  // "Min"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->CloudStr[5] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, "-.0123456789", End,
-	    Child, CL_Win->CloudArrow[5][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->CloudArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  End, /* ColGroup */
-	Child, Label(GetString( MSG_CLOUDGUI_ANIMATION ) ),  // "\33c\0334Animation"
-	Child, ColGroup(4),
-	  Child, Label2(GetString( MSG_CLOUDGUI_COVERAGE ) ),  // "Coverage"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->FloatStr[0] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, ".0123456789", End,
-	    Child, CL_Win->FloatArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->FloatArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  Child, Label2(GetString( MSG_CLOUDGUI_DENSITY ) ),  // "Density"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->FloatStr[1] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, ".0123456789", End,
-	    Child, CL_Win->FloatArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->FloatArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  Child, Label2(GetString( MSG_CLOUDGUI_ROUGHNESS ) ),  // "Roughness"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->FloatStr[2] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, ".0123456789", End,
-	    Child, CL_Win->FloatArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->FloatArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  Child, Label2(GetString( MSG_CLOUDGUI_FRACTDIM ) ),  // "Fract Dim"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->FloatStr[3] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, ".0123456789", End,
-	    Child, CL_Win->FloatArrow[3][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->FloatArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  Child, Label2(GetString( MSG_CLOUDGUI_MOVELAT ) ),  // "Move Lat"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->FloatStr[5] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, "-.0123456789", End,
-	    Child, CL_Win->FloatArrow[5][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->FloatArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  Child, Label2(GetString( MSG_CLOUDGUI_LON ) ),  // "Lon"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->FloatStr[6] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, "-.0123456789", End,
-	    Child, CL_Win->FloatArrow[6][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->FloatArrow[6][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  End, /* ColGroup */
-	Child, HGroup,
-	  Child, Label2(GetString( MSG_CLOUDGUI_ALTITUDE ) ),  // "Altitude"
-	  Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->FloatStr[4] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456",
-		MUIA_String_Accept, "-.0123456789", End,
-	    Child, CL_Win->FloatArrow[4][0] = ImageButtonWCS(MUII_ArrowLeft),
-	    Child, CL_Win->FloatArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
-	    End, /* HGroup */
-	  End, /* HGroup */
-
-	Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-
-/* Frame stuff */
-        Child, VGroup,
-	  Child, TextObject, MUIA_Text_Contents, GetString( MSG_CLOUDGUI_EYFRAMES ), End,  // "\33c\0334Key Frames"
-          Child, HGroup,
-            Child, CL_Win->GKS.BT_PrevKey = KeyButtonFunc('v', (char*)GetString( MSG_CLOUDGUI_PREV ) ),  // "\33cPrev"
-            Child, Label2(GetString( MSG_CLOUDGUI_FRAME ) ),  // "Frame"
-            Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, CL_Win->GKS.Str[0] = StringObject, StringFrame,
-			MUIA_String_Integer, 0,
-			MUIA_String_Accept, "0123456789",
-			MUIA_FixWidthTxt, "012345", End,
-              Child, CL_Win->GKS.StrArrow[0] = ImageButtonWCS(MUII_ArrowLeft),
-              Child, CL_Win->GKS.StrArrow[1] = ImageButtonWCS(MUII_ArrowRight),
-              End, /* HGroup */
-            Child, CL_Win->GKS.BT_NextKey = KeyButtonFunc('x', (char*)GetString( MSG_CLOUDGUI_NEXT ) ),  // "\33cNext"
-            End, /* HGroup */
-
-	  Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
-            Child, CL_Win->GKS.BT_MakeKey = KeyButtonFunc('m', (char*)GetString( MSG_CLOUDGUI_MAKEKEY ) ),    // "\33cMake Key"
-            Child, CL_Win->GKS.BT_UpdateKeys = KeyButtonFunc('u', (char*)GetString( MSG_CLOUDGUI_UPDATE ) ),  // "\33cUpdate"
-	    End, /* HGroup */
-          Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
-            Child, CL_Win->GKS.BT_DeleteKey = KeyButtonFunc(127, (char*)GetString( MSG_CLOUDGUI_DELETE ) ),     // "\33c\33uDel\33nete"
-            Child, CL_Win->GKS.BT_DeleteAll = KeyButtonFunc('d', (char*)GetString( MSG_CLOUDGUI_DELETEALL ) ),  // "\33cDelete All"
-	    End, /* HGroup */
-
-	  Child, HGroup, MUIA_Group_SameWidth, TRUE, MUIA_Group_HorizSpacing, 0,
-	    Child, CL_Win->GKS.FramePages = VGroup,
-              Child, CL_Win->GKS.BT_TimeLines = KeyButtonFunc('t', (char*)GetString( MSG_CLOUDGUI_TIMELINES ) ),  // "\33cTime Lines "
-	      End, /* VGroup */
-            Child, CL_Win->GKS.BT_KeyScale = KeyButtonFunc('s', (char*)GetString( MSG_CLOUDGUI_SCALEKEYS ) ),     // "\33cScale Keys "
-	    End, /* HGroup */
-	  End, /* VGroup */
-
-	Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
-
-	Child, HGroup,
-	    Child, CL_Win->BT_DrawCloud = KeyButtonFunc('r', (char*)GetString( MSG_CLOUDGUI_DRAWCLOUD ) ),  // "\33cDraw Cloud"
-	    Child, CL_Win->BT_SetBounds = KeyButtonFunc('b', (char*)GetString( MSG_CLOUDGUI_SETBOUNDS ) ),  // "\33cSet Bounds"
-	    End, /* HGroup */
-	Child, HGroup,
-	    Child, CL_Win->BT_Save = KeyButtonFunc('s', (char*)GetString( MSG_CLOUDGUI_SAVE ) ),  // "\33cSave"
-	    Child, CL_Win->BT_Load = KeyButtonFunc('l', (char*)GetString( MSG_CLOUDGUI_LOAD ) ),  // "\33cLoad"
-	    End, /* HGroup */
-
-	End, /* VGroup */
-      End; /* Window object */
-
+     CL_Win->CloudWin = AF_MakeCloudeWin(CL_Win);
   if (! CL_Win->CloudWin)
    {
    Close_CL_Window();

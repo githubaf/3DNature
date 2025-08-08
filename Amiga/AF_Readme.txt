@@ -4741,21 +4741,21 @@ Test_WindowObject <Start-Nr> <Weitere>  # ohne nummer oder nur mit Startnummer w
 * Bei 279 beginnen die  interessanten Windows
 ** 279 Log Window
 ** 280 Cloud Editor
-** 281 DEM Designer / Danger-Window
+** 281 DEM Designer / Danger-Window                        ALIGN!
 ** 282 DEM Builder                                         ALIGN!
-** 283 DEM Interpoieren
-** 284 DEM Konverter /Werteformat und DEM Registation Tab
-** 285 DEM Konverter /Vorerarbeitung und Valueformat TAB
-** 286 DEM Konverter /One Value Tab
-** 287 DEM Konverter /Max-Min Tab
+** 283 DEM Interpoieren                                    ALIGN!
+** 284 DEM Konverter /Werteformat und DEM Registation Tab  ALIGN!
+** 285 DEM Konverter /Vorerarbeitung und Valueformat TAB   ALIGN!
+** 286 DEM Konverter /One Value Tab                        ALIGN!
+** 287 DEM Konverter /Max-Min Tab                          ALIGN! 
 ** 288 Diagnosedaten                                       ALIGN!
 ** 289 Ordnerlisten-Editor
 ** 290 datenbank Editor
-** 291 Ökosystem Editor                                    ALIGN!
+** 291 Ecosystem Editor                                    ALIGN!
 ** 292 CAM VC Draw Tab
 ** 293 CAM VC Borders Tab
 ** 294 Motion Editor                                       ALIGN!
-** 295 Render Settings Editor Render Tab
+** 295 Render Settings Editor Render Tab                   ALIGN!
 ** 296 Render Settings Editor Picture Tab                  ALIGN!
 ** 297 Render Settings Editor Motion Tab                   ALIGN!
 ** 298 Render Settings Editor Color Tab                    ALIGN!
@@ -4767,7 +4767,7 @@ Test_WindowObject <Start-Nr> <Weitere>  # ohne nummer oder nur mit Startnummer w
 ** 304 New Project
 ** 305 Sun Time
 ** 306 Foilage Editor                                      ALIGN!
-** 307 Map View Control
+** 307 Map View Control                                    ALIGN!
 ** 308 Map Alignment                                       ALIGN!
 ** 309 Danger-Window
 ** 310 Scale Image
@@ -4788,5 +4788,35 @@ Test_WindowObject <Start-Nr> <Weitere>  # ohne nummer oder nur mit Startnummer w
 ** 325 Cloud Wave Editor
 
 * Bei etlichen Fenstern ist die Ausrichtung nur durch Leerzeichen realisiert und damit sprach- und Zeichensatzabhaengig!
+* Bei Deutsch hatte ich schon mit Leerzeichen hantiert, da sieht man mehr.
 
+Nochmal AROS 64 starten, geht der Test_WindowObject da auch?
+------------------------------------------------------------
+# wcs aus der user-startup rausnehmen und AROS-Schliessen rausnehmen.
+
+cd ~/Desktop/SelcoGit/3DNature/Amiga/x86_64-aros
+make all && rm -rf ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox && cp -r ~/Desktop/SelcoGit/3DNature/ ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox
+mkdir -p ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/Amiga/x86_64-aros//Catalogs/italiano
+mkdir -p ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/Amiga/x86_64-aros//Catalogs/deutsch
+cd ..
+cp Catalogs/italiano/WCS.catalog ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/Amiga/x86_64-aros//Catalogs/italiano
+cp Catalogs/deutsch/WCS.catalog ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/VBox/Amiga/x86_64-aros//Catalogs/deutsch
+
+cd ~/Desktop/SelcoGit/core-linux-x86_64-d/bin/linux-x86_64/AROS/
+boot/linux/AROSBootstrap &
+
+Nochmal AROS 386 starten, geht der Test_WindowObject da auch?
+-------------------------------------------------------------
+# wcs aus der user-startup rausnehmen und AROS-Schliessen rausnehmen.
+
+cd ~/Desktop/SelcoGit/3DNature/Amiga/i386-aros
+make all && rm -rf ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox && cp -r ~/Desktop/SelcoGit/3DNature/ ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox
+mkdir -p ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/Amiga/i386-aros/Catalogs/italiano
+mkdir -p ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/Amiga/i386-aros/Catalogs/deutsch
+cd ..
+cp Catalogs/italiano/WCS.catalog ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/Amiga/i386-aros/Catalogs/italiano/
+cp Catalogs/deutsch/WCS.catalog ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS/VBox/Amiga/i386-aros/Catalogs/deutsch/
+
+cd ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS
+Arch/linux/AROSBootstrap &
 

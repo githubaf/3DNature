@@ -733,7 +733,7 @@ extern void ASM HK4M(REG(a0, void *registers));
 /* ScreenModeGUI.c */
 extern struct WCSScreenMode *ModeList_New(void);
 extern struct WCSScreenMode *ModeList_Choose(struct WCSScreenMode *This,
-	struct WCSScreenData *ScrnData);
+	struct WCSScreenData *ScrnData, struct Screen *Screen);
 extern void ModeList_Del(struct WCSScreenMode *ModeList);
 
 /* Support.c */

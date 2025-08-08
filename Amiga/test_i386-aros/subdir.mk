@@ -8,6 +8,7 @@ C_SRCS += \
 ../BitMaps.c \
 ../DEM.c \
 ../DataOps.c \
+../MSG_Test.c \
 ../MapSupport.c \
 ../Memory.c \
 ../WCS_locale.c \
@@ -23,7 +24,6 @@ O_SRCS += \
 ../Memory.o \
 ../WCS_locale.o \
 ../sasc_functions.o \
-../test_locale_redefinitions.o \
 ../test_main.o 
 
 C_DEPS += \
@@ -31,6 +31,7 @@ C_DEPS += \
 ./BitMaps.d \
 ./DEM.d \
 ./DataOps.d \
+./MSG_Test.d \
 ./MapSupport.d \
 ./Memory.d \
 ./WCS_locale.d \
@@ -42,6 +43,7 @@ OBJS += \
 ./BitMaps.o \
 ./DEM.o \
 ./DataOps.o \
+./MSG_Test.o \
 ./MapSupport.o \
 ./Memory.o \
 ./WCS_locale.o \
@@ -61,7 +63,7 @@ OBJS += \
 clean: clean--2e-
 
 clean--2e-:
-	-$(RM) ./BigEndianReadWrite.d ./BigEndianReadWrite.o ./BitMaps.d ./BitMaps.o ./DEM.d ./DEM.o ./DataOps.d ./DataOps.o ./MapSupport.d ./MapSupport.o ./Memory.d ./Memory.o ./WCS_locale.d ./WCS_locale.o ./sasc_functions.d ./sasc_functions.o ./test_main.d ./test_main.o
+	-$(RM) ./BigEndianReadWrite.d ./BigEndianReadWrite.o ./BitMaps.d ./BitMaps.o ./DEM.d ./DEM.o ./DataOps.d ./DataOps.o ./MSG_Test.d ./MSG_Test.o ./MapSupport.d ./MapSupport.o ./Memory.d ./Memory.o ./WCS_locale.d ./WCS_locale.o ./sasc_functions.d ./sasc_functions.o ./test_main.d ./test_main.o
 
 .PHONY: clean--2e-
 

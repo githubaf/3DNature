@@ -107,111 +107,118 @@ ModeList = ModeList->Next; /* Pull off DummyFirst */
 return(ModeList);
 } /* ModeList_New() */
 
+APTR AF_MakeModeSelWin(struct Screen *Screen, APTR *SM_List, APTR *SM_Text, APTR *SM_COLORS_TEXT,APTR *SM_COLORS, APTR *SM_OSCAN,
+                       APTR *SM_Width, APTR *SM_Height, APTR *SM_Save, APTR *SM_Use, APTR *SM_Exit, char **NumColorsStrings)
+{
+    static const char *Cycle_OSCAN[6];
+
+    Cycle_OSCAN[0]= (const char*)GetString( MSG_SCNRMODGUI_NONE );
+    Cycle_OSCAN[1]= (const char*)GetString( MSG_SCNRMODGUI_TEXT );
+    Cycle_OSCAN[2]= (const char*)GetString( MSG_SCNRMODGUI_STANDARD );
+    Cycle_OSCAN[3]= (const char*)GetString( MSG_SCNRMODGUI_MAX );
+    Cycle_OSCAN[4]= (const char*)GetString( MSG_SCNRMODGUI_VIDEO );
+    Cycle_OSCAN[5]=NULL;
+
+
+    return WindowObject,
+                    MUIA_Window_Title,  GetString( MSG_SCNRMODGUI_WORLDCONSTRUCTIONSETSCREENMODE ) ,
+                    MUIA_Window_ID, MakeID('S','C','R','N'),
+                    //MUIA_Window_Screen    , Screen,   // open on Workbenchscreen on start, on WCS_Screen in Test_WindowObject()
+                                                        // funktioniert nicht unte AROS386 Test_WindowObject!? Fenster ist zu klein, Rahmen fehlt
+                                                        // Manuell vergroessern hilft.
+                    MUIA_Window_SizeGadget, TRUE,
+                    WindowContents, VGroup,
+                    Child, ColGroup(2), MUIA_Group_SameWidth, TRUE,
+                    MUIA_Group_HorizSpacing, 4, MUIA_Group_VertSpacing, 3,
+                    Child, VGroup, /* MUIA_HorizWeight, 150, */
+                    Child, TextObject, MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_DISPLAYMODE ) , End,
+                    Child, *SM_List = ListviewObject,
+                    MUIA_Listview_Input, TRUE,
+                    MUIA_Listview_List, ListObject, ReadListFrame, End,
+                    End,
+                    End,
+                    Child, VGroup,
+                    Child, TextObject, MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_MODEINFORMATION ) , End,
+                    Child, *SM_Text = FloattextObject, ReadListFrame,
+                    MUIA_Floattext_Text,  GetString( MSG_SCNRMODGUI_MODEESUTOCANNATTRIBUTESN ) , End,
+                    End,
+
+                    /////////////  AF: We need numbers of colors
+                    Child,VGroup,
+                    Child, HGroup,
+                    Child, Label2( GetString( MSG_SCNRMODGUI_COLORS )),
+                    Child, *SM_COLORS_TEXT=TextObject,NoFrame, MUIA_Text_Contents, NumColorsStrings[ 0], MUIA_FixWidthTxt, NumColorsStrings[ 0], End,
+                    Child, *SM_COLORS = PropObject, PropFrame,
+                    MUIA_Prop_Horiz, TRUE,
+                    MUIA_Prop_Entries, 7,
+                    //  MUIA_Prop_Visible, 7,     // Alexander: Change this according depending on max colors of Screenmode
+                    MUIA_Prop_First, 0, End,
+                    End,
+                    //      /////////////
+                    Child, HGroup,
+                    Child, Label2( GetString( MSG_SCNRMODGUI_OVERSCAN ) ),
+                    Child, *SM_OSCAN = CycleObject, MUIA_Cycle_Entries, Cycle_OSCAN, End,
+                    End,
+                    End,
+                    Child, HGroup,
+                    Child, RectangleObject, End,
+                    Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                    Child, Label2( GetString( MSG_SCNRMODGUI_WIDTH ) ), /* No End (in sight) */
+                    Child, *SM_Width = StringObject, StringFrame,
+                    MUIA_String_Integer, 0,
+                    MUIA_String_Accept, "0123456789",
+                    MUIA_FixWidthTxt, "01234",
+                    End,
+                    End,
+                    Child, RectangleObject, End,
+                    Child, HGroup, MUIA_Group_HorizSpacing, 0,
+                    Child, Label2( GetString( MSG_SCNRMODGUI_HEIGHT ) ), /* No End (in sight) */
+                    Child, *SM_Height = StringObject, StringFrame,
+                    MUIA_String_Integer, 0,
+                    MUIA_String_Accept, "0123456789",
+                    MUIA_FixWidthTxt, "01234",
+                    End,
+                    End,
+                    Child, RectangleObject, End,
+                    End,
+                    End,
+                    Child, RectangleObject, MUIA_FixHeight, 4, End,
+                    Child, HGroup, MUIA_HorizWeight, 1,
+                    /* Button button button. Who's got the button? */
+                    MUIA_Group_SameSize, TRUE,
+                    Child, *SM_Save = KeyButtonObject('s'), MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_SAVE ) , MUIA_HorizWeight, 200, End,
+                    Child, RectangleObject, MUIA_HorizWeight, 1, End,
+                    Child, *SM_Use  = KeyButtonObject('u'), MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_USE ) , MUIA_HorizWeight, 200, End,
+                    Child, RectangleObject, MUIA_HorizWeight, 1, End,
+                    Child, *SM_Exit = KeyButtonObject('e'), MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_EXIT ) , MUIA_HorizWeight, 200, End,
+                    End,
+                    End,
+                    End;
+}
 
 struct WCSScreenMode *ModeList_Choose(struct WCSScreenMode *This,
-		struct WCSScreenData *ScrnData)
+		struct WCSScreenData *ScrnData, struct Screen *Screen)
 {
-		static const char *Cycle_OSCAN[6];
-
-		static const char *NumColorsStrings[8];
-
 		struct WCSScreenMode *Scan, *Selected;
 		APTR ModeSelWin, SM_Save, SM_Use, SM_Exit, SM_Width, SM_Height, SM_List, SM_Text, SM_OSCAN, SM_COLORS,SM_COLORS_TEXT;
 		ULONG Signalz, Finished, ReturnID;
 		int CheckVal, Update;
 		char *ModeText, ModeInfo[255];
 
-		Cycle_OSCAN[0]= (const char*)GetString( MSG_SCNRMODGUI_NONE );
-		Cycle_OSCAN[1]= (const char*)GetString( MSG_SCNRMODGUI_TEXT );
-		Cycle_OSCAN[2]= (const char*)GetString( MSG_SCNRMODGUI_STANDARD );
-		Cycle_OSCAN[3]= (const char*)GetString( MSG_SCNRMODGUI_MAX );
-		Cycle_OSCAN[4]= (const char*)GetString( MSG_SCNRMODGUI_VIDEO );
-		Cycle_OSCAN[5]=NULL;
+	    static const char *NumColorsStrings[8];
 
-		NumColorsStrings[ 0]= "    16";  // default
-		NumColorsStrings[ 1]= "    32";
-		NumColorsStrings[ 2]= "    64";
-		NumColorsStrings[ 3]= "   128";
-		NumColorsStrings[ 4]= "   256";
-		NumColorsStrings[ 5]= " 32768"; // RTG
-		NumColorsStrings[ 6]= " 65536"; // RTG
-		NumColorsStrings[ 7]= "   16M"; // RTG
+	    NumColorsStrings[ 0]= "    16";  // default
+	    NumColorsStrings[ 1]= "    32";
+	    NumColorsStrings[ 2]= "    64";
+	    NumColorsStrings[ 3]= "   128";
+	    NumColorsStrings[ 4]= "   256";
+	    NumColorsStrings[ 5]= " 32768"; // RTG
+	    NumColorsStrings[ 6]= " 65536"; // RTG
+	    NumColorsStrings[ 7]= "   16M"; // RTG
 
 
-
-
-		ModeSelWin = WindowObject,
-				MUIA_Window_Title,  GetString( MSG_SCNRMODGUI_WORLDCONSTRUCTIONSETSCREENMODE ) ,
-				MUIA_Window_ID, "SCRN",
-				MUIA_Window_SizeGadget, TRUE,
-				WindowContents, VGroup,
-				Child, ColGroup(2), MUIA_Group_SameWidth, TRUE,
-				MUIA_Group_HorizSpacing, 4, MUIA_Group_VertSpacing, 3,
-				Child, VGroup, /* MUIA_HorizWeight, 150, */
-				Child, TextObject, MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_DISPLAYMODE ) , End,
-				Child, SM_List = ListviewObject,
-				MUIA_Listview_Input, TRUE,
-				MUIA_Listview_List, ListObject, ReadListFrame, End,
-				End,
-				End,
-				Child, VGroup,
-				Child, TextObject, MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_MODEINFORMATION ) , End,
-				Child, SM_Text = FloattextObject, ReadListFrame,
-				MUIA_Floattext_Text,  GetString( MSG_SCNRMODGUI_MODEESUTOCANNATTRIBUTESN ) , End,
-				End,
-
-				/////////////  AF: We need numbers of colors
-				Child,VGroup,
-				Child, HGroup,
-				Child, Label2( GetString( MSG_SCNRMODGUI_COLORS )),
-				Child, SM_COLORS_TEXT=TextObject,NoFrame, MUIA_Text_Contents, NumColorsStrings[ 0], MUIA_FixWidthTxt, NumColorsStrings[ 0], End,
-				Child, SM_COLORS = PropObject, PropFrame,
-				MUIA_Prop_Horiz, TRUE,
-				MUIA_Prop_Entries, 7,
-				//	MUIA_Prop_Visible, 7,     // Alexander: Change this according depending on max colors of Screenmode
-				MUIA_Prop_First, 0, End,
-				End,
-				//   	/////////////
-				Child, HGroup,
-				Child, Label2( GetString( MSG_SCNRMODGUI_OVERSCAN ) ),
-				Child, SM_OSCAN = CycleObject, MUIA_Cycle_Entries, Cycle_OSCAN, End,
-				End,
-				End,
-				Child, HGroup,
-				Child, RectangleObject, End,
-				Child, HGroup, MUIA_Group_HorizSpacing, 0,
-				Child, Label2( GetString( MSG_SCNRMODGUI_WIDTH ) ), /* No End (in sight) */
-				Child, SM_Width = StringObject, StringFrame,
-				MUIA_String_Integer, 0,
-				MUIA_String_Accept, "0123456789",
-				MUIA_FixWidthTxt, "01234",
-				End,
-				End,
-				Child, RectangleObject, End,
-				Child, HGroup, MUIA_Group_HorizSpacing, 0,
-				Child, Label2( GetString( MSG_SCNRMODGUI_HEIGHT ) ), /* No End (in sight) */
-				Child, SM_Height = StringObject, StringFrame,
-				MUIA_String_Integer, 0,
-				MUIA_String_Accept, "0123456789",
-				MUIA_FixWidthTxt, "01234",
-				End,
-				End,
-				Child, RectangleObject, End,
-				End,
-				End,
-				Child, RectangleObject, MUIA_FixHeight, 4, End,
-				Child, HGroup, MUIA_HorizWeight, 1,
-				/* Button button button. Who's got the button? */
-				MUIA_Group_SameSize, TRUE,
-				Child, SM_Save = KeyButtonObject('s'), MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_SAVE ) , MUIA_HorizWeight, 200, End,
-				Child, RectangleObject, MUIA_HorizWeight, 1, End,
-				Child, SM_Use  = KeyButtonObject('u'), MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_USE ) , MUIA_HorizWeight, 200, End,
-				Child, RectangleObject, MUIA_HorizWeight, 1, End,
-				Child, SM_Exit = KeyButtonObject('e'), MUIA_Text_Contents,  GetString( MSG_SCNRMODGUI_EXIT ) , MUIA_HorizWeight, 200, End,
-				End,
-				End,
-				End;
-
+		ModeSelWin = AF_MakeModeSelWin(Screen,&SM_List,&SM_Text,&SM_COLORS_TEXT,&SM_COLORS,&SM_OSCAN,
+                &SM_Width,&SM_Height,&SM_Save,&SM_Use,&SM_Exit, NumColorsStrings);
 		if(ModeSelWin)
 		{
 			// Colors-Slider should change numbers of Colors text

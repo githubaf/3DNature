@@ -513,7 +513,15 @@ if ((IntuitionBase = (struct IntuitionBase *)
        if(ScreenModes)
         {
 
-        if((ModeSelect = ModeList_Choose(ScreenModes, &ScrnData)))
+        struct Screen *wbScreen = LockPubScreen(NULL);
+        if(!wbScreen)
+         {
+         printf("Could not lock public screen\n");
+         WCSScrn = NULL; /* This'll make it exit. */
+         }
+        else
+         {
+        if((ModeSelect = ModeList_Choose(ScreenModes, &ScrnData,wbScreen)))
          {
         	struct Rectangle rect;
          if(ModeSelect->OverscanTag==TAG_IGNORE)              // Overscan = None
@@ -524,6 +532,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
         		 DClipTag=SA_DClip;        // we need to set the clip rect
         	 }
          }
+         UnlockPubScreen(NULL,wbScreen);
 // --> Wir sind hier beim initialen Oeffnen des Screens
 
        //  printf("Initial OpenScreen, line %d\n",__LINE__);
@@ -548,12 +557,13 @@ if ((IntuitionBase = (struct IntuitionBase *)
 		  SA_PubName, (IPTR)AppBaseName,
 		  TAG_END);
          } /* if */
+
         else
          {
          printf("Could not open selected Screenmode\n");
          WCSScrn = NULL; /* This'll make it exit. */
          } /* else */
-
+         } // if (wbScreen)
         ModeList_Del(ScreenModes);
         ScreenModes = NULL;
         } /* if */
@@ -604,7 +614,6 @@ if ((IntuitionBase = (struct IntuitionBase *)
 			   SA_PubName, (IPTR)AppBaseName,
 		       TAG_END);
        } /* else read screen data from prefs file */
-
       if(WCSScrn)
        {
 
@@ -630,7 +639,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
             // ##########################################
            }
 #if defined BETA_USER_MESSAGE_TEST && !defined __SASC__ // set in Version.h
-           else if (argc>=2 && !strcmp(argv[1],"Test_User_Message"))
+           else if (argc>=2 && !strcmp(argv[1],"Test_UserMessage"))
            {
                unsigned int StartTestNumber;
                if(argc==3)

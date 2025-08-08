@@ -1358,7 +1358,7 @@ struct clipbounds cb;
 
 /***********************************************************************/
 
-APTR AF_MakeIAMotionWin(struct IAMotionWindow *EMIA_Win)
+APTR AF_MakeIAMotionWin(struct IAMotionWindow *EMIA_Win, short EM_Win_Frame)
 {
     static const char *EMIA_Cycle_Page[3]={NULL};
     static const char *EMIA_Cycle_Move[3]={NULL};
@@ -1400,7 +1400,6 @@ APTR AF_MakeIAMotionWin(struct IAMotionWindow *EMIA_Win)
                 Child, EMIA_Win->BT_Vector = KeyButtonFunc('v', (char*)GetString( MSG_EDMOGUI_VECTORS )),     // "\33cVectors"
                 Child, EMIA_Win->BT_Anim = KeyButtonFunc('a', (char*)GetString( MSG_EDMOGUI_ANIM )),          // "\33cAnim "
             End, /* VGroup */
-
           Child, VGroup,
     /*      Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
             Child, TextObject, MUIA_Text_Contents, "\33cBounds", End,*/
@@ -1481,10 +1480,10 @@ APTR AF_MakeIAMotionWin(struct IAMotionWindow *EMIA_Win)
           Child, RectangleObject, MUIA_Rectangle_HBar, TRUE, End,
           Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDMOGUI_FRAME_COLOR ), End,  // "\33c\0334Frame"
               Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, EMIA_Win->Str[1] = StringObject, StringFrame,
-            MUIA_String_Integer, EM_Win->Frame,
-            /*MUIA_FixWidthTxt, "01234",*/
-            MUIA_String_Accept, "0123456789", End,
+              Child, EMIA_Win->Str[1] = StringObject, StringFrame,
+          MUIA_String_Integer, EM_Win_Frame,
+          /*MUIA_FixWidthTxt, "01234",*/
+          MUIA_String_Accept, "0123456789", End,
                 Child, EMIA_Win->StrArrow[2][0] = ImageButtonWCS(MUII_ArrowLeft),
                 Child, EMIA_Win->StrArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
                 Child, EMIA_Win->StrArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
@@ -1535,7 +1534,7 @@ void Make_EMIA_Window(void)
 
   Set_Param_Menu(0);
 
-     EMIA_Win->IAMotionWin = AF_MakeIAMotionWin(EMIA_Win);
+     EMIA_Win->IAMotionWin = AF_MakeIAMotionWin(EMIA_Win, EM_Win->Frame);
   if (! EMIA_Win->IAMotionWin)
    {
    Close_EMIA_Window(-1);
