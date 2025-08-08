@@ -2823,9 +2823,9 @@ void Make_EL_Window(void)
 
  if (! EL_Win->EEList)
   {
-  User_Message(GetString( MSG_MAPGUI_MAPVIEWECOSYSTEMLEGEND ),              // "Map View: Ecosystem Legend"
-		GetString( MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND ),  // "Out of memory!\nCan't open Ecosystem Legend."
-                GetString( MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND ),  // "OK"
+  User_Message(GetString( MSG_MAPGUI_MAPVIEWECOSYSTEMLEGEND ),             // "Map View: Ecosystem Legend"
+		GetString( MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND ),         // "Out of memory!\nCan't open Ecosystem Legend."
+                GetString( MSG_GLOBAL_OK ),                                // "OK"
                 (CONST_STRPTR)"o");
   Close_EL_Window();
   return;

@@ -1161,7 +1161,7 @@ void Test_User_Message(unsigned int StartTestNumber)
         case 167:
             ShowTestNumbers(StartTestNumber++,TotalTests);
             User_Message(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),              // "Data Ops: Convert DEM"
-                    (CONST_STRPTR)MSG_DATAOPS_EXTENDEDHEADEROPERATIONTERMINATED,  // "Extended header!\nOperation terminated."
+                    GetString( (CONST_STRPTR)MSG_DATAOPS_EXTENDEDHEADEROPERATIONTERMINATED ),  // "Extended header!\nOperation terminated."
                     GetString( MSG_GLOBAL_OK ),                             // "OK",
                     (CONST_STRPTR)"o");
 
@@ -1225,14 +1225,14 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 176:
             ShowTestNumbers(StartTestNumber++,TotalTests);
-            User_Message((CONST_STRPTR)DC_Win->InFile,
+            User_Message("Example-InFile",
                     GetString( MSG_DATAOPSGUI_UNABLETOOPENFILEFORINPUT ),  // "Unable to open file for input!\n"
                     GetString( MSG_GLOBAL_OK ),                        // "OK"
                     (CONST_STRPTR)"o");
 
         case 177:
             ShowTestNumbers(StartTestNumber++,TotalTests);
-            User_Message((CONST_STRPTR)DC_Win->InFile,
+            User_Message("Example-InFile",
                     GetString( MSG_DATAOPSGUI_UNABLETOREADFILESIZE ),  // "Unable to read file size!\n"
                     GetString( MSG_GLOBAL_OK ),                    // "OK"
                     (CONST_STRPTR)"o");
@@ -1468,7 +1468,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 210:
             ShowTestNumbers(StartTestNumber++,TotalTests);
-            sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), PAR_NAME_ECO(EE_Win->EcoItem));  // "Delete all %s Key Frames?"
+            sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), "Example-String");  // "Delete all %s Key Frames?"
             User_Message_Def(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                          // "Parameters Module: Ecosystem"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OKCANCEL ),                                           // "OK|Cancel",
@@ -1506,7 +1506,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 215:
             ShowTestNumbers(StartTestNumber++,TotalTests);
-            sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), varname[EM_Win->MoItem]);  // "Delete all %s Key Frames?"
+            sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), "Example-String");  // "Delete all %s Key Frames?"
             User_Message_Def(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                       // "Parameters Module: Motion"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OKCANCEL ),                                     // "OK|Cancel"
@@ -1768,7 +1768,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 250:
             ShowTestNumbers(StartTestNumber++,TotalTests);
-            sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), PAR_NAME_COLOR(EC_Win->PalItem));  // "Delete all %s Key Frames?"
+            sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), "Example-String");  // "Delete all %s Key Frames?"
             User_Message_Def(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
                     (CONST_STRPTR)str,
                     GetString( MSG_GLOBAL_OKCANCEL ),               // "OK|Cancel"
@@ -2957,7 +2957,7 @@ void Test_User_Message(unsigned int StartTestNumber)
 
         case 413:
             ShowTestNumbers(StartTestNumber++,TotalTests);
-            sprintf(str, (char*)GetString( MSG_MAPEXTRA_SPLINELENGTHFKILOMETERSNTERVALFKMSEGMENT ), 20, 5);  // "Spline length = %f kilometers\nInterval = %f km/segment"
+            sprintf(str, (char*)GetString( MSG_MAPEXTRA_SPLINELENGTHFKILOMETERSNTERVALFKMSEGMENT ), 20.0, 5.0);  // "Spline length = %f kilometers\nInterval = %f km/segment"
             User_Message_Def(GetString( MSG_MAPEXTRA_MAPPINGMODULESPLINE ),                       // "Mapping Module: Spline"
                     (CONST_STRPTR)str,
                     GetString( MSG_MAPEXTRA_OKRESETCANCEL ),                             // "OK|Reset|Cancel"
@@ -3085,8 +3085,8 @@ void Test_User_Message(unsigned int StartTestNumber)
         case 431:
             ShowTestNumbers(StartTestNumber++,TotalTests);
             User_Message(GetString( MSG_MAPGUI_MAPVIEWECOSYSTEMLEGEND ),              // "Map View: Ecosystem Legend"
-                    GetString( MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND ),  // "Out of memory!\nCan't open Ecosystem Legend."
-                    GetString( MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND ),  // "OK"
+                    GetString( MSG_MAPGUI_OUTOFMEMORYANTOPENECOSYSTEMLEGEND ),        // "Out of memory!\nCan't open Ecosystem Legend."
+                    GetString( MSG_GLOBAL_OK  ),                                      // "OK"
                     (CONST_STRPTR)"o");
 
         case 432:
@@ -3879,21 +3879,30 @@ APTR AF_MakeCloudeWin(struct CloudWindow  *CL_Win);
 
 void waitForRightClick(Object *MuiWindow)
 {
-//    struct IntuiMessage *msg;
-//    BOOL waiting = TRUE;
-//    struct Window *winptr;
-//    get(MuiWindow, MUIA_Window_Window, &winptr);
-//
-//    while (waiting) {
-//        WaitPort(winptr->UserPort);
-//        while ((msg = (struct IntuiMessage *)GetMsg(winptr->UserPort))) {
-//            if (msg->Class == IDCMP_MENUPICK /*&& msg->Code == 0xffff*/) {
-//                waiting = FALSE;
-//            }
-//            ReplyMsg((struct Message *)msg);
-//        }
-//    }
-    sleep(1);
+//#define DO_NOT_WAIT_FOR_RIGHT_CLICK
+
+    // This function waits for a right mouse button click on the given MUI window.
+
+#ifndef DO_NOT_WAIT_FOR_RIGHT_CLICK
+    // This function waits for a right mouse button click on the given MUI window.
+    // It uses a loop to
+    struct IntuiMessage *msg;
+    BOOL waiting = TRUE;
+    struct Window *winptr;
+    get(MuiWindow, MUIA_Window_Window, &winptr);
+
+    while (waiting) {
+        WaitPort(winptr->UserPort);
+        while ((msg = (struct IntuiMessage *)GetMsg(winptr->UserPort))) {
+            if (msg->Class == IDCMP_MENUPICK /*&& msg->Code == 0xffff*/) {
+                waiting = FALSE;
+            }
+            ReplyMsg((struct Message *)msg);
+        }
+    }
+#else
+    usleep(500000); // Sleep for 0.5 seconds to simulate waiting
+#endif
 }
 
 void Test_IS_Win(CONST STRPTR message)

@@ -4820,3 +4820,6 @@ cp Catalogs/deutsch/WCS.catalog ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/li
 cd ~/Desktop/SelcoGit/alt-abiv0-linux-i386-d/bin/linux-i386/AROS
 Arch/linux/AROSBootstrap &
 
+8.Aug.2025
+----------
+* Alle WindowObject- und UserMessage-Tests laufen unter 68020/AROS-386 und AROS-X86-64
