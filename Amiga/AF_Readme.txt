@@ -4833,4 +4833,15 @@ Fuer ein Lanschafts-Renderingprogramm soll die GUI nach spanisch uebersetzt werd
 
 cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; LINENR=NR; getline; POLISH=$0; getline; CZECH=$0; if(SPANISCH==""){print "Line " LINENR ": " ENGLISH;}else{SPANISCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Spanish:  %4d\n",SPANISCHCOUNT);printf("%d%%\n",SPANISCHCOUNT*100/MSGCOUNT++);}'
 
+Arbeiten mit xfce-Terminal. Da kannn man ISO-8859-1 einstellen. Arbeiten mit mgawk. Das macht auch ISO-8859-1. Achtung. \33 und \n werde ersetzt, nicht kopiert! Also manuell nacharbeiten!
+
+Script in der Art:
+
+mawk '
+NR==3954{$0="Cobertura"}
+NR==3967{$0="Densidad"}
+NR==3980{$0="Rugosidad"}
+NR==3993{$0="Dimensión fractal"}
+{print}' WCS.cs > WCS_translated.cs
+mv WCS_translated.cs WCS.cs
 

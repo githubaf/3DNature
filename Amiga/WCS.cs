@@ -997,7 +997,7 @@ Riflessione %
 Reflectie %
 
 Reflektion %
-
+% de Reflexión
 Odbicie %
 Odrazivost %
 
@@ -1010,7 +1010,7 @@ MSG_STDMESG_OUTOFMEMORY
  Te weinig geheugen!
 
 
-
+¡Memoria insuficiente!
 Brak Pamiêci!
 Nedostatek pamìti!
 
@@ -1023,7 +1023,7 @@ MSG_STDMESG_OPENFILEFAILED
  Bestand openen mislukt!
 
  Åbning af fil fejlede!
-
+¡Error al abrir el archivo!
 Nie mo¿na otworzyæ pliku!
 Chyba pøi otevírání souboru!
 
@@ -1036,7 +1036,7 @@ MSG_STDMESG_READFILEFAILED
  Lezen bestand mislukt!
 
  Læsning af fil fejlede!
-
+¡Error al leer el archivo!
 B³±d odczytu pliku!
 Chyba pøi naèítání souboru!
 
@@ -1049,7 +1049,7 @@ MSG_STDMESG_WRITINGTOFILEFAILED
  Opslaan bestand mislukt!
 
  Skrivning af fil fejlede!
-
+¡Error al escribir el archivo!
 B³±d zapisu pliku!
 Chyba pøi zápisu do souboru!
 
@@ -1062,7 +1062,7 @@ MSG_STDMESG_WRONGFILETYPE
  Ongeldig bestandstype!
 
  Forkert filtype!
-
+¡Tipo de archivo incorrecto!
 Niew³a¶ciwy typ pliku!
 Neznámý typ souboru!
 
@@ -1075,7 +1075,7 @@ MSG_STDMESG_ILLEGALINSTRUCTION
  Ongeldige instructie!
 
  Ugyldig instruktion!
-
+¡Instrucción ilegal!
 Nieznanza instrukcja!
 Neznámý pøíkaz!
 
@@ -1088,7 +1088,7 @@ MSG_STDMESG_ILLEGALVALUE
  Ongeldige waarde!
 
  Ugyldig værdi!
-
+¡Valor ilegal!
 Niew³±¶ciwa warto¶æ!
 Neznámá hodnota!
 
@@ -1101,7 +1101,7 @@ MSG_STDMESG_FILENOTLOADED
  Bestand niet geladen!
 
  Fil ikke indlæst!
-
+¡Archivo no cargado!
 Plik niewczytany!
 Soubor nebyl naèten!
 
@@ -1114,7 +1114,7 @@ MSG_STDMESG_MODULENOTIMPLEMENTED
  Module niet geïmplementeerd.
 
  Module er ikke implementeret.
-
+Módulo no implementado.
 Modu³ nie jest zaimplementowany.
 Èást programu nebyla pøidána.
 
@@ -1127,7 +1127,7 @@ MSG_STDMESG_GUINOTIMPLEMENTED
  GUI niet geïmplementeerd.
 
  GUI er ikke implementeret.
-
+GUI no implementado.
 GUI nie zaimplementowane.
 U¾ivatelské rozhraní nebylo pøidáno.
 
@@ -1140,7 +1140,7 @@ MSG_STDMESG_PARAMETERFILELOADED
  Parameter bestand geladen.
 
  Parameter fil indlæst.
-
+Archivo de parámetros cargado.
 Plik z parametrami wczytany.
 Soubor parametrù byl úspì¹nì naèten.
 
@@ -1153,7 +1153,7 @@ MSG_STDMESG_PARAMETERFILESAVED
  Parameter bestand opgeslagen.
 
  Parameter fil gemt.
-
+Archivo de parámetros guardado.
 Plik z parametrami zapisany.
 Soubor parametrù byl úspì¹nì ulo¾en.
 
@@ -1166,7 +1166,7 @@ MSG_STDMESG_DATABASEFILELOADED
  Database bestand geladen.
 
  Database fil indlæst.
-
+Archivo de base de datos cargado.
 Plik bazy danych wczytany.
 Soubor databáze byl úspì¹nì naèten.
 
@@ -1179,7 +1179,7 @@ MSG_STDMESG_DATABASEFILESAVED
  Database bestand opgeslagen.
 
  Database fil gemt.
-
+Archivo de base de datos guardado.
 Plik bazy danych zapisany.
 Soubor databáze byl úspì¹nì ulo¾en.
 
@@ -1192,7 +1192,7 @@ MSG_STDMESG_DEMFILELOADED
  DEM bestand geladen.
 
  DEM fil indlæst.
-
+Archivo DEM cargado.
 Plik DEM wczytany.
 Soubor DEM byl úspì¹nì naèten.
 
@@ -1205,7 +1205,7 @@ MSG_STDMESG_DEMFILESAVED
  DEM bestand opgeslagen.
 
  DEM fil gemt.
-
+Archivo DEM guardado.
 Plik DEM zapisany.
 Soubor DEM byl úspì¹nì ulo¾en.
 
@@ -1218,7 +1218,7 @@ MSG_STDMESG_VECTORFILELOADED
  Vector bestand geladen.
 
  Vektor fil indlæst.
-
+Archivo vectorial cargado.
 Plik z wektorami wczytany.
 Soubo vektoru byl úspì¹nì naèten.
 
@@ -1231,7 +1231,7 @@ MSG_STDMESG_VECTORFILESAVED
  Vector bestand opgeslagen.
 
  Vektor fil gemt.
-
+Archivo vectorial guardado.
 Plik z wektorami zapisany.
 Soubor vectoru byl úspì¹nì ulo¾en.
 
@@ -1244,7 +1244,7 @@ MSG_STDMESG_IMAGEFILELOADED
  Afbeeldingsbestand geladen.
 
  Billedefil indlæst.
-
+Archivo de imagen cargado.
 Plik obrazu wczytany.
 Soubor obrazku byl úspì¹nì naèten.
 
@@ -1257,7 +1257,7 @@ MSG_STDMESG_IMAGEFILESAVED
  Afbeeldingsbestand opgeslagen.
 
  Billedefil gemt.
-
+Archivo de imagen guardado.
 Plik obrazu zapisany.
 Soubor obrazku byl úspì¹nì ulo¾en.
 
@@ -1270,7 +1270,7 @@ MSG_STDMESG_COLORMAPFILELOADED
  Kleurenkaart bestand geladen.
 
  Farvekort indlæst.
-
+Mapa de colores cargado.
 Plik mapy kolorów wczytany.
 Soubor barevné mapy byl úspì¹nì naèten.
 
@@ -1283,7 +1283,7 @@ MSG_STDMESG_COLORMAPFILESAVED
  Kleurenkaart bestand opgeslagen.
 
  Farvekort gemt.
-
+Mapa de colores guardado.
 Plik mapy kolorów zapisany.
 Soubor barevné mapy byl úspì¹nì ulo¾en.
 
@@ -1296,7 +1296,7 @@ MSG_STDMESG_ENABLE_SOFT_OUTLINE_STYLE
 \33t
 
 
-
+t
 \33t
 \33t
 
@@ -1309,7 +1309,7 @@ Mapping Modul.
  Mapping Module.
 
  Mapningsmodul.
-
+Módulo de mapeo.
 Modu³ Mapowania.
 Modul barevné mapy.
 
@@ -1322,7 +1322,7 @@ MSG_STDMESG_DIRECTORYNOTFOUND
  Directory niet gevonden!
 
  Bibliotek blev ikke fundet!
-
+¡Directorio no encontrado!
 Katalog nieznaleziony!
 Adresáø nenalezen!
 
@@ -1335,7 +1335,7 @@ MSG_STDMESG_OPENWINDOWFAILED
  Venster openen mislukt!
 
  Åbning af vindue fejlede!
-
+¡Error al abrir la ventana!
 B³±d otwarcia okna!
 Chyba pøi otevírání okna!
 
@@ -1348,7 +1348,7 @@ MSG_STDMESG_INCORRECTFILESIZE
  Bestandsgrootte ongeldig!
 
  Forkert filstørrelse!
-
+¡Tamaño de archivo incorrecto!
 Niew³a¶ciwy rozmiar pliku!
 Nesprávná délka souboru!
 
@@ -1361,7 +1361,7 @@ MSG_STDMESG_INCORRECTFILEVERSION
  Bestandsversie ongeldig!
 
  Forkert fil version!
-
+¡Versión de archivo incorrecta!
 Niew³a¶ciwa wersja pliku!
 Nesprávná verze souboru!
 
@@ -1374,7 +1374,7 @@ MSG_STDMESG_RELATIVEELEVATIONFILESAVED
  Relatieve Hoogte Bestand Opgeslagen.
 
  Relativ højdefil gemt.
-
+Archivo de elevación relativa guardado.
 Plik wzglêdnej wysoko¶ci zapisany.
 Soubor vý¹kových úrovní byl úspì¹nì ulo¾en.
 
@@ -1387,7 +1387,7 @@ MSG_STDMESG_VECTOROBJECTSLOADED
  Vector objecten geladen.
 
  Vektor objekter indlæst.
-
+Objetos vectoriales cargados.
 Objekty wektorów wczytane.
 Soubor vektorových objektù byl úspì¹nì naèten.
 
@@ -1400,7 +1400,7 @@ MSG_STDMESG_PROJECTFILELOADED
  Project bestand geladen.
 
  Projekt fil indlæst.
-
+Archivo de proyecto cargado.
 Plik projektu wczytany.
 Soubor projektu byl úspì¹nì naèten.
 
@@ -1413,7 +1413,7 @@ MSG_STDMESG_PROJECTFILESAVED
  Project bestand opgeslagen.
 
  Projekt fil gemt.
-
+Archivo de proyecto guardado.
 Plik porojektu zapisany.
 Soubor projektu byl úspì¹nì ulo¾en.
 
@@ -1426,7 +1426,7 @@ MSG_STDMESG_DIRECTORYLISTLOADED
  Directory Lijst geladen
 
  Biblioteksliste indlæst
-
+Lista de directorios cargada
 Lista katalogów wczytana
 Obsah adresáøe byl úspì¹nì naèten
 
@@ -1439,7 +1439,7 @@ MSG_STDMESG_RENDERTIMEFORFRAME
  Berekentijd voor frame
 
  Beregningstid for skærmbillede
-
+Tiempo de renderizado por fotograma
 Czas renderowania na klatkê
 Èas výpoètu snímku
 
@@ -1452,7 +1452,7 @@ MSG_STDMESG_RENDERTIMEFORANIM
  Berekentijd voor animatie,
 
  Beregningstid for animation,
-
+Tiempo de renderizado para animación,
 Czas renderowania animacji
 Èas výpoètu animace
 
@@ -1469,7 +1469,7 @@ Nessuno
 Geen
 
 Ingen
-
+Ninguno
 Nie
 ®ádný
 
@@ -1482,7 +1482,7 @@ Testo
 Tekst
 
 Tekst
-
+Texto
 Tekst
 Textový
 
@@ -1495,7 +1495,7 @@ Standard
 Standaard
 
 Standard
-
+Estándar
 Standardowy
 Standardní
 
@@ -1508,7 +1508,7 @@ Massimo
 Maximum
 
 Maximum
-
+Máximo
 Max
 Maximální
 
@@ -1521,7 +1521,7 @@ Video
 Video
 
 Video
-
+Vídeo
 Video
 Obrazovkový
 
@@ -1534,7 +1534,7 @@ World Construction Set Modo Schermo
 World Construction Set Beeldschermmodus
 
 World Construction Set Skærmopsætning
-
+Modo de pantalla de World Construction Set
 World Construction Set Parametry Ekranu
 World Construction Set Rozli¹ení obrazovky
 
@@ -1547,7 +1547,7 @@ MSG_SCNRMODGUI_DISPLAYMODE
 \33cSchermmodus
 
 \33cSkærmmodus
-
+\33ccModo de visualización
 \33c Tryb Ekranu
 \33cMod zobrazení
 
@@ -1560,7 +1560,7 @@ MSG_SCNRMODGUI_MODEINFORMATION
 \33cInformatie Modus
 
 \33cModus information
-
+\33cInformación del modo
 \33cInformacje o trybie
 \33c Okno informací
 
@@ -1574,7 +1574,7 @@ Modo:           \nRes :                      \nAuto:            \nScan :        
 Modus:           \nRes  :                      \nAuto :            \nScan :                   \n\nAttributen\n\n\n
 
 Modus:           \nOpl.  :                      \nAuto :            \nScan :                   \n\nAtributter\n\n\n
-
+Modo:            \nRes  :                      \nAuto :            \nScan :                    \n\nAtributos\n\n\n
 Tryb:     \nRozd  :            \nAuto :        \nScan :        \n\nAttributes\n\n\n
 
 
@@ -1587,7 +1587,7 @@ MSG_SCNRMODGUI_SAVE
 \33cOpslaan
 
 \33cGem
-
+\33cGuardar
 \33cZapisz
 \33cUlo¾it
 
@@ -1600,7 +1600,7 @@ MSG_SCNRMODGUI_USE
 \33cGebruiken
 
 \33cAnvend
-
+\33cUsar
 \33cU¿yj
 \33cPou¾ít
 
@@ -1613,7 +1613,7 @@ MSG_SCNRMODGUI_EXIT
 \33cAfsluiten
 
 \33cAfslut
-
+\33cSalir
 \33cWyjd¼
 \33cOdejít
 
@@ -1627,7 +1627,7 @@ Modo: 0x%08lx\nRes : %dx%d - %dx%d\nAuto: %dx%d\nRicerca: %dns\n\nAttributi\n
 Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAttributen\n
 
 Modus: 0x%08lx\nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAtributter\n
-
+Modo: 0x%08lx \nRes  : %dx%d - %dx%d\nAuto : %dx%d\nScan : %dns\n\nAtributos\n
 Tryb: 0x%08lx\nRoz : %dx%d - %dx%d\nAuto: %dx%d\nScan: %dns\n\nAttributy\n
 Mode: 0x%08lx\nRes : %dx%d - %dx%d\nAuto: %dx%d\nScan: %dns\n\nVlastnosti:\n
 
@@ -1640,7 +1640,7 @@ Interlacciato\x20
 Interlace\x20
 
 
-
+Entrelazado 
 Interlace\x20
 Prokládaný\x20
 
@@ -1653,7 +1653,7 @@ Supporta Genlock\x20
 Ondersteunt Genlock\x20
 
 Understøtter Genlock\x20
-
+Compatible con Genlock 
 Obs³uguje Genlock\x20
 Kompatibilní s genlokem\x20
 
@@ -1666,7 +1666,7 @@ Trascinabile\x20
 Sleepbaar\x20
 
 
-
+Arrastrable 
 Przesuwalny\x20
 Posouvatelný\x20
 
@@ -1679,7 +1679,7 @@ Overscan:\x20
 Overscan:\x20
 
 
-
+Overscan: 
 
 Overscan:\x20
 
@@ -1692,7 +1692,7 @@ MSG_SCNRMODGUI_COLORS
   Kleuren:\x20
 
 
-
+  Colores: 
 
 Barev:\x20
 
@@ -1705,7 +1705,7 @@ Larghezza\x20
 Breedte\x20
 
 
-
+Ancho 
 Szeroko¶æ\x20
 ©íøka\x20
 
@@ -1718,7 +1718,7 @@ Altezza\x20
 Hoogte\x20
 
 
-
+Altura 
 Wysoko¶æ\x20
 Vý¹ka\x20
 
@@ -1734,7 +1734,7 @@ Parametri Modulo
 Parameter Module
 
 
-
+Módulo de Parámetros
 Modu³ Parametrów
 Modul nastavení
 
@@ -1747,7 +1747,7 @@ MSG_AGUI_MOTION
 \33l Beweging\x20
 
 
-
+\33l Movimiento 
 \33l Animacja\x20
 Nastavení pohybu
 
@@ -1760,7 +1760,7 @@ MSG_AGUI_COLOR
 \33l Kleur\x20
 
 
-
+\33l Color 
 \33l Kolor\x20
 Nastavení barev
 
@@ -1773,7 +1773,7 @@ MSG_AGUI_ECOSYSTEM
 \33l Ecosysteem\x20
 
 
-
+l Ecosistema 
 \33l Ekosystem\x20
 Nastavení krajiny
 
@@ -1786,7 +1786,7 @@ MSG_AGUI_CLOUDS
 \33l Wolken\x20
 
 
-
+\33l Nubes 
 \33l Chmury\x20
 Nastavení oblak
 
@@ -1799,7 +1799,7 @@ MSG_AGUI_WAVES
 \33l Golven\x20
 
 
-
+\33l Olas 
 \33l Fale\x20
 Nastavení vln
 
@@ -1812,7 +1812,7 @@ MSG_AGUI_DEFAULTS
 \33l Standaard Waarden\x20
 
 
-
+\33l Valores predeterminados 
 \33l Domy¶lne \x20
 \33l Pùvodní nastavení\x20
 
@@ -1825,7 +1825,7 @@ Parametri Modulo
 Parameters Module
 
 
-
+Módulo de Parámetros
 Modu³ Parametrów
 Modul hodnot
 
@@ -1838,7 +1838,7 @@ Memoria Esaurita!
 Te weinig Geheugen!
 
 
-
+¡Memoria insuficiente!
 Brak Pamiêci
 Nedostatek pamìti!
 
@@ -1851,7 +1851,7 @@ Crea Valori Predefiniti per il Database %s? I Parametri Correnti Verranno Sovras
 Standaard Parameters maken voor Database %s? Alle huidige Parameters zullen worden overschreven.
 
 
-
+¿Crear parámetros predeterminados para la base de datos %s? Todos los parámetros actuales serán sobrescritos.
 Czy utworzyæ domy¶lne parametry dla Bazy Danych %s? Wszystkie aktualne ustawienia zostan± nadpisane.
 Opravdu chcete vrátit v¹echna nastavení databáze %s na výchozí hodnoty? Va¹e souèasná nastavení tímto krokem budou ztracena.
 
@@ -1864,7 +1864,7 @@ Modifica dei Parametri: Predefinito
 Parameter bewerken: Standaard
 
 
-
+Edición de parámetros: Valores predeterminados
 Edycja Parametrów: Domy¶lne
 Nastavení pùvodních hodnot
 
@@ -1877,7 +1877,7 @@ SI|Cancella
 OK|Annuleren
 
 
-
+OK|Cancelar
 OK|Anuluj
 Potvrdit|Zru¹it
 
@@ -1890,7 +1890,7 @@ Es muss erst eine Datenbank geladen werden, bevor ein Standard-Parametersatz erz
 Laad eerst een Database voordat Standaard Parameters kunnen worden berekend.
 
 
-
+Primero debe cargar una base de datos antes de poder calcular los parámetros predeterminados.
 Musisz wczytaæ Bazê Danych zanim Domy¶lne Warto¶ci zostan± przeliczone.
 Nejprve je tøeba naèíst soubor databáze.
 
@@ -1903,7 +1903,7 @@ SI
 OK
 
 
-
+OK
 OK
 Potvrdit
 
@@ -1916,7 +1916,7 @@ Verticale
 Staand
 
 
-
+Levantarse
 Uk³ad Pionowy
 Na vý¹ku
 
@@ -1929,7 +1929,7 @@ Orizzontale
 Liggend
 
 
-
+Acostarse
 Uk³ad Poziomy
 Na ¹íøku
 
@@ -1942,7 +1942,7 @@ MSG_AGUI_LOAD
 \33l Laad\x20
 
 
-
+\33l Cargar 
 \33l Wczytaj\x20
 \33l Naèíst\x20
 
@@ -1955,7 +1955,7 @@ MSG_AGUI_APPEND
 \33l Toevoegen\x20
 
 
-
+\33l Añadir 
 \33l Do³±cz\x20
 \33l Pøipojit\x20
 
@@ -1968,7 +1968,7 @@ MSG_AGUI_CREATE
 \33l Nieuw\x20
 
 
-
+\33l Crear 
 \33l Utwórz\x20
 \33l Vytvoøit\x20
 
@@ -1981,7 +1981,7 @@ MSG_AGUI_EDIT
 \33l Bewerken\x20
 
 
-
+\33l Editar 
 \33l Edytuj\x20
 \33l Upravit\x20
 
@@ -1994,7 +1994,7 @@ MSG_AGUI_SAVE
 \33l Opslaan\x20
 
 
-
+\33l Guardar 
 \33l Zapisz\x20
 \33l Ulo¾it\x20
 
@@ -2007,7 +2007,7 @@ MSG_AGUI_DIRLIST
 \33l Dir Lijst\x20
 
 
-
+\33l Lista de directorios 
 \33l Lista katalogów\x20
 \33l Výpis adresáøe\x20
 
@@ -2020,7 +2020,7 @@ Data Ops: Importare DLG
 Data Ops: Importeer DLG
 
 
-
+Operaciones de datos: Importar DLG
 Data Ops: Import DLG
 Vlo¾it soubor DLG
 
@@ -2033,7 +2033,7 @@ Data Ops: Importare DXF
 Data Ops: Importeer DXF
 
 
-
+Operaciones de datos: Importar DXF
 Data Ops: Import DXF
 Vlo¾it soubor DXF
 
@@ -2046,7 +2046,7 @@ Data Ops: Importare WDB
 Data Ops: Importeer WDB
 
 
-
+Operaciones de datos: Importar WDB
 
 Modul exportu: Vlo¾ení souboru WDB
 
@@ -2059,7 +2059,7 @@ Data Ops Modulo: Interp DEM
 Data Ops Modulo: Interp DEM
 
 
-
+Módulo de datos: Interpolar DEM
 
 Modul exportu: Vyhodnocení DEM
 
@@ -2072,7 +2072,7 @@ Data Ops Modulo: Estrai DEM
 Data Ops Modulo: Extract DEM
 
 
-
+Módulo de datos: Extraer DEM
 
 Modul exportu: Extrakce souboru DEM
 
@@ -2085,7 +2085,7 @@ Rendering Modulo
 Render Module
 
 
-
+Módulo de renderizado
 Modu³ Renderowania
 Renderovací modul
 
@@ -2098,7 +2098,7 @@ Database e Parametri File
 Database en Parameter Bestand
 
 
-
+una base de datos y archivo de parámetros
 Plik Bazy Danych i Parametrów
 Soubor databáze a hodnot
 
@@ -2111,7 +2111,7 @@ Modulo di Controllo
 Module Controle Paneel
 
 
-
+Panel de control del módulo
 Modu³ Panelu Kontrolnego
 Hlavní ovládací panel
 
@@ -2124,7 +2124,7 @@ Versione
 Versie
 
 
-
+Versión
 Wersja
 Informace o programu
 
@@ -2137,7 +2137,7 @@ MSG_AGUI_OKAY
 \33cOK
 
 
-
+\33cAceptar
 
 \33cOk
 
@@ -2150,7 +2150,7 @@ Modulo degli Extra
 Extras Module
 
 
-
+Módulo de extras
 Modu³y Dodatkowe
 Modul Extras
 
@@ -2163,7 +2163,7 @@ Lo schermo pubblico ha ancora visitatori. Provare a chiudere di nuovo?
 Publiek Scherm heeft nog Gebruikers. Nogmaals proberen te sluiten?
 
 
-
+La pantalla pública aún tiene visitantes. ¿Intentar cerrar de nuevo?
 Ekran wci±¿ zawiera okna. Spróbowaæ ponownie?
 Obrazovku stále nìkdo pou¾ívá. Chcete se pokusit ji uzavøít znovu?
 
@@ -2176,7 +2176,7 @@ Chiudi|Avverti|Cancella
 Sluiten|Waarschuwen|Annuleren
 
 
-
+Cerrar|Advertir|Cancelar
 Zamknij|Ostrze¿|Anuluj
 Ukonèit|Potvrdit|Zru¹it
 
@@ -2189,7 +2189,7 @@ Chiudere il Programma\nSei Sicuro?
 Programma Afsluiten\nWeet U het zeker?
 
 
-
+Salir del programa\n¿Estás seguro?
 Opu¶æ Program\nJeste¶ pewien?
 Jste si jisti, ¾e chcete ukonèit program?
 
@@ -2202,7 +2202,7 @@ WCS Progetto
 WCS Project
 
 
-
+Proyecto WCS
 WCS Projekt
 WCS Projekt
 
@@ -2215,7 +2215,7 @@ I percorsi del progetto sono stati modificati. Salvarli prima di chiudere?
 Projectpaden zijn gewijzigd. Paden opslaan voordat u afsluit?
 
 
-
+Las rutas del proyecto han sido modificadas. ¿Guardarlas antes de cerrar?
 ¦cie¿ki projektu zosta³y zmodyfikowane. Czy zapisaæ zmiany przed zamkniêciem?
 Cesty projektových souborù byly zmìnìny. Chcete je nejprve ulo¾it?
 
@@ -2228,7 +2228,7 @@ I parametri sono stati modificati. Salvarli prima di chiuderli?
 Parameters zijn gewijzigd. Wijzigingen opslaan voordat u afsluit?
 
 
-
+Los parámetros han sido modificados. ¿Guardarlos antes de cerrar?
 Parametry zosta³y zmodyfikowane. Czy zapisaæ je przed zamkniêciem?
 Hodnoty byly zmìnìny. Chcete je nejprve ulo¾it?
 
@@ -2241,7 +2241,7 @@ Il database è stato modificato. Salvare prima di chiudere?
 De database is gewijzigd. Database opslaan voordat u afsluit?
 
 
-
+La base de datos ha sido modificada. ¿Guardarla antes de cerrar?
 Baza danych zosta³a zmodyfikowana. Czy zapisaæ j± przed zamkniêciem?
 Databáze byla zmìnìna. Chcete ji nejprve ulo¾it?
 
@@ -2254,7 +2254,7 @@ Messaggio
 Melding
 
 
-
+Mensaje
 Komunikat
 Zpráva
 
@@ -2267,7 +2267,7 @@ Non ancora implementato.\nRimanete Sintonizzati!
 Nog niet geïmplementeerd.\nStay Tuned!
 
 
-
+Aún no implementado.\n¡Mantente atento!
 Jeszcze nie zaimplementowane.\nProszê nie regulowaæ odbiornika!
 Zatím se nepou¾ívá.\nZùstaòte s námi!
 
@@ -2280,7 +2280,7 @@ Mantenere le modifiche?
 Wijzigingen behouden?
 
 
-
+¿Guardar cambios?
 Zachowaæ zmiany?
 Zachovat zmìny?
 
@@ -2293,7 +2293,7 @@ Mantieni|Cancella
 Behouden|Annuleren
 
 
-
+Guardar|Cancelar
 Zachowaj|Porzuæ
 Zachovat|Zru¹it
 
@@ -2306,7 +2306,7 @@ Attenzione!\nPrima di utilizzare questa funzione\n\338%s\0332\n è necessario car
 Sorry!\nLaad eerst\n\338%s\0332\n voordat u deze functie kunt gebruiken.
 
 
-
+¡Lo siento!\nPrimero debes cargar\n\338%s\332\nantes de usar esta función.
 Przykro mi!\nNajpierw musisz za³adowaæ\n\336%s\0332\nzanim u¿yjesz tej funkcji.
 Promiòte,\nale nejprve musíte naèíst\n\336%s\0332\npøed pou¾itím této funkce.
 
@@ -2319,7 +2319,7 @@ File già esistente.\n Vuoi Sovrascriverlo?
 Het bestand bestaat al.\nWilt u het overschrijven?
 
 
-
+El archivo ya existe.\n¿Deseas sobrescribirlo?
 Plik ju¿ istnieje.\nCzy chcesz go nadpisaæ?
 Soubor ji¾ existuje.\nChcete jej pøepsat?
 
@@ -2332,7 +2332,7 @@ Richiesta Input
 Invoer Verzoek
 
 
-
+Solicitud de entrada
 Wprowad¼ Dane
 Vstupní po¾adavek
 
@@ -2345,7 +2345,7 @@ MSG_GLOBAL_33CCANCEL
 \33cAnnuleren
 
 
-
+\33cCancelar
 \33cAnuluj
 \33cZru¹it
 
@@ -2358,7 +2358,7 @@ Log Stato Modulo
 Log Status Module
 
 
-
+Módulo de estado de registro
 Modu³ Log Zdarzeñ
 Modul záznamù
 
@@ -2371,7 +2371,7 @@ Non è possibile aprire la finestra dello stato dei log!
 Kan Log Status Venster niet openen!
 
 
-
+¡No se puede abrir la ventana de estado de registro!
 NIe Mogê Otworzyæ Okna Logu Wydarzeñ
 Nemohu otevøít okno záznamu!
 
@@ -2384,7 +2384,7 @@ MSG_AGUI_CLEAR
 \33cLeegmaken
 
 
-
+\33cLimpiar
 \33cWyczy¶æ
 \33cVyèistit
 
@@ -2397,7 +2397,7 @@ MSG_AGUI_HIDE
 \33cVerbergen
 
 
-
+\33cOcultar
 \33cUkryj
 \33cSchovat
 
@@ -2410,7 +2410,7 @@ MSG_AGUI_CLOSE
 \33cSluiten
 
 
-
+\33cCerrar
 \33cZamknij
 \33cUzavøít
 
@@ -2423,7 +2423,7 @@ Finestra Log
 Log Venster
 
 
-
+Ventana de registro
 Okno Logu
 Okno záznamù
 
@@ -2436,7 +2436,7 @@ Finestra Log Aperta.
 Log Venster geopend.
 
 
-
+Ventana de registro abierta.
 Okno Logu Otwarte.
 Okno záznamu bylo otevøeno.
 
@@ -2450,7 +2450,7 @@ Informazioni
 Informatie
 
 
-
+Información
 Informacje
 Informace
 
@@ -2463,7 +2463,7 @@ MSG_AGUI_TIME
 \33rTijd\x20
 
 
-
+\33rHora 
 \33rCzas\x20
 \33rÈas\x20
 
@@ -2476,7 +2476,7 @@ MSG_AGUI_DATE
 \33rDatum\x20
 
 
-
+\33rFecha 
 \33rData\x20
 \33rDatum\x20
 
@@ -2489,7 +2489,7 @@ MSG_AGUI_MEMORY
 \33rGeheugen:
 
 
-
+\33rMemoria:
 \33rPamiêæ:
 \33rPamìt:
 
@@ -2502,7 +2502,7 @@ MSG_AGUI_AVAILABLE
 \33rBeschikbaar\x20
 
 
-
+\33rDisponible 
 \33rDostêpne\x20
 \33rCelková\x20
 
@@ -2515,7 +2515,7 @@ MSG_AGUI_LARGEST
 \33rGrootste\x20
 
 
-
+\33rMayor 
 \33rNajwiêkszy\x20
 \33rNejvìt¹í blok\x20
 
@@ -2528,7 +2528,7 @@ MSG_AGUI_CHIP
 \33cChip
 
 
-
+\33cChip
 
 
 
@@ -2541,7 +2541,7 @@ MSG_AGUI_FAST
 \33cFast
 
 
-
+\33cRápido
 
 
 
@@ -2554,7 +2554,7 @@ MSG_AGUI_TOPOMAPS
 \33rTopo Kaarten\x20
 
 
-
+\33rMapas topográficos 
 \33rMapa Topograficzna\x20
 \33rTopologické mapy\x20
 
@@ -2567,7 +2567,7 @@ MSG_AGUI_INTER
 \33cInter
 
 
-
+\33cInter
 
 \33cVnitøní
 
@@ -2580,7 +2580,7 @@ MSG_AGUI_MAP
 \33cKaart
 
 
-
+\33cMapa
 \33cMapa
 \33cMapa
 
@@ -2593,7 +2593,7 @@ MSG_AGUI_AREXXPORT
 \33rARexx Poort\x20
 
 
-
+\33rPuerto ARexx 
 
 \33rARexx Port\x20
 
@@ -2606,7 +2606,7 @@ MSG_AGUI_DATABASE
 \33rDatabase\x20
 
 
-
+\33rBase de datos 
 \33rBaza Danych\x20
 \33rDatabáze\x20
 
@@ -2619,7 +2619,7 @@ MSG_AGUI_PARFILE
 \33rPar Bestand\x20
 
 
-
+\33rArchivo de parámetros 
 
 \33rSoubor hodnot\x20
 
@@ -2632,7 +2632,7 @@ MSG_AGUI_SCREENMODE
 \33rSchermmodus\x20
 
 
-
+\33rModo de pantalla 
 \33rTryb Ekranu\x20
 \33rRozli¹ení\x20
 
@@ -2645,7 +2645,7 @@ MSG_AGUI_FLUSH
 \33cGeheugen vrijmaken
 
 
-
+\33cVaciar
 \33cWyczy¶æ
 \33cVyèistit
 
@@ -2658,7 +2658,7 @@ Ringraziamenti
 Over
 
 
-
+Créditos
 Podziêkowania
 O autorech
 
@@ -2671,7 +2671,7 @@ WCS: Modo Schermo
 WCS: Schermmodus
 
 
-
+WCS: Modo de pantalla
 WCS: Tryb Ekranu
 WCS: Rozli¹ení obrazovky
 
@@ -2684,7 +2684,7 @@ Per ripristinare la modalità schermo, WCS dovrà essere chiuso e riaperto. Qualsi
 Om de schermmodus te resetten zal WCS moeten worden gesloten en heropend. Werk in uitvoering moet worden opgeslagen voordat deze opdracht wordt uitgevoerd.\n Wilt u nu doorgaan?
 
 
-
+Para restablecer el modo de pantalla, WCS debe cerrarse y volver a abrirse. Guarda cualquier trabajo en curso antes de continuar.\n¿Deseas continuar ahora?
 Aby zresetowaæ tyb wy¶wietlania WCS chce zakoñczyæ pracê i uruchomiæ siê ponownie. Powiniene¶ teraz zapisa¶ swoj± pracê aby unikn±æ strat zanim wykonasz to polecenie.\nCzy chesz kontynuowaæ?
 Chcete-li obnovit re¾im obrazovky, musíte systém WCS zavøít a znovu otevøít. Pøed vyvoláním tohoto pøíkazu by mìla být ulo¾ena ve¹kerá probíhající práce.\nPøejete si nyní pokraèovat?
 
@@ -2697,7 +2697,7 @@ Modulo Database
 Database Module
 
 
-
+Módulo de base de datos
 Modu³ Bazy Danych
 Modul databáze
 
@@ -2710,7 +2710,7 @@ Modulo Database: Allegare
 Database Module: Toevoegen
 
 
-
+Módulo de base de datos: Añadir
 Modu³ Bazy Danych: Dopisz
 Modul databáze: Pøipojení
 
@@ -2724,7 +2724,7 @@ a Database
 een Database
 
 
-
+una base de datos
 Baza Danych
 Databáze
 
@@ -2737,7 +2737,7 @@ Modulo Database: Salva
 Database Module: Opslaan
 
 
-
+Módulo de base de datos: Guardar
 Modu³ Bazy Danych: Zapisz
 Modul databáze: Ulo¾ení
 
@@ -2750,7 +2750,7 @@ Modulo DataOps
 DataOps Module
 
 
-
+Módulo de operaciones de datos
 Modu³ DataOps
 Modul exportu
 
@@ -2763,7 +2763,7 @@ MSG_AGUI_EXTRACTDEM
 \33l Extraheer DEM\x20
 
 
-
+\33l Extraer DEM 
 \33l Rozpakuj DEM\x20
 \33l Extrahovat DEM\x20
 
@@ -2776,7 +2776,7 @@ MSG_AGUI_CONVERTDEM
 \33l Converteer DEM\x20
 
 
-
+\33l Convertir DEM 
 \33l Conversja DEM\x20
 \33l Pøevést DEM\x20
 
@@ -2789,7 +2789,7 @@ MSG_AGUI_INTERPDEM
 \33l Interpoleer DEM\x20
 
 
-
+\33l Interpolar DEM 
 \33l Interpolacja DEM\x20
 \33l Vyhodnotit DEM\x20
 
@@ -2802,7 +2802,7 @@ MSG_AGUI_IMPORTDLG
 \33l Importeer DLG\x20
 
 
-
+\33l Importar DLG 
 \33l Import DLG\x20
 \33l Naèíst DLG\x20
 
@@ -2815,7 +2815,7 @@ MSG_AGUI_IMPORTDXF
 \33l Importeer DXF\x20
 
 
-
+\33l Importar DXF
 \33l Import DXF\x20
 \33l Naèíst DXF
 
@@ -2828,7 +2828,7 @@ MSG_AGUI_IMPORTWDB
 \33l Importeer WDB\x20
 
 
-
+\33l Importar WDB 
 \33l Import WDB\x20
 \33l Naèíst WDB
 
@@ -2841,7 +2841,7 @@ MSG_AGUI_EXPORTLW
 \33l Exporteer LW\x20
 
 
-
+\33l Exportar LW 
 \33l Eksport LW\x2-
 \33l Extrahovat LW\x20
 
@@ -2854,7 +2854,7 @@ MSG_AGUI_MOTIONIO
 \33l Beweging I/O\x20
 
 
-
+\33l Movimiento E/S 
 \33l Animacja\x20
 \33l Pohyb vstup/výstup\x20
 
@@ -2867,7 +2867,7 @@ Stato Log
 Status Log
 
 
-
+Registro de estado
 Log Zdarzeñ
 Okno záznamù
 
@@ -2880,7 +2880,7 @@ ERR:
 FOUT:
 
 
-
+ERR:
 
 Chyba:
 
@@ -2893,7 +2893,7 @@ WNG:
 Waarschuwing:
 
 
-
+ADVERT:
 
 
 
@@ -2906,7 +2906,7 @@ MSG:
 Melding:
 
 
-
+MSG:
 
 Zpráva:
 
@@ -2919,7 +2919,7 @@ DTA:
 Data:
 
 
-
+DTA:
 
 
 
@@ -2932,7 +2932,7 @@ MSG_AGUI_PREV
 \33cVorige
 
 
-
+\33cAnterior
 \33cPoprzedni
 \33cPøedchozí
 
@@ -2945,7 +2945,7 @@ MSG_AGUI_NEXT
 \33cVolgende
 
 
-
+\33cSiguiente
 \33cNastêpny
 \33cDal¹í
 
@@ -2958,7 +2958,7 @@ Tutto (%d)
 Alles (%d)
 
 
-
+Todos (%d)
 Wszystko (%d)
 V¹e (%d)
 
@@ -2971,7 +2971,7 @@ Chiavi (%d) esistenti
 Key (%d) bestaat
 
 
-
+Claves existentes (%d)
 Klucze Wystêpuj± (%d)
 
 
@@ -2984,7 +2984,7 @@ MSG_AGUI_ALL0
 \33cAlles (0)
 
 
-
+\33cTodos (0)
 \33cWszystko (0)
 \33cV¹e
 
@@ -2997,7 +2997,7 @@ No Altre Chiavi
 Geen andere Keys
 
 
-
+No hay otras claves
 Bez Innych Kluczy
 prelozit
 
@@ -3011,7 +3011,7 @@ PK %d
 VorigK %d
 
 
-
+PK %d
 
 
 
@@ -3025,7 +3025,7 @@ NK %d
 VolgK %d
 
 
-
+NK %d
 
 
 
@@ -3038,7 +3038,7 @@ MSG_AGUI_NONE
 -Geen-
 
 
-
+ -ninguno- 
 -nie-\x20
 
 
@@ -3051,7 +3051,7 @@ Usa
 Gebruik
 
 
-
+Usar
 U¿yj
 Pou¾ít
 
@@ -3064,7 +3064,7 @@ Carica Attivo...
 Laad Actief...
 
 
-
+Cargar activo...
 Wczytaj Aktywne...
 
 
@@ -3077,7 +3077,7 @@ Salva Attivo...
 Sla Actief op...
 
 
-
+Guardar activo...
 Zapisz Aktywne...
 
 
@@ -3090,7 +3090,7 @@ Carica Movimento...
 Laad Beweging...
 
 
-
+Cargar movimiento...
 Wczytaj Animacjê...
 Naèíst pohybová nastavení...
 
@@ -3103,7 +3103,7 @@ Salva Movimento...
 Sla Beweging op...
 
 
-
+Guardar movimiento...
 Zapisz Animacjê...
 Ulo¾it pohybová nastavení...
 
@@ -3116,7 +3116,7 @@ Carica Colori...
 Laad Kleuren...
 
 
-
+Cargar color...
 Wczytaj Kolor...
 Naèíst nastavení barev...
 
@@ -3129,7 +3129,7 @@ Salva Colori...
 Sla Kleuren op...
 
 
-
+Guardar color...
 Zapisz Kolor...
 Ulo¾it nastavení barev...
 
@@ -3142,7 +3142,7 @@ Carica Eco...
 Laad Eco...
 
 
-
+Cargar ecosistema...
 Wczytaj Ekosystem...
 Naèíst nastavení krajiny...
 
@@ -3155,7 +3155,7 @@ Salva Eco...
 Sla Eco op...
 
 
-
+Guardar ecosistema...
 Zapisz Ekosystem...
 Ulo¾it nastavení krajiny...
 
@@ -3168,7 +3168,7 @@ Carica Impostazioni...
 Laad Instellingen...
 
 
-
+Cargar configuración...
 Wczytaj Ustawienia...
 Naèíst nastavení...
 
@@ -3181,7 +3181,7 @@ Salva Impostazioni...
 Bewaar Instellingen...
 
 
-
+Guardar configuración...
 Zapisz Ustawienia...
 Ulo¾it nastavení...
 
@@ -3195,7 +3195,7 @@ IFF-File Percorso/Nome
 IFF Bestand Pad/Naam
 
 
-
+Ruta/nombre de archivo IFF
 IFF ¦cie¿ka Pliku/Nazwa
 
 
@@ -3208,7 +3208,7 @@ Il file esiste già!\nSovrascriverlo?
 Bestand bestaat al!\nOverschrijven?
 
 
-
+¡El archivo ya existe!\n¿Sobrescribirlo?
 Plik ju¿ istnieje\nCzy nadpisaæ?
 Soubor ji¾ existuje!Chcete jej pøepsat?
 
@@ -3221,7 +3221,7 @@ Impossibile aprire il file immagine per l'output!\nOperazione terminata.
 Kan afbeeldingbestand niet openen voor uitvoer!\nOperatie afgebroken.
 
 
-
+¡No se puede abrir el archivo de imagen para salida!\nOperación terminada.
 Nie mogê utowrzyæ pliku obrazu dla wyj¶cia!\nOperacja anulowana.
 Nemohu otevøít soubor obrázku pro zápis!Operace bude ukonèena.
 
@@ -3234,7 +3234,7 @@ Salva Immagine
 Afbeelding Opslaan
 
 
-
+Guardando imagen
 Zapisywanie Obrazu
 Ukládám obrázek
 
@@ -3247,7 +3247,7 @@ Si
 Ja
 
 
-
+SÍ
 Tak
 Ano
 
@@ -3260,7 +3260,7 @@ No
 Nee
 
 
-
+NO
 Nie
 Ne
 
@@ -3273,7 +3273,7 @@ Errore nel salvare l'immagine!\nOperazione Terminata.
 Fout bij opslaan van de afbeelding!\nOperatie afgebroken.
 
 
-
+¡Error al guardar imagen!\nOperación terminada.
 B³±d zapisu obrazu!\nOperacja anulowana.
 Chyba pøi ukládání obrázku!\nOpreace bude ukonèena.
 
@@ -3286,7 +3286,7 @@ Caricamento Immagine
 Afbeelding Laden
 
 
-
+Cargando imagen
 Wczytaj obraz
 Naèítání obrázku
 
@@ -3299,7 +3299,7 @@ Grandezza immagine sbagliata
 Afmetingen afbeelding onjuist
 
 
-
+Tamaño de imagen incorrecto
 Niew³a¶ciwy rozmiar obrazu
 ©patná velikosti obrázku
 
@@ -3312,7 +3312,7 @@ Profondità colore immagine sbagliata
 Kleurdiepte afbeelding onjuist
 
 
-
+Profundidad de imagen incorrecta
 Niew³a¶ciwa g³êboko¶æ obrazu
 ©patná barevná hloubka obrázku
 
@@ -3325,7 +3325,7 @@ Sfondo
 Achtergrond
 
 
-
+Fondo
 T³o
 Pozadí
 
@@ -3338,7 +3338,7 @@ Errore nel caricamento del buffer Z!\nOperazione terminata.
 Fout bij laden van Z Buffer!\nOperatie afgebroken.
 
 
-
+¡Error al cargar Z Buffer!\nOperación terminada.
 B³±d ³adowania bufora Z!\nOperacja anulowana.
 Chyba pøi naèítání Z Buffer!\nOperace bude ukonèena.
 
@@ -3351,7 +3351,7 @@ Unione di Z Buffer fuori memoria!\nOperazione terminata.
 Te weinig geheugen voor samenvoegen van Z Buffer!\nOperatie afgebroken.
 
 
-
+¡Memoria insuficiente al fusionar Z Buffer!\nOperación terminada.
 Brak pamiêci dla ³±czenia bufora Z!\n Operacja Anulowana.
 Nedostatek pamìti pro sluèování Z Buffer!\nOperace bude ukonèena.
 
@@ -3364,7 +3364,7 @@ Errore nell'apertura del file Z Buffer per l'input!\nOperazione terminata.
 Fout bij openen van Z Buffer bestand voor invoer!\nOperatie afgebroken.
 
 
-
+¡Error al abrir archivo Z Buffer para entrada!\nOperación terminada.
 B³±d otwrcia pliku bufora Z dla wej¶cia!\nOperacja anulowana.
 Chyba pøi otevírání souboru Z Buffer!\nOperace bude ukonèena.
 
@@ -3377,7 +3377,7 @@ Errore nella lettura del file Z Buffer!\nNon in virgola mobile a precisione sing
 Fout bij lezen van Z Buffer bestand!\nGeen enkele precisie drijvende komma.\nOperatie afgebroken.
 
 
-
+¡Error al leer archivo Z Buffer!\nNo es punto flotante de precisión simple.\nOperación terminada.
 B³±d odczytu pliku bufora Z!\nNie s± pojedyñczej precyzji warto¶ciami zmienno przecinkowymi.\nOperacja anluowana.
 Chyba pøi ètení ze souboru Z Buffer v datech s plovoucí desetinnou èárkou!\nOperace bude ukonèena.
 
@@ -3390,7 +3390,7 @@ Errore nella lettura del file Z Buffer!\nNessun ZBOD chunk.\nOperazione terminat
 Fout bij lezen van Z Buffer bestand!\nZBOD chunk ontbreekt.\nOperatie afgebroken.
 
 
-
+¡Error al leer archivo Z Buffer!\nFalta chunk ZBOD.\nOperación terminada.
 B³±d odczytu pliku bufora Z!\nNie ma ZBOD chunk.\nOperacja anulowana.
 Chyba pøi ètení ze souboru Z Buffer!\nÚsek ZBOD nenalezen.\nOperace bude ukonèena.
 
@@ -3403,7 +3403,7 @@ Errore nella lettura del file Z Buffer!\nNessun ZBUF chunk.\nOperazione terminat
 Fout bij lezen van Z Buffer bestand!\nZBUF chunk ontbreekt.\nOperatie afgebroken.
 
 
-
+¡Error al leer archivo Z Buffer!\nFalta chunk ZBUF.\nOperación terminada.
 B³±d odczytu pliku bufora Z!\nBrak ZBUF chunk.\nOperacja anulowana.
 Chyba pøi ètení ze souboru Z Buffer!\nÚsek ZBUF nenalezen.\nOperace bude ukonèena.
 
@@ -3416,7 +3416,7 @@ Errore nella lettura del file Z Buffer!\nDimensione sbagliata.\nOperazione termi
 Fout bij lezen van Z Buffer bestand!\nAfmetingen onjuist.\nOperatie afgebroken.
 
 
-
+¡Error al leer archivo Z Buffer!\nTamaño incorrecto.\nOperación terminada.
 B³±d odczytu pliku bufora Z!\nNiew³a¶ciwy Rozmiar\nOperacja anulowana.
 Chyba pøi ètení ze souboru Z Buffer!\n©patná velikost.\nOperace bude ukonèena.
 
@@ -3429,7 +3429,7 @@ Errore nel caricamento dell'immagine di sfondo!\nOperazione terminata.
 Fout bij laden van achtergrond afbeelding!\nOperatie afgebroken.
 
 
-
+¡Error al cargar imagen de fondo!\nOperación terminada.
 B³±d odczytu obrazu t³a!\nOperacja anulowana.
 Chyba pøi naèítání obrazku pozadí!\nOperace bude ukonèena.
 
@@ -3442,7 +3442,7 @@ Sfondo di fusione fuori memoria!\nOperazione terminata.
 Te weinig geheugen voor samenvoegen met achtergrond!\nOperatie afgebroken.
 
 
-
+¡Memoria insuficiente al fusionar fondo!\nOperación terminada.
 Brak pamiêci dla do³±czenia t³a!\nOperacja anulowana.
 Nedostatek pamìti pro slouèení pozadí!\nOperace bude ukonèena.
 
@@ -3455,7 +3455,7 @@ Errore nell'apertura del file di sfondo per l'input!\nOperazione terminata.
 Fout bij openen van achtergrond bestand voor invoer!\nOperatie afgebroken.
 
 
-
+¡Error al abrir archivo de fondo para entrada!\nOperación terminada.
 B³±d otwarcia pliku t³a!\n Operacja anulowana.
 Chyba pøi pokusu otevøít soubor pozadí!\nOperace bude ukonèena.
 
@@ -3468,7 +3468,7 @@ Errore nell'apertura del file di sfondo!\nDimensione errata.\nOperazione termina
 Afmetingen van achtergrond bestand onjuist!\nOperatie afgebroken.
 
 
-
+¡Error al leer archivo de fondo!\nTamaño incorrecto.\nOperación terminada.
 B³±d odczytu pliku t³a!\nNiew³a¶ciwy Rozmiar.\nPoracja anulowana.
 Chyba pøi naèítání souboru pozadi!\n©patná velikost.\nOperace bude ukonèena.
 
@@ -3481,7 +3481,7 @@ Errore nell'apertura del file di sfondo!\nNessun Corpo Chunk.\nOperazione termin
 Fout bij lezen van achtergrond bestand!\nBODY chunk ontbreekt.\nOperatie afgebroken.
 
 
-
+¡Error al leer archivo de fondo!\nFalta chunk BODY.\nOperación terminada.
 B³±d odczytu pliku t³a!\nBrak BODU-Chunk.\nOperacja anlulowana.
 Chyba pøi naèítání souboru pozadí!\nÚsek BODY nenalezen.\nOperace bude ukonèena.
 
@@ -3494,7 +3494,7 @@ Errore nell'apertura del file di sfondo!\nNessun BMHD Chunk.\nOperazione termina
 Fout bij lezen van achtergrond bestand!\nBMHD chunk ontbreekt.\nOperatie afgebroken.
 
 
-
+¡Error al leer archivo de fondo!\nFalta chunk BMHD.\nOperación terminada.
 B³±d oczytu pliu t³a!\nBrak BMHD Chunk.\nOperacja anulowana.
 Chyba pøi naèítání souboru pozadí!\nÚsek BMHD nenalezen.\nOperace bude ukonèena.
 
@@ -3507,7 +3507,7 @@ Errore nella lettura del file di sfondo!\nErrore di compressione.\nOperazione te
 Fout bij lezen van achtergrond bestand!\nCompressie fout.\nOperatie afgebroken.
 
 
-
+¡Error al leer archivo de fondo!\nError de compresión.\nOperación terminada.
 B³±d odczytu pliku t³a!\nB³±d Dekompresji.\nOperacja anulowana.
 Chyba pøi naèítání souboru pozadí!\nChyba komprese.\nOperace bude ukonèena.
 
@@ -3520,7 +3520,7 @@ Editor Nuvole:Impostare i limiti
 Wolken Editor:Grenzen instellen
 
 
-
+Editor de nubes: Establecer límites
 Edytor Chmur: Ustwieni Granic
 Editor oblak: Nastav ohranièení
 
@@ -3533,7 +3533,7 @@ Il modulo Vista mappa deve essere aperto per poter utilizzare questa funzione. V
 Kaartweergave Module moet geopend zijn om deze functie te gebruiken. Wilt u het nu openen?
 
 
-
+El módulo de vista de mapa debe estar abierto para usar esta función. ¿Deseas abrirlo ahora?
 Modu³ przegl±du map musi byæ otwarty aby mó u¿yæ tej funkcji. Czy chesz otworzyæ go teraz?
 Pro pou¾ití této funkce musí být otevøen mapový modul.Chcete jej nyní otevøít?
 
@@ -3546,7 +3546,7 @@ MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
 \0338Stel noord-west hoek in met muis.
 
 
-
+\338Establecer esquina noroeste con el ratón.
 \0338Ustaw pó³nocno-zachodni naro¿nik za pomoc± myszy.
 \0338Nastavte severozápadní roh pomocí my¹i.
 
@@ -3559,7 +3559,7 @@ Imposta l'angolo nord-ovest
 Stel noord-west hoek in
 
 
-
+Establecer esquina noroeste
 Ustaw pó³nocno-zachodni naro¿nik
 Nastavení severozápadního rohu
 
@@ -3572,7 +3572,7 @@ MSG_CLOUD_ETSOUTHEASTCORNERESCABORT
 \0338Stel zuid-oost hoek in. ESC=annuleren
 
 
-
+\338Establecer esquina sureste. ESC=cancelar
 \0338Ustaw pó³nocno-wschodni naro¿nik. ESC=przerwij
 \0338Nastavte jihovýchodní roh. ESC=Pøeru¹ení
 
@@ -3585,7 +3585,7 @@ Imposta l'angolo sud-est
 Stel zuid-oost hoek in
 
 
-
+Establecer esquina sureste
 Ustaw pó³nocno-wschodni naro¿nik
 Nastavení jihovýchodního rohu
 
@@ -3598,7 +3598,7 @@ Modulo Mappatura: Allineare
 Mapping Module: Uitlijnen
 
 
-
+Módulo de mapeo: Alinear
 Modu³ Mapowania: Wyrówmamie
 Mapový modul: Zarovnání
 
@@ -3611,7 +3611,7 @@ Valori Illegali!\nDeve esserci almeno un pixel di offset su entrambi gli assi.\n
 Ongeldige waarden!\nEr moet minstens één pixel offset zijn op beide assen.\nOpnieuw proberen?
 
 
-
+¡Valores ilegales!\nDebe haber al menos un desplazamiento de píxel en ambos ejes.\n¿Intentar de nuevo?
 Niew³a¶ciwe warto¶ci!\nMusi byæ przynajmniej jeden piksel przesuniêcia dla obu k±tów\nSpróbowaæ ponownie?
 Nepovolená hodnota!\nNa obou stranách musí být rozdíl alespoò jednoho bodu.\nChcete to zkusit znovu?
 
@@ -3624,7 +3624,7 @@ Inserire il numero di frame.
 Voer Frame Nummer in.
 
 
-
+Introducir número de fotograma.
 Worowad¼ numer klatki.
 Zadej poèet snímkù.
 
@@ -3637,7 +3637,7 @@ Computing...
 Berekenen...
 
 
-
+Calculando...
 Obliczenia...
 Zpracovávám...
 
@@ -3650,7 +3650,7 @@ Disegno...
 Tekenen...
 
 
-
+Dibujando...
 Rysowanie...
 Vykreslování...
 
@@ -3665,7 +3665,7 @@ Velo di Nuvole
 Cirrus wolken
 
 
-
+Cirros
 Chmura Pierzasta
 
 
@@ -3678,7 +3678,7 @@ Nuvole a strati
 Stratus wolken
 
 
-
+Estratos
 
 
 
@@ -3691,7 +3691,7 @@ Nuvole cariche di pioggia
 Nimbus wolken
 
 
-
+Nimbos
 
 
 
@@ -3704,7 +3704,7 @@ Mucchio di nuvole
 Cumulus wolken
 
 
-
+Cúmulos
 
 
 
@@ -3717,7 +3717,7 @@ Editor Nuvole
 Wolken Editor
 
 
-
+Editor de nubes
 Edytor Chmur
 Editor nastavení oblak
 
@@ -3730,7 +3730,7 @@ Opzioni
 Opties
 
 
-
+Opciones
 Opcje
 Mo¾nosti
 
@@ -3743,7 +3743,7 @@ MSG_CLOUDGUI_CLOUDS
 \33cWolken
 
 
-
+\33cNubes
 \33cChmury
 \33cOblaka
 
@@ -3756,7 +3756,7 @@ MSG_CLOUDGUI_CLOUDSHADOWS
 \33cWolkenschaduwen
 
 
-
+\33cSombras de nubes
 \33cCienie Chmur
 \33cStíny oblak
 
@@ -3769,7 +3769,7 @@ Tipo di nuvola
 Wolken type
 
 
-
+Tipo de nube
 Typ Chmury
 Typ oblak
 
@@ -3782,7 +3782,7 @@ Valore iniziale
 Startwaarde
 
 
-
+Semilla
 Warto¶æ pocz±tkowa
 
 
@@ -3795,7 +3795,7 @@ MSG_CLOUDGUI_CLOUDWAVES
 \33c\0334Wolkgolven
 
 
-
+\33c\0334Olas de nubes
 \33c\0334Fale Chmur
 \33c\0334Zvlnìní oblak
 
@@ -3808,7 +3808,7 @@ Onde
 Golven
 
 
-
+Olas
 Fale
 Zvlnìní
 
@@ -3821,7 +3821,7 @@ MSG_CLOUDGUI_MAPADD
 \33cVoeg Kaart toe...
 
 
-
+\33cAñadir mapa...
 \33cDodaj Mapê...
 \33cPøidání mapy...
 
@@ -3834,7 +3834,7 @@ MSG_CLOUDGUI_EDIT
 \33cBewerken...
 
 
-
+\33cEditar...
 \33cEdycja...
 Upravit...
 
@@ -3847,7 +3847,7 @@ Animare
 Animeren
 
 
-
+Animar
 Animacja
 Animuj
 
@@ -3860,7 +3860,7 @@ MSG_CLOUDGUI_LOUDMAPSIZERANGE
 \33c\0334Wolkkaart Grootte & Bereik
 
 
-
+\33c\0334Tamaño y rango del mapa de nubes
 \33c\0334Mapa Chmur Rozmiar i Zasiêg
 \33c\0334Mapa velikosti a rozsahu oblak
 
@@ -3873,7 +3873,7 @@ Righe
 Rijen
 
 
-
+Filas
 Rzêdy
 Øádky
 
@@ -3886,7 +3886,7 @@ Colonne
 Kolommen
 
 
-
+Columnas
 Kolumny
 Sloupce
 
@@ -3899,7 +3899,7 @@ Massima Latitudine
 Max Lat
 
 
-
+Latitud máxima
 Najwy¿sza Wysoko¶æ
 Vý¹ka Max
 
@@ -3912,7 +3912,7 @@ Min
 Min
 
 
-
+Mínimo
 Najni¿sza
 Min
 
@@ -3925,7 +3925,7 @@ Massima Longitudine
 Max Long
 
 
-
+Longitud máxima
 Najwiêksza Szeroko¶æ
 Vzdálenost Max
 
@@ -3938,7 +3938,7 @@ MSG_CLOUDGUI_ANIMATION
 \33c\0334Animatie
 
 
-
+\33c\0334Animación
 \33c\0334Animacja
 \33c\0334Animace
 
@@ -3951,7 +3951,7 @@ Copertura
 Bedekkingsgraad
 
 
-
+Cobertura
 Pokrycie
 Pokrytí
 
@@ -3964,7 +3964,7 @@ Densità
 Dichtheid
 
 
-
+Densidad
 Gêsto¶æ
 Hustota
 
@@ -3977,7 +3977,7 @@ Ruvidità
 Ruwheid
 
 
-
+Rugosidad
 Szorstko¶æ
 Zvrásnìní
 
@@ -3990,7 +3990,7 @@ Dimensione Fract
 Deeltjes afmetingen
 
 
-
+Dimensión fractal
 
 Velikost fraktálù
 
