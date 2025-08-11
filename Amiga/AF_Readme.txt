@@ -4823,3 +4823,14 @@ Arch/linux/AROSBootstrap &
 8.Aug.2025
 ----------
 * Alle WindowObject- und UserMessage-Tests laufen unter 68020/AROS-386 und AROS-X86-64
+
+
+11.Aug.25
+---------
+Ich habe spanisch begonnen.
+
+Für ein Lanschafts-Renderingprogramm soll die GUI nach spanisch übersetzt werden. Formatierungszeichen sollen dabei erhalten bleiben. "Line xxx:" soll dabei zu Referenzzwecken erhalten bleiben.
+
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; LINENR=NR; getline; POLISH=$0; getline; CZECH=$0; if(SPANISCH==""){print "Line " LINENR ": " ENGLISH;}else{SPANISCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Spanish:  %4d\n",SPANISCHCOUNT);printf("%d%%\n",SPANISCHCOUNT*100/MSGCOUNT++);}'
+
+

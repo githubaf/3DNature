@@ -73,7 +73,7 @@ Ouvrir...
 Openen...
 Mamrmes_Open...
 Åbn...
-
+Abrir...
 Otwórz...
 Otevøít...
 Otvori¿...
@@ -86,7 +86,7 @@ Salva
 Opslaan
 Marmes_Save
 Gem
-
+Guardar
 Zapisz
 Ulo¾it
 Ulo¿i¿
@@ -99,7 +99,7 @@ Salva come...
 Opslaan als...
 
 Gem som...
-
+Guardar como...
 Zapisz Jako...
 Ulo¾it jako...
 Ulo¿i¿ ako...
@@ -112,7 +112,7 @@ Carica configurazione
 Laad Configuratie
 
 
-
+Cargar configuración
 Wczytaj Ustawienia
 Nahrát nastavení
 Na¿íta¿ konfiguráciu
@@ -125,7 +125,7 @@ Salva Configurazione
 Bewaar Configuratie
 
 
-
+Guardar configuración
 Zapisz Ustawienia
 Ulo¾it nastavení
 Ulo¿i¿ konfiguráciu
@@ -138,7 +138,7 @@ Salva Schermo...
 Beeldscherm Bewaren...
 
 Gem skærmbillede...
-
+Guardar pantalla...
 Zapisz Ekran...
 Ulo¾it obrázek...
 Ulo¿i¿ obrazovku...
@@ -151,7 +151,7 @@ Informazioni...
 Informatie...
 
 Information...
-
+Información...
 Info...
 Zdroje...
 Informácie...
@@ -164,7 +164,7 @@ Versione...
 Versie...
 
 Version...
-
+Versión...
 Wersja...
 O programu...
 Verzia...
@@ -177,7 +177,7 @@ Ringraziamenti...
 Over...
 
 
-
+Créditos...
 Podziêkowania...
 O autorech...
 Autori...
@@ -190,7 +190,7 @@ Log...
 Log...
 
 Log...
-
+Registro...
 Przedgl±d Zdarzeñ...
 Záznam...
 Záznam...
@@ -203,7 +203,7 @@ Fine...
 Afsluiten...
 
 Afslut...
-
+Salir...
 Wyjd¼...
 Ukonèit...
 Ukon¿i¿...
@@ -216,7 +216,7 @@ Iconifica...
 Iconificeren...
 
 Ikonificér...
-
+Minimizar...
 Minimalizuj...
 Iconifikovat...
 Minimalizova¿...
@@ -229,7 +229,7 @@ Moduli
 Modules
 
 Moduler
-
+Módulos
 Modu³y
 Moduly
 
@@ -242,7 +242,7 @@ Database
 Database
 
 Database
-
+Base de Datos
 Baza Danych
 Modul databáze
 
@@ -255,7 +255,7 @@ Dati Ops
 Data Ops
 
 Data Ops
-
+Operaciones de Datos
 
 Modul exportu
 
@@ -268,7 +268,7 @@ Vista Mappa
 Kaartweergave
 
 Kortvisning
-
+Vista de Mapa
 Widok Mapy
 Mapový modul
 
@@ -281,7 +281,7 @@ Parametri
 Parameters
 
 Parametre
-
+Parámetros
 Parametry
 Modul parametrù
 
@@ -294,7 +294,7 @@ Rendering
 Render
 
 Beregn
-
+Renderizar
 Renderowanie
 Výpoèet
 
@@ -307,7 +307,7 @@ Modifica Movimento
 Beweging Editor
 
 Bevægelsesredigering
-
+Editor de Movimiento
 Edytor Ruchu
 Nastavení pohybu
 
@@ -320,7 +320,7 @@ Modifica Colori
 Kleur Editor
 
 Farveindstillinger
-
+Editor de Color
 Edytor Kolorów
 Nastavení barev
 
@@ -333,7 +333,7 @@ Modifica Ecosistema
 Ecosysteem Editor
 
 Redigering af økosystem
-
+Editor de Ecosistema
 Edytor Ekosystemu
 Nastavení krajiny
 
@@ -346,7 +346,7 @@ Preferenze
 Voorkeuren
 
 Indstillinger
-
+Preferencias
 Preferencje
 Obecná nastavení
 
@@ -359,7 +359,7 @@ Preferenze...
 Voorkeuren...
 
 Indstillinger...
-
+Preferencias...
 Preferencje...
 Nastavení...
 
@@ -372,7 +372,7 @@ Modo Schermo...
 Schermmodus...
 
 Skærmopsætning...
-
+Modo de Pantalla...
 Prametry Obrazu...
 Rozli¹ení obrazovky...
 
@@ -385,7 +385,7 @@ Mui...
 Mui...
 
 
-
+Mui...
 
 
 
@@ -398,7 +398,7 @@ Parametri
 Parameters
 
 Parametre
-
+Parámetros
 Parametry
 Hodnoty
 
@@ -411,7 +411,7 @@ Carica Tutto...
 Laad Alles...
 
 Indlæs alle...
-
+Cargar Todo...
 Wczytaj wszystko...
 Nahrát v¹e...
 
@@ -424,7 +424,7 @@ Salva Tutto...
 Alles Opslaan...
 
 Gem alt...
-
+Guardar Todo...
 Zapisz Wszystko...
 Ulo¾it v¹e...
 
@@ -437,7 +437,7 @@ Congelamento
 Vastleggen voor herstel
 
 Frys
-
+Congelar
 Zatrzymaj
 Zastavení
 
@@ -450,7 +450,7 @@ Ripristina
 Herstellen
 
 Genskab
-
+Restaurar
 Wznów
 Obnovení
 
@@ -464,7 +464,7 @@ Acqua
 Water
 
 Vand
-
+Agua
 Woda
 Voda
 
@@ -477,7 +477,7 @@ Neve
 Sneeuw
 
 Sne
-
+Nieve
 ¦nieg
 Snih
 
@@ -490,7 +490,7 @@ Roccia
 Rots
 
 Sten
-
+Roca
 Ska³a
 Hory
 
@@ -503,7 +503,7 @@ Terreno
 Terrein
 
 Terræn
-
+Suelo
 Grunt
 Zem
 
@@ -516,7 +516,7 @@ Piante
 Naaldboom
 
 Nåletræer
-
+Conífera
 Drzewostan
 Jehliènany
 
@@ -529,7 +529,7 @@ Decide
 Loofboom
 
 Løvtræ
-
+Caducifolio
 Drzewa Li¶ciaste
 
 
@@ -542,7 +542,7 @@ Bassa Vegetazione
 Ondergroei
 
 Lav Vegation
-
+Vegetación Baja
 Niska Ro¶linno¶æ
 Nízká vegetace
 
@@ -555,7 +555,7 @@ Albero Morto
 Dode Boom
 
 
-
+Árbol Muerto
 Drzewa obumar³e
 
 
@@ -568,7 +568,7 @@ Ceppo Albero
 Boomstronk
 
 Træstub
-
+Tocón
 Pieñ drzewa
 Ro¹tí
 
@@ -581,7 +581,7 @@ Camera D'altitudine
 Camera Hoogte
 
 Kamera Højde
-
+Altitud de Cámara
 Kamera - Wysoko¶æ
 Nadmoøská vý¹ka
 
@@ -594,7 +594,7 @@ Camera Latitudine
 Camera Breedtegraad
 
 Kamera breddegrad
-
+Latitud de Cámara
 Kamera - Szeroko¶æ
 Zemìpisná vý¹ka
 
@@ -607,7 +607,7 @@ Camera Longitudine
 Camera Lengtegraad
 
 Kamera længdegrad
-
+Longitud de Cámara
 Kamera - D³ugo¶æ
 Zemìpisná délka
 
@@ -620,7 +620,7 @@ Focus Altitudine
 Focus Hoogte
 
 Focu Højde
-
+Altitud de Enfoque
 Focus Kamery - Wysoko¶æ
 Zamìøení nadmoøské vý¹ky
 
@@ -633,7 +633,7 @@ Focus Latitudine
 Focus Breedtegraad
 
 Focus breddegrad
-
+Latitud de Enfoque
 Focus Kamery - Szeroko¶æ
 Zamìøení zemìpisné vý¹ky
 
@@ -646,7 +646,7 @@ Focus Longitudine
 Focus Lengtegraad
 
 Fokus længdegrad
-
+Longitud de Enfoque
 Focus Kamery - D³ugo¶æ
 Zamìøení zemìpisné délky
 
@@ -659,7 +659,7 @@ Centra X
 Midden X
 
 Centrum X
-
+Centro X
 ¦rodek X
 Centrování X
 
@@ -672,7 +672,7 @@ Centra Y
 Midden Y
 
 Centrum Y
-
+Centro Y
 ¦rodek Y
 Centrování Y
 
@@ -685,7 +685,7 @@ Inclinazione
 Helling
 
 
-
+Inclinación
 Nachylenie
 Bank
 
@@ -698,7 +698,7 @@ Rotazione Terra
 Aardrotatie
 
 Jordrotation
-
+Rotación Terrestre
 Obrót Ziemii
 Zemská rotace
 
@@ -711,7 +711,7 @@ Scala
 Schaal
 
 
-
+Escala
 Skala
 Mìøítko
 
@@ -724,7 +724,7 @@ Angolo di Visione
 Zichtboog
 
 Betragsningsvinkel
-
+Arco de Vista
 K±t Widzenia
 Zobrazit oblaka
 
@@ -737,7 +737,7 @@ Appiattimento
 Afvlakking
 
 Udfladning
-
+Aplanamiento
 Sp³aszczenie
 Zplo¹tìní
 
@@ -750,7 +750,7 @@ Datum
 Datum
 
 Dato
-
+Datum
 Punkt Wyj¶ciowy
 Datum
 
@@ -763,7 +763,7 @@ Exag Verticale
 Verticale Overdr
 
 
-
+Exageración Vertical
 Przesuniêcie Pionowe
 Vertikalni Exag
 
@@ -776,7 +776,7 @@ Luce Sole Lat
 Zonlicht Lat
 
 
-
+Latitud de Luz Solar
 ¦wiat³o S³oñca Wys
 Vý¹ka slunce
 
@@ -789,7 +789,7 @@ Luce Sole Lon
 Zonlicht Long
 
 
-
+Longitud de Luz Solar
 ¦wiat³o S³oñca Szer
 Vzdálenost slunce
 
@@ -802,7 +802,7 @@ Linea Orizzonte
 Horizon Lijn
 
 Horizontallinje
-
+Línea del Horizonte
 Linia Horyzontu
 Úroveò horizontu
 
@@ -815,7 +815,7 @@ Punto Orizzonte
 Horizon Punt
 
 Horizontalpunkt
-
+Punto del Horizonte
 Punkt Na Horyzoncie
 Bod horizontu
 
@@ -828,7 +828,7 @@ Estendere Orizzonte
 Horizon Uitrekken
 
 
-
+Estiramiento del Horizonte
 Rozci±gniêcie Horyzontu
 Rozta¾ení horizontu
 
@@ -841,7 +841,7 @@ Inizio Foschia
 Nevel Start
 
 
-
+Inicio de Neblina
 Pocz±tek Zamglenia
 Zaèátek mlhy
 
@@ -854,7 +854,7 @@ Area Foschia
 Nevel Bereik
 
 
-
+Rango de Neblina
 Zasiêg Mg³y
 Úroveò mlhy
 
@@ -867,7 +867,7 @@ Fattore Ombra
 Schaduw Factor
 
 Skyggefaktor
-
+Rango de Neblina
 Stopieñ Cienia
 Úroveò stínování
 
@@ -880,7 +880,7 @@ Niente Nebbia
 Geen Mist
 
 Ingen tåge
-
+Sin Niebla
 Bez Mg³y
 Fog None
 
@@ -893,7 +893,7 @@ Pieno di nebbia
 Volledige Mist
 
 Fuld tåge
-
+Niebla Total
 Pe³na Mg³a
 Fog Full
 
@@ -906,7 +906,7 @@ Minimo Z
 Z Minimum
 
 Z Minimum
-
+Z Mínimo
 Z Minimalne
 Z Minimum
 
@@ -919,7 +919,7 @@ Latitudine Sole
 Zon Lat
 
 
-
+Latitud del Sol
 Wys. S³oñca
 Vý¹ka slunce
 
@@ -932,7 +932,7 @@ Longitudine Sole
 Zon Long
 
 
-
+Longitud del Sol
 D³ug. S³oñca
 Vzdálenost slunce
 
@@ -945,7 +945,7 @@ Grandezza Sole
 Zon Grootte
 
 Solstørrelse
-
+Tamaño del Sol
 Rozmiar S³oñca
 Velikost slunce
 
@@ -958,7 +958,7 @@ Latitudine Luna
 Maan Lat
 
 
-
+Latitud de la Luna
 Wys. Ksiê¿yca
 Vý¹ka mìsíce
 
@@ -971,7 +971,7 @@ Longitudine Luna
 Maan Long
 
 
-
+Longitud de la Luna
 D³ug. Ksiê¿yca
 Vzdálenost mìsíce
 
@@ -984,7 +984,7 @@ Grandezza Luna
 Maan Grootte
 
 Månestørrelse
-
+Tamaño de la Luna
 Rozmiar Ksiê¿yca
 Velikost mìsíce
 
@@ -23242,7 +23242,7 @@ Prima pagina
 Pagina Een
 
 
-
+Primera Página
 
 
 
@@ -23255,7 +23255,7 @@ Seconda pagina
 Pagina Twee
 
 
-
+Segunda Página
 
 
 
@@ -23268,7 +23268,7 @@ Editor progetto
 Project Editor
 
 
-
+Editor de Proyecto
 
 
 
@@ -23281,7 +23281,7 @@ Percorso progetto\x20\x20\x20\x20\x20\x20\x20\x20
 Project Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta del Proyecto\x20\x20\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23294,7 +23294,7 @@ Nome progetto\x20\x20\x20\x20\x20\x20\x20\x20
 Project Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre del Proyecto\x20\x20\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23307,7 +23307,7 @@ Percorso database\x20\x20\x20\x20\x20\x20\x20
 Database Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta de la Base de Datos\x20\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23320,7 +23320,7 @@ Nome database\x20\x20\x20\x20\x20\x20\x20
 Database Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre de la Base de Datos\x20\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23333,7 +23333,7 @@ Percorso parametri\x20\x20\x20\x20\x20\x20
 Parameter Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta de Parámetros\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23346,7 +23346,7 @@ Nome parametri\x20\x20\x20\x20\x20\x20
 Parameter Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre de Parámetros\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23359,7 +23359,7 @@ Percorso salvataggio fotogramma\x20\x20\x20\x20\x20
 Afbeeldingen Opslaan Pad\x20\x20
 
 
-
+Ruta de Guardado de Fotogramas\x20\x20\x20\x20\x20
 
 
 
@@ -23372,7 +23372,7 @@ Nome salvataggio fotogramma\x20\x20\x20\x20\x20
 Afbeeldingen Opslaan Naam\x20
 
 
-
+Nombre de Guardado de Fotogramas\x20\x20\x20\x20\x20
 
 
 
@@ -23385,7 +23385,7 @@ Percorso fotogramma temporaneo\x20\x20\x20\x20\x20
 Tijd. Afbeeldingen Pad\x20\x20\x20\x20
 
 
-
+Ruta Temporal de Fotogramas\x20\x20\x20\x20\x20
 
 
 
@@ -23398,7 +23398,7 @@ Percorso salvataggio vettore\x20\x20\x20\x20
 Vector Opslaan Pad\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta de Guardado de Vectores\x20\x20\x20\x20
 
 
 
@@ -23411,7 +23411,7 @@ Nome salvataggio vettore\x20\x20\x20\x20
 Vector Opslaan Naam\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre de Guardado de Vectores\x20\x20\x20\x20
 
 
 
@@ -23424,7 +23424,7 @@ Percorso Z Buffer\x20\x20\x20\x20\x20\x20\x20
 Z Buffer Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta del Búfer Z\x20\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23437,7 +23437,7 @@ Nome Z Buffer\x20\x20\x20\x20\x20\x20\x20
 Z Buffer Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre del Búfer Z\x20\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23450,7 +23450,7 @@ Percorso sfondo\x20\x20\x20\x20\x20
 Achtergrond Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta del Fondo\x20\x20\x20\x20\x20
 
 
 
@@ -23463,7 +23463,7 @@ Nome sfondo\x20\x20\x20\x20\x20
 Achtergrond Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre del Fondo\x20\x20\x20\x20\x20
 
 
 
@@ -23476,7 +23476,7 @@ Directory predefinita\x20\x20\x20
 Standaarddirectory\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Directorio Predeterminado\x20\x20\x20
 
 
 
@@ -23490,7 +23490,7 @@ Percorso salvataggio grafica\x20\x20\x20
 Grafiek Opslaan Pad\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta de Guardado Gráfico\x20\x20\x20
 
 
 
@@ -23503,7 +23503,7 @@ Nome salvataggio grafica\x20\x20\x20
 Grafiek Opslaan Naam\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre de Guardado Gráfico\x20\x20\x20
 
 
 
@@ -23516,7 +23516,7 @@ Percorso mappa colori\x20\x20\x20\x20\x20\x20
 Kleurenkaart Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta del Mapa de Colores\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23529,7 +23529,7 @@ Nome mappa colori\x20\x20\x20\x20\x20\x20
 Kleurenkaart Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre del Mapa de Colores\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23542,7 +23542,7 @@ Percorso mappa nuvole\x20\x20\x20\x20\x20\x20
 Wolkenkaart Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre del Mapa de Colores\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23555,7 +23555,7 @@ Nome mappa nuvole\x20\x20\x20\x20\x20\x20
 Wolkenkaart Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre del Mapa de Nubes\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23568,7 +23568,7 @@ Percorso file onda\x20\x20\x20\x20\x20\x20
 Golfbestand Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta del Archivo de Sonido\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23581,7 +23581,7 @@ Nome file onda\x20\x20\x20\x20\x20\x20
 Golfbestand Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre del Archivo de Sonido\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23594,7 +23594,7 @@ Percorso mappa deformazione
 Deformatiekaart Pad\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta del Mapa de Deformación
 
 
 
@@ -23606,7 +23606,7 @@ Nome mappa deformazione
 Deformatiekaart Naam\x20\x20\x20\x20\x20\x20
 
 
-
+Nombre del Mapa de Deformación
 
 
 
@@ -23619,7 +23619,7 @@ Percorso modello ecosistema
 Ecosysteem Model Pad\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta del Modelo de Ecosistema
 
 
 
@@ -23632,7 +23632,7 @@ Percorso immagine\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 Afbeeldingen Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta de la Imagen\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23645,7 +23645,7 @@ File immagine sole\x20\x20\x20\x20\x20\x20
 Zonafbeeldingen Bestand\x20\x20\x20
 
 
-
+Archivo de Imagen del Sol\x20\x20\x20\x20\x20\x20
 
 
 
@@ -23658,7 +23658,7 @@ File immagine luna\x20\x20\x20\x20\x20
 Maanafbeeldingen Bestand\x20\x20
 
 
-
+Archivo de Imagen de la Luna\x20\x20\x20\x20\x20
 
 
 
@@ -23671,7 +23671,7 @@ Directory progetto PC
 PC Project Directory\x20\x20\x20\x20\x20\x20
 
 
-
+Directorio del Proyecto en PC
 
 
 
@@ -23684,7 +23684,7 @@ Directory fotogrammi PC\x20
 PC Afbeeldingen Directory\x20
 
 
-
+Directorio de Fotogramas en PC\x20
 
 
 
@@ -23697,7 +23697,7 @@ MSG_MOREGUI_DIRECTORYLIST
 \33cDirectory lijst
 
 
-
+\33cLista de Directorios
 
 
 
@@ -23710,7 +23710,7 @@ MSG_MOREGUI_SAVE
 \33cOpslaan
 
 
-
+\33cGuardar
 
 
 
@@ -23723,7 +23723,7 @@ Percorso/Nome progetto
 Project Pad/Naam
 
 
-
+Ruta/Nombre del Proyecto
 
 
 
@@ -23736,7 +23736,7 @@ Percorso/Nome database
 Database Pad/Naam
 
 
-
+Ruta/Nombre de la Base de Datos
 
 
 
@@ -23749,7 +23749,7 @@ Percorso/Nome parametri
 Parameter Pad/Naam
 
 
-
+Ruta/Nombre de Parámetros
 
 
 
@@ -23762,7 +23762,7 @@ Percorso/Nome salvataggio fotogramma
 Frame Opslaan Pad/Naam
 
 
-
+Ruta/Nombre de Guardado de Fotogramas
 
 
 
@@ -23775,7 +23775,7 @@ Percorso/Nome fotogramma temporaneo
 Tijd. Frame Pad/Naam
 
 
-
+Ruta Temporal de Fotogramas
 
 
 
@@ -23788,7 +23788,7 @@ Percorso/Nome salvataggio vettore
 Vector Opslaan Pad/Naam
 
 
-
+Ruta/Nombre de Guardado de Vectores
 
 
 
@@ -23801,7 +23801,7 @@ Percorso/Nome Z Buffer
 Z Buffer Pad/Naam
 
 
-
+Ruta/Nombre del Búfer Z
 
 
 
@@ -23814,7 +23814,7 @@ Percorso/Nome sfondo
 Achtergrond Pad/Naam
 
 
-
+Ruta/Nombre del Fondo
 
 
 
@@ -23827,7 +23827,7 @@ Percorso/Nome salvataggio grafica
 Grafiek Opslaan Pad/Naam
 
 
-
+Ruta/Nombre de Guardado Gráfico
 
 
 
@@ -23840,7 +23840,7 @@ Directory predefinita
 Standaarddirectory
 
 
-
+Directorio Predeterminado
 
 
 
@@ -23853,7 +23853,7 @@ Percorso mappa nuvole
 Wolkenkaart Pad
 
 
-
+Ruta del Mapa de Nubes
 
 
 
@@ -23866,7 +23866,7 @@ Percorso onde
 Golf Pad
 
 
-
+Ruta del Sonido
 
 
 
@@ -23879,7 +23879,7 @@ Percorso deformazione
 Deformatie Pad
 
 
-
+Ruta de Deformación
 
 
 
@@ -23892,7 +23892,7 @@ Percorso immagine
 Afbeeldingen Pad
 
 
-
+Ruta de Imagen
 
 
 
@@ -23905,7 +23905,7 @@ File immagine sole
 Zonafbeeldingen Bestand
 
 
-
+Archivo de Imagen del Sol
 
 
 
@@ -23918,7 +23918,7 @@ File immagine luna
 Maanafbeeldingen Bestand
 
 
-
+Archivo de Imagen de la Luna
 
 
 
@@ -23931,7 +23931,7 @@ Percorso progetto PC
 PC Project Pad
 
 
-
+Ruta del Proyecto en PC
 
 
 
@@ -23944,7 +23944,7 @@ Percorso fotogrammi PC
 PC Afbeeldingen Pad
 
 
-
+Ruta de Fotogramas en PC
 
 
 
