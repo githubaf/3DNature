@@ -4838,10 +4838,10 @@ Arbeiten mit xfce-Terminal. Da kannn man ISO-8859-1 einstellen. Arbeiten mit mga
 Script in der Art:
 
 mawk '
-NR==3954{$0="Cobertura"}
-NR==3967{$0="Densidad"}
-NR==3980{$0="Rugosidad"}
-NR==3993{$0="Dimensión fractal"}
+NR==1763{$0="\33l Color\x20"}
+NR==1776{$0="\33l Ecosistema\x20"}
+NR==1789{$0="\33l Nubes\x20"}
+NR==1802{$0="\33l Olas\x20"}
 {print}' WCS.cs > WCS_translated.cs
 mv WCS_translated.cs WCS.cs
 
