@@ -20008,7 +20008,7 @@ Duplicare questo oggetto?
 Dit object dupliceren?
 
 
-
+¿Duplicar este objeto?
 
 
 
@@ -20021,7 +20021,7 @@ MSG_MAPEXTRA_SELECTSTREAMSTARTPOINTESCABORT
 \0338Startpunt van de stroom selecteren. ESC=annuleren
 
 
-
+\0338Seleccionar punto inicial del arroyo. ESC=abortar
 
 
 
@@ -20034,7 +20034,7 @@ Seleziona punto iniziale del corso d'acqua
 Selecteer startpunt van de stroom
 
 
-
+Seleccionar punto inicial del arroyo
 
 
 
@@ -20047,7 +20047,7 @@ MSG_MAPEXTRA_SELECTAPPROXIMATESTREAMENDPOINTESCABORT
 \0338Benaderd eindpunt van de stroom selecteren. ESC=annuleren
 
 
-
+\0338Seleccionar punto final aproximado del arroyo. ESC=abortar
 
 
 
@@ -20060,7 +20060,7 @@ Seleziona punto finale approssimativo del corso d'acqua
 Selecteer benaderd eindpunt van de stroom
 
 
-
+Seleccionar punto final aproximado del arroyo
 
 
 
@@ -20073,7 +20073,7 @@ Creazione corso d'acqua: clicca sul punto finale. ESC=annulla
 Maak stroom: klik op eindpunt van de stroom. ESC=annuleren
 
 
-
+Creando Arroyo: haga clic en el punto final del arroyo. ESC=abortar
 
 
 
@@ -20086,7 +20086,7 @@ Modulo mappa: Segui corso d'acqua
 Mapping Module: Stroom volgen
 
 
-
+Módulo de Mapeo: Seguir Arroyo
 
 
 
@@ -20099,7 +20099,7 @@ Raggiunto il numero massimo di punti!\nMappatura terminata
 Maximaal aantal punten bereikt!\nMapping afgebroken
 
 
-
+¡Se alcanzó el máximo de puntos!\nMapeo terminado
 
 
 
@@ -20112,7 +20112,7 @@ Raggiunto il bordo della mappa corrente!\nPunti = %d\nContinuare con la mappa su
 Rand van huidige kaart bereikt!\nPunten = %d\nDoorgaan naar volgende kaart?
 
 
-
+¡Se alcanzó el borde del mapa actual!\nPuntos = %d\n¿Continuar al siguiente mapa?
 
 
 
@@ -20125,7 +20125,7 @@ Punto iniziale non all'interno dei confini topografici caricati!\nPunti oggetto 
 Beginpunt niet binnen momenteel geladen topogrenzen!\nObjectpunten teruggebracht tot 1.
 
 
-
+¡Punto inicial no dentro de los límites topográficos cargados actualmente!\nPuntos del objeto reducidos a 1.
 
 
 
@@ -20138,7 +20138,7 @@ Salvare ora l'oggetto vettoriale?
 Vectorobject nu opslaan?
 
 
-
+¿Guardar objeto vectorial ahora?
 
 
 
@@ -20151,7 +20151,7 @@ Inserisci il numero di vertici in uscita.
 Voer aantal uitvoerpunten in.
 
 
-
+Ingrese número de vértices de salida.
 
 
 
@@ -20164,7 +20164,7 @@ Lunghezza spline = %f chilometri\nIntervallo = %f km/segmento
 Splinelengte = %f kilometers\nInterval = %f km/segment
 
 
-
+Longitud de spline = %f kilómetros\nIntervalo = %f km/segmento
 
 
 
@@ -20177,7 +20177,7 @@ Modulo mappa: Spline
 Mapping Module: Spline
 
 
-
+Módulo de Mapeo: Spline
 
 
 
@@ -20190,7 +20190,7 @@ OK|Reimposta|Annulla
 OK|Reset|Annuleren
 
 
-
+OK|Restablecer|Cancelar
 
 
 
@@ -20203,7 +20203,7 @@ Modulo vista mappa: Interpolazione
 Kaartweergave Module: Interpoleren
 
 
-
+Módulo de Vista de Mapa: Interpolar
 
 
 
@@ -20216,7 +20216,7 @@ Memoria esaurita! Impossibile allocare un nuovo vettore.\nOperazione terminata.
 Te weinig geheugen! Kan geen nieuwe vector toewijzen.\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente! No se puede asignar nuevo vector.\nOperación terminada.
 
 
 
@@ -20229,7 +20229,7 @@ MSG_MAPEXTRA_SELECTSURFACEUELEVATIONESCABORT
 \0338Oppervlak %lu Hoogte selecteren. ESC=Afbreken
 
 
-
+\0338Seleccionar Elevación de Superficie %lu. ESC=Abortar
 
 
 
@@ -20242,7 +20242,7 @@ Seleziona elevazione superficie %lu
 Selecteer Oppervlak %lu Hoogte
 
 
-
+Seleccionar Elevación de Superficie %lu
 
 
 
@@ -20255,7 +20255,7 @@ Inserisci il numero minimo di punti corrispondenti.
 Voer minimum aantal overeenkomende punten in.
 
 
-
+Ingrese número mínimo de puntos coincidentes.
 
 
 
@@ -20268,7 +20268,7 @@ Inserisci la tolleranza di elevazione.
 Voer hoogtetolerantie in.
 
 
-
+Ingrese tolerancia de elevación.
 
 
 
@@ -20281,7 +20281,7 @@ Procedere o reimpostare i punti?
 Doorgaan of punten resetten?
 
 
-
+¿Continuar o restablecer puntos?
 
 
 
@@ -20294,7 +20294,7 @@ Procedi|Reimposta|Annulla
 Doorgaan|Resetten|Annuleren
 
 
-
+Continuar|Restablecer|Cancelar
 
 
 
@@ -20307,7 +20307,7 @@ Mantenere o salvare il DEM oppure reimpostare i parametri?
 DEM behouden of opslaan of parameters resetten?
 
 
-
+¿Mantener o guardar DEM o restablecer parámetros?
 
 
 
@@ -20320,7 +20320,7 @@ Mantieni|Salva|Reimposta|Annulla
 Behouden|Opslaan|Resetten|Annuleren
 
 
-
+Mantener|Guardar|Restablecer|Cancelar
 
 
 
@@ -20333,7 +20333,7 @@ Tutti i punti d'angolo devono essere all'interno dei confini della mappa topogra
 Alle hoekpunten moeten binnen de topokaartgrenzen liggen!\nBewerking afgebroken.
 
 
-
+¡Todos los puntos de esquina deben estar dentro de los límites del mapa topográfico!\nOperación terminada.
 
 
 
@@ -20346,7 +20346,7 @@ Dimensioni non valide! Prova ad aumentare le dimensioni del rettangolo.\nOperazi
 Ongeldige afmetingen! Probeer het rechthoek groter te maken.\nBewerking afgebroken.
 
 
-
+¡Dimensiones ilegales! Intente hacer el rectángulo más grande.\nOperación terminada.
 
 
 
@@ -20359,7 +20359,7 @@ Tutti i punti d'angolo devono trovarsi nello stesso DEM!\nOperazione terminata.
 Alle hoekpunten moeten binnen dezelfde DEM liggen!\nBewerking afgebroken.
 
 
-
+¡Todos los puntos de esquina deben estar dentro del mismo DEM!\nOperación terminada.
 
 
 
@@ -20372,7 +20372,7 @@ Errore nell'apertura del file di output!\nOperazione terminata.
 Fout bij openen van uitvoerbestand!\nBewerking afgebroken.
 
 
-
+¡Error al abrir archivo de salida!\nOperación terminada.
 
 
 
@@ -20385,7 +20385,7 @@ Errore durante la scrittura del file di output!\nOperazione terminata.
 Fout bij schrijven naar uitvoerbestand!\nBewerking afgebroken.
 
 
-
+¡Error al escribir en archivo de salida!\nOperación terminada.
 
 
 
@@ -20399,7 +20399,7 @@ MSG_MAPEXTRA_AFSQKMLFKM
 %s: A=%f km², L=%fkm.
 
 
-
+%s: A=%f km², L=%fkm.
 
 
 
@@ -20412,7 +20412,7 @@ MSG_MAPEXTRA_CXRAFSQKM
 %s (%ldc x %ldr): A=%f km².
 
 
-
+%s (%ldc x %ldr): A=%f km².
 
 
 
@@ -20425,7 +20425,7 @@ MSG_MAPEXTRA_AFSQKM
 %s: A=%f km².
 
 
-
+%s: A=%f km².
 
 
 
@@ -20438,7 +20438,7 @@ Memoria esaurita!\nMemoria insufficiente per l'array temporaneo topografico.\nOp
 Te weinig geheugen!\nNiet genoeg voor tijdelijke toporeeks.\nBewerking mislukt.
 
 
-
+¡Memoria insuficiente!\nNo hay suficiente para matriz topográfica temporal.\nOperación fallida.
 
 
 
@@ -20452,7 +20452,7 @@ Carica oggetti
 Objecten laden
 
 
-
+Cargar Objetos
 
 
 
@@ -20465,7 +20465,7 @@ Tutti
 Alles
 
 
-
+Todo
 
 
 
@@ -20478,7 +20478,7 @@ Attivi
 Actieve
 
 
-
+Activo
 
 
 
@@ -20491,7 +20491,7 @@ Carica topos
 Laad Topos
 
 
-
+Cargar Topos
 
 
 
@@ -20504,7 +20504,7 @@ Salva oggetti
 Objecten opslaan
 
 
-
+Guardar Objetos
 
 
 
@@ -20517,7 +20517,7 @@ Pulisci finestra
 Venster wissen
 
 
-
+Limpiar Ventana
 
 
 
@@ -20530,7 +20530,7 @@ Stampa
 Afdrukken
 
 
-
+Imprimir
 
 
 
@@ -20543,7 +20543,7 @@ Chiudi mappa
 Kaart sluiten
 
 
-
+Cerrar Mapa
 
 
 
@@ -20556,7 +20556,7 @@ Visualizza
 Aanzicht
 
 
-
+Ver
 
 
 
@@ -20569,7 +20569,7 @@ Controlli
 Besturing
 
 
-
+Controles
 
 
 
@@ -20582,7 +20582,7 @@ Legenda ecologica
 Eco Legende
 
 
-
+Leyenda Eco
 
 
 
@@ -20595,7 +20595,7 @@ Allinea mappa
 Kaart uitlijnen
 
 
-
+Alinear Mapa
 
 
 
@@ -20608,7 +20608,7 @@ Centrare
 Centreren
 
 
-
+Centrar
 
 
 
@@ -20621,7 +20621,7 @@ Centratura automatica
 Autom. Centreren
 
 
-
+Auto Centrar
 
 
 
@@ -20634,7 +20634,7 @@ Zoom
 Vergroten
 
 
-
+Zoom
 
 
 
@@ -20647,7 +20647,7 @@ Pan
 Draaien
 
 
-
+Paneo
 
 
 
@@ -20660,7 +20660,7 @@ Sposta
 Verplaatsen
 
 
-
+Mover
 
 
 
@@ -20673,7 +20673,7 @@ In
 In
 
 
-
+Acercar
 
 
 
@@ -20686,7 +20686,7 @@ Out
 Uit
 
 
-
+Alejar
 
 
 
@@ -20699,7 +20699,7 @@ Sinistra
 Links
 
 
-
+Izquierda
 
 
 
@@ -20712,7 +20712,7 @@ Destra
 Rechts
 
 
-
+Derecha
 
 
 
@@ -20725,7 +20725,7 @@ Su
 Omhoog
 
 
-
+Arriba
 
 
 
@@ -20738,7 +20738,7 @@ Giù
 Omlaag
 
 
-
+Abajo
 
 
 
@@ -20751,7 +20751,7 @@ Disegnare
 Tekenen
 
 
-
+Dibujar
 
 
 
@@ -20764,7 +20764,7 @@ Disegnare la mappa
 Teken kaart
 
 
-
+Dibujar Mapa
 
 
 
@@ -20777,7 +20777,7 @@ Normale
 Normaal
 
 
-
+Normal
 
 
 
@@ -20790,7 +20790,7 @@ Raffinare
 Verfijnen
 
 
-
+Refinar
 
 
 
@@ -20803,7 +20803,7 @@ Mappa frattale
 Fractal Kaart
 
 
-
+Mapa Fractal
 
 
 
@@ -20816,7 +20816,7 @@ Correggi le aree piatte
 Herstel Vlakken
 
 
-
+Corregir Planos
 
 
 
@@ -20829,7 +20829,7 @@ Calcola distanza
 Meet Afstand
 
 
-
+Encontrar Distancia
 
 
 
@@ -20842,7 +20842,7 @@ Oggetto
 Object
 
 
-
+Objeto
 
 
 
@@ -20855,7 +20855,7 @@ Nuovo oggetto
 Nieuw object
 
 
-
+Nuevo Objeto
 
 
 
@@ -20868,7 +20868,7 @@ Trova oggetto
 Zoek object
 
 
-
+Buscar Objeto
 
 
 
@@ -20881,7 +20881,7 @@ Singolo
 Enkel
 
 
-
+Único
 
 
 
@@ -20894,7 +20894,7 @@ Multiplo
 Multi
 
 
-
+Múltiple
 
 
 
@@ -20907,7 +20907,7 @@ Evidenziare
 Markeren
 
 
-
+Resaltar
 
 
 
@@ -20920,7 +20920,7 @@ Aggiungi punti
 Punten toevoegen
 
 
-
+Añadir Puntos
 
 
 
@@ -20933,7 +20933,7 @@ Nuovo
 Nieuw
 
 
-
+Nuevo
 
 
 
@@ -20946,7 +20946,7 @@ Accoda
 Toevoegen
 
 
-
+Anexar
 
 
 
@@ -20959,7 +20959,7 @@ Inserisci
 Invoegen
 
 
-
+Insertar
 
 
 
@@ -20972,7 +20972,7 @@ Crea fiume
 Stroom maken
 
 
-
+Crear Arroyo
 
 
 
@@ -20985,7 +20985,7 @@ Modifica punti
 Punten wijzigen
 
 
-
+Modificar Puntos
 
 
 
