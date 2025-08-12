@@ -4997,7 +4997,7 @@ XYZ UTM
 XYZ UTM
 
 
-
+XYZ UTM
 
 XYZ Pásmo UTM
 
@@ -5010,7 +5010,7 @@ DXF Latitudine/Longitudine
 DXF Lat/Long
 
 
-
+DXF Lat/Lon
 DXF Wys/Szer
 DXF Vý¹ka/Délka
 
@@ -5023,7 +5023,7 @@ DXF UTM
 DXF UTM
 
 
-
+DXF UTM
 
 DXF Pásmo UTM
 
@@ -5036,7 +5036,7 @@ Cursore
 Schuifbalk
 
 
-
+Deslizador
 Suwak
 Posuvník
 
@@ -5049,7 +5049,7 @@ Fine dei Punti
 Eindpunten
 
 
-
+Puntos finales
 Punk Koñcowy
 Body konce
 
@@ -5062,7 +5062,7 @@ DEM
 DEM
 
 
-
+DEM
 DEM
 
 
@@ -5075,7 +5075,7 @@ Numerico
 Numeriek
 
 
-
+Numérico
 Numeryczne
 Èíselnì
 
@@ -5088,7 +5088,7 @@ Valore Campo
 Isobaar
 
 
-
+Isolínea
 Izolinia
 
 
@@ -5101,7 +5101,7 @@ Gradiente
 Gradient
 
 
-
+Gradiente
 
 
 
@@ -5114,7 +5114,7 @@ Concavo
 Concaaf
 
 
-
+Cóncavo
 Wklês³o¶æ
 
 
@@ -5127,7 +5127,7 @@ Convesso
 Convex
 
 
-
+Convexo
 Wypuk³o¶æ
 
 
@@ -5140,7 +5140,7 @@ Niente
 Geen
 
 
-
+Ninguno
 Nie
 ®ádný
 
@@ -5153,7 +5153,7 @@ Punti/Linee
 Lijnen/Punten
 
 
-
+Líneas/Puntos
 Linie/Punkty
 Linky/Body
 
@@ -5166,7 +5166,7 @@ Solo Linee
 Alleen Lijnen
 
 
-
+Solo líneas
 Tylko Linie
 Pouze linky
 
@@ -5179,7 +5179,7 @@ Solo Punti
 Alleen Punten
 
 
-
+Solo puntos
 Tylko Punkty
 Pouze body
 
@@ -5192,7 +5192,7 @@ Kilometri
 Kilometers
 
 
-
+Kilómetros
 Kilometry
 Kilometry
 
@@ -5205,7 +5205,7 @@ Metri
 Meters
 
 
-
+Metros
 Metry
 Metry
 
@@ -5218,7 +5218,7 @@ Centimetri
 Centimeters
 
 
-
+Centímetros
 Centymetry
 Centimetry
 
@@ -5231,7 +5231,7 @@ Miglie
 Mijlen
 
 
-
+Millas
 Mile
 Míle
 
@@ -5244,7 +5244,7 @@ Piedi
 Voeten
 
 
-
+Pies
 Stopy
 Stopy
 
@@ -5257,7 +5257,7 @@ DEM Designer
 DEM Designer
 
 
-
+Diseñador DEM
 DEM Desiner
 DEM návrháø prelozit
 
@@ -5270,7 +5270,7 @@ Controllo Punti
 Controle Punten
 
 
-
+Puntos de control
 Punkt Kontrolny
 
 
@@ -5283,7 +5283,7 @@ MSG_DEMGUI_MAP
 \33cKaart
 
 
-
+\33cMapa
 \33cMapa
 \33cMapa
 
@@ -5296,7 +5296,7 @@ MSG_DEMGUI_ADD
 \33cToevoegen
 
 
-
+\33cAñadir
 \33cDodaj
 \33cPøidat
 
@@ -5309,7 +5309,7 @@ MSG_DEMGUI_MOVE
 \33cVerplaatsen
 
 
-
+\33cMover
 \33cPrzenie¶
 \33cPøesunout
 
@@ -5322,7 +5322,7 @@ MSG_DEMGUI_DEL
 \33cVerwijder
 
 
-
+\33cEliminar
 \33cUsuñ
 \33cSmazat
 
@@ -5335,7 +5335,7 @@ MSG_DEMGUI_PTINFO
 \33cInfo Punt
 
 
-
+\33cInfo punto
 \33cPunkt Informacyjny
 \33cPt Info
 
@@ -5348,7 +5348,7 @@ MSG_DEMGUI_SETEL
 \33cStel Hoogte in
 
 
-
+\33cEstablecer elevación
 \33cUstawieni Elementu
 \33cNastav Vý¹ky
 
@@ -5361,7 +5361,7 @@ Elevazione Sorgente
 Hgt Bron
 
 
-
+Fuente de elevación
 ¬ród³o Wzniesienia
 Zdroje vý¹ek
 
@@ -5374,7 +5374,7 @@ MSG_DEMGUI_ELEVUNITS
 Hgt Eenheden
 
 
-
+Unidades de elevación
 Jednostki Wzniesienia
 Jednotka vý¹ky
 
@@ -5387,7 +5387,7 @@ MSG_DEMGUI_DISPLACE
 Verschuiven
 
 
-
+Desplazar
 Przemieszczenie
 Vytlaèit prelozit
 
@@ -5400,7 +5400,7 @@ Modo Disegno
 Teken Modus
 
 
-
+Modo de dibujo
 Tryb Rysowania
 Mód vykreslování
 
@@ -5413,7 +5413,7 @@ MSG_DEMGUI_NOGRADIENTREVERSAL
 \33cGeen Omgekeerde Gradiënt
 
 
-
+\33cSin inversión de gradiente
 \33cBrak Odwrócenia Nachylenia
 \33c®ádné obrácení sklonu
 
@@ -5426,7 +5426,7 @@ Spazio Minimo \x20
   Minimale Ruimte \x20
 
 
-
+Espaciado mínimo\x20
 Minimalny Odstêp \x20
 Minimální odsazení \x20
 
@@ -5439,7 +5439,7 @@ MSG_DEMGUI_STDDEVIATION
 Standaard Afwijking\x20
 
 
-
+Desviación estándar\x20
 Standardowe Odchylenie
 Standardní odchylka\x20
 
@@ -5452,7 +5452,7 @@ MSG_DEMGUI_NONLINEARITY
    Non Lineariteit\x20
 
 
-
+No linealidad\x20
 Nieliniowo¶æ \x20
 Nelineární\x20
 
@@ -5465,7 +5465,7 @@ Questa finestra deve rimanere aperta mentre la griglia DEM è aperta!\nVuoi chiud
 Dit venster moet open blijven terwijl de DEM Gridder open is!\nWilt u ze beide sluiten?
 
 
-
+¡Esta ventana debe permanecer abierta mientras el DEM Gridder esté abierto!\n¿Desea cerrar ambos?
 To okno muai pozostaæ otwarty gdy otwarte jest okno siatki DEM\nCzy ¿yczysz sobie zamkn±æ oba?
 Toto okno musí zùstat otevøené, dokud je otevøen DEM Gridder!\nChcete je obì uzavøít?
 
@@ -5478,7 +5478,7 @@ DEM Costruzione
 DEM Bouwer
 
 
-
+Constructor DEM
 Budowanie DEM
 prelozit
 
@@ -5491,7 +5491,7 @@ MSG_DEMGUI_ELEVATIONMODELGRID
 \33c\0334Hoogteraster Model
 
 
-
+\33c\0334Cuadrícula del modelo de elevación
 \33c\0334Model Siatki Elevawcji
 \33c\0334Møí¾ka vý¹kového modelu
 
@@ -5504,7 +5504,7 @@ MSG_DEMGUI_OPTIONS
 \33c\0334Opties
 
 
-
+\33c\0334Opciones
 \33c\0334Opcje
 \33c\0334Mo¾nosti
 
@@ -5517,7 +5517,7 @@ Gradienti\x20\x20
 Gradiënten\x20\x20
 
 
-
+Gradientes\x20\x20
 Nachylenia\x20\x20
 Gradienty\x20\x20
 
@@ -5530,7 +5530,7 @@ Choropleth\x20
 Choropleth\x20\x20
 
 
-
+Coropletas\x20
 Kartogram\x20\x20
 prelozit \x20
 
@@ -5543,7 +5543,7 @@ Densità\x20\x20\x20\x20
 Dichtheid\x20\x20\x20\x20
 
 
-
+Densidad\x20\x20\x20\x20
  Gêsto¶æ\x20\x20\x20\x20
 Hustota\x20\x20\x20\x20
 
@@ -5556,7 +5556,7 @@ Estrapolare
 Extrapoleren
 
 
-
+Extrapolar
 Ekstrapolacja
 Extrapolace
 
@@ -5569,7 +5569,7 @@ Emis. Sud.
 Zuid. Halfrond.
 
 
-
+Hemisferio sur
 Pó³kula Po³udniowa.
 Ji¾ní polokoule.
 
@@ -5582,7 +5582,7 @@ MSG_DEMGUI_BOUNDARIES
 \33c\0334Grenzen
 
 
-
+\33c\0334Límites
 \33c\0334Granice
 \33c\0334Ohranièení
 
@@ -5595,7 +5595,7 @@ Nord
 Noord
 
 
-
+Norte
 Pó³noc
 Sever
 
@@ -5608,7 +5608,7 @@ Sud
 Zuid
 
 
-
+Sur
 Po³udnie
 Jih
 
@@ -5621,7 +5621,7 @@ Est
 Oost
 
 
-
+Este
 Wschód
 Východ
 
@@ -5634,7 +5634,7 @@ Ovest
 West
 
 
-
+Oeste
 Zachód
 Západ
 
@@ -5647,7 +5647,7 @@ MSG_DEMGUI_ELLOVERLAP
 \33c\0334Cellen Overlap
 
 
-
+\33c\0334Superposición de celdas
 \33c\0334Nak³adanie siê komórek
 \33c\0334Pøekrývání bunìk
 
@@ -5660,7 +5660,7 @@ Orizz
 Horiz
 
 
-
+Horizontal
 Pioziom
 
 
@@ -5673,7 +5673,7 @@ Vert
 Vert
 
 
-
+Vertical
 Pion
 
 
@@ -5686,7 +5686,7 @@ MSG_DEMGUI_SURFACETAUTNESS
 \33c\0334Ruwheid Oppervlak
 
 
-
+\33c\0334Tensión superficial
 \33c\0334Napiêcie Powierzchniowe
 \33c\0334Povrchová rozta¾nost
 
@@ -5699,7 +5699,7 @@ MSG_DEMGUI_SCALE
 \33c\0334Schaal
 
 
-
+\33c\0334Escala
 \33c\0334Skala
 \33c\0334Mìøítko
 
@@ -5712,7 +5712,7 @@ Null
 Nul
 
 
-
+Nulo
 Nic
 ®ádná
 
@@ -5725,7 +5725,7 @@ Delta
 Delta
 
 
-
+Delta
 
 
 
@@ -5738,7 +5738,7 @@ MSG_DEMGUI_GRID
 \33cRaster
 
 
-
+\33cCuadrícula
 \33cSiatka
 \33cMøí¾ka
 
@@ -5751,7 +5751,7 @@ MSG_DEMGUI_NOISE
 \33cRuis
 
 
-
+\33cRuido
 \33cSzum
 \33c©um
 
@@ -5764,7 +5764,7 @@ MSG_DEMGUI_DRAW
 \33cTeken
 
 
-
+\33cDibujar
 \33cRysowanie
 \33cVykreslit
 
@@ -5777,7 +5777,7 @@ MSG_DEMGUI_SAVE
 \33cOpslaan
 
 
-
+\33cGuardar
 \33cZapisz
 \33cUlo¾it
 
@@ -5790,7 +5790,7 @@ Vista Mappa: DEM Gridder
 Map View: DEM Raster
 
 
-
+Vista de mapa: DEM Gridder
 Podgl±d Mapy: Siatka DEM
 Zobrazeni mapy: DEM Gridder
 
@@ -5803,7 +5803,7 @@ Nuovo DEM
 Nieuw DEM
 
 
-
+NuevoDEM
 Nowy DEM
 Nový DEM
 
@@ -5816,7 +5816,7 @@ MSG_DEMGUI_IMPORT
 \33cImporteren
 
 
-
+\33cImportar
 \33cImport
 \33cPøipojit
 
@@ -5829,7 +5829,7 @@ MSG_DEMGUI_SAVEPTS
 \33cPunten Opslaan
 
 
-
+\33cGuardar puntos
 \33cZapisz Punkty
 \33cUlo¾it Pts
 
@@ -5842,7 +5842,7 @@ MSG_DEMGUI_BUILD
 \33cMaken...
 
 
-
+\33cConstruir...
 \33cBuduj...
 \33cVytvoøit...
 
@@ -5855,7 +5855,7 @@ MSG_DEMGUI_DRAWPTS
 \33cTeken Punten
 
 
-
+\33cDibujar puntos
 \33cRysuj Punkty
 \33cVykreslit Pts
 
@@ -5868,7 +5868,7 @@ MSG_DEMGUI_CLEARPTS
 \33cPunten Wissen
 
 
-
+\33cLimpiar puntos
 \33cUsuñ Punkty
 \33cSmazat Pts
 
@@ -5881,7 +5881,7 @@ Non-Neg\x20\x20\x20\x20
 Non-Negatief\x20\x20\x20\x20
 
 
-
+No negativo\x20\x20\x20\x20
 Nie-Negacja\x20\x20\x20\x20
 Pozitivní\x20\x20\x20\x20
 
@@ -5894,7 +5894,7 @@ MSG_DEMGUI_OUTPUT
 \33c\0334Uitvoer
 
 
-
+\33c\0334Salida
 \33c\0334Wyj¶cie
 \33c\0334Výstup
 
@@ -5907,7 +5907,7 @@ Colonne
 Kolommen
 
 
-
+Columnas
 Kolumny
 Sloupce
 
@@ -5920,7 +5920,7 @@ Righe
 Regels
 
 
-
+Filas
 Rzêdy
 Øádky
 
@@ -5933,7 +5933,7 @@ MSG_DEMGUI_OPTIONALNOISEMAP
 \33c\0334Optionele Ruis Map
 
 
-
+\33c\0334Mapa de ruido opcional
 \33c\0334Opcjonalna Mapa Szumu
 \33c\0334OVolitelná mapa ¹umu
 
@@ -5946,7 +5946,7 @@ Seme
 Startwaarde
 
 
-
+Semilla
 Warto¶æ Pocz±tkowa
 
 
@@ -5959,7 +5959,7 @@ Frattura
 Fract
 
 
-
+Fractal
 U³amek
 Fraktál
 
@@ -5972,7 +5972,7 @@ Offset X
 Offset X
 
 
-
+Desplazamiento X
 Przesuniêcie X
 
 
@@ -5985,7 +5985,7 @@ Ambito
 Scope
 
 
-
+Ámbito
 Zakres
 Pole pùsobnosti
 
