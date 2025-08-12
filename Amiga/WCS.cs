@@ -18002,7 +18002,7 @@ Memoria esaurita durante l'apertura della Vista Camera!\nOperazione terminata.
 Te weinig geheugen bij openen van Camera Weergave!\nBewerking afgebroken.
 
 
-
+Memoria insuficiente al abrir Vista de Cámara!\nOperación terminada.
 
 
 
@@ -18015,7 +18015,7 @@ Memoria esaurita durante il caricamento dei DEM!\nAumentare la dimensione della 
 Te weinig geheugen bij laden van DEMs!\nRastergrootte verhogen?
 
 
-
+Memoria insuficiente al cargar DEMs!\n¿Aumentar tamaño de cuadrícula?
 
 
 
@@ -18028,7 +18028,7 @@ Nessun oggetto DEM attivo!\nOperazione terminata.
 Geen DEM-objecten actief!\nBewerking afgebroken.
 
 
-
+¡No hay objetos DEM activos!\nOperación terminada.
 
 
 
@@ -18041,7 +18041,7 @@ Mappe di elevazione caricate = %d.\n
 Hoogtekaarten geladen = %d.\n
 
 
-
+Mapas de elevación cargados = %d.\n
 
 
 
@@ -18054,7 +18054,7 @@ Memoria esaurita durante l'apertura del buffer Antialias!\nOperazione terminata.
 Te weinig geheugen bij openen van Anti-alias buffer!\nBewerking afgebroken.
 
 
-
+Memoria insuficiente al abrir búfer de antialias!\nOperación terminada.
 
 
 
@@ -18067,7 +18067,7 @@ Immagine
 Afbeelding
 
 
-
+Imagen
 
 
 
@@ -18080,7 +18080,7 @@ Memoria esaurita durante l'allocazione dell'array DEM!\n
 Te weinig geheugen bij toewijzen van DEM-reeks!\n
 
 
-
+Memoria insuficiente al asignar matriz DEM!\n
 
 
 
@@ -18093,7 +18093,7 @@ La griglia deve essere presente, ridisegnare e riprovare.
 Raster moet aanwezig zijn, teken opnieuw en probeer het nog eens.
 
 
-
+Debe haber una cuadrícula presente, por favor redibuje e intente de nuevo.
 
 
 
@@ -18106,7 +18106,7 @@ Seleziona l'area di anteprima con due clic
 Selecteer voorbeeldgebied met twee klikken
 
 
-
+Seleccione región de vista previa con dos clics
 
 
 
@@ -18120,7 +18120,7 @@ MSG_INTVIEW_IAD
 "IA %d"
 
 
-
+"IA %d"
 
 
 
@@ -18133,7 +18133,7 @@ Errore nell'apertura della finestra di rendering ridotta!\nOperazione terminata.
 Fout bij openen van het Kleine Rendervenster!\nBewerking afgebroken.
 
 
-
+¡Error al abrir ventana de renderizado pequeño!\nOperación terminada.
 
 
 
@@ -18146,7 +18146,7 @@ Finestra di rendering ridotta.
 Klein Rendervenster.
 
 
-
+Ventana de renderizado pequeño.
 
 
 
@@ -18159,7 +18159,7 @@ Errore nell'apertura del file DEM in input!\nOperazione terminata.
 Fout bij openen van DEM-bestand voor invoer!\nBewerking afgebroken.
 
 
-
+¡Error al abrir archivo DEM para entrada!\nOperación terminada.
 
 
 
@@ -18172,7 +18172,7 @@ Memoria esaurita! Prova con una dimensione di anteprima più piccola.\nOperazione
 Te weinig geheugen! Probeer een kleinere voorbeeldgrootte.\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente! Intente con un tamaño de vista previa más pequeño.\nOperación terminada.
 
 
 
@@ -18185,7 +18185,7 @@ Modulo Parametri: Anteprima
 Parameter Module: Voorbeeld
 
 
-
+Módulo de Parámetros: Vista previa
 
 
 
@@ -18198,7 +18198,7 @@ Ripristinare i parametri usati per creare questa anteprima?
 Parameters die gebruikt zijn voor het maken van dit voorbeeld herstellen?
 
 
-
+¿Restaurar los Parámetros usados para crear esta vista previa?
 
 
 
@@ -18211,7 +18211,7 @@ Memoria esaurita durante l'allocazione dell'array di smussamento poligoni!\nCont
 Te weinig geheugen bij toewijzen van Polygoon Gladheidsreeks!\nDoorgaan zonder Polygoon Gladheid?
 
 
-
+¡Memoria insuficiente al asignar matriz de Suavizado de Polígonos!\n¿Continuar sin Suavizado de Polígonos?
 
 
 
@@ -18225,7 +18225,7 @@ Esporta Percorso/File Movimento
 Export Bewegingspad/Bestand
 
 
-
+Exportar Ruta/Archivo de Movimiento
 
 
 
@@ -18238,7 +18238,7 @@ Movimento LightWave: Esporta
 LightWave Motion: Export
 
 
-
+Movimiento LightWave: Exportar
 
 
 
@@ -18251,7 +18251,7 @@ Nessun fotogramma chiave da esportare!\nOperazione terminata.
 Geen Key Frames om te exporteren!\nBewerking afgebroken.
 
 
-
+¡No hay Fotogramas Clave para exportar!\nOperación terminada.
 
 
 
@@ -18264,7 +18264,7 @@ Errore nell'apertura del file in output!\nOperazione terminata.
 Fout bij openen van bestand voor uitvoer!\nBewerking afgebroken.
 
 
-
+¡Error al abrir archivo para salida!\nOperación terminada.
 
 
 
@@ -18277,7 +18277,7 @@ Errore durante la scrittura del file!\nOperazione terminata prematuramente.
 Fout bij schrijven naar bestand!\nBewerking voortijdig afgebroken.
 
 
-
+¡Error al escribir en archivo!\nOperación terminada prematuramente.
 
 
 
@@ -18290,7 +18290,7 @@ File DEM da esportare
 DEM-bestand om te exporteren
 
 
-
+Archivo DEM para exportar
 
 
 
@@ -18303,7 +18303,7 @@ Errore nel caricamento dell'oggetto DEM!\nOperazione terminata.
 Fout bij laden van DEM-object!\nBewerking afgebroken.
 
 
-
+¡Error al cargar Objeto DEM!\nOperación terminada.
 
 
 
@@ -18316,7 +18316,7 @@ Errore nel caricamento dell'oggetto DEM!\nOggetto non salvato.
 Fout bij laden van DEM-object!\nObject niet opgeslagen.
 
 
-
+¡Error al cargar Objeto DEM!\nObjeto no guardado.
 
 
 
@@ -18329,7 +18329,7 @@ Esportazione Oggetto LW
 LW Object Export
 
 
-
+Exportar Objeto LW
 
 
 
@@ -18342,7 +18342,7 @@ Percorso/File Oggetto LW
 LW Object pad/bestand
 
 
-
+Ruta/Archivo de Objeto LW
 
 
 
@@ -18355,7 +18355,7 @@ Percorso/File Scena
 Scene pad/bestand
 
 
-
+Ruta/Archivo de Escena
 
 
 
@@ -18368,7 +18368,7 @@ strlen di DEMPath è 0!\n
 strlen van DEMPad is 0!\n
 
 
-
+¡strlen de DEMPath es 0!\n
 
 
 
@@ -18381,7 +18381,7 @@ Percorso Oggetto DEM LW
 LW DEM Object Pad
 
 
-
+Ruta de Objeto DEM LW
 
 
 
@@ -18394,7 +18394,7 @@ Esportazione Scena LW
 LW Scene Export
 
 
-
+Exportar Escena LW
 
 
 
@@ -18407,7 +18407,7 @@ Si è verificato un problema durante il salvataggio della scena LW.\nSe è stato c
 Fout bij opslaan van de LW-scene.\nAls een bestand is gemaakt, is het niet compleet en laadt het mogelijk niet goed in LightWave.
 
 
-
+Ocurrió un problema al guardar la escena LW.\nSi se creó un archivo, no estará completo y puede que no se cargue correctamente en LightWave.
 
 
 
@@ -18420,7 +18420,7 @@ La dimensione dell'immagine di output non è una dimensione standard di LightWave
 De uitvoerafbeeldingsgrootte is geen standaard LightWave-afbeeldingsgrootte. De zoomfactor en afmetingen van de afbeelding worden mogelijk niet correct weergegeven in het zojuist gemaakte scènebestand.
 
 
-
+El tamaño de imagen de salida no es un tamaño estándar de imagen LightWave. El factor de zoom y las dimensiones de imagen pueden no representarse correctamente en el archivo de escena recién creado.
 
 
 
@@ -18434,7 +18434,7 @@ Digitalizzare nuovi punti per l'oggetto vettoriale attivo o creare un nuovo ogge
 Nieuwe punten digitaliseren voor het actieve vectorobject of een nieuw object maken?
 
 
-
+¿Digitalizar nuevos puntos para el objeto vectorial activo o crear un nuevo objeto?
 
 
 
@@ -18447,7 +18447,7 @@ Attivo|Nuovo|Annulla
 Actief|Nieuw|Annuleren
 
 
-
+Activo|Nuevo|Cancelar
 
 
 
@@ -18460,7 +18460,7 @@ Diagnostica: Digitalizza
 Diagnostisch: Digitaliseren
 
 
-
+Diagnóstico: Digitalizar
 
 
 
@@ -18473,7 +18473,7 @@ L'oggetto attivo è un DEM e non può essere digitalizzato!\nOperazione terminata.
 Actief object is een DEM en wordt niet gedigitaliseerd!\nBewerking afgebroken.
 
 
-
+¡El objeto activo es un DEM y no puede ser digitalizado!\nOperación terminada.
 
 
 
@@ -18486,7 +18486,7 @@ Modulo Interattivo: Aggiungi Punti
 Interactieve Module: Punten Toevoegen
 
 
-
+Módulo Interactivo: Añadir Puntos
 
 
 
@@ -18499,7 +18499,7 @@ Salvare i punti dell'oggetto?
 Objectpunten opslaan?
 
 
-
+¿Guardar puntos del objeto?
 
 
 
@@ -18512,7 +18512,7 @@ Modulo mappatura: Percorso
 Mapping Module: Pad
 
 
-
+Módulo de Mapeo: Ruta
 
 
 
@@ -18525,7 +18525,7 @@ un file di Parametri
 een Parameterbestand
 
 
-
+un archivo de Parámetros
 
 
 
@@ -18538,7 +18538,7 @@ Errore nel caricamento dell'oggetto vettoriale!\nOperazione terminata.
 Fout bij laden van vectorobject!\nBewerking afgebroken.
 
 
-
+¡Error al cargar objeto vectorial!\nOperación terminada.
 
 
 
@@ -18551,7 +18551,7 @@ Esistono fotogrammi chiave della camera. Continuando verranno eliminati i valori
 Camera Key Frames bestaan al. Doorgaan zal huidige waarden verwijderen!
 
 
-
+Existen Fotogramas Clave de Cámara. ¡Continuar eliminará los valores actuales!
 
 
 
@@ -18564,7 +18564,7 @@ Continua|Annulla
 Doorgaan|Annuleren
 
 
-
+Continuar|Cancelar
 
 
 
@@ -18577,7 +18577,7 @@ Esistono fotogrammi chiave del fuoco. Continuando verranno eliminati i valori at
 Focus Key frames bestaan al. Doorgaan zal huidige waarden verwijderen!
 
 
-
+Existen Fotogramas Clave de Enfoque. ¡Continuar eliminará los valores actuales!
 
 
 
@@ -18590,7 +18590,7 @@ Inserisci l'intervallo di fotogrammi per rappresentare ogni segmento vettoriale.
 Voer frame-interval in om elk vectorsegment te vertegenwoordigen.
 
 
-
+Ingrese intervalo de fotogramas para representar cada segmento vectorial.
 
 
 
@@ -18603,7 +18603,7 @@ Usare i dati di elevazione?
 Hoogtegegevens gebruiken?
 
 
-
+¿Usar datos de elevación?
 
 
 
@@ -18616,7 +18616,7 @@ Modificare le altitudini con l'appiattimento, il datum e l'esagerazione vertical
 Wijzig hoogtes met huidige afvlakking, datum en verticale overdrijving?
 
 
-
+¿Modificar altitudes con aplanamiento actual, datum y exageración vertical?
 
 
 
@@ -18629,7 +18629,7 @@ Memoria esaurita durante la creazione dei fotogrammi chiave!\nOperazione termina
 Te weinig geheugen bij maken van Key frames!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al crear Fotogramas Clave!\nOperación terminada.
 
 
 
@@ -18642,7 +18642,7 @@ Usare tutti i punti interpolati o solo i fotogrammi chiave?
 Alle gesplinede punten of alleen Key Frames gebruiken?
 
 
-
+¿Usar todos los puntos splineados o solo Fotogramas Clave?
 
 
 
@@ -18655,7 +18655,7 @@ Tutti Interpolati|Fotogrammi Chiave
 Alle gesplinede|Key Frames
 
 
-
+Todos Splineados|Fotogramas Clave
 
 
 
@@ -18668,7 +18668,7 @@ Memoria esaurita aprendo la tabella dei Key Frame!\nOperazione terminata.
 Te weinig geheugen bij openen van Key frametabel!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al abrir tabla de Fotogramas Clave!\nOperación terminada.
 
 
 
@@ -18681,7 +18681,7 @@ Ci sono più fotogrammi dei punti vettoriali consentiti! Il percorso sarà troncat
 Er zijn meer frames dan toegestane vectorpunten! Pad zal worden ingekort.
 
 
-
+¡Hay más fotogramas que puntos vectoriales permitidos! La ruta será truncada.
 
 
 
@@ -18694,7 +18694,7 @@ PercorsoCamera
 CameraPad
 
 
-
+RutaCámara
 
 
 
@@ -18707,7 +18707,7 @@ PercorsoFuoco
 FocusPad
 
 
-
+RutaEnfoque
 
 
 
@@ -18720,7 +18720,7 @@ Inserisci il nome del vettore da creare.
 Voer de naam in van de te maken vector.
 
 
-
+Ingrese nombre del vector a crear.
 
 
 
@@ -18733,7 +18733,7 @@ Nome vettore già presente nel database!\nSovrascriverlo o provare un nuovo nome?
 Vectornaam al aanwezig in Database!\nOverschrijven of een nieuwe naam proberen?
 
 
-
+¡Nombre de vector ya presente en la Base de Datos!\n¿Sobrescribirlo o intentar un nuevo nombre?
 
 
 
@@ -18746,7 +18746,7 @@ Sovrascrivi|Nuovo|Annulla
 Overschrijven|Nieuw|Annuleren
 
 
-
+Sobrescribir|Nuevo|Cancelar
 
 
 
@@ -18759,7 +18759,7 @@ Memoria esaurita espandendo il database!\nOperazione terminata.
 Te weinig geheugen bij uitbreiden van Database!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al expandir Base de Datos!\nOperación terminada.
 
 
 
@@ -18772,7 +18772,7 @@ Memoria esaurita creando un nuovo oggetto vettoriale!\nOperazione terminata.
 Te weinig geheugen bij maken van nieuw vectorobject!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al crear nuevo objeto vectorial!\nOperación terminada.
 
 
 
@@ -18786,7 +18786,7 @@ Il primo set di coordinate lat/lon di allineamento deve essere maggiore del seco
 Eerste set van uitgelijnde lat/long-coördinaten moet groter zijn dan de tweede en de kaartschaal moet groter zijn dan nul!\nBewerking afgebroken.
 
 
-
+¡El primer conjunto de coordenadas de alineación lat/lon debe ser mayor que el segundo y la escala del mapa debe ser mayor que cero!\nOperación terminada.
 
 
 
@@ -18799,7 +18799,7 @@ MSG_MAP_SETNORTHWESTREFERENCEPOINTWITHMOUSE
 \0338Noordwest referentiepunt met muis instellen.
 
 
-
+\0338Establecer punto de referencia noroeste con el ratón.
 
 
 
@@ -18812,7 +18812,7 @@ Imposta punto di riferimento nord-ovest
 Noordwest referentiepunt instellen
 
 
-
+Establecer punto de referencia noroeste
 
 
 
@@ -18825,7 +18825,7 @@ MSG_MAP_SETSOUTHEASTREFERENCEPOINTESCABORT
 \0338Zuidoost referentiepunt instellen. ESC=annuleren
 
 
-
+\0338Establecer punto de referencia sureste. ESC=abortar
 
 
 
@@ -18838,7 +18838,7 @@ Imposta punto di riferimento sud-est
 Zuidoost referentiepunt instellen
 
 
-
+Establecer punto de referencia sureste
 
 
 
@@ -18851,7 +18851,7 @@ Valori non validi!\nDeve esserci almeno un pixel di offset su entrambi gli assi.
 Ongeldige waarden!\nEr moet minstens één pixelverschuiving op beide assen zijn.\nOpnieuw proberen?
 
 
-
+¡Valores ilegales!\nDebe haber al menos un desplazamiento de píxel en ambos ejes.\n¿Intentar de nuevo?
 
 
 
@@ -18864,7 +18864,7 @@ Vista mappa: Ecosistemi
 Kaartweergave: Ecosystemen
 
 
-
+Vista de Mapa: Ecosistemas
 
 
 
@@ -18877,7 +18877,7 @@ Nessun parametro caricato! La mappatura dell'ecosistema non è disponibile finché
 Er zijn geen Parameters geladen! Ecosysteem mapping is niet beschikbaar totdat u een Parameterbestand laadt of Standaardparameters maakt.
 
 
-
+¡No hay Parámetros cargados! El mapeo de ecosistemas no está disponible hasta que cargue un archivo de Parámetros o cree Parámetros Predeterminados.
 
 
 
@@ -18890,7 +18890,7 @@ Disegno mappa
 Kaart Tekenen
 
 
-
+Dibujo de Mapa
 
 
 
@@ -18903,7 +18903,7 @@ Vista mappa: Disegno topografico
 Kaartweergave: Topo Tekenen
 
 
-
+Vista de Mapa: Dibujo Topo
 
 
 
@@ -18916,7 +18916,7 @@ Errore nell'allocazione della memoria, impossibile disegnare la topografia. Cont
 Te weinig geheugen, kan geen topo tekenen. Doorgaan?
 
 
-
+Fallo en asignación de memoria, no se puede dibujar topo. ¿Continuar?
 
 
 
@@ -18929,7 +18929,7 @@ Memoria esaurita caricando il file di elevazione relativa. Mappatura ecosistema 
 Te weinig geheugen bij laden van Relatieve Hoogtebestand. Ecosysteem mapping niet beschikbaar?
 
 
-
+Memoria insuficiente al cargar archivo de Elevación Relativa. ¿Mapeo de ecosistemas no disponible?
 
 
 
@@ -18942,7 +18942,7 @@ File di elevazione relativa
 Relatieve hoogtebestand
 
 
-
+Archivo de elevación relativa
 
 
 
@@ -18955,7 +18955,7 @@ MSG_MAP_338SETCENTERPOINT
 \0338Middelpunt instellen.
 
 
-
+\0338Establecer punto central.
 
 
 
@@ -18968,7 +18968,7 @@ Imposta punto centrale
 Middepunt instellen
 
 
-
+Establecer punto central
 
 
 
@@ -18981,7 +18981,7 @@ MSG_MAP_338SETORIGINPOINT
 \0338Oorsprongspunt instellen.
 
 
-
+\0338Establecer punto de origen.
 
 
 
@@ -18994,7 +18994,7 @@ Imposta punto di origine
 Oorsprongspunt instellen
 
 
-
+Establecer punto de origen
 
 
 
