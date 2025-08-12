@@ -14888,7 +14888,7 @@ MSG_EDSETGUI_DEFORMATION
   Deformatie\x20
 
 
-
+Deformación
 
 
 
@@ -14901,7 +14901,7 @@ MSG_EDSETGUI_ZENITHALT
 Zenit Hoogte\x20
 
 
-
+Altura del Cenit
 
 
 
@@ -14914,7 +14914,7 @@ Dither cielo\x20
 Lucht Vervagen\x20
 
 
-
+Difuminado del Cielo
 
 
 
@@ -14927,7 +14927,7 @@ MSG_EDSETGUI_REFLATITUDE_2
 Ref Breedtegraad\x20
 
 
-
+Latitud de Referencia
 
 
 
@@ -14940,7 +14940,7 @@ Ref Longitude\x20
  Ref Lengtegraad\x20
 
 
-
+Longitud de Referencia
 
 
 
@@ -14953,7 +14953,7 @@ MSG_EDSETGUI_BGPATH
 BG Pad\x20
 
 
-
+Ruta de Fondo
 
 
 
@@ -14966,7 +14966,7 @@ MSG_EDSETGUI_BGFILE
 BG Bestand\x20
 
 
-
+Archivo de Fondo
 
 
 
@@ -14979,7 +14979,7 @@ Percorso buffer Z\x20
 Z Buf Pad\x20
 
 
-
+Ruta del Búfer Z
 
 
 
@@ -14992,7 +14992,7 @@ File buffer Z\x20
 Z Buf Bestand\x20
 
 
-
+Archivo del Búfer Z
 
 
 
@@ -15005,7 +15005,7 @@ Fattore sfocatura\x20
 Vervagen Factor\x20
 
 
-
+Factor de Desenfoque
 
 
 
@@ -15018,7 +15018,7 @@ Offset massimo sfocatura\x20
 Max Vervagen Offset\x20
 
 
-
+Desplazamiento Máximo de Desenfoque
 
 
 
@@ -15031,7 +15031,7 @@ MSG_EDSETGUI_FINALWIDTH
 Eind Breedte\x20
 
 
-
+Ancho Final
 
 
 
@@ -15044,7 +15044,7 @@ MSG_EDSETGUI_FINALHEIGHT
   Eind Hoogte\x20
 
 
-
+Altura Final
 
 
 
@@ -15057,7 +15057,7 @@ Memoria di rendering
 Render Geheugen
 
 
-
+Memoria de Renderizado
 
 
 
@@ -15070,7 +15070,7 @@ MSG_EDSETGUI_KEEP
 \33cBehouden
 
 
-
+\33cMantener
 
 
 
@@ -15083,7 +15083,7 @@ MSG_EDSETGUI_RENDER
 \33cRenderen
 
 
-
+\33cRenderizar
 
 
 
@@ -15096,7 +15096,7 @@ aiuto
 Help
 
 
-
+ayuda
 
 
 
@@ -15109,7 +15109,7 @@ Editor impostazioni
 Instellingen Editor
 
 
-
+Editor de Configuración
 
 
 
@@ -15122,7 +15122,7 @@ Percorso/nome fotogramma
 Frame Pad/Naam
 
 
-
+Ruta/Nombre del Fotograma
 
 
 
@@ -15135,7 +15135,7 @@ Percorso/nome file vettoriale
 Vector Bestand Pad/Naam
 
 
-
+Ruta/Nombre del Archivo Vectorial
 
 
 
@@ -15148,7 +15148,7 @@ Percorso/nome file di sfondo
 Achtergrond Bestand Pad/Naam
 
 
-
+Ruta/Nombre del Archivo de Fondo
 
 
 
@@ -15161,7 +15161,7 @@ Percorso/nome file buffer Z
 Z Buffer Bestand Pad/Naam
 
 
-
+Ruta/Nombre del Archivo de Búfer Z
 
 
 
@@ -15174,7 +15174,7 @@ Percorso file mappa colori
 Kleurenkaart Bestand Pad
 
 
-
+Ruta del Archivo de Mapa de Color
 
 
 
@@ -15187,7 +15187,7 @@ Percorso/nome file temporaneo
 Tijdelijk Bestand Pad/Naam
 
 
-
+Ruta/Nombre del Archivo Temporal
 
 
 
@@ -15200,7 +15200,7 @@ Percorso modello ecosistema
 Ecosysteem Model Pad
 
 
-
+Ruta del Modelo de Ecosistema
 
 
 
@@ -15213,7 +15213,7 @@ Percorso mappa deformazione
 Deformatie Kaart Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20
 
 
-
+Ruta del Mapa de Deformación
 
 
 
@@ -15226,7 +15226,7 @@ Opzioni
 Opties
 
 
-
+Opciones
 
 
 
@@ -15239,7 +15239,7 @@ MSG_EDITGUI_SURFACES
 \33cOppervlakken
 
 
-
+\33cSuperficies
 
 
 
@@ -15252,7 +15252,7 @@ MSG_EDITGUI_STRATA
 \33cLagen
 
 
-
+\33cEstratos
 
 
 
@@ -15265,7 +15265,7 @@ MSG_EDITGUI_CELESTIAL
 \33cHemellichamen
 
 
-
+\33cCelestial
 
 
 
@@ -15278,7 +15278,7 @@ MSG_EDITGUI_EYFRAMES
 \33c\0334Key Frames
 
 
-
+\33c\0334Fotogramas Clave
 
 
 
@@ -15291,7 +15291,7 @@ MSG_EDITGUI_PREV
 \33cVorige
 
 
-
+\33cAnterior
 
 
 
@@ -15304,7 +15304,7 @@ Fotogramma
 Frame
 
 
-
+Fotograma
 
 
 
@@ -15317,7 +15317,7 @@ MSG_EDITGUI_NEXT
 \33cVolgende
 
 
-
+\33cSiguiente
 
 
 
@@ -15330,7 +15330,7 @@ MSG_EDITGUI_MAKEKEY
 \33cKey maken
 
 
-
+\33cCrear Clave
 
 
 
@@ -15343,7 +15343,7 @@ MSG_EDITGUI_UPDATE
 \33cBijwerken
 
 
-
+\33cActualizar
 
 
 
@@ -15356,7 +15356,7 @@ MSG_EDITGUI_ALL0
 \33cAlle (0)
 
 
-
+\33cTodo (0)
 
 
 
@@ -15369,7 +15369,7 @@ MSG_EDITGUI_DELETE
 \33cVerwijderen
 
 
-
+\33c\33uEliminar\33nete
 
 
 
@@ -15382,7 +15382,7 @@ MSG_EDITGUI_DELETEALL
 \33cAlles verwijderen
 
 
-
+\33cEliminar Todo
 
 
 
@@ -15395,7 +15395,7 @@ MSG_EDITGUI_TIMELINES
 \33cTijdlijnen\x20
 
 
-
+\33cLíneas de Tiempo\x20
 
 
 
@@ -15408,7 +15408,7 @@ MSG_EDITGUI_SCALEKEYS
 \33cKeys schalen\x20
 
 
-
+\33cEscalar Claves\x20
 
 
 
@@ -15421,7 +15421,7 @@ MSG_EDITGUI_COPY
 \33cKopiëren
 
 
-
+\33cCopiar
 
 
 
@@ -15434,7 +15434,7 @@ MSG_EDITGUI_SWAP
 \33cWisselen
 
 
-
+\33cIntercambiar
 
 
 
@@ -15447,7 +15447,7 @@ MSG_EDITGUI_INSERT
 \33cInvoegen
 
 
-
+\33cInsertar
 
 
 
@@ -15460,7 +15460,7 @@ MSG_EDITGUI_REMOVE
 \33cVerwijderen
 
 
-
+\33cEliminar
 
 
 
@@ -15473,7 +15473,7 @@ MSG_EDITGUI_KEEP
 \33cBehouden
 
 
-
+\33cMantener
 
 
 
@@ -15486,7 +15486,7 @@ Non utilizzato
 Ongebruikt
 
 
-
+No Usado
 
 
 
@@ -15499,7 +15499,7 @@ Modulo Parametri: Colore
 Parameter Module: Kleur
 
 
-
+Módulo de Parámetros: Color
 
 
 
@@ -15512,7 +15512,7 @@ Editor Colore: Copia
 Kleuren Editor: Kopiëren
 
 
-
+Editor de Color: Copiar
 
 
 
@@ -15525,7 +15525,7 @@ Copiare anche i fotogrammi chiave?
 Key Frames ook kopiëren?
 
 
-
+¿Copiar también los Fotogramas Clave?
 
 
 
@@ -15538,7 +15538,7 @@ Parametri Colore: Scambia
 Kleur Parameters: Verwisselen
 
 
-
+Parámetros de Color: Intercambiar
 
 
 
@@ -15551,7 +15551,7 @@ Impossibile scambiare con i primi 24 colori!\nOperazione terminata.
 Kan niet verwisselen met de eerste 24 kleuren!\nBewerking afgebroken.
 
 
-
+¡No se puede intercambiar con los primeros 24 colores!\nOperación terminada.
 
 
 
@@ -15564,7 +15564,7 @@ Il colore attuale è in uso. Rimuoverlo comunque?
 De huidige kleur wordt gebruikt. Toch verwijderen?
 
 
-
+El color actual está en uso. ¿Eliminarlo de todos modos?
 
 
 
@@ -15578,7 +15578,7 @@ AM
 Voormiddag
 
 
-
+AM
 
 
 
@@ -15591,7 +15591,7 @@ PM
 Namiddag
 
 
-
+PM
 
 
 
@@ -15604,7 +15604,7 @@ Gen
 Jan
 
 
-
+Ene
 
 
 
@@ -15617,7 +15617,7 @@ Feb
 Feb
 
 
-
+Feb
 
 
 
@@ -15630,7 +15630,7 @@ Mar
 Mrt
 
 
-
+Mar
 
 
 
@@ -15643,7 +15643,7 @@ Apr
 Apr
 
 
-
+Abr
 
 
 
@@ -15656,7 +15656,7 @@ Mag
 Mei
 
 
-
+May
 
 
 
@@ -15669,7 +15669,7 @@ Giu
 Jun
 
 
-
+Jun
 
 
 
@@ -15682,7 +15682,7 @@ Lug
 Jul
 
 
-
+Jul
 
 
 
@@ -15695,7 +15695,7 @@ Ago
 Aug
 
 
-
+Ago
 
 
 
@@ -15708,7 +15708,7 @@ Set
 Sep
 
 
-
+Sep
 
 
 
@@ -15721,7 +15721,7 @@ Ott
 Okt
 
 
-
+Oct
 
 
 
@@ -15734,7 +15734,7 @@ Nov
 Nov
 
 
-
+Nov
 
 
 
@@ -15747,7 +15747,7 @@ Dic
 Dec
 
 
-
+Dic
 
 
 
@@ -15760,7 +15760,7 @@ Ora Solare
 Zon Tijd
 
 
-
+Hora Solar
 
 
 
@@ -15773,7 +15773,7 @@ Long Rif
 Ref Lengte
 
 
-
+Lon Ref
 
 
 
@@ -15786,7 +15786,7 @@ Data
 Datum
 
 
-
+Fecha
 
 
 
@@ -15799,7 +15799,7 @@ Ora
 Tijd
 
 
-
+Hora
 
 
 
@@ -15812,7 +15812,7 @@ Long. Sole
 Zon Lengte
 
 
-
+Lon Solar
 
 
 
@@ -15825,7 +15825,7 @@ Lat. Sole
 Zon Lat
 
 
-
+Lat Solar
 
 
 
@@ -15838,7 +15838,7 @@ MSG_EVMORGUI_REVERSESEASONS
 \33cSeizoenen omkeren
 
 
-
+\33cInvertir Estaciones
 
 
 
@@ -15851,7 +15851,7 @@ MSG_EVMORGUI_KEEP
 \33cBehouden
 
 
-
+\33cMantener
 
 
 
@@ -15864,7 +15864,7 @@ Finestra Ora Solare
 Zon Tijd Venster
 
 
-
+Ventana de Hora Solar
 
 
 
@@ -15877,7 +15877,7 @@ Nuovo Progetto
 Nieuw Project
 
 
-
+Nuevo Proyecto
 
 
 
@@ -15890,7 +15890,7 @@ Clona Progetto
 Project Dupliceren
 
 
-
+Clonar Proyecto
 
 
 
@@ -15903,7 +15903,7 @@ MSG_EVMORGUI_SAVE
 \33cOpslaan
 
 
-
+\33cGuardar
 
 
 
@@ -15916,7 +15916,7 @@ Progetto: Nuovo/Modifica
 Project: Nieuw/Bewerken
 
 
-
+Proyecto: Nuevo/Editar
 
 
 
@@ -15929,7 +15929,7 @@ Percorso/Nome nuovo progetto
 Nieuw Project Pad/Naam
 
 
-
+Ruta/Nombre del Nuevo Proyecto
 
 
 
@@ -15942,7 +15942,7 @@ Sie müssen einen neuen Projektnamen vergeben.
 Geef een nieuwe projectnaam op.
 
 
-
+Debe proporcionar un nombre de proyecto nuevo.
 
 
 
@@ -15955,7 +15955,7 @@ Errore nel caricamento del file progetto da clonare.
 Fout bij laden van projectbestand om te dupliceren.
 
 
-
+Error al cargar el archivo de Proyecto para clonar.
 
 
 
@@ -15968,7 +15968,7 @@ Errore nel caricamento del file onde da clonare.
 Fout bij laden van Golfbestand om te dupliceren.
 
 
-
+Error al cargar el archivo de Olas para clonar.
 
 
 
@@ -15981,7 +15981,7 @@ Errore nel caricamento del file nuvole da clonare.
 Fout bij laden van Wolkenbestand om te dupliceren.
 
 
-
+Error al cargar el archivo de Nubes para clonar.
 
 
 
@@ -15994,7 +15994,7 @@ Errore nella creazione della nuova directory del progetto: %s. Potrebbe già esis
 Kan nieuwe projectmap niet aanmaken: %s. Het kan al bestaan of er kan al een bestand met die naam zijn.
 
 
-
+Error al crear el nuevo Directorio de Proyecto: %s. Puede que ya exista o que haya un archivo con ese nombre.
 
 
 
@@ -16999,7 +16999,7 @@ Memoria veloce disponibile = %lu
 Fast geheugen beschikbaar = %lu
 
 
-
+Memoria rápida disponible = %lu
 
 
 
@@ -17012,7 +17012,7 @@ Memoria esaurita durante l'apertura del buffer Z!\nOperazione terminata.
 Te weinig geheugen bij openen van Z-buffer!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al abrir el búfer Z!\nOperación terminada.
 
 
 
@@ -17025,7 +17025,7 @@ Memoria esaurita durante l'apertura delle bitmap!\nOperazione terminata.
 Te weinig geheugen bij openen van bitmaps!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al abrir mapas de bits!\nOperación terminada.
 
 
 
@@ -17038,7 +17038,7 @@ Memoria esaurita durante l'apertura del buffer antialias!\nOperazione terminata.
 Te weinig geheugen bij openen van anti-alias buffer!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al abrir el búfer de suavizado!\nOperación terminada.
 
 
 
@@ -17051,7 +17051,7 @@ Memoria esaurita durante l'allocazione del buffer di riflessione!\nContinuare se
 Te weinig geheugen bij toewijzen van Reflectiebuffer!\nDoorgaan zonder Reflecties?
 
 
-
+¡Memoria insuficiente al asignar el búfer de Reflexión!\n¿Continuar sin Reflexiones?
 
 
 
@@ -17064,7 +17064,7 @@ Continua|Annulla
 Doorgaan|Annuleren
 
 
-
+Continuar|Cancelar
 
 
 
