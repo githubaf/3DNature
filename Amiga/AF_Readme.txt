@@ -4842,7 +4842,7 @@ NR==7995{$0="\\0334Pre-Proceso"}
 ' WCS.cs > WCS_translated.cs
 
 Das "Line xxx" soll in der Uebersetzung nicht auftauchen, sondern nur im AWK verwendet werden. Einzelne Backslashes muessen als Doppelbackslash ausgegeben werden.
-Das Script soll die spanische Übersetzung enthalten. Das Script bitte direkt lesbar anzeigen!
+Das Script soll die spanische Uebersetzung enthalten. Das Script bitte direkt lesbar anzeigen!
 
 ##############################
 
