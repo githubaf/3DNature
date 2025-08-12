@@ -12002,7 +12002,7 @@ MSG_EDMOGUI_PROFDENS
 \33c\0334Profiel Dichtheid
 
 
-
+\0334Densidad Prof
 
 
 
@@ -12015,7 +12015,7 @@ MSG_EDMOGUI_AUTODRAW
 \33cAuto Tekenen
 
 
-
+Auto Dibujo
 \33cAutomatyczne Rysowanie
 
 
@@ -12028,7 +12028,7 @@ MSG_EDMOGUI_GRID
 \33c\0334Raster
 
 
-
+\0334Cuadrícula
 \33c\0334Siatka
 
 
@@ -12041,7 +12041,7 @@ MSG_EDMOGUI_MOVEMENT
 \33c\0334Beweging
 
 
-
+\0334Movimiento
 \33c\0334Ruch
 
 
@@ -12054,7 +12054,7 @@ MSG_EDMOGUI_FRAME_COLOR
 \33c\0334Frame
 
 
-
+\0334Marco
 \33c\0334Klatka
 
 
@@ -12067,7 +12067,7 @@ CentroFoc
 Centrum Focus
 
 
-
+CentroFoc
 
 
 
@@ -12080,7 +12080,7 @@ Aspetto Immagine
 Beeldverhouding
 
 
-
+Aspecto Img
 
 
 
@@ -12093,7 +12093,7 @@ Vista Camera
 Camera weergave
 
 
-
+Vista de Cámara
 
 
 
@@ -12106,7 +12106,7 @@ Vista Camera: Aspetto
 Camera weergave: Beeldverhouding
 
 
-
+Vista de Cámara: Aspecto
 
 
 
@@ -12119,7 +12119,7 @@ Movimento Interattivo
 Interactieve Beweging
 
 
-
+Movimiento Interactivo
 
 
 
@@ -12132,7 +12132,7 @@ Elenco Parametri Movimento
 Bewegingsparameterlijst
 
 
-
+Lista de Parámetros de Movimiento
 
 
 
@@ -12145,7 +12145,7 @@ L'altezza calcolata è maggiore dell'altezza dello schermo attuale. Vuoi usare l'
 Berekende hoogte is groter dan de huidige schermhoogte. Wilt u de schermhoogte gebruiken?
 
 
-
+La altura calculada es mayor que la altura actual de la pantalla. ¿Desea usar la altura de la pantalla?
 Wyliczona wysoko¶æ jest wiêksza ni¿ aktualna wysoko¶æ ekranu. Czy chcesz u¿yæ wysoko¶ci ekranu?
 
 
@@ -12159,7 +12159,7 @@ Modulo Parametri: Tasti Bank
 Parameter Module: Neiging Keys
 
 
-
+Módulo de Parámetros: Teclas de Banco
 
 
 
@@ -12172,7 +12172,7 @@ Esistono fotogrammi chiave per il parametro "Bank". Sovrascriverli?
 Key frames bestaan al voor de "Neiging" Parameter. Overschrijven?
 
 
-
+Existen fotogramas clave para el parámetro \"Banco\". ¿Sobrescribirlos?
 Klatka kluczowa dla parametrów 'Brzegu' ju¿ istnieje. Czy j± nadpisaæ?
 
 
@@ -12185,7 +12185,7 @@ Inserisci l'intervallo dei fotogrammi chiave o 'K' per usare quelli attuali.
 Voer key frame interval in of 'K' voor huidige key frames.
 
 
-
+Ingrese el intervalo de fotogramas clave o K para los fotogramas clave actuales.
 
 
 
@@ -12198,7 +12198,7 @@ Modulo Parametri: Esporta
 Parameter Module: Export
 
 
-
+Módulo de Parámetros: Exportar
 Modu³ Parametrów: Eksport
 
 
@@ -12211,7 +12211,7 @@ Errore nella creazione del fotogramma chiave!\nOperazione terminata.
 Fout bij maken van key frame!\nOperatie afgebroken.
 
 
-
+¡Error al crear fotograma clave!\nOperación terminada.
 B³±d tworzenia Klatki Kluczowej!\nOperacja przerwana.
 
 
@@ -12224,7 +12224,7 @@ Nessun fotogramma chiave Lat/Lon del percorso camera!\nOperazione terminata.
 Geen Camera Pad Lat/Long key Frames!\nOperatie afgebroken.
 
 
-
+¡No hay fotogramas clave de Lat/Lon de ruta de cámara!\nOperación terminada.
 ¦cie¿ka kamery Wys/Szerj w klatkach kluczowych nie istnieje!\nOperacja przerwana.
 
 
@@ -12237,7 +12237,7 @@ Non utilizzato
 Ongebruikt
 
 
-
+No usado
 Nieu¿yte
 
 
@@ -12250,7 +12250,7 @@ Carica File Parametri
 Parameter bestand laden
 
 
-
+Cargar Archivo de Parámetros
 
 
 
@@ -12263,7 +12263,7 @@ Versione < 1.0
 Versie < 1.0
 
 
-
+Versión < 1.0
 Wersja < 1.0
 
 
@@ -12276,7 +12276,7 @@ Modulo Parametri: Carica
 Parameter Module: Laden
 
 
-
+Módulo de Parámetros: Cargar
 
 
 
@@ -12289,7 +12289,7 @@ Tipo o versione del file parametri non supportato!\nOperazione terminata.
 Niet ondersteund Parameter bestandstype of versie!\nOperatie afgebroken.
 
 
-
+¡Tipo o versión de archivo de parámetros no soportado!\nOperación terminada.
 Plik parametrów jest w niewspiranym typie lub wersji!\nOperacja przerwana.
 
 
@@ -12302,7 +12302,7 @@ Questo è un vecchio file in formato V1! Vuoi salvarlo ora nel nuovo formato?
 Dit is een oud V1 formaat bestand! Wilt u het nu opslaan in het nieuwe formaat?
 
 
-
+¡Este es un archivo de formato V1 antiguo! ¿Desea guardarlo ahora en el nuevo formato?
 To jest plik w starym formacie V1!Czy chesz teraz zapisaæ ten plik w nowym formacie?
 
 
@@ -12315,7 +12315,7 @@ Il formato del file parametri è stato leggermente modificato da quando è stato s
 Het Parameter bestandsformaat is licht gewijzigd sinds dit bestand is opgeslagen. Wilt u het nu opslaan in het nieuwe formaat?
 
 
-
+El formato del archivo de parámetros ha cambiado ligeramente desde que se guardó este archivo. ¿Desea guardarlo ahora en el nuevo formato?
 
 
 
@@ -12328,7 +12328,7 @@ Caricare tutti i fotogrammi chiave?
 Alle key frames laden?
 
 
-
+¿Cargar todos los fotogramas clave?
 
 
 
@@ -12341,7 +12341,7 @@ Voce colore %s non trovata in questo file!\nOperazione terminata.
 Kleur item %s niet gevonden in dit bestand!\nOperatie afgebroken.
 
 
-
+¡Elemento de color %s no encontrado en este archivo!\nOperación terminada.
 
 
 
@@ -12354,7 +12354,7 @@ Editor Colori: Carica Corrente
 Kleur Editor: Huidige laden
 
 
-
+Editor de Color: Cargar Actual
 
 
 
@@ -12367,7 +12367,7 @@ Voce ecosistema %s non trovata in questo file!\nOperazione terminata.
 Ecosysteem item %s niet gevonden in dit bestand!\nOperatie afgebroken.
 
 
-
+¡Elemento de ecosistema %s no encontrado en este archivo!\nOperación terminada.
 Element  %s ekosystemu nie znaleziony w tym pliku!\nOperacja przerwana.
 
 
@@ -12380,7 +12380,7 @@ Editor dell'ecosistema: Carica attuale
 Ecossysteem Editor: Huidige laden
 
 
-
+Editor de Ecosistema: Cargar Actual
 Edytor Ekosystemu: Wczytaj Aktualny
 
 
@@ -12393,7 +12393,7 @@ MSG_EDPAR_MOTIONVERF
 %s Beweging, Ver %f
 
 
-
+%s movimiento, Ver %f
 
 
 
@@ -12406,7 +12406,7 @@ MSG_EDPAR_COLORSVERF
 %s kleuren, Ver %f
 
 
-
+%s colores, Ver %f
 
 
 
@@ -12419,7 +12419,7 @@ MSG_EDPAR_ECOSYSTEMSVERF
 %s ecosysteem, Ver %f
 
 
-
+%s ecosistemas, Ver %f
 
 
 
@@ -12432,7 +12432,7 @@ MSG_EDPAR_SETTINGSVERF
 %s instellingen, Ver %f
 
 
-
+%s configuraciones, Ver %f
 
 
 
@@ -12445,7 +12445,7 @@ MSG_EDPAR_ALLVERF
 %s alles, Ver %f
 
 
-
+%s todo, Ver %f
 
 
 
@@ -12458,7 +12458,7 @@ Schiuma Acqua
 Water schuim
 
 
-
+Espuma de Agua
 Spienienie Wody
 
 
@@ -12471,7 +12471,7 @@ Sabbia Spiaggia
 Strand zand
 
 
-
+Arena de Playa
 Pla¿a Piaszczysta
 
 
@@ -12484,7 +12484,7 @@ Roccia Spiaggia
 Strand rots
 
 
-
+Roca de Playa
 Pla¿a Kamienista
 
 
@@ -12497,7 +12497,7 @@ Strato 1
 Laag 1
 
 
-
+Estrato 1
 
 
 
@@ -12510,7 +12510,7 @@ Strato 2
 Laag 2
 
 
-
+Estrato 2
 
 
 
@@ -12523,7 +12523,7 @@ Strato 3
 Laag 3
 
 
-
+Estrato 3
 
 
 
@@ -12536,7 +12536,7 @@ Strato 4
 Laag 4
 
 
-
+Estrato 4
 
 
 
@@ -12549,7 +12549,7 @@ Sole
 Zon
 
 
-
+Sol
 S³oñce
 
 
@@ -12562,7 +12562,7 @@ Luna
 Maan
 
 
-
+Luna
 Ksiê¿yc
 
 
@@ -12575,7 +12575,7 @@ Nuvole
 Wolken
 
 
-
+Nubes
 Chmury
 
 
@@ -12588,7 +12588,7 @@ Salva File Parametri
 Parameter bestand opslaan
 
 
-
+Guardar Archivo de Parámetros
 
 
 
@@ -12601,7 +12601,7 @@ fileparametri
 parameter bestand
 
 
-
+archivo de parámetros
 
 
 
@@ -12614,7 +12614,7 @@ Errore nell'apertura del file per l'output!\nRiprova?
 Fout bij openen van bestand voor uitvoer!\nOpnieuw proberen?
 
 
-
+¡Error al abrir archivo para salida!\n¿Intentar de nuevo?
 
 
 
@@ -12627,7 +12627,7 @@ Versione < 2.0
 Versie < 2.0
 
 
-
+Versión < 2.0
 
 
 
@@ -12640,7 +12640,7 @@ Modulo di modifica parametri
 Parameter bewerkingsmodule
 
 
-
+Módulo de Edición de Parámetros
 
 
 
@@ -12653,7 +12653,7 @@ I file parziali non possono essere scritti su vecchie versioni di file!\nVuoi sa
 Gedeeltelijke bestanden kunnen niet worden geschreven naar oude bestandsversies!\nWilt u het gehele parameter bestand opslaan?
 
 
-
+¡Los archivos parciales no pueden escribirse en versiones antiguas de archivos!\n¿Desea guardar todo el archivo de parámetros?
 
 
 
@@ -12666,7 +12666,7 @@ Editor colori: Salva corrente
 Kleur Editor: Huidige opslaan
 
 
-
+Editor de Color: Guardar Actual
 
 
 
@@ -12679,7 +12679,7 @@ Editor ecosistema: Salva corrente
 Ecossysteem Editor: Huidige opslaan
 
 
-
+Editor de Ecosistema: Guardar Actual
 
 
 
@@ -12692,7 +12692,7 @@ Modulo parametri: Salva
 Parameter Module: Opslaan
 
 
-
+Módulo de Parámetros: Guardar
 
 
 
@@ -12705,7 +12705,7 @@ Salvare anche tutti i fotogrammi chiave?
 Alle key frames ook opslaan?
 
 
-
+¿Guardar también todos los fotogramas clave?
 
 
 
@@ -12718,7 +12718,7 @@ MSG_EDPAR_MOTION
 %s beweging
 
 
-
+%s movimiento
 
 
 
@@ -12731,7 +12731,7 @@ MSG_EDPAR_COLORS
 %s kleuren
 
 
-
+%s colores
 
 
 
@@ -12744,7 +12744,7 @@ MSG_EDPAR_ECOSYSTEMS
 %s ecosysteem
 
 
-
+%s ecosistemas
 
 
 
@@ -12757,7 +12757,7 @@ MSG_EDPAR_SETTINGS
 %s instellingen
 
 
-
+%s configuraciones
 
 
 
@@ -12770,7 +12770,7 @@ MSG_EDPAR_ALL
 %s alles
 
 
-
+%s todo
 
 
 
@@ -12783,7 +12783,7 @@ Errore durante la scrittura del file di parametri!\nIl file di output è stato mo
 Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en is mogelijk niet meer geldig. Probeer opnieuw op te slaan naar een ander apparaat of maak wat schijfruimte vrij en sla opnieuw op.
 
 
-
+¡Error al escribir en archivo de parámetros!\nEl archivo de salida ha sido modificado y puede que ya no sea válido. Intente guardar en otro dispositivo o liberar espacio en disco y guardar de nuevo.
 
 
 
@@ -12797,7 +12797,7 @@ MSG_EDSETGUI_ENDERSIZE
 \0334Render & Afmetingen
 
 
-
+\0334Render y Tamaño
 
 
 
@@ -12810,7 +12810,7 @@ MSG_EDSETGUI_MAGESAVE
 \0334Afbeelding opslaan
 
 
-
+\0334Guardar Imagen
 
 
 
@@ -12823,7 +12823,7 @@ MSG_EDSETGUI_MOTIONPATHSVECTORS
 \0334Bewegingspaden & Vectoren
 
 
-
+\0334Trayectorias y Vectores de Movimiento
 
 
 
@@ -12836,7 +12836,7 @@ MSG_EDSETGUI_COLORMAPS
 \0334Kleurenkaarten
 
 
-
+\0334Mapas de Color
 
 
 
@@ -12849,7 +12849,7 @@ MSG_EDSETGUI_SURFACES
 \0334Oppervlakken
 
 
-
+\0334Superficies
 
 
 
@@ -12862,7 +12862,7 @@ MSG_EDSETGUI_FRACTALS
 \0334Fractalen
 
 
-
+\0334Fractales
 
 
 
@@ -12875,7 +12875,7 @@ MSG_EDSETGUI_ECOSYSTEMSSTRATA
 \0334Ecosystemen & Lagen
 
 
-
+\0334Ecosistemas y Estratos
 
 
 
@@ -12888,7 +12888,7 @@ MSG_EDSETGUI_MISCELLANEOUS
 \0334Diversen
 
 
-
+\0334Misceláneo
 
 
 
@@ -12901,7 +12901,7 @@ MSG_EDSETGUI_PROCESSING
 \0334Verwerking
 
 
-
+\0334Procesamiento
 
 
 
@@ -12914,7 +12914,7 @@ MSG_EDSETGUI_POSTPROCESS
 \0334Nabewerking
 
 
-
+\0334Post-Proceso
 
 
 
@@ -12927,7 +12927,7 @@ No RGB
 Geen RGB
 
 
-
+Sin RGB
 
 
 
@@ -12940,7 +12940,7 @@ MSG_EDSETGUI_RGB
 \338RGB
 
 
-
+\338RGB
 
 
 
@@ -12953,7 +12953,7 @@ No Schermo
 Geen scherm
 
 
-
+Sin Pantalla
 
 
 
@@ -12965,7 +12965,7 @@ MSG_EDSETGUI_SCREEN_GRAYSCALE
 \338Scherm (Grijswaarden)
 
 
-
+\338Pantalla (Escala de Grises)
 
 
 
@@ -12977,7 +12977,7 @@ MSG_EDSETGUI_SCREEN_COLORED
 \338Scherm (Kleur)
 
 
-
+\338Pantalla (Color)
 
 
 
@@ -12990,7 +12990,7 @@ No Dati
 Geen data
 
 
-
+Sin Datos
 
 
 
@@ -13003,7 +13003,7 @@ MSG_EDSETGUI_DATA
 \338Data
 
 
-
+\338Datos
 
 
 
@@ -13016,7 +13016,7 @@ Sculpt RGB
 Sculpt RGB
 
 
-
+Esculpir RGB
 
 
 
@@ -13029,7 +13029,7 @@ RGB interlvd grezzo
 Rauw intrlvd RGB
 
 
-
+RGB entrelazado crudo
 
 
 
@@ -13042,7 +13042,7 @@ MSG_EDSETGUI_IFFILBM
 \338IFF ILBM
 
 
-
+\338IFF ILBM
 
 
 
@@ -13055,7 +13055,7 @@ No Concatenare
 Geen samenvoeging
 
 
-
+Sin Concatenar
 
 
 
@@ -13068,7 +13068,7 @@ MSG_EDSETGUI_CONCATENATE
 \338Samenvoegen
 
 
-
+\338Concatenar
 
 
 
@@ -13081,7 +13081,7 @@ No Virate
 Geen Helling Bochten
 
 
-
+Sin Giros de Banco
 
 
 
@@ -13094,7 +13094,7 @@ MSG_EDSETGUI_BANKTURNS
 \338Helling Bochten
 
 
-
+\338Giros de Banco
 
 
 
@@ -13107,7 +13107,7 @@ MSG_EDSETGUI_RNDRTOFILE
 \338Rndr Naar Bestand
 
 
-
+\338Renderizar a Archivo
 
 
 
@@ -13120,7 +13120,7 @@ MSG_EDSETGUI_RNDRTOBITMAP
 \338Rndr Naar Bitmap
 
 
-
+\338Renderizar a Bitmap
 
 
 
@@ -13133,7 +13133,7 @@ No Vettori
 Geen vectoren
 
 
-
+Sin Vectores
 
 
 
@@ -13146,7 +13146,7 @@ No Eff nebbia
 Geen Nevel Effect
 
 
-
+Sin Efecto de Neblina
 
 
 
@@ -13159,7 +13159,7 @@ MSG_EDSETGUI_HAZEEFFECT
 \338Nevel Effect
 
 
-
+\338Efecto de Neblina
 
 
 
@@ -13172,7 +13172,7 @@ Profondità frattale variabile
 Variabele Fractale Diepte
 
 
-
+Profundidad Fractal Variable
 
 
 
@@ -13185,7 +13185,7 @@ MSG_EDSETGUI_CONSTANTFRACTALDEPTH
 \338Constante Fractale Diepte
 
 
-
+\338Profundidad Fractal Constante
 
 
 
@@ -13198,7 +13198,7 @@ MSG_EDSETGUI_FRACTALDEPTHMAPS
 \338Fraktale Diepte Kaarten
 
 
-
+\338Mapas de Profundidad Fractal
 
 
 
@@ -13211,7 +13211,7 @@ Nessuna mappa colori
 Geen Kleurenkaarten
 
 
-
+Sin Mapas de Color
 
 
 
@@ -13224,7 +13224,7 @@ MSG_EDSETGUI_COLORMAPS_2
 \338Kleurenkaarten
 
 
-
+\338Mapas de Color
 
 
 
@@ -13237,7 +13237,7 @@ Nessun bordo casuale mappa colori
 Geen CMap Willekeurige Randen
 
 
-
+Sin Bordes Aleatorios de CMap
 
 
 
@@ -13250,7 +13250,7 @@ MSG_EDSETGUI_CMAPRANDOMBORDERS
 \338CMap Willekeurige Randen
 
 
-
+\338Bordes Aleatorios de CMap
 
 
 
@@ -13263,7 +13263,7 @@ Nessuna texture mappa colori
 Geen CMap Texturen
 
 
-
+Sin Texturas de CMap
 
 
 
@@ -13276,7 +13276,7 @@ MSG_EDSETGUI_CMAPTEXTURES
 \338CMap Texturen
 
 
-
+\338Texturas de CMap
 
 
 
@@ -13289,7 +13289,7 @@ Nessuna corrispondenza colore mappa colori
 Geen CMap Kleur Match
 
 
-
+Sin Coincidencia de Color de CMap
 
 
 
@@ -13302,7 +13302,7 @@ MSG_EDSETGUI_CMAPCOLORMATCH
 \338CMap Kleur Match
 
 
-
+\338Coincidencia de Color de CMap
 
 
 
@@ -13315,7 +13315,7 @@ Nessuna griglia superficie
 Geen Oppervlak Raster
 
 
-
+Sin Cuadrícula de Superficie
 
 
 
@@ -13328,7 +13328,7 @@ MSG_EDSETGUI_SURFACEGRID
 \338Oppervlak Raster
 
 
-
+\338Cuadrícula de Superficie
 
 
 
@@ -13341,7 +13341,7 @@ Nessun orizzonte fisso
 Geen vaste horizon
 
 
-
+Sin Horizonte Fijo
 
 
 
@@ -13354,7 +13354,7 @@ MSG_EDSETGUI_FIXEDHORIZON
 \338Vaste horizon
 
 
-
+\338Horizonte Fijo
 
 
 
@@ -13367,7 +13367,7 @@ Nessun riferimento alt Z
 Geen Alt Z Referentie
 
 
-
+Sin Referencia Z Alternativa
 
 
 
@@ -13380,7 +13380,7 @@ MSG_EDSETGUI_ALTZREFERENCE
 \338Alt Z Referentie
 
 
-
+\338Referencia Z Alternativa
 
 
 
@@ -13393,7 +13393,7 @@ Nessuna ombra nuvole
 Geen wolkenschaduwen
 
 
-
+Sin Sombras de Nubes
 
 
 
@@ -13406,7 +13406,7 @@ MSG_EDSETGUI_CLOUDSHADOWS
 \338Wolkenschaduwen
 
 
-
+\338Sombras de Nubes
 
 
 
@@ -13419,7 +13419,7 @@ Nessuno sfondo
 Geen achtergrondafbeelding
 
 
-
+Sin Fondo
 
 
 
@@ -13432,7 +13432,7 @@ MSG_EDSETGUI_BACKGROUND
 \338Achtergrondafbeelding
 
 
-
+\338Fondo
 
 
 
@@ -13445,7 +13445,7 @@ Nessun buffer Z
 Geen Z Buffer
 
 
-
+Sin Búfer Z
 
 
 
@@ -13458,7 +13458,7 @@ MSG_EDSETGUI_ZBUFFER
 \338Z Buffer
 
 
-
+\338Búfer Z
 
 
 
@@ -13471,7 +13471,7 @@ Nessuna sfocatura
 Geen onscherpte
 
 
-
+Sin Desenfoque
 
 
 
@@ -13484,7 +13484,7 @@ MSG_EDSETGUI_BLUR
 \338Onscherpte
 
 
-
+\338Desenfoque
 
 
 
@@ -13497,7 +13497,7 @@ Nessuna sfocatura buffer Z
 Geen Z Buffer Onscherpte
 
 
-
+Sin Desenfoque con Búfer Z
 
 
 
@@ -13510,7 +13510,7 @@ MSG_EDSETGUI_ZBUFFEREDBLUR
 \338Z Buffer Onscherpte
 
 
-
+\338Desenfoque con Búfer Z
 
 
 
@@ -13523,7 +13523,7 @@ Nessuna scalatura
 Geen schaling
 
 
-
+Sin Escalado
 
 
 
@@ -13536,7 +13536,7 @@ MSG_EDSETGUI_SCALING
 \338Schaling
 
 
-
+\338Escalado
 
 
 
@@ -13549,7 +13549,7 @@ Nessuna superficie topos
 Geen Topos Als Oppervlakken
 
 
-
+Sin Topos como Superficies
 
 
 
@@ -13562,7 +13562,7 @@ MSG_EDSETGUI_TOPOSASSURFACES
 \338Topos Als Oppervlakken
 
 
-
+\338Topos como Superficies
 
 
 
@@ -13575,7 +13575,7 @@ Nessuna esportazione buffer Z
 Geen Z Buffer Export
 
 
-
+Sin Exportar Búfer Z
 
 
 
@@ -13588,7 +13588,7 @@ MSG_EDSETGUI_EXPORTZBUFFER
 \338Z Buffer Export
 
 
-
+\338Exportar Búfer Z
 
 
 
@@ -13601,7 +13601,7 @@ MSG_EDSETGUI_ZASFLOATINGPTIFF
 \338Z als Drijvende Komma IFF
 
 
-
+\338Z como IFF de Punto Flotante
 
 
 
@@ -13614,7 +13614,7 @@ Z come scala di grigi IFF
 Z als Grijswaarden IFF
 
 
-
+Z como IFF de Escala de Grises
 
 
 
@@ -13627,7 +13627,7 @@ MSG_EDSETGUI_ZASFLOATINGPTARRAY
 \338Z als Drijvende Komma Reeks
 
 
-
+\338Z como Matriz de Punto Flotante
 
 
 
@@ -13640,7 +13640,7 @@ Z come array scala di grigi
 Z als Grijswaarden Reeks
 
 
-
+Z como Matriz de Escala de Grises
 
 
 
@@ -13653,7 +13653,7 @@ Nessun rendering campo
 Geen Halfbeeld Rendering
 
 
-
+Sin Renderizado de Campo
 
 
 
@@ -13666,7 +13666,7 @@ MSG_EDSETGUI_FIELDRENDERING
 \338Halfbeeld Rendering
 
 
-
+\338Renderizado de Campo
 
 
 
@@ -13679,7 +13679,7 @@ Nessun gradiente globale
 Geen Globale Gradiënten
 
 
-
+Sin Gradientes Globales
 
 
 
@@ -13692,7 +13692,7 @@ MSG_EDSETGUI_GLOBALGRADIENTS
 \338Globale Gradiënten
 
 
-
+\338Gradientes Globales
 
 
 
@@ -13705,7 +13705,7 @@ Nessun appiattimento ecosistema
 Geen Ecosysteem Afvlakking
 
 
-
+Sin Aplanamiento de Ecosistema
 
 
 
@@ -13718,7 +13718,7 @@ MSG_EDSETGUI_ECOSYSTEMFLATTENING
 \338Ecosysteem Afvlakking
 
 
-
+\338Aplanamiento de Ecosistema
 
 
 
@@ -13731,7 +13731,7 @@ Nessuna previsione
 Niet vooruit kijken
 
 
-
+Sin Mirada Adelantada
 
 
 
@@ -13744,7 +13744,7 @@ MSG_EDSETGUI_LOOKAHEAD
 Vooruit kijken
 
 
-
+\338Mirada Adelantada
 
 
 
@@ -13757,7 +13757,7 @@ Nessuna distribuzione velocità
 Geen Snelheidsverdeling
 
 
-
+Sin Distribución de Velocidad
 
 
 
@@ -13770,7 +13770,7 @@ MSG_EDSETGUI_VELOCITYDISTRIBUTION
 \338Snelheidsverdeling
 
 
-
+\338Distribución de Velocidad
 
 
 
@@ -13783,7 +13783,7 @@ Nessun albero o texture
 Geen bomen of texturen
 
 
-
+Sin Árboles ni Texturas
 
 
 
@@ -13796,7 +13796,7 @@ MSG_EDSETGUI_TREESANDTEXTURES
 \338Bomen en texturen
 
 
-
+\338Árboles y Texturas
 
 
 
@@ -13809,7 +13809,7 @@ Nessun rendering oltre l'orizzonte
 Geen renderen voorbij de horizon
 
 
-
+Sin Renderizado Más Allá del Horizonte
 
 
 
@@ -13822,7 +13822,7 @@ MSG_EDSETGUI_RENDERBEYONDHORIZON
 \338Renderen voorbij de horizon
 
 
-
+\338Renderizado Más Allá del Horizonte
 
 
 
@@ -13835,7 +13835,7 @@ Nessun colore luminoso mappa colori
 Geen CMap Lichtgevende Kleuren
 
 
-
+Sin Colores Luminosos de CMap
 
 
 
@@ -13848,7 +13848,7 @@ MSG_EDSETGUI_CMAPLUMINOUSCOLORS
 \338CMap Lichtgevende Kleuren
 
 
-
+\338Colores Luminosos de CMap
 
 
 
@@ -13861,7 +13861,7 @@ Ombreggiatura normale
 Normale Schaduw
 
 
-
+Sombreado Normal
 
 
 
@@ -13874,7 +13874,7 @@ MSG_EDSETGUI_POLYGONSMOOTHING
 \338Polygon Gladmaken
 
 
-
+\338Suavizado de Polígonos
 
 
 
@@ -13887,7 +13887,7 @@ MSG_EDSETGUI_FRACTALDISPLACEMENT
 \338Fractale Verschuiving
 
 
-
+\338Desplazamiento Fractal
 
 
 
@@ -13900,7 +13900,7 @@ Mappe colori individuali
 Individuele Kleurenkaarten
 
 
-
+Mapas de Color Individuales
 
 
 
@@ -13913,7 +13913,7 @@ MSG_EDSETGUI_MASTERCOLORMAP
 \338Master Kleurenkaart
 
 
-
+\338Mapa de Color Maestro
 
 
 
@@ -13926,7 +13926,7 @@ Mappa colori principale orientata DEM
 Master CMap DEM Geörienteerd
 
 
-
+CMap Maestro Orientado a DEM
 
 
 
@@ -13939,7 +13939,7 @@ MSG_EDSETGUI_MASTERCMAPIMAGEORIENTED
 \338Master CMap Afbeelding Geörienteerd
 
 
-
+\338CMap Maestro Orientado a Imagen
 
 
 
@@ -13952,7 +13952,7 @@ Dominanza campo normale
 Veld Dominantie Normaal
 
 
-
+Dominancia de Campo Normal
 
 
 
@@ -13965,7 +13965,7 @@ MSG_EDSETGUI_FIELDDOMINANCEREVERSE
 \338Veld Dominantie Omgekeerd
 
 
-
+\338Dominancia de Campo Inversa
 
 
 
@@ -13978,7 +13978,7 @@ Nessuna nuvola 3D
 Geen 3D Wolken
 
 
-
+Sin Nubes 3D
 
 
 
@@ -13991,7 +13991,7 @@ MSG_EDSETGUI_3DCLOUDS
 \3383D Wolken
 
 
-
+\338Nubes 3D
 
 
 
@@ -14004,7 +14004,7 @@ Nessuna perturbazione
 Geen verstoringen
 
 
-
+Sin Perturbación
 
 
 
@@ -14017,7 +14017,7 @@ MSG_EDSETGUI_PERTURBANCE
 \338Verstoringen
 
 
-
+\338Perturbación
 
 
 
@@ -14030,7 +14030,7 @@ Nessuna onda
 Geen Golven
 
 
-
+Sin Olas
 
 
 
@@ -14043,7 +14043,7 @@ MSG_EDSETGUI_WAVES
 \338Golven
 
 
-
+\338Olas
 
 
 
@@ -14056,7 +14056,7 @@ Nessuna riflessione
 Geen reflecties
 
 
-
+Sin Reflexiones
 
 
 
@@ -14069,7 +14069,7 @@ MSG_EDSETGUI_REFLECTIONS
 \338Reflecties
 
 
-
+\338Reflexiones
 
 
 
@@ -14082,7 +14082,7 @@ Nessuna mappa deformazione strati
 Geen Lagen Deformatie Kaart
 
 
-
+Sin Mapa de Deformación de Estratos
 
 
 
@@ -14095,7 +14095,7 @@ MSG_EDSETGUI_STRATADEFORMATIONMAP
 \338Lagen Deformatie Kaart
 
 
-
+\338Mapa de Deformación de Estratos
 
 
 
@@ -14108,7 +14108,7 @@ Nessuna mappa colori superficie
 Geen Oppervlak Kleurenkaarten
 
 
-
+Sin Mapas de Color de Superficie
 
 
 
@@ -14121,7 +14121,7 @@ MSG_EDSETGUI_SURFACECOLORMAPS
 \338Oppervlak Kleurenkaarten
 
 
-
+\338Mapas de Color de Superficie
 
 
 
@@ -14134,7 +14134,7 @@ Nessun sole
 Geen Zon
 
 
-
+Sin Sol
 
 
 
@@ -14147,7 +14147,7 @@ MSG_EDSETGUI_SUN
 \338Zon
 
 
-
+\338Sol
 
 
 
@@ -14160,7 +14160,7 @@ Nessuna luna
 Geen Maan
 
 
-
+Sin Luna
 
 
 
@@ -14173,7 +14173,7 @@ MSG_EDSETGUI_MOON
 \338Maan
 
 
-
+\338Luna
 
 
 
@@ -14186,7 +14186,7 @@ Nessuna marea
 Geen Getijden
 
 
-
+Sin Mareas
 
 
 
@@ -14199,7 +14199,7 @@ MSG_EDSETGUI_TIDES
 \338Getijden
 
 
-
+\338Mareas
 
 
 
@@ -14212,7 +14212,7 @@ Nessun alone solare
 Geen Zon Halo
 
 
-
+Sin Halo Solar
 
 
 
@@ -14225,7 +14225,7 @@ MSG_EDSETGUI_SUNHALO
 \338Zon Halo
 
 
-
+\338Halo Solar
 
 
 
@@ -14238,7 +14238,7 @@ Nessun alone lunare
 Geen Maan Halo
 
 
-
+Sin Halo Lunar
 
 
 
@@ -14251,7 +14251,7 @@ MSG_EDSETGUI_MOONHALO
 \338Maan Halo
 
 
-
+\338Halo Lunar
 
 
 
@@ -14264,7 +14264,7 @@ Devi prima caricare o creare un file di parametri prima di aprire il modulo di r
 Laad of maak eerst een parameter bestand voordat u het Render Module opent.
 
 
-
+Debe cargar o crear primero un archivo de parámetros antes de abrir el Módulo de Renderizado.
 
 
 
@@ -14277,7 +14277,7 @@ Editor impostazioni di rendering
 Render Instellingen Editor
 
 
-
+Editor de Configuración de Renderizado
 
 
 
@@ -14290,7 +14290,7 @@ Larghezza\x20
 Breedte\x20
 
 
-
+Ancho\x20
 
 
 
@@ -14303,7 +14303,7 @@ Height\x20
  Hoogte\x20
 
 
-
+Altura\x20
 
 
 
@@ -14316,7 +14316,7 @@ Aspct\x20
  Aspect\x20
 
 
-
+Aspecto\x20
 
 
 
@@ -14329,7 +14329,7 @@ V Oscn\x20
  V Oscn\x20
 
 
-
+V Oscn\x20
 
 
 
@@ -14342,7 +14342,7 @@ MSG_EDSETGUI_CHANGEIMAGESIZE
 \33cAfbeeldingsgrootte wijzigen
 
 
-
+\33cCambiar Tamaño de Imagen
 
 
 
@@ -14355,7 +14355,7 @@ MSG_EDSETGUI_START
  Begin\x20
 
 
-
+ Inicio\x20
 
 
 
@@ -14368,7 +14368,7 @@ MSG_EDSETGUI_END
  Einde\x20
 
 
-
+   Fin\x20
 
 
 
@@ -14381,7 +14381,7 @@ MSG_EDSETGUI_STEP
 Stapgr\x20
 
 
-
+ Paso\x20
 
 
 
@@ -14394,7 +14394,7 @@ MSG_EDSETGUI_FRAMES
 Frames\x20
 
 
-
+ Fotogramas\x20
 
 
 
@@ -14407,7 +14407,7 @@ Segmnt\x20
   Segm\x20
 
 
-
+Segmento\x20
 
 
 
@@ -14420,7 +14420,7 @@ MSG_EDSETGUI_1STSEG
 Segm 1\x20
 
 
-
+1er Segmento\x20
 
 
 
@@ -14433,7 +14433,7 @@ Percorso di salvataggio\x20
 Pad opslaan\x20
 
 
-
+Ruta de Guardado\x20
 
 
 
@@ -14446,7 +14446,7 @@ File di salvataggio\x20
 Bestand opslaan\x20
 
 
-
+Archivo de Guardado\x20
 
 
 
@@ -14459,7 +14459,7 @@ Percorso temporaneo\x20
 Tijdelijk pad\x20
 
 
-
+Ruta Temporal\x20
 
 
 
@@ -14472,7 +14472,7 @@ Fotogrammi
 Afbeeldingen
 
 
-
+Fotogramas
 
 
 
@@ -14485,7 +14485,7 @@ Virate
 Hellingshoek
 
 
-
+Inclinación
 
 
 
@@ -14498,7 +14498,7 @@ Facilità in\x20
 Fade In\x20
 
 
-
+Facilidad de Entrada\x20
 
 
 
@@ -14511,7 +14511,7 @@ MSG_EDSETGUI_OUT
 Uit\x20
 
 
-
+ Salida\x20
 
 
 
@@ -14524,7 +14524,7 @@ Percorso vettoriale\x20
 Vector Pad\x20
 
 
-
+Ruta de Vectores\x20
 
 
 
@@ -14537,7 +14537,7 @@ File vettoriale\x20
 Vector Bestand\x20
 
 
-
+Archivo de Vectores\x20
 
 
 
@@ -14550,7 +14550,7 @@ Offset Z\x20
 Z Verschuiving\x20
 
 
-
+Desplazamiento Z\x20
 
 
 
@@ -14563,7 +14563,7 @@ MSG_EDSETGUI_SEGS
 Segmenten\x20
 
 
-
+ Segmentos\x20
 
 
 
@@ -14576,7 +14576,7 @@ Eco predefinito\x20
 Standaard Eco\x20
 
 
-
+Eco por defecto\x20
 
 
 
@@ -14589,7 +14589,7 @@ Percorso mappa colori\x20
 CMAP Pad\x20
 
 
-
+Ruta de CMap\x20
 
 
 
@@ -14602,7 +14602,7 @@ File mappa colori\x20
 CMAP Bestand\x20
 
 
-
+Archivo de CMap\x20
 
 
 
@@ -14615,7 +14615,7 @@ Spaziatura\x20
 Ruimte\x20
 
 
-
+Espaciado\x20
 
 
 
@@ -14628,7 +14628,7 @@ Elevazione superficie 1\x20
 Oppervlak El 1\x20
 
 
-
+Elevación de Superficie 1\x20
 
 
 
@@ -14641,7 +14641,7 @@ Elevazione superficie 2\x20
 Oppervlak El 2\x20
 
 
-
+Elevación de Superficie 2\x20
 
 
 
@@ -14654,7 +14654,7 @@ Elevazione superficie 3\x20
 Oppervlak El 3\x20
 
 
-
+Elevación de Superficie 3\x20
 
 
 
@@ -14667,7 +14667,7 @@ Elevazione superficie 4\x20
 Oppervlak El 4\x20
 
 
-
+Elevación de Superficie 4\x20
 
 
 
@@ -14680,7 +14680,7 @@ Profondità frattale\x20
 Fractale Diepte\x20
 
 
-
+Profundidad Fractal\x20
 
 
 
@@ -14693,7 +14693,7 @@ Spostamento
 Verschuiving\x20\x20
 
 
-
+Desplazamiento
 
 
 
@@ -14706,7 +14706,7 @@ Fattore di pendenza
 Helling Factor
 
 
-
+Factor de Pendiente
 
 
 
@@ -14719,7 +14719,7 @@ MSG_EDSETGUI_CREATEFRACTALMAPS
 \33cFractale Kaarten maken
 
 
-
+\33cCrear Mapas Fractales
 
 
 
@@ -14732,7 +14732,7 @@ Corto
 Kort
 
 
-
+Corto
 
 
 
@@ -14745,7 +14745,7 @@ Lungo
 Lang
 
 
-
+Largo
 
 
 
@@ -14758,7 +14758,7 @@ Tempo di rendering relativo
 Relatieve Render Tijd
 
 
-
+Tiempo Relativo de Renderizado
 
 
 
@@ -14771,7 +14771,7 @@ Eco m/
 Eco m/
 
 
-
+Eco m/
 
 
 
@@ -14784,7 +14784,7 @@ Neve m/
 Sneeuw m/
 
 
-
+Nieve m/
 
 
 
@@ -14797,7 +14797,7 @@ Latitudine di riferimento\x20
 Ref Breedtegraad\x20
 
 
-
+Latitud de Referencia\x20
 
 
 
@@ -14810,7 +14810,7 @@ Fattore altezza albero\x20
    Boom Hgt Fact\x20
 
 
-
+Factor de Altura de Árbol\x20
 
 
 
@@ -14823,7 +14823,7 @@ Percorso modello\x20
 Model Pad\x20
 
 
-
+Ruta del Modelo\x20
 
 
 
@@ -14836,7 +14836,7 @@ Percorso mappa predefinita\x20
 Def Kaart Pad\x20
 
 
-
+Ruta del Mapa por Defecto\x20
 
 
 
@@ -14849,7 +14849,7 @@ File mappa predefinita\x20
 Def Kaart Bestand\x20
 
 
-
+Archivo del Mapa por Defecto\x20
 
 
 
@@ -14862,7 +14862,7 @@ MSG_EDSETGUI_STRATADIP
    Lagen Dip\x20
 
 
-
+   Inclinación de Estrato\x20
 
 
 
@@ -14875,7 +14875,7 @@ Colpo strati\x20
 Lagen Strike\x20
 
 
-
+Dirección de Estrato\x20
 
 
 
