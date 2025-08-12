@@ -5998,7 +5998,7 @@ MSG_DEMGUI_APPLYNOISEMAP
 \33cRuis Map Toepassen
 
 
-
+\33cAplicar mapa de ruido
 \33cZastosuj Mapê Szumu
 \33cAplikuj mapu ¹umu
 
@@ -6011,7 +6011,7 @@ Nome DEM di uscita\x20
 Uitvoer DEM Naam\x20
 
 
-
+Nombre de salida DEM\x20
 Wyj¶ciowa nazwa DEM\x20
 Jméno DEM pro ulo¾ení\x20
 
@@ -6024,7 +6024,7 @@ Selezionare gli oggetti di contorno da importare e riselezionare "Importa" quand
 Selecteer contour objecten om te importeren en selecteer opnieuw "Importeren" wanneer klaar.
 
 
-
+Seleccione objetos de contorno para importar y vuelva a seleccionar "Importar" cuando haya terminado.
 Wybierz kontur objektu do importu i ponownie wybierz import po zakoñczeniu.
 Vyberte obrysové objekty, které chcete pøipojovat a po dokonèení znovu vyberte mo¾nost "Pøipojit".
 
@@ -6037,7 +6037,7 @@ Impossibile aprire la finestra dell'Editor del Database!\nOperazione terminata.
 Kan Database Editor venster niet openen!\nOperatie afgebroken.
 
 
-
+¡No se puede abrir la ventana del Editor de Base de Datos!\nOperación terminada.
 Nie mogê otworzyæ okna edycji bazy danych!\nOperacja Anulowana.
 Nemohu otevøít okno databázového editoru!\nOperace bude ukonèena.
 
@@ -6050,7 +6050,7 @@ Estrarre i valori di elevazione dai nomi degli oggetti, dai campi delle etichett
 Extraheer hoogte waarden uit Object Namen, Labelvelden of de waarden ingebed in de Objecten zelf gebruiken?
 
 
-
+¿Extraer valores de elevación de los nombres de objetos, campos de etiqueta o usar los valores incrustados en los propios objetos?
 Czy chesz pobraæ warto¶ci wysoko¶ci z nazw obiektów, etykiet pól, czy te¿ u¿yæ warto¶ci osadzonych bezpo¶rednio w samych obiektach?
 Extrahovat výskové hodnoty z názvù objektù, popiskù, nebo pou¾ít hodnoty vlo¾ené v samotných objektech?
 
@@ -6063,7 +6063,7 @@ Vista mappa: Esporta contorni
 Map View: Contouren Exporteren
 
 
-
+Vista de mapa: Exportar contornos
 Widok Mapy: Export Konturów
 Zobrazení mapy: Export ohranièení
 
@@ -6076,7 +6076,7 @@ Nome|Etichetta|Incorporato
 Naam|Label|Ingebed
 
 
-
+Nombre|Etiqueta|Incrustado
 Nazwa|Etykieta|Osadzone
 Z názvù|Z popiskù|Z vlo¾ených
 
@@ -6089,7 +6089,7 @@ Errore durante l'importazione dei dati di contorno!\nOperazione terminata.
 Fout bij importeren van contour data!\nOperatie afgebroken.
 
 
-
+¡Error al importar datos de contorno!\nOperación terminada.
 B³±d importu danych konturu!\nOperacja Anulowana.
 Chyba pøi pøidávání dat ohranièení!\nOperace bude ukonèena.
 
@@ -6102,7 +6102,7 @@ Almeno un oggetto non è riuscito a caricare e non è stato possibile importarlo.
 Minstens één Object kon niet geladen en geïmporteerd worden.
 
 
-
+Al menos un objeto no se pudo cargar y no pudo ser importado.
 B³±d odczytu przynajmniej jednego objektu i nie zosta³ importowany.
 Nepodaøilo se naèíst ¾ádný objekt, který by bylo mo¾no pøipojit.
 
@@ -6115,7 +6115,7 @@ Vista mappa: Importa contorni
 Map View: Contouren Importeren
 
 
-
+Vista de mapa: Importar contornos
 Widok Mapy: Import Konturów
 Zobrazení mapy: Pøipojit ohranièení
 
@@ -6128,7 +6128,7 @@ Percorso/file XYZ
 XYZ Pad/Bestand
 
 
-
+Ruta/Archivo XYZ
 XYZ ¦cie¿ka/Plik
 XYZ Cesta/Soubor
 
@@ -6141,7 +6141,7 @@ Non hai selezionato un file da importare!\nOperazione terminata.
 U heeft geen bestand geselecteerd om te importeren!\nOperatie afgebroken.
 
 
-
+¡No seleccionó un archivo para importar!\nOperación terminada.
 Nie wybra³e¶/a¶ pliku do importu\nOperacja Anulowana.
 Nebyl vybrán ¾ádný soubor, který by bylo mo¾no pøipojit!\nOperace bude ukonèena.
 
@@ -6154,7 +6154,7 @@ Inserisci il numero della zona UTM (0-60) per i dati che stai per importare.
 Voer het UTM zone nummer (0-60) in voor de data die u gaat importeren.
 
 
-
+Ingrese el número de zona UTM (0-60) para los datos que está a punto de importar.
 Wprowad¼ numer strwfy UTM (0-60) dla danych które importujesz.
 Zadej èíslo èasové zony UTM (0-60) pro data, která chce¹ pøipojit.
 
@@ -6167,7 +6167,7 @@ Vista mappa: Costruisci DEM
 Map View: DEM Creëren
 
 
-
+Vista de mapa: Construir DEM
 Widok Mapy: Budowa DEM
 Zobrazení mapy: Vytvoøení DEM
 
@@ -6180,7 +6180,7 @@ Le zone UTM possono essere da 0 a 60! La zona selezionata è fuori intervallo.\nO
 UTM zones mogen van 0 tot 60 zijn! De geselecteerde zone ligt buiten bereik.\nOperatie afgebroken.
 
 
-
+¡Las zonas UTM pueden ser de 0 a 60! La zona seleccionada está fuera de rango.\nOperación terminada.
 Strefy UTM powinny byæ w zakresie id 0 do 60! Wybrana strefa jest poza zakresem.\nOperacja anulowana.
 Èíslo èasové zóny UTM musí být v rozsahu 0 a¾ 60! Zadané èíslo je mimo rozsah!\nOperace bude ukonèena.
 
@@ -6193,7 +6193,7 @@ Errore nell'aprire il file XYZ da importare!\nOperazione terminata.
 Fout bij openen van XYZ bestand om te importeren!\nOperatie afgebroken.
 
 
-
+¡Error al abrir archivo XYZ para importar!\nOperación terminada.
 B³±d otwarcia pliku XYZ do importu!\nOperacja Anulowana.
 Chyba pøi otevírání souboru souøadnic XYZ pro ètení!\nOperace bude ukonèena.
 
@@ -6206,7 +6206,7 @@ Vista mappa: esportazione XYZ
 Map View: XYZ Export
 
 
-
+Vista de mapa: Exportar XYZ
 
 Zobrazeni mapy: Export souøadnic XYZ
 
@@ -6219,7 +6219,7 @@ Errore durante la scrittura del file XYZ! File parzialmente scritto.\nOperazione
 Fout bij schrijven naar XYZ bestand! Deel van bestand geschreven.\nOperatie afgebroken.
 
 
-
+¡Error al escribir en archivo XYZ! Archivo parcial escrito.\nOperación terminada.
 B³±d zapisu do pliku danych XYZ! Dane zpisane czê¶ciowo.\n Operacja anulowana.
 Chyba pøi zápisu do souboru souøadnic XYZ! Soubor byl zapsán pouze èásteènì.\nOperace bude ukonèena.
 
@@ -6232,7 +6232,7 @@ Devi specificare un nome per il file di output!\nOperazione terminata.
 Specificeer een uitvoer bestandsnaam!\nOperatie afgebroken.
 
 
-
+¡Debe especificar un nombre de archivo de salida!\nOperación terminada.
 Musisz wskazaæ nazwê pliku wyj¶ciowego!\n Operacja anulowana.
 Nezadali jste jméno výstupního souboru!\nOperace bude ukonèena.
 
@@ -6245,7 +6245,7 @@ Impossibile aprire il file XYZ per l'esportazione!\nOperazione terminata.
 Kan XYZ bestand niet openen voor export!\nOperatie afgebroken.
 
 
-
+No se puede abrir archivo XYZ para exportar!\nOperación terminada.
 Nie mo¿na otworzyæ pliku danych XYZ dla exportu!\nOperacja anulowana.
 Nepodaøilo se otevøít soubor souøadnic XYZ k exportu!\nOperace bude ukonèena.
 
@@ -6260,7 +6260,7 @@ Modulo Data Ops: Importazione DLG
 Data Ops Module: Import DLG
 
 
-
+Módulo de operaciones de datos: Importar DLG
 Modu³ Data Ops: Import DLG
 Modul exportu: Pøipojení DLG
 
@@ -6273,7 +6273,7 @@ Memoria esaurita durante l'allocazione di array temporanei!\nOperazione terminat
 Te weinig geheugen voor toewijzen van tijdelijke reeksen!\nOperatie afgebroken.
 
 
-
+¡Sin memoria al asignar matrices temporales!\nOperación terminada.
 Brak pamiêci dla alokacji tymczasowych tabel!\nOperacja anulowana.
 Nedostatek pamìti pro pomocná pole!\nOperace bude ukonèena.
 
@@ -6286,7 +6286,7 @@ File DLG
 DLG-Bestand
 
 
-
+Archivo DLG
 Plik DLG
 Soubor DLG
 
@@ -6299,7 +6299,7 @@ Nessun file selezionato!
 Geen bestand(en) geselecteerd!
 
 
-
+¡No se seleccionaron archivos!
 Nie wybrano pliku!
 Nebyl vybrán ¾ádný soubor!
 
@@ -6312,7 +6312,7 @@ Impossibile aprire il file DLG per la lettura!\nOperazione terminata.
 Kan DLG bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
-
+¡No se puede abrir archivo DLG para entrada!\nOperación terminada.
 Nie mogê otworzyæ pliku DLG dla wej¶cia\nOperacja anulowana.
 Nepodaøilo se otevøít soubor DLG pro ètení!\nOperace bude ukonèena.
 
@@ -6325,7 +6325,7 @@ File non è un DLG opzionale USGS!\nOperazione terminata.
 Bestand is geen USGS Optionele DLG!\nOperatie afgebroken.
 
 
-
+¡Archivo no es un DLG opcional USGS!\nOperación terminada.
 Plik nie zawiera danych USGS opcjonalnych dla DLG!\nOperacja anulowana.
 Soubor není správného typu (USGS/DLG)!\nOperace bude ukonèena.
 
@@ -6338,7 +6338,7 @@ Zona UTM non appropriata!\nOperazione terminata.
 Ongeldige UTM Zone!\nOperatie afgebroken.
 
 
-
+¡Zona UTM inapropiada!\nOperación terminada.
 Niew³a¶ciwa strefa UTM!\nOperacja anulowana.
 Nevhodnì zvolená zóna UTM!\nOperace bude ukonèena.
 
@@ -6351,7 +6351,7 @@ Questo file contiene dati in un sistema di riferimento non supportato!\nOperazio
 Dit bestand bevat data in een niet ondersteund Referentie Systeem!\nOperatie afgebroken.
 
 
-
+¡Este archivo contiene datos en un sistema de referencia no compatible!\nOperación terminada.
 Ten plik zawira dane zapisane w niewspieranym systemie!\nOperacja anulowana.
 Vybraný soubor obsahuje data v nepodporovaném referenèním systemu!\nOperace bude ukonèena.
 
@@ -6364,7 +6364,7 @@ Lettura
 Lezen
 
 
-
+Leyendo
 Czytam
 Ètení
 
@@ -6377,7 +6377,7 @@ Inserisci fino a 3 caratteri come prefisso per questo set DLG, se desideri.
 Voer maximaal 3 karakters in als een prefix voor deze DLG set als u dat wenst.
 
 
-
+Ingrese hasta 3 caracteres como prefijo para este conjunto DLG si lo desea.
 Wprowad¿ do trzech liter prefiksu dla tego DLG ustaw je¶li potrzebujesz.
 Mù¾ete zadat a¾ 3 znaky dlouhou pøedponu pro tuto DLG sestavu.
 
@@ -6390,7 +6390,7 @@ Memoria esaurita durante l'espansione del database!\nOperazione terminata.
 Te weinig geheugen voor uitbreiden van database!\nOperatie afgebroken.
 
 
-
+¡Sin memoria al expandir base de datos!\nOperación terminada.
 Brak pamiêci dla rozszerzenia bazy danych!\nOperacja anulowana.
 Nedostatek pamìti pro rozvinutí database!\nOperace bude ukonèena.
 
@@ -6403,7 +6403,7 @@ Errore durante il salvataggio del file oggetto!\nOperazione terminata.
 Fout bij opslaan van object bestand!\nOperatie afgebroken.
 
 
-
+¡Error al guardar archivo de objeto!\nOperación terminada.
 B³±d zapisu pliku objektu!\nOperacja anulowana.
 Chyba pøi ukládání souboru objektu!\nOperace bude ukonèena.
 
@@ -6416,7 +6416,7 @@ Modulo Data Ops: Importazione DXF
 Data Ops Module: Importeer DXF
 
 
-
+Módulo de operaciones de datos: Importar DXF
 Modu³ Data Ops: Importuj DXF
 Modul exportu: Pøipojení DXF
 
@@ -6429,7 +6429,7 @@ File DXF
 DXF-Bestand
 
 
-
+Archivo DXF
 Plik DXF
 Soubor DXF
 
@@ -6442,7 +6442,7 @@ Impossibile aprire il file DXF per l'input!\nOperazione terminata.
 Kan DXF bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
-
+¡No se puede abrir archivo DXF para entrada!\nOperación terminada.
 Nie mogê otworzyæ pliku DXF dla wej¶cia!\nOperacja anulowana.
 Nemohu otevøít soubor DXF pro ètení!\nOperace bude ukonèena.
 
@@ -6455,7 +6455,7 @@ Valore di codice non corretto trovato!\nOperazione terminata prematuramente.
 Ongeldige Code waarde gevonden!\nOperatie voortijdig afgebroken.
 
 
-
+¡Valor de código incorrecto encontrado!\nOperación terminada prematuramente.
 Znaleziona niew³a¶ciwa warto¶æ Kodu.\nOperacja anulowana przedwcze¶nie.
 Nalezena nesprávná hodnota kódu!\nOperace byla ukonèena pøedèasnì.
 
@@ -6468,7 +6468,7 @@ Errore durante il salvataggio dell'oggetto!\nOperazione terminata.
 Fout bij opslaan van object!\nOperatie afgebroken.
 
 
-
+¡Error al guardar objeto!\nOperación terminada.
 B³±d zapisu objektu!\nOperacja anulowana.
 Chyba pøi ukládání objektu!\nOperace bude ukonèena.
 
@@ -6481,7 +6481,7 @@ Ein Eintrag ohne Namenskennzeichnung wurde gefunden. Bitte geben Sie einen Stand
 Er is een entiteit gevonden zonder naam identificatie. Voer een standaard naam in.
 
 
-
+Se ha encontrado una entidad sin identificador de nombre. Por favor ingrese un nombre predeterminado.
 Cia³o nie ma nazwy. Wprowad¼ domy¶ln± nazwê.
 Byla nalezena èást bez názvu. Prosím, zadejte výchozí název.
 
@@ -6494,7 +6494,7 @@ Memoria esaurita durante l'espansione dell'elenco dell'editor del database!\nL'u
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nLaatste item verschijnt niet in lijst weergave.
 
 
-
+¡Sin memoria al expandir lista del Editor de Base de Datos!\nEl último elemento no aparece en la vista de lista.
 Brak pamieci dla rozszerzenia bazy danych o listê edytorów!\nOstatnia pozycja nie zostanie wy¶wietlona.
 Nedostatek pamìti pro rozvinutí seznamu databáze!\nPoslední polo¾ka se v seznamu nezobrazí.
 
@@ -6507,7 +6507,7 @@ Errore durante il salvataggio dell'ultimo oggetto!\nOperazione terminata.
 Foout bij opslaan van laatste object!\nOperatie afgebroken.
 
 
-
+¡Error al guardar último objeto!\nOperación terminada.
 B³±dd zapisu ostaniego objektu!\nOperacja anulowana.
 Chyba pøi ukládání posledního objektu!\nOperace bude ukonèena.
 
@@ -6520,7 +6520,7 @@ Modulo Operazioni Dati: Importa WDB
 Data Ops Module: Importeer WDB
 
 
-
+Módulo de operaciones de datos: Importar WDB
 Modu³ Data Ops: Import WDB
 Modul exportu: Pøipojení WDB
 
@@ -6533,7 +6533,7 @@ File WDB
 WDB-Bestand
 
 
-
+Archivo WDB
 Plik WDB
 Soubor WDB
 
@@ -6546,7 +6546,7 @@ Impossibile aprire il file WDB per l'input!\nOperazione terminata.
 Kan WDB bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
-
+¡No se puede abrir archivo WDB para entrada!\nOperación terminada.
 Nie mogê otworzyæ pliku WDB dla wej¶cia!\nOperacja anulowana.
 Nemohu otevøít soubor WDB pro ètení!\nOperace bude ukonèena.
 
@@ -6559,7 +6559,7 @@ Errore nell'apertura del file sorgente!\nOperazione terminata.
 Fout bij openen van bron bestand!\nOperatie afgebroken.
 
 
-
+¡Error al abrir archivo fuente!\nOperación terminada.
 B³±d otwarcia pliku ¼ród³owego!\nOperacja anulowana.
 Chyba pøi otevírání zdrojového souboru!\nOperace bude ukonèena.
 
@@ -6572,7 +6572,7 @@ Errore nell'apertura del file di output!\nOperazione terminata.
 Fout bij openen van uitvoer bestand!\nOperatie afgebroken.
 
 
-
+¡Error al abrir archivo de salida!\nOperación terminada.
 B³±d otwrcia pliku dla wyj¶cia.\nOperacja anulowana.
 Chyba pøi otevírání souboru pro zápis!\nOperace bude ukonèena.
 
@@ -6585,7 +6585,7 @@ Codice attributo non supportato!\nOperazione terminata.
 Niet ondersteunde attribuut code!\nOperatie afgebroken.
 
 
-
+¡Código de atributo no compatible!\nOperación terminada.
 Niewspierany kod atrybutu!\nOperacja anulowana.
 Nepodporovaný pøíznak kódu!\nOperace bude ukonèena.
 
@@ -6598,7 +6598,7 @@ L'oggetto contiene troppi punti!\nOperazione terminata.
 Het object bevat te veel punten!\nOperatie afgebroken.
 
 
-
+¡El objeto contiene demasiados puntos!\nOperación terminada.
 Objekt zawiera zbyt wielu punktów!\nOperacja anulowana.
 Objekt obsahuje pøíli¹ mnoho bodù\nOperace bude ukonèena.
 
@@ -6612,7 +6612,7 @@ Nuovo database creato: %s
 Nieuwe database aangemaakt: %s
 
 
-
+Nueva base de datos creada: %s
 Utworzono now± bazê danych: %s
 Vytvoøena nová databáze: %s
 
@@ -6625,7 +6625,7 @@ Errore durante il salvataggio del database!\nSelezionare una nuova directory?
 Fout bij opslaan van database!\nEen nieuwe directory selecteren?
 
 
-
+¡Error al guardar base de datos!\n¿Seleccionar un nuevo directorio?
 B³±d zapisu bazy danych!
 Chyba pøi ukládání databáze!\nChcete vybrat nový adresáø?
 
@@ -6638,7 +6638,7 @@ OK|Annulla
 OK|Annuleren
 
 
-
+OK|Cancelar
 OK|Anuluj
 Potvrdit|Zru¹it
 
@@ -6651,7 +6651,7 @@ Database
 Database
 
 
-
+Base de datos
 Baza danych
 Databáze
 
@@ -6664,7 +6664,7 @@ Numero di oggetti = %d
 Aantal objecten = %d
 
 
-
+Número de objetos = %d
 Ilo¶æ objektów = %d
 Poèet objektù = %d
 
@@ -6677,7 +6677,7 @@ Directory creata: %s
 Directory aangemaakt: %s
 
 
-
+Directorio creado: %s
 Katalog Utworzony: %s
 Adresáø %s byl vytvoøen
 
@@ -6690,7 +6690,7 @@ Nuova directory creata: %s. Impostarla come directory predefinita?
 Nieue directory aangemaakt: %s. Wilt u het het standaard directory maken?
 
 
-
+Nuevo directorio creado: %s. ¿Hacerlo el directorio predeterminado?
 Nowy katalog utworzony: %s. Czy ma byæ domy¶lnym katalogiem?
 Nový adresáø %s byl vytvoøen. Chcete jej pou¾ít jako výchozí?
 
@@ -6703,7 +6703,7 @@ Numero illegale di record nel database: meno di uno!\nOperazione terminata.
 Ongeldig aantal database records: minder dan één!\nOperatie afgebroken.
 
 
-
+¡Número ilegal de registros de base de datos: menos de uno!\nOperación terminada.
 Niew³a¶ciwa ilo¶æ rekordów bazy danych: mniej ni¿ jeden!\nOperacja anulowana.
 Nepovolený poèet záznamù v databázi: Ménì ne¾ jeden!\nOperace bude ukonèena.
 
@@ -6716,7 +6716,7 @@ Memoria esaurita!\nImpossibile aggiornare l'elenco del database.
 Te weinig geheugen!\nKan database lijst niet bijwerken.
 
 
-
+¡Sin memoria!\nNo se puede actualizar lista de base de datos.
 Brak pamiêci!\nNie mogê zaktualizowaæ listy baz danych.
 Nedostatek pamìti pro obnovení seznamu databáze.
 
@@ -6729,7 +6729,7 @@ Caricamento Vettori
 Laad Vector
 
 
-
+Carga vectorial
 £adowanie wektora
 Vektor naèten
 
@@ -6742,7 +6742,7 @@ MSG_DB_OBJECTS
 %d objecten
 
 
-
+%d objetos
 %d Objekty
 %d objektù
 
@@ -6755,7 +6755,7 @@ Almeno un file vettoriale contiene un numero di punti diverso da quello registra
 Ten minste één vector bestand bevatte een aantal punten dat verschilde van dat in zijn Database record!\nHet record is bijgewerkt.\nDatabase moet opnieuw worden opgeslagen.
 
 
-
+¡Al menos un archivo vectorial contiene un número de puntos diferente al del registro en la base de datos!\nEl registro ha sido actualizado.\nLa base de datos debe ser guardada nuevamente.
 Przynajmniej jeden plik vektorów zawiera liczbê punków ró¿n± od warto¶ci zapisanej w bazie danych!\nWpis w bazie zostanie zaktualizowany.\nBaza danych powinna zostaæ ponownie zapisana.
 Bylo zji¹tìno, ¾e alespoò jeden vektorový soubor obsahuje jiný poèet bodù, ne¾ je uveden v jeho záznamech v Databázi!\nZáznam byl aktualizován.\nDatabáze by mìla být znovu ulo¾ena.
 
@@ -6768,7 +6768,7 @@ Vista Mappa: Carica
 Map View: Laden
 
 
-
+Vista de mapa: Cargar
 Widok Mapy: Wczytaj
 Zobrazení mapy: Naèítání
 
@@ -6781,7 +6781,7 @@ Errore nella lettura delle altitudini! Oggetto non caricato.
 Fout bij lezen van hoogten! Object niet geladen.
 
 
-
+¡Error al leer elevaciones! Objeto no cargado.
 B³±d odczytu wzniesieñ! Objekt nie wczytany.
 Chyba pøi naèítání vý¹kových záznamù! Objekt nebyl nahrán.
 
@@ -6794,7 +6794,7 @@ Errore nella lettura delle latitudini! Oggetto non caricato.
 Fout bij lezen van breedtes! Object niet geladen.
 
 
-
+¡Error al leer latitudes! Objeto no cargado.
 B³±d odczytu wysoko¶ci! Objekt nie wczytany.
 Chyba pøi naèítání záznamù zemìpisné vý¹ky! Objekt nebyl nahrán.
 
@@ -6807,7 +6807,7 @@ Errore nella lettura delle longitudini! Oggetto non caricato.
 Fout bij lezen van lengtegraden! Object niet geladen.
 
 
-
+¡Error al leer longitudes! Objeto no cargado.
 B³±d odczytu szeroko¶ci! Objekt nie wczytany.
 Chyba pøi naèítání záznamù zemìpisné délky! Objekt nebyl nahrán.
 
@@ -6820,7 +6820,7 @@ Memoria esaurita! Oggetto non caricato.
 Te weinig geheugen! Object niet geladen.
 
 
-
+¡Sin memoria! Objeto no cargado.
 Brak pamiêci! Objekt nie wczytany.
 Nedostatek pamìti pro nahrání objektu! Objekt nebyl nahrán.
 
@@ -6833,7 +6833,7 @@ Errore nella lettura dell'intestazione! Oggetto non caricato.
 Fout bij lezen van header! Object niet geladen.
 
 
-
+¡Error al leer encabezado! Objeto no cargado.
 B³±d odczytu nag³ówka! Objekt nie wczytany.
 Chyba pøi ètení dat hlavièky objektu! Objekt nebyl nahrán.
 
@@ -6846,7 +6846,7 @@ Versione del file non supportata! Oggetto non caricato.
 Niet ondersteunde bestandsversie! Object niet geladen.
 
 
-
+¡Versión de archivo no compatible! Objeto no cargado.
 Niewspierana wersja pliku! Objekt niewczytany.
 Nepodporovaná verze souboru! Objekt nebyl nahrán.
 
@@ -6859,7 +6859,7 @@ Directory Oggetti
 Object Directory
 
 
-
+Directorio de objetos
 Katalog Objektów
 Adresáø objektù
 
@@ -6872,7 +6872,7 @@ Modulo Database: Nome
 Database Module: Naam
 
 
-
+Módulo de base de datos: Nombre
 Modu³ Bazy Danych: Nazwa
 Databázový modul: Název
 
@@ -6885,7 +6885,7 @@ Nome vettore già presente nel database!\nProvare un nuovo nome?
 De vector naam is al aanwezig in de database!\nEen nieuwe naam proberen?
 
 
-
+¡Nombre vectorial ya presente en la base de datos!\n¿Intentar con un nuevo nombre?
 Wektor ju¿ wystêpuje w bazie danych!\nU¿yæ inn± nazwê?
 Tento název vektoru se ji¾ v databázi nachází!\nPøejete si zadat nové jméno?
 
@@ -6898,7 +6898,7 @@ Modulo Database: Editor
 Database Module: Editor
 
 
-
+Módulo de base de datos: Editor
 Modu³ Bazy Danych: Edytor
 Databázový modul: Editor
 
@@ -6911,7 +6911,7 @@ Memoria insufficiente per le coordinate vettoriali!\nIl nuovo oggetto è stato cr
 Te weinig geheugen voor vector coördinaten!\nNieuw object is aangemaakt maar kan niet bewerkt worden totdat er geheugen beschikbaar is.
 
 
-
+¡Sin memoria para coordenadas vectoriales!\nSe ha creado un nuevo objeto pero no puede ser editado hasta que haya memoria disponible.
 Brak pamiêci na koordynaty wektora!\nObjekt zosta³ utworzony ale nie mo¿e byæ edytowany do czasu gdy bêdziedostêpna pamiêæ.
 Nedostatek pamìti pro vektorové souøadnice!\nNový objekt byl vytvoøen, ale pro nedostatek pamìti jej nelze upravovat.
 
@@ -6924,7 +6924,7 @@ Memoria esaurita durante l'espansione dell'elenco dell'editor del database!\nIl 
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is aangemaakt maar zal niet verschijnen in lijst weergave.
 
 
-
+¡Sin memoria al expandir lista del Editor de Base de Datos!\nSe ha creado un nuevo objeto pero no aparecerá en la vista de lista.
 Brak pamiêci dla rozszerzenia Bazy Danych Listy Edycji!\nNowy objekt zosta³ utworzony, ale nie pojawi siê na li¶cie.
 Nedostatek pamìti pro rozvinutí seznamu databáze!\nNový objekt byl sice vytvoøen, ale v seznamu se nezobrazí.
 
@@ -6937,7 +6937,7 @@ Aggiungi Oggetto
 Object toevoegen
 
 
-
+Añadir objeto
 Dodaj Objekt
 Pøidání objektu
 
@@ -6950,7 +6950,7 @@ Database: Aggiungi Oggetto
 Database: Object toevoegen
 
 
-
+Base de datos: Añadir objeto
 Baza Danych: Dodaj Objekt
 Databáze: Pøidání objektu
 
@@ -6963,7 +6963,7 @@ Nessun file selezionato!
 Geen bestand(en) geselecteerd!
 
 
-
+¡No se seleccionaron archivos!
 Nie wybrano pliku(ów)!
 ®ádný soubor nebyl vybrán!
 
@@ -6976,7 +6976,7 @@ L'oggetto deve terminare con il suffisso "Obj"!
 Het object moet eindigen op suffix "Obj"!
 
 
-
+¡El objeto debe terminar con el sufijo "Obj"!
 Objekt musi byæ zakoñczony przyrostkiem "Obj"!
 Název objektu musí konèit pøíponou "Obj"!
 
@@ -6989,7 +6989,7 @@ Nome oggetto già presente nel database!\nGli elementi duplicati verranno ignorat
 De object naam is al aanwezig in de database!\nDubbele items zullen worden genegeerd.
 
 
-
+¡Nombre de objeto ya presente en la base de datos!\nLos elementos duplicados serán omitidos.
 Nazwa objektu wystêpuje ju¿ w bazie danych!\nDuplikaty zostan± ominiête.
 Tento název objektu je ji¾ v databázi obsa¾en!\nDuplicitní záznamy budou vynechány.
 
@@ -7002,7 +7002,7 @@ Memoria esaurita durante l'espansione dell'elenco dell'editor del database!\nIl 
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is toegevoegd maar zal niet verschijnen in lijst weergave.
 
 
-
+\u00a1Sin memoria al expandir lista del Editor de Base de Datos!\nSe ha añadido un nuevo objeto pero no aparecerá en la vista de lista.
 Brak pamiêci dla roszerzenie Listy Edycji w bazie danych!\nNowy objekt zosta³ dodany, ale nie zostanie wy¶wietlony na li¶cie.
 Nedostatek pamìti pro rozvinutí seznamu databáze!\nNový objekt byl sice pøidán, ale v seznamu se nezobrazí.
 
@@ -7015,7 +7015,7 @@ Errore durante il caricamento di questo oggetto!\nOperazione terminata.
 Fout bij laden van dit object!\nOperatie afgebroken.
 
 
-
+\u00a1Error al cargar este objeto!\nOperación terminada.
 B³±d wczytania objektu!\nOperacja anulowana.
 Chyba pøi naèítání tohoto objektu!\nOperace bude ukonèena.
 
@@ -7028,7 +7028,7 @@ Vista Mappa: Salva Tutto
 Map View: Alles Opslaan
 
 
-
+Vista de mapa: Guardar todo
 Widok Map: Zapisz Wszystko
 Zobrazení mapy: Ve¹kerá ulo¾ení
 
@@ -7041,7 +7041,7 @@ Errore durante la scrittura del file Master Object!\nOperazione terminata.
 Foout bij schrijven van Master Object bestand!\nOperatie afgebroken.
 
 
-
+\u00a1Error al escribir archivo maestro de objeto!\nOperación terminada.
 B³±d zapisu Nadrzêdnego Objektu do pliku!\nOperacja anulowana.
 Chyba pøi zápisu dat výchozího objektu do souboru!\nOperace bude ukonèena.
 
@@ -7054,7 +7054,7 @@ WCSMasterObject
 WCSMasterObject
 
 
-
+WCSObjetoMaestro
 WCSObjektNadrzêdny
 Výchozí objekt WCS
 
@@ -7067,7 +7067,7 @@ Memoria esaurita durante il caricamento del file Master Object!\nGli oggetti abi
 Te weinig geheugen voor laden van Master Object bestand!\nIngeschakelde objecten zullen individueel worden geladen.
 
 
-
+\u00a1Sin memoria al cargar archivo maestro de objeto!\nLos objetos habilitados se cargarán individualmente.
 Brak pamieci dla wczytania pliku Objektu Nadrzêdnego!\nAktywne objekty bêd± ³adowane indywidualnie.
 Nedostatek pamìti pro naètení dat v¹ech výchozích objektù!\nVybrané objekty budou muset být nahrávány jednotlivì.
 
@@ -7080,7 +7080,7 @@ Errore nella lettura del file Master Object!\nOperazione terminata.
 Foout bij lezen van Master Object bestand!\nOperatie afgebroken.
 
 
-
+\u00a1Error al leer archivo maestro de objeto!\nOperación terminada.
 B³±d odczytu pliku Nadrzêdnego Objektu!\nOperacja anulowana.
 Chyba ètení dat ze souboru výchozích objektù!\nOperace bude ukonèena.
 
@@ -7093,7 +7093,7 @@ Il numero di oggetti nel file Master Object non corrisponde al numero di oggetti
 Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van individuele bestanden
 
 
-
+\u00a1El número de objetos en el archivo maestro no coincide con el número de objetos en la base de datos actual! El archivo maestro no puede ser usado. Los objetos serán cargados desde archivos individuales
 Liczba objektów w pliku Objektu Nadrzêdnego nie zgadza siê z liczb± Objektów w aktualnej Bazie Danych! Plik Objektu Nadrzêdnego nie zostanie u¿yty. Objekty zostan± wczytane indywidualnie z plików
 Poèet vybraných objektù, neodpovídá poètu objektù v aktuálnì pou¾ívané databázi! Soubor výchozích objektù nebude pou¾it! Objekty budou muset být nahrávány z jednotlivých souborù
 
@@ -7106,7 +7106,7 @@ MSG_DB_MDBISNOTAWCSMASTEROBJECTFILE
 .MDB is geen WCS Master Object bestand!
 
 
-
+.MDB no es un archivo maestro de objeto WCS!
 MDB nie jest plikiem Objektu Ndarzêdnego WCS!
 Soubor s pøíponou MDB není souborem výchozích objektù WCS!
 
@@ -7119,7 +7119,7 @@ Record = %d, Contrassegnati = %d
 Records = %d, Gemarkeerd = %d
 
 
-
+Registros = %d, Marcados = %d
 Rekordy = %d, Zaznaczone = %d
 Záznamù = %d, Oznaèených = %d
 
@@ -7132,7 +7132,7 @@ Data Ops: Converti DEM
 Data Ops: DEM converteren
 
 
-
+Operaciones de datos: Convertir DEM
 Data Ops: Konwersja DEM
 Modul exportu: Pøevod DEM
 
@@ -7145,7 +7145,7 @@ Sie müssen eine Datei zum Konvertieren angeben!\nVorgang abgebrochen.
 Specificeer een bestand om te converteren!\nOperatie afgebroken.
 
 
-
+\u00a1Debe especificar un archivo para convertir!\nOperación terminada.
 Musisz wskazaæ plik do konwersji!\nOperacja anulowana.
 Nejprve je tøeba vybrat soubor k pøevodu!\nOperace bude ukonèena.
 
@@ -7158,7 +7158,7 @@ Die Anzahl von Eingabezeilen und -spalten muss angeben werden!\nVorgang abgebroc
 Specificeer invoer rijen en kolommen!\nOperatie afgebroken.
 
 
-
+\u00a1Debe especificar filas y columnas de entrada!\nOperación terminada.
 Musisz zdefiniowaæ ilo¶æ wierszy i kolumn!\nOperacja anulowana.
 Nejprve je tøeba vybrat vstupní øádky a sloupce!\nOperace bude ukonèena.
 
@@ -7171,7 +7171,7 @@ Nessun database disponibile per indirizzare le entità di output!\nOperazione ter
 Er is geen Database om uitvoer entiteiten naar te leiden!\nOperatie afgebroken.
 
 
-
+\u00a1No hay base de datos para dirigir entidades de salida!\nOperación terminada.
 Nie ma bazy danych do której mo¿na kierowaæ wyniki!\nOperacja anulowana.
 Není mo¾no ukládat do neexistující databáze!\nOperace bude ukonèena.
 
@@ -7184,7 +7184,7 @@ I dati di input non possono essere divisi equamente tra le mappe di output.\nL'u
 Invuldata kan niet gelijk verdeeld worden over uitvoer kaarten.\nLaatste kolom van kaarten zal %ld kolommen hebben.\nLaatste rij van kaarten zal %ld rijen hebben.
 
 
-
+\u00a1Los datos de entrada no pueden dividirse equitativamente entre los mapas de salida!\nLa última columna de los mapas tendrá %ld columnas.\nLa última fila de los mapas tendrá %ld filas.
 Dane wej¶ciowe nie mog± byæ równo podzielone na wyj¶ciowe mapy.\nOstatnia Kolumna map ma %ld kolumn\nOstatni rz±d map ma %ld rows.
 Vstupní data není mo¾no rovnomìrnì rozdìlit do výstupních map.\nPoslední sloupec map bude mít %ld sloupcù.\nPoslední øádek map bude mít %ld øádkù.
 
@@ -7197,7 +7197,7 @@ Continua|Tronca|Annulla
 Doorgaan|Afbreken|Annuleren
 
 
-
+Continuar|Truncar|Cancelar
 Kontynuuj|Przytnij|Anuluj
 Pokraèovat|Zkrátit|Zru¹it
 
@@ -7210,7 +7210,7 @@ Dimensione del file errata per intestazione, larghezza e altezza specificate!\nP
 Bestandsgrootte klopt niet met opgegeven header, breedte en hoogte!\nToch doorgaan?
 
 
-
+\u00a1Tamaño de archivo incorrecto para el encabezado, ancho y alto especificados!\n¿Proceder de todos modos?
 Niew³a¶ciwy rozmiar pliku dla wskazanego nag³ówka, szeroko¶æ i wysoko¶æ!\nMimo to kontynuowaæ?
 Nepovolená velikost souboru vybrané hlavièky, ¹íøky a vý¹ky!\nPøejete si pokraèovat?
 
@@ -7224,7 +7224,7 @@ Invertire l'ordine dei dati?
 Data volgorde omkeren?
 
 
-
+¿Invertir orden de datos?
 Odwróciæ kolejno¶æ Danych?
 Pøevrátit datovou strukturu?
 
@@ -7237,7 +7237,7 @@ Inversione in corso
 Omkeren
 
 
-
+Invirtiendo
 Odwracanie
 Pøevrácení
 
@@ -7250,7 +7250,7 @@ Pavimento
 Ondergrens
 
 
-
+Suelo
 Pod³oga
 Spodní -  prelozit
 
@@ -7263,7 +7263,7 @@ Soffitto
 Bovengrens
 
 
-
+Techo
 Sufit
 Horni - prelozit
 
@@ -7276,7 +7276,7 @@ Sostituisci
 Vervangen
 
 
-
+Reemplazar
 Zast±p
 Zamìnit
 
@@ -7289,7 +7289,7 @@ Ricampiona
 Herberekenen
 
 
-
+Re-muestrear
 
 Pøepoèítat
 
@@ -7302,7 +7302,7 @@ Estremi
 Extreem
 
 
-
+Extremos
 
 Extrémnì
 
@@ -7315,7 +7315,7 @@ Converti
 Converteren
 
 
-
+Convertir
 Konwersja
 Pøevést
 
@@ -7328,7 +7328,7 @@ Impossibile aprire il file per l'input!\nOperazione terminata.
 Kan het bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
-
+\u00a1No se puede abrir archivo para entrada!\nOperación terminada.
 Nie mo¿na otworzyæ pliku dla wej¶cia!\nOperacja anulowana.
 Nemohu otevøít soubor ètení!\nOperace bude ukonèena.
 
@@ -7341,7 +7341,7 @@ Converti file sorgente DEM
 Converteer DEM bron bestand
 
 
-
+Convertir archivo fuente DEM
 Konwerja pliku ¼ród³owego DEM
 Pøevést zdrojový soubor DEM
 
@@ -7354,7 +7354,7 @@ Dimensione del file errata per intestazione, larghezza e altezza specificate!\nO
 Onjuiste bestandsgrootte voor opgegeven header, breedte en hoogte!\nOperatie afgebroken.
 
 
-
+\u00a1Tamaño de archivo incorrecto para el encabezado, ancho y alto especificados!\nOperación terminada.
 Niew³a¶ciwy rozmiar dla wskazanaego nag³ówka, szeroko¶æ i d³ugo¶æ!\nOperacja anulowana.
 Nepovolená velikost souboru vybrané hlavièky, ¹íøky a vý¹ky!\nOperace bude ukonèena.
 
@@ -7367,7 +7367,7 @@ Impossibile aprire il file per l'output!\nOperazione terminata.
 Kan het bestand niet openen voor uitvoer!\nOperatie afgebroken.
 
 
-
+\u00a1No se puede abrir archivo para salida!\nOperación terminada.
 Niemo¿na otworzyæ pliku dla wyj¶cia!\nOperacja anulowana.
 Nemohu otevøít soubor pro zápis!\nOperace bude ukonèena.
 
@@ -7380,7 +7380,7 @@ Converti file di destinazione DEM
 Converteer DEM doelbestand
 
 
-
+Convertir archivo de destino DEM
 Konwersja DEM plik docelowy
 Pøevést cílový soubor DEM
 
@@ -7393,7 +7393,7 @@ Errore durante la scrittura del file di destinazione!\nOperazione terminata.
 Fout bij schrijven van doelbestand!\nOperatie afgebroken.
 
 
-
+\u00a1Error al escribir archivo de destino!\nOperación terminada.
 B³±d zapisu pliku docelowego!\nOperacja anulowana.
 Chyba pøi zápisu do cílového souboru!\nOperace bude ukonèena.
 
@@ -7406,7 +7406,7 @@ Errore nella lettura del file sorgente!\nOperazione terminata.
 Fout bij lezen van bronbestand!\nOperatie afgebroken.
 
 
-
+\u00a1Error al leer archivo fuente!\nOperación terminada.
 B³±d odczytu pliku ¼ród³owego!\nOperacja anulowana.
 Chyba pøi ètení zdrojového souboru!\nOperace bude ukonèena.
 
@@ -7419,7 +7419,7 @@ File non compresso!\nOperazione terminata.
 Bestand is niet gecomprimeerd!\nOperatie afgebroken.
 
 
-
+\u00a1No es un archivo comprimido!\nOperación terminada.
 Plik nie skompresowany!\nOperacja anulowana.
 Toto není komprimovaný soubor!\nOperace bude ukonèena.
 
@@ -7432,7 +7432,7 @@ Intestazione estesa!\nOperazione terminata.
 Uitgebreide header!\nOperatie afgebroken.
 
 
-
+\u00a1Encabezado extendido!\nOperación terminada.
 Rozszrzony nag³ówek!\nOperacja anulowana.
 Roz¹íøená hlavièka!\nOperace bude ukonèena.
 
@@ -7445,7 +7445,7 @@ Configurazione del file di input non ancora supportata!\nOperazione terminata.
 Invoer bestand configuratie wordt nog niet ondersteund!\nOperatie afgebroken.
 
 
-
+\u00a1Configuración de archivo de entrada aún no compatible!\nOperación terminada.
 Konfiguracja pliku wej¶ciowego nie jest jeszcze wspierana!\nOperacja anulowana.
 Toto nastavení pro vstupní soubor není podporováno!\nOperace bude ukonèena.
 
@@ -7458,7 +7458,7 @@ Converti tipo sorgente DEM
 DEM bron type converteren
 
 
-
+Convertir tipo de fuente DEM
 Conwerja DEM typ ¼ród³a
 Pøevést zdrojový typ DEM
 
@@ -7471,7 +7471,7 @@ Formato dati di input non supportato!\nControlla le impostazioni.\nOperazione te
 Invoer data formaat wordt niet ondersteund!\nControleer uw instellingen.\nOperatie afgebroken.
 
 
-
+\u00a1Formato de datos de entrada no compatible!\nVerifique su configuración.\nOperación terminada.
 Format danych wej¶ciowych nie wspierany!\nSprawd¼ ustawienia.\nOperacja anulowana.
 Tento formát vstupních dat není podporován!\nZkontrolujte va¹e nastavení.\nOperace bude ukonèena.
 
@@ -7484,7 +7484,7 @@ Errore durante il salvataggio del file ".Obj"!\nOperazione terminata.
 Fout bij opslaan van ".Obj" bestand!\nOperatie afgebroken.
 
 
-
+\u00a1Error al guardar archivo \".Obj\"!\nOperación terminada.
 B³±d zapisu pliku ".Obj"!\nOperacja anulowana.
 Chyba pøi ukládání dat souboru objektù ".Obj"!\nOperace bude ukonèena.
 
@@ -7497,7 +7497,7 @@ File di input non riconosciuto come file DTED!\nOperazione terminata.
 Invulbestand niet herkend als een DTED bestand!\nOperatie afgebroken.
 
 
-
+\u00a1Archivo de entrada no reconocido como archivo DTED!\nOperación terminada.
 Plik wej¶ciowy nierozpoznany jako DTED!\nOperacja anulowana.
 Vstupní soubor není formátu DTED!\nOperace bude ukonèena.
 
@@ -7511,7 +7511,7 @@ DTED
 DTED
 
 
-
+DTED
 
 
 
@@ -7524,7 +7524,7 @@ MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 Ongeldige bronwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 
 
-
+!\n\u00a1Formato/tamaño de valor fuente ilegal!\nOperación terminada.
 !\nNielegalna kombinacja warto¶ci format/rozmiar ¿ród³a!\nOperacja anulowana.
 !\nNepovolená kombinace vstupních hodnot formát/velikost!\nOperace bude ukonèena.
 
@@ -7537,7 +7537,7 @@ Array binario
 Binaire Reeks
 
 
-
+Matriz binaria
 Tabela Binarna
 Bin pole
 
@@ -7550,7 +7550,7 @@ MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 !\nOngeldige doelwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 
 
-
+!\n\u00a1Formato/tamaño de valor de destino ilegal!\nOperación terminada.
 !\nNielegalna kombinacja warto¶ci format/rozmiar destynacji!\nOperacja anulowana.
 !\nNepovolená kombinace cílových hodnot format/velikost!\nOperace bude ukonèena.
 
@@ -7563,7 +7563,7 @@ Array binario
 Binaire Reeks
 
 
-
+Matriz binaria
 Tabela Binarna
 Binární pole
 
@@ -7576,7 +7576,7 @@ DEM WCS
 WCS DEM
 
 
-
+WCS DEM
 
 
 
@@ -7589,7 +7589,7 @@ Z Buffer
 Z Buffer
 
 
-
+Z Buffer
 Z Bufor
 
 
@@ -7602,7 +7602,7 @@ Array ASCII
 Ascii Reeks
 
 
-
+Matriz ASCII
 Tabela ASCII
 Ascii pole
 
@@ -7615,7 +7615,7 @@ DEM Vista
 Vista DEM
 
 
-
+Vista DEM
 
 
 
@@ -7628,7 +7628,7 @@ IFF
 IFF
 
 
-
+IFF
 
 
 
@@ -7641,7 +7641,7 @@ Mappa colori
 Kleurenkaart
 
 
-
+Mapa de color
 Mapa Kolorów
 Barevná mapa
 
@@ -7654,7 +7654,7 @@ IFF in scala di grigi
 Grijswaarden IFF
 
 
-
+IFF gris
 Odcienie szaro¶ci IFF
 ©edý IFF
 
@@ -7667,7 +7667,7 @@ IFF a colori
 Kleur IFF
 
 
-
+IFF color
 Kolorowy IFF
 Barevný IFF
 
@@ -7680,7 +7680,7 @@ Intero con segno
 Signed Int
 
 
-
+Entero con signo
 Warto¶æ ze znakiem
 Znaèený Int
 
@@ -7693,7 +7693,7 @@ Intero senza segno
 Unsigned Int
 
 
-
+Entero sin signo
 Warto¶æ bez znaku
 Neznaèený Int
 
@@ -7706,7 +7706,7 @@ Virgola mobile
 Drijvende komma
 
 
-
+Punto flotante
 zmiennoprzecinkowa
 Plovoucí Pt
 
@@ -7719,7 +7719,7 @@ Uno
 Een
 
 
-
+Uno
 Jeden
 Jeden
 
@@ -7732,7 +7732,7 @@ Due
 Twee
 
 
-
+Dos
 Dwa
 Dva
 
@@ -7745,7 +7745,7 @@ Quattro
 Vier
 
 
-
+Cuatro
 Cztery
 Ètyøi
 
@@ -7758,7 +7758,7 @@ Otto
 Acht
 
 
-
+Ocho
 Osiem
 Osm
 
@@ -7771,7 +7771,7 @@ Alto-Basso
 Hoog-Laag
 
 
-
+Alto-Bajo
 
 Vy¹¹í-Ni¾¹í
 
@@ -7784,7 +7784,7 @@ Basso-Alto
 Laag-Hoog
 
 
-
+Bajo-Alto
 
 Ni¾¹í-Vy¹¹í
 
@@ -7797,7 +7797,7 @@ Per riga
 Per rij
 
 
-
+Por fila
 Co Rz±d
 Podle øádkù
 
@@ -7810,7 +7810,7 @@ Per colonna
 Per kolom
 
 
-
+Por columna
 Co Kolumna
 Podle sloupcù
 
@@ -7823,7 +7823,7 @@ Latitudine
 Breedte
 
 
-
+Latitud
 Wysoko¶æ
 Zem. vý¹ka
 
@@ -7836,7 +7836,7 @@ Longitudine
 Lengtegraad
 
 
-
+Longitud
 Szeroko¶æ
 Zem. délka
 
@@ -7849,7 +7849,7 @@ Pollici
 Inch
 
 
-
+Pulgadas
 Cale
 Palce
 
@@ -7862,7 +7862,7 @@ Altro
 Anders
 
 
-
+Otro
 Inne
 Ostatní
 
@@ -7875,7 +7875,7 @@ MSG_DATAOPSGUI_TWOVALUEEQUIVALENCE
 \0334Twee Waarden Equivalentie
 
 
-
+\0334Equivalencia de dos valores
 \0334 Równowa¿no¶æ Dwóch Warto¶ci
 \0334Zámìna dvou hodnot
 
@@ -7888,7 +7888,7 @@ MSG_DATAOPSGUI_ONEVALUEEQUIVALENCE
 \0334Een Waarde Equivalentie
 
 
-
+\0334Equivalencia de un valor
 \0334 Równowa¿no¶æ Jednej Warto¶ci
 \0334Zámìna jedné hodnoty
 
@@ -7901,7 +7901,7 @@ MSG_DATAOPSGUI_MAXMINSTRETCH
 \0334Max-Min Rek
 
 
-
+\0334Estiramiento Máx-Mín
 \0344 Max-Min Rozci±gniêcie
 \0334Max-Min Rozta¾ení
 
@@ -7914,7 +7914,7 @@ Massimo uscita
 Max Uit
 
 
-
+Máx salida
 
 Max Výstup
 
@@ -7927,7 +7927,7 @@ Minimo uscita
 Min Uit
 
 
-
+Mín salida
 
 Min Výstup
 
@@ -7940,7 +7940,7 @@ Scala I/O
 I/O Schalen
 
 
-
+Escala E/S
 
 Vstup/Výstup Mìøítko
 
@@ -7953,7 +7953,7 @@ MSG_DATAOPSGUI_DEMREGISTRATION
 \0334DEM Registratie
 
 
-
+\0334Registro DEM
 \0334 Rejestracja DEM
 \0334DEM Registrace
 
@@ -7966,7 +7966,7 @@ MSG_DATAOPSGUI_VALUEFORMATSAMPLING
 \0334Waarde formaat & Berekening
 
 
-
+\0334Formato de Valor y Muestreo
 \0334 Format Warto¶ci i Sampli
 \0334Hodnota formátu a vzorkování
 
@@ -7979,7 +7979,7 @@ MSG_DATAOPSGUI_VALUEFORMATCOLORED
 \0334Waarde formaat
 
 
-
+\0334Formato de Valor
 \0334 Format Warto¶ci
 \0334Hodnota formátu
 
@@ -7992,7 +7992,7 @@ MSG_DATAOPSGUI_PREPROCESS
 \0334Voorbewerking
 
 
-
+\0334Pre-Proceso
 
 \0334Pøíprava
 
