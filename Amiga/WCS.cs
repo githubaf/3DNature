@@ -24990,7 +24990,7 @@ MSG_PARGUI_WATER (//31)
 Water
 
 
-
+  Agua
 
 
 
@@ -25003,7 +25003,7 @@ MSG_PARGUI_SNOW (//31)
 Sneeuw
 
 
-
+   Nieve
 
 
 
@@ -25016,7 +25016,7 @@ MSG_PARGUI_ROCK (//31)
 Rots
 
 
-
+   Roca
 
 
 
@@ -25029,7 +25029,7 @@ MSG_PARGUI_BARE (//31)
 Kaal
 
 
-
+   Desnudo
 
 
 
@@ -25042,7 +25042,7 @@ MSG_PARGUI_CONIF (//31)
 Naaldboom
 
 
-
+  Conif
 
 
 
@@ -25055,7 +25055,7 @@ MSG_PARGUI_DECID (//31)
 Loofboom
 
 
-
+  Decid
 
 
 
@@ -25068,7 +25068,7 @@ MSG_PARGUI_LOWVG (//31)
 LageVeg
 
 
-
+  VegBaja
 
 
 
@@ -25081,7 +25081,7 @@ MSG_PARGUI_SNAG (//31)
 Dode boom
 
 
-
+   TroncoSeco
 
 
 
@@ -25094,7 +25094,7 @@ MSG_PARGUI_STUMP (//31)
 Boomstronk
 
 
-
+  Tocón
 
 
 
@@ -25107,7 +25107,7 @@ MSG_PARGUI_STRAT (//31)
 Laag
 
 
-
+  Estrato
 
 
 
@@ -25120,7 +25120,7 @@ Il modello di ecosistema attuale è stato modificato. Vuoi salvarlo prima di proc
 Het huidige Ecosysteemmodel is gewijzigd. Wilt u het opslaan voordat u verder gaat?
 
 
-
+El modelo de ecosistema actual ha sido modificado. ¿Desea guardarlo antes de continuar?
 
 
 
@@ -25133,7 +25133,7 @@ Percorso/Nome del modello da caricare
 Laad Model Pad/Naam
 
 
-
+Ruta/Nombre de Carga del Modelo
 
 
 
@@ -25146,7 +25146,7 @@ Errore nell'apertura del file del modello di ecosistema per l'input!\nOperazione
 Fout bij openen van Ecosysteemmodelbestand voor invoer!\nBewerking afgebroken.
 
 
-
+¡Error al abrir el archivo del Modelo de Ecosistema para entrada!\nOperación terminada.
 
 
 
@@ -25159,7 +25159,7 @@ Errore nella lettura del file del modello di ecosistema!\nOperazione terminata p
 Fout bij lezen van Ecosysteemmodelbestand!\nBewerking afgebroken.
 
 
-
+¡Error al leer el archivo del Modelo de Ecosistema!\nOperación terminada prematuramente.
 
 
 
@@ -25172,7 +25172,7 @@ Il file non è un modello di ecosistema WCS!\nOperazione terminata.
 Geen WCS Ecosysteemmodelbestand!\nBewerking afgebroken.
 
 
-
+¡No es un archivo de Modelo de Ecosistema WCS!\nOperación terminada.
 
 
 
@@ -25185,7 +25185,7 @@ Versione del file del modello di ecosistema WCS non supportata!\nOperazione term
 Niet ondersteunde WCS Ecosysteemmodelbestandversie!\nBewerking afgebroken.
 
 
-
+¡Versión de archivo de Modelo de Ecosistema WCS no soportada!\nOperación terminada.
 
 
 
@@ -25198,7 +25198,7 @@ Non hai selezionato un nome file per l'input!\nOperazione terminata.
 Selecteer een bestandsnaam voor invoer!\nBewerking afgebroken.
 
 
-
+¡No ha seleccionado un nombre de archivo para entrada!\nOperación terminada.
 
 
 
@@ -25211,7 +25211,7 @@ Percorso/Nome del modello da salvare
 Opslaan Model Pad/Naam
 
 
-
+Ruta/Nombre de Guardado del Modelo
 
 
 
@@ -25224,7 +25224,7 @@ Errore nell'apertura del file del modello di ecosistema per l'output!\nOperazion
 Fout bij openen van Ecosysteemmodelbestand voor uitvoer!\nBewerking afgebroken.
 
 
-
+¡Error al abrir el archivo del Modelo de Ecosistema para salida!\nOperación terminada.
 
 
 
@@ -25237,7 +25237,7 @@ Errore nella scrittura del file del modello di ecosistema!\nOperazione terminata
 Fout bij schrijven naar Ecosysteemmodelbestand!\nBewerking afgebroken.
 
 
-
+¡Error al escribir en el archivo del Modelo de Ecosistema!\nOperación terminada prematuramente.
 
 
 
@@ -25250,7 +25250,7 @@ Non hai selezionato un nome file per l'output!\nOperazione terminata.
 Selecteer een bestandsnaam voor uitvoer!\nBewerking afgebroken.
 
 
-
+¡No ha seleccionado un nombre de archivo para salida!\nOperación terminada.
 
 
 
@@ -25264,7 +25264,7 @@ Finestra di controllo animazione
 Animatie controle venster
 
 
-
+Ventana de Control de Animación
 
 
 
@@ -25277,7 +25277,7 @@ Percorso animazione
 Anim Pad
 
 
-
+Ruta de Animación
 
 
 
@@ -25290,7 +25290,7 @@ Nome animazione
 Anim Naam
 
 
-
+Nombre de Animación
 
 
 
@@ -25303,7 +25303,7 @@ A
 Tot
 
 
-
+A
 
 
 
@@ -25316,7 +25316,7 @@ Di
 Stap
 
 
-
+Por
 
 
 
@@ -25329,7 +25329,7 @@ Larghezza finestra
 Vensterbreedte
 
 
-
+Ancho de Ventana
 
 
 
@@ -25342,7 +25342,7 @@ MSG_PARGUI_HEIGHT
 Hoogte
 
 
-
+  Altura
 
 
 
@@ -25355,7 +25355,7 @@ Usa proporzioni immagine di rendering
 Gebruik Render Afbeeldingsverhouding
 
 
-
+Usar Proporción de Imagen de Renderizado
 
 
 
@@ -25368,7 +25368,7 @@ MSG_PARGUI_RENDERONLY
 \33cAlleen Renderen
 
 
-
+\33cSolo Renderizar
 
 
 
@@ -25381,7 +25381,7 @@ MSG_PARGUI_RENDERSAVE
 \33cRenderen & Opslaan
 
 
-
+\33cRenderizar y Guardar
 
 
 
@@ -25394,7 +25394,7 @@ Modulo parametri: Animazione
 Parameters Module: Anim
 
 
-
+Módulo de Parámetros: Animación
 
 
 
@@ -25407,7 +25407,7 @@ Percorso/Nome dei frame dell'animazione
 Anim Frames Pad/Naam
 
 
-
+Ruta/Nombre de Fotogramas de Animación
 
 
 
@@ -25420,7 +25420,7 @@ La larghezza specificata è maggiore della larghezza dello schermo attuale. Vuoi 
 De opgegeven breedte is groter dan de huidige schermbreedte. Wilt u de schermbreedte gebruiken?
 
 
-
+El ancho especificado es mayor que el ancho actual de la pantalla. ¿Desea usar el ancho de pantalla?
 
 
 
@@ -25433,7 +25433,7 @@ L'altezza specificata o calcolata è maggiore dell'altezza dello schermo attuale.
 De opgegeven of berekende hoogte is groter dan de huidige schermhoogte. Wilt u de schermhoogte gebruiken?
 
 
-
+La altura especificada o calculada es mayor que la altura actual de la pantalla. ¿Desea usar la altura de pantalla?
 
 
 
@@ -25447,7 +25447,7 @@ Impossibile inizializzare il selettore di file!\n
 Kan bestandsvenster niet initialiseren!\n
 
 
-
+¡No se puede inicializar el selector de archivos!\n
 
 
 
@@ -25460,7 +25460,7 @@ Salvataggio file del database
 Database Bestand Opslaan
 
 
-
+Guardador de Archivos de Base de Datos
 
 
 
@@ -25473,7 +25473,7 @@ Caricamento file del database
 Database Bestand Lader
 
 
-
+Cargador de Archivos de Base de Datos
 
 
 
@@ -25486,7 +25486,7 @@ MSG_REQGUI_SFRAMES
 \0334%s frames:  %02d:%02d:%02d
 
 
-
+\0334%s fotogramas:  %02d:%02d:%02d
 
 
 
@@ -25499,7 +25499,7 @@ WCS si sta chiudendo.
 WCS wordt afgesloten.
 
 
-
+WCS se está cerrando.
 
 
 
@@ -25512,7 +25512,7 @@ Attualmente WCS non supporta comandi più lunghi di 10 parole.
 WCS ondersteunt momenteel geen commando's langer dan 10 woorden.
 
 
-
+WCS actualmente no admite comandos de más de 10 palabras.
 
 
 
@@ -25525,7 +25525,7 @@ WCS non ha riconosciuto i comandi nell'ordine fornito.
 WCS heeft de commando's in de opgegeven volgorde niet herkend.
 
 
-
+WCS no reconoció los comandos en el orden proporcionado.
 
 
 
@@ -25538,7 +25538,7 @@ WCS non ha riconosciuto una delle parole comando.
 WCS heeft een van de commandowoorden niet herkend.
 
 
-
+WCS no reconoció una de las palabras de comando.
 
 
 
@@ -25551,7 +25551,7 @@ WCS ha riconosciuto un comando parziale ma incompleto.
 WCS heeft een gedeeltelijk maar onvolledig commando herkend.
 
 
-
+WCS reconoció un comando parcial pero incompleto.
 
 
 
@@ -25564,7 +25564,7 @@ Carattere non alfabetico trovato nella parola comando.
 Non alfa karakter gevonden in commandowoord.
 
 
-
+Se encontró un carácter no alfabético en la palabra de comando.
 
 
 
@@ -25577,7 +25577,7 @@ Dimensione della parola comando superata.
 Commandowoord lengte overschreden.
 
 
-
+Tamaño de palabra de comando excedido.
 
 
 
@@ -25590,7 +25590,7 @@ Dimensione dell'argomento in linea superata.
 Inline-argumentgrootte overschreden.
 
 
-
+Tamaño de argumento en línea excedido.
 
 
 
@@ -25603,7 +25603,7 @@ Configurazione WCS: Salva
 WCs Configuratie: Opslaan
 
 
-
+Configuración WCS: Guardar
 
 
 
@@ -25616,7 +25616,7 @@ Impossibile aprire il file di configurazione!\nOperazione terminata.
 Kan configuratiebestand niet openen!\nBewerking afgebroken.
 
 
-
+¡No se puede abrir el archivo de configuración!\nOperación terminada.
 
 
 
@@ -25629,7 +25629,7 @@ Configurazione WCS: Carica
 WCS Configuratie: Laden
 
 
-
+Configuración WCS: Cargar
 
 
 
@@ -25642,7 +25642,7 @@ Progetto WCS: Salva
 WCS Project: Opslaan
 
 
-
+Proyecto WCS: Guardar
 
 
 
@@ -25655,7 +25655,7 @@ Impossibile aprire il file del progetto!\nOperazione terminata.
 Kan projectbestand niet openen!\nBewerking afgebroken.
 
 
-
+¡No se puede abrir el archivo de proyecto!\nOperación terminada.
 
 
 
@@ -25668,7 +25668,7 @@ Progetto: Salva
 Project: Opslaan
 
 
-
+Proyecto: Guardar
 
 
 
@@ -25681,7 +25681,7 @@ Salvare anche i file del database e dei parametri?
 Database- en parameterbestanden ook opslaan?
 
 
-
+¿Guardar también archivos de Base de Datos y Parámetros?
 
 
 
@@ -25694,7 +25694,7 @@ Entrambi|Database|Parametri|No
 Beide|Database|Params|Nee
 
 
-
+Ambos|BaseDatos|Parámetros|No
 
 
 
@@ -25707,7 +25707,7 @@ Progetto WCS: Carica
 WCS Project: Laden
 
 
-
+Proyecto WCS: Cargar
 
 
 
@@ -25720,7 +25720,7 @@ Progetto: Carica
 Project: Laden
 
 
-
+Proyecto: Cargar
 
 
 
@@ -25733,7 +25733,7 @@ Il file non è un progetto WCS!\nOperazione terminata.
 Geen WCS projectbestand!\nBewerking afgebroken.
 
 
-
+¡No es un archivo de Proyecto WCS!\nOperación terminada.
 
 
 
@@ -25746,7 +25746,7 @@ Valori di registrazione della mappa non validi! I valori alti e bassi di X o Y s
 Ongeldige kaartregistratiewaarden! Hoge en lage X- of Y-waarden zijn gelijk.
 
 
-
+¡Valores de registro de mapa ilegales! Los valores alto y bajo de X o Y son iguales.
 
 
 
@@ -25759,7 +25759,7 @@ Elenco directory: Carica
 Directory lijst: Laden
 
 
-
+Lista de Directorios: Cargar
 
 
 
@@ -25772,7 +25772,7 @@ Stampa in corso...
 Afdrukken...
 
 
-
+Imprimiendo...
 
 
 
@@ -25787,7 +25787,7 @@ Tensione
 Tienen
 
 
-
+Decenas
 
 
 
@@ -25800,7 +25800,7 @@ Continuità
 Cont
 
 
-
+Cont
 
 
 
@@ -25813,7 +25813,7 @@ Bias
 Bias
 
 
-
+Sesgo
 
 
 
@@ -25826,7 +25826,7 @@ Parametri: Linea temporale
 Parameters: Tijdlijn
 
 
-
+Parámetros: Línea de Tiempo
 
 
 
@@ -25839,7 +25839,7 @@ Memoria esaurita!\nImpossibile aprire la finestra della linea temporale.
 Te weinig geheugen!\nKan het Tijdlijstvenster niet openen.
 
 
-
+¡Memoria insuficiente!\nNo se puede abrir la ventana de Línea de Tiempo.
 
 
 
@@ -25852,7 +25852,7 @@ Nessun parametro di movimento con più di un fotogramma chiave!\nOperazione termi
 Geen bewegingsparameters met meer dan één Key Frame!\nBewerking afgebroken.
 
 
-
+¡No hay Parámetros de Movimiento con más de un Fotograma Clave!\nOperación terminada.
 
 
 
@@ -25865,7 +25865,7 @@ Linea temporale movimento
 Bewegings Tijdlijn
 
 
-
+Línea de Tiempo de Movimiento
 
 
 
@@ -25878,7 +25878,7 @@ Horiz. Schwenken\x20
 Horiz. draaien\x20
 
 
-
+  Paneo\x20
 
 
 
@@ -25891,7 +25891,7 @@ MSG_TLGUI_ZOOM
 Inzoomen\x20
 
 
-
+  Zoom\x20
 
 
 
@@ -25904,7 +25904,7 @@ Fotogramma\x20
 Frame\x20
 
 
-
+Fotograma\x20
 
 
 
@@ -25917,7 +25917,7 @@ MSG_TLGUI_PREV
 \33cVorige
 
 
-
+\33cAnterior
 
 
 
@@ -25930,7 +25930,7 @@ MSG_TLGUI_NEXT
 \33cVolgende
 
 
-
+\33cSiguiente
 
 
 
@@ -25943,7 +25943,7 @@ MSG_TLGUI_ADDKEY
 \33cKey frame Toevoegen
 
 
-
+\33cAñadir Clave
 
 
 
@@ -25956,7 +25956,7 @@ MSG_TLGUI_DELKEY
 \33cKey frame Verwijderen
 
 
-
+\33c\33uEliminar\33n Clave
 
 
 
@@ -25969,7 +25969,7 @@ MSG_TLGUI_LINEAR
 \33cLineair
 
 
-
+\33cLineal
 
 
 
@@ -25982,7 +25982,7 @@ Fotogramma
 Afbeelding
 
 
-
+Fotograma
 
 
 
@@ -25995,7 +25995,7 @@ MSG_TLGUI_KEEP
 \33cBehouden
 
 
-
+\33cMantener
 
 
 
@@ -26008,7 +26008,7 @@ MSG_TLGUI_GRID
 \33cRaster
 
 
-
+\33cCuadrícula
 
 
 
@@ -26021,7 +26021,7 @@ MSG_TLGUI_PLAY
 \33cAfspelen
 
 
-
+\33cReproducir
 
 
 
@@ -26034,7 +26034,7 @@ Editor movimento: Linee temporali
 Bewegingseditor: Tijdlijnen
 
 
-
+Editor de Movimiento: Líneas de Tiempo
 
 
 
@@ -26047,7 +26047,7 @@ Devono essere creati almeno due fotogrammi chiave per questo parametro prima di 
 Minstens twee key frames voor deze parameter maken voordat het tijdlijstvenster wordt geopend.
 
 
-
+Se deben crear al menos dos fotogramas clave para este parámetro antes de abrir la ventana de línea de tiempo.
 
 
 
@@ -26060,7 +26060,7 @@ Linee temporali del movimento
 Beweging Tijdlijnen
 
 
-
+Líneas de Tiempo de Movimiento
 
 
 
@@ -26073,7 +26073,7 @@ Nessun parametro colore con più di un fotogramma chiave!\nOperazione terminata.
 Geen kleurparameters met meer dan één sleutel frame!\nBewerking afgebroken.
 
 
-
+¡No hay Parámetros de Color con más de un Fotograma Clave!\nOperación terminada.
 
 
 
@@ -26086,7 +26086,7 @@ Linea temporale del colore
 Kleur Tijdlijn
 
 
-
+Línea de Tiempo de Color
 
 
 
@@ -26099,7 +26099,7 @@ Fotogramma\x20
 Frame\x20
 
 
-
+Fotograma\x20
 
 
 
@@ -26112,7 +26112,7 @@ Editor colore: Linee temporali
 Kleur Editor: Tijdlijnen
 
 
-
+Editor de Color: Líneas de Tiempo
 
 
 
@@ -26125,7 +26125,7 @@ Linee temporali del colore
 Kleur Tijdlijnen
 
 
-
+Líneas de Tiempo de Color
 
 
 
@@ -26138,7 +26138,7 @@ MSG_TLGUI_ELEVATIONLINE
 \0334Hoogtelijn
 
 
-
+\0334Línea de Elevación
 
 
 
@@ -26151,7 +26151,7 @@ MSG_TLGUI_SKEW
 \0334Neiging
 
 
-
+\0334Inclinación
 
 
 
@@ -26164,7 +26164,7 @@ MSG_TLGUI_AZIMUTH
 \0334Azimut
 
 
-
+\0334Azimut
 
 
 
@@ -26177,7 +26177,7 @@ MSG_TLGUI_RELATIVEELEVATIONEFFECT
 \0334Relatieve Hoogte Effect
 
 
-
+\0334Efecto de Elevación Relativa
 
 
 
@@ -26190,7 +26190,7 @@ MSG_TLGUI_MXRELATIVEELEVATION
 \0334Max Relatieve Hoogte
 
 
-
+\0334Elevación Relativa Máx
 
 
 
@@ -26203,7 +26203,7 @@ MSG_TLGUI_MNRELATIVEELEVATION
 \0334Min Relatieve hoogte
 
 
-
+\0334Elevación Relativa Mín
 
 
 
@@ -26216,7 +26216,7 @@ MSG_TLGUI_MXSLOPE
 \0334max helling
 
 
-
+\0334Pendiente Máx
 
 
 
@@ -26229,7 +26229,7 @@ MSG_TLGUI_MNSLOPE
 \0334min helling
 
 
-
+\0334Pendiente Mín
 
 
 
@@ -26242,7 +26242,7 @@ MSG_TLGUI_DENSITY
 \0334Dichtheid
 
 
-
+\0334Densidad
 
 
 
@@ -26255,7 +26255,7 @@ MSG_TLGUI_HEIGHT
 \0334Hoogte
 
 
-
+\0334Altura
 
 
 
@@ -26268,7 +26268,7 @@ Nessun parametro ecosistema con più di un fotogramma chiave!\nOperazione termina
 Geen ecosysteemparameters met meer dan één key frame!\nBewerking afgebroken.
 
 
-
+¡No hay Parámetros de Ecosistema con más de un Fotograma Clave!\nOperación terminada.
 
 
 
@@ -26281,7 +26281,7 @@ Linea temporale ecosistema
 Ecosysteem Tijdlijn
 
 
-
+Línea de Tiempo del Ecosistema
 
 
 
@@ -26294,7 +26294,7 @@ Editor ecosistema: Linee temporali
 Ecosysteem Editor: Tijdlijnen
 
 
-
+Editor de Ecosistema: Líneas de Tiempo
 
 
 
@@ -26307,7 +26307,7 @@ Linee temporali dell'ecosistema
 Ecosysteem Tijdlijnen
 
 
-
+Líneas de Tiempo del Ecosistema
 
 
 
@@ -26320,7 +26320,7 @@ Errore durante l'apertura del file del modello ecosistemico per l'input!\nOperaz
 Fout bij openen van Ecosysteemmodelbestand voor invoer!\nBewerking afgebroken.
 
 
-
+¡Error al abrir el archivo del Modelo de Ecosistema para entrada!\nOperación terminada.
 
 
 
@@ -26333,7 +26333,7 @@ Errore durante la scrittura del file del modello ecosistemico!\nOperazione termi
 Fout bij schrijven naar Ecosysteemmodelbestand!\nBewerking afgebroken.
 
 
-
+¡Error al escribir en el archivo del Modelo de Ecosistema!\nOperación terminada prematuramente.
 
 
 
@@ -26346,7 +26346,7 @@ Memoria esaurita durante l'allocazione dei modelli ecosistemici!\nOperazione ter
 Te weinig geheugen voor het toewijzen van ecosysteemmodellen!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al asignar Modelos de Ecosistema!\nOperación terminada.
 
 
 
@@ -26359,7 +26359,7 @@ Nessun dato nel modello ecosistemico WCS!\nOperazione terminata.
 Geen gegevens in WCS ecosysteemmodel!\nBewerking afgebroken.
 
 
-
+¡No hay datos en el Modelo de Ecosistema WCS!\nOperación terminada.
 
 
 
@@ -26372,7 +26372,7 @@ Si è verificato un problema durante il caricamento di almeno un'immagine per que
 Fout bij laden van ten minste één afbeelding voor dit ecosysteem!\nDoorgaan zonder deze afbeelding(en)?
 
 
-
+¡Ocurrió un problema al cargar al menos una imagen para este ecosistema!\n¿Continuar sin ella o ellas?
 
 
 
@@ -26385,7 +26385,7 @@ Elemento non valido %lu in %s %d
 Ongeldig item %lu in %s %d
 
 
-
+Elemento inválido %lu en %s %d
 
 
 
@@ -26398,7 +26398,7 @@ Onda: Imposta predefiniti
 Golf: Standaardwaarden instellen
 
 
-
+Olas: Establecer Valores Predeterminados
 
 
 
@@ -26411,7 +26411,7 @@ Seleziona centro onda generale.
 Selecteer algemeen golfcentrum.
 
 
-
+Seleccionar centro general de olas.
 
 
 
@@ -26424,7 +26424,7 @@ Punto di messa a fuoco|Punto fotocamera
 Focuspunt|Camera Punt
 
 
-
+Punto de Enfoque|Punto de Cámara
 
 
 
@@ -26437,7 +26437,7 @@ Seleziona velocità dell'onda.
 Selecteer golfsnelheid.
 
 
-
+Seleccionar velocidad de ola.
 
 
 
@@ -26450,7 +26450,7 @@ Veloce|Molto veloce|Lenta
 Snel|Zeer snel|Langzaam
 
 
-
+Rápido|Muy Rápido|Lento
 
 
 
@@ -26463,7 +26463,7 @@ Seleziona direzione dell'onda.
 Selecteer golfrichting.
 
 
-
+Seleccionar dirección de ola.
 
 
 
@@ -26476,7 +26476,7 @@ Divergente|Convergente
 Uit elkaar|Naar elkaar toe
 
 
-
+Expansiva|Convergente
 
 
 
@@ -26491,7 +26491,7 @@ MSG_WAVGUI_33C0334CWAVES
 \33c\0334Golven
 
 
-
+\33c\0334Olas
 
 
 
@@ -26504,7 +26504,7 @@ MSG_WAVGUI_ACTIVEWAVE
 \33c\0334Actieve golf
 
 
-
+\33c\0334Ola Activa
 
 
 
@@ -26517,7 +26517,7 @@ Latitudine
 Breedtegraad
 
 
-
+Latitud
 
 
 
@@ -26530,7 +26530,7 @@ Longitudine
 Lengtegraad
 
 
-
+Longitud
 
 
 
@@ -26543,7 +26543,7 @@ Ampiezza (m)
 Amplitude (m)
 
 
-
+Amplitud (m)
 
 
 
@@ -26556,7 +26556,7 @@ Lunghezza d'onda (km)
 Golflengte (km)
 
 
-
+Longitud de Onda (km)
 
 
 
@@ -26569,7 +26569,7 @@ Velocità (km/h)
 Snelheid (km/u)
 
 
-
+Velocidad (km/hr)
 
 
 
@@ -26582,7 +26582,7 @@ MSG_WAVGUI_ADD
 \33cToevoegen...
 
 
-
+\33cAñadir...
 
 
 
@@ -26595,7 +26595,7 @@ MSG_WAVGUI_MAPADD
 \33cKaart Toevoegen...
 
 
-
+\33cAñadir Mapa...
 
 
 
@@ -26608,7 +26608,7 @@ MSG_WAVGUI_REMOVE
 \33cVerwijderen
 
 
-
+\33cEliminar
 
 
 
@@ -26621,7 +26621,7 @@ MSG_WAVGUI_LOAD
 \33cLaden
 
 
-
+\33cCargar
 
 
 
@@ -26634,7 +26634,7 @@ MSG_WAVGUI_SAVE
 \33cOpslaan
 
 
-
+\33cGuardar
 
 
 
@@ -26647,7 +26647,7 @@ Vista mappa: Onde
 Kaartweergave: Golven
 
 
-
+Vista de Mapa: Olas
 
 
 
@@ -26660,7 +26660,7 @@ Opzioni
 Opties
 
 
-
+Opciones
 
 
 
@@ -26673,7 +26673,7 @@ MSG_WAVGUI_WAVES
 \33cGolven
 
 
-
+\33cOlas
 
 
 
@@ -26686,7 +26686,7 @@ MSG_WAVGUI_TIDES
 \33cGetijden
 
 
-
+\33cMareas
 
 
 
@@ -26699,7 +26699,7 @@ MSG_WAVGUI_REFLECT
 \33cReflectie
 
 
-
+\33cReflejar
 
 
 
@@ -26712,7 +26712,7 @@ MSG_WAVGUI_FRACTAL
 \33cFractaal
 
 
-
+\33cFractal
 
 
 
@@ -26725,7 +26725,7 @@ MSG_WAVGUI_ANIMATION
 \33c\0334Animatie
 
 
-
+\33c\0334Animación
 
 
 
@@ -26738,7 +26738,7 @@ Sposta latitudine
 Verplaats Breedtegraad
 
 
-
+Mover Latitud
 
 
 
@@ -26751,7 +26751,7 @@ Sposta longitudine
 Verplaats Lengtegraad
 
 
-
+Mover Longitud
 
 
 
@@ -26764,7 +26764,7 @@ Fattore ampiezza
 Hoogte Factor
 
 
-
+Factor de Amplitud
 
 
 
@@ -26777,7 +26777,7 @@ Altezza schiuma (m)
 Schuimkraag Hgt (m)
 
 
-
+Altura de Cresta Blanca (m)
 
 
 
@@ -26790,7 +26790,7 @@ MSG_WAVGUI_DRAWWAVES
 \33cGolven Tekenen
 
 
-
+\33cDibujar Olas
 
 
 
@@ -26803,7 +26803,7 @@ MSG_WAVGUI_DRAWDETAIL
 \33cDetails Tekenen
 
 
-
+\33cDibujar Detalle
 
 
 
@@ -26816,7 +26816,7 @@ MSG_WAVGUI_KEYFRAMES
 \33c\0334Key Frames
 
 
-
+\33c\0334Fotogramas Clave
 
 
 
@@ -26829,7 +26829,7 @@ MSG_WAVGUI_PREV
 \33cVorige
 
 
-
+\33cAnterior
 
 
 
@@ -26843,7 +26843,7 @@ CP %d
 Vorig.Key %d
 
 
-
+PK %d
 
 
 
@@ -26857,7 +26857,7 @@ CS %d
 Volg.Key %d
 
 
-
+NK %d
 
 
 
@@ -26870,7 +26870,7 @@ Fotogramma
 Frame
 
 
-
+Fotograma
 
 
 
@@ -26883,7 +26883,7 @@ MSG_WAVGUI_NEXT
 \33cVolgende
 
 
-
+\33cSiguiente
 
 
 
@@ -26896,7 +26896,7 @@ MSG_WAVGUI_MAKEKEY
 \33cKey maken
 
 
-
+\33cCrear Clave
 
 
 
@@ -26909,7 +26909,7 @@ MSG_WAVGUI_UPDATE
 \33cBijwerken
 
 
-
+\33cActualizar
 
 
 
@@ -26922,7 +26922,7 @@ MSG_WAVGUI_DELETE
 \33cVerwijderen
 
 
-
+\33c\33uEliminar\33nete
 
 
 
@@ -26935,7 +26935,7 @@ MSG_WAVGUI_DELETEALL
 \33cAlles verwijderen
 
 
-
+\33cEliminar Todo
 
 
 
@@ -26948,7 +26948,7 @@ MSG_WAVGUI_TIMELINES
 \33cTijdlijnen
 
 
-
+\33cLíneas de Tiempo\x20
 
 
 
@@ -26961,7 +26961,7 @@ MSG_WAVGUI_SCALEKEYS
 \33cKeys Schalen\x20
 
 
-
+\33cEscalar Claves\x20
 
 
 
@@ -26974,7 +26974,7 @@ Il modello d'onda corrente è stato modificato. Vuoi salvarlo prima di chiudere?
 Het huidige golfmodel is gewijzigd. Wilt u het opslaan voordat u het sluit?
 
 
-
+El Modelo de Olas actual ha sido modificado. ¿Desea guardarlo antes de cerrar?
 
 
 
@@ -26987,7 +26987,7 @@ Percorso/File dell'onda
 Golf Pad/Bestand
 
 
-
+Ruta/Archivo de Olas
 
 
 
@@ -27000,7 +27000,7 @@ Rendere questo file il file onda del progetto?
 Van dit bestand het projectgolfbestand maken?
 
 
-
+¿Hacer de este archivo el Archivo de Olas del Proyecto?
 
 
 
@@ -27013,7 +27013,7 @@ Eliminare tutti i fotogrammi chiave dell'onda?
 Alle golf key frames verwijderen?
 
 
-
+¿Eliminar todos los fotogramas clave de olas?
 
 
 
@@ -27026,7 +27026,7 @@ Ampiezza
 Hoogte
 
 
-
+Amplitud
 
 
 
@@ -27039,7 +27039,7 @@ Altezza della schiuma
 Hoogte van de schuimkraag
 
 
-
+Altura de Cresta Blanca
 
 
 
@@ -27052,7 +27052,7 @@ Linee temporali dell'onda
 Golf Tijdlijnen
 
 
-
+Líneas de Tiempo de Olas
 
 
 
@@ -27065,7 +27065,7 @@ Linee temporali delle onde nuvolose
 Wolk Golf Tijdlijnen
 
 
-
+Líneas de Tiempo de Olas de Nubes
 
 
 
@@ -27078,7 +27078,7 @@ File onda
 Golfbestand
 
 
-
+Archivo de Olas
 
 
 
@@ -27091,7 +27091,7 @@ Aggiungi onda
 Golf toevoegen
 
 
-
+Añadir Ola
 
 
 
@@ -27104,7 +27104,7 @@ Il modulo Vista Mappa deve essere aperto per utilizzare questa funzione.\nVuoi a
 Kaartweergave module moet geopend zijn om deze functie te gebruiken. Wilt u deze nu openen?
 
 
-
+El módulo Vista de Mapa debe estar abierto para usar esta función. ¿Desea abrirlo ahora?
 
 
 
@@ -27117,7 +27117,7 @@ Vista mappa: Aggiungi onda
 Kaartweergave: Golf Toevoegen
 
 
-
+Vista de Mapa: Añadir Ola
 
 
 
@@ -27130,7 +27130,7 @@ Rimuovere tutte le onde attualmente definite prima di aggiungerne di nuove?
 Alle momenteel gedefinieerde golven verwijderen voordat nieuwe worden toegevoegd?
 
 
-
+¿Eliminar todas las olas definidas actualmente antes de añadir nuevas?
 
 
 
@@ -27143,7 +27143,7 @@ MSG_WAVGUI_0338SETCLOUDWAVESOURCEPOINT
 \0338Wolken Golf Bron Punt Instellen %d
 
 
-
+\0338Establecer Punto Fuente de Ola de Nube %d
 
 
 
@@ -27156,7 +27156,7 @@ Imposta punto sorgente dell'onda nuvolosa %d
 Wolken Golf Bron Punt Instellen %d
 
 
-
+Establecer Punto Fuente de Ola de Nube %d
 
 
 
@@ -27169,7 +27169,7 @@ Inserisci l'ampiezza dell'onda.
 Voer golfhoogte in.
 
 
-
+Introducir Amplitud de Ola.
 
 
 
@@ -27182,7 +27182,7 @@ Inserisci la lunghezza dell'onda (km).
 Golflengte (km) invoeren.
 
 
-
+Introducir Longitud de Onda (km).
 
 
 
@@ -27195,7 +27195,7 @@ Inserisci la velocità dell'onda (km/h).
 Golfsnelheid (km/u) invoeren.
 
 
-
+Introducir Velocidad de Ola (km/hr).
 
 
 
@@ -27208,7 +27208,7 @@ Tutti (%d)
 Alles (%d)
 
 
-
+Todo (%d)
 
 
 
@@ -27221,7 +27221,7 @@ Chiavi esistenti (%d)
 Keys bestaan al (%d)
 
 
-
+Claves Existentes (%d)
 
 
 
@@ -27234,7 +27234,7 @@ MSG_WAVGUI_ALL0
 \33cAlles (0)
 
 
-
+\33cTodo (0)
 
 
 
@@ -27247,7 +27247,7 @@ Nessun'altra chiave
 Geen andere keys
 
 
-
+No hay otras claves
 
 
 
@@ -27260,7 +27260,7 @@ Stack troppo piccolo! (%lu byte)\n
 Stack te klein! (%lu Bytes)\n
 
 
-
+¡Pila demasiado pequeña! (%lu Bytes)\n
 
 
 
@@ -27273,7 +27273,7 @@ Imposta lo stack a %lu byte!\n
 Zet de stack op %lu Bytes!\n
 
 
-
+¡Por favor, establezca la Pila en %lu Bytes!\n
 
 
 
@@ -27286,7 +27286,7 @@ Periodo beta scaduto...
 Beta-periode verlopen...
 
 
-
+Periodo beta expirado...
 
 
 
@@ -27299,7 +27299,7 @@ Per WCS AROS\nè richiesta la revisione %d.%d della muimaster.library o superiore
 Voor WCS AROS\nmuimaster.library revisie %d.%d\nof hoger vereist.
 
 
-
+Para WCS AROS\nSe requiere muimaster.library revisión %d.%d\no superior.
 
 
 
@@ -27312,7 +27312,7 @@ Errore
 Fout
 
 
-
+Error
 
 
 
@@ -27325,7 +27325,7 @@ Annulla
 Annuleren
 
 
-
+Cancelar
 
 
 
@@ -27338,7 +27338,7 @@ ERRORE FATALE: È richiesta la revisione %d della MUIMaster.Library. Interruzione
 Fatale fout: MUIMaster.Library revisie %d vereist. Afgebroken.\n
 
 
-
+ERROR FATAL: Se requiere revisión %d de MUIMaster.Library. Abortando.\n
 
 
 
@@ -27351,7 +27351,7 @@ ERRORE FATALE: È richiesta la revisione %d della GadTools.Library. Interruzione 
 Fatale fout: GadTools.Library revisie %d vereist. Afgebroken.\n
 
 
-
+ERROR FATAL: Se requiere revisión %d de GadTools.Library. Abortando.\n
 
 
 
@@ -27364,7 +27364,7 @@ ERRORE FATALE: È richiesta la revisione %d della ASL.Library. Interruzione in co
 Fatale fout: ASL.Library revisie %d vereist. Afgebroken.\n
 
 
-
+ERROR FATAL: Se requiere revisión %d de ASL.Library. Abortando.\n
 
 
 
@@ -27377,7 +27377,7 @@ ERRORE FATALE: È richiesta la revisione %d della Graphics.Library. Interruzione 
 Fatale fout: Graphics.Library revisie %d vereist. Afgebroken.\n
 
 
-
+ERROR FATAL: Se requiere revisión %d de Graphics.Library. Abortando.\n
 
 
 
@@ -27390,7 +27390,7 @@ ERRORE FATALE: È richiesta la revisione %d della Intuition.library. Interruzione
 Fatale fout: Intuition.Library revision %d required. Aborting.\n
 
 
-
+ERROR FATAL: Se requiere revisión %d de Intuition.library. Abortando.\n
 
 
 
@@ -27403,7 +27403,7 @@ Dati insufficienti nella regione grigliata per effettuare la triangolazione! Aum
 Onvoldoende gegevens in het gerasterde gebied om driehoeken te maken! Vergroot het gerasterde gebied of voeg meer controlepunten toe.
 
 
-
+¡Datos insuficientes en la región cuadriculada para triangular! Aumente el tamaño de la región cuadriculada o añada más puntos de control.
 
 
 
@@ -27416,7 +27416,7 @@ Coropleta
 ChoroPleth
 
 
-
+Coropleta
 
 
 
@@ -27429,7 +27429,7 @@ Gradiente
 Gradiënt
 
 
-
+Gradiente
 
 
 
@@ -27442,7 +27442,7 @@ Griglia
 Rasteren
 
 
-
+Cuadriculado
 
 
 
@@ -27455,7 +27455,7 @@ Vista mappa: Griglia DEM
 Kaarweergave: Raster DEM
 
 
-
+Vista de Mapa: Cuadricular DEM
 
 
 
@@ -27468,7 +27468,7 @@ Il rapporto tra le dimensioni verticali e orizzontali della mappa è troppo eleva
 De verhouding van verticale tot horizontale kaartdimensies is te groot voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
 
 
-
+La proporción de dimensiones verticales a horizontales del mapa es demasiado grande para estimar gradientes. Escale los datos si se requieren gradientes.\n¿Desea continuar sin estimación de gradientes?
 
 
 
@@ -27481,7 +27481,7 @@ Il rapporto tra le dimensioni verticali e orizzontali della mappa è troppo basso
 De verhouding van verticale tot horizontale kaartdimensies is te klein voor gradiënt inschatting. Schaal de gegevens als gradiënten nodig zijn.\nWilt u doorgaan zonder gradiënt inschatting?
 
 
-
+La proporción de dimensiones verticales a horizontales del mapa es demasiado pequeña para estimar gradientes. Escale los datos si se requieren gradientes.\n¿Desea continuar sin estimación de gradientes?
 
 
 
@@ -27494,7 +27494,7 @@ Il rapporto tra larghezza e lunghezza di questa regione grigliata potrebbe esser
 De verhouding van breedte tot lengte van dit gerasterde gebied kan te extreem zijn voor goede interpolatie.\nHet veranderen van de blokverhoudingen, of het herschalen van de x- of y-coördinaat kan een goed idee zijn.\nWilt u nu doorgaan met de huidige afmetingen?
 
 
-
+La proporción de ancho a largo de esta región cuadriculada puede ser demasiado extrema para una buena interpolación.\nCambiar las proporciones del bloque o reescalar la coordenada x o y puede ser una buena idea.\n¿Continuar ahora con las dimensiones actuales?
 
 
 
@@ -27507,7 +27507,7 @@ Memoria esaurita per la matrice doppia!\nOperazione terminata.
 Te weinig geheugen voor Dubbele Matrix!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente para Matriz Doble!\nOperación terminada.
 
 
 
@@ -27520,7 +27520,7 @@ Memoria esaurita durante l'allocazione della matrice doppia!\nOperazione termina
 Te weinig geheugen voor het toewijzen van Dubbele Matrix!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al asignar Matriz Doble!\nOperación terminada.
 
 
 
@@ -27534,7 +27534,7 @@ Vista mappa: Griglia DEM
 Kaartweergave: Raster DEM
 
 
-
+Vista de Mapa: Cuadricular DEM
 
 
 
@@ -27547,7 +27547,7 @@ Intestazione estesa!\nOperazione terminata.
 Uitgebreide header!\nBewerking afgebroken.
 
 
-
+¡Encabezado extendido!\nOperación terminada.
 
 
 
