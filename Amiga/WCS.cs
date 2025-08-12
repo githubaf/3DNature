@@ -24009,7 +24009,7 @@ Halbieren
 \33cHalveren
 
 
-
+\33cMitad
 
 
 
@@ -24022,7 +24022,7 @@ MSG_MOREGUI_DOUBLE
 \33cVerdubbelen
 
 
-
+\33cDoble
 
 
 
@@ -24035,7 +24035,7 @@ MSG_MOREGUI_APPLY
 \33cToepassen
 
 
-
+\33cAplicar
 
 
 
@@ -24048,7 +24048,7 @@ Parametri: Scala immagine
 Parameters: Afbeeldingsgrootte
 
 
-
+Parámetros: Escala de Imagen
 
 
 
@@ -24061,7 +24061,7 @@ Applicare le modifiche?
 Wijzigingen toepassen?
 
 
-
+¿Aplicar cambios?
 
 
 
@@ -24074,7 +24074,7 @@ MSG_MOREGUI_RENDERTASKPRIORITY
 \33c\0334Render Prioriteit
 
 
-
+\33c\0334Prioridad de Tarea de Renderizado
 
 
 
@@ -24087,7 +24087,7 @@ MSG_MOREGUI_LOW
 \33cLaag
 
 
-
+\33cBaja
 
 
 
@@ -24100,7 +24100,7 @@ MSG_MOREGUI_NORMAL
 \33cNormaal
 
 
-
+\33cNormal
 
 
 
@@ -24113,7 +24113,7 @@ MSG_MOREGUI_HIGH
 \33cHoog
 
 
-
+\33cAlta
 
 
 
@@ -24126,7 +24126,7 @@ MSG_MOREGUI_RENDERSIZE
 \33c\0334Render Grootte
 
 
-
+\33c\0334Tamaño de Renderizado
 
 
 
@@ -24139,7 +24139,7 @@ MSG_MOREGUI_STATUSLOGMESSAGES
 \33c\0334Status Log Meldingen
 
 
-
+\33c\0334Mensajes del Registro de Estado
 
 
 
@@ -24152,7 +24152,7 @@ MSG_MOREGUI_ERR
 \33cFOUT
 
 
-
+\33cERR
 
 
 
@@ -24165,7 +24165,7 @@ MSG_MOREGUI_WNG
 \33cWAARSCH
 
 
-
+\33cWNG
 
 
 
@@ -24178,7 +24178,7 @@ MSG_MOREGUI_MSG
 \33cMELDING
 
 
-
+\33cMSG
 
 
 
@@ -24191,7 +24191,7 @@ MSG_MOREGUI_DTA
 \33cDTA
 
 
-
+\33cDTA
 
 
 
@@ -24204,7 +24204,7 @@ MSG_MOREGUI_PARAMFILESAVEFORMAT
 \33c\0334Parameterbestand Opslaan Formaat
 
 
-
+\33c\0334Formato de Guardado de Archivo de Parámetros
 
 
 
@@ -24217,7 +24217,7 @@ MSG_MOREGUI_BINARY
 \33cBinair
 
 
-
+\33cBinario
 
 
 
@@ -24230,7 +24230,7 @@ MSG_MOREGUI_ASCII
 \33cAscii
 
 
-
+\33cAscii
 
 
 
@@ -24244,7 +24244,7 @@ movimento
 beweging
 
 
-
+movimiento
 
 
 
@@ -24257,7 +24257,7 @@ colore
 kleur
 
 
-
+color
 
 
 
@@ -24270,7 +24270,7 @@ ecosistema
 ecosysteem
 
 
-
+ecosistema
 
 
 
@@ -24283,7 +24283,7 @@ Memoria esaurita durante il ripristino dei fotogrammi chiave precedenti!\nAlcune
 Te weinig geheugen bij het herstellen van oude key frames!\nSommige %s keys kunnen verloren gaan.
 
 
-
+¡Memoria insuficiente al restaurar fotogramas clave antiguos!\nAlgunas claves %s pueden perderse.
 
 
 
@@ -24296,7 +24296,7 @@ Fotogramma chiave: Annulla
 Key Frame: Annuleren
 
 
-
+Fotograma Clave: Cancelar
 
 
 
@@ -24309,7 +24309,7 @@ Modulo parametri: Distribuzione velocità
 Parameter Module: Snelheidsverdeling
 
 
-
+Módulo de Parámetros: Distribución de Velocidad
 
 
 
@@ -24335,7 +24335,7 @@ Modulo parametri: Scala
 Parameters Module: Schalen
 
 
-
+Módulo de Parámetros: Escala
 
 
 
@@ -24348,7 +24348,7 @@ Memoria esaurita!\nImpossibile aprire la finestra della scala.
 Te weinig geheugen!\nKan het Schalen venster niet openen.
 
 
-
+¡Memoria insuficiente!\nNo se puede abrir la ventana de Escala.
 
 
 
@@ -24361,7 +24361,7 @@ Nessun fotogramma chiave da scalare!
 Geen key frames om te schalen!
 
 
-
+¡No hay fotogramas clave para escalar!
 
 
 
@@ -24374,7 +24374,7 @@ Scala chiavi
 Keys Schalen
 
 
-
+Escalar Claves
 
 
 
@@ -24387,7 +24387,7 @@ Param
 Param
 
 
-
+Parámetro
 
 
 
@@ -24400,7 +24400,7 @@ Fotogramma
 Frame
 
 
-
+Fotograma
 
 
 
@@ -24413,7 +24413,7 @@ MSG_PARGUI_MOTION
 \33cBeweging
 
 
-
+\33cMovimiento
 
 
 
@@ -24426,7 +24426,7 @@ MSG_PARGUI_COLOR
 \33cKleur
 
 
-
+\33cColor
 
 
 
@@ -24439,7 +24439,7 @@ MSG_PARGUI_ECOSYSTEM
 \33cEcosysteem
 
 
-
+\33cEcosistema
 
 
 
@@ -24452,7 +24452,7 @@ MSG_PARGUI_ALLFRAMES
 \33cAlle Frames
 
 
-
+\33cTodos los Fotogramas
 
 
 
@@ -24465,7 +24465,7 @@ MSG_PARGUI_THISFRAME
 \33cDit Frame
 
 
-
+\33cEste Fotograma
 
 
 
@@ -24478,7 +24478,7 @@ MSG_PARGUI_CALE
 \33c\0334Schalen
 
 
-
+\33c\0334Escala
 
 
 
@@ -24491,7 +24491,7 @@ MSG_PARGUI_FRAMES
 \33cFrame(s)
 
 
-
+\33cFotograma(s)
 
 
 
@@ -24504,7 +24504,7 @@ MSG_PARGUI_VALUES
 \33cWaarde(n)
 
 
-
+\33cValor(es)
 
 
 
@@ -24517,7 +24517,7 @@ MSG_PARGUI_HIFT
 \33c\0334Verschuiven
 
 
-
+\33c\0334Desplazar
 
 
 
@@ -24530,7 +24530,7 @@ MSG_PARGUI_KEEP
 \33cBehouden
 
 
-
+\33cMantener
 
 
 
@@ -24543,7 +24543,7 @@ MSG_PARGUI_OPERATE
 \33cUitvoeren
 
 
-
+\33cOperar
 
 
 
@@ -24556,7 +24556,7 @@ Scena
 Scene
 
 
-
+Escena
 
 
 
@@ -24569,7 +24569,7 @@ Scena + DEM
 Scene + DEMs
 
 
-
+Escena + DEMs
 
 
 
@@ -24582,7 +24582,7 @@ Solo DEM
 Alleen DEM
 
 
-
+Solo DEM
 
 
 
@@ -24595,7 +24595,7 @@ Solo movimento
 Alleen Beweging
 
 
-
+Solo Movimiento
 
 
 
@@ -24608,7 +24608,7 @@ LightWave Motion I/O
 LightWave Motion I/O
 
 
-
+Entrada/Salida de Movimiento LightWave
 
 
 
@@ -24621,7 +24621,7 @@ Devi prima caricare o creare un file di parametri per usare questa funzione.
 Laad of maak eerst een parameterbestand voordat u deze functie gebruikt.
 
 
-
+Debe cargar o crear primero un archivo de parámetros antes de usar esta función.
 
 
 
@@ -24634,7 +24634,7 @@ Errore nella creazione della tabella dei valori di movimento\nOperazione termina
 Fout bij opbouwen van bewegingswaardetabel\nBewerking afgebroken
 
 
-
+Error al construir la tabla de valores de movimiento\nOperación terminada
 
 
 
@@ -24647,7 +24647,7 @@ Esportazione LightWave
 LightWave Export
 
 
-
+Exportación LightWave
 
 
 
@@ -24660,7 +24660,7 @@ MSG_PARGUI_XPORTENTITY
 \33c\0334Export Eenheid
 
 
-
+\33c\0334Exportar Entidad
 
 
 
@@ -24673,7 +24673,7 @@ Massimo poligoni
 Max Polygonen
 
 
-
+Máximo de Polígonos
 
 
 
@@ -24686,7 +24686,7 @@ Massimo vertici
 Max Hoekpunten
 
 
-
+Máximo de Vértices
 
 
 
@@ -24699,7 +24699,7 @@ MSG_PARGUI_BATHYMETRY
 \33cBathymetrie
 
 
-
+\33cBatimetría
 
 
 
@@ -24712,7 +24712,7 @@ Latitudine di riferimento
 Ref Lat
 
 
-
+Lat Ref
 
 
 
@@ -24725,7 +24725,7 @@ Longitudine
 Long
 
 
-
+Lon
 
 
 
@@ -24738,7 +24738,7 @@ MSG_PARGUI_ROTATETOHORIZONTAL
 Draai naar Horizontaal
 
 
-
+\33cRotar a Horizontal
 
 
 
@@ -24751,7 +24751,7 @@ MSG_PARGUI_EXPORT
 \33cExporteren
 
 
-
+\33cExportar
 
 
 
@@ -24764,7 +24764,7 @@ LightWave I/O
 LightWave I/O
 
 
-
+Entrada/Salida LightWave
 
 
 
@@ -24777,7 +24777,7 @@ Memoria esaurita!\nImpossibile aprire la finestra di progettazione del modello.
 Te weinig geheugen!\nKan het model ontwerp venster niet openen.
 
 
-
+¡Memoria insuficiente!\nNo se puede abrir la ventana de diseño del modelo.
 
 
 
@@ -24791,7 +24791,7 @@ Editor modello ecosistema
 Ecosysteem Model Editor
 
 
-
+Editor de Modelo de Ecosistema
 
 
 
@@ -24804,7 +24804,7 @@ Nome\x20
 Naam\x20
 
 
-
+Nombre\x20
 
 
 
@@ -24817,7 +24817,7 @@ MSG_PARGUI_ADD
 \33cToevoegen
 
 
-
+\33cAñadir
 
 
 
@@ -24830,7 +24830,7 @@ MSG_PARGUI_REMOVE
 \33cVerwijderen
 
 
-
+\33cEliminar
 
 
 
@@ -24843,7 +24843,7 @@ MSG_PARGUI_LOAD
 \33cLaden
 
 
-
+\33cCargar
 
 
 
@@ -24856,7 +24856,7 @@ MSG_PARGUI_SAVE
 \33cOpslaan
 
 
-
+\33cGuardar
 
 
 
@@ -24869,7 +24869,7 @@ Alt (m)
 Hgt (m)
 
 
-
+Alt (m)
 
 
 
@@ -24882,7 +24882,7 @@ Elementi
 Items
 
 
-
+Ítems
 
 
 
@@ -24895,7 +24895,7 @@ Classe
 Klasse
 
 
-
+Clase
 
 
 
@@ -24908,7 +24908,7 @@ Rosso
 Rood
 
 
-
+Rojo
 
 
 
@@ -24921,7 +24921,7 @@ Verde
 Groen
 
 
-
+Verde
 
 
 
@@ -24934,7 +24934,7 @@ Blu
 Blauw
 
 
-
+Azul
 
 
 
@@ -24947,7 +24947,7 @@ MSG_PARGUI_HTITEMSCLASSREDGRNBLU
 \0338    Ht Items Class   Red   Groen   Blauw
 
 
-
+\0338    Alt Ítems Clase   Rojo   Verde   Azul
 
 
 
@@ -24960,7 +24960,7 @@ Il modello di ecosistema attuale è stato modificato. Vuoi salvarlo prima di chiu
 Het huidige Ecosysteemmodel is gewijzigd. Wilt u het opslaan voordat u het sluit?
 
 
-
+El modelo de ecosistema actual ha sido modificado. ¿Desea guardarlo antes de cerrar?
 
 
 
@@ -24973,7 +24973,7 @@ Sì|No|Annulla
 Ja|Nee|Annuleren
 
 
-
+Sí|No|Cancelar
 
 
 
