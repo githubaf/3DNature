@@ -4829,19 +4829,29 @@ Arch/linux/AROSBootstrap &
 ---------
 Ich habe spanisch begonnen.
 
-Fuer ein Lanschafts-Renderingprogramm soll die GUI nach spanisch uebersetzt werden. Formatierungszeichen sollen dabei erhalten bleiben. "Line xxx:" soll dabei zu Referenzzwecken erhalten bleiben.
+###### Copilot Anfrage #######
+
+Fuer ein Lanschafts-Renderingprogramm soll die GUI nach spanisch uebersetzt werden. Formatierungszeichen sollen dabei erhalten bleiben. Das Ergebis soll ein AWK-Script sein, welches die Zeilen im Orginal ersetzt. Hier ist ein Beispiel, wie das AWK-Script aussehen soll:
+
+mawk '
+NR==7956{$0="\\0334Registro DEM"}
+NR==7969{$0="\\0334Formato de Valor y Muestreo"}
+NR==7982{$0="\\0334Formato de Valor"}
+NR==7995{$0="\\0334Pre-Proceso"}
+{print}
+' WCS.cs > WCS_translated.cs
+
+Das "Line xxx" soll in der Uebersetung nicht auftauchen sondern nur im AWK verwendet werden. Einzelne Backslashes muessen als Doppelbackslash ausgegeben werden.
+Das Script soll die spanische Übersetzung enthalten. Das Script muss als ISO 8859-1 gespeichert sein.
+
+##############################
+
+Also
 
 cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; LINENR=NR; getline; POLISH=$0; getline; CZECH=$0; if(SPANISCH==""){print "Line " LINENR ": " ENGLISH;}else{SPANISCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Spanish:  %4d\n",SPANISCHCOUNT);printf("%d%%\n",SPANISCHCOUNT*100/MSGCOUNT++);}'
 
-Arbeiten mit xfce-Terminal. Da kannn man ISO-8859-1 einstellen. Arbeiten mit mgawk. Das macht auch ISO-8859-1. Achtung. \33 und \n werde ersetzt, nicht kopiert! Also manuell nacharbeiten!
 
-Script in der Art:
+dann ein Stueck in Copilot kopieren, Ergebnis in xfce-Terminal einfuegen und Enter druecken.
 
-mawk '
-NR==1763{$0="\33l Color\x20"}
-NR==1776{$0="\33l Ecosistema\x20"}
-NR==1789{$0="\33l Nubes\x20"}
-NR==1802{$0="\33l Olas\x20"}
-{print}' WCS.cs > WCS_translated.cs
-mv WCS_translated.cs WCS.cs
+Arbeiten mit xfce-Terminal. Da kannn man ISO-8859-1 einstellen. Arbeiten mit mgawk. Das macht auch ISO-8859-1. Achtung: \33 und \n ueberpruefen!
 

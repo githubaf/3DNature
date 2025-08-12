@@ -4003,7 +4003,7 @@ Muovere Latitudine
 Verplaats Lat
 
 
-
+Mover Latitud
 Wysoko¶æ Ruchu
 Posun vý¹ky
 
@@ -4016,7 +4016,7 @@ Longitudine
 Long
 
 
-
+Longitud
 Szeroko¶æ
 Délka
 
@@ -4029,7 +4029,7 @@ Altitudine
 Hoogte
 
 
-
+Altitud
 Wysoko¶æ
 Nadmoøská vý¹ka
 
@@ -4042,7 +4042,7 @@ MSG_CLOUDGUI_EYFRAMES
 \33c\0334Key Frames
 
 
-
+\33c\0334Fotogramas clave
 \33c\0334Kluczowe Klatki
 \33c\0334Klíèové snímky
 
@@ -4055,7 +4055,7 @@ MSG_CLOUDGUI_PREV
 \33cVorige
 
 
-
+\33cAnterior
 \33cPoprzedni
 \33cPøedchozí
 
@@ -4068,7 +4068,7 @@ Frame
 Frame
 
 
-
+Fotograma
 Klatka
 Snímek
 
@@ -4081,7 +4081,7 @@ MSG_CLOUDGUI_NEXT
 \33cVolgende
 
 
-
+\33cSiguiente
 Nastêpny
 \33cDal¹í
 
@@ -4094,7 +4094,7 @@ MSG_CLOUDGUI_MAKEKEY
 \33cMaak Key
 
 
-
+\33cCrear clave
 \33cStwórz Klucz
 \33cVytvoø klíèový snímek
 
@@ -4107,7 +4107,7 @@ MSG_CLOUDGUI_UPDATE
 \33cBijwerken
 
 
-
+\33cActualizar
 \33cAktualizuj
 Obnovit
 
@@ -4120,7 +4120,7 @@ MSG_CLOUDGUI_DELETE
 \33cVerwijder
 
 
-
+\33c\33uEliminar\33nete
 \33cUsuñ
 \33cSmazat
 
@@ -4133,7 +4133,7 @@ MSG_CLOUDGUI_DELETEALL
 \33cVerwijder Alles
 
 
-
+\33cEliminar todo
 \33cUsuñ Wszystko
 \33cSmazat v¹e
 
@@ -4146,7 +4146,7 @@ MSG_CLOUDGUI_TIMELINES
 \33cTijdlijnen\x20
 
 
-
+\33cLíneas de tiempo 
 \33cLInia Czasu\x20
 \33cÈasová osa\x20
 
@@ -4159,7 +4159,7 @@ MSG_CLOUDGUI_SCALEKEYS
 \33cSchaal Keys\x20
 
 
-
+\33cEscalar claves 
 \33cSkala\x20
 \33cRozestup snímku\x20
 
@@ -4172,7 +4172,7 @@ MSG_CLOUDGUI_DRAWCLOUD
 \33cTeken Wolk
 
 
-
+\33cDibujar nube
 \33cRysowanie Chmur
 \33cVykreslit oblaka
 
@@ -4185,7 +4185,7 @@ MSG_CLOUDGUI_SETBOUNDS
 \33cStel Grenzen in
 
 
-
+\33cEstablecer límites
 \33cUstaw Granice
 \33cNastavení ohranièení
 
@@ -4198,7 +4198,7 @@ MSG_CLOUDGUI_SAVE
 \33cOpslaan
 
 
-
+\33cGuardar
 \33cZapisz
 \33cUlo¾it
 
@@ -4211,7 +4211,7 @@ MSG_CLOUDGUI_LOAD
 \33cLaden
 
 
-
+\33cCargar
 \33cWczytaj
 \33cNaèíst
 
@@ -4224,7 +4224,7 @@ Map View: Nuvole
 Map View: Wolken
 
 
-
+Vista de mapa: Nubes
 Podgl±d Mapy: Chmury
 Zobrazení mapy: Oblaka
 
@@ -4237,7 +4237,7 @@ Memoria Esaurita!
 Te weinig geheugen!
 
 
-
+¡Sin memoria!
 Brak Pamiêci
 Nedostatek pamìti!
 
@@ -4250,7 +4250,7 @@ Parametri Modulo: Modello
 Parameters Module: Model
 
 
-
+Módulo de parámetros: Modelo
 Parametry Modu³u: Model
 Modul hodnot: Model
 
@@ -4263,7 +4263,7 @@ L'attuale modello di nuvola è stato modificato. Desiderate salvarlo prima di chi
 Het huidige Wolken Model is gewijzigd. Wilt u het opslaan voordat u het sluit?
 
 
-
+El modelo de nube actual ha sido modificado. ¿Desea guardarlo antes de cerrar?
 Aktualny model chmur zosta³ zmodyfikowany. Czy chcesz zapisaæ przed zamniêciem?
 Hodnoty modelu oblak byly zmìnìny. Chcete je nejprve ulo¾it pøed uzavøením?
 
@@ -4276,7 +4276,7 @@ Si|No
 Ja|Nee
 
 
-
+Sí|No
 Tak|Nie
 Ano|Ne
 
@@ -4289,7 +4289,7 @@ Nuvola Percorso/File
 Wolken Pad/Bestand
 
 
-
+Ruta/Archivo de nube
 Chmura ¦cie¿ka/Plik
 Oblaka cesta/soubor
 
@@ -4302,7 +4302,7 @@ Rendere questo file il file del progetto della nuvola?
 Van dit bestand het Project Wolken Bestand maken?
 
 
-
+¿Hacer de este archivo el archivo de nube del proyecto?
 Wybraæ plik jako plik chmur dla projektu?
 Vytvoøit z tohoto nastavení soubor projektu oblak?
 
@@ -4315,7 +4315,7 @@ Editor Onda Nuvola
 Wolken Golf Editor
 
 
-
+Editor de ondas de nube
 Edytor pofalowania chmur
 Oblaka - Editor zvlnìní
 
@@ -4328,7 +4328,7 @@ Immettere il Frame per la quale creare il numero.
 Voer frame in om Key voor te maken.
 
 
-
+Ingrese el fotograma para crear clave.
 Wybierz klatkê dla której chesz utworzyæ klucz.
 Èíslo klíèového snímku.
 
@@ -4341,7 +4341,7 @@ Cancellare tutti i numeri dei frame delle nuvole?
 Alle wolken key frames verwijderen?
 
 
-
+¿Eliminar todos los fotogramas clave de nube?
 Usun±æ wszystkie klucze ramek dla chmur?
 Smazat v¹echny klíèové snímky oblak?
 
@@ -4354,7 +4354,7 @@ Dimensione Fractale
 Fractale Afmetingen
 
 
-
+Dimensión fractal
 Rozmiar Fractali
 Velikost fraktalu
 
@@ -4367,7 +4367,7 @@ Muovere latitudine
 Verplaats in Latitudinale richting
 
 
-
+Mover latitud
 Wysoko¶æ Ruchu
 Posun vý¹ky
 
@@ -4380,7 +4380,7 @@ Muovere Longitudine
 Verplaats in Longitudinale richting
 
 
-
+Mover longitud
 
 Posun délky
 
@@ -4393,7 +4393,7 @@ Linee temporali della nuvole
 Wolken Tijdlijnen
 
 
-
+Líneas de tiempo de nube
 Linia Czasu dla Chmur
 Èasová osa oblak
 
@@ -4406,7 +4406,7 @@ File Nuvola
 Wolken Bestand
 
 
-
+Archivo de nube
 Plik Chmur
 Soubor oblak
 
@@ -4421,7 +4421,7 @@ Creazione del modello di elevazione relativa
 Maken van Relatieve Hoogte Model
 
 
-
+Creando modelo de elevación relativa
 Tworzenie Relatywnego Wzniesienia Modelu
 Vytvoøení modelu relativní vý¹ky
 
@@ -4434,7 +4434,7 @@ Relativa elevazione
 Relatieve hoogte
 
 
-
+Elevación relativa
 Relatywnegpo wzniesienia
 Relativní vý¹ka
 
@@ -4447,7 +4447,7 @@ Calcolare
 Berekenen
 
 
-
+Calculando
 Obliczenia
 Zpracovávám
 
@@ -4460,7 +4460,7 @@ Files
 Bestanden
 
 
-
+Archivos
 Pliki
 Soubory
 
@@ -4473,7 +4473,7 @@ Data Ops: DEM Interpolazione
 Data Ops: DEM Interpoleren
 
 
-
+Operaciones de datos: Interpolación DEM
 
 Modul exportu: DEM Interpolace
 
@@ -4486,7 +4486,7 @@ Nessun file(s) selezionato!
 Geen bestand(en) geselecteerd!
 
 
-
+¡No se seleccionaron archivos!
 Nie wybrano pliku(ów)!
 ®ádný soubor nebyl vybrán!
 
@@ -4499,7 +4499,7 @@ Errore nell'apertura del file per l'interpolazione!\nFile non DEM o REM\nContinu
 Fout bij openen van bestand voor interpolatie!\nBestand is geen DEM of REM\nDoorgaan?
 
 
-
+¡Error al abrir archivo para interpolación!\nArchivo no es DEM o REM\n¿Continuar?
 B³±d otwarcia pliku dla interpolacji!\nPlik DEM lub REM nie istnieje\nKontynuowaæ?
 Chyba pøi otevírání souboru interpolací!\nSoubor není formátu DEM/REM\nPokraèovat?
 
@@ -4512,7 +4512,7 @@ Il nome del DEM è troppo lungo per aggiungere un carattere supplementare. Si des
 DEM naam is te lang om een extra karakter toe te voegen. Wilt u een nieuwe basis naam voor de DEM invoeren of de interpolatie afbreken?
 
 
-
+El nombre DEM es demasiado largo para agregar un carácter extra. ¿Desea ingresar un nuevo nombre base para el DEM o abortar la interpolación?
 Nazwa DEM jest zbyt d³uga aby dodaæ dodatkowe znaki. Czy chcesz podaæ now± nazwê bazow± dla DEM czy chcesz wolisz anulowaæ interpolacjê?
 Soubor interpolací má pøíli¹ dlouhý název. Chcete mu zadat nové jméno, nebo pøeru¹it jeho ukládání?
 
@@ -4525,7 +4525,7 @@ Nuovo Nome|Interrompere
 Nieuwe Naam|Afbreken
 
 
-
+Nuevo nombre|Abortar
 Nowa Nazwa|Anuluj
 Nové jméno|Pøeru¹it
 
@@ -4538,7 +4538,7 @@ Inserire il nome del nuovo oggetto.
 Voer nieuwe objectnaam in.
 
 
-
+Ingrese nuevo nombre de objeto.
 Wprowad¼ now± nazwê objektu.
 Zadej nové jméno objektu.
 
@@ -4551,7 +4551,7 @@ Data Ops: Interpolazione DEM
 Data Ops: DEM Interpoleren
 
 
-
+Operaciones de datos: Interpolar DEM
 Data Ops: Interpolacja DEM
 Modul exportu: Interpolace
 
@@ -4564,7 +4564,7 @@ Errore nella lettura del file di elevazione!\nContinuare?
 Fout bij lezen van hoogte bestand!\nDoorgaan?
 
 
-
+¡Error al leer archivo de elevación!\n¿Continuar?
 B³±d odczytu pliku wzniesienia!\nKontynuowaæ?
 Chyba pøi naèítání souboru vý¹kových hodnot!\nPokraèovat?
 
@@ -4577,7 +4577,7 @@ Memoria esaurita! Operazione terminata.
 Te weinig geheugen!\nOperatie afgebroken.
 
 
-
+¡Sin memoria!\nOperación terminada.
 Brak Pamiêci\nOperacja anulowana.
 Nedostatek pamìti!\nOperace bude ukonèena.
 
@@ -4590,7 +4590,7 @@ Errore nell'apertura del file DEM per l'output!\nOperazione terminata.
 Fout bij openen van DEM bestand voor uitvoer!\nOperatie afgebroken.
 
 
-
+¡Error al abrir archivo DEM para salida!\nOperación terminada.
 B³±d otwarcia pliku DEM dla wyj¶cia\nOperacja anulowana.
 Chyba pøi pokusu otevøít DEM sobor pro zápis!\nOperace bude ukonèena.
 
@@ -4603,7 +4603,7 @@ Errore nella scrittura del file DEM!\nOperazione terminata.
 Fout bij schrijven van DEM bestand!\nOperatie afgebroken.
 
 
-
+¡Error al escribir archivo DEM!\nOperación terminada.
 B³±d zapisu pliku DEM\nOperacja anulowana.
 Chyba pøi zápisu souboru DEM!\nOperace bude ukonèena.
 
@@ -4616,7 +4616,7 @@ Memoria esaurita per l'espansione dell'elenco dell'editor di database!\nOperazio
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nOperatie afgebroken.
 
 
-
+¡Sin memoria al expandir lista del editor de base de datos!\nOperación terminada.
 Brak pamiêci na rozszerzenie bazy danych o edytowane dane\nOperacja anulowana.
 Nedostatek pamìti pro výpis Databáze!\nOperace bude ukonèena.
 
@@ -4629,7 +4629,7 @@ Errore nell'apertura del file oggetto per l'output!\nOperazione terminata.
 Fout bij openen van Object bestand voor uitvoer!\nOperatie afgebroken.
 
 
-
+¡Error al abrir archivo de objeto para salida!\nOperación terminada.
 B³±d otwarcia pliku objektu dla wyj¶cia!\nOperacja anulowana.
 Chyba pøi pokusu otevøít soubor objektu pro zápis!\nOperace bude ukonèena.
 
@@ -4644,7 +4644,7 @@ Data Ops: DEM Estratto
 Data Ops: DEM Extract
 
 
-
+Operaciones de datos: Extraer DEM
 Data Ops: DEM wypakowane
 Modul exportu: Extrakce DEM
 
@@ -4657,7 +4657,7 @@ Memoria esaurita per l'allocazione dell'intestazione delle informazioni DEM!\nOp
 Te weinig geheugen voor toewijzen van DEM Info Header!\nOperatie afgebroken.
 
 
-
+¡Sin memoria al asignar encabezado de información DEM!\nOperación terminada.
 Brak pamiêci dla nag³ówka informacjynego pliku DEM!\nOperacja anulowana.
 Nedostatek pamìti pro hlavièku DEM souboru!\nOperace bude ukonèena.
 
@@ -4670,7 +4670,7 @@ I DEM da 7,5 minuti non si trovano tutti nella stessa zona UTM!\nOperazione term
 7,5 Minuten DEMs liggen niet allemaal in dezelfde UTM-Zone!\nOperatie afgebroken.
 
 
-
+¡Los DEMs de 7.5 minutos no están todos dentro de la misma zona UTM!\nOperación terminada.
 7,5 minutowe DEMy nie mieszcz± siê w strefie czasowej UTM!\nOperation termiated.
 Sedm a pùl minutové DEM musí být ze stejného èasového pásma UTM!\nOperace bude ukonèena.
 
@@ -4683,7 +4683,7 @@ Memoria esaurita per l'allocazione degli array DEM!\nOperazione terminata.
 Te weinig geheugen voor toewijzen van DEM Reeksen!\nOperatie afgebroken.
 
 
-
+¡Sin memoria al asignar matrices DEM!\nOperación terminada.
 Brak pamiêci na alokacjê tablic DEM!\nOperacja anulowana.
 Nedostatek pamìti pro alokaci DEM polí!nOperace bude ukonèena.
 
@@ -4696,7 +4696,7 @@ MSG_DEM_75MINUTE
 7,5 Minuten
 
 
-
+7.5 Minutos
 7,5 minut
 7.5 minuty
 
@@ -4709,7 +4709,7 @@ Lettura
 Lezen
 
 
-
+Leyendo
 Odczyt
 Naèítání
 
@@ -4722,7 +4722,7 @@ Impossibile leggere l'intestazione del profilo DEM!\nOperazione terminata.
 Kan DEM profiel kop niet lezen!\nOperatie afgebroken.
 
 
-
+¡No se puede leer encabezado de perfil DEM!\nOperación terminada.
 Nie mo¿na odczytaæ nag³ówka profilu DEM!\nOperacja anulowana.
 Hlavièku DEM profilu se nepodaøilo naèíst!\nOperace bude ukonèena.
 
@@ -4735,7 +4735,7 @@ Errore nella lettura dell'intestazione del profilo DEM!\nOperazione terminata.
 Fout bij lezen van DEM profiel kop!\nOperatie afgebroken.
 
 
-
+¡Error al leer encabezado de perfil DEM!\nOperación terminada.
 B³±d odczytu nag³ówka profilu DEM!\nOperacja anulowana.
 Chyba pøi ètení hlavièky DEM profilu!\nOperace bude ukonèena.
 
@@ -4748,7 +4748,7 @@ Patch Inesistente
 Lege Patch
 
 
-
+Parche en blanco
 Pusta ¦cie¿ka
 prelozit
 
@@ -4761,7 +4761,7 @@ Campione
 Herberekenen
 
 
-
+Re-muestrear
 
 Pøepoèítat
 
@@ -4774,7 +4774,7 @@ Inserire un nome per l'oggetto DEM di 30 metri.
 Voer een naam in voor het 30 meter DEM object.
 
 
-
+Ingrese un nombre para el objeto DEM de 30 metros.
 Wprowad¼ nazwê dla 30m objektów DEM.
 Zatej název 30ti metrového objektu DEM.
 
@@ -4787,7 +4787,7 @@ Un Grado
 Een graad
 
 
-
+Un grado
 Jeden Stopieñ
 Jeden stupeò
 
@@ -4800,7 +4800,7 @@ Memoria esaurita per l'allocazione del buffer temporaneo!\nOperazione terminata.
 Te weinig geheugen voor toewijzen van tijdelijke buffer!\nOperatie afgebroken.
 
 
-
+¡Sin memoria al asignar búfer temporal!\nOperación terminada.
 Brak pamiêci dla alokacji tymczasowego bufora!\nOperacja anulowana.
 Nedostatek pamìti pro alokování bufferu!\nOperace bude ukonèena.
 
@@ -4813,7 +4813,7 @@ Errore nella lettura del profilo DEM!\nOperazione terminata.
 Fout bij lezen van DEM profiel!\nOperatie afgebroken.
 
 
-
+¡Error al leer perfil DEM!\nOperación terminada.
 B³±d odczytu profilu DEM!\nOperacja anulowana.
 Chyba pøi ètení DEM profilu!\nOperace bude ukonèena.
 
@@ -4826,7 +4826,7 @@ Lunghezza del profilo DEM non corretta!\nOperazione terminata.
 Ongeldige lengte van DEM profiel!\nOperatie afgebroken.
 
 
-
+¡Longitud de perfil DEM incorrecta!\nOperación terminada.
 Niew³a¶ciwa d³ugo¶æ profilu DEM!\nOperacja anulowana.
 Nesprávná délka DEM profilu!\nOperace bude ukonèena.
 
@@ -4839,7 +4839,7 @@ Memoria esaurita per l'allocazione del buffer della mappa!\nOperazione terminata
 Te weinig geheugen voor toewijzen van kaart buffer!\nOperatie afgebroken.
 
 
-
+¡Sin memoria al asignar búfer de mapa!\nOperación terminada.
 Brak pamiêci dla bufora map!\nOperacja anulowana.
 Nedostatek pamìti pro alokování mapového bufferu!\n Operace bude ukonèena.
 
@@ -4852,7 +4852,7 @@ Errore nella creazione del file di output!\nOperazione terminata.
 Fout bij maken van uitvoer bestand!\nOperatie afgebroken.
 
 
-
+¡Error al crear archivo de salida!\nOperación terminada.
 B³±d tworzenia pliku wyj¶ciowego!\nOperacja anulowana.
 Chyba pøi vytváøení výstupního souboru!\nOperace bude ukonèena.
 
@@ -4865,7 +4865,7 @@ Impossibile aprire il file DEM per l'input!\nOperazione terminata.
 Kan DEM bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
-
+¡No se puede abrir archivo DEM para entrada!\nOperación terminada.
 Nie mo¿na otworzyæ pliku DEM dla wej¶cia!\nOperacja anulowana.
 Nemohu otevøít soubor DEM pro ètení!\nOperace bude ukonèena.
 
@@ -4878,7 +4878,7 @@ Impossibile leggere l'intestazione del file DEM!\nOperazione terminata.
 Kan DEM bestand kop niet lezen!\nOperatie afgebroken.
 
 
-
+¡No se puede leer encabezado de archivo DEM!\nOperación terminada.
 Nie mogê odczytaæ nag³ówka pliku DEM!\nOperacja anulowana.
 Chyba pøi ètení hlavièky soubory DEM!\nOperace bude ukonèena.
 
@@ -4891,7 +4891,7 @@ Errore nell'apertura del file di output!\nOperazione terminata.
 Fout bij openen van uitvoer bestand!\nOperatie afgebroken.
 
 
-
+¡Error al abrir archivo de salida!\nOperación terminada.
 B³±d otwracia pliku pkliku wyj¶ciiowgo!\nOperacja anulowana.
 Chyba pøi pokusu otevøít soubor pro zápis!\nOperace bude ukonèena.
 
@@ -4904,7 +4904,7 @@ Errore nella scrittura del file di output!\nOperazione terminata.
 Fout bij schrijven naar uitvoer bestand!\nOperatie afgebroken.
 
 
-
+¡Error al escribir en archivo de salida!\nOperación terminada.
 B³±d zapisu pliku wyj¶ciowego!\nOpercja anulowana.
 Chyba pøi zápisu do výstupního souboru!\nOperace bude ukonèena.
 
@@ -4917,7 +4917,7 @@ Elenco dell'editor del database in espansione è senza memoria!
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!
 
 
-
+¡Sin memoria al expandir lista del editor de base de datos!
 Brak pamieci dla rozszerzenia bazy danych o edycjê!
 Nedostatek pamìti pro výpis databáze!
 
@@ -4930,7 +4930,7 @@ Modulo di mappatura: Correggere i Flats
 Mapping Module: Corrigeer Platte Stukken
 
 
-
+Módulo de mapeo: Corregir planos
 
 Mapový modul: Fixní plochy
 
@@ -4943,7 +4943,7 @@ Dimensioni dell'array errate! Qualcosa non viene calcolato.\nOperazione terminat
 Onjuiste reeks dimensies! Iets klopt niet.\nOperatie afgebroken.
 
 
-
+¡Dimensiones de matriz incorrectas! Algo no cuadra.\nOperación terminada.
 Niew³a¶ciwe wymiary tablicy! Czego¶ nie uda siê przeliczyæ.\nOperacja anulowana.
 ©patný rozmìr pole!\nOperace bude ukonèena.
 
@@ -4956,7 +4956,7 @@ Non ci sono zone piatte su cui operare!\nOperazione terminata.
 Geen vlakke plekken om op te werken!\nOperatie afgebroken.
 
 
-
+¡No hay zonas planas para operar!\nOperación terminada.
 Nie ma p³askim miejsc na których mo¿na pracowaæ!\nOperacja anulowana.
 ®ádná data pro výpoèet plochy!\nOperace bude ukonèena.
 
@@ -4971,7 +4971,7 @@ Database Oggetto
 Database Objecten
 
 
-
+Objetos de base de datos
 Obiekty Bazy Danych
 Objekty databáze
 
@@ -4984,7 +4984,7 @@ XYZ Latitudine/Longitudine
 XYZ Lat/Long
 
 
-
+XYZ Lat/Lon
 XYZ Wys/Szer
 XYZ Vý¹ka/Délka
 
