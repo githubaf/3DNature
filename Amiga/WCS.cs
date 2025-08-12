@@ -20998,7 +20998,7 @@ Dispositivo di input
 Invoerbron
 
 
-
+Fuente de entrada
 
 
 
@@ -21011,7 +21011,7 @@ Adatta alla topografia
 Conform Topo
 
 
-
+Conformar topografía
 
 
 
@@ -21024,7 +21024,7 @@ Corrispondenza punti
 Overeenkomende punten
 
 
-
+Coincidir puntos
 
 
 
@@ -21037,7 +21037,7 @@ Sposta origine
 Verplaats oorsprong
 
 
-
+Mover origen
 
 
 
@@ -21050,7 +21050,7 @@ Duplica
 Dupliceer
 
 
-
+Duplicar
 
 
 
@@ -21063,7 +21063,7 @@ Movimento
 Beweging
 
 
-
+Movimiento
 
 
 
@@ -21076,7 +21076,7 @@ Imposta telecamera
 Stel Camera in
 
 
-
+Establecer cámara
 
 
 
@@ -21089,7 +21089,7 @@ Imposta messa a fuoco
 Stel focus in
 
 
-
+Establecer enfoque
 
 
 
@@ -21102,7 +21102,7 @@ Tracciato
 Pad
 
 
-
+Ruta
 
 
 
@@ -21115,7 +21115,7 @@ Interpolare
 Interpoleren
 
 
-
+Interpolar
 
 
 
@@ -21128,7 +21128,7 @@ Vett-Camera
 Vect-Camera
 
 
-
+Vect-Cámara
 
 
 
@@ -21141,7 +21141,7 @@ Vett-Fuoco
 Vect-Focus
 
 
-
+Vect-Enfoque
 
 
 
@@ -21154,7 +21154,7 @@ Camera-Vett
 Camera-Vect
 
 
-
+Cámara-Vect
 
 
 
@@ -21167,7 +21167,7 @@ Fuoco-Vett
 Focus-Vect
 
 
-
+Enfoque-Vect
 
 
 
@@ -21180,7 +21180,7 @@ Elevazione superficie
 Oppervlak El
 
 
-
+Superficie El
 
 
 
@@ -21193,7 +21193,7 @@ Tre
 Drie
 
 
-
+Tres
 
 
 
@@ -21206,7 +21206,7 @@ Finestre
 Venster
 
 
-
+Ventanas
 
 
 
@@ -21219,7 +21219,7 @@ Editor onde
 Golf Editor
 
 
-
+Editor de ondas
 
 
 
@@ -21232,7 +21232,7 @@ Campo visivo
 Kijkvenster
 
 
-
+Área visible
 
 
 
@@ -21245,7 +21245,7 @@ Superficie
 Oppervlak
 
 
-
+Superficie
 
 
 
@@ -21258,7 +21258,7 @@ Rilievo
 Reliëf
 
 
-
+Relieve
 
 
 
@@ -21271,7 +21271,7 @@ Pendenza
 Helling
 
 
-
+Pendiente
 
 
 
@@ -21284,7 +21284,7 @@ Contorno
 Contour
 
 
-
+Contorno
 
 
 
@@ -21297,7 +21297,7 @@ Grigio
 Grijs
 
 
-
+Gris
 
 
 
@@ -21310,7 +21310,7 @@ Grigio chiaro
 Lichtgrijs
 
 
-
+Gris claro
 
 
 
@@ -21323,7 +21323,7 @@ Colore
 Kleur
 
 
-
+Color
 
 
 
@@ -21336,7 +21336,7 @@ Controllo vista mappa
 Kaartweergave Besturing
 
 
-
+Control de vista del mapa
 
 
 
@@ -21349,7 +21349,7 @@ Scala\x20
 Schalen\x20
 
 
-
+Escala 
 
 
 
@@ -21362,7 +21362,7 @@ MSG_MAPGUI_LAT
 Lat\x20
 
 
-
+Lat 
 
 
 
@@ -21375,7 +21375,7 @@ MSG_MAPGUI_33CZOOM
 \33cZoom
 
 
-
+\33cZoom
 
 
 
@@ -21388,7 +21388,7 @@ MSG_MAPGUI_33CPAN
 \33cDraai
 
 
-
+\33cPanorámica
 
 
 
@@ -21401,7 +21401,7 @@ MSG_MAPGUI_LONX20
 Long\x20
 
 
-
+Lon 
 
 
 
@@ -21414,7 +21414,7 @@ MSG_MAPGUI_AUTO
 \33cAuto
 
 
-
+\33cAuto
 
 
 
@@ -21427,7 +21427,7 @@ MSG_MAPGUI_33CCENTER
 \33cCentreren
 
 
-
+\33cCentro
 
 
 
@@ -21440,7 +21440,7 @@ MSG_MAPGUI_EXAG
 Overdrijf\x20
 
 
-
+Exag 
 
 
 
@@ -21453,7 +21453,7 @@ MSG_MAPGUI_33CDATABASE
 \33c Database\x20
 
 
-
+\33cBase de datos 
 
 
 
@@ -21466,7 +21466,7 @@ Topo
 Topo
 
 
-
+Topografía
 
 
 
@@ -21479,7 +21479,7 @@ Vett
 Vec
 
 
-
+Vector
 
 
 
@@ -21492,7 +21492,7 @@ MSG_MAPGUI_ECO
 \33cEco\x20
 
 
-
+\33cEco 
 
 
 
@@ -21505,7 +21505,7 @@ Inter
 Inter
 
 
-
+Inter
 
 
 
@@ -21518,7 +21518,7 @@ Stile:
 Stijl:
 
 
-
+Estilo:
 
 
 
@@ -21531,7 +21531,7 @@ Dither
 Vervaag
 
 
-
+Trama
 
 
 
@@ -21544,7 +21544,7 @@ MSG_MAPGUI_ALIGN
 \33cUitlijnen\x20
 
 
-
+\33cAlinear 
 
 
 
@@ -21557,7 +21557,7 @@ MSG_MAPGUI_CLEAR
 \33cWissen
 
 
-
+\33cLimpiar
 
 
 
@@ -21570,7 +21570,7 @@ MSG_MAPGUI_33CDRAW
 \33cTekenen
 
 
-
+\33cDibujar
 
 
 
@@ -21583,7 +21583,7 @@ MSG_MAPGUI_33CREFINE
 \33cVerfijnen
 
 
-
+\33cRefinar
 
 
 
@@ -21596,7 +21596,7 @@ Allineamento mappa
 Kaartuitlijning
 
 
-
+Alineación del mapa
 
 
 
@@ -21609,7 +21609,7 @@ MSG_MAPGUI_EOGRAPHICCOORDS
 \33c\0334Geografische Coördinaten
 
 
-
+\33c\0334Coordenadas geográficas
 
 
 
@@ -21622,7 +21622,7 @@ Latitudine NO
 NW Lat
 
 
-
+Lat NW
 
 
 
@@ -21635,7 +21635,7 @@ MSG_MAPGUI_LON
 Long
 
 
-
+Lon
 
 
 
@@ -21648,7 +21648,7 @@ Latitudine SE
 ZO Lat
 
 
-
+Lat SE
 
 
 
@@ -21661,7 +21661,7 @@ MSG_MAPGUI_CREENCOORDS
 \33c\0334Scherm Coördinaten
 
 
-
+\33c\0334Coordenadas de pantalla
 
 
 
@@ -21674,7 +21674,7 @@ MSG_MAPGUI_UPPERLEFTX
  Boven Links X
 
 
-
+X superior izquierda
 
 
 
@@ -21687,7 +21687,7 @@ X angolo inferiore destro
 Onder Rechts X
 
 
-
+X inferior derecha
 
 
 
@@ -21700,7 +21700,7 @@ MSG_MAPGUI_SETREGISTRATION
 \33cRegistratie instellen
 
 
-
+\33cEstablecer registro
 
 
 
@@ -21713,7 +21713,7 @@ Avviso finestra controllo mappa
 Kaart Controle Venster Mededeling
 
 
-
+Aviso de control de mapa
 
 
 
@@ -21726,7 +21726,7 @@ MSG_MAPGUI_THISAREAISNDERCONSTRUCTIONARDHATREQUIRED
 \33cDit gebied is\nIn aanbouw.\nVeiligheidshelm verplicht.
 
 
-
+\33cEsta área está\nEn construcción.\nSe requiere casco.
 
 
 
@@ -21739,7 +21739,7 @@ MSG_MAPGUI_OKAY
 \33cOK
 
 
-
+\33cAceptar
 
 
 
@@ -21752,7 +21752,7 @@ Memoria esaurita!\nImpossibile inizializzare la finestra della mappa!\nOperazion
 Te weinig geheugen!\nKan kaartvenster niet initialiseren!\nBewerking afgebroken.
 
 
-
+¡Sin memoria!\nNo se puede inicializar la ventana del mapa.\nOperación terminada.
 
 
 
@@ -21765,7 +21765,7 @@ Valori di registrazione non validi! I valori X o Y massimi e minimi sono uguali.
 Ongeldige registratiewaarden! Hoge en lage X of Y waarden zijn gelijk.
 
 
-
+¡Valores de registro ilegales! Los valores altos y bajos de X o Y son iguales.
 
 
 
@@ -21778,7 +21778,7 @@ Imposta il vertice dopo cui inserire. Q=fine Uu=su Dd=giù ESC=annulla
 Stel hoekpunt in om in te voegen. Q=klaar Uu=omhoog Dd=omlaag ESC=annuleren
 
 
-
+Establecer vértice para insertar después. Q=terminar Uu=arriba Dd=abajo ESC=abortar
 
 
 
@@ -21791,7 +21791,7 @@ Q=fine Uu=su Dd=giù -=elimina
 Q=klaar Uu=omhoog Dd=omlaag -=verwijderen
 
 
-
+Q=terminar Uu=arriba Dd=abajo -=eliminar
 
 
 
@@ -21804,7 +21804,7 @@ Vettore %s adattato alla topografia.
 Vector %s aangepast aan topografie.
 
 
-
+Vector %s conformado a la topografía.
 
 
 
@@ -21817,7 +21817,7 @@ Adattamento topografico del vettore annullato.
 Vector topografie aanpassing afgebroken.
 
 
-
+Conformación de topografía de vector abortada.
 
 
 
@@ -21830,7 +21830,7 @@ Adatta
 Conform
 
 
-
+Conformar
 
 
 
@@ -21843,7 +21843,7 @@ Tutti i vettori abilitati adattati alla topografia.
 Alle ingeschakelde vectoren aangepast aan topografie.
 
 
-
+Todos los vectores habilitados conformados a la topografía.
 
 
 
@@ -21856,7 +21856,7 @@ Adattamento topografico del vettore annullato! %d oggetti completati.
 Vector topografie aanpassing afgebroken! %d objecten voltooid.
 
 
-
+¡Conformación de topografía de vector abortada! %d objetos completados.
 
 
 
@@ -21869,7 +21869,7 @@ Imposta sorgente di input per la digitalizzazione.
 Stel digitaliseringsinvoerbron in.
 
 
-
+Establecer fuente de entrada de digitalización.
 
 
 
@@ -21882,7 +21882,7 @@ Bitpad|Summagrid|Mouse
 Bitpad|Summagrid|Muis
 
 
-
+Bitpad|Summagrid|Ratón
 
 
 
@@ -21895,7 +21895,7 @@ Punto di controllo DEM: Lat %f Lon %f Elev %.2f
 DEM Ctrl Punt: Lat %f Long %f Hgt %.2f
 
 
-
+Ctrl Pt DEM: Lat %f Lon %f Elev %.2f
 
 
 
@@ -21908,7 +21908,7 @@ Database: Salva
 Database: Opslaan
 
 
-
+Base de datos: Guardar
 
 
 
@@ -21921,7 +21921,7 @@ Database|Oggetto|Entrambi|Nessuno
 Database|Object|Beide|Geen
 
 
-
+Base|Objeto|Ambos|Ninguno
 
 
 
@@ -21934,7 +21934,7 @@ Devi prima caricare o creare un file di parametri prima di aprire la legenda.
 Maak of laad eerst een parameterbestand voordat de legende wordt geopend.
 
 
-
+Debe cargar o crear un archivo de parámetros antes de abrir la leyenda.
 
 
 
@@ -21947,7 +21947,7 @@ Vista mappa: Legenda ecosistema
 Kaartweergave: Ecosysteem Legende
 
 
-
+Vista de mapa: Leyenda del ecosistema
 
 
 
@@ -21960,7 +21960,7 @@ Memoria esaurita!\nImpossibile aprire la legenda dell'ecosistema.
 Te weinig geheugen!\nEcosysteem Legende kan niet worden geopend.
 
 
-
+¡Sin memoria!\nNo se puede abrir la leyenda del ecosistema.
 
 
 
@@ -21973,7 +21973,7 @@ Legenda ecosistema
 Ecosysteem Legende
 
 
-
+Leyenda del ecosistema
 
 
 
@@ -21987,7 +21987,7 @@ Almeno un punto di controllo finale per il segmento appena disegnato non è stato
 Minstens één eindcontrolepunt voor het zojuist getekende lijnsegment kon niet worden gevonden!\nWilt u de huidige en minimale schuifregelaarhoogten voor dit segment gebruiken of de bewerking annuleren?
 
 
-
+¡No se pudo encontrar al menos un punto de control final para el segmento de línea recién dibujado!\n¿Desea usar las elevaciones actuales y mínimas del control deslizante para este segmento o abortar la operación?
 
 
 
