@@ -4831,7 +4831,7 @@ Ich habe spanisch begonnen.
 
 ###### Copilot Anfrage #######
 
-Fuer ein Lanschafts-Renderingprogramm soll die GUI nach spanisch uebersetzt werden. Formatierungszeichen sollen dabei erhalten bleiben. Das Ergebis soll ein AWK-Script sein, welches die Zeilen im Orginal ersetzt. Hier ist ein Beispiel, wie das AWK-Script aussehen soll:
+Fuer ein Landschafts-Renderingprogramm soll die GUI nach spanisch uebersetzt werden. Formatierungszeichen sollen dabei erhalten bleiben. Das Ergebis soll ein AWK-Script sein, welches die Zeilen im Orginal ersetzt. Hier ist ein Beispiel, wie das AWK-Script aussehen soll:
 
 mawk '
 NR==7956{$0="\\0334Registro DEM"}
@@ -4841,8 +4841,8 @@ NR==7995{$0="\\0334Pre-Proceso"}
 {print}
 ' WCS.cs > WCS_translated.cs
 
-Das "Line xxx" soll in der Uebersetung nicht auftauchen sondern nur im AWK verwendet werden. Einzelne Backslashes muessen als Doppelbackslash ausgegeben werden.
-Das Script soll die spanische Übersetzung enthalten. Das Script muss als ISO 8859-1 gespeichert sein. Script auch auf Kommandozeile ausgeben.
+Das "Line xxx" soll in der Uebersetzung nicht auftauchen, sondern nur im AWK verwendet werden. Einzelne Backslashes muessen als Doppelbackslash ausgegeben werden.
+Das Script soll die spanische Übersetzung enthalten. Das Script bitte direkt lesbar anzeigen!
 
 ##############################
 
