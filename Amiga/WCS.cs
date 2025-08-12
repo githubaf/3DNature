@@ -8005,7 +8005,7 @@ Convertitore DEM
 DEM Converter
 
 
-
+Convertidor DEM
 DEM Konwerter
 Pøevodník DEM
 
@@ -8018,7 +8018,7 @@ MSG_DATAOPSGUI_INPUTFORMAT
 Invoer formaat
 
 
-
+Formato de entrada
 Format Wej¶ciowy
 Vstupní formát
 
@@ -8031,7 +8031,7 @@ Dimensione file di input
 Invoerbestandsgrootte
 
 
-
+Tamaño del archivo de entrada
 Rozmiar Pliku Wej¶ciowego
 Velikost vstupního souboru
 
@@ -8044,7 +8044,7 @@ Byte intestazione
 Header bytes
 
 
-
+Bytes de encabezado
 
 Bajty hlavièky
 
@@ -8057,7 +8057,7 @@ Formato valore
 Waardeformaat
 
 
-
+Formato de valor
 Format Warto¶ci
 Hodnota formátu
 
@@ -8070,7 +8070,7 @@ MSG_DATAOPSGUI_VALUEBYTES
 Bytes per waarde
 
 
-
+Bytes de valor
 
 Hodnota bajtù
 
@@ -8083,7 +8083,7 @@ MSG_DATAOPSGUI_BYTEORDER
 Bytevolgorde
 
 
-
+Orden de bytes
 Kolejno¶æ Bajtów
 Poøadí bajtù
 
@@ -8096,7 +8096,7 @@ MSG_DATAOPSGUI_READORDER
 Leesvolgorde
 
 
-
+Orden de lectura
 
 Èíst øazení
 
@@ -8109,7 +8109,7 @@ Righe uguali
 Gelijk aantal rijen
 
 
-
+Filas iguales
 
 Stejné øádky
 
@@ -8122,7 +8122,7 @@ MSG_DATAOPSGUI_DATAUNITS
 Data eenheden
 
 
-
+Unidades de datos
 
 Jednotky dat
 
@@ -8135,7 +8135,7 @@ Minimo
 Ondergrens
 
 
-
+Suelo
 
 Spodní
 
@@ -8148,7 +8148,7 @@ Ceiling
 Bovengrens
 
 
-
+Techo
 
 Vrchní
 
@@ -8161,7 +8161,7 @@ MSG_DATAOPSGUI_REPLACE
 Vervangen
 
 
-
+Reemplazar
 Wymieñ
 Zamìnit
 
@@ -8175,7 +8175,7 @@ con
 door
 
 
-
+por
 
 Podle
 
@@ -8188,7 +8188,7 @@ Ritaglia a sinistra
 Links bijsnijden
 
 
-
+Recorte izquierdo
 Przytnij z Lewej
 Oøíznout z Leva
 
@@ -8201,7 +8201,7 @@ MSG_DATAOPSGUI_RIGHT
 Rechts
 
 
-
+Derecho
    Prawa
       Prava
 
@@ -8214,7 +8214,7 @@ MSG_DATAOPSGUI_CROPTOP
 Boven bijsnijden
 
 
-
+Recorte superior
  Przytynij u góry
 Oøíznout Vr¹ek
 
@@ -8227,7 +8227,7 @@ MSG_DATAOPSGUI_BOTTOM
 Onder
 
 
-
+Inferior
   Dó³
      Spodek
 
@@ -8240,7 +8240,7 @@ Input Cols
 Invoer kolommen
 
 
-
+Columnas de entrada
 Kolumny Wej¶ciowe
 Vstup Øádkù
 
@@ -8253,7 +8253,7 @@ Input Rows
 Invoerrijen
 
 
-
+Filas de entrada
 Wiersze Wej¶ciowe
 Vstup Sloupcù
 
@@ -8266,7 +8266,7 @@ Avvolgi longitudine
 Lengtegraad omslaan
 
 
-
+Envolver longitud
 Zawiñ D³ugo¶æ
 Zabalit - prelozit
 
@@ -8279,7 +8279,7 @@ MSG_DATAOPSGUI_TEST
 \33cTesten
 
 
-
+\33cPrueba
 
 
 
@@ -8292,7 +8292,7 @@ Min
 Min
 
 
-
+Mín
 
 
 
@@ -8305,7 +8305,7 @@ Max
 Max
 
 
-
+Máx
 
 
 
@@ -8318,7 +8318,7 @@ Formato output
 Uitvoer formaat
 
 
-
+Formato de salida
 Format Wyj¶ciowy
 Výstupní formát
 
@@ -8331,7 +8331,7 @@ Cartella output
 Uitvoer directory
 
 
-
+Directorio de salida
 Katalog Wyj¶ciowy
 Výst. Adr
 
@@ -8344,7 +8344,7 @@ Nome
 Naam
 
 
-
+Nombre
 Nazwa
 Název
 
@@ -8357,7 +8357,7 @@ DEM per riga E/O
 DEMs rijgewijs O/W
 
 
-
+DEMs por filas E/O
 DEMy Rzêdami W/Z
 DEM Radky V/Z
 
@@ -8370,7 +8370,7 @@ MSG_DATAOPSGUI_COLUMNWISENS
 Kolomgewijs N/Z
 
 
-
+Por columnas N/S
   Kolumnami Pó/Po
 Sloupce S/J
 
@@ -8383,7 +8383,7 @@ High Lat
 Bovenste breedte
 
 
-
+Latitud alta
 
 Nejvy¹¹í Zem.vý¹
 
@@ -8396,7 +8396,7 @@ Latitudine bassa
 Onderste breedte
 
 
-
+Latitud baja
 
 Nejni¾¹í Zem.vý¹
 
@@ -8409,7 +8409,7 @@ High Lon
 Bovenste lengte\x20
 
 
-
+Longitud alta
 
 Nejvìt¹í Zem.dél
 
@@ -8422,7 +8422,7 @@ Longitudine bassa\x20
 Onderste lengte\x20
 
 
-
+Longitud baja
 
 Nejmen¹í Zem.Dél
 
@@ -8435,7 +8435,7 @@ Colonne output
 Uitvoer kolommen
 
 
-
+Columnas de salida
 
 Výst. Sloupcù
 
@@ -8448,7 +8448,7 @@ MSG_DATAOPSGUI_OUTPUTROWS
 Uitvoer rijen
 
 
-
+Filas de salida
 
 Výst. Øádkù
 
@@ -8461,7 +8461,7 @@ Vincolo spline
 Spline beperking
 
 
-
+Restricción de spline
 Wi±zanie Splajnów
 Omezení køivky
 
@@ -8474,7 +8474,7 @@ MSG_DATAOPSGUI_INPUT
 \0334Invoer\x20\x20
 
 
-
+\0334  Entrada  
 \0334 Wej¶cie\x20\x20
 \0334  Vstup\x20\x20
 
@@ -8487,7 +8487,7 @@ MSG_DATAOPSGUI_OUTPUT
 \0334 Uitvoer\x20
 
 
-
+\0334  Salida 
 \0334 Wej¶cie\x20
 \0334  Výstup\x20\x20
 
@@ -8500,7 +8500,7 @@ Valore 1
 Waarde 1
 
 
-
+Valor 1
 Warto¶æ 1
 Hodnota 1
 
@@ -8513,7 +8513,7 @@ Valore 2
 Waarde 2
 
 
-
+Valor 2
 Warto¶æ 2
 Hodnota 2
 
@@ -8526,7 +8526,7 @@ Valore massimo in uscita
 Max uitvoerwaarde
 
 
-
+Valor máximo de salida
 Max War Wyj
 Max výst. hod
 
@@ -8539,7 +8539,7 @@ Valore minimo in uscita
 Min uitvoerwaarde
 
 
-
+Valor mínimo de salida
 Min War Wyj
 Min výst. hod
 
@@ -8552,7 +8552,7 @@ MSG_DATAOPSGUI_CONVERT
 \33cConverteren
 
 
-
+\33cConvertir
 \33cKonwersja
 \33cPøevést
 
@@ -8565,7 +8565,7 @@ Directory di output
 Uitvoer directory
 
 
-
+Directorio de salida
 Katalog Wyj¶ciowy
 Výstupní adresáø
 
@@ -8578,7 +8578,7 @@ File da convertire
 Bestand om te converteren
 
 
-
+Archivo a convertir
 Plik do Konwersji
 Soubor k pøevodu
 
@@ -8591,7 +8591,7 @@ Impossibile aprire il file per l'input!\n
 Kan bestand niet openen voor invoer!\n
 
 
-
+¡No se puede abrir el archivo para entrada!\n
 Nie mo¿na otworzyæ pliku wej¶ciowego!\n
 Nemohu otevøít vstupní soubor!\n
 
@@ -8604,7 +8604,7 @@ Impossibile leggere la dimensione del file!\n
 Kan bestandsgrootte niet lezen!\n
 
 
-
+¡No se puede leer el tamaño del archivo!\n
 Nie mo¿na odczytaæ rozmiaru pliku!\n
 Nemohu naèíst velikost souboru!\n
 
@@ -8617,7 +8617,7 @@ Operazioni dati: Converti
 Data Ops: Converteren
 
 
-
+Operaciones de datos: Convertir
 
 Modul exportu: Pøevést
 
@@ -8630,7 +8630,7 @@ Attenzione!\nIl file non è un file DEM WCS.
 Waarschuwing!\nBestand is geen WCS DEM bestand.
 
 
-
+¡Advertencia!\nEl archivo no es un archivo DEM de WCS.
 Uwaga\nPlik nie jest typu WCS DEM.
 Varování!\nTento soubor není typu WCS DEM.
 
@@ -8643,7 +8643,7 @@ Attenzione!\nIl file non è un file IFF Z Buffer.
 Waarschuwing!\nBestand is geen IFF Z Buffer bestand.
 
 
-
+¡Advertencia!\nEl archivo no es un archivo IFF Z Buffer.
 Uwaga\nPlik nie jest typu IFF Z Bufor.
 Varování!\nTento soubor není typu IFF Z Buffer.
 
@@ -8656,7 +8656,7 @@ Attenzione\nIl file non è un file DEM Vista.
 Waarschuwing\nBestand is geen Vista DEM bestand.
 
 
-
+Advertencia\nEl archivo no es un archivo DEM de Vista.
 Uwaga\nPlink nie jest typu Vista DEM.
 Varování!\nTento soubor není typu Vista DEM.
 
@@ -8669,7 +8669,7 @@ Attenzione\nIl file non è un file Vista compresso e non può essere importato.
 Waarschuwing\nBestand is geen gecomprimeerd Vista bestand en kan niet worden geïmporteerd.
 
 
-
+Advertencia\nEl archivo no está comprimido y no se puede importar.
 Uwaga\nPlik nie jest skompresowanym plikiem typu Vista i nie mo¿e byæ zaimportowany.
 Varování!\nTento soubor není pakovaný soubor typu Vista a nemù¾e být pøipojen.
 
@@ -8682,7 +8682,7 @@ Si tratta di un file Vista piccolo, grande o enorme?
 Is dit een klein, groot of extra groot Vista bestand?
 
 
-
+¿Es este un archivo Vista pequeño, grande o enorme?
 To jest Ma³y, Du¿y czy Wielki plik Vista?
 Jaký je tento soubor typu Vista?
 
@@ -8695,7 +8695,7 @@ Piccolo|Grande|Enorme
 Klein|Groot|Extra groot
 
 
-
+Pequeño|Grande|Enorme
 Ma³y|Du¿y|Wielki
 Malý|Velký|Obrovský
 
@@ -8708,7 +8708,7 @@ Attenzione\nIl file non è un file IFF.
 Waarschuwing\nBestand is geen IFF bestand.
 
 
-
+Advertencia\nEl archivo no es un archivo IFF.
 Uwaga\nPlik nie jest typu IFF.
 Varování!\nTento soubor není typu IFF.
 
@@ -8721,7 +8721,7 @@ Attenzione\nIl file non è un'immagine IFF.
 Waarschuwing\nBestand is geen IFF afbeelding.
 
 
-
+Advertencia\nEl archivo no es una imagen IFF.
 UWAGA\n Plik nie jest typu IFF.
 Varování!\nTento soubor neobsahuje ¾ádná IFF obrazová data.
 
@@ -8734,7 +8734,7 @@ Errore nella lettura dell'intestazione del bitmap.
 Fout bij lezen van bitmap header.
 
 
-
+Error al leer el encabezado del mapa de bits.
 B³±d odczytu nag³ówka bitmap.
 Chyba pøi ètení hlavièky bitmapy.
 
@@ -8747,7 +8747,7 @@ Attenzione\nIl file non è riconosciuto come file DTED.
 Waarschuwing\nBestand wordt niet herkend als een DTED bestand.
 
 
-
+Advertencia\nEl archivo no se reconoce como archivo DTED.
 Uwaga\nPlik nie rozpoznany jako DTED.
 Varování!\nTento soubor nebyl rozpoznán jako soubor typu DTED.
 
@@ -8760,7 +8760,7 @@ Operazioni dati: Interp DEM
 Data Ops: DEM interpoleren
 
 
-
+Operaciones de datos: Interpolar DEM
 
 Modul exportu: Vyhodn. DEM
 
@@ -8773,7 +8773,7 @@ Interpolazione DEM
 DEM interpoleren
 
 
-
+Interpolar DEM
 
 DEM Prokládání
 
@@ -8786,7 +8786,7 @@ MSG_DATAOPSGUI_SELECTFILES
 \33cBestanden selecteren
 
 
-
+\33cSeleccionar archivos
 \33cWybór Plików
 \33cVyber soubory
 
@@ -8799,7 +8799,7 @@ MSG_DATAOPSGUI_SELECTED
 Geselecteerd
 
 
-
+Seleccionado
 Wybrane
 Vybráno
 
@@ -8812,7 +8812,7 @@ Variazione elevazione %
 Hoogte Var %
 
 
-
+Var % de elevación
 War Uniesienia %
 Promìnná vý¹. %
 
@@ -8825,7 +8825,7 @@ MSG_DATAOPSGUI_MAXFLATVAR
 Max Vlak Var
 
 
-
+Máx var plana
   Maks P³as War
 Promò. Max Plocha
 
@@ -8838,7 +8838,7 @@ MSG_DATAOPSGUI_INTERPOLATE
 \33cInterpoleren
 
 
-
+\33cInterpolar
 
 \33cProkládání
 
@@ -8851,7 +8851,7 @@ File DEM
 DEM bestanden
 
 
-
+Archivos DEM
 
 Soubory DEM
 
@@ -8864,7 +8864,7 @@ Ambiente
 Omgevingslicht
 
 
-
+Ambiente
 Otoczenie
 Prostøedí
 
@@ -8877,7 +8877,7 @@ Sole
 Zon
 
 
-
+Sol
 S³oñce
 Slunce
 
@@ -8890,7 +8890,7 @@ Foschia
 Nevel
 
 
-
+Neblina
 Mg³a
 Mlha
 
@@ -8903,7 +8903,7 @@ Orizzonte
 Horizon
 
 
-
+Horizonte
 Horyzont
 Horizont
 
@@ -8916,7 +8916,7 @@ Zenit
 Zenit
 
 
-
+Cenit
 Zenit
 Obzor
 
@@ -8929,7 +8929,7 @@ Griglia di superficie
 Oppervlak raster
 
 
-
+Rejilla de superficie
 Siatka Powierzchni
 Møí¾ka zakøivení
 
@@ -8942,7 +8942,7 @@ Superficie 1
 Oppervlak 1
 
 
-
+Superficie 1
 Powierzchnia 1
 Zakøivení 1
 
@@ -8955,7 +8955,7 @@ Superficie 2
 Oppervlak 2
 
 
-
+Superficie 2
 Powierzchnia 2
 Zakøivení 2
 
@@ -8968,7 +8968,7 @@ Superficie 3
 Oppervlak 3
 
 
-
+Superficie 3
 Powierzchnia 3
 Zakøivení 3
 
@@ -8981,7 +8981,7 @@ Superficie 4
 Oppervlak 4
 
 
-
+Superficie 4
 Powierzchnia 4
 Zakøivení 4
 
@@ -8994,7 +8994,7 @@ Acqua
 Water
 
 
-
+Agua
 Woda
 Woda
 
@@ -9007,7 +9007,7 @@ Neve
 Sneeuw
 
 
-
+Nieve
 ¦nieg
 Sníh
 
@@ -9020,7 +9020,7 @@ Tundra
 Toendra
 
 
-
+Tundra
 
 Tundra
 
@@ -9033,7 +9033,7 @@ Zona umida
 Moeras
 
 
-
+Humedal
 Mokrad³o
 Mokøad
 
@@ -9046,7 +9046,7 @@ Erba
 Gras
 
 
-
+Hierba
 Trawa
 Tráva
 
@@ -9059,7 +9059,7 @@ Latifoglie
 Loofbomen
 
 
-
+Caducifolio
 Li¶ciasty
 Listnaté
 
@@ -9072,7 +9072,7 @@ Conifere
 Pijnbomen
 
 
-
+Conífera
 Drzewostan
 Jehliènany
 
@@ -9085,7 +9085,7 @@ Granito
 Graniet
 
 
-
+Granito
 Granit
 ®ula
 
@@ -9098,7 +9098,7 @@ Suolo
 Bodem
 
 
-
+Suelo
 Grunt
 Zem
 
@@ -9111,7 +9111,7 @@ Ripariale
 Oever
 
 
-
+Ribereño
 Nabrze¿e
 Køoviny
 
@@ -9124,7 +9124,7 @@ Roccia
 Rots
 
 
-
+Roca
 Ska³a
 Skály
 
@@ -9137,7 +9137,7 @@ Suolo nudo
 Kale bodem
 
 
-
+Suelo desnudo
 Puste Pole
 Holá zem
 
@@ -9150,7 +9150,7 @@ Modulo parametri: Predefiniti
 Parameter Module: Standaardinstellingen
 
 
-
+Módulo de parámetros: Predeterminados
 Parametry Modu³u: Domy¶lne
 Modul hodnot: Výchozí
 
@@ -9163,7 +9163,7 @@ Abilita almeno un DEM topografico e riprova.
 Schakel minstens één topo DEM in en probeer het opnieuw.
 
 
-
+Por favor, habilite al menos un DEM topográfico e intente de nuevo.
 Proszê aktywowaæ przynajmniej jeden topograficzny DEM i spróbowaæ ponownie.
 Prosím povolte alespoò jednu topologickou mapu DEM a zkuste to znovu.
 
@@ -9176,7 +9176,7 @@ Chiudi tutte le finestre delle linee temporali e riprova.
 Sluit alle Tijdlijn vensters en probeer het opnieuw.
 
 
-
+Por favor, cierre todas las ventanas de líneas de tiempo e intente de nuevo.
 Zamknij wszystkie okna Linii Czasu i spróbuj ponownie.
 Prosím uzavøete v¹echna okna èasových os a zkuste to znovu.
 
@@ -9190,7 +9190,7 @@ Dati diagnostici
 Diagnostische gegevens
 
 
-
+Datos de diagnóstico
 Informacje Diagnostyczne
 Diagnostická data
 
@@ -9203,7 +9203,7 @@ MSG_DIAG_DISTANCE
         Afstand
 
 
-
+Distancia
  Odleg³o¶æ
     Vzdálenost
 
@@ -9216,7 +9216,7 @@ Elevazione
          Hoogte
 
 
-
+Elevación
  Podniesienie
    Vý¹ka
 
@@ -9229,7 +9229,7 @@ Copertura superiore
       Bovenlaag
 
 
-
+Dosel
 
    prelozit
 
@@ -9242,7 +9242,7 @@ Copertura inferiore
       Onderlaag
 
 
-
+Sotobosque
 
 prelozit
 
@@ -9255,7 +9255,7 @@ MSG_DIAG_RELEL
   Relatieve hgt
 
 
-
+Rel El
   Rel. Pod
 
 
@@ -9268,7 +9268,7 @@ MSG_DIAG_ASPECT
          Aspect
 
 
-
+Orientación
   Aspekt
       Aspekt
 
@@ -9281,7 +9281,7 @@ MSG_DIAG_SLOPE
    Hellingshoek
 
 
-
+Pendiente
   Nachyelenie
        Sva¾itost
 
@@ -9294,7 +9294,7 @@ Angolo solare
         Zonhoek
 
 
-
+Ángulo solar
  K±t S³oñca
 Úhel slun. papr
 
@@ -9307,7 +9307,7 @@ MSG_DIAG_LATITUDE
    Breedtegraad
 
 
-
+Latitud
  Szeroko¶æ
     Zem. vý¹
 
@@ -9320,7 +9320,7 @@ MSG_DIAG_LONGITUDE
     Lengtegraad
 
 
-
+Longitud
  Szeroko¶æ
   Zem.dél
 
@@ -9333,7 +9333,7 @@ MSG_DIAG_DATABASE
 \33cDatabase
 
 
-
+\33cBase de datos
 \33cBaza Danych
 \33cDatabáze
 
@@ -9346,7 +9346,7 @@ MSG_DIAG_DIGITIZE
 \33cDigitaliseren
 
 
-
+\33cDigitalizar
 \33cDigitalizuj
 \33cDigitalizuji
 
@@ -9359,7 +9359,7 @@ Renderizza dati
 Render Data
 
 
-
+Datos de renderizado
 Renderuj Dane
 Poèítám data
 
@@ -9372,7 +9372,7 @@ MSG_DIAG_QUITDIG
 \33cBeëindig Digitaliseren
 
 
-
+\33cSalir de Dig
 \33cWyjd¼ z Dig
 \33cUkonèit dig
 
@@ -9385,7 +9385,7 @@ Superficie
 Oppervlak
 
 
-
+Superficie
 Powierzchnia
 Povrchová
 
@@ -9398,7 +9398,7 @@ Nessuno
 Geen
 
 
-
+Ninguno
 Nie
 ®ádná
 
@@ -9412,7 +9412,7 @@ Impostare questa come cartella oggetto predefinita?
 Dit de standaard object directory maken?
 
 
-
+¿Hacer de este el directorio de objetos predeterminado?
 Wybraæ ten katalog jako dom¶lny dla objektów?
 Nastavit tento adresáø jako výchozí adresáø objektu?
 
@@ -9425,7 +9425,7 @@ Database: Carica
 Database: Laden
 
 
-
+Base de datos: Cargar
 Baza Danych: Czytanie
 Databáze: Nahrávání
 
@@ -9438,7 +9438,7 @@ Errore nell'apertura del file database!\nOperazione terminata.
 Fout bij openen van Database bestand!\nOperatie afgebroken.
 
 
-
+¡Error al abrir el archivo de base de datos!\nOperación terminada.
 B³±d otwarcia pliku Bazy Danych!\nOperacja przerwana.
 Chyba pøi pokusu otevøít soubor databáze!\nOperace bude ukonèena.
 
@@ -9451,7 +9451,7 @@ Formato file database non supportato.
 Nie-ondersteund Database bestandsformaat.
 
 
-
+Formato de archivo de base de datos no compatible.
 Niewspierany format pliku Bazy Danych.
 Nepodporovaný formát souboru databáze.
 
@@ -9464,7 +9464,7 @@ Non è un file database WCS!\nOperazione terminata.
 Geen WCS Database bestand!\nOperatie afgebroken.
 
 
-
+¡No es un archivo de base de datos WCS!\nOperación terminada.
 To nie jest plik Bazy Danych WCS!\nOperacja przerwana.
 Toto není databázový soubor typu WCS!\nOperace bude ukonèena.
 
@@ -9477,7 +9477,7 @@ Errore nella lettura del file database!\nOperazione terminata.
 Fout bij lezen van Database bestand!\nOperatie afgebroken.
 
 
-
+¡Error al leer el archivo de base de datos!\nOperación terminada.
 B³±d odczytu Bazy Danych!\nOperacja anulowana.
 Chyba ètení dat souboru databáze!\nOperace bude ukonèena.
 
@@ -9490,7 +9490,7 @@ Modulo database: Carica
 Database Module: Laden
 
 
-
+Módulo de base de datos: Cargar
 Modu³ Bazy Danych: Czytaj
 Modul databáze: Nahrávání
 
@@ -9503,7 +9503,7 @@ Memoria insufficiente per allocare il database!\nOperazione terminata.
 Te weinig geheugen voor toewijzen van Database!\nOperatie afgebroken.
 
 
-
+¡Memoria insuficiente al asignar base de datos!\nOperación terminada.
 Brak pamiêci dla Bazy Danych!\nOperacja przerwana.
 Nedostatek pamìti pro databázi!\nOperace bude ukonèena.
 
@@ -9517,7 +9517,7 @@ Punto
 Punt
 
 
-
+Punto
 Punkt
 Bod
 
@@ -9530,7 +9530,7 @@ Cerchio
 Circel
 
 
-
+Círculo
 Okrêg
 Kruh
 
@@ -9543,7 +9543,7 @@ Quadrato
 Vierkant
 
 
-
+Cuadrado
 Kwadrat
 Ètverec
 
@@ -9556,7 +9556,7 @@ Croce
 Kruis
 
 
-
+Cruz
 Krzy¿
 
 
@@ -9569,7 +9569,7 @@ Pieno
 Gevuld
 
 
-
+Sólido
 Pe³ny
 Plný
 
@@ -9582,7 +9582,7 @@ Puntinato
 Gespikkeld
 
 
-
+Punteado
 Kropkowany
 Teèkovaný
 
@@ -9595,7 +9595,7 @@ Tratteggiato
 Gestreept
 
 
-
+Guiones
 Przerywany
 Èárkovaný
 
@@ -9608,7 +9608,7 @@ Spezzato
 Gebroken
 
 
-
+Roto
 £amany
 Rozbitý
 
@@ -9621,7 +9621,7 @@ Topo
 Topo
 
 
-
+Topográfico
 
 Topologický
 
@@ -9634,7 +9634,7 @@ Superficie
 Oppervlak
 
 
-
+Superficie
 Powierzchnia
 Povrchový
 
@@ -9647,7 +9647,7 @@ Vettore
 Vector
 
 
-
+Vector
 
 Vektor
 
@@ -9660,7 +9660,7 @@ Vettore illuminazione
 Illum Vec
 
 
-
+Vec iluminación
 
 Odraz. vekt
 
@@ -9673,7 +9673,7 @@ Segmento V
 Segment V
 
 
-
+Segmento V
 
 
 
@@ -9686,7 +9686,7 @@ Segmento illuminazione
 Illum Seg
 
 
-
+Segmento iluminación
 
 Odraz. Seg
 
@@ -9699,7 +9699,7 @@ Editor database
 Database Editor
 
 
-
+Editor de base de datos
 Edytor Bazy Danych
 Editor databáze
 
@@ -9712,7 +9712,7 @@ Es muss zuerst eine Datenbank erzeugt oder geladen werden, bevor der Editor geöf
 Laad of maak eerst een database voordat u de editor opent.
 
 
-
+Debe cargar o crear una base de datos antes de abrir el editor.
 Przed otwarciem edytora powiniene¶ utworzyæ lub wczytaæ bazê danych.
 Pøed otevøením databázového editoru musíte nejprve nìjakou databázi nahrát, nebo vytvoøit.
 
@@ -9725,7 +9725,7 @@ Memoria insufficiente!\nImpossibile aprire la finestra del database.
 Te weinig geheugen!\nKan database venster niet openen.
 
 
-
+¡Memoria insuficiente!\nNo se puede abrir la ventana de base de datos.
 Brak pamiêci!\nNie mo¿na otworzyæ okna bazy danych.
 Nedostatek pamìti pro otevøení okna databáze.
 
@@ -9738,7 +9738,7 @@ Opzioni
 Opties
 
 
-
+Opciones
 Opcje
 Mo¾nosti
 
@@ -9751,7 +9751,7 @@ MSG_EDDB_VECTORS
 \33cVectoren
 
 
-
+\33cVectores
 
 \33cVektory
 
@@ -9764,7 +9764,7 @@ MSG_EDDB_SURFACES
 \33cOppervlakken
 
 
-
+\33cSuperficies
 \33cPowierzchnie
 \33cPovrchy
 
@@ -9777,7 +9777,7 @@ MSG_EDDB_FRACTALS
 \33cFractalen
 
 
-
+\33cFractales
 \33cFraktale
 \33cFraktály
 
@@ -9790,7 +9790,7 @@ MSG_EDDB_NAME
 \33cNaam
 
 
-
+\33cNombre
 \33cNazwa
 \33cNázev
 
@@ -9803,7 +9803,7 @@ Abilitato
 Ingeschakeld
 
 
-
+Habilitado
 
 Vybráno
 
@@ -9816,7 +9816,7 @@ Punti
 Punten
 
 
-
+Puntos
 Punkty
 Body
 
@@ -9829,7 +9829,7 @@ Classe
 Klasse
 
 
-
+Clase
 Klasa
 Tøídy
 
@@ -9842,7 +9842,7 @@ Livello 1\x20
 Laag 1\x20
 
 
-
+Capa 1\x20
 Warstwa 1\x20
 Vrstva 1\x20
 
@@ -9855,7 +9855,7 @@ Sel
 Sel
 
 
-
+Sel
 Wyb
 Vybr
 
@@ -9868,7 +9868,7 @@ Attivo
 Aan
 
 
-
+Encendido
 W³
 
 
@@ -9881,7 +9881,7 @@ Disattivo
 Uit
 
 
-
+Apagado
 Wy³
 
 
@@ -9894,7 +9894,7 @@ Livello 2\x20
 Laag 2\x20
 
 
-
+Capa 2\x20
 Warstwa 2\x20
 Vrstva 2\x20
 
@@ -9907,7 +9907,7 @@ MSG_EDDB_LABEL
 \33cLabel
 
 
-
+\33cEtiqueta
 
 \33cPopis
 
@@ -9920,7 +9920,7 @@ DEM Frattale Max\x20
 DEM max Fractaal\x20
 
 
-
+Fractal DEM máx\x20
 
 
 
@@ -9933,7 +9933,7 @@ Stile linea
 Lijnstijl
 
 
-
+Estilo de línea
 Styl Linii
 
 
@@ -9946,7 +9946,7 @@ Spessore linea\x20
 Lijndikte\x20
 
 
-
+Grosor de línea\x20
  Grubo¶æ Lini\x20
 
 
@@ -9959,7 +9959,7 @@ Penna disegno\x20
 Tekenpen\x20
 
 
-
+Pluma de dibujo\x20
 
 
 
@@ -9972,7 +9972,7 @@ RGB
 RGB
 
 
-
+RGB
 
 
 
@@ -9985,7 +9985,7 @@ R
 R
 
 
-
+R
 
 
 
