@@ -16007,7 +16007,7 @@ Errore nella creazione della nuova directory del database: %s. Potrebbe già esis
 Fout bij aanmaken van nieuwe Databasemap: %s. Het kan al bestaan of er kan al een bestand met die naam zijn.
 
 
-
+Error al crear el nuevo Directorio de Base de Datos: %s. Puede que ya exista o que haya un archivo con ese nombre.
 
 
 
@@ -16020,7 +16020,7 @@ Errore nella creazione della directory predefinita: %s. Potrebbe già esistere o 
 Fout bij aanmaken van nieuwe Standaardmap: %s. Het kan al bestaan of er kan al een bestand met die naam zijn.
 
 
-
+Error al crear el nuevo Directorio Predeterminado: %s. Puede que ya exista o que haya un archivo con ese nombre.
 
 
 
@@ -16033,7 +16033,7 @@ Errore nel salvataggio del nuovo file progetto.
 Fout bij opslaan van het nieuwe Projectbestand.
 
 
-
+Error al guardar el nuevo archivo de Proyecto.
 
 
 
@@ -16046,7 +16046,7 @@ Errore nel salvataggio del file onde clonato.
 Fout bij opslaan van het gedupliceerde Golfbestand.
 
 
-
+Error al guardar el archivo de Olas clonado.
 
 
 
@@ -16059,7 +16059,7 @@ Errore nel salvataggio del file nuvole clonato.
 Fout bij opslaan van het gedupliceerde Wolkenbestand.
 
 
-
+Error al guardar el archivo de Nubes clonado.
 
 
 
@@ -16072,7 +16072,7 @@ Memoria esaurita.
 Te weinig geheugen.
 
 
-
+Memoria insuficiente.
 
 
 
@@ -16086,7 +16086,7 @@ Flag non validi %lu in %s %d\n
 Ongeldige vlaggen %lu in %s %d\n
 
 
-
+¡Banderas inválidas %lu en %s %d\n
 
 
 
@@ -16100,7 +16100,7 @@ Modulo Parametri: Vegetazione
 Parameter Module: Bladeren
 
 
-
+Módulo de Parámetros: Follaje
 
 
 
@@ -16113,7 +16113,7 @@ Memoria esaurita!\nImpossibile aprire l'Editor Vegetazione.
 Te weinig geheugen!\nKan Bladereneditor niet openen.
 
 
-
+¡Memoria insuficiente!\nNo se puede abrir el Editor de Follaje.
 
 
 
@@ -16126,7 +16126,7 @@ Non utilizzato
 Ongebruikt
 
 
-
+No usado
 
 
 
@@ -16139,7 +16139,7 @@ Editor Vegetazione
 Bladereneditor
 
 
-
+Editor de Follaje
 
 
 
@@ -16152,7 +16152,7 @@ Ecosistema
 Ecosysteem
 
 
-
+Ecosistema
 
 
 
@@ -16165,7 +16165,7 @@ MSG_FOLIGUI_GROUP
 \33c\0334Groep
 
 
-
+\33c\0334Grupo
 
 
 
@@ -16178,7 +16178,7 @@ MSG_FOLIGUI_SUGGEST
 \33cSuggesties...
 
 
-
+\33cSugerir...
 
 
 
@@ -16191,7 +16191,7 @@ Altezza max immagine\x20
 Max Afb Hgt\x20
 
 
-
+Altura Máx Imagen\x20
 
 
 
@@ -16204,7 +16204,7 @@ MSG_FOLIGUI_DENSITY
 Dichtheid %\x20
 
 
-
+ Densidad %\x20
 
 
 
@@ -16217,7 +16217,7 @@ MSG_FOLIGUI_HEIGHT
 Hoogte %\x20
 
 
-
+ Altura %\x20
 
 
 
@@ -16230,7 +16230,7 @@ Usa colori immagine
 Afbeeldingskleuren gebruiken
 
 
-
+Usar Colores de Imagen
 
 
 
@@ -16243,7 +16243,7 @@ MSG_FOLIGUI_ADD
 \33cToevoegen...
 
 
-
+\33cAñadir...
 
 
 
@@ -16256,7 +16256,7 @@ MSG_FOLIGUI_REMOVE
 \33cVerwijderen
 
 
-
+\33cEliminar
 
 
 
@@ -16269,7 +16269,7 @@ MSG_FOLIGUI_NEW
 \33cNieuw...
 
 
-
+\33cNuevo...
 
 
 
@@ -16282,7 +16282,7 @@ MSG_FOLIGUI_EXPORT
 \33cExporteren...
 
 
-
+\33cExportar...
 
 
 
@@ -16295,7 +16295,7 @@ MSG_FOLIGUI_MAGES
 \33c\0334Afbeeldingen
 
 
-
+\33c\0334Imágenes
 
 
 
@@ -16308,7 +16308,7 @@ Larghezza
 Breedte
 
 
-
+Ancho
 
 
 
@@ -16321,7 +16321,7 @@ Alt
 Hgt
 
 
-
+Alt
 
 
 
@@ -16334,7 +16334,7 @@ MSG_FOLIGUI_VIEW
 \33cBekijken...
 
 
-
+\33cVer...
 
 
 
@@ -16347,7 +16347,7 @@ MSG_FOLIGUI_KEEP
 \33cBehouden
 
 
-
+\33cMantener
 
 
 
@@ -16360,7 +16360,7 @@ Editor Vegetazione: Visualizza immagine
 Bladereneditor: Afbeelding bekijken
 
 
-
+Editor de Follaje: Ver Imagen
 
 
 
@@ -16373,7 +16373,7 @@ Impossibile caricare il file immagine per la visualizzazione!\nOperazione termin
 Kan afbeeldingsbestand niet laden voor bekijken!\nBewerking afgebroken.
 
 
-
+¡No se puede cargar el archivo de imagen para visualizar!\nOperación terminada.
 
 
 
@@ -16386,7 +16386,7 @@ Seleziona un ecotipo
 Selecteer een Ecosysteemtype
 
 
-
+Seleccione un Ecotipo
 
 
 
@@ -16399,7 +16399,7 @@ Editor Vegetazione: Carica ecotipo
 Bladereneditor: Ecosysteemtype laden
 
 
-
+Editor de Follaje: Cargar Ecotipo
 
 
 
@@ -16412,7 +16412,7 @@ Errore nel caricamento del file ecotipo!\nOperazione terminata.
 Fout bij laden van Ecosysteemtypebestand!\nBewerking afgebroken.
 
 
-
+¡Error al cargar archivo de Ecotipo!\nOperación terminada.
 
 
 
@@ -16425,7 +16425,7 @@ Seleziona un gruppo di vegetazione
 Selecteer een Bladerengroep
 
 
-
+Seleccione un Grupo de Follaje
 
 
 
@@ -16438,7 +16438,7 @@ Editor Vegetazione: Aggiungi gruppo
 Bladereneditor: Groep toevoegen
 
 
-
+Editor de Follaje: Añadir Grupo
 
 
 
@@ -16451,7 +16451,7 @@ Memoria esaurita durante l'allocazione del nuovo gruppo!\nOperazione terminata.
 Te weinig geheugen bij aanmaken van nieuwe groep!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al asignar nuevo grupo!\nOperación terminada.
 
 
 
@@ -16464,7 +16464,7 @@ Errore nel caricamento del file gruppo vegetazione!\nOperazione terminata.
 Fout bij laden van Bladerengroepbestand!\nBewerking afgebroken.
 
 
-
+¡Error al cargar archivo de Grupo de Follaje!\nOperación terminada.
 
 
 
@@ -16477,7 +16477,7 @@ Inserisci il nome del nuovo gruppo.
 Nieuwe groepsnaam invoeren.
 
 
-
+Ingrese nuevo nombre de grupo.
 
 
 
@@ -16490,7 +16490,7 @@ Editor Vegetazione: Nuovo gruppo
 Bladereneditor: Nieuwe groep
 
 
-
+Editor de Follaje: Nuevo Grupo
 
 
 
@@ -16503,7 +16503,7 @@ Percorso/File salvataggio ecotipo
 Ecotype Opslaan Pad/Bestand
 
 
-
+Ruta/Archivo de Guardado de Ecotipo
 
 
 
@@ -16516,7 +16516,7 @@ Editor Vegetazione: Salva gruppo
 Bladereneditor: Groep opslaan
 
 
-
+Editor de Follaje: Guardar Grupo
 
 
 
@@ -16529,7 +16529,7 @@ Errore nel salvataggio del file gruppo vegetazione!\nOperazione terminata.
 Fout bij opslaan van Bladerengroepbestand!\nBewerking afgebroken.
 
 
-
+¡Error al guardar archivo de Grupo de Follaje!\nOperación terminada.
 
 
 
@@ -16542,7 +16542,7 @@ Percorso/File immagine
 Afbeelding Pad/Bestand
 
 
-
+Ruta/Archivo de Imagen
 
 
 
@@ -16555,7 +16555,7 @@ Editor Vegetazione: Aggiungi immagine
 Bladereneditor: Afbeelding toevoegen
 
 
-
+Editor de Follaje: Añadir Imagen
 
 
 
@@ -16568,7 +16568,7 @@ Errore nel caricamento del file immagine!\nOperazione terminata.
 Fout bij laden van afbeeldingsbestand!\nBewerking afgebroken.
 
 
-
+¡Error al cargar archivo de imagen!\nOperación terminada.
 
 
 
@@ -16581,7 +16581,7 @@ Inserisci il nuovo percorso e nome dell'immagine.
 Nieuw afbeeldingspad en naam invoeren.
 
 
-
+Ingrese nueva ruta y nombre de imagen.
 
 
 
@@ -16594,7 +16594,7 @@ L'immagine è stata caricata correttamente. Forse un giorno ci sarà anche un modo
 De afbeelding is goed geladen. Misschien is er ooit een manier om het te bekijken!\n
 
 
-
+La imagen se cargó correctamente. ¡Quizás algún día incluso haya una forma de verla!\n
 
 
 
@@ -16607,7 +16607,7 @@ Sarebbe bello
 Dat zou leuk zijn
 
 
-
+Eso sería agradable
 
 
 
@@ -16620,7 +16620,7 @@ Editor Vegetazione: Salva ecotipo
 Bladereneditor: Ecosysteemtype opslaan
 
 
-
+Editor de Follaje: Guardar Ecotipo
 
 
 
@@ -16633,7 +16633,7 @@ Errore nel salvataggio del file ecotipo!\nOperazione terminata.
 Fout bij opslaan van Ecosysteemtypebestand!\nBewerking afgebroken.
 
 
-
+¡Error al guardar archivo de Ecotipo!\nOperación terminada.
 
 
 
@@ -16647,7 +16647,7 @@ Modulo Key Frame
 Key Frame Module
 
 
-
+Módulo de Fotogramas Clave
 
 
 
@@ -16660,7 +16660,7 @@ Memoria esaurita durante l'allocazione del nuovo key frame!\nOperazione terminat
 Te weinig geheugen bij aanmaken van nieuwe key frame!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al asignar nuevo fotograma clave!\nOperación terminada.
 
 
 
@@ -16673,7 +16673,7 @@ Tensione
 Tienen
 
 
-
+Tensión
 
 
 
@@ -16686,7 +16686,7 @@ Continuità
 Cont
 
 
-
+Continuidad
 
 
 
@@ -16699,7 +16699,7 @@ Bias
 Bias
 
 
-
+Sesgo
 
 
 
@@ -16712,7 +16712,7 @@ Linee Temporali
 Tijdlijnen
 
 
-
+Líneas de Tiempo
 
 
 
@@ -16725,7 +16725,7 @@ OK, Gary! Sai che non puoi avere più di dieci valori per linea temporale. Forse 
 OK, Gary! Je weeet dat je niet meer dan tien waarden per Tijdlijn kunt hebben. Misschien zul je nu de waarde van dynamische toewijzing erkennen.
 
 
-
+¡OK, Gary! Sabes que no puedes tener más de diez valores por Línea de Tiempo. Quizás ahora reconozcas el valor de la asignación dinámica.
 
 
 
@@ -16738,7 +16738,7 @@ Certo, tutto quello che dici!
 Zeker, wat je maar wilt!
 
 
-
+¡Claro, lo que digas!
 
 
 
@@ -16751,7 +16751,7 @@ Hai raggiunto il limite di finestre di linea temporale aperte. Chiudine una e ri
 De limiet van geopende Tijdlijnvensters is bereikt. Sluit er een en probeer het opnieuw.
 
 
-
+Has alcanzado el límite de ventanas abiertas de Línea de Tiempo. Por favor, cierra una e intenta de nuevo.
 
 
 
@@ -16764,7 +16764,7 @@ MSG_GENTLGUI_PAN
 Pan\x20
 
 
-
+  Paneo\x20
 
 
 
@@ -16777,7 +16777,7 @@ MSG_GENTLGUI_ZOOM
 Zoom\x20
 
 
-
+ Zoom\x20
 
 
 
@@ -16790,7 +16790,7 @@ Fotogramma\x20
 Frame\x20
 
 
-
+Fotograma\x20
 
 
 
@@ -16803,7 +16803,7 @@ MSG_GENTLGUI_PREV
 \33cVorige
 
 
-
+\33cAnterior
 
 
 
@@ -16816,7 +16816,7 @@ MSG_GENTLGUI_NEXT
 \33cVolgende
 
 
-
+\33cSiguiente
 
 
 
@@ -16829,7 +16829,7 @@ MSG_GENTLGUI_ADDKEY
 \33cKey toevoegen
 
 
-
+\33cAñadir Clave
 
 
 
@@ -16842,7 +16842,7 @@ MSG_GENTLGUI_DELKEY
 \33cKey Verwijderen
 
 
-
+\33c\33uEliminar\33n Clave
 
 
 
@@ -16855,7 +16855,7 @@ MSG_GENTLGUI_LINEAR
 \33cLineair
 
 
-
+\33cLineal
 
 
 
@@ -16868,7 +16868,7 @@ Fotogramma
 Frame
 
 
-
+Fotograma
 
 
 
@@ -16881,7 +16881,7 @@ MSG_GENTLGUI_KEEP
 \33cBehouden
 
 
-
+\33cMantener
 
 
 
@@ -16894,7 +16894,7 @@ MSG_GENTLGUI_GRID
 \33cRaster
 
 
-
+\33cCuadrícula
 
 
 
@@ -16907,7 +16907,7 @@ Linea temporale
 Tijdlijn
 
 
-
+Línea de Tiempo
 
 
 
@@ -16920,7 +16920,7 @@ Devono essere creati almeno due fotogrammi chiave per questo parametro prima di 
 Maak minstens twee key frames voor deze parameter voordat u het tijdlijnvenster opent
 
 
-
+Se deben crear al menos dos fotogramas clave para este parámetro antes de abrir la ventana de línea de tiempo
 
 
 
@@ -16934,7 +16934,7 @@ Inizializzazione rendering completata.
 Render initialisatie klaar.
 
 
-
+Inicialización de renderizado completa.
 
 
 
@@ -16947,7 +16947,7 @@ Finestra di rendering WCS
 WCS Render Venster
 
 
-
+Ventana de Renderizado WCS
 
 
 
@@ -16960,7 +16960,7 @@ Finestra di rendering.
 Render venster.
 
 
-
+Ventana de renderizado.
 
 
 
@@ -16973,7 +16973,7 @@ Errore nell'apertura della finestra di rendering!\nOperazione terminata.
 Fout bij openen van render venster!\nBewerking afgebroken.
 
 
-
+¡Error al abrir ventana de renderizado!\nOperación terminada.
 
 
 
@@ -16986,7 +16986,7 @@ Blocco di memoria disponibile più grande = %lu
 Grootste beschikbare geheugenblok = %lu
 
 
-
+Bloque de memoria disponible más grande = %lu
 
 
 
