@@ -9998,7 +9998,7 @@ G
 G
 
 
-
+G
 
 
 
@@ -10011,7 +10011,7 @@ B
 B
 
 
-
+B
 
 
 
@@ -10024,7 +10024,7 @@ MSG_EDDB_NEWOBJ
 \33cNieuw Object
 
 
-
+\33cNuevo Obj
 \33cNowy Objekt
 
 
@@ -10037,7 +10037,7 @@ MSG_EDDB_ADDOBJ
 \33cVoeg Object toe
 
 
-
+\33cAñadir Obj
 \33cDodaj Objekt
 
 
@@ -10050,7 +10050,7 @@ MSG_EDDB_REMOVE_SPACE
 \33cVerwijderen\x20
 
 
-
+\33cEliminar\x20
 \33cUsuñ\x20
 
 
@@ -10063,7 +10063,7 @@ MSG_EDDB_SEARCH
 \33cZoeken\x20
 
 
-
+\33cBuscar\x20
 \33cSzukaj\x20
 
 
@@ -10076,7 +10076,7 @@ MSG_EDDB_SORT
 \33cSorteren
 
 
-
+\33cOrdenar
 \33cSortuj
 
 
@@ -10089,7 +10089,7 @@ MSG_EDDB_SAVE
 \33cOpslaan\x20
 
 
-
+\33cGuardar\x20
 \33cZapisz\x20
 
 
@@ -10102,7 +10102,7 @@ MSG_EDDB_LOAD_SAPCE
 \33cLaden\x20
 
 
-
+\33cCargar\x20
 \33cCzytaj\x20
 
 
@@ -10115,7 +10115,7 @@ MSG_EDDB_APPEND
 \33cToevoegen\x20
 
 
-
+\33cAnexar\x20
 \33cDodaj\x20
 
 
@@ -10128,7 +10128,7 @@ MSG_EDDB_CREATE
 \33cMaken\x20
 
 
-
+\33cCrear\x20
 \33cUtwórz\x20
 
 
@@ -10141,7 +10141,7 @@ Nome oggetto già presente nel database!\nProva un nuovo nome?
 Objectnaam is al aanwezig in database!\nEen nieuwe naam proberen?
 
 
-
+¡Nombre de objeto ya presente en la base de datos!\n¿Intentar con otro nombre?
 Nazwa objektu wystêpuje ju¿ w bazie danych!\nSpróbowaæ inn± nazwê?
 
 
@@ -10154,7 +10154,7 @@ Inserisci stringa di ricerca.
 Zoektekst invoeren.
 
 
-
+Ingrese cadena de búsqueda.
 Wprowad¼ poszukiwany ci±g.
 
 
@@ -10167,7 +10167,7 @@ Ordinamento
 Sorteren
 
 
-
+Ordenando
 Sortowanie
 
 
@@ -10180,7 +10180,7 @@ Modulo Database: Rimuovi elemento
 Database Module: Verwijder item
 
 
-
+Módulo de base de datos: Eliminar elemento
 Modu³ Bazy Danych: Usuñ element
 
 
@@ -10193,7 +10193,7 @@ Da disco|Solo database|Annulla
 Van schijf|Alleen database|Annuleren
 
 
-
+Desde disco|Solo base de datos|Cancelar
 Z Dysku|Tylko Baza Danych|Porzuæ
 
 
@@ -10206,7 +10206,7 @@ Memoria esaurita!\nImpossibile aprire l'elenco del database.
 Te weinig geheugen!\nKan database lijst niet openen.
 
 
-
+¡Memoria insuficiente!\nNo se puede abrir la lista de base de datos.
 Brak pamiêci\nNie mo¿na otworzyæ listy baz danych.
 
 
@@ -10219,7 +10219,7 @@ Memoria esaurita!\nImpossibile aprire la finestra dell'elenco directory.
 Te weinig geheugen!\nKan directory lijst venster niet openen.
 
 
-
+¡Memoria insuficiente!\nNo se puede abrir la ventana de lista de directorios.
 Brak pamiêci!\nNie mo¿na otworzyæ listy okien.
 
 
@@ -10232,7 +10232,7 @@ Editor elenco directory
 Directory lijst editor
 
 
-
+Editor de lista de directorios
 Edytor Listy Katalogów
 
 
@@ -10245,7 +10245,7 @@ MSG_EDDB_DEFAULTDIRECTORY
 \33cStandaard directory
 
 
-
+\33cDirectorio predeterminado
 \33cDomy¶lny Katalog
 
 
@@ -10258,7 +10258,7 @@ MSG_EDDB_ADD
 \33cToevoegen...
 
 
-
+\33cAñadir...
 \33cDodaj...
 
 
@@ -10271,7 +10271,7 @@ MSG_EDDB_SWAP
 \33cWisselen...
 
 
-
+\33cIntercambiar...
 \33cWymieñ...
 
 
@@ -10284,7 +10284,7 @@ MSG_EDDB_MOVE
 \33cVerplaatsen...
 
 
-
+\33cMover...
 \33cPrzenie¶...
 
 
@@ -10297,7 +10297,7 @@ MSG_EDDB_REMOVE
 \33cVerwijderen
 
 
-
+\33cEliminar
 \33cUsuñ
 
 
@@ -10310,7 +10310,7 @@ MSG_EDDB_READONLY
 \33cAlleen lezen
 
 
-
+\33c*Solo lectura
 \33c*Tylko Odczyt
 
 
@@ -10323,7 +10323,7 @@ MSG_EDDB_KEEP
 \33cBehouden
 
 
-
+\33cMantener
 \33cZachowaj
 
 
@@ -10336,7 +10336,7 @@ MSG_EDDB_LOAD
 \33cLaden
 
 
-
+\33cCargar
 \33cCzytaj
 
 
@@ -10349,7 +10349,7 @@ Elenco directory
 Directory lijst
 
 
-
+Lista de directorios
 Lista Katalogów
 
 
@@ -10363,7 +10363,7 @@ Eliminare oggetto, file di elevazione e di elevazione relativa dal disco e rimuo
 Object verwijderen, hoogte en relatieve hoogte bestanden van schijf verwijderen en de namen uit de Database verwijderen?
 
 
-
+¿Eliminar objeto, archivos de elevación y elevación relativa del disco y sus nombres de la base de datos?
 Usuniêcie objektu, pliki podniesienia i relatywnego podniesienia z dysku oraz ich nazw z Bazy Danych?
 
 
@@ -10376,7 +10376,7 @@ Timbro pennello
 Penseel afdruk
 
 
-
+Sello de pincel
 
 
 
@@ -10389,7 +10389,7 @@ Immagini scalate
 Geschaalde afbeeldingen
 
 
-
+Imágenes escaladas
 Skalowane obrazy
 
 
@@ -10402,7 +10402,7 @@ Procedurale
 Procedureel
 
 
-
+Procedural
 
 
 
@@ -10415,7 +10415,7 @@ Nessuno
 Geen
 
 
-
+Ninguno
 Nie
 
 
@@ -10428,7 +10428,7 @@ Editor ecosistema
 Ecosysteem editor
 
 
-
+Editor de ecosistemas
 Edytor Ekosystemu
 
 
@@ -10441,7 +10441,7 @@ Devi prima caricare o creare un file di parametri prima di aprire l'editor.
 Maak eerst een parameter bestand of laad er een voordat u de editor opent.
 
 
-
+Debe cargar o crear un archivo de parámetros antes de abrir el editor.
 Wczytaj lub utwórz plik parametrów przed  otwarciem edytora.
 
 
@@ -10454,7 +10454,7 @@ Modulo parametri: Ecosistema
 Parameter Module: Ecosysteem
 
 
-
+Módulo de parámetros: Ecosistema
 Parameetry Modu³u: Ekosystem
 
 
@@ -10467,7 +10467,7 @@ Memoria insufficiente!\nImpossibile aprire l'editor ecosistema.
 Te weinig geheugen!\nKan Ecosysteem editor niet openen.
 
 
-
+¡Memoria insuficiente!\nNo se puede abrir el editor de ecosistemas.
 Brak pamiêci!\nNie mo¿na otworzyæ edytora ekosystemu.
 
 
@@ -10480,7 +10480,7 @@ Non utilizzato
 Ongebruikt
 
 
-
+Sin usar
 Nieu¿ywane
 
 
@@ -10493,7 +10493,7 @@ Opzioni
 Opties
 
 
-
+Opciones
 Opcje
 
 
@@ -10506,7 +10506,7 @@ MSG_EDECOGUI_CMAPS
 \33cKleuren
 
 
-
+\33cCMapas
 
 
 
@@ -10519,7 +10519,7 @@ MSG_EDECOGUI_SURFACE
 \33cOppervlak
 
 
-
+\33cSuperficie
 \33cPowierzchnie
 
 
@@ -10532,7 +10532,7 @@ MSG_EDECOGUI_FRACTALS
 \33cFractalen
 
 
-
+\33cFractales
 \33cFraktale
 
 
@@ -10545,7 +10545,7 @@ MSG_EDECOGUI_ECOSYSTEMS
 \33cEcosysteem
 
 
-
+\33cEcosistemas
 \33cEkosystemu
 
 
@@ -10558,7 +10558,7 @@ MSG_EDECOGUI_STRATA_COLOR
 \33cLagen
 
 
-
+\33cEstratos
 
 
 
@@ -10571,7 +10571,7 @@ MSG_EDECOGUI_TIDES
 \33cGetijden
 
 
-
+\33cMareas
 \33cP³ywy
 
 
@@ -10584,7 +10584,7 @@ Nome
 Naam
 
 
-
+Nombre
 Nazwa
 
 
@@ -10597,7 +10597,7 @@ MSG_EDECOGUI_EXTURE
 \33c\0334Textuur
 
 
-
+\33c\0334Textura
 \33c\0334Textury
 
 
@@ -10610,7 +10610,7 @@ Classe
 Klasse
 
 
-
+Clase
 Klasy
 
 
@@ -10623,7 +10623,7 @@ MSG_EDECOGUI_DETAILMODEL
 \33cDetail Model
 
 
-
+\33cModelo detallado
 \33cSzczegó³y Modelu
 
 
@@ -10636,7 +10636,7 @@ MSG_EDECOGUI_DESIGN
 \33cDesign...
 
 
-
+\33cDiseñar...
 
 
 
@@ -10649,7 +10649,7 @@ Immagini
 Afbeeldingen
 
 
-
+Imágenes
 Obrazy
 
 
@@ -10662,7 +10662,7 @@ Altezza max %
 Max Ht %
 
 
-
+Altura máx %
 
 
 
@@ -10675,7 +10675,7 @@ Altezza max immagine
 Max Afb Ht
 
 
-
+Altura máx imagen
 
 
 
@@ -10688,7 +10688,7 @@ MSG_EDECOGUI_EDITIMAGES
 \33cAfbeeldingen bewerken...
 
 
-
+\33cEditar imágenes...
 \33cEdycja Obrazów...
 
 
@@ -10701,7 +10701,7 @@ Strati
 Lagen
 
 
-
+Estratos
 
 
 
@@ -10714,7 +10714,7 @@ Colori strati
 Laagkleuren
 
 
-
+Colores de estratos
 
 
 
@@ -10727,7 +10727,7 @@ Fratture
 Fracturen
 
 
-
+Fracturas
 
 
 
@@ -10740,7 +10740,7 @@ Crepe nel fango
 Modder scheuren
 
 
-
+Grietas de barro
 
 
 
@@ -10753,7 +10753,7 @@ MSG_EDECOGUI_OLORMAP
 \33c\0334Kleurenkaart
 
 
-
+\33c\0334Mapa de colores
 \33c\0334Mapa Kolorów
 
 
@@ -10766,7 +10766,7 @@ MSG_EDECOGUI_MATCHRED
  Gelijk aan Rood\x20
 
 
-
+Coincidir Rojo\x20
 Dopasuj Czerwony\x20
 
 
@@ -10779,7 +10779,7 @@ MSG_EDECOGUI_MATCHGRN
 Gelijk aan Groen\x20
 
 
-
+Coincidir Verde\x20
 Dopasuj Zielony\x20
 
 
@@ -10792,7 +10792,7 @@ MSG_EDECOGUI_MATCHBLU
 Gelijk aan Blauw\x20
 
 
-
+Coincidir Azul\x20
 Dopasuj Niebieski\x20
 
 
@@ -10805,7 +10805,7 @@ MSG_EDECOGUI_EYFRAMES
 \33c\0334Key Frames
 
 
-
+\33c\0334Fotogramas clave
 \33c\0334Kluczowe Klatki
 
 
@@ -10818,7 +10818,7 @@ MSG_EDECOGUI_PREV
 \33cVorige
 
 
-
+\33cAnterior
 \33cPoprzedni
 
 
@@ -10831,7 +10831,7 @@ Fotogramma
 Frame
 
 
-
+Fotograma
 Klatka
 
 
@@ -10844,7 +10844,7 @@ MSG_EDECOGUI_NEXT
 \33cVolgende
 
 
-
+\33cSiguiente
 \33cNastêpny
 
 
@@ -10857,7 +10857,7 @@ MSG_EDECOGUI_MAKEKEY
 \33cMaak Key
 
 
-
+\33cCrear clave
 \33cUtwórz Klucz
 
 
@@ -10870,7 +10870,7 @@ MSG_EDECOGUI_UPDATE
 \33cBijwerken
 
 
-
+\33cActualizar
 \33cAktualizuj
 
 
@@ -10883,7 +10883,7 @@ MSG_EDECOGUI_ALL0
 \33cAlle (0)
 
 
-
+\33cTodos (0)
 \33cWszystko (0)
 
 
@@ -10896,7 +10896,7 @@ MSG_EDECOGUI_DELETE
 \33cVerwijderen
 
 
-
+\33c\33uEliminar\33nete
 \33c\33uUsuñ
 
 
@@ -10909,7 +10909,7 @@ MSG_EDECOGUI_DELETEALL
 \33cAlles verwijderen
 
 
-
+\33cEliminar todo
 \33cUsuñ Wszystko
 
 
@@ -10922,7 +10922,7 @@ MSG_EDECOGUI_TIMELINES
 \33cTijdlijnen\x20
 
 
-
+\33cLíneas de tiempo\x20
 
 
 
@@ -10935,7 +10935,7 @@ MSG_EDECOGUI_SCALEKEYS
 \33cSchaal keys\x20
 
 
-
+\33cEscalar claves\x20
 
 
 
@@ -10948,7 +10948,7 @@ MSG_EDECOGUI_COPY
 \33cKopiëren
 
 
-
+\33cCopiar
 \33cKopia
 
 
@@ -10961,7 +10961,7 @@ MSG_EDECOGUI_SWAP
 \33cWisselen
 
 
-
+\33cIntercambiar
 \33cZamieñ
 
 
@@ -10974,7 +10974,7 @@ MSG_EDECOGUI_INSERT
 \33cInvoegen
 
 
-
+\33cInsertar
 \33cWstaw
 
 
@@ -10987,7 +10987,7 @@ MSG_EDECOGUI_REMOVE
 \33cVerwijderen
 
 
-
+\33cEliminar
 \33cUsuñ
 
 
@@ -11000,7 +11000,7 @@ MSG_EDECOGUI_SORTLIST (//16)
 \33cSorteer lijst
 
 
-
+\33cOrdenar lista
 \33cSortuj Listê
 
 
@@ -11013,7 +11013,7 @@ MSG_EDECOGUI_KEEP
 \33cBehouden
 
 
-
+\33cMantener
 \33cZachowaj
 
 
@@ -11026,7 +11026,7 @@ invio tastierino numerico
 Numeriek blok invoer
 
 
-
+enter del teclado numérico
 wprowad¼ z klawiatury numerycznej
 
 
@@ -11039,7 +11039,7 @@ MSG_EDECOGUI_ELEVLINE
 Hoogtelijn\x20
 
 
-
+Línea de elevación\x20
 linia wysoko¶ci\x20
 
 
@@ -11052,7 +11052,7 @@ MSG_EDECOGUI_ELEVSKEW
 Hgt neiging\x20
 
 
-
+Sesgo de elevación\x20
 
 
 
@@ -11065,7 +11065,7 @@ Azimut inclinazione elev\x20
 Hgt Neig Az\x20
 
 
-
+Az sesgo El\x20
 
 
 
@@ -11078,7 +11078,7 @@ Effetto elev rel\x20
  Rel Hoog Eff\x20
 
 
-
+Efecto Rel El\x20
 
 
 
@@ -11091,7 +11091,7 @@ Elev rel max\x20
    Max Rel El\x20
 
 
-
+Rel El máx\x20
 
 
 
@@ -11104,7 +11104,7 @@ Elev rel min\x20
    Min Rel El\x20
 
 
-
+Rel El mín\x20
 
 
 
@@ -11117,7 +11117,7 @@ MSG_EDECOGUI_MAXSLOPE
 Max Hell.hoek\x20
 
 
-
+Pendiente máx\x20
 
 
 
@@ -11130,7 +11130,7 @@ MSG_EDECOGUI_MINSLOPE
 Min Hell.hoek\x20
 
 
-
+Pendiente mín\x20
 
 
 
@@ -11143,7 +11143,7 @@ MSG_EDECOGUI_DENSITY
     Dichtheid\x20
 
 
-
+Densidad\x20
    Gêsto¶æ\x20
 
 
@@ -11156,7 +11156,7 @@ MSG_EDECOGUI_HEIGHT
        Hoogte\x20
 
 
-
+Altura\x20
   Wysoko¶æ\x20
 
 
@@ -11169,7 +11169,7 @@ MSG_EDECOGUI_ECOSYSTEMCOLOR
 \33c\0334Ecosysteem kleur
 
 
-
+\33c\0334Color del ecosistema
 \33c\0334Kolor Ecosystemu
 
 
@@ -11182,7 +11182,7 @@ MSG_EDECOGUI_UNDERSTORYECOSYSTEM
 \33c\0334Ondergroei Ecosysteem
 
 
-
+\33c\0334Ecosistema de sotobosque
 
 
 
@@ -11195,7 +11195,7 @@ Eliminare tutti i %s fotogrammi chiave?
 Alle %s key frames verwijderen?
 
 
-
+¿Eliminar todos los fotogramas clave de %s?
 Usun±æ wszystkie %s Klatki Kluczowe?
 
 
@@ -11208,7 +11208,7 @@ Parametri ecosistema: Scambia
 Ecosystem Parameter: Wisselen
 
 
-
+Parámetros del ecosistema: Intercambiar
 Parametry Ekosystemu: Zamieñ
 
 
@@ -11221,7 +11221,7 @@ Impossibile scambiare con i primi 12 ecosistemi!\nOperazione terminata.
 Kan niet wisselen met de eerste 12 ecosystemen!\nOperatie afgebroken.
 
 
-
+¡No se puede intercambiar con los primeros 12 ecosistemas!\nOperación terminada.
 Nie mo¿na zamieniaæ z pierwszymi 12 ekosystemami!\nOperacja przerwana.
 
 
@@ -11234,7 +11234,7 @@ MSG_EDECOGUI_SEALEVEL
     Zeeniveau\x20
 
 
-
+Nivel del mar\x20
 Poziom morza\x20
 
 
@@ -11247,7 +11247,7 @@ MSG_EDECOGUI_SEADEPTH
     Zeediepte\x20
 
 
-
+Profundidad del mar\x20
 G³êboko¶æ morza\x20
 
 
@@ -11260,7 +11260,7 @@ MSG_EDECOGUI_WINDAZ
       Wind Az\x20
 
 
-
+Az viento\x20
 Kie. Wiatru\x20
 
 
@@ -11274,7 +11274,7 @@ Opzioni
 Opties
 
 
-
+Opciones
 Opcje
 
 
@@ -11287,7 +11287,7 @@ MSG_EDMOGUI_PATHS
 \33cPaden
 
 
-
+\33cCaminos
 \33c¦cie¿ki
 
 
@@ -11300,7 +11300,7 @@ MSG_EDMOGUI_FRACTAL
 \33cFractaal
 
 
-
+\33cFractal
 
 
 
@@ -11313,7 +11313,7 @@ MSG_EDMOGUI_HORIZON
 \33cHorizon
 
 
-
+\33cHorizonte
 \33cHoryzont
 
 
@@ -11326,7 +11326,7 @@ MSG_EDMOGUI_CELESTIAL
 \33cHemellichamen
 
 
-
+\33cCeleste
 \33cNiebosk³on
 
 
@@ -11339,7 +11339,7 @@ MSG_EDMOGUI_REFLECTION
 \33cReflectie
 
 
-
+\33cReflexión
 \33cRefleksy
 
 
@@ -11352,7 +11352,7 @@ MSG_EDMOGUI_PARAMETERLIST
 \33c\0334Parameter Lijst
 
 
-
+\33c\0334Lista de parámetros
 \33c\0334Lista Parametrów
 
 
@@ -11365,7 +11365,7 @@ MSG_EDMOGUI_INTERACTIVEGROUP
 \33c\0334Interactieve Groep
 
 
-
+\33c\0334Grupo interactivo
 \33c\0334Grupa Interaktywna
 
 
@@ -11378,7 +11378,7 @@ Azimut focale
 Focale Azimut
 
 
-
+Azimut focal
 
 
 
@@ -11391,7 +11391,7 @@ Distanza focale
 Focale Afstand
 
 
-
+Distancia focal
 
 
 
@@ -11404,7 +11404,7 @@ Sensibilità\x20
 Gevoeligheid\x20
 
 
-
+Sensibilidad\x20
 Czu³o¶æ\x20
 
 
@@ -11417,7 +11417,7 @@ MSG_EDMOGUI_LOW
 \33cLaag
 
 
-
+\33cBajo
 \33cNisk
 
 
@@ -11430,7 +11430,7 @@ MSG_EDMOGUI_MED
 \33cGemiddeld
 
 
-
+\33cMedio
 \33c¦red
 
 
@@ -11443,7 +11443,7 @@ MSG_EDMOGUI_HIGH
 \33cHoog
 
 
-
+\33cAlto
 \33cWys
 
 
@@ -11456,7 +11456,7 @@ MSG_EDMOGUI_KEYFRAMES
 \33c\0334Key Frames
 
 
-
+\33c\0334Fotogramas clave
 \33c\0334Klatki Kluczowe
 
 
@@ -11469,7 +11469,7 @@ MSG_EDMOGUI_PREV
 \33cVorige
 
 
-
+\33cAnterior
 \33cPoprzedni
 
 
@@ -11482,7 +11482,7 @@ Fotogramma
 Frame
 
 
-
+Fotograma
 Klatka
 
 
@@ -11495,7 +11495,7 @@ MSG_EDMOGUI_NEXT
 \33cVolgende
 
 
-
+\33cSiguiente
 \33cNastêpny
 
 
@@ -11508,7 +11508,7 @@ MSG_EDMOGUI_MAKEKEY
 \33cMaak Key
 
 
-
+\33cCrear clave
 \33cUtwórz Klucz
 
 
@@ -11521,7 +11521,7 @@ MSG_EDMOGUI_GROUP
 \33cGroep
 
 
-
+\33cGrupo
 \33cGrupa
 
 
@@ -11534,7 +11534,7 @@ MSG_EDMOGUI_UPDATE
 \33cBijwerken
 
 
-
+\33cActualizar
 \33cAktualizuj
 
 
@@ -11547,7 +11547,7 @@ MSG_EDMOGUI_ALL0
 \33cAlle (0)
 
 
-
+\33cTodos (0)
 
 
 
@@ -11560,7 +11560,7 @@ MSG_EDMOGUI_DELETE
 \33cVerwijderen
 
 
-
+\33c\33uEliminar\33nete
 \33cUsuñ
 
 
@@ -11573,7 +11573,7 @@ MSG_EDMOGUI_DELETEALL
 \33cAlles verwijderen
 
 
-
+\33cEliminar todo
 \33cUsuñ Wszystko
 
 
@@ -11586,7 +11586,7 @@ MSG_EDMOGUI_TIMELINES
 \33cTijdlijnen\x20
 
 
-
+\33cLíneas de tiempo\x20
 \33cLinie Czasu\x20
 
 
@@ -11599,7 +11599,7 @@ MSG_EDMOGUI_BANK
 \33cHelling\x20
 
 
-
+\33cBanco\x20
 \33cBerzeg\x20
 
 
@@ -11612,7 +11612,7 @@ MSG_EDMOGUI_SCALE
 \33cSchalen\x20
 
 
-
+\33cEscala\x20
 \33cSkala\x20
 
 
@@ -11625,7 +11625,7 @@ MSG_EDMOGUI_SUN
 \33cZon\x20
 
 
-
+\33cSol\x20
 \33cS³oñce\x20
 
 
@@ -11638,7 +11638,7 @@ MSG_EDMOGUI_KEEP
 \33cBehouden
 
 
-
+\33cMantener
 \33cZachowaj
 
 
@@ -11651,7 +11651,7 @@ MSG_EDMOGUI_LISTWIN
 \33cLijst Venster\x20
 
 
-
+\33cVentana de lista\x20
 \33cLista Okien\x20
 
 
@@ -11664,7 +11664,7 @@ MSG_EDMOGUI_CAMVIEW
 \33cCamera weergave\x20
 
 
-
+\33cVista de cámara\x20
 \33cWidok Kamery\x20
 
 
@@ -11677,7 +11677,7 @@ Editor movimento: centramento automatico
 Bewegingseditor: Centreren
 
 
-
+Editor de movimiento: Auto centrado
 Edytor Ruchu: Centruj
 
 
@@ -11690,7 +11690,7 @@ Il modulo interattivo deve essere aperto prima del centramento automatico!
 Interactieve module moet geopend zijn voor het centreren!
 
 
-
+¡Debe abrir el módulo interactivo antes de auto centrar!
 Modu³ interaktywny musi zostaæ otwarty przed wycentrowaniem!
 
 
@@ -11703,7 +11703,7 @@ Modulo parametri: Movimento
 Parameter Module: Beweging
 
 
-
+Módulo de parámetros: Movimiento
 Modu³ Parametrów: Ruch
 
 
@@ -11716,7 +11716,7 @@ Impostare fotogrammi chiave anche per i parametri di messa a fuoco?
 Ook key frames maken voor Focus Parameters?
 
 
-
+¿Crear fotogramas clave también para parámetros de enfoque?
 Utworzyæ klatki kluczowe tak¿e dla Focusu?
 
 
@@ -11729,7 +11729,7 @@ Impostare fotogrammi chiave anche per i parametri della fotocamera?
 Ook key frames maken voor Camera Parameters?
 
 
-
+¿Crear fotogramas clave también para parámetros de cámara?
 Utworzyæ klatki kluczowe tka¿e dla parametrów kamery?
 
 
@@ -11742,7 +11742,7 @@ Modulo parametri: Imposta chiave
 Parameter Module: Key maken
 
 
-
+Módulo de parámetros: Crear clave
 Modu³ Parametrów: Tworzenie Klucza
 
 
@@ -11755,7 +11755,7 @@ MSG_EDMOGUI_DRAW
 \0334Tekenen
 
 
-
+\0334Dibujar
 \0334Rysuj
 
 
@@ -11768,7 +11768,7 @@ MSG_EDMOGUI_BOUNDS
 \0334Grenzen
 
 
-
+\0334Límites
 \0334Powi±zania
 
 
@@ -11781,7 +11781,7 @@ Radiale
 Radiaal
 
 
-
+Radial
 Promieñ
 
 
@@ -11794,7 +11794,7 @@ Rettang
 Vierkant
 
 
-
+Rectángulo
 Prostok±t
 
 
@@ -11807,7 +11807,7 @@ Pieno
 Gevuld
 
 
-
+Sólido
 Wype³nienie
 
 
@@ -11820,7 +11820,7 @@ Filo
 Draad
 
 
-
+Alambre
 Kontur
 
 
@@ -11833,7 +11833,7 @@ Cam VC
 Cam VC
 
 
-
+VC cámara
 
 
 
@@ -11846,7 +11846,7 @@ MSG_EDMOGUI_TERRAIN
 \33cTerrein
 
 
-
+\33cTerreno
 \33cTeren
 
 
@@ -11859,7 +11859,7 @@ MSG_EDMOGUI_ELSHADE
 \33cHoogte schaduw
 
 
-
+\33cSombra elevación
 \33cCieniowanie
 
 
@@ -11872,7 +11872,7 @@ MSG_EDMOGUI_SUNSHADE
 \33cZon schaduw
 
 
-
+\33cSombra solar
 \33cCienie
 
 
@@ -11885,7 +11885,7 @@ MSG_EDMOGUI_ECOSYS
 \33cEcoSys\x20
 
 
-
+\33cEcoSis\x20
 \33cEkosystem\x20
 
 
@@ -11898,7 +11898,7 @@ MSG_EDMOGUI_DIAG
 \33cDiagnose\x20
 
 
-
+\33cDiag\x20
 
 
 
@@ -11911,7 +11911,7 @@ MSG_EDMOGUI_VECTORS
 \33cVectoren
 
 
-
+\33cVectores
 \33cWektory
 
 
@@ -11924,7 +11924,7 @@ MSG_EDMOGUI_ANIM
 \33cAnimatie\x20
 
 
-
+\33cAnim\x20
 \33cAnimacje\x20
 
 
@@ -11937,7 +11937,7 @@ MSG_EDMOGUI_COMPASS
 \33cKompas
 
 
-
+\33cBrújula
 \33cKompas
 
 
@@ -11950,7 +11950,7 @@ MSG_EDMOGUI_LAND
 \33cLand
 
 
-
+\33cTierra
 \33cGrunt
 
 
@@ -11963,7 +11963,7 @@ MSG_EDMOGUI_TARGET
 \33cDoel
 
 
-
+\33cObjetivo
 \33cCel
 
 
@@ -11976,7 +11976,7 @@ MSG_EDMOGUI_BOX
 \33cDoos
 
 
-
+\33cCaja
 
 
 
@@ -11989,7 +11989,7 @@ MSG_EDMOGUI_PROFILE
 \33cProfiel
 
 
-
+\33cPerfil
 \33cProfil
 
 
