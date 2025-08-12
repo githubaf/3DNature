@@ -19007,7 +19007,7 @@ MSG_MAP_SETDESTINATIONPOINTESCABORT
 \0338Bestemmingspunt instellen. ESC=annuleren
 
 
-
+\0338Establecer punto de destino. ESC=abortar
 
 
 
@@ -19020,7 +19020,7 @@ Imposta punto di destinazione
 Bestemmingspunt instellen
 
 
-
+Establecer punto de destino
 
 
 
@@ -19033,7 +19033,7 @@ MSG_MAP_SELECTOBJECTESCABORT
 \0338Object selecteren. ESC=annuleren
 
 
-
+\0338Seleccionar objeto. ESC=abortar
 
 
 
@@ -19046,7 +19046,7 @@ Seleziona oggetto
 Object selecteren
 
 
-
+Seleccionar objeto
 
 
 
@@ -19059,7 +19059,7 @@ Ist dies das richtige Objekt?
 Is dit het juiste object?
 
 
-
+¿Es este el objeto correcto?
 
 
 
@@ -19072,7 +19072,7 @@ Modulo mappatura
 Mapping Module
 
 
-
+Módulo de Mapeo
 
 
 
@@ -19085,7 +19085,7 @@ Oggetto non trovato!
 Object niet gevonden!
 
 
-
+¡Objeto no encontrado!
 
 
 
@@ -19098,7 +19098,7 @@ Vista mappa: Selezione multipla
 Kaartweergave: Multi-Select
 
 
-
+Vista de Mapa: Selección Múltiple
 
 
 
@@ -19111,7 +19111,7 @@ Selezionare o deselezionare elementi?
 Items selecteren of deselecteren?
 
 
-
+¿Seleccionar o deseleccionar elementos?
 
 
 
@@ -19124,7 +19124,7 @@ Seleziona|Deseleziona|Annulla
 Selecteren|Deselecteren|Annuleren
 
 
-
+Seleccionar|Deseleccionar|Cancelar
 
 
 
@@ -19137,7 +19137,7 @@ MSG_MAP_SETFIRSTCORNERPOINTWITHMOUSE
 \0338Eerste hoekpunt met muis instellen.
 
 
-
+\0338Establecer primer punto de esquina con el ratón.
 
 
 
@@ -19150,7 +19150,7 @@ Imposta primo punto d'angolo con il mouse
 Eerste hoekpunt met muis instellen
 
 
-
+Establecer primer punto de esquina con el ratón
 
 
 
@@ -19163,7 +19163,7 @@ Imposta secondo punto d'angolo. ESC=annulla
 Tweede hoekpunt instellen. ESC=annuleren
 
 
-
+Establecer segundo punto de esquina. ESC=abortar
 
 
 
@@ -19176,7 +19176,7 @@ Imposta secondo punto d'angolo
 Tweede hoekpunt instellen
 
 
-
+Establecer segundo punto de esquina
 
 
 
@@ -19189,7 +19189,7 @@ Vista mappa: Digitalizza
 Kaartweergave: Digitaliseren
 
 
-
+Vista de Mapa: Digitalizar
 
 
 
@@ -19202,7 +19202,7 @@ Modulo mappatura: Digitalizza
 Mapping Module: Digitaliseren
 
 
-
+Módulo de Mapeo: Digitalizar
 
 
 
@@ -19215,7 +19215,7 @@ Accettare i nuovi punti?
 Nieuwe punten accepteren?
 
 
-
+¿Aceptar nuevos puntos?
 
 
 
@@ -19228,7 +19228,7 @@ Memoria esaurita allocando nuovo array vettoriale!\nOperazione terminata.
 Te weinig geheugen bij toewijzen van nieuwe vectorreeks!\nBewerking afgebroken.
 
 
-
+¡Memoria insuficiente al asignar nueva matriz vectorial!\nOperación terminada.
 
 
 
@@ -19241,7 +19241,7 @@ Adattare il vettore al terreno ora?
 Vector nu aan terrein aanpassen?
 
 
-
+¿Ajustar vector al terreno ahora?
 
 
 
@@ -19254,7 +19254,7 @@ Vettore %s adattato alla topografia.
 Vector %s aangepast aan topografie.
 
 
-
+Vector %s ajustado a la topografía.
 
 
 
@@ -19267,7 +19267,7 @@ MSG_MAP_SETLABELPOINTRETURNINTERPOLATECCLOSEQQUIT
 \0338Label Punt instellen.  RETURN=Interpoleren C=Sluiten Q=Beëindigen
 
 
-
+\0338Establecer Punto de Etiqueta.  RETURN=interpolar C=cerrar Q=salir
 
 
 
@@ -19280,7 +19280,7 @@ MSG_MAP_SETPOINTRETURNINTERPOLATECCLOSEQQUIT
 \0338Punt instellen: %d.  RETURN=Interpoleren C=Sluiten Q=Beëindigen
 
 
-
+\0338Establecer Punto: %d.  RETURN=interpolar C=cerrar Q=salir
 
 
 
@@ -19293,7 +19293,7 @@ MSG_MAP_RETURNTOACCEPTESCTOCANCEL
 \0338RETURN om te accepteren, ESC om te annuleren
 
 
-
+\0338RETURN para aceptar, ESC para cancelar
 
 
 
@@ -19306,7 +19306,7 @@ Modulo mappa: Inserisci punti
 Mapping Module: Punten invoegen
 
 
-
+Módulo de Mapeo: Insertar Puntos
 
 
 
@@ -19319,7 +19319,7 @@ Memoria esaurita! Operazione fallita.
 Te weinig geheugen! Bewerking mislukt.
 
 
-
+¡Memoria insuficiente! Operación fallida.
 
 
 
@@ -19332,7 +19332,7 @@ Creare una mappa di sensibilità visiva per questo oggetto?
 Visuele Gevoeligheidskaart maken voor dit object?
 
 
-
+¿Crear mapa de Sensibilidad Visual para este objeto?
 
 
 
@@ -19345,7 +19345,7 @@ DBase[OBN].Nome
 DBase[OBN].Naam
 
 
-
+DBase[OBN].Nombre
 
 
 
@@ -19358,7 +19358,7 @@ Sensibilità visiva
 Visuele Gevoeligheid
 
 
-
+Sensibilidad Visual
 
 
 
@@ -19371,7 +19371,7 @@ Errore nell'apertura della finestra del viewshed!\nEsecuzione terminata.
 Fout bij openen van zichtvenster!\nUitvoering afgebroken.
 
 
-
+¡Error al abrir ventana de visibilidad!\nEjecución terminada.
 
 
 
@@ -19384,7 +19384,7 @@ Modulo mappa: Viewshed
 Mapping Module: Zichtvenster
 
 
-
+Módulo de Mapeo: Visibilidad
 
 
 
@@ -19397,7 +19397,7 @@ Errore nella lettura delle mappe topografiche!\nOperazione terminata.
 Fout bij lezen van topokaarten!\nBewerking afgebroken.
 
 
-
+¡Error al leer mapas topográficos!\nOperación terminada.
 
 
 
@@ -19410,7 +19410,7 @@ Lisciare la mappa prima di calcolare il viewshed?
 Kaart gladstrijken voor berekenen van zichtvenster?
 
 
-
+¿Suavizar el mapa antes de calcular visibilidad?
 
 
 
@@ -19423,7 +19423,7 @@ Inserisci l'offset verticale in metri.
 Verticale offset in meters invoeren.
 
 
-
+Ingrese desplazamiento vertical en metros.
 
 
 
@@ -19436,7 +19436,7 @@ Levigatura...
 Gladstrijken...
 
 
-
+Suavizando...
 
 
 
@@ -19449,7 +19449,7 @@ Punto del percorso
 Pad Punt
 
 
-
+Punto de Ruta
 
 
 
@@ -19462,7 +19462,7 @@ Disegnare vettori sul rendering del viewshed?
 Vectoren tekenen op zichtvensterweergave?
 
 
-
+¿Dibujar vectores en renderizado de visibilidad?
 
 
 
@@ -19475,7 +19475,7 @@ Impossibile aprire il dispositivo seriale!\nOperazione terminata.
 Kan seriële apparaat niet openen!\nBewerking afgebroken.
 
 
-
+¡No se puede abrir dispositivo serie!\nOperación terminada.
 
 
 
@@ -19488,7 +19488,7 @@ Digitalizzare nuovi punti di registrazione?
 Nieuwe Registratiepunten digitaliseren?
 
 
-
+¿Digitalizar nuevos puntos de registro?
 
 
 
@@ -19501,7 +19501,7 @@ MSG_MAP_SETNWREGISTRATIONPOINTBUTTON3ABORT
 \0338NW Registratiepunt instellen. Knop 3=afbreken
 
 
-
+\0338Establecer punto de registro NO. Botón 3=abortar
 
 
 
@@ -19514,7 +19514,7 @@ MSG_MAP_SETNEREGISTRATIONPOINTBUTTON3ABORT
 \0338NO Registratiepunt instellen. Knop 3=afbreken
 
 
-
+\0338Establecer punto de registro NE. Botón 3=abortar
 
 
 
@@ -19527,7 +19527,7 @@ MSG_MAP_SETSEREGISTRATIONPOINTBUTTON3ABORT
 \0338ZO Registratiepunt instellen. Knop 3=afbreken
 
 
-
+\0338Establecer punto de registro SE. Botón 3=abortar
 
 
 
@@ -19540,7 +19540,7 @@ lunghezza %f %f %f\n
 Lengte %f %f %f\n
 
 
-
+longitud %f %f %f\n
 
 
 
@@ -19553,7 +19553,7 @@ Valore non valido!\nDue punti di registrazione non possono coincidere.\nOperazio
 Ongeldige waarde!\nTwee registratiepunten mogen niet samenvallen.\nBewerking afgebroken.
 
 
-
+¡Valor ilegal!\nDos puntos de registro no pueden coincidir.\nOperación terminada.
 
 
 
@@ -19566,7 +19566,7 @@ Punti di registrazione coincidenti
 Registratiepunten vallen samen
 
 
-
+Puntos de registro coinciden
 
 
 
@@ -19579,7 +19579,7 @@ Rotazione mappa = %f\n
 Kaartrotatie = %f\n
 
 
-
+Rotación del mapa = %f\n
 
 
 
@@ -19592,7 +19592,7 @@ Scala longitudine = %f /punto
 Lengtegraad schaal = %f /punt
 
 
-
+Escala de longitud = %f /punto
 
 
 
@@ -19605,7 +19605,7 @@ Scala latitudine = %f /punto
 Breedtegraad schaal = %f /punt
 
 
-
+Escala de latitud = %f /punto
 
 
 
@@ -19618,7 +19618,7 @@ Imposta punto %d. Pulsante 2=chiudi, 3=annulla, 4=fatto
 Punt %d instellen. Knop 2=sluiten, 3=afbreken, 4=klaar
 
 
-
+Establecer punto %d. Botón 2=cerrar, 3=abortar, 4=hecho
 
 
 
@@ -19631,7 +19631,7 @@ Pt %d  Lat=%f  Lon=%f
 Pt %d  Lat=%f  Long=%f
 
 
-
+Pt %d  Lat=%f  Lon=%f
 
 
 
@@ -19644,7 +19644,7 @@ Ecosistema fuori portata.
 Ecosysteem buiten bereik.
 
 
-
+Ecosistema fuera de rango.
 
 
 
@@ -19657,7 +19657,7 @@ MSG_MAPEXTRA_NOTCLOSED
 [Niet gesloten]
 
 
-
+[No cerrado]
 
 
 
@@ -19670,7 +19670,7 @@ MSG_MAPEXTRA_SETORIGINPOINT_COLOUR
 \0338Oorsprongspunt instellen.
 
 
-
+\0338Establecer punto de origen.
 
 
 
@@ -19683,7 +19683,7 @@ Imposta punto di origine
 Oorsprongspunt instellen
 
 
-
+Establecer punto de origen
 
 
 
@@ -19696,7 +19696,7 @@ MSG_MAPEXTRA_SETDESTINATIONPOINTESCABORT
 \0338Bestemmingspunt instellen. ESC=annuleren
 
 
-
+\0338Establecer punto de destino. ESC=abortar
 
 
 
@@ -19709,7 +19709,7 @@ Imposta punto di destinazione
 Bestemmingspunt instellen
 
 
-
+Establecer punto de destino
 
 
 
@@ -19722,7 +19722,7 @@ Lunghezza: %f km
 Lengte: %f km
 
 
-
+Longitud: %f km
 
 
 
@@ -19735,7 +19735,7 @@ Oggetto non chiuso!\nL'origine non può essere spostata.\nImpostare ora l'ultimo 
 Object is niet gesloten!\nDe oorsprong kan niet worden verplaatst.\nStel laatste punt nu gelijk aan eerste?
 
 
-
+¡El objeto no está cerrado!\nEl origen no puede moverse.\n¿Establecer último vértice igual al primero ahora?
 
 
 
@@ -19748,7 +19748,7 @@ MSG_MAPEXTRA_SELECTNEWORIGINQDONEUUUPDDDOWNESCABORT
 \0338Nieuwe oorsprong selecteren. Q=klaar, Uu=omhoog, Dd=omlaag, ESC=annuleren
 
 
-
+\0338Seleccionar nuevo origen. Q=hecho, Uu=arriba, Dd=abajo, ESC=abortar
 
 
 
@@ -19761,7 +19761,7 @@ Seleziona nuova origine
 Nieuwe oorsprong selecteren
 
 
-
+Seleccionar nuevo origen
 
 
 
@@ -19774,7 +19774,7 @@ Reimposta origine vettore: %s.\n
 Vectoroorsprong resetten: %s.\n
 
 
-
+Restablecer origen del vector: %s.\n
 
 
 
@@ -19787,7 +19787,7 @@ Adattare il vettore al terreno e salvare l'oggetto ora?
 Vector aan terrein aanpassen en Object nu opslaan?
 
 
-
+¿Ajustar vector al terreno y guardar Objeto ahora?
 
 
 
@@ -19800,7 +19800,7 @@ Vettore %s adattato alla topografia.
 Vector %s aangepast aan topografie.
 
 
-
+Vector %s ajustado a la topografía.
 
 
 
@@ -19813,7 +19813,7 @@ MSG_MAPEXTRA_SELECTFIRSTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
 \0338Eerste bron hoekpunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
 
 
-
+\0338Seleccionar primer vértice fuente. Q=hecho Uu=arriba Dd=abajo ESC=abortar
 
 
 
@@ -19826,7 +19826,7 @@ Seleziona primo vertice sorgente
 Selecteer eerste bron hoekpunt
 
 
-
+Seleccionar primer vértice fuente
 
 
 
@@ -19839,7 +19839,7 @@ MSG_MAPEXTRA_SELECTLASTSOURCEVERTEXQDONEUUUPDDDOWNESCABORT
 \0338Laatste bron hoekpunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
 
 
-
+\0338Seleccionar último vértice fuente. Q=hecho Uu=arriba Dd=abajo ESC=abortar
 
 
 
@@ -19852,7 +19852,7 @@ Seleziona ultimo vertice sorgente
 Laatste bron hoekpunt selecteren
 
 
-
+Seleccionar último vértice fuente
 
 
 
@@ -19865,7 +19865,7 @@ MSG_MAPEXTRA_SELECTFIRSTDESTNVERTEXQDONEUUUPDDDOWNESCABORT
 \0338Eerste bestemmings hoekpunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
 
 
-
+\0338Seleccionar primer vértice destino. Q=hecho Uu=arriba Dd=abajo ESC=abortar
 
 
 
@@ -19878,7 +19878,7 @@ Seleziona primo vertice destinazione
 Eerste bestemmingspunt selecteren
 
 
-
+Seleccionar primer vértice destino
 
 
 
@@ -19891,7 +19891,7 @@ MSG_MAPEXTRA_SELECTLASTDESTNVERTEXQDONEUUUPDDDOWNESCABORT
 \0338Laatste bestemmingspunt selecteren. Q=Klaar Uu=Omhoog Dd=Omlaag ESC=Annuleren
 
 
-
+\0338Seleccionar último vértice destino. Q=hecho Uu=arriba Dd=abajo ESC=abortar
 
 
 
@@ -19904,7 +19904,7 @@ Imposta ultimo vertice destinazione
 Laatste bestemmingspunt instellen
 
 
-
+Establecer último vértice destino
 
 
 
@@ -19917,7 +19917,7 @@ L'oggetto risultante da questa corrispondenza supererebbe il massimo di MAXOBJPT
 Het object dat voortkomt uit deze overeenkomst zou groter zijn dan het maximum van MAXOBJPTS !\nBewerking afgebroken.
 
 
-
+¡El objeto resultante de esta coincidencia sería mayor que el máximo de MAXOBJPTS!\nOperación terminada.
 
 
 
@@ -19930,7 +19930,7 @@ Modulo mappa: Corrispondenza punti
 Mapping Module: Punt Overeenkomst
 
 
-
+Módulo de Mapeo: Coincidencia de Puntos
 
 
 
@@ -19943,7 +19943,7 @@ Numero di punti non valido!\nSe il primo e l'ultimo punto di destinazione coinci
 Ongeldig aantal punten!\nAls eerste en laatste bestemmingspunten hetzelfde zijn, moeten bronpunten groter zijn dan nul.\nBewerking afgebroken.
 
 
-
+¡Número ilegal de puntos!\nSi el primer y último punto de destino son iguales, los puntos fuente deben ser mayores que cero.\nOperación terminada.
 
 
 
@@ -19956,7 +19956,7 @@ Procedere con il riposizionamento?
 Doorgaan met verplaatsing?
 
 
-
+¿Continuar con la reubicación?
 
 
 
@@ -19969,7 +19969,7 @@ Memoria esaurita!\nNon abbastanza per i nuovi punti.\nOperazione fallita.
 Te weinig geheugen!\nNiet genoeg voor nieuwe punten.\nBewerking mislukt.
 
 
-
+¡Memoria insuficiente!\nNo hay suficiente para nuevos puntos.\nOperación fallida.
 
 
 
@@ -19982,7 +19982,7 @@ Vettore %s abbinato a %s.\n
 Overeenkomende vector %s met %s.\n
 
 
-
+Vector %s emparejado con %s.\n
 
 
 
@@ -19995,7 +19995,7 @@ Vertice %d  Latitudine %f  Longitudine %f
 Hoekpunt %d  Breedtegraad %f  Lengtegraad %f
 
 
-
+Vértice %d  Latitud %f  Longitud %f
 
 
 
