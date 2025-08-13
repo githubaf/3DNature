@@ -2828,9 +2828,9 @@ MSG_AGUI_IMPORTWDB
 \33l Importeer WDB\x20
 
 
-\33l Importar WDB 
+\33l Importar WDB\x20
 \33l Import WDB\x20
-\33l Naèíst WDB
+\33l Naèíst WDB\x20
 
 ;
 MSG_AGUI_EXPORTLW
@@ -2841,7 +2841,7 @@ MSG_AGUI_EXPORTLW
 \33l Exporteer LW\x20
 
 
-\33l Exportar LW 
+\33l Exportar LW\x20
 \33l Eksport LW\x2-
 \33l Extrahovat LW\x20
 
@@ -2854,7 +2854,7 @@ MSG_AGUI_MOTIONIO
 \33l Beweging I/O\x20
 
 
-\33l Movimiento E/S 
+\33l Movimiento E/S\x20
 \33l Animacja\x20
 \33l Pohyb vstup/výstup\x20
 
@@ -3038,7 +3038,7 @@ MSG_AGUI_NONE
 -Geen-
 
 
- -ninguno- 
+ -ninguno-\x20
 -nie-\x20
 
 
@@ -4146,7 +4146,7 @@ MSG_CLOUDGUI_TIMELINES
 \33cTijdlijnen\x20
 
 
-\33cLíneas de tiempo 
+\33cLíneas de tiempo\x20
 \33cLInia Czasu\x20
 \33cÈasová osa\x20
 
@@ -4159,7 +4159,7 @@ MSG_CLOUDGUI_SCALEKEYS
 \33cSchaal Keys\x20
 
 
-\33cEscalar claves 
+\33cEscalar claves\x20
 \33cSkala\x20
 \33cRozestup snímku\x20
 
@@ -5569,7 +5569,7 @@ Emis. Sud.
 Zuid. Halfrond.
 
 
-Hemisferio sur
+Hemisferio sur.
 Pó³kula Po³udniowa.
 Ji¾ní polokoule.
 
@@ -7093,7 +7093,7 @@ Il numero di oggetti nel file Master Object non corrisponde al numero di oggetti
 Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van individuele bestanden
 
 
-\0334¡El número de objetos en el archivo maestro no coincide con el número de objetos en la base de datos actual!\nNo se puede usar el archivo maestro. Los objetos se cargarán desde archivos individuales.
+\0334¡El número de objetos en el archivo maestro no coincide con el número de objetos en la base de datos actual!\nNo se puede usar el archivo maestro. Los objetos se cargarán desde archivos individuales
 Liczba objektów w pliku Objektu Nadrzêdnego nie zgadza siê z liczb± Objektów w aktualnej Bazie Danych! Plik Objektu Nadrzêdnego nie zostanie u¿yty. Objekty zostan± wczytane indywidualnie z plików
 Poèet vybraných objektù, neodpovídá poètu objektù v aktuálnì pou¾ívané databázi! Soubor výchozích objektù nebude pou¾it! Objekty budou muset být nahrávány z jednotlivých souborù
 
@@ -8166,7 +8166,7 @@ Wymieñ
 Zamìnit
 
 ;
-; DEM COnverter: Replace value1 "by" value2 
+; DEM COnverter: Replace value1 "by" value2
 MSG_DATAOPSGUI_BY
 by
 durch
@@ -8474,7 +8474,7 @@ MSG_DATAOPSGUI_INPUT
 \0334Invoer\x20\x20
 
 
-\0334  Entrada 
+\0334  Entrada\x20
 \0334 Wej¶cie\x20\x20
 \0334  Vstup\x20\x20
 
@@ -8487,7 +8487,7 @@ MSG_DATAOPSGUI_OUTPUT
 \0334 Uitvoer\x20
 
 
-\0334  Salida 
+\0334  Salida\x20
 \0334 Wej¶cie\x20
 \0334  Výstup\x20\x20
 
@@ -20390,7 +20390,7 @@ Fout bij schrijven naar uitvoerbestand!\nBewerking afgebroken.
 
 
 ;
-; Menu: Modules -> Map View, klick into Map View Window, watch Map View Control Window 
+; Menu: Modules -> Map View, klick into Map View Window, watch Map View Control Window
 MSG_MAPEXTRA_AFSQKMLFKM
 %s: A=%f sq km, L=%fkm.
 %s: A=%f km², L=%f km.
@@ -21349,7 +21349,7 @@ Scala\x20
 Schalen\x20
 
 
-Escala 
+Escala\x20
 
 
 
@@ -21362,7 +21362,7 @@ MSG_MAPGUI_LAT
 Lat\x20
 
 
-Lat 
+Lat\x20
 
 
 
@@ -21401,7 +21401,7 @@ MSG_MAPGUI_LONX20
 Long\x20
 
 
-Lon 
+Lon\x20
 
 
 
@@ -21440,7 +21440,7 @@ MSG_MAPGUI_EXAG
 Overdrijf\x20
 
 
-Exag 
+Exag\x20
 
 
 
@@ -21453,7 +21453,7 @@ MSG_MAPGUI_33CDATABASE
 \33c Database\x20
 
 
-\33cBase de datos 
+\33cBase de datos\x20
 
 
 
@@ -21492,7 +21492,7 @@ MSG_MAPGUI_ECO
 \33cEco\x20
 
 
-\33cEco 
+\33cEco\x20
 
 
 
@@ -21544,7 +21544,7 @@ MSG_MAPGUI_ALIGN
 \33cUitlijnen\x20
 
 
-\33cAlinear 
+\33cAlinear\x20
 
 
 
@@ -25777,7 +25777,7 @@ Imprimiendo...
 
 
 ;
-; --- Check Menu:Modules/Parameters->Motion->Time Lines 
+; --- Check Menu:Modules/Parameters->Motion->Time Lines
 ;
 MSG_TLGUI_TENS
 Tens
