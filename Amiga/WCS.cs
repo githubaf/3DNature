@@ -17077,7 +17077,7 @@ I buffer diagnostici non possono essere generati per rendering con segmenti o fo
 Er kunnen geen Diagnostische buffers worden gegenereerd voor meervoudige segment- of meervoudige frame-renderingen! Doorgaan zonder?
 
 
-
+\0334¡No se pueden generar búferes de diagnóstico para renderizados con múltiples segmentos o múltiples fotogramas! ¿Continuar sin ellos?
 
 
 
@@ -17090,7 +17090,7 @@ Memoria esaurita durante l'apertura dei buffer diagnostici! Procedere senza di e
 Te weinig geheugen bij openen van Diagnostische buffers! Doorgaan zonder?
 
 
-
+\0334¡Memoria insuficiente al abrir los búferes de diagnóstico! ¿Continuar sin ellos?
 
 
 
@@ -17103,7 +17103,7 @@ Memoria esaurita durante l'apertura della tabella dei fotogrammi chiave!\nOperaz
 Te weinig geheugen bij openen van key frametabel!\nBewerking afgebroken.
 
 
-
+\0334¡Memoria insuficiente al abrir la tabla de fotogramas clave!\nOperación terminada.
 
 
 
@@ -17116,7 +17116,7 @@ Errore nel caricamento del file Wave!\nContinuare senza onde?
 Fout bij laden van Golfbestand!\nDoorgaan zonder golven?
 
 
-
+\0334¡Error al cargar el archivo de ondas!\n¿Continuar sin ondas?
 
 
 
@@ -17129,7 +17129,7 @@ Modulo Rendering: Nuvole
 Render Module: Wolken
 
 
-
+\0334Módulo de Renderizado: Nubes
 
 
 
@@ -17142,7 +17142,7 @@ Errore nel caricamento del file della Mappa delle Nuvole!\nContinuare senza ombr
 Fout bij laden van Wolkenkaartbestand!\nDoorgaan zonder wolkschaduwen?
 
 
-
+\0334¡Error al cargar el archivo del mapa de nubes!\n¿Continuar sin sombras de nubes?
 
 
 
@@ -17155,7 +17155,7 @@ Memoria esaurita durante la creazione della Mappa delle Nuvole!\nContinuare senz
 Te weinig geheugen bij maken van Wolkenkaart!\nDoorgaan zonder wolkschaduwen?
 
 
-
+\0334¡Memoria insuficiente al crear el mapa de nubes!\n¿Continuar sin sombras de nubes?
 
 
 
@@ -17168,7 +17168,7 @@ File Intestazione Mappa Colori Principale
 Master CMap Header Bestand
 
 
-
+\0334Archivo de cabecera del Mapa de Color Maestro
 
 
 
@@ -17181,7 +17181,7 @@ Errore nel caricamento della Mappa Colori Principale! Vedi il registro di stato 
 Fout bij laden van Master Kleurenkaart! Zie Status Log voor meer informatie.\nDoorgaan zonder Kleurenkaart?
 
 
-
+\0334¡Error al cargar el Mapa de Color Maestro! Consulte el registro de estado para más información.\n¿Continuar sin mapa de color?
 
 
 
@@ -17194,7 +17194,7 @@ Errore nel caricamento della Mappa di Deformazione degli Strati!\nContinuare il 
 Fout bij laden van Lagen Deformatiekaart!\nDoorgaan zonder Deformatiekaart?
 
 
-
+\0334¡Error al cargar el mapa de deformación de estratos!\n¿Continuar sin mapa de deformación?
 
 
 
@@ -17207,7 +17207,7 @@ Memoria esaurita durante la creazione della Mappa del Rumore!\nContinuare il ren
 Te weinig geheugen bij maken van Ruiskaart!\nDoorgaan zonder Textuurruis?
 
 
-
+\0334¡Memoria insuficiente al crear el mapa de ruido!\n¿Continuar sin textura de ruido?
 
 
 
@@ -17220,7 +17220,7 @@ Memoria di rendering allocata.
 Render geheugen toegewezen.
 
 
-
+\0334Memoria de renderizado asignada.
 
 
 
@@ -17233,7 +17233,7 @@ Animazione
 Animatie
 
 
-
+\0334Animación
 
 
 
@@ -17246,7 +17246,7 @@ Errore nella creazione della mappa nuvole! Memoria insufficiente o operazione an
 Fout bij maken van Wolkenkaart! Ofwel te weinig geheugen of door gebruiker afgebroken.
 
 
-
+\0334¡Error al crear el mapa de nubes! Memoria insuficiente o cancelación por el usuario.
 
 
 
@@ -17259,7 +17259,7 @@ Riprova|Annulla
 Opnieuw|Annuleren
 
 
-
+\0334Reintentar|Cancelar
 
 
 
@@ -17272,7 +17272,7 @@ Segmento %d
 Segment %d
 
 
-
+\0334Segmento %d
 
 
 
@@ -17285,7 +17285,7 @@ Impossibile aprire il file vettoriale per l'output!\nContinuare il rendering sen
 Kan vectorbestand niet openen voor uitvoer!\nDoorgaan zonder vectoren?
 
 
-
+\0334¡No se puede abrir el archivo vectorial para salida!\n¿Continuar sin vectores?
 
 
 
@@ -17298,7 +17298,7 @@ Frattali:
 Fractalen:
 
 
-
+\0334Fractales:
 
 
 
@@ -17311,7 +17311,7 @@ Livello %ld = %ld
 Niveau %ld = %ld
 
 
-
+\0334Nivel %ld = %ld
 
 
 
@@ -17324,7 +17324,7 @@ Ecosistemi:
 Ecossystemen:
 
 
-
+\0334Ecosistemas:
 
 
 
@@ -17337,7 +17337,7 @@ Errore nell'interlacciamento dei campi!\nOperazione terminata.
 Fout bij interlacing velden!\nBewerking afgebroken.
 
 
-
+\0334¡Error al entrelazar campos!\nOperación terminada.
 
 
 
@@ -17350,7 +17350,7 @@ Modulo rendering: Salva
 Render Module: Opslaan
 
 
-
+\0334Módulo de Renderizado: Guardar
 
 
 
@@ -17363,7 +17363,7 @@ Errore nel salvataggio dell'immagine bitmap! Provare un altro dispositivo?
 Fout bij opslaan van Bitmapafbeelding! Een ander apparaat proberen?
 
 
-
+\0334¡Error al guardar la imagen en mapa de bits! ¿Probar otro dispositivo?
 
 
 
@@ -17376,7 +17376,7 @@ Nuovo percorso di salvataggio fotogramma
 Nieuw Pad voor Opslaan Frame
 
 
-
+\0334Nueva ruta de guardado de fotogramas
 
 
 
@@ -17389,7 +17389,7 @@ Memoria insufficiente per salvare il buffer Z!\n
 Te weinig geheugen bij opslaan van Z-buffer!\n
 
 
-
+\0334¡Memoria insuficiente al guardar el búfer Z!\n
 
 
 
@@ -17402,7 +17402,7 @@ Errore nel salvataggio del buffer Z! Provare un altro dispositivo?
 Fout bij opslaan van Z-buffer! Een ander apparaat proberen?
 
 
-
+\0334¡Error al guardar el búfer Z! ¿Probar otro dispositivo?
 
 
 
@@ -17415,7 +17415,7 @@ Percorso salvataggio buffer Z
 Z-buffer Opslaan Pad
 
 
-
+\0334Ruta de guardado del búfer Z
 
 
 
@@ -17428,7 +17428,7 @@ Finestra di rendering
 Render Venster
 
 
-
+\0334Ventana de Renderizado
 
 
 
@@ -17441,7 +17441,7 @@ Directory mappa colori non trovata.
 Kleurenkaartmap niet gevonden.
 
 
-
+\0334Directorio de mapa de color no encontrado.
 
 
 
@@ -17454,7 +17454,7 @@ Poligoni:
 Polygoon:
 
 
-
+\0334Polígonos:
 
 
 
@@ -17467,7 +17467,7 @@ Fotogramma %d
 Frame %d
 
 
-
+\0334Fotograma %d
 
 
 
@@ -17480,7 +17480,7 @@ Fotogramma %d/%d
 Frame %d/%d
 
 
-
+\0334Fotograma %d/%d
 
 
 
@@ -17493,7 +17493,7 @@ Memoria esaurita durante la lettura della mappa %s!
 Te weinig geheugen bij lezen van kaart %s!
 
 
-
+\0334¡Memoria insuficiente al leer el mapa %s!
 
 
 
@@ -17506,7 +17506,7 @@ Modulo Rendering: Topo
 Render Module: Topo
 
 
-
+\0334Módulo de Renderizado: Topografía
 
 
 
@@ -17519,7 +17519,7 @@ Memoria esaurita durante l'allocazione dell'array degli indici di smussamento!
 Te weinig geheugen bij toewijzen van Gladheidsindex reeks!
 
 
-
+\0334¡Memoria insuficiente al asignar el índice de suavizado!
 
 
 
@@ -17532,7 +17532,7 @@ Memoria esaurita durante l'allocazione dell'array della Mappa Frattale!\nContinu
 Te weinig geheugen bij toewijzen van Fractale Kaart reeks!\nDoorgaan zonder Fractale Kaarten of opnieuw proberen?
 
 
-
+\0334¡Memoria insuficiente al asignar el mapa fractal!\n¿Continuar sin mapas fractales o reintentar?
 
 
 
@@ -17545,7 +17545,7 @@ Continua|Riprova|Annulla
 Doorgaan|Opnieuw|Annuleren
 
 
-
+\0334Continuar|Reintentar|Cancelar
 
 
 
@@ -17558,7 +17558,7 @@ Memoria esaurita durante l'allocazione del buffer antialias!\nOperazione termina
 Te weinig geheugen bij toewijzen van anti-alias buffer!\nBewerking afgebroken.
 
 
-
+\0334¡Memoria insuficiente al asignar el búfer de antialiasing!\nOperación terminada.
 
 
 
@@ -17571,7 +17571,7 @@ Memoria esaurita durante l'allocazione dei buffer antialias e dei bordi!\nOperaz
 Te weinig geheugen bij toewijzen van anti-alias en randbuffers!\nBewerking afgebroken.
 
 
-
+\0334¡Memoria insuficiente al asignar los búferes de antialiasing y bordes!\nOperación terminada.
 
 
 
@@ -17584,7 +17584,7 @@ Vettori
 Vectoren
 
 
-
+\0334Vectores
 
 
 
@@ -17597,7 +17597,7 @@ Memoria esaurita durante l'allocazione dei buffer dei bordi dei poligoni!
 Te weinig geheugen bij toewijzen van polygoonrandbuffers!
 
 
-
+\0334¡Memoria insuficiente al asignar los búferes de bordes de polígonos!
 
 
 
@@ -17610,7 +17610,7 @@ Memoria esaurita durante la creazione della Mappa delle Nuvole!
 Te weinig geheugen bij maken van Wolkenkaart!
 
 
-
+\0334¡Memoria insuficiente al crear el mapa de nubes!
 
 
 
@@ -17623,7 +17623,7 @@ Memoria esaurita durante l'allocazione dei Fotogrammi Chiave delle Nuvole!\nOper
 Te weinig geheugen bij toewijzen van Wolken key frames!\nBewerking afgebroken
 
 
-
+\0334¡Memoria insuficiente al asignar los fotogramas clave de nubes!\nOperación terminada
 
 
 
@@ -17636,7 +17636,7 @@ Errore nella lettura del file paginato! Impossibile ripristinare i buffer di rif
 Fout bij lezen van paged-out bestand! Kan Reflectiebuffers niet herstellen. Bewerking afgebroken.
 
 
-
+\0334¡Error al leer el archivo paginado! No se pueden restaurar los búferes de reflexión. Operación terminada.
 
 
 
@@ -17649,7 +17649,7 @@ Errore nell'allocazione della memoria per il file paginato! Impossibile ripristi
 Fout bij toewijzen van geheugen voor paged-out bestand! Kan Reflectiebuffers niet herstellen. Bewerking afgebroken.
 
 
-
+\0334¡Error al asignar memoria para el archivo paginado! No se pueden restaurar los búferes de reflexión. Operación terminada.
 
 
 
@@ -17662,7 +17662,7 @@ Errore nell'apertura del file paginato! Impossibile ripristinare i buffer di rif
 Fout bij openen van paged-out bestand! Kan Reflectiebuffers niet herstellen. Bewerking afgebroken.
 
 
-
+\0334¡Error al abrir el archivo paginado! No se pueden restaurar los búferes de reflexión. Operación terminada.
 
 
 
@@ -17676,7 +17676,7 @@ Fotogramma %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
 Frame %hd  VP.lat=%f, VP.long=%f, VP.hgt=%f\n
 
 
-
+\0334Fotograma %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
 
 
 
@@ -17689,7 +17689,7 @@ Q max=%f, Q focus=%f, Banking=%f\n
 Q max=%f, Q focus=%f, Helling=%f\n
 
 
-
+\0334Q máx=%f, Q enfoque=%f, Inclinación=%f\n
 
 
 
@@ -17702,7 +17702,7 @@ Cielo
 Hemel
 
 
-
+\0334Cielo
 
 
 
@@ -17715,7 +17715,7 @@ linea orizzonte=%d, linea zenitale=%d\n
 horizlijn=%d, zenitlijn=%d\n
 
 
-
+\0334línea horizontal=%d, línea cenital=%d\n
 
 
 
@@ -17728,7 +17728,7 @@ Riflessioni
 Reflecties
 
 
-
+\0334Reflejos
 
 
 
@@ -17741,7 +17741,7 @@ Sole
 Zon
 
 
-
+\0334Sol
 
 
 
@@ -17754,7 +17754,7 @@ Alone del Sole
 Zon-Halo
 
 
-
+\0334Halo solar
 
 
 
@@ -17767,7 +17767,7 @@ Errore nel caricamento dell'immagine del Sole!\nOperazione terminata.
 Fout bij laden van Zonafbeelding!\nBewerking afgebroken.
 
 
-
+\0334¡Error al cargar la imagen del sol!\nOperación terminada.
 
 
 
@@ -17780,7 +17780,7 @@ Luna
 Maan
 
 
-
+\0334Luna
 
 
 
@@ -17793,7 +17793,7 @@ Alone della Luna
 Maan-Halo
 
 
-
+\0334Halo lunar
 
 
 
@@ -17806,7 +17806,7 @@ Errore nel caricamento dell'immagine della Luna!\nOperazione terminata.
 Fout bij laden van Maanafbeelding!\nBewerking afgebroken.
 
 
-
+\0334¡Error al cargar la imagen de la luna!\nOperación terminada.
 
 
 
@@ -17820,7 +17820,7 @@ Modulo Movimento Interattivo
 Interactieve Bewegingsmodule
 
 
-
+\0334Módulo de Movimiento Interactivo
 
 
 
@@ -17833,7 +17833,7 @@ Memoria esaurita!\nRimozione linee nascoste non disponibile.
 Te weinig geheugen!\nVerborgen lijnverwijdering niet beschikbaar.
 
 
-
+\0334¡Memoria insuficiente!\nEliminación de líneas ocultas no disponible.
 
 
 
@@ -17846,7 +17846,7 @@ Bussola
 Kompas
 
 
-
+\0334Brújula
 
 
 
@@ -17859,7 +17859,7 @@ Modulo Parametri: Percorso
 Parameter Module: Pad
 
 
-
+\0334Módulo de Parámetros: Ruta
 
 
 
@@ -17872,7 +17872,7 @@ Animazione
 Anim
 
 
-
+\0334Animación
 
 
 
@@ -17885,7 +17885,7 @@ Fotogramma %d/%d
 Frame   %d/%d
 
 
-
+\0334Fotograma %d/%d
 
 
 
@@ -17898,7 +17898,7 @@ Auto-centrato: alt = %f  lat = %f  lon = %f\n
 Auto-gecentreerd: hgt = %f  lat = %f  long = %f\n
 
 
-
+\0334Auto centrado: alt = %f  lat = %f  lon = %f\n
 
 
 
@@ -17911,7 +17911,7 @@ Modulo Parametri: Vista Camera
 Parameter Module: Camera Weergave
 
 
-
+\0334Módulo de Parámetros: Vista de Cámara
 
 
 
@@ -17924,7 +17924,7 @@ Es muss zuerst eine vollständige Parameter Datei geladen werden!
 Laad eerst een volledig Parameterbestand!
 
 
-
+\0334¡Debe cargar primero un archivo de parámetros completo!
 
 
 
@@ -17937,7 +17937,7 @@ File di parametri completo
 Volledig Parameterbestand
 
 
-
+\0334Archivo de parámetros completo
 
 
 
@@ -17950,7 +17950,7 @@ Non ci sono oggetti in questo database!\nOperazione terminata
 Er zijn geen objecten in deze Database!\nBewerking afgebroken
 
 
-
+\0334¡No hay objetos en esta base de datos!\nOperación terminada
 
 
 
@@ -17963,7 +17963,7 @@ Nessun oggetto nel database
 Geen objecten in Database
 
 
-
+\0334Sin objetos en la base de datos
 
 
 
@@ -17976,7 +17976,7 @@ Modulo di Modifica: Interattivo
 Bewerkingsmodule: Interactief
 
 
-
+\0334Módulo de Edición: Interactivo
 
 
 
@@ -17989,7 +17989,7 @@ Impossibile aprire la Vista Camera!\nOperazione terminata.
 Camera Weergave kon niet worden geopend!\nBewerking afgebroken.
 
 
-
+\0334¡Error al abrir la vista de cámara!\nOperación terminada.
 
 
 
@@ -22000,7 +22000,7 @@ Slider|Annulla
 Schuifregelaar|Afbreken
 
 
-
+\0334Deslizador|Abortar
 
 
 
@@ -22013,7 +22013,7 @@ Inserisci il valore di elevazione per il nuovo punto di controllo.
 Voer hoogtewaarde in voor nieuw controlepunt.
 
 
-
+\0334Ingrese el valor de elevación para el nuevo punto de control.
 
 
 
@@ -22026,7 +22026,7 @@ Il database è stato modificato dopo il caricamento.\nVuoi salvarlo ora o salvare
 De database is gewijzigd sinds het werd geladen.\nWilt u het nu opslaan of een Master Object bestand?
 
 
-
+\0334La base de datos ha sido modificada desde que se cargó.\n¿Desea guardarla ahora o guardar un archivo de objeto maestro?
 
 
 
@@ -22040,7 +22040,7 @@ Errore nel salvataggio dei vertici della linea nel file!\nSeleziona un nuovo per
 Fout bij opslaan van lijn hoekpunten naar bestand!\nSelecteer nieuw pad.
 
 
-
+\0334¡Error al guardar los vértices de la línea en el archivo!\nSeleccione nueva ruta.
 
 
 
@@ -22053,7 +22053,7 @@ Nuovo percorso di salvataggio linea
 Nieuw Lijn Opslag Pad
 
 
-
+\0334Nueva ruta de guardado de línea
 
 
 
@@ -22066,7 +22066,7 @@ Errore nell'apertura del file di salvataggio linea!\nSelezionare un nuovo percor
 Fout bij openen van lijnbestand!\nSelecteer nieuw pad?
 
 
-
+\0334¡Error al abrir el archivo de guardado de línea!\n¿Seleccionar nueva ruta?
 
 
 
@@ -22079,7 +22079,7 @@ Impossibile aprire il file oggetto!\nOggetto non salvato.
 Het objectbestand kan niet worden geopend!\nObject niet opgeslagen.
 
 
-
+\0334¡No se puede abrir el archivo de objeto!\nObjeto no guardado.
 
 
 
@@ -22092,7 +22092,7 @@ Vettore %s salvato. %d punti
 %s vector opgeslagen. %d punten
 
 
-
+\0334Vector %s guardado. %d puntos
 
 
 
@@ -22105,7 +22105,7 @@ Errore nel salvataggio del file oggetto!\nOggetto non salvato.
 Fout bij opslaan van objectbestand!\nObject niet opgeslagen.
 
 
-
+\0334¡Error al guardar el archivo de objeto!\nObjeto no guardado.
 
 
 
@@ -22118,7 +22118,7 @@ Modulo di mappatura: Mappatura topografica
 Mapping Module: Topo Mapping
 
 
-
+\0334Módulo de Mapeo: Mapeo Topográfico
 
 
 
@@ -22131,7 +22131,7 @@ Nessuna mappa topografica trovata!\nControlla lo stato abilitato e la classe del
 Geen topografische kaarten gevonden!\nControleer object ingeschakelde status en klasse in database.
 
 
-
+\0334¡No se encontraron mapas topográficos!\nVerifique el estado habilitado del objeto y la clase en la base de datos.
 
 
 
@@ -22144,7 +22144,7 @@ Vista mappa: Carica mappe topografiche
 Kaarweergave: Laad Topos
 
 
-
+\0334Vista de Mapa: Cargar Topos
 
 
 
@@ -22157,7 +22157,7 @@ Caricamento topografia
 Topo Laden
 
 
-
+\0334Carga de Topo
 
 
 
@@ -22170,7 +22170,7 @@ Errore nel caricamento della mappa topografica! Controlla il registro di stato p
 Fout bij laden van topografische kaart! Controleer Status Log om te zien of er te weinig geheugen is.\nBewerking afgebroken.
 
 
-
+\0334¡Error al cargar el mapa topográfico! Verifique el registro de estado para ver si hay falta de memoria.\nOperación terminada.
 
 
 
@@ -22183,7 +22183,7 @@ Errore nel caricamento dei DEM! Nessuno caricato.
 Fout bij laden van DEM's! Geen DEM geladen.
 
 
-
+\0334¡Error al cargar DEMs! Ninguno cargado.
 
 
 
@@ -22196,7 +22196,7 @@ Imposta angolo in alto a sinistra
 Linker bovenhoek instellen
 
 
-
+\0334Establecer esquina superior izquierda
 
 
 
@@ -22209,7 +22209,7 @@ MSG_MAPSUPRT_0338SETUPPERLEFTCORNER
 \0338Linker bovenhoek instellen.
 
 
-
+\0338Establecer esquina superior izquierda.
 
 
 
@@ -22222,7 +22222,7 @@ MSG_MAPSUPRT_0338SETLOWERRIGHTCORNERESCABORT
 \0338Rechter onderhoek instellen. ESC=annuleren
 
 
-
+\0338Establecer esquina inferior derecha. ESC=abortar
 
 
 
@@ -22235,7 +22235,7 @@ Imposta angolo in basso a destra
 Rechter onderhoek instellen
 
 
-
+\0334Establecer esquina inferior derecha
 
 
 
@@ -22248,7 +22248,7 @@ MSG_MAPSUPRT_SLATFLONF
 %s, LAT: %f, LONG: %f
 
 
-
+\0334%s, LAT: %f, LON: %f
 
 
 
@@ -22261,7 +22261,7 @@ LAT: %f, LON: %f
 LAT: %f, LONG: %f
 
 
-
+\0334LAT: %f, LON: %f
 
 
 
@@ -22274,7 +22274,7 @@ Oggetto vettoriale modificato!\nSalvare prima di chiudere?
 Het vectorobject is gewijzigd!\nOpslaan voor sluiten?
 
 
-
+\0334¡El objeto vectorial ha sido modificado!\n¿Guardarlo antes de cerrar?
 
 
 
@@ -22287,7 +22287,7 @@ SALVA|ANNULLA
 Opslaan|Annuleren
 
 
-
+\0334GUARDAR|CANCELAR
 
 
 
@@ -22300,7 +22300,7 @@ MSG_MAPSUPRT_0338SELECTCAMERAPOINT
 \0338Camera Positie selecteren
 
 
-
+\0338Seleccionar Punto de Cámara
 
 
 
@@ -22313,7 +22313,7 @@ Seleziona punto fotocamera
 Camera Positie selecteren
 
 
-
+\0334Seleccionar Punto de Cámara
 
 
 
@@ -22326,7 +22326,7 @@ MSG_MAPSUPRT_0338SELECTFOCUSPOINT
 \0338Focus Punt selecteren
 
 
-
+\0338Seleccionar Punto de Enfoque
 
 
 
@@ -22339,7 +22339,7 @@ Seleziona punto di messa a fuoco
 Focus Punt selecteren
 
 
-
+\0334Seleccionar Punto de Enfoque
 
 
 
@@ -22352,7 +22352,7 @@ Punto fotocamera interattivo
 Interactieve Camera Positie
 
 
-
+\0334Punto de Cámara Interactivo
 
 
 
@@ -22365,7 +22365,7 @@ Punto di messa a fuoco interattivo
 Interactief Focus Punt
 
 
-
+\0334Punto de Enfoque Interactivo
 
 
 
@@ -22378,7 +22378,7 @@ Posizione del sole interattiva
 Interactieve Zon Positie
 
 
-
+\0334Posición del Sol Interactiva
 
 
 
@@ -22391,7 +22391,7 @@ Inizio foschia interattivo
 Interactieve Start Nevel
 
 
-
+\0334Inicio de Neblina Interactivo
 
 
 
@@ -22404,7 +22404,7 @@ Foschia completa interattiva
 Interactieve Volledige Nevel
 
 
-
+\0334Neblina Completa Interactiva
 
 
 
@@ -22417,7 +22417,7 @@ Vista mappa: Mappa dei colori
 Kaartweergave: Kleurenkaart
 
 
-
+\0334Vista de Mapa: Mapa de Color
 
 
 
@@ -22430,7 +22430,7 @@ L'oggetto selezionato deve essere un DEM topografico!\nVedi il campo Classe nell
 Geselecteerd object moet een Topo DEM zijn!\nZie Klasse veld in Database Editor.\nBewerking afgebroken.
 
 
-
+\0334¡El objeto seleccionado debe ser un DEM Topográfico!\nConsulte el campo Clase en el Editor de Base de Datos.\nOperación terminada.
 
 
 
@@ -22443,7 +22443,7 @@ La mappa selezionata non è attualmente caricata!\nVuoi caricare le mappe topogra
 De geselecteerde kaart is momenteel niet geladen!\nWilt u topografische kaarten laden?
 
 
-
+\0334¡El mapa seleccionado no está cargado actualmente!\n¿Desea cargar mapas topográficos?
 
 
 
@@ -22456,7 +22456,7 @@ Memoria esaurita durante la creazione delle bitmap!\nOperazione terminata.
 Te weinig geheugen voor het maken van bitmaps!\nBewerking afgebroken.
 
 
-
+\0334¡Memoria insuficiente al crear mapas de bits!\nOperación terminada.
 
 
 
@@ -22469,7 +22469,7 @@ Includere i dati di elevazione DEM nella mappa colori?
 DEM hoogtegegevens opnemen in Kleurenkaart?
 
 
-
+\0334¿Incluir datos de elevación DEM en el Mapa de Color?
 
 
 
@@ -22482,7 +22482,7 @@ Salva mappa colori come:
 Sla Kleurenkaart op als:
 
 
-
+\0334Guardar Mapa de Color Como:
 
 
 
@@ -22496,7 +22496,7 @@ Errore nell'allocazione o lettura degli array dell'Indice Frattale!\nContinuare 
 Fout bij toewijzen of lezen van Fractal Index reeksen!\nDoorgaan zonder Fractal Displacement Mapping?
 
 
-
+\0334¡Error al asignar o leer matrices de índice fractal!\n¿Continuar sin mapeo de desplazamiento fractal?
 
 
 
@@ -22509,7 +22509,7 @@ DEM %d/%d
 DEM %d/%d
 
 
-
+\0334DEM %d/%d
 
 
 
@@ -22522,7 +22522,7 @@ Errore nel salvataggio dei vertici vettoriali su file!
 Fout bij opslaan van vector hoekpunten naar bestand!
 
 
-
+\0334¡Error al guardar vértices vectoriales en el archivo!
 
 
 
@@ -22535,7 +22535,7 @@ Nuovo Percorso di Salvataggio Linea
 Nieuw Lijn Opslag Pad
 
 
-
+\0334Nueva ruta de guardado de línea
 
 
 
@@ -22548,7 +22548,7 @@ Impossibile aprire il file vettoriale per l'output!
 Kan vectorbestand niet openen voor uitvoer!
 
 
-
+\0334¡No se puede abrir el archivo vectorial para salida!
 
 
 
@@ -22561,7 +22561,7 @@ Nuvola %d
 Wolk %d
 
 
-
+\0334Nube %d
 
 
 
@@ -22574,7 +22574,7 @@ Inserisci la dimensione massima in pixel per un poligono. Più piccolo è il numer
 Voer de maximale pixelgrootte voor een veelhoek in. Hoe kleiner het getal, hoe langer het renderen van de afbeelding duurt!
 
 
-
+\0334Ingrese el tamaño máximo de píxel para un polígono. ¡Cuanto menor sea el número, más tardará el renderizado de la imagen!
 
 
 
@@ -22587,7 +22587,7 @@ Inserisci il primo fotogramma da analizzare.
 Voer het eerste frame in om te scannen.
 
 
-
+\0334Ingrese el primer fotograma a escanear.
 
 
 
@@ -22600,7 +22600,7 @@ Inserisci l'ultimo fotogramma da analizzare.
 Voer het laatste frame in om te scannen.
 
 
-
+\0334Ingrese el último fotograma a escanear.
 
 
 
@@ -22613,7 +22613,7 @@ Inserisci l'intervallo di fotogrammi da analizzare. Più piccolo è il numero, più
 Voer het frame interval in om te scannen. Hoe kleiner het getal, hoe langer dit proces duurt!
 
 
-
+\0334Ingrese el intervalo de fotogramas a escanear. ¡Cuanto menor sea el número, más tardará este proceso!
 
 
 
@@ -22626,7 +22626,7 @@ Animazione
 Animatie
 
 
-
+\0334Animación
 
 
 
@@ -22639,7 +22639,7 @@ Fotogramma %d/%d
 Frame %d/%d
 
 
-
+\0334Fotograma %d/%d
 
 
 
@@ -22653,7 +22653,7 @@ Elenco rendering: Nessuna mappa trovata
 Render Lijst: Geen kaarten gevonden
 
 
-
+\0334Lista de Renderizado: No se encontraron mapas
 
 
 
@@ -22666,7 +22666,7 @@ Elenco rendering:
 Render Lijst:
 
 
-
+\0334Lista de Renderizado:
 
 
 
@@ -22679,7 +22679,7 @@ MSG_MAPUTIL_DDIR
 %hd. %s Richting=%s
 
 
-
+\0334%hd. %s Dir=%s
 
 
 
@@ -22692,7 +22692,7 @@ E-O
 O-W
 
 
-
+\0334E-O
 
 
 
@@ -22705,7 +22705,7 @@ O-E
 W-O
 
 
-
+\0334O-E
 
 
 
@@ -22718,7 +22718,7 @@ Nessun elenco rendering!
 Geen render lijst!
 
 
-
+\0334¡No hay lista de renderizado!
 
 
 
@@ -22733,7 +22733,7 @@ Estrazione DEM
 DEM Extraheren
 
 
-
+\0334Extracción DEM
 
 
 
@@ -22746,7 +22746,7 @@ MSG_MOREGUI_SELECTFILES
 \33cSelecteer bestanden
 
 
-
+\033cSeleccionar Archivos
 
 
 
@@ -22759,7 +22759,7 @@ MSG_MOREGUI_SELECTED
 Geselecteerd
 
 
-
+\0334Seleccionado
 
 
 
@@ -22772,7 +22772,7 @@ MSG_MOREGUI_SELATITUDE
 ZO Breedtegraad
 
 
-
+\0334Latitud SE
 
 
 
@@ -22785,7 +22785,7 @@ MSG_MOREGUI_SELONGITUDE
 ZO Lengtegraad
 
 
-
+\0334Longitud SE
 
 
 
@@ -22798,7 +22798,7 @@ Nome DEM
 DEM Naam
 
 
-
+\0334Nombre DEM
 
 
 
@@ -22811,7 +22811,7 @@ Livello
 Niveau
 
 
-
+\0334Nivel
 
 
 
@@ -22824,7 +22824,7 @@ MSG_MOREGUI_ELEVPTRN
 Hgt Ptrn
 
 
-
+\0334Patrón de Elevación
 
 
 
@@ -22837,7 +22837,7 @@ MSG_MOREGUI_REFSYS
  Ref Sys
 
 
-
+\0334Sistema de Referencia
 
 
 
@@ -22850,7 +22850,7 @@ MSG_MOREGUI_ZONE
  Zone
 
 
-
+\0334Zona
 
 
 
@@ -22863,7 +22863,7 @@ MSG_MOREGUI_ROJECTIONPARAMETERS
 \0334Projectieparameters
 
 
-
+\0334Parámetros de Proyección
 
 
 
@@ -22876,7 +22876,7 @@ Unità di misura terreno
 Grond Eenheden
 
 
-
+\0334Unidades de Terreno
 
 
 
@@ -22889,7 +22889,7 @@ MSG_MOREGUI_ELEVUNITS
 Hoogte Eenheden
 
 
-
+\0334Unidades de Elevación
 
 
 
@@ -22902,7 +22902,7 @@ MSG_MOREGUI_POLYSIDES
 Vlakken
 
 
-
+\0334Lados del Polígono
 
 
 
@@ -22915,7 +22915,7 @@ MSG_MOREGUI_COORDINATEPAIRS
 \0334Coördinatenparen
 
 
-
+\0334Pares de Coordenadas
 
 
 
@@ -22928,7 +22928,7 @@ SO E
 ZW O
 
 
-
+\0334SO E
 
 
 
@@ -22941,7 +22941,7 @@ MSG_MOREGUI_N
  N
 
 
-
+\0334N
 
 
 
@@ -22954,7 +22954,7 @@ NO E
 NW O
 
 
-
+\0334NO E
 
 
 
@@ -22967,7 +22967,7 @@ NE E
 NO O
 
 
-
+\0334NE E
 
 
 
@@ -22980,7 +22980,7 @@ SE E
 ZO O
 
 
-
+\0334SE E
 
 
 
@@ -22993,7 +22993,7 @@ Elev Min
 Min Hgt
 
 
-
+\0334Elevación Mínima
 
 
 
@@ -23006,7 +23006,7 @@ MSG_MOREGUI_X20ELEVMAX
  Max Hgt
 
 
-
+\0334Elevación Máxima
 
 
 
@@ -23019,7 +23019,7 @@ Rotazione asse
 As Rotatie
 
 
-
+\0334Rotación del Eje
 
 
 
@@ -23032,7 +23032,7 @@ MSG_MOREGUI_ACCURACY
 Nauwkeurigheid
 
 
-
+\0334Precisión
 
 
 
@@ -23045,7 +23045,7 @@ Risoluzione X
 Resolutie X
 
 
-
+\0334Resolución X
 
 
 
@@ -23058,7 +23058,7 @@ Righe
 Rijen
 
 
-
+\0334Filas
 
 
 
@@ -23071,7 +23071,7 @@ MSG_MOREGUI_COLUMNS
  Kolommen
 
 
-
+\0334Columnas
 
 
 
@@ -23084,7 +23084,7 @@ MSG_MOREGUI_PROFILEDATA
 \0334Profielgegevens
 
 
-
+\0334Datos de Perfil
 
 
 
@@ -23097,7 +23097,7 @@ Riga
 Rij
 
 
-
+\0334Fila
 
 
 
@@ -23110,7 +23110,7 @@ MSG_MOREGUI_COLUMN
  Kolom
 
 
-
+\0334Columna
 
 
 
@@ -23123,7 +23123,7 @@ MSG_MOREGUI_PROFROWS
  Prof Rijen
 
 
-
+\0334Filas de Perfil
 
 
 
@@ -23136,7 +23136,7 @@ MSG_MOREGUI_PROFCOLS
  Prof Klm
 
 
-
+\0334Columnas de Perfil
 
 
 
@@ -23149,7 +23149,7 @@ Coordinate E
 Coörd O
 
 
-
+\0334Coordenadas E
 
 
 
@@ -23162,7 +23162,7 @@ Datum elevazione
 Hoogte Datum
 
 
-
+\0334Datum de Elevación
 
 
 
@@ -23175,7 +23175,7 @@ Elevazione massima
 Max Hgt
 
 
-
+\0334Elevación Máxima
 
 
 
@@ -23188,7 +23188,7 @@ MSG_MOREGUI_EXTRACT
 \33cExtraheren
 
 
-
+\033cExtraer
 
 
 
@@ -23201,7 +23201,7 @@ File DEM USGS
 USGS DEM Bestanden
 
 
-
+\0334Archivos DEM de USGS
 
 
 
@@ -23214,7 +23214,7 @@ Modulo operazioni dati: Estrazione DEM
 Data Ops Module: DEM Extraheren
 
 
-
+\0334Módulo de Operaciones de Datos: Extracción DEM
 
 
 
@@ -23227,7 +23227,7 @@ Inserisci i valori di latitudine e longitudine per l'angolo sud-est del DEM corr
 Voer de breedte- en lengtegraadwaarden in voor de zuidoosthoek van de huidige DEM in de tekstvakken bovenaan het DEM Extraheren venster.
 
 
-
+\0334Por favor, introduzca los valores de latitud y longitud para la esquina sureste del DEM actual en los campos de texto cerca de la parte superior de la ventana de extracción DEM.
 
 
 
@@ -23957,7 +23957,7 @@ Scala immagine
 Afbeelding Schalen
 
 
-
+\0334Escala de Imagen
 
 
 
@@ -23970,7 +23970,7 @@ Larghezza
 Breedte
 
 
-
+\0334Ancho
 
 
 
@@ -23983,7 +23983,7 @@ Altezza
 Hoogte
 
 
-
+\0334Altura
 
 
 
@@ -23996,7 +23996,7 @@ Proporzioni pixel
 Pixel Aspect
 
 
-
+\0334Relación de Aspecto de Píxel
 
 
 
@@ -24322,7 +24322,7 @@ I valori di "Ease In" e "Ease Out" superano il numero totale di fotogrammi anima
 "Ease In" plus "Ease Out" frame waarden overschrijden het totale aantal geanimeerde frames.\nDit werkt niet! Wilt u doorgaan zonder Snelheidsverdeling?
 
 
-
+Los valores de fotogramas de 'Facilitar Entrada' y 'Facilitar Salida' exceden el número total de fotogramas animados.\n¡Esto no es válido! ¿Desea continuar sin distribución de velocidad?
 
 
 
@@ -27562,6 +27562,7 @@ MSG_MENU_PR_CREDITSTRANSLATION
 \nNederlandse vertaling door Leo.\nFoutmeldingen en suggesties voor verbetering\ns.v.p. naar selco@t-online.de
 
 
+\nTraducción al español generada automáticamente por Alexander Fritsch (selco).\nPor favor, envíe mensajes de error y sugerencias de mejora a selco@t-online.de
 
 
 

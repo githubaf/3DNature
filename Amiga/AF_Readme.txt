@@ -4855,3 +4855,6 @@ dann ein Stueck in Copilot kopieren, Ergebnis in xfce-Terminal einfuegen und Ent
 
 Arbeiten mit xfce-Terminal. Da kannn man ISO-8859-1 einstellen. Arbeiten mit mgawk. Das macht auch ISO-8859-1. Achtung: \33 und \n ueberpruefen!
 
+13.Aug.2025
+-----------
+Spanisch komplett. Muss noch leicht korrigiert werden, z.B. def soll fuer deformation stehen, nicht fuer default oder defekt!
