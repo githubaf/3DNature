@@ -455,7 +455,7 @@ Wznów
 Obnovení
 
 ;
-; --- Ecosystem Editor -> Class --- 
+; --- Ecosystem Editor -> Class ---
 MSG_TYPENAME_WATER
 Water
 Wasser
@@ -1640,7 +1640,7 @@ Interlacciato\x20
 Interlace\x20
 
 
-Entrelazado 
+Entrelazado\x20
 Interlace\x20
 Prokládaný\x20
 
@@ -1653,7 +1653,7 @@ Supporta Genlock\x20
 Ondersteunt Genlock\x20
 
 Understøtter Genlock\x20
-Compatible con Genlock 
+Compatible con Genlock\x20
 Obs³uguje Genlock\x20
 Kompatibilní s genlokem\x20
 
@@ -1666,7 +1666,7 @@ Trascinabile\x20
 Sleepbaar\x20
 
 
-Arrastrable 
+Arrastrable\x20
 Przesuwalny\x20
 Posouvatelný\x20
 
@@ -1679,7 +1679,7 @@ Overscan:\x20
 Overscan:\x20
 
 
-Overscan: 
+Overscan:\x20
 
 Overscan:\x20
 
@@ -1692,7 +1692,7 @@ MSG_SCNRMODGUI_COLORS
   Kleuren:\x20
 
 
-  Colores: 
+  Colores:\x20
 
 Barev:\x20
 
@@ -1705,7 +1705,7 @@ Larghezza\x20
 Breedte\x20
 
 
-Ancho 
+Ancho\x20
 Szeroko¶æ\x20
 ©íøka\x20
 
@@ -1718,7 +1718,7 @@ Altezza\x20
 Hoogte\x20
 
 
-Altura 
+Altura
 Wysoko¶æ\x20
 Vý¹ka\x20
 
@@ -1747,7 +1747,7 @@ MSG_AGUI_MOTION
 \33l Beweging\x20
 
 
-\33l Movimiento 
+\33l Movimiento\x20
 \33l Animacja\x20
 Nastavení pohybu
 
@@ -1760,7 +1760,7 @@ MSG_AGUI_COLOR
 \33l Kleur\x20
 
 
-\33l Color 
+\33l Color\x20
 \33l Kolor\x20
 Nastavení barev
 
@@ -1773,9 +1773,9 @@ MSG_AGUI_ECOSYSTEM
 \33l Ecosysteem\x20
 
 
-l Ecosistema 
+l Ecosistema\x20
 \33l Ekosystem\x20
-Nastavení krajiny
+Nastavení krajiny\x20
 
 ;
 MSG_AGUI_CLOUDS
@@ -1786,9 +1786,9 @@ MSG_AGUI_CLOUDS
 \33l Wolken\x20
 
 
-\33l Nubes 
+\33l Nubes\x20
 \33l Chmury\x20
-Nastavení oblak
+Nastavení oblak\x20
 
 ;
 MSG_AGUI_WAVES
@@ -1799,9 +1799,9 @@ MSG_AGUI_WAVES
 \33l Golven\x20
 
 
-\33l Olas 
+\33l Olas\x20
 \33l Fale\x20
-Nastavení vln
+Nastavení vln\x20
 
 ;
 MSG_AGUI_DEFAULTS
@@ -1812,7 +1812,7 @@ MSG_AGUI_DEFAULTS
 \33l Standaard Waarden\x20
 
 
-\33l Valores predeterminados 
+\33l Valores predeterminados\x20
 \33l Domy¶lne \x20
 \33l Pùvodní nastavení\x20
 
@@ -1942,7 +1942,7 @@ MSG_AGUI_LOAD
 \33l Laad\x20
 
 
-\33l Cargar 
+\33l Cargar\x20
 \33l Wczytaj\x20
 \33l Naèíst\x20
 
@@ -1955,7 +1955,7 @@ MSG_AGUI_APPEND
 \33l Toevoegen\x20
 
 
-\33l Añadir 
+\33l Añadir\x20
 \33l Do³±cz\x20
 \33l Pøipojit\x20
 
@@ -1968,7 +1968,7 @@ MSG_AGUI_CREATE
 \33l Nieuw\x20
 
 
-\33l Crear 
+\33l Crear\x20
 \33l Utwórz\x20
 \33l Vytvoøit\x20
 
@@ -1981,7 +1981,7 @@ MSG_AGUI_EDIT
 \33l Bewerken\x20
 
 
-\33l Editar 
+\33l Editar\x20
 \33l Edytuj\x20
 \33l Upravit\x20
 
@@ -1994,7 +1994,7 @@ MSG_AGUI_SAVE
 \33l Opslaan\x20
 
 
-\33l Guardar 
+\33l Guardar\x20
 \33l Zapisz\x20
 \33l Ulo¾it\x20
 
@@ -2007,7 +2007,7 @@ MSG_AGUI_DIRLIST
 \33l Dir Lijst\x20
 
 
-\33l Lista de directorios 
+\33l Lista de directorios\x20
 \33l Lista katalogów\x20
 \33l Výpis adresáøe\x20
 
@@ -2463,7 +2463,7 @@ MSG_AGUI_TIME
 \33rTijd\x20
 
 
-\33rHora 
+\33rHora\x20
 \33rCzas\x20
 \33rÈas\x20
 
@@ -2476,7 +2476,7 @@ MSG_AGUI_DATE
 \33rDatum\x20
 
 
-\33rFecha 
+\33rFecha\x20
 \33rData\x20
 \33rDatum\x20
 
@@ -2502,7 +2502,7 @@ MSG_AGUI_AVAILABLE
 \33rBeschikbaar\x20
 
 
-\33rDisponible 
+\33rDisponible\x20
 \33rDostêpne\x20
 \33rCelková\x20
 
@@ -2515,7 +2515,7 @@ MSG_AGUI_LARGEST
 \33rGrootste\x20
 
 
-\33rMayor 
+\33rMayor\x20
 \33rNajwiêkszy\x20
 \33rNejvìt¹í blok\x20
 
@@ -2554,7 +2554,7 @@ MSG_AGUI_TOPOMAPS
 \33rTopo Kaarten\x20
 
 
-\33rMapas topográficos 
+\33rMapas topográficos\x20
 \33rMapa Topograficzna\x20
 \33rTopologické mapy\x20
 
@@ -2593,7 +2593,7 @@ MSG_AGUI_AREXXPORT
 \33rARexx Poort\x20
 
 
-\33rPuerto ARexx 
+\33rPuerto ARexx\x20
 
 \33rARexx Port\x20
 
@@ -2606,7 +2606,7 @@ MSG_AGUI_DATABASE
 \33rDatabase\x20
 
 
-\33rBase de datos 
+\33rBase de datos\x20
 \33rBaza Danych\x20
 \33rDatabáze\x20
 
@@ -2619,7 +2619,7 @@ MSG_AGUI_PARFILE
 \33rPar Bestand\x20
 
 
-\33rArchivo de parámetros 
+\33rArchivo de parámetros\x20
 
 \33rSoubor hodnot\x20
 
@@ -2632,7 +2632,7 @@ MSG_AGUI_SCREENMODE
 \33rSchermmodus\x20
 
 
-\33rModo de pantalla 
+\33rModo de pantalla\x20
 \33rTryb Ekranu\x20
 \33rRozli¹ení\x20
 
@@ -2763,7 +2763,7 @@ MSG_AGUI_EXTRACTDEM
 \33l Extraheer DEM\x20
 
 
-\33l Extraer DEM 
+\33l Extraer DEM\x20
 \33l Rozpakuj DEM\x20
 \33l Extrahovat DEM\x20
 
@@ -2776,7 +2776,7 @@ MSG_AGUI_CONVERTDEM
 \33l Converteer DEM\x20
 
 
-\33l Convertir DEM 
+\33l Convertir DEM\x20
 \33l Conversja DEM\x20
 \33l Pøevést DEM\x20
 
@@ -2789,7 +2789,7 @@ MSG_AGUI_INTERPDEM
 \33l Interpoleer DEM\x20
 
 
-\33l Interpolar DEM 
+\33l Interpolar DEM\x20
 \33l Interpolacja DEM\x20
 \33l Vyhodnotit DEM\x20
 
@@ -2802,7 +2802,7 @@ MSG_AGUI_IMPORTDLG
 \33l Importeer DLG\x20
 
 
-\33l Importar DLG 
+\33l Importar DLG\x20
 \33l Import DLG\x20
 \33l Naèíst DLG\x20
 
@@ -7002,7 +7002,7 @@ Memoria esaurita durante l'espansione dell'elenco dell'editor del database!\nIl 
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is toegevoegd maar zal niet verschijnen in lijst weergave.
 
 
-\u00a1Sin memoria al expandir lista del Editor de Base de Datos!\nSe ha añadido un nuevo objeto pero no aparecerá en la vista de lista.
+\0334¡Memoria insuficiente al expandir la lista del Editor de Base de Datos!\nSe ha añadido un nuevo objeto, pero no aparecerá en la vista de lista.
 Brak pamiêci dla roszerzenie Listy Edycji w bazie danych!\nNowy objekt zosta³ dodany, ale nie zostanie wy¶wietlony na li¶cie.
 Nedostatek pamìti pro rozvinutí seznamu databáze!\nNový objekt byl sice pøidán, ale v seznamu se nezobrazí.
 
@@ -7015,7 +7015,7 @@ Errore durante il caricamento di questo oggetto!\nOperazione terminata.
 Fout bij laden van dit object!\nOperatie afgebroken.
 
 
-\u00a1Error al cargar este objeto!\nOperación terminada.
+\0334¡Error al cargar este objeto!\nOperación terminada.
 B³±d wczytania objektu!\nOperacja anulowana.
 Chyba pøi naèítání tohoto objektu!\nOperace bude ukonèena.
 
@@ -7041,7 +7041,7 @@ Errore durante la scrittura del file Master Object!\nOperazione terminata.
 Foout bij schrijven van Master Object bestand!\nOperatie afgebroken.
 
 
-\u00a1Error al escribir archivo maestro de objeto!\nOperación terminada.
+\0334¡Error al guardar el archivo de objeto maestro!\nOperación terminada.
 B³±d zapisu Nadrzêdnego Objektu do pliku!\nOperacja anulowana.
 Chyba pøi zápisu dat výchozího objektu do souboru!\nOperace bude ukonèena.
 
@@ -7067,7 +7067,7 @@ Memoria esaurita durante il caricamento del file Master Object!\nGli oggetti abi
 Te weinig geheugen voor laden van Master Object bestand!\nIngeschakelde objecten zullen individueel worden geladen.
 
 
-\u00a1Sin memoria al cargar archivo maestro de objeto!\nLos objetos habilitados se cargarán individualmente.
+\0334¡Memoria insuficiente al cargar el archivo de objeto maestro!\nLos objetos habilitados se cargarán individualmente.
 Brak pamieci dla wczytania pliku Objektu Nadrzêdnego!\nAktywne objekty bêd± ³adowane indywidualnie.
 Nedostatek pamìti pro naètení dat v¹ech výchozích objektù!\nVybrané objekty budou muset být nahrávány jednotlivì.
 
@@ -7080,7 +7080,7 @@ Errore nella lettura del file Master Object!\nOperazione terminata.
 Foout bij lezen van Master Object bestand!\nOperatie afgebroken.
 
 
-\u00a1Error al leer archivo maestro de objeto!\nOperación terminada.
+\0334¡Error al leer el archivo de objeto maestro!\nOperación terminada.
 B³±d odczytu pliku Nadrzêdnego Objektu!\nOperacja anulowana.
 Chyba ètení dat ze souboru výchozích objektù!\nOperace bude ukonèena.
 
@@ -7093,7 +7093,7 @@ Il numero di oggetti nel file Master Object non corrisponde al numero di oggetti
 Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van individuele bestanden
 
 
-\u00a1El número de objetos en el archivo maestro no coincide con el número de objetos en la base de datos actual! El archivo maestro no puede ser usado. Los objetos serán cargados desde archivos individuales
+\0334¡El número de objetos en el archivo maestro no coincide con el número de objetos en la base de datos actual!\nNo se puede usar el archivo maestro. Los objetos se cargarán desde archivos individuales.
 Liczba objektów w pliku Objektu Nadrzêdnego nie zgadza siê z liczb± Objektów w aktualnej Bazie Danych! Plik Objektu Nadrzêdnego nie zostanie u¿yty. Objekty zostan± wczytane indywidualnie z plików
 Poèet vybraných objektù, neodpovídá poètu objektù v aktuálnì pou¾ívané databázi! Soubor výchozích objektù nebude pou¾it! Objekty budou muset být nahrávány z jednotlivých souborù
 
@@ -7145,7 +7145,7 @@ Sie müssen eine Datei zum Konvertieren angeben!\nVorgang abgebrochen.
 Specificeer een bestand om te converteren!\nOperatie afgebroken.
 
 
-\u00a1Debe especificar un archivo para convertir!\nOperación terminada.
+\0334¡Debe especificar un archivo para convertir!\nOperación terminada.
 Musisz wskazaæ plik do konwersji!\nOperacja anulowana.
 Nejprve je tøeba vybrat soubor k pøevodu!\nOperace bude ukonèena.
 
@@ -7158,7 +7158,7 @@ Die Anzahl von Eingabezeilen und -spalten muss angeben werden!\nVorgang abgebroc
 Specificeer invoer rijen en kolommen!\nOperatie afgebroken.
 
 
-\u00a1Debe especificar filas y columnas de entrada!\nOperación terminada.
+\0334¡Debe especificar filas y columnas de entrada!\nOperación terminada.
 Musisz zdefiniowaæ ilo¶æ wierszy i kolumn!\nOperacja anulowana.
 Nejprve je tøeba vybrat vstupní øádky a sloupce!\nOperace bude ukonèena.
 
@@ -7171,7 +7171,7 @@ Nessun database disponibile per indirizzare le entità di output!\nOperazione ter
 Er is geen Database om uitvoer entiteiten naar te leiden!\nOperatie afgebroken.
 
 
-\u00a1No hay base de datos para dirigir entidades de salida!\nOperación terminada.
+\0334¡No hay base de datos para dirigir las entidades de salida!\nOperación terminada.
 Nie ma bazy danych do której mo¿na kierowaæ wyniki!\nOperacja anulowana.
 Není mo¾no ukládat do neexistující databáze!\nOperace bude ukonèena.
 
@@ -7184,7 +7184,7 @@ I dati di input non possono essere divisi equamente tra le mappe di output.\nL'u
 Invuldata kan niet gelijk verdeeld worden over uitvoer kaarten.\nLaatste kolom van kaarten zal %ld kolommen hebben.\nLaatste rij van kaarten zal %ld rijen hebben.
 
 
-\u00a1Los datos de entrada no pueden dividirse equitativamente entre los mapas de salida!\nLa última columna de los mapas tendrá %ld columnas.\nLa última fila de los mapas tendrá %ld filas.
+\0334¡Los datos de entrada no pueden dividirse equitativamente entre los mapas de salida!\nLa última columna de los mapas tendrá %ld columnas.\nLa última fila de los mapas tendrá %ld filas.
 Dane wej¶ciowe nie mog± byæ równo podzielone na wyj¶ciowe mapy.\nOstatnia Kolumna map ma %ld kolumn\nOstatni rz±d map ma %ld rows.
 Vstupní data není mo¾no rovnomìrnì rozdìlit do výstupních map.\nPoslední sloupec map bude mít %ld sloupcù.\nPoslední øádek map bude mít %ld øádkù.
 
@@ -7210,7 +7210,7 @@ Dimensione del file errata per intestazione, larghezza e altezza specificate!\nP
 Bestandsgrootte klopt niet met opgegeven header, breedte en hoogte!\nToch doorgaan?
 
 
-\u00a1Tamaño de archivo incorrecto para el encabezado, ancho y alto especificados!\n¿Proceder de todos modos?
+\0334¡Tamaño de archivo incorrecto para la cabecera, ancho y alto especificados!\n¿Continuar de todos modos?
 Niew³a¶ciwy rozmiar pliku dla wskazanego nag³ówka, szeroko¶æ i wysoko¶æ!\nMimo to kontynuowaæ?
 Nepovolená velikost souboru vybrané hlavièky, ¹íøky a vý¹ky!\nPøejete si pokraèovat?
 
@@ -7328,7 +7328,7 @@ Impossibile aprire il file per l'input!\nOperazione terminata.
 Kan het bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
-\u00a1No se puede abrir archivo para entrada!\nOperación terminada.
+\0334¡No se puede abrir el archivo para entrada!\nOperación terminada.
 Nie mo¿na otworzyæ pliku dla wej¶cia!\nOperacja anulowana.
 Nemohu otevøít soubor ètení!\nOperace bude ukonèena.
 
@@ -7354,7 +7354,7 @@ Dimensione del file errata per intestazione, larghezza e altezza specificate!\nO
 Onjuiste bestandsgrootte voor opgegeven header, breedte en hoogte!\nOperatie afgebroken.
 
 
-\u00a1Tamaño de archivo incorrecto para el encabezado, ancho y alto especificados!\nOperación terminada.
+\0334¡Tamaño de archivo incorrecto para la cabecera, ancho y alto especificados!\nOperación terminada.
 Niew³a¶ciwy rozmiar dla wskazanaego nag³ówka, szeroko¶æ i d³ugo¶æ!\nOperacja anulowana.
 Nepovolená velikost souboru vybrané hlavièky, ¹íøky a vý¹ky!\nOperace bude ukonèena.
 
@@ -7367,7 +7367,7 @@ Impossibile aprire il file per l'output!\nOperazione terminata.
 Kan het bestand niet openen voor uitvoer!\nOperatie afgebroken.
 
 
-\u00a1No se puede abrir archivo para salida!\nOperación terminada.
+\0334¡No se puede abrir el archivo para salida!\nOperación terminada.
 Niemo¿na otworzyæ pliku dla wyj¶cia!\nOperacja anulowana.
 Nemohu otevøít soubor pro zápis!\nOperace bude ukonèena.
 
@@ -7393,7 +7393,7 @@ Errore durante la scrittura del file di destinazione!\nOperazione terminata.
 Fout bij schrijven van doelbestand!\nOperatie afgebroken.
 
 
-\u00a1Error al escribir archivo de destino!\nOperación terminada.
+\0334¡Error al escribir el archivo de destino!\nOperación terminada.
 B³±d zapisu pliku docelowego!\nOperacja anulowana.
 Chyba pøi zápisu do cílového souboru!\nOperace bude ukonèena.
 
@@ -7406,7 +7406,7 @@ Errore nella lettura del file sorgente!\nOperazione terminata.
 Fout bij lezen van bronbestand!\nOperatie afgebroken.
 
 
-\u00a1Error al leer archivo fuente!\nOperación terminada.
+\0334¡Error al leer el archivo fuente!\nOperación terminada.
 B³±d odczytu pliku ¼ród³owego!\nOperacja anulowana.
 Chyba pøi ètení zdrojového souboru!\nOperace bude ukonèena.
 
@@ -7419,7 +7419,7 @@ File non compresso!\nOperazione terminata.
 Bestand is niet gecomprimeerd!\nOperatie afgebroken.
 
 
-\u00a1No es un archivo comprimido!\nOperación terminada.
+\0334¡No es un archivo comprimido!\nOperación terminada.
 Plik nie skompresowany!\nOperacja anulowana.
 Toto není komprimovaný soubor!\nOperace bude ukonèena.
 
@@ -7432,7 +7432,7 @@ Intestazione estesa!\nOperazione terminata.
 Uitgebreide header!\nOperatie afgebroken.
 
 
-\u00a1Encabezado extendido!\nOperación terminada.
+\0334¡Cabecera extendida!\nOperación terminada.
 Rozszrzony nag³ówek!\nOperacja anulowana.
 Roz¹íøená hlavièka!\nOperace bude ukonèena.
 
@@ -7445,7 +7445,7 @@ Configurazione del file di input non ancora supportata!\nOperazione terminata.
 Invoer bestand configuratie wordt nog niet ondersteund!\nOperatie afgebroken.
 
 
-\u00a1Configuración de archivo de entrada aún no compatible!\nOperación terminada.
+\0334¡Configuración del archivo de entrada aún no soportada!\nOperación terminada.
 Konfiguracja pliku wej¶ciowego nie jest jeszcze wspierana!\nOperacja anulowana.
 Toto nastavení pro vstupní soubor není podporováno!\nOperace bude ukonèena.
 
@@ -7471,7 +7471,7 @@ Formato dati di input non supportato!\nControlla le impostazioni.\nOperazione te
 Invoer data formaat wordt niet ondersteund!\nControleer uw instellingen.\nOperatie afgebroken.
 
 
-\u00a1Formato de datos de entrada no compatible!\nVerifique su configuración.\nOperación terminada.
+\0334¡Formato de datos de entrada no soportado!\nVerifique su configuración.\nOperación terminada.
 Format danych wej¶ciowych nie wspierany!\nSprawd¼ ustawienia.\nOperacja anulowana.
 Tento formát vstupních dat není podporován!\nZkontrolujte va¹e nastavení.\nOperace bude ukonèena.
 
@@ -7484,7 +7484,7 @@ Errore durante il salvataggio del file ".Obj"!\nOperazione terminata.
 Fout bij opslaan van ".Obj" bestand!\nOperatie afgebroken.
 
 
-\u00a1Error al guardar archivo \".Obj\"!\nOperación terminada.
+\0334¡Error al guardar el archivo ".Obj"!\nOperación terminada.
 B³±d zapisu pliku ".Obj"!\nOperacja anulowana.
 Chyba pøi ukládání dat souboru objektù ".Obj"!\nOperace bude ukonèena.
 
@@ -7497,7 +7497,7 @@ File di input non riconosciuto come file DTED!\nOperazione terminata.
 Invulbestand niet herkend als een DTED bestand!\nOperatie afgebroken.
 
 
-\u00a1Archivo de entrada no reconocido como archivo DTED!\nOperación terminada.
+\0334¡El archivo de entrada no se reconoce como archivo DTED!\nOperación terminada.
 Plik wej¶ciowy nierozpoznany jako DTED!\nOperacja anulowana.
 Vstupní soubor není formátu DTED!\nOperace bude ukonèena.
 
@@ -7524,7 +7524,7 @@ MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 Ongeldige bronwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 
 
-!\n\u00a1Formato/tamaño de valor fuente ilegal!\nOperación terminada.
+\0334¡\n¡Combinación ilegal de formato/tamaño de valor fuente!\nOperación terminada.
 !\nNielegalna kombinacja warto¶ci format/rozmiar ¿ród³a!\nOperacja anulowana.
 !\nNepovolená kombinace vstupních hodnot formát/velikost!\nOperace bude ukonèena.
 
@@ -7550,7 +7550,7 @@ MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 !\nOngeldige doelwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 
 
-!\n\u00a1Formato/tamaño de valor de destino ilegal!\nOperación terminada.
+\0334¡\n¡Combinación ilegal de formato/tamaño de valor destino!\nOperación terminada.
 !\nNielegalna kombinacja warto¶ci format/rozmiar destynacji!\nOperacja anulowana.
 !\nNepovolená kombinace cílových hodnot format/velikost!\nOperace bude ukonèena.
 
@@ -8474,7 +8474,7 @@ MSG_DATAOPSGUI_INPUT
 \0334Invoer\x20\x20
 
 
-\0334  Entrada  
+\0334  Entrada 
 \0334 Wej¶cie\x20\x20
 \0334  Vstup\x20\x20
 
@@ -12172,7 +12172,7 @@ Esistono fotogrammi chiave per il parametro "Bank". Sovrascriverli?
 Key frames bestaan al voor de "Neiging" Parameter. Overschrijven?
 
 
-Existen fotogramas clave para el parámetro \"Banco\". ¿Sobrescribirlos?
+Existen fotogramas clave para el parámetro "Banco". ¿Sobrescribirlos?
 Klatka kluczowa dla parametrów 'Brzegu' ju¿ istnieje. Czy j± nadpisaæ?
 
 
@@ -14576,7 +14576,7 @@ Eco predefinito\x20
 Standaard Eco\x20
 
 
-Eco por defecto\x20
+Eco predeterminado\x20
 
 
 
@@ -14831,12 +14831,12 @@ Ruta del Modelo\x20
 MSG_EDSETGUI_DEFMAPPATH
 Def Map Path\x20
 
-Percorso mappa predefinita\x20
+Percorso della Mappa di Deformazione\x20
 
 Def Kaart Pad\x20
 
 
-Ruta del Mapa por Defecto\x20
+Ruta del Mapa de Deformación\x20
 
 
 
@@ -14844,12 +14844,12 @@ Ruta del Mapa por Defecto\x20
 MSG_EDSETGUI_DEFMAPFILE
 Def Map File\x20
 
-File mappa predefinita\x20
+File della Mappa di Deformazione\x20
 
 Def Kaart Bestand\x20
 
 
-Archivo del Mapa por Defecto\x20
+Archivo del Mapa de Deformación\x20
 
 
 
@@ -14948,7 +14948,7 @@ Longitud de Referencia
 MSG_EDSETGUI_BGPATH
    BG Path\x20
 
-   Percorso BG\x20
+   Percorso dello Sfondo\x20
 
 BG Pad\x20
 
@@ -14961,7 +14961,7 @@ Ruta de Fondo
 MSG_EDSETGUI_BGFILE
    BG File\x20
 
-   File BG\x20
+   File di Sfondo\x20
 
 BG Bestand\x20
 
