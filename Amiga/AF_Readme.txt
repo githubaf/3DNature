@@ -4858,3 +4858,29 @@ Arbeiten mit xfce-Terminal. Da kannn man ISO-8859-1 einstellen. Arbeiten mit mga
 13.Aug.2025
 -----------
 Spanisch komplett. Muss noch leicht korrigiert werden, z.B. def soll fuer deformation stehen, nicht fuer default oder defekt!
+
+14.Aug.2025
+-----------
+# Jetzt den rest von deutsch.
+cat WCS.cs  | awk '/MSG_.*/{MSGCOUNT++;MESSAGE=$0;getline;ENGLISH=$0;getline;DEUTSCH=$0;LINENR=NR; getline;ITALIAN=$0; getline; FRENCH=$0; getline; DUTCH=$0; getline; PORTOGUISE=$0; getline; DANISCH=$0; getline; SPANISCH=$0; getline; POLISH=$0; getline; CZECH=$0; if(DEUTSCH==""){print "Line " LINENR ": " ENGLISH;}else{DEUTSCHCOUNT++;}}END{printf("---\n"); printf("Messages: %4d\n",MSGCOUNT);printf("Deutsch:  %4d\n",DEUTSCHCOUNT);printf("%d%%\n",DEUTSCHCOUNT*100/MSGCOUNT++);}'
+
+###### Copilot Anfrage #######
+
+Fuer ein Landschafts-Renderingprogramm soll die GUI nach deutsch uebersetzt werden. Formatierungszeichen sollen dabei erhalten bleiben. Das Ergebis soll ein AWK-Script sein, welches die Zeilen im Orginal ersetzt. Hier ist ein Beispiel, wie das AWK-Script aussehen soll:
+
+mawk '
+NR==7956{$0="\\0334DEM registrieren"}
+NR==7969{$0="\\0334Formatiere Diskette"}
+NR==7982{$0="Speichern"}
+NR==7995{$0="Laden..."}
+{print}
+' WCS.cs > WCS_translated.cs
+
+Das "Line xxx" soll in der Uebersetzung nicht auftauchen, sondern nur im AWK verwendet werden. Einzelne Backslashes muessen als Doppelbackslash ausgegeben werden.
+Das Script soll die deutsche Uebersetzung enthalten. Bitte auch fuer besondere Worte deutsche Begriffe verwenden, also z.B. fuer Render, Frame, Keyframe deutsche Begriffe verwenden. Das Script bitte direkt lesbar anzeigen!
+
+##############################
+
+
+Deutsch fertig. Kleine Korrekturen bei anderen.
+
