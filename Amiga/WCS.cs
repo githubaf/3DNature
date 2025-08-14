@@ -1296,7 +1296,7 @@ MSG_STDMESG_ENABLE_SOFT_OUTLINE_STYLE
 \33t
 
 
-t
+\33t
 \33t
 \33t
 
@@ -1773,9 +1773,9 @@ MSG_AGUI_ECOSYSTEM
 \33l Ecosysteem\x20
 
 
-l Ecosistema\x20
+\33l  Ecosistema\x20
 \33l Ekosystem\x20
-Nastavení krajiny\x20
+\33l Nastavení krajiny\x20
 
 ;
 MSG_AGUI_CLOUDS
@@ -2307,13 +2307,13 @@ Sorry!\nLaad eerst\n\338%s\0332\n voordat u deze functie kunt gebruiken.
 
 
 ¡Lo siento!\nPrimero debes cargar\n\338%s\332\nantes de usar esta función.
-Przykro mi!\nNajpierw musisz za³adowaæ\n\336%s\0332\nzanim u¿yjesz tej funkcji.
-Promiòte,\nale nejprve musíte naèíst\n\336%s\0332\npøed pou¾itím této funkce.
+Przykro mi!\nNajpierw musisz za³adowaæ\n\338%s\0332\nzanim u¿yjesz tej funkcji.
+Promiòte,\nale nejprve musíte naèíst\n\338%s\0332\npøed pou¾itím této funkce.
 
 ;
 MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT
 File already exists.\nDo you wish to overwrite it?
-Die Datei existiert bereits? Soll sie überschrieben werden?
+Die Datei existiert bereits?\n Soll sie überschrieben werden?
 File già esistente.\n Vuoi Sovrascriverlo?
 
 Het bestand bestaat al.\nWilt u het overschrijven?
@@ -2842,7 +2842,7 @@ MSG_AGUI_EXPORTLW
 
 
 \33l Exportar LW\x20
-\33l Eksport LW\x2-
+\33l Eksport LW\x20
 \33l Extrahovat LW\x20
 
 ;
@@ -3546,7 +3546,7 @@ MSG_CLOUD_ETNORTHWESTCORNERWITHMOUSE
 \0338Stel noord-west hoek in met muis.
 
 
-\338Establecer esquina noroeste con el ratón.
+\0338Establecer esquina noroeste con el ratón.
 \0338Ustaw pó³nocno-zachodni naro¿nik za pomoc± myszy.
 \0338Nastavte severozápadní roh pomocí my¹i.
 
@@ -3572,7 +3572,7 @@ MSG_CLOUD_ETSOUTHEASTCORNERESCABORT
 \0338Stel zuid-oost hoek in. ESC=annuleren
 
 
-\338Establecer esquina sureste. ESC=cancelar
+\0338Establecer esquina sureste. ESC=cancelar
 \0338Ustaw pó³nocno-wschodni naro¿nik. ESC=przerwij
 \0338Nastavte jihovýchodní roh. ESC=Pøeru¹ení
 
@@ -4082,7 +4082,7 @@ MSG_CLOUDGUI_NEXT
 
 
 \33cSiguiente
-Nastêpny
+\33cNastêpny
 \33cDal¹í
 
 ;
@@ -4120,7 +4120,7 @@ MSG_CLOUDGUI_DELETE
 \33cVerwijder
 
 
-\33c\33uEliminar\33nete
+\33cEliminarete
 \33cUsuñ
 \33cSmazat
 
@@ -5434,7 +5434,7 @@ Minimální odsazení \x20
 MSG_DEMGUI_STDDEVIATION
   Std Deviation\x20
 
-  Std Deviazione\20
+  Std Deviazione\x20
 
 Standaard Afwijking\x20
 
@@ -5511,7 +5511,7 @@ MSG_DEMGUI_OPTIONS
 ;
 MSG_DEMGUI_GRADIENTS
 Gradients\x20\x20
-Gradienten\x20
+Gradienten\x20\x20
 Gradienti\x20\x20
 
 Gradiënten\x20\x20
@@ -5527,11 +5527,11 @@ Choropleth\x20
 
 Choropleth\x20
 
-Choropleth\x20\x20
+Choropleth\x20
 
 
 Coropletas\x20
-Kartogram\x20\x20
+Kartogram\x20
 prelozit \x20
 
 ;
@@ -6918,7 +6918,7 @@ Nedostatek pamìti pro vektorové souøadnice!\nNový objekt byl vytvoøen, ale pro n
 ;
 MSG_DB_OUTOFMEXPDBASEEDITORLSTNEWOBJECTHASBEENCRE
 Out of memory expanding Database Editor List!\nNew object has been created but will not appear in list view.
-Nicht genügend Speicher um die Datenbankeditor-Liste zu erweitern. Ein neues Objekt wurde erstellt, erscheint aber nicht in der Listenansicht.
+Nicht genügend Speicher um die Datenbankeditor-Liste zu erweitern.\nEin neues Objekt wurde erstellt, erscheint aber nicht in der Listenansicht.
 Memoria esaurita durante l'espansione dell'elenco dell'editor del database!\nIl nuovo oggetto è stato creato ma non apparirà nella vista elenco.
 
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is aangemaakt maar zal niet verschijnen in lijst weergave.
@@ -6996,13 +6996,13 @@ Tento název objektu je ji¾ v databázi obsa¾en!\nDuplicitní záznamy budou vynechá
 ;
 MSG_DB_OUTOFMEMEXPDBEDITLSTNEWOBJADDED
 Out of memory expanding Database Editor List!\nNew object has been added but will not appear in list view.
-Nicht genügend Speicher um die Datenbankeditor-Liste zu erweitern. Ein neues Objekt wurde hinzugefügt, erscheint aber nicht in der Listenansicht.
+Nicht genügend Speicher um die Datenbankeditor-Liste zu erweitern.\nEin neues Objekt wurde hinzugefügt, erscheint aber nicht in der Listenansicht.
 Memoria esaurita durante l'espansione dell'elenco dell'editor del database!\nIl nuovo oggetto è stato aggiunto ma non apparirà nella vista elenco.
 
 Te weinig geheugen voor uitbreiden van Database Editor Lijst!\nNieuw object is toegevoegd maar zal niet verschijnen in lijst weergave.
 
 
-\0334¡Memoria insuficiente al expandir la lista del Editor de Base de Datos!\nSe ha añadido un nuevo objeto, pero no aparecerá en la vista de lista.
+¡Memoria insuficiente al expandir la lista del Editor de Base de Datos!\nSe ha añadido un nuevo objeto, pero no aparecerá en la vista de lista.
 Brak pamiêci dla roszerzenie Listy Edycji w bazie danych!\nNowy objekt zosta³ dodany, ale nie zostanie wy¶wietlony na li¶cie.
 Nedostatek pamìti pro rozvinutí seznamu databáze!\nNový objekt byl sice pøidán, ale v seznamu se nezobrazí.
 
@@ -7015,7 +7015,7 @@ Errore durante il caricamento di questo oggetto!\nOperazione terminata.
 Fout bij laden van dit object!\nOperatie afgebroken.
 
 
-\0334¡Error al cargar este objeto!\nOperación terminada.
+¡Error al cargar este objeto!\nOperación terminada.
 B³±d wczytania objektu!\nOperacja anulowana.
 Chyba pøi naèítání tohoto objektu!\nOperace bude ukonèena.
 
@@ -7041,7 +7041,7 @@ Errore durante la scrittura del file Master Object!\nOperazione terminata.
 Foout bij schrijven van Master Object bestand!\nOperatie afgebroken.
 
 
-\0334¡Error al guardar el archivo de objeto maestro!\nOperación terminada.
+¡Error al guardar el archivo de objeto maestro!\nOperación terminada.
 B³±d zapisu Nadrzêdnego Objektu do pliku!\nOperacja anulowana.
 Chyba pøi zápisu dat výchozího objektu do souboru!\nOperace bude ukonèena.
 
@@ -7067,7 +7067,7 @@ Memoria esaurita durante il caricamento del file Master Object!\nGli oggetti abi
 Te weinig geheugen voor laden van Master Object bestand!\nIngeschakelde objecten zullen individueel worden geladen.
 
 
-\0334¡Memoria insuficiente al cargar el archivo de objeto maestro!\nLos objetos habilitados se cargarán individualmente.
+¡Memoria insuficiente al cargar el archivo de objeto maestro!\nLos objetos habilitados se cargarán individualmente.
 Brak pamieci dla wczytania pliku Objektu Nadrzêdnego!\nAktywne objekty bêd± ³adowane indywidualnie.
 Nedostatek pamìti pro naètení dat v¹ech výchozích objektù!\nVybrané objekty budou muset být nahrávány jednotlivì.
 
@@ -7080,7 +7080,7 @@ Errore nella lettura del file Master Object!\nOperazione terminata.
 Foout bij lezen van Master Object bestand!\nOperatie afgebroken.
 
 
-\0334¡Error al leer el archivo de objeto maestro!\nOperación terminada.
+¡Error al leer el archivo de objeto maestro!\nOperación terminada.
 B³±d odczytu pliku Nadrzêdnego Objektu!\nOperacja anulowana.
 Chyba ètení dat ze souboru výchozích objektù!\nOperace bude ukonèena.
 
@@ -7093,7 +7093,7 @@ Il numero di oggetti nel file Master Object non corrisponde al numero di oggetti
 Aantal objecten in het Master Object bestand komt niet overeen met het aantal objecten in de huidige Database! Master Object bestand kan niet worden gebruikt. Objecten zullen worden geladen van individuele bestanden
 
 
-\0334¡El número de objetos en el archivo maestro no coincide con el número de objetos en la base de datos actual!\nNo se puede usar el archivo maestro. Los objetos se cargarán desde archivos individuales
+¡El número de objetos en el archivo maestro no coincide con el número de objetos en la base de datos actual!\nNo se puede usar el archivo maestro. Los objetos se cargarán desde archivos individuales
 Liczba objektów w pliku Objektu Nadrzêdnego nie zgadza siê z liczb± Objektów w aktualnej Bazie Danych! Plik Objektu Nadrzêdnego nie zostanie u¿yty. Objekty zostan± wczytane indywidualnie z plików
 Poèet vybraných objektù, neodpovídá poètu objektù v aktuálnì pou¾ívané databázi! Soubor výchozích objektù nebude pou¾it! Objekty budou muset být nahrávány z jednotlivých souborù
 
@@ -7145,7 +7145,7 @@ Sie müssen eine Datei zum Konvertieren angeben!\nVorgang abgebrochen.
 Specificeer een bestand om te converteren!\nOperatie afgebroken.
 
 
-\0334¡Debe especificar un archivo para convertir!\nOperación terminada.
+¡Debe especificar un archivo para convertir!\nOperación terminada.
 Musisz wskazaæ plik do konwersji!\nOperacja anulowana.
 Nejprve je tøeba vybrat soubor k pøevodu!\nOperace bude ukonèena.
 
@@ -7158,7 +7158,7 @@ Die Anzahl von Eingabezeilen und -spalten muss angeben werden!\nVorgang abgebroc
 Specificeer invoer rijen en kolommen!\nOperatie afgebroken.
 
 
-\0334¡Debe especificar filas y columnas de entrada!\nOperación terminada.
+¡Debe especificar filas y columnas de entrada!\nOperación terminada.
 Musisz zdefiniowaæ ilo¶æ wierszy i kolumn!\nOperacja anulowana.
 Nejprve je tøeba vybrat vstupní øádky a sloupce!\nOperace bude ukonèena.
 
@@ -7171,7 +7171,7 @@ Nessun database disponibile per indirizzare le entità di output!\nOperazione ter
 Er is geen Database om uitvoer entiteiten naar te leiden!\nOperatie afgebroken.
 
 
-\0334¡No hay base de datos para dirigir las entidades de salida!\nOperación terminada.
+¡No hay base de datos para dirigir las entidades de salida!\nOperación terminada.
 Nie ma bazy danych do której mo¿na kierowaæ wyniki!\nOperacja anulowana.
 Není mo¾no ukládat do neexistující databáze!\nOperace bude ukonèena.
 
@@ -7184,7 +7184,7 @@ I dati di input non possono essere divisi equamente tra le mappe di output.\nL'u
 Invuldata kan niet gelijk verdeeld worden over uitvoer kaarten.\nLaatste kolom van kaarten zal %ld kolommen hebben.\nLaatste rij van kaarten zal %ld rijen hebben.
 
 
-\0334¡Los datos de entrada no pueden dividirse equitativamente entre los mapas de salida!\nLa última columna de los mapas tendrá %ld columnas.\nLa última fila de los mapas tendrá %ld filas.
+¡Los datos de entrada no pueden dividirse equitativamente entre los mapas de salida!\nLa última columna de los mapas tendrá %ld columnas.\nLa última fila de los mapas tendrá %ld filas.
 Dane wej¶ciowe nie mog± byæ równo podzielone na wyj¶ciowe mapy.\nOstatnia Kolumna map ma %ld kolumn\nOstatni rz±d map ma %ld rows.
 Vstupní data není mo¾no rovnomìrnì rozdìlit do výstupních map.\nPoslední sloupec map bude mít %ld sloupcù.\nPoslední øádek map bude mít %ld øádkù.
 
@@ -7210,7 +7210,7 @@ Dimensione del file errata per intestazione, larghezza e altezza specificate!\nP
 Bestandsgrootte klopt niet met opgegeven header, breedte en hoogte!\nToch doorgaan?
 
 
-\0334¡Tamaño de archivo incorrecto para la cabecera, ancho y alto especificados!\n¿Continuar de todos modos?
+¡Tamaño de archivo incorrecto para la cabecera, ancho y alto especificados!\n¿Continuar de todos modos?
 Niew³a¶ciwy rozmiar pliku dla wskazanego nag³ówka, szeroko¶æ i wysoko¶æ!\nMimo to kontynuowaæ?
 Nepovolená velikost souboru vybrané hlavièky, ¹íøky a vý¹ky!\nPøejete si pokraèovat?
 
@@ -7328,7 +7328,7 @@ Impossibile aprire il file per l'input!\nOperazione terminata.
 Kan het bestand niet openen voor invoer!\nOperatie afgebroken.
 
 
-\0334¡No se puede abrir el archivo para entrada!\nOperación terminada.
+¡No se puede abrir el archivo para entrada!\nOperación terminada.
 Nie mo¿na otworzyæ pliku dla wej¶cia!\nOperacja anulowana.
 Nemohu otevøít soubor ètení!\nOperace bude ukonèena.
 
@@ -7354,7 +7354,7 @@ Dimensione del file errata per intestazione, larghezza e altezza specificate!\nO
 Onjuiste bestandsgrootte voor opgegeven header, breedte en hoogte!\nOperatie afgebroken.
 
 
-\0334¡Tamaño de archivo incorrecto para la cabecera, ancho y alto especificados!\nOperación terminada.
+¡Tamaño de archivo incorrecto para la cabecera, ancho y alto especificados!\nOperación terminada.
 Niew³a¶ciwy rozmiar dla wskazanaego nag³ówka, szeroko¶æ i d³ugo¶æ!\nOperacja anulowana.
 Nepovolená velikost souboru vybrané hlavièky, ¹íøky a vý¹ky!\nOperace bude ukonèena.
 
@@ -7367,7 +7367,7 @@ Impossibile aprire il file per l'output!\nOperazione terminata.
 Kan het bestand niet openen voor uitvoer!\nOperatie afgebroken.
 
 
-\0334¡No se puede abrir el archivo para salida!\nOperación terminada.
+¡No se puede abrir el archivo para salida!\nOperación terminada.
 Niemo¿na otworzyæ pliku dla wyj¶cia!\nOperacja anulowana.
 Nemohu otevøít soubor pro zápis!\nOperace bude ukonèena.
 
@@ -7393,7 +7393,7 @@ Errore durante la scrittura del file di destinazione!\nOperazione terminata.
 Fout bij schrijven van doelbestand!\nOperatie afgebroken.
 
 
-\0334¡Error al escribir el archivo de destino!\nOperación terminada.
+¡Error al escribir el archivo de destino!\nOperación terminada.
 B³±d zapisu pliku docelowego!\nOperacja anulowana.
 Chyba pøi zápisu do cílového souboru!\nOperace bude ukonèena.
 
@@ -7406,7 +7406,7 @@ Errore nella lettura del file sorgente!\nOperazione terminata.
 Fout bij lezen van bronbestand!\nOperatie afgebroken.
 
 
-\0334¡Error al leer el archivo fuente!\nOperación terminada.
+¡Error al leer el archivo fuente!\nOperación terminada.
 B³±d odczytu pliku ¼ród³owego!\nOperacja anulowana.
 Chyba pøi ètení zdrojového souboru!\nOperace bude ukonèena.
 
@@ -7419,7 +7419,7 @@ File non compresso!\nOperazione terminata.
 Bestand is niet gecomprimeerd!\nOperatie afgebroken.
 
 
-\0334¡No es un archivo comprimido!\nOperación terminada.
+¡No es un archivo comprimido!\nOperación terminada.
 Plik nie skompresowany!\nOperacja anulowana.
 Toto není komprimovaný soubor!\nOperace bude ukonèena.
 
@@ -7432,7 +7432,7 @@ Intestazione estesa!\nOperazione terminata.
 Uitgebreide header!\nOperatie afgebroken.
 
 
-\0334¡Cabecera extendida!\nOperación terminada.
+¡Cabecera extendida!\nOperación terminada.
 Rozszrzony nag³ówek!\nOperacja anulowana.
 Roz¹íøená hlavièka!\nOperace bude ukonèena.
 
@@ -7445,7 +7445,7 @@ Configurazione del file di input non ancora supportata!\nOperazione terminata.
 Invoer bestand configuratie wordt nog niet ondersteund!\nOperatie afgebroken.
 
 
-\0334¡Configuración del archivo de entrada aún no soportada!\nOperación terminada.
+¡Configuración del archivo de entrada aún no soportada!\nOperación terminada.
 Konfiguracja pliku wej¶ciowego nie jest jeszcze wspierana!\nOperacja anulowana.
 Toto nastavení pro vstupní soubor není podporováno!\nOperace bude ukonèena.
 
@@ -7471,7 +7471,7 @@ Formato dati di input non supportato!\nControlla le impostazioni.\nOperazione te
 Invoer data formaat wordt niet ondersteund!\nControleer uw instellingen.\nOperatie afgebroken.
 
 
-\0334¡Formato de datos de entrada no soportado!\nVerifique su configuración.\nOperación terminada.
+¡Formato de datos de entrada no soportado!\nVerifique su configuración.\nOperación terminada.
 Format danych wej¶ciowych nie wspierany!\nSprawd¼ ustawienia.\nOperacja anulowana.
 Tento formát vstupních dat není podporován!\nZkontrolujte va¹e nastavení.\nOperace bude ukonèena.
 
@@ -7484,7 +7484,7 @@ Errore durante il salvataggio del file ".Obj"!\nOperazione terminata.
 Fout bij opslaan van ".Obj" bestand!\nOperatie afgebroken.
 
 
-\0334¡Error al guardar el archivo ".Obj"!\nOperación terminada.
+¡Error al guardar el archivo ".Obj"!\nOperación terminada.
 B³±d zapisu pliku ".Obj"!\nOperacja anulowana.
 Chyba pøi ukládání dat souboru objektù ".Obj"!\nOperace bude ukonèena.
 
@@ -7497,7 +7497,7 @@ File di input non riconosciuto come file DTED!\nOperazione terminata.
 Invulbestand niet herkend als een DTED bestand!\nOperatie afgebroken.
 
 
-\0334¡El archivo de entrada no se reconoce como archivo DTED!\nOperación terminada.
+¡El archivo de entrada no se reconoce como archivo DTED!\nOperación terminada.
 Plik wej¶ciowy nierozpoznany jako DTED!\nOperacja anulowana.
 Vstupní soubor není formátu DTED!\nOperace bude ukonèena.
 
@@ -7524,7 +7524,7 @@ MSG_DATAOPS_LLEGALSOURCEVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 Ongeldige bronwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 
 
-\0334¡\n¡Combinación ilegal de formato/tamaño de valor fuente!\nOperación terminada.
+¡\n¡Combinación ilegal de formato/tamaño de valor fuente!\nOperación terminada.
 !\nNielegalna kombinacja warto¶ci format/rozmiar ¿ród³a!\nOperacja anulowana.
 !\nNepovolená kombinace vstupních hodnot formát/velikost!\nOperace bude ukonèena.
 
@@ -7550,7 +7550,7 @@ MSG_DATAOPS_LLEGALTARGETVALUEFORMATSIZECOMBINATIONPERATIONTERMI
 !\nOngeldige doelwaarde formaat/grootte combinatie!\nOperatie afgebroken.
 
 
-\0334¡\n¡Combinación ilegal de formato/tamaño de valor destino!\nOperación terminada.
+¡\n¡Combinación ilegal de formato/tamaño de valor destino!\nOperación terminada.
 !\nNielegalna kombinacja warto¶ci format/rozmiar destynacji!\nOperacja anulowana.
 !\nNepovolená kombinace cílových hodnot format/velikost!\nOperace bude ukonèena.
 
@@ -7902,7 +7902,7 @@ MSG_DATAOPSGUI_MAXMINSTRETCH
 
 
 \0334Estiramiento Máx-Mín
-\0344 Max-Min Rozci±gniêcie
+\0334 Max-Min Rozci±gniêcie
 \0334Max-Min Rozta¾ení
 
 ;
@@ -10896,8 +10896,8 @@ MSG_EDECOGUI_DELETE
 \33cVerwijderen
 
 
-\33c\33uEliminar\33nete
-\33c\33uUsuñ
+\33cEliminar
+\33cUsuñ
 
 
 ;
@@ -11560,7 +11560,7 @@ MSG_EDMOGUI_DELETE
 \33cVerwijderen
 
 
-\33c\33uEliminar\33nete
+\33cEliminar
 \33cUsuñ
 
 
@@ -12015,7 +12015,7 @@ MSG_EDMOGUI_AUTODRAW
 \33cAuto Tekenen
 
 
-Auto Dibujo
+\33cAuto Dibujo
 \33cAutomatyczne Rysowanie
 
 
@@ -12028,7 +12028,7 @@ MSG_EDMOGUI_GRID
 \33c\0334Raster
 
 
-\0334Cuadrícula
+\33c\0334Cuadrícula
 \33c\0334Siatka
 
 
@@ -12041,7 +12041,7 @@ MSG_EDMOGUI_MOVEMENT
 \33c\0334Beweging
 
 
-\0334Movimiento
+\33c\0334Movimiento
 \33c\0334Ruch
 
 
@@ -12054,7 +12054,7 @@ MSG_EDMOGUI_FRAME_COLOR
 \33c\0334Frame
 
 
-\0334Marco
+\33c\0334Marco
 \33c\0334Klatka
 
 
@@ -15369,7 +15369,7 @@ MSG_EDITGUI_DELETE
 \33cVerwijderen
 
 
-\33c\33uEliminar\33nete
+\33cEliminar
 
 
 
@@ -17103,7 +17103,7 @@ Memoria esaurita durante l'apertura della tabella dei fotogrammi chiave!\nOperaz
 Te weinig geheugen bij openen van key frametabel!\nBewerking afgebroken.
 
 
-\0334¡Memoria insuficiente al abrir la tabla de fotogramas clave!\nOperación terminada.
+¡Memoria insuficiente al abrir la tabla de fotogramas clave!\nOperación terminada.
 
 
 
@@ -17116,7 +17116,7 @@ Errore nel caricamento del file Wave!\nContinuare senza onde?
 Fout bij laden van Golfbestand!\nDoorgaan zonder golven?
 
 
-\0334¡Error al cargar el archivo de ondas!\n¿Continuar sin ondas?
+¡Error al cargar el archivo de ondas!\n¿Continuar sin ondas?
 
 
 
@@ -17129,7 +17129,7 @@ Modulo Rendering: Nuvole
 Render Module: Wolken
 
 
-\0334Módulo de Renderizado: Nubes
+Módulo de Renderizado: Nubes
 
 
 
@@ -17142,7 +17142,7 @@ Errore nel caricamento del file della Mappa delle Nuvole!\nContinuare senza ombr
 Fout bij laden van Wolkenkaartbestand!\nDoorgaan zonder wolkschaduwen?
 
 
-\0334¡Error al cargar el archivo del mapa de nubes!\n¿Continuar sin sombras de nubes?
+¡Error al cargar el archivo del mapa de nubes!\n¿Continuar sin sombras de nubes?
 
 
 
@@ -17155,7 +17155,7 @@ Memoria esaurita durante la creazione della Mappa delle Nuvole!\nContinuare senz
 Te weinig geheugen bij maken van Wolkenkaart!\nDoorgaan zonder wolkschaduwen?
 
 
-\0334¡Memoria insuficiente al crear el mapa de nubes!\n¿Continuar sin sombras de nubes?
+¡Memoria insuficiente al crear el mapa de nubes!\n¿Continuar sin sombras de nubes?
 
 
 
@@ -17168,7 +17168,7 @@ File Intestazione Mappa Colori Principale
 Master CMap Header Bestand
 
 
-\0334Archivo de cabecera del Mapa de Color Maestro
+Archivo de cabecera del Mapa de Color Maestro
 
 
 
@@ -17181,7 +17181,7 @@ Errore nel caricamento della Mappa Colori Principale! Vedi il registro di stato 
 Fout bij laden van Master Kleurenkaart! Zie Status Log voor meer informatie.\nDoorgaan zonder Kleurenkaart?
 
 
-\0334¡Error al cargar el Mapa de Color Maestro! Consulte el registro de estado para más información.\n¿Continuar sin mapa de color?
+¡Error al cargar el Mapa de Color Maestro! Consulte el registro de estado para más información.\n¿Continuar sin mapa de color?
 
 
 
@@ -17194,7 +17194,7 @@ Errore nel caricamento della Mappa di Deformazione degli Strati!\nContinuare il 
 Fout bij laden van Lagen Deformatiekaart!\nDoorgaan zonder Deformatiekaart?
 
 
-\0334¡Error al cargar el mapa de deformación de estratos!\n¿Continuar sin mapa de deformación?
+¡Error al cargar el mapa de deformación de estratos!\n¿Continuar sin mapa de deformación?
 
 
 
@@ -17207,7 +17207,7 @@ Memoria esaurita durante la creazione della Mappa del Rumore!\nContinuare il ren
 Te weinig geheugen bij maken van Ruiskaart!\nDoorgaan zonder Textuurruis?
 
 
-\0334¡Memoria insuficiente al crear el mapa de ruido!\n¿Continuar sin textura de ruido?
+¡Memoria insuficiente al crear el mapa de ruido!\n¿Continuar sin textura de ruido?
 
 
 
@@ -17220,7 +17220,7 @@ Memoria di rendering allocata.
 Render geheugen toegewezen.
 
 
-\0334Memoria de renderizado asignada.
+Memoria de renderizado asignada.
 
 
 
@@ -17233,7 +17233,7 @@ Animazione
 Animatie
 
 
-\0334Animación
+Animación
 
 
 
@@ -17246,7 +17246,7 @@ Errore nella creazione della mappa nuvole! Memoria insufficiente o operazione an
 Fout bij maken van Wolkenkaart! Ofwel te weinig geheugen of door gebruiker afgebroken.
 
 
-\0334¡Error al crear el mapa de nubes! Memoria insuficiente o cancelación por el usuario.
+¡Error al crear el mapa de nubes! Memoria insuficiente o cancelación por el usuario.
 
 
 
@@ -17259,7 +17259,7 @@ Riprova|Annulla
 Opnieuw|Annuleren
 
 
-\0334Reintentar|Cancelar
+Reintentar|Cancelar
 
 
 
@@ -17272,7 +17272,7 @@ Segmento %d
 Segment %d
 
 
-\0334Segmento %d
+Segmento %d
 
 
 
@@ -17285,7 +17285,7 @@ Impossibile aprire il file vettoriale per l'output!\nContinuare il rendering sen
 Kan vectorbestand niet openen voor uitvoer!\nDoorgaan zonder vectoren?
 
 
-\0334¡No se puede abrir el archivo vectorial para salida!\n¿Continuar sin vectores?
+¡No se puede abrir el archivo vectorial para salida!\n¿Continuar sin vectores?
 
 
 
@@ -17298,7 +17298,7 @@ Frattali:
 Fractalen:
 
 
-\0334Fractales:
+Fractales:
 
 
 
@@ -17311,7 +17311,7 @@ Livello %ld = %ld
 Niveau %ld = %ld
 
 
-\0334Nivel %ld = %ld
+Nivel %ld = %ld
 
 
 
@@ -17324,7 +17324,7 @@ Ecosistemi:
 Ecossystemen:
 
 
-\0334Ecosistemas:
+Ecosistemas:
 
 
 
@@ -17337,7 +17337,7 @@ Errore nell'interlacciamento dei campi!\nOperazione terminata.
 Fout bij interlacing velden!\nBewerking afgebroken.
 
 
-\0334¡Error al entrelazar campos!\nOperación terminada.
+¡Error al entrelazar campos!\nOperación terminada.
 
 
 
@@ -17350,7 +17350,7 @@ Modulo rendering: Salva
 Render Module: Opslaan
 
 
-\0334Módulo de Renderizado: Guardar
+Módulo de Renderizado: Guardar
 
 
 
@@ -17363,7 +17363,7 @@ Errore nel salvataggio dell'immagine bitmap! Provare un altro dispositivo?
 Fout bij opslaan van Bitmapafbeelding! Een ander apparaat proberen?
 
 
-\0334¡Error al guardar la imagen en mapa de bits! ¿Probar otro dispositivo?
+¡Error al guardar la imagen en mapa de bits! ¿Probar otro dispositivo?
 
 
 
@@ -17376,7 +17376,7 @@ Nuovo percorso di salvataggio fotogramma
 Nieuw Pad voor Opslaan Frame
 
 
-\0334Nueva ruta de guardado de fotogramas
+Nueva ruta de guardado de fotogramas
 
 
 
@@ -17389,7 +17389,7 @@ Memoria insufficiente per salvare il buffer Z!\n
 Te weinig geheugen bij opslaan van Z-buffer!\n
 
 
-\0334¡Memoria insuficiente al guardar el búfer Z!\n
+¡Memoria insuficiente al guardar el búfer Z!\n
 
 
 
@@ -17402,7 +17402,7 @@ Errore nel salvataggio del buffer Z! Provare un altro dispositivo?
 Fout bij opslaan van Z-buffer! Een ander apparaat proberen?
 
 
-\0334¡Error al guardar el búfer Z! ¿Probar otro dispositivo?
+¡Error al guardar el búfer Z! ¿Probar otro dispositivo?
 
 
 
@@ -17415,7 +17415,7 @@ Percorso salvataggio buffer Z
 Z-buffer Opslaan Pad
 
 
-\0334Ruta de guardado del búfer Z
+Ruta de guardado del búfer Z
 
 
 
@@ -17428,7 +17428,7 @@ Finestra di rendering
 Render Venster
 
 
-\0334Ventana de Renderizado
+Ventana de Renderizado
 
 
 
@@ -17441,7 +17441,7 @@ Directory mappa colori non trovata.
 Kleurenkaartmap niet gevonden.
 
 
-\0334Directorio de mapa de color no encontrado.
+Directorio de mapa de color no encontrado.
 
 
 
@@ -17454,7 +17454,7 @@ Poligoni:
 Polygoon:
 
 
-\0334Polígonos:
+Polígonos:
 
 
 
@@ -17467,7 +17467,7 @@ Fotogramma %d
 Frame %d
 
 
-\0334Fotograma %d
+Fotograma %d
 
 
 
@@ -17480,7 +17480,7 @@ Fotogramma %d/%d
 Frame %d/%d
 
 
-\0334Fotograma %d/%d
+Fotograma %d/%d
 
 
 
@@ -17493,7 +17493,7 @@ Memoria esaurita durante la lettura della mappa %s!
 Te weinig geheugen bij lezen van kaart %s!
 
 
-\0334¡Memoria insuficiente al leer el mapa %s!
+¡Memoria insuficiente al leer el mapa %s!
 
 
 
@@ -17506,7 +17506,7 @@ Modulo Rendering: Topo
 Render Module: Topo
 
 
-\0334Módulo de Renderizado: Topografía
+Módulo de Renderizado: Topografía
 
 
 
@@ -17519,7 +17519,7 @@ Memoria esaurita durante l'allocazione dell'array degli indici di smussamento!
 Te weinig geheugen bij toewijzen van Gladheidsindex reeks!
 
 
-\0334¡Memoria insuficiente al asignar el índice de suavizado!
+¡Memoria insuficiente al asignar el índice de suavizado!
 
 
 
@@ -17532,7 +17532,7 @@ Memoria esaurita durante l'allocazione dell'array della Mappa Frattale!\nContinu
 Te weinig geheugen bij toewijzen van Fractale Kaart reeks!\nDoorgaan zonder Fractale Kaarten of opnieuw proberen?
 
 
-\0334¡Memoria insuficiente al asignar el mapa fractal!\n¿Continuar sin mapas fractales o reintentar?
+¡Memoria insuficiente al asignar el mapa fractal!\n¿Continuar sin mapas fractales o reintentar?
 
 
 
@@ -17545,7 +17545,7 @@ Continua|Riprova|Annulla
 Doorgaan|Opnieuw|Annuleren
 
 
-\0334Continuar|Reintentar|Cancelar
+Continuar|Reintentar|Cancelar
 
 
 
@@ -17558,7 +17558,7 @@ Memoria esaurita durante l'allocazione del buffer antialias!\nOperazione termina
 Te weinig geheugen bij toewijzen van anti-alias buffer!\nBewerking afgebroken.
 
 
-\0334¡Memoria insuficiente al asignar el búfer de antialiasing!\nOperación terminada.
+¡Memoria insuficiente al asignar el búfer de antialiasing!\nOperación terminada.
 
 
 
@@ -17571,7 +17571,7 @@ Memoria esaurita durante l'allocazione dei buffer antialias e dei bordi!\nOperaz
 Te weinig geheugen bij toewijzen van anti-alias en randbuffers!\nBewerking afgebroken.
 
 
-\0334¡Memoria insuficiente al asignar los búferes de antialiasing y bordes!\nOperación terminada.
+¡Memoria insuficiente al asignar los búferes de antialiasing y bordes!\nOperación terminada.
 
 
 
@@ -17584,7 +17584,7 @@ Vettori
 Vectoren
 
 
-\0334Vectores
+Vectores
 
 
 
@@ -17597,7 +17597,7 @@ Memoria esaurita durante l'allocazione dei buffer dei bordi dei poligoni!
 Te weinig geheugen bij toewijzen van polygoonrandbuffers!
 
 
-\0334¡Memoria insuficiente al asignar los búferes de bordes de polígonos!
+¡Memoria insuficiente al asignar los búferes de bordes de polígonos!
 
 
 
@@ -17610,7 +17610,7 @@ Memoria esaurita durante la creazione della Mappa delle Nuvole!
 Te weinig geheugen bij maken van Wolkenkaart!
 
 
-\0334¡Memoria insuficiente al crear el mapa de nubes!
+¡Memoria insuficiente al crear el mapa de nubes!
 
 
 
@@ -17623,7 +17623,7 @@ Memoria esaurita durante l'allocazione dei Fotogrammi Chiave delle Nuvole!\nOper
 Te weinig geheugen bij toewijzen van Wolken key frames!\nBewerking afgebroken
 
 
-\0334¡Memoria insuficiente al asignar los fotogramas clave de nubes!\nOperación terminada
+¡Memoria insuficiente al asignar los fotogramas clave de nubes!\nOperación terminada
 
 
 
@@ -17636,7 +17636,7 @@ Errore nella lettura del file paginato! Impossibile ripristinare i buffer di rif
 Fout bij lezen van paged-out bestand! Kan Reflectiebuffers niet herstellen. Bewerking afgebroken.
 
 
-\0334¡Error al leer el archivo paginado! No se pueden restaurar los búferes de reflexión. Operación terminada.
+¡Error al leer el archivo paginado! No se pueden restaurar los búferes de reflexión. Operación terminada.
 
 
 
@@ -17649,7 +17649,7 @@ Errore nell'allocazione della memoria per il file paginato! Impossibile ripristi
 Fout bij toewijzen van geheugen voor paged-out bestand! Kan Reflectiebuffers niet herstellen. Bewerking afgebroken.
 
 
-\0334¡Error al asignar memoria para el archivo paginado! No se pueden restaurar los búferes de reflexión. Operación terminada.
+¡Error al asignar memoria para el archivo paginado! No se pueden restaurar los búferes de reflexión. Operación terminada.
 
 
 
@@ -17662,7 +17662,7 @@ Errore nell'apertura del file paginato! Impossibile ripristinare i buffer di rif
 Fout bij openen van paged-out bestand! Kan Reflectiebuffers niet herstellen. Bewerking afgebroken.
 
 
-\0334¡Error al abrir el archivo paginado! No se pueden restaurar los búferes de reflexión. Operación terminada.
+¡Error al abrir el archivo paginado! No se pueden restaurar los búferes de reflexión. Operación terminada.
 
 
 
@@ -17676,7 +17676,7 @@ Fotogramma %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
 Frame %hd  VP.lat=%f, VP.long=%f, VP.hgt=%f\n
 
 
-\0334Fotograma %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
+Fotograma %hd  VP.lat=%f, VP.lon=%f, VP.alt=%f\n
 
 
 
@@ -17689,7 +17689,7 @@ Q max=%f, Q focus=%f, Banking=%f\n
 Q max=%f, Q focus=%f, Helling=%f\n
 
 
-\0334Q máx=%f, Q enfoque=%f, Inclinación=%f\n
+Q máx=%f, Q enfoque=%f, Inclinación=%f\n
 
 
 
@@ -17702,7 +17702,7 @@ Cielo
 Hemel
 
 
-\0334Cielo
+Cielo
 
 
 
@@ -17715,7 +17715,7 @@ linea orizzonte=%d, linea zenitale=%d\n
 horizlijn=%d, zenitlijn=%d\n
 
 
-\0334línea horizontal=%d, línea cenital=%d\n
+línea horizontal=%d, línea cenital=%d\n
 
 
 
@@ -17728,7 +17728,7 @@ Riflessioni
 Reflecties
 
 
-\0334Reflejos
+Reflejos
 
 
 
@@ -17741,7 +17741,7 @@ Sole
 Zon
 
 
-\0334Sol
+Sol
 
 
 
@@ -17754,7 +17754,7 @@ Alone del Sole
 Zon-Halo
 
 
-\0334Halo solar
+Halo solar
 
 
 
@@ -17767,7 +17767,7 @@ Errore nel caricamento dell'immagine del Sole!\nOperazione terminata.
 Fout bij laden van Zonafbeelding!\nBewerking afgebroken.
 
 
-\0334¡Error al cargar la imagen del sol!\nOperación terminada.
+¡Error al cargar la imagen del sol!\nOperación terminada.
 
 
 
@@ -17780,7 +17780,7 @@ Luna
 Maan
 
 
-\0334Luna
+Luna
 
 
 
@@ -17793,7 +17793,7 @@ Alone della Luna
 Maan-Halo
 
 
-\0334Halo lunar
+Halo lunar
 
 
 
@@ -17806,7 +17806,7 @@ Errore nel caricamento dell'immagine della Luna!\nOperazione terminata.
 Fout bij laden van Maanafbeelding!\nBewerking afgebroken.
 
 
-\0334¡Error al cargar la imagen de la luna!\nOperación terminada.
+¡Error al cargar la imagen de la luna!\nOperación terminada.
 
 
 
@@ -17820,7 +17820,7 @@ Modulo Movimento Interattivo
 Interactieve Bewegingsmodule
 
 
-\0334Módulo de Movimiento Interactivo
+Módulo de Movimiento Interactivo
 
 
 
@@ -17833,7 +17833,7 @@ Memoria esaurita!\nRimozione linee nascoste non disponibile.
 Te weinig geheugen!\nVerborgen lijnverwijdering niet beschikbaar.
 
 
-\0334¡Memoria insuficiente!\nEliminación de líneas ocultas no disponible.
+¡Memoria insuficiente!\nEliminación de líneas ocultas no disponible.
 
 
 
@@ -17846,7 +17846,7 @@ Bussola
 Kompas
 
 
-\0334Brújula
+Brújula
 
 
 
@@ -17859,7 +17859,7 @@ Modulo Parametri: Percorso
 Parameter Module: Pad
 
 
-\0334Módulo de Parámetros: Ruta
+Módulo de Parámetros: Ruta
 
 
 
@@ -17872,7 +17872,7 @@ Animazione
 Anim
 
 
-\0334Animación
+Animación
 
 
 
@@ -17885,7 +17885,7 @@ Fotogramma %d/%d
 Frame   %d/%d
 
 
-\0334Fotograma %d/%d
+Fotograma %d/%d
 
 
 
@@ -17898,7 +17898,7 @@ Auto-centrato: alt = %f  lat = %f  lon = %f\n
 Auto-gecentreerd: hgt = %f  lat = %f  long = %f\n
 
 
-\0334Auto centrado: alt = %f  lat = %f  lon = %f\n
+Auto centrado: alt = %f  lat = %f  lon = %f\n
 
 
 
@@ -17911,7 +17911,7 @@ Modulo Parametri: Vista Camera
 Parameter Module: Camera Weergave
 
 
-\0334Módulo de Parámetros: Vista de Cámara
+Módulo de Parámetros: Vista de Cámara
 
 
 
@@ -17924,7 +17924,7 @@ Es muss zuerst eine vollständige Parameter Datei geladen werden!
 Laad eerst een volledig Parameterbestand!
 
 
-\0334¡Debe cargar primero un archivo de parámetros completo!
+¡Debe cargar primero un archivo de parámetros completo!
 
 
 
@@ -17937,7 +17937,7 @@ File di parametri completo
 Volledig Parameterbestand
 
 
-\0334Archivo de parámetros completo
+Archivo de parámetros completo
 
 
 
@@ -17950,7 +17950,7 @@ Non ci sono oggetti in questo database!\nOperazione terminata
 Er zijn geen objecten in deze Database!\nBewerking afgebroken
 
 
-\0334¡No hay objetos en esta base de datos!\nOperación terminada
+¡No hay objetos en esta base de datos!\nOperación terminada
 
 
 
@@ -17963,7 +17963,7 @@ Nessun oggetto nel database
 Geen objecten in Database
 
 
-\0334Sin objetos en la base de datos
+Sin objetos en la base de datos
 
 
 
@@ -17976,7 +17976,7 @@ Modulo di Modifica: Interattivo
 Bewerkingsmodule: Interactief
 
 
-\0334Módulo de Edición: Interactivo
+Módulo de Edición: Interactivo
 
 
 
@@ -17989,7 +17989,7 @@ Impossibile aprire la Vista Camera!\nOperazione terminata.
 Camera Weergave kon niet worden geopend!\nBewerking afgebroken.
 
 
-\0334¡Error al abrir la vista de cámara!\nOperación terminada.
+¡Error al abrir la vista de cámara!\nOperación terminada.
 
 
 
@@ -22000,7 +22000,7 @@ Slider|Annulla
 Schuifregelaar|Afbreken
 
 
-\0334Deslizador|Abortar
+Deslizador|Abortar
 
 
 
@@ -22013,7 +22013,7 @@ Inserisci il valore di elevazione per il nuovo punto di controllo.
 Voer hoogtewaarde in voor nieuw controlepunt.
 
 
-\0334Ingrese el valor de elevación para el nuevo punto de control.
+Ingrese el valor de elevación para el nuevo punto de control.
 
 
 
@@ -22026,7 +22026,7 @@ Il database è stato modificato dopo il caricamento.\nVuoi salvarlo ora o salvare
 De database is gewijzigd sinds het werd geladen.\nWilt u het nu opslaan of een Master Object bestand?
 
 
-\0334La base de datos ha sido modificada desde que se cargó.\n¿Desea guardarla ahora o guardar un archivo de objeto maestro?
+La base de datos ha sido modificada desde que se cargó.\n¿Desea guardarla ahora o guardar un archivo de objeto maestro?
 
 
 
@@ -22040,7 +22040,7 @@ Errore nel salvataggio dei vertici della linea nel file!\nSeleziona un nuovo per
 Fout bij opslaan van lijn hoekpunten naar bestand!\nSelecteer nieuw pad.
 
 
-\0334¡Error al guardar los vértices de la línea en el archivo!\nSeleccione nueva ruta.
+¡Error al guardar los vértices de la línea en el archivo!\nSeleccione nueva ruta.
 
 
 
@@ -22053,7 +22053,7 @@ Nuovo percorso di salvataggio linea
 Nieuw Lijn Opslag Pad
 
 
-\0334Nueva ruta de guardado de línea
+Nueva ruta de guardado de línea
 
 
 
@@ -22066,7 +22066,7 @@ Errore nell'apertura del file di salvataggio linea!\nSelezionare un nuovo percor
 Fout bij openen van lijnbestand!\nSelecteer nieuw pad?
 
 
-\0334¡Error al abrir el archivo de guardado de línea!\n¿Seleccionar nueva ruta?
+¡Error al abrir el archivo de guardado de línea!\n¿Seleccionar nueva ruta?
 
 
 
@@ -22079,7 +22079,7 @@ Impossibile aprire il file oggetto!\nOggetto non salvato.
 Het objectbestand kan niet worden geopend!\nObject niet opgeslagen.
 
 
-\0334¡No se puede abrir el archivo de objeto!\nObjeto no guardado.
+¡No se puede abrir el archivo de objeto!\nObjeto no guardado.
 
 
 
@@ -22092,7 +22092,7 @@ Vettore %s salvato. %d punti
 %s vector opgeslagen. %d punten
 
 
-\0334Vector %s guardado. %d puntos
+Vector %s guardado. %d puntos
 
 
 
@@ -22105,7 +22105,7 @@ Errore nel salvataggio del file oggetto!\nOggetto non salvato.
 Fout bij opslaan van objectbestand!\nObject niet opgeslagen.
 
 
-\0334¡Error al guardar el archivo de objeto!\nObjeto no guardado.
+¡Error al guardar el archivo de objeto!\nObjeto no guardado.
 
 
 
@@ -22118,7 +22118,7 @@ Modulo di mappatura: Mappatura topografica
 Mapping Module: Topo Mapping
 
 
-\0334Módulo de Mapeo: Mapeo Topográfico
+Módulo de Mapeo: Mapeo Topográfico
 
 
 
@@ -22131,7 +22131,7 @@ Nessuna mappa topografica trovata!\nControlla lo stato abilitato e la classe del
 Geen topografische kaarten gevonden!\nControleer object ingeschakelde status en klasse in database.
 
 
-\0334¡No se encontraron mapas topográficos!\nVerifique el estado habilitado del objeto y la clase en la base de datos.
+¡No se encontraron mapas topográficos!\nVerifique el estado habilitado del objeto y la clase en la base de datos.
 
 
 
@@ -22144,7 +22144,7 @@ Vista mappa: Carica mappe topografiche
 Kaarweergave: Laad Topos
 
 
-\0334Vista de Mapa: Cargar Topos
+Vista de Mapa: Cargar Topos
 
 
 
@@ -22157,7 +22157,7 @@ Caricamento topografia
 Topo Laden
 
 
-\0334Carga de Topo
+Carga de Topo
 
 
 
@@ -22170,7 +22170,7 @@ Errore nel caricamento della mappa topografica! Controlla il registro di stato p
 Fout bij laden van topografische kaart! Controleer Status Log om te zien of er te weinig geheugen is.\nBewerking afgebroken.
 
 
-\0334¡Error al cargar el mapa topográfico! Verifique el registro de estado para ver si hay falta de memoria.\nOperación terminada.
+¡Error al cargar el mapa topográfico! Verifique el registro de estado para ver si hay falta de memoria.\nOperación terminada.
 
 
 
@@ -22183,7 +22183,7 @@ Errore nel caricamento dei DEM! Nessuno caricato.
 Fout bij laden van DEM's! Geen DEM geladen.
 
 
-\0334¡Error al cargar DEMs! Ninguno cargado.
+¡Error al cargar DEMs! Ninguno cargado.
 
 
 
@@ -22196,7 +22196,7 @@ Imposta angolo in alto a sinistra
 Linker bovenhoek instellen
 
 
-\0334Establecer esquina superior izquierda
+Establecer esquina superior izquierda
 
 
 
@@ -22235,7 +22235,7 @@ Imposta angolo in basso a destra
 Rechter onderhoek instellen
 
 
-\0334Establecer esquina inferior derecha
+Establecer esquina inferior derecha
 
 
 
@@ -22248,7 +22248,7 @@ MSG_MAPSUPRT_SLATFLONF
 %s, LAT: %f, LONG: %f
 
 
-\0334%s, LAT: %f, LON: %f
+%s, LAT: %f, LON: %f
 
 
 
@@ -22261,7 +22261,7 @@ LAT: %f, LON: %f
 LAT: %f, LONG: %f
 
 
-\0334LAT: %f, LON: %f
+LAT: %f, LON: %f
 
 
 
@@ -22274,7 +22274,7 @@ Oggetto vettoriale modificato!\nSalvare prima di chiudere?
 Het vectorobject is gewijzigd!\nOpslaan voor sluiten?
 
 
-\0334¡El objeto vectorial ha sido modificado!\n¿Guardarlo antes de cerrar?
+¡El objeto vectorial ha sido modificado!\n¿Guardarlo antes de cerrar?
 
 
 
@@ -22287,7 +22287,7 @@ SALVA|ANNULLA
 Opslaan|Annuleren
 
 
-\0334GUARDAR|CANCELAR
+GUARDAR|CANCELAR
 
 
 
@@ -22313,7 +22313,7 @@ Seleziona punto fotocamera
 Camera Positie selecteren
 
 
-\0334Seleccionar Punto de Cámara
+Seleccionar Punto de Cámara
 
 
 
@@ -22339,7 +22339,7 @@ Seleziona punto di messa a fuoco
 Focus Punt selecteren
 
 
-\0334Seleccionar Punto de Enfoque
+Seleccionar Punto de Enfoque
 
 
 
@@ -22352,7 +22352,7 @@ Punto fotocamera interattivo
 Interactieve Camera Positie
 
 
-\0334Punto de Cámara Interactivo
+Punto de Cámara Interactivo
 
 
 
@@ -22365,7 +22365,7 @@ Punto di messa a fuoco interattivo
 Interactief Focus Punt
 
 
-\0334Punto de Enfoque Interactivo
+Punto de Enfoque Interactivo
 
 
 
@@ -22378,7 +22378,7 @@ Posizione del sole interattiva
 Interactieve Zon Positie
 
 
-\0334Posición del Sol Interactiva
+Posición del Sol Interactiva
 
 
 
@@ -22391,7 +22391,7 @@ Inizio foschia interattivo
 Interactieve Start Nevel
 
 
-\0334Inicio de Neblina Interactivo
+Inicio de Neblina Interactivo
 
 
 
@@ -22404,7 +22404,7 @@ Foschia completa interattiva
 Interactieve Volledige Nevel
 
 
-\0334Neblina Completa Interactiva
+Neblina Completa Interactiva
 
 
 
@@ -22430,7 +22430,7 @@ L'oggetto selezionato deve essere un DEM topografico!\nVedi il campo Classe nell
 Geselecteerd object moet een Topo DEM zijn!\nZie Klasse veld in Database Editor.\nBewerking afgebroken.
 
 
-\0334¡El objeto seleccionado debe ser un DEM Topográfico!\nConsulte el campo Clase en el Editor de Base de Datos.\nOperación terminada.
+¡El objeto seleccionado debe ser un DEM Topográfico!\nConsulte el campo Clase en el Editor de Base de Datos.\nOperación terminada.
 
 
 
@@ -22496,7 +22496,7 @@ Errore nell'allocazione o lettura degli array dell'Indice Frattale!\nContinuare 
 Fout bij toewijzen of lezen van Fractal Index reeksen!\nDoorgaan zonder Fractal Displacement Mapping?
 
 
-\0334¡Error al asignar o leer matrices de índice fractal!\n¿Continuar sin mapeo de desplazamiento fractal?
+¡Error al asignar o leer matrices de índice fractal!\n¿Continuar sin mapeo de desplazamiento fractal?
 
 
 
@@ -24003,7 +24003,7 @@ Pixel Aspect
 ;
 MSG_MOREGUI_HALVE
 \33cHalve
-Halbieren
+\33cHalbieren
 \33cDimezza
 
 \33cHalveren
@@ -25951,12 +25951,12 @@ MSG_TLGUI_ADDKEY
 MSG_TLGUI_DELKEY
 \33c\33uDel\33n Key
 \33cSchlüsselbild Löschen
-\33c\33uElim\33n chiave
+\33cElim chiave
 
 \33cKey frame Verwijderen
 
 
-\33c\33uEliminar\33n Clave
+\33cEliminar Clave
 
 
 
@@ -26922,7 +26922,7 @@ MSG_WAVGUI_DELETE
 \33cVerwijderen
 
 
-\33c\33uEliminar\33nete
+\33cEliminar
 
 
 
