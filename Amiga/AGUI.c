@@ -3322,3 +3322,21 @@ char Str[32];
 
 /**********************************************************************/
 
+/*
+ * For different locale strings we need to find the maximum width of strings
+ * that should be aligned vertically. Then MUIA_FixWidth, maxwidth, can be used.
+ * arguments: Array of locale-define-numbers, number of locale strings
+ * returns: maximum width in pixels
+ */
+ULONG GetMaxTextWidth(struct RastPort *rp, ULONG *label_id, ULONG num_labels)
+{
+    ULONG maxwidth = 0;
+    ULONG i;
+    for (i = 0; i < num_labels; i++)
+    {
+        STRPTR String=GetString((long)label_id[i]);
+        ULONG w = TextLength(rp,String,strlen(String));
+        if (w > maxwidth) maxwidth = w;
+    }
+    return maxwidth;
+}

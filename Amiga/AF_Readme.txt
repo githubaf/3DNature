@@ -4773,8 +4773,8 @@ Test_WindowObject <Start-Nr> <Weitere>  # ohne nummer oder nur mit Startnummer w
 ** 310 Scale Image
 ** 311 Settings
 ** 312 Extract DEM -> kleine Schrift                       ALIGN!
-** 313 Project Editor 1. Tab                               ALIGN!
-** 314 Project Editor 2. Tab                               ALIGN!
+** 313 Project Editor 1. Tab                               ALIGN! Done
+** 314 Project Editor 2. Tab                               ALIGN! Done
 ** 315 Scale Keys
 ** 316 Anim Control Window                                 ALIGN!
 ** 317 Lightwave Export                                    ALIGN!
@@ -4883,4 +4883,11 @@ Das Script soll die deutsche Uebersetzung enthalten. Bitte auch fuer besondere W
 
 
 Deutsch fertig. Kleine Korrekturen bei anderen.
+
+15.Aug.2025
+-----------
+Fenster 313 und 314 (Projekt -> Edit) sind jetzt aligned. Label2 durch TextObject,... MUIA_FixWidth, GetMaxTextWidth() ersetzt.
+Funktioniert mit unterschiedlichen Sprachen (Ohne manuelles Leerzeichen-Alignement) und verschiedenen Fonts, als nicht-prortionalen Fonts.
+Siehe MoreGui.c Make_PJ_Window()
+
 

@@ -341,7 +341,7 @@ void Make_DM_Window(void)
    DM_Win->BT_GetFiles, DM_Win->LatStr, DM_Win->LonStr,
    DM_Win->BT_Extract, NULL);
 
-/* set return cycle chain */
+/* set return cycle */
  DoMethod(DM_Win->LatStr, MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
   DM_Win->ExtractWin, 3, MUIM_Set, MUIA_Window_ActiveObject, DM_Win->LonStr); 
  DoMethod(DM_Win->LonStr, MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime,
@@ -627,13 +627,65 @@ void Make_PJ_Window(void)
 
  static int Init=TRUE;
  static const char *PageNames[3]={NULL};
+ static ULONG maxLabelwidthPage1=0, maxLabelwidthPage2=0; // needed for MUIA_FixWidth, maxwidth
+ /* (trailing Alignment-Spaces are no longer needed now) */
+ static ULONG LabelsPage1[] = {
+         MSG_MOREGUI_PROJECTPATH_SPACES      ,  // "Project Path        "
+         MSG_MOREGUI_PROJECTNAME_SPACES      ,  // "Project Name        "
+         MSG_MOREGUI_DATABASEPATH_SPACES     ,  // "Database Path       "
+         MSG_MOREGUI_DATABASENAME_SPACES     ,  // "Database Name       "
+         MSG_MOREGUI_PARAMETERPATH_SPACES    ,  // "Parameter Path      "
+         MSG_MOREGUI_PARAMETERNAME_SPACES    ,  // "Parameter Name      "
+         MSG_MOREGUI_FRAMESAVEPATH_SPACES    ,  // "Frame Save Path     "
+         MSG_MOREGUI_FRAMESAVENAME_SPACES    ,  // "Frame Save Name     "
+         MSG_MOREGUI_TEMPFRAMEPATH_SPACES    ,  // "Temp Frame Path     "
+         MSG_MOREGUI_VECTORSAVEPATH_SPACES   ,  // "Vector Save Path    "
+         MSG_MOREGUI_VECTORSAVENAME_SPACES   ,  // "Vector Save Name    "
+         MSG_MOREGUI_ZBUFFERPATH_SPACES      ,  // "Z Buffer Path       "
+         MSG_MOREGUI_ZBUFFERNAME_SPACES      ,  // "Z Buffer Name       "
+         MSG_MOREGUI_BACKGROUNDPATH_SPACES   ,  // "Background Path     "
+         MSG_MOREGUI_BACKGROUNDNAME_SPACES   ,  // "Background Name     "
+         MSG_MOREGUI_DEFAULTDIRECTORY_SPACES ,  // "Default Directory   "
+ };
+
+ static ULONG LabelsPage2[] = {
+         MSG_MOREGUI_GRAPHICSAVEPATH_SPACES   ,  // "Graphic Save Path   "
+         MSG_MOREGUI_GRAPHICSAVENAME_SPACES   ,  // "Graphic Save Name   "
+         MSG_MOREGUI_COLORMAPPATH_SPACES      ,  // "Color Map Path      "
+         MSG_MOREGUI_COLORMAPNAME_SPACES      ,  // "Color Map Name      "
+         MSG_MOREGUI_CLOUDMAPPATH_SPACES      ,  // "Cloud Map Path      "
+         MSG_MOREGUI_CLOUDMAPNAME_SPACES      ,  // "Cloud Map Name      "
+         MSG_MOREGUI_WAVEFILEPATH_SPACES      ,  // "Wave File Path      "
+         MSG_MOREGUI_WAVEFILENAME_SPACES      ,  // "Wave File Name      "
+         MSG_MOREGUI_DEFORMATIONMAPPATH_SPACES,  // "Deformation Map Path"
+         MSG_MOREGUI_DEFORMATIONMAPNAME_SPACES,  // "Deformation Map Name"
+         MSG_MOREGUI_ECOSYSTEMMODELPATH_SPACES,  // "Ecosystem Model Path"
+         MSG_MOREGUI_IMAGEPATH_SPACES         ,  // "Image Path          "
+         MSG_MOREGUI_SUNIMAGEFILE_SPACES      ,  // "Sun Image File      "
+         MSG_MOREGUI_MOONIMAGEFILE_SPACES     ,  // "Moon Image File     "
+         MSG_MOREGUI_PCPROJECTDIRECTORY_SPACES,  // "PC Project Directory"
+         MSG_MOREGUI_PCFRAMESDIRECTORY_SPACES ,  // "PC Frames Directory "
+
+ };
 
  if(Init)
  {
-	 Init=FALSE;
-	 PageNames[0] = (char*)GetString( MSG_MOREGUI_FIRSTPAGE ),   // "First Page"
-	 PageNames[1] = (char*)GetString( MSG_MOREGUI_SECONDPAGE ),  //"Second Page",
-	 PageNames[2] = NULL;
+     Init=FALSE;
+     PageNames[0] = (char*)GetString( MSG_MOREGUI_FIRSTPAGE ),   // "First Page"
+             PageNames[1] = (char*)GetString( MSG_MOREGUI_SECONDPAGE ),  //"Second Page",
+             PageNames[2] = NULL;
+
+     /* Find max Label-Length of both pages depending on used locale settings */
+     maxLabelwidthPage1=GetMaxTextWidth(&(WCSScrn->RastPort),
+             LabelsPage1,
+             sizeof(LabelsPage1)/sizeof(ULONG));
+
+     maxLabelwidthPage2=GetMaxTextWidth(&(WCSScrn->RastPort),
+             LabelsPage2,
+             sizeof(LabelsPage1)/sizeof(ULONG));
+
+     printf("ALEXANDER: maxLabelwidthPage1=%ld, maxLabelwidthPage2=%ld\n",
+             maxLabelwidthPage1, maxLabelwidthPage2);
  }
 
  if (PJ_Win)
@@ -658,98 +710,134 @@ void Make_PJ_Window(void)
 	Child, PJ_Win->RegGrp=RegisterGroup(PageNames),
 	  Child, VGroup,
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_PROJECTPATH_SPACES )),  // "Project Path        "
+//	    Child, Label2(GetString( MSG_MOREGUI_PROJECTPATH_SPACES )),  // "Project Path        "
+	    Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_PROJECTPATH_SPACES ),  // "Project Path        "
+	      MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, projectpath, End,
 	    Child, PJ_Win->BT_Get[0] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_PROJECTNAME_SPACES )),  // "Project Name        "
+//	    Child, Label2(GetString( MSG_MOREGUI_PROJECTNAME_SPACES )),  // "Project Name        "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_PROJECTNAME_SPACES ),  // "Project Name        "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
+
 	    Child, PJ_Win->Str[1] = StringObject, StringFrame,
 		MUIA_String_Contents, projectname, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_DATABASEPATH_SPACES )),  // "Database Path       "
+//	    Child, Label2(GetString( MSG_MOREGUI_DATABASEPATH_SPACES )),  // "Database Path       "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_DATABASEPATH_SPACES ),  // "Database Path       "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
+	    MUIA_FixWidth, maxLabelwidthPage1,
 	    Child, PJ_Win->Str[2] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, dbasepath, End,
 	    Child, PJ_Win->BT_Get[1] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_DATABASENAME_SPACES )),  // "Database Name       "
+//	    Child, Label2(GetString( MSG_MOREGUI_DATABASENAME_SPACES )),  // "Database Name       "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_DATABASENAME_SPACES ),  // "Database Name       "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[3] = StringObject, StringFrame,
 		MUIA_String_Contents, dbasename, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_PARAMETERPATH_SPACES )),  // "Parameter Path      "
+//	    Child, Label2(GetString( MSG_MOREGUI_PARAMETERPATH_SPACES )),  // "Parameter Path      "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_PARAMETERPATH_SPACES ),  // "Parameter Path      "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[4] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, parampath, End,
 	    Child, PJ_Win->BT_Get[2] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_PARAMETERNAME_SPACES )),  // "Parameter Name      "
+//	    Child, Label2(GetString( MSG_MOREGUI_PARAMETERNAME_SPACES )),  // "Parameter Name      "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_PARAMETERNAME_SPACES ),  // "Parameter Name      "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[5] = StringObject, StringFrame,
 		MUIA_String_Contents, paramfile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_FRAMESAVEPATH_SPACES )),  // "Frame Save Path     "
+//	    Child, Label2(GetString( MSG_MOREGUI_FRAMESAVEPATH_SPACES )),  // "Frame Save Path     "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_FRAMESAVEPATH_SPACES ),  // "Frame Save Path     "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[6] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, framepath, End,
 	    Child, PJ_Win->BT_Get[3] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_FRAMESAVENAME_SPACES )),  // "Frame Save Name     "
+//	    Child, Label2(GetString( MSG_MOREGUI_FRAMESAVENAME_SPACES )),  // "Frame Save Name     "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_FRAMESAVENAME_SPACES ),  // "Frame Save Name     "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[7] = StringObject, StringFrame,
 		MUIA_String_Contents, framefile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_TEMPFRAMEPATH_SPACES )),  // "Temp Frame Path     "
+//	    Child, Label2(GetString( MSG_MOREGUI_TEMPFRAMEPATH_SPACES )),  // "Temp Frame Path     "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_TEMPFRAMEPATH_SPACES ),  // "Temp Frame Path     "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[8] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, temppath, End,
 	    Child, PJ_Win->BT_Get[4] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_VECTORSAVEPATH_SPACES )),  // "Vector Save Path    "
+//	    Child, Label2(GetString( MSG_MOREGUI_VECTORSAVEPATH_SPACES )),  // "Vector Save Path    "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_VECTORSAVEPATH_SPACES ),  // "Vector Save Path    "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[10] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, linepath, End,
 	    Child, PJ_Win->BT_Get[5] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_VECTORSAVENAME_SPACES )),  // "Vector Save Name    "
+//	    Child, Label2(GetString( MSG_MOREGUI_VECTORSAVENAME_SPACES )),  // "Vector Save Name    "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_VECTORSAVENAME_SPACES ),  // "Vector Save Name    "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[11] = StringObject, StringFrame,
 		MUIA_String_Contents, linefile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_ZBUFFERPATH_SPACES )),  // "Z Buffer Path       "
+//	    Child, Label2(GetString( MSG_MOREGUI_ZBUFFERPATH_SPACES )),  // "Z Buffer Path       "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_ZBUFFERPATH_SPACES ),  // "Z Buffer Path       "
+          MUIA_FixWidth, maxLabelwidthPage1,
+       End,
 	    Child, PJ_Win->Str[12] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, zbufferpath, End,
 	    Child, PJ_Win->BT_Get[6] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_ZBUFFERNAME_SPACES )),  // "Z Buffer Name       "
+//	    Child, Label2(GetString( MSG_MOREGUI_ZBUFFERNAME_SPACES )),  // "Z Buffer Name       "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_ZBUFFERNAME_SPACES ),  // "Z Buffer Name       "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[13] = StringObject, StringFrame,
 		MUIA_String_Contents, zbufferfile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_BACKGROUNDPATH_SPACES )),  // "Background Path     "
+//	    Child, Label2(GetString( MSG_MOREGUI_BACKGROUNDPATH_SPACES )),  // "Background Path     "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_BACKGROUNDPATH_SPACES ),  // "Background Path     "
+          MUIA_FixWidth, maxLabelwidthPage1,
+          End,
 	    Child, PJ_Win->Str[14] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, backgroundpath, End,
 	    Child, PJ_Win->BT_Get[7] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_BACKGROUNDNAME_SPACES )),  // "Background Name     "
+//	    Child, Label2(GetString( MSG_MOREGUI_BACKGROUNDNAME_SPACES )),  // "Background Name     "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_BACKGROUNDNAME_SPACES ),  // "Background Name     "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[15] = StringObject, StringFrame,
 		MUIA_String_Contents, backgroundfile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_DEFAULTDIRECTORY_SPACES )),  // "Default Directory   "
+//	    Child, Label2(GetString( MSG_MOREGUI_DEFAULTDIRECTORY_SPACES )),  // "Default Directory   "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_DEFAULTDIRECTORY_SPACES ),  // "Default Directory   "
+          MUIA_FixWidth, maxLabelwidthPage1, End,
 	    Child, PJ_Win->Str[20] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, dirname, End,
@@ -759,70 +847,90 @@ void Make_PJ_Window(void)
 
 	  Child, VGroup,
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_GRAPHICSAVEPATH_SPACES )),  // "Graphic Save Path   "
+//	    Child, Label2(GetString( MSG_MOREGUI_GRAPHICSAVEPATH_SPACES )),  // "Graphic Save Path   "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_GRAPHICSAVEPATH_SPACES ),  // "Graphic Save Path   "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[16] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, graphpath, End,
 	    Child, PJ_Win->BT_Get[8] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_GRAPHICSAVENAME_SPACES )),  // "Graphic Save Name   "
+//	    Child, Label2(GetString( MSG_MOREGUI_GRAPHICSAVENAME_SPACES )),  // "Graphic Save Name   "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_GRAPHICSAVENAME_SPACES ),  // "Graphic Save Name   "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[17] = StringObject, StringFrame,
 		MUIA_String_Contents, graphname, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_COLORMAPPATH_SPACES )),  // "Color Map Path      "
+//	    Child, Label2(GetString( MSG_MOREGUI_COLORMAPPATH_SPACES )),  // "Color Map Path      "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_COLORMAPPATH_SPACES ),  // "Color Map Path      "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[18] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, colormappath, End,
 	    Child, PJ_Win->BT_Get[9] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_COLORMAPNAME_SPACES )),  // "Color Map Name      ")
+//	    Child, Label2(GetString( MSG_MOREGUI_COLORMAPNAME_SPACES )),  // "Color Map Name      "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_COLORMAPNAME_SPACES ),  // "Color Map Name      "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[9] = StringObject, StringFrame,
 		MUIA_String_Contents, colormapfile, End,
 	    End, /* HGroup */
-
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_CLOUDMAPPATH_SPACES )),  // "Cloud Map Path      "
+//	    Child, Label2(GetString( MSG_MOREGUI_CLOUDMAPPATH_SPACES )),  // "Cloud Map Path      "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_CLOUDMAPPATH_SPACES ),  // "Cloud Map Path      "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[21] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, cloudpath, End,
 	    Child, PJ_Win->BT_Get[12] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_CLOUDMAPNAME_SPACES )),  // "Cloud Map Name      "
+//	    Child, Label2(GetString( MSG_MOREGUI_CLOUDMAPNAME_SPACES )),  // "Cloud Map Name      "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_CLOUDMAPNAME_SPACES ),  // "Cloud Map Name      "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[22] = StringObject, StringFrame,
 		MUIA_String_Contents, cloudfile, End,
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_WAVEFILEPATH_SPACES )),  // "Wave File Path      "
+//	    Child, Label2(GetString( MSG_MOREGUI_WAVEFILEPATH_SPACES )),  // "Wave File Path      "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_WAVEFILEPATH_SPACES ),  // "Wave File Path      "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[23] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, wavepath, End,
 	    Child, PJ_Win->BT_Get[13] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_WAVEFILENAME_SPACES )),  // "Wave File Name      "
+//	    Child, Label2(GetString( MSG_MOREGUI_WAVEFILENAME_SPACES )),  // "Wave File Name      "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_WAVEFILENAME_SPACES ),  // "Wave File Name      "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[24] = StringObject, StringFrame,
 		MUIA_String_Contents, wavefile, End,
 	    End, /* HGroup */
-
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_DEFORMATIONMAPPATH_SPACES )),  // "Deformation Map Path"
+//	    Child, Label2(GetString( MSG_MOREGUI_DEFORMATIONMAPPATH_SPACES )),  // "Deformation Map Path"
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_DEFORMATIONMAPPATH_SPACES ),  // "Deformation Map Path"
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[25] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, deformpath, End,
 	    Child, PJ_Win->BT_Get[14] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_DEFORMATIONMAPNAME_SPACES )),  // "Deformation Map Name"
+//	    Child, Label2(GetString( MSG_MOREGUI_DEFORMATIONMAPNAME_SPACES )),  // "Deformation Map Name"
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_DEFORMATIONMAPNAME_SPACES ),  // "Deformation Map Name"
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[26] = StringObject, StringFrame,
 		MUIA_String_Contents, deformfile, End,
 	    End, /* HGroup */
 
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_ECOSYSTEMMODELPATH_SPACES )),  // "Ecosystem Model Path"
+//	    Child, Label2(GetString( MSG_MOREGUI_ECOSYSTEMMODELPATH_SPACES )),  // "Ecosystem Model Path"
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_ECOSYSTEMMODELPATH_SPACES ),  // "Ecosystem Model Path"
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[19] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, modelpath, End,
@@ -830,21 +938,27 @@ void Make_PJ_Window(void)
 	    End, /* HGroup */
 
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_IMAGEPATH_SPACES )),  // "Image Path          "
+//	    Child, Label2(GetString( MSG_MOREGUI_IMAGEPATH_SPACES )),  // "Image Path          "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString(  MSG_MOREGUI_IMAGEPATH_SPACES ),  // "Image Path          "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[27] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, imagepath, End,
 	    Child, PJ_Win->BT_Get[15] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_SUNIMAGEFILE_SPACES )),  // "Sun Image File      "
+//	    Child, Label2(GetString( MSG_MOREGUI_SUNIMAGEFILE_SPACES )),  // "Sun Image File      "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_SUNIMAGEFILE_SPACES ),  // "Sun Image File      "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[28] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, sunfile, End,
 	    Child, PJ_Win->BT_Get[16] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_MOONIMAGEFILE_SPACES )),  // "Moon Image File     "
+//	    Child, Label2(GetString( MSG_MOREGUI_MOONIMAGEFILE_SPACES )),  // "Moon Image File     "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_MOONIMAGEFILE_SPACES ),  // "Moon Image File     "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[29] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, moonfile, End,
@@ -852,14 +966,18 @@ void Make_PJ_Window(void)
 	    End, /* HGroup */
 
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_PCPROJECTDIRECTORY_SPACES )),  // "PC Project Directory"
+//	    Child, Label2(GetString( MSG_MOREGUI_PCPROJECTDIRECTORY_SPACES )),  // "PC Project Directory"
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_PCPROJECTDIRECTORY_SPACES ),  // "PC Project Directory"
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[30] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, pcprojectpath, End,
 	    Child, PJ_Win->BT_Get[18] = ImageButtonWCS(MUII_Disk),
 	    End, /* HGroup */
 	  Child, HGroup,
-	    Child, Label2(GetString( MSG_MOREGUI_PCFRAMESDIRECTORY_SPACES )),  // "PC Frames Directory "
+//	    Child, Label2(GetString( MSG_MOREGUI_PCFRAMESDIRECTORY_SPACES )),  // "PC Frames Directory "
+      Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_PCFRAMESDIRECTORY_SPACES ),  // "PC Frames Directory "
+          MUIA_FixWidth, maxLabelwidthPage2, End,
 	    Child, PJ_Win->Str[31] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "012345678901234567890",
 		MUIA_String_Contents, pcframespath, End,
@@ -902,7 +1020,7 @@ void Make_PJ_Window(void)
 
 /* ReturnIDs */
   DoMethod(PJ_Win->ProjWin, MUIM_Notify, MUIA_Window_CloseRequest, TRUE,
-    app, 2, MUIM_Application_ReturnID, ID_PJ_CLOSEQUERY);  
+    app, 2, MUIM_Application_ReturnID, ID_PJ_CLOSE);  
 
   for (i=0; i<20; i++)
    MUI_DoNotiPresFal(app, PJ_Win->BT_Get[i], ID_PJ_GET(i), NULL);
@@ -2091,4 +2209,3 @@ void Handle_PR_Window(ULONG WCS_ID)   // Menu -> Preferences
    } /* switch gadget group */
 
 } /* Handle_PR_Window() */
-

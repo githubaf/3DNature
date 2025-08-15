@@ -23274,314 +23274,314 @@ Editor de Proyecto
 
 ;
 MSG_MOREGUI_PROJECTPATH_SPACES
-Project Path\x20\x20\x20\x20\x20\x20\x20\x20
-Projekt Pfad\x20\x20\x20\x20\x20\x20\x20\x20
-Percorso progetto\x20\x20\x20\x20\x20\x20\x20\x20
+Project Path
+Projekt Pfad
+Percorso progetto
 
-Project Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Project Pad
 
 
-Ruta del Proyecto\x20\x20\x20\x20\x20\x20\x20\x20
+Ruta del Proyecto
 
 
 
 ;
 MSG_MOREGUI_PROJECTNAME_SPACES
-Project Name\x20\x20\x20\x20\x20\x20\x20\x20
-Projekt Name\x20\x20\x20\x20\x20\x20\x20\x20
-Nome progetto\x20\x20\x20\x20\x20\x20\x20\x20
+Project Name
+Projekt Name
+Nome progetto
 
-Project Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Project Naam
 
 
-Nombre del Proyecto\x20\x20\x20\x20\x20\x20\x20\x20
+Nombre del Proyecto
 
 
 
 ;
 MSG_MOREGUI_DATABASEPATH_SPACES
-Database Path\x20\x20\x20\x20\x20\x20\x20
-Datenbank Pfad\x20\x20\x20\x20\x20\x20
-Percorso database\x20\x20\x20\x20\x20\x20\x20
+Database Path
+Datenbank Pfad
+Percorso database
 
-Database Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Database Pad
 
 
-Ruta de la Base de Datos\x20\x20\x20\x20\x20\x20\x20
+Ruta de la Base de Datos
 
 
 
 ;
 MSG_MOREGUI_DATABASENAME_SPACES
-Database Name\x20\x20\x20\x20\x20\x20\x20
-Datenbank Name\x20\x20\x20\x20\x20\x20
-Nome database\x20\x20\x20\x20\x20\x20\x20
+Database Name
+Datenbank Name
+Nome database
 
-Database Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Database Naam
 
 
-Nombre de la Base de Datos\x20\x20\x20\x20\x20\x20\x20
+Nombre de la Base de Datos
 
 
 
 ;
 MSG_MOREGUI_PARAMETERPATH_SPACES
-Parameter Path\x20\x20\x20\x20\x20\x20
-Parameter Pfad\x20\x20\x20\x20\x20\x20
-Percorso parametri\x20\x20\x20\x20\x20\x20
+Parameter Path
+Parameter Pfad
+Percorso parametri
 
-Parameter Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Parameter Pad
 
 
-Ruta de Parámetros\x20\x20\x20\x20\x20\x20
+Ruta de Parámetros
 
 
 
 ;
 MSG_MOREGUI_PARAMETERNAME_SPACES
-Parameter Name\x20\x20\x20\x20\x20\x20
-Parameter Name\x20\x20\x20\x20\x20\x20
-Nome parametri\x20\x20\x20\x20\x20\x20
+Parameter Name
+Parameter Name
+Nome parametri
 
-Parameter Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Parameter Naam
 
 
-Nombre de Parámetros\x20\x20\x20\x20\x20\x20
+Nombre de Parámetros
 
 
 
 ;
 MSG_MOREGUI_FRAMESAVEPATH_SPACES
-Frame Save Path\x20\x20\x20\x20\x20
-Bilder-Speicherpfad\x20
-Percorso salvataggio fotogramma\x20\x20\x20\x20\x20
+Frame Save Path
+Bilder-Speicherpfad
+Percorso salvataggio fotogramma
 
-Afbeeldingen Opslaan Pad\x20\x20
+Afbeeldingen Opslaan Pad
 
 
-Ruta de Guardado de Fotogramas\x20\x20\x20\x20\x20
+Ruta de Guardado de Fotogramas
 
 
 
 ;
 MSG_MOREGUI_FRAMESAVENAME_SPACES
-Frame Save Name\x20\x20\x20\x20\x20
-Bilder-Speichername\x20
-Nome salvataggio fotogramma\x20\x20\x20\x20\x20
+Frame Save Name
+Bilder-Speichername
+Nome salvataggio fotogramma
 
-Afbeeldingen Opslaan Naam\x20
+Afbeeldingen Opslaan Naam
 
 
-Nombre de Guardado de Fotogramas\x20\x20\x20\x20\x20
+Nombre de Guardado de Fotogramas
 
 
 
 ;
 MSG_MOREGUI_TEMPFRAMEPATH_SPACES
-Temp Frame Path\x20\x20\x20\x20\x20
-Temp. Bilderpfad\x20\x20\x20\x20
-Percorso fotogramma temporaneo\x20\x20\x20\x20\x20
+Temp Frame Path
+Temp. Bilderpfad
+Percorso fotogramma temporaneo
 
-Tijd. Afbeeldingen Pad\x20\x20\x20\x20
+Tijd. Afbeeldingen Pad
 
 
-Ruta Temporal de Fotogramas\x20\x20\x20\x20\x20
+Ruta Temporal de Fotogramas
 
 
 
 ;
 MSG_MOREGUI_VECTORSAVEPATH_SPACES
-Vector Save Path\x20\x20\x20\x20
-Vektor-Speicherpfad\x20
-Percorso salvataggio vettore\x20\x20\x20\x20
+Vector Save Path
+Vektor-Speicherpfad
+Percorso salvataggio vettore
 
-Vector Opslaan Pad\x20\x20\x20\x20\x20\x20\x20\x20
+Vector Opslaan Pad
 
 
-Ruta de Guardado de Vectores\x20\x20\x20\x20
+Ruta de Guardado de Vectores
 
 
 
 ;
 MSG_MOREGUI_VECTORSAVENAME_SPACES
-Vector Save Name\x20\x20\x20\x20
-Vektor-Speichername\x20
-Nome salvataggio vettore\x20\x20\x20\x20
+Vector Save Name
+Vektor-Speichername
+Nome salvataggio vettore
 
-Vector Opslaan Naam\x20\x20\x20\x20\x20\x20\x20
+Vector Opslaan Naam
 
 
-Nombre de Guardado de Vectores\x20\x20\x20\x20
+Nombre de Guardado de Vectores
 
 
 
 ;
 MSG_MOREGUI_ZBUFFERPATH_SPACES
-Z Buffer Path\x20\x20\x20\x20\x20\x20\x20
-Z-Puffer Pfad\x20\x20\x20\x20\x20\x20\x20
-Percorso Z Buffer\x20\x20\x20\x20\x20\x20\x20
+Z Buffer Path
+Z-Puffer Pfad
+Percorso Z Buffer
 
-Z Buffer Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Z Buffer Pad
 
 
-Ruta del Búfer Z\x20\x20\x20\x20\x20\x20\x20
+Ruta del Búfer Z
 
 
 
 ;
 MSG_MOREGUI_ZBUFFERNAME_SPACES
-Z Buffer Name\x20\x20\x20\x20\x20\x20\x20
-Z-Puffer Name\x20\x20\x20\x20\x20\x20\x20
-Nome Z Buffer\x20\x20\x20\x20\x20\x20\x20
+Z Buffer Name
+Z-Puffer Name
+Nome Z Buffer
 
-Z Buffer Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Z Buffer Naam
 
 
-Nombre del Búfer Z\x20\x20\x20\x20\x20\x20\x20
+Nombre del Búfer Z
 
 
 
 ;
 MSG_MOREGUI_BACKGROUNDPATH_SPACES
-Background Path\x20\x20\x20\x20\x20
-Hintergrund Pfad\x20\x20\x20\x20
-Percorso sfondo\x20\x20\x20\x20\x20
+Background Path
+Hintergrund Pfad
+Percorso sfondo
 
-Achtergrond Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Achtergrond Pad
 
 
-Ruta del Fondo\x20\x20\x20\x20\x20
+Ruta del Fondo
 
 
 
 ;
 MSG_MOREGUI_BACKGROUNDNAME_SPACES
-Background Name\x20\x20\x20\x20\x20
-Hintergrund Name\x20\x20\x20\x20
-Nome sfondo\x20\x20\x20\x20\x20
+Background Name
+Hintergrund Name
+Nome sfondo
 
-Achtergrond Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Achtergrond Naam
 
 
-Nombre del Fondo\x20\x20\x20\x20\x20
+Nombre del Fondo
 
 
 
 ;
 MSG_MOREGUI_DEFAULTDIRECTORY_SPACES
-Default Directory\x20\x20\x20
-Standardordner\x20\x20\x20\x20\x20\x20
-Directory predefinita\x20\x20\x20
+Default Directory
+Standardordner
+Directory predefinita
 
-Standaarddirectory\x20\x20\x20\x20\x20\x20\x20\x20
+Standaarddirectory
 
 
-Directorio Predeterminado\x20\x20\x20
+Directorio Predeterminado
 
 
 
 ;
 ; --- second page ---
 MSG_MOREGUI_GRAPHICSAVEPATH_SPACES
-Graphic Save Path\x20\x20\x20
-Grafik-Speicherpfad\x20
-Percorso salvataggio grafica\x20\x20\x20
+Graphic Save Path
+Grafik-Speicherpfad
+Percorso salvataggio grafica
 
-Grafiek Opslaan Pad\x20\x20\x20\x20\x20\x20\x20
+Grafiek Opslaan Pad
 
 
-Ruta de Guardado Gráfico\x20\x20\x20
+Ruta de Guardado Gráfico
 
 
 
 ;
 MSG_MOREGUI_GRAPHICSAVENAME_SPACES
-Graphic Save Name\x20\x20\x20
-Grafik-Speichername\x20
-Nome salvataggio grafica\x20\x20\x20
+Graphic Save Name
+Grafik-Speichername
+Nome salvataggio grafica
 
-Grafiek Opslaan Naam\x20\x20\x20\x20\x20\x20
+Grafiek Opslaan Naam
 
 
-Nombre de Guardado Gráfico\x20\x20\x20
+Nombre de Guardado Gráfico
 
 
 
 ;
 MSG_MOREGUI_COLORMAPPATH_SPACES
-Color Map Path\x20\x20\x20\x20\x20\x20
-Pfad zur Farbkarte\x20\x20\x20\x20\x20\x20
-Percorso mappa colori\x20\x20\x20\x20\x20\x20
+Color Map Path
+Pfad zur Farbkarte
+Percorso mappa colori
 
-Kleurenkaart Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Kleurenkaart Pad
 
 
-Ruta del Mapa de Colores\x20\x20\x20\x20\x20\x20
+Ruta del Mapa de Colores
 
 
 
 ;
 MSG_MOREGUI_COLORMAPNAME_SPACES
-Color Map Name\x20\x20\x20\x20\x20\x20
-Name der Farbkarte\x20\x20\x20\x20\x20\x20
-Nome mappa colori\x20\x20\x20\x20\x20\x20
+Color Map Name
+Name der Farbkarte
+Nome mappa colori
 
-Kleurenkaart Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Kleurenkaart Naam
 
 
-Nombre del Mapa de Colores\x20\x20\x20\x20\x20\x20
+Nombre del Mapa de Colores
 
 
 
 ;
 MSG_MOREGUI_CLOUDMAPPATH_SPACES
-Cloud Map Path\x20\x20\x20\x20\x20\x20
-Pfad zur Wolkenkarte\x20\x20\x20\x20
-Percorso mappa nuvole\x20\x20\x20\x20\x20\x20
+Cloud Map Path
+Pfad zur Wolkenkarte
+Percorso mappa nuvole
 
-Wolkenkaart Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Wolkenkaart Pad
 
 
-Nombre del Mapa de Colores\x20\x20\x20\x20\x20\x20
+Nombre del Mapa de Colores
 
 
 
 ;
 MSG_MOREGUI_CLOUDMAPNAME_SPACES
-Cloud Map Name\x20\x20\x20\x20\x20\x20
-Name der Wolkenkarte\x20\x20\x20\x20
-Nome mappa nuvole\x20\x20\x20\x20\x20\x20
+Cloud Map Name
+Name der Wolkenkarte
+Nome mappa nuvole
 
-Wolkenkaart Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Wolkenkaart Naam
 
 
-Nombre del Mapa de Nubes\x20\x20\x20\x20\x20\x20
+Nombre del Mapa de Nubes
 
 
 
 ;
 MSG_MOREGUI_WAVEFILEPATH_SPACES
-Wave File Path\x20\x20\x20\x20\x20\x20
-Pfad zur Wellen-Datei\x20\x20\x20\x20
-Percorso file onda\x20\x20\x20\x20\x20\x20
+Wave File Path
+Pfad zur Wellen-Datei
+Percorso file onda
 
-Golfbestand Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Golfbestand Pad
 
 
-Ruta del Archivo de Sonido\x20\x20\x20\x20\x20\x20
+Ruta del Archivo de Sonido
 
 
 
 ;
 MSG_MOREGUI_WAVEFILENAME_SPACES
-Wave File Name\x20\x20\x20\x20\x20\x20
-Name der Wellen-Datei\x20\x20\x20
-Nome file onda\x20\x20\x20\x20\x20\x20
+Wave File Name
+Name der Wellen-Datei
+Nome file onda
 
-Golfbestand Naam\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Golfbestand Naam
 
 
-Nombre del Archivo de Sonido\x20\x20\x20\x20\x20\x20
+Nombre del Archivo de Sonido
 
 
 
@@ -23591,7 +23591,7 @@ Deformation Map Path
 Pfad zur Deformationskarte
 Percorso mappa deformazione
 
-Deformatiekaart Pad\x20\x20\x20\x20\x20\x20\x20
+Deformatiekaart Pad
 
 
 Ruta del Mapa de Deformación
@@ -23603,7 +23603,7 @@ Deformation Map Name
 Name der Deformationskarte
 Nome mappa deformazione
 
-Deformatiekaart Naam\x20\x20\x20\x20\x20\x20
+Deformatiekaart Naam
 
 
 Nombre del Mapa de Deformación
@@ -23616,7 +23616,7 @@ Ecosystem Model Path
 Ökosystem Modellpfad
 Percorso modello ecosistema
 
-Ecosysteem Model Pad\x20\x20\x20\x20\x20\x20
+Ecosysteem Model Pad
 
 
 Ruta del Modelo de Ecosistema
@@ -23625,50 +23625,50 @@ Ruta del Modelo de Ecosistema
 
 ;
 MSG_MOREGUI_IMAGEPATH_SPACES
-Image Path\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
-Bilderpfad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
-Percorso immagine\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Image Path
+Bilderpfad
+Percorso immagine
 
-Afbeeldingen Pad\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Afbeeldingen Pad
 
 
-Ruta de la Imagen\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+Ruta de la Imagen
 
 
 
 ;
 MSG_MOREGUI_SUNIMAGEFILE_SPACES
-Sun Image File\x20\x20\x20\x20\x20\x20
-Sonnen-Bilddatei\x20\x20\x20\x20
-File immagine sole\x20\x20\x20\x20\x20\x20
+Sun Image File
+Sonnen-Bilddatei
+File immagine sole
 
-Zonafbeeldingen Bestand\x20\x20\x20
+Zonafbeeldingen Bestand
 
 
-Archivo de Imagen del Sol\x20\x20\x20\x20\x20\x20
+Archivo de Imagen del Sol
 
 
 
 ;
 MSG_MOREGUI_MOONIMAGEFILE_SPACES
-Moon Image File\x20\x20\x20\x20\x20
-Mond-Bilddatei\x20\x20\x20\x20\x20\x20
-File immagine luna\x20\x20\x20\x20\x20
+Moon Image File
+Mond-Bilddatei
+File immagine luna
 
-Maanafbeeldingen Bestand\x20\x20
+Maanafbeeldingen Bestand
 
 
-Archivo de Imagen de la Luna\x20\x20\x20\x20\x20
+Archivo de Imagen de la Luna
 
 
 
 ;
 MSG_MOREGUI_PCPROJECTDIRECTORY_SPACES
 PC Project Directory
-PC-Projektordner\x20\x20\x20\x20
+PC-Projektordner
 Directory progetto PC
 
-PC Project Directory\x20\x20\x20\x20\x20\x20
+PC Project Directory
 
 
 Directorio del Proyecto en PC
@@ -23677,14 +23677,14 @@ Directorio del Proyecto en PC
 
 ;
 MSG_MOREGUI_PCFRAMESDIRECTORY_SPACES
-PC Frames Directory\x20
-PC-Bilderordner\x20\x20\x20\x20\x20
-Directory fotogrammi PC\x20
+PC Frames Directory
+PC-Bilderordner
+Directory fotogrammi PC
 
-PC Afbeeldingen Directory\x20
+PC Afbeeldingen Directory
 
 
-Directorio de Fotogramas en PC\x20
+Directorio de Fotogramas en PC
 
 
 
