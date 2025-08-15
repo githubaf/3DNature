@@ -14,9 +14,29 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 {
  long open;
 
+ static ULONG maxLabelWidth = 0;
+ static const ULONG Labels[] = {
+     MSG_DIAG_DISTANCE,
+     MSG_DIAG_ELEVATION,
+     MSG_DIAG_OVERSTORY,
+     MSG_DIAG_UNDERSTORY,
+     MSG_DIAG_RELEL,
+     MSG_DIAG_ASPECT,
+     MSG_DIAG_SLOPE,
+     MSG_DIAG_SUNANGLE,
+     MSG_DIAG_LATITUDE,
+     MSG_DIAG_LONGITUDE
+ };
+
+
  if ((DIAG_Win = (struct DiagnosticWindow *)
 	get_Memory(sizeof (struct DiagnosticWindow), MEMF_CLEAR)) == NULL)
    return;
+
+     if (maxLabelWidth == 0)
+     {
+         maxLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), Labels, sizeof(Labels) / sizeof(ULONG));
+     }
 
   Set_Param_Menu(10);
 
@@ -29,52 +49,72 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 	Child, DIAG_Win->TitleText = TextObject, TextFrame,
 		MUIA_Text_Contents, WinTitle, End,
         Child, HGroup,
-	  Child, Label1(GetString( MSG_DIAG_DISTANCE )),  // "  Distance"
+          //Child, Label1(GetString( MSG_DIAG_DISTANCE )),  // "  Distance"
+          Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_DISTANCE),
+            MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(GetString( MSG_DIAG_ELEVATION )),  // " Elevation"
+//	  Child, Label1(GetString( MSG_DIAG_ELEVATION )),  // " Elevation"
+          Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_ELEVATION),
+            MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[1] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(GetString( MSG_DIAG_OVERSTORY )),  // " Overstory"
+//	  Child, Label1(GetString( MSG_DIAG_OVERSTORY )),  // " Overstory"
+          Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_OVERSTORY),
+            MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[2] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(GetString( MSG_DIAG_UNDERSTORY )),  // "Understory"
+//	  Child, Label1(GetString( MSG_DIAG_UNDERSTORY )),  // "Understory"
+          Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_UNDERSTORY),
+            MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[3] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(GetString( MSG_DIAG_RELEL )),  // "    Rel El"
+//	  Child, Label1(GetString( MSG_DIAG_RELEL )),  // "    Rel El"
+          Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_RELEL),
+            MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[4] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(GetString( MSG_DIAG_ASPECT )),  // "    Aspect"
+//	  Child, Label1(GetString( MSG_DIAG_ASPECT )),  // "    Aspect"
+          Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_ASPECT),
+            MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[5] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(GetString( MSG_DIAG_SLOPE )),  // "     Slope"
+//	  Child, Label1(GetString( MSG_DIAG_SLOPE )),  // "     Slope"
+          Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_SLOPE),
+            MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[6] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(GetString( MSG_DIAG_SUNANGLE )),  // " Sun Angle"
+//	  Child, Label1(GetString( MSG_DIAG_SUNANGLE )),  // " Sun Angle"
+          Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_SUNANGLE),
+            MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[7] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(GetString( MSG_DIAG_LATITUDE )),  // "  Latitude"
+//	  Child, Label1(GetString( MSG_DIAG_LATITUDE )),  // "  Latitude"
+          Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_LATITUDE),
+            MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[8] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
 	Child, HGroup,
-	  Child, Label1(GetString( MSG_DIAG_LONGITUDE )),  // " Longitude"
+//	  Child, Label1(GetString( MSG_DIAG_LONGITUDE )),  // " Longitude"	  Child, Label1(GetString( MSG_DIAG_LATITUDE )),  // "  Latitude"
+          Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_LONGITUDE),
+            MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[9] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
 	  End, /* HGroup */
@@ -271,5 +311,3 @@ void Set_Diagnostic_Point(LONG zip)
  set(DIAG_Win->Txt[9], MUIA_Text_Contents, (IPTR)str);
 
 } /* Set_Diagnostic_Point() */
-
-

@@ -4748,7 +4748,7 @@ Test_WindowObject <Start-Nr> <Weitere>  # ohne nummer oder nur mit Startnummer w
 ** 285 DEM Konverter /Vorerarbeitung und Valueformat TAB   ALIGN!
 ** 286 DEM Konverter /One Value Tab                        ALIGN!
 ** 287 DEM Konverter /Max-Min Tab                          ALIGN! 
-** 288 Diagnosedaten                                       ALIGN!
+** 288 Diagnosedaten                                       ALIGN! Done
 ** 289 Ordnerlisten-Editor
 ** 290 datenbank Editor
 ** 291 Ecosystem Editor                                    ALIGN!
@@ -4890,4 +4890,4 @@ Fenster 313 und 314 (Projekt -> Edit) sind jetzt aligned. Label2 durch TextObjec
 Funktioniert mit unterschiedlichen Sprachen (Ohne manuelles Leerzeichen-Alignement) und verschiedenen Fonts, als nicht-prortionalen Fonts.
 Siehe MoreGui.c Make_PJ_Window()
 
-
+Fenster 288 Diagnoseate alignt.
