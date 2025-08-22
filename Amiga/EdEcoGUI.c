@@ -16,6 +16,14 @@ STATIC_FCN void Set_EcoLimits(void); // used locally only -> static, AF 26.7.202
 APTR AF_Make_EcosystemWin(struct EcosystemWindow *EE_Win)
 {
     static const char *TexClass[5]={NULL};
+
+    static ULONG maxLabelRGBWidth = 0;
+    static const ULONG LabelsMatchRGB[] = {
+            MSG_EDECOGUI_MATCHRED,   // " Match Red "
+            MSG_EDECOGUI_MATCHGRN,   // " Match Grn "
+            MSG_EDECOGUI_MATCHBLU    // " Match Blu "
+    };
+
      static int Init=TRUE;
 
      if(Init)
@@ -26,6 +34,8 @@ APTR AF_Make_EcosystemWin(struct EcosystemWindow *EE_Win)
          TexClass[2]=(char*)GetString( MSG_EDECOGUI_PROCEDURAL );    // "Procedural"
          TexClass[3]=(char*)GetString( MSG_EDECOGUI_NONE );          // "None"
          TexClass[4]=(char*)NULL;
+
+             maxLabelRGBWidth = GetMaxTextWidth(&(WCSScrn->RastPort), LabelsMatchRGB, sizeof(LabelsMatchRGB) / sizeof(ULONG));
      }
 
      return WindowObject,
@@ -121,21 +131,28 @@ APTR AF_Make_EcosystemWin(struct EcosystemWindow *EE_Win)
                  Child, VGroup,
                Child, Label(GetString( MSG_EDECOGUI_OLORMAP )),  // "\33c\0334Color Map"
                    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                     Child, Label2(GetString( MSG_EDECOGUI_MATCHRED )),  // " Match Red "        /* Match Red */
+//                     Child, Label2(GetString( MSG_EDECOGUI_MATCHRED )),  // " Match Red "        /* Match Red */
+                     Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_EDECOGUI_MATCHRED), // " Match Red "        /* Match Red */
+                       MUIA_FixWidth, maxLabelRGBWidth, End,
+
                      Child, EE_Win->IntStr[12] = StringObject, StringFrame,
                  MUIA_String_Integer, 0,
                  MUIA_String_Accept, "0123456789",
                  MUIA_FixWidthTxt, "0123", End,
                      End, /* HGroup */
                    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                     Child, Label2(GetString( MSG_EDECOGUI_MATCHGRN )),  // " Match Grn "        /* Match Green */
+//                     Child, Label2(GetString( MSG_EDECOGUI_MATCHGRN )),  // " Match Grn "        /* Match Green */
+                       Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_EDECOGUI_MATCHGRN), // " Match Grn "        /* Match Green */
+                         MUIA_FixWidth, maxLabelRGBWidth, End,
                      Child, EE_Win->IntStr[13] = StringObject, StringFrame,
                  MUIA_String_Integer, 0,
                  MUIA_String_Accept, "0123456789",
                  MUIA_FixWidthTxt, "0123", End,
                      End, /* HGroup */
                    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                     Child, Label2(GetString( MSG_EDECOGUI_MATCHBLU )),  // " Match Blu "        /* Match Blue */
+//                     Child, Label2(GetString( MSG_EDECOGUI_MATCHBLU )),  // " Match Blu "        /* Match Blue */
+                       Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_EDECOGUI_MATCHBLU), // " Match Blu "        /* Match Blue */
+                         MUIA_FixWidth, maxLabelRGBWidth, End,
                      Child, EE_Win->IntStr[14] = StringObject, StringFrame,
                  MUIA_String_Integer, 0,
                  MUIA_String_Accept, "0123456789",
@@ -466,6 +483,19 @@ STATIC_FCN APTR Make_EE_Group(struct EcosystemWindow *EE_Win) // used locally on
   short i, error = 0;
   static char *LabelText[10] = {NULL};
   static int Init=TRUE;
+  static ULONG maxLabelLength = 0;
+  static ULONG Labels[] = {
+    MSG_EDECOGUI_ELEVLINE,  // "Elev Line ",
+    MSG_EDECOGUI_ELEVSKEW,  // "Elev Skew ",
+    MSG_EDECOGUI_ELSKEWAZ,  // "El Skew Az ",
+    MSG_EDECOGUI_RELELEFF,  // "Rel El Eff ",
+    MSG_EDECOGUI_MAXRELEL,  // "Max Rel El ",
+    MSG_EDECOGUI_MINRELEL,  // "Min Rel El ",
+    MSG_EDECOGUI_MAXSLOPE,  // "Max Slope ",
+    MSG_EDECOGUI_MINSLOPE,  // "Min Slope ",
+    MSG_EDECOGUI_DENSITY,   // "Density ",
+    MSG_EDECOGUI_HEIGHT     // "Height "
+  };
 
   if(Init)
   {
@@ -476,11 +506,14 @@ STATIC_FCN APTR Make_EE_Group(struct EcosystemWindow *EE_Win) // used locally on
  	LabelText[3]=(char*)GetString( MSG_EDECOGUI_RELELEFF );  // "Rel El Eff ",
  	LabelText[4]=(char*)GetString( MSG_EDECOGUI_MAXRELEL );  // "Max Rel El ",
  	LabelText[5]=(char*)GetString( MSG_EDECOGUI_MINRELEL );  // "Min Rel El ",
- 	LabelText[6]=(char*)GetString( MSG_EDECOGUI_MAXSLOPE );  // " Max Slope ",
- 	LabelText[7]=(char*)GetString( MSG_EDECOGUI_MINSLOPE );  // " Min Slope ",
-	LabelText[8]=(char*)GetString( MSG_EDECOGUI_DENSITY );   // "   Density ",
-	LabelText[9]=(char*)GetString( MSG_EDECOGUI_HEIGHT );    // "    Height "
- 	};
+ 	LabelText[6]=(char*)GetString( MSG_EDECOGUI_MAXSLOPE );  // "Max Slope ",
+ 	LabelText[7]=(char*)GetString( MSG_EDECOGUI_MINSLOPE );  // "Min Slope ",
+	LabelText[8]=(char*)GetString( MSG_EDECOGUI_DENSITY );   // "Density ",
+	LabelText[9]=(char*)GetString( MSG_EDECOGUI_HEIGHT );    // " Height "
+
+	maxLabelLength=GetMaxTextWidth(&(WCSScrn->RastPort),
+            Labels, sizeof(Labels)/sizeof(ULONG));
+  } /* if Init */
 
   obj = VGroup, End;
   if (! obj) return (NULL);
@@ -515,7 +548,10 @@ STATIC_FCN APTR Make_EE_Group(struct EcosystemWindow *EE_Win) // used locally on
    Object *name;
 
    name = HGroup, MUIA_Group_HorizSpacing, 0,
-     Child, EE_Win->Label[i] = Label2(LabelText[i]),
+//     Child, EE_Win->Label[i] = Label2(LabelText[i]),
+           Child, TextObject, MUIA_Text_Contents, (IPTR)LabelText[i], // Label2(LabelText[i]),
+           MUIA_Text_PreParse, "\033r", // right aligned
+           MUIA_FixWidth, maxLabelLength, End,
      Child, EE_Win->IntStr[i] = StringObject, StringFrame,
 	MUIA_String_Integer, -20000,
 	MUIA_String_Accept, ".+-0123456789",
@@ -533,7 +569,10 @@ STATIC_FCN APTR Make_EE_Group(struct EcosystemWindow *EE_Win) // used locally on
    Object *name;
 
    name = HGroup, MUIA_Group_HorizSpacing, 0,
-     Child, EE_Win->Label[i] = Label2(LabelText[i]),
+//     Child, EE_Win->Label[i] = Label2(LabelText[i]),
+     Child, TextObject, MUIA_Text_Contents, (IPTR)LabelText[i], // Label2(LabelText[i]),
+     MUIA_Text_PreParse, "\033r", // right aligned
+     MUIA_FixWidth, maxLabelLength, End,
      Child, EE_Win->IntStr[i] = StringObject, StringFrame,
 	MUIA_String_Integer, -20000,
 	MUIA_String_Accept, ".+-0123456789",

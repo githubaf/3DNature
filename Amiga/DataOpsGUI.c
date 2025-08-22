@@ -79,6 +79,61 @@ void Make_DC_Window(void)
  static const char *ScaleCycle[4]     = {NULL};
  static const char *ProcessPages[3]   = {NULL};
  static const char *InputPages[3]     = {NULL};
+ static ULONG maxValueFormatLabelWidth=0;
+ static ULONG maxInputColsRowsLabelWidth=0;
+ static ULONG maxDemRegistratLabelWidth=0;
+ static ULONG maxDemsRowColWiseWidth=0;
+ static ULONG maxValueFormatBytesWidth=0;
+ static ULONG maxOutputColsRowsLabelWidth=0;
+ static ULONG maxInputFileSizeHeaderBytesWidth=0;
+
+ static LONG ValueFormatLabels[]=
+ {
+         MSG_DATAOPSGUI_VALUEFORMAT , // "Value Format"
+         MSG_DATAOPSGUI_VALUEBYTES,   // "Value Bytes"
+         MSG_DATAOPSGUI_BYTEORDER,    // "Byte Order"
+         MSG_DATAOPSGUI_READORDER,    // "Read Order"
+         MSG_DATAOPSGUI_ROWSEQUAL,    // "Rows Equal"
+         MSG_DATAOPSGUI_DATAUNITS,    // "Data Units"
+ };
+
+ static LONG InputColsRowsLabel[] =
+ {
+         MSG_DATAOPSGUI_INPUTCOLS,  // "Input Cols"
+         MSG_DATAOPSGUI_INPUTROWS   // "Input Rows"
+ };
+
+ static LONG DemRegistratLabels[]=
+ {
+         MSG_DATAOPSGUI_HIGHLAT,     // "High Lat"
+         MSG_DATAOPSGUI_HIGHLON,     // "High Lon"
+         MSG_DATAOPSGUI_LOWLAT,      // "Low Lat"
+         MSG_DATAOPSGUI_LOWLON,      // "Low Lon"
+ };
+
+ static ULONG DemsRowColWiseLabels[]=
+{
+        MSG_DATAOPSGUI_DEMSROWWISEEW,    // "DEMs Row-Wise E/W"
+        MSG_DATAOPSGUI_COLUMNWISENS,     // "Column-Wise N/S"
+ };
+
+ static ULONG ValueFormatBytesLabels[] =
+ {
+         MSG_DATAOPSGUI_VALUEFORMAT, // "Value Format"
+         MSG_DATAOPSGUI_VALUEBYTES,  // "Value Bytes"
+ };
+
+ static LONG OutputColsRowsLabels[] =
+ {
+         MSG_DATAOPSGUI_OUTPUTCOLS,  // "Output Cols"
+         MSG_DATAOPSGUI_OUTPUTROWS   // "Output Rows"
+ };
+
+static ULONG InputFileSizeHeaderBytesLabels[] =
+{
+         MSG_DATAOPSGUI_INPUTFILESIZE,  // "Input File Size"
+         MSG_DATAOPSGUI_HEADERBYTES     // "Header Bytes"
+ };
 
  if (Init)
  {
@@ -149,6 +204,27 @@ void Make_DC_Window(void)
 	 InputPages[0]=(char*)GetString( MSG_DATAOPSGUI_VALUEFORMATCOLORED );  // "\0334Value Format"  // there is also a define "MSG_DATAOPSGUI_VALUEFORMAT", identical, but without the "\0334"
 	 InputPages[1]=(char*)GetString( MSG_DATAOPSGUI_PREPROCESS );          // "\0334Pre-Process"
 	 InputPages[2]=(char*)NULL;
+
+	 maxValueFormatLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
+            ValueFormatLabels, sizeof(ValueFormatLabels) / sizeof(ULONG));
+
+     maxInputColsRowsLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
+            InputColsRowsLabel, sizeof(InputColsRowsLabel) / sizeof(ULONG));
+
+     maxDemRegistratLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
+            DemRegistratLabels, sizeof(DemRegistratLabels) / sizeof(ULONG));
+
+     maxDemsRowColWiseWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
+            DemsRowColWiseLabels, sizeof(DemsRowColWiseLabels) / sizeof(ULONG));
+
+     maxValueFormatBytesWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
+            ValueFormatBytesLabels, sizeof(ValueFormatBytesLabels) / sizeof(ULONG));
+
+     maxOutputColsRowsLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
+            OutputColsRowsLabels, sizeof(OutputColsRowsLabels) / sizeof(ULONG));
+
+     maxInputFileSizeHeaderBytesWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
+            InputFileSizeHeaderBytesLabels, sizeof(InputFileSizeHeaderBytesLabels) / sizeof(ULONG));
  }
 
  if (DC_Win)
@@ -189,43 +265,67 @@ void Make_DC_Window(void)
 	      Child, DC_Win->FileNameStr = StringObject, StringFrame, End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label1(GetString( MSG_DATAOPSGUI_INPUTFILESIZE ) ),  // "Input File Size"
+//	      Child, Label1(GetString( MSG_DATAOPSGUI_INPUTFILESIZE ) ),  // "Input File Size"
+	        Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_INPUTFILESIZE), // "Input File Size"
+                         MUIA_Text_PreParse, "\033r", // right aligned
+                         MUIA_FixWidth, maxInputFileSizeHeaderBytesWidth, End,
 	      Child, DC_Win->FileSizeTxt = TextObject, TextFrame, End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label1(GetString( MSG_DATAOPSGUI_HEADERBYTES ) ),  // "Header Bytes"
+//	      Child, Label1(GetString( MSG_DATAOPSGUI_HEADERBYTES ) ),  // "Header Bytes"
+	        Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_HEADERBYTES), // "Header Bytes"
+                         MUIA_Text_PreParse, "\033r", // right aligned
+                         MUIA_FixWidth, maxInputFileSizeHeaderBytesWidth, End,
 	      Child, DC_Win->FormatIntStr[0] = StringObject, StringFrame,
 		MUIA_String_Accept, "0123456789", End,
 	      End, /* HGroup */
 	    Child, DC_Win->IPRegister =RegisterGroup(InputPages),
 	      Child, VGroup,
 	        Child, HGroup,
-	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEFORMAT ) ),  // "Value Format"
+//	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEFORMAT ) ),  // "Value Format"
+	        Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_VALUEFORMAT), // "Value Format"
+	                   MUIA_Text_PreParse, "\033r", // right aligned
+	                   MUIA_FixWidth, maxValueFormatLabelWidth, End,
 	          Child, DC_Win->Cycle[2] = CycleObject,
 		 	MUIA_Cycle_Entries, FormatCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEBYTES ) ),  // " Value Bytes"
+//	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEBYTES ) ),  // " Value Bytes"
+	          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_VALUEBYTES), // " Value Bytes"
+                       MUIA_Text_PreParse, "\033r", // right aligned
+                       MUIA_FixWidth, maxValueFormatLabelWidth, End,
 	          Child, DC_Win->Cycle[3] = CycleObject,
 		 	MUIA_Cycle_Entries, ValSizeCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1(GetString( MSG_DATAOPSGUI_BYTEORDER ) ),  // "  Byte Order"
+//	          Child, Label1(GetString( MSG_DATAOPSGUI_BYTEORDER ) ),  // "  Byte Order"
+	          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_BYTEORDER), // "  Byte Order"
+                       MUIA_Text_PreParse, "\033r", // right aligned
+                       MUIA_FixWidth, maxValueFormatLabelWidth, End,
 	          Child, DC_Win->Cycle[4] = CycleObject,
 		 	MUIA_Cycle_Entries, ByteOrderCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1(GetString( MSG_DATAOPSGUI_READORDER ) ),  // "  Read Order"
+//	          Child, Label1(GetString( MSG_DATAOPSGUI_READORDER ) ),  // "  Read Order"
+	          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_READORDER), // "  Read Order"
+                       MUIA_Text_PreParse, "\033r", // right aligned
+                       MUIA_FixWidth, maxValueFormatLabelWidth, End,
 	          Child, DC_Win->Cycle[5] = CycleObject,
 		 	MUIA_Cycle_Entries, ReadOrderCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1(GetString( MSG_DATAOPSGUI_ROWSEQUAL ) ),  // "  Rows Equal
+//	          Child, Label1(GetString( MSG_DATAOPSGUI_ROWSEQUAL ) ),  // "  Rows Equal
+	          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_ROWSEQUAL), // "  Rows Equal"
+                       MUIA_Text_PreParse, "\033r", // right aligned
+                       MUIA_FixWidth, maxValueFormatLabelWidth, End,
 	          Child, DC_Win->Cycle[6] = CycleObject,
 		 	MUIA_Cycle_Entries, RowCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1(GetString( MSG_DATAOPSGUI_DATAUNITS ) ),  // "  Data Units"
+//	          Child, Label1(GetString( MSG_DATAOPSGUI_DATAUNITS ) ),  // "  Data Units"
+	          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_DATAUNITS), // "  Data Units"
+                       MUIA_Text_PreParse, "\033r", // right aligned
+                       MUIA_FixWidth, maxValueFormatLabelWidth, End,
 	          Child, DC_Win->Cycle[7] = CycleObject,
 			MUIA_Cycle_Active, 1,
 		 	MUIA_Cycle_Entries, UnitCycle, End,
@@ -287,13 +387,19 @@ void Make_DC_Window(void)
 	      End, /* RegisterGroup */
 
 	    Child, HGroup,
-	      Child, Label2(GetString( MSG_DATAOPSGUI_INPUTCOLS ) ),  // "Input Cols"
+	      //Child, Label2(GetString( MSG_DATAOPSGUI_INPUTCOLS ) ),  // "Input Cols"
+	        Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_INPUTCOLS), // "Input Cols"
+	          MUIA_Text_PreParse, "\033r", // right aligned
+	          MUIA_FixWidth, maxInputColsRowsLabelWidth, End,
 	      Child, DC_Win->FormatIntStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "0123456", End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label2(GetString( MSG_DATAOPSGUI_INPUTROWS ) ),  // "Input Rows"
+//	      Child, Label2(GetString( MSG_DATAOPSGUI_INPUTROWS ) ),  // "Input Rows"
+	        Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_INPUTROWS), // "Input Rows"
+              MUIA_Text_PreParse, "\033r", // right aligned
+              MUIA_FixWidth, maxInputColsRowsLabelWidth, End,
 	      Child, DC_Win->FormatIntStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "0123456", End,
@@ -337,7 +443,10 @@ void Make_DC_Window(void)
 			MUIA_String_Reject, ":/*#`%?", End,
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label2(GetString( MSG_DATAOPSGUI_DEMSROWWISEEW ) ),  // "DEMs Row-Wise E/W"
+//	      Child, Label2(GetString( MSG_DATAOPSGUI_DEMSROWWISEEW ) ),  // "DEMs Row-Wise E/W"
+	        Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_DEMSROWWISEEW), // "DEMs Row-Wise E/W"
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxDemsRowColWiseWidth, End,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, DC_Win->OutputMapStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789", End,
@@ -346,7 +455,10 @@ void Make_DC_Window(void)
 	        End, /* HGroup */
 	      End, /* HGroup */
 	    Child, HGroup,
-	      Child, Label2(GetString( MSG_DATAOPSGUI_COLUMNWISENS ) ),  // "  Column-Wise N/S"
+//	      Child, Label2(GetString( MSG_DATAOPSGUI_COLUMNWISENS ) ),  // "  Column-Wise N/S"
+	        Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_COLUMNWISENS), // "  Column-Wise N/S"
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxDemsRowColWiseWidth, End,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, DC_Win->OutputMapStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789", End,
@@ -358,25 +470,37 @@ void Make_DC_Window(void)
 	    Child, DC_Win->PGRegister =RegisterGroup(ProcessPages),
 	      Child, VGroup,
 	        Child, HGroup,
-	          Child, Label2(GetString( MSG_DATAOPSGUI_HIGHLAT ) ),  // "High Lat"
+//	          Child, Label2(GetString( MSG_DATAOPSGUI_HIGHLAT ) ),  // "High Lat"
+	            Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_HIGHLAT), // "High Lat"
+	                     MUIA_Text_PreParse, "\033r", // right aligned
+                          MUIA_FixWidth, maxDemRegistratLabelWidth, End,
 	          Child, DC_Win->LatScaleStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "0000.000000", End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label2(GetString( MSG_DATAOPSGUI_LOWLAT ) ),  // " Low Lat"
+//	          Child, Label2(GetString( MSG_DATAOPSGUI_LOWLAT ) ),  // " Low Lat"
+	            Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_LOWLAT), // " Low Lat"
+                             MUIA_Text_PreParse, "\033r", // right aligned
+                            MUIA_FixWidth, maxDemRegistratLabelWidth, End,
 	          Child, DC_Win->LatScaleStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "0000.000000", End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label2(GetString( MSG_DATAOPSGUI_HIGHLON ) ),  // "High Lon"
+//	          Child, Label2(GetString( MSG_DATAOPSGUI_HIGHLON ) ),  // "High Lon"
+	            Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_HIGHLON), // "High Lon"
+                             MUIA_Text_PreParse, "\033r", // right aligned
+                             MUIA_FixWidth, maxDemRegistratLabelWidth, End,
 	          Child, DC_Win->LatScaleStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "0000.000000", End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label2(GetString( MSG_DATAOPSGUI_LOWLON ) ),  // " Low Lon"
+//	          Child, Label2(GetString( MSG_DATAOPSGUI_LOWLON ) ),  // " Low Lon"
+	            Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_LOWLON), // " Low Lon"
+                             MUIA_Text_PreParse, "\033r", // right aligned
+                             MUIA_FixWidth, maxDemRegistratLabelWidth, End,
 	          Child, DC_Win->LatScaleStr[3] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "0000.000000", End,
@@ -385,23 +509,35 @@ void Make_DC_Window(void)
 
 	      Child, VGroup,
 	        Child, HGroup,
-	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEFORMAT ) ),  // "Value Format"
+//	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEFORMAT ) ),  // "Value Format"
+	            Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_VALUEFORMAT), // "Value Format"
+                         MUIA_Text_PreParse, "\033r", // right aligned
+                         MUIA_FixWidth, maxValueFormatBytesWidth, End,
 	          Child, DC_Win->Cycle[8] = CycleObject,
 			MUIA_Cycle_Entries, FormatCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEBYTES ) ),  // " Value Bytes"
+//	          Child, Label1(GetString( MSG_DATAOPSGUI_VALUEBYTES ) ),  // " Value Bytes"
+	            Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_VALUEBYTES), // " Value Bytes"
+                         MUIA_Text_PreParse, "\033r", // right aligned
+                         MUIA_FixWidth, maxValueFormatBytesWidth, End,
 	          Child, DC_Win->Cycle[9] = CycleObject,
 	 		MUIA_Cycle_Entries, ValSizeCycle, End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label2(GetString( MSG_DATAOPSGUI_OUTPUTCOLS ) ),  // " Output Cols"
+//	          Child, Label2(GetString( MSG_DATAOPSGUI_OUTPUTCOLS ) ),  // " Output Cols"
+	            Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_OUTPUTCOLS), // " Output Cols"
+                         MUIA_Text_PreParse, "\033r", // right aligned
+                         MUIA_FixWidth, maxOutputColsRowsLabelWidth, End,
 	          Child, DC_Win->FormatIntStr[4] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "0123456", End,
 	          End, /* HGroup */
 	        Child, HGroup,
-	          Child, Label2(GetString( MSG_DATAOPSGUI_OUTPUTROWS ) ),  //" Output Rows"),
+//	          Child, Label2(GetString( MSG_DATAOPSGUI_OUTPUTROWS ) ),  //" Output Rows"),
+	            Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_OUTPUTROWS), // " Output Rows"
+                         MUIA_Text_PreParse, "\033r", // right aligned
+                         MUIA_FixWidth, maxOutputColsRowsLabelWidth, End,
 	          Child, DC_Win->FormatIntStr[3] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "0123456", End,
@@ -1391,6 +1527,27 @@ STATIC_FCN void Set_DC_Data(void) // used locally only -> static, AF 25.7.2021
 
 APTR AK_MakeInterpWin(struct DEMInterpolateWindow *DI_Win)
 {
+
+    static int Init=TRUE;
+    static ULONG maxLabelsWidth=0;
+
+    static ULONG Labels[] =
+    {
+        MSG_DATAOPSGUI_ELEVATIONVAR,  // "Elevation Var %"
+        MSG_DATAOPSGUI_MAXFLATVAR     // "Max Flat Var"
+    };
+
+    if(Init)
+    {
+        Init = FALSE;
+        maxLabelsWidth = 0;
+
+        for(int i=0; i<sizeof(Labels)/sizeof(ULONG); i++)
+        {
+            maxLabelsWidth = GetMaxTextWidth(&(WCSScrn->RastPort), Labels, sizeof(Labels) / sizeof(ULONG));
+        }
+    }
+
     return WindowObject,
             MUIA_Window_Title     , GetString( MSG_DATAOPSGUI_DEMINTERPOLATE ) ,  // "DEM Interpolate"
             MUIA_Window_ID        , MakeID('D','O','I','N'),
@@ -1406,16 +1563,22 @@ APTR AK_MakeInterpWin(struct DEMInterpolateWindow *DI_Win)
             End, /* HGroup */
           Child, HGroup,
             Child, RectangleObject, End,
-            Child, Label2(GetString( MSG_DATAOPSGUI_ELEVATIONVAR ) ),  // "Elevation Var %"
-            Child, DI_Win->ElVarStr = StringObject, StringFrame,
-              MUIA_FixWidthTxt, "0123456",
-              MUIA_String_Contents, "2.0",
-              MUIA_String_Accept, "-.0123456789", End,
+//            Child, Label2(GetString( MSG_DATAOPSGUI_ELEVATIONVAR ) ),  // "Elevation Var %"
+              Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_ELEVATIONVAR), // "Elevation Var %"
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxLabelsWidth, End,
+              Child, DI_Win->ElVarStr = StringObject, StringFrame,
+                MUIA_FixWidthTxt, "0123456",
+                MUIA_String_Contents, "2.0",
+                MUIA_String_Accept, "-.0123456789", End,
             Child, RectangleObject, End,
             End, /* HGroup */
           Child, HGroup,
             Child, RectangleObject, End,
-            Child, Label2(GetString( MSG_DATAOPSGUI_MAXFLATVAR ) ),  // "   Max Flat Var"
+//          Child, Label2(GetString( MSG_DATAOPSGUI_MAXFLATVAR ) ),  // "   Max Flat Var"
+            Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_MAXFLATVAR), // "Max Flat Var"
+              MUIA_Text_PreParse, "\033r", // right aligned
+              MUIA_FixWidth, maxLabelsWidth, End,
             Child, DI_Win->FlatMaxStr = StringObject, StringFrame,
               MUIA_FixWidthTxt, "0123456",
               MUIA_String_Contents, "2.0",
@@ -1619,7 +1782,7 @@ void Handle_DI_Window(ULONG WCS_ID)
 
 } /* Handle_DI_Window() */
 
-/**********************************************************************/
+/********************************************************************/
 
 STATIC_FCN void Set_DI_Data(void) // used locally only -> static, AF 25.7.2021
 {

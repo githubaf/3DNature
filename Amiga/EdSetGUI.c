@@ -69,6 +69,14 @@ void Make_ES_Window(void)
  static const char *ES_Cycle_MoonHalo[3]={NULL};
  static int Init = TRUE;
 
+ static ULONG PathFileTempLabels[] = {
+     MSG_EDSETGUI_SAVEPATH,  // "Save Path "
+     MSG_EDSETGUI_SAVEFILE,  // "Save File "
+     MSG_EDSETGUI_TEMPPATH   // "Temp Path "
+ };
+
+ static ULONG maxPathFileTempLabelWidth = 0;
+
 if(Init)
 {
  Init = FALSE;
@@ -285,6 +293,8 @@ ES_Cycle_Data[2]=NULL;
  ES_Cycle_MoonHalo[0] = (char*)GetString( MSG_EDSETGUI_NOMOONHALO );  // "No Moon Halo"
  ES_Cycle_MoonHalo[1] = (char*)GetString( MSG_EDSETGUI_MOONHALO );    // "\338Moon Halo"
  ES_Cycle_MoonHalo[2] = NULL;
+
+ maxPathFileTempLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), PathFileTempLabels, sizeof(PathFileTempLabels) / sizeof(ULONG));
 }
 
  if (ES_Win)
@@ -429,18 +439,29 @@ ES_Cycle_Data[2]=NULL;
 /* Image Save */
 	  Child, VGroup, GroupFrame,
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDSETGUI_SAVEPATH ) ),  // "Save Path "
+//	      Child, Label2(GetString( MSG_EDSETGUI_SAVEPATH ) ),  // "Save Path "
+        Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_SAVEPATH ),  // "Save Path "
+          MUIA_Text_PreParse, "\033r", // right aligned
+          MUIA_FixWidth, maxPathFileTempLabelWidth, End,
+
 	      Child, ES_Win->Str[0] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      Child, ES_Win->BT_Get[0] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDSETGUI_SAVEFILE ) ),  // "Save File "
+//	      Child, Label2(GetString( MSG_EDSETGUI_SAVEFILE ) ),  // "Save File "
+          Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_SAVEFILE ),  // "Save File "
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxPathFileTempLabelWidth, End,
 	      Child, ES_Win->Str[8] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456789012345", End,
+//		MUIA_FixWidthTxt, "0123456789012345",  // AF: removed to align with line above and below (those have an extra ImageButtonWCS)
+	      End,
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDSETGUI_TEMPPATH ) ),  // "Temp Path "
+//	      Child, Label2(GetString( MSG_EDSETGUI_TEMPPATH ) ),  // "Temp Path "
+          Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_TEMPPATH ),  // "Temp Path "
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxPathFileTempLabelWidth, End,
 	      Child, ES_Win->Str[7] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      Child, ES_Win->BT_Get[5] = ImageButtonWCS(MUII_Disk),

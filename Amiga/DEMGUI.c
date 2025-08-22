@@ -54,6 +54,28 @@ static const char *MD_Displace[5]   = {NULL};
 static const char *MD_ElevUnits[7]  = {NULL};
 static int Init=TRUE;
 
+static ULONG maxElevDispDrawLabelWidth = 0;
+static ULONG maxSpacingDeviationLinearityLabelWidth = 0;
+
+static ULONG ElevDispDrawLabels[] = {
+    MSG_DEMGUI_ELEVSOURCE,  // "Elev Source"
+    MSG_DEMGUI_DRAWMODE,    // "Draw Mode"
+    MSG_DEMGUI_DISPLACE,    // "Displace",
+    MSG_DEMGUI_ELEVUNITS    // "Elev Units"
+};
+
+static ULONG SpacingDeviationLinearityLabels[] = {
+    MSG_DEMGUI_MINIMUMSPACING,  // "Min Spacing",
+    MSG_DEMGUI_STDDEVIATION,    // "Std Deviation",
+    MSG_DEMGUI_NONLINEARITY     // "Non-Linearity"
+};
+
+ if (MD_Win)
+  {
+  DoMethod(MD_Win->MakeDEMWin, MUIM_Window_ToFront);
+  set(MD_Win->MakeDEMWin, MUIA_Window_Activate, TRUE);
+  return;
+  } /* if window already exists */
 if(Init)
 {
 	Init=FALSE;
@@ -90,6 +112,12 @@ if(Init)
 	MD_ElevUnits[4] = (char*)GetString( MSG_DATAOPSGUI_FEET );         // "Feet",
 	MD_ElevUnits[5] = (char*)GetString( MSG_DATAOPSGUI_INCHES );       // "Inches",
 	MD_ElevUnits[6] = NULL;
+
+	maxElevDispDrawLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
+        ElevDispDrawLabels, sizeof(ElevDispDrawLabels) / sizeof(ULONG));
+
+	maxSpacingDeviationLinearityLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
+        SpacingDeviationLinearityLabels, sizeof(SpacingDeviationLinearityLabels) / sizeof(ULONG));
 }
 
  if (MD_Win)
@@ -150,25 +178,37 @@ if(Init)
 			 MUIA_Text_Contents, GetString( MSG_DEMGUI_SETEL ), End,  // "\33cSet El"
 		End, /* HGroup */
 	      Child, HGroup,
-		Child, Label2(GetString( MSG_DEMGUI_ELEVSOURCE ) ),  // "Elev Source"
+//		Child, Label2(GetString( MSG_DEMGUI_ELEVSOURCE ) ),  // "Elev Source"
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_ELEVSOURCE), // "Elev Source"
+	        MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxElevDispDrawLabelWidth, End,
 		Child, MD_Win->Cycle[0] = CycleObject,
 			MUIA_Cycle_Entries, MD_ElevSource,
 			MUIA_Cycle_Active, MD_Win->ElSource, End,
 		End, /* HGroup */
 	      Child, HGroup,
-		Child, Label2(GetString( MSG_DEMGUI_ELEVUNITS ) ),  // " Elev Units"
+//		Child, Label2(GetString( MSG_DEMGUI_ELEVUNITS ) ),  // " Elev Units"
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_ELEVUNITS), // " Elev Units"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxElevDispDrawLabelWidth, End,
 		Child, MD_Win->Cycle[1] = CycleObject,
 			MUIA_Cycle_Entries, MD_ElevUnits,
 			MUIA_Cycle_Active, MD_Win->Units, End,
 		End, /* HGroup */
 	      Child, HGroup,
-		Child, Label2(GetString( MSG_DEMGUI_DISPLACE ) ),  // "   Displace"
+//		Child, Label2(GetString( MSG_DEMGUI_DISPLACE ) ),  // "   Displace"
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_DISPLACE), // "   Displace"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxElevDispDrawLabelWidth, End,
 		Child, MD_Win->Cycle[2] = CycleObject,
 			MUIA_Cycle_Entries, MD_Displace,
 			MUIA_Cycle_Active, MD_Win->Displace, End,
 		End, /* HGroup */
 	      Child, HGroup,
-		Child, Label2(GetString( MSG_DEMGUI_DRAWMODE ) ),  // "  Draw Mode"
+//		Child, Label2(GetString( MSG_DEMGUI_DRAWMODE ) ),  // "  Draw Mode"
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_DRAWMODE), // "  Draw Mode"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxElevDispDrawLabelWidth, End,
 		Child, MD_Win->Cycle[3] = CycleObject,
 			MUIA_Cycle_Entries, MD_DrawMode,
 			MUIA_Cycle_Active, MD_Win->DMode, End,
@@ -177,7 +217,10 @@ if(Init)
 			 MUIA_InputMode, MUIV_InputMode_Toggle,
 			 MUIA_Text_Contents, GetString( MSG_DEMGUI_NOGRADIENTREVERSAL ), End,  // "\33cNo Gradient Reversal"
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_DEMGUI_MINIMUMSPACING ) ),  // "Minimum Spacing "
+//                Child, Label2(GetString( MSG_DEMGUI_MINIMUMSPACING ) ),  // "Minimum Spacing "
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_MINIMUMSPACING), // "Minimum Spacing "
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxSpacingDeviationLinearityLabelWidth, End,
 	        Child, MD_Win->FloatStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -185,7 +228,10 @@ if(Init)
                 Child, MD_Win->ArrowRight[0] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_DEMGUI_STDDEVIATION ) ),  // "  Std Deviation "
+//                Child, Label2(GetString( MSG_DEMGUI_STDDEVIATION ) ),  // "Std Deviation "
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_STDDEVIATION), // "Std Deviation "
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxSpacingDeviationLinearityLabelWidth, End,
 	        Child, MD_Win->FloatStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, ".0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -193,7 +239,10 @@ if(Init)
                 Child, MD_Win->ArrowRight[1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_DEMGUI_NONLINEARITY ) ),  // "  Non-linearity "
+//                Child, Label2(GetString( MSG_DEMGUI_NONLINEARITY ) ),  // "Non-linearity "
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_NONLINEARITY), // "  Non-linearity "
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxSpacingDeviationLinearityLabelWidth, End,
 	        Child, MD_Win->FloatStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, ".0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -727,6 +776,44 @@ STATIC_FCN void MD_Window_Init(void) // used locally only -> static, AF 20.7.202
 /*STATIC_FCN*/ void Make_GR_Window(void) // used locally only -> static, AF 20.7.2021 (but now also in test)
 {
 long open;
+static int Init=TRUE;
+static ULONG maxOptionsWidth=0;
+static ULONG maxLimitsCelOverlapWidth=0;
+
+static ULONG OptionsLabels[] =
+{
+        MSG_DEMGUI_GRADIENTS,        // "Gradients"
+        MSG_DEMGUI_NONNEG,           // "Non-Neg"
+        MSG_DEMGUI_CHOROPLETH,       // "Choropleth"
+        MSG_DEMGUI_DENSITY,          // "Density"
+        MSG_DEMGUI_EXTRAPOLATE,      // "Extrapolate"
+        MSG_DEMGUI_SOUTHHEMI         // "South Hemi."
+};
+
+static ULONG LimitsCelOverlapLabels[] =
+{
+        MSG_DEMGUI_NORTH,            // "North"
+        MSG_DEMGUI_SOUTH,            // "South"
+        MSG_DEMGUI_EAST,             // "East"
+        MSG_DEMGUI_WEST,             // "West"
+        MSG_DEMGUI_HORIZ,            // "Horiz"
+        MSG_DEMGUI_VERT              // "Vert"
+
+};
+
+ if (GR_Win)
+  return; /* window already exists */
+
+ if (!WCSScrn)
+  return; /* no screen */
+
+if (Init)
+{
+    Init = FALSE;
+    maxOptionsWidth = GetMaxTextWidth(&(WCSScrn->RastPort), OptionsLabels, sizeof(OptionsLabels) / sizeof(ULONG));
+    maxLimitsCelOverlapWidth = GetMaxTextWidth(&(WCSScrn->RastPort), LimitsCelOverlapLabels, sizeof(LimitsCelOverlapLabels) / sizeof(ULONG));
+
+}
 
  if (GR_Win)
   {
@@ -753,75 +840,111 @@ long open;
 	    Child, Label(GetString( MSG_DEMGUI_OPTIONS ) ),  // "\33c\0334Options"
 	    Child, HGroup,
 	      Child, GR_Win->Check[0] = CheckMark(1),
-	      Child, Label1(GetString( MSG_DEMGUI_GRADIENTS ) ),  // "Gradients  "
+//	      Child, Label1(GetString( MSG_DEMGUI_GRADIENTS ) ),  // "Gradients  "
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_GRADIENTS), // "Gradients"
+            MUIA_FixWidth, maxOptionsWidth, End,
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, GR_Win->Check[1] = CheckMark(0),
-	      Child, Label1(GetString( MSG_DEMGUI_NONNEG ) ),  // "Non-Neg    "
+//	      Child, Label1(GetString( MSG_DEMGUI_NONNEG ) ),  // "Non-Neg    "
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_NONNEG), // "Non-Neg"
+            MUIA_FixWidth, maxOptionsWidth, End,
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, GR_Win->Check[2] = CheckMark(0),
-	      Child, Label1(GetString( MSG_DEMGUI_CHOROPLETH ) ),  // "Choropleth "
+//	      Child, Label1(GetString( MSG_DEMGUI_CHOROPLETH ) ),  // "Choropleth "
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_CHOROPLETH), // "Choropleth"
+            MUIA_FixWidth, maxOptionsWidth, End,
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, GR_Win->Check[3] = CheckMark(0),
-	      Child, Label1(GetString( MSG_DEMGUI_DENSITY ) ),  // "Density    "
+//	      Child, Label1(GetString( MSG_DEMGUI_DENSITY ) ),  // "Density    "
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_DENSITY), // "Density"
+            MUIA_FixWidth, maxOptionsWidth, End,
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, GR_Win->Check[4] = CheckMark(1),
-	      Child, Label1(GetString( MSG_DEMGUI_EXTRAPOLATE ) ),  // "Extrapolate"
+//	      Child, Label1(GetString( MSG_DEMGUI_EXTRAPOLATE ) ),  // "Extrapolate"
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_EXTRAPOLATE), // "Extrapolate"
+            MUIA_FixWidth, maxOptionsWidth, End,
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, GR_Win->Check[5] = CheckMark(0),
-	      Child, Label1(GetString( MSG_DEMGUI_SOUTHHEMI ) ),  // "South Hemi."
+//	      Child, Label1(GetString( MSG_DEMGUI_SOUTHHEMI ) ),  // "South Hemi."
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_SOUTHHEMI), // "South Hemi."
+            MUIA_FixWidth, maxOptionsWidth, End,
 	      End, /* HGroup */
 	    End, /* VGroup */
 	  Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
 	  Child, VGroup,
 	    Child, Label(GetString( MSG_DEMGUI_BOUNDARIES ) ),  // "\33c\0334Boundaries"),
 	    Child, ColGroup(4),
-	      Child, Label2(GetString( MSG_DEMGUI_NORTH ) ),  // "North"
+//	      Child, Label2(GetString( MSG_DEMGUI_NORTH ) ),  // "North"
+	       Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_NORTH), // "North"
+	         MUIA_Text_PreParse, "\033r", // right aligned
+	         MUIA_FixWidth, maxLimitsCelOverlapWidth, End,
 	      Child, GR_Win->FloatStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End,
 
-	      Child, Label2(GetString( MSG_DEMGUI_SOUTH ) ),  // "South"
+//	      Child, Label2(GetString( MSG_DEMGUI_SOUTH ) ),  // "South"
+          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_SOUTH), // "South"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxLimitsCelOverlapWidth, End,
 	      Child, GR_Win->FloatStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End,
 
-	      Child, Label2(GetString( MSG_DEMGUI_EAST ) ),  // "East"
+//	      Child, Label2(GetString( MSG_DEMGUI_EAST ) ),  // "East"
+          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_EAST), // "East"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxLimitsCelOverlapWidth, End,
 	      Child, GR_Win->FloatStr[2] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End,
 
-	      Child, Label2(GetString( MSG_DEMGUI_WEST ) ),  // "West"
+//	      Child, Label2(GetString( MSG_DEMGUI_WEST ) ),  // "West"
+          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_WEST), // "West"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxLimitsCelOverlapWidth, End,
 	      Child, GR_Win->FloatStr[3] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End, 
 	      End, /* ColGroup */
 	    Child, Label(GetString( MSG_DEMGUI_ELLOVERLAP ) ),  // "\33c\0334Cell Overlap"
 	    Child, ColGroup(4),
-	      Child, Label2(GetString( MSG_DEMGUI_HORIZ ) ),  // "Horiz"
+//	      Child, Label2(GetString( MSG_DEMGUI_HORIZ ) ),  // "Horiz"
+	      Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_HORIZ), // "Horiz"
+            MUIA_Text_PreParse, "\033r", // right aligned
+	        MUIA_FixWidth, maxLimitsCelOverlapWidth, End,
 	      Child, GR_Win->FloatStr[4] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "012345",
+			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End,
 
-	      Child, Label2(GetString( MSG_DEMGUI_VERT ) ),  // "Vert"
+//	      Child, Label2(GetString( MSG_DEMGUI_VERT ) ),  // "Vert"
+          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DEMGUI_VERT), // "Vert"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxLimitsCelOverlapWidth, End,
 	      Child, GR_Win->FloatStr[5] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "012345",
+			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End,
 	      End, /* ColGroup */
 	    Child, Label(GetString( MSG_DEMGUI_SURFACETAUTNESS ) ),  // "\33c\0334Surface Tautness"
 	    Child, ColGroup(4),
-	      Child, Label2("1"),
+//	      Child, Label2("1"),
+          Child, TextObject, MUIA_Text_Contents, "1", // "1"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxLimitsCelOverlapWidth, End,
 	      Child, GR_Win->FloatStr[6] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "012345",
+			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End,
 
-	      Child, Label2("2"),
+//	      Child, Label2("2"),
+          Child, TextObject, MUIA_Text_Contents, "2", // "2"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxLimitsCelOverlapWidth, End,
 	      Child, GR_Win->FloatStr[7] = StringObject, StringFrame,
-			MUIA_FixWidthTxt, "012345",
+			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "-.0123456789", End,
 	      End, /* ColGroup */
 	    End, /* VGroup */

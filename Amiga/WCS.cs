@@ -5423,7 +5423,7 @@ Minimum Spacing \x20
 Minimaler Abstand \x20
 Spazio Minimo \x20
 
-  Minimale Ruimte \x20
+Minimale Ruimte \x20
 
 
 Espaciado mínimo\x20
@@ -5432,9 +5432,9 @@ Minimální odsazení \x20
 
 ;
 MSG_DEMGUI_STDDEVIATION
-  Std Deviation\x20
+Std Deviation\x20
 Standardabweichung \x20
-  Std Deviazione\x20
+Std Deviazione\x20
 
 Standaard Afwijking\x20
 
@@ -5445,11 +5445,11 @@ Standardní odchylka\x20
 
 ;
 MSG_DEMGUI_NONLINEARITY
-  Non-linearity\x20
-  Nichtlinearität\x20
-  Non Linearità\x20
+Non-linearity\x20
+Nichtlinearität\x20
+Non Linearità\x20
 
-   Non Lineariteit\x20
+Non Lineariteit\x20
 
 
 No linealidad\x20
@@ -5510,42 +5510,42 @@ MSG_DEMGUI_OPTIONS
 
 ;
 MSG_DEMGUI_GRADIENTS
-Gradients\x20\x20
-Gradienten\x20\x20
-Gradienti\x20\x20
+Gradients
+Gradienten
+Gradienti
 
-Gradiënten\x20\x20
+Gradiënten
 
 
-Gradientes\x20\x20
-Nachylenia\x20\x20
-Gradienty\x20\x20
+Gradientes
+Nachylenia
+Gradienty
 
 ;
 MSG_DEMGUI_CHOROPLETH
-Choropleth\x20
-Choroplethen\x20
-Choropleth\x20
+Choropleth
+Choroplethen
+Choropleth
 
-Choropleth\x20
+Choropleth
 
 
-Coropletas\x20
-Kartogram\x20
-prelozit \x20
+Coropletas
+Kartogram
+prelozit
 
 ;
 MSG_DEMGUI_DENSITY
-Density\x20\x20\x20\x20
-Dichte\x20\x20\x20\x20\x20
-Densità\x20\x20\x20\x20
+Density
+Dichte
+Densità
 
-Dichtheid\x20\x20\x20\x20
+Dichtheid
 
 
-Densidad\x20\x20\x20\x20
- Gêsto¶æ\x20\x20\x20\x20
-Hustota\x20\x20\x20\x20
+Densidad
+ Gêsto¶æ
+Hustota
 
 ;
 MSG_DEMGUI_EXTRAPOLATE
@@ -7875,7 +7875,7 @@ MSG_DATAOPSGUI_TWOVALUEEQUIVALENCE
 \0334Twee Waarden Equivalentie
 
 
-\0334Equivalencia de dos valores
+\0334Dos valores - Equivalencia
 \0334 Równowa¿no¶æ Dwóch Warto¶ci
 \0334Zámìna dvou hodnot
 
@@ -7888,7 +7888,7 @@ MSG_DATAOPSGUI_ONEVALUEEQUIVALENCE
 \0334Een Waarde Equivalentie
 
 
-\0334Equivalencia de un valor
+\0334Un valor - Equivalencia
 \0334 Równowa¿no¶æ Jednej Warto¶ci
 \0334Zámìna jedné hodnoty
 
@@ -7901,7 +7901,7 @@ MSG_DATAOPSGUI_MAXMINSTRETCH
 \0334Max-Min Rek
 
 
-\0334Estiramiento Máx-Mín
+\0334Máx-Mín - Estiramiento
 \0334 Max-Min Rozci±gniêcie
 \0334Max-Min Rozta¾ení
 
@@ -8363,15 +8363,15 @@ DEM Radky V/Z
 
 ;
 MSG_DATAOPSGUI_COLUMNWISENS
-  Column-Wise N/S
-     spaltenweise N/S
-     Per colonna N/S
+Column-Wise N/S
+spaltenweise N/S
+Per colonna N/S
 
 Kolomgewijs N/Z
 
 
 Por columnas N/S
-  Kolumnami Pó/Po
+Kolumnami Pó/Po
 Sloupce S/J
 
 ;
