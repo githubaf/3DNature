@@ -4755,9 +4755,9 @@ Test_WindowObject <Start-Nr> <Weitere>  # ohne nummer oder nur mit Startnummer w
 ** 292 CAM VC Draw Tab
 ** 293 CAM VC Borders Tab
 ** 294 Motion Editor                                       ALIGN! Kann so bleiben.
-** 295 Render Settings Editor Render Tab                   ALIGN!
-** 296 Render Settings Editor Picture Tab                  ALIGN! Done (remodex one "MUIA_FixWidthTxt")
-** 297 Render Settings Editor Motion Tab                   ALIGN!
+** 295 Render Settings Editor Render Tab                   ALIGN! Done
+** 296 Render Settings Editor Picture Tab                  ALIGN! Done (removed one "MUIA_FixWidthTxt")
+** 297 Render Settings Editor Motion Tab                   ALIGN! Done
 ** 298 Render Settings Editor Color Tab                    ALIGN!
 ** 299 Render Settings Editor Surface Tab                  ALIGN!
 ** 300 Render Settings Editor Fractal Tab

@@ -11891,8 +11891,8 @@ MSG_EDMOGUI_ECOSYS
 
 ;
 MSG_EDMOGUI_DIAG
+\33cDiag\x20
 \33cDiagnose\x20
-cDiagnose\x20
 \33cDiag\x20
 
 \33cDiagnose\x20
@@ -14348,63 +14348,63 @@ MSG_EDSETGUI_CHANGEIMAGESIZE
 
 ;
 MSG_EDSETGUI_START
- Start\x20
+Start\x20
        Anfang\x20
        Inizio\x20
 
- Begin\x20
+Begin\x20
 
 
- Inicio\x20
+Inicio\x20
 
 
 
 ;
 MSG_EDSETGUI_END
-    End\x20
-   Ende\x20
-   Fine\x20
+End\x20
+Ende\x20
+Fine\x20
 
- Einde\x20
+Einde\x20
 
 
-   Fin\x20
+Fin\x20
 
 
 
 ;
 MSG_EDSETGUI_STEP
-  Step\x20
- Schrittweite\x20
- Passo\x20
+Step\x20
+Schrittweite\x20
+Passo\x20
 
 Stapgr\x20
 
 
- Paso\x20
+Paso\x20
 
 
 
 ;
 MSG_EDSETGUI_FRAMES
- Frames\x20
- Frames\x20
- Fotogrammi\x20
+Frames\x20
+Frames\x20
+Fotogrammi\x20
 
 Frames\x20
 
 
- Fotogramas\x20
+Fotogramas\x20
 
 
 
 ;
 MSG_EDSETGUI_SEGMNT
 Segmnt\x20
-     Segmente\x20
-     Segmento\x20
+Segmente\x20
+Segmento\x20
 
-  Segm\x20
+Segm\x20
 
 
 Segmento\x20
@@ -14414,8 +14414,8 @@ Segmento\x20
 ;
 MSG_EDSETGUI_1STSEG
 1st Seg\x20
- 1. Seg\x20
- 1° Segmento\x20
+1. Seg\x20
+1° Segmento\x20
 
 Segm 1\x20
 

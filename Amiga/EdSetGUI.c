@@ -69,13 +69,43 @@ void Make_ES_Window(void)
  static const char *ES_Cycle_MoonHalo[3]={NULL};
  static int Init = TRUE;
 
+ static ULONG maxPathFileTempLabelWidth = 0;
+ static ULONG maxWidthHeightAspOversLabelWidth = 0;
+ static ULONG maxStartStepSegmEndFramsLabels = 0;
+ static ULONG maxBankingFramesLabelWidth = 0;
+ static ULONG maxVectorPathFileLabelWidth = 0;
+
  static ULONG PathFileTempLabels[] = {
      MSG_EDSETGUI_SAVEPATH,  // "Save Path "
      MSG_EDSETGUI_SAVEFILE,  // "Save File "
      MSG_EDSETGUI_TEMPPATH   // "Temp Path "
  };
 
- static ULONG maxPathFileTempLabelWidth = 0;
+ static ULONG WidthHeightAspOversLabels[] = {
+     MSG_EDSETGUI_WIDTH,      // "Width "
+     MSG_EDSETGUI_HEIGHT,     // "Height "
+     MSG_EDSETGUI_ASPCT,      // "Aspct "
+     MSG_EDSETGUI_VOSCN       // "V Oscn "
+ };
+
+ static ULONG StartStepSegmEndFramsLabels[] = {
+     MSG_EDSETGUI_START,      // "Start "
+     MSG_EDSETGUI_STEP,       // "Step "
+     MSG_EDSETGUI_SEGMNT,     // "Segmnt "
+     MSG_EDSETGUI_END,        // "End "
+     MSG_EDSETGUI_FRAMES,     // "Frames "
+     MSG_EDSETGUI_1STSEG      // "1st Seg "
+ };
+
+ static ULONG BankingFramesLabels[] = {
+     MSG_EDSETGUI_BANKING,    // "Banding "
+     MSG_EDSETGUI_FRAMES      // "Frames "
+ };
+
+ static ULONG VectorPathFileLabels[] = {
+     MSG_EDSETGUI_VECTORPATH, // "Vector Path "
+     MSG_EDSETGUI_VECTORFILE  // "Vector File "
+ };
 
 if(Init)
 {
@@ -295,6 +325,10 @@ ES_Cycle_Data[2]=NULL;
  ES_Cycle_MoonHalo[2] = NULL;
 
  maxPathFileTempLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), PathFileTempLabels, sizeof(PathFileTempLabels) / sizeof(ULONG));
+ maxWidthHeightAspOversLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), WidthHeightAspOversLabels, sizeof(WidthHeightAspOversLabels) / sizeof(ULONG));
+ maxStartStepSegmEndFramsLabels = GetMaxTextWidth(&(WCSScrn->RastPort), StartStepSegmEndFramsLabels, sizeof(StartStepSegmEndFramsLabels) / sizeof(ULONG));
+ maxBankingFramesLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), BankingFramesLabels, sizeof(BankingFramesLabels) / sizeof(ULONG));
+ maxVectorPathFileLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), VectorPathFileLabels, sizeof(VectorPathFileLabels) / sizeof(ULONG));
 }
 
  if (ES_Win)
@@ -332,7 +366,11 @@ ES_Cycle_Data[2]=NULL;
 	    Child, RectangleObject, End,
 	    Child, HGroup,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_EDSETGUI_WIDTH ) ),  // "Width "
+//                Child, Label2(GetString( MSG_EDSETGUI_WIDTH ) ),  // "Width "
+          Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_WIDTH),  // "Width "
+            MUIA_Text_PreParse, "\033r", // right aligned
+	        MUIA_FixWidth, maxWidthHeightAspOversLabelWidth, End,
+
 	        Child, ES_Win->IntStr[4] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -340,7 +378,10 @@ ES_Cycle_Data[2]=NULL;
                 Child, ES_Win->IntStrArrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_EDSETGUI_HEIGHT ) ),  // "Height "
+//                Child, Label2(GetString( MSG_EDSETGUI_HEIGHT ) ),  // "Height "
+                  Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_HEIGHT),  // "Height "
+                    MUIA_Text_PreParse, "\033r", // right aligned
+                    MUIA_FixWidth, maxWidthHeightAspOversLabelWidth, End,
 	        Child, ES_Win->IntStr[5] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 		 	MUIA_FixWidthTxt, "01234", End,
@@ -350,7 +391,10 @@ ES_Cycle_Data[2]=NULL;
 	      End, /* HGroup */
 	    Child, HGroup,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_EDSETGUI_ASPCT ) ),  // "Aspct "
+//                Child, Label2(GetString( MSG_EDSETGUI_ASPCT ) ),  // "Aspct "
+                  Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_ASPCT),  // "Aspct "
+                    MUIA_Text_PreParse, "\033r", // right aligned
+                    MUIA_FixWidth, maxWidthHeightAspOversLabelWidth, End,
 	        Child, ES_Win->FloatStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -358,7 +402,10 @@ ES_Cycle_Data[2]=NULL;
                 Child, ES_Win->FloatStrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_EDSETGUI_VOSCN ) ),  // "V Oscn "
+//                Child, Label2(GetString( MSG_EDSETGUI_VOSCN ) ),  // "V Oscn "
+                  Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_VOSCN),  // "V Oscn "
+                    MUIA_Text_PreParse, "\033r", // right aligned
+                    MUIA_FixWidth, maxWidthHeightAspOversLabelWidth, End,
 	        Child, ES_Win->IntStr[6] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "01234", End,
@@ -372,7 +419,10 @@ ES_Cycle_Data[2]=NULL;
 
 	    Child, ColGroup(2),
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_EDSETGUI_START ) ),  // " Start "
+//                Child, Label2(GetString( MSG_EDSETGUI_START ) ),  // " Start "
+	                      Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_START),  // " Start "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, maxStartStepSegmEndFramsLabels, End,
 	        Child, ES_Win->IntStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -380,7 +430,10 @@ ES_Cycle_Data[2]=NULL;
                 Child, ES_Win->IntStrArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_EDSETGUI_END ) ),  // "    End "
+//                Child, Label2(GetString( MSG_EDSETGUI_END ) ),  // "    End "
+                Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_END),  // "    End "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, maxStartStepSegmEndFramsLabels, End,
 	        Child, ES_Win->IntStr[22] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -389,7 +442,10 @@ ES_Cycle_Data[2]=NULL;
 	        End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_EDSETGUI_STEP ) ),  // "  Step "
+//                Child, Label2(GetString( MSG_EDSETGUI_STEP ) ),  // "  Step "
+                Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_STEP),  // "  Step "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, maxStartStepSegmEndFramsLabels, End,
 	        Child, ES_Win->IntStr[2] = StringObject, StringFrame,
 			MUIA_String_Accept, "-0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -397,7 +453,10 @@ ES_Cycle_Data[2]=NULL;
                 Child, ES_Win->IntStrArrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_EDSETGUI_FRAMES ) ),  // " Frames "
+//                Child, Label2(GetString( MSG_EDSETGUI_FRAMES ) ),  // " Frames "
+                Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_FRAMES),  // " Frames "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, maxStartStepSegmEndFramsLabels, End,
 	        Child, ES_Win->IntStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -406,7 +465,10 @@ ES_Cycle_Data[2]=NULL;
 	        End, /* HGroup */
 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_EDSETGUI_SEGMNT ) ),  // "Segmnt "
+//                Child, Label2(GetString( MSG_EDSETGUI_SEGMNT ) ),  // "Segmnt "
+                Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_SEGMNT),  // "Segmnt "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, maxStartStepSegmEndFramsLabels, End,
 	        Child, ES_Win->IntStr[3] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -414,7 +476,10 @@ ES_Cycle_Data[2]=NULL;
                 Child, ES_Win->IntStrArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_EDSETGUI_1STSEG ) ),  // "1st Seg "
+//                Child, Label2(GetString( MSG_EDSETGUI_1STSEG ) ),  // "1st Seg "
+                Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_1STSEG),  // "1st Seg "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, maxStartStepSegmEndFramsLabels, End,
 	        Child, ES_Win->IntStr[21] = StringObject, StringFrame,
 			MUIA_String_Accept, "0123456789",
 			MUIA_FixWidthTxt, "012345", End,
@@ -489,7 +554,9 @@ ES_Cycle_Data[2]=NULL;
                 Child, ES_Win->IntStrArrow[18][0] = ImageButtonWCS(MUII_ArrowLeft),
                 Child, ES_Win->IntStrArrow[18][1] = ImageButtonWCS(MUII_ArrowRight),
 		End, /* HGroup */
-              Child, Label2(GetString( MSG_EDSETGUI_FRAMES ) ),  // "Frames"
+//              Child, Label2(GetString( MSG_EDSETGUI_FRAMES ) ),  // "Frames"
+              Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_FRAMES),  // "Frames"
+                MUIA_FixWidth, maxBankingFramesLabelWidth, End,
 	      End, /* HGroup */
 	    Child, HGroup, 
 	      Child, ES_Win->Cycle[8] = CycleObject,
@@ -497,11 +564,13 @@ ES_Cycle_Data[2]=NULL;
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
 	        Child, ES_Win->FloatStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
-			MUIA_FixWidthTxt, "01234", End,
+			MUIA_FixWidthTxt, "012345", End,
                 Child, ES_Win->FloatStrArrow[1][0] = ImageButtonWCS(MUII_ArrowLeft),
                 Child, ES_Win->FloatStrArrow[1][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
-              Child, Label2(GetString( MSG_EDSETGUI_BANKING ) ),  // "Banking"
+//              Child, Label2(GetString( MSG_EDSETGUI_BANKING ) ),  // "Banking"
+              Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_BANKING),  // "Banking"
+                MUIA_FixWidth, maxBankingFramesLabelWidth, End,
 	      End, /* HGroup */
 	    Child, ES_Win->Cycle[32] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_VelocDist, End, 
@@ -531,18 +600,26 @@ ES_Cycle_Data[2]=NULL;
 	      Child, ES_Win->Cycle[10] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_VecHaze, End, 
 	      End, /* HGroup */ 
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDSETGUI_VECTORPATH ) ),  // "Vector Path "
+	    Child, HGroup, //MUIA_Group_HorizSpacing, 0,
+//	      Child, Label2(GetString( MSG_EDSETGUI_VECTORPATH ) ),  // "Vector Path "
+          Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_VECTORPATH ),  // "Vector Path "
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxVectorPathFileLabelWidth, End,
 	      Child, ES_Win->Str[1] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456789012345", End,
+//		MUIA_FixWidthTxt, "0123456789012345",
+	      End,
 	      Child, ES_Win->BT_Get[1] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDSETGUI_VECTORFILE ) ),  // "Vector File "
+	    Child, HGroup, //MUIA_Group_HorizSpacing, 0,
+//	      Child, Label2(GetString( MSG_EDSETGUI_VECTORFILE ) ),  // "Vector File "
+          Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_VECTORFILE ),  // "Vector File "
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxVectorPathFileLabelWidth, End,
 	      Child, ES_Win->Str[10] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456789012345", End,
+//      MUIA_FixWidthTxt, "0123456789012345",
+	      End,
 	      End, /* HGroup */
-	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
+	    Child, HGroup, //MUIA_Group_HorizSpacing, 0,
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
                 Child, Label2(GetString( MSG_EDSETGUI_ZOFFSET ) ),  // "Z Offset "
 	        Child, ES_Win->FloatStr[2] = StringObject, StringFrame,
