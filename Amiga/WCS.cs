@@ -11253,11 +11253,11 @@ G³êboko¶æ morza\x20
 
 ;
 MSG_EDECOGUI_WINDAZ
+Wind Az\x20
 Wind-Azimut\x20
-    Wind-Azimut\x20
-   Azimut vento\x20
+Azimut vento\x20
 
-      Wind Az\x20
+Wind Az\x20
 
 
 Az viento\x20
@@ -11319,8 +11319,8 @@ MSG_EDMOGUI_HORIZON
 
 ;
 MSG_EDMOGUI_CELESTIAL
+\33cCelestial
 \33cHimmelskörper
-cHimmelskörper
 \33cCeleste
 
 \33cHemellichamen
@@ -14517,53 +14517,53 @@ Uit\x20
 
 ;
 MSG_EDSETGUI_VECTORPATH
-Vector Path\x20
-Vektor Pfad\x20
-Percorso vettoriale\x20
+Vector Path
+Vektor Pfad
+Percorso vettoriale
 
-Vector Pad\x20
+Vector Pad
 
 
-Ruta de Vectores\x20
+Ruta de Vectores
 
 
 
 ;
 MSG_EDSETGUI_VECTORFILE
-Vector File\x20
-Vektor Datei\x20
-File vettoriale\x20
+Vector File
+Vektor Datei
+File vettoriale
 
-Vector Bestand\x20
+Vector Bestand
 
 
-Archivo de Vectores\x20
+Archivo de Vectores
 
 
 
 ;
 MSG_EDSETGUI_ZOFFSET
-Z Offset\x20
-Z Offset\x20
-Offset Z\x20
+Z Offset
+Z Offset
+Offset Z
 
-Z Verschuiving\x20
+Z Verschuiving
 
 
-Desplazamiento Z\x20
+Desplazamiento Z
 
 
 
 ;
 MSG_EDSETGUI_SEGS
- Segs\x20
- Segmente\x20
- Segmenti\x20
+ Segs
+ Segmente
+ Segmenti
 
-Segmenten\x20
+Segmenten
 
 
- Segmentos\x20
+ Segmentos
 
 
 

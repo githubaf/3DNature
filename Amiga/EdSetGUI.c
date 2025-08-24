@@ -74,6 +74,7 @@ void Make_ES_Window(void)
  static ULONG maxStartStepSegmEndFramsLabels = 0;
  static ULONG maxBankingFramesLabelWidth = 0;
  static ULONG maxVectorPathFileLabelWidth = 0;
+ static ULONG maxDisplSlopeLabelWidth = 0;
 
  static ULONG PathFileTempLabels[] = {
      MSG_EDSETGUI_SAVEPATH,  // "Save Path "
@@ -105,6 +106,11 @@ void Make_ES_Window(void)
  static ULONG VectorPathFileLabels[] = {
      MSG_EDSETGUI_VECTORPATH, // "Vector Path "
      MSG_EDSETGUI_VECTORFILE  // "Vector File "
+ };
+
+ static ULONG DisplSlopeLabels[] = {
+     MSG_EDSETGUI_DISPLACEMENT,  // "Displacement"
+     MSG_EDSETGUI_SLOPEFACTOR    // "Slope Factor"
  };
 
 if(Init)
@@ -329,6 +335,7 @@ ES_Cycle_Data[2]=NULL;
  maxStartStepSegmEndFramsLabels = GetMaxTextWidth(&(WCSScrn->RastPort), StartStepSegmEndFramsLabels, sizeof(StartStepSegmEndFramsLabels) / sizeof(ULONG));
  maxBankingFramesLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), BankingFramesLabels, sizeof(BankingFramesLabels) / sizeof(ULONG));
  maxVectorPathFileLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), VectorPathFileLabels, sizeof(VectorPathFileLabels) / sizeof(ULONG));
+ maxDisplSlopeLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), DisplSlopeLabels, sizeof(DisplSlopeLabels) / sizeof(ULONG));
 }
 
  if (ES_Win)
@@ -751,7 +758,9 @@ ES_Cycle_Data[2]=NULL;
                 Child, ES_Win->FloatStrArrow[11][0] = ImageButtonWCS(MUII_ArrowLeft),
                 Child, ES_Win->FloatStrArrow[11][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
-              Child, Label2(GetString( MSG_EDSETGUI_DISPLACEMENT ) ),  // "Displacement"
+//              Child, Label2(GetString( MSG_EDSETGUI_DISPLACEMENT ) ),  // "Displacement"
+	            Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_DISPLACEMENT),  // "Displacement"
+                  MUIA_FixWidth, maxDisplSlopeLabelWidth,  End,
 	      End, /* HGroup */
 	    Child, HGroup, 
 	      Child, HGroup, MUIA_Group_HorizSpacing, 0,
@@ -761,7 +770,9 @@ ES_Cycle_Data[2]=NULL;
                 Child, ES_Win->FloatStrArrow[12][0] = ImageButtonWCS(MUII_ArrowLeft),
                 Child, ES_Win->FloatStrArrow[12][1] = ImageButtonWCS(MUII_ArrowRight),
 	        End, /* HGroup */
-              Child, Label2(GetString( MSG_EDSETGUI_SLOPEFACTOR ) ),  // "Slope Factor"
+//              Child, Label2(GetString( MSG_EDSETGUI_SLOPEFACTOR ) ),  // "Slope Factor"
+	            Child, TextObject, MUIA_Text_Contents, GetString(MSG_EDSETGUI_SLOPEFACTOR),  // "Slope Factor"
+                  MUIA_FixWidth, maxDisplSlopeLabelWidth,  End,
 	      End, /* HGroup */
             Child, ES_Win->BT_FractalSet = KeyButtonFunc('f', (char*)GetString( MSG_EDSETGUI_CREATEFRACTALMAPS ) ),  // "\33cCreate Fractal Maps"
 	    Child, VGroup,

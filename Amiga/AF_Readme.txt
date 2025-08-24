@@ -4760,7 +4760,7 @@ Test_WindowObject <Start-Nr> <Weitere>  # ohne nummer oder nur mit Startnummer w
 ** 297 Render Settings Editor Motion Tab                   ALIGN! Done
 ** 298 Render Settings Editor Color Tab                    ALIGN!
 ** 299 Render Settings Editor Surface Tab                  ALIGN!
-** 300 Render Settings Editor Fractal Tab
+** 300 Render Settings Editor Fractal Tab                  Align! Done
 ** 301 Render Settings Editor Ecosystem Tab                ALIGN!
 ** 302 Render Settings Editor Misc Tab                     ALIGN!
 ** 303 Color Editor
