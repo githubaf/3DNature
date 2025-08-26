@@ -75,21 +75,30 @@ void Make_ES_Window(void)
  static ULONG maxBankingFramesLabelWidth = 0;
  static ULONG maxVectorPathFileLabelWidth = 0;
  static ULONG maxDisplSlopeLabelWidth = 0;
+ static ULONG maxDefEcoCmapPathFileLabelWidth = 0;
+ static ULONG maxRefLatTreeHtLabelWidth = 0;
+ static ULONG maxStrataDipStrikeDeformLabelWidth = 0;
+ static ULONG maxDefMapPathFileLabelWidth = 0;
+ static ULONG maxZenitAlthSkyDitherLabelWidth = 0;
+ static ULONG maxRefLatLongLabelWidth = 0;
 
- static ULONG PathFileTempLabels[] = {
+ static ULONG PathFileTempLabels[] =
+ {
      MSG_EDSETGUI_SAVEPATH,  // "Save Path "
      MSG_EDSETGUI_SAVEFILE,  // "Save File "
      MSG_EDSETGUI_TEMPPATH   // "Temp Path "
  };
 
- static ULONG WidthHeightAspOversLabels[] = {
+ static ULONG WidthHeightAspOversLabels[] =
+ {
      MSG_EDSETGUI_WIDTH,      // "Width "
      MSG_EDSETGUI_HEIGHT,     // "Height "
      MSG_EDSETGUI_ASPCT,      // "Aspct "
      MSG_EDSETGUI_VOSCN       // "V Oscn "
  };
 
- static ULONG StartStepSegmEndFramsLabels[] = {
+ static ULONG StartStepSegmEndFramsLabels[] =
+ {
      MSG_EDSETGUI_START,      // "Start "
      MSG_EDSETGUI_STEP,       // "Step "
      MSG_EDSETGUI_SEGMNT,     // "Segmnt "
@@ -98,19 +107,59 @@ void Make_ES_Window(void)
      MSG_EDSETGUI_1STSEG      // "1st Seg "
  };
 
- static ULONG BankingFramesLabels[] = {
+ static ULONG BankingFramesLabels[] =
+ {
      MSG_EDSETGUI_BANKING,    // "Banding "
      MSG_EDSETGUI_FRAMES      // "Frames "
  };
 
- static ULONG VectorPathFileLabels[] = {
+ static ULONG VectorPathFileLabels[] =
+ {
      MSG_EDSETGUI_VECTORPATH, // "Vector Path "
      MSG_EDSETGUI_VECTORFILE  // "Vector File "
  };
 
- static ULONG DisplSlopeLabels[] = {
+ static ULONG DisplSlopeLabels[] =
+ {
      MSG_EDSETGUI_DISPLACEMENT,  // "Displacement"
      MSG_EDSETGUI_SLOPEFACTOR    // "Slope Factor"
+ };
+
+ static ULONG DefEcoCmapPathFileLabels[] = {
+ MSG_EDSETGUI_DEFAULTECO, // "Default Eco "
+ MSG_EDSETGUI_CMAPPATH,   // "CMap Path "
+ MSG_EDSETGUI_CMAPFILE    // "CMap File "
+ };
+
+ static ULONG RefLatTreeHtLabels[] =
+ {
+ MSG_EDSETGUI_REFLATITUDE,  // "Ref Latitude "
+ MSG_EDSETGUI_TREEHTFACT    // "Tree Ht Factor "
+};
+
+ static ULONG DefMapPathFileLabels[] =
+ {
+     MSG_EDSETGUI_DEFMAPPATH,  // "Def Map Path "
+     MSG_EDSETGUI_DEFMAPFILE   // "Def Map File "
+ };
+
+ static ULONG StataDipStrikeDeformLabels[] =
+ {
+    MSG_EDSETGUI_STRATADIP,     // "   Strata Dip "
+    MSG_EDSETGUI_STRATASTRIKE,  // "Strata Strike "
+    MSG_EDSETGUI_DEFORMATION    // "  Deformation "
+ };
+
+ static ULONG ZenitAlthSkyDitherLabels[] =
+ {
+    MSG_EDSETGUI_ZENITHALT,  // "   Zenith Alt "
+    MSG_EDSETGUI_SKYDITHER   // "Sky Dither "
+ };
+
+ static ULONG RefLatLongLabels[] =
+ {
+    MSG_EDSETGUI_REFLATITUDE,  // "Ref Latitude "
+    MSG_EDSETGUI_REFLONGITUDE  // "Ref Longitude "
  };
 
 if(Init)
@@ -336,6 +385,12 @@ ES_Cycle_Data[2]=NULL;
  maxBankingFramesLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), BankingFramesLabels, sizeof(BankingFramesLabels) / sizeof(ULONG));
  maxVectorPathFileLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), VectorPathFileLabels, sizeof(VectorPathFileLabels) / sizeof(ULONG));
  maxDisplSlopeLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), DisplSlopeLabels, sizeof(DisplSlopeLabels) / sizeof(ULONG));
+ maxDefEcoCmapPathFileLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), DefEcoCmapPathFileLabels, sizeof(DefEcoCmapPathFileLabels) / sizeof(ULONG));
+ maxRefLatTreeHtLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), RefLatTreeHtLabels, sizeof(RefLatTreeHtLabels) / sizeof(ULONG));
+ maxStrataDipStrikeDeformLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), StataDipStrikeDeformLabels, sizeof(StataDipStrikeDeformLabels) / sizeof(ULONG));
+ maxDefMapPathFileLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), DefMapPathFileLabels, sizeof(DefMapPathFileLabels) / sizeof(ULONG));
+ maxZenitAlthSkyDitherLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), ZenitAlthSkyDitherLabels, sizeof(ZenitAlthSkyDitherLabels) / sizeof(ULONG));
+ maxRefLatLongLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), RefLatLongLabels, sizeof(RefLatLongLabels) / sizeof(ULONG));
 }
 
  if (ES_Win)
@@ -664,22 +719,34 @@ ES_Cycle_Data[2]=NULL;
 	    Child, ES_Win->Cycle[15] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_CMapTrees, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDSETGUI_DEFAULTECO ) ), // "Default Eco "
+//	      Child, Label2(GetString( MSG_EDSETGUI_DEFAULTECO ) ), // "Default Eco "
+	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_DEFAULTECO ), // "Default Eco "
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxDefEcoCmapPathFileLabelWidth, End,
 	      Child, ES_Win->Txt[0] = TextObject, TextFrame,
-		MUIA_FixWidthTxt, "0123456789", End,
+//		MUIA_FixWidthTxt, "0123456789",
+	      End,
               Child, ES_Win->TxtArrow[0][0] = ImageButtonWCS(MUII_ArrowLeft),
               Child, ES_Win->TxtArrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDSETGUI_CMAPPATH ) ),  // "CMap Path "
+//	      Child, Label2(GetString( MSG_EDSETGUI_CMAPPATH ) ),  // "CMap Path "
+	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_CMAPPATH ),  // "CMap Path "
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxDefEcoCmapPathFileLabelWidth, End,
 	      Child, ES_Win->Str[4] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "01234567890123456", End,
+//		MUIA_FixWidthTxt, "01234567890123456",
+	      End,
 	      Child, ES_Win->BT_Get[4] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDSETGUI_CMAPFILE ) ),  // "CMap File "
+//	      Child, Label2(GetString( MSG_EDSETGUI_CMAPFILE ) ),  // "CMap File "
+	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_CMAPFILE ),  // "CMap File "
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxDefEcoCmapPathFileLabelWidth, End,
 	      Child, ES_Win->Str[12] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456789012345", End,
+//		MUIA_FixWidthTxt, "0123456789012345",
+	      End,
 	      End, /* HGroup */
 	    End, /* VGroup Color Maps */
 
@@ -823,7 +890,10 @@ ES_Cycle_Data[2]=NULL;
 	        End, /* HGroup */
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2(GetString( MSG_EDSETGUI_REFLATITUDE ) ),  // "Ref Latitude "
+//              Child, Label2(GetString( MSG_EDSETGUI_REFLATITUDE ) ),  // "Ref Latitude "
+	          Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_REFLATITUDE ),  // "Ref Latitude "
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxRefLatTreeHtLabelWidth, End,
 	      Child, ES_Win->FloatStr[10] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -831,7 +901,10 @@ ES_Cycle_Data[2]=NULL;
               Child, ES_Win->FloatStrArrow[10][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2(GetString( MSG_EDSETGUI_TREEHTFACT ) ),  // "Tree Ht Fact "
+//              Child, Label2(GetString( MSG_EDSETGUI_TREEHTFACT ) ),  // "Tree Ht Fact "
+	    Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_TREEHTFACT ),  // "Tree Ht Fact "
+          MUIA_Text_PreParse, "\033r", // right aligned
+          MUIA_FixWidth, maxRefLatTreeHtLabelWidth, End,
 	      Child, ES_Win->FloatStr[4] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -850,18 +923,28 @@ ES_Cycle_Data[2]=NULL;
 	    Child, ES_Win->Cycle[43] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_DeformationMap, End,
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDSETGUI_DEFMAPPATH ) ),  // "Def Map Path "
+//	      Child, Label2(GetString( MSG_EDSETGUI_DEFMAPPATH ) ),  // "Def Map Path "
+          Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_DEFMAPPATH ),  // "Def Map Path "
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxDefMapPathFileLabelWidth, End,
 	      Child, ES_Win->Str[13] = StringObject, StringFrame,
 		MUIA_FixWidthTxt, "0123456789012345", End,
 	      Child, ES_Win->BT_Get[7] = ImageButtonWCS(MUII_Disk),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, Label2(GetString( MSG_EDSETGUI_DEFMAPFILE ) ),  // "Def Map File "
+//	      Child, Label2(GetString( MSG_EDSETGUI_DEFMAPFILE ) ),  // "Def Map File "
+	      Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_DEFMAPFILE ),  // "Def Map File "
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxDefMapPathFileLabelWidth, End,
 	      Child, ES_Win->Str[14] = StringObject, StringFrame,
-		MUIA_FixWidthTxt, "0123456789012345", End,
+//		MUIA_FixWidthTxt, "0123456789012345",
+	      End,
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2(GetString( MSG_EDSETGUI_STRATADIP ) ),  // "   Strata Dip "
+//              Child, Label2(GetString( MSG_EDSETGUI_STRATADIP ) ),  // "   Strata Dip "
+          Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_STRATADIP ),  // "   Strata Dip "
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxStrataDipStrikeDeformLabelWidth, End,
 	      Child, ES_Win->FloatStr[13] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -869,7 +952,10 @@ ES_Cycle_Data[2]=NULL;
               Child, ES_Win->FloatStrArrow[13][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2(GetString( MSG_EDSETGUI_STRATASTRIKE )),  // "Strata Strike "
+//              Child, Label2(GetString( MSG_EDSETGUI_STRATASTRIKE )),  // "Strata Strike "
+	    Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_STRATASTRIKE ),  // "Strata Strike "
+          MUIA_Text_PreParse, "\033r", // right aligned
+          MUIA_FixWidth, maxStrataDipStrikeDeformLabelWidth, End,
 	      Child, ES_Win->FloatStr[14] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -877,7 +963,10 @@ ES_Cycle_Data[2]=NULL;
               Child, ES_Win->FloatStrArrow[14][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2(GetString( MSG_EDSETGUI_DEFORMATION ) ),  // "  Deformation "
+//              Child, Label2(GetString( MSG_EDSETGUI_DEFORMATION ) ),  // "  Deformation "
+	    Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_DEFORMATION ),  // "  Deformation "
+          MUIA_Text_PreParse, "\033r", // right aligned
+          MUIA_FixWidth, maxStrataDipStrikeDeformLabelWidth, End,
 	      Child, ES_Win->FloatStr[15] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -894,7 +983,10 @@ ES_Cycle_Data[2]=NULL;
 	    Child, ES_Win->Cycle[20] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_HorizonFix, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2(GetString( MSG_EDSETGUI_ZENITHALT ) ),  // "   Zenith Alt "
+//              Child, Label2(GetString( MSG_EDSETGUI_ZENITHALT ) ),  // "   Zenith Alt "
+	          Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_ZENITHALT ),  // "   Zenith Alt "
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxZenitAlthSkyDitherLabelWidth, End,
 	      Child, ES_Win->FloatStr[3] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -902,17 +994,23 @@ ES_Cycle_Data[2]=NULL;
               Child, ES_Win->FloatStrArrow[3][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2(GetString( MSG_EDSETGUI_SKYDITHER ) ),  // "Sky Dither "
+//              Child, Label2(GetString( MSG_EDSETGUI_SKYDITHER ) ),  // "Sky Dither "
+              Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_SKYDITHER ),  // "Sky Dither "
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxZenitAlthSkyDitherLabelWidth, End,
 	      Child, ES_Win->IntStr[13] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-0123456789",
-		MUIA_FixWidthTxt, "012345", End,
+		MUIA_FixWidthTxt, "01234567890", End,
               Child, ES_Win->IntStrArrow[13][0] = ImageButtonWCS(MUII_ArrowLeft),
               Child, ES_Win->IntStrArrow[13][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, ES_Win->Cycle[21] = CycleObject,
 		MUIA_Cycle_Entries, ES_Cycle_AltQ, End, 
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2(GetString( MSG_EDSETGUI_REFLATITUDE ) ),  // " Ref Latitude "
+//              Child, Label2(GetString( MSG_EDSETGUI_REFLATITUDE ) ),  // "Ref Latitude "
+              Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_REFLATITUDE ),  // " Ref Latitude "
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxRefLatLongLabelWidth, End,
 	      Child, ES_Win->FloatStr[5] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,
@@ -920,7 +1018,10 @@ ES_Cycle_Data[2]=NULL;
               Child, ES_Win->FloatStrArrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-              Child, Label2(GetString( MSG_EDSETGUI_REFLONGITUDE ) ),  // "Ref Longitude "
+//              Child, Label2(GetString( MSG_EDSETGUI_REFLONGITUDE ) ),  // "Ref Longitude "
+              Child, TextObject, MUIA_Text_Contents, GetString( MSG_EDSETGUI_REFLONGITUDE ),  // "Ref Longitude "
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxRefLatLongLabelWidth, End,
 	      Child, ES_Win->FloatStr[6] = StringObject, StringFrame,
 		MUIA_String_Accept, "+-.0123456789",
 		MUIA_FixWidthTxt, "01234567890", End,

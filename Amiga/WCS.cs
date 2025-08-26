@@ -14894,14 +14894,14 @@ Deformación
 
 ;
 MSG_EDSETGUI_ZENITHALT
-   Zenith Alt\x20
-   Zenit-Höhe\x20
-   Altitudine zenitale\x20
+Zenith Alt\x20
+Zenit-Höhe\x20
+Altitudine zenitale\x20
 
 Zenit Hoogte\x20
 
 
-Altura del Cenit
+Altura del Cenit\x20
 
 
 
@@ -14914,7 +14914,7 @@ Dither cielo\x20
 Lucht Vervagen\x20
 
 
-Difuminado del Cielo
+Difuminado del Cielo\x20
 
 
 
@@ -14934,13 +14934,13 @@ Latitud de Referencia
 ;
 MSG_EDSETGUI_REFLONGITUDE
 Ref Longitude\x20
- Ref Länge\x20
- Longitudine di riferimento\x20
+Ref Länge\x20
+Longitudine di riferimento\x20
 
- Ref Lengtegraad\x20
+Ref Lengtegraad\x20
 
 
-Longitud de Referencia
+Longitud de Referencia\x20
 
 
 
@@ -16197,27 +16197,27 @@ Altura Máx Imagen\x20
 
 ;
 MSG_FOLIGUI_DENSITY
- Density %\x20
- Dichte %\x20
- Densità %\x20
+Density %\x20
+Dichte %\x20
+Densità %\x20
 
 Dichtheid %\x20
 
 
- Densidad %\x20
+Densidad %\x20
 
 
 
 ;
 MSG_FOLIGUI_HEIGHT
-  Height %\x20
-  Höhe %\x20
-  Altezza %\x20
+Height %\x20
+Höhe %\x20
+Altezza %\x20
 
 Hoogte %\x20
 
 
- Altura %\x20
+Altura %\x20
 
 
 

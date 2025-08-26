@@ -35,6 +35,22 @@ STATIC_FCN void FoliageDefaultColors(struct Foliage *Fol, short Color); // used 
 
 APTR AF_MakeFoliageWin (struct FoliageWindow *FE_Win)
 {
+    static int Init=TRUE;
+    static ULONG PicHtDensityHeightLabel = 0;
+
+    ULONG PicHtDensityHeightLabels[] =
+    {
+            MSG_FOLIGUI_MAXPICHT,  // "Max Pic Ht "
+            MSG_FOLIGUI_DENSITY,   // "Density % "
+            MSG_FOLIGUI_HEIGHT     // "Height % "
+    };
+
+    if (Init)
+    {
+        Init = FALSE;
+        PicHtDensityHeightLabel = GetMaxTextWidth(&(WCSScrn->RastPort), PicHtDensityHeightLabels, sizeof(PicHtDensityHeightLabels) / sizeof(ULONG));
+    }
+
     return WindowObject,
             MUIA_Window_Title     , GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
             MUIA_Window_ID        , MakeID('E','D','F','O'),
@@ -57,7 +73,10 @@ APTR AF_MakeFoliageWin (struct FoliageWindow *FE_Win)
                     End, /* ListviewObject */
               Child, FE_Win->BT_Suggest = KeyButtonFunc('s', (char*)GetString( MSG_FOLIGUI_SUGGEST )),  // "\33cSuggest..."
               Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_FOLIGUI_MAXPICHT )),  // "Max Pic Ht "
+//                Child, Label2(GetString( MSG_FOLIGUI_MAXPICHT )),  // "Max Pic Ht "
+                Child, TextObject, MUIA_Text_Contents, GetString(MSG_FOLIGUI_MAXPICHT), // "Max Pic Ht "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, PicHtDensityHeightLabel, End,
                 Child, FE_Win->FloatStr[4] = StringObject, StringFrame,
               MUIA_String_Accept, "0123456789",
               MUIA_FixWidthTxt, "012345", End,
@@ -65,7 +84,10 @@ APTR AF_MakeFoliageWin (struct FoliageWindow *FE_Win)
                 Child, FE_Win->Arrow[4][1] = ImageButtonWCS(MUII_ArrowRight),
                 End, /* HGroup */
               Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_FOLIGUI_DENSITY )),  // " Density % "
+//                Child, Label2(GetString( MSG_FOLIGUI_DENSITY )),  // " Density % "
+                Child, TextObject, MUIA_Text_Contents, GetString(MSG_FOLIGUI_DENSITY), // " Density % "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, PicHtDensityHeightLabel, End,
                 Child, FE_Win->FloatStr[0] = StringObject, StringFrame,
               MUIA_String_Accept, ".0123456789",
               MUIA_FixWidthTxt, "012345", End,
@@ -73,7 +95,10 @@ APTR AF_MakeFoliageWin (struct FoliageWindow *FE_Win)
                 Child, FE_Win->Arrow[0][1] = ImageButtonWCS(MUII_ArrowRight),
                 End, /* HGroup */
               Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_FOLIGUI_HEIGHT )),  // "  Height % "
+//                Child, Label2(GetString( MSG_FOLIGUI_HEIGHT )),  // "  Height % "
+                Child, TextObject, MUIA_Text_Contents, GetString(MSG_FOLIGUI_HEIGHT), // "  Height % "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, PicHtDensityHeightLabel, End,
                 Child, FE_Win->FloatStr[1] = StringObject, StringFrame,
               MUIA_String_Accept, ".0123456789",
               MUIA_FixWidthTxt, "012345", End,
@@ -114,7 +139,10 @@ APTR AF_MakeFoliageWin (struct FoliageWindow *FE_Win)
               MUIA_FixWidthTxt, "0123", End,
                 End, /* HGroup */
               Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_FOLIGUI_MAXPICHT )),   // "Max Pic Ht "
+//              Child, Label2(GetString( MSG_FOLIGUI_MAXPICHT )),   // "Max Pic Ht "
+                Child, TextObject, MUIA_Text_Contents, GetString(MSG_FOLIGUI_MAXPICHT), // "Max Pic Ht "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, PicHtDensityHeightLabel, End,
                 Child, FE_Win->FloatStr[5] = StringObject, StringFrame,
               MUIA_String_Accept, "0123456789",
               MUIA_FixWidthTxt, "012345", End,
@@ -122,7 +150,10 @@ APTR AF_MakeFoliageWin (struct FoliageWindow *FE_Win)
                 Child, FE_Win->Arrow[5][1] = ImageButtonWCS(MUII_ArrowRight),
                 End, /* HGroup */
               Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_FOLIGUI_DENSITY )),  // " Density % "
+//                Child, Label2(GetString( MSG_FOLIGUI_DENSITY )),  // " Density % "
+                Child, TextObject, MUIA_Text_Contents, GetString(MSG_FOLIGUI_DENSITY), // " Density % "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, PicHtDensityHeightLabel, End,
                 Child, FE_Win->FloatStr[2] = StringObject, StringFrame,
               MUIA_String_Accept, ".0123456789",
               MUIA_FixWidthTxt, "012345", End,
@@ -130,7 +161,10 @@ APTR AF_MakeFoliageWin (struct FoliageWindow *FE_Win)
                 Child, FE_Win->Arrow[2][1] = ImageButtonWCS(MUII_ArrowRight),
                 End, /* HGroup */
               Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                Child, Label2(GetString( MSG_FOLIGUI_HEIGHT )),  // "  Height % "
+//              Child, Label2(GetString( MSG_FOLIGUI_HEIGHT )),  // "  Height % "
+                Child, TextObject, MUIA_Text_Contents, GetString(MSG_FOLIGUI_HEIGHT), // "  Height % "
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, PicHtDensityHeightLabel, End,
                 Child, FE_Win->FloatStr[3] = StringObject, StringFrame,
               MUIA_String_Accept, ".0123456789",
               MUIA_FixWidthTxt, "012345", End,

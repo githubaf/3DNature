@@ -4758,16 +4758,15 @@ Test_WindowObject <Start-Nr> <Weitere>  # ohne nummer oder nur mit Startnummer w
 ** 295 Render Settings Editor Render Tab                   ALIGN! Done
 ** 296 Render Settings Editor Picture Tab                  ALIGN! Done (removed one "MUIA_FixWidthTxt")
 ** 297 Render Settings Editor Motion Tab                   ALIGN! Done
-** 298 Render Settings Editor Color Tab                    ALIGN!
-** 299 Render Settings Editor Surface Tab                  ALIGN!
+** 298 Render Settings Editor Color Tab                    ALIGN! Done
 ** 300 Render Settings Editor Fractal Tab                  Align! Done
-** 301 Render Settings Editor Ecosystem Tab                ALIGN!
-** 302 Render Settings Editor Misc Tab                     ALIGN!
+** 301 Render Settings Editor Ecosystem Tab                ALIGN! Done
+** 302 Render Settings Editor Misc Tab                     ALIGN! Done
 ** 303 Color Editor
 ** 304 New Project
 ** 305 Sun Time
-** 306 Foilage Editor                                      ALIGN!
-** 307 Map View Control                                    ALIGN!
+** 306 Foilage Editor                                      ALIGN! Done
+** 307 Map View Control                                    
 ** 308 Map Alignment                                       ALIGN!
 ** 309 Danger-Window
 ** 310 Scale Image
