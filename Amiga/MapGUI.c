@@ -698,6 +698,22 @@ if(MP->MAPC)
 
 APTR AF_MakeAlignWin (struct MapData *MP)
 {
+    static int Init=TRUE;
+    static ULONG maxUpLeftLowRightXLabelWidth = 0;
+
+    static ULONG UpLeftLowRightXLabels[] =
+    {
+        MSG_MAPGUI_UPPERLEFTX,  // "Upper Left X"
+        MSG_MAPGUI_LOWERRIGHTX  // "Lower Right X"
+    };
+
+    if (Init)
+    {
+        Init = FALSE;
+        maxUpLeftLowRightXLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), UpLeftLowRightXLabels, sizeof(UpLeftLowRightXLabels)/sizeof(ULONG));
+    }
+
+
     return WindowObject,
             MUIA_Window_Title      , GetString( MSG_MAPGUI_MAPALIGNMENT ),  // "Map Alignment"
             MUIA_Window_ID         , MakeID('M','A','A','L'),
@@ -735,7 +751,10 @@ APTR AF_MakeAlignWin (struct MapData *MP)
               Child, TextObject, MUIA_Text_Contents, GetString( MSG_MAPGUI_CREENCOORDS ), End,  // "\33c\0334Screen Coords"
                   Child, HGroup,
 
-                    Child, Label2(GetString( MSG_MAPGUI_UPPERLEFTX )),  // " Upper Left X"
+//                    Child, Label2(GetString( MSG_MAPGUI_UPPERLEFTX )),  // " Upper Left X"
+                  Child, TextObject, MUIA_Text_Contents, GetString(MSG_MAPGUI_UPPERLEFTX ),  // " Upper Left X"
+                    MUIA_Text_PreParse, "\033r", // right aligned
+                    MUIA_FixWidth, maxUpLeftLowRightXLabelWidth, End,
                     Child, MP->IntStr[0] = StringObject, StringFrame,
                      MUIA_String_Accept, "0123456789",
                  MUIA_FixWidthTxt, "012345", End,
@@ -747,7 +766,10 @@ APTR AF_MakeAlignWin (struct MapData *MP)
 
                   Child, HGroup,
 
-                    Child, Label2(GetString( MSG_MAPGUI_LOWERRIGHTX )),  // "Lower Right X"
+//                    Child, Label2(GetString( MSG_MAPGUI_LOWERRIGHTX )),  // "Lower Right X"
+                    Child, TextObject, MUIA_Text_Contents, GetString(MSG_MAPGUI_LOWERRIGHTX ),  // " Lower Right X"
+                      MUIA_Text_PreParse, "\033r", // right aligned
+                      MUIA_FixWidth, maxUpLeftLowRightXLabelWidth, End,
                     Child, MP->IntStr[2] = StringObject, StringFrame,
                      MUIA_String_Accept, "0123456789",
                  MUIA_FixWidthTxt, "012345", End,

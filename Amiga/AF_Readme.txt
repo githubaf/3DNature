@@ -4767,7 +4767,7 @@ Test_WindowObject <Start-Nr> <Weitere>  # ohne nummer oder nur mit Startnummer w
 ** 305 Sun Time
 ** 306 Foilage Editor                                      ALIGN! Done
 ** 307 Map View Control                                    
-** 308 Map Alignment                                       ALIGN!
+** 308 Map Alignment                                       ALIGN! Done
 ** 309 Danger-Window
 ** 310 Scale Image
 ** 311 Settings
@@ -4894,3 +4894,5 @@ Fenster 288 Diagnoseate alignt.
 16.Aug.2025
 -----------
 Fenster 291 Ecosystem Editor alignt.
+
+* Nach ULONG max... suchen. Die koennen alle static sein!

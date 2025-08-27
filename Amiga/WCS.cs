@@ -21667,11 +21667,11 @@ MSG_MAPGUI_CREENCOORDS
 
 ;
 MSG_MAPGUI_UPPERLEFTX
- Upper Left X
- Oben Links X
- X angolo superiore sinistro
+Upper Left X
+Oben Links X
+X angolo superiore sinistro
 
- Boven Links X
+Boven Links X
 
 
 X superior izquierda
