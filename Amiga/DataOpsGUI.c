@@ -86,6 +86,7 @@ void Make_DC_Window(void)
  static ULONG maxValueFormatBytesWidth=0;
  static ULONG maxOutputColsRowsLabelWidth=0;
  static ULONG maxInputFileSizeHeaderBytesWidth=0;
+ static ULONG maxFloorCeilingLabelWidth=0;
 
  static LONG ValueFormatLabels[]=
  {
@@ -129,10 +130,16 @@ void Make_DC_Window(void)
          MSG_DATAOPSGUI_OUTPUTROWS   // "Output Rows"
  };
 
-static ULONG InputFileSizeHeaderBytesLabels[] =
-{
+ static ULONG InputFileSizeHeaderBytesLabels[] =
+ {
          MSG_DATAOPSGUI_INPUTFILESIZE,  // "Input File Size"
          MSG_DATAOPSGUI_HEADERBYTES     // "Header Bytes"
+ };
+
+ static ULONG FloorCeilingLabels[] =
+ {
+        MSG_DATAOPSGUI_FLOOR,    // "Floor"
+        MSG_DATAOPSGUI_CEILING   // "Ceiling"
  };
 
  if (Init)
@@ -225,6 +232,9 @@ static ULONG InputFileSizeHeaderBytesLabels[] =
 
      maxInputFileSizeHeaderBytesWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
             InputFileSizeHeaderBytesLabels, sizeof(InputFileSizeHeaderBytesLabels) / sizeof(ULONG));
+
+     maxFloorCeilingLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
+            FloorCeilingLabels, sizeof(FloorCeilingLabels) / sizeof(ULONG));
  }
 
  if (DC_Win)
@@ -333,14 +343,20 @@ static ULONG InputFileSizeHeaderBytesLabels[] =
 		End, /*VGroup */
 	      Child, VGroup,
 		Child, HGroup,
-	          Child, Label2(GetString( MSG_DATAOPSGUI_FLOOR ) ),  // "  Floor"
+//	          Child, Label2(GetString( MSG_DATAOPSGUI_FLOOR ) ),  // "  Floor"
+	          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_FLOOR), // "Floor"
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxFloorCeilingLabelWidth, End,
 	          Child, DC_Win->FloorCeilingCheck[0] = CheckMark(0),
 	          Child, DC_Win->FloatStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567890",
 			MUIA_String_Accept, "+-.0123456789", End,
 	          End, /* HGroup */
 		Child, HGroup,
-	          Child, Label2(GetString( MSG_DATAOPSGUI_CEILING ) ),  // "Ceiling"
+//	          Child, Label2(GetString( MSG_DATAOPSGUI_CEILING ) ),  // "Ceiling"
+	          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_CEILING), // "Ceiling"
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxFloorCeilingLabelWidth, End,
 	          Child, DC_Win->FloorCeilingCheck[1] = CheckMark(0),
 	          Child, DC_Win->FloatStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "01234567890",

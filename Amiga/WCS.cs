@@ -8128,7 +8128,7 @@ Jednotky dat
 
 ;
 MSG_DATAOPSGUI_FLOOR
-  Floor
+Floor
 Untergrenze
 Minimo
 
@@ -8142,7 +8142,7 @@ Spodní
 ;
 MSG_DATAOPSGUI_CEILING
 Ceiling
- Obergrenze
+Obergrenze
  Massimo
 
 Bovengrens
