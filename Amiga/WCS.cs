@@ -25871,40 +25871,27 @@ Línea de Tiempo de Movimiento
 
 ;
 MSG_TLGUI_PAN
-  Pan\x20
+Pan\x20
 Horiz. Schwenken\x20
-  Pan\x20
+Pan\x20
 
 Horiz. draaien\x20
 
 
-  Paneo\x20
+Paneo\x20
 
 
 
 ;
 MSG_TLGUI_ZOOM
- Zoom\x20
- Vergrößern\x20
- Zoom\x20
+Zoom\x20
+Vergrößern\x20
+Zoom\x20
 
 Inzoomen\x20
 
 
-  Zoom\x20
-
-
-
-;
-MSG_TLGUI_FRAME_PACE__
-Frame\x20
-Bild\x20
-Fotogramma\x20
-
-Frame\x20
-
-
-Fotograma\x20
+Zoom\x20
 
 
 
