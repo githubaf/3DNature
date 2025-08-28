@@ -19,12 +19,22 @@ APTR AF_MakeEMTLWindow(struct TimeLineWindow *EMTL_Win)
     static const char *EMTL_Cycle_TCB[4] = {NULL};
     static int Init=TRUE;
 
+    static ULONG maxPanZoomFrameLabelWidth = 0;
+
+    static ULONG PanZoomFrameLabels[] = {
+        MSG_TLGUI_PAN,          // "  Pan "
+        MSG_TLGUI_ZOOM,         // " Zoom "
+        MSG_TLGUI_FRAME_SPACE   // "Frame "
+    };
+
     if(Init)
     {
         Init=FALSE;
         EMTL_Cycle_TCB[0] = (char*)GetString( MSG_TLGUI_TENS );  // "Tens"
         EMTL_Cycle_TCB[1] = (char*)GetString( MSG_TLGUI_CONT );  // "Cont"
         EMTL_Cycle_TCB[2] = (char*)GetString( MSG_TLGUI_BIAS );  // "Bias"
+
+        maxPanZoomFrameLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), PanZoomFrameLabels, sizeof(PanZoomFrameLabels) / sizeof(ULONG));
     }
 
     return WindowObject,
@@ -51,7 +61,10 @@ APTR AF_MakeEMTLWindow(struct TimeLineWindow *EMTL_Win)
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
                     Child, VGroup,
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                    Child, Label1(GetString( MSG_TLGUI_PAN )),  // "  Pan "
+//                    Child, Label1(GetString( MSG_TLGUI_PAN )),  // "Pan "
+                    Child, TextObject, MUIA_Text_Contents, GetString(MSG_TLGUI_PAN),  // "Pan "
+                      MUIA_Text_PreParse, "\033r", // right aligned
+                      MUIA_FixWidth, maxPanZoomFrameLabelWidth, End,
                     Child, EMTL_Win->Prop[0] = PropObject, PropFrame,
                     MUIA_HorizWeight, 400,
                     MUIA_Prop_Horiz, TRUE,
@@ -60,7 +73,10 @@ APTR AF_MakeEMTLWindow(struct TimeLineWindow *EMTL_Win)
                     MUIA_Prop_Visible, 100, End,
                     End, /* HGroup */
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                    Child, Label1(GetString( MSG_TLGUI_ZOOM )),  // " Zoom "
+//                    Child, Label1(GetString( MSG_TLGUI_ZOOM )),  // "Zoom "
+                    Child, TextObject, MUIA_Text_Contents, GetString(MSG_TLGUI_ZOOM),  // "Zoom "
+                      MUIA_Text_PreParse, "\033r", // right aligned
+                      MUIA_FixWidth, maxPanZoomFrameLabelWidth, End,
                     Child, EMTL_Win->Prop[1] = PropObject, PropFrame,
                     MUIA_HorizWeight, 400,
                     MUIA_Prop_Horiz, TRUE,
@@ -69,7 +85,10 @@ APTR AF_MakeEMTLWindow(struct TimeLineWindow *EMTL_Win)
                     MUIA_Prop_Visible, 2, End,
                     End, /* HGroup */
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                    Child, Label1(GetString( MSG_TLGUI_FRAME_SPACE )),  // "Frame "
+//                    Child, Label1(GetString( MSG_TLGUI_FRAME_SPACE )),  // "Frame "
+                    Child, TextObject, MUIA_Text_Contents, GetString(MSG_TLGUI_FRAME_SPACE),  // "Frame "
+                      MUIA_Text_PreParse, "\033r", // right aligned
+                      MUIA_FixWidth, maxPanZoomFrameLabelWidth, End,
                     Child, EMTL_Win->Prop[2] = PropObject, PropFrame,
                     MUIA_HorizWeight, 400,
                     MUIA_Prop_Horiz, TRUE,
@@ -911,12 +930,24 @@ APTR AF_MakeECTLWindow(struct TimeLineWindow *ECTL_Win)
     static const char *ECTL_Cycle_TCB[4] = {NULL};
     static int Init=TRUE;
 
+    static ULONG maxPanZoomFrameLabelWidth=0;
+
+    static ULONG PanZoomFrameLabels[] =
+    {
+            MSG_TLGUI_PAN,        // "Pan "
+            MSG_TLGUI_ZOOM,       // "Zoom "
+            MSG_TLGUI_FRAME_SPACE // "Frame "
+    };
+
+
     if(Init)
     {
         Init=FALSE;
         ECTL_Cycle_TCB[0] = (char*)GetString( MSG_TLGUI_TENS );  // "Tens"
         ECTL_Cycle_TCB[1] = (char*)GetString( MSG_TLGUI_CONT );  // "Cont"
         ECTL_Cycle_TCB[2] = (char*)GetString( MSG_TLGUI_BIAS );  // "Bias"
+
+        maxPanZoomFrameLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort),PanZoomFrameLabels, sizeof(PanZoomFrameLabels)/sizeof(ULONG));
     }
 
     return WindowObject,
@@ -953,7 +984,10 @@ APTR AF_MakeECTLWindow(struct TimeLineWindow *ECTL_Win)
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
                     Child, VGroup,
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                    Child, Label1(GetString( MSG_TLGUI_PAN )),  // "  Pan "
+//                    Child, Label1(GetString( MSG_TLGUI_PAN )),  // "  Pan "
+                    Child, TextObject, MUIA_Text_Contents, GetString(MSG_TLGUI_PAN),  // "Pan "
+                      MUIA_Text_PreParse, "\033r", // right aligned
+                      MUIA_FixWidth, maxPanZoomFrameLabelWidth, End,
                     Child, ECTL_Win->Prop[0] = PropObject, PropFrame,
                     MUIA_HorizWeight, 400,
                     MUIA_Prop_Horiz, TRUE,
@@ -962,7 +996,10 @@ APTR AF_MakeECTLWindow(struct TimeLineWindow *ECTL_Win)
                     MUIA_Prop_Visible, 100, End,
                     End, /* HGroup */
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                    Child, Label1(GetString( MSG_TLGUI_ZOOM )),  // " Zoom "
+//                    Child, Label1(GetString( MSG_TLGUI_ZOOM )),  // " Zoom "
+                    Child, TextObject, MUIA_Text_Contents, GetString(MSG_TLGUI_ZOOM),  // "Zoom "
+                      MUIA_Text_PreParse, "\033r", // right aligned
+                      MUIA_FixWidth, maxPanZoomFrameLabelWidth, End,
                     Child, ECTL_Win->Prop[1] = PropObject, PropFrame,
                     MUIA_HorizWeight, 400,
                     MUIA_Prop_Horiz, TRUE,
@@ -971,7 +1008,10 @@ APTR AF_MakeECTLWindow(struct TimeLineWindow *ECTL_Win)
                     MUIA_Prop_Visible, 2, End,
                     End, /* HGroup */
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
-                    Child, Label1(GetString( MSG_TLGUI_FRAME_SPACE )),  // "Frame "
+//                    Child, Label1(GetString( MSG_TLGUI_FRAME_SPACE )),  // "Frame "
+                    Child, TextObject, MUIA_Text_Contents, GetString(MSG_TLGUI_FRAME_SPACE),  // "Frame "
+                      MUIA_Text_PreParse, "\033r", // right aligned
+                      MUIA_FixWidth, maxPanZoomFrameLabelWidth, End,
                     Child, ECTL_Win->Prop[2] = PropObject, PropFrame,
                     MUIA_HorizWeight, 400,
                     MUIA_Prop_Horiz, TRUE,
@@ -1764,7 +1804,6 @@ APTR AF_MakeEETLWindow(struct TimeLineWindow *EETL_Win)
               Child, TextObject, MUIA_Text_Contents, GetString(MSG_TLGUI_PAN),  // "  Pan "
                 MUIA_Text_PreParse, "\033r", // right aligned
                 MUIA_FixWidth, maxPanZoomFrameLabelWidth, End,
-
                     Child, EETL_Win->Prop[0] = PropObject, PropFrame,
                 MUIA_HorizWeight, 400,
                 MUIA_Prop_Horiz, TRUE,

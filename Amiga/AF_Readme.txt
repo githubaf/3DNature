@@ -4781,8 +4781,8 @@ Test_WindowObject <Start-Nr> <Weitere>  # ohne nummer oder nur mit Startnummer w
 ** 319 Busy-Window
 ** 320 Screenmode Requester
 ** 321 Ecosystem Timeline                                  ALIGN! Done
-** 322 Colors Timeline                                     ALIGN!
-** 323 Motion Timeline                                     ALIGN!
+** 322 Colors Timeline                                     ALIGN! Done
+** 323 Motion Timeline                                     ALIGN! Done
 ** 324 Wave Editor
 ** 325 Cloud Wave Editor
 
