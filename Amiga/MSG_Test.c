@@ -6579,8 +6579,17 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
         // ###################################
 
-
         case 279:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Make_DM_Window();
+            waitForRightClick(DM_Win->ExtractWin); // Wait for right mouse button to be pressed
+            Close_DM_Window();
+            if(ShouldBreak) break;
+        }
+
+        case 280:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6592,7 +6601,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
 
 
-        case 280:
+        case 281:
             // ####### CloudGui.c ##############
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
@@ -6615,7 +6624,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
 
-        case 281:
+        case 282:
             // ####### DEMGui.c ##############
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
@@ -6627,7 +6636,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 282:
+        case 283:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6637,7 +6646,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 283:
+        case 284:
             // ####### DataOpsGui.c ##############
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
@@ -6659,23 +6668,11 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 284:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Make_DC_Window();
-            waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
-            Close_DC_Window();  // Close Convert Window
-            if(ShouldBreak) break;
-        }
-
         case 285:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_DC_Window();
-            set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
-            set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
             waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
             Close_DC_Window();  // Close Convert Window
             if(ShouldBreak) break;
@@ -6688,7 +6685,6 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             Make_DC_Window();
             set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
             set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
-            set(DC_Win->VSRegister, MUIA_Group_ActivePage, 1);  // Output Format "One Value"
             waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
             Close_DC_Window();  // Close Convert Window
             if(ShouldBreak) break;
@@ -6701,13 +6697,26 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             Make_DC_Window();
             set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
             set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
-            set(DC_Win->VSRegister, MUIA_Group_ActivePage, 2);  // Output Format "Max-Min"
+            set(DC_Win->VSRegister, MUIA_Group_ActivePage, 1);  // Output Format "One Value"
             waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
             Close_DC_Window();  // Close Convert Window
             if(ShouldBreak) break;
         }
 
         case 288:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Make_DC_Window();
+            set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
+            set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
+            set(DC_Win->VSRegister, MUIA_Group_ActivePage, 2);  // Output Format "Max-Min"
+            waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
+            Close_DC_Window();  // Close Convert Window
+            if(ShouldBreak) break;
+        }
+
+        case 289:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6721,7 +6730,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ###### EdBaseGui.c ##############
-        case 289:
+        case 290:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6733,7 +6742,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
 
 
-        case 290:
+        case 291:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6758,7 +6767,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ############ EdEcoGui.c ##############
-        case 291:
+        case 292:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6782,7 +6791,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
 
         // ############ EdEcoGui.c ##############
-        case 292:
+        case 293:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6804,7 +6813,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 293:
+        case 294:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6826,7 +6835,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 294:
+        case 295:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6848,7 +6857,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ############ EdSetGUI.c ##############
-        case 295:
+        case 296:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6864,7 +6873,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 296:
+        case 297:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6882,7 +6891,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 297:
+        case 298:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6900,7 +6909,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 298:
+        case 299:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6918,7 +6927,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 299:
+        case 300:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6936,7 +6945,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 300:
+        case 301:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6954,7 +6963,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 301:
+        case 302:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6972,7 +6981,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 302:
+        case 303:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6991,7 +7000,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ############ EdSetGUI.c ##############
-        case 303:
+        case 304:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             struct EcoPalWindow EC_Win={0};
@@ -7013,7 +7022,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ############ EvenMoreGUI.c ###########
-        case 304:
+        case 305:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             struct NewProjectWindow PN_Win={0};
@@ -7033,7 +7042,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 305:
+        case 306:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7055,7 +7064,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ####### FoliageGUI.c ##############
-        case 306:
+        case 307:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7077,7 +7086,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         }
 
         // ################### MapGui.c ####################
-        case 307:
+        case 308:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7089,7 +7098,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 308:
+        case 309:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7110,7 +7119,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 309:
+        case 310:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7122,7 +7131,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
 
         // ############ MoreGUI.c ##############
-        case 310:
+        case 311:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7132,23 +7141,13 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             if(ShouldBreak) break;
         }
 
-        case 311:
+        case 312:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_PR_Window();
             waitForRightClick(PR_Win->PrefsWin); // Wait for right mouse button to be pressed
             Close_PR_Window();
-            if(ShouldBreak) break;
-        }
-
-        case 312:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Make_DM_Window();
-            waitForRightClick(DM_Win->ExtractWin); // Wait for right mouse button to be pressed
-            Close_DM_Window();
             if(ShouldBreak) break;
         }
 

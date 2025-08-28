@@ -574,6 +574,14 @@ void Make_LW_Window(void)
  static const char *LW_ExportItems[5]={NULL};
  static int Init=TRUE;
 
+ static ULONG maxPolyVerticLabelsWidth=0;
+
+ static ULONG PolyVerticLabels[]=
+ {
+         MSG_PARGUI_MAXPOLYGONS,  // "Max Polygons"
+         MSG_PARGUI_MAXVERTICES   // "Max Vertices"
+ };
+
  if(Init)
  {
      Init=FALSE;
@@ -582,6 +590,8 @@ void Make_LW_Window(void)
      LW_ExportItems[2] = (char*)GetString( MSG_PARGUI_DEMONLY );     // "DEM Only"
      LW_ExportItems[3] = (char*)GetString( MSG_PARGUI_MOTIONONLY );  // "Motion Only"
      LW_ExportItems[4] = NULL;
+
+     maxPolyVerticLabelsWidth=GetMaxTextWidth(&(WCSScrn->RastPort), PolyVerticLabels, sizeof(PolyVerticLabels) / sizeof(ULONG));
  }
 
  if (LW_Win)
@@ -686,13 +696,19 @@ void Make_LW_Window(void)
 	    Child, RectangleObject, MUIA_Rectangle_VBar, TRUE, End,
 	    Child, VGroup,
 	      Child, HGroup,
-	        Child, Label2(GetString( MSG_PARGUI_MAXPOLYGONS )),  // "Max Polygons"
+//	        Child, Label2(GetString( MSG_PARGUI_MAXPOLYGONS )),  // "Max Polygons"
+          Child, TextObject, MUIA_Text_Contents, GetString(MSG_PARGUI_MAXPOLYGONS),  // "Max Polygons"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxPolyVerticLabelsWidth, End,
 	        Child, LW_Win->IntStr[0] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "0123456789", End,
 		End, /* HGroup */
 	      Child, HGroup,
-	        Child, Label2(GetString(MSG_PARGUI_MAXVERTICES )),  // "Max Vertices"
+//	        Child, Label2(GetString(MSG_PARGUI_MAXVERTICES )),  // "Max Vertices"
+	        Child, TextObject, MUIA_Text_Contents, GetString(MSG_PARGUI_MAXVERTICES),  // "Max Vertices"
+              MUIA_Text_PreParse, "\033r", // right aligned
+              MUIA_FixWidth, maxPolyVerticLabelsWidth, End,
 	        Child, LW_Win->IntStr[1] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "0123456",
 			MUIA_String_Accept, "0123456789", End,

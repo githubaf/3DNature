@@ -25,6 +25,13 @@ APTR AF_MakeTimeSetWin(struct TimeSetWindow *TS_Win)
         "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
         "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", NULL};
 
+    static ULONG maxSunLonLatLabelWidth = 0;
+
+    static ULONG SunLonLatLabels[] = {
+        MSG_EVMORGUI_SUNLON,   // " Sun Lon "
+        MSG_EVMORGUI_SUNLAT    // " Sun Lat "
+    };
+
     static int Init=TRUE;
 
     if(Init)
@@ -48,6 +55,8 @@ APTR AF_MakeTimeSetWin(struct TimeSetWindow *TS_Win)
     TS_Cycle_Month[10] = (char*)GetString( MSG_EVMORGUI_NOV );  // "Nov",
     TS_Cycle_Month[11] = (char*)GetString( MSG_EVMORGUI_DEC );  // "Dec",
     TS_Cycle_Month[12] = NULL;
+
+    maxSunLonLatLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), SunLonLatLabels, sizeof(SunLonLatLabels) / sizeof(ULONG));
     }
 
     return WindowObject,
@@ -82,13 +91,19 @@ APTR AF_MakeTimeSetWin(struct TimeSetWindow *TS_Win)
             End, /* HGroup */
 
           Child, HGroup,
-            Child, Label2(GetString( MSG_EVMORGUI_SUNLON )),  // "Sun Lon"
+//            Child, Label2(GetString( MSG_EVMORGUI_SUNLON )),  // "Sun Lon"
+            Child, TextObject, MUIA_Text_Contents, GetString(MSG_EVMORGUI_SUNLON), // "Sun Lon"
+              MUIA_Text_PreParse, "\033r", // right aligned
+              MUIA_FixWidth, maxSunLonLatLabelWidth, End,
             Child, TS_Win->SunLonStr = StringObject, StringFrame,
               MUIA_FixWidthTxt, "01234567890",
               MUIA_String_Accept, "-.0123456789", End,
             End, /* HGroup */
           Child, HGroup,
-            Child, Label2(GetString( MSG_EVMORGUI_SUNLAT )),  // "Sun Lat"
+//            Child, Label2(GetString( MSG_EVMORGUI_SUNLAT )),  // "Sun Lat"
+            Child, TextObject, MUIA_Text_Contents, GetString(MSG_EVMORGUI_SUNLAT), // "Sun Lat"
+              MUIA_Text_PreParse, "\033r", // right aligned
+              MUIA_FixWidth, maxSunLonLatLabelWidth, End,
             Child, TS_Win->SunLatStr = StringObject, StringFrame,
               MUIA_FixWidthTxt, "01234567890",
               MUIA_String_Accept, "-.0123456789", End,

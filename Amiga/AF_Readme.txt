@@ -4896,3 +4896,8 @@ Fenster 288 Diagnoseate alignt.
 Fenster 291 Ecosystem Editor alignt.
 
 * Nach ULONG max... suchen. Die koennen alle static sein!
+
+28.8.2025
+---------
+Male_DM_Window im Test nach 279 vergeschoben. Dieses Fenster schaltet u.U. auf proportionalen Font und folgende Leerzeichen-Justierungen fallen eher auf. 
+Man kann also mit 279, wenn man die proportionale Schrift will oder mit 280 wenn man die normale Schrift will.
