@@ -4901,3 +4901,8 @@ Fenster 291 Ecosystem Editor alignt.
 ---------
 Male_DM_Window im Test nach 279 vergeschoben. Dieses Fenster schaltet u.U. auf proportionalen Font und folgende Leerzeichen-Justierungen fallen eher auf. 
 Man kann also mit 279, wenn man die proportionale Schrift will oder mit 280 wenn man die normale Schrift will.
+
+1.Sep.2025
+----------
+Die Verbing Windows (WinUAE) -> WSL2 ist ueber SAMBA extrem viel schneller als ueber die interne WSL-Vebindung! Catalog-Compilieren oder Coverage-Schreiben war damit extrem langsam bis unrauchbar. Also Samba nehmen!
+

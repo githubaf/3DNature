@@ -10304,10 +10304,10 @@ MSG_EDDB_REMOVE
 ;
 MSG_EDDB_READONLY
 \33c*Read Only
-\33cNur Lesen
-\33cSolo lettura
+\33c*Nur Lesen
+\33c*Solo lettura
 
-\33cAlleen lezen
+\33c*Alleen lezen
 
 
 \33c*Solo lectura
@@ -12002,7 +12002,7 @@ MSG_EDMOGUI_PROFDENS
 \33c\0334Profiel Dichtheid
 
 
-\0334Densidad Prof
+\33c\0334Densidad Prof
 
 
 
@@ -12035,7 +12035,7 @@ MSG_EDMOGUI_GRID
 ;
 MSG_EDMOGUI_MOVEMENT
 \33c\0334Movement
-\33c\334Bewegung
+\33c\0334Bewegung
 \33c\0334Movimento
 
 \33c\0334Beweging
@@ -17077,7 +17077,7 @@ I buffer diagnostici non possono essere generati per rendering con segmenti o fo
 Er kunnen geen Diagnostische buffers worden gegenereerd voor meervoudige segment- of meervoudige frame-renderingen! Doorgaan zonder?
 
 
-\0334¡No se pueden generar búferes de diagnóstico para renderizados con múltiples segmentos o múltiples fotogramas! ¿Continuar sin ellos?
+¡No se pueden generar búferes de diagnóstico para renderizados con múltiples segmentos o múltiples fotogramas! ¿Continuar sin ellos?
 
 
 
@@ -17090,7 +17090,7 @@ Memoria esaurita durante l'apertura dei buffer diagnostici! Procedere senza di e
 Te weinig geheugen bij openen van Diagnostische buffers! Doorgaan zonder?
 
 
-\0334¡Memoria insuficiente al abrir los búferes de diagnóstico! ¿Continuar sin ellos?
+¡Memoria insuficiente al abrir los búferes de diagnóstico! ¿Continuar sin ellos?
 
 
 
@@ -22417,7 +22417,7 @@ Vista mappa: Mappa dei colori
 Kaartweergave: Kleurenkaart
 
 
-\0334Vista de Mapa: Mapa de Color
+Vista de Mapa: Mapa de Color
 
 
 
@@ -22443,7 +22443,7 @@ La mappa selezionata non è attualmente caricata!\nVuoi caricare le mappe topogra
 De geselecteerde kaart is momenteel niet geladen!\nWilt u topografische kaarten laden?
 
 
-\0334¡El mapa seleccionado no está cargado actualmente!\n¿Desea cargar mapas topográficos?
+¡El mapa seleccionado no está cargado actualmente!\n¿Desea cargar mapas topográficos?
 
 
 
@@ -22456,7 +22456,7 @@ Memoria esaurita durante la creazione delle bitmap!\nOperazione terminata.
 Te weinig geheugen voor het maken van bitmaps!\nBewerking afgebroken.
 
 
-\0334¡Memoria insuficiente al crear mapas de bits!\nOperación terminada.
+¡Memoria insuficiente al crear mapas de bits!\nOperación terminada.
 
 
 
@@ -22469,7 +22469,7 @@ Includere i dati di elevazione DEM nella mappa colori?
 DEM hoogtegegevens opnemen in Kleurenkaart?
 
 
-\0334¿Incluir datos de elevación DEM en el Mapa de Color?
+¿Incluir datos de elevación DEM en el Mapa de Color?
 
 
 
@@ -22482,7 +22482,7 @@ Salva mappa colori come:
 Sla Kleurenkaart op als:
 
 
-\0334Guardar Mapa de Color Como:
+Guardar Mapa de Color Como:
 
 
 
@@ -22509,7 +22509,7 @@ DEM %d/%d
 DEM %d/%d
 
 
-\0334DEM %d/%d
+DEM %d/%d
 
 
 
@@ -22522,7 +22522,7 @@ Errore nel salvataggio dei vertici vettoriali su file!
 Fout bij opslaan van vector hoekpunten naar bestand!
 
 
-\0334¡Error al guardar vértices vectoriales en el archivo!
+¡Error al guardar vértices vectoriales en el archivo!
 
 
 
@@ -22535,7 +22535,7 @@ Nuovo Percorso di Salvataggio Linea
 Nieuw Lijn Opslag Pad
 
 
-\0334Nueva ruta de guardado de línea
+Nueva ruta de guardado de línea
 
 
 
@@ -22548,7 +22548,7 @@ Impossibile aprire il file vettoriale per l'output!
 Kan vectorbestand niet openen voor uitvoer!
 
 
-\0334¡No se puede abrir el archivo vectorial para salida!
+¡No se puede abrir el archivo vectorial para salida!
 
 
 
@@ -22561,7 +22561,7 @@ Nuvola %d
 Wolk %d
 
 
-\0334Nube %d
+Nube %d
 
 
 
@@ -22574,7 +22574,7 @@ Inserisci la dimensione massima in pixel per un poligono. Più piccolo è il numer
 Voer de maximale pixelgrootte voor een veelhoek in. Hoe kleiner het getal, hoe langer het renderen van de afbeelding duurt!
 
 
-\0334Ingrese el tamaño máximo de píxel para un polígono. ¡Cuanto menor sea el número, más tardará el renderizado de la imagen!
+Ingrese el tamaño máximo de píxel para un polígono. ¡Cuanto menor sea el número, más tardará el renderizado de la imagen!
 
 
 
@@ -22587,7 +22587,7 @@ Inserisci il primo fotogramma da analizzare.
 Voer het eerste frame in om te scannen.
 
 
-\0334Ingrese el primer fotograma a escanear.
+Ingrese el primer fotograma a escanear.
 
 
 
@@ -22600,7 +22600,7 @@ Inserisci l'ultimo fotogramma da analizzare.
 Voer het laatste frame in om te scannen.
 
 
-\0334Ingrese el último fotograma a escanear.
+Ingrese el último fotograma a escanear.
 
 
 
@@ -22613,7 +22613,7 @@ Inserisci l'intervallo di fotogrammi da analizzare. Più piccolo è il numero, più
 Voer het frame interval in om te scannen. Hoe kleiner het getal, hoe langer dit proces duurt!
 
 
-\0334Ingrese el intervalo de fotogramas a escanear. ¡Cuanto menor sea el número, más tardará este proceso!
+Ingrese el intervalo de fotogramas a escanear. ¡Cuanto menor sea el número, más tardará este proceso!
 
 
 
@@ -22626,7 +22626,7 @@ Animazione
 Animatie
 
 
-\0334Animación
+Animación
 
 
 
@@ -22639,7 +22639,7 @@ Fotogramma %d/%d
 Frame %d/%d
 
 
-\0334Fotograma %d/%d
+Fotograma %d/%d
 
 
 
@@ -22653,7 +22653,7 @@ Elenco rendering: Nessuna mappa trovata
 Render Lijst: Geen kaarten gevonden
 
 
-\0334Lista de Renderizado: No se encontraron mapas
+Lista de Renderizado: No se encontraron mapas
 
 
 
@@ -22666,7 +22666,7 @@ Elenco rendering:
 Render Lijst:
 
 
-\0334Lista de Renderizado:
+Lista de Renderizado:
 
 
 
@@ -22679,7 +22679,7 @@ MSG_MAPUTIL_DDIR
 %hd. %s Richting=%s
 
 
-\0334%hd. %s Dir=%s
+%hd. %s Dir=%s
 
 
 
@@ -22692,7 +22692,7 @@ E-O
 O-W
 
 
-\0334E-O
+E-O
 
 
 
@@ -22705,7 +22705,7 @@ O-E
 W-O
 
 
-\0334O-E
+O-E
 
 
 
@@ -22718,7 +22718,7 @@ Nessun elenco rendering!
 Geen render lijst!
 
 
-\0334¡No hay lista de renderizado!
+¡No hay lista de renderizado!
 
 
 
@@ -22733,7 +22733,7 @@ Estrazione DEM
 DEM Extraheren
 
 
-\0334Extracción DEM
+Extracción DEM
 
 
 
@@ -22759,7 +22759,7 @@ MSG_MOREGUI_SELECTED
 Geselecteerd
 
 
-\0334Seleccionado
+Seleccionado
 
 
 
@@ -22772,7 +22772,7 @@ MSG_MOREGUI_SELATITUDE
 ZO Breedtegraad
 
 
-\0334Latitud SE
+Latitud SE
 
 
 
@@ -22785,7 +22785,7 @@ MSG_MOREGUI_SELONGITUDE
 ZO Lengtegraad
 
 
-\0334Longitud SE
+Longitud SE
 
 
 
@@ -22798,7 +22798,7 @@ Nome DEM
 DEM Naam
 
 
-\0334Nombre DEM
+Nombre DEM
 
 
 
@@ -22811,7 +22811,7 @@ Livello
 Niveau
 
 
-\0334Nivel
+Nivel
 
 
 
@@ -22824,7 +22824,7 @@ MSG_MOREGUI_ELEVPTRN
 Hgt Ptrn
 
 
-\0334Patrón de Elevación
+Patrón de Elevación
 
 
 
@@ -22837,7 +22837,7 @@ MSG_MOREGUI_REFSYS
  Ref Sys
 
 
-\0334Sistema de Referencia
+Sistema de Referencia
 
 
 
@@ -22850,7 +22850,7 @@ MSG_MOREGUI_ZONE
  Zone
 
 
-\0334Zona
+Zona
 
 
 
@@ -22876,7 +22876,7 @@ Unità di misura terreno
 Grond Eenheden
 
 
-\0334Unidades de Terreno
+Unidades de Terreno
 
 
 
@@ -22889,7 +22889,7 @@ MSG_MOREGUI_ELEVUNITS
 Hoogte Eenheden
 
 
-\0334Unidades de Elevación
+Unidades de Elevación
 
 
 
@@ -22902,7 +22902,7 @@ MSG_MOREGUI_POLYSIDES
 Vlakken
 
 
-\0334Lados del Polígono
+Lados del Polígono
 
 
 
@@ -22928,7 +22928,7 @@ SO E
 ZW O
 
 
-\0334SO E
+SO E
 
 
 
@@ -22941,7 +22941,7 @@ MSG_MOREGUI_N
  N
 
 
-\0334N
+ N
 
 
 
@@ -22954,7 +22954,7 @@ NO E
 NW O
 
 
-\0334NO E
+NO E
 
 
 
@@ -22967,7 +22967,7 @@ NE E
 NO O
 
 
-\0334NE E
+NE E
 
 
 
@@ -22980,7 +22980,7 @@ SE E
 ZO O
 
 
-\0334SE E
+ E
 
 
 
@@ -22993,7 +22993,7 @@ Elev Min
 Min Hgt
 
 
-\0334Elevación Mínima
+Elevación Mínima
 
 
 
@@ -23006,7 +23006,7 @@ MSG_MOREGUI_X20ELEVMAX
  Max Hgt
 
 
-\0334Elevación Máxima
+Elevación Máxima
 
 
 
@@ -23019,7 +23019,7 @@ Rotazione asse
 As Rotatie
 
 
-\0334Rotación del Eje
+Rotación del Eje
 
 
 
@@ -23032,7 +23032,7 @@ MSG_MOREGUI_ACCURACY
 Nauwkeurigheid
 
 
-\0334Precisión
+Precisión
 
 
 
@@ -23045,7 +23045,7 @@ Risoluzione X
 Resolutie X
 
 
-\0334Resolución X
+Resolución X
 
 
 
@@ -23058,7 +23058,7 @@ Righe
 Rijen
 
 
-\0334Filas
+Filas
 
 
 
@@ -23071,7 +23071,7 @@ MSG_MOREGUI_COLUMNS
  Kolommen
 
 
-\0334Columnas
+ Columnas
 
 
 
@@ -23097,7 +23097,7 @@ Riga
 Rij
 
 
-\0334Fila
+Fila
 
 
 
@@ -23110,7 +23110,7 @@ MSG_MOREGUI_COLUMN
  Kolom
 
 
-\0334Columna
+Columna
 
 
 
@@ -23123,7 +23123,7 @@ MSG_MOREGUI_PROFROWS
  Prof Rijen
 
 
-\0334Filas de Perfil
+ Filas de Perfil
 
 
 
@@ -23136,7 +23136,7 @@ MSG_MOREGUI_PROFCOLS
  Prof Klm
 
 
-\0334Columnas de Perfil
+ Columnas de Perfil
 
 
 
@@ -23149,7 +23149,7 @@ Coordinate E
 Coörd O
 
 
-\0334Coordenadas E
+Coordenadas E
 
 
 
@@ -23162,7 +23162,7 @@ Datum elevazione
 Hoogte Datum
 
 
-\0334Datum de Elevación
+Datum de Elevación
 
 
 
@@ -23175,7 +23175,7 @@ Elevazione massima
 Max Hgt
 
 
-\0334Elevación Máxima
+Elevación Máxima
 
 
 
@@ -23201,7 +23201,7 @@ File DEM USGS
 USGS DEM Bestanden
 
 
-\0334Archivos DEM de USGS
+Archivos DEM de USGS
 
 
 
@@ -23214,7 +23214,7 @@ Modulo operazioni dati: Estrazione DEM
 Data Ops Module: DEM Extraheren
 
 
-\0334Módulo de Operaciones de Datos: Extracción DEM
+Módulo de Operaciones de Datos: Extracción DEM
 
 
 
@@ -23227,7 +23227,7 @@ Inserisci i valori di latitudine e longitudine per l'angolo sud-est del DEM corr
 Voer de breedte- en lengtegraadwaarden in voor de zuidoosthoek van de huidige DEM in de tekstvakken bovenaan het DEM Extraheren venster.
 
 
-\0334Por favor, introduzca los valores de latitud y longitud para la esquina sureste del DEM actual en los campos de texto cerca de la parte superior de la ventana de extracción DEM.
+Por favor, introduzca los valores de latitud y longitud para la esquina sureste del DEM actual en los campos de texto cerca de la parte superior de la ventana de extracción DEM.
 
 
 
@@ -23957,7 +23957,7 @@ Scala immagine
 Afbeelding Schalen
 
 
-\0334Escala de Imagen
+Escala de Imagen
 
 
 
@@ -23970,7 +23970,7 @@ Larghezza
 Breedte
 
 
-\0334Ancho
+Ancho
 
 
 
@@ -23983,7 +23983,7 @@ Altezza
 Hoogte
 
 
-\0334Altura
+Altura
 
 
 
@@ -23996,7 +23996,7 @@ Proporzioni pixel
 Pixel Aspect
 
 
-\0334Relación de Aspecto de Píxel
+Relación de Aspecto de Píxel
 
 
 
@@ -24068,7 +24068,7 @@ Wijzigingen toepassen?
 ;
 MSG_MOREGUI_RENDERTASKPRIORITY
 \33c\0334Render Task Priority
-\33c\0334Priorität der Darstellung
+\33c\0334Render-Priorität
 \33c\0334Priorità attività di rendering
 
 \33c\0334Render Prioriteit
