@@ -10759,11 +10759,11 @@ MSG_EDECOGUI_OLORMAP
 
 ;
 MSG_EDECOGUI_MATCHRED
- Match Red\x20
+Match Red\x20
 Rot-Abgleich\x20
- Abbina rosso\x20
+Abbina rosso\x20
 
- Gelijk aan Rood\x20
+Gelijk aan Rood\x20
 
 
 Coincidir Rojo\x20
@@ -10772,9 +10772,9 @@ Dopasuj Czerwony\x20
 
 ;
 MSG_EDECOGUI_MATCHGRN
- Match Grn\x20
+Match Grn\x20
 Grün-Abgleich\x20
- Abbina verde\x20
+Abbina verde\x20
 
 Gelijk aan Groen\x20
 
@@ -10785,9 +10785,9 @@ Dopasuj Zielony\x20
 
 ;
 MSG_EDECOGUI_MATCHBLU
- Match Blu\x20
+Match Blu\x20
 Blau-Abgleich\x20
- Abbina blu\x20
+Abbina blu\x20
 
 Gelijk aan Blauw\x20
 

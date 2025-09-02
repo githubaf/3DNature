@@ -133,6 +133,7 @@ APTR AF_Make_EcosystemWin(struct EcosystemWindow *EE_Win)
                    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 //                     Child, Label2(GetString( MSG_EDECOGUI_MATCHRED )),  // " Match Red "        /* Match Red */
                      Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_EDECOGUI_MATCHRED), // " Match Red "        /* Match Red */
+                       MUIA_Text_PreParse, "\033r", // right aligned
                        MUIA_FixWidth, maxLabelRGBWidth, End,
 
                      Child, EE_Win->IntStr[12] = StringObject, StringFrame,
@@ -143,6 +144,7 @@ APTR AF_Make_EcosystemWin(struct EcosystemWindow *EE_Win)
                    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 //                     Child, Label2(GetString( MSG_EDECOGUI_MATCHGRN )),  // " Match Grn "        /* Match Green */
                        Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_EDECOGUI_MATCHGRN), // " Match Grn "        /* Match Green */
+                         MUIA_Text_PreParse, "\033r", // right aligned
                          MUIA_FixWidth, maxLabelRGBWidth, End,
                      Child, EE_Win->IntStr[13] = StringObject, StringFrame,
                  MUIA_String_Integer, 0,
@@ -152,6 +154,7 @@ APTR AF_Make_EcosystemWin(struct EcosystemWindow *EE_Win)
                    Child, HGroup, MUIA_Group_HorizSpacing, 0,
 //                     Child, Label2(GetString( MSG_EDECOGUI_MATCHBLU )),  // " Match Blu "        /* Match Blue */
                        Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_EDECOGUI_MATCHBLU), // " Match Blu "        /* Match Blue */
+                         MUIA_Text_PreParse, "\033r", // right aligned
                          MUIA_FixWidth, maxLabelRGBWidth, End,
                      Child, EE_Win->IntStr[14] = StringObject, StringFrame,
                  MUIA_String_Integer, 0,
