@@ -51,6 +51,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
         Child, HGroup,
           //Child, Label1(GetString( MSG_DIAG_DISTANCE )),  // "  Distance"
           Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_DISTANCE),
+            MUIA_Text_PreParse, "\033r", // right aligned
             MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[0] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
@@ -58,6 +59,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 	Child, HGroup,
 //	  Child, Label1(GetString( MSG_DIAG_ELEVATION )),  // " Elevation"
           Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_ELEVATION),
+            MUIA_Text_PreParse, "\033r", // right aligned
             MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[1] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
@@ -65,6 +67,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 	Child, HGroup,
 //	  Child, Label1(GetString( MSG_DIAG_OVERSTORY )),  // " Overstory"
           Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_OVERSTORY),
+            MUIA_Text_PreParse, "\033r", // right aligned
             MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[2] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
@@ -72,6 +75,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 	Child, HGroup,
 //	  Child, Label1(GetString( MSG_DIAG_UNDERSTORY )),  // "Understory"
           Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_UNDERSTORY),
+            MUIA_Text_PreParse, "\033r", // right aligned
             MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[3] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
@@ -79,6 +83,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 	Child, HGroup,
 //	  Child, Label1(GetString( MSG_DIAG_RELEL )),  // "    Rel El"
           Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_RELEL),
+            MUIA_Text_PreParse, "\033r", // right aligned
             MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[4] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
@@ -86,6 +91,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 	Child, HGroup,
 //	  Child, Label1(GetString( MSG_DIAG_ASPECT )),  // "    Aspect"
           Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_ASPECT),
+            MUIA_Text_PreParse, "\033r", // right aligned
             MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[5] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
@@ -93,6 +99,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 	Child, HGroup,
 //	  Child, Label1(GetString( MSG_DIAG_SLOPE )),  // "     Slope"
           Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_SLOPE),
+            MUIA_Text_PreParse, "\033r", // right aligned
             MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[6] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
@@ -100,6 +107,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 	Child, HGroup,
 //	  Child, Label1(GetString( MSG_DIAG_SUNANGLE )),  // " Sun Angle"
           Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_SUNANGLE),
+            MUIA_Text_PreParse, "\033r", // right aligned
             MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[7] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
@@ -107,6 +115,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 	Child, HGroup,
 //	  Child, Label1(GetString( MSG_DIAG_LATITUDE )),  // "  Latitude"
           Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_LATITUDE),
+            MUIA_Text_PreParse, "\033r", // right aligned
             MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[8] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,
@@ -114,6 +123,7 @@ void Open_Diagnostic_Window(struct Window *EcoWin, char *WinTitle)
 	Child, HGroup,
 //	  Child, Label1(GetString( MSG_DIAG_LONGITUDE )),  // " Longitude"	  Child, Label1(GetString( MSG_DIAG_LATITUDE )),  // "  Latitude"
           Child, TextObject, MUIA_Text_Contents, (IPTR)GetString(MSG_DIAG_LONGITUDE),
+            MUIA_Text_PreParse, "\033r", // right aligned
             MUIA_FixWidth, maxLabelWidth, End,
 	  Child, DIAG_Win->Txt[9] = TextObject, TextFrame,
 		MUIA_FixWidthTxt, "012345678901", End,

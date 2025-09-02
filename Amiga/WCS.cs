@@ -9196,42 +9196,42 @@ Diagnostická data
 
 ;
 MSG_DIAG_DISTANCE
-  Distance
-  Entfernung
-  Distanza
+Distance
+Entfernung
+Distanza
 
-        Afstand
+Afstand
 
 
 Distancia
- Odleg³o¶æ
-    Vzdálenost
+Odleg³o¶æ
+Vzdálenost
 
 ;
 MSG_DIAG_ELEVATION
- Elevation
-        Höhe
+Elevation
+Höhe
 Elevazione
 
-         Hoogte
+Hoogte
 
 
 Elevación
- Podniesienie
-   Vý¹ka
+Podniesienie
+Vý¹ka
 
 ;
 MSG_DIAG_OVERSTORY
- Overstory
+Overstory
 Baumschicht
 Copertura superiore
 
-      Bovenlaag
+Bovenlaag
 
 
 Dosel
 
-   prelozit
+prelozit
 
 ;
 MSG_DIAG_UNDERSTORY
@@ -9239,7 +9239,7 @@ Understory
 Unterschicht
 Copertura inferiore
 
-      Onderlaag
+Onderlaag
 
 
 Sotobosque
@@ -9248,81 +9248,81 @@ prelozit
 
 ;
 MSG_DIAG_RELEL
-    Rel El
-    Rel Höhe
-    Elevazione relativa
+Rel El
+Rel Höhe
+Elevazione relativa
 
-  Relatieve hgt
+Relatieve hgt
 
 
 Rel El
-  Rel. Pod
+Rel. Pod
 
 
 ;
 MSG_DIAG_ASPECT
-    Aspect
-      Aspekt
-  Esposizione
+Aspect
+Aspekt
+Esposizione
 
-         Aspect
+Aspect
 
 
 Orientación
-  Aspekt
-      Aspekt
+Aspekt
+Aspekt
 
 ;
 MSG_DIAG_SLOPE
-     Slope
-     Neigung
-     Pendenza
+Slope
+Neigung
+Pendenza
 
-   Hellingshoek
+Hellingshoek
 
 
 Pendiente
-  Nachyelenie
-       Sva¾itost
+Nachyelenie
+Sva¾itost
 
 ;
 MSG_DIAG_SUNANGLE
- Sun Angle
+Sun Angle
 Sonnenwinkel
 Angolo solare
 
-        Zonhoek
+Zonhoek
 
 
 Ángulo solar
- K±t S³oñca
+K±t S³oñca
 Úhel slun. papr
 
 ;
 MSG_DIAG_LATITUDE
-  Latitude
-      Breite
- Latitudine
+Latitude
+Breite
+Latitudine
 
-   Breedtegraad
+Breedtegraad
 
 
 Latitud
- Szeroko¶æ
-    Zem. vý¹
+Szeroko¶æ
+Zem. vý¹
 
 ;
 MSG_DIAG_LONGITUDE
- Longitude
-       Länge
- Longitudine
+Longitude
+Länge
+Longitudine
 
-    Lengtegraad
+Lengtegraad
 
 
 Longitud
- Szeroko¶æ
-  Zem.dél
+Szeroko¶æ
+Zem.dél
 
 ;
 MSG_DIAG_DATABASE
