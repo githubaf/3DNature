@@ -609,6 +609,20 @@ double FloatDays, RefLon, SunTime;
 
 APTR AF_MakePN_Win(struct NewProjectWindow *PN_Win)
 {
+    static int Init=TRUE;
+    static ULONG maxNewCloneProjectLabelWidth = 0;
+
+    static ULONG NewCloneProjectLabels[] = {
+        MSG_EVMORGUI_NEWPROJECT,   // "New Project"
+        MSG_EVMORGUI_CLONEPROJECT  // "Clone Project"
+    };
+
+    if(Init)
+    {
+        Init=FALSE;
+        maxNewCloneProjectLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), NewCloneProjectLabels, sizeof(NewCloneProjectLabels) / sizeof(ULONG));
+    }
+
     WindowObject,
           MUIA_Window_Title     , GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
           MUIA_Window_ID        , MakeID('P','R','O','N'),
@@ -616,14 +630,20 @@ APTR AF_MakePN_Win(struct NewProjectWindow *PN_Win)
 
           WindowContents, VGroup,
           Child, HGroup,
-            Child, Label2(GetString( MSG_EVMORGUI_NEWPROJECT )),  // "New Project"
+//            Child, Label2(GetString( MSG_EVMORGUI_NEWPROJECT )),  // "New Project"
+            Child, TextObject, MUIA_Text_Contents, GetString(MSG_EVMORGUI_NEWPROJECT), // "New Project"
+              MUIA_Text_PreParse, "\033r", // right aligned
+              MUIA_FixWidth, maxNewCloneProjectLabelWidth, End,
             Child, PN_Win->Str[0] = StringObject, StringFrame,
             MUIA_FixWidthTxt, "0123456789012345678901234567890",
             MUIA_String_Contents, "WCSProjects:", End,
             Child, PN_Win->BT_Get[0] = ImageButtonWCS(MUII_Disk),
             End, /* HGroup */
           Child, HGroup,
-            Child, Label2(GetString( MSG_EVMORGUI_CLONEPROJECT )),  // "Clone Project"
+//            Child, Label2(GetString( MSG_EVMORGUI_CLONEPROJECT )),  // "Clone Project"
+            Child, TextObject, MUIA_Text_Contents, GetString(MSG_EVMORGUI_CLONEPROJECT), // "Clone Project"
+              MUIA_Text_PreParse, "\033r", // right aligned
+              MUIA_FixWidth, maxNewCloneProjectLabelWidth, End,
             Child, PN_Win->Str[1] = StringObject, StringFrame,
             MUIA_FixWidthTxt, "0123456789012345678901234567890",
             MUIA_String_Contents, "WCSProjects:", End,
