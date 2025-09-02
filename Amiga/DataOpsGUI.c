@@ -87,6 +87,7 @@ void Make_DC_Window(void)
  static ULONG maxOutputColsRowsLabelWidth=0;
  static ULONG maxInputFileSizeHeaderBytesWidth=0;
  static ULONG maxFloorCeilingLabelWidth=0;
+ static ULONG maxMaxMinOutvalLabelWidth=0;
 
  static LONG ValueFormatLabels[]=
  {
@@ -140,6 +141,12 @@ void Make_DC_Window(void)
  {
         MSG_DATAOPSGUI_FLOOR,    // "Floor"
         MSG_DATAOPSGUI_CEILING   // "Ceiling"
+ };
+
+ static ULONG MaxMinOutvalLabels[] =
+ {
+        MSG_DATAOPSGUI_MAXOUTVAL,  // "Max Outval"
+        MSG_DATAOPSGUI_MINOUTVAL   // "Min Outval"
  };
 
  if (Init)
@@ -235,6 +242,9 @@ void Make_DC_Window(void)
 
      maxFloorCeilingLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
             FloorCeilingLabels, sizeof(FloorCeilingLabels) / sizeof(ULONG));
+
+     maxMaxMinOutvalLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort),
+             MaxMinOutvalLabels, sizeof(MaxMinOutvalLabels) / sizeof(ULONG));
  }
 
  if (DC_Win)
@@ -615,13 +625,19 @@ void Make_DC_Window(void)
 
 	      Child, VGroup,
 		Child, HGroup,
-		  Child, Label2(GetString( MSG_DATAOPSGUI_MAXOUTVAL ) ),  // "Max Out Val"
+//		  Child, Label2(GetString( MSG_DATAOPSGUI_MAXOUTVAL ) ),  // "Max Out Val"
+          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_MAXOUTVAL), // "Max Out Val"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxMaxMinOutvalLabelWidth, End,
 		  Child, DC_Win->VertScaleStr[0] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01235.012", End,
 		  End, /* HGroup */
 		Child, HGroup,
-		  Child, Label2(GetString( MSG_DATAOPSGUI_MINOUTVAL ) ),  // "Min Out Val"
+//		  Child, Label2(GetString( MSG_DATAOPSGUI_MINOUTVAL ) ),  // "Min Out Val"
+          Child, TextObject, MUIA_Text_Contents, GetString(MSG_DATAOPSGUI_MINOUTVAL), // "Min Out Val"
+            MUIA_Text_PreParse, "\033r", // right aligned
+            MUIA_FixWidth, maxMaxMinOutvalLabelWidth, End,
 		  Child, DC_Win->VertScaleStr[1] = StringObject, StringFrame,
 			MUIA_String_Accept, "+-.0123456789",
 			MUIA_FixWidthTxt, "01235.012", End,
