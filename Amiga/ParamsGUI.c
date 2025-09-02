@@ -1669,6 +1669,21 @@ specified in Settings Editor.
 
 APTR AF_MakeAnimWin(struct AnimWindow *AN_Win,  struct Window *InterWind0)
 {
+    static int Init=TRUE;
+    static ULONG maxAnimPathNameLabelWidth=0;
+
+    static ULONG AnimPathNameLabels[] =
+    {
+        MSG_PARGUI_ANIMPATH,        // "Anim Path"
+        MSG_PARGUI_ANIMNAME         // "Anim Name"
+    };
+
+    if(Init)
+    {
+        Init=FALSE;
+        maxAnimPathNameLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), AnimPathNameLabels, sizeof(ULONG));
+    }
+
     return WindowObject,
             MUIA_Window_Title     , GetString( MSG_PARGUI_ANIMCONTROLWINDOW ),  // "Anim Control Window"
             MUIA_Window_ID        , MakeID('A','N','I','M'),
@@ -1677,7 +1692,10 @@ APTR AF_MakeAnimWin(struct AnimWindow *AN_Win,  struct Window *InterWind0)
             WindowContents, VGroup,
       /* save path and disk icon */
             Child, HGroup,
-              Child, Label2(GetString( MSG_PARGUI_ANIMPATH )),  // "Anim Path"
+//              Child, Label2(GetString( MSG_PARGUI_ANIMPATH )),  // "Anim Path"
+              Child, TextObject, MUIA_Text_Contents, GetString(MSG_PARGUI_ANIMPATH), // "Anim Path"
+                MUIA_Text_PreParse, "\033r", // right aligned
+                MUIA_FixWidth, maxAnimPathNameLabelWidth, End,
               Child, AN_Win->Str[0] = StringObject, StringFrame,
               MUIA_FixWidthTxt, "0123456789012345",
               MUIA_String_Contents, graphpath, End,
@@ -1685,9 +1703,12 @@ APTR AF_MakeAnimWin(struct AnimWindow *AN_Win,  struct Window *InterWind0)
               End, /* HGroup */
       /* save name */
             Child, HGroup,
-              Child, Label2(GetString( MSG_PARGUI_ANIMNAME )),  // "Anim Name"
+//              Child, Label2(GetString( MSG_PARGUI_ANIMNAME )),  // "Anim Name"
+              Child, TextObject, MUIA_Text_Contents, GetString(MSG_PARGUI_ANIMNAME), // "Anim Name"
+                  MUIA_Text_PreParse, "\033r", // right aligned
+                  MUIA_FixWidth, maxAnimPathNameLabelWidth, End,
               Child, AN_Win->Str[1] = StringObject, StringFrame,
-              MUIA_FixWidthTxt, "0123456789012345",
+//              MUIA_FixWidthTxt, "0123456789012345",
               MUIA_String_Contents, graphname, End,
               End, /* HGroup */
       /* frame start, end strings */
