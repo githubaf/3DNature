@@ -699,7 +699,15 @@ if(MP->MAPC)
 APTR AF_MakeAlignWin (struct MapData *MP)
 {
     static int Init=TRUE;
+    static ULONG maxNwSwLatLonLabelWidth = 0;
     static ULONG maxUpLeftLowRightXLabelWidth = 0;
+
+    static ULONG NwSwLatLonLabels[] =
+    {
+        MSG_MAPGUI_NWLAT,  // "NW Lat"
+        MSG_MAPGUI_SELAT,  // "SE Lat"
+        MSG_MAPGUI_LON     // " Lon"
+    };
 
     static ULONG UpLeftLowRightXLabels[] =
     {
@@ -711,6 +719,7 @@ APTR AF_MakeAlignWin (struct MapData *MP)
     {
         Init = FALSE;
         maxUpLeftLowRightXLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), UpLeftLowRightXLabels, sizeof(UpLeftLowRightXLabels)/sizeof(ULONG));
+        maxNwSwLatLonLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), NwSwLatLonLabels, sizeof(NwSwLatLonLabels)/sizeof(ULONG));
     }
 
 
@@ -724,11 +733,17 @@ APTR AF_MakeAlignWin (struct MapData *MP)
               Child, TextObject, MUIA_Text_Contents, GetString( MSG_MAPGUI_EOGRAPHICCOORDS ), End,  // "\33c\0334Geographic Coords"
                   Child, HGroup,
 
-                    Child, Label2(GetString( MSG_MAPGUI_NWLAT )),  // "NW Lat"
+//                    Child, Label2(GetString( MSG_MAPGUI_NWLAT )),  // "NW Lat"
+                    Child, TextObject, MUIA_Text_Contents, GetString(MSG_MAPGUI_NWLAT ),  // "NW Lat"
+                      MUIA_Text_PreParse, "\033r", // right aligned
+                      MUIA_FixWidth, maxNwSwLatLonLabelWidth, End,
                     Child, MP->FloatStr[0] = StringObject, StringFrame,
                      MUIA_String_Accept, "-.0123456789",
                  MUIA_FixWidthTxt, "012345789012", End,
-                    Child, Label2(GetString( MSG_MAPGUI_LON )),  // " Lon"
+//                    Child, Label2(GetString( MSG_MAPGUI_LON )),  // " Lon"
+                   Child, TextObject, MUIA_Text_Contents, GetString(MSG_MAPGUI_LON ),  // " Lon"
+                       MUIA_Text_PreParse, "\033r", // right aligned
+                       MUIA_FixWidth, maxNwSwLatLonLabelWidth, End,
                     Child, MP->FloatStr[1] = StringObject, StringFrame,
                      MUIA_String_Accept, "-.0123456789",
                  MUIA_FixWidthTxt, "012345789012", End,
@@ -736,11 +751,17 @@ APTR AF_MakeAlignWin (struct MapData *MP)
 
                   Child, HGroup,
 
-                    Child, Label2(GetString( MSG_MAPGUI_SELAT )),  // "SE Lat"
+//                    Child, Label2(GetString( MSG_MAPGUI_SELAT )),  // "SE Lat"
+                    Child, TextObject, MUIA_Text_Contents, GetString(MSG_MAPGUI_SELAT ),  // "SE Lat"
+                      MUIA_Text_PreParse, "\033r", // right aligned
+                      MUIA_FixWidth, maxNwSwLatLonLabelWidth, End,
                     Child, MP->FloatStr[2] = StringObject, StringFrame,
                      MUIA_String_Accept, "-.0123456789",
                  MUIA_FixWidthTxt, "012345789012", End,
-                    Child, Label2(GetString( MSG_MAPGUI_LON )),  // " Lon"
+//                    Child, Label2(GetString( MSG_MAPGUI_LON )),  // " Lon"
+                   Child, TextObject, MUIA_Text_Contents, GetString(MSG_MAPGUI_LON ),  // " Lon"
+                       MUIA_Text_PreParse, "\033r", // right aligned
+                       MUIA_FixWidth, maxNwSwLatLonLabelWidth, End,
                     Child, MP->FloatStr[3] = StringObject, StringFrame,
                      MUIA_String_Accept, "-.0123456789",
                  MUIA_FixWidthTxt, "012345789012", End,
