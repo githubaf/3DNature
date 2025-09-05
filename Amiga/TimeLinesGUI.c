@@ -64,7 +64,8 @@ APTR AF_MakeEMTLWindow(struct TimeLineWindow *EMTL_Win)
 //                    Child, Label1(GetString( MSG_TLGUI_PAN )),  // "Pan "
                     Child, TextObject, MUIA_Text_Contents, GetString(MSG_TLGUI_PAN),  // "Pan "
                       MUIA_Text_PreParse, "\033r", // right aligned
-                      MUIA_FixWidth, maxPanZoomFrameLabelWidth, End,
+                      MUIA_FixWidth, maxPanZoomFrameLabelWidth,
+                      End,
                     Child, EMTL_Win->Prop[0] = PropObject, PropFrame,
                     MUIA_HorizWeight, 400,
                     MUIA_Prop_Horiz, TRUE,
@@ -76,7 +77,8 @@ APTR AF_MakeEMTLWindow(struct TimeLineWindow *EMTL_Win)
 //                    Child, Label1(GetString( MSG_TLGUI_ZOOM )),  // "Zoom "
                     Child, TextObject, MUIA_Text_Contents, GetString(MSG_TLGUI_ZOOM),  // "Zoom "
                       MUIA_Text_PreParse, "\033r", // right aligned
-                      MUIA_FixWidth, maxPanZoomFrameLabelWidth, End,
+                      MUIA_FixWidth, maxPanZoomFrameLabelWidth,
+                      End,
                     Child, EMTL_Win->Prop[1] = PropObject, PropFrame,
                     MUIA_HorizWeight, 400,
                     MUIA_Prop_Horiz, TRUE,
@@ -88,7 +90,8 @@ APTR AF_MakeEMTLWindow(struct TimeLineWindow *EMTL_Win)
 //                    Child, Label1(GetString( MSG_TLGUI_FRAME_SPACE )),  // "Frame "
                     Child, TextObject, MUIA_Text_Contents, GetString(MSG_TLGUI_FRAME_SPACE),  // "Frame "
                       MUIA_Text_PreParse, "\033r", // right aligned
-                      MUIA_FixWidth, maxPanZoomFrameLabelWidth, End,
+                      MUIA_FixWidth, maxPanZoomFrameLabelWidth,
+                      End,
                     Child, EMTL_Win->Prop[2] = PropObject, PropFrame,
                     MUIA_HorizWeight, 400,
                     MUIA_Prop_Horiz, TRUE,
@@ -102,10 +105,10 @@ APTR AF_MakeEMTLWindow(struct TimeLineWindow *EMTL_Win)
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
                     MUIA_Group_SameWidth, TRUE,
                     Child, EMTL_Win->BT_PrevKey = KeyButtonObject('v'),
-                    MUIA_FixWidthTxt, "0123456",
+//                    MUIA_FixWidthTxt, "0123456",
                     MUIA_Text_Contents, GetString( MSG_TLGUI_PREV ), End,  // "\33cPrev"
                     Child, EMTL_Win->BT_NextKey = KeyButtonObject('x'),
-                    MUIA_FixWidthTxt, "0123456",
+//                    MUIA_FixWidthTxt, "0123456",
                     MUIA_Text_Contents, GetString( MSG_TLGUI_NEXT ), End,  // "\33cNext"
                     End, /* HGroup */
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
@@ -1025,10 +1028,10 @@ APTR AF_MakeECTLWindow(struct TimeLineWindow *ECTL_Win)
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
                     MUIA_Group_SameWidth, TRUE,
                     Child, ECTL_Win->BT_PrevKey = KeyButtonObject('v'),
-                    MUIA_FixWidthTxt, "0123456",
+//                    MUIA_FixWidthTxt, "0123456",
                     MUIA_Text_Contents, GetString( MSG_TLGUI_PREV ), End,  // "\33cPrev"
                     Child, ECTL_Win->BT_NextKey = KeyButtonObject('x'),
-                    MUIA_FixWidthTxt, "0123456",
+//                    MUIA_FixWidthTxt, "0123456",
                     MUIA_Text_Contents, GetString( MSG_TLGUI_NEXT ), End,  // "\33cNext"
                     End, /* HGroup */
                     Child, HGroup, MUIA_Group_HorizSpacing, 0,
@@ -1841,10 +1844,10 @@ APTR AF_MakeEETLWindow(struct TimeLineWindow *EETL_Win)
             Child, HGroup, MUIA_Group_HorizSpacing, 0,
             MUIA_Group_SameWidth, TRUE,
               Child, EETL_Win->BT_PrevKey = KeyButtonObject('v'),
-            MUIA_FixWidthTxt, "0123456",
+//            MUIA_FixWidthTxt, "0123456",
             MUIA_Text_Contents, GetString( MSG_TLGUI_PREV ), End,  // "\33cPrev"
               Child, EETL_Win->BT_NextKey = KeyButtonObject('x'),
-            MUIA_FixWidthTxt, "0123456",
+//            MUIA_FixWidthTxt, "0123456",
             MUIA_Text_Contents, GetString( MSG_TLGUI_NEXT ), End,  // "\33cNext"
               End, /* HGroup */
             Child, HGroup, MUIA_Group_HorizSpacing, 0,
