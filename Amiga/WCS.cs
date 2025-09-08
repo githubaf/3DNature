@@ -1,4 +1,4 @@
-## Version $VER: WCS.catalog 1.1 (11.01.2000)
+## Version $VER: WCS.catalog 1.1 (08.09.2025)
 ## Languages english deutsch italiano français nederlands português dansk español polski czech slovak
 ## Codeset english 0
 ## Codeset deutsch 0
@@ -5979,7 +5979,7 @@ Przesuniêcie X
 ;
 MSG_DEMGUI_SCOPE
 Scope
-Geltungsbereich
+Bereich
 Ambito
 
 Scope
@@ -22980,7 +22980,7 @@ SE E
 ZO O
 
 
- E
+SE E
 
 
 

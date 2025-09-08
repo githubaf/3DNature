@@ -1008,7 +1008,9 @@ if (Init)
 			MUIA_String_Accept, "0123456789", End,
 	    Child, Label1(GetString( MSG_DEMGUI_SCOPE ) ),  // "Scope"
 	    Child, HGroup, MUIA_Group_HorizSpacing, 0,
-	      Child, GR_Win->Text = TextObject, TextFrame, End,
+	      Child, GR_Win->Text = TextObject, TextFrame,
+	      MUIA_FixWidthTxt, "0123456",
+	      End,
               Child, GR_Win->Arrow[0] = ImageButtonWCS(MUII_ArrowLeft),
               Child, GR_Win->Arrow[1] = ImageButtonWCS(MUII_ArrowRight),
 	      End, /* HGroup */
