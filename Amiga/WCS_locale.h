@@ -17,7 +17,7 @@
 ** Prototypes
 */
 
-BOOL   Locale_Open( STRPTR catname, ULONG version, ULONG revision);
+BOOL   Locale_Open( STRPTR catname, ULONG version/*, ULONG revision*/);
 void   Locale_Close(void);
 STRPTR GetString(long ID);
 

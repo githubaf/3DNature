@@ -62,7 +62,7 @@ struct LocaleBase  *LocaleBase;
 
 /*************************************************************************/
 
-BOOL Locale_Open( STRPTR catname, ULONG version, ULONG revision)
+BOOL Locale_Open( STRPTR catname, ULONG version/*, ULONG revision*/)
 {
 	if( (LocaleBase = (APTR) OpenLibrary( "locale.library",0 )) ) {
 #ifdef __amigaos4__
@@ -70,8 +70,10 @@ BOOL Locale_Open( STRPTR catname, ULONG version, ULONG revision)
 #endif
 			if( (locale_locale = OpenLocale(NULL)) ) {
 				if( (locale_catalog = OpenCatalogA(locale_locale, catname, TAG_DONE)) ) {
-					if(    locale_catalog->cat_Version  == version  &&
-						   locale_catalog->cat_Revision == revision ) {
+					if(       locale_catalog->cat_Version  == version
+//						   && locale_catalog->cat_Revision == revision   // look only for exact version, not for exact revision
+						   )
+					{
 	                    return(TRUE);
 
 	                }

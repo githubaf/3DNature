@@ -4906,3 +4906,9 @@ Man kann also mit 279, wenn man die proportionale Schrift will oder mit 280 wenn
 ----------
 Die Verbing Windows (WinUAE) -> WSL2 ist ueber SAMBA extrem viel schneller als ueber die interne WSL-Vebindung! Catalog-Compilieren oder Coverage-Schreiben war damit extrem langsam bis unrauchbar. Also Samba nehmen!
 
+8.September 2025
+----------------
+Version von catalog-Files:
+Locale_Open() testet, ob version und revision mit den Forderungen des WCS-Haoptprogrammes uebereinstimmen. -> Geaendert: Nur die Version wird geprueft, die Revision ist egal.
+Dadurch koennen kleine Syntax-Korrekturen gemacht werden und die Katalog-Revision erhoeht werden, ohne das das Hauptpgramm neu compiliert werden muss.
+
