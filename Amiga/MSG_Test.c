@@ -3981,7 +3981,7 @@ void Test_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR but
 
 void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoClick)
 {
-    unsigned int TotalTests=325; // TotalTests is the number of cases here
+    unsigned int TotalTests=329; // TotalTests is the number of cases here
 
     APTR BT_AboutOK=NULL;
 
@@ -5946,13 +5946,18 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     GetString( MSG_MAPSUPRT_INCLUDEDEMELEVATIONDATAINCOLORMAP ),  // "Include DEM elevation data in Color Map?"
                     GetString( MSG_GLOBAL_YESNO ),                                // "Yes|No"
                     AutoClick);
+        }
+        case 188:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
             Test_UM_Win((CONST_STRPTR)"DEMName",
                     GetString( MSG_LWSPRT_ERRORLOADINGDEMOBJECTPERATIONTERMINATED ),  // "Error loading DEM Object!\nOperation terminated."
                     GetString( MSG_GLOBAL_OK ),                                       // "OK"
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 188:
+        case 189:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5962,7 +5967,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 189:
+        case 190:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5972,7 +5977,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 190:
+        case 191:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5982,7 +5987,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 191:
+        case 192:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -5992,7 +5997,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 192:
+        case 193:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6002,7 +6007,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 193:
+        case 194:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6012,7 +6017,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 194:
+        case 195:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6022,7 +6027,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 195:
+        case 196:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6033,7 +6038,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 196:
+        case 197:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6043,7 +6048,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 197:
+        case 198:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6053,7 +6058,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 198:
+        case 199:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6063,7 +6068,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 199:
+        case 200:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6073,23 +6078,13 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 200:
+        case 201:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                  // "Wave Editor"
                     GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
                     GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
-                    AutoClick);
-            if(ShouldBreak) break;
-        }
-        case 201:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ) ,         // "Wave Editor"
-                    GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
-                    GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
                     AutoClick);
             if(ShouldBreak) break;
         }
@@ -6097,9 +6092,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                  // "Wave Editor"
-                    GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                    GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ) ,         // "Wave Editor"
+                    GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
                     AutoClick);
             if(ShouldBreak) break;
         }
@@ -6117,13 +6112,23 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                  // "Wave Editor"
+                    GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
+                    GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+                    AutoClick);
+            if(ShouldBreak) break;
+        }
+        case 205:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
             Test_UM_Win(GetString( MSG_WAVGUI_ADDWAVE ),                                           // "Add Wave"
                     GetString( MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY ),  // "Map View Module must be open in order\ to use this function. Would you like to open it now?"
                     GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 205:
+        case 206:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6135,7 +6140,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 206:
+        case 207:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6147,7 +6152,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 207:
+        case 208:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6160,7 +6165,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 208:
+        case 209:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6170,7 +6175,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 209:
+        case 210:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6180,7 +6185,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 210:
+        case 211:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6192,7 +6197,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
-        case 211:
+        case 212:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6202,7 +6207,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 212:
+        case 213:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6212,7 +6217,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 213:
+        case 214:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6222,7 +6227,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 214:
+        case 215:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6232,7 +6237,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 215:
+        case 216:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6242,7 +6247,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 216:
+        case 217:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6252,13 +6257,17 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 217:
+        case 218:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win((CONST_STRPTR)"example existsfile",
                     GetString( MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT ) ,  // "File already exists.\nDo you wish to overwrite it?"
                     GetString( MSG_GLOBAL_OKCANCEL ),AutoClick);                    // "OK|CANCEL"
+        }
+        case 219:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win((CONST_STRPTR)"example rootfile",
                     GetString( MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER ) ,  // "DEM name is too long to add an extra character to. Do you wish to enter a new base name for the DEM or abort the interpolation?"
@@ -6266,7 +6275,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 218:
+        case 220:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6276,7 +6285,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 219:
+        case 221:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6286,7 +6295,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 220:
+        case 222:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6296,7 +6305,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 221:
+        case 223:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6306,7 +6315,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 222:
+        case 224:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6316,7 +6325,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 223:
+        case 225:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6326,7 +6335,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 224:
+        case 226:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6336,27 +6345,27 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 225:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),  // "Mapping Module: Digitize"
-                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),     // "Conform vector to terrain now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
-                    AutoClick);
-            if(ShouldBreak) break;
-        }
-        case 226:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),  // "Mapping Module: Digitize"
-                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),     // "Conform vector to terrain now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
-                    AutoClick);
-            if(ShouldBreak) break;
-        }
         case 227:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),  // "Mapping Module: Digitize"
+                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),     // "Conform vector to terrain now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
+                    AutoClick);
+            if(ShouldBreak) break;
+        }
+        case 228:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),  // "Mapping Module: Digitize"
+                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),     // "Conform vector to terrain now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
+                    AutoClick);
+            if(ShouldBreak) break;
+        }
+        case 229:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6366,7 +6375,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 228:
+        case 230:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6376,7 +6385,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 229:
+        case 231:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6386,7 +6395,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 230:
+        case 232:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6396,7 +6405,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 231:
+        case 233:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6406,7 +6415,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 232:
+        case 234:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6416,27 +6425,27 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 233:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                        // "Foliage Editor: New Group"
-                    GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ),                                                // "OK"
-                    AutoClick);
-            if(ShouldBreak) break;
-        }
-        case 234:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                        // "Foliage Editor: New Group"
-                    GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ),                                                // "OK"
-                    AutoClick);
-            if(ShouldBreak) break;
-        }
         case 235:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                        // "Foliage Editor: New Group"
+                    GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
+                    GetString( MSG_GLOBAL_OK ),                                                // "OK"
+                    AutoClick);
+            if(ShouldBreak) break;
+        }
+        case 236:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                        // "Foliage Editor: New Group"
+                    GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
+                    GetString( MSG_GLOBAL_OK ),                                                // "OK"
+                    AutoClick);
+            if(ShouldBreak) break;
+        }
+        case 237:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6446,7 +6455,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 236:
+        case 238:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6456,7 +6465,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 237:
+        case 239:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6466,7 +6475,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 238:
+        case 240:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6476,7 +6485,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 239:
+        case 241:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6486,7 +6495,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 240:
+        case 242:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6496,7 +6505,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 241:
+        case 243:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6506,7 +6515,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 242:
+        case 244:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6516,7 +6525,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 243:
+        case 245:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6524,6 +6533,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     GetString( MSG_EDPAR_LOADALLKEYFRAMES ),         // "Load all key frames?"
                     GetString( MSG_GLOBAL_YESNO ),                   // "Yes|No"
                     AutoClick);
+        }
+        case 246:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                             // "Parameters Module: Model"
                     GetString( MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_1 ),  // "The current Ecosystem Model has been modified. Do you wish to save it before closing?"
@@ -6531,7 +6544,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 244:
+        case 247:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6539,6 +6552,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     GetString( MSG_PARGUI_CURRECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2 ),  //" The current Ecosystem Model has been modified. Do you wish to save it before proceeding?"
                     GetString( MSG_PARGUI_YESNOCANCEL ),                                     // "Yes|No|Cancel"
                     AutoClick);
+        }
+        case 248:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Wave: Set Defaults"
                     GetString( MSG_WAV_SELECTGENERALWAVECENTER ),  // "Select general wave center."
@@ -6546,7 +6563,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 245:
+        case 249:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6556,7 +6573,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
                     AutoClick);
             if(ShouldBreak) break;
         }
-        case 246:
+        case 250:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6569,7 +6586,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
             if(ShouldBreak) break;
         }
-        case 247:
+        case 251:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6577,7 +6594,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
             if(ShouldBreak) break;
         }
-        case 248:
+        case 252:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6585,7 +6602,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
             if(ShouldBreak) break;
         }
-        case 249:
+        case 253:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6593,43 +6610,11 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
             if(ShouldBreak) break;
         }
-        case 250:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
-
-            if(ShouldBreak) break;
-        }
-        case 251:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ),AutoClick);  // "Enter new object name."
-
-            if(ShouldBreak) break;
-        }
-        case 252:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_IS_Win(GetString( MSG_EDDB_ENTERSEARCHSTRING ),AutoClick);  // "Enter search string."
-
-            if(ShouldBreak) break;
-        }
-        case 253:
-        {
-            ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_IS_Win(GetString( MSG_CLOUD_ENTERFRAMENUMBER ),AutoClick);  // "Enter Frame Number."
-
-            if(ShouldBreak) break;
-        }
         case 254:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEMAXIMUMPIXELSIZEFORAPOLYGONTHESMALLERTHEN ),AutoClick);  // "Enter the maximum pixel size for a polygon. The smaller the number the longer image rendering will take!"
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6637,7 +6622,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEFIRSTFRAMETOSCAN ),AutoClick);  // "Enter the first frame to scan."
+            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ),AutoClick);  // "Enter new object name."
 
             if(ShouldBreak) break;
         }
@@ -6645,7 +6630,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHELASTFRAMETOSCAN ),AutoClick);  // "Enter the last frame to scan."
+            Test_IS_Win(GetString( MSG_EDDB_ENTERSEARCHSTRING ),AutoClick);  // "Enter search string."
 
             if(ShouldBreak) break;
         }
@@ -6653,7 +6638,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEFRAMEINTERVALTOSCANTHESMALLERTHENUMBERTHE ),AutoClick);  // "Enter the frame interval to scan. The smaller the number the longer this process will take!"
+            Test_IS_Win(GetString( MSG_CLOUD_ENTERFRAMENUMBER ),AutoClick);  // "Enter Frame Number."
 
             if(ShouldBreak) break;
         }
@@ -6661,7 +6646,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEMAXIMUMPIXELSIZEFORAPOLYGONTHESMALLERTHEN ),AutoClick);  // "Enter the maximum pixel size for a polygon. The smaller the number the longer image rendering will take!"
 
             if(ShouldBreak) break;
         }
@@ -6669,7 +6654,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEFIRSTFRAMETOSCAN ),AutoClick);  // "Enter the first frame to scan."
 
             if(ShouldBreak) break;
         }
@@ -6677,7 +6662,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR ),AutoClick);  // "Enter the UTM zone number (0-60) for the data you are about to import."
+            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHELASTFRAMETOSCAN ),AutoClick);  // "Enter the last frame to scan."
 
             if(ShouldBreak) break;
         }
@@ -6685,7 +6670,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEFRAMEINTERVALTOSCANTHESMALLERTHENUMBERTHE ),AutoClick);  // "Enter the frame interval to scan. The smaller the number the longer this process will take!"
 
             if(ShouldBreak) break;
         }
@@ -6693,7 +6678,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPGUI_ENTERELEVATIONVALUEFORNEWCONTROLPOINT ),AutoClick);  // "Enter elevation value for new control point."
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6701,14 +6686,15 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_LINESPRT_ENTERFRAMEINTERVALTOREPRESENTEACHVECTORSEGMENT ),AutoClick);  // "Enter frame interval to represent each vector segment."
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
+
             if(ShouldBreak) break;
         }
         case 264:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED ),AutoClick);  // "Enter name of vector to be created."
+            Test_IS_Win(GetString( MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR ),AutoClick);  // "Enter the UTM zone number (0-60) for the data you are about to import."
 
             if(ShouldBreak) break;
         }
@@ -6724,7 +6710,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVEAMPLITUDE ),AutoClick);  // "Enter Wave Amplitude."
+            Test_IS_Win(GetString( MSG_MAPGUI_ENTERELEVATIONVALUEFORNEWCONTROLPOINT ),AutoClick);  // "Enter elevation value for new control point."
 
             if(ShouldBreak) break;
         }
@@ -6732,15 +6718,14 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVELENGTHKM ),AutoClick);  // "Enter Wave Length (km)."
-
+            Test_IS_Win(GetString( MSG_LINESPRT_ENTERFRAMEINTERVALTOREPRESENTEACHVECTORSEGMENT ),AutoClick);  // "Enter frame interval to represent each vector segment."
             if(ShouldBreak) break;
         }
         case 268:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVEVELOCITYKMHR ),AutoClick);  // "Enter Wave Velocity (km/hr)."
+            Test_IS_Win(GetString( MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED ),AutoClick);  // "Enter name of vector to be created."
 
             if(ShouldBreak) break;
         }
@@ -6748,7 +6733,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE ),AutoClick);  // ,"Enter up to 3 characters as a prefix for this DLG set if you desire."
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6756,7 +6741,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DLG_ANENTITYHASBEENFOUNDWITHNONAMEIDENTIFIERPLEASEENTERADEF ),AutoClick);  // "An entity has been found with no name identifier. Please enter a default name."
+            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVEAMPLITUDE ),AutoClick);  // "Enter Wave Amplitude."
 
             if(ShouldBreak) break;
         }
@@ -6764,7 +6749,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVELENGTHKM ),AutoClick);  // "Enter Wave Length (km)."
 
             if(ShouldBreak) break;
         }
@@ -6772,7 +6757,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ),AutoClick);  // "Enter new object name."
+            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVEVELOCITYKMHR ),AutoClick);  // "Enter Wave Velocity (km/hr)."
 
             if(ShouldBreak) break;
         }
@@ -6780,7 +6765,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ),AutoClick);  // "Enter new object name."
+            Test_IS_Win(GetString( MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE ),AutoClick);  // ,"Enter up to 3 characters as a prefix for this DLG set if you desire."
 
             if(ShouldBreak) break;
         }
@@ -6788,7 +6773,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT ),AutoClick);  // "Enter a name for the 30 meter DEM object."
+            Test_IS_Win(GetString( MSG_DLG_ANENTITYHASBEENFOUNDWITHNONAMEIDENTIFIERPLEASEENTERADEF ),AutoClick);  // "An entity has been found with no name identifier. Please enter a default name."
 
             if(ShouldBreak) break;
         }
@@ -6796,7 +6781,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAP_ENTERVERTICALOFFSETINMETERS ),AutoClick);  // "Enter vertical offset in meters."
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6804,7 +6789,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWGROUPNAME ),AutoClick);  // "Enter new group name."
+            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ),AutoClick);  // "Enter new object name."
 
             if(ShouldBreak) break;
         }
@@ -6812,11 +6797,43 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWIMAGEPATHANDNAME ),AutoClick);  // "Enter new image path and name."
+            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ),AutoClick);  // "Enter new object name."
 
             if(ShouldBreak) break;
         }
         case 278:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_IS_Win(GetString( MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT ),AutoClick);  // "Enter a name for the 30 meter DEM object."
+
+            if(ShouldBreak) break;
+        }
+        case 279:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_IS_Win(GetString( MSG_MAP_ENTERVERTICALOFFSETINMETERS ),AutoClick);  // "Enter vertical offset in meters."
+
+            if(ShouldBreak) break;
+        }
+        case 280:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWGROUPNAME ),AutoClick);  // "Enter new group name."
+
+            if(ShouldBreak) break;
+        }
+        case 281:
+        {
+            ShowTestNumbers(StartTestNumber++,TotalTests);
+
+            Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWIMAGEPATHANDNAME ),AutoClick);  // "Enter new image path and name."
+
+            if(ShouldBreak) break;
+        }
+        case 282:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6825,7 +6842,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         }
         // ###################################
 
-        case 279:
+        case 283:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6835,7 +6852,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 280:
+        case 284:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6847,7 +6864,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
 
 
-        case 281:
+        case 285:
             // ####### CloudGui.c ##############
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
@@ -6870,7 +6887,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         }
 
 
-        case 282:
+        case 286:
             // ####### DEMGui.c ##############
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
@@ -6882,7 +6899,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 283:
+        case 287:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6892,7 +6909,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 284:
+        case 288:
             // ####### DataOpsGui.c ##############
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
@@ -6914,7 +6931,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 285:
+        case 289:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6924,7 +6941,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 286:
+        case 290:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6936,7 +6953,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 287:
+        case 291:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6949,7 +6966,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 288:
+        case 292:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6962,7 +6979,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 289:
+        case 293:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6976,7 +6993,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         }
 
         // ###### EdBaseGui.c ##############
-        case 290:
+        case 294:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -6988,7 +7005,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
 
 
-        case 291:
+        case 295:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7013,7 +7030,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         }
 
         // ############ EdEcoGui.c ##############
-        case 292:
+        case 296:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7037,7 +7054,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
 
         // ############ EdEcoGui.c ##############
-        case 293:
+        case 297:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7059,7 +7076,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 294:
+        case 298:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7081,7 +7098,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 295:
+        case 299:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7103,7 +7120,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         }
 
         // ############ EdSetGUI.c ##############
-        case 296:
+        case 300:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7119,7 +7136,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 297:
+        case 301:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7137,7 +7154,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 298:
+        case 302:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7155,7 +7172,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 299:
+        case 303:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7173,7 +7190,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 300:
+        case 304:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7191,7 +7208,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 301:
+        case 305:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7209,7 +7226,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 302:
+        case 306:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7227,7 +7244,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 303:
+        case 307:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7246,7 +7263,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         }
 
         // ############ EdSetGUI.c ##############
-        case 304:
+        case 308:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             struct EcoPalWindow EC_Win={0};
@@ -7268,7 +7285,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         }
 
         // ############ EvenMoreGUI.c ###########
-        case 305:
+        case 309:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             struct NewProjectWindow PN_Win={0};
@@ -7288,7 +7305,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 306:
+        case 310:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7310,7 +7327,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         }
 
         // ####### FoliageGUI.c ##############
-        case 307:
+        case 311:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7332,7 +7349,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         }
 
         // ################### MapGui.c ####################
-        case 308:
+        case 312:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7344,7 +7361,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 309:
+        case 313:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7365,7 +7382,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 310:
+        case 314:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7377,7 +7394,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
 
         // ############ MoreGUI.c ##############
-        case 311:
+        case 315:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7387,7 +7404,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 312:
+        case 316:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7397,7 +7414,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 313:
+        case 317:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7407,7 +7424,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 314:
+        case 318:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7420,7 +7437,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
         // ################### ParamsGui.c ####################
 
-        case 315:
+        case 319:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7439,7 +7456,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 316:
+        case 320:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7462,7 +7479,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 317:
+        case 321:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7472,7 +7489,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 318:
+        case 322:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7483,7 +7500,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
         }
         // ####################### Requester_GUI.c #######################
-        case 319:
+        case 323:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7497,7 +7514,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
 
         // ############ ScreenModeGUI.c ##############
-        case 320:
+        case 324:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7544,7 +7561,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
 
 
         // ############ TimeLinesGUI.c ##############
-        case 321:
+        case 325:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7601,7 +7618,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 322:
+        case 326:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7644,7 +7661,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 323:
+        case 327:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7688,7 +7705,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         }
 
         // ############ WaveGUI.c ##############
-        case 324:
+        case 328:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
@@ -7716,7 +7733,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
             if(ShouldBreak) break;
         }
 
-        case 325:
+        case 329:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
