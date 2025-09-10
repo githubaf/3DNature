@@ -3877,13 +3877,13 @@ APTR AF_MakeModeSelWin(struct Screen *Screen, APTR *SM_List, APTR *SM_Text, APTR
                        APTR *SM_Width, APTR *SM_Height, APTR *SM_Save, APTR *SM_Use, APTR *SM_Exit, char **NumColorsStrings);
 APTR AF_MakeCloudeWin(struct CloudWindow  *CL_Win);
 
-void waitForRightClick(Object *MuiWindow)
+void waitForRightClick(Object *MuiWindow, int AutoClick)
 {
-//#define DO_NOT_WAIT_FOR_RIGHT_CLICK
-
-    // This function waits for a right mouse button click on the given MUI window.
-
-#ifndef DO_NOT_WAIT_FOR_RIGHT_CLICK
+    if(AutoClick)   // for coverage-Testing it should just return and not wait for right Mouse
+    {
+//        usleep(100000); // Sleep for 0.1 seconds to simulate waiting
+        return;
+    }
     // This function waits for a right mouse button click on the given MUI window.
     // It uses a loop to
     struct IntuiMessage *msg;
@@ -3900,12 +3900,9 @@ void waitForRightClick(Object *MuiWindow)
             ReplyMsg((struct Message *)msg);
         }
     }
-#else
-    usleep(500000); // Sleep for 0.5 seconds to simulate waiting
-#endif
 }
 
-void Test_IS_Win(CONST STRPTR message)
+void Test_IS_Win(CONST STRPTR message, int AutoClick)
 {
     // Input String Window
     // should this called with all possible strings? (look for all latFixer() calls in the code)
@@ -3914,11 +3911,11 @@ void Test_IS_Win(CONST STRPTR message)
     IS_Win=AF_Make_IS_Win((CONST_STRPTR)message, (CONST_STRPTR)"+-.,abcdefghijklmnopqrstuvwxyz9", "", &InputStr, &BT_OK, &BT_Cancel);
     DoMethod(app, OM_ADDMEMBER, IS_Win);
     set(IS_Win,MUIA_Window_Open, TRUE);
-    waitForRightClick(IS_Win); // Wait for right mouse button to be pressed
+    waitForRightClick(IS_Win,AutoClick); // Wait for right mouse button to be pressed
     set(IS_Win,MUIA_Window_Open, FALSE);
     }
 
-void Test_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons)
+void Test_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR buttons, int AutoClick)
 {
     APTR UM_Win;
     APTR UM_BTGroup;
@@ -3977,12 +3974,12 @@ void Test_UM_Win(CONST_STRPTR outlinetxt, CONST_STRPTR message, CONST_STRPTR but
 
     DoMethod(app, OM_ADDMEMBER, UM_Win);
     set(UM_Win,MUIA_Window_Open, TRUE);
-    waitForRightClick(UM_Win); // Wait for right mouse button to be pressed
+    waitForRightClick(UM_Win,AutoClick); // Wait for right mouse button to be pressed
     set(UM_Win,MUIA_Window_Open, FALSE);
 }
 
 
-void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
+void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoClick)
 {
     unsigned int TotalTests=325; // TotalTests is the number of cases here
 
@@ -4011,7 +4008,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             set(ModControlWin,MUIA_Window_Open, TRUE);
-            waitForRightClick(ModControlWin); // Wait for right mouse button to be pressed
+            waitForRightClick(ModControlWin,AutoClick); // Wait for right mouse button to be pressed
             set(ModControlWin,MUIA_Window_Open, FALSE);
             if(ShouldBreak) break;
         }
@@ -4020,7 +4017,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             Make_EP_Window(0);   // Edit Parameters Window
-            waitForRightClick(EP_Win->EditWindow); // Wait for right mouse button to be pressed
+            waitForRightClick(EP_Win->EditWindow,AutoClick); // Wait for right mouse button to be pressed
             Close_EP_Window();
             if(ShouldBreak) break;
         }
@@ -4029,7 +4026,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             Make_DB_Window(0); // Database Window
-            waitForRightClick(DB_Win->DatabaseWindow); // Wait for right mouse button to be pressed
+            waitForRightClick(DB_Win->DatabaseWindow,AutoClick); // Wait for right mouse button to be pressed
             Close_DB_Window();
             if(ShouldBreak) break;
         }
@@ -4038,7 +4035,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             Make_DO_Window(0); // Data Operations Window
-            waitForRightClick(DO_Win->DataOpsWindow); // Wait for right mouse button to be pressed
+            waitForRightClick(DO_Win->DataOpsWindow,AutoClick); // Wait for right mouse button to be pressed
             Close_DO_Window();
             if(ShouldBreak) break;
         }
@@ -4049,7 +4046,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             CreditWin=AF_Make_Credits_Window(); // Credits Window
             DoMethod(app, OM_ADDMEMBER, CreditWin);
             set(CreditWin,MUIA_Window_Open, TRUE);
-            waitForRightClick(CreditWin); // Wait for right mouse button to be pressed
+            waitForRightClick(CreditWin,AutoClick); // Wait for right mouse button to be pressed
             set(CreditWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, CreditWin);
             MUI_DisposeObject(CreditWin);
@@ -4062,7 +4059,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             AboutWin=AF_MakeAboutWin(&BT_AboutOK);
             DoMethod(app, OM_ADDMEMBER, AboutWin);
             set(AboutWin,MUIA_Window_Open, TRUE);
-            waitForRightClick(AboutWin); // Wait for right mouse button to be pressed
+            waitForRightClick(AboutWin,AutoClick); // Wait for right mouse button to be pressed
             set(AboutWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, AboutWin);
             MUI_DisposeObject(AboutWin);
@@ -4075,7 +4072,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             InfoWin=AF_Make_Info_Window();
             DoMethod(app, OM_ADDMEMBER, InfoWin);
             set(InfoWin,MUIA_Window_Open, TRUE);
-            waitForRightClick(InfoWin); // Wait for right mouse button to be pressed
+            waitForRightClick(InfoWin,AutoClick); // Wait for right mouse button to be pressed
             set(InfoWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, InfoWin);
             MUI_DisposeObject(InfoWin);
@@ -4088,7 +4085,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX ),  // "Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));
+                    GetString( MSG_GLOBAL_OKCANCEL ),
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4097,8 +4095,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
-                    GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+                    GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),    // "Conform vector to terrain and save Object now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                    // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4107,8 +4106,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),  // "Mapping Module: Point Match"
-                    GetString( MSG_MAPEXTRA_PROCEEDWITHRELOCATION ),    // "Proceed with relocation?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|CANCEL"
+                    GetString( MSG_MAPEXTRA_PROCEEDWITHRELOCATION ),        // "Proceed with relocation?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                       // "OK|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4117,8 +4117,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
-                    GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                               // "OK|Cancel"
+                    GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),    // "Conform vector to terrain and save Object now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                    // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4127,8 +4128,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
-                    GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+                    GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),    // "Conform vector to terrain and save Object now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                    // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4138,7 +4140,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_MAPEXTRA_DUPLICATETHISOBJECT ),  // "Duplicate this object?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));             // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),               // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4147,8 +4150,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),  // "Mapping Module: Follow Stream"
-                    GetString( MSG_MAPEXTRA_SAVEVECTOROBJECTNOW ),        // "Save vector object now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+                    GetString( MSG_MAPEXTRA_SAVEVECTOROBJECTNOW ),            // "Save vector object now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                         // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4162,7 +4166,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             sprintf(str, (char*)GetString( MSG_MAPEXTRA_SPLINELENGTHFKILOMETERSNTERVALFKMSEGMENT ), sum, shift1);  // "Spline length = %f kilometers\nInterval = %f km/segment"
             Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULESPLINE ),                       // "Mapping Module: Spline"
                     (CONST_STRPTR)str,
-                    GetString( MSG_MAPEXTRA_OKRESETCANCEL ));                             // "OK|Reset|Cancel"
+                    GetString( MSG_MAPEXTRA_OKRESETCANCEL ),                                 // "OK|Reset|Cancel"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4172,8 +4177,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize",
-                    GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save object now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+                    GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),    // "Conform vector to terrain and save object now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                    // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4182,8 +4188,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),  // "Mapping Module: Fix Flats"
-                    GetString( MSG_MAPEXTRA_PROCEEDORRESETPOINTS ),   // "Proceed or reset points?"
-                    GetString( MSG_MAPEXTRA_PROCEEDRESETCANCEL ));     // "Proceed|Reset|Cancel"
+                    GetString( MSG_MAPEXTRA_PROCEEDORRESETPOINTS ),       // "Proceed or reset points?"
+                    GetString( MSG_MAPEXTRA_PROCEEDRESETCANCEL ),         // "Proceed|Reset|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4191,9 +4198,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),           // "Mapping Module: Fix Flats"
+            Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),       // "Mapping Module: Fix Flats"
                     GetString( MSG_MAPEXTRA_KEEPORSAVEDEMORRESETPARAMETERS ),  // "Keep or save DEM or reset parameters?"
-                    GetString( MSG_MAPEXTRA_KEEPSAVERESETCANCEL ));             // "Keep|Save|Reset|Cancel"
+                    GetString( MSG_MAPEXTRA_KEEPSAVERESETCANCEL ),             // "Keep|Save|Reset|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4201,9 +4209,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                         // "Render Module"
                     GetString( MSG_MAPLINO_ERROROPENINGLINESAVEFILEELECTNEWPATH ),  // "Error opening line save file!\nSelect new path?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                              // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                               // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4211,9 +4220,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
             sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), "varname[EM_Win->MoItem]");  // "Delete all %s Key Frames?"
-            Test_UM_Win(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                          // "Parameters Module: Ecosystem"
+            Test_UM_Win(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                              // "Parameters Module: Ecosystem"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                           // "OK|Cancel",
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                                     // "OK|Cancel",
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4222,9 +4232,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                        // "Render Module
                     GetString( MSG_GLMP_DIAGNOSTICBUFFERSCANTBEGENERATEDFORMULTIPLESEGMENTORMU ),  // "Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                                // "OK|CANCEL"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4232,99 +4243,110 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                        // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYOPENINGDIAGNOSTICBUFFERSPROCEEDRENDERINGWIT ),  // "Out of memory opening Diagnostic buffers! Proceed rendering without them?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                                // "OK|CANCEL"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 23:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                  // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                              // "Render Module: Clouds"
                     GetString( MSG_GLMP_ERRORLOADINGCLOUDMAPFILEONTINUEWITHOUTCLOUDSHADOWS ),  // "Error loading Cloud Map file!\nContinue without cloud shadows?"
-                    GetString( MSG_GLOBAL_CONTINUECANCEL ));                                      // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                    // "Continue|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 24:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                      // "Render Module: Clouds"
-                    GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAPONTINUEWITHOUTCLOUDSHADOWS ),   // "Out of memory creating Cloud Map!\nContinue without cloud shadows?"
-                    GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                 // "Render Module: Clouds"
+                    GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAPONTINUEWITHOUTCLOUDSHADOWS ),  // "Out of memory creating Cloud Map!\nContinue without cloud shadows?"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                       // "Continue|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 25:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                        // "Render Module"
                     GetString( MSG_GLMP_ERRORLOADINGMASTERCOLORMAPSEESTATUSLOGFORMOREINFORMATI ),  // "Error loading Master Color Map! See Status Log for more information.\n\Continue rendering without Color Map?"
-                    GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                        // "Continue|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 26:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                        // "Render Module"
                     GetString( MSG_GLMP_ERRORLOADINGSTRATADEFORMATIONMAPCONTINUERENDERINGWITHO ),  // "Error loading Strata Deformation Map!\n\Continue rendering without Deformation Map?"
-                    GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                        // "Continue|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 27:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                        // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX ),  // "Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?"
-                    GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                        // "Continue|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 28:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                               // "Render Module: Clouds"
                     GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                                       // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 29:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                               // "Render Module: Clouds"
                     GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                                       // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 30:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                           // "Render Module: Save"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                       // "Render Module: Save"
                     GetString( MSG_GLMP_ERRORSAVINGBITMAPPEDIMAGETRYANOTHERDEVICE ),  // "Error saving bitmapped image! Try another device?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                   // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                 // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 31:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),              // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),          // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYSAVINGZBUFFER ),  // "Out of memory saving Z Buffer!\n"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));               // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),            // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 32:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                    // "Render Module: Save"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                // "Render Module: Save"
                     GetString( MSG_GLMP_ERRORSAVINGZBUFFERTRYANOTHERDEVICE ),  // "Error saving Z Buffer! Try another device?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                            // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                          // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 33:
@@ -4332,9 +4354,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             sprintf(str, (char*)GetString( MSG_GLMP_OUTOFMEMORYREADINGMAP ), "DBase[OBN].Name");  // "Out of memory reading map %s!"
-            Test_UM_Win(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                 // "Render Module: Topo"
+            Test_UM_Win(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                              // "Render Module: Topo"
                     (CONST_STRPTR)str,
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                     // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                                         // "Retry|Cancel"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4342,54 +4365,60 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                               // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                            // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 35:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                       // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                   // "Render Module: Clouds"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS ),  // "Out of memory allocating polygon edge buffers!",
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                              // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                           // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 36:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ), // "Render Module: Clouds"
                     GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),         // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 37:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ), // "Render Module: Clouds"
                     GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),         // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 38:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                               // "Render Module: Clouds"
                     GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                                       // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 39:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                     // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                 // "Render Module: Clouds"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGCLOUDKEYFRAMESPERATIONTERMINATED ),  // "Out of memory allocating Cloud Key Frames!\nOperation terminated"
-                    GetString( MSG_GLOBAL_OK ));                                                     // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                   // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4397,9 +4426,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                             // "Database Module: Name"
+            Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                           // "Database Module: Name"
                     GetString( MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME ) ,  // "Object name already present in database!\nTry a new name?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                     // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4407,9 +4437,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_EDDB_DATABASEMODULEREMOVEITEM ),                                          // "Database Module: Remove Item
-                    GetString( MSG_EDDB_DELETEOBJECTELEVATIONANDRELATIVEELEVATIONFILESFROMDISKASWELL ),      // "Delete object, elevation and relative elevation files from disk as well as remove their names from the Database?"
-                    GetString( MSG_EDDB_FROMDISKDATABASEONLYCANCEL ));                                        // "From Disk|Database Only|Cancel",
+            Test_UM_Win(GetString( MSG_EDDB_DATABASEMODULEREMOVEITEM ),                                  // "Database Module: Remove Item
+                    GetString( MSG_EDDB_DELETEOBJECTELEVATIONANDRELATIVEELEVATIONFILESFROMDISKASWELL ),  // "Delete object, elevation and relative elevation files from disk as well as remove their names from the Database?"
+                    GetString( MSG_EDDB_FROMDISKDATABASEONLYCANCEL ),                                    // "From Disk|Database Only|Cancel",
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4417,27 +4448,30 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win((CONST_STRPTR) GetString( MSG_CLOUD_CLOUDEDITORSETBOUNDS ) ,     // "Cloud Editor:Set Bounds"
+            Test_UM_Win((CONST_STRPTR) GetString( MSG_CLOUD_CLOUDEDITORSETBOUNDS ) , // "Cloud Editor:Set Bounds"
                     (CONST_STRPTR) GetString( MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN ) ,  // "Map View Module must be open in order to use this function. Would you like to open it now?"
-                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
+                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ),                 // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 43:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),               // "Mapping Module: Align"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                       // "Mapping Module: Align"
                     GetString( MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                      // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                     // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 44:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                               // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                            // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4446,9 +4480,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             sprintf(str, (char*)GetString( MSG_GLMP_OUTOFMEMORYREADINGMAP ), "DBase[OBN].Name");  // "Out of memory reading map %s!"
-            Test_UM_Win(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                        // "Render Module: Topo"
+            Test_UM_Win(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                              // "Render Module: Topo"
                     (CONST_STRPTR)str,
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                             //"Retry|Cancel",
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                                         //"Retry|Cancel",
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4457,9 +4492,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ) ,  // "Parameters Module: Model"
+            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ) ,                             // "Parameters Module: Model"
                     GetString( MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE ) ,  // "The current Cloud Model has been modified. Do you wish to save it before closing?"
-                    GetString( MSG_GLOBAL_YESNO ));  // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                                  // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4467,36 +4503,39 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,               // "Cloud Editor"
-                    GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ), // "Make this file the Project Cloud File?"
-                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
+                    GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ),  // "Make this file the Project Cloud File?"
+                    GetString( MSG_GLOBAL_YESNO ),                              // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 48:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,     // "Cloud Editor"
+            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,          // "Cloud Editor"
                     GetString( MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES ) ,  // "Delete all cloud key frames?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                    // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 49:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
-            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
+            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                  // "Cloud Editor"
                     GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
-                    GetString( MSG_GLOBAL_YESNO ));                             // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                               // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 50:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
-
+            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                  // "Cloud Editor"
                     GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
-                    GetString( MSG_GLOBAL_YESNO ));                            // "Yes|No",
+                    GetString( MSG_GLOBAL_YESNO ),                               // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4507,7 +4546,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             sprintf(str, (char*)GetString( MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS ) , "Example DB");  // "Create Default Parameters for Database %s? All current Parameters will be overwritten."
             Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
                     (CONST_STRPTR)str,
-                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "Parameter Editing: Defaults", str, "OK|Cancel"
+                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ),  // "Parameter Editing: Defaults", str, "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4517,7 +4557,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"World Construction Set",
                     (CONST_STRPTR) GetString( MSG_AGUI_PUBLICSCREENSTILLHASVISITORSTRYCLOSINGAGAIN ) ,  // "Public Screen still has visitors. Try closing again?"
-                    (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
+                    (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ),                               // "Close|Warn|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 53:
@@ -4525,8 +4566,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win((CONST_STRPTR)"World Construction Set",
-                    (CONST_STRPTR) GetString( MSG_AGUI_QUITPROGRAMREYOUSURE ) ,  // )"Quit Program\nAre you sure?"
-                    (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
+                    (CONST_STRPTR) GetString( MSG_AGUI_QUITPROGRAMREYOUSURE ) ,  // "Quit Program\nAre you sure?"
+                    (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ),        // "Close|Warn|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 54:
@@ -4535,32 +4577,38 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_WCSPROJECT ) ,  // "WCS Project"
                     (CONST_STRPTR) GetString( MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Project paths have been modified. Save them before closing?"
-                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ),                                          // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 55:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERMODULE ) ,  // "Parameter Module"
+            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERMODULE ) ,                              // "Parameter Module"
                     (CONST_STRPTR) GetString( MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Parameters have been modified. Save them before closing?"
-                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ),                                        // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 56:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) ,  // "Database Module"
+            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) ,                          // "Database Module"
                     (CONST_STRPTR) GetString( MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING ) ,  // "Database has been modified. Save it before closing?"
-                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ),                                   // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 57:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_EDITGUI_COLOREDITOR ), (CONST_STRPTR) GetString( MSG_AGUI_KEEPCHANGES ) , (CONST_STRPTR) GetString( MSG_AGUI_KEEPCANCEL ));  // "Keep changes?", "Keep|Cancel"
+            Test_UM_Win(GetString( MSG_EDITGUI_COLOREDITOR ),
+                    (CONST_STRPTR) GetString( MSG_AGUI_KEEPCHANGES ) ,
+                    (CONST_STRPTR) GetString( MSG_AGUI_KEEPCANCEL ),      // "Keep changes?", "Keep|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4569,7 +4617,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win("Example_Exisiting File",  GetString( MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT ) ,  // "File already exists.\nDo you wish to overwrite it?"
-                    GetString( MSG_GLOBAL_OKCANCEL )); // "OK|CANCEL"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                                              // "OK|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4577,54 +4626,60 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win((CONST_STRPTR) GetString( MSG_CLOUD_CLOUDEDITORSETBOUNDS ) ,     // "Cloud Editor:Set Bounds"
+            Test_UM_Win((CONST_STRPTR) GetString( MSG_CLOUD_CLOUDEDITORSETBOUNDS ) , // "Cloud Editor:Set Bounds"
                     (CONST_STRPTR) GetString( MSG_CLOUD_MAPVIEWMODULEMUSTBEOPEN ) ,  // "Map View Module must be open in order to use this function. Would you like to open it now?"
-                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
+                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ),                 // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 60:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),               // "Mapping Module: Align"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                       // "Mapping Module: Align"
                     GetString( MSG_CLOUD_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSET ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                      // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                     // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 61:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ) ,  // "Parameters Module: Model"
+            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ) ,                             // "Parameters Module: Model"
                     GetString( MSG_CLOUDGUI_THECURRENTCLOUDMODELHASBEENMODIFIEDDOYOUWISHTOSAVE ) ,  // "The current Cloud Model has been modified. Do you wish to save it before closing?"
-                    GetString( MSG_GLOBAL_YESNO ));  // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                                  // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 62:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,               // "Cloud Editor"
-                    GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ), // "Make this file the Project Cloud File?"
-                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
+                    GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ),  // "Make this file the Project Cloud File?"
+                    GetString( MSG_GLOBAL_YESNO ),                              // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 63:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,     // "Cloud Editor"
+            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,          // "Cloud Editor"
                     GetString( MSG_CLOUDGUI_DELETEALLCLOUDKEYFRAMES ) ,  // "Delete all cloud key frames?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                    // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 64:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
+            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                  // "Cloud Editor"
                     GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
-                    GetString( MSG_GLOBAL_YESNO ));                             // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                               // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
 
@@ -4632,9 +4687,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                 // "Cloud Editor"
+            Test_UM_Win(GetString( MSG_CLOUDGUI_CLOUDEDITOR ) ,                  // "Cloud Editor"
                     GetString( MSG_CLOUDGUI_MAKETHISFILETHEPROJECTCLOUDFILE ) ,  // "Make this file the Project Cloud File?"
-                    GetString( MSG_GLOBAL_YESNO ));                            // "Yes|No",
+                    GetString( MSG_GLOBAL_YESNO ),                               // "Yes|No",
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 66:
@@ -4643,42 +4699,46 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"rootfile",
                     GetString( MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER ) ,  // "DEM name is too long to add an extra character to. Do you wish to enter a new base name for the DEM or abort the interpolation?"
-                    GetString( MSG_DEM_NEWNAMEABORT ));                                              // "New Name|Abort"
+                    GetString( MSG_DEM_NEWNAMEABORT ),                                              // "New Name|Abort"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 67:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_DB_DATABASEMODULESAVE ), (CONST_STRPTR)"Database-File",                   // "Database Module: Save"
-                    GetString( MSG_DB_OKCANCEL ));                                                // "OK|Cancel"
+            Test_UM_Win(GetString( MSG_DB_DATABASEMODULESAVE ),  // "Database Module: Save"
+                    (CONST_STRPTR)"Database-File",
+                    GetString( MSG_DB_OKCANCEL ),                // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 68:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                            // "Database Module: Name"
+            Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                        // "Database Module: Name"
                     GetString( MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME ),  // "Vector name already present in database!\nTry a new name?"
-                    GetString( MSG_DB_OKCANCEL ));                                      // "OK|Cancel"
+                    GetString( MSG_DB_OKCANCEL ),                                      // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 69:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
-
             Test_UM_Win((CONST_STRPTR)"Example.obj",
                     GetString( MSG_DB_OBJECTNAMEALREADYPRESENTINDATABASEUPLICATEITEMSWILLBESKI ),  // "Object name already present in database!\nDuplicate items will be skipped."
-                    GetString( MSG_GLOBAL_OK ));                                                        // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                    // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 70:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
-
-            Test_UM_Win(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),     // "Data Ops: Convert DEM"
+            Test_UM_Win(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),  // "Data Ops: Convert DEM"
                     (CONST_STRPTR)str,
-                    GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ));   // "Continue|Truncate|Cancel"
+                    GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ),    // "Continue|Truncate|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 71:
@@ -4687,25 +4747,28 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"exampledirectory",
                     GetString( MSG_DISPGUI_MAKETHISTHEDEFAULTOBJECTDIRECTORY ),  // "Make this the default object directory?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                           // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                            // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 72:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                             // "Database Module: Name"
+            Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                           // "Database Module: Name"
                     GetString( MSG_EDDB_OBJECTNAMEALREADYPRESENTINDATABASERYANEWNAME ) ,  // "Object name already present in database!\nTry a new name?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                     // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 73:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_EDDB_DATABASEMODULEREMOVEITEM ),                                          // "Database Module: Remove Item
-                    GetString( MSG_EDDB_DELETEOBJECTELEVATIONANDRELATIVEELEVATIONFILESFROMDISKASWELL ),      // "Delete object, elevation and relative elevation files from disk as well as remove their names from the Database?"
-                    GetString( MSG_EDDB_FROMDISKDATABASEONLYCANCEL ));                                        // "From Disk|Database Only|Cancel",
+            Test_UM_Win(GetString( MSG_EDDB_DATABASEMODULEREMOVEITEM ),                                  // "Database Module: Remove Item
+                    GetString( MSG_EDDB_DELETEOBJECTELEVATIONANDRELATIVEELEVATIONFILESFROMDISKASWELL ),  // "Delete object, elevation and relative elevation files from disk as well as remove their names from the Database?"
+                    GetString( MSG_EDDB_FROMDISKDATABASEONLYCANCEL ),                                    // "From Disk|Database Only|Cancel",
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 74:
@@ -4713,9 +4776,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), "PAR_NAME_ECO(EE_Win->EcoItem)");  // "Delete all %s Key Frames?"
-            Test_UM_Win(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                          // "Parameters Module: Ecosystem"
+            Test_UM_Win(GetString( MSG_EDECOGUI_PARAMETERSMODULEECOSYSTEM ),                                    // "Parameters Module: Ecosystem"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                           // "OK|Cancel",
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                                           // "OK|Cancel",
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4724,19 +4788,21 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), "varname[EM_Win->MoItem]");  // "Delete all %s Key Frames?"
-            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                       // "Parameters Module: Motion"
+            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                                  // "Parameters Module: Motion"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                     // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                                     // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 76:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            strcpy(str, (char*)GetString( MSG_EDMOGUI_MAKEKEYFRAMESFORFOCUSPARAMETERSALSO ) );   // "Make key frames for Focus Parameters also?"
-            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),  // "Parameters Module: Make Key"
+            strcpy(str, (char*)GetString( MSG_EDMOGUI_MAKEKEYFRAMESFORFOCUSPARAMETERSALSO ) );  // "Make key frames for Focus Parameters also?"
+            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),                       // "Parameters Module: Make Key"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_YESNO ));                    // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                              // "Yes|No"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4745,9 +4811,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             strcpy(str, (char*)GetString( MSG_EDMOGUI_MAKEKEYFRAMESFORCAMERAPARAMETERSALSO ) );  // "Make key frames for Camera Parameters also?"
-            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),  // "Parameters Module: Make Key"
+            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),                        // "Parameters Module: Make Key"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_YESNO ));                    // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                               // "Yes|No"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4756,18 +4823,20 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
+            Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                // "Parameter Module: Load"
                     GetString( MSG_EDPAR_THISISANOLDV1FORMATFILEWOULDYOULIKETORESAVEITINTHENEW ),  // "This is an old V1 format file! Would you like to re-save it in the new format now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 79:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
+            Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                // "Parameter Module: Load"
                     GetString( MSG_EDPAR_THEPARAMETERFILEFORMATHASBEENCHANGEDSLIGHTLYSINCETHIS ),  // "The Parameter File format has been changed slightly since this file was saved. Would you like to re-save it in the new format now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 80:
@@ -4775,8 +4844,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
-                    GetString( MSG_EDPAR_LOADALLKEYFRAMES ),     //  "Load all key frames?"
-                    GetString( MSG_GLOBAL_YESNO));                 // "Yes|No"
+                    GetString( MSG_EDPAR_LOADALLKEYFRAMES ),         //  "Load all key frames?"
+                    GetString( MSG_GLOBAL_YESNO),                    // "Yes|No"
+                    AutoClick);
 
             if(ShouldBreak) break;
         }
@@ -4785,8 +4855,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
-                    GetString( MSG_EDPAR_LOADALLKEYFRAMES ),     // "Load all key frames?"
-                    GetString( MSG_GLOBAL_YESNO ));                // "Yes|No"
+                    GetString( MSG_EDPAR_LOADALLKEYFRAMES ),         // "Load all key frames?"
+                    GetString( MSG_GLOBAL_YESNO ),                   // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 82:
@@ -4794,9 +4865,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), "PAR_NAME_COLOR(EC_Win->PalItem)");  // "Delete all %s Key Frames?"
-            Test_UM_Win(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
+            Test_UM_Win(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),                                           // "Parameters Module: Color"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OKCANCEL ));               // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                                             // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 83:
@@ -4804,8 +4876,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_EDITGUI_COLOREDITORCOPY ) ,  // "Color Editor: Copy"
-                    GetString( MSG_EDITGUI_COPYKEYFRAMESTOO ),   // "Copy Key Frames too?"
-                    GetString( MSG_GLOBAL_YESNO ));              // "Yes|No"
+                    GetString( MSG_EDITGUI_COPYKEYFRAMESTOO ),      // "Copy Key Frames too?"
+                    GetString( MSG_GLOBAL_YESNO ),                  // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 84:
@@ -4814,7 +4887,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"Example PAR_NAME_ECO(1)",
                     GetString( MSG_EDITGUI_THECURRENTCOLORISBEINGUSEDREMOVEITANYWAY ),  // "The current color is being used. Remove it anyway?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                  // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                   // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 85:
@@ -4822,9 +4896,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             strcpy(str, (char*)GetString( MSG_EVMORGUI_YOUMUSTSUPPLYANEWPROJECTNAME ));  // "You must supply a new project name."
-            Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+            Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),                            // "New Project"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OK ));          // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                          // "OK"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4833,9 +4908,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORLOADINGPROJECTFILETOCLONE ) );  // "Error loading Project file to clone."
-            Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+            Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),                               // "New Project"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OK ));          // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                             // "OK"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4844,9 +4920,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORLOADINGWAVEFILETOCLONE ) );  // "Error loading Wave file to clone."
-            Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+            Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),                            // "New Project"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OK ));          // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                          // "OK"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4855,9 +4932,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORLOADINGCLOUDFILETOCLONE ) );  // "Error loading Cloud file to clone."
-            Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+            Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),                             // "New Project"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OK ));          // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                           // "OK"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4866,9 +4944,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             sprintf(str, (char*)GetString ( MSG_EVMORGUI_ERRORCREATINGNEWPROJECTDIRECTORYITMAYALREADYEXISTO ), "Example filename");  // "Error creating new Project Directory: %s. It may already exist or there may be a file with that name."
-            Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
+            Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),                                                                        // "New Project"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OK ));          // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                                                      // "OK"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4879,7 +4958,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             sprintf(str, (char*)GetString( MSG_EVMORGUI_ERRORCREATINGNEWDATABASEDIRECTORYITMAYALREADYEXIST ), "Example filename");  // "Error creating new Database Directory: %s. It may already exist or there may be a file with that name."
             Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OK ));          // "OK"
+                    GetString( MSG_GLOBAL_OK ),                // "OK"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4890,7 +4970,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             sprintf(str, (char*)GetString( MSG_EVMORGUI_ERRORCREATINGNEWDEFAULTDIRECTORYITMAYALREADYEXISTO ), "Example filename");  // "Error creating new Default Directory: %s. It may already exist or there may be a file with that name."
             Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OK ));          // "OK"
+                    GetString( MSG_GLOBAL_OK ),                // "OK"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4901,7 +4982,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORSAVINGTHENEWPROJECTFILE ) );  // "Error saving the new Project file."
             Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OK ));          // "OK"
+                    GetString( MSG_GLOBAL_OK ),                // "OK"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4912,7 +4994,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRORSAVINGTHECLONEDWAVEFILE ) );  // "Error saving the cloned Wave file."
             Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OK ));          // "OK"
+                    GetString( MSG_GLOBAL_OK ),                // "OK"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4923,7 +5006,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             strcpy(str, (char*)GetString( MSG_EVMORGUI_ERRSAVECLONEDCLOUDFILE ) );  // "Error saving the cloned Cloud file."
             Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OK ));          // "OK"
+                    GetString( MSG_GLOBAL_OK ),                // "OK"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4934,7 +5018,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             strcpy(str, (char*)GetString( MSG_GLOBAL_OUTOFMEMORY ) );  // "Out of memory."
             Test_UM_Win(GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OK ));          // "OK"
+                    GetString( MSG_GLOBAL_OK ),                // "OK"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -4944,215 +5029,239 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
-                    GetString( MSG_AGUI_KEEPCHANGES ),    // "Keep changes?"
-                    GetString( MSG_GLOBAL_YESNO ));          // "Yes|No"
+                    GetString( MSG_AGUI_KEEPCHANGES ),           // "Keep changes?"
+                    GetString( MSG_GLOBAL_YESNO ),               // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 97:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
-                    GetString( MSG_FOLIGUI_UNABLETOLOADIMAGEFILEFORVIEWINGPERATIONTERMINATED ),   // "Unable to load image file for viewing!\nOperation terminated.",
-                    GetString( MSG_GLOBAL_OK ));                                                  // "OK"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                         // "Foliage Editor: View Image"
+                    GetString( MSG_FOLIGUI_UNABLETOLOADIMAGEFILEFORVIEWINGPERATIONTERMINATED ),  // "Unable to load image file for viewing!\nOperation terminated.",
+                    GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 98:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE ),                   // "Foliage Editor: Load Ecotype"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE ),               // "Foliage Editor: Load Ecotype"
                     GetString( MSG_FOLIGUI_ERRORLOADINGECOTYPEFILEPERATIONTERMINATED ),  // "Error loading Ecotype file!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                         // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                          // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 99:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                            // "Foliage Editor: Add Group"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                        // "Foliage Editor: Add Group"
                     GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                               // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 100:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                           // "Foliage Editor: Add Group"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                       // "Foliage Editor: Add Group"
                     GetString( MSG_FOLIGUI_ERRORLOADINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error loading Foliage Group file!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                              // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                               // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 101:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                        // "Foliage Editor: New Group"
                     GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                               // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 102:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                        // "Foliage Editor: New Group"
                     GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                              // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 103:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP ),                         // "Foliage Editor: Save Group"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP ),                     // "Foliage Editor: Save Group"
                     GetString( MSG_FOLIGUI_ERRORSAVINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error saving Foliage Group file!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                             // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                              // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 104:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                             // "Foliage Editor: Add Image"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                         // "Foliage Editor: Add Image"
                     GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ) ,  // "Out of memory allocating new group!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                                // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                 // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 105:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                    // "Foliage Editor: Add Image"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                // "Foliage Editor: Add Image"
                     GetString( MSG_FOLIGUI_ERRORLOADINGIMAGEFILEPERATIONTERMINATED ),  // "Error loading image file!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                       // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                        // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 106:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                           // "Foliage Editor: View Image"
                     GetString( MSG_FOLIGUI_THEIMAGELOADEDPROPERLYMAYBESOMEDAYTHEREWILLEVENBEAW ),  // "The image loaded properly. Maybe some day there will even be a way for you to see it!\n"
-                    GetString( MSG_FOLIGUI_THATWOULDBENICE ));               // "That would be nice"
+                    GetString( MSG_FOLIGUI_THATWOULDBENICE ),                                      // "That would be nice"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 107:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEECOTYPE ),                  // "Foliage Editor: Save Ecotype"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEECOTYPE ),              // "Foliage Editor: Save Ecotype"
                     GetString( MSG_FOLIGUI_ERRORSAVINGECOTYPEFILEPERATIONTERMINATED ),  // "Error saving Ecotype file!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                        // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                         // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 108:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                        // "Render Module
                     GetString( MSG_GLMP_DIAGNOSTICBUFFERSCANTBEGENERATEDFORMULTIPLESEGMENTORMU ),  // "Diagnostic buffers can't be generated for multiple segment or multiple frame renderings! Proceed rendering without them?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                                // "OK|CANCEL"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 109:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                        // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYOPENINGDIAGNOSTICBUFFERSPROCEEDRENDERINGWIT ),  // "Out of memory opening Diagnostic buffers! Proceed rendering without them?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                                // "OK|CANCEL"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 110:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                  // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                              // "Render Module: Clouds"
                     GetString( MSG_GLMP_ERRORLOADINGCLOUDMAPFILEONTINUEWITHOUTCLOUDSHADOWS ),  // "Error loading Cloud Map file!\nContinue without cloud shadows?"
-                    GetString( MSG_GLOBAL_CONTINUECANCEL ));                                      // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                    // "Continue|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 111:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                      // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                  // "Render Module: Clouds"
                     GetString( MSG_GLMP_OUTOFMEMORYCREATINGCLOUDMAPONTINUEWITHOUTCLOUDSHADOWS ),   // "Out of memory creating Cloud Map!\nContinue without cloud shadows?"
-                    GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                        // "Continue|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 112:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                        // "Render Module"
                     GetString( MSG_GLMP_ERRORLOADINGMASTERCOLORMAPSEESTATUSLOGFORMOREINFORMATI ),  // "Error loading Master Color Map! See Status Log for more information.\n\Continue rendering without Color Map?"
-                    GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                        // "Continue|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 113:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                        // "Render Module"
                     GetString( MSG_GLMP_ERRORLOADINGSTRATADEFORMATIONMAPCONTINUERENDERINGWITHO ),  // "Error loading Strata Deformation Map!\n\Continue rendering without Deformation Map?"
-                    GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                        // "Continue|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 114:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                            // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                                        // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYCREATINGNOISEMAPCONTINUERENDERINGWITHOUTTEX ),  // "Out of memory creating Noise Map!\n\Continue rendering without Texture Noise?"
-                    GetString( MSG_GLOBAL_CONTINUECANCEL ));                                          // "Continue|Cancel"
+                    GetString( MSG_GLOBAL_CONTINUECANCEL ),                                        // "Continue|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 115:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                               // "Render Module: Clouds"
                     GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                                       // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 116:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                               // "Render Module: Clouds"
                     GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                                       // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 117:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                           // "Render Module: Save"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                       // "Render Module: Save"
                     GetString( MSG_GLMP_ERRORSAVINGBITMAPPEDIMAGETRYANOTHERDEVICE ),  // "Error saving bitmapped image! Try another device?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                   // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                 // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 118:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),              // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),          // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYSAVINGZBUFFER ),  // "Out of memory saving Z Buffer!\n"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));               // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),            // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 119:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                    // "Render Module: Save"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULESAVE ),                // "Render Module: Save"
                     GetString( MSG_GLMP_ERRORSAVINGZBUFFERTRYANOTHERDEVICE ),  // "Error saving Z Buffer! Try another device?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                            // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                          // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 120:
@@ -5160,9 +5269,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             sprintf(str, (char*)GetString( MSG_GLMP_OUTOFMEMORYREADINGMAP ), "DBase[OBN].Name");  // "Out of memory reading map %s!"
-            Test_UM_Win(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                 // "Render Module: Topo"
+            Test_UM_Win(GetString( MSG_MAPTOPOOB_RENDERMODULETOPO ),                              // "Render Module: Topo"
                     (CONST_STRPTR)str,
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                     // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                                         // "Retry|Cancel"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -5170,81 +5280,90 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                               // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                            // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 122:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                       // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                   // "Render Module: Clouds"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGPOLYGONEDGEBUFFERS ),  // "Out of memory allocating polygon edge buffers!",
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                              // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                           // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 123:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
-                    GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),  // "Render Module: Clouds"
+                    GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),   // "Out of memory creating Cloud Map!"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),          // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 124:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),           // "Render Module: Clouds"
-                    GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),  // "Out of memory creating Cloud Map!"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                  // "Retry|Cancel"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),  // "Render Module: Clouds"
+                    GetString( MSG_GLMP_OUTOFMEMCREATCLOUDMAP ),   // "Out of memory creating Cloud Map!"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),          // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 125:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                   // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                               // "Render Module: Clouds"
                     GetString( MSG_GLMP_ERRORCREATINGCLOUDMAPEITHEROUTOFMEMORYORUSERABORTED ),  // "Error creating Cloud Map! Either out of memory or user aborted."
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                                          // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                                       // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 126:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                     // "Render Module: Clouds"
+            Test_UM_Win(GetString( MSG_GLMP_RENDERMODULECLOUDS ),                                 // "Render Module: Clouds"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGCLOUDKEYFRAMESPERATIONTERMINATED ),  // "Out of memory allocating Cloud Key Frames!\nOperation terminated"
-                    GetString( MSG_GLOBAL_OK ));                                                     // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                   // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 127:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),             // "Parameters Module: Camera View"
+            Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),         // "Parameters Module: Camera View"
                     GetString( MSG_INTVIEW_OUTOFMEMORYLOADINGDEMSNCREASEGRIDSIZE ),  // "Out of memory loading DEMs!\nIncrease grid size?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                               // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 128:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_EDMOGUI_CAMERAVIEW ),                     // "Camera View"
+            Test_UM_Win(GetString( MSG_EDMOGUI_CAMERAVIEW ),                 // "Camera View"
                     GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGDEMARRAY ),  // "Out of memory allocating DEM array!\n"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                    // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                    // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 129:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULEPREVIEW ),                      // "Parameters Module: Preview"
+            Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULEPREVIEW ),                  // "Parameters Module: Preview"
                     GetString( MSG_INTVIEW_RESTORETHEPARAMETERSUSEDTOCREATETHISPREVIEW ),  // "Restore the Parameters used to create this preview?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                     // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                      // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 130:
@@ -5253,7 +5372,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"Example DEMName",
                     GetString( MSG_LWSPRT_ERRORLOADINGDEMOBJECTPERATIONTERMINATED ),  // "Error loading DEM Object!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                       // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                       // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 131:
@@ -5262,34 +5382,38 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"Example DEMName",
                     GetString( MSG_LWSPRT_ERRLOADDEMOBJOBJNOTSAVED ),  // "Error loading DEM Object!\nObject not saved."
-                    GetString( MSG_GLOBAL_OK ));                                  // "OK"
+                    GetString( MSG_GLOBAL_OK ),                        // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 132:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_LWSPRT_LWOBJECTEXPORT ),                 // "LW Object Export"
+            Test_UM_Win(GetString( MSG_LWSPRT_LWOBJECTEXPORT ),              // "LW Object Export"
                     GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                             // "OK"
+                    GetString( MSG_GLOBAL_OK ),                              // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 133:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+            Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                            // "LW Scene Export"
                     GetString( MSG_LWSPRT_APROBLEMOCCURREDSAVINGTHELWSCENEFAFILEWASCREATEDITWILLNOTBE ),  // "A problem occurred saving the LW scene.\nIf a file was created it will not be complete and may not load properly into LightWave."
-                    GetString( MSG_GLOBAL_OK ));                                                           // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                           // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 134:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+            Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                            // "LW Scene Export"
                     GetString( MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA ),  // "The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created."
-                    GetString( MSG_GLOBAL_OK ));                                                           // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                           // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 135:
@@ -5298,7 +5422,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),  // "Digitize new points for the active vector object or create a new object?"
-                    GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));                                     // "Active|New|Cancel"
+                    GetString( MSG_GLOBAL_ACTIVENEWCANCEL ),                             // "Active|New|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 136:
@@ -5307,7 +5432,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_LINESPRT_SAVEOBJECTPOINTS ),  // "Save object points?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));          // "OK|CANCEL"
+                    GetString( MSG_GLOBAL_OKCANCEL ),            // "OK|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 137:
@@ -5315,25 +5441,28 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name.elev", GetString( MSG_LINESPRT_USEELEVATIONDATA ),  // "Use elevation data?"
-                    GetString( MSG_GLOBAL_YESNO ));                                // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                                         // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 138:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+            Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                               // "Mapping Module: Path"
                     GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current flattening, datum and vertical exaggeration?"
-                    GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                                 // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 139:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+            Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                               // "Mapping Module: Path"
                     GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current Flattening, Datum and Vertical Exaggeration?"
-                    GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                                 // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 140:
@@ -5342,25 +5471,28 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win(GetString( MSG_AGUI_DATABASEMODULE ),                                      // "Database Module"
                     GetString( MSG_LINESPRT_VECTORNAMEALREADYPRESENTINDATABASEVERWRITEITORTRYA ),  // "Vector name already present in Database!\nOverwrite it or try a new name?"
-                    GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ));                                  // "Overwrite|New|Cancel"
+                    GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ),                                  // "Overwrite|New|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 141:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                      // "Mapping Module: Align"
                     GetString( MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                    // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 142:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAP_MAPVIEWTOPODRAW ),                                // "Map View: Topo Draw"
+            Test_UM_Win(GetString( MSG_MAP_MAPVIEWTOPODRAW ),                            // "Map View: Topo Draw"
                     GetString( MSG_MAP_MEMORYALLOCATIONFAILURECANNOTDRAWTOPOCONTINUE ),  // "Memory allocation failure, cannot draw topo. Continue?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                    // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 143:
@@ -5369,24 +5501,27 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[i].Name",
                     GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),  // "Is this the correct object?"
-                    GetString( MSG_GLOBAL_YESNO ));                   // "YES|NO"
+                    GetString( MSG_GLOBAL_YESNO ),                // "YES|NO"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 144:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win((CONST_STRPTR)"DBase[i].Name", GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),   // "Is this the correct object?"
-                    GetString( MSG_GLOBAL_YESNO ));                                                 // "YES|NO"
+            Test_UM_Win((CONST_STRPTR)"DBase[i].Name", GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),  // "Is this the correct object?"
+                    GetString( MSG_GLOBAL_YESNO ),                                                   // "YES|NO"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 145:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAP_MAPVIEWMULTISELECT ),     // "Map View: Multi-Select"
+            Test_UM_Win(GetString( MSG_MAP_MAPVIEWMULTISELECT ), // "Map View: Multi-Select"
                     GetString( MSG_MAP_SELECTORDESELECTITEMS ),  // "Select or de-select items?"
-                    GetString( MSG_MAP_SELECTDESELECTCANCEL ));   // "Select|De-select|Cancel"
+                    GetString( MSG_MAP_SELECTDESELECTCANCEL ),   // "Select|De-select|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 146:
@@ -5394,35 +5529,39 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
-                    GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),   // "Digitize new points for the active vector object or create a new object?"
-                    GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));     // "Active|New|Cancel"
+                    GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),  // "Digitize new points for the active vector object or create a new object?"
+                    GetString( MSG_GLOBAL_ACTIVENEWCANCEL ),                             // "Active|New|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 147:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
-                    GetString( MSG_MAP_ACCEPTNEWPOINTS ),         // "Accept new points?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),  // "Mapping Module: Digitize"
+                    GetString( MSG_MAP_ACCEPTNEWPOINTS ),               // "Accept new points?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 148:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
-                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),  // "Mapping Module: Digitize"
+                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),     // "Conform vector to terrain now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 149:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
-                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),  // "Mapping Module: Digitize"
+                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),     // "Conform vector to terrain now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 150:
@@ -5431,7 +5570,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_MAP_CREATEVISUALSENSITIVITYMAPFORTHISOBJECT ),  // "Create Visual Sensitivity map for this object?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                 // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                              // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 151:
@@ -5440,16 +5580,18 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_MAPEXTRA_OBJECTISNOTCLOSEDHEORIGINCANNOTBEMOVEDETLASTVERTEX ),  // "Object is not closed!\nThe origin cannot be moved.\nSet last vertex equal to first now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                            // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 152:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                 // "Mapping Module: Digitize"
                     GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                  // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 153:
@@ -5457,26 +5599,29 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEPOINTMATCH ),  // "Mapping Module: Point Match"
-                    GetString( MSG_MAPEXTRA_PROCEEDWITHRELOCATION ),    // "Proceed with relocation?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                 // "OK|CANCEL"
+                    GetString( MSG_MAPEXTRA_PROCEEDWITHRELOCATION ),        // "Proceed with relocation?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                       // "OK|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 154:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                 // "Mapping Module: Digitize"
                     GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                               // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                  // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 155:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                 // "Mapping Module: Digitize"
                     GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save Object now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                  // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 156:
@@ -5485,7 +5630,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_MAPEXTRA_DUPLICATETHISOBJECT ),  // "Duplicate this object?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));             // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),               // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 157:
@@ -5493,17 +5639,19 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFOLLOWSTREAM ),  // "Mapping Module: Follow Stream"
-                    GetString( MSG_MAPEXTRA_SAVEVECTOROBJECTNOW ),        // "Save vector object now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+                    GetString( MSG_MAPEXTRA_SAVEVECTOROBJECTNOW ),            // "Save vector object now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                         // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 158:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                   // "Mapping Module: Digitize",
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),                 // "Mapping Module: Digitize",
                     GetString( MSG_MAPEXTRA_CONFORMVECTORTOTERRAINANDSAVEOBJECTNOW ),  // "Conform vector to terrain and save object now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                  // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 159:
@@ -5511,26 +5659,29 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),  // "Mapping Module: Fix Flats"
-                    GetString( MSG_MAPEXTRA_PROCEEDORRESETPOINTS ),   // "Proceed or reset points?"
-                    GetString( MSG_MAPEXTRA_PROCEEDRESETCANCEL ));     // "Proceed|Reset|Cancel"
+                    GetString( MSG_MAPEXTRA_PROCEEDORRESETPOINTS ),       // "Proceed or reset points?"
+                    GetString( MSG_MAPEXTRA_PROCEEDRESETCANCEL ),         // "Proceed|Reset|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 160:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),           // "Mapping Module: Fix Flats"
+            Test_UM_Win(GetString( MSG_MAPEXTRA_MAPPINGMODULEFIXFLATS ),       // "Mapping Module: Fix Flats"
                     GetString( MSG_MAPEXTRA_KEEPORSAVEDEMORRESETPARAMETERS ),  // "Keep or save DEM or reset parameters?"
-                    GetString( MSG_MAPEXTRA_KEEPSAVERESETCANCEL ));             // "Keep|Save|Reset|Cancel"
+                    GetString( MSG_MAPEXTRA_KEEPSAVERESETCANCEL ),             // "Keep|Save|Reset|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 161:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                         // "Render Module"
                     GetString( MSG_MAPLINO_ERROROPENINGLINESAVEFILEELECTNEWPATH ),  // "Error opening line save file!\nSelect new path?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                              // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                               // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 162:
@@ -5539,88 +5690,98 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[i].Name",
                     GetString( MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING ),  // "Vector object has been modified!\nSave it before closing?"
-                    GetString( MSG_MAPSUPRT_SAVECANCEL ));                                     // "SAVE|CANCEL"
+                    GetString( MSG_MAPSUPRT_SAVECANCEL ),                                     // "SAVE|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 163:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
+            Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                 // "Map View: Color Map"
                     GetString( MSG_MAPSUPRT_SELECTEDMAPISNOTCURRENTLYLOADEDOYOUWISHTOLOADTOPOM ),  // "Selected map is not currently loaded!\nDo you wish to load topo maps?",
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                            // "OK|CANCEL"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 164:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                    // "Map View: Color Map"
+            Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                // "Map View: Color Map"
                     GetString( MSG_MAPSUPRT_INCLUDEDEMELEVATIONDATAINCOLORMAP ),  // "Include DEM elevation data in Color Map?"
-                    GetString( MSG_GLOBAL_YESNO ));                              // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 165:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                              // "Render Module"
+            Test_UM_Win(GetString( MSG_AGUI_RENDERMODULE ),                          // "Render Module"
                     GetString( MSG_GLMP_OUTOFMEMORYALLOCATINGSMOOTHINGINDEXARRAY ),  // "Out of memory allocating Smoothing Index array!"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                               // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                            // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 166:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                             // "Parameters Module: Model"
                     GetString( MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_1 ),  // "The current Ecosystem Model has been modified. Do you wish to save it before closing?"
-                    GetString( MSG_PARGUI_YESNOCANCEL ));                                           // "Yes|No|Cancel"
+                    GetString( MSG_PARGUI_YESNOCANCEL ),                                           // "Yes|No|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 167:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                       // "Parameters Module: Model"
                     GetString( MSG_PARGUI_CURRECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2 ),  //" The current Ecosystem Model has been modified. Do you wish to save it before proceeding?"
-                    GetString( MSG_PARGUI_YESNOCANCEL ));                                           // "Yes|No|Cancel"
+                    GetString( MSG_PARGUI_YESNOCANCEL ),                                     // "Yes|No|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 168:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_SUPPORT_PROJECTSAVE ),                          // "Project: Save"
+            Test_UM_Win(GetString( MSG_SUPPORT_PROJECTSAVE ),                      // "Project: Save"
                     GetString( MSG_SUPPORT_SAVEDATABASEANDPARAMETERFILESASWELL ),  // "Save Database and Parameter files as well?"
-                    GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ));                    // "Both|D'base|Params|No",
+                    GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ),                    // "Both|D'base|Params|No",
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 169:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),          // "Wave: Set Defaults"
+            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Wave: Set Defaults"
                     GetString( MSG_WAV_SELECTGENERALWAVECENTER ),  // "Select general wave center."
-                    GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ));    // "Focus Point|Camera Point"
+                    GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ),    // "Focus Point|Camera Point"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 170:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Wave: Set Defaults"
-                    GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Select wave speed."
-                    GetString( MSG_WAV_FASTVERYFASTSLOW ));  //"Fast|Very Fast|Slow"
+            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),  // "Wave: Set Defaults"
+                    GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Select wave speed."
+                    GetString( MSG_WAV_FASTVERYFASTSLOW ),     //"Fast|Very Fast|Slow"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 171:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Wave: Set Defaults"
+            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),  // "Wave: Set Defaults"
                     GetString( MSG_WAV_SELECTWAVEDIRECTION ),  // "Select wave direction."
-                    GetString( MSG_WAV_SPREADINGCONVERGING ));  // "Spreading|Converging"
+                    GetString( MSG_WAV_SPREADINGCONVERGING ),  // "Spreading|Converging"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 172:
@@ -5629,79 +5790,88 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),  // "Wave Editor"
                     GetString( MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB ),  // "The current Wave Model has been modified. Do you wish to save it before closing?"
-                    GetString( MSG_GLOBAL_YESNO ));  // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                                 // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 173:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                  // "Wave Editor"
                     GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 174:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ) ,         // "Wave Editor"
                     GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 175:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                  // "Wave Editor"
                     GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 176:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                  // "Wave Editor"
                     GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 177:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_ADDWAVE ),                                               // "Add Wave"
+            Test_UM_Win(GetString( MSG_WAVGUI_ADDWAVE ),                                           // "Add Wave"
                     GetString( MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY ),  // "Map View Module must be open in order\ to use this function. Would you like to open it now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                              // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 178:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),             // "Parameters Module: Camera View"
+            Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULECAMERAVIEW ),         // "Parameters Module: Camera View"
                     GetString( MSG_INTVIEW_OUTOFMEMORYLOADINGDEMSNCREASEGRIDSIZE ),  // "Out of memory loading DEMs!\nIncrease grid size?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                               // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 179:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_EDMOGUI_CAMERAVIEW ),                     // "Camera View"
+            Test_UM_Win(GetString( MSG_EDMOGUI_CAMERAVIEW ),                 // "Camera View"
                     GetString( MSG_INTVIEW_OUTOFMEMORYALLOCATINGDEMARRAY ),  // "Out of memory allocating DEM array!\n"
-                    GetString( MSG_INTVIEW_RETRYCANCEL ));                    // "Retry|Cancel"
+                    GetString( MSG_INTVIEW_RETRYCANCEL ),                    // "Retry|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 180:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULEPREVIEW ),                      // "Parameters Module: Preview"
+            Test_UM_Win(GetString( MSG_INTVIEW_PARAMETERSMODULEPREVIEW ),                  // "Parameters Module: Preview"
                     GetString( MSG_INTVIEW_RESTORETHEPARAMETERSUSEDTOCREATETHISPREVIEW ),  // "Restore the Parameters used to create this preview?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                     // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                      // GetString( MSG_INTVIEW_OKCANCEL )"OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 181:
@@ -5709,9 +5879,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
             sprintf(str, (char*)GetString( MSG_DATAOPS_INPUTDATACANNOTBEEQUALLYDIVIDEDAMONGOUTPUTMAPSASTCO ),  // "Input data cannot be equally divided among output maps.\nLast Column of maps will have %ld columns.\nLast Row of maps will have %ld rows."
                     41, 43);  // Example values for the sprintf
-            Test_UM_Win(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),     // "Data Ops: Convert DEM"
+            Test_UM_Win(GetString( MSG_DATAOPSGUI_DATAOPSCONVERTDEM ),  // "Data Ops: Convert DEM"
                     (CONST_STRPTR)str,
-                    GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ));   // "Continue|Truncate|Cancel"
+                    GetString( MSG_DATAOPS_CONTINUETRUNCATECANCEL ),    // "Continue|Truncate|Cancel"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -5722,7 +5893,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), "Example");  // "Delete all %s Key Frames?"
             Test_UM_Win(GetString( MSG_EDITGUI_PARAMETERSMODULECOLOR ),  // "Parameters Module: Color"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OKCANCEL ));               // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                    // "OK|Cancel"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -5731,8 +5903,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_EDITGUI_COLOREDITORCOPY ) ,  // "Color Editor: Copy"
-                    GetString( MSG_EDITGUI_COPYKEYFRAMESTOO ),   // "Copy Key Frames too?"
-                    GetString( MSG_GLOBAL_YESNO ));              // "Yes|No"
+                    GetString( MSG_EDITGUI_COPYKEYFRAMESTOO ),      // "Copy Key Frames too?"
+                    GetString( MSG_GLOBAL_YESNO ),                  // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 184:
@@ -5741,7 +5914,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"PAR_NAME_ECO(Eco)",
                     GetString( MSG_EDITGUI_THECURRENTCOLORISBEINGUSEDREMOVEITANYWAY ),  // "The current color is being used. Remove it anyway?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                  // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                   // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 185:
@@ -5750,28 +5924,32 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[i].Name",
                     GetString( MSG_MAPSUPRT_VECTOROBJECTHASBEENMODIFIEDAVEITBEFORECLOSING ),  // "Vector object has been modified!\nSave it before closing?"
-                    GetString( MSG_MAPSUPRT_SAVECANCEL ));                                     // "SAVE|CANCEL"
+                    GetString( MSG_MAPSUPRT_SAVECANCEL ),                                     // "SAVE|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 186:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                     // "Map View: Color Map"
+            Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                                 // "Map View: Color Map"
                     GetString( MSG_MAPSUPRT_SELECTEDMAPISNOTCURRENTLYLOADEDOYOUWISHTOLOADTOPOM ),  // "Selected map is not currently loaded!\nDo you wish to load topo maps?",
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                            // "OK|CANCEL"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 187:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                    // "Map View: Color Map"
+            Test_UM_Win(GetString( MSG_MAPSUPRT_MAPVIEWCOLORMAP ),                // "Map View: Color Map"
                     GetString( MSG_MAPSUPRT_INCLUDEDEMELEVATIONDATAINCOLORMAP ),  // "Include DEM elevation data in Color Map?"
-                    GetString( MSG_GLOBAL_YESNO ));                              // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                // "Yes|No"
+                    AutoClick);
             Test_UM_Win((CONST_STRPTR)"DEMName",
                     GetString( MSG_LWSPRT_ERRORLOADINGDEMOBJECTPERATIONTERMINATED ),  // "Error loading DEM Object!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                       // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                       // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 188:
@@ -5780,43 +5958,48 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DEMName",
                     GetString( MSG_LWSPRT_ERRLOADDEMOBJOBJNOTSAVED ),  // "Error loading DEM Object!\nObject not saved."
-                    GetString( MSG_GLOBAL_OK ));                                  // "OK"
+                    GetString( MSG_GLOBAL_OK ),                        // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 189:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_LWSPRT_LWOBJECTEXPORT ),                 // "LW Object Export"
+            Test_UM_Win(GetString( MSG_LWSPRT_LWOBJECTEXPORT ),              // "LW Object Export"
                     GetString( MSG_GLOBAL_OUTOFMEMORYOPERATIONTERMINATED ),  // "Out of memory!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                             // "OK"
+                    GetString( MSG_GLOBAL_OK ),                              // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 190:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+            Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                            // "LW Scene Export"
                     GetString( MSG_LWSPRT_APROBLEMOCCURREDSAVINGTHELWSCENEFAFILEWASCREATEDITWILLNOTBE ),  // "A problem occurred saving the LW scene.\nIf a file was created it will not be complete and may not load properly into LightWave."
-                    GetString( MSG_GLOBAL_OK ));                                                           // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                           // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 191:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                                // "LW Scene Export"
+            Test_UM_Win(GetString( MSG_LWSPRT_LWSCENEEXPORT ),                                            // "LW Scene Export"
                     GetString( MSG_LWSPRT_THEOUTPUTIMAGESIZEISNOTASTANDARDLIGHTWAVEIMAGESIZETHEZOOMFA ),  // "The output image size is not a standard LightWave image size. The zoom factor and image dimensions may not be portrayed correctly in the scene file just created."
-                    GetString( MSG_GLOBAL_OK ));                                                           // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                           // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 192:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_SUPPORT_PROJECTSAVE ),                          // "Project: Save"
+            Test_UM_Win(GetString( MSG_SUPPORT_PROJECTSAVE ),                      // "Project: Save"
                     GetString( MSG_SUPPORT_SAVEDATABASEANDPARAMETERFILESASWELL ),  // "Save Database and Parameter files as well?"
-                    GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ));                    // "Both|D'base|Params|No",
+                    GetString( MSG_SUPPORT_BOTHDBASEPARAMSNO ),                    // "Both|D'base|Params|No",
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 193:
@@ -5825,7 +6008,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),  // "Digitize new points for the active vector object or create a new object?"
-                    GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));                                     // "Active|New|Cancel"
+                    GetString( MSG_GLOBAL_ACTIVENEWCANCEL ),                             // "Active|New|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 194:
@@ -5834,7 +6018,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_LINESPRT_SAVEOBJECTPOINTS ),  // "Save object points?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));          // "OK|CANCEL"
+                    GetString( MSG_GLOBAL_OKCANCEL ),            // "OK|CANCEL"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 195:
@@ -5843,7 +6028,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             sprintf(str, "%s.elev", "Example");
             Test_UM_Win((CONST_STRPTR)str, GetString( MSG_LINESPRT_USEELEVATIONDATA ),  // "Use elevation data?"
-                    GetString( MSG_GLOBAL_YESNO ));                                // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                      // "Yes|No"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -5851,18 +6037,20 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+            Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                               // "Mapping Module: Path"
                     GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current flattening, datum and vertical exaggeration?"
-                    GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                                 // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 197:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                                   // "Mapping Module: Path"
+            Test_UM_Win(GetString( MSG_LINESPRT_MAPPINGMODULEPATH ),                               // "Mapping Module: Path"
                     GetString( MSG_LINESPRT_MODIFYALTITUDESWITHCURRENTFLATTENINGDATUMANDVERTIC ),  // "Modify altitudes with current Flattening, Datum and Vertical Exaggeration?"
-                    GetString( MSG_GLOBAL_YESNO ));                                               // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                                 // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 198:
@@ -5871,61 +6059,68 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win(GetString( MSG_AGUI_DATABASEMODULE ),                                      // "Database Module"
                     GetString( MSG_LINESPRT_VECTORNAMEALREADYPRESENTINDATABASEVERWRITEITORTRYA ),  // "Vector name already present in Database!\nOverwrite it or try a new name?"
-                    GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ));                                  // "Overwrite|New|Cancel"
+                    GetString( MSG_LINESPRT_OVERWRITENEWCANCEL ),                                  // "Overwrite|New|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 199:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),  // "Wave Editor"
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                                        // "Wave Editor"
                     GetString( MSG_WAVGUI_THECURRENTWAVEMODELHASBEENMODIFIEDDOYOUWISHTOSAVEITB ),  // "The current Wave Model has been modified. Do you wish to save it before closing?"
-                    GetString( MSG_GLOBAL_YESNO ));  // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                                 // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 200:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                  // "Wave Editor"
                     GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 201:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ) ,             // "Wave Editor"
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ) ,         // "Wave Editor"
                     GetString( MSG_WAVGUI_DELETEALLWAVEKEYFRAMES ),  // "Delete all wave key frames?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 202:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                  // "Wave Editor"
                     GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 203:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                      // "Wave Editor"
+            Test_UM_Win(GetString( MSG_WAVGUI_WAVEEDITOR ),                  // "Wave Editor"
                     GetString( MSG_WAVGUI_MAKETHISFILETHEPROJECTWAVEFILE ),  // "Make this file the Project Wave File?"
-                    GetString( MSG_GLOBAL_YESNO ));                           // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                           // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 204:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAVGUI_ADDWAVE ),                                               // "Add Wave"
+            Test_UM_Win(GetString( MSG_WAVGUI_ADDWAVE ),                                           // "Add Wave"
                     GetString( MSG_WAVGUI_MAPVIEWMODULEMUSTBEOPENINORDEROUSETHISFUNCTIONWOULDY ),  // "Map View Module must be open in order\ to use this function. Would you like to open it now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                              // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 205:
@@ -5933,9 +6128,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             sprintf(str, (char*)GetString( MSG_EDMOGUI_DELETEALLKEYFRAMES ), "Example-String");  // "Delete all %s Key Frames?"
-            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                       // "Parameters Module: Motion"
+            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMOTION ),                         // "Parameters Module: Motion"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                     // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                            // "OK|Cancel"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -5943,10 +6139,11 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            strcpy(str, (char*)GetString( MSG_EDMOGUI_MAKEKEYFRAMESFORFOCUSPARAMETERSALSO ) );   // "Make key frames for Focus Parameters also?"
-            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),  // "Parameters Module: Make Key"
+            strcpy(str, (char*)GetString( MSG_EDMOGUI_MAKEKEYFRAMESFORFOCUSPARAMETERSALSO ) );  // "Make key frames for Focus Parameters also?"
+            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),                       // "Parameters Module: Make Key"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_YESNO ));                    // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                              // "Yes|No"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -5955,9 +6152,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             strcpy(str, (char*)GetString( MSG_EDMOGUI_MAKEKEYFRAMESFORCAMERAPARAMETERSALSO ) );  // "Make key frames for Camera Parameters also?"
-            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),  // "Parameters Module: Make Key"
+            Test_UM_Win(GetString( MSG_EDMOGUI_PARAMETERSMODULEMAKEKEY ),                        // "Parameters Module: Make Key"
                     (CONST_STRPTR)str,
-                    GetString( MSG_GLOBAL_YESNO ));                    // "Yes|No"
+                    GetString( MSG_GLOBAL_YESNO ),                                               // "Yes|No"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -5967,17 +6165,19 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             sprintf(str, (char*)GetString( MSG_DB_NEWDIRECTORYCREATEDMAKEITTHEDEFAULTDIRECTORY ),"Example-Diretory");  // "New directory created: %s. Make it the default directory?"
-            Test_UM_Win(GetString( MSG_DB_DATABASEMODULESAVE ), (CONST_STRPTR)str,                   // "Database Module: Save"
-                    GetString( MSG_DB_OKCANCEL ));                                                // "OK|Cancel"
+            Test_UM_Win(GetString( MSG_DB_DATABASEMODULESAVE ), (CONST_STRPTR)str,                                     // "Database Module: Save"
+                    GetString( MSG_DB_OKCANCEL ),                                                                      // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 209:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                            // "Database Module: Name"
+            Test_UM_Win(GetString( MSG_DB_DATABASEMODULENAME ),                        // "Database Module: Name"
                     GetString( MSG_DB_VECTORNAMEALREADYPRESENTINDATABASERYANEWNAME ),  // "Vector name already present in database!\nTry a new name?"
-                    GetString( MSG_DB_OKCANCEL ));                                      // "OK|Cancel"
+                    GetString( MSG_DB_OKCANCEL ),                                      // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 210:
@@ -5985,7 +6185,10 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             sprintf(str, (char*)GetString( MSG_AGUI_CREATEDEFAULTPARAMETERSFORDATABASEALLCURRENTPARAMETERS ) , "Example-DB");  // "Create Default Parameters for Database %s? All current Parameters will be overwritten."
-            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) , (CONST_STRPTR)str, (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "Parameter Editing: Defaults", str, "OK|Cancel"
+            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETEREDITINGDEFAULTS ) ,
+                    (CONST_STRPTR)str,
+                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ),                                                           // "Parameter Editing: Defaults", str, "OK|Cancel"
+                    AutoClick);
             str[0]=0; // Clear the string for the next use
             if(ShouldBreak) break;
         }
@@ -5995,7 +6198,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"World Construction Set",
                     (CONST_STRPTR) GetString( MSG_AGUI_PUBLICSCREENSTILLHASVISITORSTRYCLOSINGAGAIN ) ,  // "Public Screen still has visitors. Try closing again?"
-                    (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
+                    (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ),                               // "Close|Warn|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 212:
@@ -6003,72 +6207,83 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win((CONST_STRPTR)"World Construction Set",
-                    (CONST_STRPTR) GetString( MSG_AGUI_QUITPROGRAMREYOUSURE ) ,  // )"Quit Program\nAre you sure?"
-                    (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ));  // "Close|Warn|Cancel"
+                    (CONST_STRPTR) GetString( MSG_AGUI_QUITPROGRAMREYOUSURE ) ,  // "Quit Program\nAre you sure?"
+                    (CONST_STRPTR) GetString( MSG_AGUI_CLOSEWARNCANCEL ),        // "Close|Warn|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 213:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_WCSPROJECT ) ,  // "WCS Project"
+            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_WCSPROJECT ) ,                                     // "WCS Project"
                     (CONST_STRPTR) GetString( MSG_AGUI_PROJECTPATHSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Project paths have been modified. Save them before closing?"
-                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ),                                          // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 214:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERMODULE ) ,  // "Parameter Module"
+            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_PARAMETERMODULE ) ,                              // "Parameter Module"
                     (CONST_STRPTR) GetString( MSG_AGUI_PARAMETERSHAVEBEENMODIFIEDSAVETHEMBEFORECLOSING ) ,  // "Parameters have been modified. Save them before closing?"
-                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ),                                        // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 215:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) ,  // "Database Module"
+            Test_UM_Win((CONST_STRPTR) GetString( MSG_AGUI_DATABASEMODULE ) ,                          // "Database Module"
                     (CONST_STRPTR) GetString( MSG_AGUI_DATABASEHASBEENMODIFIEDSAVEITBEFORECLOSING ) ,  // "Database has been modified. Save it before closing?"
-                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|Cancel"
+                    (CONST_STRPTR) GetString( MSG_GLOBAL_OKCANCEL ),                                   // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 216:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win((CONST_STRPTR)"example-win", (CONST_STRPTR) GetString( MSG_AGUI_KEEPCHANGES ) , (CONST_STRPTR) GetString( MSG_AGUI_KEEPCANCEL ));  // "Keep changes?", "Keep|Cancel"
+            Test_UM_Win((CONST_STRPTR)"example-win",
+                    (CONST_STRPTR) GetString( MSG_AGUI_KEEPCHANGES ) , // "Keep changes?"
+                    (CONST_STRPTR) GetString( MSG_AGUI_KEEPCANCEL ),   // "Keep|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 217:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win((CONST_STRPTR)"example existsfile",  GetString( MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT ) ,  // "File already exists.\nDo you wish to overwrite it?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));  // "OK|CANCEL"
+            Test_UM_Win((CONST_STRPTR)"example existsfile",
+                    GetString( MSG_AGUI_FILEALREADYEXISTSOYOUWISHTOOVERWRITEIT ) ,  // "File already exists.\nDo you wish to overwrite it?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),AutoClick);                    // "OK|CANCEL"
 
             Test_UM_Win((CONST_STRPTR)"example rootfile",
                     GetString( MSG_DEM_DEMNAMEISTOOLONGTOADDANEXTRACHARACTERTODOYOUWISHTOENTER ) ,  // "DEM name is too long to add an extra character to. Do you wish to enter a new base name for the DEM or abort the interpolation?"
-                    GetString( MSG_DEM_NEWNAMEABORT ));                                              // "New Name|Abort"
+                    GetString( MSG_DEM_NEWNAMEABORT ),                                              // "New Name|Abort"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 218:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                             // "Mapping Module: Align"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEALIGN ),                      // "Mapping Module: Align"
                     GetString( MSG_MAP_ILLEGALVALUESHEREMUSTBEATLEASTONEPIXELOFFSETO ),  // "Illegal values!\nThere must be at least one pixel offset on both axes.\nTry again?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                    // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 219:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAP_MAPVIEWTOPODRAW ),                                // "Map View: Topo Draw"
+            Test_UM_Win(GetString( MSG_MAP_MAPVIEWTOPODRAW ),                            // "Map View: Topo Draw"
                     GetString( MSG_MAP_MEMORYALLOCATIONFAILURECANNOTDRAWTOPOCONTINUE ),  // "Memory allocation failure, cannot draw topo. Continue?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                       // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                    // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 220:
@@ -6077,24 +6292,28 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[i].Name",
                     GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),  // "Is this the correct object?"
-                    GetString( MSG_GLOBAL_YESNO ));                   // "YES|NO"
+                    GetString( MSG_GLOBAL_YESNO ),                // "YES|NO"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 221:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win((CONST_STRPTR)"DBase[i].Name", GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),   // "Is this the correct object?"
-                    GetString( MSG_GLOBAL_YESNO ));                                                 // "YES|NO"
+            Test_UM_Win((CONST_STRPTR)"DBase[i].Name",
+                    GetString( MSG_MAP_ISTHISTHECORRECTOBJECT ),   // "Is this the correct object?"
+                    GetString( MSG_GLOBAL_YESNO ),                 // "YES|NO"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 222:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAP_MAPVIEWMULTISELECT ),     // "Map View: Multi-Select"
+            Test_UM_Win(GetString( MSG_MAP_MAPVIEWMULTISELECT ), // "Map View: Multi-Select"
                     GetString( MSG_MAP_SELECTORDESELECTITEMS ),  // "Select or de-select items?"
-                    GetString( MSG_MAP_SELECTDESELECTCANCEL ));   // "Select|De-select|Cancel"
+                    GetString( MSG_MAP_SELECTDESELECTCANCEL ),   // "Select|De-select|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 223:
@@ -6102,35 +6321,39 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
-                    GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),   // "Digitize new points for the active vector object or create a new object?"
-                    GetString( MSG_GLOBAL_ACTIVENEWCANCEL ));  // "Active|New|Cancel"
+                    GetString( MSG_MAP_DIGITIZENEWPOINTSFORTHEACTIVEVECTOROBJECTORCR ),  // "Digitize new points for the active vector object or create a new object?"
+                    GetString( MSG_GLOBAL_ACTIVENEWCANCEL ),                             // "Active|New|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 224:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),   // "Mapping Module: Digitize"
-                    GetString( MSG_MAP_ACCEPTNEWPOINTS ),         // "Accept new points?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                // "OK|Cancel"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),  // "Mapping Module: Digitize"
+                    GetString( MSG_MAP_ACCEPTNEWPOINTS ),               // "Accept new points?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 225:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
-                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),  // "Mapping Module: Digitize"
+                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),     // "Conform vector to terrain now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 226:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),      // "Mapping Module: Digitize"
-                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),  // "Conform vector to terrain now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                   // "OK|Cancel"
+            Test_UM_Win(GetString( MSG_MAPGUI_MAPPINGMODULEDIGITIZE ),  // "Mapping Module: Digitize"
+                    GetString( MSG_MAP_CONFORMVECTORTOTERRAINNOW ),     // "Conform vector to terrain now?"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                   // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 227:
@@ -6139,7 +6362,8 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Test_UM_Win((CONST_STRPTR)"DBase[OBN].Name",
                     GetString( MSG_MAP_CREATEVISUALSENSITIVITYMAPFORTHISOBJECT ),  // "Create Visual Sensitivity map for this object?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                 // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                              // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 228:
@@ -6147,125 +6371,139 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITOR ),  // "Foliage Editor"
-                    GetString( MSG_AGUI_KEEPCHANGES ),    // "Keep changes?"
-                    GetString( MSG_GLOBAL_YESNO ));          // "Yes|No"
+                    GetString( MSG_AGUI_KEEPCHANGES ),           // "Keep changes?"
+                    GetString( MSG_GLOBAL_YESNO ),               // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 229:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
-                    GetString( MSG_FOLIGUI_UNABLETOLOADIMAGEFILEFORVIEWINGPERATIONTERMINATED ),   // "Unable to load image file for viewing!\nOperation terminated.",
-                    GetString( MSG_GLOBAL_OK ));                                                  // "OK"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                         // "Foliage Editor: View Image"
+                    GetString( MSG_FOLIGUI_UNABLETOLOADIMAGEFILEFORVIEWINGPERATIONTERMINATED ),  // "Unable to load image file for viewing!\nOperation terminated.",
+                    GetString( MSG_GLOBAL_OK ),                                                  // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 230:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE ),                   // "Foliage Editor: Load Ecotype"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORLOADECOTYPE ),               // "Foliage Editor: Load Ecotype"
                     GetString( MSG_FOLIGUI_ERRORLOADINGECOTYPEFILEPERATIONTERMINATED ),  // "Error loading Ecotype file!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                         // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                          // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 231:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                            // "Foliage Editor: Add Group"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                        // "Foliage Editor: Add Group"
                     GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                               // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 232:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                           // "Foliage Editor: Add Group"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDGROUP ),                       // "Foliage Editor: Add Group"
                     GetString( MSG_FOLIGUI_ERRORLOADINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error loading Foliage Group file!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                              // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                               // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 233:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                        // "Foliage Editor: New Group"
                     GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                               // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 234:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                            // "Foliage Editor: New Group"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORNEWGROUP ),                        // "Foliage Editor: New Group"
                     GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ),  // "Out of memory allocating new group!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                              // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 235:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP ),                         // "Foliage Editor: Save Group"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEGROUP ),                     // "Foliage Editor: Save Group"
                     GetString( MSG_FOLIGUI_ERRORSAVINGFOLIAGEGROUPFILEPERATIONTERMINATED ),  // "Error saving Foliage Group file!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                             // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                              // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 236:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                             // "Foliage Editor: Add Image"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                         // "Foliage Editor: Add Image"
                     GetString( MSG_FOLIGUI_OUTOFMEMORYALLOCATINGNEWGROUPPERATIONTERMINATED ) ,  // "Out of memory allocating new group!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                                // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                                 // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 237:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                    // "Foliage Editor: Add Image"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORADDIMAGE ),                // "Foliage Editor: Add Image"
                     GetString( MSG_FOLIGUI_ERRORLOADINGIMAGEFILEPERATIONTERMINATED ),  // "Error loading image file!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                       // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                        // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 238:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                              // "Foliage Editor: View Image"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORVIEWIMAGE ),                           // "Foliage Editor: View Image"
                     GetString( MSG_FOLIGUI_THEIMAGELOADEDPROPERLYMAYBESOMEDAYTHEREWILLEVENBEAW ),  // "The image loaded properly. Maybe some day there will even be a way for you to see it!\n"
-                    GetString( MSG_FOLIGUI_THATWOULDBENICE ));               // "That would be nice"
+                    GetString( MSG_FOLIGUI_THATWOULDBENICE ),                                      // "That would be nice"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 239:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEECOTYPE ),                  // "Foliage Editor: Save Ecotype"
+            Test_UM_Win(GetString( MSG_FOLIGUI_FOLIAGEEDITORSAVEECOTYPE ),              // "Foliage Editor: Save Ecotype"
                     GetString( MSG_FOLIGUI_ERRORSAVINGECOTYPEFILEPERATIONTERMINATED ),  // "Error saving Ecotype file!\nOperation terminated."
-                    GetString( MSG_GLOBAL_OK ));                                        // "OK"
+                    GetString( MSG_GLOBAL_OK ),                                         // "OK"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 240:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
+            Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                // "Parameter Module: Load"
                     GetString( MSG_EDPAR_THISISANOLDV1FORMATFILEWOULDYOULIKETORESAVEITINTHENEW ),  // "This is an old V1 format file! Would you like to re-save it in the new format now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 241:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                    // "Parameter Module: Load"
+            Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),                                // "Parameter Module: Load"
                     GetString( MSG_EDPAR_THEPARAMETERFILEFORMATHASBEENCHANGEDSLIGHTLYSINCETHIS ),  // "The Parameter File format has been changed slightly since this file was saved. Would you like to re-save it in the new format now?"
-                    GetString( MSG_GLOBAL_OKCANCEL ));                                               // "OK|Cancel"
+                    GetString( MSG_GLOBAL_OKCANCEL ),                                              // "OK|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 242:
@@ -6273,8 +6511,9 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
-                    GetString( MSG_EDPAR_LOADALLKEYFRAMES ),     //  "Load all key frames?"
-                    GetString( MSG_GLOBAL_YESNO));                 // "Yes|No"
+                    GetString( MSG_EDPAR_LOADALLKEYFRAMES ),         //  "Load all key frames?"
+                    GetString( MSG_GLOBAL_YESNO),                    // "Yes|No"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 243:
@@ -6282,42 +6521,49 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Test_UM_Win(GetString( MSG_EDPAR_PARAMETERMODULELOAD ),  // "Parameter Module: Load"
-                    GetString( MSG_EDPAR_LOADALLKEYFRAMES ),     // "Load all key frames?"
-                    GetString( MSG_GLOBAL_YESNO ));                // "Yes|No"
+                    GetString( MSG_EDPAR_LOADALLKEYFRAMES ),         // "Load all key frames?"
+                    GetString( MSG_GLOBAL_YESNO ),                   // "Yes|No"
+                    AutoClick);
 
-            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                             // "Parameters Module: Model"
                     GetString( MSG_PARGUI_THECURRENTECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_1 ),  // "The current Ecosystem Model has been modified. Do you wish to save it before closing?"
-                    GetString( MSG_PARGUI_YESNOCANCEL ));                                           // "Yes|No|Cancel"
+                    GetString( MSG_PARGUI_YESNOCANCEL ),                                           // "Yes|No|Cancel"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 244:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                                 // "Parameters Module: Model"
+            Test_UM_Win(GetString( MSG_PARGUI_PARAMETERSMODULEMODEL ),                       // "Parameters Module: Model"
                     GetString( MSG_PARGUI_CURRECOSYSTEMMODELHASBEENMODIFIEDDOYOUWISHTO_2 ),  //" The current Ecosystem Model has been modified. Do you wish to save it before proceeding?"
-                    GetString( MSG_PARGUI_YESNOCANCEL ));                                           // "Yes|No|Cancel"
-            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),          // "Wave: Set Defaults"
+                    GetString( MSG_PARGUI_YESNOCANCEL ),                                     // "Yes|No|Cancel"
+                    AutoClick);
+
+            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Wave: Set Defaults"
                     GetString( MSG_WAV_SELECTGENERALWAVECENTER ),  // "Select general wave center."
-                    GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ));    // "Focus Point|Camera Point"
+                    GetString( MSG_WAV_FOCUSPOINTCAMERAPOINT ),    // "Focus Point|Camera Point"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 245:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),   // "Wave: Set Defaults"
-                    GetString( MSG_WAV_SELECTWAVESPEED ),   // "Select wave speed."
-                    GetString( MSG_WAV_FASTVERYFASTSLOW ));  //"Fast|Very Fast|Slow"
+            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),  // "Wave: Set Defaults"
+                    GetString( MSG_WAV_SELECTWAVESPEED ),      // "Select wave speed."
+                    GetString( MSG_WAV_FASTVERYFASTSLOW ),     //"Fast|Very Fast|Slow"
+                    AutoClick);
             if(ShouldBreak) break;
         }
         case 246:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),      // "Wave: Set Defaults"
+            Test_UM_Win(GetString( MSG_WAV_WAVESETDEFAULTS ),  // "Wave: Set Defaults"
                     GetString( MSG_WAV_SELECTWAVEDIRECTION ),  // "Select wave direction."
-                    GetString( MSG_WAV_SPREADINGCONVERGING ));  // "Spreading|Converging"
+                    GetString( MSG_WAV_SPREADINGCONVERGING ),  // "Spreading|Converging"
+                    AutoClick);
 
             //####### Input String Window ############
 
@@ -6327,7 +6573,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPEXTRA_ENTERNUMBEROFOUTPUTVERTICES ));  // "Enter number of output vertices."
+            Test_IS_Win(GetString( MSG_MAPEXTRA_ENTERNUMBEROFOUTPUTVERTICES ),AutoClick);  // "Enter number of output vertices."
 
             if(ShouldBreak) break;
         }
@@ -6335,7 +6581,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPEXTRA_ENTERMINIMUMMATCHINGPOINTS ));  // "Enter minimum matching points."
+            Test_IS_Win(GetString( MSG_MAPEXTRA_ENTERMINIMUMMATCHINGPOINTS ),AutoClick);  // "Enter minimum matching points."
 
             if(ShouldBreak) break;
         }
@@ -6343,7 +6589,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPEXTRA_ENTERELEVATIONTOLERANCE ));  // "Enter elevation tolerance."
+            Test_IS_Win(GetString( MSG_MAPEXTRA_ENTERELEVATIONTOLERANCE ),AutoClick);  // "Enter elevation tolerance."
 
             if(ShouldBreak) break;
         }
@@ -6351,7 +6597,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6359,7 +6605,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ));  // "Enter new object name."
+            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ),AutoClick);  // "Enter new object name."
 
             if(ShouldBreak) break;
         }
@@ -6367,7 +6613,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDDB_ENTERSEARCHSTRING ));  // "Enter search string."
+            Test_IS_Win(GetString( MSG_EDDB_ENTERSEARCHSTRING ),AutoClick);  // "Enter search string."
 
             if(ShouldBreak) break;
         }
@@ -6375,7 +6621,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_CLOUD_ENTERFRAMENUMBER ));  // "Enter Frame Number."
+            Test_IS_Win(GetString( MSG_CLOUD_ENTERFRAMENUMBER ),AutoClick);  // "Enter Frame Number."
 
             if(ShouldBreak) break;
         }
@@ -6383,7 +6629,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEMAXIMUMPIXELSIZEFORAPOLYGONTHESMALLERTHEN ));  // "Enter the maximum pixel size for a polygon. The smaller the number the longer image rendering will take!"
+            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEMAXIMUMPIXELSIZEFORAPOLYGONTHESMALLERTHEN ),AutoClick);  // "Enter the maximum pixel size for a polygon. The smaller the number the longer image rendering will take!"
 
             if(ShouldBreak) break;
         }
@@ -6391,7 +6637,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEFIRSTFRAMETOSCAN ));  // "Enter the first frame to scan."
+            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEFIRSTFRAMETOSCAN ),AutoClick);  // "Enter the first frame to scan."
 
             if(ShouldBreak) break;
         }
@@ -6399,7 +6645,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHELASTFRAMETOSCAN ));  // "Enter the last frame to scan."
+            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHELASTFRAMETOSCAN ),AutoClick);  // "Enter the last frame to scan."
 
             if(ShouldBreak) break;
         }
@@ -6407,7 +6653,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEFRAMEINTERVALTOSCANTHESMALLERTHENUMBERTHE ));  // "Enter the frame interval to scan. The smaller the number the longer this process will take!"
+            Test_IS_Win(GetString( MSG_MAPTOPOOB_ENTERTHEFRAMEINTERVALTOSCANTHESMALLERTHENUMBERTHE ),AutoClick);  // "Enter the frame interval to scan. The smaller the number the longer this process will take!"
 
             if(ShouldBreak) break;
         }
@@ -6415,7 +6661,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6423,7 +6669,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6431,7 +6677,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR ));  // "Enter the UTM zone number (0-60) for the data you are about to import."
+            Test_IS_Win(GetString( MSG_DEMGUI_ENTERTHEUTMZONENUMBER060FORTHEDATAYOUAREABOUTTOIMPOR ),AutoClick);  // "Enter the UTM zone number (0-60) for the data you are about to import."
 
             if(ShouldBreak) break;
         }
@@ -6439,7 +6685,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6447,7 +6693,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAPGUI_ENTERELEVATIONVALUEFORNEWCONTROLPOINT ));  // "Enter elevation value for new control point."
+            Test_IS_Win(GetString( MSG_MAPGUI_ENTERELEVATIONVALUEFORNEWCONTROLPOINT ),AutoClick);  // "Enter elevation value for new control point."
 
             if(ShouldBreak) break;
         }
@@ -6455,14 +6701,14 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_LINESPRT_ENTERFRAMEINTERVALTOREPRESENTEACHVECTORSEGMENT ));  // "Enter frame interval to represent each vector segment."
+            Test_IS_Win(GetString( MSG_LINESPRT_ENTERFRAMEINTERVALTOREPRESENTEACHVECTORSEGMENT ),AutoClick);  // "Enter frame interval to represent each vector segment."
             if(ShouldBreak) break;
         }
         case 264:
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED ));  // "Enter name of vector to be created."
+            Test_IS_Win(GetString( MSG_LINESPRT_ENTERNAMEOFVECTORTOBECREATED ),AutoClick);  // "Enter name of vector to be created."
 
             if(ShouldBreak) break;
         }
@@ -6470,7 +6716,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6478,7 +6724,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVEAMPLITUDE ));  // "Enter Wave Amplitude."
+            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVEAMPLITUDE ),AutoClick);  // "Enter Wave Amplitude."
 
             if(ShouldBreak) break;
         }
@@ -6486,7 +6732,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVELENGTHKM ));  // "Enter Wave Length (km)."
+            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVELENGTHKM ),AutoClick);  // "Enter Wave Length (km)."
 
             if(ShouldBreak) break;
         }
@@ -6494,7 +6740,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVEVELOCITYKMHR ));  // "Enter Wave Velocity (km/hr)."
+            Test_IS_Win(GetString( MSG_WAVGUI_ENTERWAVEVELOCITYKMHR ),AutoClick);  // "Enter Wave Velocity (km/hr)."
 
             if(ShouldBreak) break;
         }
@@ -6502,7 +6748,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE ));  // ,"Enter up to 3 characters as a prefix for this DLG set if you desire."
+            Test_IS_Win(GetString( MSG_DLG_ENTERUPTO3CHARACTERSASAPREFIXFORTHISDLGSETIFYOUDESIRE ),AutoClick);  // ,"Enter up to 3 characters as a prefix for this DLG set if you desire."
 
             if(ShouldBreak) break;
         }
@@ -6510,7 +6756,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DLG_ANENTITYHASBEENFOUNDWITHNONAMEIDENTIFIERPLEASEENTERADEF ));  // "An entity has been found with no name identifier. Please enter a default name."
+            Test_IS_Win(GetString( MSG_DLG_ANENTITYHASBEENFOUNDWITHNONAMEIDENTIFIERPLEASEENTERADEF ),AutoClick);  // "An entity has been found with no name identifier. Please enter a default name."
 
             if(ShouldBreak) break;
         }
@@ -6518,7 +6764,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ));  // "Enter frame to make key for."
+            Test_IS_Win(GetString( MSG_EDITGUI_ENTERFRAMETOMAKEKEYFOR ),AutoClick);  // "Enter frame to make key for."
 
             if(ShouldBreak) break;
         }
@@ -6526,7 +6772,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ));  // "Enter new object name."
+            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ),AutoClick);  // "Enter new object name."
 
             if(ShouldBreak) break;
         }
@@ -6534,7 +6780,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ));  // "Enter new object name."
+            Test_IS_Win(GetString( MSG_DB_ENTERNEWOBJECTNAME ),AutoClick);  // "Enter new object name."
 
             if(ShouldBreak) break;
         }
@@ -6542,7 +6788,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT ));  // "Enter a name for the 30 meter DEM object."
+            Test_IS_Win(GetString( MSG_DEM_ENTERANAMEFORTHE30METERDEMOBJECT ),AutoClick);  // "Enter a name for the 30 meter DEM object."
 
             if(ShouldBreak) break;
         }
@@ -6550,7 +6796,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_MAP_ENTERVERTICALOFFSETINMETERS ));  // "Enter vertical offset in meters."
+            Test_IS_Win(GetString( MSG_MAP_ENTERVERTICALOFFSETINMETERS ),AutoClick);  // "Enter vertical offset in meters."
 
             if(ShouldBreak) break;
         }
@@ -6558,7 +6804,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWGROUPNAME ));  // "Enter new group name."
+            Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWGROUPNAME ),AutoClick);  // "Enter new group name."
 
             if(ShouldBreak) break;
         }
@@ -6566,7 +6812,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWIMAGEPATHANDNAME ));  // "Enter new image path and name."
+            Test_IS_Win(GetString( MSG_FOLIGUI_ENTERNEWIMAGEPATHANDNAME ),AutoClick);  // "Enter new image path and name."
 
             if(ShouldBreak) break;
         }
@@ -6574,7 +6820,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
         {
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
-            Test_IS_Win(GetString( MSG_EDPAR_ENTERKEYFRAMEINTERVALORKFORCURRENTKEYFRAMES ));  // "Enter Key Frame interval or 'K' for current Key Frames."
+            Test_IS_Win(GetString( MSG_EDPAR_ENTERKEYFRAMEINTERVALORKFORCURRENTKEYFRAMES ),AutoClick);  // "Enter Key Frame interval or 'K' for current Key Frames."
             if(ShouldBreak) break;
         }
         // ###################################
@@ -6584,7 +6830,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_DM_Window();
-            waitForRightClick(DM_Win->ExtractWin); // Wait for right mouse button to be pressed
+            waitForRightClick(DM_Win->ExtractWin,AutoClick); // Wait for right mouse button to be pressed
             Close_DM_Window();
             if(ShouldBreak) break;
         }
@@ -6594,7 +6840,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_Log_Window(128); // Log Window, 128, if >127, stays open
-            waitForRightClick(Log_Win->LogWindow); // Wait for right mouse button to be pressed
+            waitForRightClick(Log_Win->LogWindow,AutoClick); // Wait for right mouse button to be pressed
             Close_Log_Window(2);  // Close Log Window, 2 = Shutdown, kill it all! */
             if(ShouldBreak) break;
         }
@@ -6616,7 +6862,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             DoMethod(app, OM_ADDMEMBER, CL_Win.CloudWin );
             set(CL_Win.CloudWin ,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(CL_Win.CloudWin  ); // Wait for right mouse button to be pressed
+            waitForRightClick(CL_Win.CloudWin,AutoClick); // Wait for right mouse button to be pressed
             set(CL_Win.CloudWin ,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, CL_Win.CloudWin );
             MUI_DisposeObject(CL_Win.CloudWin );
@@ -6630,7 +6876,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_MD_Window();   // Under Construction Window is opened automatically, too
-            waitForRightClick(MD_Win->MakeDEMWin); // Wait for right mouse button to be pressed
+            waitForRightClick(MD_Win->MakeDEMWin,AutoClick); // Wait for right mouse button to be pressed
             Close_MD_Window();  // Close DEM Window
             UnderConst_Del(); // Delete the Under Construction Window, too
             if(ShouldBreak) break;
@@ -6641,7 +6887,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_GR_Window();
-            waitForRightClick(GR_Win->NNGridWin); // Wait for right mouse button to be pressed
+            waitForRightClick(GR_Win->NNGridWin,AutoClick); // Wait for right mouse button to be pressed
             Close_GR_Window();  // Close Grid Window
             if(ShouldBreak) break;
         }
@@ -6661,7 +6907,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             DoMethod(app, OM_ADDMEMBER, DI_Win.InterpWin);
             set(DI_Win.InterpWin,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(DI_Win.InterpWin ); // Wait for right mouse button to be pressed
+            waitForRightClick(DI_Win.InterpWin ,AutoClick); // Wait for right mouse button to be pressed
             set(DI_Win.InterpWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, DI_Win.InterpWin);
             MUI_DisposeObject(DI_Win.InterpWin);
@@ -6673,7 +6919,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_DC_Window();
-            waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
+            waitForRightClick(DC_Win->ConvertWin,AutoClick); // Wait for right mouse button to be pressed
             Close_DC_Window();  // Close Convert Window
             if(ShouldBreak) break;
         }
@@ -6685,7 +6931,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             Make_DC_Window();
             set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
             set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
-            waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
+            waitForRightClick(DC_Win->ConvertWin,AutoClick); // Wait for right mouse button to be pressed
             Close_DC_Window();  // Close Convert Window
             if(ShouldBreak) break;
         }
@@ -6698,7 +6944,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
             set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
             set(DC_Win->VSRegister, MUIA_Group_ActivePage, 1);  // Output Format "One Value"
-            waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
+            waitForRightClick(DC_Win->ConvertWin,AutoClick); // Wait for right mouse button to be pressed
             Close_DC_Window();  // Close Convert Window
             if(ShouldBreak) break;
         }
@@ -6711,7 +6957,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             set(DC_Win->IPRegister, MUIA_Group_ActivePage, 1);  // Input Page "Preprocessing"
             set(DC_Win->PGRegister, MUIA_Group_ActivePage, 1);  // Output Format "Value Format"
             set(DC_Win->VSRegister, MUIA_Group_ActivePage, 2);  // Output Format "Max-Min"
-            waitForRightClick(DC_Win->ConvertWin); // Wait for right mouse button to be pressed
+            waitForRightClick(DC_Win->ConvertWin,AutoClick); // Wait for right mouse button to be pressed
             Close_DC_Window();  // Close Convert Window
             if(ShouldBreak) break;
         }
@@ -6724,7 +6970,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             IA=NULL;
             zbuf=NULL;
             Open_Diagnostic_Window(NULL, "ExampleWinTitle");
-            waitForRightClick(DIAG_Win->DiagnosticWin); // Wait for right mouse button to be pressed
+            waitForRightClick(DIAG_Win->DiagnosticWin,AutoClick); // Wait for right mouse button to be pressed
             Close_Diagnostic_Window();  // Close Diagnostic Window
             if(ShouldBreak) break;
         }
@@ -6735,7 +6981,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_DL_Window();  // Make DirList Window
-            waitForRightClick(DL_Win->DirListWin); // Wait for right mouse button to be pressed
+            waitForRightClick(DL_Win->DirListWin,AutoClick); // Wait for right mouse button to be pressed
             Close_DL_Window(DL_Win->DLCopy);  // Close Dialog Window
             if(ShouldBreak) break;
         }
@@ -6757,7 +7003,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             DoMethod(app, OM_ADDMEMBER, DE_Win.DatabaseEditWin);
             set(DE_Win.DatabaseEditWin,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(DE_Win.DatabaseEditWin); // Wait for right mouse button to be pressed
+            waitForRightClick(DE_Win.DatabaseEditWin,AutoClick); // Wait for right mouse button to be pressed
 
             set(DE_Win.DatabaseEditWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, DE_Win.DatabaseEditWin);
@@ -6781,7 +7027,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             DoMethod(app, OM_ADDMEMBER, EE_Win.EcosystemWin);
             set(EE_Win.EcosystemWin,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(EE_Win.EcosystemWin); // Wait for right mouse button to be pressed
+            waitForRightClick(EE_Win.EcosystemWin,AutoClick); // Wait for right mouse button to be pressed
 
             set(EE_Win.EcosystemWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, EE_Win.EcosystemWin);
@@ -6806,7 +7052,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             DoMethod(app, OM_ADDMEMBER, EMIA_Win.IAMotionWin);
             set(EMIA_Win.IAMotionWin,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(EMIA_Win.IAMotionWin); // Wait for right mouse button to be pressed
+            waitForRightClick(EMIA_Win.IAMotionWin,AutoClick); // Wait for right mouse button to be pressed
             set(EMIA_Win.IAMotionWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, EMIA_Win.IAMotionWin);
             MUI_DisposeObject(EMIA_Win.IAMotionWin);
@@ -6828,7 +7074,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             set(EMIA_Win.Register_Cycle_Page, MUIA_Group_ActivePage, 1); // Show "Borders" tab
             set(EMIA_Win.IAMotionWin,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(EMIA_Win.IAMotionWin); // Wait for right mouse button to be pressed
+            waitForRightClick(EMIA_Win.IAMotionWin,AutoClick); // Wait for right mouse button to be pressed
             set(EMIA_Win.IAMotionWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, EMIA_Win.IAMotionWin);
             MUI_DisposeObject(EMIA_Win.IAMotionWin);
@@ -6849,7 +7095,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             DoMethod(app, OM_ADDMEMBER, EM_Win.MotionWin);
             set(EM_Win.MotionWin,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(EM_Win.MotionWin ); // Wait for right mouse button to be pressed
+            waitForRightClick(EM_Win.MotionWin ,AutoClick); // Wait for right mouse button to be pressed
             set(EM_Win.MotionWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, EM_Win.MotionWin);
             MUI_DisposeObject(EM_Win.MotionWin);
@@ -6868,7 +7114,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             settings.rendersegs=1; // Set a valid number of render segments
 
             Make_ES_Window();
-            waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+            waitForRightClick(ES_Win->SettingsWin,AutoClick); // Wait for right mouse button to be pressed
             Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
             if(ShouldBreak) break;
         }
@@ -6886,7 +7132,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Make_ES_Window();
             set(ES_Win->Pages , MUIA_Group_ActivePage, 1);
-            waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+            waitForRightClick(ES_Win->SettingsWin,AutoClick); // Wait for right mouse button to be pressed
             Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
             if(ShouldBreak) break;
         }
@@ -6904,7 +7150,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Make_ES_Window();
             set(ES_Win->Pages , MUIA_Group_ActivePage, 2);
-            waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+            waitForRightClick(ES_Win->SettingsWin,AutoClick); // Wait for right mouse button to be pressed
             Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
             if(ShouldBreak) break;
         }
@@ -6922,7 +7168,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Make_ES_Window();
             set(ES_Win->Pages , MUIA_Group_ActivePage, 3);
-            waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+            waitForRightClick(ES_Win->SettingsWin,AutoClick); // Wait for right mouse button to be pressed
             Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
             if(ShouldBreak) break;
         }
@@ -6940,7 +7186,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Make_ES_Window();
             set(ES_Win->Pages , MUIA_Group_ActivePage, 4);
-            waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+            waitForRightClick(ES_Win->SettingsWin,AutoClick); // Wait for right mouse button to be pressed
             Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
             if(ShouldBreak) break;
         }
@@ -6958,7 +7204,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Make_ES_Window();
             set(ES_Win->Pages , MUIA_Group_ActivePage, 5);
-            waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+            waitForRightClick(ES_Win->SettingsWin,AutoClick); // Wait for right mouse button to be pressed
             Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
             if(ShouldBreak) break;
         }
@@ -6976,7 +7222,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Make_ES_Window();
             set(ES_Win->Pages , MUIA_Group_ActivePage, 6);
-            waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+            waitForRightClick(ES_Win->SettingsWin,AutoClick); // Wait for right mouse button to be pressed
             Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
             if(ShouldBreak) break;
         }
@@ -6994,7 +7240,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Make_ES_Window();
             set(ES_Win->Pages , MUIA_Group_ActivePage, 7);
-            waitForRightClick(ES_Win->SettingsWin); // Wait for right mouse button to be pressed
+            waitForRightClick(ES_Win->SettingsWin,AutoClick); // Wait for right mouse button to be pressed
             Close_ES_Window(1);  // Close Edit Model Image Attributes Window, 1= Shutdown, kill it all!
             if(ShouldBreak) break;
         }
@@ -7014,7 +7260,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             DoMethod(app, OM_ADDMEMBER, EC_Win.EcoPalWin);
             set(EC_Win.EcoPalWin,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(EC_Win.EcoPalWin ); // Wait for right mouse button to be pressed
+            waitForRightClick(EC_Win.EcoPalWin ,AutoClick); // Wait for right mouse button to be pressed
             set(EC_Win.EcoPalWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, EC_Win.EcoPalWin);
             MUI_DisposeObject(EC_Win.EcoPalWin);
@@ -7035,7 +7281,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             DoMethod(app, OM_ADDMEMBER, PN_Win.NewProjWin);
             set(PN_Win.NewProjWin,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(PN_Win.NewProjWin ); // Wait for right mouse button to be pressed
+            waitForRightClick(PN_Win.NewProjWin ,AutoClick); // Wait for right mouse button to be pressed
             set(PN_Win.NewProjWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, PN_Win.NewProjWin);
             MUI_DisposeObject(PN_Win.NewProjWin);
@@ -7056,7 +7302,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             DoMethod(app, OM_ADDMEMBER, TS_Win.TimeSetWin);
             set(TS_Win.TimeSetWin,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(TS_Win.TimeSetWin ); // Wait for right mouse button to be pressed
+            waitForRightClick(TS_Win.TimeSetWin ,AutoClick); // Wait for right mouse button to be pressed
             set(TS_Win.TimeSetWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, TS_Win.TimeSetWin);
             MUI_DisposeObject(TS_Win.TimeSetWin);
@@ -7078,7 +7324,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             DoMethod(app, OM_ADDMEMBER, FE_Win.FoliageWin);
             set(FE_Win.FoliageWin,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(FE_Win.FoliageWin ); // Wait for right mouse button to be pressed
+            waitForRightClick(FE_Win.FoliageWin ,AutoClick); // Wait for right mouse button to be pressed
             set(FE_Win.FoliageWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, FE_Win.FoliageWin);
             MUI_DisposeObject(FE_Win.FoliageWin);
@@ -7092,7 +7338,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             struct MapData MP;
             MapGUI_New(&MP);
-            waitForRightClick(MP.MAPC); // Wait for right mouse button to be pressed
+            waitForRightClick(MP.MAPC,AutoClick); // Wait for right mouse button to be pressed
             MapGUI_Del(&MP);
 
             if(ShouldBreak) break;
@@ -7112,7 +7358,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             DoMethod(app, OM_ADDMEMBER, MP.AlignWin);
             set(MP.AlignWin,MUIA_Window_Open, TRUE);
 
-            waitForRightClick(MP.AlignWin ); // Wait for right mouse button to be pressed
+            waitForRightClick(MP.AlignWin ,AutoClick); // Wait for right mouse button to be pressed
             set(MP.AlignWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, MP.AlignWin);
             MUI_DisposeObject(MP.AlignWin);
@@ -7124,7 +7370,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             UnderConst_New();
-            waitForRightClick(UnderConst); // Wait for right mouse button to be pressed
+            waitForRightClick(UnderConst,AutoClick); // Wait for right mouse button to be pressed
             UnderConst_Del();
             if(ShouldBreak) break;
         }
@@ -7136,7 +7382,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_SC_Window();
-            waitForRightClick(SC_Win->ScaleWin); // Wait for right mouse button to be pressed
+            waitForRightClick(SC_Win->ScaleWin,AutoClick); // Wait for right mouse button to be pressed
             Close_SC_Window();
             if(ShouldBreak) break;
         }
@@ -7146,7 +7392,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_PR_Window();
-            waitForRightClick(PR_Win->PrefsWin); // Wait for right mouse button to be pressed
+            waitForRightClick(PR_Win->PrefsWin,AutoClick); // Wait for right mouse button to be pressed
             Close_PR_Window();
             if(ShouldBreak) break;
         }
@@ -7156,7 +7402,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_PJ_Window();  // Page 1
-            waitForRightClick(PJ_Win->ProjWin); // Wait for right mouse button to be pressed
+            waitForRightClick(PJ_Win->ProjWin,AutoClick); // Wait for right mouse button to be pressed
             Close_PJ_Window(1);
             if(ShouldBreak) break;
         }
@@ -7167,7 +7413,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             Make_PJ_Window();  // Page 2
             set(PJ_Win->RegGrp, MUIA_Group_ActivePage, 1);  // Set to Page 2
-            waitForRightClick(PJ_Win->ProjWin); // Wait for right mouse button to be pressed
+            waitForRightClick(PJ_Win->ProjWin,AutoClick); // Wait for right mouse button to be pressed
             Close_PJ_Window(1);
             if(ShouldBreak) break;
         }
@@ -7187,7 +7433,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             }
             DoMethod(app, OM_ADDMEMBER, PS_Win.ScaleWin);
             set(PS_Win.ScaleWin,MUIA_Window_Open, TRUE);
-            waitForRightClick(PS_Win.ScaleWin); // Wait for right mouse button to be pressed
+            waitForRightClick(PS_Win.ScaleWin,AutoClick); // Wait for right mouse button to be pressed
             set(PS_Win.ScaleWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, PS_Win.ScaleWin);
             if(ShouldBreak) break;
@@ -7209,7 +7455,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             }
             DoMethod(app, OM_ADDMEMBER, AN_Win.AnimWin);
             set(AN_Win.AnimWin,MUIA_Window_Open, TRUE);
-            waitForRightClick(AN_Win.AnimWin); // Wait for right mouse button to be pressed
+            waitForRightClick(AN_Win.AnimWin,AutoClick); // Wait for right mouse button to be pressed
             set(AN_Win.AnimWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, AN_Win.AnimWin);
             MUI_DisposeObject(AN_Win.AnimWin);
@@ -7221,7 +7467,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_LW_Window();
-            waitForRightClick(LW_Win->IOWin); // Wait for right mouse button to be pressed
+            waitForRightClick(LW_Win->IOWin,AutoClick); // Wait for right mouse button to be pressed
             Close_LW_Window();
             if(ShouldBreak) break;
         }
@@ -7231,7 +7477,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             Make_FM_Window();   // Make Forest Model Window
-            waitForRightClick(FM_Win->ModelWin); // Wait for right mouse button to be pressed
+            waitForRightClick(FM_Win->ModelWin,AutoClick); // Wait for right mouse button to be pressed
             Close_FM_Window();
             if(ShouldBreak) break;
 
@@ -7244,7 +7490,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             struct BusyWindow *BW;
             BW=BusyWin_New((char*)GetString( MSG_NNCRUNCH_CHOROPLETH ), 10, 60, MakeID('B','W','G','R'));  // Busy Window
             set(BW->BusyWin, MUIA_Window_Activate, TRUE);  //This one needs to be activated
-            waitForRightClick(BW->BusyWin); // Wait for right mouse button to be pressed
+            waitForRightClick(BW->BusyWin,AutoClick); // Wait for right mouse button to be pressed
             BusyWin_Del(BW);
             if(ShouldBreak) break;
         }
@@ -7287,7 +7533,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             }
             DoMethod(app, OM_ADDMEMBER, ModeSelWin);
             set(ModeSelWin,MUIA_Window_Open, TRUE);
-            waitForRightClick(ModeSelWin); // Wait for right mouse button to be pressed
+            waitForRightClick(ModeSelWin,AutoClick); // Wait for right mouse button to be pressed
             set(ModeSelWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, ModeSelWin);
             MUI_DisposeObject(ModeSelWin);
@@ -7347,7 +7593,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             }
             DoMethod(app, OM_ADDMEMBER, TimeLineWin);
             set(TimeLineWin,MUIA_Window_Open, TRUE);
-            waitForRightClick(TimeLineWin); // Wait for right mouse button to be pressed
+            waitForRightClick(TimeLineWin,AutoClick); // Wait for right mouse button to be pressed
             set(TimeLineWin,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, TimeLineWin);
             MUI_FreeClass(EETL_Win.SuperClass);
@@ -7390,7 +7636,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             }
             DoMethod(app, OM_ADDMEMBER, Window);
             set(Window,MUIA_Window_Open, TRUE);
-            waitForRightClick(Window); // Wait for right mouse button to be pressed
+            waitForRightClick(Window,AutoClick); // Wait for right mouse button to be pressed
             set(Window,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, Window);
             MUI_FreeClass(ECTL_Win.SuperClass);
@@ -7433,7 +7679,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
             }
             DoMethod(app, OM_ADDMEMBER, Window);
             set(Window,MUIA_Window_Open, TRUE);
-            waitForRightClick(Window); // Wait for right mouse button to be pressed
+            waitForRightClick(Window,AutoClick); // Wait for right mouse button to be pressed
             set(Window,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, Window);
             MUI_FreeClass(EMTL_Win.SuperClass);
@@ -7462,7 +7708,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             DoMethod(app, OM_ADDMEMBER, Window);
             set(Window,MUIA_Window_Open, TRUE);
-            waitForRightClick(Window); // Wait for right mouse button to be pressed
+            waitForRightClick(Window,AutoClick); // Wait for right mouse button to be pressed
             set(Window,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, Window);
             MUI_DisposeObject(Window);
@@ -7490,7 +7736,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak)
 
             DoMethod(app, OM_ADDMEMBER, Window);
             set(Window,MUIA_Window_Open, TRUE);
-            waitForRightClick(Window); // Wait for right mouse button to be pressed
+            waitForRightClick(Window,AutoClick); // Wait for right mouse button to be pressed
             set(Window,MUIA_Window_Open, FALSE);
             DoMethod(app, OM_REMMEMBER, Window);
             MUI_DisposeObject(Window);

@@ -179,7 +179,7 @@ void Set_WCS_ReturnCode(int RetCode)
 }
 
 void Test_User_Message(unsigned int StartTestNumber);  // Test all user Messages
-void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak);  // Test WindowObject() and WindowContents()
+void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoClick);  // Test WindowObject() and WindowContents()
 
 char *ProjectName="empty";
 
@@ -653,20 +653,27 @@ if ((IntuitionBase = (struct IntuitionBase *)
                set(AboutWin,MUIA_Window_Open,FALSE); // close About window if open
         	   Test_User_Message(StartTestNumber);  // Test all user Messages
            }
-           else if ((argc>=2) && !strcmp(argv[1],"Test_WindowObject"))
+           else if ((argc>=2) && (!strcmp(argv[1],"Test_WindowObject") || !strcmp(argv[1],"Test_WindowObject_Auto")))
            {
                unsigned int StartTestNumber;
+               int AutoClick=FALSE;
+
+               if(!strcmp(argv[1],"Test_WindowObject_Auto"))
+               {
+                   AutoClick=TRUE;   // automatically click right mouse button on dialogs for coverage testing
+               }
+
                if(argc==2)
                {
                    StartTestNumber=1;
                    set(AboutWin,MUIA_Window_Open,FALSE); // close About window if open
-                   Test_WindowObject(StartTestNumber,FALSE);  // Test all user Window Creates beginning from StartTestNumber
+                   Test_WindowObject(StartTestNumber,FALSE,AutoClick);  // Test all user Window Creates beginning from StartTestNumber
                }
                else if(argc==3)
                {
                    StartTestNumber=atoi(argv[2]);
                    set(AboutWin,MUIA_Window_Open,FALSE); // close About window if open
-                   Test_WindowObject(StartTestNumber,FALSE);  // Test all user Window Creates beginning from StartTestNumber
+                   Test_WindowObject(StartTestNumber,FALSE,AutoClick);  // Test all user Window Creates beginning from StartTestNumber
                }
                else
                {
@@ -682,7 +689,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
                        else
                        {
                            StartTestNumber=atoi(argv[i]);
-                           Test_WindowObject(StartTestNumber,TRUE);  // Test only given TestNumber
+                           Test_WindowObject(StartTestNumber,TRUE,AutoClick);  // Test only given TestNumber
                        }
                    }
                }
