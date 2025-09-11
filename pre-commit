@@ -729,8 +729,8 @@ else
     CheckNoUTF8
     CheckSimpleCat
     CheckSshWinUAE
-#    BuildSASC
-#    BuildAllEclipse
+    BuildSASC
+    BuildAllEclipse
     CheckLocaleRedfinitions
     TestConvertOnWinUAE68020_Coverage
     TestConvertOnArosI386

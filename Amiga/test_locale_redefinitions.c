@@ -75,7 +75,7 @@ static Data TestData[]={
    { 0                                                              ,NULL                                                             ,NULL}  
 };
 
-Locale_Open((STRPTR)"WCS.catalog",1,1);  // Version, revision  - Simplecat Doc says: There is no need to check any result.
+Locale_Open((STRPTR)"WCS.catalog",1/*,1*/);  // Version/*, revision*/  - Simplecat Doc says: There is no need to check any result.
 
  while(TestData[i].MsgNumber)
  {

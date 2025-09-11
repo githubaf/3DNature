@@ -106,7 +106,7 @@ void SetUser_Message_ForcedReturn(int Val);
 static void MakeNewframefileName(char *argv0)  // AF, 12.Dec.24, WCSname_image -> adds wcs_68020_ in front of CanyonSet for automatic testing
 {
 
-	 static char temp[128];
+	 static char temp[128];   // static so we do not increase stack usage
 	 {  // simulation of basename(), sets pointer to the beginning of the file name, i.e. skips path
 		 char *progname = argv0+strlen(argv0)-1;   // pointer to the end of the progname
 		 while(progname>=argv0 && *progname !='/' &&  *progname !=':')
@@ -116,7 +116,7 @@ static void MakeNewframefileName(char *argv0)  // AF, 12.Dec.24, WCSname_image -
 		 progname++;
 
 		 sprintf(temp,"%s_%s",progname,framefile);
-		 strncpy(framefile,temp,256-1);
+		 strncpy(framefile,temp,sizeof(framefile));  // was "256 -1" but we have only 64 bytes space!!!
 		 framefile[64-1]='\0';
 		 printf("New framefile is now <%s>\n",framefile);
 	 }

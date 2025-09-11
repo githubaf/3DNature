@@ -623,7 +623,7 @@ APTR AF_MakePN_Win(struct NewProjectWindow *PN_Win)
         maxNewCloneProjectLabelWidth = GetMaxTextWidth(&(WCSScrn->RastPort), NewCloneProjectLabels, sizeof(NewCloneProjectLabels) / sizeof(ULONG));
     }
 
-    WindowObject,
+    return WindowObject,
           MUIA_Window_Title     , GetString( MSG_EVMORGUI_NEWPROJECT ),  // "New Project"
           MUIA_Window_ID        , MakeID('P','R','O','N'),
           MUIA_Window_Screen    , WCSScrn,

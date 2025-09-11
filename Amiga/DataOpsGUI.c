@@ -1571,10 +1571,11 @@ APTR AK_MakeInterpWin(struct DEMInterpolateWindow *DI_Win)
 
     if(Init)
     {
+        int i;
         Init = FALSE;
         maxLabelsWidth = 0;
 
-        for(int i=0; i<sizeof(Labels)/sizeof(ULONG); i++)
+        for(i=0; i<sizeof(Labels)/sizeof(ULONG); i++)
         {
             maxLabelsWidth = GetMaxTextWidth(&(WCSScrn->RastPort), Labels, sizeof(Labels) / sizeof(ULONG));
         }

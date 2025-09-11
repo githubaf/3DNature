@@ -9,7 +9,7 @@
 #define APP_VERS    "2"
 //#define APP_REV    "031"
 #define APP_REV    "00 beta"  // Beta timeout (see BETA_DAYS) applies if the word "beta" is found here. See WCS.c AF, 23.Jan.23
-#define BETA_USER_MESSAGE_TEST  //enable code for display of all catalog MSG_ strings
+//#define BETA_USER_MESSAGE_TEST  //enable code for display of all catalog MSG_ strings - defined on commandline for gcc or in Makefile
 
 #define APP_FLAVOR "(Emerald-Caesar)"
 #define APP_TLA    "WCS"

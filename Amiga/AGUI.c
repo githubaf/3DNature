@@ -1157,7 +1157,7 @@ struct WCSApp *WCS_App_New(void)
 APTR  AF_MakeModControlWin (APTR *BT_Database, APTR *BT_DataOps, APTR *BT_Mapping, APTR *BT_Editing,
         APTR *BT_Render)
 {
-    WindowObject,
+    return WindowObject,
     MUIA_Window_Title      , GetString( MSG_AGUI_MODULECONTROLPANEL ) ,  // "Module Control Panel",
     MUIA_Window_ID         , MakeID('W','C','S','M'),
     MUIA_Window_SizeGadget , FALSE,
@@ -2305,7 +2305,7 @@ return WindowObject,
 
 APTR AF_Make_Info_Window(void)
 {
-WindowObject,
+     return WindowObject,
             MUIA_Window_Title       , GetString( MSG_AGUI_INFO ),  // "Info"
             MUIA_Window_ID      , MakeID('I','N','F','O'),
             MUIA_Window_Screen  , WCSScrn,
@@ -2484,7 +2484,6 @@ WindowObject,
        case ID_INFO:
         {
         long open;
-
         if(InfoWin)
           {
           set(InfoWin, MUIA_Window_Open, FALSE);

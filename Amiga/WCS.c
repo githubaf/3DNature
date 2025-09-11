@@ -822,6 +822,11 @@ if(P96Base) // if we could open P96 we have also to close at the end...
 
  Locale_Close();
 
+ if(strstr(argv[0],"Coverage"))   // if the executable was compiled for Coverage, print a message that user should wait a moment.
+ {
+     printf("Writing coverage data, please wait...\n");
+ }
+
  return WCS_ReturnCode;
 
 
