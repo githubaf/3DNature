@@ -70,9 +70,9 @@
 						</tool>
 					</fileInfo>
 					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.759777619.253854407.893387810" name="MSG_Test.c" rcbsApplicability="disable" resourcePath="MSG_Test.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1117544254.1179543777">
-						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1117544254.1179543777" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1117544254">
-							<option id="gnu.c.compiler.option.debugging.gprof.551609361" superClass="gnu.c.compiler.option.debugging.gprof" value="false" valueType="boolean"/>
-							<option id="gnu.c.compiler.option.debugging.codecov.216047996" superClass="gnu.c.compiler.option.debugging.codecov" value="false" valueType="boolean"/>
+						<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -DBUILDID=\&quot;g/'$(shell git describe --always --dirty --exclude &quot;*&quot;)'\&quot; -noixemul -m68020 -m68881 -DSTATIC_FCN=static -DSTATIC_VAR=static  -Winline -DSWMEM_FAST_INLINE -g" id="cdt.managedbuild.tool.gnu.cross.c.compiler.1117544254.1179543777" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1117544254">
+							<option id="gnu.c.compiler.option.debugging.gprof.551609361" name="Generate gprof information (-pg)" superClass="gnu.c.compiler.option.debugging.gprof" value="false" valueType="boolean"/>
+							<option id="gnu.c.compiler.option.debugging.codecov.216047996" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.c.compiler.option.debugging.codecov" value="false" valueType="boolean"/>
 							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.580805767" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 						</tool>
 					</fileInfo>
@@ -2382,6 +2382,7 @@
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
 		<configuration configurationName="test_x86_64-aros"/>
+		<configuration configurationName="68020_Coverage"/>
 		<configuration configurationName="i386-aros"/>
 		<configuration configurationName="Profiling"/>
 		<configuration configurationName="x86_64-aros">
