@@ -69,6 +69,13 @@
 							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1679560443" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 						</tool>
 					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.448244191.759777619.253854407.893387810" name="MSG_Test.c" rcbsApplicability="disable" resourcePath="MSG_Test.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1117544254.1179543777">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1117544254.1179543777" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1117544254">
+							<option id="gnu.c.compiler.option.debugging.gprof.551609361" superClass="gnu.c.compiler.option.debugging.gprof" value="false" valueType="boolean"/>
+							<option id="gnu.c.compiler.option.debugging.codecov.216047996" superClass="gnu.c.compiler.option.debugging.codecov" value="false" valueType="boolean"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.580805767" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
 					<sourceEntries>
 						<entry excluding="test_locale_redefinitions.c|wcs_test_render.c|af_cmpElevFiles.c|fliptest|test_usgs_dted|test_main.c|af_cmpObjFiles.c|deleteme|HyperKhorner4M-1.c|af_double2short_test.c|af_fast_math_test.c|deleteme_drand48_test.c|af_drand48_disassembly|af_drand48_test2.c|af_drand48.c|af_drand48_test.c|version_test.c|vgl/dumbtext.c|vgl/boards.c|vgl/defpal.c|vgl/clib.c|vgl/dumbbitblt.c|vgl/fontsmall.c|chartest.c|disttools|MapSfc.c|MapWorld.c|OldMapTopo.c|GUI.c|HyperKhorner4M-1.asm|MarkovTable.c|info|USDEMExtract.c|nngridrextra.c|muitest.c|af_test.c|af.c|vgl/vgl_vogl.c|vgl/vgl_test.c|vgl/vgboard.c|vgl/tempmodes.c|vgl/queue.c|vgl/modes.c|vgl/mmi_250.c|vgl/mmi_150.c|vgl/genmodetable.c|vgl/gdm_9000.c|vgl/gdm_9000_draw.c|vgl/db_180.c|vgl/db_180_draw.c|Developer/ExtClasses|Developer/C/DLib|hyper|markov|nngridr" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
