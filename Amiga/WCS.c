@@ -634,7 +634,12 @@ if ((IntuitionBase = (struct IntuitionBase *)
            if (argc==2 && !strcmp(argv[1],AUTOSELFTEST))  // special Argument to perform test rendering and close again
            {
             // ##########################################
-            AutoSelfTest(argv);                           // Render some pictures, open some windows...
+            AutoSelfTest(argv);                    // Render some pictures, open some windows...
+#if defined BETA_USER_MESSAGE_TEST && !defined __SASC__ // set in Version.h
+            set(AboutWin,MUIA_Window_Open,FALSE);  // close About window if open
+            Test_WindowObject(1,FALSE,TRUE);       // Test all user Window Creates beginning from 1, Automatically click right mouse button on dialogs
+#endif
+
             ResetScrn = 0;
             // ##########################################
            }
