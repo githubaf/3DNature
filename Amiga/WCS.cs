@@ -288,7 +288,7 @@ Modul parametrù
 ;
 MSG_MENU_MOD_RENDER
 Render
-Darstellung
+Berechnung
 Rendering
 
 Render
@@ -9353,7 +9353,7 @@ MSG_DIAG_DIGITIZE
 ;
 MSG_DIAG_RENDERDATA
 Render Data
-Darstellungsdaten
+Berechnungsdaten
 Renderizza dati
 
 Render Data
@@ -12791,7 +12791,7 @@ Fout bij schrijven naar Parameter bestand!\nHet uitvoer bestand is gewijzigd en 
 ;
 MSG_EDSETGUI_ENDERSIZE
 \0334Render & Size
-\0334Darstellung & Größe
+\0334Berechnung & Größe
 \0334Render & Dimensione
 
 \0334Render & Afmetingen
@@ -14271,7 +14271,7 @@ Debe cargar o crear primero un archivo de parámetros antes de abrir el Módulo de
 ;
 MSG_EDSETGUI_RENDERSETTINGSEDITOR
 Render Settings Editor
-Editor für Darstellungseinstellungen
+Editor für Berechnungsseinstellungen
 Editor impostazioni di rendering
 
 Render Instellingen Editor
@@ -14752,7 +14752,7 @@ Largo
 ;
 MSG_EDSETGUI_RELATIVERENDERTIME
 Relative Render Time
-Relative Darstellungszeit
+Relative Berechnungsszeit
 Tempo di rendering relativo
 
 Relatieve Render Tijd
@@ -15051,7 +15051,7 @@ Altura Final
 ;
 MSG_EDSETGUI_RENDERMEMORY
 Render Memory
-Darstellungsspeicher
+Berechnungsspeicher
 Memoria di rendering
 
 Render Geheugen
@@ -15077,7 +15077,7 @@ MSG_EDSETGUI_KEEP
 ;
 MSG_EDSETGUI_RENDER
 \33cRender
-\33cDarstellung
+\33cBerechnen
 \33cRender
 
 \33cRenderen
@@ -16928,7 +16928,7 @@ Se deben crear al menos dos fotogramas clave para este parámetro antes de abrir 
 ;
 MSG_GLMP_RENDERINITIALIZATIONCOMPLETE
 Render initialization complete.
-Darstellung-Initialisierung abgeschlossen.
+Initialisierung für Berechnung abgeschlossen.
 Inizializzazione rendering completata.
 
 Render initialisatie klaar.
@@ -16941,7 +16941,7 @@ Inicialización de renderizado completa.
 ;
 MSG_GLMP_WCSRENDERWINDOW
 WCS Render Window
-WCS Darstellungs-Fenster
+WCS Berechnungs-Fenster
 Finestra di rendering WCS
 
 WCS Render Venster
@@ -16954,7 +16954,7 @@ Ventana de Renderizado WCS
 ;
 MSG_GLMP_RENDERWINDOW_PERIOD
 Render window.
-Darstellungs-Fenster.
+Berechnungsenster.
 Finestra di rendering.
 
 Render venster.
@@ -16967,7 +16967,7 @@ Ventana de renderizado.
 ;
 MSG_GLMP_ERROROPENINGRENDERWINDOWPERATIONTERMINATED
 Error opening render window!\nOperation terminated.
-Fehler beim Öffnen des Darstellungs-Fensters!\nVorgang abgebrochen.
+Fehler beim Öffnen des Berechnungsfensters!\nVorgang abgebrochen.
 Errore nell'apertura della finestra di rendering!\nOperazione terminata.
 
 Fout bij openen van render venster!\nBewerking afgebroken.
@@ -17123,7 +17123,7 @@ Fout bij laden van Golfbestand!\nDoorgaan zonder golven?
 ;
 MSG_GLMP_RENDERMODULECLOUDS
 Render Module: Clouds
-Darstellungs Modul: Wolken
+Berechnungs-Modul: Wolken
 Modulo Rendering: Nuvole
 
 Render Module: Wolken
@@ -17344,7 +17344,7 @@ Fout bij interlacing velden!\nBewerking afgebroken.
 ;
 MSG_GLMP_RENDERMODULESAVE
 Render Module: Save
-Darstellungs Modul: Speichern
+Berechnungs-Modul: Speichern
 Modulo rendering: Salva
 
 Render Module: Opslaan
@@ -17422,7 +17422,7 @@ Ruta de guardado del búfer Z
 ;
 MSG_GLMP_RENDERWINDOW
 Render Window
-Darstellungs-Fenster
+Berechnungsfenster
 Finestra di rendering
 
 Render Venster
@@ -17500,7 +17500,7 @@ Te weinig geheugen bij lezen van kaart %s!
 ;
 MSG_MAPTOPOOB_RENDERMODULETOPO
 Render Module: Topo
-Darstellungs-Modul: Topografie
+Berechnungs-Modul: Topografie
 Modulo Rendering: Topo
 
 Render Module: Topo
@@ -18127,7 +18127,7 @@ MSG_INTVIEW_IAD
 ;
 MSG_INTVIEW_ERROROPENINGSMALLRENDERINGWINDOWPERATIONTERMINATED
 Error opening Small Rendering Window!\nOperation terminated.
-Fehler beim Öffnen des kleinen Darstellungs-Fensters!\nVorgang abgebrochen.
+Fehler beim Öffnen des kleinen Berechnungsfensters!\nVorgang abgebrochen.
 Errore nell'apertura della finestra di rendering ridotta!\nOperazione terminata.
 
 Fout bij openen van het Kleine Rendervenster!\nBewerking afgebroken.
@@ -18140,7 +18140,7 @@ Fout bij openen van het Kleine Rendervenster!\nBewerking afgebroken.
 ;
 MSG_INTVIEW_SMALLRENDERINGWINDOW
 Small rendering window.
-Kleines Darstellungs-Fenster.
+Kleines Berechnungsfenster.
 Finestra di rendering ridotta.
 
 Klein Rendervenster.
@@ -24068,7 +24068,7 @@ Wijzigingen toepassen?
 ;
 MSG_MOREGUI_RENDERTASKPRIORITY
 \33c\0334Render Task Priority
-\33c\0334Render-Priorität
+\33c\0334Berechnungspriorität
 \33c\0334Priorità attività di rendering
 
 \33c\0334Render Prioriteit
@@ -24120,7 +24120,7 @@ MSG_MOREGUI_HIGH
 ;
 MSG_MOREGUI_RENDERSIZE
 \33c\0334Render Size
-\33c\0334Darstellungsgröße
+\33c\0334Berechnungssgröße
 \33c\0334Dimensione rendering
 
 \33c\0334Render Grootte
@@ -25349,7 +25349,7 @@ Hoogte
 ;
 MSG_PARGUI_USERENDERIMAGEASPECT
 Use Render Image Aspect
-Seitenverhältnis des Darstellungsbildes verwenden
+Seitenverhältnis des berechneten Bildes verwenden
 Usa proporzioni immagine di rendering
 
 Gebruik Render Afbeeldingsverhouding
