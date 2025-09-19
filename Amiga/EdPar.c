@@ -31,11 +31,6 @@ STATIC_FCN void ParamFmtV1V2_Convert(struct AnimationV1 *MoParV1, struct Palette
 
 #ifdef KJHKJDFHKDHFKJDFH // Now in LWSupport.c
 
-/* ALEXANDER now in WCS.h struct LightWaveMotion {
- double XYZ[3], HPB[3], SCL[3];
- long Frame, Linear;
- double TCB[3];
-};*/
 
 #define SYSTEM_FLAT 	0
 #define SYSTEM_SPHERE 	1
@@ -1777,7 +1772,6 @@ int GetLoadparamsForceNogetfilenameptrn(void)
 short loadparams(USHORT loadcode, short loaditem)
 {
  short success = 1;
-// long ByteOrder;
  char temppath[256], tempfile[32], filename[255], Ptrn[32];
  float fileversion;
  FILE *fparam;
@@ -1821,7 +1815,6 @@ short loadparams(USHORT loadcode, short loaditem)
     }
    else if (! strncmp(TempHdr.FType, "%WCSPAR", 8))
     {
-//    ByteOrder = TempHdr.ByteOrder;
     fileversion = TempHdr.Version;
     }
    else fileversion = 0.0;

@@ -321,3 +321,5 @@ void Set_Diagnostic_Point(LONG zip)
  set(DIAG_Win->Txt[9], MUIA_Text_Contents, (IPTR)str);
 
 } /* Set_Diagnostic_Point() */
+
+

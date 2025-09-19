@@ -15,12 +15,6 @@ See also HerKhorner4M-1.asm from SAS/C-Amiga Project and especially from the der
 #include <graphics/gfx.h>
 #include <graphics/rastport.h>
 #include <proto/graphics.h>
-/*
-    void *regs [2];
-    regs[0]=ScratchRast;
-    regs[1]=This->pixdata->data;
-
- */
 
 void ASM HK4M(REG(a0, void **registers))
 {

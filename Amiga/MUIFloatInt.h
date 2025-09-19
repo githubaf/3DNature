@@ -65,10 +65,7 @@
 
 #define FI_TypeMask (FIOFlag_Frac | FIOFlag_Float | FIOFlag_Double | FIOFlag_Char | FIOFlag_Short | FIOFlag_Long | FIOFlag_Unsigned)
 
-// struct MUI_CustomClass *FloatIntInit(void); // used locally only -> static, AF 26.7.2021
 void FloatIntCleanup(void);
-// ULONG DoIncDec(struct IClass *cl,Object *obj,Msg msg, char Action); // used locally only -> static, AF 19.7.2021
-
 struct FloatIntData
 {
     Object *group;
@@ -81,5 +78,4 @@ struct FloatIntData
     char *LabelText;
 };
 
-// double CalcIncDec(double Quantity, struct FloatIntData *data, char Action); // used locally only -> static, AF 19.7.2021
 #endif /* MUI_FLOATINT_H */

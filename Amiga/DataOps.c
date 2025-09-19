@@ -1545,19 +1545,6 @@ EndLoad:
 
   }
 
-  // Werte sehen alle richtig aus Ruegen.ilbm 601x1201  ->  301x601
-  //printf("RowStep: %f\n",RowStep);
-  //printf("ColStep: %f\n",ColStep);
-  //printf("LastInRow: %ld\n",LastInRow);
-  //printf("LastInCol: %ld\n",LastInCol);
-  //printf("LastOutRow: %ld\n",LastOutRow);
-  //printf("LastOutCol: %ld\n",LastOutCol);
-  //printf("OCols: %ld\n",OCols);
-  //printf("CROP_TOP: %d\n",CROP_TOP);
-
-  // printf("Resample line %d\n",__LINE__);
-
-
   BWDC = BusyWin_New((char*)GetString( MSG_DATAOPS_RESAMPLE ), ORows, 0, MakeID('B','W','D','C'));  // "Resample"
   for (i=0; i<OUTPUT_ROWS; i++)  // AF: OCols  ???  mit 1201 geht das ILBM??? Was ist der Unterschied ORows und OUTPUT_ROWS? Mit OUTPUT_ROWS geht das ILBM-File!
    {
@@ -3089,9 +3076,6 @@ EndLoad:
 /*
 ** Output
 */
-//   printf("%s Line %d, rows=%ld, Cols=%ld\n",__FILE__,__LINE__,rows,cols);
-//   printf("%s Line %d, OutputRows=%ld, OutputCols=%ld\n",__FILE__,__LINE__,OutputRows,OutputCols);
-//   printf("%s Line %d, DEMHdr rows=%d, Cols=%d\n",__FILE__,__LINE__,DEMHdr->rows,DEMHdr->columns);
 if(INPUT_FORMAT == DEM_DATA_INPUT_DTED)  // exchange cols and rows for DTED. The Ruegen.dt1 (601x1201) can be converted.
 {
    error = SaveConvertOutput(data, DEMHdr, OutputData, OutputDataSize, i, j,

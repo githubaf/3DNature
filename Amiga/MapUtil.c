@@ -15,8 +15,6 @@ STATIC_FCN void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // used lo
 STATIC_FCN void ZeroMatrix3x3(Matx3x3 A); // used locally only -> static, AF 23.7.2021
 STATIC_FCN void sortrenderlist(void); // used locally only -> static, AF 24.7.2021
 STATIC_FCN double DegMinSecToDegrees2(double Val); // used locally only -> static, AF 24.7.2021
-//void ClipAreaDraw(struct Window *win, struct poly4 *Poly, struct clipbounds *cb); // AF, not used 26.July 2021
-// void ClipPoly4(struct Window *win, struct poly4 *Poly, struct clipbounds *cb); // AF, not used 26.July 2021
 STATIC_FCN void RotationMatrix3D(short m, double theta, Matx3x3 A); // used locally only -> static, AF 24.7.2021
 
 

@@ -1988,9 +1988,6 @@ double h, d, sunshade, Azim, Dip;
    getscrncoords(map->scrnptrx + map->facect, map->scrnptry + map->facect,
 		map->scrnptrq + map->facect, NULL, NULL);
    map->facect ++;
-
-   // ALEXANDER: identisch bis hier!
-
    } /* for map->Lc=0... */
   if (CheckInput_ID() == ID_BW_CLOSE)
    {
@@ -2134,7 +2131,7 @@ double h, d, sunshade, Azim, Dip;
    map->facect ++;
    if (setcloudfacetwo(map) > 0 || ! More)
     {
-    if (setface(map))      // ALEXANDER: Hier ist ein Unterschied!
+    if (setface(map))
      {
      if (qqq > qmin)
       {
@@ -2639,7 +2636,6 @@ RepeatLoad:
             } /* if */
            strcat(FractalFile, ".frd");
            strmfp(filename, dirname, FractalFile);
-//           KPrintF("AF: Loading %s\n",filename);
            if ((fFrd = fopen(filename, "rb")))
             {
             if (fread(FractalMap, FractalMapSize, 1, fFrd) != 1)

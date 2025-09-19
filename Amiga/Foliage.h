@@ -95,15 +95,9 @@ void Foliage_SetDefaults(struct Foliage *This,
 void DisposeEcotypes(void);
 struct Ecotype *Ecotype_Load(FILE *ffile, ULONG ReadSize);
 struct FoliageGroup *FoliageGroup_Load(FILE *ffile, ULONG ReadSize);
-// struct Foliage *Foliage_Load(FILE *ffile, ULONG ReadSize); // used locally only -> static, AF 24.7.2021
 struct Ecotype *Ecotype_Copy(struct Ecotype *This);
 ULONG Ecotype_Save(struct Ecotype *This, FILE *ffile);
 ULONG FoliageGroup_Save(struct FoliageGroup *This, FILE *ffile);
-// ULONG Foliage_Save(struct Foliage *This, FILE *ffile); // used locally only -> static, AF 24.7.2021
-//ULONG ReadBlock(FILE *ffile, char *Block, ULONG Flags);  // used locally only -> static, AF 19.7.2021
-//ULONG WriteBlock(FILE *ffile, char *Block, ULONG Flags); // used locally only -> static, AF 19.7.2021
-/*ULONG PrepWriteBlock(FILE *ffile, ULONG ItemTag, ULONG SizeSize,
-	ULONG SizeType, ULONG FieldSize, ULONG FieldType, char *FieldAddr);*/ // used locally only -> static, AF 19.7.2021
 
 #else /* C_PLUS_PLUS */
 

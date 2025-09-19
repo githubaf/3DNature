@@ -878,6 +878,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[9] = StringObject, StringFrame,
 		MUIA_String_Contents, colormapfile, End,
 	    End, /* HGroup */
+
 	  Child, HGroup,
 //	    Child, Label2(GetString( MSG_MOREGUI_CLOUDMAPPATH_SPACES )),  // "Cloud Map Path      "
       Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_CLOUDMAPPATH_SPACES ),  // "Cloud Map Path      "
@@ -910,6 +911,7 @@ void Make_PJ_Window(void)
 	    Child, PJ_Win->Str[24] = StringObject, StringFrame,
 		MUIA_String_Contents, wavefile, End,
 	    End, /* HGroup */
+
 	  Child, HGroup,
 //	    Child, Label2(GetString( MSG_MOREGUI_DEFORMATIONMAPPATH_SPACES )),  // "Deformation Map Path"
       Child, TextObject,MUIA_Text_Contents, (IPTR)GetString( MSG_MOREGUI_DEFORMATIONMAPPATH_SPACES ),  // "Deformation Map Path"
@@ -2209,3 +2211,4 @@ void Handle_PR_Window(ULONG WCS_ID)   // Menu -> Preferences
    } /* switch gadget group */
 
 } /* Handle_PR_Window() */
+

@@ -43,6 +43,7 @@
 #include	<rexx/storage.h>
 #include	<rexx/rxslib.h>
 
+
 /* Prototype headers */
 #include <clib/alib_protos.h>
 #ifdef __GNUC__
@@ -58,7 +59,6 @@
 /* All of these are covered by proto/all.h */
 
 #include <proto/exec.h>
-//#include <clib/exec_protos.h> // proto/exec.h
 #include <proto/asl.h> //#include <clib/asl_protos.h>
 #include <proto/intuition.h> //#include <clib/intuition_protos.h>
 #include <proto/graphics.h>   //#include <clib/graphics_protos.h>

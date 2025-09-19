@@ -166,18 +166,6 @@ EXTERN struct IntuiMessage Event;
 
 EXTERN struct ARexxContext *RexxAp;
 
-///*EXTERN*/ struct WCSScreenMode
-//	{
-//	struct WCSScreenMode *Next;
-//	ULONG ModeID;
-//	char ModeName[32];
-//	int X, Y, OX, OY, MaxX, MaxY, UX, UY;
-//	struct tPoint OScans[4]; /* By order: Text, Std, Max, Video */
-//	ULONG PropertyFlags;
-//	UWORD PixelSpeed;
-//	}; /* struct WCSScreenMode */
-//
-// copied from AmigaScreenMode.h -> Todo: should be defined only once
 struct WCSScreenMode
 	{
 	struct WCSScreenMode *Next;
@@ -197,14 +185,6 @@ struct WCSScreenMode
 	}; /* struct WCSScreenMode */
 
 
-//EXTERN struct WCSScreenData
-//	{
-//        ULONG ModeID, OTag, OVal, AutoTag, AutoVal;
-//	long Width, Height;
-//	} ScrnData;
-//
-
-// copied from AmigaScreenMode.h -> Todo: should be defined only once
 struct WCSScreenData
 	{
 	ULONG ModeID, OTag, OVal, AutoTag, AutoVal;
@@ -1300,6 +1280,7 @@ EXTERN USHORT AltPen[16]
 ={ 1, 2, 3, 0, 6, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15 }
 #endif
 ;
+
 EXTERN USHORT AltColors[16]
 #ifdef MAIN
 ={
@@ -1329,68 +1310,6 @@ EXTERN USHORT AltColors[16]
 #endif /* MAIN */
 ;
 
-//#ifdef VISTA_SCHEME
-//
-//EXTERN USHORT PrintColors[16]
-//#ifdef MAIN
-//={
-//#ifndef DAVE_WARNER
-// 0x89b,	/* 0, gray-blue */
-// 0x000,	/* 1, black */
-// 0xddd,	/* 2, almost white */
-//#else /* DAVE_WARNER */
-// 0x000,	/* 0, gray-blue, now black */
-// 0xfff,	/* 1, black, now white */
-// 0xbbb,	/* 2, almost white, now greyish */
-//#endif /* DAVE_WARNER */
-// 0xb10,
-// 0x348,
-// 0x392,
-// 0x37c,
-// 0xdd2,
-// 0xfff,	/* VistaLike color scheme */
-// 0xbbb,
-// 0x777,
-// 0xd95,
-// 0x940,
-// 0x7b7,
-// 0x090,
-// 0x060
-// }
-//#endif /* MAIN */
-//;
-//
-//#endif /* VISTA_SCHEME */
-//
-//
-//EXTERN USHORT PrintColors[16]
-//#ifdef MAIN
-//={
-//#ifndef DAVE_WARNER
-// 0x89b,	/* 0, gray-blue */
-// 0x000,	/* 1, black */
-// 0xddd,	/* 2, almost white */
-//#else /* DAVE_WARNER */
-// 0x000,	/* 0, gray-blue, now black */
-// 0xfff,	/* 1, black, now white */
-// 0xbbb,	/* 2, almost white, now greyish */
-//#endif /* DAVE_WARNER */
-// 0xb10,
-// 0x348,
-// 0x392,
-// 0x37c,
-// 0xdd2,
-// 0xfff,	/* lighten color gradient */
-// 0xeee,
-// 0xddd,
-// 0xccc,
-// 0xbbb,
-// 0xaaa,
-// 0x999,
-// 0x888
-// }
-//#endif /* MAIN */
-//;
 
 
 // EXTERN USHORT PrimaryColors[16]  static AF
@@ -1667,23 +1586,13 @@ EXTERN short showY
 =1
 #endif /* MAIN */
 ;
-// Not used, AF, 21.Jun22, found with --gc-sections,--print-gc-sections
-//EXTERN short showhaze
-//#ifdef MAIN
-//=1
-//#endif /* MAIN */
-//;
 EXTERN short *CamPathElev;
 EXTERN short *FocPathElev;
 EXTERN __far short RenderList[1000][2];
 EXTERN __far short *AltRenderList;
 
 EXTERN ULONG WCS_Signals,
-//InterWind0_Sig,  satatic AF
 InterWind2_Sig;
-// MapWind0_Sig; static AF
-	// MapWind3_Sig; static AF
-//	RenderWind0_Sig;  static AF
 
 EXTERN LONG __stack
 #ifdef MAIN
@@ -1693,7 +1602,6 @@ EXTERN LONG __stack
 EXTERN LONG /*long*/ *QCmap[3];  // AF, 3.Apr.23  32 Bit values!
 
 EXTERN LONG extrarand,maxfract,fracount[10],   // ALEXANDER; 21.3.205 LONG instead of long for less differences in clouds on x86_84
- //lastfacect,  static AF
      xx[3],yy[3],pts,hseed,b,randomint,
      redrand,greenrand,bluerand,CamPathPts,FocPathPts,
      drawoffsetX,drawoffsetY,DMod,SubPixArraySize,TreePixArraySize,
@@ -1707,14 +1615,12 @@ EXTERN __far long statcount[37][20];
 EXTERN __far long scrnrowzip[2000];
 EXTERN long ecocount[ECOPARAMS];
 EXTERN long zbufsize,bmapsize,QCmapsize,
-//AltRenderListSize,  static AF
 KFsize, UndoKFsize;
 
 EXTERN FILE *fvector;
 
 /* changed to double from float 101995 */
 EXTERN double qqq,qmin,
-//ptqq[3],  static AF
 ptx[3],pty[3];
 
 #ifdef ENABLE_STATISTICS
@@ -1724,16 +1630,6 @@ EXTERN float weight[11][11];
 /* changed to double from float 10/21/95 and back to float on 12/2/95 */
 EXTERN float *zbuf;
 
-//EXTERN float *CosTable; static AF
-// *SinTable; static AF
-// *ASinTable; // static AF
-//*ACosTable; //static AF
-
-//EXTERN long TrigTableEntries   //static AF geht nicht, Aerger mit WCS.c Assembler????? behoben mit gcc vom 24.10.2021
-//#ifdef MAIN
-//= 361
-//#endif
-//;
 
 /* changed to double from float 101995 */
 EXTERN double polyq[10][3];
@@ -1964,47 +1860,6 @@ EXTERN __chip UWORD SwapPointer[]
 
 EXTERN struct Window *MCPWin;
 
-//EXTERN struct ColorSpec NewAltColors[]   static AF
-//#ifdef MAIN
-// ={
-//  {0x00, 0x08, 0x09, 0x0b},
-//  {0x01, 0x00, 0x00, 0x00},
-//  {0x02, 0x0d, 0x0d, 0x0d},
-//  {0x03, 0x0b, 0x01, 0x00},
-//  {0x04, 0x03, 0x04, 0x08},
-//  {0x05, 0x03, 0x09, 0x02},
-//  {0x06, 0x03, 0x07, 0x0c},
-//  {0x07, 0x0d, 0x0d, 0x02},
-//  {0x08, 0x0f, 0x0f, 0x0f},
-//  {0x09, 0x0d, 0x0d, 0x0d},
-//  {0x0a, 0x0b, 0x0b, 0x0b},
-//  {0x0b, 0x09, 0x09, 0x09},
-//  {0x0c, 0x07, 0x07, 0x07},
-//  {0x0d, 0x05, 0x05, 0x05},
-//  {0x0e, 0x03, 0x03, 0x03},
-//  {0x0f, 0x01, 0x01, 0x01},
-//  {-1, 0, 0, 0}
-//  }
-//#endif /* MAIN */
-//; /* NewAltColors */
-//
-//EXTERN WORD PenSpec[]   static AF
-//#ifdef MAIN
-// ={
-//  6,	/* cycle dropdowns text normal			 */
-//  2,	/* cycle dropdowns text highlighted		 */
-//  1,	/* text, window title inactive,
-//	cycle drop downs background normal		 */
-//  2,	/* shine					 */
-//  4,	/* shadow, active gadget outline		 */
-//  6,	/* window frame fill active			 */
-//  1,	/* window title active				 */
-//  0,	/* cycle dropdowns background highlighted	 */
-//  3,	/* special text					 */
-//  ~0 	/* ???						 */
-//  }
-//#endif /* MAIN */
-//;
 
 EXTERN APTR app;
 EXTERN APTR AboutWin, CreditWin, CreditList;
@@ -2377,12 +2232,10 @@ EXTERN struct elmapheaderV101 *mapelmap;
 
 EXTERN char graphpath[255],graphname[64],
      statdir[255],
-//     statfile[64],   static AF
      filetype[6];
 
 EXTERN USHORT RecordNumber, InterStuff, AutoClear,
        vectorenabled, ecoenabled,topo,topoload,align,
-       //graphtype,  static AF
        MapDither,
        ContInt, NoOfTypes;
 
@@ -2400,7 +2253,6 @@ EXTERN short EcoUse[6]
 
 EXTERN short topomaps,
      MapHighEl, MapLowEl,
-     //ptstore[8],  static AF
      backpen, MP_DigMode, MP_Width, MP_Height, MP_Left, MP_Top;
 
 #ifdef ENABLE_STATISTICS
@@ -2411,12 +2263,9 @@ EXTERN short statrows,statcols,statsize,normrows,normcols,normsize,
 EXTERN short *TopoOBN;
 
 #ifdef MAIN
-short //frontpen=2,  static AF
-/*cornerx=30,cornery=30,grwidth=580,grheight=340,*/
-	ContInterval=192;
+short ContInterval=192;
 #else
-extern short // frontpen, static AF
-/*cornerx,cornery,grwidth,grheight,*/ContInterval;
+extern short ContInterval;
 #endif
 
 EXTERN long MapElmapSize, MapCoordSize, TopoOBNSize;
@@ -2440,14 +2289,9 @@ EXTERN __far double tlat[MAXOBJPTS];
 EXTERN __far double tlon[MAXOBJPTS];
 EXTERN double mapscale,maplat,maplon,latzero,lonzero,
        latscalefactor,lonscalefactor,
-       //lat_y, static AF
-       //lon_x,static AF
        rlat[2],rlon[2],
        y_lat, x_lon,
        MaxElevDiff;
-       // MP_Nlat, MP_Wlon, static AF
-       //MP_DigLatScale, MP_DigLonScale, static AF
-       //MP_Rotate, MP_ORx, MP_ORy;  static AF
 
 #endif /* GIS_MAP_H */
 

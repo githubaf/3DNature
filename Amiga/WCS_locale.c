@@ -217,9 +217,9 @@ STRPTR GetString(long id)
     if(Init)
     {
     	Init=FALSE;
-    	printf("ALEXANDER: sizeof(CatCompBlockPart1)=%d\n",sizeof(CatCompBlockPart1));
-    	printf("ALEXANDER: sizeof(CatCompBlockPart2)=%d\n",sizeof(CatCompBlockPart2));
-    	printf("ALEXANDER: sizeof(CatCompBlockPart3)=%d\n",sizeof(CatCompBlockPart3));
+//    	printf("ALEXANDER: sizeof(CatCompBlockPart1)=%d\n",sizeof(CatCompBlockPart1));
+//    	printf("ALEXANDER: sizeof(CatCompBlockPart2)=%d\n",sizeof(CatCompBlockPart2));
+//    	printf("ALEXANDER: sizeof(CatCompBlockPart3)=%d\n",sizeof(CatCompBlockPart3));
     }
 
 

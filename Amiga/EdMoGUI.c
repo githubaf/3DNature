@@ -1237,10 +1237,6 @@ void Set_EM_List(short update)
    sprintf(EM_Win->Motionname[i], "\0333%s", varname[i]);
   else
    sprintf(EM_Win->Motionname[i], "\33n%s", varname[i]);
-
-  //KPrintF("%ld %s\n",i,EM_Win->Motionname[i]);   // 6 Center X
-  //                                               // 7 Center Y
-
   EM_Win->MName[i] = &EM_Win->Motionname[i][0];
   } /* for i=0... */
  EM_Win->MName[USEDMOTIONPARAMS] = NULL;

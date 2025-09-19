@@ -2704,7 +2704,7 @@ short FindElMaxMin(struct elmapheaderV101 *Map, short *Array)
  Map->SumElDif = Map->SumElDifSq = 0.0;
  mapptr = Array;
  LastCol = Map->columns - 1;
-// printf("------------------------\n");
+
  for (Lr=0; Lr<=Map->rows; Lr++)
   {
   for (Lc=0; Lc<Map->columns; Lc++)
@@ -2720,7 +2720,6 @@ short FindElMaxMin(struct elmapheaderV101 *Map, short *Array)
    if (Lr != 0 && Lc != LastCol)
     {
     ElDif = abs(*mapptr - *(mapptr - Map->columns + 1));
-//printf("%ld\n",ElDif);
     Map->SumElDif += ElDif;
     Map->SumElDifSq += (ElDif * ElDif);
     Map->Samples ++;
@@ -2729,9 +2728,6 @@ short FindElMaxMin(struct elmapheaderV101 *Map, short *Array)
    } /* for Lc=0... */
   } /* for Lr=0... */
 
- //printf("--> %s() Line %d: Map->SumElDif=%f\n",__func__,__LINE__,Map->SumElDif);
- //printf("--> %s() Line %d: Map->SumElDifSq=%f\n",__func__,__LINE__,Map->SumElDifSq);
- //printf("------------------------\n");
  return (1);
 
 } /* FindElMaxMin() */
@@ -2871,8 +2867,6 @@ short error = 0, *DataPtr, PtCt[2];
 long row, col, Rows, Cols, ColSize, StartPt = 0;
 FILE *fDEM;
 
-//printf("%s() Line %d: filename=%s OutputSize=%ld\n",__func__, __LINE__,filename,OutputSize);
-
  if ((fDEM = fopen(filename, "r")) == NULL)
   {
   return (2);
@@ -2883,7 +2877,6 @@ FILE *fDEM;
  Sentinel[3] = 0;
  if (strcmp(Sentinel, "DSI"))                   // if not found, search from the beginning to max offset 20000
   {
-  //printf("%s() Line %d\n",__func__, __LINE__);
   StartPt = -30000;
   fseek(fDEM, 0L, SEEK_SET);
   for (col=0; col<20000; col++)
@@ -2933,8 +2926,6 @@ FILE *fDEM;
  Sentinel[4] = 0;
  Rows = atoi(Sentinel);
 
- //printf("%s() Line %d Rows=%ld\n",__func__, __LINE__,Rows); // 1201 is correct for Ruegen island
-
  fread((char *)Sentinel, 4, 1, fDEM);
 
  /*
@@ -2953,8 +2944,6 @@ FILE *fDEM;
   */
 
  Cols = atoi(Sentinel);
- //printf("%s() Line %d Cols=%ld\n",__func__, __LINE__,Cols);    // 601 is correct for Ruegen island
-
  ColSize = Rows * sizeof (short);
 
  if (ColSize * Cols > OutputSize)
@@ -2971,18 +2960,9 @@ FILE *fDEM;
   {
   fread((char *)Sentinel, 4, 1, fDEM);   // printf("%s() Line %d\n",__func__, __LINE__);
 
-  //printf("Sentinel[0]=%d (0x%02x)\n",Sentinel[0],Sentinel[0]);  // 170 Dec == 252 Octal Ok, 252_oct 1 byte, Recognition Sentinel. paragraph f in MIL-PRF-89020B.pdf
-  //printf("Sentinel[1]=%d (0x%02x)\n",Sentinel[1],Sentinel[1]);  // Data block count,  3 bytes Sequential count of the block within
-  //printf("Sentinel[2]=%d (0x%02x)\n",Sentinel[2],Sentinel[2]);
-  //printf("Sentinel[3]=%d (0x%02x)\n",Sentinel[3],Sentinel[3]);
 
 
-  //fread((char *)&PtCt[0], 4, 1, fDEM);   // printf("%s() Line %d PtCt=%d\n",__func__, __LINE__,PtCt[0]);  // 0 ... 600
   fread_SHORT_Array_BE(&PtCt[0], 4, 1, fDEM);   // printf("%s() Line %d PtCt=%d\n",__func__, __LINE__,PtCt[0]);  // 0 ... 600
-  //printf("((char *)PtCt)[0]=%d\n",((char *)PtCt)[0]);
-  //printf("((char *)PtCt)[1]=%d\n",((char *)PtCt)[1]);
-  //printf("((char *)PtCt)[2]=%d\n",((char *)PtCt)[2]);
-  //printf("((char *)PtCt)[3]=%d\n",((char *)PtCt)[3]);
 
 
   // Longitude count, 2 bytes, Count of the meridian. True longitude = longitude count x data interval + origin (Offset from the
@@ -2992,16 +2972,12 @@ FILE *fDEM;
 
   if (PtCt[0] != col)
    {
-	  //printf("%s() Line %d error = 6\n",__func__, __LINE__);
    error = 6;
    break;
    }
   // Data of one latitude
-  //fread((char *)DataPtr, ColSize, 1, fDEM); // printf("%s() Line %d ColSize=%ld\n",__func__, __LINE__,ColSize);    // 2402  (1201 points per longitude, 2 bytes) for Ruegen island
   fread_SHORT_Array_BE(DataPtr, ColSize, 1, fDEM); // printf("%s() Line %d ColSize=%ld\n",__func__, __LINE__,ColSize);    // 2402  (1201 points per longitude, 2 bytes) for Ruegen island
   fread((char *)Sentinel, 4, 1, fDEM);
-  //printf("%s() Line %d Sentinel=%ld\n",__func__, __LINE__,*(long*)Sentinel); // Checksum
-  //printf("Checksum=%ld\n",DteddDataCheckSum(DataPtr,ColSize));  // Checksum is inclusive Sentinel 252 octal lat and log count
   for (row=0; row<Rows; row++)
    {
    if (DataPtr[row] & 0x8000)

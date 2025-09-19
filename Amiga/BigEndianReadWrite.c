@@ -421,7 +421,7 @@ ssize_t write_UShort_BigEndian (int filedes, const void *buffer, size_t size)
     }
     else
     {
-        KPrintF((STRPTR) "AF: wrong size for %s L:%d %s(%d)\n",__FILE__, __LINE__,__func__,size);
+        printf((STRPTR) "AF: wrong size for %s L:%d %s(%d)\n",__FILE__, __LINE__,__func__,size);
         return 0;
     }
 

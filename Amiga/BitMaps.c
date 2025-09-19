@@ -28,27 +28,7 @@ struct CompressData {
 	TotalOutBytes,
 	fh;
 };
-/*
-struct ILBMHeader {
- UBYTE ChunkID[4];
- LONG ChunkSize;
-};
 
-struct WcsBitMapHeader {
- USHORT Width, Height;
- SHORT XPos, YPos;
- UBYTE Planes, Masking, Compression, Pad;
- USHORT Transparent;
- UBYTE XAspect, YAspect;
- SHORT PageWidth, PageHeight;
-};
-
-struct ZBufferHeader {
- ULONG  Width, Height;
- USHORT VarType, Compression, Sorting, Units;
- float  Min, Max, Bkgrnd, ScaleFactor, ScaleBase;
-};
-*/
 STATIC_FCN short CompressRows(struct CompressData *CD); // used locally only -> static, AF 20.7.2021
 STATIC_FCN short FlushOutputBuff(struct CompressData *CD); // used locally only -> static, AF 20.7.2021
 STATIC_FCN short LoadZBuf(char *Name, float *ZBuf, struct ZBufferHeader *ZBHdr,
@@ -888,32 +868,18 @@ RepeatMemGrab:
 
  else
   { /* not 24 or 8 bit */
-
   CD.Rows = 1;
 
-//  // ############## ALEXANDER
-//  ULONG BitsPerPixel=GetBitMapAttr(WCSScrn->RastPort.BitMap,BMA_DEPTH);  //ALEXANDER  --> 24 hier bei AROS
-//  KPrintF((STRPTR) "AF: %s L:%ld BitsPerPixel=%ld\n",__FILE__,__LINE__,BitsPerPixel);  // ALEXANDER
-//
-//  ULONG isStandardBitMap=GetBitMapAttr(WCSScrn->RastPort.BitMap,BMA_FLAGS) & BMF_STANDARD;
-//  KPrintF((STRPTR) "AF: %s L:%ld isStandardBitMap=%s\n",__FILE__,__LINE__,isStandardBitMap?"YES":"NO");  // ALEXANDER
   if(1) //(!isStandardBitMap)
       // We have a non-planar Graphics-Mode -> Get the pixel-Rows from the GFX-Bord.
 
   {
-//      KPrintF((STRPTR) "AF: %s L:%ld Calling AllocBitMap()\n",__FILE__,__LINE__);  // ALEXANDER
       RgbBitmap=AllocBitMap(WCSScrn->Width,1,4,0,NULL);  // xsize, ysize, depth, flags friendBitmap
       if(!RgbBitmap)
       {
           Log(ERR_MEM_FAIL, (CONST_STRPTR)"AF: Could not allocate Bitmap!");
           goto Scleanup;
       }
-      // get the Bitmap from the RTG card
-      //KPrintF((STRPTR) "AF: %s L:%ld Calling BltBitMap()\n",__FILE__,__LINE__);  // ALEXANDER
-      //set(BWIM->BusyWin,MUIA_Window_Open,FALSE);  // we don't want to see the progress window in the saved picture
-      //BltBitMap(WCSScrn->RastPort.BitMap, 0, 0, RgbBitmap, 0, 0, WCSScrn->Width, WCSScrn->Height,  0xc0, ~0L, NULL);
-      //set(BWIM->BusyWin,MUIA_Window_Open,TRUE);  // turn the progress window on again
-      //KPrintF((STRPTR) "AF: %s L:%ld BltBitMap() done.\n",__FILE__,__LINE__);  // ALEXANDER
   }
   // ############## END ALEXANDER
 
@@ -944,9 +910,6 @@ RepeatMemGrab:
 //--------------------------------------------
   for (rr=0; rr<WriteHeight; rr++)
    {
-   //BltBitMap(WCSScrn->RastPort.BitMap, 0, rr, RgbBitmap, 0, 0, WCSScrn->Width, 1,  0xc0, ~0L, NULL);
-
-   ////////////
    static UBYTE chunkybuf[2048]; // eine Zeile + viel Reserve
    struct BitMap *temp_bm = AllocBitMap(WCSScrn->Width, 1, DEPTH, BMF_STANDARD | BMF_CLEAR, NULL);
    if (temp_bm)
@@ -972,14 +935,6 @@ RepeatMemGrab:
        }
        fprintf(pgmfile,"\n");
 
-/*
-       for(int i=0;i<WCSScrn->Width;i++)
-       {
-//           chunkybuf[i]=0;        // CompressRows() erzeugt gute Datei
-//           chunkybuf[i]=i&0xff;   // CompressRows() erzeugt fehlerhafte Datei
-           KPrintF("%02lx ",chunkybuf[i]);
-       }
-*/
        // IFF-Files vergleichen.
        FreeBitMap(temp_bm);
 
@@ -1023,7 +978,6 @@ RepeatMemGrab:
      {
      if ((error = CompressRows(&CD)) > 0)   // crashes here
        {
-//         KPrintF((STRPTR) "AF: %s L:%ld Error in CompressRows()\n",__FILE__,__LINE__);  // ALEXANDER
       goto Scleanup;
       } /* if write error */
      } /* if byte run 1 compression */
@@ -1038,7 +992,6 @@ RepeatMemGrab:
     } /* for pp=0... */
    BusyWin_Update(BWIM, rr + 1);
    } /* for rr=0... */
-
 
   fclose (pgmfile);  // Alexander
 
@@ -1065,7 +1018,6 @@ RepeatMemGrab:
   {
   lseek(fHandle, FormSizePtr, 0);
   FORMsize -= BODYsize;
-  //FORMsize += (CD.TotalOutBytes + OldBodySize - OldPad);
   FORMsize += (CD.TotalOutBytes + OldBodySize - OldPad) + Padded;  // AF: Hier muss das Paddingbyte mitgezaehlt werden!
   write_UShort_BigEndian(fHandle, &FORMsize,	 		4);// ALEXANDER, 17.12.2022
   lseek(fHandle, BodySizePtr, 0);
@@ -1337,7 +1289,6 @@ short LoadImage(char *Name, short ColorImage, UBYTE **bitmap,
 	short Width, short Height, short SupressWng,
 	short *NewWidth, short *NewHeight, short *NewPlanes)
 {
-
  UBYTE power2[8] = {1, 2, 4, 8, 16, 32, 64, 128};
  short copyred = 0, namelen, error = 0, pp, rr, color, pixel;
  long byte, x, fh, RowDataSize=0, InputDataSize=0, BytesRead, RowSize;
@@ -2096,7 +2047,6 @@ short MergeZBufBack(short renderseg, short Width, short Height, struct Window *w
       *(bitmap[0] + zip) = *(BkGrnd[0] + BGzip);
       *(bitmap[1] + zip) = *(BkGrnd[1] + BGzip);
       *(bitmap[2] + zip) = *(BkGrnd[2] + BGzip);
-      //MergePts = 100;  // Dead assignement, AF
       break;
       } /* replace */
      case BKGRND_MERGE:

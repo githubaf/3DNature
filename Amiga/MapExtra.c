@@ -21,22 +21,13 @@ STATIC_VAR short ptstore[8];
 STATIC_FCN void markpt(short edpt, short col); // used locally only -> static, AF 19.7.2021
 STATIC_FCN double SolveDistCart(double XJ, double YJ, double ZJ,
         double XK, double YK, double ZK); // used locally only -> static, AF 23.7.2021
-// void ZeroMatrix3x3(Matx3x3 A); // AF, not used 26.July 2021
 STATIC_FCN void MakeTempCart(double Lat, double Lon, double SphereRad,
         double *X, double *Y, double *Z); // used locally only -> static, AF 23.7.2021
 STATIC_FCN double SolveArcAng(double CartDist, double SphereRad); // used locally only -> static, AF 23.7.2021
 STATIC_FCN void InitGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
 STATIC_FCN double DoGauss(struct Gauss *Gauss); // used locally only -> static, AF 23.7.2021
 STATIC_FCN void unmarkpt(short edpt); // used locally only -> static, AF 23.7.2021
-// void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C); // AF, not used 26.July 2021
 
-
-
-
-/* ALEXANDER now in WCS.h struct Gauss {
-	double Arand, Nrand, Add, Fac;
-	long Seed;
-};*/
 
 #define f3(delta,x0,x1,x2) 	(((x0 + x1 + x2) / 3.0) + delta * DoGauss(&Gauss))
 #define f4(delta,x0,x1,x2,x3)	(((x0 + x1 + x2 + x3) / 4.0) + delta * DoGauss(&Gauss))
@@ -2743,9 +2734,7 @@ struct Branch *Branch_New(void);
 void Branch_Del(struct Branch *BR);
 void RotationMatrix(double Ry, double Rz, Matx3x3 RMatx);
 void Rotate3D(short m, double theta, Matx3x3 A);
-//void ZeroMatrix3x3(Matx3x3 A);
 void ZeroTDA(TDA A);
-//void Multiply3x3Matrices(Matx3x3 A, Matx3x3 B, Matx3x3 C);
 void RotateTreeNode(struct Branch *BR);
 void ConvolveMatrices(TDA A, Matx3x3 M);
 double RandomizeDimension(double CentralVal, double Variability,

@@ -1058,8 +1058,6 @@ double Dr, Luminosity, Visible;
 UBYTE *Image[3];
 struct ColorComponents CC;
 
-printf("ALEXANDER: %s()\n",__func__);
-
 /* Sun */
  if (settings.sun)
   {
@@ -1127,7 +1125,6 @@ printf("ALEXANDER: %s()\n",__func__);
   strmfp(filename, imagepath, moonfile);
   if (LoadImage(filename, 0, Image, Sw, Sh, 0, &Sw, &Sh, &Colors))
    {
-	  printf("ALEXANDER: filename=%s Sw=%d, Sh=%d, Colors=%d\n",filename,Sw, Sh, Colors);
    if (! (error = Image_Composite(Bitmap, Image, Width, Height,
 	Sw, Sh, Dr, (double)fDx, (double)fDy, (double)fDq,
 	&Visible, &Luminosity, &CC, (char*)GetString( MSG_GLMPSPRT_MOON ), win)))  // "Moon"

@@ -20,8 +20,6 @@ extern unsigned long fprintf_cnt;  // ALEXANDER zu begrenzung der Anzahl von fpr
 #define MIN_FPRINTF_CNT 0
 #define MAX_FPRINTF_CNT 8000000 //MAXINT
 
-//#define round(x) x
-
 void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
 	short MakeWater, short Visible, double *Elev)
 {
@@ -41,7 +39,7 @@ void MapTopo(struct elmapheaderV101 *map, struct Window *win, short MapAsSFC,
  double ElX, ElY, LatX, LatY, LonX, LonY, QX, QY,
 	 ElStart, LatStart, LonStart, QStart, ElPt, LatPt, LonPt, QPt,
 	Temp, X5, Y5, Y4, X3, El3, EloQY;
- //if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
+
 /* initialize */
 
  Reflections = 0; /* enabled in WaterEco_Set() */
@@ -1112,8 +1110,6 @@ short colormap(struct elmapheaderV101 *map, short notsnow,
 #endif /* ENABLE_STATISTICS */
  double ecoline;
 
- //if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
-
 /* determine number of points falling on color map */
 
  if (settings.mastercmap)
@@ -1591,9 +1587,6 @@ if (! CloudVal)
 
 double CloudCover_Set(struct CloudData *CD, double Lat, double Lon)
 {
-
-//	 if(!strcmp(ProjectName,"CanyonSunset.proj")) {printf("ALEXANDER: %s() !\n",__func__);}
-
 
  return(DEM_InterpPt(&CD->Map, Lat, Lon) / 510.0);
 

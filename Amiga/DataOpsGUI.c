@@ -41,26 +41,6 @@ ssize_t readZBufHdr_BE(int filehandle, struct ZBufferHeader *ZBufHdr); // define
 #define DEM_DATA_UNITS_INCHES		5
 #define DEM_DATA_UNITS_OTHER		6
 
-/* moved to WCS.h 
-struct ILBMHeader {
- UBYTE ChunkID[4];
- LONG ChunkSize;
-};
-
-struct WcsBitMapHeader {
- USHORT Width, Height;
- SHORT XPos, YPos;
- UBYTE Planes, Masking, Compression, Pad;
- USHORT Transparent;
- UBYTE XAspect, YAspect;
- SHORT PageWidth, PageHeight;
-};
-
-struct ZBufferHeader {
- ULONG  Width, Height;
- USHORT VarType, Compression, Sorting, Units;
- float  Min, Max, Bkgrnd, ScaleFactor, ScaleBase;
-};*/
 
 void Make_DC_Window(void)
 {
@@ -407,7 +387,6 @@ void Make_DC_Window(void)
 	          Child, DC_Win->CropStr[3] = StringObject, StringFrame,
 			MUIA_FixWidthTxt, "012345",
 			MUIA_String_Accept, "0123456789", End,
-
 	          End, /* RowGroup */
 		End, /* VGroup */
 	      End, /* RegisterGroup */

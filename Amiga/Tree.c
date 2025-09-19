@@ -34,22 +34,6 @@ struct TreeDimension {
  short 	StartX, EndX,
 	WT[4];
 };
-/*
-struct ILBMHeader {
- UBYTE ChunkID[4];
- LONG ChunkSize;
-};
-*/
-/*
-struct WcsBitMapHeader {
- USHORT Width, Height;
- SHORT XPos, YPos;
- UBYTE Planes, Masking, Compression, Pad;
- USHORT Transparent;
- UBYTE XAspect, YAspect;
- SHORT PageWidth, PageHeight;
-};
-*/
 
 /* use of random variables
 
@@ -956,11 +940,11 @@ struct WcsBitMapHeader BMHdr;
 
   if ((PAR_TYPE_ECO(i) & 0x00ff) >= 50 && (PAR_TYPE_ECO(i) & 0x00ff) < 100)
    {
-
    if (EcoShift[i].Ecotype && EcoShift[i].Ecotype->FolGp && EcoShift[i].Ecotype->FolGp->Fol)
     {
     BMI = &EcoShift[i].BMImage;
     SumDensity = 0.0;
+ 
 /* sum group densities */
 
     FolGp = EcoShift[i].Ecotype->FolGp;

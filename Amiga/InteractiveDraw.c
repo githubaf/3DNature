@@ -41,7 +41,7 @@ struct BusyWindow *BW;
 STATIC_VAR PIXMAP *Pixie;
 STATIC_VAR struct RastPort *Itchy;
 char *Mask;
-//char BinarySerialPlaceHolder[] = "C0DEF00F";   // unused, AF
+
 
 void drawgridview(void)
 {

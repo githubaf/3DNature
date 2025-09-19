@@ -204,37 +204,6 @@ char *AppBaseName;
 
     Locale_Open((STRPTR)"WCS.catalog",1/*,1*/);  // Version/*, revision*/  - Simplecat Doc says: There is no need to check any result.
 
-    // some locale Debug output
-    if(LocaleBase)
-    {
-    	if(locale_locale)
-    	{
-    		printf("Alexander: LocaleName:   %s\n",locale_locale->loc_LocaleName);
-    		printf("Alexander: LanguageName: %s\n",locale_locale->loc_LanguageName);
-    		if(locale_catalog)
-    		{
-    			printf("Alexander: cat_Language: %s\n",locale_catalog->cat_Language);
-    			printf("Alexander: cat_Version:  %u\n",locale_catalog->cat_Version);
-    			printf("Alexander: cat_Revision: %u\n",locale_catalog->cat_Revision);
-
-    		}
-    		else
-    		{
-    			printf("Alexander: Catalog is NULL!\n");
-    		}
-    	}
-    	else
-    	{
-    		printf("Alexander: Locale is NULL!\n");
-    	}
-    }
-    else
-    {
-    	printf("Alexander: LocaleBase is NULL!\n");
-    }
-
-    //asprintf(&LocaleExtCreditText,"%s%s",ExtCreditText,GetString(MSG_MENU_PR_CREDITSTRANSLATION)); // here we add ExtCreditText and an optional "translatation by ..." text in case of non English GUI
-    // SAS/C does not have this function
     LocaleExtCreditText=malloc(strlen(ExtCreditText)+strlen(GetString(MSG_MENU_PR_CREDITSTRANSLATION))+1); // strlen is without trailing \0!
     if(LocaleExtCreditText)
     {
@@ -533,14 +502,6 @@ if ((IntuitionBase = (struct IntuitionBase *)
         	 }
          }
          UnlockPubScreen(NULL,wbScreen);
-// --> Wir sind hier beim initialen Oeffnen des Screens
-
-       //  printf("Initial OpenScreen, line %d\n",__LINE__);
-       //  printf("Alexander: ModeSelect->OverscanTag=%08x\n",ModeSelect->OverscanTag);
-       //  printf("Alexander: ModeSelect->Overscan=%d\n",ModeSelect->Overscan);
-       //  printf("Alexander: ModeSelect->AutoTag=%08x\n",ModeSelect->AutoTag);
-       //  printf("Alexander: ModeSelect->AutoVal=%d\n",ModeSelect->AutoVal);
-       //  printf("Alexander: DClipTag=%08x\n",DClipTag);
 
          WCSScrn = OpenScreenTags(NULL,
           SA_DisplayID, ModeSelect->ModeID,
@@ -593,12 +554,6 @@ if ((IntuitionBase = (struct IntuitionBase *)
         	 }
          }
 
-    // printf("Alexander: ScrnData.OTag=%08x\n",ScrnData.OTag);
-    // printf("Alexander: ScrnData.OVal=%d\n",ScrnData.OVal);
-    // printf("Alexander: ScrnData.AutoTag=%08x\n",ScrnData.AutoTag);
-    // printf("Alexander: ScrnData.AutoVal=%d\n",ScrnData.AutoVal);
-    // printf("Alexander: DClipTag=%08x\n",DClipTag);
-
        WCSScrn = OpenScreenTags(NULL,
     		   SA_DisplayID, ScrnData.ModeID,
                SA_Width, ScrnData.Width,
@@ -617,7 +572,7 @@ if ((IntuitionBase = (struct IntuitionBase *)
       if(WCSScrn)
        {
 
-    	  getGfxInformation();  // Alexander Prints info about RTG, depth etc
+    	  //getGfxInformation();  // Alexander Prints info about RTG, depth etc
 
        DTable = DitherTable_New(DITHER_TABLE_SIZE);
        PubScreenStatus(WCSScrn, 0);
@@ -709,7 +664,6 @@ if ((IntuitionBase = (struct IntuitionBase *)
           WCSRootApp = NULL;
           app = NULL;
           } /* if */
-
          SaveProject(0, "WCS.Prefs", &ScrnData);
          DirList_Del(DL);
          DL = NULL;

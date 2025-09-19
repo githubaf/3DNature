@@ -1,4 +1,4 @@
-/* PlotGUI.cvels
+/* PlotGUI.c
 ** Functions for plotting pixels.
 ** Copyright Questar Productions, October, 1995
 */
@@ -265,7 +265,6 @@ void BayerDither_2_2_2_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 
     if(Init)
     {
-    	printf("using %s()...\n",__func__);
     	Init=FALSE;
     }
 
@@ -301,7 +300,6 @@ void BayerDither_3_3_3_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 
     if(Init)
     {
-    	printf("using %s()...\n",__func__);
     	Init=FALSE;
     }
 
@@ -335,7 +333,6 @@ void BayerDither_4_4_4_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 
     if(Init)
     {
-    	printf("using %s()...\n",__func__);
     	Init=FALSE;
     }
 
@@ -406,7 +403,6 @@ void BayerDither_6_6_6_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 
     if(Init)
     {
-    	printf("using %s()...\n",__func__);
     	Init=FALSE;
     }
 
@@ -423,8 +419,6 @@ void BayerDither_6_6_6_ScreenPixelPlot(struct Window *win, UBYTE **Bitmap, short
 
 //	Col=16+Col; // Pens 0...15 are used by the original program, dither colors start with offset 16
 	Col=DitherColorTranslationTable[Col];  // and translate in case Colortable has been shuffled to match original 16 colors better
-
-	//KPrintF("0x%08lx\n",Col);
 
 	WriteChunkyPixels(win->RPort, x, y,x,y,&Col,4);  // Only one pixel, so BytesPerRow is irrelevant
 
@@ -500,7 +494,6 @@ void getGfxInformation(void)
 // AF, initis the ScreenPixelPlot function pointer to original function (gray scaled)
 void initScreenPixelPlotFnct()
 {
-	printf("Alexander: %s %s()called\n",__FILE__,__func__);
 	ScreenPixelPlot=ScreenPixelPlotClassic;
 }
 
@@ -522,21 +515,15 @@ void ScreenPixelPlotCGFX(struct Window *win, UBYTE **Bitmap, short x, short y, l
 // AF, set ScreenPixelPlot function pointer to old function, new color-dithered function or RTG function
 void setScreenPixelPlotFnct(struct Settings *settings)
 {
-	//printf("Alexander: %s %s()called\n",__FILE__,__func__);
-	//printf("settings.renderopts=%04x",settings->renderopts);
-
 	switch(settings->renderopts & 0x30)
 	{
 		case 0x10:  // render Screen, gray
-			printf("should plot gray scaled\n");
 			ScreenPixelPlot=ScreenPixelPlotClassic;
 			LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
 			SetRast(RenderWind0->RPort, 8); // 8=white
 			break;
 		case 0x20:   // render Screen, color
 		case 0x30:   // render screen gray + color
-			printf("should plot colored\n");
-
 			switch(WCSScrn->RastPort.BitMap->Depth)
 			{
 				case 4:
@@ -579,20 +566,15 @@ void setScreenPixelPlotFnct(struct Settings *settings)
 					if(P96Base)
 					{
 						ULONG IsP96Screen=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_ISP96);
-						printf("Screen is %s a P96 Screen\n",IsP96Screen? "" : "not ");
 						if(IsP96Screen)
 						{
 							ULONG BitsPerPixel, BytesPerPixel;
 
 							BitsPerPixel=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BITSPERPIXEL);
-							printf("Screen has %d Bits per Pixel\n",BitsPerPixel);
 							BytesPerPixel=p96GetBitMapAttr(WCSScrn->RastPort.BitMap, P96BMA_BYTESPERPIXEL);
-							printf("Screen has %d Bytes per Pixel\n",BytesPerPixel);
 
 							if(BitsPerPixel==8)  // 8-Bit P96 screen
 							{
-								printf("BayerDither_6_6_6_ScreenPixelPlot\n");
-								//ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
 								ScreenPixelPlot=BayerDither_6_6_6_ScreenPixelPlot;
 								LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 								SetRast(RenderWind0->RPort, 8); // 8=white
@@ -600,7 +582,6 @@ void setScreenPixelPlotFnct(struct Settings *settings)
 							else
 							{
 								// High/true color
-								printf("ScreenPixelPlotP96 full color\n");
 								ScreenPixelPlot=ScreenPixelPlotP96;
 								LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
 								SetRast(RenderWind0->RPort, 8); // 8=white
@@ -609,16 +590,9 @@ void setScreenPixelPlotFnct(struct Settings *settings)
 						}
         				default:
         				{
-        					printf("Alexander: Amiga 256 Color Screen\n");
-        					printf("ScreenPixelPlotDither256\n");
-        					AF_DEBUG("default: setze BayerDither_6_6_6_ScreenPixelPlot()\n");
-        					//ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot; //dither 232 (128 colors in upper half of 256 color color table)
         					ScreenPixelPlot=BayerDither_6_6_6_ScreenPixelPlot;
-        					AF_DEBUG("default: BayerDither_6_6_6_ScreenPixelPlot() gesetzt");
-        					AF_DEBUG("ScreenPixelPlotDither256 gesetzt\n");
         					LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);  // ALEXANDER
         					SetRast(RenderWind0->RPort, 8); // 8=white
-        					AF_DEBUG("LoadRGB4() und SetRast() aufgerufen.\n");
         				}
 					}
 					else
@@ -626,26 +600,20 @@ void setScreenPixelPlotFnct(struct Settings *settings)
 					if(CyberGfxBase)
 					{
 						ULONG IsCgfxScreen=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_ISCYBERGFX);
-						printf("Screen is %s a CGFX Screen\n",IsCgfxScreen? "" : "not ");
 						if(IsCgfxScreen)
 						{
 							ULONG BitsPerPixel, BytesPerPixel;
 							BitsPerPixel=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_DEPTH);
-							printf("Screen has %d Bits per Pixel\n",BitsPerPixel);
 							BytesPerPixel=GetCyberMapAttr(WCSScrn->RastPort.BitMap, CYBRMATTR_BPPIX);
-							printf("Screen has %d Bytes per Pixel\n",BytesPerPixel);
 
 							if(BitsPerPixel==8)  // 8-Bit CyberGraphX screen
 							{
-								printf("BayerDither_6_6_6_ScreenPixelPlot\n");
-								//ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
 								ScreenPixelPlot=BayerDither_6_6_6_ScreenPixelPlot;
 								LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 								SetRast(RenderWind0->RPort, 8); // 8=white
 							}
 							else            // true or high color CyberGraphX screen
 							{
-								printf("ScreenPixelPlotCgfx full color\n");
 								ScreenPixelPlot=ScreenPixelPlotCGFX;
 								LoadRGB4(&WCSScrn->ViewPort, &AltColors[0], 16);
 								SetRast(RenderWind0->RPort, 8);
@@ -653,9 +621,6 @@ void setScreenPixelPlotFnct(struct Settings *settings)
 						}
 						else // neither P96 nor CyberGraphiX, i.e. Amiga 8-Bit Screen
 						{
-							printf("Alexander: Amiga 256 Color Screen\n");
-							printf("ScreenPixelPlotP96Dither256\n");
-							//ScreenPixelPlot=BayerDither128ColorsScreenPixelPlot;
 							ScreenPixelPlot=BayerDither_6_6_6_ScreenPixelPlot;
 							LoadRGB4(&WCSScrn->ViewPort, &Alt256Colors[0], 256);
 							SetRast(RenderWind0->RPort, 8); // 8=white

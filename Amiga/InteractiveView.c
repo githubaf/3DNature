@@ -669,6 +669,7 @@ RepeatAllocate:
    error = 1;
    break;
    } /* if memory fail */
+ 
   error = maptopoobject(&elmap[i], InterWind0, j + 1, NoOfElMaps, NULL);
 
   if (elmap[i].lmap) free_Memory(elmap[i].lmap, elmap[i].size * 2);
@@ -1324,6 +1325,7 @@ void smallwindow(short diagnostics)
    abort = 1;
    goto EndMap;
    } /* if memory fail */
+
   if ((abort = maptopoobject(&SmWin[WindowNumber]->elmap,
 	 SmWin[WindowNumber]->win, j + 1, min(4, NoOfElMaps), NULL)) != 0)
    goto EndMap; 

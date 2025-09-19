@@ -551,7 +551,6 @@ struct Wave *WV;
  if ((CD->CloudPlane = get_Memory(CD->PlaneSize, MEMF_ANY)) == NULL)
   return (0);
 
-//Repeat:
 
  if (Frame < 0.0)
   {
@@ -830,13 +829,8 @@ struct CloudLayer *CL, *CLPrev;
 void CloudWave_Init(struct CloudData *CD, short Frame)
 {
 double Alt;
-//struct Wave *WV = NULL;
 struct CloudLayer *CL;
 
-// if (CD->WD)
-// {
-//     WV = CD->WD->Wave;
-// }
  CL = CD->Layer;
  
  if (Frame > CD->KT_MaxFrames)
