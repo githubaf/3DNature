@@ -1780,9 +1780,6 @@ short loadparams(USHORT loadcode, short loaditem)
  strcpy(temppath, parampath);
  strcpy(tempfile, paramfile);
 
- printf("ALEXANDER: temppath=%s\n",temppath);
- printf("ALEXANDER: tempfile=%s\n",tempfile);
-
  strcpy(Ptrn, "#?.par");
  if(!GetLoadparamsForceNogetfilenameptrn())  // do not open the filerequester in automatic testing mode
  {

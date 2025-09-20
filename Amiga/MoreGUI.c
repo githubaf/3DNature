@@ -683,9 +683,6 @@ void Make_PJ_Window(void)
      maxLabelwidthPage2=GetMaxTextWidth(&(WCSScrn->RastPort),
              LabelsPage2,
              sizeof(LabelsPage1)/sizeof(ULONG));
-
-     printf("ALEXANDER: maxLabelwidthPage1=%ld, maxLabelwidthPage2=%ld\n",
-             maxLabelwidthPage1, maxLabelwidthPage2);
  }
 
  if (PJ_Win)
