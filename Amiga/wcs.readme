@@ -44,7 +44,8 @@ Fortunately, the installation disks have been made available by 3DNature.
 You can download the disk images in adf format from www.3dnature.com from
 the Downloads -> Legacy Software section.
 When installation is complete just copy the executables and 
-the drawer Catalogs from this archive into the WCS drawer.
+the drawer Catalogs from this archive into the old WCS drawer
+next to the original executable.
 
 WinUAE users:
 -------------
@@ -121,7 +122,6 @@ Version 2.031 (Emerald-Caesar)
                  Dutch catalog (leof)
                  Spanish catalog (selco, AI)
                  Italian catalog (20% amiwell, selco, AI)
-
         *BugFix: Fixed incorrect alignement of "Exag" im MapGUI window .
                  (This bug existed already in last original version 2.04)
         *Feature:Colored Render Window

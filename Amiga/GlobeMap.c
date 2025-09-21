@@ -136,6 +136,12 @@ void globemap(void)
  Log(MSG_NULL, GetString( MSG_GLMP_RENDERINITIALIZATIONCOMPLETE ));  // "Render initialization complete."
 
 #ifdef AMIGA_GUI
+
+ // save Mouse colors regardless of render mode (no screen, gray or colored), will be restored when window is closed
+ Mouse17=GetRGB4(WCSScrn->ViewPort.ColorMap,17);  // Alexander: save current mouse colors, will be restored when window is closed
+ Mouse18=GetRGB4(WCSScrn->ViewPort.ColorMap,18);  // Colors 17,18,19 can be altered if colored render window is used
+ Mouse19=GetRGB4(WCSScrn->ViewPort.ColorMap,19);
+
  if (render & 0x30)  // gray or colored
   {
   c0 = 0x00;
@@ -153,10 +159,6 @@ void globemap(void)
   RenderWind0 = (struct Window *)
 	make_window(0, 0, WinWidth, WinHeight, (char*)GetString( MSG_GLMP_WCSRENDERWINDOW ),  // "WCS Render Window"
 	flags, iflags, c0, c1, WCSScrn);
-
-  Mouse17=GetRGB4(WCSScrn->ViewPort.ColorMap,17);  // Alexander: save current mouse colors, will be restored when window is closed
-  Mouse18=GetRGB4(WCSScrn->ViewPort.ColorMap,18);  // Colors 17,18,19 can be altered if colored render window is used
-  Mouse19=GetRGB4(WCSScrn->ViewPort.ColorMap,19);
 
   if (!RenderWind0)
    {
