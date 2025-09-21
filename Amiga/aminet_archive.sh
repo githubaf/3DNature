@@ -19,6 +19,16 @@ for CPU in 68020 68020-60 68040 68060 i386-aros x86_64-aros; do
 done;
 cp wcs.readme temp/
 
+# Jetzt die Catalog-Dateien
+mkdir temp/Catalogs
+cp Catalogs.info temp/
+
+rsync -R ./Catalogs/espa*/WCS.catalog temp/   # wildcard, um mit dem besonderen "n" in diesem klar zu kommen (weil es Amiga-Like ISO 8859-1 sein muss)
+rsync -R ./Catalogs/italiano/WCS.catalog   temp/
+rsync -R ./Catalogs/deutsch/WCS.catalog    temp/
+rsync -R ./Catalogs/nederlands/WCS.catalog temp/
+
+
 # Jetzt liegen alle Dateien in ./temp
 
 # Testen, dass nicht "dirty" im Hash steht.
@@ -42,12 +52,18 @@ cat -v wcs.readme | grep "\^M"; if [ $? -eq 0 ]; then red_msg "wcs.readme 0a fou
 
 
 #jetzt LHApacken
+# jlha -> sudo apt install jlha-util
 
 cd temp;
    jlha a ../temp_aminet_upload/$ARCHIVE *;
 cd ..;
 
+convert RenderTestImages/WCS_68020_Coverage_CanyonSet000 CanyonSet000.jpg
 cp CanyonSet000.jpg wcs.readme temp_aminet_upload
+
+echo ----------------------------------
+ls -lah temp_aminet_upload/
+echo ----------------------------------
 
 echo
 echo "Naechste Schritte:"

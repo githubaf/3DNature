@@ -104,9 +104,9 @@ Version 2.031 (Emerald-Berta)
                  elevation zero to something below sea level
         *BugFix: Convert to Gray IFF fixed. Resulting files contained garbage.
                  (This bug existed already in last original version 2.04)
-        *BugFix: Convert ASCII-Array to Colormap: Resulting file has 1 Byte per
-                 pixel Unsigned int now. In original WCS 2.04 that depended on
-                 source format
+        *BugFix: Convert ASCII-Array to Colormap: Resulting file has
+                 1 Byte per pixel unsigned int now. In original WCS 2.04 that 
+                 depended on source format
         *BugFix: Convert Bin DEM to Bin DEM was completly wrong in WCS 2.04.
                  Fixed now. Do not forget to set Floor and Ceiling correctly
                  when converting to a format with a more limited value range!
@@ -119,13 +119,16 @@ Version 2.031 (Emerald-Caesar)
         *Feature:Locale support added.
                  German catalog (selco) 
                  Dutch catalog (leof)
+                 Spanish catalog (selco, AI)
+                 Italian catalog (20% amiwell, selco, AI)
+
         *BugFix: Fixed incorrect alignement of "Exag" im MapGUI window .
                  (This bug existed already in last original version 2.04)
         *Feature:Colored Render Window
                  You can select additionally "Colored" in Render Settings.
                  This will bring full color render preview on P96 and
                  CybergraphiX GFX Boards in 15/16/24 Screen Modes,
-                 ditherred color display on native Amiga Screens and
+                 dithered color display on native Amiga Screens and
                  better dithered color display on 8Bit GFX-Borad screens.
                  Emulator-Users: Match emulated Amiga-Resolution to displayed
                  resolution for dithered color display, otherwize disturbing
