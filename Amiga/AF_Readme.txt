@@ -4914,5 +4914,5 @@ Dadurch koennen kleine Syntax-Korrekturen gemacht werden und die Katalog-Revisio
 
 6.Oktober 2025
 --------------
-68060 Pipeline-Stalls: https://gemini.google.com/share/faa959339e42 ( ASM-Code in Script eiinfügen)
+68060 Pipeline-Stalls: https://gemini.google.com/share/faa959339e42 ( ASM-Code in Script einfuegen)
 -> Scheint kein so großes Problem zu sein.
