@@ -138,6 +138,13 @@ Version 2.031 (Emerald-Caesar)
                  If mouse reaches a monitor border the screen scrolls to bring
                  the invisible part into view.
 
+Support WCS
+-----------
+If you find WCS useful and would like to support its development, consider 
+making a donation. Every contribution helps keep the project alive and growing!
+https://www.paypal.com/donate/?hosted_button_id=6T8GSJKBBFEXJ
+
+
 Deutsch
 -------
 Dies ist ein neu compilierte Version vom World Construction Set 2.031.
@@ -195,4 +202,10 @@ Berechnung des Beispielbildes CanyonSet000.jpg, C=A4000T, 68040/25/16MB
 originales Programm, 2.04 release:  04:59:44
 68040 Version (Emerald-Anton):      03:57:40
 also eine Stunde schneller!
+
+Unterstützung für WCS
+---------------------
+Wenn Ihnen WCS gefällt und Sie das Projekt unterstützen möchten, 
+können Sie hier spenden:
+https://www.paypal.com/donate/?hosted_button_id=6T8GSJKBBFEXJ
 

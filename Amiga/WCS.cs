@@ -27542,15 +27542,14 @@ Uitgebreide header!\nBewerking afgebroken.
 ; --- Here you can credit yourself to the end of the hard coded Menu->Project->Credits text
 ; (English remains empty)
 MSG_MENU_PR_CREDITSTRANSLATION
+\nIf you find WCS useful and would like to support its development, consider making a donation. Every contribution helps keep the project alive and growing! https://www.paypal.com/donate/?hosted_button_id=6T8GSJKBBFEXJ
+\nDeutsche Übersetzung von Alexander Fritsch (selco).\nFehlermeldungen und Verbesserungsvorschläge\nbitte an selco@t-online.de\n\nWenn Ihnen WCS gefällt und Sie das Projekt unterstützen möchten, können Sie hier spenden: https://www.paypal.com/donate/?hosted_button_id=6T8GSJKBBFEXJ
+\nTraduzione italiana di Amiwell (22%), il resto è stato tradotto automaticamente da Alexander Fritsch (selco).\nSegnalazioni di errori e suggerimenti\nsi prega di inviarli a selco@t-online.de\n\nSe trovi utile WCS e desideri supportarne lo sviluppo, considera di fare una donazione. Ogni contributo aiuta a mantenere vivo e in crescita il progetto! https://www.paypal.com/donate/?hosted_button_id=6T8GSJKBBFEXJ\nGrazie per il tuo supporto!
 
-\nDeutsche Übersetzung von Alexander Fritsch (selco).\nFehlermeldungen und Verbesserungsvorschläge\nbitte an selco@t-online.de
-\nTraduzione italiana di Amiwell (22%), il resto è stato tradotto automaticamente da Alexander Fritsch (selco).\nSegnalazioni di errori e suggerimenti\nsi prega di inviarli a selco@t-online.de
-
-\nNederlandse vertaling door Leo.\nFoutmeldingen en suggesties voor verbetering\ns.v.p. naar selco@t-online.de
+\nNederlandse vertaling door Leo.\nFoutmeldingen en suggesties voor verbetering\ns.v.p. naar selco@t-online.de\n\nAls je WCS nuttig vindt en de verdere ontwikkeling ervan wilt ondersteunen, overweeg dan een donatie. Elke bijdrage helpt om het project levend en groeiend te houden! https://www.paypal.com/donate/?hosted_button_id=6T8GSJKBBFEXJ\nBedankt voor je steun!
 
 
-\nTraducción al español generada automáticamente por Alexander Fritsch (selco).\nPor favor, envíe mensajes de error y sugerencias de mejora a selco@t-online.de
-
+\nTraducción al español generada automáticamente por Alexander Fritsch (selco).\nPor favor, envíe mensajes de error y sugerencias de mejora a selco@t-online.de\n\nSi encuentras útil WCS y deseas apoyar su desarrollo, considera hacer una donación. ¡Cada contribución ayuda a mantener vivo y en crecimiento el proyecto! https://www.paypal.com/donate/?hosted_button_id=6T8GSJKBBFEXJ\n¡Gracias por tu apoyo!
 
 
 

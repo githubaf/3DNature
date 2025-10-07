@@ -4278,7 +4278,7 @@
 #define MSG_NNCRUNCH_OUTOFMEMORYALLOCATINGDOUBLEMATRIXPERATIONTERMINATE_STR "Out of memory allocating Double Matrix!\nOperation terminated."
 #define MSG_NNGRIDR_MAPVIEWGRIDDEM_STR "Map View: Grid DEM"
 #define MSG_DATAOPS_EXTENDEDHEADEROPERATIONTERMINATED_STR "Extended header!\nOperation terminated."
-#define MSG_MENU_PR_CREDITSTRANSLATION_STR ""
+#define MSG_MENU_PR_CREDITSTRANSLATION_STR "\nIf you find WCS useful and would like to support its development, consider making a donation. Every contribution helps keep the project alive and growing! https://www.paypal.com/donate/?hosted_button_id=6T8GSJKBBFEXJ"
 
 #endif /* CATCOMP_STRINGS */
 
@@ -8521,8 +8521,8 @@ FAR const char CatCompBlockPart3[] =
     MSG_NNGRIDR_MAPVIEWGRIDDEM_STR "\x00\x00"
     "\x00\x00\x08\x3E\x00\x28"
     MSG_DATAOPS_EXTENDEDHEADEROPERATIONTERMINATED_STR "\x00\x00"
-    "\x00\x00\x08\x3F\x00\x02"
-    MSG_MENU_PR_CREDITSTRANSLATION_STR "\x00\x00"
+    "\x00\x00\x08\x3F\x00\xDA"
+    MSG_MENU_PR_CREDITSTRANSLATION_STR "\x00"
 };
 
 #endif /* CATCOMP_BLOCK */

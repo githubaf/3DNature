@@ -4912,3 +4912,7 @@ Version von catalog-Files:
 Locale_Open() testet, ob version und revision mit den Forderungen des WCS-Haoptprogrammes uebereinstimmen. -> Geaendert: Nur die Version wird geprueft, die Revision ist egal.
 Dadurch koennen kleine Syntax-Korrekturen gemacht werden und die Katalog-Revision erhoeht werden, ohne das das Hauptpgramm neu compiliert werden muss.
 
+6.Oktober 2025
+--------------
+68060 Pipeline-Stalls: https://gemini.google.com/share/faa959339e42 ( ASM-Code in Script eiinfügen)
+-> Scheint kein so großes Problem zu sein.

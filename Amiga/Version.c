@@ -35,7 +35,8 @@ World Construction Set is copyright ©1993-1995 by Questar Productions,\n\
 1058 Weld County Road 23.5\n\
 Brighton, Colorado 80601\n\
 (303) 659-4028\n\n"
-"Maintenance 2017-2024 by Alexander Fritsch (selco)\n\n";
+"Maintenance 2017-2025 by Alexander Fritsch (selco)\n\n";
+
 
 #ifdef __SASC
 char toolchain_ver[] = "\0$TLCN: " "SAS/C";
