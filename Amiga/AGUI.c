@@ -1644,12 +1644,10 @@ short i;
 	{
 	Close_MD_Window();
 	} /* if */
- printf("%s Line %d\n", __func__, __LINE__);
  if (Log_Win)
 	{
 	Close_Log_Window(2);
 	} /* if */
- printf("%s Line %d\n", __func__, __LINE__);
 
  if(RexxAp)
  	{
@@ -2198,32 +2196,21 @@ STATIC_FCN void Status_Log(STRPTR logtext, int Severity) // used locally only ->
 */
 /*STATIC_FCN*/ void Close_Log_Window(int StayClosed) // used locally only -> static, AF 25.7.2021, but used in MSG_Test.c now
 {
-    printf("%s Line %d, StayClosed=%d\n", __func__, __LINE__,StayClosed);
 if(Log_Win)
   {
-    printf("%s Line %d\n", __func__, __LINE__);
   if (Log_Win->LogWindow)
    {
-      printf("%s Line %d\n", __func__, __LINE__);
    set(Log_Win->LogWindow, MUIA_Window_Open, FALSE);
-   printf("%s Line %d\n", __func__, __LINE__);
    Log_Win->Hiding = !StayClosed;
    } /* if */
-  printf("%s Line %d\n", __func__, __LINE__);
   if(StayClosed == 2) /* Shutdown, kill it all! */
    {
-      printf("%s Line %d\n", __func__, __LINE__);
    DoMethod(app, OM_REMMEMBER, Log_Win->LogWindow);
-   printf("%s Line %d\n", __func__, __LINE__);
    MUI_DisposeObject(Log_Win->LogWindow);
-   printf("%s Line %d\n", __func__, __LINE__);
    free_Memory(Log_Win, sizeof (struct StatusLogWindow));
-   printf("%s Line %d\n", __func__, __LINE__);
    Log_Win = NULL;
-   printf("%s Line %d\n", __func__, __LINE__);
 #ifdef WCS_MUI_2_HACK
 	   MUI2_MenuCheck_Hack();
-	   printf("%s Line %d\n", __func__, __LINE__);
 #endif /* WCS_MUI_2_HACK */
    } /* else */
   } /* if */
