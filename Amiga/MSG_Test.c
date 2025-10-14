@@ -7122,6 +7122,7 @@ void Test_WindowObject(unsigned int StartTestNumber, int ShouldBreak, int AutoCl
         // ############ EdSetGUI.c ##############
         case 300:
         {
+
             ShowTestNumbers(StartTestNumber++,TotalTests);
 
             memset(&settings, 0, sizeof(settings)); // Clear settings structure

@@ -112,6 +112,8 @@ if(data->group)   // necessary for MSG_Test.c
   {
 /* draw key frame points */
   SetAPen(_rp(obj), 2);
+  if(data->SKT)  // necessary for MSG_Test.c
+  {
   for (j=data->baseitem; j<data->baseitem+data->dataitems; j++)
    {
    for (i=0; i<data->SKT->NumKeys; i++)
@@ -142,6 +144,7 @@ if(data->group)   // necessary for MSG_Test.c
    Draw(_rp(obj), (long)lr_offset + 3, (long)tb_offset + 2);
    Draw(_rp(obj), (long)lr_offset - 3, (long)tb_offset + 2);
    Draw(_rp(obj), (long)lr_offset, (long)tb_offset - 3);
+   }
    } /* if in bounds */
   } /* if update only */
  else if (msg->flags & MADF_DRAWOBJECT)
@@ -205,6 +208,8 @@ if(data->group)   // necessary for MSG_Test.c
    } /* if draw grid */
 
 /* draw graph */
+  if(data->SKT)
+  {
   for (j=data->baseitem; j<data->baseitem+data->dataitems; j++)
    {
    if (j == data->baseitem) SetAPen(_rp(obj), 3);
@@ -222,10 +227,11 @@ if(data->group)   // necessary for MSG_Test.c
     Draw(_rp(obj), (long)lr_offset, (long)tb_offset);
     } /* for frames=... */
    } /* for j=data->baseitem... */
+  }
 
 /* draw key frame points */
   SetAPen(_rp(obj), 2);
-  for (j=data->baseitem; j<data->baseitem+data->dataitems; j++)
+  for (j=data->baseitem; data->SKT && j<data->baseitem+data->dataitems; j++)
    {
    for (i=0; i<data->SKT->NumKeys; i++)
     {
@@ -250,6 +256,8 @@ if(data->group)   // necessary for MSG_Test.c
   frame = data->SKT->Key[data->activekey]->MoKey.KeyFrame;
   }
   lr_offset = data->left + data->framepixpt * (frame - data->lowframe);
+  if(data->SKT)  // necessary for MSG_Test.c
+  {
   tb_offset = data->bottom - data->valpixpt * 
 	(data->SKT->Val[data->activeitem][frame] - data->textlowval);
   if (lr_offset >= data->left && lr_offset <= data->right + 1
@@ -260,6 +268,7 @@ if(data->group)   // necessary for MSG_Test.c
    Draw(_rp(obj), (long)lr_offset - 3, (long)tb_offset + 2);
    Draw(_rp(obj), (long)lr_offset, (long)tb_offset - 3);
    } /* if in bounds */
+  }
 
   } /* else if draw entire object */
 

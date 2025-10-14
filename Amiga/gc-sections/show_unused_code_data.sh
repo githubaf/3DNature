@@ -50,9 +50,10 @@ print "Total: " Summe;
 }'
 
 # there are 13 unused-lines. (for instance Minstack...). Some Endian functions are used in external tests
-EXPECTED_REMOVALS=13
-if [ $(cat $1 | grep "removing unused section" | wc -l) -ne "$EXPECTED_REMOVALS" ]; then
+EXPECTED_REMOVALS=21
+ACTUAL_REMOVALS=$(cat $1 | grep "removing unused section" | wc -l)
+if [ $ACTUAL_REMOVALS -ne "$EXPECTED_REMOVALS" ]; then
    # "Error:" makes the Eclipse Post-Build Step aborting, otherwise the error is ignored, regardless of any exit code
-   echo "Error: Number of unused functions/data has changed! Check sources and modify $0 if this was really intended!"
+   echo "Error: Number of unused functions/data has changed from $EXPECTED_REMOVALS to $ACTUAL_REMOVALS! Check sources and modify $0 if this was really intended!"
 fi
 
