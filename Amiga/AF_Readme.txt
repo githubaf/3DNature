@@ -4916,3 +4916,10 @@ Dadurch koennen kleine Syntax-Korrekturen gemacht werden und die Katalog-Revisio
 --------------
 68060 Pipeline-Stalls: https://gemini.google.com/share/faa959339e42 ( ASM-Code in Script einfuegen)
 -> Scheint kein so grosses Problem zu sein.
+
+15.Oktober 2025
+---------------
+Caesar Release...
+WinUAE war WinUAE 4.9.1 (2022.02.02) 64 Bit), OS 3.2.2 Hotfix1
+*Der Emulator stuerzt ab, wenn mab einen beliebigen Slider benutzt, z.B. in den System-Prefs, in enem Fenster oder in WCS. OS3.2.2 Fehler? WinUAE-Fehler?
+
